@@ -1,0 +1,934 @@
+<?php
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
+/**
+ * Service definition for Adexchangebuyer (v1.2).
+ *
+ * <p>
+ * Lets you manage your Ad Exchange Buyer account.
+ * </p>
+ *
+ * <p>
+ * For more information about this service, see the API
+ * <a href="https://developers.google.com/ad-exchange/buyer-rest" target="_blank">Documentation</a>
+ * </p>
+ *
+ * @author Google, Inc.
+ */
+class Google_Service_Adexchangebuyer extends Google_Service
+{
+  public $accounts;
+  public $creatives;
+  public $directDeals;
+  public $performanceReport;
+  
+
+  /**
+   * Constructs the internal representation of the Adexchangebuyer service.
+   *
+   * @param Google_Client $client
+   */
+  public function __construct(Google_Client $client)
+  {
+    parent::__construct($client);
+    $this->servicePath = 'adexchangebuyer/v1.2/';
+    $this->version = 'v1.2';
+    
+    $this->availableScopes = array(
+      "https://www.googleapis.com/auth/adexchange.buyer"
+    );
+    
+    $this->serviceName = 'adexchangebuyer';
+
+    $client->addService(
+        $this->serviceName,
+        $this->version,
+        $this->availableScopes
+    );
+
+    $this->accounts = new Google_Service_Adexchangebuyer_Accounts_Resource(
+        $this,
+        $this->serviceName,
+        'accounts',
+        array(
+    'methods' => array(
+          "get" => array(
+            'path' => "accounts/{id}",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "id" => array(
+                  "location" => "path",
+                  "type" => "integer",
+                  'required' => true,
+              ),
+              ),
+          ),"list" => array(
+            'path' => "accounts",
+            'httpMethod' => "GET",
+            'parameters' => array(  ),
+          ),"patch" => array(
+            'path' => "accounts/{id}",
+            'httpMethod' => "PATCH",
+            'parameters' => array(
+                "id" => array(
+                  "location" => "path",
+                  "type" => "integer",
+                  'required' => true,
+              ),
+              ),
+          ),"update" => array(
+            'path' => "accounts/{id}",
+            'httpMethod' => "PUT",
+            'parameters' => array(
+                "id" => array(
+                  "location" => "path",
+                  "type" => "integer",
+                  'required' => true,
+              ),
+              ),
+          ),
+        )
+    )
+    );
+    $this->creatives = new Google_Service_Adexchangebuyer_Creatives_Resource(
+        $this,
+        $this->serviceName,
+        'creatives',
+        array(
+    'methods' => array(
+          "get" => array(
+            'path' => "creatives/{accountId}/{buyerCreativeId}",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "accountId" => array(
+                  "location" => "path",
+                  "type" => "integer",
+                  'required' => true,
+              ),
+                "buyerCreativeId" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"insert" => array(
+            'path' => "creatives",
+            'httpMethod' => "POST",
+            'parameters' => array(  ),
+          ),"list" => array(
+            'path' => "creatives",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "maxResults" => array(
+                  "location" => "query",
+                  "type" => "integer",
+              ),
+                "pageToken" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+                "statusFilter" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+              ),
+          ),
+        )
+    )
+    );
+    $this->directDeals = new Google_Service_Adexchangebuyer_DirectDeals_Resource(
+        $this,
+        $this->serviceName,
+        'directDeals',
+        array(
+    'methods' => array(
+          "get" => array(
+            'path' => "directdeals/{id}",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "id" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"list" => array(
+            'path' => "directdeals",
+            'httpMethod' => "GET",
+            'parameters' => array(  ),
+          ),
+        )
+    )
+    );
+    $this->performanceReport = new Google_Service_Adexchangebuyer_PerformanceReport_Resource(
+        $this,
+        $this->serviceName,
+        'performanceReport',
+        array(
+    'methods' => array(
+          "list" => array(
+            'path' => "performancereport",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "accountId" => array(
+                  "location" => "query",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "endDateTime" => array(
+                  "location" => "query",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "startDateTime" => array(
+                  "location" => "query",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),
+        )
+    )
+    );
+  }
+}
+
+
+/**
+ * The "accounts" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adexchangebuyerService = new Google_Service_Adexchangebuyer(...);
+ *   $accounts = $adexchangebuyerService->accounts;
+ *  </code>
+ */
+class Google_Service_Adexchangebuyer_Accounts_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Gets one account by ID. (accounts.get)
+   *
+   * @param int $id
+   * The account id
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Adexchangebuyer_Account
+   */
+  public function get($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Adexchangebuyer_Account");
+  }
+  /**
+   * Retrieves the authenticated user's list of accounts. (accounts.list)
+   *
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Adexchangebuyer_AccountsList
+   */
+  public function listAccounts($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Adexchangebuyer_AccountsList");
+  }
+  /**
+   * Updates an existing account. This method supports patch semantics. (accounts.patch)
+   *
+   * @param int $id
+   * The account id
+   * @param Google_Account $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Adexchangebuyer_Account
+   */
+  public function patch($id, Google_Service_Adexchangebuyer_Account $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_Adexchangebuyer_Account");
+  }
+  /**
+   * Updates an existing account. (accounts.update)
+   *
+   * @param int $id
+   * The account id
+   * @param Google_Account $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Adexchangebuyer_Account
+   */
+  public function update($id, Google_Service_Adexchangebuyer_Account $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_Adexchangebuyer_Account");
+  }
+}
+
+/**
+ * The "creatives" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adexchangebuyerService = new Google_Service_Adexchangebuyer(...);
+ *   $creatives = $adexchangebuyerService->creatives;
+ *  </code>
+ */
+class Google_Service_Adexchangebuyer_Creatives_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Gets the status for a single creative. (creatives.get)
+   *
+   * @param int $accountId
+   * The id for the account that will serve this creative.
+   * @param string $buyerCreativeId
+   * The buyer-specific id for this creative.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Adexchangebuyer_Creative
+   */
+  public function get($accountId, $buyerCreativeId, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'buyerCreativeId' => $buyerCreativeId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Adexchangebuyer_Creative");
+  }
+  /**
+   * Submit a new creative. (creatives.insert)
+   *
+   * @param Google_Creative $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Adexchangebuyer_Creative
+   */
+  public function insert(Google_Service_Adexchangebuyer_Creative $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Adexchangebuyer_Creative");
+  }
+  /**
+   * Retrieves a list of the authenticated user's active creatives. (creatives.list)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string maxResults
+   * Maximum number of entries returned on one result page. If not set, the default is 100. Optional.
+   * @opt_param string pageToken
+   * A continuation token, used to page through ad clients. To retrieve the next page, set this
+    * parameter to the value of "nextPageToken" from the previous response. Optional.
+   * @opt_param string statusFilter
+   * When specified, only creatives having the given status are returned.
+   * @return Google_Service_Adexchangebuyer_CreativesList
+   */
+  public function listCreatives($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Adexchangebuyer_CreativesList");
+  }
+}
+
+/**
+ * The "directDeals" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adexchangebuyerService = new Google_Service_Adexchangebuyer(...);
+ *   $directDeals = $adexchangebuyerService->directDeals;
+ *  </code>
+ */
+class Google_Service_Adexchangebuyer_DirectDeals_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Gets one direct deal by ID. (directDeals.get)
+   *
+   * @param string $id
+   * The direct deal id
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Adexchangebuyer_DirectDeal
+   */
+  public function get($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Adexchangebuyer_DirectDeal");
+  }
+  /**
+   * Retrieves the authenticated user's list of direct deals. (directDeals.list)
+   *
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Adexchangebuyer_DirectDealsList
+   */
+  public function listDirectDeals($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Adexchangebuyer_DirectDealsList");
+  }
+}
+
+/**
+ * The "performanceReport" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adexchangebuyerService = new Google_Service_Adexchangebuyer(...);
+ *   $performanceReport = $adexchangebuyerService->performanceReport;
+ *  </code>
+ */
+class Google_Service_Adexchangebuyer_PerformanceReport_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Retrieves the authenticated user's list of performance metrics. (performanceReport.list)
+   *
+   * @param string $accountId
+   * The account id to get the reports for.
+   * @param string $endDateTime
+   * The end time for the reports.
+   * @param string $startDateTime
+   * The start time for the reports.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Adexchangebuyer_PerformanceReportList
+   */
+  public function listPerformanceReport($accountId, $endDateTime, $startDateTime, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'endDateTime' => $endDateTime, 'startDateTime' => $startDateTime);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Adexchangebuyer_PerformanceReportList");
+  }
+}
+
+
+
+
+class Google_Service_Adexchangebuyer_Account extends Google_Collection
+{
+  protected $bidderLocationType = 'Google_Service_Adexchangebuyer_AccountBidderLocation';
+  protected $bidderLocationDataType = 'array';
+  public $cookieMatchingNid;
+  public $cookieMatchingUrl;
+  public $id;
+  public $kind;
+  public $maximumTotalQps;
+  public function setBidderLocation($bidderLocation)
+  {
+    $this->bidderLocation = $bidderLocation;
+  }
+  public function getBidderLocation()
+  {
+    return $this->bidderLocation;
+  }
+  public function setCookieMatchingNid($cookieMatchingNid)
+  {
+    $this->cookieMatchingNid = $cookieMatchingNid;
+  }
+  public function getCookieMatchingNid()
+  {
+    return $this->cookieMatchingNid;
+  }
+  public function setCookieMatchingUrl($cookieMatchingUrl)
+  {
+    $this->cookieMatchingUrl = $cookieMatchingUrl;
+  }
+  public function getCookieMatchingUrl()
+  {
+    return $this->cookieMatchingUrl;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setMaximumTotalQps($maximumTotalQps)
+  {
+    $this->maximumTotalQps = $maximumTotalQps;
+  }
+  public function getMaximumTotalQps()
+  {
+    return $this->maximumTotalQps;
+  }
+}
+
+class Google_Service_Adexchangebuyer_AccountBidderLocation extends Google_Model
+{
+  public $maximumQps;
+  public $region;
+  public $url;
+  public function setMaximumQps($maximumQps)
+  {
+    $this->maximumQps = $maximumQps;
+  }
+  public function getMaximumQps()
+  {
+    return $this->maximumQps;
+  }
+  public function setRegion($region)
+  {
+    $this->region = $region;
+  }
+  public function getRegion()
+  {
+    return $this->region;
+  }
+  public function setUrl($url)
+  {
+    $this->url = $url;
+  }
+  public function getUrl()
+  {
+    return $this->url;
+  }
+}
+
+class Google_Service_Adexchangebuyer_AccountsList extends Google_Collection
+{
+  protected $itemsType = 'Google_Service_Adexchangebuyer_Account';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_Adexchangebuyer_Creative extends Google_Collection
+{
+  public $HTMLSnippet;
+  public $accountId;
+  public $advertiserId;
+  public $advertiserName;
+  public $agencyId;
+  public $attribute;
+  public $buyerCreativeId;
+  public $clickThroughUrl;
+  protected $disapprovalReasonsType = 'Google_Service_Adexchangebuyer_CreativeDisapprovalReasons';
+  protected $disapprovalReasonsDataType = 'array';
+  public $height;
+  public $kind;
+  public $productCategories;
+  public $sensitiveCategories;
+  public $status;
+  public $vendorType;
+  public $videoURL;
+  public $width;
+  public function setHTMLSnippet($HTMLSnippet)
+  {
+    $this->HTMLSnippet = $HTMLSnippet;
+  }
+  public function getHTMLSnippet()
+  {
+    return $this->HTMLSnippet;
+  }
+  public function setAccountId($accountId)
+  {
+    $this->accountId = $accountId;
+  }
+  public function getAccountId()
+  {
+    return $this->accountId;
+  }
+  public function setAdvertiserId($advertiserId)
+  {
+    $this->advertiserId = $advertiserId;
+  }
+  public function getAdvertiserId()
+  {
+    return $this->advertiserId;
+  }
+  public function setAdvertiserName($advertiserName)
+  {
+    $this->advertiserName = $advertiserName;
+  }
+  public function getAdvertiserName()
+  {
+    return $this->advertiserName;
+  }
+  public function setAgencyId($agencyId)
+  {
+    $this->agencyId = $agencyId;
+  }
+  public function getAgencyId()
+  {
+    return $this->agencyId;
+  }
+  public function setAttribute($attribute)
+  {
+    $this->attribute = $attribute;
+  }
+  public function getAttribute()
+  {
+    return $this->attribute;
+  }
+  public function setBuyerCreativeId($buyerCreativeId)
+  {
+    $this->buyerCreativeId = $buyerCreativeId;
+  }
+  public function getBuyerCreativeId()
+  {
+    return $this->buyerCreativeId;
+  }
+  public function setClickThroughUrl($clickThroughUrl)
+  {
+    $this->clickThroughUrl = $clickThroughUrl;
+  }
+  public function getClickThroughUrl()
+  {
+    return $this->clickThroughUrl;
+  }
+  public function setDisapprovalReasons($disapprovalReasons)
+  {
+    $this->disapprovalReasons = $disapprovalReasons;
+  }
+  public function getDisapprovalReasons()
+  {
+    return $this->disapprovalReasons;
+  }
+  public function setHeight($height)
+  {
+    $this->height = $height;
+  }
+  public function getHeight()
+  {
+    return $this->height;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setProductCategories($productCategories)
+  {
+    $this->productCategories = $productCategories;
+  }
+  public function getProductCategories()
+  {
+    return $this->productCategories;
+  }
+  public function setSensitiveCategories($sensitiveCategories)
+  {
+    $this->sensitiveCategories = $sensitiveCategories;
+  }
+  public function getSensitiveCategories()
+  {
+    return $this->sensitiveCategories;
+  }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
+  }
+  public function setVendorType($vendorType)
+  {
+    $this->vendorType = $vendorType;
+  }
+  public function getVendorType()
+  {
+    return $this->vendorType;
+  }
+  public function setVideoURL($videoURL)
+  {
+    $this->videoURL = $videoURL;
+  }
+  public function getVideoURL()
+  {
+    return $this->videoURL;
+  }
+  public function setWidth($width)
+  {
+    $this->width = $width;
+  }
+  public function getWidth()
+  {
+    return $this->width;
+  }
+}
+
+class Google_Service_Adexchangebuyer_CreativeDisapprovalReasons extends Google_Collection
+{
+  public $details;
+  public $reason;
+  public function setDetails($details)
+  {
+    $this->details = $details;
+  }
+  public function getDetails()
+  {
+    return $this->details;
+  }
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+  public function getReason()
+  {
+    return $this->reason;
+  }
+}
+
+class Google_Service_Adexchangebuyer_CreativesList extends Google_Collection
+{
+  protected $itemsType = 'Google_Service_Adexchangebuyer_Creative';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+}
+
+class Google_Service_Adexchangebuyer_DirectDeal extends Google_Model
+{
+  public $accountId;
+  public $advertiser;
+  public $currencyCode;
+  public $endTime;
+  public $fixedCpm;
+  public $id;
+  public $kind;
+  public $privateExchangeMinCpm;
+  public $sellerNetwork;
+  public $startTime;
+  public function setAccountId($accountId)
+  {
+    $this->accountId = $accountId;
+  }
+  public function getAccountId()
+  {
+    return $this->accountId;
+  }
+  public function setAdvertiser($advertiser)
+  {
+    $this->advertiser = $advertiser;
+  }
+  public function getAdvertiser()
+  {
+    return $this->advertiser;
+  }
+  public function setCurrencyCode($currencyCode)
+  {
+    $this->currencyCode = $currencyCode;
+  }
+  public function getCurrencyCode()
+  {
+    return $this->currencyCode;
+  }
+  public function setEndTime($endTime)
+  {
+    $this->endTime = $endTime;
+  }
+  public function getEndTime()
+  {
+    return $this->endTime;
+  }
+  public function setFixedCpm($fixedCpm)
+  {
+    $this->fixedCpm = $fixedCpm;
+  }
+  public function getFixedCpm()
+  {
+    return $this->fixedCpm;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setPrivateExchangeMinCpm($privateExchangeMinCpm)
+  {
+    $this->privateExchangeMinCpm = $privateExchangeMinCpm;
+  }
+  public function getPrivateExchangeMinCpm()
+  {
+    return $this->privateExchangeMinCpm;
+  }
+  public function setSellerNetwork($sellerNetwork)
+  {
+    $this->sellerNetwork = $sellerNetwork;
+  }
+  public function getSellerNetwork()
+  {
+    return $this->sellerNetwork;
+  }
+  public function setStartTime($startTime)
+  {
+    $this->startTime = $startTime;
+  }
+  public function getStartTime()
+  {
+    return $this->startTime;
+  }
+}
+
+class Google_Service_Adexchangebuyer_DirectDealsList extends Google_Collection
+{
+  protected $directDealsType = 'Google_Service_Adexchangebuyer_DirectDeal';
+  protected $directDealsDataType = 'array';
+  public $kind;
+  public function setDirectDeals($directDeals)
+  {
+    $this->directDeals = $directDeals;
+  }
+  public function getDirectDeals()
+  {
+    return $this->directDeals;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_Adexchangebuyer_PerformanceReportList extends Google_Collection
+{
+  public $kind;
+  protected $performance_reportType = 'Google_Service_Adexchangebuyer_PerformanceReportListPerformanceReport';
+  protected $performance_reportDataType = 'array';
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setPerformance_report($performance_report)
+  {
+    $this->performance_report = $performance_report;
+  }
+  public function getPerformance_report()
+  {
+    return $this->performance_report;
+  }
+}
+
+class Google_Service_Adexchangebuyer_PerformanceReportListPerformanceReport extends Google_Model
+{
+  public $kind;
+  public $latency50thPercentile;
+  public $latency85thPercentile;
+  public $latency95thPercentile;
+  public $region;
+  public $timestamp;
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setLatency50thPercentile($latency50thPercentile)
+  {
+    $this->latency50thPercentile = $latency50thPercentile;
+  }
+  public function getLatency50thPercentile()
+  {
+    return $this->latency50thPercentile;
+  }
+  public function setLatency85thPercentile($latency85thPercentile)
+  {
+    $this->latency85thPercentile = $latency85thPercentile;
+  }
+  public function getLatency85thPercentile()
+  {
+    return $this->latency85thPercentile;
+  }
+  public function setLatency95thPercentile($latency95thPercentile)
+  {
+    $this->latency95thPercentile = $latency95thPercentile;
+  }
+  public function getLatency95thPercentile()
+  {
+    return $this->latency95thPercentile;
+  }
+  public function setRegion($region)
+  {
+    $this->region = $region;
+  }
+  public function getRegion()
+  {
+    return $this->region;
+  }
+  public function setTimestamp($timestamp)
+  {
+    $this->timestamp = $timestamp;
+  }
+  public function getTimestamp()
+  {
+    return $this->timestamp;
+  }
+}

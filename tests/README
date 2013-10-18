@@ -1,0 +1,2 @@
+These tests depend on PHPUnit, see
+http://www.phpunit.de/manual/current/en/installation.html for more instructions

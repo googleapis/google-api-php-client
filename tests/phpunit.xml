@@ -1,0 +1,7 @@
+<phpunit colors="true" bootstrap="bootstrap.php">
+    <filter>
+        <blacklist>
+           <directory suffix=".php">./</directory>
+        </blacklist>
+    </filter>
+</phpunit>
