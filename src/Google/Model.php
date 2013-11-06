@@ -17,7 +17,7 @@
 
 /**
  * This class defines attributes, valid values, and usage which is generated         
- * from a given json schema.  
+ * from a given json schema.
  * http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5
  *
  * @author Chirag Shah <chirags@google.com>
@@ -27,7 +27,7 @@ class Google_Model implements ArrayAccess
 {
   protected $data;
   protected $processed = array();
-  
+
   /**
    * Polymorphic - accepts a variable number of arguments dependent
    * on the type of the model subclass.
@@ -40,7 +40,7 @@ class Google_Model implements ArrayAccess
       $this->mapTypes($array);
     }
   }
-  
+
   public function __get($key)
   {
     $keyTypeName = $this->keyType($key);
@@ -136,20 +136,20 @@ class Google_Model implements ArrayAccess
       );
     }
   }
-  
-  public function offsetExists ($offset)
+
+  public function offsetExists($offset)
   {
     return isset($this->$offset) || isset($this->data[$offset]);
   }
-  
-  public function offsetGet ($offset)
+
+  public function offsetGet($offset)
   {
     return isset($this->$offset) ?
         $this->$offset :
         $this->__get($offset);
   }
-  
-  public function offsetSet ($offset, $value)
+
+  public function offsetSet($offset, $value)
   {
     if (property_exists($this, $offset)) {
       $this->$offset = $value;
@@ -158,17 +158,17 @@ class Google_Model implements ArrayAccess
       $this->processed[$offset] = true;
     }
   }
-  
-  public function offsetUnset ($offset)
+
+  public function offsetUnset($offset)
   {
     unset($this->data[$offset]);
   }
-  
+
   protected function keyType($key)
   {
     return $key . "Type";
   }
-  
+
   protected function dataType($key)
   {
     return $key . "DataType";

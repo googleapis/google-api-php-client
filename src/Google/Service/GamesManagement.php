@@ -1,5 +1,7 @@
 <?php
 /*
+ * Copyright 2010 Google Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -48,7 +50,8 @@ class Google_Service_GamesManagement extends Google_Service
     $this->version = 'v1management';
     
     $this->availableScopes = array(
-      "https://www.googleapis.com/auth/plus.login"
+      "https://www.googleapis.com/auth/plus.login",
+      "https://www.googleapis.com/auth/games"
     );
     
     $this->serviceName = 'gamesManagement';
@@ -98,13 +101,13 @@ class Google_Service_GamesManagement extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
                 "pageToken" => array(
                   "location" => "query",
                   "type" => "string",
+              ),
+                "maxResults" => array(
+                  "location" => "query",
+                  "type" => "integer",
               ),
               ),
           ),
@@ -201,8 +204,9 @@ class Google_Service_GamesManagement_Achievements_Resource extends Google_Servic
 {
 
   /**
-   * Resets the achievement with the given ID. This method is only accessible to whitelisted tester
-   * accounts for your application. (achievements.reset)
+   * Resets the achievement with the given ID for the currently authenticated
+   * player. This method is only accessible to whitelisted tester accounts for
+   * your application. (achievements.reset)
    *
    * @param string $achievementId
    * The ID of the achievement used by this method.
@@ -216,8 +220,9 @@ class Google_Service_GamesManagement_Achievements_Resource extends Google_Servic
     return $this->call('reset', array($params), "Google_Service_GamesManagement_AchievementResetResponse");
   }
   /**
-   * Resets all achievements for the currently authenticated player for your application. This method
-   * is only accessible to whitelisted tester accounts for your application. (achievements.resetAll)
+   * Resets all achievements for the currently authenticated player for your
+   * application. This method is only accessible to whitelisted tester accounts
+   * for your application. (achievements.resetAll)
    *
    * @param array $optParams Optional parameters.
    * @return Google_Service_GamesManagement_AchievementResetAllResponse
@@ -242,19 +247,20 @@ class Google_Service_GamesManagement_Applications_Resource extends Google_Servic
 {
 
   /**
-   * Get the list of players hidden from the given application. This method is only available to user
-   * accounts for your developer console. (applications.listHidden)
+   * Get the list of players hidden from the given application. This method is
+   * only available to user accounts for your developer console.
+   * (applications.listHidden)
    *
    * @param string $applicationId
    * The application being requested.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string pageToken
+   * The token returned by the previous request.
    * @opt_param int maxResults
    * The maximum number of player resources to return in the response, used for paging. For any
     * response, the actual number of player resources returned may be less than the specified
     * maxResults.
-   * @opt_param string pageToken
-   * The token returned by the previous request.
    * @return Google_Service_GamesManagement_HiddenPlayerList
    */
   public function listHidden($applicationId, $optParams = array())
@@ -277,8 +283,9 @@ class Google_Service_GamesManagement_Players_Resource extends Google_Service_Res
 {
 
   /**
-   * Hide the given player's leaderboard scores from the given application. This method is only
-   * available to user accounts for your developer console. (players.hide)
+   * Hide the given player's leaderboard scores from the given application. This
+   * method is only available to user accounts for your developer console.
+   * (players.hide)
    *
    * @param string $applicationId
    * The application being requested.
@@ -293,8 +300,9 @@ class Google_Service_GamesManagement_Players_Resource extends Google_Service_Res
     return $this->call('hide', array($params));
   }
   /**
-   * Unhide the given player's leaderboard scores from the given application. This method is only
-   * available to user accounts for your developer console. (players.unhide)
+   * Unhide the given player's leaderboard scores from the given application. This
+   * method is only available to user accounts for your developer console.
+   * (players.unhide)
    *
    * @param string $applicationId
    * The application being requested.
@@ -322,8 +330,9 @@ class Google_Service_GamesManagement_Rooms_Resource extends Google_Service_Resou
 {
 
   /**
-   * Reset all rooms for the currently authenticated player for your application. This method is only
-   * accessible to whitelisted tester accounts for your application. (rooms.reset)
+   * Reset all rooms for the currently authenticated player for your application.
+   * This method is only accessible to whitelisted tester accounts for your
+   * application. (rooms.reset)
    *
    * @param array $optParams Optional parameters.
    */
@@ -347,8 +356,9 @@ class Google_Service_GamesManagement_Scores_Resource extends Google_Service_Reso
 {
 
   /**
-   * Reset scores for the specified leaderboard, resetting the leaderboard to empty. This method is
-   * only accessible to whitelisted tester accounts for your application. (scores.reset)
+   * Reset scores for the specified leaderboard for the currently authenticated
+   * player. This method is only accessible to whitelisted tester accounts for
+   * your application. (scores.reset)
    *
    * @param string $leaderboardId
    * The ID of the leaderboard.
@@ -371,22 +381,27 @@ class Google_Service_GamesManagement_AchievementResetAllResponse extends Google_
   public $kind;
   protected $resultsType = 'Google_Service_GamesManagement_AchievementResetResponse';
   protected $resultsDataType = 'array';
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setResults($results)
   {
     $this->results = $results;
   }
+
   public function getResults()
   {
     return $this->results;
   }
+  
 }
 
 class Google_Service_GamesManagement_AchievementResetResponse extends Google_Model
@@ -395,38 +410,47 @@ class Google_Service_GamesManagement_AchievementResetResponse extends Google_Mod
   public $definitionId;
   public $kind;
   public $updateOccurred;
+
   public function setCurrentState($currentState)
   {
     $this->currentState = $currentState;
   }
+
   public function getCurrentState()
   {
     return $this->currentState;
   }
+  
   public function setDefinitionId($definitionId)
   {
     $this->definitionId = $definitionId;
   }
+
   public function getDefinitionId()
   {
     return $this->definitionId;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setUpdateOccurred($updateOccurred)
   {
     $this->updateOccurred = $updateOccurred;
   }
+
   public function getUpdateOccurred()
   {
     return $this->updateOccurred;
   }
+  
 }
 
 class Google_Service_GamesManagement_HiddenPlayer extends Google_Model
@@ -435,30 +459,37 @@ class Google_Service_GamesManagement_HiddenPlayer extends Google_Model
   public $kind;
   protected $playerType = 'Google_Service_GamesManagement_Player';
   protected $playerDataType = '';
+
   public function setHiddenTimeMillis($hiddenTimeMillis)
   {
     $this->hiddenTimeMillis = $hiddenTimeMillis;
   }
+
   public function getHiddenTimeMillis()
   {
     return $this->hiddenTimeMillis;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setPlayer(Google_Service_GamesManagement_Player $player)
   {
     $this->player = $player;
   }
+
   public function getPlayer()
   {
     return $this->player;
   }
+  
 }
 
 class Google_Service_GamesManagement_HiddenPlayerList extends Google_Collection
@@ -467,30 +498,37 @@ class Google_Service_GamesManagement_HiddenPlayerList extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  
 }
 
 class Google_Service_GamesManagement_Player extends Google_Model
@@ -499,58 +537,72 @@ class Google_Service_GamesManagement_Player extends Google_Model
   public $displayName;
   public $kind;
   public $playerId;
+
   public function setAvatarImageUrl($avatarImageUrl)
   {
     $this->avatarImageUrl = $avatarImageUrl;
   }
+
   public function getAvatarImageUrl()
   {
     return $this->avatarImageUrl;
   }
+  
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+
   public function getDisplayName()
   {
     return $this->displayName;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setPlayerId($playerId)
   {
     $this->playerId = $playerId;
   }
+
   public function getPlayerId()
   {
     return $this->playerId;
   }
+  
 }
 
 class Google_Service_GamesManagement_PlayerScoreResetResponse extends Google_Collection
 {
   public $kind;
   public $resetScoreTimeSpans;
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setResetScoreTimeSpans($resetScoreTimeSpans)
   {
     $this->resetScoreTimeSpans = $resetScoreTimeSpans;
   }
+
   public function getResetScoreTimeSpans()
   {
     return $this->resetScoreTimeSpans;
   }
+  
 }

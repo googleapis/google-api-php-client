@@ -31,12 +31,12 @@ abstract class Google_IO_Abstract
 
   /** @var Google_Client */
   protected $client;
-  
+
   public function __construct(Google_Client $client)
   {
     $this->client = $client;
   }
-  
+
   /**
    * Executes a Google_Http_Request and returns the resulting populated Google_Http_Request
    * @param Google_Http_Request $request
@@ -114,7 +114,7 @@ abstract class Google_IO_Abstract
 
     return $request;
   }
-  
+
   /**
    * Check if an already cached request must be revalidated, and if so update
    * the request with the correct ETag headers.
@@ -123,7 +123,7 @@ abstract class Google_IO_Abstract
    * return bool If the cached object needs to be revalidated, false if it is
    * still current and can be re-used.
    */
-  protected function checkMustRevaliadateCachedRequest($cached, $request)
+  protected function checkMustRevalidateCachedRequest($cached, $request)
   {
     if (Google_Http_CacheParser::mustRevalidate($cached)) {
       $addHeaders = array();
@@ -167,7 +167,7 @@ abstract class Google_IO_Abstract
       $cached->setResponseHeaders($endToEnd);
     }
   }
-  
+
   /**
    * Used by the IO lib and also the batch processing.
    *
@@ -191,7 +191,7 @@ abstract class Google_IO_Abstract
     $responseHeaders = $this->getHttpResponseHeaders($responseHeaders);
     return array($responseHeaders, $responseBody);
   }
-  
+
   /**
    * Parse out headers from raw headers
    * @param rawHeaders array or string
@@ -205,7 +205,7 @@ abstract class Google_IO_Abstract
       return $this->parseStringHeaders($rawHeaders);
     }
   }
-  
+
   private function parseStringHeaders($rawHeaders)
   {
     $headers = array();
@@ -224,7 +224,7 @@ abstract class Google_IO_Abstract
     }
     return $headers;
   }
-  
+
   private function parseArrayHeaders($rawHeaders)
   {
     $header_count = count($rawHeaders);

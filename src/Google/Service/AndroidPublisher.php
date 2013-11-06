@@ -1,5 +1,7 @@
 <?php
 /*
+ * Copyright 2010 Google Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -148,7 +150,8 @@ class Google_Service_AndroidPublisher_Inapppurchases_Resource extends Google_Ser
 {
 
   /**
-   * Checks the purchase and consumption status of an inapp item. (inapppurchases.get)
+   * Checks the purchase and consumption status of an inapp item.
+   * (inapppurchases.get)
    *
    * @param string $packageName
    * The package name of the application the inapp product was sold in (for example,
@@ -180,8 +183,8 @@ class Google_Service_AndroidPublisher_Purchases_Resource extends Google_Service_
 {
 
   /**
-   * Cancels a user's subscription purchase. The subscription remains valid until its expiration time.
-   * (purchases.cancel)
+   * Cancels a user's subscription purchase. The subscription remains valid until
+   * its expiration time. (purchases.cancel)
    *
    * @param string $packageName
    * The package name of the application for which this subscription was purchased (for example,
@@ -199,8 +202,8 @@ class Google_Service_AndroidPublisher_Purchases_Resource extends Google_Service_
     return $this->call('cancel', array($params));
   }
   /**
-   * Checks whether a user's subscription purchase is valid and returns its expiry time.
-   * (purchases.get)
+   * Checks whether a user's subscription purchase is valid and returns its expiry
+   * time. (purchases.get)
    *
    * @param string $packageName
    * The package name of the application for which this subscription was purchased (for example,
@@ -230,46 +233,57 @@ class Google_Service_AndroidPublisher_InappPurchase extends Google_Model
   public $kind;
   public $purchaseState;
   public $purchaseTime;
+
   public function setConsumptionState($consumptionState)
   {
     $this->consumptionState = $consumptionState;
   }
+
   public function getConsumptionState()
   {
     return $this->consumptionState;
   }
+  
   public function setDeveloperPayload($developerPayload)
   {
     $this->developerPayload = $developerPayload;
   }
+
   public function getDeveloperPayload()
   {
     return $this->developerPayload;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setPurchaseState($purchaseState)
   {
     $this->purchaseState = $purchaseState;
   }
+
   public function getPurchaseState()
   {
     return $this->purchaseState;
   }
+  
   public function setPurchaseTime($purchaseTime)
   {
     $this->purchaseTime = $purchaseTime;
   }
+
   public function getPurchaseTime()
   {
     return $this->purchaseTime;
   }
+  
 }
 
 class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
@@ -278,36 +292,45 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   public $initiationTimestampMsec;
   public $kind;
   public $validUntilTimestampMsec;
+
   public function setAutoRenewing($autoRenewing)
   {
     $this->autoRenewing = $autoRenewing;
   }
+
   public function getAutoRenewing()
   {
     return $this->autoRenewing;
   }
+  
   public function setInitiationTimestampMsec($initiationTimestampMsec)
   {
     $this->initiationTimestampMsec = $initiationTimestampMsec;
   }
+
   public function getInitiationTimestampMsec()
   {
     return $this->initiationTimestampMsec;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setValidUntilTimestampMsec($validUntilTimestampMsec)
   {
     $this->validUntilTimestampMsec = $validUntilTimestampMsec;
   }
+
   public function getValidUntilTimestampMsec()
   {
     return $this->validUntilTimestampMsec;
   }
+  
 }

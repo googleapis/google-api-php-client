@@ -14,9 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 require_once 'Google/Http/Request.php';
- 
+
 /**
  * Implement the caching directives specified in rfc2616. This
  * implementation is guided by the guidance offered in rfc2616-sec13.
@@ -35,7 +35,7 @@ class Google_Http_CacheParser
    * @return bool True if the request is cacheable.
    * False if the request is uncacheable.
    */
-  public static function isRequestCacheable (Google_Http_Request $resp)
+  public static function isRequestCacheable(Google_Http_Request $resp)
   {
     $method = $resp->getRequestMethod();
     if (! in_array($method, self::$CACHEABLE_HTTP_METHODS)) {
@@ -61,7 +61,7 @@ class Google_Http_CacheParser
    * @return bool True if the response is cacheable.
    * False if the response is un-cacheable.
    */
-  public static function isResponseCacheable (Google_Http_Request $resp)
+  public static function isResponseCacheable(Google_Http_Request $resp)
   {
     // First, check if the HTTP request was cacheable before inspecting the
     // HTTP response.

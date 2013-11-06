@@ -50,7 +50,7 @@ class Google_IO_Stream extends Google_IO_Abstract
     // First, check to see if we have a valid cached version.
     $cached = $this->getCachedRequest($request);
     if ($cached !== false) {
-      if (!$this->checkMustRevaliadateCachedRequest($cached, $request)) {
+      if (!$this->checkMustRevalidateCachedRequest($cached, $request)) {
         return $cached;
       }
     }
@@ -120,7 +120,7 @@ class Google_IO_Stream extends Google_IO_Abstract
       $this->updateCachedRequest($cached, $responseHeaders);
       return $cached;
     }
-    
+
     if (!isset($responseHeaders['Date']) && !isset($responseHeaders['date'])) {
       $responseHeaders['Date'] = date("r");
     }

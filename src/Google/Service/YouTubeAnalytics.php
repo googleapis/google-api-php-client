@@ -1,5 +1,7 @@
 <?php
 /*
+ * Copyright 2010 Google Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -44,8 +46,8 @@ class Google_Service_YouTubeAnalytics extends Google_Service
     $this->version = 'v1';
     
     $this->availableScopes = array(
-      "https://www.googleapis.com/auth/yt-analytics-monetary.readonly",
-      "https://www.googleapis.com/auth/yt-analytics.readonly"
+      "https://www.googleapis.com/auth/yt-analytics.readonly",
+      "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
     );
     
     $this->serviceName = 'youtubeAnalytics';
@@ -86,14 +88,6 @@ class Google_Service_YouTubeAnalytics extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "dimensions" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "filters" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
                 "max_results" => array(
                   "location" => "query",
                   "type" => "integer",
@@ -102,9 +96,17 @@ class Google_Service_YouTubeAnalytics extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
+                "dimensions" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
                 "start_index" => array(
                   "location" => "query",
                   "type" => "integer",
+              ),
+                "filters" => array(
+                  "location" => "query",
+                  "type" => "string",
               ),
               ),
           ),
@@ -147,11 +149,20 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
     * available in each report, and see the Metrics document for definitions of those metrics.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int max_results
+   * The maximum number of rows to include in the response.
+   * @opt_param string sort
+   * A comma-separated list of dimensions or metrics that determine the sort order for YouTube
+    * Analytics data. By default the sort order is ascending. The '-' prefix causes descending sort
+    * order.
    * @opt_param string dimensions
    * A comma-separated list of YouTube Analytics dimensions, such as views or ageGroup,gender. See
     * the Available Reports document for a list of the reports that you can retrieve and the
     * dimensions used for those reports. Also see the Dimensions document for definitions of those
     * dimensions.
+   * @opt_param int start_index
+   * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
+    * with the max-results parameter (one-based, inclusive).
    * @opt_param string filters
    * A list of filters that should be applied when retrieving YouTube Analytics data. The Available
     * Reports document identifies the dimensions that can be used to filter each report, and the
@@ -159,15 +170,6 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
     * together with a semicolon (;), and the returned result table will satisfy both filters. For
     * example, a filters parameter value of video==dMH0bHeiRNg;country==IT restricts the result set to
     * include data for the given video in Italy.
-   * @opt_param int max_results
-   * The maximum number of rows to include in the response.
-   * @opt_param string sort
-   * A comma-separated list of dimensions or metrics that determine the sort order for YouTube
-    * Analytics data. By default the sort order is ascending. The '-' prefix causes descending sort
-    * order.
-   * @opt_param int start_index
-   * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
-    * with the max-results parameter (one-based, inclusive).
    * @return Google_Service_YouTubeAnalytics_ResultTable
    */
   public function query($ids, $start_date, $end_date, $metrics, $optParams = array())
@@ -187,30 +189,37 @@ class Google_Service_YouTubeAnalytics_ResultTable extends Google_Collection
   protected $columnHeadersDataType = 'array';
   public $kind;
   public $rows;
+
   public function setColumnHeaders($columnHeaders)
   {
     $this->columnHeaders = $columnHeaders;
   }
+
   public function getColumnHeaders()
   {
     return $this->columnHeaders;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setRows($rows)
   {
     $this->rows = $rows;
   }
+
   public function getRows()
   {
     return $this->rows;
   }
+  
 }
 
 class Google_Service_YouTubeAnalytics_ResultTableColumnHeaders extends Google_Model
@@ -218,28 +227,35 @@ class Google_Service_YouTubeAnalytics_ResultTableColumnHeaders extends Google_Mo
   public $columnType;
   public $dataType;
   public $name;
+
   public function setColumnType($columnType)
   {
     $this->columnType = $columnType;
   }
+
   public function getColumnType()
   {
     return $this->columnType;
   }
+  
   public function setDataType($dataType)
   {
     $this->dataType = $dataType;
   }
+
   public function getDataType()
   {
     return $this->dataType;
   }
+  
   public function setName($name)
   {
     $this->name = $name;
   }
+
   public function getName()
   {
     return $this->name;
   }
+  
 }

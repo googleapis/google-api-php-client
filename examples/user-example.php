@@ -22,7 +22,7 @@ require_once 'Google/Client.php';
 require_once 'Google/Service/Urlshortener.php';
 
 /************************************************
-  ATTENTION: Fill in these values! Make sure 
+  ATTENTION: Fill in these values! Make sure
   the redirect URI is to this page, e.g:
   http://localhost:8080/user-example.php
  ************************************************/
@@ -31,8 +31,8 @@ require_once 'Google/Service/Urlshortener.php';
  $redirect_uri = '<YOUR_REDIRECT_URI>';
 
 /************************************************
-  Make an API request on behalf of a user. In 
-  this case we need to have a valid oAuth 2.0
+  Make an API request on behalf of a user. In
+  this case we need to have a valid OAuth 2.0
   token for the user, so we need to send them
   through a login flow. To do this we need some
   information from our API console project.
@@ -45,13 +45,13 @@ $client->setRedirectUri($redirect_uri);
 /************************************************
   When we create the service here, we pass the
   client to it. The client then queries the service
-  for the required scopes, and uses that when 
+  for the required scopes, and uses that when
   generating the authentication URL later.
  ************************************************/
 $service = new Google_Service_Urlshortener($client);
 
 /************************************************
-  If we're logging out we just need to clear our 
+  If we're logging out we just need to clear our
   local access token in this case
  ************************************************/
 if (isset($_REQUEST['logout'])) {
@@ -59,9 +59,9 @@ if (isset($_REQUEST['logout'])) {
 }
 
 /************************************************
-  If we have a code back from the oAuth 2.0 flow, 
+  If we have a code back from the OAuth 2.0 flow,
   we need to exchange that with the authenticate()
-  function. We store the resultant access token 
+  function. We store the resultant access token
   bundle in the session, and redirect to ourself.
  ************************************************/
 if (isset($_GET['code'])) {
@@ -73,7 +73,7 @@ if (isset($_GET['code'])) {
 
 /************************************************
   If we have an access token, we can make
-  requests, else we generate an authentication URL. 
+  requests, else we generate an authentication URL.
  ************************************************/
 if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
   $client->setAccessToken($_SESSION['access_token']);
@@ -82,11 +82,11 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
 }
 
 /************************************************
-  If we're signed in and have a request to shorten 
+  If we're signed in and have a request to shorten
   a URL, then we create a new URL object, set the
   unshortened URL, and call the 'insert' method on
-  the 'url' resource. Note that we re-store the 
-  access_token bundle, just in case anything 
+  the 'url' resource. Note that we re-store the
+  access_token bundle, just in case anything
   changed during the request - the main thing that
   might happen here is the access token itself is
   refreshed if the application has offline access.
@@ -100,7 +100,7 @@ if ($client->getAccessToken() && isset($_GET['url'])) {
 
 echo page_header("User Query - URL Shortener");
 if($client_id == '') {
-  echo "<h3 class='warn'>Warning: You need to set up a oAuth 2.0 client from <a " . 
+  echo "<h3 class='warn'>Warning: You need to set up a OAuth 2.0 client from <a " .
     "href='http://developers.google.com/console'>API console</a></h3>";
 }
 ?>

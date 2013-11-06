@@ -37,7 +37,7 @@ class Google_Collection extends Google_Model implements Iterator, Countable
   {
     return next($this->data[$this->collection_key]);
   }
-  
+
   public function valid()
   {
     $key = $this->key();
@@ -48,7 +48,7 @@ class Google_Collection extends Google_Model implements Iterator, Countable
   {
     return count($this->data[$this->collection_key]);
   }
-  
+
   public function offsetExists ($offset)
   {
     if (!is_numeric($offset)) {
@@ -56,8 +56,8 @@ class Google_Collection extends Google_Model implements Iterator, Countable
     }
     return isset($this->data[$this->collection_key][$offset]);
   }
-  
-  public function offsetGet ($offset)
+
+  public function offsetGet($offset)
   {
     if (!is_numeric($offset)) {
       return parent::offsetGet($offset);
@@ -65,23 +65,23 @@ class Google_Collection extends Google_Model implements Iterator, Countable
     $this->coerceType($offset);
     return $this->data[$this->collection_key][$offset];
   }
-  
-  public function offsetSet ($offset, $value)
+
+  public function offsetSet($offset, $value)
   {
     if (!is_numeric($offset)) {
       return parent::offsetSet($offset, $value);
     }
     $this->data[$this->collection_key][$offset] = $value;
   }
-  
-  public function offsetUnset ($offset)
+
+  public function offsetUnset($offset)
   {
     if (!is_numeric($offset)) {
       return parent::offsetUnset($offset);
     }
     unset($this->data[$this->collection_key][$offset]);
   }
-  
+
   private function coerceType($offset)
   {
     $typeKey = $this->keyType($this->collection_key);

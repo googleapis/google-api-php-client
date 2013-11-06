@@ -1,5 +1,7 @@
 <?php
 /*
+ * Copyright 2010 Google Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -126,13 +128,13 @@ class Google_Service_Licensing extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
                 "pageToken" => array(
                   "location" => "query",
                   "type" => "string",
+              ),
+                "maxResults" => array(
+                  "location" => "query",
+                  "type" => "integer",
               ),
               ),
           ),"listForProductAndSku" => array(
@@ -154,13 +156,13 @@ class Google_Service_Licensing extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
                 "pageToken" => array(
                   "location" => "query",
                   "type" => "string",
+              ),
+                "maxResults" => array(
+                  "location" => "query",
+                  "type" => "integer",
               ),
               ),
           ),"patch" => array(
@@ -240,7 +242,8 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
     return $this->call('delete', array($params));
   }
   /**
-   * Get license assignment of a particular product and sku for a user (licenseAssignments.get)
+   * Get license assignment of a particular product and sku for a user
+   * (licenseAssignments.get)
    *
    * @param string $productId
    * Name for product
@@ -275,7 +278,8 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
     return $this->call('insert', array($params), "Google_Service_Licensing_LicenseAssignment");
   }
   /**
-   * List license assignments for given product of the customer. (licenseAssignments.listForProduct)
+   * List license assignments for given product of the customer.
+   * (licenseAssignments.listForProduct)
    *
    * @param string $productId
    * Name for product
@@ -283,11 +287,11 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
    * CustomerId represents the customer for whom licenseassignments are queried
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string pageToken
+   * Token to fetch the next page.Optional. By default server will return first page
    * @opt_param string maxResults
    * Maximum number of campaigns to return at one time. Must be positive. Optional. Default value is
     * 100.
-   * @opt_param string pageToken
-   * Token to fetch the next page.Optional. By default server will return first page
    * @return Google_Service_Licensing_LicenseAssignmentList
    */
   public function listForProduct($productId, $customerId, $optParams = array())
@@ -308,11 +312,11 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
    * CustomerId represents the customer for whom licenseassignments are queried
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string pageToken
+   * Token to fetch the next page.Optional. By default server will return first page
    * @opt_param string maxResults
    * Maximum number of campaigns to return at one time. Must be positive. Optional. Default value is
     * 100.
-   * @opt_param string pageToken
-   * Token to fetch the next page.Optional. By default server will return first page
    * @return Google_Service_Licensing_LicenseAssignmentList
    */
   public function listForProductAndSku($productId, $skuId, $customerId, $optParams = array())
@@ -322,7 +326,8 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
     return $this->call('listForProductAndSku', array($params), "Google_Service_Licensing_LicenseAssignmentList");
   }
   /**
-   * Assign License. This method supports patch semantics. (licenseAssignments.patch)
+   * Assign License. This method supports patch semantics.
+   * (licenseAssignments.patch)
    *
    * @param string $productId
    * Name for product
@@ -372,67 +377,83 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   public $selfLink;
   public $skuId;
   public $userId;
+
   public function setEtags($etags)
   {
     $this->etags = $etags;
   }
+
   public function getEtags()
   {
     return $this->etags;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setProductId($productId)
   {
     $this->productId = $productId;
   }
+
   public function getProductId()
   {
     return $this->productId;
   }
+  
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
+  
   public function setSkuId($skuId)
   {
     $this->skuId = $skuId;
   }
+
   public function getSkuId()
   {
     return $this->skuId;
   }
+  
   public function setUserId($userId)
   {
     $this->userId = $userId;
   }
+
   public function getUserId()
   {
     return $this->userId;
   }
+  
 }
 
 class Google_Service_Licensing_LicenseAssignmentInsert extends Google_Model
 {
   public $userId;
+
   public function setUserId($userId)
   {
     $this->userId = $userId;
   }
+
   public function getUserId()
   {
     return $this->userId;
   }
+  
 }
 
 class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
@@ -442,36 +463,45 @@ class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+
   public function getEtag()
   {
     return $this->etag;
   }
+  
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  
 }

@@ -1,5 +1,7 @@
 <?php
 /*
+ * Copyright 2010 Google Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -91,11 +93,11 @@ class Google_Service_Tasks extends Google_Service
             'path' => "users/@me/lists",
             'httpMethod' => "GET",
             'parameters' => array(
-                "maxResults" => array(
+                "pageToken" => array(
                   "location" => "query",
                   "type" => "string",
               ),
-                "pageToken" => array(
+                "maxResults" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -197,7 +199,15 @@ class Google_Service_Tasks extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "completedMax" => array(
+                "dueMax" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+                "showDeleted" => array(
+                  "location" => "query",
+                  "type" => "boolean",
+              ),
+                "updatedMin" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -205,19 +215,7 @@ class Google_Service_Tasks extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "dueMax" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "dueMin" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
                 "maxResults" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -225,15 +223,19 @@ class Google_Service_Tasks extends Google_Service
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "showDeleted" => array(
+                "pageToken" => array(
                   "location" => "query",
-                  "type" => "boolean",
+                  "type" => "string",
+              ),
+                "completedMax" => array(
+                  "location" => "query",
+                  "type" => "string",
               ),
                 "showHidden" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "updatedMin" => array(
+                "dueMin" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -338,7 +340,8 @@ class Google_Service_Tasks_Tasklists_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Tasks_TaskList");
   }
   /**
-   * Creates a new task list and adds it to the authenticated user's task lists. (tasklists.insert)
+   * Creates a new task list and adds it to the authenticated user's task lists.
+   * (tasklists.insert)
    *
    * @param Google_TaskList $postBody
    * @param array $optParams Optional parameters.
@@ -355,10 +358,10 @@ class Google_Service_Tasks_Tasklists_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string maxResults
-   * Maximum number of task lists returned on one page. Optional. The default is 100.
    * @opt_param string pageToken
    * Token specifying the result page to return. Optional.
+   * @opt_param string maxResults
+   * Maximum number of task lists returned on one page. Optional. The default is 100.
    * @return Google_Service_Tasks_TaskLists
    */
   public function listTasklists($optParams = array())
@@ -368,8 +371,8 @@ class Google_Service_Tasks_Tasklists_Resource extends Google_Service_Resource
     return $this->call('list', array($params), "Google_Service_Tasks_TaskLists");
   }
   /**
-   * Updates the authenticated user's specified task list. This method supports patch semantics.
-   * (tasklists.patch)
+   * Updates the authenticated user's specified task list. This method supports
+   * patch semantics. (tasklists.patch)
    *
    * @param string $tasklist
    * Task list identifier.
@@ -412,9 +415,9 @@ class Google_Service_Tasks_Tasks_Resource extends Google_Service_Resource
 {
 
   /**
-   * Clears all completed tasks from the specified task list. The affected tasks will be marked as
-   * 'hidden' and no longer be returned by default when retrieving all tasks for a task list.
-   * (tasks.clear)
+   * Clears all completed tasks from the specified task list. The affected tasks
+   * will be marked as 'hidden' and no longer be returned by default when
+   * retrieving all tasks for a task list. (tasks.clear)
    *
    * @param string $tasklist
    * Task list identifier.
@@ -486,33 +489,33 @@ class Google_Service_Tasks_Tasks_Resource extends Google_Service_Resource
    * Task list identifier.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string completedMax
-   * Upper bound for a task's completion date (as a RFC 3339 timestamp) to filter by. Optional. The
-    * default is not to filter by completion date.
-   * @opt_param string completedMin
-   * Lower bound for a task's completion date (as a RFC 3339 timestamp) to filter by. Optional. The
-    * default is not to filter by completion date.
    * @opt_param string dueMax
    * Upper bound for a task's due date (as a RFC 3339 timestamp) to filter by. Optional. The default
     * is not to filter by due date.
-   * @opt_param string dueMin
-   * Lower bound for a task's due date (as a RFC 3339 timestamp) to filter by. Optional. The default
-    * is not to filter by due date.
-   * @opt_param string maxResults
-   * Maximum number of task lists returned on one page. Optional. The default is 100.
-   * @opt_param string pageToken
-   * Token specifying the result page to return. Optional.
-   * @opt_param bool showCompleted
-   * Flag indicating whether completed tasks are returned in the result. Optional. The default is
-    * True.
    * @opt_param bool showDeleted
    * Flag indicating whether deleted tasks are returned in the result. Optional. The default is
     * False.
-   * @opt_param bool showHidden
-   * Flag indicating whether hidden tasks are returned in the result. Optional. The default is False.
    * @opt_param string updatedMin
    * Lower bound for a task's last modification time (as a RFC 3339 timestamp) to filter by.
     * Optional. The default is not to filter by last modification time.
+   * @opt_param string completedMin
+   * Lower bound for a task's completion date (as a RFC 3339 timestamp) to filter by. Optional. The
+    * default is not to filter by completion date.
+   * @opt_param string maxResults
+   * Maximum number of task lists returned on one page. Optional. The default is 100.
+   * @opt_param bool showCompleted
+   * Flag indicating whether completed tasks are returned in the result. Optional. The default is
+    * True.
+   * @opt_param string pageToken
+   * Token specifying the result page to return. Optional.
+   * @opt_param string completedMax
+   * Upper bound for a task's completion date (as a RFC 3339 timestamp) to filter by. Optional. The
+    * default is not to filter by completion date.
+   * @opt_param bool showHidden
+   * Flag indicating whether hidden tasks are returned in the result. Optional. The default is False.
+   * @opt_param string dueMin
+   * Lower bound for a task's due date (as a RFC 3339 timestamp) to filter by. Optional. The default
+    * is not to filter by due date.
    * @return Google_Service_Tasks_Tasks
    */
   public function listTasks($tasklist, $optParams = array())
@@ -522,9 +525,9 @@ class Google_Service_Tasks_Tasks_Resource extends Google_Service_Resource
     return $this->call('list', array($params), "Google_Service_Tasks_Tasks");
   }
   /**
-   * Moves the specified task to another position in the task list. This can include putting it as a
-   * child task under a new parent and/or move it to a different position among its sibling tasks.
-   * (tasks.move)
+   * Moves the specified task to another position in the task list. This can
+   * include putting it as a child task under a new parent and/or move it to a
+   * different position among its sibling tasks. (tasks.move)
    *
    * @param string $tasklist
    * Task list identifier.
@@ -547,7 +550,8 @@ class Google_Service_Tasks_Tasks_Resource extends Google_Service_Resource
     return $this->call('move', array($params), "Google_Service_Tasks_Task");
   }
   /**
-   * Updates the specified task. This method supports patch semantics. (tasks.patch)
+   * Updates the specified task. This method supports patch semantics.
+   * (tasks.patch)
    *
    * @param string $tasklist
    * Task list identifier.
@@ -603,126 +607,157 @@ class Google_Service_Tasks_Task extends Google_Collection
   public $status;
   public $title;
   public $updated;
+
   public function setCompleted($completed)
   {
     $this->completed = $completed;
   }
+
   public function getCompleted()
   {
     return $this->completed;
   }
+  
   public function setDeleted($deleted)
   {
     $this->deleted = $deleted;
   }
+
   public function getDeleted()
   {
     return $this->deleted;
   }
+  
   public function setDue($due)
   {
     $this->due = $due;
   }
+
   public function getDue()
   {
     return $this->due;
   }
+  
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+
   public function getEtag()
   {
     return $this->etag;
   }
+  
   public function setHidden($hidden)
   {
     $this->hidden = $hidden;
   }
+
   public function getHidden()
   {
     return $this->hidden;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLinks($links)
   {
     $this->links = $links;
   }
+
   public function getLinks()
   {
     return $this->links;
   }
+  
   public function setNotes($notes)
   {
     $this->notes = $notes;
   }
+
   public function getNotes()
   {
     return $this->notes;
   }
+  
   public function setParent($parent)
   {
     $this->parent = $parent;
   }
+
   public function getParent()
   {
     return $this->parent;
   }
+  
   public function setPosition($position)
   {
     $this->position = $position;
   }
+
   public function getPosition()
   {
     return $this->position;
   }
+  
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
+  
   public function setStatus($status)
   {
     $this->status = $status;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
+  
   public function setTitle($title)
   {
     $this->title = $title;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
+  
   public function setUpdated($updated)
   {
     $this->updated = $updated;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
+  
 }
 
 class Google_Service_Tasks_TaskLinks extends Google_Model
@@ -730,30 +765,37 @@ class Google_Service_Tasks_TaskLinks extends Google_Model
   public $description;
   public $link;
   public $type;
+
   public function setDescription($description)
   {
     $this->description = $description;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
+  
   public function setLink($link)
   {
     $this->link = $link;
   }
+
   public function getLink()
   {
     return $this->link;
   }
+  
   public function setType($type)
   {
     $this->type = $type;
   }
+
   public function getType()
   {
     return $this->type;
   }
+  
 }
 
 class Google_Service_Tasks_TaskList extends Google_Model
@@ -764,54 +806,67 @@ class Google_Service_Tasks_TaskList extends Google_Model
   public $selfLink;
   public $title;
   public $updated;
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+
   public function getEtag()
   {
     return $this->etag;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
   }
+
   public function getSelfLink()
   {
     return $this->selfLink;
   }
+  
   public function setTitle($title)
   {
     $this->title = $title;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
+  
   public function setUpdated($updated)
   {
     $this->updated = $updated;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
+  
 }
 
 class Google_Service_Tasks_TaskLists extends Google_Collection
@@ -821,38 +876,47 @@ class Google_Service_Tasks_TaskLists extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+
   public function getEtag()
   {
     return $this->etag;
   }
+  
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  
 }
 
 class Google_Service_Tasks_Tasks extends Google_Collection
@@ -862,36 +926,45 @@ class Google_Service_Tasks_Tasks extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
+
   public function getEtag()
   {
     return $this->etag;
   }
+  
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  
 }

@@ -1,5 +1,7 @@
 <?php
 /*
+ * Copyright 2010 Google Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -126,7 +128,7 @@ class Google_Service_Orkut extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "hl" => array(
+                "pageToken" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -134,7 +136,7 @@ class Google_Service_Orkut extends Google_Service
                   "location" => "query",
                   "type" => "integer",
               ),
-                "pageToken" => array(
+                "hl" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -267,7 +269,11 @@ class Google_Service_Orkut extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "hl" => array(
+                "orderBy" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+                "pageToken" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -275,11 +281,7 @@ class Google_Service_Orkut extends Google_Service
                   "location" => "query",
                   "type" => "integer",
               ),
-                "orderBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
+                "hl" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -317,7 +319,7 @@ class Google_Service_Orkut extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "hl" => array(
+                "orderBy" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -325,7 +327,7 @@ class Google_Service_Orkut extends Google_Service
                   "location" => "query",
                   "type" => "integer",
               ),
-                "orderBy" => array(
+                "hl" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -438,19 +440,19 @@ class Google_Service_Orkut extends Google_Service
                   "type" => "integer",
                   'required' => true,
               ),
+                "pageToken" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
                 "friendsOnly" => array(
                   "location" => "query",
                   "type" => "boolean",
-              ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
               ),
                 "maxResults" => array(
                   "location" => "query",
                   "type" => "integer",
               ),
-                "pageToken" => array(
+                "hl" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -514,7 +516,7 @@ class Google_Service_Orkut extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "hl" => array(
+                "pageToken" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -522,7 +524,7 @@ class Google_Service_Orkut extends Google_Service
                   "location" => "query",
                   "type" => "integer",
               ),
-                "pageToken" => array(
+                "hl" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -566,7 +568,7 @@ class Google_Service_Orkut extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "hl" => array(
+                "pageToken" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -574,7 +576,7 @@ class Google_Service_Orkut extends Google_Service
                   "location" => "query",
                   "type" => "integer",
               ),
-                "pageToken" => array(
+                "hl" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -642,7 +644,7 @@ class Google_Service_Orkut extends Google_Service
                   "type" => "integer",
                   'required' => true,
               ),
-                "hl" => array(
+                "pageToken" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -650,7 +652,7 @@ class Google_Service_Orkut extends Google_Service
                   "location" => "query",
                   "type" => "integer",
               ),
-                "pageToken" => array(
+                "hl" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -746,7 +748,7 @@ class Google_Service_Orkut extends Google_Service
                   "type" => "integer",
                   'required' => true,
               ),
-                "hl" => array(
+                "pageToken" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -754,7 +756,7 @@ class Google_Service_Orkut extends Google_Service
                   "location" => "query",
                   "type" => "integer",
               ),
-                "pageToken" => array(
+                "hl" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -841,7 +843,8 @@ class Google_Service_Orkut_Activities_Resource extends Google_Service_Resource
 {
 
   /**
-   * Deletes an existing activity, if the access controls allow it. (activities.delete)
+   * Deletes an existing activity, if the access controls allow it.
+   * (activities.delete)
    *
    * @param string $activityId
    * ID of the activity to remove.
@@ -863,12 +866,12 @@ class Google_Service_Orkut_Activities_Resource extends Google_Service_Resource
    * The collection of activities to list.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string hl
-   * Specifies the interface language (host language) of your user interface.
-   * @opt_param string maxResults
-   * The maximum number of activities to include in the response.
    * @opt_param string pageToken
    * A continuation token that allows pagination.
+   * @opt_param string maxResults
+   * The maximum number of activities to include in the response.
+   * @opt_param string hl
+   * Specifies the interface language (host language) of your user interface.
    * @return Google_Service_Orkut_ActivityList
    */
   public function listActivities($userId, $collection, $optParams = array())
@@ -905,8 +908,8 @@ class Google_Service_Orkut_ActivityVisibility_Resource extends Google_Service_Re
     return $this->call('get', array($params), "Google_Service_Orkut_Visibility");
   }
   /**
-   * Updates the visibility of an existing activity. This method supports patch semantics.
-   * (activityVisibility.patch)
+   * Updates the visibility of an existing activity. This method supports patch
+   * semantics. (activityVisibility.patch)
    *
    * @param string $activityId
    * ID of the activity.
@@ -1043,14 +1046,14 @@ class Google_Service_Orkut_Comments_Resource extends Google_Service_Resource
    * The ID of the activity containing the comments.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string hl
-   * Specifies the interface language (host language) of your user interface.
-   * @opt_param string maxResults
-   * The maximum number of activities to include in the response.
    * @opt_param string orderBy
    * Sort search results.
    * @opt_param string pageToken
    * A continuation token that allows pagination.
+   * @opt_param string maxResults
+   * The maximum number of activities to include in the response.
+   * @opt_param string hl
+   * Specifies the interface language (host language) of your user interface.
    * @return Google_Service_Orkut_CommentList
    */
   public function listComments($activityId, $optParams = array())
@@ -1073,7 +1076,8 @@ class Google_Service_Orkut_Communities_Resource extends Google_Service_Resource
 {
 
   /**
-   * Retrieves the basic information (aka. profile) of a community. (communities.get)
+   * Retrieves the basic information (aka. profile) of a community.
+   * (communities.get)
    *
    * @param int $communityId
    * The ID of the community to get.
@@ -1090,18 +1094,19 @@ class Google_Service_Orkut_Communities_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Orkut_Community");
   }
   /**
-   * Retrieves the list of communities the current user is a member of. (communities.list)
+   * Retrieves the list of communities the current user is a member of.
+   * (communities.list)
    *
    * @param string $userId
    * The ID of the user whose communities will be listed. Can be me to refer to caller.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string hl
-   * Specifies the interface language (host language) of your user interface.
-   * @opt_param string maxResults
-   * The maximum number of communities to include in the response.
    * @opt_param string orderBy
    * How to order the communities by.
+   * @opt_param string maxResults
+   * The maximum number of communities to include in the response.
+   * @opt_param string hl
+   * Specifies the interface language (host language) of your user interface.
    * @return Google_Service_Orkut_CommunityList
    */
   public function listCommunities($userId, $optParams = array())
@@ -1183,7 +1188,8 @@ class Google_Service_Orkut_CommunityMembers_Resource extends Google_Service_Reso
     return $this->call('delete', array($params));
   }
   /**
-   * Retrieves the relationship between a user and a community. (communityMembers.get)
+   * Retrieves the relationship between a user and a community.
+   * (communityMembers.get)
    *
    * @param int $communityId
    * ID of the community.
@@ -1218,22 +1224,23 @@ class Google_Service_Orkut_CommunityMembers_Resource extends Google_Service_Reso
     return $this->call('insert', array($params), "Google_Service_Orkut_CommunityMembers");
   }
   /**
-   * Lists members of a community. Use the pagination tokens to retrieve the full list; do not rely on
-   * the member count available in the community profile information to know when to stop iterating,
-   * as that count may be approximate. (communityMembers.list)
+   * Lists members of a community. Use the pagination tokens to retrieve the full
+   * list; do not rely on the member count available in the community profile
+   * information to know when to stop iterating, as that count may be approximate.
+   * (communityMembers.list)
    *
    * @param int $communityId
    * The ID of the community whose members will be listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool friendsOnly
-   * Whether to list only community members who are friends of the user.
-   * @opt_param string hl
-   * Specifies the interface language (host language) of your user interface.
-   * @opt_param string maxResults
-   * The maximum number of members to include in the response.
    * @opt_param string pageToken
    * A continuation token that allows pagination.
+   * @opt_param bool friendsOnly
+   * Whether to list only community members who are friends of the user.
+   * @opt_param string maxResults
+   * The maximum number of members to include in the response.
+   * @opt_param string hl
+   * Specifies the interface language (host language) of your user interface.
    * @return Google_Service_Orkut_CommunityMembersList
    */
   public function listCommunityMembers($communityId, $optParams = array())
@@ -1256,7 +1263,8 @@ class Google_Service_Orkut_CommunityMessages_Resource extends Google_Service_Res
 {
 
   /**
-   * Moves a message of the community to the trash folder. (communityMessages.delete)
+   * Moves a message of the community to the trash folder.
+   * (communityMessages.delete)
    *
    * @param int $communityId
    * The ID of the community whose message will be moved to the trash folder.
@@ -1298,12 +1306,12 @@ class Google_Service_Orkut_CommunityMessages_Resource extends Google_Service_Res
    * The ID of the topic which messages will be listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string hl
-   * Specifies the interface language (host language) of your user interface.
-   * @opt_param string maxResults
-   * The maximum number of messages to include in the response.
    * @opt_param string pageToken
    * A continuation token that allows pagination.
+   * @opt_param string maxResults
+   * The maximum number of messages to include in the response.
+   * @opt_param string hl
+   * Specifies the interface language (host language) of your user interface.
    * @return Google_Service_Orkut_CommunityMessageList
    */
   public function listCommunityMessages($communityId, $topicId, $optParams = array())
@@ -1351,12 +1359,12 @@ class Google_Service_Orkut_CommunityPollComments_Resource extends Google_Service
    * The ID of the community whose polls will be listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string hl
-   * Specifies the interface language (host language) of your user interface.
-   * @opt_param string maxResults
-   * The maximum number of comments to include in the response.
    * @opt_param string pageToken
    * A continuation token that allows pagination.
+   * @opt_param string maxResults
+   * The maximum number of comments to include in the response.
+   * @opt_param string hl
+   * Specifies the interface language (host language) of your user interface.
    * @return Google_Service_Orkut_CommunityPollCommentList
    */
   public function listCommunityPollComments($communityId, $pollId, $optParams = array())
@@ -1434,12 +1442,12 @@ class Google_Service_Orkut_CommunityPolls_Resource extends Google_Service_Resour
    * The ID of the community which polls will be listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string hl
-   * Specifies the interface language (host language) of your user interface.
-   * @opt_param string maxResults
-   * The maximum number of polls to include in the response.
    * @opt_param string pageToken
    * A continuation token that allows pagination.
+   * @opt_param string maxResults
+   * The maximum number of polls to include in the response.
+   * @opt_param string hl
+   * Specifies the interface language (host language) of your user interface.
    * @return Google_Service_Orkut_CommunityPollList
    */
   public function listCommunityPolls($communityId, $optParams = array())
@@ -1550,12 +1558,12 @@ class Google_Service_Orkut_CommunityTopics_Resource extends Google_Service_Resou
    * The ID of the community which topics will be listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string hl
-   * Specifies the interface language (host language) of your user interface.
-   * @opt_param string maxResults
-   * The maximum number of topics to include in the response.
    * @opt_param string pageToken
    * A continuation token that allows pagination.
+   * @opt_param string maxResults
+   * The maximum number of topics to include in the response.
+   * @opt_param string hl
+   * Specifies the interface language (host language) of your user interface.
    * @return Google_Service_Orkut_CommunityTopicList
    */
   public function listCommunityTopics($communityId, $optParams = array())
@@ -1629,60 +1637,74 @@ class Google_Service_Orkut_Acl extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
   public $totalParticipants;
+
   public function setDescription($description)
   {
     $this->description = $description;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
+  
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setTotalParticipants($totalParticipants)
   {
     $this->totalParticipants = $totalParticipants;
   }
+
   public function getTotalParticipants()
   {
     return $this->totalParticipants;
   }
+  
 }
 
 class Google_Service_Orkut_AclItems extends Google_Model
 {
   public $id;
   public $type;
+
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setType($type)
   {
     $this->type = $type;
   }
+
   public function getType()
   {
     return $this->type;
   }
+  
 }
 
 class Google_Service_Orkut_Activity extends Google_Collection
@@ -1701,86 +1723,107 @@ class Google_Service_Orkut_Activity extends Google_Collection
   public $title;
   public $updated;
   public $verb;
+
   public function setAccess(Google_Service_Orkut_Acl $access)
   {
     $this->access = $access;
   }
+
   public function getAccess()
   {
     return $this->access;
   }
+  
   public function setActor(Google_Service_Orkut_OrkutAuthorResource $actor)
   {
     $this->actor = $actor;
   }
+
   public function getActor()
   {
     return $this->actor;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLinks($links)
   {
     $this->links = $links;
   }
+
   public function getLinks()
   {
     return $this->links;
   }
+  
   public function setObject(Google_Service_Orkut_ActivityObject $object)
   {
     $this->object = $object;
   }
+
   public function getObject()
   {
     return $this->object;
   }
+  
   public function setPublished($published)
   {
     $this->published = $published;
   }
+
   public function getPublished()
   {
     return $this->published;
   }
+  
   public function setTitle($title)
   {
     $this->title = $title;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
+  
   public function setUpdated($updated)
   {
     $this->updated = $updated;
   }
+
   public function getUpdated()
   {
     return $this->updated;
   }
+  
   public function setVerb($verb)
   {
     $this->verb = $verb;
   }
+
   public function getVerb()
   {
     return $this->verb;
   }
+  
 }
 
 class Google_Service_Orkut_ActivityList extends Google_Collection
@@ -1789,30 +1832,37 @@ class Google_Service_Orkut_ActivityList extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
+
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  
 }
 
 class Google_Service_Orkut_ActivityObject extends Google_Collection
@@ -1823,38 +1873,47 @@ class Google_Service_Orkut_ActivityObject extends Google_Collection
   public $objectType;
   protected $repliesType = 'Google_Service_Orkut_ActivityObjectReplies';
   protected $repliesDataType = '';
+
   public function setContent($content)
   {
     $this->content = $content;
   }
+
   public function getContent()
   {
     return $this->content;
   }
+  
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setObjectType($objectType)
   {
     $this->objectType = $objectType;
   }
+
   public function getObjectType()
   {
     return $this->objectType;
   }
+  
   public function setReplies(Google_Service_Orkut_ActivityObjectReplies $replies)
   {
     $this->replies = $replies;
   }
+
   public function getReplies()
   {
     return $this->replies;
   }
+  
 }
 
 class Google_Service_Orkut_ActivityObjectReplies extends Google_Collection
@@ -1863,30 +1922,37 @@ class Google_Service_Orkut_ActivityObjectReplies extends Google_Collection
   protected $itemsDataType = 'array';
   public $totalItems;
   public $url;
+
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
   }
+
   public function getTotalItems()
   {
     return $this->totalItems;
   }
+  
   public function setUrl($url)
   {
     $this->url = $url;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+  
 }
 
 class Google_Service_Orkut_Badge extends Google_Model
@@ -1900,78 +1966,97 @@ class Google_Service_Orkut_Badge extends Google_Model
   public $sponsorLogo;
   public $sponsorName;
   public $sponsorUrl;
+
   public function setBadgeLargeLogo($badgeLargeLogo)
   {
     $this->badgeLargeLogo = $badgeLargeLogo;
   }
+
   public function getBadgeLargeLogo()
   {
     return $this->badgeLargeLogo;
   }
+  
   public function setBadgeSmallLogo($badgeSmallLogo)
   {
     $this->badgeSmallLogo = $badgeSmallLogo;
   }
+
   public function getBadgeSmallLogo()
   {
     return $this->badgeSmallLogo;
   }
+  
   public function setCaption($caption)
   {
     $this->caption = $caption;
   }
+
   public function getCaption()
   {
     return $this->caption;
   }
+  
   public function setDescription($description)
   {
     $this->description = $description;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setSponsorLogo($sponsorLogo)
   {
     $this->sponsorLogo = $sponsorLogo;
   }
+
   public function getSponsorLogo()
   {
     return $this->sponsorLogo;
   }
+  
   public function setSponsorName($sponsorName)
   {
     $this->sponsorName = $sponsorName;
   }
+
   public function getSponsorName()
   {
     return $this->sponsorName;
   }
+  
   public function setSponsorUrl($sponsorUrl)
   {
     $this->sponsorUrl = $sponsorUrl;
   }
+
   public function getSponsorUrl()
   {
     return $this->sponsorUrl;
   }
+  
 }
 
 class Google_Service_Orkut_BadgeList extends Google_Collection
@@ -1979,22 +2064,27 @@ class Google_Service_Orkut_BadgeList extends Google_Collection
   protected $itemsType = 'Google_Service_Orkut_Badge';
   protected $itemsDataType = 'array';
   public $kind;
+
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
 }
 
 class Google_Service_Orkut_Comment extends Google_Collection
@@ -2009,62 +2099,77 @@ class Google_Service_Orkut_Comment extends Google_Collection
   protected $linksType = 'Google_Service_Orkut_OrkutLinkResource';
   protected $linksDataType = 'array';
   public $published;
+
   public function setActor(Google_Service_Orkut_OrkutAuthorResource $actor)
   {
     $this->actor = $actor;
   }
+
   public function getActor()
   {
     return $this->actor;
   }
+  
   public function setContent($content)
   {
     $this->content = $content;
   }
+
   public function getContent()
   {
     return $this->content;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setInReplyTo(Google_Service_Orkut_CommentInReplyTo $inReplyTo)
   {
     $this->inReplyTo = $inReplyTo;
   }
+
   public function getInReplyTo()
   {
     return $this->inReplyTo;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLinks($links)
   {
     $this->links = $links;
   }
+
   public function getLinks()
   {
     return $this->links;
   }
+  
   public function setPublished($published)
   {
     $this->published = $published;
   }
+
   public function getPublished()
   {
     return $this->published;
   }
+  
 }
 
 class Google_Service_Orkut_CommentInReplyTo extends Google_Model
@@ -2073,38 +2178,47 @@ class Google_Service_Orkut_CommentInReplyTo extends Google_Model
   public $ref;
   public $rel;
   public $type;
+
   public function setHref($href)
   {
     $this->href = $href;
   }
+
   public function getHref()
   {
     return $this->href;
   }
+  
   public function setRef($ref)
   {
     $this->ref = $ref;
   }
+
   public function getRef()
   {
     return $this->ref;
   }
+  
   public function setRel($rel)
   {
     $this->rel = $rel;
   }
+
   public function getRel()
   {
     return $this->rel;
   }
+  
   public function setType($type)
   {
     $this->type = $type;
   }
+
   public function getType()
   {
     return $this->type;
   }
+  
 }
 
 class Google_Service_Orkut_CommentList extends Google_Collection
@@ -2114,38 +2228,47 @@ class Google_Service_Orkut_CommentList extends Google_Collection
   public $kind;
   public $nextPageToken;
   public $previousPageToken;
+
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  
   public function setPreviousPageToken($previousPageToken)
   {
     $this->previousPageToken = $previousPageToken;
   }
+
   public function getPreviousPageToken()
   {
     return $this->previousPageToken;
   }
+  
 }
 
 class Google_Service_Orkut_Community extends Google_Collection
@@ -2168,118 +2291,147 @@ class Google_Service_Orkut_Community extends Google_Collection
   protected $ownerType = 'Google_Service_Orkut_OrkutAuthorResource';
   protected $ownerDataType = '';
   public $photo_url;
+
   public function setCategory($category)
   {
     $this->category = $category;
   }
+
   public function getCategory()
   {
     return $this->category;
   }
+  
   public function setCo_owners($co_owners)
   {
     $this->co_owners = $co_owners;
   }
+
   public function getCo_owners()
   {
     return $this->co_owners;
   }
+  
   public function setCreation_date($creation_date)
   {
     $this->creation_date = $creation_date;
   }
+
   public function getCreation_date()
   {
     return $this->creation_date;
   }
+  
   public function setDescription($description)
   {
     $this->description = $description;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLanguage($language)
   {
     $this->language = $language;
   }
+
   public function getLanguage()
   {
     return $this->language;
   }
+  
   public function setLinks($links)
   {
     $this->links = $links;
   }
+
   public function getLinks()
   {
     return $this->links;
   }
+  
   public function setLocation($location)
   {
     $this->location = $location;
   }
+
   public function getLocation()
   {
     return $this->location;
   }
+  
   public function setMember_count($member_count)
   {
     $this->member_count = $member_count;
   }
+
   public function getMember_count()
   {
     return $this->member_count;
   }
+  
   public function setModerators($moderators)
   {
     $this->moderators = $moderators;
   }
+
   public function getModerators()
   {
     return $this->moderators;
   }
+  
   public function setName($name)
   {
     $this->name = $name;
   }
+
   public function getName()
   {
     return $this->name;
   }
+  
   public function setOwner(Google_Service_Orkut_OrkutAuthorResource $owner)
   {
     $this->owner = $owner;
   }
+
   public function getOwner()
   {
     return $this->owner;
   }
+  
   public function setPhoto_url($photo_url)
   {
     $this->photo_url = $photo_url;
   }
+
   public function getPhoto_url()
   {
     return $this->photo_url;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityList extends Google_Collection
@@ -2287,22 +2439,27 @@ class Google_Service_Orkut_CommunityList extends Google_Collection
   protected $itemsType = 'Google_Service_Orkut_Community';
   protected $itemsDataType = 'array';
   public $kind;
+
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityMembers extends Google_Model
@@ -2312,30 +2469,37 @@ class Google_Service_Orkut_CommunityMembers extends Google_Model
   public $kind;
   protected $personType = 'Google_Service_Orkut_OrkutActivitypersonResource';
   protected $personDataType = '';
+
   public function setCommunityMembershipStatus(Google_Service_Orkut_CommunityMembershipStatus $communityMembershipStatus)
   {
     $this->communityMembershipStatus = $communityMembershipStatus;
   }
+
   public function getCommunityMembershipStatus()
   {
     return $this->communityMembershipStatus;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setPerson(Google_Service_Orkut_OrkutActivitypersonResource $person)
   {
     $this->person = $person;
   }
+
   public function getPerson()
   {
     return $this->person;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityMembersList extends Google_Collection
@@ -2347,54 +2511,67 @@ class Google_Service_Orkut_CommunityMembersList extends Google_Collection
   public $lastPageToken;
   public $nextPageToken;
   public $prevPageToken;
+
   public function setFirstPageToken($firstPageToken)
   {
     $this->firstPageToken = $firstPageToken;
   }
+
   public function getFirstPageToken()
   {
     return $this->firstPageToken;
   }
+  
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLastPageToken($lastPageToken)
   {
     $this->lastPageToken = $lastPageToken;
   }
+
   public function getLastPageToken()
   {
     return $this->lastPageToken;
   }
+  
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
   }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
@@ -2410,94 +2587,117 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
   public $isTakebackAvailable;
   public $kind;
   public $status;
+
   public function setCanCreatePoll($canCreatePoll)
   {
     $this->canCreatePoll = $canCreatePoll;
   }
+
   public function getCanCreatePoll()
   {
     return $this->canCreatePoll;
   }
+  
   public function setCanCreateTopic($canCreateTopic)
   {
     $this->canCreateTopic = $canCreateTopic;
   }
+
   public function getCanCreateTopic()
   {
     return $this->canCreateTopic;
   }
+  
   public function setCanShout($canShout)
   {
     $this->canShout = $canShout;
   }
+
   public function getCanShout()
   {
     return $this->canShout;
   }
+  
   public function setIsCoOwner($isCoOwner)
   {
     $this->isCoOwner = $isCoOwner;
   }
+
   public function getIsCoOwner()
   {
     return $this->isCoOwner;
   }
+  
   public function setIsFollowing($isFollowing)
   {
     $this->isFollowing = $isFollowing;
   }
+
   public function getIsFollowing()
   {
     return $this->isFollowing;
   }
+  
   public function setIsModerator($isModerator)
   {
     $this->isModerator = $isModerator;
   }
+
   public function getIsModerator()
   {
     return $this->isModerator;
   }
+  
   public function setIsOwner($isOwner)
   {
     $this->isOwner = $isOwner;
   }
+
   public function getIsOwner()
   {
     return $this->isOwner;
   }
+  
   public function setIsRestoreAvailable($isRestoreAvailable)
   {
     $this->isRestoreAvailable = $isRestoreAvailable;
   }
+
   public function getIsRestoreAvailable()
   {
     return $this->isRestoreAvailable;
   }
+  
   public function setIsTakebackAvailable($isTakebackAvailable)
   {
     $this->isTakebackAvailable = $isTakebackAvailable;
   }
+
   public function getIsTakebackAvailable()
   {
     return $this->isTakebackAvailable;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setStatus($status)
   {
     $this->status = $status;
   }
+
   public function getStatus()
   {
     return $this->status;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityMessage extends Google_Collection
@@ -2512,70 +2712,87 @@ class Google_Service_Orkut_CommunityMessage extends Google_Collection
   protected $linksType = 'Google_Service_Orkut_OrkutLinkResource';
   protected $linksDataType = 'array';
   public $subject;
+
   public function setAddedDate($addedDate)
   {
     $this->addedDate = $addedDate;
   }
+
   public function getAddedDate()
   {
     return $this->addedDate;
   }
+  
   public function setAuthor(Google_Service_Orkut_OrkutAuthorResource $author)
   {
     $this->author = $author;
   }
+
   public function getAuthor()
   {
     return $this->author;
   }
+  
   public function setBody($body)
   {
     $this->body = $body;
   }
+
   public function getBody()
   {
     return $this->body;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setIsSpam($isSpam)
   {
     $this->isSpam = $isSpam;
   }
+
   public function getIsSpam()
   {
     return $this->isSpam;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLinks($links)
   {
     $this->links = $links;
   }
+
   public function getLinks()
   {
     return $this->links;
   }
+  
   public function setSubject($subject)
   {
     $this->subject = $subject;
   }
+
   public function getSubject()
   {
     return $this->subject;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityMessageList extends Google_Collection
@@ -2587,54 +2804,67 @@ class Google_Service_Orkut_CommunityMessageList extends Google_Collection
   public $lastPageToken;
   public $nextPageToken;
   public $prevPageToken;
+
   public function setFirstPageToken($firstPageToken)
   {
     $this->firstPageToken = $firstPageToken;
   }
+
   public function getFirstPageToken()
   {
     return $this->firstPageToken;
   }
+  
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLastPageToken($lastPageToken)
   {
     $this->lastPageToken = $lastPageToken;
   }
+
   public function getLastPageToken()
   {
     return $this->lastPageToken;
   }
+  
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
   }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityPoll extends Google_Collection
@@ -2665,182 +2895,227 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   public $question;
   public $totalNumberOfVotes;
   public $votedOptions;
+
   public function setAuthor(Google_Service_Orkut_OrkutAuthorResource $author)
   {
     $this->author = $author;
   }
+
   public function getAuthor()
   {
     return $this->author;
   }
+  
   public function setCommunityId($communityId)
   {
     $this->communityId = $communityId;
   }
+
   public function getCommunityId()
   {
     return $this->communityId;
   }
+  
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
   }
+
   public function getCreationTime()
   {
     return $this->creationTime;
   }
+  
   public function setDescription($description)
   {
     $this->description = $description;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
+  
   public function setEndingTime($endingTime)
   {
     $this->endingTime = $endingTime;
   }
+
   public function getEndingTime()
   {
     return $this->endingTime;
   }
+  
   public function setHasVoted($hasVoted)
   {
     $this->hasVoted = $hasVoted;
   }
+
   public function getHasVoted()
   {
     return $this->hasVoted;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setImage(Google_Service_Orkut_CommunityPollImage $image)
   {
     $this->image = $image;
   }
+
   public function getImage()
   {
     return $this->image;
   }
+  
   public function setIsClosed($isClosed)
   {
     $this->isClosed = $isClosed;
   }
+
   public function getIsClosed()
   {
     return $this->isClosed;
   }
+  
   public function setIsMultipleAnswers($isMultipleAnswers)
   {
     $this->isMultipleAnswers = $isMultipleAnswers;
   }
+
   public function getIsMultipleAnswers()
   {
     return $this->isMultipleAnswers;
   }
+  
   public function setIsOpenForVoting($isOpenForVoting)
   {
     $this->isOpenForVoting = $isOpenForVoting;
   }
+
   public function getIsOpenForVoting()
   {
     return $this->isOpenForVoting;
   }
+  
   public function setIsRestricted($isRestricted)
   {
     $this->isRestricted = $isRestricted;
   }
+
   public function getIsRestricted()
   {
     return $this->isRestricted;
   }
+  
   public function setIsSpam($isSpam)
   {
     $this->isSpam = $isSpam;
   }
+
   public function getIsSpam()
   {
     return $this->isSpam;
   }
+  
   public function setIsUsersVotePublic($isUsersVotePublic)
   {
     $this->isUsersVotePublic = $isUsersVotePublic;
   }
+
   public function getIsUsersVotePublic()
   {
     return $this->isUsersVotePublic;
   }
+  
   public function setIsVotingAllowedForNonMembers($isVotingAllowedForNonMembers)
   {
     $this->isVotingAllowedForNonMembers = $isVotingAllowedForNonMembers;
   }
+
   public function getIsVotingAllowedForNonMembers()
   {
     return $this->isVotingAllowedForNonMembers;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLastUpdate($lastUpdate)
   {
     $this->lastUpdate = $lastUpdate;
   }
+
   public function getLastUpdate()
   {
     return $this->lastUpdate;
   }
+  
   public function setLinks($links)
   {
     $this->links = $links;
   }
+
   public function getLinks()
   {
     return $this->links;
   }
+  
   public function setOptions($options)
   {
     $this->options = $options;
   }
+
   public function getOptions()
   {
     return $this->options;
   }
+  
   public function setQuestion($question)
   {
     $this->question = $question;
   }
+
   public function getQuestion()
   {
     return $this->question;
   }
+  
   public function setTotalNumberOfVotes($totalNumberOfVotes)
   {
     $this->totalNumberOfVotes = $totalNumberOfVotes;
   }
+
   public function getTotalNumberOfVotes()
   {
     return $this->totalNumberOfVotes;
   }
+  
   public function setVotedOptions($votedOptions)
   {
     $this->votedOptions = $votedOptions;
   }
+
   public function getVotedOptions()
   {
     return $this->votedOptions;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityPollComment extends Google_Model
@@ -2851,46 +3126,57 @@ class Google_Service_Orkut_CommunityPollComment extends Google_Model
   public $body;
   public $id;
   public $kind;
+
   public function setAddedDate($addedDate)
   {
     $this->addedDate = $addedDate;
   }
+
   public function getAddedDate()
   {
     return $this->addedDate;
   }
+  
   public function setAuthor(Google_Service_Orkut_OrkutAuthorResource $author)
   {
     $this->author = $author;
   }
+
   public function getAuthor()
   {
     return $this->author;
   }
+  
   public function setBody($body)
   {
     $this->body = $body;
   }
+
   public function getBody()
   {
     return $this->body;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityPollCommentList extends Google_Collection
@@ -2902,67 +3188,83 @@ class Google_Service_Orkut_CommunityPollCommentList extends Google_Collection
   public $lastPageToken;
   public $nextPageToken;
   public $prevPageToken;
+
   public function setFirstPageToken($firstPageToken)
   {
     $this->firstPageToken = $firstPageToken;
   }
+
   public function getFirstPageToken()
   {
     return $this->firstPageToken;
   }
+  
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLastPageToken($lastPageToken)
   {
     $this->lastPageToken = $lastPageToken;
   }
+
   public function getLastPageToken()
   {
     return $this->lastPageToken;
   }
+  
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
   }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityPollImage extends Google_Model
 {
   public $url;
+
   public function setUrl($url)
   {
     $this->url = $url;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityPollList extends Google_Collection
@@ -2974,54 +3276,67 @@ class Google_Service_Orkut_CommunityPollList extends Google_Collection
   public $lastPageToken;
   public $nextPageToken;
   public $prevPageToken;
+
   public function setFirstPageToken($firstPageToken)
   {
     $this->firstPageToken = $firstPageToken;
   }
+
   public function getFirstPageToken()
   {
     return $this->firstPageToken;
   }
+  
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLastPageToken($lastPageToken)
   {
     $this->lastPageToken = $lastPageToken;
   }
+
   public function getLastPageToken()
   {
     return $this->lastPageToken;
   }
+  
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
   }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityPollVote extends Google_Collection
@@ -3029,30 +3344,37 @@ class Google_Service_Orkut_CommunityPollVote extends Google_Collection
   public $isVotevisible;
   public $kind;
   public $optionIds;
+
   public function setIsVotevisible($isVotevisible)
   {
     $this->isVotevisible = $isVotevisible;
   }
+
   public function getIsVotevisible()
   {
     return $this->isVotevisible;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setOptionIds($optionIds)
   {
     $this->optionIds = $optionIds;
   }
+
   public function getOptionIds()
   {
     return $this->optionIds;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityTopic extends Google_Collection
@@ -3071,94 +3393,117 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
   protected $messagesDataType = 'array';
   public $numberOfReplies;
   public $title;
+
   public function setAuthor(Google_Service_Orkut_OrkutAuthorResource $author)
   {
     $this->author = $author;
   }
+
   public function getAuthor()
   {
     return $this->author;
   }
+  
   public function setBody($body)
   {
     $this->body = $body;
   }
+
   public function getBody()
   {
     return $this->body;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setIsClosed($isClosed)
   {
     $this->isClosed = $isClosed;
   }
+
   public function getIsClosed()
   {
     return $this->isClosed;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLastUpdate($lastUpdate)
   {
     $this->lastUpdate = $lastUpdate;
   }
+
   public function getLastUpdate()
   {
     return $this->lastUpdate;
   }
+  
   public function setLatestMessageSnippet($latestMessageSnippet)
   {
     $this->latestMessageSnippet = $latestMessageSnippet;
   }
+
   public function getLatestMessageSnippet()
   {
     return $this->latestMessageSnippet;
   }
+  
   public function setLinks($links)
   {
     $this->links = $links;
   }
+
   public function getLinks()
   {
     return $this->links;
   }
+  
   public function setMessages($messages)
   {
     $this->messages = $messages;
   }
+
   public function getMessages()
   {
     return $this->messages;
   }
+  
   public function setNumberOfReplies($numberOfReplies)
   {
     $this->numberOfReplies = $numberOfReplies;
   }
+
   public function getNumberOfReplies()
   {
     return $this->numberOfReplies;
   }
+  
   public function setTitle($title)
   {
     $this->title = $title;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
+  
 }
 
 class Google_Service_Orkut_CommunityTopicList extends Google_Collection
@@ -3170,54 +3515,67 @@ class Google_Service_Orkut_CommunityTopicList extends Google_Collection
   public $lastPageToken;
   public $nextPageToken;
   public $prevPageToken;
+
   public function setFirstPageToken($firstPageToken)
   {
     $this->firstPageToken = $firstPageToken;
   }
+
   public function getFirstPageToken()
   {
     return $this->firstPageToken;
   }
+  
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLastPageToken($lastPageToken)
   {
     $this->lastPageToken = $lastPageToken;
   }
+
   public function getLastPageToken()
   {
     return $this->lastPageToken;
   }
+  
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
+
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
+  
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
   }
+
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
   }
+  
 }
 
 class Google_Service_Orkut_Counters extends Google_Collection
@@ -3225,22 +3583,27 @@ class Google_Service_Orkut_Counters extends Google_Collection
   protected $itemsType = 'Google_Service_Orkut_OrkutCounterResource';
   protected $itemsDataType = 'array';
   public $kind;
+
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
 }
 
 class Google_Service_Orkut_OrkutActivityobjectsResource extends Google_Collection
@@ -3255,62 +3618,77 @@ class Google_Service_Orkut_OrkutActivityobjectsResource extends Google_Collectio
   public $objectType;
   protected $personType = 'Google_Service_Orkut_OrkutActivitypersonResource';
   protected $personDataType = '';
+
   public function setCommunity(Google_Service_Orkut_Community $community)
   {
     $this->community = $community;
   }
+
   public function getCommunity()
   {
     return $this->community;
   }
+  
   public function setContent($content)
   {
     $this->content = $content;
   }
+
   public function getContent()
   {
     return $this->content;
   }
+  
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+
   public function getDisplayName()
   {
     return $this->displayName;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setLinks($links)
   {
     $this->links = $links;
   }
+
   public function getLinks()
   {
     return $this->links;
   }
+  
   public function setObjectType($objectType)
   {
     $this->objectType = $objectType;
   }
+
   public function getObjectType()
   {
     return $this->objectType;
   }
+  
   public function setPerson(Google_Service_Orkut_OrkutActivitypersonResource $person)
   {
     $this->person = $person;
   }
+
   public function getPerson()
   {
     return $this->person;
   }
+  
 }
 
 class Google_Service_Orkut_OrkutActivitypersonResource extends Google_Model
@@ -3323,89 +3701,110 @@ class Google_Service_Orkut_OrkutActivitypersonResource extends Google_Model
   protected $nameType = 'Google_Service_Orkut_OrkutActivitypersonResourceName';
   protected $nameDataType = '';
   public $url;
+
   public function setBirthday($birthday)
   {
     $this->birthday = $birthday;
   }
+
   public function getBirthday()
   {
     return $this->birthday;
   }
+  
   public function setGender($gender)
   {
     $this->gender = $gender;
   }
+
   public function getGender()
   {
     return $this->gender;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setImage(Google_Service_Orkut_OrkutActivitypersonResourceImage $image)
   {
     $this->image = $image;
   }
+
   public function getImage()
   {
     return $this->image;
   }
+  
   public function setName(Google_Service_Orkut_OrkutActivitypersonResourceName $name)
   {
     $this->name = $name;
   }
+
   public function getName()
   {
     return $this->name;
   }
+  
   public function setUrl($url)
   {
     $this->url = $url;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+  
 }
 
 class Google_Service_Orkut_OrkutActivitypersonResourceImage extends Google_Model
 {
   public $url;
+
   public function setUrl($url)
   {
     $this->url = $url;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+  
 }
 
 class Google_Service_Orkut_OrkutActivitypersonResourceName extends Google_Model
 {
   public $familyName;
   public $givenName;
+
   public function setFamilyName($familyName)
   {
     $this->familyName = $familyName;
   }
+
   public function getFamilyName()
   {
     return $this->familyName;
   }
+  
   public function setGivenName($givenName)
   {
     $this->givenName = $givenName;
   }
+
   public function getGivenName()
   {
     return $this->givenName;
   }
+  
 }
 
 class Google_Service_Orkut_OrkutAuthorResource extends Google_Model
@@ -3415,51 +3814,63 @@ class Google_Service_Orkut_OrkutAuthorResource extends Google_Model
   protected $imageType = 'Google_Service_Orkut_OrkutAuthorResourceImage';
   protected $imageDataType = '';
   public $url;
+
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
   }
+
   public function getDisplayName()
   {
     return $this->displayName;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setImage(Google_Service_Orkut_OrkutAuthorResourceImage $image)
   {
     $this->image = $image;
   }
+
   public function getImage()
   {
     return $this->image;
   }
+  
   public function setUrl($url)
   {
     $this->url = $url;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+  
 }
 
 class Google_Service_Orkut_OrkutAuthorResourceImage extends Google_Model
 {
   public $url;
+
   public function setUrl($url)
   {
     $this->url = $url;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+  
 }
 
 class Google_Service_Orkut_OrkutCommunitypolloptionResource extends Google_Model
@@ -3469,51 +3880,63 @@ class Google_Service_Orkut_OrkutCommunitypolloptionResource extends Google_Model
   protected $imageDataType = '';
   public $numberOfVotes;
   public $optionId;
+
   public function setDescription($description)
   {
     $this->description = $description;
   }
+
   public function getDescription()
   {
     return $this->description;
   }
+  
   public function setImage(Google_Service_Orkut_OrkutCommunitypolloptionResourceImage $image)
   {
     $this->image = $image;
   }
+
   public function getImage()
   {
     return $this->image;
   }
+  
   public function setNumberOfVotes($numberOfVotes)
   {
     $this->numberOfVotes = $numberOfVotes;
   }
+
   public function getNumberOfVotes()
   {
     return $this->numberOfVotes;
   }
+  
   public function setOptionId($optionId)
   {
     $this->optionId = $optionId;
   }
+
   public function getOptionId()
   {
     return $this->optionId;
   }
+  
 }
 
 class Google_Service_Orkut_OrkutCommunitypolloptionResourceImage extends Google_Model
 {
   public $url;
+
   public function setUrl($url)
   {
     $this->url = $url;
   }
+
   public function getUrl()
   {
     return $this->url;
   }
+  
 }
 
 class Google_Service_Orkut_OrkutCounterResource extends Google_Model
@@ -3522,30 +3945,37 @@ class Google_Service_Orkut_OrkutCounterResource extends Google_Model
   protected $linkDataType = '';
   public $name;
   public $total;
+
   public function setLink(Google_Service_Orkut_OrkutLinkResource $link)
   {
     $this->link = $link;
   }
+
   public function getLink()
   {
     return $this->link;
   }
+  
   public function setName($name)
   {
     $this->name = $name;
   }
+
   public function getName()
   {
     return $this->name;
   }
+  
   public function setTotal($total)
   {
     $this->total = $total;
   }
+
   public function getTotal()
   {
     return $this->total;
   }
+  
 }
 
 class Google_Service_Orkut_OrkutLinkResource extends Google_Model
@@ -3554,38 +3984,47 @@ class Google_Service_Orkut_OrkutLinkResource extends Google_Model
   public $rel;
   public $title;
   public $type;
+
   public function setHref($href)
   {
     $this->href = $href;
   }
+
   public function getHref()
   {
     return $this->href;
   }
+  
   public function setRel($rel)
   {
     $this->rel = $rel;
   }
+
   public function getRel()
   {
     return $this->rel;
   }
+  
   public function setTitle($title)
   {
     $this->title = $title;
   }
+
   public function getTitle()
   {
     return $this->title;
   }
+  
   public function setType($type)
   {
     $this->type = $type;
   }
+
   public function getType()
   {
     return $this->type;
   }
+  
 }
 
 class Google_Service_Orkut_Visibility extends Google_Collection
@@ -3594,28 +4033,35 @@ class Google_Service_Orkut_Visibility extends Google_Collection
   protected $linksType = 'Google_Service_Orkut_OrkutLinkResource';
   protected $linksDataType = 'array';
   public $visibility;
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLinks($links)
   {
     $this->links = $links;
   }
+
   public function getLinks()
   {
     return $this->links;
   }
+  
   public function setVisibility($visibility)
   {
     $this->visibility = $visibility;
   }
+
   public function getVisibility()
   {
     return $this->visibility;
   }
+  
 }

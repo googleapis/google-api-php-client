@@ -9,12 +9,12 @@
   <h1>PHP Library Examples</h1>
   <ul>
     <li><a href="simple-query.php">A query using simple API access</a></li>
-    <li><a href="user-example.php">A query for user data, using oAuth 2.0 authentication.</a></li>
-    <li><a href="batch.php">An example of combining multiple calls into a batch request</a></li>      
+    <li><a href="user-example.php">A query for user data, using OAuth 2.0 authentication.</a></li>
+    <li><a href="batch.php">An example of combining multiple calls into a batch request</a></li>
     <li><a href="service-account.php">A query using the service account functionality.</a></li>
     <li><a href="simplefileupload.php">An example of a small file upload.</a></li>
     <li><a href="fileupload.php">An example of a large file upload.</a></li>
     <li><a href="idtoken.php">An example of verifying and retrieving the id token.</a></li>
     <li><a href="multi-api.php">An example of using multiple APIs.</a></li>
-  </ul>    
+  </ul>
 <?php echo page_footer(); ?>

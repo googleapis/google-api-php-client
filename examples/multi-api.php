@@ -23,7 +23,7 @@ require_once 'Google/Service/YouTube.php';
 require_once 'Google/Service/Drive.php';
 
 /************************************************
-  ATTENTION: Fill in these values! Make sure 
+  ATTENTION: Fill in these values! Make sure
   the redirect URI is to this page, e.g:
   http://localhost:8080/user-example.php
  ************************************************/
@@ -32,8 +32,8 @@ require_once 'Google/Service/Drive.php';
  $redirect_uri = '<YOUR_REDIRECT_URI>';
 
 /************************************************
-  Make an API request on behalf of a user. In 
-  this case we need to have a valid oAuth 2.0
+  Make an API request on behalf of a user. In
+  this case we need to have a valid OAuth 2.0
   token for the user, so we need to send them
   through a login flow. To do this we need some
   information from our API console project.
@@ -87,7 +87,7 @@ if ($client->getAccessToken()) {
 
 echo page_header("User Query - Multiple APIs");
 if($client_id == '') {
-  echo "<h3 class='warn'>Warning: You need to set up a oAuth 2.0 client from <a " . 
+  echo "<h3 class='warn'>Warning: You need to set up a OAuth 2.0 client from <a " .
     "href='http://developers.google.com/console'>API console</a></h3>";
 }
 ?>

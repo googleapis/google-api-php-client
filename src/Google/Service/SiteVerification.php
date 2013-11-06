@@ -1,5 +1,7 @@
 <?php
 /*
+ * Copyright 2010 Google Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -167,7 +169,8 @@ class Google_Service_SiteVerification_WebResource_Resource extends Google_Servic
     return $this->call('get', array($params), "Google_Service_SiteVerification_SiteVerificationWebResourceResource");
   }
   /**
-   * Get a verification token for placing on a website or domain. (webResource.getToken)
+   * Get a verification token for placing on a website or domain.
+   * (webResource.getToken)
    *
    * @param Google_SiteVerificationWebResourceGettokenRequest $postBody
    * @param array $optParams Optional parameters.
@@ -207,8 +210,8 @@ class Google_Service_SiteVerification_WebResource_Resource extends Google_Servic
     return $this->call('list', array($params), "Google_Service_SiteVerification_SiteVerificationWebResourceListResponse");
   }
   /**
-   * Modify the list of owners for your website or domain. This method supports patch semantics.
-   * (webResource.patch)
+   * Modify the list of owners for your website or domain. This method supports
+   * patch semantics. (webResource.patch)
    *
    * @param string $id
    * The id of a verified site or domain.
@@ -247,80 +250,98 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequest
   protected $siteType = 'Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequestSite';
   protected $siteDataType = '';
   public $verificationMethod;
+
   public function setSite(Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequestSite $site)
   {
     $this->site = $site;
   }
+
   public function getSite()
   {
     return $this->site;
   }
+  
   public function setVerificationMethod($verificationMethod)
   {
     $this->verificationMethod = $verificationMethod;
   }
+
   public function getVerificationMethod()
   {
     return $this->verificationMethod;
   }
+  
 }
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequestSite extends Google_Model
 {
   public $identifier;
   public $type;
+
   public function setIdentifier($identifier)
   {
     $this->identifier = $identifier;
   }
+
   public function getIdentifier()
   {
     return $this->identifier;
   }
+  
   public function setType($type)
   {
     $this->type = $type;
   }
+
   public function getType()
   {
     return $this->type;
   }
+  
 }
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenResponse extends Google_Model
 {
   public $method;
   public $token;
+
   public function setMethod($method)
   {
     $this->method = $method;
   }
+
   public function getMethod()
   {
     return $this->method;
   }
+  
   public function setToken($token)
   {
     $this->token = $token;
   }
+
   public function getToken()
   {
     return $this->token;
   }
+  
 }
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceListResponse extends Google_Collection
 {
   protected $itemsType = 'Google_Service_SiteVerification_SiteVerificationWebResourceResource';
   protected $itemsDataType = 'array';
+
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
 }
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceResource extends Google_Collection
@@ -329,50 +350,62 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceResource extend
   public $owners;
   protected $siteType = 'Google_Service_SiteVerification_SiteVerificationWebResourceResourceSite';
   protected $siteDataType = '';
+
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setOwners($owners)
   {
     $this->owners = $owners;
   }
+
   public function getOwners()
   {
     return $this->owners;
   }
+  
   public function setSite(Google_Service_SiteVerification_SiteVerificationWebResourceResourceSite $site)
   {
     $this->site = $site;
   }
+
   public function getSite()
   {
     return $this->site;
   }
+  
 }
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceResourceSite extends Google_Model
 {
   public $identifier;
   public $type;
+
   public function setIdentifier($identifier)
   {
     $this->identifier = $identifier;
   }
+
   public function getIdentifier()
   {
     return $this->identifier;
   }
+  
   public function setType($type)
   {
     $this->type = $type;
   }
+
   public function getType()
   {
     return $this->type;
   }
+  
 }

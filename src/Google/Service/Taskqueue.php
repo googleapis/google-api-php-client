@@ -1,5 +1,7 @@
 <?php
 /*
+ * Copyright 2010 Google Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -392,8 +394,8 @@ class Google_Service_Taskqueue_Tasks_Resource extends Google_Service_Resource
     return $this->call('list', array($params), "Google_Service_Taskqueue_Tasks2");
   }
   /**
-   * Update tasks that are leased out of a TaskQueue. This method supports patch semantics.
-   * (tasks.patch)
+   * Update tasks that are leased out of a TaskQueue. This method supports patch
+   * semantics. (tasks.patch)
    *
    * @param string $project
    * The project under which the queue lies.
@@ -449,70 +451,87 @@ class Google_Service_Taskqueue_Task extends Google_Model
   public $queueName;
   public $retry_count;
   public $tag;
+
   public function setEnqueueTimestamp($enqueueTimestamp)
   {
     $this->enqueueTimestamp = $enqueueTimestamp;
   }
+
   public function getEnqueueTimestamp()
   {
     return $this->enqueueTimestamp;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setLeaseTimestamp($leaseTimestamp)
   {
     $this->leaseTimestamp = $leaseTimestamp;
   }
+
   public function getLeaseTimestamp()
   {
     return $this->leaseTimestamp;
   }
+  
   public function setPayloadBase64($payloadBase64)
   {
     $this->payloadBase64 = $payloadBase64;
   }
+
   public function getPayloadBase64()
   {
     return $this->payloadBase64;
   }
+  
   public function setQueueName($queueName)
   {
     $this->queueName = $queueName;
   }
+
   public function getQueueName()
   {
     return $this->queueName;
   }
+  
   public function setRetry_count($retry_count)
   {
     $this->retry_count = $retry_count;
   }
+
   public function getRetry_count()
   {
     return $this->retry_count;
   }
+  
   public function setTag($tag)
   {
     $this->tag = $tag;
   }
+
   public function getTag()
   {
     return $this->tag;
   }
+  
 }
 
 class Google_Service_Taskqueue_TaskQueue extends Google_Model
@@ -524,46 +543,57 @@ class Google_Service_Taskqueue_TaskQueue extends Google_Model
   public $maxLeases;
   protected $statsType = 'Google_Service_Taskqueue_TaskQueueStats';
   protected $statsDataType = '';
+
   public function setAcl(Google_Service_Taskqueue_TaskQueueAcl $acl)
   {
     $this->acl = $acl;
   }
+
   public function getAcl()
   {
     return $this->acl;
   }
+  
   public function setId($id)
   {
     $this->id = $id;
   }
+
   public function getId()
   {
     return $this->id;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
   public function setMaxLeases($maxLeases)
   {
     $this->maxLeases = $maxLeases;
   }
+
   public function getMaxLeases()
   {
     return $this->maxLeases;
   }
+  
   public function setStats(Google_Service_Taskqueue_TaskQueueStats $stats)
   {
     $this->stats = $stats;
   }
+
   public function getStats()
   {
     return $this->stats;
   }
+  
 }
 
 class Google_Service_Taskqueue_TaskQueueAcl extends Google_Collection
@@ -571,30 +601,37 @@ class Google_Service_Taskqueue_TaskQueueAcl extends Google_Collection
   public $adminEmails;
   public $consumerEmails;
   public $producerEmails;
+
   public function setAdminEmails($adminEmails)
   {
     $this->adminEmails = $adminEmails;
   }
+
   public function getAdminEmails()
   {
     return $this->adminEmails;
   }
+  
   public function setConsumerEmails($consumerEmails)
   {
     $this->consumerEmails = $consumerEmails;
   }
+
   public function getConsumerEmails()
   {
     return $this->consumerEmails;
   }
+  
   public function setProducerEmails($producerEmails)
   {
     $this->producerEmails = $producerEmails;
   }
+
   public function getProducerEmails()
   {
     return $this->producerEmails;
   }
+  
 }
 
 class Google_Service_Taskqueue_TaskQueueStats extends Google_Model
@@ -603,38 +640,47 @@ class Google_Service_Taskqueue_TaskQueueStats extends Google_Model
   public $leasedLastMinute;
   public $oldestTask;
   public $totalTasks;
+
   public function setLeasedLastHour($leasedLastHour)
   {
     $this->leasedLastHour = $leasedLastHour;
   }
+
   public function getLeasedLastHour()
   {
     return $this->leasedLastHour;
   }
+  
   public function setLeasedLastMinute($leasedLastMinute)
   {
     $this->leasedLastMinute = $leasedLastMinute;
   }
+
   public function getLeasedLastMinute()
   {
     return $this->leasedLastMinute;
   }
+  
   public function setOldestTask($oldestTask)
   {
     $this->oldestTask = $oldestTask;
   }
+
   public function getOldestTask()
   {
     return $this->oldestTask;
   }
+  
   public function setTotalTasks($totalTasks)
   {
     $this->totalTasks = $totalTasks;
   }
+
   public function getTotalTasks()
   {
     return $this->totalTasks;
   }
+  
 }
 
 class Google_Service_Taskqueue_Tasks extends Google_Collection
@@ -642,22 +688,27 @@ class Google_Service_Taskqueue_Tasks extends Google_Collection
   protected $itemsType = 'Google_Service_Taskqueue_Task';
   protected $itemsDataType = 'array';
   public $kind;
+
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
 }
 
 class Google_Service_Taskqueue_Tasks2 extends Google_Collection
@@ -665,20 +716,25 @@ class Google_Service_Taskqueue_Tasks2 extends Google_Collection
   protected $itemsType = 'Google_Service_Taskqueue_Task';
   protected $itemsDataType = 'array';
   public $kind;
+
   public function setItems($items)
   {
     $this->items = $items;
   }
+
   public function getItems()
   {
     return $this->items;
   }
+  
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
+
   public function getKind()
   {
     return $this->kind;
   }
+  
 }

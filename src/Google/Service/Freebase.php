@@ -1,5 +1,7 @@
 <?php
 /*
+ * Copyright 2010 Google Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -17,7 +19,7 @@
  * Service definition for Freebase (v1).
  *
  * <p>
- * Topic and MQL APIs provide you structured access to Freebase data.
+ * Find Freebase entities using textual queries and other constraints.
  * </p>
  *
  * <p>
@@ -29,8 +31,7 @@
  */
 class Google_Service_Freebase extends Google_Service
 {
-  public $text;
-  public $topic;
+
   private $base_methods;
 
   /**
@@ -44,10 +45,6 @@ class Google_Service_Freebase extends Google_Service
     $this->servicePath = 'freebase/v1/';
     $this->version = 'v1';
     
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/freebase"
-    );
-    
     $this->serviceName = 'freebase';
 
     $client->addService(
@@ -56,182 +53,144 @@ class Google_Service_Freebase extends Google_Service
         $this->availableScopes
     );
 
-    $this->text = new Google_Service_Freebase_Text_Resource(
-        $this,
-        $this->serviceName,
-        'text',
-        array(
-    'methods' => array(
-          "get" => array(
-            'path' => "text{/id*}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
-                  'repeated' => true,
-                  'required' => true,
-              ),
-                "format" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxlength" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
-        )
-    )
-    );
-    $this->topic = new Google_Service_Freebase_Topic_Resource(
-        $this,
-        $this->serviceName,
-        'topic',
-        array(
-    'methods' => array(
-          "lookup" => array(
-            'path' => "topic{/id*}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
-                  'repeated' => true,
-                  'required' => true,
-              ),
-                "dateline" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-                  'repeated' => true,
-              ),
-                "lang" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "limit" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "raw" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),
-        )
-    )
-    );
     $this->base_methods = new Google_Service_Resource(
         $this,
         $this->serviceName,
         '',
         array(
         'methods' => array(
-              "image" => array(
-                'path' => "image{/id*}",
+              "reconcile" => array(
+                'path' => "reconcile",
                 'httpMethod' => "GET",
                 'parameters' => array(
-                    "id" => array(
-                      "location" => "path",
+                    "lang" => array(
+                      "location" => "query",
                       "type" => "string",
                       'repeated' => true,
-                      'required' => true,
                   ),
-                    "fallbackid" => array(
+                    "confidence" => array(
+                      "location" => "query",
+                      "type" => "number",
+                  ),
+                    "name" => array(
                       "location" => "query",
                       "type" => "string",
                   ),
-                    "maxheight" => array(
-                      "location" => "query",
-                      "type" => "integer",
-                  ),
-                    "maxwidth" => array(
-                      "location" => "query",
-                      "type" => "integer",
-                  ),
-                    "mode" => array(
+                    "kind" => array(
                       "location" => "query",
                       "type" => "string",
+                      'repeated' => true,
                   ),
-                    "pad" => array(
+                    "prop" => array(
                       "location" => "query",
-                      "type" => "boolean",
+                      "type" => "string",
+                      'repeated' => true,
+                  ),
+                    "limit" => array(
+                      "location" => "query",
+                      "type" => "integer",
                   ),
                   ),
-              ),"mqlread" => array(
-                'path' => "mqlread",
+              ),"search" => array(
+                'path' => "search",
                 'httpMethod' => "GET",
                 'parameters' => array(
+                    "domain" => array(
+                      "location" => "query",
+                      "type" => "string",
+                      'repeated' => true,
+                  ),
+                    "help" => array(
+                      "location" => "query",
+                      "type" => "string",
+                  ),
                     "query" => array(
                       "location" => "query",
                       "type" => "string",
-                      'required' => true,
+                  ),
+                    "scoring" => array(
+                      "location" => "query",
+                      "type" => "string",
+                  ),
+                    "cursor" => array(
+                      "location" => "query",
+                      "type" => "integer",
+                  ),
+                    "prefixed" => array(
+                      "location" => "query",
+                      "type" => "boolean",
+                  ),
+                    "exact" => array(
+                      "location" => "query",
+                      "type" => "boolean",
+                  ),
+                    "mid" => array(
+                      "location" => "query",
+                      "type" => "string",
+                      'repeated' => true,
+                  ),
+                    "encode" => array(
+                      "location" => "query",
+                      "type" => "string",
+                  ),
+                    "type" => array(
+                      "location" => "query",
+                      "type" => "string",
+                      'repeated' => true,
                   ),
                     "as_of_time" => array(
                       "location" => "query",
                       "type" => "string",
                   ),
-                    "callback" => array(
-                      "location" => "query",
-                      "type" => "string",
-                  ),
-                    "cost" => array(
+                    "stemmed" => array(
                       "location" => "query",
                       "type" => "boolean",
                   ),
-                    "cursor" => array(
+                    "format" => array(
                       "location" => "query",
                       "type" => "string",
                   ),
-                    "dateline" => array(
+                    "spell" => array(
                       "location" => "query",
                       "type" => "string",
                   ),
-                    "html_escape" => array(
+                    "with" => array(
                       "location" => "query",
-                      "type" => "boolean",
-                  ),
-                    "indent" => array(
-                      "location" => "query",
-                      "type" => "integer",
+                      "type" => "string",
+                      'repeated' => true,
                   ),
                     "lang" => array(
                       "location" => "query",
                       "type" => "string",
+                      'repeated' => true,
                   ),
-                    "uniqueness_failure" => array(
+                    "indent" => array(
+                      "location" => "query",
+                      "type" => "boolean",
+                  ),
+                    "filter" => array(
                       "location" => "query",
                       "type" => "string",
-                  ),
-                  ),
-              ),"mqlwrite" => array(
-                'path' => "mqlwrite",
-                'httpMethod' => "GET",
-                'parameters' => array(
-                    "query" => array(
-                      "location" => "query",
-                      "type" => "string",
-                      'required' => true,
+                      'repeated' => true,
                   ),
                     "callback" => array(
                       "location" => "query",
                       "type" => "string",
                   ),
-                    "dateline" => array(
+                    "without" => array(
                       "location" => "query",
                       "type" => "string",
+                      'repeated' => true,
                   ),
-                    "indent" => array(
+                    "limit" => array(
                       "location" => "query",
                       "type" => "integer",
                   ),
-                    "use_permission_of" => array(
+                    "output" => array(
+                      "location" => "query",
+                      "type" => "string",
+                  ),
+                    "mql_output" => array(
                       "location" => "query",
                       "type" => "string",
                   ),
@@ -242,484 +201,297 @@ class Google_Service_Freebase extends Google_Service
     );
   }
   /**
-   * Returns the scaled/cropped image attached to a freebase node. (image)
+   * Reconcile entities to Freebase open data. (reconcile)
    *
-   * @param string $id
-   * Freebase entity or content id, mid, or guid.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string fallbackid
-   * Use the image associated with this secondary id if no image is associated with the primary id.
-   * @opt_param string maxheight
-   * Maximum height in pixels for resulting image.
-   * @opt_param string maxwidth
-   * Maximum width in pixels for resulting image.
-   * @opt_param string mode
-   * Method used to scale or crop image.
-   * @opt_param bool pad
-   * A boolean specifying whether the resulting image should be padded up to the requested
-    * dimensions.
+   * @opt_param string lang
+   * Languages for names and values. First language is used for display. Default is 'en'.
+   * @opt_param float confidence
+   * Required confidence for a candidate to match. Must be between .5 and 1.0
+   * @opt_param string name
+   * Name of entity.
+   * @opt_param string kind
+   * Classifications of entity e.g. type, category, title.
+   * @opt_param string prop
+   * Property values for entity formatted as
+  :
+   * @opt_param int limit
+   * Maximum number of candidates to return.
+   * @return Google_Service_Freebase_ReconcileGet
    */
-  public function image($id, $optParams = array())
+  public function reconcile($optParams = array())
   {
-    $params = array('id' => $id);
+    $params = array();
     $params = array_merge($params, $optParams);
-    return $this->call('image', array($params));
+    return $this->base_methods->call('reconcile', array($params), "Google_Service_Freebase_ReconcileGet");
   }
   /**
-   * Performs MQL Queries. (mqlread)
+   * Search Freebase open data. (search)
    *
-   * @param string $query
-   * An envelope containing a single MQL query.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string domain
+   * Restrict to topics with this Freebase domain id.
+   * @opt_param string help
+   * The keyword to request help on.
+   * @opt_param string query
+   * Query term to search for.
+   * @opt_param string scoring
+   * Relevance scoring algorithm to use.
+   * @opt_param int cursor
+   * The cursor value to use for the next page of results.
+   * @opt_param bool prefixed
+   * Prefix match against names and aliases.
+   * @opt_param bool exact
+   * Query on exact name and keys only.
+   * @opt_param string mid
+   * A mid to use instead of a query.
+   * @opt_param string encode
+   * The encoding of the response. You can use this parameter to enable html encoding.
+   * @opt_param string type
+   * Restrict to topics with this Freebase type id.
    * @opt_param string as_of_time
-   * Run the query as it would've been run at the specified point in time.
-   * @opt_param string callback
-   * JS method name for JSONP callbacks.
-   * @opt_param bool cost
-   * Show the costs or not.
-   * @opt_param string cursor
-   * The mql cursor.
-   * @opt_param string dateline
-   * The dateline that you get in a mqlwrite response to ensure consistent results.
-   * @opt_param bool html_escape
-   * Whether or not to escape entities.
-   * @opt_param string indent
-   * How many spaces to indent the json.
-   * @opt_param string lang
-   * The language of the results - an id of a /type/lang object.
-   * @opt_param string uniqueness_failure
-   * How MQL responds to uniqueness failures.
-   */
-  public function mqlread($query, $optParams = array())
-  {
-    $params = array('query' => $query);
-    $params = array_merge($params, $optParams);
-    return $this->call('mqlread', array($params));
-  }
-  /**
-   * Performs MQL Write Operations. (mqlwrite)
-   *
-   * @param string $query
-   * An MQL query with write directives.
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string callback
-   * JS method name for JSONP callbacks.
-   * @opt_param string dateline
-   * The dateline that you get in a mqlwrite response to ensure consistent results.
-   * @opt_param string indent
-   * How many spaces to indent the json.
-   * @opt_param string use_permission_of
-   * Use the same permission node of the object with the specified id.
-   */
-  public function mqlwrite($query, $optParams = array())
-  {
-    $params = array('query' => $query);
-    $params = array_merge($params, $optParams);
-    return $this->call('mqlwrite', array($params));
-  }
-}
-
-
-/**
- * The "text" collection of methods.
- * Typical usage is:
- *  <code>
- *   $freebaseService = new Google_Service_Freebase(...);
- *   $text = $freebaseService->text;
- *  </code>
- */
-class Google_Service_Freebase_Text_Resource extends Google_Service_Resource
-{
-
-  /**
-   * Returns blob attached to node at specified id as HTML (text.get)
-   *
-   * @param string $id
-   * The id of the item that you want data about
-   * @param array $optParams Optional parameters.
-   *
+   * A mql as_of_time value to use with mql_output queries.
+   * @opt_param bool stemmed
+   * Query on stemmed names and aliases. May not be used with prefixed.
    * @opt_param string format
-   * Sanitizing transformation.
-   * @opt_param string maxlength
-   * The max number of characters to return. Valid only for 'plain' format.
-   * @return Google_Service_Freebase_ContentserviceGet
-   */
-  public function get($id, $optParams = array())
-  {
-    $params = array('id' => $id);
-    $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Freebase_ContentserviceGet");
-  }
-}
-
-/**
- * The "topic" collection of methods.
- * Typical usage is:
- *  <code>
- *   $freebaseService = new Google_Service_Freebase(...);
- *   $topic = $freebaseService->topic;
- *  </code>
- */
-class Google_Service_Freebase_Topic_Resource extends Google_Service_Resource
-{
-
-  /**
-   * Get properties and meta-data about a topic. (topic.lookup)
-   *
-   * @param string $id
-   * The id of the item that you want data about.
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string dateline
-   * Determines how up-to-date the data returned is. A unix epoch time, a guid or a 'now'
-   * @opt_param string filter
-   * A frebase domain, type or property id, 'suggest', 'commons', or 'all'. Filter the results and
-    * returns only appropriate properties.
+   * Structural format of the json response.
+   * @opt_param string spell
+   * Request 'did you mean' suggestions
+   * @opt_param string with
+   * A rule to match against.
    * @opt_param string lang
-   * The language you 'd like the content in - a freebase /type/lang language key.
-   * @opt_param string limit
-   * The maximum number of property values to return for each property.
-   * @opt_param bool raw
-   * Do not apply any constraints, or get any names.
-   * @return Google_Service_Freebase_TopicLookup
+   * The code of the language to run the query with. Default is 'en'.
+   * @opt_param bool indent
+   * Whether to indent the json results or not.
+   * @opt_param string filter
+   * A filter to apply to the query.
+   * @opt_param string callback
+   * JS method name for JSONP callbacks.
+   * @opt_param string without
+   * A rule to not match against.
+   * @opt_param int limit
+   * Maximum number of results to return.
+   * @opt_param string output
+   * An output expression to request data from matches.
+   * @opt_param string mql_output
+   * The MQL query to run againist the results to extract more data.
    */
-  public function lookup($id, $optParams = array())
+  public function search($optParams = array())
   {
-    $params = array('id' => $id);
+    $params = array();
     $params = array_merge($params, $optParams);
-    return $this->call('lookup', array($params), "Google_Service_Freebase_TopicLookup");
+    return $this->call('search', array($params));
   }
 }
 
 
 
 
-class Google_Service_Freebase_ContentserviceGet extends Google_Model
-{
-  public $result;
-  public function setResult($result)
-  {
-    $this->result = $result;
-  }
-  public function getResult()
-  {
-    return $this->result;
-  }
-}
 
-class Google_Service_Freebase_TopicLookup extends Google_Model
+class Google_Service_Freebase_ReconcileCandidate extends Google_Model
 {
-  public $id;
-  protected $propertyType = 'Google_Service_Freebase_TopicLookupProperty';
-  protected $propertyDataType = '';
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  public function getId()
-  {
-    return $this->id;
-  }
-  public function setProperty(Google_Service_Freebase_TopicLookupProperty $property)
-  {
-    $this->property = $property;
-  }
-  public function getProperty()
-  {
-    return $this->property;
-  }
-}
-
-class Google_Service_Freebase_TopicLookupProperty extends Google_Model
-{
-  protected $__freebase__object_profile__linkcountType = 'Google_Service_Freebase_TopicStatslinkcount';
-  protected $__freebase__object_profile__linkcountDataType = '';
-  public function set__freebase__object_profile__linkcount(Google_Service_Freebase_TopicStatslinkcount $__freebase__object_profile__linkcount)
-  {
-    $this->__freebase__object_profile__linkcount = $__freebase__object_profile__linkcount;
-  }
-  public function get__freebase__object_profile__linkcount()
-  {
-    return $this->__freebase__object_profile__linkcount;
-  }
-}
-
-class Google_Service_Freebase_TopicPropertyvalue extends Google_Collection
-{
-  public $count;
-  public $status;
-  protected $valuesType = 'Google_Service_Freebase_TopicValue';
-  protected $valuesDataType = 'array';
-  public $valuetype;
-  public function setCount($count)
-  {
-    $this->count = $count;
-  }
-  public function getCount()
-  {
-    return $this->count;
-  }
-  public function setStatus($status)
-  {
-    $this->status = $status;
-  }
-  public function getStatus()
-  {
-    return $this->status;
-  }
-  public function setValues($values)
-  {
-    $this->values = $values;
-  }
-  public function getValues()
-  {
-    return $this->values;
-  }
-  public function setValuetype($valuetype)
-  {
-    $this->valuetype = $valuetype;
-  }
-  public function getValuetype()
-  {
-    return $this->valuetype;
-  }
-}
-
-class Google_Service_Freebase_TopicStatslinkcount extends Google_Collection
-{
-  public $type;
-  protected $valuesType = 'Google_Service_Freebase_TopicStatslinkcountValues';
-  protected $valuesDataType = 'array';
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
-  public function getType()
-  {
-    return $this->type;
-  }
-  public function setValues($values)
-  {
-    $this->values = $values;
-  }
-  public function getValues()
-  {
-    return $this->values;
-  }
-}
-
-class Google_Service_Freebase_TopicStatslinkcountValues extends Google_Collection
-{
-  public $count;
-  public $id;
-  protected $valuesType = 'Google_Service_Freebase_TopicStatslinkcountValuesValues';
-  protected $valuesDataType = 'array';
-  public function setCount($count)
-  {
-    $this->count = $count;
-  }
-  public function getCount()
-  {
-    return $this->count;
-  }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  public function getId()
-  {
-    return $this->id;
-  }
-  public function setValues($values)
-  {
-    $this->values = $values;
-  }
-  public function getValues()
-  {
-    return $this->values;
-  }
-}
-
-class Google_Service_Freebase_TopicStatslinkcountValuesValues extends Google_Collection
-{
-  public $count;
-  public $id;
-  protected $valuesType = 'Google_Service_Freebase_TopicStatslinkcountValuesValuesValues';
-  protected $valuesDataType = 'array';
-  public function setCount($count)
-  {
-    $this->count = $count;
-  }
-  public function getCount()
-  {
-    return $this->count;
-  }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  public function getId()
-  {
-    return $this->id;
-  }
-  public function setValues($values)
-  {
-    $this->values = $values;
-  }
-  public function getValues()
-  {
-    return $this->values;
-  }
-}
-
-class Google_Service_Freebase_TopicStatslinkcountValuesValuesValues extends Google_Model
-{
-  public $count;
-  public $id;
-  public function setCount($count)
-  {
-    $this->count = $count;
-  }
-  public function getCount()
-  {
-    return $this->count;
-  }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  public function getId()
-  {
-    return $this->id;
-  }
-}
-
-class Google_Service_Freebase_TopicValue extends Google_Model
-{
-  protected $citationType = 'Google_Service_Freebase_TopicValueCitation';
-  protected $citationDataType = '';
-  public $creator;
-  public $dataset;
-  public $id;
+  public $confidence;
   public $lang;
-  public $project;
-  protected $propertyType = 'Google_Service_Freebase_TopicPropertyvalue';
-  protected $propertyDataType = 'map';
-  public $text;
-  public $timestamp;
-  public $value;
-  public function setCitation(Google_Service_Freebase_TopicValueCitation $citation)
+  public $mid;
+  public $name;
+  protected $notableType = 'Google_Service_Freebase_ReconcileCandidateNotable';
+  protected $notableDataType = '';
+
+  public function setConfidence($confidence)
   {
-    $this->citation = $citation;
+    $this->confidence = $confidence;
   }
-  public function getCitation()
+
+  public function getConfidence()
   {
-    return $this->citation;
+    return $this->confidence;
   }
-  public function setCreator($creator)
-  {
-    $this->creator = $creator;
-  }
-  public function getCreator()
-  {
-    return $this->creator;
-  }
-  public function setDataset($dataset)
-  {
-    $this->dataset = $dataset;
-  }
-  public function getDataset()
-  {
-    return $this->dataset;
-  }
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  public function getId()
-  {
-    return $this->id;
-  }
+  
   public function setLang($lang)
   {
     $this->lang = $lang;
   }
+
   public function getLang()
   {
     return $this->lang;
   }
-  public function setProject($project)
+  
+  public function setMid($mid)
   {
-    $this->project = $project;
+    $this->mid = $mid;
   }
-  public function getProject()
+
+  public function getMid()
   {
-    return $this->project;
+    return $this->mid;
   }
-  public function setProperty($property)
+  
+  public function setName($name)
   {
-    $this->property = $property;
+    $this->name = $name;
   }
-  public function getProperty()
+
+  public function getName()
   {
-    return $this->property;
+    return $this->name;
   }
-  public function setText($text)
+  
+  public function setNotable(Google_Service_Freebase_ReconcileCandidateNotable $notable)
   {
-    $this->text = $text;
+    $this->notable = $notable;
   }
-  public function getText()
+
+  public function getNotable()
   {
-    return $this->text;
+    return $this->notable;
   }
-  public function setTimestamp($timestamp)
-  {
-    $this->timestamp = $timestamp;
-  }
-  public function getTimestamp()
-  {
-    return $this->timestamp;
-  }
-  public function setValue($value)
-  {
-    $this->value = $value;
-  }
-  public function getValue()
-  {
-    return $this->value;
-  }
+  
 }
 
-class Google_Service_Freebase_TopicValueCitation extends Google_Model
+class Google_Service_Freebase_ReconcileCandidateNotable extends Google_Model
 {
-  public $provider;
-  public $statement;
-  public $uri;
-  public function setProvider($provider)
+  public $id;
+  public $name;
+
+  public function setId($id)
   {
-    $this->provider = $provider;
+    $this->id = $id;
   }
-  public function getProvider()
+
+  public function getId()
   {
-    return $this->provider;
+    return $this->id;
   }
-  public function setStatement($statement)
+  
+  public function setName($name)
   {
-    $this->statement = $statement;
+    $this->name = $name;
   }
-  public function getStatement()
+
+  public function getName()
   {
-    return $this->statement;
+    return $this->name;
   }
-  public function setUri($uri)
+  
+}
+
+class Google_Service_Freebase_ReconcileGet extends Google_Collection
+{
+  protected $candidateType = 'Google_Service_Freebase_ReconcileCandidate';
+  protected $candidateDataType = 'array';
+  protected $costsType = 'Google_Service_Freebase_ReconcileGetCosts';
+  protected $costsDataType = '';
+  protected $matchType = 'Google_Service_Freebase_ReconcileCandidate';
+  protected $matchDataType = '';
+  protected $warningType = 'Google_Service_Freebase_ReconcileGetWarning';
+  protected $warningDataType = 'array';
+
+  public function setCandidate($candidate)
   {
-    $this->uri = $uri;
+    $this->candidate = $candidate;
   }
-  public function getUri()
+
+  public function getCandidate()
   {
-    return $this->uri;
+    return $this->candidate;
   }
+  
+  public function setCosts(Google_Service_Freebase_ReconcileGetCosts $costs)
+  {
+    $this->costs = $costs;
+  }
+
+  public function getCosts()
+  {
+    return $this->costs;
+  }
+  
+  public function setMatch(Google_Service_Freebase_ReconcileCandidate $match)
+  {
+    $this->match = $match;
+  }
+
+  public function getMatch()
+  {
+    return $this->match;
+  }
+  
+  public function setWarning($warning)
+  {
+    $this->warning = $warning;
+  }
+
+  public function getWarning()
+  {
+    return $this->warning;
+  }
+  
+}
+
+class Google_Service_Freebase_ReconcileGetCosts extends Google_Model
+{
+  public $hits;
+  public $ms;
+
+  public function setHits($hits)
+  {
+    $this->hits = $hits;
+  }
+
+  public function getHits()
+  {
+    return $this->hits;
+  }
+  
+  public function setMs($ms)
+  {
+    $this->ms = $ms;
+  }
+
+  public function getMs()
+  {
+    return $this->ms;
+  }
+  
+}
+
+class Google_Service_Freebase_ReconcileGetWarning extends Google_Model
+{
+  public $location;
+  public $message;
+  public $reason;
+
+  public function setLocation($location)
+  {
+    $this->location = $location;
+  }
+
+  public function getLocation()
+  {
+    return $this->location;
+  }
+  
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+
+  public function getMessage()
+  {
+    return $this->message;
+  }
+  
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+
+  public function getReason()
+  {
+    return $this->reason;
+  }
+  
 }
