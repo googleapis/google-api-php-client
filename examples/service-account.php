@@ -16,7 +16,6 @@
  */
 session_start();
 include_once "templates/base.php";
-echo page_header("Service Account Access");
 
 /************************************************
   Make an API request authenticated with a service
@@ -27,40 +26,47 @@ require_once 'Google/Client.php';
 require_once 'Google/Service/Books.php';
 
 /************************************************
-  ATTENTION: Fill in these values! You can get 
-  them by creating a new Service Account in the 
-  API console. Be sure to store the key file 
+  ATTENTION: Fill in these values! You can get
+  them by creating a new Service Account in the
+  API console. Be sure to store the key file
   somewhere you can get to it - though in real
-  operations you'd want to make sure it wasn't 
+  operations you'd want to make sure it wasn't
   accessible from the webserver!
-  The name is the email address value provided 
-  as part of the service account (not your 
+  The name is the email address value provided
+  as part of the service account (not your
   address!)
-  Make sure the Books API is enabled on this 
+  Make sure the Books API is enabled on this
   account as well, or the call will fail.
  ************************************************/
 $client_id = '<YOUR_CLIENT_ID>';
 $service_account_name = '';
 $key_file_location = '';
 
+echo pageHeader("Service Account Access");
+if ($client_id == '<YOUR_CLIENT_ID>'
+    || !strlen($service_account_name)
+    || !strlen($key_file_location)) {
+  echo missingServiceAccountDetailsWarning();
+}
+
 $client = new Google_Client();
 $client->setApplicationName("Client_Library_Examples");
 $service = new Google_Service_Books($client);
 
 /************************************************
-  If we have an access token, we can carry on. 
+  If we have an access token, we can carry on.
   Otherwise, we'll get one with the help of an
   assertion credential. In other examples the list
   of scopes was managed by the Client, but here
   we have to list them manually. We also supply
-  the service account 
+  the service account
  ************************************************/
 if (isset($_SESSION['service_token'])) {
   $client->setAccessToken($_SESSION['access_token']);
 } else {
   $key = file_get_contents($key_file_location);
   $cred = new Google_Auth_AssertionCredentials(
-      $service_account_name, 
+      $service_account_name,
       array('https://www.googleapis.com/auth/books'),
       $key
   );
@@ -72,7 +78,7 @@ if (isset($_SESSION['service_token'])) {
 }
 
 /************************************************
-  We're just going to make the same call as in the 
+  We're just going to make the same call as in the
   simple query as an example.
  ************************************************/
 $optParams = array('filter' => 'free-ebooks');
@@ -82,4 +88,4 @@ foreach ($results as $item) {
   echo $item['volumeInfo']['title'], "<br /> \n";
 }
 
-echo page_footer(__FILE__);
+echo pageFooter(__FILE__);

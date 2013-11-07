@@ -34,7 +34,7 @@ if (true || !file_exists(TESTFILE)) {
 }
 
 /************************************************
-  ATTENTION: Fill in these values! Make sure 
+  ATTENTION: Fill in these values! Make sure
   the redirect URI is to this page, e.g:
   http://localhost:8080/fileupload.php
  ************************************************/
@@ -72,27 +72,39 @@ if (isset($_SESSION['upload_token']) && $_SESSION['upload_token']) {
   If we're signed in then lets try to upload our
   file. For larger files, see fileupload.php.
  ************************************************/
-$stati = array();
 if ($client->getAccessToken()) {
   // This is uploading a file directly, with no metadata associated.
   $file = new Google_Service_Drive_DriveFile();
-  $result = $service->files->insert($file, array(
-    'data' => file_get_contents(TESTFILE), 
-    'mimeType' => 'application/octet-stream',
-    'uploadType' => 'media'
-  ));
-  
+  $result = $service->files->insert(
+      $file,
+      array(
+        'data' => file_get_contents(TESTFILE),
+        'mimeType' => 'application/octet-stream',
+        'uploadType' => 'media'
+      )
+  );
+
   // Now lets try and send a the metadata as well using multipart!
   $file = new Google_Service_Drive_DriveFile();
   $file->setTitle("Hello World!");
-  $result2 = $service->files->insert($file, array(
-    'data' => file_get_contents(TESTFILE), 
-    'mimeType' => 'application/octet-stream',
-    'uploadType' => 'multipart'
-  ));
+  $result2 = $service->files->insert(
+      $file,
+      array(
+        'data' => file_get_contents(TESTFILE),
+        'mimeType' => 'application/octet-stream',
+        'uploadType' => 'multipart'
+      )
+  );
+}
+
+echo pageHeader("File Upload - Uploading a small file");
+if (
+    $client_id == '<YOUR_CLIENT_ID>'
+    || $client_secret == '<YOUR_CLIENT_SECRET>'
+    || $redirect_uri == '<YOUR_REDIRECT_URI>') {
+  echo missingClientSecretsWarning();
 }
 ?>
-<header><h1>Google Small File Upload</h1></header>
 <div class="box">
   <div class="request">
     <?php if (isset($authUrl)): ?>
@@ -108,4 +120,4 @@ if ($client->getAccessToken()) {
   <?php endif ?>
 </div>
 <?php
-echo page_footer(__FILE__);
+echo pageFooter(__FILE__);

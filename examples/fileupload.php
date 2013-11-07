@@ -34,7 +34,7 @@ if (!file_exists(TESTFILE)) {
 }
 
 /************************************************
-  ATTENTION: Fill in these values! Make sure 
+  ATTENTION: Fill in these values! Make sure
   the redirect URI is to this page, e.g:
   http://localhost:8080/fileupload.php
  ************************************************/
@@ -72,47 +72,52 @@ if (isset($_SESSION['upload_token']) && $_SESSION['upload_token']) {
   If we're signed in then lets try to upload our
   file.
  ************************************************/
-$stati = array();
 if ($client->getAccessToken()) {
   $file = new Google_Service_Drive_DriveFile();
   $file->title = "Big File";
   $chunkSizeBytes = 1 * 1024 * 1024;
-  
+
   // Call the API with the media upload, defer so it doesn't immediately return.
   $client->setDefer(true);
   $request = $service->files->insert($file);
-  
+
   // Create a media file upload to represent our upload process.
   $media = new Google_Http_MediaFileUpload(
-    $client,
-    $request,
-    'text/plain',
-    null,
-    true,
-    $chunkSizeBytes
+      $client,
+      $request,
+      'text/plain',
+      null,
+      true,
+      $chunkSizeBytes
   );
   $media->setFileSize(filesize(TESTFILE));
-  
-  // Upload the various chunks. $status will be false until the process is 
-  // complete. 
+
+  // Upload the various chunks. $status will be false until the process is
+  // complete.
   $status = false;
   $handle = fopen(TESTFILE, "rb");
   while (!$status && !feof($handle)) {
     $chunk = fread($handle, $chunkSizeBytes);
     $status = $media->nextChunk($chunk);
   }
-  
+
   // The final value of $status will be the data from the API for the object
-  // that has been uploaded. 
+  // that has been uploaded.
   $result = false;
-  if($status != false) {
+  if ($status != false) {
     $result = $status;
   }
 
   fclose($handle);
 }
+echo pageHeader("File Upload - Uploading a large file");
+if (
+    $client_id == '<YOUR_CLIENT_ID>'
+    || $client_secret == '<YOUR_CLIENT_SECRET>'
+    || $redirect_uri == '<YOUR_REDIRECT_URI>') {
+  echo missingClientSecretsWarning();
+}
 ?>
-<header><h1>Google Large File Upload</h1></header>
 <div class="box">
   <div class="request">
     <?php if (isset($authUrl)): ?>
@@ -127,4 +132,4 @@ if ($client->getAccessToken()) {
   <?php endif ?>
 </div>
 <?php
-echo page_footer(__FILE__);
+echo pageFooter(__FILE__);

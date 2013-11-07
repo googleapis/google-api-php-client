@@ -82,13 +82,18 @@ if ($client->getAccessToken()) {
 
   $yt_channels = $yt_service->channels->listChannels('contentDetails', array("mine" => true));
   $likePlaylist = $yt_channels[0]->contentDetails->relatedPlaylists->likes;
-  $yt_results = $yt_service->playlistItems->listPlaylistItems("snippet", array("playlistId" => $likePlaylist));
+  $yt_results = $yt_service->playlistItems->listPlaylistItems(
+      "snippet",
+      array("playlistId" => $likePlaylist)
+  );
 }
 
-echo page_header("User Query - Multiple APIs");
-if($client_id == '') {
-  echo "<h3 class='warn'>Warning: You need to set up a OAuth 2.0 client from <a " .
-    "href='http://developers.google.com/console'>API console</a></h3>";
+echo pageHeader("User Query - Multiple APIs");
+if (
+    $client_id == '<YOUR_CLIENT_ID>'
+    || $client_secret == '<YOUR_CLIENT_SECRET>'
+    || $redirect_uri == '<YOUR_REDIRECT_URI>') {
+  echo missingClientSecretsWarning();
 }
 ?>
 <div class="box">
@@ -100,7 +105,7 @@ if($client_id == '') {
       foreach ($dr_results as $item) {
         echo $item->title, "<br /> \n";
       }
-      
+
       echo "<h3>Results Of YouTube Likes:</h3>";
       foreach ($yt_results as $item) {
         echo $item['snippet']['title'], "<br /> \n";
@@ -108,4 +113,4 @@ if($client_id == '') {
     } ?>
   </div>
 </div>
-<?php echo page_footer(__FILE__);
+<?php echo pageFooter(__FILE__);

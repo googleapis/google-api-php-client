@@ -25,9 +25,9 @@ require_once 'Google/Client.php';
   the redirect URI is to this page, e.g:
   http://localhost:8080/user-example.php
  ************************************************/
- $client_id = '<YOUR_CLIENT_ID>';
- $client_secret = '<YOUR_CLIENT_SECRET>';
- $redirect_uri = '<YOUR_REDIRECT_URI>';
+$client_id = '<YOUR_CLIENT_ID>';
+$client_secret = '<YOUR_CLIENT_SECRET>';
+$redirect_uri = '<YOUR_REDIRECT_URI>';
 
 $client = new Google_Client();
 $client->setClientId($client_id);
@@ -79,13 +79,14 @@ if ($client->getAccessToken()) {
   $token_data = $client->verifyIdToken()->getAttributes();
 }
 
-echo page_header("User Query - Retrieving An Id Token");
-if($client_id == '') {
-  echo "<h3 class='warn'>Warning: You need to set up a OAuth 2.0 client from <a " .
-    "href='http://developers.google.com/console'>API console</a></h3>";
+echo pageHeader("User Query - Retrieving An Id Token");
+if (
+    $client_id == '<YOUR_CLIENT_ID>'
+    || $client_secret == '<YOUR_CLIENT_SECRET>'
+    || $redirect_uri == '<YOUR_REDIRECT_URI>') {
+  echo missingClientSecretsWarning();
 }
 ?>
-<header><h1>Google ID Token Sample App</h1></header>
 <div class="box">
   <div class="request">
     <?php if (isset($authUrl)): ?>
@@ -102,4 +103,4 @@ if($client_id == '') {
   <?php endif ?>
 </div>
 <?php
-echo page_footer(__FILE__);
+echo pageFooter(__FILE__);

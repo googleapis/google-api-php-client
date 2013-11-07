@@ -98,13 +98,14 @@ if ($client->getAccessToken() && isset($_GET['url'])) {
   $_SESSION['access_token'] = $client->getAccessToken();
 }
 
-echo page_header("User Query - URL Shortener");
-if($client_id == '') {
-  echo "<h3 class='warn'>Warning: You need to set up a OAuth 2.0 client from <a " .
-    "href='http://developers.google.com/console'>API console</a></h3>";
+echo pageHeader("User Query - URL Shortener");
+if (
+    $client_id == '<YOUR_CLIENT_ID>'
+    || $client_secret == '<YOUR_CLIENT_SECRET>'
+    || $redirect_uri == '<YOUR_REDIRECT_URI>') {
+  echo missingClientSecretsWarning();
 }
 ?>
-<header><h1>Google Url Shortener Sample App</h1></header>
 <div class="box">
   <div class="request">
     <?php if (isset($authUrl)): ?>
@@ -125,4 +126,4 @@ if($client_id == '') {
   <?php endif ?>
 </div>
 <?php
-echo page_footer(__FILE__);
+echo pageFooter(__FILE__);

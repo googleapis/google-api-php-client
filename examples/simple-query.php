@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 include_once "templates/base.php";
-echo page_header("Simple API Access");
+echo pageHeader("Simple API Access");
 
 /************************************************
-  Make a simple API request using a key. In this 
+  Make a simple API request using a key. In this
   example we're not making a request as a
   specific user, but simply indicating that the
   request comes from our application, and hence
-  should use our quota, which is higher than the 
+  should use our quota, which is higher than the
   anonymous quota (which is limited per IP).
  ************************************************/
 set_include_path("../src/" . PATH_SEPARATOR . get_include_path());
@@ -30,36 +30,35 @@ require_once 'Google/Client.php';
 require_once 'Google/Service/Books.php';
 
 /************************************************
-  We create the client and set the simple API 
-  access key. If you comment out the call to 
+  We create the client and set the simple API
+  access key. If you comment out the call to
   setDeveloperKey, the request may still succeed
   using the anonymous quota.
  ************************************************/
 $client = new Google_Client();
 $client->setApplicationName("Client_Library_Examples");
 $apiKey = "<YOUR_API_KEY>";
-if (!strlen($apiKey)) {
-  echo "<h3 class='warn'>Warning: You need to set a Simple API Access key from" 
-    . " <a href='http://developers.google.com/console'>API console</a></h3>";
+if ($apiKey == '<YOUR_API_KEY>') {
+  echo missingApiKeyWarning();
 }
 $client->setDeveloperKey($apiKey);
 
 $service = new Google_Service_Books($client);
 
 /************************************************
-  We make a call to our service, which will    
-  normally map to the structure of the API.    
-  In this case $service is Books API, the      
-  resource is volumes, and the method is       
+  We make a call to our service, which will
+  normally map to the structure of the API.
+  In this case $service is Books API, the
+  resource is volumes, and the method is
   listVolumes. We pass it a required parameters
-  (the query), and an array of named optional  
+  (the query), and an array of named optional
   parameters.
  ************************************************/
 $optParams = array('filter' => 'free-ebooks');
 $results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
 
 /************************************************
-  This call returns a list of volumes, so we 
+  This call returns a list of volumes, so we
   can iterate over them as normal with any
   array.
   Some calls will return a single item which we
@@ -85,4 +84,4 @@ foreach ($results as $item) {
   echo $item['volumeInfo']['title'], "<br /> \n";
 }
 
-echo page_footer(__FILE__);
+echo pageFooter(__FILE__);
