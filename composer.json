@@ -12,5 +12,6 @@
         "psr-0": {
             "Google": "src"
         }
-    }
+    },
+    "include-path": ["src/"]
 }
