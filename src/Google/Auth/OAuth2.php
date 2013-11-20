@@ -92,7 +92,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
   public function authenticate($code)
   {
     if (strlen($code) == 0) {
-      throw new GoogleAuth_Exception("Invalid code");
+      throw new Google_Auth_Exception("Invalid code");
     }
 
     // We got here from the redirect from a successful authorization grant,
