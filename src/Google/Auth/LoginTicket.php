@@ -24,7 +24,7 @@ require_once "Google/Auth/Exception.php";
  */
 class Google_Auth_LoginTicket
 {
-  const USER_ATTR = "id";
+  const USER_ATTR = "sub";
 
   // Information from id token envelope.
   private $envelope;

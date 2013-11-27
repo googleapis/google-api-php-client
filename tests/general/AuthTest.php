@@ -103,7 +103,7 @@ class AuthTest extends BaseTest {
     $id_token = $this->makeSignedJwt(array(
         "iss" => "federated-signon@system.gserviceaccount.com",
         "aud" => "client_id",
-        "id" => self::USER_ID,
+        "sub" => self::USER_ID,
         "iat" => time(),
         "exp" => time() + 3600));
     $certs = $this->getSignonCerts();
@@ -240,23 +240,23 @@ class AuthTest extends BaseTest {
     $this->assertEquals('scope', $jwt['scope']);
     $this->assertEquals('name', $jwt['iss']);
 
-		$key = $assertion->getCacheKey();
-		$this->assertTrue($key != false);
-		$assertion = new Google_Auth_AssertionCredentials('name2', 'scope',
+    $key = $assertion->getCacheKey();
+    $this->assertTrue($key != false);
+    $assertion = new Google_Auth_AssertionCredentials('name2', 'scope',
         file_get_contents(self::PRIVATE_KEY_FILE, true));
-		$this->assertNotEquals($key, $assertion->getCacheKey());
+    $this->assertNotEquals($key, $assertion->getCacheKey());
   }
 
-	public function testVerifySignedJWT() {
-		$assertion = new Google_Auth_AssertionCredentials('issuer', 'scope',
+  public function testVerifySignedJWT() {
+    $assertion = new Google_Auth_AssertionCredentials('issuer', 'scope',
         file_get_contents(self::PRIVATE_KEY_FILE, true));
-		$client = $this->getClient();
+    $client = $this->getClient();
 
-		$this->assertInstanceOf('Google_Auth_LoginTicket', $client->verifySignedJwt(
-				$assertion->generateAssertion(), 
-				__DIR__ . DIRECTORY_SEPARATOR .  self::PUBLIC_KEY_FILE_JSON,
-				'https://accounts.google.com/o/oauth2/token',
-				'issuer'
-			));
-	}
+    $this->assertInstanceOf('Google_Auth_LoginTicket', $client->verifySignedJwt(
+      $assertion->generateAssertion(),
+        __DIR__ . DIRECTORY_SEPARATOR .  self::PUBLIC_KEY_FILE_JSON,
+        'https://accounts.google.com/o/oauth2/token',
+        'issuer'
+      ));
+  }
 }
