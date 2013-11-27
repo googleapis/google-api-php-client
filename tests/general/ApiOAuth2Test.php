@@ -22,7 +22,6 @@ require_once "BaseTest.php";
 require_once "Google/Auth/OAuth2.php";
 require_once "Google/Http/Request.php";
 
-
 class ApiOAuth2Test extends BaseTest {
 
   public function testSign() {
@@ -76,7 +75,7 @@ class ApiOAuth2Test extends BaseTest {
         . "&approval_prompt=force";
     $this->assertEquals($expected, $authUrl);
   }
-  
+
   /**
    * Most of the logic for ID token validation is in AuthTest - 
    * this is just a general check to ensure we verify a valid
@@ -94,11 +93,13 @@ class ApiOAuth2Test extends BaseTest {
     // Extract the client ID in this case as it wont be set on the test client.
     $data = json_decode(Google_Utils::urlSafeB64Decode($segments[1]));
     $oauth = new Google_Auth_OAuth2($client);
+    $ticket = $oauth->verifyIdToken($token->id_token, $data->aud);
     $this->assertInstanceOf(
       "Google_Auth_LoginTicket",
-      $oauth->verifyIdToken($token->id_token, $data->aud)
+      $ticket
     );
-    
+    $this->assertTrue(strlen($ticket->getUserId()) > 0);
+
     // TODO(ianbarber): Need to be smart about testing/disabling the
     // caching for this test to make sense. Not sure how to do that
     // at the moment.
@@ -112,4 +113,3 @@ class ApiOAuth2Test extends BaseTest {
     );
   }
 }
- 

@@ -38,7 +38,7 @@ class Google_IO_Stream extends Google_IO_Abstract
   );
 
   /**
-   * Execute a apiHttpRequest
+   * Execute an HTTP Request
    *
    * @param Google_HttpRequest $request the http request to be executed
    * @return Google_HttpRequest http request with the response http code,

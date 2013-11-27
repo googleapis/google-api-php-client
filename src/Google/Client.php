@@ -35,7 +35,7 @@ require_once 'Google/Service/Resource.php';
  */
 class Google_Client
 {
-  const LIBVER = "1.0.0-alpha";
+  const LIBVER = "1.0.1-alpha";
   /**
    * @var Google_Auth_Abstract $auth
    */

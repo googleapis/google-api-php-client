@@ -43,7 +43,7 @@ class ApiBatchRequestTest extends BaseTest {
     $this->assertTrue(isset($result['response-key2']));
     $this->assertTrue(isset($result['response-key3']));
   }
-  
+
   public function testBatchRequest() {
     $client = $this->getClient();
     $batch = new Google_Http_Batch($client);
@@ -58,5 +58,20 @@ class ApiBatchRequestTest extends BaseTest {
     $this->assertTrue(isset($result['response-key1']));
     $this->assertTrue(isset($result['response-key2']));
     $this->assertTrue(isset($result['response-key3']));
+  }
+
+  public function testInvalidBatchRequest() {
+    $client = $this->getClient();
+    $batch = new Google_Http_Batch($client);
+    $this->plus = new Google_Service_Plus($client);
+
+    $client->setUseBatch(true);
+    $batch->add($this->plus->people->get('123456789987654321'), 'key1');
+    $batch->add($this->plus->people->get('+LarryPage'), 'key2');
+
+    $result = $batch->execute();
+    $this->assertTrue(isset($result['response-key2']));
+    $this->assertInstanceOf('Google_Service_Exception',
+                            $result['response-key1']);
   }
 }
