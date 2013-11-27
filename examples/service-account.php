@@ -62,7 +62,7 @@ $service = new Google_Service_Books($client);
   the service account
  ************************************************/
 if (isset($_SESSION['service_token'])) {
-  $client->setAccessToken($_SESSION['access_token']);
+  $client->setAccessToken($_SESSION['service_token']);
 } else {
   $key = file_get_contents($key_file_location);
   $cred = new Google_Auth_AssertionCredentials(
