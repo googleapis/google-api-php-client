@@ -175,8 +175,8 @@ class Google_Client
   public function prepareScopes()
   {
     if (empty($this->requestedScopes)) {
-      foreach ($this->availableScopes as $service => $serviceScopes) {
-        array_push($this->requestedScopes, $serviceScopes[0]);
+      foreach ($this->availableScopes as $service => &$serviceScopes) {
+          $this->requestedScopes = array_merge($this->requestedScopes, $serviceScopes);
       }
     }
     $scopes = implode(' ', $this->requestedScopes);
