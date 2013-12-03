@@ -38,12 +38,12 @@ class Google_IO_Stream extends Google_IO_Abstract
   );
 
   /**
-   * Execute a apiHttpRequest
+   * Execute an HTTP Request
    *
    * @param Google_HttpRequest $request the http request to be executed
    * @return Google_HttpRequest http request with the response http code,
    * response headers and response body filled in
-   * @throws Google_IOException on curl or IO error
+   * @throws Google_IO_Exception on curl or IO error
    */
   public function makeRequest(Google_Http_Request $request)
   {
@@ -109,7 +109,7 @@ class Google_IO_Stream extends Google_IO_Abstract
     );
 
     if (false === $response_data) {
-      throw new Google_IOException("HTTP Error: Unable to connect");
+      throw new Google_IO_Exception("HTTP Error: Unable to connect");
     }
 
     $respHttpCode = $this->getHttpResponseCode($http_response_header);
