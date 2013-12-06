@@ -499,6 +499,10 @@ class Google_Service_Calendar extends Google_Service
                   "location" => "query",
                   "type" => "boolean",
               ),
+                "timeMax" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
                 "alwaysIncludeEmail" => array(
                   "location" => "query",
                   "type" => "boolean",
@@ -523,9 +527,15 @@ class Google_Service_Calendar extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "timeMax" => array(
+                "privateExtendedProperty" => array(
                   "location" => "query",
                   "type" => "string",
+                  'repeated' => true,
+              ),
+                "sharedExtendedProperty" => array(
+                  "location" => "query",
+                  "type" => "string",
+                  'repeated' => true,
               ),
                 "maxAttendees" => array(
                   "location" => "query",
@@ -662,6 +672,10 @@ class Google_Service_Calendar extends Google_Service
                   "location" => "query",
                   "type" => "boolean",
               ),
+                "timeMax" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
                 "alwaysIncludeEmail" => array(
                   "location" => "query",
                   "type" => "boolean",
@@ -686,9 +700,15 @@ class Google_Service_Calendar extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "timeMax" => array(
+                "privateExtendedProperty" => array(
                   "location" => "query",
                   "type" => "string",
+                  'repeated' => true,
+              ),
+                "sharedExtendedProperty" => array(
+                  "location" => "query",
+                  "type" => "string",
+                  'repeated' => true,
               ),
                 "maxAttendees" => array(
                   "location" => "query",
@@ -1282,6 +1302,9 @@ class Google_Service_Calendar_Events_Resource extends Google_Service_Resource
    * Whether to expand recurring events into instances and only return single one-off events and
     * instances of recurring events, but not the underlying recurring events themselves. Optional. The
     * default is False.
+   * @opt_param string timeMax
+   * Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to
+    * filter by start time.
    * @opt_param bool alwaysIncludeEmail
    * Whether to always include a value in the "email" field for the organizer, creator and attendees,
     * even if no real email is available (i.e. a generated, non-working value will be provided). The
@@ -1299,9 +1322,14 @@ class Google_Service_Calendar_Events_Resource extends Google_Service_Resource
     * filter by end time.
    * @opt_param string timeZone
    * Time zone used in the response. Optional. The default is the time zone of the calendar.
-   * @opt_param string timeMax
-   * Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to
-    * filter by start time.
+   * @opt_param string privateExtendedProperty
+   * Extended properties constraint specified as propertyName=value. Matches only private properties.
+    * This parameter might be repeated multiple times to return events that match all given
+    * constraints.
+   * @opt_param string sharedExtendedProperty
+   * Extended properties constraint specified as propertyName=value. Matches only shared properties.
+    * This parameter might be repeated multiple times to return events that match all given
+    * constraints.
    * @opt_param int maxAttendees
    * The maximum number of attendees to include in the response. If there are more than the specified
     * number of attendees, only the participant is returned. Optional.
@@ -1441,6 +1469,9 @@ class Google_Service_Calendar_Events_Resource extends Google_Service_Resource
    * Whether to expand recurring events into instances and only return single one-off events and
     * instances of recurring events, but not the underlying recurring events themselves. Optional. The
     * default is False.
+   * @opt_param string timeMax
+   * Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to
+    * filter by start time.
    * @opt_param bool alwaysIncludeEmail
    * Whether to always include a value in the "email" field for the organizer, creator and attendees,
     * even if no real email is available (i.e. a generated, non-working value will be provided). The
@@ -1458,9 +1489,14 @@ class Google_Service_Calendar_Events_Resource extends Google_Service_Resource
     * filter by end time.
    * @opt_param string timeZone
    * Time zone used in the response. Optional. The default is the time zone of the calendar.
-   * @opt_param string timeMax
-   * Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to
-    * filter by start time.
+   * @opt_param string privateExtendedProperty
+   * Extended properties constraint specified as propertyName=value. Matches only private properties.
+    * This parameter might be repeated multiple times to return events that match all given
+    * constraints.
+   * @opt_param string sharedExtendedProperty
+   * Extended properties constraint specified as propertyName=value. Matches only shared properties.
+    * This parameter might be repeated multiple times to return events that match all given
+    * constraints.
    * @opt_param int maxAttendees
    * The maximum number of attendees to include in the response. If there are more than the specified
     * number of attendees, only the participant is returned. Optional.
