@@ -4997,6 +4997,7 @@ class Google_Service_Books_VolumeAccessInfo extends Google_Model
   protected $pdfType = 'Google_Service_Books_VolumeAccessInfoPdf';
   protected $pdfDataType = '';
   public $publicDomain;
+  public $quoteSharingAllowed;
   public $textToSpeechPermission;
   public $viewOrderUrl;
   public $viewability;
@@ -5080,6 +5081,16 @@ class Google_Service_Books_VolumeAccessInfo extends Google_Model
   public function getPublicDomain()
   {
     return $this->publicDomain;
+  }
+  
+  public function setQuoteSharingAllowed($quoteSharingAllowed)
+  {
+    $this->quoteSharingAllowed = $quoteSharingAllowed;
+  }
+
+  public function getQuoteSharingAllowed()
+  {
+    return $this->quoteSharingAllowed;
   }
   
   public function setTextToSpeechPermission($textToSpeechPermission)
