@@ -2107,6 +2107,7 @@ class Google_Service_Bigquery_JobListJobs extends Google_Model
   protected $statisticsDataType = '';
   protected $statusType = 'Google_Service_Bigquery_JobStatus';
   protected $statusDataType = '';
+  public $user_email;
 
   public function setConfiguration(Google_Service_Bigquery_JobConfiguration $configuration)
   {
@@ -2186,6 +2187,16 @@ class Google_Service_Bigquery_JobListJobs extends Google_Model
   public function getStatus()
   {
     return $this->status;
+  }
+  
+  public function setUser_email($user_email)
+  {
+    $this->user_email = $user_email;
+  }
+
+  public function getUser_email()
+  {
+    return $this->user_email;
   }
   
 }
