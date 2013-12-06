@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Compute (v1beta16).
+ * Service definition for Compute (v1).
  *
  * <p>
  * API for the Google Compute Engine service.
@@ -24,7 +24,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/compute/docs/reference/v1beta16" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/compute/docs/reference/v1" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -39,7 +39,6 @@ class Google_Service_Compute extends Google_Service
   public $httpHealthChecks;
   public $images;
   public $instances;
-  public $kernels;
   public $machineTypes;
   public $networks;
   public $projects;
@@ -60,8 +59,8 @@ class Google_Service_Compute extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->servicePath = 'compute/v1beta16/projects/';
-    $this->version = 'v1beta16';
+    $this->servicePath = 'compute/v1/projects/';
+    $this->version = 'v1';
     
     $this->availableScopes = array(
       "https://www.googleapis.com/auth/devstorage.read_only",
@@ -1110,8 +1109,8 @@ class Google_Service_Compute extends Google_Service
                   'required' => true,
               ),
               ),
-          ),"setTags" => array(
-            'path' => "{project}/zones/{zone}/instances/{instance}/setTags",
+          ),"setScheduling" => array(
+            'path' => "{project}/zones/{zone}/instances/{instance}/setScheduling",
             'httpMethod' => "POST",
             'parameters' => array(
                 "project" => array(
@@ -1130,51 +1129,24 @@ class Google_Service_Compute extends Google_Service
                   'required' => true,
               ),
               ),
-          ),
-        )
-    )
-    );
-    $this->kernels = new Google_Service_Compute_Kernels_Resource(
-        $this,
-        $this->serviceName,
-        'kernels',
-        array(
-    'methods' => array(
-          "get" => array(
-            'path' => "{project}/global/kernels/{kernel}",
-            'httpMethod' => "GET",
+          ),"setTags" => array(
+            'path' => "{project}/zones/{zone}/instances/{instance}/setTags",
+            'httpMethod' => "POST",
             'parameters' => array(
                 "project" => array(
                   "location" => "path",
                   "type" => "string",
                   'required' => true,
               ),
-                "kernel" => array(
+                "zone" => array(
                   "location" => "path",
                   "type" => "string",
                   'required' => true,
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/global/kernels",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
+                "instance" => array(
                   "location" => "path",
                   "type" => "string",
                   'required' => true,
-              ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
               ),
               ),
           ),
@@ -2010,7 +1982,8 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_AddressAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -2089,7 +2062,8 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_AddressList
    */
   public function listAddresses($project, $region, $optParams = array())
@@ -2124,7 +2098,8 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_DiskAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -2225,7 +2200,8 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_DiskList
    */
   public function listDisks($project, $zone, $optParams = array())
@@ -2309,7 +2285,8 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_FirewallList
    */
   public function listFirewalls($project, $optParams = array())
@@ -2381,7 +2358,8 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_ForwardingRuleAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -2460,7 +2438,8 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_ForwardingRuleList
    */
   public function listForwardingRules($project, $region, $optParams = array())
@@ -2515,7 +2494,8 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_OperationAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -2569,7 +2549,8 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_OperationList
    */
   public function listGlobalOperations($project, $optParams = array())
@@ -2653,7 +2634,8 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_HttpHealthCheckList
    */
   public function listHttpHealthChecks($project, $optParams = array())
@@ -2792,7 +2774,8 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_ImageList
    */
   public function listImages($project, $optParams = array())
@@ -2849,7 +2832,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_InstanceAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -3009,7 +2993,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_InstanceList
    */
   public function listInstances($project, $zone, $optParams = array())
@@ -3057,6 +3042,25 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
     return $this->call('setMetadata', array($params), "Google_Service_Compute_Operation");
   }
   /**
+   * Sets an instance's scheduling options. (instances.setScheduling)
+   *
+   * @param string $project
+   * Project name.
+   * @param string $zone
+   * Name of the zone scoping this request.
+   * @param string $instance
+   * Instance name.
+   * @param Google_Scheduling $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function setScheduling($project, $zone, $instance, Google_Service_Compute_Scheduling $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instance' => $instance, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setScheduling', array($params), "Google_Service_Compute_Operation");
+  }
+  /**
    * Sets tags for the specified instance to the data included in the request.
    * (instances.setTags)
    *
@@ -3075,58 +3079,6 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
     $params = array('project' => $project, 'zone' => $zone, 'instance' => $instance, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('setTags', array($params), "Google_Service_Compute_Operation");
-  }
-}
-
-/**
- * The "kernels" collection of methods.
- * Typical usage is:
- *  <code>
- *   $computeService = new Google_Service_Compute(...);
- *   $kernels = $computeService->kernels;
- *  </code>
- */
-class Google_Service_Compute_Kernels_Resource extends Google_Service_Resource
-{
-
-  /**
-   * Returns the specified kernel resource. (kernels.get)
-   *
-   * @param string $project
-   * Name of the project scoping this request.
-   * @param string $kernel
-   * Name of the kernel resource to return.
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Compute_Kernel
-   */
-  public function get($project, $kernel, $optParams = array())
-  {
-    $params = array('project' => $project, 'kernel' => $kernel);
-    $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Compute_Kernel");
-  }
-  /**
-   * Retrieves the list of kernel resources available to the specified project.
-   * (kernels.list)
-   *
-   * @param string $project
-   * Name of the project scoping this request.
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string filter
-   * Optional. Filter expression for filtering listed resources.
-   * @opt_param string pageToken
-   * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
-    * previous list request.
-   * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
-   * @return Google_Service_Compute_KernelList
-   */
-  public function listKernels($project, $optParams = array())
-  {
-    $params = array('project' => $project);
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Compute_KernelList");
   }
 }
 
@@ -3155,7 +3107,8 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_MachineTypeAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -3198,7 +3151,8 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_MachineTypeList
    */
   public function listMachineTypes($project, $zone, $optParams = array())
@@ -3282,7 +3236,8 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_NetworkList
    */
   public function listNetworks($project, $optParams = array())
@@ -3400,7 +3355,8 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_OperationList
    */
   public function listRegionOperations($project, $region, $optParams = array())
@@ -3452,7 +3408,8 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_RegionList
    */
   public function listRegions($project, $optParams = array())
@@ -3536,7 +3493,8 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_RouteList
    */
   public function listRoutes($project, $optParams = array())
@@ -3604,7 +3562,8 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_SnapshotList
    */
   public function listSnapshots($project, $optParams = array())
@@ -3678,7 +3637,8 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_TargetPoolAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -3777,7 +3737,8 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_TargetPoolList
    */
   public function listTargetPools($project, $region, $optParams = array())
@@ -3912,7 +3873,8 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_OperationList
    */
   public function listZoneOperations($project, $zone, $optParams = array())
@@ -3964,7 +3926,8 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
    * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
     * previous list request.
    * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum and default value is 100.
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
    * @return Google_Service_Compute_ZoneList
    */
   public function listZones($project, $optParams = array())
@@ -5686,7 +5649,6 @@ class Google_Service_Compute_Image extends Google_Model
   public $id;
   public $kind;
   public $name;
-  public $preferredKernel;
   protected $rawDiskType = 'Google_Service_Compute_ImageRawDisk';
   protected $rawDiskDataType = '';
   public $selfLink;
@@ -5761,16 +5723,6 @@ class Google_Service_Compute_Image extends Google_Model
   public function getName()
   {
     return $this->name;
-  }
-  
-  public function setPreferredKernel($preferredKernel)
-  {
-    $this->preferredKernel = $preferredKernel;
-  }
-
-  public function getPreferredKernel()
-  {
-    return $this->preferredKernel;
   }
   
   public function setRawDisk(Google_Service_Compute_ImageRawDisk $rawDisk)
@@ -5922,8 +5874,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   protected $disksType = 'Google_Service_Compute_AttachedDisk';
   protected $disksDataType = 'array';
   public $id;
-  public $image;
-  public $kernel;
   public $kind;
   public $machineType;
   protected $metadataType = 'Google_Service_Compute_Metadata';
@@ -5931,6 +5881,8 @@ class Google_Service_Compute_Instance extends Google_Collection
   public $name;
   protected $networkInterfacesType = 'Google_Service_Compute_NetworkInterface';
   protected $networkInterfacesDataType = 'array';
+  protected $schedulingType = 'Google_Service_Compute_Scheduling';
+  protected $schedulingDataType = '';
   public $selfLink;
   protected $serviceAccountsType = 'Google_Service_Compute_ServiceAccount';
   protected $serviceAccountsDataType = 'array';
@@ -5990,26 +5942,6 @@ class Google_Service_Compute_Instance extends Google_Collection
     return $this->id;
   }
   
-  public function setImage($image)
-  {
-    $this->image = $image;
-  }
-
-  public function getImage()
-  {
-    return $this->image;
-  }
-  
-  public function setKernel($kernel)
-  {
-    $this->kernel = $kernel;
-  }
-
-  public function getKernel()
-  {
-    return $this->kernel;
-  }
-  
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6058,6 +5990,16 @@ class Google_Service_Compute_Instance extends Google_Collection
   public function getNetworkInterfaces()
   {
     return $this->networkInterfaces;
+  }
+  
+  public function setScheduling(Google_Service_Compute_Scheduling $scheduling)
+  {
+    $this->scheduling = $scheduling;
+  }
+
+  public function getScheduling()
+  {
+    return $this->scheduling;
   }
   
   public function setSelfLink($selfLink)
@@ -6351,150 +6293,6 @@ class Google_Service_Compute_InstancesScopedListWarningData extends Google_Model
   public function getValue()
   {
     return $this->value;
-  }
-  
-}
-
-class Google_Service_Compute_Kernel extends Google_Model
-{
-  public $creationTimestamp;
-  protected $deprecatedType = 'Google_Service_Compute_DeprecationStatus';
-  protected $deprecatedDataType = '';
-  public $description;
-  public $id;
-  public $kind;
-  public $name;
-  public $selfLink;
-
-  public function setCreationTimestamp($creationTimestamp)
-  {
-    $this->creationTimestamp = $creationTimestamp;
-  }
-
-  public function getCreationTimestamp()
-  {
-    return $this->creationTimestamp;
-  }
-  
-  public function setDeprecated(Google_Service_Compute_DeprecationStatus $deprecated)
-  {
-    $this->deprecated = $deprecated;
-  }
-
-  public function getDeprecated()
-  {
-    return $this->deprecated;
-  }
-  
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-
-  public function getDescription()
-  {
-    return $this->description;
-  }
-  
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-
-  public function getId()
-  {
-    return $this->id;
-  }
-  
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-
-  public function getName()
-  {
-    return $this->name;
-  }
-  
-  public function setSelfLink($selfLink)
-  {
-    $this->selfLink = $selfLink;
-  }
-
-  public function getSelfLink()
-  {
-    return $this->selfLink;
-  }
-  
-}
-
-class Google_Service_Compute_KernelList extends Google_Collection
-{
-  public $id;
-  protected $itemsType = 'Google_Service_Compute_Kernel';
-  protected $itemsDataType = 'array';
-  public $kind;
-  public $nextPageToken;
-  public $selfLink;
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-
-  public function getId()
-  {
-    return $this->id;
-  }
-  
-  public function setItems($items)
-  {
-    $this->items = $items;
-  }
-
-  public function getItems()
-  {
-    return $this->items;
-  }
-  
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
-  
-  public function setSelfLink($selfLink)
-  {
-    $this->selfLink = $selfLink;
-  }
-
-  public function getSelfLink()
-  {
-    return $this->selfLink;
   }
   
 }
@@ -8355,6 +8153,33 @@ class Google_Service_Compute_RouteWarningsData extends Google_Model
   public function getValue()
   {
     return $this->value;
+  }
+  
+}
+
+class Google_Service_Compute_Scheduling extends Google_Model
+{
+  public $automaticRestart;
+  public $onHostMaintenance;
+
+  public function setAutomaticRestart($automaticRestart)
+  {
+    $this->automaticRestart = $automaticRestart;
+  }
+
+  public function getAutomaticRestart()
+  {
+    return $this->automaticRestart;
+  }
+  
+  public function setOnHostMaintenance($onHostMaintenance)
+  {
+    $this->onHostMaintenance = $onHostMaintenance;
+  }
+
+  public function getOnHostMaintenance()
+  {
+    return $this->onHostMaintenance;
   }
   
 }
