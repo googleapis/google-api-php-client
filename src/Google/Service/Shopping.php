@@ -153,10 +153,6 @@ class Google_Service_Shopping extends Google_Service
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "relatedQueries_useGcsConfig" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
                 "promotions_enabled" => array(
                   "location" => "query",
                   "type" => "boolean",
@@ -293,10 +289,6 @@ class Google_Service_Shopping extends Google_Service
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "relatedQueries_enabled" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
                 "categoryRecommendations_useGcsConfig" => array(
                   "location" => "query",
                   "type" => "boolean",
@@ -381,8 +373,6 @@ class Google_Service_Shopping_Products_Resource extends Google_Service_Resource
    * Whether to return extra information.
    * @opt_param bool facets_enabled
    * Whether to return facet information
-   * @opt_param bool relatedQueries_useGcsConfig
-   * This parameter is currently ignored
    * @opt_param bool promotions_enabled
    * Whether to return promotion information
    * @opt_param string channels
@@ -452,8 +442,6 @@ class Google_Service_Shopping_Products_Resource extends Google_Service_Resource
    * Whether to return redirect information
    * @opt_param bool redirects_useGcsConfig
    * Whether to return redirect information as configured in the GCS account
-   * @opt_param bool relatedQueries_enabled
-   * Whether to return related queries
    * @opt_param bool categoryRecommendations_useGcsConfig
    * This parameter is currently ignored
    * @opt_param bool promotions_useGcsConfig
@@ -592,7 +580,6 @@ class Google_Service_Shopping_Products extends Google_Collection
   protected $promotionsType = 'Google_Service_Shopping_ProductsPromotions';
   protected $promotionsDataType = 'array';
   public $redirects;
-  public $relatedQueries;
   public $requestId;
   public $selfLink;
   protected $spellingType = 'Google_Service_Shopping_ProductsSpelling';
@@ -750,16 +737,6 @@ class Google_Service_Shopping_Products extends Google_Collection
   public function getRedirects()
   {
     return $this->redirects;
-  }
-  
-  public function setRelatedQueries($relatedQueries)
-  {
-    $this->relatedQueries = $relatedQueries;
-  }
-
-  public function getRelatedQueries()
-  {
-    return $this->relatedQueries;
   }
   
   public function setRequestId($requestId)
