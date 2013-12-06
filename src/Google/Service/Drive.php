@@ -1738,8 +1738,8 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @opt_param bool pinned
    * Whether to pin the new revision.
    * @opt_param bool newRevision
-   * Whether a blob upload should create a new revision. If not set or false, the blob data in the
-    * current head revision is replaced. If true, a new blob is created as head revision, and previous
+   * Whether a blob upload should create a new revision. If false, the blob data in the current head
+    * revision is replaced. If not set or true, a new blob is created as head revision, and previous
     * revisions are preserved (causing increased use of the user's data storage quota).
    * @opt_param bool ocr
    * Whether to attempt OCR on .jpg, .png, .gif, or .pdf uploads.
@@ -1818,8 +1818,8 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @opt_param bool pinned
    * Whether to pin the new revision.
    * @opt_param bool newRevision
-   * Whether a blob upload should create a new revision. If not set or false, the blob data in the
-    * current head revision is replaced. If true, a new blob is created as head revision, and previous
+   * Whether a blob upload should create a new revision. If false, the blob data in the current head
+    * revision is replaced. If not set or true, a new blob is created as head revision, and previous
     * revisions are preserved (causing increased use of the user's data storage quota).
    * @opt_param bool ocr
    * Whether to attempt OCR on .jpg, .png, .gif, or .pdf uploads.
@@ -2852,6 +2852,8 @@ class Google_Service_Drive_AboutMaxUploadSizes extends Google_Model
 class Google_Service_Drive_App extends Google_Collection
 {
   public $authorized;
+  public $createInFolderTemplate;
+  public $createUrl;
   protected $iconsType = 'Google_Service_Drive_AppIcons';
   protected $iconsDataType = 'array';
   public $id;
@@ -2881,6 +2883,26 @@ class Google_Service_Drive_App extends Google_Collection
   public function getAuthorized()
   {
     return $this->authorized;
+  }
+  
+  public function setCreateInFolderTemplate($createInFolderTemplate)
+  {
+    $this->createInFolderTemplate = $createInFolderTemplate;
+  }
+
+  public function getCreateInFolderTemplate()
+  {
+    return $this->createInFolderTemplate;
+  }
+  
+  public function setCreateUrl($createUrl)
+  {
+    $this->createUrl = $createUrl;
+  }
+
+  public function getCreateUrl()
+  {
+    return $this->createUrl;
   }
   
   public function setIcons($icons)
