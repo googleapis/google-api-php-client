@@ -46,6 +46,11 @@ class Google_Service_Reseller extends Google_Service
     $this->servicePath = 'apps/reseller/v1/';
     $this->version = 'v1';
     
+    $this->availableScopes = array(
+      "https://www.googleapis.com/auth/apps.order",
+      "https://www.googleapis.com/auth/apps.order.readonly"
+    );
+    
     $this->serviceName = 'reseller';
 
     $client->addService(
