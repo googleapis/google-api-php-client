@@ -36,6 +36,7 @@ class Google_Service_GamesManagement extends Google_Service
   public $players;
   public $rooms;
   public $scores;
+  public $turnBasedMatches;
   
 
   /**
@@ -184,6 +185,20 @@ class Google_Service_GamesManagement extends Google_Service
                   'required' => true,
               ),
               ),
+          ),
+        )
+    )
+    );
+    $this->turnBasedMatches = new Google_Service_GamesManagement_TurnBasedMatches_Resource(
+        $this,
+        $this->serviceName,
+        'turnBasedMatches',
+        array(
+    'methods' => array(
+          "reset" => array(
+            'path' => "turnbasedmatches/reset",
+            'httpMethod' => "POST",
+            'parameters' => array(  ),
           ),
         )
     )
@@ -370,6 +385,30 @@ class Google_Service_GamesManagement_Scores_Resource extends Google_Service_Reso
     $params = array('leaderboardId' => $leaderboardId);
     $params = array_merge($params, $optParams);
     return $this->call('reset', array($params), "Google_Service_GamesManagement_PlayerScoreResetResponse");
+  }
+}
+
+/**
+ * The "turnBasedMatches" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $gamesManagementService = new Google_Service_GamesManagement(...);
+ *   $turnBasedMatches = $gamesManagementService->turnBasedMatches;
+ *  </code>
+ */
+class Google_Service_GamesManagement_TurnBasedMatches_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Reset all turn-based match data for a user. (turnBasedMatches.reset)
+   *
+   * @param array $optParams Optional parameters.
+   */
+  public function reset($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('reset', array($params));
   }
 }
 
