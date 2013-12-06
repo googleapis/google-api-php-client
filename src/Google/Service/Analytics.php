@@ -133,6 +133,10 @@ class Google_Service_Analytics extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
+                "output" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
               ),
           ),
         )
@@ -1385,6 +1389,8 @@ class Google_Service_Analytics_DataGa_Resource extends Google_Service_Resource
    * The desired sampling level.
    * @opt_param string filters
    * A comma-separated list of dimension or metric filters to be applied to Analytics data.
+   * @opt_param string output
+   * The selected format for the response. Default format is JSON.
    * @return Google_Service_Analytics_GaData
    */
   public function get($ids, $start_date, $end_date, $metrics, $optParams = array())
@@ -4348,6 +4354,8 @@ class Google_Service_Analytics_GaData extends Google_Collection
   protected $columnHeadersType = 'Google_Service_Analytics_GaDataColumnHeaders';
   protected $columnHeadersDataType = 'array';
   public $containsSampledData;
+  protected $dataTableType = 'Google_Service_Analytics_GaDataDataTable';
+  protected $dataTableDataType = '';
   public $id;
   public $itemsPerPage;
   public $kind;
@@ -4382,6 +4390,16 @@ class Google_Service_Analytics_GaData extends Google_Collection
   public function getContainsSampledData()
   {
     return $this->containsSampledData;
+  }
+  
+  public function setDataTable(Google_Service_Analytics_GaDataDataTable $dataTable)
+  {
+    $this->dataTable = $dataTable;
+  }
+
+  public function getDataTable()
+  {
+    return $this->dataTable;
   }
   
   public function setId($id)
@@ -4550,6 +4568,106 @@ class Google_Service_Analytics_GaDataColumnHeaders extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+  
+}
+
+class Google_Service_Analytics_GaDataDataTable extends Google_Collection
+{
+  protected $colsType = 'Google_Service_Analytics_GaDataDataTableCols';
+  protected $colsDataType = 'array';
+  protected $rowsType = 'Google_Service_Analytics_GaDataDataTableRows';
+  protected $rowsDataType = 'array';
+
+  public function setCols($cols)
+  {
+    $this->cols = $cols;
+  }
+
+  public function getCols()
+  {
+    return $this->cols;
+  }
+  
+  public function setRows($rows)
+  {
+    $this->rows = $rows;
+  }
+
+  public function getRows()
+  {
+    return $this->rows;
+  }
+  
+}
+
+class Google_Service_Analytics_GaDataDataTableCols extends Google_Model
+{
+  public $id;
+  public $label;
+  public $type;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+  
+  public function setLabel($label)
+  {
+    $this->label = $label;
+  }
+
+  public function getLabel()
+  {
+    return $this->label;
+  }
+  
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
+  }
+  
+}
+
+class Google_Service_Analytics_GaDataDataTableRows extends Google_Collection
+{
+  protected $cType = 'Google_Service_Analytics_GaDataDataTableRowsC';
+  protected $cDataType = 'array';
+
+  public function setC($c)
+  {
+    $this->c = $c;
+  }
+
+  public function getC()
+  {
+    return $this->c;
+  }
+  
+}
+
+class Google_Service_Analytics_GaDataDataTableRowsC extends Google_Model
+{
+  public $v;
+
+  public function setV($v)
+  {
+    $this->v = $v;
+  }
+
+  public function getV()
+  {
+    return $this->v;
   }
   
 }
