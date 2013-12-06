@@ -50,6 +50,8 @@ class Google_Service_Plus extends Google_Service
     
     $this->availableScopes = array(
       "https://www.googleapis.com/auth/plus.login",
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile",
       "https://www.googleapis.com/auth/plus.me"
     );
     
@@ -2990,6 +2992,8 @@ class Google_Service_Plus_Person extends Google_Collection
   protected $coverDataType = '';
   public $currentLocation;
   public $displayName;
+  protected $emailsType = 'Google_Service_Plus_PersonEmails';
+  protected $emailsDataType = 'array';
   public $etag;
   public $gender;
   public $id;
@@ -3092,6 +3096,16 @@ class Google_Service_Plus_Person extends Google_Collection
   public function getDisplayName()
   {
     return $this->displayName;
+  }
+  
+  public function setEmails($emails)
+  {
+    $this->emails = $emails;
+  }
+
+  public function getEmails()
+  {
+    return $this->emails;
   }
   
   public function setEtag($etag)
@@ -3404,6 +3418,33 @@ class Google_Service_Plus_PersonCoverCoverPhoto extends Google_Model
   public function getWidth()
   {
     return $this->width;
+  }
+  
+}
+
+class Google_Service_Plus_PersonEmails extends Google_Model
+{
+  public $type;
+  public $value;
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
+  }
+  
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
   }
   
 }
