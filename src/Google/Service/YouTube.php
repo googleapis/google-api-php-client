@@ -1780,7 +1780,15 @@ class Google_Service_YouTube_PlaylistItems_Resource extends Google_Service_Resou
    * @param array $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner
-   * USE_DESCRIPTION --- channels:list:onBehalfOfContentOwner
+   * Note: This parameter is intended exclusively for YouTube content partners.
+  The
+    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
+    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
+    * value. This parameter is intended for YouTube content partners that own and manage many
+    * different YouTube channels. It allows content owners to authenticate once and get access to all
+    * their video and channel data, without having to provide authentication credentials for each
+    * individual channel. The CMS account that the user authenticates with must be linked to the
+    * specified YouTube content owner.
    * @return Google_Service_YouTube_PlaylistItem
    */
   public function insert($part, Google_Service_YouTube_PlaylistItem $postBody, $optParams = array())
@@ -1806,7 +1814,15 @@ class Google_Service_YouTube_PlaylistItems_Resource extends Google_Service_Resou
    * @param array $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner
-   * USE_DESCRIPTION --- channels:list:onBehalfOfContentOwner
+   * Note: This parameter is intended exclusively for YouTube content partners.
+  The
+    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
+    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
+    * value. This parameter is intended for YouTube content partners that own and manage many
+    * different YouTube channels. It allows content owners to authenticate once and get access to all
+    * their video and channel data, without having to provide authentication credentials for each
+    * individual channel. The CMS account that the user authenticates with must be linked to the
+    * specified YouTube content owner.
    * @opt_param string playlistId
    * The playlistId parameter specifies the unique ID of the playlist for which you want to retrieve
     * playlist items. Note that even though this is an optional parameter, every request to retrieve
@@ -1881,7 +1897,15 @@ class Google_Service_YouTube_Playlists_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner
-   * USE_DESCRIPTION --- videos:insert:onBehalfOfContentOwner
+   * Note: This parameter is intended exclusively for YouTube content partners.
+  The
+    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
+    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
+    * value. This parameter is intended for YouTube content partners that own and manage many
+    * different YouTube channels. It allows content owners to authenticate once and get access to all
+    * their video and channel data, without having to provide authentication credentials for each
+    * individual channel. The CMS account that the user authenticates with must be linked to the
+    * specified YouTube content owner.
    */
   public function delete($id, $optParams = array())
   {
@@ -1901,9 +1925,30 @@ class Google_Service_YouTube_Playlists_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwnerChannel
-   * USE_DESCRIPTION --- videos:insert:onBehalfOfContentOwnerChannel
+   * This parameter can only be used in a properly authorized request. Note: This parameter is
+    * intended exclusively for YouTube content partners.
+  The onBehalfOfContentOwnerChannel parameter
+    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
+    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
+    * can only be used in conjunction with that parameter. In addition, the request must be authorized
+    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
+    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
+    * specifies.
+  This parameter is intended for YouTube content partners that own and manage many
+    * different YouTube channels. It allows content owners to authenticate once and perform actions on
+    * behalf of the channel specified in the parameter value, without having to provide authentication
+    * credentials for each separate channel.
    * @opt_param string onBehalfOfContentOwner
-   * USE_DESCRIPTION --- videos:insert:onBehalfOfContentOwner
+   * Note: This parameter is intended exclusively for YouTube content partners.
+  The
+    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
+    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
+    * value. This parameter is intended for YouTube content partners that own and manage many
+    * different YouTube channels. It allows content owners to authenticate once and get access to all
+    * their video and channel data, without having to provide authentication credentials for each
+    * individual channel. The CMS account that the user authenticates with must be linked to the
+    * specified YouTube content owner.
    * @return Google_Service_YouTube_Playlist
    */
   public function insert($part, Google_Service_YouTube_Playlist $postBody, $optParams = array())
@@ -1929,9 +1974,30 @@ class Google_Service_YouTube_Playlists_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner
-   * USE_DESCRIPTION --- videos:insert:onBehalfOfContentOwner
+   * Note: This parameter is intended exclusively for YouTube content partners.
+  The
+    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
+    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
+    * value. This parameter is intended for YouTube content partners that own and manage many
+    * different YouTube channels. It allows content owners to authenticate once and get access to all
+    * their video and channel data, without having to provide authentication credentials for each
+    * individual channel. The CMS account that the user authenticates with must be linked to the
+    * specified YouTube content owner.
    * @opt_param string onBehalfOfContentOwnerChannel
-   * USE_DESCRIPTION --- videos:insert:onBehalfOfContentOwnerChannel
+   * This parameter can only be used in a properly authorized request. Note: This parameter is
+    * intended exclusively for YouTube content partners.
+  The onBehalfOfContentOwnerChannel parameter
+    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
+    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
+    * can only be used in conjunction with that parameter. In addition, the request must be authorized
+    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
+    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
+    * specifies.
+  This parameter is intended for YouTube content partners that own and manage many
+    * different YouTube channels. It allows content owners to authenticate once and perform actions on
+    * behalf of the channel specified in the parameter value, without having to provide authentication
+    * credentials for each separate channel.
    * @opt_param string channelId
    * This value indicates that the API should only return the specified channel's playlists.
    * @opt_param bool mine
@@ -1977,7 +2043,15 @@ class Google_Service_YouTube_Playlists_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner
-   * USE_DESCRIPTION --- videos:insert:onBehalfOfContentOwner
+   * Note: This parameter is intended exclusively for YouTube content partners.
+  The
+    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
+    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
+    * value. This parameter is intended for YouTube content partners that own and manage many
+    * different YouTube channels. It allows content owners to authenticate once and get access to all
+    * their video and channel data, without having to provide authentication credentials for each
+    * individual channel. The CMS account that the user authenticates with must be linked to the
+    * specified YouTube content owner.
    * @return Google_Service_YouTube_Playlist
    */
   public function update($part, Google_Service_YouTube_Playlist $postBody, $optParams = array())
@@ -2183,7 +2257,20 @@ class Google_Service_YouTube_Subscriptions_Resource extends Google_Service_Resou
     * individual channel. The CMS account that the user authenticates with must be linked to the
     * specified YouTube content owner.
    * @opt_param string onBehalfOfContentOwnerChannel
-   * USE_DESCRIPTION --- videos:insert:onBehalfOfContentOwnerChannel
+   * This parameter can only be used in a properly authorized request. Note: This parameter is
+    * intended exclusively for YouTube content partners.
+  The onBehalfOfContentOwnerChannel parameter
+    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
+    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
+    * can only be used in conjunction with that parameter. In addition, the request must be authorized
+    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
+    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
+    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
+    * specifies.
+  This parameter is intended for YouTube content partners that own and manage many
+    * different YouTube channels. It allows content owners to authenticate once and perform actions on
+    * behalf of the channel specified in the parameter value, without having to provide authentication
+    * credentials for each separate channel.
    * @opt_param string channelId
    * The channelId parameter specifies a YouTube channel ID. The API will only return that channel's
     * subscriptions.
@@ -2240,7 +2327,12 @@ class Google_Service_YouTube_Thumbnails_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner
-   * USE_DESCRIPTION --- channels:list:onBehalfOfContentOwner
+   * The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf
+    * of the content owner specified in the parameter value. This parameter is intended for YouTube
+    * content partners that own and manage many different YouTube channels. It allows content owners
+    * to authenticate once and get access to all their video and channel data, without having to
+    * provide authentication credentials for each individual channel. The actual CMS account that the
+    * user authenticates with needs to be linked to the specified YouTube content owner.
    * @return Google_Service_YouTube_ThumbnailSetResponse
    */
   public function set($videoId, $optParams = array())
@@ -2362,12 +2454,12 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
     * write operation will set as well as the properties that the API response will include.
   The part
     * names that you can include in the parameter value are snippet, contentDetails, fileDetails,
-    * player, processingDetails, recordingDetails, statistics, status, suggestions, and topicDetails.
-    * However, not all of those parts contain properties that can be set when setting or updating a
-    * video's metadata. For example, the statistics object encapsulates statistics that YouTube
-    * calculates for a video and does not contain values that you can set or modify. If the parameter
-    * value specifies a part that does not contain mutable values, that part will still be included in
-    * the API response.
+    * liveStreamingDetails, player, processingDetails, recordingDetails, statistics, status,
+    * suggestions, and topicDetails. However, not all of those parts contain properties that can be
+    * set when setting or updating a video's metadata. For example, the statistics object encapsulates
+    * statistics that YouTube calculates for a video and does not contain values that you can set or
+    * modify. If the parameter value specifies a part that does not contain mutable values, that part
+    * will still be included in the API response.
    * @param Google_Video $postBody
    * @param array $optParams Optional parameters.
    *
@@ -2419,13 +2511,13 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
    * @param string $part
    * The part parameter specifies a comma-separated list of one or more video resource properties
     * that the API response will include. The part names that you can include in the parameter value
-    * are id, snippet, contentDetails, fileDetails, player, processingDetails, recordingDetails,
-    * statistics, status, suggestions, and topicDetails.
-  If the parameter identifies a property that
-    * contains child properties, the child properties will be included in the response. For example,
-    * in a video resource, the snippet property contains the channelId, title, description, tags, and
-    * categoryId properties. As such, if you set part=snippet, the API response will contain all of
-    * those properties.
+    * are id, snippet, contentDetails, fileDetails, liveStreamingDetails, player, processingDetails,
+    * recordingDetails, statistics, status, suggestions, and topicDetails.
+  If the parameter
+    * identifies a property that contains child properties, the child properties will be included in
+    * the response. For example, in a video resource, the snippet property contains the channelId,
+    * title, description, tags, and categoryId properties. As such, if you set part=snippet, the API
+    * response will contain all of those properties.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner
@@ -2440,8 +2532,8 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
     * specified YouTube content owner.
    * @opt_param string regionCode
    * The regionCode parameter instructs the API to select a video chart available in the specified
-    * region. If using this parameter, chart must also be set. The parameter value is an ISO 3166-1
-    * alpha-2 country code.
+    * region. This parameter can only be used in conjunction with the chart parameter. The parameter
+    * value is an ISO 3166-1 alpha-2 country code.
    * @opt_param string locale
    * DEPRECATED
    * @opt_param string videoCategoryId
@@ -2511,19 +2603,20 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
     * write operation will set as well as the properties that the API response will include.
   The part
     * names that you can include in the parameter value are snippet, contentDetails, fileDetails,
-    * player, processingDetails, recordingDetails, statistics, status, suggestions, and topicDetails.
-    * Note that this method will override the existing values for all of the mutable properties that
-    * are contained in any parts that the parameter value specifies. For example, a video's privacy
-    * setting is contained in the status part. As such, if your request is updating a private video,
-    * and the request's part parameter value includes the status part, the video's privacy setting
-    * will be updated to whatever value the request body specifies. If the request body does not
-    * specify a value, the existing privacy setting will be removed and the video will revert to the
-    * default privacy setting.
-  In addition, not all of those parts contain properties that can be set
-    * when setting or updating a video's metadata. For example, the statistics object encapsulates
-    * statistics that YouTube calculates for a video and does not contain values that you can set or
-    * modify. If the parameter value specifies a part that does not contain mutable values, that part
-    * will still be included in the API response.
+    * liveStreamingDetails, player, processingDetails, recordingDetails, statistics, status,
+    * suggestions, and topicDetails.
+  Note that this method will override the existing values for all
+    * of the mutable properties that are contained in any parts that the parameter value specifies.
+    * For example, a video's privacy setting is contained in the status part. As such, if your request
+    * is updating a private video, and the request's part parameter value includes the status part,
+    * the video's privacy setting will be updated to whatever value the request body specifies. If the
+    * request body does not specify a value, the existing privacy setting will be removed and the
+    * video will revert to the default privacy setting.
+  In addition, not all of those parts contain
+    * properties that can be set when setting or updating a video's metadata. For example, the
+    * statistics object encapsulates statistics that YouTube calculates for a video and does not
+    * contain values that you can set or modify. If the parameter value specifies a part that does not
+    * contain mutable values, that part will still be included in the API response.
    * @param Google_Video $postBody
    * @param array $optParams Optional parameters.
    *
@@ -2569,7 +2662,12 @@ class Google_Service_YouTube_Watermarks_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner
-   * USE_DESCRIPTION --- channels:list:onBehalfOfContentOwner
+   * The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf
+    * of the content owner specified in the parameter value. This parameter is intended for YouTube
+    * content partners that own and manage many different YouTube channels. It allows content owners
+    * to authenticate once and get access to all their video and channel data, without having to
+    * provide authentication credentials for each individual channel. The actual CMS account that the
+    * user authenticates with needs to be linked to the specified YouTube content owner.
    */
   public function set($channelId, Google_Service_YouTube_InvideoBranding $postBody, $optParams = array())
   {
@@ -2585,7 +2683,12 @@ class Google_Service_YouTube_Watermarks_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner
-   * USE_DESCRIPTION --- channels:list:onBehalfOfContentOwner
+   * The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf
+    * of the content owner specified in the parameter value. This parameter is intended for YouTube
+    * content partners that own and manage many different YouTube channels. It allows content owners
+    * to authenticate once and get access to all their video and channel data, without having to
+    * provide authentication credentials for each individual channel. The actual CMS account that the
+    * user authenticates with needs to be linked to the specified YouTube content owner.
    */
   public function unsetWatermarks($channelId, $optParams = array())
   {
@@ -2957,8 +3060,8 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   public $customCtaButtonText;
   public $descriptionText;
   public $destinationUrl;
-  public $forecastingUrls;
-  public $impressionUrls;
+  public $forecastingUrl;
+  public $impressionUrl;
   public $videoId;
 
   public function setAdTag($adTag)
@@ -3031,24 +3134,24 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
     return $this->destinationUrl;
   }
   
-  public function setForecastingUrls($forecastingUrls)
+  public function setForecastingUrl($forecastingUrl)
   {
-    $this->forecastingUrls = $forecastingUrls;
+    $this->forecastingUrl = $forecastingUrl;
   }
 
-  public function getForecastingUrls()
+  public function getForecastingUrl()
   {
-    return $this->forecastingUrls;
+    return $this->forecastingUrl;
   }
   
-  public function setImpressionUrls($impressionUrls)
+  public function setImpressionUrl($impressionUrl)
   {
-    $this->impressionUrls = $impressionUrls;
+    $this->impressionUrl = $impressionUrl;
   }
 
-  public function getImpressionUrls()
+  public function getImpressionUrl()
   {
-    return $this->impressionUrls;
+    return $this->impressionUrl;
   }
   
   public function setVideoId($videoId)
