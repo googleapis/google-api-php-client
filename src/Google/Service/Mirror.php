@@ -49,6 +49,11 @@ class Google_Service_Mirror extends Google_Service
     $this->servicePath = 'mirror/v1/';
     $this->version = 'v1';
     
+    $this->availableScopes = array(
+      "https://www.googleapis.com/auth/glass.timeline",
+      "https://www.googleapis.com/auth/glass.location"
+    );
+    
     $this->serviceName = 'mirror';
 
     $client->addService(
