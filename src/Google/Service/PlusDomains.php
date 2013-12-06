@@ -53,9 +53,11 @@ class Google_Service_PlusDomains extends Google_Service
     $this->availableScopes = array(
       "https://www.googleapis.com/auth/plus.login",
       "https://www.googleapis.com/auth/plus.media.upload",
+      "https://www.googleapis.com/auth/userinfo.profile",
       "https://www.googleapis.com/auth/plus.stream.read",
       "https://www.googleapis.com/auth/plus.circles.read",
       "https://www.googleapis.com/auth/plus.profiles.read",
+      "https://www.googleapis.com/auth/userinfo.email",
       "https://www.googleapis.com/auth/plus.circles.write",
       "https://www.googleapis.com/auth/plus.stream.write",
       "https://www.googleapis.com/auth/plus.me"
@@ -2765,6 +2767,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   public $height;
   public $id;
   public $kind;
+  public $mediaCreatedTime;
   public $mediaUrl;
   public $published;
   public $sizeBytes;
@@ -2845,6 +2848,16 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+  
+  public function setMediaCreatedTime($mediaCreatedTime)
+  {
+    $this->mediaCreatedTime = $mediaCreatedTime;
+  }
+
+  public function getMediaCreatedTime()
+  {
+    return $this->mediaCreatedTime;
   }
   
   public function setMediaUrl($mediaUrl)
@@ -3124,6 +3137,8 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   protected $coverDataType = '';
   public $currentLocation;
   public $displayName;
+  protected $emailsType = 'Google_Service_PlusDomains_PersonEmails';
+  protected $emailsDataType = 'array';
   public $etag;
   public $gender;
   public $id;
@@ -3215,6 +3230,16 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   public function getDisplayName()
   {
     return $this->displayName;
+  }
+  
+  public function setEmails($emails)
+  {
+    $this->emails = $emails;
+  }
+
+  public function getEmails()
+  {
+    return $this->emails;
   }
   
   public function setEtag($etag)
@@ -3490,6 +3515,33 @@ class Google_Service_PlusDomains_PersonCoverCoverPhoto extends Google_Model
   public function getWidth()
   {
     return $this->width;
+  }
+  
+}
+
+class Google_Service_PlusDomains_PersonEmails extends Google_Model
+{
+  public $type;
+  public $value;
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
+  }
+  
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
   }
   
 }
