@@ -1850,6 +1850,7 @@ class Google_Service_SQLAdmin_IpConfiguration extends Google_Collection
 {
   public $authorizedNetworks;
   public $enabled;
+  public $requireSsl;
 
   public function setAuthorizedNetworks($authorizedNetworks)
   {
@@ -1869,6 +1870,16 @@ class Google_Service_SQLAdmin_IpConfiguration extends Google_Collection
   public function getEnabled()
   {
     return $this->enabled;
+  }
+  
+  public function setRequireSsl($requireSsl)
+  {
+    $this->requireSsl = $requireSsl;
+  }
+
+  public function getRequireSsl()
+  {
+    return $this->requireSsl;
   }
   
 }
