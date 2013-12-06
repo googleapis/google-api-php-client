@@ -19,7 +19,7 @@
  * Service definition for Directory (directory_v1).
  *
  * <p>
- * Apps Directory API lets you view and manage enterprise resources like user, groups, OrgUnit, devices.
+ * Apps Directory API lets you view and manage enterprise resources like user, groups, OrgUnit, devices, tokens, asps, verification codes.
  * </p>
  *
  * <p>
@@ -31,15 +31,19 @@
  */
 class Google_Service_Directory extends Google_Service
 {
+  public $asps;
   public $chromeosdevices;
   public $groups;
   public $groups_aliases;
   public $members;
   public $mobiledevices;
+  public $notifications;
   public $orgunits;
+  public $tokens;
   public $users;
   public $users_aliases;
   public $users_photos;
+  public $verificationCodes;
   
 
   /**
@@ -59,6 +63,8 @@ class Google_Service_Directory extends Google_Service
       "https://www.googleapis.com/auth/admin.directory.user.alias",
       "https://www.googleapis.com/auth/admin.directory.user",
       "https://www.googleapis.com/auth/admin.directory.group.readonly",
+      "https://www.googleapis.com/auth/admin.directory.user.security",
+      "https://www.googleapis.com/auth/admin.directory.notifications",
       "https://www.googleapis.com/auth/admin.directory.device.mobile.action",
       "https://www.googleapis.com/auth/admin.directory.user.readonly",
       "https://www.googleapis.com/auth/admin.directory.device.chromeos",
@@ -79,6 +85,56 @@ class Google_Service_Directory extends Google_Service
         $this->availableScopes
     );
 
+    $this->asps = new Google_Service_Directory_Asps_Resource(
+        $this,
+        $this->serviceName,
+        'asps',
+        array(
+    'methods' => array(
+          "delete" => array(
+            'path' => "users/{userKey}/asps/{codeId}",
+            'httpMethod' => "DELETE",
+            'parameters' => array(
+                "userKey" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "codeId" => array(
+                  "location" => "path",
+                  "type" => "integer",
+                  'required' => true,
+              ),
+              ),
+          ),"get" => array(
+            'path' => "users/{userKey}/asps/{codeId}",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "userKey" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "codeId" => array(
+                  "location" => "path",
+                  "type" => "integer",
+                  'required' => true,
+              ),
+              ),
+          ),"list" => array(
+            'path' => "users/{userKey}/asps",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "userKey" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),
+        )
+    )
+    );
     $this->chromeosdevices = new Google_Service_Directory_Chromeosdevices_Resource(
         $this,
         $this->serviceName,
@@ -499,6 +555,98 @@ class Google_Service_Directory extends Google_Service
         )
     )
     );
+    $this->notifications = new Google_Service_Directory_Notifications_Resource(
+        $this,
+        $this->serviceName,
+        'notifications',
+        array(
+    'methods' => array(
+          "delete" => array(
+            'path' => "customer/{customer}/notifications/{notificationId}",
+            'httpMethod' => "DELETE",
+            'parameters' => array(
+                "customer" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "notificationId" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"get" => array(
+            'path' => "customer/{customer}/notifications/{notificationId}",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "customer" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "notificationId" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"list" => array(
+            'path' => "customer/{customer}/notifications",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "customer" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "pageToken" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+                "maxResults" => array(
+                  "location" => "query",
+                  "type" => "integer",
+              ),
+                "language" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+              ),
+          ),"patch" => array(
+            'path' => "customer/{customer}/notifications/{notificationId}",
+            'httpMethod' => "PATCH",
+            'parameters' => array(
+                "customer" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "notificationId" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"update" => array(
+            'path' => "customer/{customer}/notifications/{notificationId}",
+            'httpMethod' => "PUT",
+            'parameters' => array(
+                "customer" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "notificationId" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),
+        )
+    )
+    );
     $this->orgunits = new Google_Service_Directory_Orgunits_Resource(
         $this,
         $this->serviceName,
@@ -594,6 +742,56 @@ class Google_Service_Directory extends Google_Service
                   "location" => "path",
                   "type" => "string",
                   'repeated' => true,
+                  'required' => true,
+              ),
+              ),
+          ),
+        )
+    )
+    );
+    $this->tokens = new Google_Service_Directory_Tokens_Resource(
+        $this,
+        $this->serviceName,
+        'tokens',
+        array(
+    'methods' => array(
+          "delete" => array(
+            'path' => "users/{userKey}/tokens/{clientId}",
+            'httpMethod' => "DELETE",
+            'parameters' => array(
+                "userKey" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "clientId" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"get" => array(
+            'path' => "users/{userKey}/tokens/{clientId}",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "userKey" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "clientId" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"list" => array(
+            'path' => "users/{userKey}/tokens",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "userKey" => array(
+                  "location" => "path",
+                  "type" => "string",
                   'required' => true,
               ),
               ),
@@ -807,9 +1005,109 @@ class Google_Service_Directory extends Google_Service
         )
     )
     );
+    $this->verificationCodes = new Google_Service_Directory_VerificationCodes_Resource(
+        $this,
+        $this->serviceName,
+        'verificationCodes',
+        array(
+    'methods' => array(
+          "generate" => array(
+            'path' => "users/{userKey}/verificationCodes/generate",
+            'httpMethod' => "POST",
+            'parameters' => array(
+                "userKey" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"invalidate" => array(
+            'path' => "users/{userKey}/verificationCodes/invalidate",
+            'httpMethod' => "POST",
+            'parameters' => array(
+                "userKey" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"list" => array(
+            'path' => "users/{userKey}/verificationCodes",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "userKey" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),
+        )
+    )
+    );
   }
 }
 
+
+/**
+ * The "asps" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adminService = new Google_Service_Directory(...);
+ *   $asps = $adminService->asps;
+ *  </code>
+ */
+class Google_Service_Directory_Asps_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Delete the application specific password issued by the user for a codeId.
+   * (asps.delete)
+   *
+   * @param string $userKey
+   * Email or immutable Id of the user
+   * @param int $codeId
+   * The codeId.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($userKey, $codeId, $optParams = array())
+  {
+    $params = array('userKey' => $userKey, 'codeId' => $codeId);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+  /**
+   * Get the application specific password issued by the user for a codeId.
+   * (asps.get)
+   *
+   * @param string $userKey
+   * Email or immutable Id of the user
+   * @param int $codeId
+   * The codeid.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_Asp
+   */
+  public function get($userKey, $codeId, $optParams = array())
+  {
+    $params = array('userKey' => $userKey, 'codeId' => $codeId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Directory_Asp");
+  }
+  /**
+   * List the application specific passwords issued by the user. (asps.list)
+   *
+   * @param string $userKey
+   * Email or immutable Id of the user
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_Asps
+   */
+  public function listAsps($userKey, $optParams = array())
+  {
+    $params = array('userKey' => $userKey);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Directory_Asps");
+  }
+}
 
 /**
  * The "chromeosdevices" collection of methods.
@@ -1288,6 +1586,107 @@ class Google_Service_Directory_Mobiledevices_Resource extends Google_Service_Res
 }
 
 /**
+ * The "notifications" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adminService = new Google_Service_Directory(...);
+ *   $notifications = $adminService->notifications;
+ *  </code>
+ */
+class Google_Service_Directory_Notifications_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Deletes a notification (notifications.delete)
+   *
+   * @param string $customer
+   * Obfuscated customer ID of the domain for which notification is to be deleted
+   * @param string $notificationId
+   * Id of the notification to be deleted.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($customer, $notificationId, $optParams = array())
+  {
+    $params = array('customer' => $customer, 'notificationId' => $notificationId);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+  /**
+   * Retrieves a notification (notifications.get)
+   *
+   * @param string $customer
+   * Obfuscated customer ID of the domain for which notification is to be retrieved
+   * @param string $notificationId
+   * Id of the notification to be retrieved.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_Notification
+   */
+  public function get($customer, $notificationId, $optParams = array())
+  {
+    $params = array('customer' => $customer, 'notificationId' => $notificationId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Directory_Notification");
+  }
+  /**
+   * Retrieves a list of notifications. (notifications.list)
+   *
+   * @param string $customer
+   * Obfuscated customer ID of the domain for which notifications are to be retrieved
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string pageToken
+   * Token for the page to be retrieved
+   * @opt_param string maxResults
+   * Number of notifications to be retrieved. Default is 100
+   * @opt_param string language
+   * Code of the language in which the notifications are to be retrieved. Notifications will be
+    * returned in English by default
+   * @return Google_Service_Directory_Notifications
+   */
+  public function listNotifications($customer, $optParams = array())
+  {
+    $params = array('customer' => $customer);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Directory_Notifications");
+  }
+  /**
+   * Updates a notification. This method supports patch semantics.
+   * (notifications.patch)
+   *
+   * @param string $customer
+   * Obfuscated customer ID of the domain for which notification is to be updated
+   * @param string $notificationId
+   * Id of the notification to be updated.
+   * @param Google_Notification $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_Notification
+   */
+  public function patch($customer, $notificationId, Google_Service_Directory_Notification $postBody, $optParams = array())
+  {
+    $params = array('customer' => $customer, 'notificationId' => $notificationId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_Directory_Notification");
+  }
+  /**
+   * Updates a notification (notifications.update)
+   *
+   * @param string $customer
+   * Obfuscated customer ID of the domain for which notification is to be updated
+   * @param string $notificationId
+   * Id of the notification to be updated.
+   * @param Google_Notification $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_Notification
+   */
+  public function update($customer, $notificationId, Google_Service_Directory_Notification $postBody, $optParams = array())
+  {
+    $params = array('customer' => $customer, 'notificationId' => $notificationId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_Directory_Notification");
+  }
+}
+
+/**
  * The "orgunits" collection of methods.
  * Typical usage is:
  *  <code>
@@ -1397,6 +1796,64 @@ class Google_Service_Directory_Orgunits_Resource extends Google_Service_Resource
     $params = array('customerId' => $customerId, 'orgUnitPath' => $orgUnitPath, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('update', array($params), "Google_Service_Directory_OrgUnit");
+  }
+}
+
+/**
+ * The "tokens" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adminService = new Google_Service_Directory(...);
+ *   $tokens = $adminService->tokens;
+ *  </code>
+ */
+class Google_Service_Directory_Tokens_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Delete all OAuth tokens issued by the user for an app domain. (tokens.delete)
+   *
+   * @param string $userKey
+   * Email or immutable Id of the user
+   * @param string $clientId
+   * The app domain.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($userKey, $clientId, $optParams = array())
+  {
+    $params = array('userKey' => $userKey, 'clientId' => $clientId);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+  /**
+   * Get the OAuth token issued by the user for an app domain. (tokens.get)
+   *
+   * @param string $userKey
+   * Email or immutable Id of the user
+   * @param string $clientId
+   * The app domain.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_Token
+   */
+  public function get($userKey, $clientId, $optParams = array())
+  {
+    $params = array('userKey' => $userKey, 'clientId' => $clientId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Directory_Token");
+  }
+  /**
+   * List the OAuth tokens issued by the user. (tokens.list)
+   *
+   * @param string $userKey
+   * Email or immutable Id of the user
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_Tokens
+   */
+  public function listTokens($userKey, $optParams = array())
+  {
+    $params = array('userKey' => $userKey);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Directory_Tokens");
   }
 }
 
@@ -1672,6 +2129,61 @@ class Google_Service_Directory_UsersPhotos_Resource extends Google_Service_Resou
   }
 }
 
+/**
+ * The "verificationCodes" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adminService = new Google_Service_Directory(...);
+ *   $verificationCodes = $adminService->verificationCodes;
+ *  </code>
+ */
+class Google_Service_Directory_VerificationCodes_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Generate new backup verification codes for the user.
+   * (verificationCodes.generate)
+   *
+   * @param string $userKey
+   * Email or immutable Id of the user
+   * @param array $optParams Optional parameters.
+   */
+  public function generate($userKey, $optParams = array())
+  {
+    $params = array('userKey' => $userKey);
+    $params = array_merge($params, $optParams);
+    return $this->call('generate', array($params));
+  }
+  /**
+   * Invalidate the backup verification codes for the user.
+   * (verificationCodes.invalidate)
+   *
+   * @param string $userKey
+   * Email or immutable Id of the user
+   * @param array $optParams Optional parameters.
+   */
+  public function invalidate($userKey, $optParams = array())
+  {
+    $params = array('userKey' => $userKey);
+    $params = array_merge($params, $optParams);
+    return $this->call('invalidate', array($params));
+  }
+  /**
+   * List the backup verification codes for the user. (verificationCodes.list)
+   *
+   * @param string $userKey
+   * Email or immutable Id of the user
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_VerificationCodes
+   */
+  public function listVerificationCodes($userKey, $optParams = array())
+  {
+    $params = array('userKey' => $userKey);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Directory_VerificationCodes");
+  }
+}
+
 
 
 
@@ -1760,6 +2272,127 @@ class Google_Service_Directory_Aliases extends Google_Collection
   public function getEtag()
   {
     return $this->etag;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  
+}
+
+class Google_Service_Directory_Asp extends Google_Model
+{
+  public $codeId;
+  public $creationTime;
+  public $etag;
+  public $kind;
+  public $lastTimeUsed;
+  public $name;
+  public $userKey;
+
+  public function setCodeId($codeId)
+  {
+    $this->codeId = $codeId;
+  }
+
+  public function getCodeId()
+  {
+    return $this->codeId;
+  }
+  
+  public function setCreationTime($creationTime)
+  {
+    $this->creationTime = $creationTime;
+  }
+
+  public function getCreationTime()
+  {
+    return $this->creationTime;
+  }
+  
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  
+  public function setLastTimeUsed($lastTimeUsed)
+  {
+    $this->lastTimeUsed = $lastTimeUsed;
+  }
+
+  public function getLastTimeUsed()
+  {
+    return $this->lastTimeUsed;
+  }
+  
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+  
+  public function setUserKey($userKey)
+  {
+    $this->userKey = $userKey;
+  }
+
+  public function getUserKey()
+  {
+    return $this->userKey;
+  }
+  
+}
+
+class Google_Service_Directory_Asps extends Google_Collection
+{
+  public $etag;
+  protected $itemsType = 'Google_Service_Directory_Asp';
+  protected $itemsDataType = 'array';
+  public $kind;
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
   }
   
   public function setKind($kind)
@@ -2643,6 +3276,160 @@ class Google_Service_Directory_MobileDevices extends Google_Collection
   
 }
 
+class Google_Service_Directory_Notification extends Google_Model
+{
+  public $body;
+  public $etag;
+  public $fromAddress;
+  public $isUnread;
+  public $kind;
+  public $notificationId;
+  public $sendTime;
+  public $subject;
+
+  public function setBody($body)
+  {
+    $this->body = $body;
+  }
+
+  public function getBody()
+  {
+    return $this->body;
+  }
+  
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  
+  public function setFromAddress($fromAddress)
+  {
+    $this->fromAddress = $fromAddress;
+  }
+
+  public function getFromAddress()
+  {
+    return $this->fromAddress;
+  }
+  
+  public function setIsUnread($isUnread)
+  {
+    $this->isUnread = $isUnread;
+  }
+
+  public function getIsUnread()
+  {
+    return $this->isUnread;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  
+  public function setNotificationId($notificationId)
+  {
+    $this->notificationId = $notificationId;
+  }
+
+  public function getNotificationId()
+  {
+    return $this->notificationId;
+  }
+  
+  public function setSendTime($sendTime)
+  {
+    $this->sendTime = $sendTime;
+  }
+
+  public function getSendTime()
+  {
+    return $this->sendTime;
+  }
+  
+  public function setSubject($subject)
+  {
+    $this->subject = $subject;
+  }
+
+  public function getSubject()
+  {
+    return $this->subject;
+  }
+  
+}
+
+class Google_Service_Directory_Notifications extends Google_Collection
+{
+  public $etag;
+  protected $itemsType = 'Google_Service_Directory_Notification';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $unreadNotificationsCount;
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  
+  public function setUnreadNotificationsCount($unreadNotificationsCount)
+  {
+    $this->unreadNotificationsCount = $unreadNotificationsCount;
+  }
+
+  public function getUnreadNotificationsCount()
+  {
+    return $this->unreadNotificationsCount;
+  }
+  
+}
+
 class Google_Service_Directory_OrgUnit extends Google_Model
 {
   public $blockInheritance;
@@ -2760,6 +3547,138 @@ class Google_Service_Directory_OrgUnits extends Google_Collection
   public function getOrganizationUnits()
   {
     return $this->organizationUnits;
+  }
+  
+}
+
+class Google_Service_Directory_Token extends Google_Collection
+{
+  public $anonymous;
+  public $clientId;
+  public $displayText;
+  public $etag;
+  public $kind;
+  public $nativeApp;
+  public $scopes;
+  public $userKey;
+
+  public function setAnonymous($anonymous)
+  {
+    $this->anonymous = $anonymous;
+  }
+
+  public function getAnonymous()
+  {
+    return $this->anonymous;
+  }
+  
+  public function setClientId($clientId)
+  {
+    $this->clientId = $clientId;
+  }
+
+  public function getClientId()
+  {
+    return $this->clientId;
+  }
+  
+  public function setDisplayText($displayText)
+  {
+    $this->displayText = $displayText;
+  }
+
+  public function getDisplayText()
+  {
+    return $this->displayText;
+  }
+  
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  
+  public function setNativeApp($nativeApp)
+  {
+    $this->nativeApp = $nativeApp;
+  }
+
+  public function getNativeApp()
+  {
+    return $this->nativeApp;
+  }
+  
+  public function setScopes($scopes)
+  {
+    $this->scopes = $scopes;
+  }
+
+  public function getScopes()
+  {
+    return $this->scopes;
+  }
+  
+  public function setUserKey($userKey)
+  {
+    $this->userKey = $userKey;
+  }
+
+  public function getUserKey()
+  {
+    return $this->userKey;
+  }
+  
+}
+
+class Google_Service_Directory_Tokens extends Google_Collection
+{
+  public $etag;
+  protected $itemsType = 'Google_Service_Directory_Token';
+  protected $itemsDataType = 'array';
+  public $kind;
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
   }
   
 }
@@ -3857,6 +4776,94 @@ class Google_Service_Directory_Users extends Google_Collection
   public function getUsers()
   {
     return $this->users;
+  }
+  
+}
+
+class Google_Service_Directory_VerificationCode extends Google_Model
+{
+  public $etag;
+  public $kind;
+  public $userId;
+  public $verificationCode;
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  
+  public function setUserId($userId)
+  {
+    $this->userId = $userId;
+  }
+
+  public function getUserId()
+  {
+    return $this->userId;
+  }
+  
+  public function setVerificationCode($verificationCode)
+  {
+    $this->verificationCode = $verificationCode;
+  }
+
+  public function getVerificationCode()
+  {
+    return $this->verificationCode;
+  }
+  
+}
+
+class Google_Service_Directory_VerificationCodes extends Google_Collection
+{
+  public $etag;
+  protected $itemsType = 'Google_Service_Directory_VerificationCode';
+  protected $itemsDataType = 'array';
+  public $kind;
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
   }
   
 }
