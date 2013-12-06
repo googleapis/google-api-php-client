@@ -32,6 +32,7 @@
 class Google_Service_CivicInfo extends Google_Service
 {
   public $elections;
+  public $representatives;
   
 
   /**
@@ -73,6 +74,25 @@ class Google_Service_CivicInfo extends Google_Service
                   'required' => true,
               ),
                 "officialOnly" => array(
+                  "location" => "query",
+                  "type" => "boolean",
+              ),
+              ),
+          ),
+        )
+    )
+    );
+    $this->representatives = new Google_Service_CivicInfo_Representatives_Resource(
+        $this,
+        $this->serviceName,
+        'representatives',
+        array(
+    'methods' => array(
+          "representativeInfoQuery" => array(
+            'path' => "representatives/lookup",
+            'httpMethod' => "POST",
+            'parameters' => array(
+                "includeOffices" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
@@ -127,6 +147,37 @@ class Google_Service_CivicInfo_Elections_Resource extends Google_Service_Resourc
     $params = array('electionId' => $electionId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('voterInfoQuery', array($params), "Google_Service_CivicInfo_VoterInfoResponse");
+  }
+}
+
+/**
+ * The "representatives" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $civicinfoService = new Google_Service_CivicInfo(...);
+ *   $representatives = $civicinfoService->representatives;
+ *  </code>
+ */
+class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Looks up political geography and (optionally) representative information
+   * based on an address. (representatives.representativeInfoQuery)
+   *
+   * @param Google_RepresentativeInfoRequest $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool includeOffices
+   * Whether to return information about offices and officials. If false, only the top-level district
+    * information will be returned.
+   * @return Google_Service_CivicInfo_RepresentativeInfoResponse
+   */
+  public function representativeInfoQuery(Google_Service_CivicInfo_RepresentativeInfoRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('representativeInfoQuery', array($params), "Google_Service_CivicInfo_RepresentativeInfoResponse");
   }
 }
 
@@ -816,6 +867,189 @@ class Google_Service_CivicInfo_ElectoralDistrict extends Google_Model
   
 }
 
+class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
+{
+  public $name;
+  public $officeIds;
+  public $scope;
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+  
+  public function setOfficeIds($officeIds)
+  {
+    $this->officeIds = $officeIds;
+  }
+
+  public function getOfficeIds()
+  {
+    return $this->officeIds;
+  }
+  
+  public function setScope($scope)
+  {
+    $this->scope = $scope;
+  }
+
+  public function getScope()
+  {
+    return $this->scope;
+  }
+  
+}
+
+class Google_Service_CivicInfo_Office extends Google_Collection
+{
+  public $level;
+  public $name;
+  public $officialIds;
+  protected $sourcesType = 'Google_Service_CivicInfo_Source';
+  protected $sourcesDataType = 'array';
+
+  public function setLevel($level)
+  {
+    $this->level = $level;
+  }
+
+  public function getLevel()
+  {
+    return $this->level;
+  }
+  
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+  
+  public function setOfficialIds($officialIds)
+  {
+    $this->officialIds = $officialIds;
+  }
+
+  public function getOfficialIds()
+  {
+    return $this->officialIds;
+  }
+  
+  public function setSources($sources)
+  {
+    $this->sources = $sources;
+  }
+
+  public function getSources()
+  {
+    return $this->sources;
+  }
+  
+}
+
+class Google_Service_CivicInfo_Official extends Google_Collection
+{
+  protected $addressType = 'Google_Service_CivicInfo_SimpleAddressType';
+  protected $addressDataType = 'array';
+  protected $channelsType = 'Google_Service_CivicInfo_Channel';
+  protected $channelsDataType = 'array';
+  public $emails;
+  public $name;
+  public $party;
+  public $phones;
+  public $photoUrl;
+  public $urls;
+
+  public function setAddress($address)
+  {
+    $this->address = $address;
+  }
+
+  public function getAddress()
+  {
+    return $this->address;
+  }
+  
+  public function setChannels($channels)
+  {
+    $this->channels = $channels;
+  }
+
+  public function getChannels()
+  {
+    return $this->channels;
+  }
+  
+  public function setEmails($emails)
+  {
+    $this->emails = $emails;
+  }
+
+  public function getEmails()
+  {
+    return $this->emails;
+  }
+  
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+  
+  public function setParty($party)
+  {
+    $this->party = $party;
+  }
+
+  public function getParty()
+  {
+    return $this->party;
+  }
+  
+  public function setPhones($phones)
+  {
+    $this->phones = $phones;
+  }
+
+  public function getPhones()
+  {
+    return $this->phones;
+  }
+  
+  public function setPhotoUrl($photoUrl)
+  {
+    $this->photoUrl = $photoUrl;
+  }
+
+  public function getPhotoUrl()
+  {
+    return $this->photoUrl;
+  }
+  
+  public function setUrls($urls)
+  {
+    $this->urls = $urls;
+  }
+
+  public function getUrls()
+  {
+    return $this->urls;
+  }
+  
+}
+
 class Google_Service_CivicInfo_PollingLocation extends Google_Collection
 {
   protected $addressType = 'Google_Service_CivicInfo_SimpleAddressType';
@@ -918,6 +1152,97 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   public function getVoterServices()
   {
     return $this->voterServices;
+  }
+  
+}
+
+class Google_Service_CivicInfo_RepresentativeInfoRequest extends Google_Model
+{
+  public $address;
+
+  public function setAddress($address)
+  {
+    $this->address = $address;
+  }
+
+  public function getAddress()
+  {
+    return $this->address;
+  }
+  
+}
+
+class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Model
+{
+  protected $divisionsType = 'Google_Service_CivicInfo_GeographicDivision';
+  protected $divisionsDataType = 'map';
+  public $kind;
+  protected $normalizedInputType = 'Google_Service_CivicInfo_SimpleAddressType';
+  protected $normalizedInputDataType = '';
+  protected $officesType = 'Google_Service_CivicInfo_Office';
+  protected $officesDataType = 'map';
+  protected $officialsType = 'Google_Service_CivicInfo_Official';
+  protected $officialsDataType = 'map';
+  public $status;
+
+  public function setDivisions($divisions)
+  {
+    $this->divisions = $divisions;
+  }
+
+  public function getDivisions()
+  {
+    return $this->divisions;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  
+  public function setNormalizedInput(Google_Service_CivicInfo_SimpleAddressType $normalizedInput)
+  {
+    $this->normalizedInput = $normalizedInput;
+  }
+
+  public function getNormalizedInput()
+  {
+    return $this->normalizedInput;
+  }
+  
+  public function setOffices($offices)
+  {
+    $this->offices = $offices;
+  }
+
+  public function getOffices()
+  {
+    return $this->offices;
+  }
+  
+  public function setOfficials($officials)
+  {
+    $this->officials = $officials;
+  }
+
+  public function getOfficials()
+  {
+    return $this->officials;
+  }
+  
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+
+  public function getStatus()
+  {
+    return $this->status;
   }
   
 }
