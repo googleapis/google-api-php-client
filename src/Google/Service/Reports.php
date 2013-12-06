@@ -108,6 +108,10 @@ class Google_Service_Reports extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
+                "customerId" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
               ),
           ),
         )
@@ -129,6 +133,10 @@ class Google_Service_Reports extends Google_Service
                   'required' => true,
               ),
                 "pageToken" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+                "customerId" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -174,6 +182,10 @@ class Google_Service_Reports extends Google_Service
                   "type" => "string",
               ),
                 "filters" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+                "customerId" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -223,6 +235,8 @@ class Google_Service_Reports_Activities_Resource extends Google_Service_Resource
     * name][operator][parameter2 value],...
    * @opt_param string endTime
    * Return events which occured at or before this time.
+   * @opt_param string customerId
+   * Represents the customer for which the data is to be fetched.
    * @return Google_Service_Reports_Activities
    */
   public function listActivities($userKey, $applicationName, $optParams = array())
@@ -254,6 +268,8 @@ class Google_Service_Reports_CustomerUsageReports_Resource extends Google_Servic
    *
    * @opt_param string pageToken
    * Token to specify next page.
+   * @opt_param string customerId
+   * Represents the customer for which the data is to be fetched.
    * @opt_param string parameters
    * Represents the application name, parameter name pairs to fetch in csv as app_name1:param_name1,
     * app_name2:param_name2.
@@ -297,6 +313,8 @@ class Google_Service_Reports_UserUsageReport_Resource extends Google_Service_Res
    * Token to specify next page.
    * @opt_param string filters
    * Represents the set of filters including parameter operator value.
+   * @opt_param string customerId
+   * Represents the customer for which the data is to be fetched.
    * @return Google_Service_Reports_UsageReports
    */
   public function get($userKey, $date, $optParams = array())
