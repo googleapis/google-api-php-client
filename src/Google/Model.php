@@ -25,7 +25,7 @@
  */
 class Google_Model implements ArrayAccess
 {
-  protected $data;
+  protected $data = array();
   protected $processed = array();
 
   /**
@@ -87,6 +87,38 @@ class Google_Model implements ArrayAccess
       }
     }
     $this->data = $array;
+  }
+  
+  /**
+   * Create a simplified object suitable for straightforward
+   * conversion to JSON. This is relatively expensive
+   * due to the usage of reflection, but shouldn't be called
+   * a whole lot, and is the most straightforward way to filter.
+   */
+  public function toSimpleObject() {
+    $object = new stdClass();
+
+    // Process all public properties.
+    $reflect = new ReflectionObject($this);
+    $props = $reflect->getProperties(ReflectionProperty::IS_PUBLIC);
+    foreach($props as $member) {
+      $name = $member->getName();
+      if ($this->$name instanceof Google_Model) {
+        $object->$name = $this->$name->toSimpleObject();
+      } else if ($this->$name != null) {
+        $object->$name = $this->$name;
+      }
+    }
+
+    // Process all other data.
+    foreach($this->data as $key => $val) {
+      if ($val instanceof Google_Model) {
+        $object->$key = $val->toSimpleObject();
+      } else {
+        $object->$key = $val;
+      }
+    }
+    return $object;
   }
 
   /**

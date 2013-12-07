@@ -42,6 +42,7 @@ class GeneralTests extends PHPUnit_Framework_TestSuite {
     $suite->addTestSuite('ServiceTest');
     $suite->addTestSuite('ApiBatchRequestTest');
     $suite->addTestSuite('ApiClientTest');
+    $suite->addTestSuite('ApiModelTest');
     $suite->addTestSuite('ApiOAuth2Test');
     $suite->addTestSuite('ApiCacheParserTest');
     $suite->addTestSuite('ApiMediaFileUploadTest');

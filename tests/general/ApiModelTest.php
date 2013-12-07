@@ -17,13 +17,19 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- 
+
 require_once 'BaseTest.php';
 
 class ApiModelTest extends BaseTest {
-  public function testDummy() {
-    // temp place holder as tests are being filled in
-    $this->assertTrue(true);
+  public function testJsonStructure() {
+    $model = new Google_Model();
+    $model->publicA = "This is a string";
+    $model2 = new Google_Model();
+    $model2->publicC = 12345;
+    $model->publicB = $model2;
+    $string = json_encode($model->toSimpleObject());
+    $data = json_decode($string, true);
+    $this->assertEquals(12345, $data['publicB']['publicC']);
+    $this->assertEquals("This is a string", $data['publicA']);
   }
-
 }
