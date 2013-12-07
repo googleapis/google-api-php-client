@@ -3150,12 +3150,14 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   protected $nameDataType = '';
   public $nickname;
   public $objectType;
+  public $occupation;
   protected $organizationsType = 'Google_Service_PlusDomains_PersonOrganizations';
   protected $organizationsDataType = 'array';
   protected $placesLivedType = 'Google_Service_PlusDomains_PersonPlacesLived';
   protected $placesLivedDataType = 'array';
   public $plusOneCount;
   public $relationshipStatus;
+  public $skills;
   public $tagline;
   public $url;
   protected $urlsType = 'Google_Service_PlusDomains_PersonUrls';
@@ -3332,6 +3334,16 @@ class Google_Service_PlusDomains_Person extends Google_Collection
     return $this->objectType;
   }
   
+  public function setOccupation($occupation)
+  {
+    $this->occupation = $occupation;
+  }
+
+  public function getOccupation()
+  {
+    return $this->occupation;
+  }
+  
   public function setOrganizations($organizations)
   {
     $this->organizations = $organizations;
@@ -3370,6 +3382,16 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   public function getRelationshipStatus()
   {
     return $this->relationshipStatus;
+  }
+  
+  public function setSkills($skills)
+  {
+    $this->skills = $skills;
+  }
+
+  public function getSkills()
+  {
+    return $this->skills;
   }
   
   public function setTagline($tagline)
