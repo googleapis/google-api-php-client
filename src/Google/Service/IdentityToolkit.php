@@ -538,6 +538,7 @@ class Google_Service_IdentityToolkit_GetAccountInfoResponseUsers extends Google_
 class Google_Service_IdentityToolkit_GetAccountInfoResponseUsersProviderUserInfo extends Google_Model
 {
   public $displayName;
+  public $federatedId;
   public $photoUrl;
   public $providerId;
 
@@ -549,6 +550,16 @@ class Google_Service_IdentityToolkit_GetAccountInfoResponseUsersProviderUserInfo
   public function getDisplayName()
   {
     return $this->displayName;
+  }
+  
+  public function setFederatedId($federatedId)
+  {
+    $this->federatedId = $federatedId;
+  }
+
+  public function getFederatedId()
+  {
+    return $this->federatedId;
   }
   
   public function setPhotoUrl($photoUrl)
@@ -1039,10 +1050,32 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyVerifyAssertionR
 
 class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyVerifyPasswordRequest extends Google_Model
 {
+  public $captchaChallenge;
+  public $captchaResponse;
   public $email;
   public $password;
   public $pendingIdToken;
 
+  public function setCaptchaChallenge($captchaChallenge)
+  {
+    $this->captchaChallenge = $captchaChallenge;
+  }
+
+  public function getCaptchaChallenge()
+  {
+    return $this->captchaChallenge;
+  }
+  
+  public function setCaptchaResponse($captchaResponse)
+  {
+    $this->captchaResponse = $captchaResponse;
+  }
+
+  public function getCaptchaResponse()
+  {
+    return $this->captchaResponse;
+  }
+  
   public function setEmail($email)
   {
     $this->email = $email;
@@ -1718,6 +1751,7 @@ class Google_Service_IdentityToolkit_VerifyPasswordResponse extends Google_Model
   public $idToken;
   public $kind;
   public $localId;
+  public $photoUrl;
   public $registered;
 
   public function setDisplayName($displayName)
@@ -1768,6 +1802,16 @@ class Google_Service_IdentityToolkit_VerifyPasswordResponse extends Google_Model
   public function getLocalId()
   {
     return $this->localId;
+  }
+  
+  public function setPhotoUrl($photoUrl)
+  {
+    $this->photoUrl = $photoUrl;
+  }
+
+  public function getPhotoUrl()
+  {
+    return $this->photoUrl;
   }
   
   public function setRegistered($registered)
