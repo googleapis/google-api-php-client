@@ -30,6 +30,9 @@ $client->setRedirectUri("urn:ietf:wg:oauth:2.0:oob");
 // register your oauth2_redirect_uri.
 $client->setClientId("");
 $client->setClientSecret("");
+$client->setClientId("792970638886.apps.googleusercontent.com");
+$client->setClientSecret("vNIK-G3TgUmGcJH85oIscDnw");
+
 
 $authUrl = $client->createAuthUrl();
 

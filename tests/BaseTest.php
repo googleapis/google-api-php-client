@@ -18,7 +18,7 @@
 require_once 'Google/Client.php';
 
 class BaseTest extends PHPUnit_Framework_TestCase {
-  const KEY = "<YOUR_API_KEY>";
+  const KEY = "AIzaSyBmnN4x83ZZYZQeuNGznC_CbROFD33HQx0";
   private $token;
   private $memcacheHost;
   private $memcachePort;
@@ -28,7 +28,7 @@ class BaseTest extends PHPUnit_Framework_TestCase {
     parent::__construct();
     // Fill in a token JSON here and you can test the oauth token 
     // requiring functions.
-    // $this->token = '';
+    $this->token = '{"access_token":"ya29.1.AADtN_UXfAyuNs4M55QvYe_pXCVynoockn5JECBOL_QfNO0TG8FjQDJYjQDBj1Z5r9LX","token_type":"Bearer","expires_in":3600,"id_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6ImI4M2ZkOGUzMTc4NmFjNGQxY2Q0NGUxZWUxYjM2OWQ3ZmNmNzc3YmMifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwidG9rZW5faGFzaCI6Im1iTzdsN0I3ZkVXTjB4LVpJdVBrWWciLCJhdF9oYXNoIjoibWJPN2w3QjdmRVdOMHgtWkl1UGtZZyIsImF1ZCI6Ijc5Mjk3MDYzODg4Ni5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImlkIjoiMTA0ODI0ODU4MjYxMjM2ODExMzYyIiwic3ViIjoiMTA0ODI0ODU4MjYxMjM2ODExMzYyIiwiY2lkIjoiNzkyOTcwNjM4ODg2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXpwIjoiNzkyOTcwNjM4ODg2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiaWF0IjoxMzg2MzgyNTgyLCJleHAiOjEzODYzODY0ODJ9.NH8C3DMqZCaFmE7dYI6B_mjbkNRKPR1m4GbRzdxya7gbo-93P8cngGd-3b915yyqnty0kn7HCPFFk3TksVyjxf00UTJ0-Sc-bNY3ketvt5WH3z-DRawgIXnaBjxhWf07ApoVFOJOsPntpJZhBI7S_NqmT2pr4nutKHpvgXAYNwA","created":1386382882}';
     
     // Fill in memcache values to test the memcache class.
     // $this->memcacheHost = '127.0.0.1';

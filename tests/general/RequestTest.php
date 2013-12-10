@@ -43,4 +43,16 @@ class RequestTest extends BaseTest {
     $this->assertEquals($url3a, $request->getUrl());
     $this->assertEquals($url3c, $request->getPostBody());
   }
+  
+  public function testRequestSerialization() {
+    $url = 'http://localhost:8080/foo/bar?foo=a&foo=b&wowee=oh+my';
+    $url2 = 'http://localhost:8080/foo/bar?foo=a&foo=b&wowee=oh+my&hi=there';
+    $request = new Google_Http_Request($this->getClient(), $url);
+    $request->setExpectedClass("Not_A_Real");
+    $request->setQueryParam("hi", "there");
+    $s = serialize($request);
+    $r = unserialize($s);
+    $this->assertEquals($url2, $r->getUrl());
+    $this->assertEquals("Google_Client", $r->getExpectedClass());
+  }
 }
