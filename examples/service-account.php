@@ -62,20 +62,19 @@ $service = new Google_Service_Books($client);
   the service account
  ************************************************/
 if (isset($_SESSION['service_token'])) {
-  $client->setAccessToken($_SESSION['access_token']);
-} else {
-  $key = file_get_contents($key_file_location);
-  $cred = new Google_Auth_AssertionCredentials(
-      $service_account_name,
-      array('https://www.googleapis.com/auth/books'),
-      $key
-  );
-  // If we were retrieving on behalf of a specific delegated
-  // user we should set the subject here.
-  // $cred->sub = "emailaddress@yourdomain.com";
-  $client->setAssertionCredentials($cred);
-  $_SESSION['service_token'] = $client->getAccessToken();
+  $client->setAccessToken($_SESSION['service_token']);
 }
+$key = file_get_contents($key_file_location);
+$cred = new Google_Auth_AssertionCredentials(
+    $service_account_name,
+    array('https://www.googleapis.com/auth/books'),
+    $key
+);
+$client->setAssertionCredentials($cred);
+if($client->getAuth()->isAccessTokenExpired()) {
+  $client->getAuth()->refreshTokenWithAssertion($cred);
+}
+$_SESSION['service_token'] = $client->getAccessToken();
 
 /************************************************
   We're just going to make the same call as in the
