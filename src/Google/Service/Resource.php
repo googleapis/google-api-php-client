@@ -49,7 +49,7 @@ class Google_Service_Resource
 
   /** @var Google_Service $service */
   private $service;
-  
+
   /** @var Google_Client $client */
   private $client;
 
@@ -72,7 +72,7 @@ class Google_Service_Resource
         $resource['methods'] :
         array($resourceName => $resource);
   }
-  
+
   /**
    * TODO(ianbarber): This function needs simplifying.
    * @param $name
@@ -96,15 +96,21 @@ class Google_Service_Resource
     // document as parameter, but we abuse the param entry for storing it.
     $postBody = null;
     if (isset($parameters['postBody'])) {
-      if (is_object($parameters['postBody'])) {
+      if ($parameters['postBody'] instanceof Google_Model) {
+        // In the cases the post body is an existing object, we want
+        // to use the smart method to create a simple object for
+        // for JSONification.
+        $parameters['postBody'] = $parameters['postBody']->toSimpleObject();
+      } else if (is_object($parameters['postBody'])) {
+        // If the post body is another kind of object, we will try and
+        // wrangle it into a sensible format.
         $parameters['postBody'] =
             $this->convertToArrayAndStripNulls($parameters['postBody']);
       }
-
       $postBody = json_encode($parameters['postBody']);
       unset($parameters['postBody']);
     }
-    
+
     // TODO(ianbarber): optParams here probably should have been
     // handled already - this may well be redundant code.
     if (isset($parameters['optParams'])) {
@@ -116,7 +122,7 @@ class Google_Service_Resource
     if (!isset($method['parameters'])) {
       $method['parameters'] = array();
     }
-    
+
     $method['parameters'] = array_merge(
         $method['parameters'],
         $this->stackParameters
@@ -152,7 +158,6 @@ class Google_Service_Resource
         $method['path'],
         $parameters
     );
-
     $httpRequest = new Google_Http_Request(
         $this->client,
         $url,
@@ -170,7 +175,7 @@ class Google_Service_Resource
 
     $httpRequest = $this->client->getAuth()->sign($httpRequest);
     $httpRequest->setExpectedClass($expected_class);
-    
+
     if (isset($parameters['data']) &&
         ($parameters['uploadType']['value'] == 'media' || $parameters['uploadType']['value'] == 'multipart')) {
       // If we are doing a simple media upload, trigger that as a convenience.
