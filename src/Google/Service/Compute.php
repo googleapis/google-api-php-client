@@ -4474,6 +4474,8 @@ class Google_Service_Compute_Disk extends Google_Model
   public $options;
   public $selfLink;
   public $sizeGb;
+  public $sourceImage;
+  public $sourceImageId;
   public $sourceSnapshot;
   public $sourceSnapshotId;
   public $status;
@@ -4557,6 +4559,26 @@ class Google_Service_Compute_Disk extends Google_Model
   public function getSizeGb()
   {
     return $this->sizeGb;
+  }
+  
+  public function setSourceImage($sourceImage)
+  {
+    $this->sourceImage = $sourceImage;
+  }
+
+  public function getSourceImage()
+  {
+    return $this->sourceImage;
+  }
+  
+  public function setSourceImageId($sourceImageId)
+  {
+    $this->sourceImageId = $sourceImageId;
+  }
+
+  public function getSourceImageId()
+  {
+    return $this->sourceImageId;
   }
   
   public function setSourceSnapshot($sourceSnapshot)
