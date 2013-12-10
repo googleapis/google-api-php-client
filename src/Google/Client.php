@@ -176,7 +176,7 @@ class Google_Client
   {
     if (empty($this->requestedScopes)) {
       foreach ($this->availableScopes as $service => $serviceScopes) {
-        array_push($this->requestedScopes, $serviceScopes[0]);
+        $this->requestedScopes = array_merge($this->requestedScopes, $serviceScopes);
       }
     }
     $scopes = implode(' ', $this->requestedScopes);
