@@ -66,10 +66,6 @@ class Google_Http_Request
     $this->setRequestMethod($method);
     $this->setRequestHeaders($headers);
     $this->setPostBody($postBody);
-
-    $this->userAgent = $this->client->getApplicationName()
-        . " " .self::USER_AGENT_SUFFIX
-        . $this->client->getLibraryVersion();
   }
   
   /**
@@ -77,10 +73,13 @@ class Google_Http_Request
    *
    * @returns object of the type of the expected class or array.
    */
-  public function execute()
+  public function execute(Google_Client $client)
   {
+    $this->userAgent = $client->getApplicationName()
+        . " " .self::USER_AGENT_SUFFIX
+        . $client->getLibraryVersion();
     $this->maybeMoveParametersToBody();
-    return Google_Http_REST::execute($this->client, $this);
+    return Google_Http_REST::execute($client, $this);
   }
 
   /**
