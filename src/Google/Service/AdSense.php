@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for AdSense (v1.3).
+ * Service definition for AdSense (v1.4).
  *
  * <p>
  * Gives AdSense publishers access to their inventory and the ability to generate reports
@@ -38,6 +38,7 @@ class Google_Service_AdSense extends Google_Service
   public $accounts_alerts;
   public $accounts_customchannels;
   public $accounts_customchannels_adunits;
+  public $accounts_payments;
   public $accounts_reports;
   public $accounts_reports_saved;
   public $accounts_savedadstyles;
@@ -50,6 +51,7 @@ class Google_Service_AdSense extends Google_Service
   public $customchannels_adunits;
   public $metadata_dimensions;
   public $metadata_metrics;
+  public $payments;
   public $reports;
   public $reports_saved;
   public $savedadstyles;
@@ -64,8 +66,8 @@ class Google_Service_AdSense extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->servicePath = 'adsense/v1.3/';
-    $this->version = 'v1.3';
+    $this->servicePath = 'adsense/v1.4/';
+    $this->version = 'v1.4';
     
     $this->availableScopes = array(
       "https://www.googleapis.com/auth/adsense.readonly",
@@ -266,7 +268,22 @@ class Google_Service_AdSense extends Google_Service
         'alerts',
         array(
     'methods' => array(
-          "list" => array(
+          "delete" => array(
+            'path' => "accounts/{accountId}/alerts/{alertId}",
+            'httpMethod' => "DELETE",
+            'parameters' => array(
+                "accountId" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "alertId" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"list" => array(
             'path' => "accounts/{accountId}/alerts",
             'httpMethod' => "GET",
             'parameters' => array(
@@ -373,6 +390,26 @@ class Google_Service_AdSense extends Google_Service
                 "pageToken" => array(
                   "location" => "query",
                   "type" => "string",
+              ),
+              ),
+          ),
+        )
+    )
+    );
+    $this->accounts_payments = new Google_Service_AdSense_AccountsPayments_Resource(
+        $this,
+        $this->serviceName,
+        'payments',
+        array(
+    'methods' => array(
+          "list" => array(
+            'path' => "accounts/{accountId}/payments",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "accountId" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
               ),
               ),
           ),
@@ -704,7 +741,17 @@ class Google_Service_AdSense extends Google_Service
         'alerts',
         array(
     'methods' => array(
-          "list" => array(
+          "delete" => array(
+            'path' => "alerts/{alertId}",
+            'httpMethod' => "DELETE",
+            'parameters' => array(
+                "alertId" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"list" => array(
             'path' => "alerts",
             'httpMethod' => "GET",
             'parameters' => array(
@@ -819,6 +866,20 @@ class Google_Service_AdSense extends Google_Service
     'methods' => array(
           "list" => array(
             'path' => "metadata/metrics",
+            'httpMethod' => "GET",
+            'parameters' => array(  ),
+          ),
+        )
+    )
+    );
+    $this->payments = new Google_Service_AdSense_Payments_Resource(
+        $this,
+        $this->serviceName,
+        'payments',
+        array(
+    'methods' => array(
+          "list" => array(
+            'path' => "payments",
             'httpMethod' => "GET",
             'parameters' => array(  ),
           ),
@@ -1209,6 +1270,22 @@ class Google_Service_AdSense_AccountsAlerts_Resource extends Google_Service_Reso
 {
 
   /**
+   * Dismiss (delete) the specified alert from the specified publisher AdSense
+   * account. (alerts.delete)
+   *
+   * @param string $accountId
+   * Account which contains the ad unit.
+   * @param string $alertId
+   * Alert to delete.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($accountId, $alertId, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'alertId' => $alertId);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+  /**
    * List the alerts for the specified AdSense account. (alerts.list)
    *
    * @param string $accountId
@@ -1319,6 +1396,32 @@ class Google_Service_AdSense_AccountsCustomchannelsAdunits_Resource extends Goog
     $params = array('accountId' => $accountId, 'adClientId' => $adClientId, 'customChannelId' => $customChannelId);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_AdSense_AdUnits");
+  }
+}
+/**
+ * The "payments" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adsenseService = new Google_Service_AdSense(...);
+ *   $payments = $adsenseService->payments;
+ *  </code>
+ */
+class Google_Service_AdSense_AccountsPayments_Resource extends Google_Service_Resource
+{
+
+  /**
+   * List the payments for the specified AdSense account. (payments.list)
+   *
+   * @param string $accountId
+   * Account for which to retrieve the payments.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_AdSense_Payments
+   */
+  public function listAccountsPayments($accountId, $optParams = array())
+  {
+    $params = array('accountId' => $accountId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_AdSense_Payments");
   }
 }
 /**
@@ -1666,6 +1769,20 @@ class Google_Service_AdSense_Alerts_Resource extends Google_Service_Resource
 {
 
   /**
+   * Dismiss (delete) the specified alert from the publisher's AdSense account.
+   * (alerts.delete)
+   *
+   * @param string $alertId
+   * Alert to delete.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($alertId, $optParams = array())
+  {
+    $params = array('alertId' => $alertId);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+  /**
    * List the alerts for this AdSense account. (alerts.list)
    *
    * @param array $optParams Optional parameters.
@@ -1833,6 +1950,31 @@ class Google_Service_AdSense_MetadataMetrics_Resource extends Google_Service_Res
     $params = array();
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_AdSense_Metadata");
+  }
+}
+
+/**
+ * The "payments" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adsenseService = new Google_Service_AdSense(...);
+ *   $payments = $adsenseService->payments;
+ *  </code>
+ */
+class Google_Service_AdSense_Payments_Resource extends Google_Service_Resource
+{
+
+  /**
+   * List the payments for this AdSense account. (payments.list)
+   *
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_AdSense_Payments
+   */
+  public function listPayments($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_AdSense_Payments");
   }
 }
 
@@ -2037,6 +2179,7 @@ class Google_Service_AdSense_Account extends Google_Collection
   public $premium;
   protected $subAccountsType = 'Google_Service_AdSense_Account';
   protected $subAccountsDataType = 'array';
+  public $timezone;
 
   public function setId($id)
   {
@@ -2086,6 +2229,16 @@ class Google_Service_AdSense_Account extends Google_Collection
   public function getSubAccounts()
   {
     return $this->subAccounts;
+  }
+  
+  public function setTimezone($timezone)
+  {
+    $this->timezone = $timezone;
+  }
+
+  public function getTimezone()
+  {
+    return $this->timezone;
   }
   
 }
@@ -2143,6 +2296,7 @@ class Google_Service_AdSense_Accounts extends Google_Collection
 class Google_Service_AdSense_AdClient extends Google_Model
 {
   public $arcOptIn;
+  public $arcReviewMode;
   public $id;
   public $kind;
   public $productCode;
@@ -2156,6 +2310,16 @@ class Google_Service_AdSense_AdClient extends Google_Model
   public function getArcOptIn()
   {
     return $this->arcOptIn;
+  }
+  
+  public function setArcReviewMode($arcReviewMode)
+  {
+    $this->arcReviewMode = $arcReviewMode;
+  }
+
+  public function getArcReviewMode()
+  {
+    return $this->arcReviewMode;
   }
   
   public function setId($id)
@@ -2762,10 +2926,12 @@ class Google_Service_AdSense_AdUnits extends Google_Collection
 class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Collection
 {
   public $averages;
+  public $endDate;
   protected $headersType = 'Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders';
   protected $headersDataType = 'array';
   public $kind;
   public $rows;
+  public $startDate;
   public $totalMatchedRows;
   public $totals;
   public $warnings;
@@ -2778,6 +2944,16 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   public function getAverages()
   {
     return $this->averages;
+  }
+  
+  public function setEndDate($endDate)
+  {
+    $this->endDate = $endDate;
+  }
+
+  public function getEndDate()
+  {
+    return $this->endDate;
   }
   
   public function setHeaders($headers)
@@ -2808,6 +2984,16 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   public function getRows()
   {
     return $this->rows;
+  }
+  
+  public function setStartDate($startDate)
+  {
+    $this->startDate = $startDate;
+  }
+
+  public function getStartDate()
+  {
+    return $this->startDate;
   }
   
   public function setTotalMatchedRows($totalMatchedRows)
@@ -2883,6 +3069,7 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders extends Googl
 class Google_Service_AdSense_Alert extends Google_Model
 {
   public $id;
+  public $isDismissible;
   public $kind;
   public $message;
   public $severity;
@@ -2896,6 +3083,16 @@ class Google_Service_AdSense_Alert extends Google_Model
   public function getId()
   {
     return $this->id;
+  }
+  
+  public function setIsDismissible($isDismissible)
+  {
+    $this->isDismissible = $isDismissible;
+  }
+
+  public function getIsDismissible()
+  {
+    return $this->isDismissible;
   }
   
   public function setKind($kind)
@@ -3131,6 +3328,94 @@ class Google_Service_AdSense_CustomChannels extends Google_Collection
 class Google_Service_AdSense_Metadata extends Google_Collection
 {
   protected $itemsType = 'Google_Service_AdSense_ReportingMetadataEntry';
+  protected $itemsDataType = 'array';
+  public $kind;
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  
+}
+
+class Google_Service_AdSense_Payment extends Google_Model
+{
+  public $id;
+  public $kind;
+  public $paymentAmount;
+  public $paymentAmountCurrencyCode;
+  public $paymentDate;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  
+  public function setPaymentAmount($paymentAmount)
+  {
+    $this->paymentAmount = $paymentAmount;
+  }
+
+  public function getPaymentAmount()
+  {
+    return $this->paymentAmount;
+  }
+  
+  public function setPaymentAmountCurrencyCode($paymentAmountCurrencyCode)
+  {
+    $this->paymentAmountCurrencyCode = $paymentAmountCurrencyCode;
+  }
+
+  public function getPaymentAmountCurrencyCode()
+  {
+    return $this->paymentAmountCurrencyCode;
+  }
+  
+  public function setPaymentDate($paymentDate)
+  {
+    $this->paymentDate = $paymentDate;
+  }
+
+  public function getPaymentDate()
+  {
+    return $this->paymentDate;
+  }
+  
+}
+
+class Google_Service_AdSense_Payments extends Google_Collection
+{
+  protected $itemsType = 'Google_Service_AdSense_Payment';
   protected $itemsDataType = 'array';
   public $kind;
 
