@@ -2992,6 +2992,7 @@ class Google_Service_Plus_Person extends Google_Collection
   protected $coverDataType = '';
   public $currentLocation;
   public $displayName;
+  public $domain;
   protected $emailsType = 'Google_Service_Plus_PersonEmails';
   protected $emailsDataType = 'array';
   public $etag;
@@ -3098,6 +3099,16 @@ class Google_Service_Plus_Person extends Google_Collection
   public function getDisplayName()
   {
     return $this->displayName;
+  }
+  
+  public function setDomain($domain)
+  {
+    $this->domain = $domain;
+  }
+
+  public function getDomain()
+  {
+    return $this->domain;
   }
   
   public function setEmails($emails)
