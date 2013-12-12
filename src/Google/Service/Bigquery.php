@@ -3096,12 +3096,23 @@ class Google_Service_Bigquery_TableDataList extends Google_Collection
 
 class Google_Service_Bigquery_TableFieldSchema extends Google_Collection
 {
+  public $description;
   protected $fieldsType = 'Google_Service_Bigquery_TableFieldSchema';
   protected $fieldsDataType = 'array';
   public $mode;
   public $name;
   public $type;
 
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  
   public function setFields($fields)
   {
     $this->fields = $fields;
