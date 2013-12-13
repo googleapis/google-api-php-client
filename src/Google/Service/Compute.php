@@ -24,7 +24,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/compute/docs/reference/v1" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/compute/docs/reference/latest/" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -46,6 +46,7 @@ class Google_Service_Compute extends Google_Service
   public $regions;
   public $routes;
   public $snapshots;
+  public $targetInstances;
   public $targetPools;
   public $zoneOperations;
   public $zones;
@@ -1571,6 +1572,120 @@ class Google_Service_Compute extends Google_Service
             'httpMethod' => "GET",
             'parameters' => array(
                 "project" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "filter" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+                "pageToken" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+                "maxResults" => array(
+                  "location" => "query",
+                  "type" => "integer",
+              ),
+              ),
+          ),
+        )
+    )
+    );
+    $this->targetInstances = new Google_Service_Compute_TargetInstances_Resource(
+        $this,
+        $this->serviceName,
+        'targetInstances',
+        array(
+    'methods' => array(
+          "aggregatedList" => array(
+            'path' => "{project}/aggregated/targetInstances",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "project" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "filter" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+                "pageToken" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+                "maxResults" => array(
+                  "location" => "query",
+                  "type" => "integer",
+              ),
+              ),
+          ),"delete" => array(
+            'path' => "{project}/zones/{zone}/targetInstances/{targetInstance}",
+            'httpMethod' => "DELETE",
+            'parameters' => array(
+                "project" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "zone" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "targetInstance" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"get" => array(
+            'path' => "{project}/zones/{zone}/targetInstances/{targetInstance}",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "project" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "zone" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "targetInstance" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"insert" => array(
+            'path' => "{project}/zones/{zone}/targetInstances",
+            'httpMethod' => "POST",
+            'parameters' => array(
+                "project" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "zone" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+              ),
+          ),"list" => array(
+            'path' => "{project}/zones/{zone}/targetInstances",
+            'httpMethod' => "GET",
+            'parameters' => array(
+                "project" => array(
+                  "location" => "path",
+                  "type" => "string",
+                  'required' => true,
+              ),
+                "zone" => array(
                   "location" => "path",
                   "type" => "string",
                   'required' => true,
@@ -3571,6 +3686,123 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
     $params = array('project' => $project);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Compute_SnapshotList");
+  }
+}
+
+/**
+ * The "targetInstances" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $targetInstances = $computeService->targetInstances;
+ *  </code>
+ */
+class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Retrieves the list of target instances grouped by scope.
+   * (targetInstances.aggregatedList)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter
+   * Optional. Filter expression for filtering listed resources.
+   * @opt_param string pageToken
+   * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
+    * previous list request.
+   * @opt_param string maxResults
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
+   * @return Google_Service_Compute_TargetInstanceAggregatedList
+   */
+  public function aggregatedList($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('aggregatedList', array($params), "Google_Service_Compute_TargetInstanceAggregatedList");
+  }
+  /**
+   * Deletes the specified TargetInstance resource. (targetInstances.delete)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param string $zone
+   * Name of the zone scoping this request.
+   * @param string $targetInstance
+   * Name of the TargetInstance resource to delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function delete($project, $zone, $targetInstance, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'targetInstance' => $targetInstance);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Compute_Operation");
+  }
+  /**
+   * Returns the specified TargetInstance resource. (targetInstances.get)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param string $zone
+   * Name of the zone scoping this request.
+   * @param string $targetInstance
+   * Name of the TargetInstance resource to return.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_TargetInstance
+   */
+  public function get($project, $zone, $targetInstance, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'targetInstance' => $targetInstance);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_TargetInstance");
+  }
+  /**
+   * Creates a TargetInstance resource in the specified project and zone using the
+   * data included in the request. (targetInstances.insert)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param string $zone
+   * Name of the zone scoping this request.
+   * @param Google_TargetInstance $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function insert($project, $zone, Google_Service_Compute_TargetInstance $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Compute_Operation");
+  }
+  /**
+   * Retrieves the list of TargetInstance resources available to the specified
+   * project and zone. (targetInstances.list)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param string $zone
+   * Name of the zone scoping this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter
+   * Optional. Filter expression for filtering listed resources.
+   * @opt_param string pageToken
+   * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
+    * previous list request.
+   * @opt_param string maxResults
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 100.
+   * @return Google_Service_Compute_TargetInstanceList
+   */
+  public function listTargetInstances($project, $zone, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Compute_TargetInstanceList");
   }
 }
 
@@ -8492,6 +8724,327 @@ class Google_Service_Compute_Tags extends Google_Collection
   public function getItems()
   {
     return $this->items;
+  }
+  
+}
+
+class Google_Service_Compute_TargetInstance extends Google_Model
+{
+  public $creationTimestamp;
+  public $description;
+  public $id;
+  public $instance;
+  public $kind;
+  public $name;
+  public $natPolicy;
+  public $selfLink;
+  public $zone;
+
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+  
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+  
+  public function setInstance($instance)
+  {
+    $this->instance = $instance;
+  }
+
+  public function getInstance()
+  {
+    return $this->instance;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+  
+  public function setNatPolicy($natPolicy)
+  {
+    $this->natPolicy = $natPolicy;
+  }
+
+  public function getNatPolicy()
+  {
+    return $this->natPolicy;
+  }
+  
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+  
+  public function setZone($zone)
+  {
+    $this->zone = $zone;
+  }
+
+  public function getZone()
+  {
+    return $this->zone;
+  }
+  
+}
+
+class Google_Service_Compute_TargetInstanceAggregatedList extends Google_Model
+{
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_TargetInstancesScopedList';
+  protected $itemsDataType = 'map';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+  
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+  
+}
+
+class Google_Service_Compute_TargetInstanceList extends Google_Collection
+{
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_TargetInstance';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+  
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+  
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+  
+}
+
+class Google_Service_Compute_TargetInstancesScopedList extends Google_Collection
+{
+  protected $targetInstancesType = 'Google_Service_Compute_TargetInstance';
+  protected $targetInstancesDataType = 'array';
+  protected $warningType = 'Google_Service_Compute_TargetInstancesScopedListWarning';
+  protected $warningDataType = '';
+
+  public function setTargetInstances($targetInstances)
+  {
+    $this->targetInstances = $targetInstances;
+  }
+
+  public function getTargetInstances()
+  {
+    return $this->targetInstances;
+  }
+  
+  public function setWarning(Google_Service_Compute_TargetInstancesScopedListWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+
+  public function getWarning()
+  {
+    return $this->warning;
+  }
+  
+}
+
+class Google_Service_Compute_TargetInstancesScopedListWarning extends Google_Collection
+{
+  public $code;
+  protected $dataType = 'Google_Service_Compute_TargetInstancesScopedListWarningData';
+  protected $dataDataType = 'array';
+  public $message;
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+
+  public function getCode()
+  {
+    return $this->code;
+  }
+  
+  public function setData($data)
+  {
+    $this->data = $data;
+  }
+
+  public function getData()
+  {
+    return $this->data;
+  }
+  
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+
+  public function getMessage()
+  {
+    return $this->message;
+  }
+  
+}
+
+class Google_Service_Compute_TargetInstancesScopedListWarningData extends Google_Model
+{
+  public $key;
+  public $value;
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+
+  public function getKey()
+  {
+    return $this->key;
+  }
+  
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
   }
   
 }
