@@ -304,13 +304,17 @@ class Google_Service_YouTube extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
+                "displaySlate" => array(
+                  "location" => "query",
+                  "type" => "boolean",
+              ),
                 "offsetTimeMs" => array(
                   "location" => "query",
                   "type" => "string",
               ),
-                "displaySlate" => array(
+                "walltime" => array(
                   "location" => "query",
-                  "type" => "boolean",
+                  "type" => "string",
               ),
               ),
           ),"delete" => array(
@@ -1453,6 +1457,8 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
     * their video and channel data, without having to provide authentication credentials for each
     * individual channel. The CMS account that the user authenticates with must be linked to the
     * specified YouTube content owner.
+   * @opt_param bool displaySlate
+   * The displaySlate parameter specifies whether the slate is being enabled or disabled.
    * @opt_param string offsetTimeMs
    * The offsetTimeMs parameter specifies a positive time offset when the specified slate change will
     * occur. The value is measured in milliseconds from the beginning of the broadcast's monitor
@@ -1464,8 +1470,9 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
     * for more details.
   Important: You should only specify a value for this parameter if your
     * broadcast stream is delayed.
-   * @opt_param bool displaySlate
-   * The displaySlate parameter specifies whether the slate is being enabled or disabled.
+   * @opt_param string walltime
+   * The walltime parameter specifies the wall clock time at which the specified slate change will
+    * occur.
    * @return Google_Service_YouTube_LiveBroadcast
    */
   public function control($id, $part, $optParams = array())
