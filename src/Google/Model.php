@@ -114,7 +114,7 @@ class Google_Model implements ArrayAccess
     foreach($this->data as $key => $val) {
       if ($val instanceof Google_Model) {
         $object->$key = $val->toSimpleObject();
-      } else {
+      } else if ($val != null) {
         $object->$key = $val;
       }
     }

@@ -26,10 +26,13 @@ class ApiModelTest extends BaseTest {
     $model->publicA = "This is a string";
     $model2 = new Google_Model();
     $model2->publicC = 12345;
+    $model2->publicD = null;
     $model->publicB = $model2;
     $string = json_encode($model->toSimpleObject());
     $data = json_decode($string, true);
     $this->assertEquals(12345, $data['publicB']['publicC']);
     $this->assertEquals("This is a string", $data['publicA']);
+    $this->assertArrayNotHasKey("publicD", $data['publicB']);
+    $this->assertArrayNotHasKey("data", $data);
   }
 }
