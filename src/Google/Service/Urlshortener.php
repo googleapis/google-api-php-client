@@ -85,7 +85,7 @@ class Google_Service_Urlshortener extends Google_Service
             'path' => "url/history",
             'httpMethod' => "GET",
             'parameters' => array(
-                "start_token" => array(
+                "start-token" => array(
                   "location" => "query",
                   "type" => "string",
               ),
