@@ -87,11 +87,11 @@ class Google_Service_Shopping extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "categories_include" => array(
+                "categories.include" => array(
                   "location" => "query",
                   "type" => "string",
               ),
-                "recommendations_enabled" => array(
+                "recommendations.enabled" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
@@ -103,15 +103,15 @@ class Google_Service_Shopping extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "categories_useGcsConfig" => array(
+                "categories.useGcsConfig" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "recommendations_include" => array(
+                "recommendations.include" => array(
                   "location" => "query",
                   "type" => "string",
               ),
-                "categories_enabled" => array(
+                "categories.enabled" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
@@ -123,7 +123,7 @@ class Google_Service_Shopping extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "recommendations_useGcsConfig" => array(
+                "recommendations.useGcsConfig" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
@@ -137,23 +137,23 @@ class Google_Service_Shopping extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "facets_include" => array(
+                "facets.include" => array(
                   "location" => "query",
                   "type" => "string",
               ),
-                "categoryRecommendations_category" => array(
+                "categoryRecommendations.category" => array(
                   "location" => "query",
                   "type" => "string",
               ),
-                "extras_enabled" => array(
+                "extras.enabled" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "facets_enabled" => array(
+                "facets.enabled" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "promotions_enabled" => array(
+                "promotions.enabled" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
@@ -165,15 +165,15 @@ class Google_Service_Shopping extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "categoryRecommendations_enabled" => array(
+                "categoryRecommendations.enabled" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "facets_discover" => array(
+                "facets.discover" => array(
                   "location" => "query",
                   "type" => "string",
               ),
-                "extras_info" => array(
+                "extras.info" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -193,7 +193,7 @@ class Google_Service_Shopping extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "spelling_enabled" => array(
+                "spelling.enabled" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
@@ -201,7 +201,7 @@ class Google_Service_Shopping extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "spelling_useGcsConfig" => array(
+                "spelling.useGcsConfig" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
@@ -217,7 +217,7 @@ class Google_Service_Shopping extends Google_Service
                   "location" => "query",
                   "type" => "integer",
               ),
-                "categories_include" => array(
+                "categories.include" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -229,7 +229,7 @@ class Google_Service_Shopping extends Google_Service
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "categories_useGcsConfig" => array(
+                "categories.useGcsConfig" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
@@ -237,11 +237,11 @@ class Google_Service_Shopping extends Google_Service
                   "location" => "query",
                   "type" => "integer",
               ),
-                "facets_useGcsConfig" => array(
+                "facets.useGcsConfig" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "categories_enabled" => array(
+                "categories.enabled" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
@@ -261,7 +261,7 @@ class Google_Service_Shopping extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "categoryRecommendations_include" => array(
+                "categoryRecommendations.include" => array(
                   "location" => "query",
                   "type" => "string",
               ),
@@ -277,23 +277,23 @@ class Google_Service_Shopping extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "facets_includeEmptyBuckets" => array(
+                "facets.includeEmptyBuckets" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "redirects_enabled" => array(
+                "redirects.enabled" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "redirects_useGcsConfig" => array(
+                "redirects.useGcsConfig" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "categoryRecommendations_useGcsConfig" => array(
+                "categoryRecommendations.useGcsConfig" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
-                "promotions_useGcsConfig" => array(
+                "promotions.useGcsConfig" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
