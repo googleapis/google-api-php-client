@@ -73,12 +73,12 @@ class Google_Service_YouTubeAnalytics extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "start_date" => array(
+                "start-date" => array(
                   "location" => "query",
                   "type" => "string",
                   'required' => true,
               ),
-                "end_date" => array(
+                "end-date" => array(
                   "location" => "query",
                   "type" => "string",
                   'required' => true,
@@ -88,7 +88,7 @@ class Google_Service_YouTubeAnalytics extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "max_results" => array(
+                "max-results" => array(
                   "location" => "query",
                   "type" => "integer",
               ),
@@ -100,7 +100,7 @@ class Google_Service_YouTubeAnalytics extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "start_index" => array(
+                "start-index" => array(
                   "location" => "query",
                   "type" => "integer",
               ),
