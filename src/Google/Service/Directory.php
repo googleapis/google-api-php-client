@@ -19,7 +19,7 @@
  * Service definition for Directory (directory_v1).
  *
  * <p>
- * Apps Directory API lets you view and manage enterprise resources like user, groups, OrgUnit, devices, tokens, asps, verification codes.
+ * The Admin SDK Directory API lets you view and manage enterprise resources such as users and groups, administrative notifications, security features, and more.
  * </p>
  *
  * <p>
@@ -1061,13 +1061,13 @@ class Google_Service_Directory_Asps_Resource extends Google_Service_Resource
 {
 
   /**
-   * Delete the application specific password issued by the user for a codeId.
-   * (asps.delete)
+   * Delete an ASP issued by a user. (asps.delete)
    *
    * @param string $userKey
-   * Email or immutable Id of the user
+   * Identifies the user in the API request. The value can be the user's primary email address, alias
+    * email address, or unique user ID.
    * @param int $codeId
-   * The codeId.
+   * The unique ID of the ASP to be deleted.
    * @param array $optParams Optional parameters.
    */
   public function delete($userKey, $codeId, $optParams = array())
@@ -1077,13 +1077,13 @@ class Google_Service_Directory_Asps_Resource extends Google_Service_Resource
     return $this->call('delete', array($params));
   }
   /**
-   * Get the application specific password issued by the user for a codeId.
-   * (asps.get)
+   * Get information about an ASP issued by a user. (asps.get)
    *
    * @param string $userKey
-   * Email or immutable Id of the user
+   * Identifies the user in the API request. The value can be the user's primary email address, alias
+    * email address, or unique user ID.
    * @param int $codeId
-   * The codeid.
+   * The unique ID of the ASP.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Directory_Asp
    */
@@ -1094,10 +1094,11 @@ class Google_Service_Directory_Asps_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Directory_Asp");
   }
   /**
-   * List the application specific passwords issued by the user. (asps.list)
+   * List the ASPs issued by a user. (asps.list)
    *
    * @param string $userKey
-   * Email or immutable Id of the user
+   * Identifies the user in the API request. The value can be the user's primary email address, alias
+    * email address, or unique user ID.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Directory_Asps
    */
@@ -1600,9 +1601,10 @@ class Google_Service_Directory_Notifications_Resource extends Google_Service_Res
    * Deletes a notification (notifications.delete)
    *
    * @param string $customer
-   * Obfuscated customer ID of the domain for which notification is to be deleted
+   * The unique ID for the customer's Google account. The customerId is also returned as part of the
+    * Users resource.
    * @param string $notificationId
-   * Id of the notification to be deleted.
+   * The unique ID of the notification.
    * @param array $optParams Optional parameters.
    */
   public function delete($customer, $notificationId, $optParams = array())
@@ -1612,12 +1614,13 @@ class Google_Service_Directory_Notifications_Resource extends Google_Service_Res
     return $this->call('delete', array($params));
   }
   /**
-   * Retrieves a notification (notifications.get)
+   * Retrieves a notification. (notifications.get)
    *
    * @param string $customer
-   * Obfuscated customer ID of the domain for which notification is to be retrieved
+   * The unique ID for the customer's Google account. The customerId is also returned as part of the
+    * Users resource.
    * @param string $notificationId
-   * Id of the notification to be retrieved.
+   * The unique ID of the notification.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Directory_Notification
    */
@@ -1631,16 +1634,15 @@ class Google_Service_Directory_Notifications_Resource extends Google_Service_Res
    * Retrieves a list of notifications. (notifications.list)
    *
    * @param string $customer
-   * Obfuscated customer ID of the domain for which notifications are to be retrieved
+   * The unique ID for the customer's Google account.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken
-   * Token for the page to be retrieved
+   * The token to specify the page of results to retrieve.
    * @opt_param string maxResults
-   * Number of notifications to be retrieved. Default is 100
+   * Maximum number of notifications to return per page. The default is 100.
    * @opt_param string language
-   * Code of the language in which the notifications are to be retrieved. Notifications will be
-    * returned in English by default
+   * The ISO 639-1 code of the language notifications are returned in. The default is English (en).
    * @return Google_Service_Directory_Notifications
    */
   public function listNotifications($customer, $optParams = array())
@@ -1654,9 +1656,9 @@ class Google_Service_Directory_Notifications_Resource extends Google_Service_Res
    * (notifications.patch)
    *
    * @param string $customer
-   * Obfuscated customer ID of the domain for which notification is to be updated
+   * The unique ID for the customer's Google account.
    * @param string $notificationId
-   * Id of the notification to be updated.
+   * The unique ID of the notification.
    * @param Google_Notification $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Directory_Notification
@@ -1668,12 +1670,12 @@ class Google_Service_Directory_Notifications_Resource extends Google_Service_Res
     return $this->call('patch', array($params), "Google_Service_Directory_Notification");
   }
   /**
-   * Updates a notification (notifications.update)
+   * Updates a notification. (notifications.update)
    *
    * @param string $customer
-   * Obfuscated customer ID of the domain for which notification is to be updated
+   * The unique ID for the customer's Google account.
    * @param string $notificationId
-   * Id of the notification to be updated.
+   * The unique ID of the notification.
    * @param Google_Notification $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Directory_Notification
@@ -1811,12 +1813,13 @@ class Google_Service_Directory_Tokens_Resource extends Google_Service_Resource
 {
 
   /**
-   * Delete all OAuth tokens issued by the user for an app domain. (tokens.delete)
+   * Delete all access tokens issued by a user for an application. (tokens.delete)
    *
    * @param string $userKey
-   * Email or immutable Id of the user
+   * Identifies the user in the API request. The value can be the user's primary email address, alias
+    * email address, or unique user ID.
    * @param string $clientId
-   * The app domain.
+   * The Client ID of the application the token is issued to.
    * @param array $optParams Optional parameters.
    */
   public function delete($userKey, $clientId, $optParams = array())
@@ -1826,12 +1829,13 @@ class Google_Service_Directory_Tokens_Resource extends Google_Service_Resource
     return $this->call('delete', array($params));
   }
   /**
-   * Get the OAuth token issued by the user for an app domain. (tokens.get)
+   * Get information about an access token issued by a user. (tokens.get)
    *
    * @param string $userKey
-   * Email or immutable Id of the user
+   * Identifies the user in the API request. The value can be the user's primary email address, alias
+    * email address, or unique user ID.
    * @param string $clientId
-   * The app domain.
+   * The Client ID of the application the token is issued to.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Directory_Token
    */
@@ -1842,10 +1846,12 @@ class Google_Service_Directory_Tokens_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Directory_Token");
   }
   /**
-   * List the OAuth tokens issued by the user. (tokens.list)
+   * Returns the set of current, valid verification codes for the specified user.
+   * (tokens.list)
    *
    * @param string $userKey
-   * Email or immutable Id of the user
+   * Identifies the user in the API request. The value can be the user's primary email address, alias
+    * email address, or unique user ID.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Directory_Tokens
    */
@@ -2155,7 +2161,7 @@ class Google_Service_Directory_VerificationCodes_Resource extends Google_Service
     return $this->call('generate', array($params));
   }
   /**
-   * Invalidate the backup verification codes for the user.
+   * Invalidate the current backup verification codes for the user.
    * (verificationCodes.invalidate)
    *
    * @param string $userKey
@@ -2169,10 +2175,12 @@ class Google_Service_Directory_VerificationCodes_Resource extends Google_Service
     return $this->call('invalidate', array($params));
   }
   /**
-   * List the backup verification codes for the user. (verificationCodes.list)
+   * Returns the current set of valid backup verification codes for the specified
+   * user. (verificationCodes.list)
    *
    * @param string $userKey
-   * Email or immutable Id of the user
+   * Identifies the user in the API request. The value can be the user's primary email address, alias
+    * email address, or unique user ID.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Directory_VerificationCodes
    */
