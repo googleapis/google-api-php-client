@@ -353,6 +353,14 @@ class Google_Service_Storage extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
+                "ifMetagenerationMatch" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
+                "ifMetagenerationNotMatch" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
               ),
           ),"patch" => array(
             'path' => "b/{bucket}/defaultObjectAcl/{entity}",
@@ -1241,6 +1249,13 @@ class Google_Service_Storage_DefaultObjectAccessControls_Resource extends Google
    * @param string $bucket
    * Name of a bucket.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string ifMetagenerationMatch
+   * Makes the operation conditional on whether the destination object's current metageneration
+    * matches the given value.
+   * @opt_param string ifMetagenerationNotMatch
+   * Makes the operation conditional on whether the destination object's current metageneration does
+    * not match the given value.
    * @return Google_Service_Storage_ObjectAccessControls
    */
   public function listDefaultObjectAccessControls($bucket, $optParams = array())
