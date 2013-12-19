@@ -53,7 +53,7 @@ class IoTest extends BaseTest {
     $url = "http://www.googleapis.com";
     // Create a cacheable request/response.
     // Should not be revalidated.
-    $cacheReq = new Google_Http_Request($client, $url, "GET");
+    $cacheReq = new Google_Http_Request($url, "GET");
     $cacheReq->setRequestHeaders(array(
       "Accept" => "*/*",
     ));
@@ -71,7 +71,7 @@ class IoTest extends BaseTest {
     $io->setCachedRequest($cacheReq);
 
     // Execute the same mock request, and expect a cache hit.
-    $res = $io->makeRequest(new Google_Http_Request($client, $url, "GET"));
+    $res = $io->makeRequest(new Google_Http_Request($url, "GET"));
     $this->assertEquals("{\"a\": \"foo\"}", $res->getResponseBody());
     $this->assertEquals(200, $res->getResponseHttpCode());
   }
@@ -80,7 +80,7 @@ class IoTest extends BaseTest {
     $url = "http://www.googleapis.com/protected/resource";
 
     // Create a cacheable request/response, but it should not be cached.
-    $cacheReq = new Google_Http_Request($client, $url, "GET");
+    $cacheReq = new Google_Http_Request($url, "GET");
     $cacheReq->setRequestHeaders(array(
       "Accept" => "*/*",
       "Authorization" => "Bearer Foo"
@@ -131,7 +131,7 @@ class IoTest extends BaseTest {
   }
 
   public function processEntityRequest($io, $client) {
-    $req = new Google_Http_Request($client, "http://localhost.com");
+    $req = new Google_Http_Request("http://localhost.com");
     $req->setRequestMethod("POST");
 
     // Verify that the content-length is calculated.

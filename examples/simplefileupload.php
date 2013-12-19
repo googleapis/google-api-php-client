@@ -46,6 +46,7 @@ $client = new Google_Client();
 $client->setClientId($client_id);
 $client->setClientSecret($client_secret);
 $client->setRedirectUri($redirect_uri);
+$client->addScope("https://www.googleapis.com/auth/drive")
 $service = new Google_Service_Drive($client);
 
 if (isset($_REQUEST['logout'])) {

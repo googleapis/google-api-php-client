@@ -159,7 +159,6 @@ class Google_Service_Resource
         $parameters
     );
     $httpRequest = new Google_Http_Request(
-        $this->client,
         $url,
         $method['httpMethod'],
         null,
@@ -192,7 +191,7 @@ class Google_Service_Resource
       return $httpRequest;
     }
 
-    return $httpRequest->execute();
+    return $this->client->execute($httpRequest);
   }
 
   protected function convertToArrayAndStripNulls($o)

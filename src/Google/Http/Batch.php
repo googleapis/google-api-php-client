@@ -70,7 +70,7 @@ class Google_Http_Batch
     $body .= "\n--{$this->boundary}--";
 
     $url = $this->base_path . '/batch';
-    $httpRequest = new Google_Http_Request($this->client, $url, 'POST');
+    $httpRequest = new Google_Http_Request($url, 'POST');
     $httpRequest->setRequestHeaders(
         array('Content-Type' => 'multipart/mixed; boundary=' . $this->boundary)
     );
@@ -110,7 +110,7 @@ class Google_Http_Batch
           $status = $status[1];
 
           list($partHeaders, $partBody) = $this->client->getIo()->ParseHttpResponse($part, false);
-          $response = new Google_Http_Request($this->client, "");
+          $response = new Google_Http_Request("");
           $response->setResponseHttpCode($status);
           $response->setResponseHeaders($partHeaders);
           $response->setResponseBody($partBody);

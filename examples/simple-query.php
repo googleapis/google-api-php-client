@@ -77,7 +77,7 @@ foreach ($results as $item) {
 $client->setDefer(true);
 $optParams = array('filter' => 'free-ebooks');
 $request = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
-$results = $request->execute();
+$results = $client->execute($request);
 
 echo "<h3>Results Of Deferred Call:</h3>";
 foreach ($results as $item) {

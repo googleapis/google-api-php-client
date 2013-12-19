@@ -36,7 +36,7 @@ class ApiOAuth2Test extends BaseTest {
     $client->setApprovalPrompt('force');
     $client->setRequestVisibleActions('http://foo');
 
-    $req = new Google_Http_Request($client, 'http://localhost');
+    $req = new Google_Http_Request('http://localhost');
     $req = $oauth->sign($req);
 
     $this->assertEquals('http://localhost?key=devKey', $req->getUrl());

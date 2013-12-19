@@ -136,7 +136,6 @@ class Google_Http_MediaFileUpload
     );
 
     $httpRequest = new Google_Http_Request(
-        $this->client,
         $this->resumeUri,
         'PUT',
         $headers,
@@ -217,9 +216,8 @@ class Google_Http_MediaFileUpload
   
   private function transformToUploadUrl()
   {
-    $base = $this->request->getBasePath();
-    $url = str_replace($base, $base . "/upload", $this->request->getBaseUrl());
-    $this->request->setBaseUrl($url);
+    $base = $this->request->getBaseComponent();
+    $this->request->setBaseComponent($base . '/upload');
   }
 
   /**
