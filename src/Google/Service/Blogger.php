@@ -113,6 +113,10 @@ class Google_Service_Blogger extends Google_Service
                   "location" => "query",
                   "type" => "integer",
               ),
+                "view" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
               ),
           ),"getByUrl" => array(
             'path' => "blogs/byurl",
@@ -122,6 +126,10 @@ class Google_Service_Blogger extends Google_Service
                   "location" => "query",
                   "type" => "string",
                   'required' => true,
+              ),
+                "view" => array(
+                  "location" => "query",
+                  "type" => "string",
               ),
               ),
           ),"listByUser" => array(
@@ -136,6 +144,11 @@ class Google_Service_Blogger extends Google_Service
                 "fetchUserInfo" => array(
                   "location" => "query",
                   "type" => "boolean",
+              ),
+                "role" => array(
+                  "location" => "query",
+                  "type" => "string",
+                  'repeated' => true,
               ),
                 "view" => array(
                   "location" => "query",
@@ -211,6 +224,10 @@ class Google_Service_Blogger extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
+                "view" => array(
+                  "location" => "query",
+                  "type" => "string",
+              ),
               ),
           ),"list" => array(
             'path' => "blogs/{blogId}/posts/{postId}/comments",
@@ -225,6 +242,11 @@ class Google_Service_Blogger extends Google_Service
                   "location" => "path",
                   "type" => "string",
                   'required' => true,
+              ),
+                "status" => array(
+                  "location" => "query",
+                  "type" => "string",
+                  'repeated' => true,
               ),
                 "startDate" => array(
                   "location" => "query",
@@ -245,11 +267,6 @@ class Google_Service_Blogger extends Google_Service
                 "fetchBodies" => array(
                   "location" => "query",
                   "type" => "boolean",
-              ),
-                "statuses" => array(
-                  "location" => "query",
-                  "type" => "string",
-                  'repeated' => true,
               ),
                 "view" => array(
                   "location" => "query",
@@ -414,14 +431,14 @@ class Google_Service_Blogger extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
-                "fetchBodies" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "statuses" => array(
+                "status" => array(
                   "location" => "query",
                   "type" => "string",
                   'repeated' => true,
+              ),
+                "fetchBodies" => array(
+                  "location" => "query",
+                  "type" => "boolean",
               ),
                 "view" => array(
                   "location" => "query",
@@ -530,14 +547,14 @@ class Google_Service_Blogger extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "fetchBodies" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "statuses" => array(
+                "status" => array(
                   "location" => "query",
                   "type" => "string",
                   'repeated' => true,
+              ),
+                "fetchBodies" => array(
+                  "location" => "query",
+                  "type" => "boolean",
               ),
                 "view" => array(
                   "location" => "query",
@@ -583,9 +600,17 @@ class Google_Service_Blogger extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
+                "fetchBody" => array(
+                  "location" => "query",
+                  "type" => "boolean",
+              ),
                 "maxComments" => array(
                   "location" => "query",
                   "type" => "integer",
+              ),
+                "fetchImages" => array(
+                  "location" => "query",
+                  "type" => "boolean",
               ),
                 "view" => array(
                   "location" => "query",
@@ -624,7 +649,15 @@ class Google_Service_Blogger extends Google_Service
                   "type" => "string",
                   'required' => true,
               ),
+                "fetchImages" => array(
+                  "location" => "query",
+                  "type" => "boolean",
+              ),
                 "isDraft" => array(
+                  "location" => "query",
+                  "type" => "boolean",
+              ),
+                "fetchBody" => array(
                   "location" => "query",
                   "type" => "boolean",
               ),
@@ -666,14 +699,14 @@ class Google_Service_Blogger extends Google_Service
                   "location" => "query",
                   "type" => "string",
               ),
-                "fetchBodies" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "statuses" => array(
+                "status" => array(
                   "location" => "query",
                   "type" => "string",
                   'repeated' => true,
+              ),
+                "fetchBodies" => array(
+                  "location" => "query",
+                  "type" => "boolean",
               ),
                 "view" => array(
                   "location" => "query",
@@ -693,6 +726,26 @@ class Google_Service_Blogger extends Google_Service
                   "location" => "path",
                   "type" => "string",
                   'required' => true,
+              ),
+                "revert" => array(
+                  "location" => "query",
+                  "type" => "boolean",
+              ),
+                "publish" => array(
+                  "location" => "query",
+                  "type" => "boolean",
+              ),
+                "fetchBody" => array(
+                  "location" => "query",
+                  "type" => "boolean",
+              ),
+                "maxComments" => array(
+                  "location" => "query",
+                  "type" => "integer",
+              ),
+                "fetchImages" => array(
+                  "location" => "query",
+                  "type" => "boolean",
               ),
               ),
           ),"publish" => array(
@@ -765,6 +818,26 @@ class Google_Service_Blogger extends Google_Service
                   "location" => "path",
                   "type" => "string",
                   'required' => true,
+              ),
+                "revert" => array(
+                  "location" => "query",
+                  "type" => "boolean",
+              ),
+                "publish" => array(
+                  "location" => "query",
+                  "type" => "boolean",
+              ),
+                "fetchBody" => array(
+                  "location" => "query",
+                  "type" => "boolean",
+              ),
+                "maxComments" => array(
+                  "location" => "query",
+                  "type" => "integer",
+              ),
+                "fetchImages" => array(
+                  "location" => "query",
+                  "type" => "boolean",
               ),
               ),
           ),
@@ -848,6 +921,8 @@ class Google_Service_Blogger_Blogs_Resource extends Google_Service_Resource
    *
    * @opt_param string maxPosts
    * Maximum number of posts to pull back with the blog.
+   * @opt_param string view
+   * Access level with which to view the blogs. Note that some fields require elevated access.
    * @return Google_Service_Blogger_Blog
    */
   public function get($blogId, $optParams = array())
@@ -862,6 +937,9 @@ class Google_Service_Blogger_Blogs_Resource extends Google_Service_Resource
    * @param string $url
    * The URL of the blog to retrieve.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string view
+   * Access level with which to view the blogs. Note that some fields require elevated access.
    * @return Google_Service_Blogger_Blog
    */
   public function getByUrl($url, $optParams = array())
@@ -880,8 +958,11 @@ class Google_Service_Blogger_Blogs_Resource extends Google_Service_Resource
    *
    * @opt_param bool fetchUserInfo
    * Whether the response is a list of blogs with per-user information instead of just blogs.
+   * @opt_param string role
+   * User access types for blogs to include in the results, e.g. AUTHOR will return blogs where the
+    * user has author level access. If no roles are specified, defaults to ADMIN and AUTHOR roles.
    * @opt_param string view
-   *
+   * Access level with which to view the blogs. Note that some fields require elevated access.
    * @return Google_Service_Blogger_BlogList
    */
   public function listByUser($userId, $optParams = array())
@@ -948,6 +1029,11 @@ class Google_Service_Blogger_Comments_Resource extends Google_Service_Resource
    * @param string $commentId
    * The ID of the comment to get.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string view
+   * Access level for the requested comment (default: READER). Note that some comments will require
+    * elevated permissions, for example comments where the parent posts which is in a draft state, or
+    * comments that are pending moderation.
    * @return Google_Service_Blogger_Comment
    */
   public function get($blogId, $postId, $commentId, $optParams = array())
@@ -965,6 +1051,8 @@ class Google_Service_Blogger_Comments_Resource extends Google_Service_Resource
    * ID of the post to fetch posts from.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string status
+   *
    * @opt_param string startDate
    * Earliest date of comment to fetch, a date-time with RFC 3339 formatting.
    * @opt_param string endDate
@@ -975,10 +1063,9 @@ class Google_Service_Blogger_Comments_Resource extends Google_Service_Resource
    * Continuation token if request is paged.
    * @opt_param bool fetchBodies
    * Whether the body content of the comments is included.
-   * @opt_param string statuses
-   *
    * @opt_param string view
-   *
+   * Access level with which to view the returned result. Note that some fields require elevated
+    * access.
    * @return Google_Service_Blogger_CommentList
    */
   public function listComments($blogId, $postId, $optParams = array())
@@ -1149,12 +1236,13 @@ class Google_Service_Blogger_Pages_Resource extends Google_Service_Resource
    * ID of the blog to fetch pages from.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string status
+   *
    * @opt_param bool fetchBodies
    * Whether to retrieve the Page bodies.
-   * @opt_param string statuses
-   *
    * @opt_param string view
-   *
+   * Access level with which to view the returned result. Note that some fields require elevated
+    * access.
    * @return Google_Service_Blogger_PageList
    */
   public function listPages($blogId, $optParams = array())
@@ -1211,7 +1299,9 @@ class Google_Service_Blogger_PostUserInfos_Resource extends Google_Service_Resou
 {
 
   /**
-   * Gets one post and user info pair by postId and userId. (postUserInfos.get)
+   * Gets one post and user info pair, by post id and user id. The post user info
+   * contains per-user information about the post, such as access rights, specific
+   * to the user. (postUserInfos.get)
    *
    * @param string $userId
    * ID of the user for the per-user information to be fetched. Either the word 'self' (sans quote
@@ -1233,8 +1323,9 @@ class Google_Service_Blogger_PostUserInfos_Resource extends Google_Service_Resou
     return $this->call('get', array($params), "Google_Service_Blogger_PostUserInfo");
   }
   /**
-   * Retrieves a list of post and user info pairs, possibly filtered.
-   * (postUserInfos.list)
+   * Retrieves a list of post and post user info pairs, possibly filtered. The
+   * post user info contains per-user information about the post, such as access
+   * rights, specific to the user. (postUserInfos.list)
    *
    * @param string $userId
    * ID of the user for the per-user information to be fetched. Either the word 'self' (sans quote
@@ -1244,7 +1335,7 @@ class Google_Service_Blogger_PostUserInfos_Resource extends Google_Service_Resou
    * @param array $optParams Optional parameters.
    *
    * @opt_param string orderBy
-   * Sort search results
+   * Sort order applied to search results. Default is published.
    * @opt_param string startDate
    * Earliest post date to fetch, a date-time with RFC 3339 formatting.
    * @opt_param string endDate
@@ -1255,12 +1346,13 @@ class Google_Service_Blogger_PostUserInfos_Resource extends Google_Service_Resou
    * Maximum number of posts to fetch.
    * @opt_param string pageToken
    * Continuation token if the request is paged.
+   * @opt_param string status
+   *
    * @opt_param bool fetchBodies
-   * Whether the body content of posts is included.
-   * @opt_param string statuses
-   *
+   * Whether the body content of posts is included. Default is false.
    * @opt_param string view
-   *
+   * Access level with which to view the returned result. Note that some fields require elevated
+    * access.
    * @return Google_Service_Blogger_PostUserInfosList
    */
   public function listPostUserInfos($userId, $blogId, $optParams = array())
@@ -1306,10 +1398,16 @@ class Google_Service_Blogger_Posts_Resource extends Google_Service_Resource
    * The ID of the post
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool fetchBody
+   * Whether the body content of the post is included (default: true). This should be set to false
+    * when the post bodies are not required, to help minimize traffic.
    * @opt_param string maxComments
    * Maximum number of comments to pull back on a post.
+   * @opt_param bool fetchImages
+   * Whether image URL metadata for each post is included (default: false).
    * @opt_param string view
-   *
+   * Access level with which to view the returned result. Note that some fields require elevated
+    * access.
    * @return Google_Service_Blogger_Post
    */
   public function get($blogId, $postId, $optParams = array())
@@ -1330,7 +1428,8 @@ class Google_Service_Blogger_Posts_Resource extends Google_Service_Resource
    * @opt_param string maxComments
    * Maximum number of comments to pull back on a post.
    * @opt_param string view
-   *
+   * Access level with which to view the returned result. Note that some fields require elevated
+    * access.
    * @return Google_Service_Blogger_Post
    */
   public function getByPath($blogId, $path, $optParams = array())
@@ -1347,8 +1446,12 @@ class Google_Service_Blogger_Posts_Resource extends Google_Service_Resource
    * @param Google_Post $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool fetchImages
+   * Whether image URL metadata for each post is included in the returned result (default: false).
    * @opt_param bool isDraft
-   * Whether to create the post as a draft
+   * Whether to create the post as a draft (default: false).
+   * @opt_param bool fetchBody
+   * Whether the body content of the post is included with the result (default: true).
    * @return Google_Service_Blogger_Post
    */
   public function insert($blogId, Google_Service_Blogger_Post $postBody, $optParams = array())
@@ -1378,13 +1481,14 @@ class Google_Service_Blogger_Posts_Resource extends Google_Service_Resource
    * Whether image URL metadata for each post is included.
    * @opt_param string pageToken
    * Continuation token if the request is paged.
+   * @opt_param string status
+   * Statuses to include in the results.
    * @opt_param bool fetchBodies
    * Whether the body content of posts is included (default: true). This should be set to false when
     * the post bodies are not required, to help minimize traffic.
-   * @opt_param string statuses
-   *
    * @opt_param string view
-   *
+   * Access level with which to view the returned result. Note that some fields require escalated
+    * access.
    * @return Google_Service_Blogger_PostList
    */
   public function listPosts($blogId, $optParams = array())
@@ -1402,6 +1506,17 @@ class Google_Service_Blogger_Posts_Resource extends Google_Service_Resource
    * The ID of the Post.
    * @param Google_Post $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool revert
+   * Whether a revert action should be performed when the post is updated (default: false).
+   * @opt_param bool publish
+   * Whether a publish action should be performed when the post is updated (default: false).
+   * @opt_param bool fetchBody
+   * Whether the body content of the post is included with the result (default: true).
+   * @opt_param string maxComments
+   * Maximum number of comments to retrieve with the returned post.
+   * @opt_param bool fetchImages
+   * Whether image URL metadata for each post is included in the returned result (default: false).
    * @return Google_Service_Blogger_Post
    */
   public function patch($blogId, $postId, Google_Service_Blogger_Post $postBody, $optParams = array())
@@ -1476,6 +1591,17 @@ class Google_Service_Blogger_Posts_Resource extends Google_Service_Resource
    * The ID of the Post.
    * @param Google_Post $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool revert
+   * Whether a revert action should be performed when the post is updated (default: false).
+   * @opt_param bool publish
+   * Whether a publish action should be performed when the post is updated (default: false).
+   * @opt_param bool fetchBody
+   * Whether the body content of the post is included with the result (default: true).
+   * @opt_param string maxComments
+   * Maximum number of comments to retrieve with the returned post.
+   * @opt_param bool fetchImages
+   * Whether image URL metadata for each post is included in the returned result (default: false).
    * @return Google_Service_Blogger_Post
    */
   public function update($blogId, $postId, Google_Service_Blogger_Post $postBody, $optParams = array())
@@ -1767,6 +1893,7 @@ class Google_Service_Blogger_BlogPerUserInfo extends Google_Model
   public $hasAdminAccess;
   public $kind;
   public $photosAlbumKey;
+  public $role;
   public $userId;
 
   public function setBlogId($blogId)
@@ -1807,6 +1934,16 @@ class Google_Service_Blogger_BlogPerUserInfo extends Google_Model
   public function getPhotosAlbumKey()
   {
     return $this->photosAlbumKey;
+  }
+  
+  public function setRole($role)
+  {
+    $this->role = $role;
+  }
+
+  public function getRole()
+  {
+    return $this->role;
   }
   
   public function setUserId($userId)
