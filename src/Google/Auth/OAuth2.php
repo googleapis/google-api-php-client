@@ -99,7 +99,6 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
     // fetch the access token
     $request = $this->client->getIo()->makeRequest(
         new Google_Http_Request(
-            $this->client,
             self::OAUTH2_TOKEN_URI,
             'POST',
             array(),
@@ -302,7 +301,6 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
   private function refreshTokenRequest($params)
   {
     $http = new Google_Http_Request(
-        $this->client,
         self::OAUTH2_TOKEN_URI,
         'POST',
         array(),
@@ -343,7 +341,6 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       $token = $this->token['access_token'];
     }
     $request = new Google_Http_Request(
-        $this->client,
         self::OAUTH2_REVOKE_URI,
         'POST',
         array(),
@@ -409,7 +406,6 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
     // This relies on makeRequest caching certificate responses.
     $request = $this->client->getIo()->makeRequest(
         new Google_Http_Request(
-            $this->client,
             $url
         )
     );

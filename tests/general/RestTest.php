@@ -32,7 +32,7 @@ class RestTest extends BaseTest {
   public function testDecodeResponse() {
     $url = 'http://localhost';
     $client = $this->getClient();
-    $response = new Google_Http_Request($client, $url);
+    $response = new Google_Http_Request($url);
     $response->setResponseHttpCode(204);
     $decoded = $this->rest->decodeHttpResponse($response);
     $this->assertEquals(null, $decoded);
@@ -40,7 +40,7 @@ class RestTest extends BaseTest {
 
     foreach (array(200, 201) as $code) {
       $headers = array('foo', 'bar');
-      $response = new Google_Http_Request($client, $url, 'GET', $headers);
+      $response = new Google_Http_Request($url, 'GET', $headers);
       $response->setResponseBody('{"a": 1}');
 
       $response->setResponseHttpCode($code);
@@ -48,7 +48,7 @@ class RestTest extends BaseTest {
       $this->assertEquals(array("a" => 1), $decoded);
     }
 
-    $response = new Google_Http_Request($client, $url);
+    $response = new Google_Http_Request($url);
     $response->setResponseHttpCode(500);
 
     $error = "";
@@ -65,7 +65,7 @@ class RestTest extends BaseTest {
   public function testDecodeEmptyResponse() {
     $url = 'http://localhost';
 
-    $response = new Google_Http_Request($this->getClient(), $url, 'GET', array());
+    $response = new Google_Http_Request($url, 'GET', array());
     $response->setResponseBody('{}');
 
     $response->setResponseHttpCode(200);

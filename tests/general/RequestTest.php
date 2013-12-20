@@ -27,7 +27,7 @@ class RequestTest extends BaseTest {
   {
     $url = 'http://localhost:8080/foo/bar?foo=a&foo=b&wowee=oh+my';
     $url2 = 'http://localhost:8080/foo/bar?foo=a&foo=b&wowee=oh+my&hi=there';
-    $request = new Google_Http_Request($this->getClient(), $url);
+    $request = new Google_Http_Request($url);
     $request->setExpectedClass("Google_Client");
     $this->assertEquals(2, count($request->getQueryParams()));
     $request->setQueryParam("hi", "there");
@@ -37,10 +37,18 @@ class RequestTest extends BaseTest {
     $url3a = 'http://localhost:8080/foo/bar';
     $url3b = 'foo=a&foo=b&wowee=oh+my';
     $url3c = 'foo=a&foo=b&wowee=oh+my&hi=there';
-    $request = new Google_Http_Request($this->getClient(), $url3a."?".$url3b, "POST");
+    $request = new Google_Http_Request($url3a."?".$url3b, "POST");
     $request->setQueryParam("hi", "there");
     $request->maybeMoveParametersToBody();
     $this->assertEquals($url3a, $request->getUrl());
     $this->assertEquals($url3c, $request->getPostBody());
+    
+    $url4 = 'http://localhost:8080/upload/foo/bar?foo=a&foo=b&wowee=oh+my&hi=there';
+    $request = new Google_Http_Request($url);
+    $this->assertEquals(2, count($request->getQueryParams()));
+    $request->setQueryParam("hi", "there");
+    $base = $request->getBaseComponent();
+    $request->setBaseComponent($base . '/upload');
+    $this->assertEquals($url4, $request->getUrl());
   }
 }

@@ -24,7 +24,7 @@ require_once 'Google/Http/MediaFileUpload.php';
 class ApiMediaFileUploadTest extends BaseTest {
   public function testMediaFile() {
     $client = $this->getClient();
-    $request = new Google_Http_Request($client, 'http://www.example.com', 'POST');
+    $request = new Google_Http_Request('http://www.example.com', 'POST');
     $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', base64_decode('data:image/png;base64,a'));
 
     $this->assertEquals(0, $media->getProgress());
@@ -33,7 +33,7 @@ class ApiMediaFileUploadTest extends BaseTest {
 
   public function testGetUploadType() {
       $client = $this->getClient();
-      $request = new Google_Http_Request($client, 'http://www.example.com', 'POST');
+      $request = new Google_Http_Request('http://www.example.com', 'POST');
 
       // Test resumable upload
       $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', 'a', true);
@@ -57,19 +57,19 @@ class ApiMediaFileUploadTest extends BaseTest {
       $data = 'foo';
       
       // Test data *only* uploads.
-      $request = new Google_Http_Request($client, 'http://www.example.com', 'POST');
+      $request = new Google_Http_Request('http://www.example.com', 'POST');
       $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, false);
       $this->assertEquals($data, $request->getPostBody());
     
       // Test resumable (meta data) - we want to send the metadata, not the app data.
-      $request = new Google_Http_Request($client, 'http://www.example.com', 'POST');
+      $request = new Google_Http_Request('http://www.example.com', 'POST');
       $reqData = json_encode("hello");
       $request->setPostBody($reqData);
       $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, true);
       $this->assertEquals(json_decode($reqData), $request->getPostBody());
     
       // Test multipart - we are sending encoded meta data and post data
-      $request = new Google_Http_Request($client, 'http://www.example.com', 'POST');
+      $request = new Google_Http_Request('http://www.example.com', 'POST');
       $reqData = json_encode("hello");
       $request->setPostBody($reqData);
       $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, false);

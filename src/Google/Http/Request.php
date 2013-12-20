@@ -27,17 +27,17 @@ require_once 'Google/Utils.php';
  */
 class Google_Http_Request
 {
-  const USER_AGENT_SUFFIX = "google-api-php-client/";
   private $batchHeaders = array(
     'Content-Type' => 'application/http',
     'Content-Transfer-Encoding' => 'binary',
     'MIME-Version' => '1.0',
   );
 
-  protected $baseUrl;
   protected $queryParams;
   protected $requestMethod;
   protected $requestHeaders;
+  protected $baseComponent = null;
+  protected $path;
   protected $postBody;
   protected $userAgent;
 
@@ -46,71 +46,38 @@ class Google_Http_Request
   protected $responseBody;
   
   protected $expectedClass;
-  
-  protected $client;
-  
+
   public $accessKey;
-  
-  private $basePath;
 
   public function __construct(
-      Google_Client $client,
       $url,
       $method = 'GET',
       $headers = array(),
       $postBody = null
   ) {
-    $this->client = $client;
-    $this->basePath = $client->getBasePath();
     $this->setUrl($url);
     $this->setRequestMethod($method);
     $this->setRequestHeaders($headers);
     $this->setPostBody($postBody);
-
-    $this->userAgent = $this->client->getApplicationName()
-        . " " .self::USER_AGENT_SUFFIX
-        . $this->client->getLibraryVersion();
-  }
-  
-  /**
-   * Helper method to execute deferred HTTP requests.
-   *
-   * @returns object of the type of the expected class or array.
-   */
-  public function execute()
-  {
-    $this->maybeMoveParametersToBody();
-    return Google_Http_REST::execute($this->client, $this);
   }
 
   /**
    * Misc function that returns the base url component of the $url
    * used by the OAuth signing class to calculate the base string
    * @return string The base url component of the $url.
-   * @see http://oauth.net/core/1.0a/#anchor13
    */
-  public function getBaseUrl()
+  public function getBaseComponent()
   {
-    return $this->baseUrl;
+    return $this->baseComponent;
   }
   
   /**
-   * Set the base URL that query parameters will be added to.
-   * @param $baseUrl string
+   * Set the base URL that path and query parameters will be added to.
+   * @param $baseComponent string
    */
-  public function setBaseUrl($baseUrl)
+  public function setBaseComponent($baseComponent)
   {
-    $this->baseUrl = $baseUrl;
-  }
-  
-  /**
-   * Return the base path for the request that the URL path
-   * will be appended to.
-   * @return string
-   */
-  public function getBasePath()
-  {
-    return $this->basePath;
+    $this->baseComponent = $baseComponent;
   }
 
   /**
@@ -223,7 +190,7 @@ class Google_Http_Request
    */
   public function getUrl()
   {
-    return $this->baseUrl .
+    return $this->baseComponent . $this->path .
         (count($this->queryParams) ?
             "?" . $this->buildQuery($this->queryParams) :
             '');
@@ -275,16 +242,17 @@ class Google_Http_Request
       if (substr($url, 0, 1) !== '/') {
         $url = '/' . $url;
       }
-      $url = $this->basePath . $url;
     }
     $parts = parse_url($url);
-    $this->baseUrl = sprintf(
-        "%s://%s%s%s",
-        isset($parts['scheme']) ? $parts['scheme'] : 'http',
-        $parts['host'],
-        isset($parts['port']) ? ":" . $parts['port'] : '',
-        isset($parts['path']) ? $parts['path'] : ''
-    );
+    if (isset($parts['host'])) {
+      $this->baseComponent = sprintf(
+          "%s%s%s",
+          isset($parts['scheme']) ? $parts['scheme'] . "://" : '',
+          isset($parts['host']) ? $parts['host'] : '',
+          isset($parts['port']) ? ":" . $parts['port'] : ''
+      );
+    }
+    $this->path = isset($parts['path']) ? $parts['path'] : '';
     $this->queryParams = array();
     if (isset($parts['query'])) {
       $this->queryParams = $this->parseQuery($parts['query']);
@@ -379,7 +347,7 @@ class Google_Http_Request
   public function toBatchString($id)
   {
     $str = '';
-    $path = parse_url($this->baseUrl, PHP_URL_PATH) . "?" .
+    $path = parse_url($this->getUrl(), PHP_URL_PATH) . "?" .
         http_build_query($this->queryParams);
     $str .= $this->getRequestMethod() . ' ' . $path . " HTTP/1.1\n";
 
@@ -449,7 +417,6 @@ class Google_Http_Request
    * If we're POSTing and have no body to send, we can send the query
    * parameters in there, which avoids length issues with longer query
    * params.
-   * @visible for testing
    */
   public function maybeMoveParametersToBody()
   {

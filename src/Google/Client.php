@@ -36,6 +36,7 @@ require_once 'Google/Service/Resource.php';
 class Google_Client
 {
   const LIBVER = "1.0.1-alpha";
+  const USER_AGENT_SUFFIX = "google-api-php-client/";
   /**
    * @var Google_Auth_Abstract $auth
    */
@@ -60,9 +61,6 @@ class Google_Client
    * @var boolean $deferExecution
    */
   private $deferExecution = false;
-
-  // Scopes available for the added services
-  protected $availableScopes = array();
 
   /** @var array $scopes */
   // Scopes requested by the client
@@ -101,18 +99,6 @@ class Google_Client
   }
 
   /**
-   * Adds the scopes available for a service
-   */
-  public function addService($service, $version = false, $availableScopes = array())
-  {
-    if ($this->authenticated) {
-      throw new Google_Exception('Cant add services after having authenticated');
-    } else {
-      $this->availableScopes[$service] = $availableScopes;
-    }
-  }
-
-  /**
    * Get a string containing the version of the library.
    *
    * @return string
@@ -120,6 +106,16 @@ class Google_Client
   public function getLibraryVersion()
   {
     return self::LIBVER;
+  }
+  
+  /**
+   * Shim function until templates are updated. 
+   * @todo(ianbarber): remove this.
+   * @deprecated 
+   */
+  public function addService($a, $b, $c)
+  {
+    return;
   }
 
   /**
@@ -175,16 +171,14 @@ class Google_Client
   public function prepareScopes()
   {
     if (empty($this->requestedScopes)) {
-      foreach ($this->availableScopes as $service => $serviceScopes) {
-        array_push($this->requestedScopes, $serviceScopes[0]);
-      }
+      throw new Google_Auth_Exception("No scopes specified");
     }
     $scopes = implode(' ', $this->requestedScopes);
     return $scopes;
   }
 
   /**
-   * Set the OAuth 2.0 access token using the string that resulted from calling authenticate()
+   * Set the OAuth 2.0 access token using the string that resulted from calling createAuthUrl()
    * or Google_Client#getAccessToken().
    * @param string $accessToken JSON encoded string containing in the following format:
    * {"access_token":"TOKEN", "refresh_token":"TOKEN", "token_type":"Bearer",
@@ -418,15 +412,33 @@ class Google_Client
   }
 
   /**
-   * This function allows you to overrule the automatically generated scopes,
-   * so that you can ask for more or less permission in the auth flow
-   * Set this before you call authenticate() though!
-   * @param array $scopes, ie: array('https://www.googleapis.com/auth/plus.me',
+   * Set the scopes to be requested. Must be called before createAuthUrl().
+   * Will remove any previously configured scopes.
+   * @param array $scopes, ie: array('https://www.googleapis.com/auth/plus.login',
    * 'https://www.googleapis.com/auth/moderator')
    */
   public function setScopes($scopes)
   {
-    $this->requestedScopes = is_string($scopes) ? explode(" ", $scopes) : $scopes;
+    $this->requestedScopes = array();
+    $this->addScope($scopes);
+  }
+  
+  /**
+   * This functions adds a scope to be requested as part of the OAuth2.0 flow. 
+   * Will append any scopes not previously requested to the scope parameter.
+   * A single string will be treated as a scope to request. An array of strings
+   * will each be appended.
+   * @param $scope_or_scopes string|array e.g. "profile"
+   */
+  public function addScope($scope_or_scopes)
+  {
+    if (is_string($scope_or_scopes) && !in_array($scope_or_scopes, $this->requestedScopes)) {
+      $this->requestedScopes[] = $scope_or_scopes;
+    } else if (is_array($scope_or_scopes)) {
+      foreach ($scope_or_scopes as $scope) {
+        $this->addScope($scope);
+      }
+    }
   }
 
   /**
@@ -461,6 +473,28 @@ class Google_Client
   public function setDefer($defer)
   {
     $this->deferExecution = $defer;
+  }
+  
+  /**
+   * Helper method to execute deferred HTTP requests.
+   *
+   * @returns object of the type of the expected class or array.
+   */
+  public function execute($request)
+  {
+    if ($request instanceof Google_Http_Request) {
+      $request->setUserAgent(
+          $this->getApplicationName()
+          . " " . self::USER_AGENT_SUFFIX
+          . $this->getLibraryVersion()
+      );
+      $request->maybeMoveParametersToBody();
+      return Google_Http_REST::execute($this, $request);
+    } else if ($request instanceof Google_Http_Batch) {
+      return $request->execute();
+    } else {
+      throw new Google_Exception("Do not know how to execute this type of object.");
+    }
   }
 
   /**

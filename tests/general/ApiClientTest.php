@@ -29,7 +29,7 @@ class ApiClientTest extends BaseTest {
     $client = new Google_Client();
     $client->setAccessType('foo');
     $client->setDeveloperKey('foo');
-    $req = new Google_Http_Request($this->getClient(), 'http://foo.com');
+    $req = new Google_Http_Request('http://foo.com');
     $client->getAuth()->sign($req);
     $params = $req->getQueryParams();
     $this->assertEquals('foo', $params['key']);
@@ -38,12 +38,18 @@ class ApiClientTest extends BaseTest {
     $this->assertEquals("{\"access_token\":\"1\"}", $client->getAccessToken());
   }
 
-  public function testPrepareService() {
+  /**
+   * @expectedException Google_Auth_Exception
+   */
+  public function testPrepareInvalidScopes() {
     $client = new Google_Client();
 
     $scopes = $client->prepareScopes();
     $this->assertEquals("", $scopes);
+  }
 
+  public function testPrepareService() {
+    $client = new Google_Client();
     $client->setScopes(array("scope1", "scope2"));
     $scopes = $client->prepareScopes();
     $this->assertEquals("scope1 scope2", $scopes);
@@ -51,6 +57,12 @@ class ApiClientTest extends BaseTest {
     $client->setScopes(array("", "scope2"));
     $scopes = $client->prepareScopes();
     $this->assertEquals(" scope2", $scopes);
+    
+    $client->setScopes("scope2");
+    $client->addScope("scope3");
+    $client->addScope(array("scope4", "scope5"));
+    $scopes = $client->prepareScopes();
+    $this->assertEquals("scope2 scope3 scope4 scope5", $scopes);
 
     $client->setClientId('test1');
     $client->setRedirectUri('http://localhost/');
