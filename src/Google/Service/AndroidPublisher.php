@@ -59,80 +59,80 @@ class Google_Service_AndroidPublisher extends Google_Service
         $this->serviceName,
         'inapppurchases',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "{packageName}/inapp/{productId}/purchases/{token}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "packageName" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => '{packageName}/inapp/{productId}/purchases/{token}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'packageName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "productId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "token" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'token' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->purchases = new Google_Service_AndroidPublisher_Purchases_Resource(
         $this,
         $this->serviceName,
         'purchases',
         array(
-    'methods' => array(
-          "cancel" => array(
-            'path' => "{packageName}/subscriptions/{subscriptionId}/purchases/{token}/cancel",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "packageName" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'cancel' => array(
+              'path' => '{packageName}/subscriptions/{subscriptionId}/purchases/{token}/cancel',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'packageName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "subscriptionId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "token" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'token' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{packageName}/subscriptions/{subscriptionId}/purchases/{token}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "packageName" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{packageName}/subscriptions/{subscriptionId}/purchases/{token}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'packageName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "subscriptionId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "token" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'token' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
