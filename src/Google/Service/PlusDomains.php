@@ -76,368 +76,368 @@ class Google_Service_PlusDomains extends Google_Service
         $this->serviceName,
         'activities',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "activities/{activityId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'activities/{activityId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "people/{userId}/activities",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'people/{userId}/activities',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'preview' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "preview" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),"list" => array(
-            'path' => "people/{userId}/activities/{collection}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'people/{userId}/activities/{collection}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "collection" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->audiences = new Google_Service_PlusDomains_Audiences_Resource(
         $this,
         $this->serviceName,
         'audiences',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "people/{userId}/audiences",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => 'people/{userId}/audiences',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->circles = new Google_Service_PlusDomains_Circles_Resource(
         $this,
         $this->serviceName,
         'circles',
         array(
-    'methods' => array(
-          "addPeople" => array(
-            'path' => "circles/{circleId}/people",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "circleId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'addPeople' => array(
+              'path' => 'circles/{circleId}/people',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'circleId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "userId" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'userId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'repeated' => true,
-              ),
-                "email" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'email' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'repeated' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "circles/{circleId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "circleId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'circles/{circleId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'circleId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "people/{userId}/circles",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'people/{userId}/circles',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "people/{userId}/circles",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'people/{userId}/circles',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "circles/{circleId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "circleId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'circles/{circleId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'circleId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"remove" => array(
-            'path' => "circles/{circleId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "circleId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'remove' => array(
+              'path' => 'circles/{circleId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'circleId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"removePeople" => array(
-            'path' => "circles/{circleId}/people",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "circleId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'removePeople' => array(
+              'path' => 'circles/{circleId}/people',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'circleId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "userId" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'userId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'repeated' => true,
-              ),
-                "email" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'email' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'repeated' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "circles/{circleId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "circleId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'circles/{circleId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'circleId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->comments = new Google_Service_PlusDomains_Comments_Resource(
         $this,
         $this->serviceName,
         'comments',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "comments/{commentId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "commentId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'comments/{commentId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'commentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "activities/{activityId}/comments",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'activities/{activityId}/comments',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "activities/{activityId}/comments",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'activities/{activityId}/comments',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "sortOrder" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->media = new Google_Service_PlusDomains_Media_Resource(
         $this,
         $this->serviceName,
         'media',
         array(
-    'methods' => array(
-          "insert" => array(
-            'path' => "people/{userId}/media/{collection}",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'insert' => array(
+              'path' => 'people/{userId}/media/{collection}',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "collection" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->people = new Google_Service_PlusDomains_People_Resource(
         $this,
         $this->serviceName,
         'people',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "people/{userId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'people/{userId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "people/{userId}/people/{collection}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'people/{userId}/people/{collection}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "collection" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "orderBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"listByActivity" => array(
-            'path' => "activities/{activityId}/people/{collection}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'listByActivity' => array(
+              'path' => 'activities/{activityId}/people/{collection}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "collection" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"listByCircle" => array(
-            'path' => "circles/{circleId}/people",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "circleId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'listByCircle' => array(
+              'path' => 'circles/{circleId}/people',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'circleId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -491,7 +491,7 @@ class Google_Service_PlusDomains_Activities_Resource extends Google_Service_Reso
   }
   /**
    * List all of the activities in the specified collection for a particular user.
-   * (activities.list)
+   * (activities.listActivities)
    *
    * @param string $userId
    * The ID of the user to get activities for. The special value "me" can be used to indicate the
@@ -528,7 +528,8 @@ class Google_Service_PlusDomains_Audiences_Resource extends Google_Service_Resou
 {
 
   /**
-   * List all of the audiences to which a user can share. (audiences.list)
+   * List all of the audiences to which a user can share.
+   * (audiences.listAudiences)
    *
    * @param string $userId
    * The ID of the user to get audiences for. The special value "me" can be used to indicate the
@@ -613,7 +614,7 @@ class Google_Service_PlusDomains_Circles_Resource extends Google_Service_Resourc
     return $this->call('insert', array($params), "Google_Service_PlusDomains_Circle");
   }
   /**
-   * List all of the circles for a user. (circles.list)
+   * List all of the circles for a user. (circles.listCircles)
    *
    * @param string $userId
    * The ID of the user to get circles for. The special value "me" can be used to indicate the
@@ -739,7 +740,7 @@ class Google_Service_PlusDomains_Comments_Resource extends Google_Service_Resour
     return $this->call('insert', array($params), "Google_Service_PlusDomains_Comment");
   }
   /**
-   * List all of the comments for an activity. (comments.list)
+   * List all of the comments for an activity. (comments.listComments)
    *
    * @param string $activityId
    * The ID of the activity to get comments for.
@@ -823,7 +824,7 @@ class Google_Service_PlusDomains_People_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_PlusDomains_Person");
   }
   /**
-   * List all of the people in the specified collection. (people.list)
+   * List all of the people in the specified collection. (people.listPeople)
    *
    * @param string $userId
    * Get the collection of people for the person identified. Use "me" to indicate the authenticated
