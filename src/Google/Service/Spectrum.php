@@ -58,34 +58,34 @@ class Google_Service_Spectrum extends Google_Service
         $this->serviceName,
         'paws',
         array(
-    'methods' => array(
-          "getSpectrum" => array(
-            'path' => "getSpectrum",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"getSpectrumBatch" => array(
-            'path' => "getSpectrumBatch",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"init" => array(
-            'path' => "init",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"notifySpectrumUse" => array(
-            'path' => "notifySpectrumUse",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"register" => array(
-            'path' => "register",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"verifyDevice" => array(
-            'path' => "verifyDevice",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),
+          'methods' => array(
+            'getSpectrum' => array(
+              'path' => 'getSpectrum',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'getSpectrumBatch' => array(
+              'path' => 'getSpectrumBatch',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'init' => array(
+              'path' => 'init',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'notifySpectrumUse' => array(
+              'path' => 'notifySpectrumUse',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'register' => array(
+              'path' => 'register',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'verifyDevice' => array(
+              'path' => 'verifyDevice',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
   }
 }
