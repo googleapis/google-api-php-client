@@ -62,41 +62,41 @@ class Google_Service_Urlshortener extends Google_Service
         $this->serviceName,
         'url',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "url",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "shortUrl" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'url',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'shortUrl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "projection" => array(
-                  "location" => "query",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'url',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'list' => array(
+              'path' => 'url/history',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'start-token' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "url",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"list" => array(
-            'path' => "url/history",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "start-token" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "projection" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -144,11 +144,11 @@ class Google_Service_Urlshortener_Url_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Urlshortener_Url");
   }
   /**
-   * Retrieves a list of URLs shortened by a user. (url.list)
+   * Retrieves a list of URLs shortened by a user. (url.listUrl)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string start_token
+   * @opt_param string startToken
    * Token for requesting successive pages of results.
    * @opt_param string projection
    * Additional information to return.
