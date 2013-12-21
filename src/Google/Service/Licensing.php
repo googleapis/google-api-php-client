@@ -58,156 +58,156 @@ class Google_Service_Licensing extends Google_Service
         $this->serviceName,
         'licenseAssignments',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "{productId}/sku/{skuId}/user/{userId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "productId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => '{productId}/sku/{skuId}/user/{userId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "skuId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'skuId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{productId}/sku/{skuId}/user/{userId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "productId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{productId}/sku/{skuId}/user/{userId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "skuId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'skuId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{productId}/sku/{skuId}/user",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "productId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{productId}/sku/{skuId}/user',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "skuId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'skuId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"listForProduct" => array(
-            'path' => "{productId}/users",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "productId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'listForProduct' => array(
+              'path' => '{productId}/users',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "customerId" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'customerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"listForProductAndSku" => array(
-            'path' => "{productId}/sku/{skuId}/users",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "productId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'listForProductAndSku' => array(
+              'path' => '{productId}/sku/{skuId}/users',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "skuId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'skuId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "customerId" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'customerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "{productId}/sku/{skuId}/user/{userId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "productId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => '{productId}/sku/{skuId}/user/{userId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "skuId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'skuId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "{productId}/sku/{skuId}/user/{userId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "productId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => '{productId}/sku/{skuId}/user/{userId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "skuId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'skuId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
