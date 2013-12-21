@@ -67,126 +67,126 @@ class Google_Service_GamesManagement extends Google_Service
         $this->serviceName,
         'achievements',
         array(
-    'methods' => array(
-          "reset" => array(
-            'path' => "achievements/{achievementId}/reset",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "achievementId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'reset' => array(
+              'path' => 'achievements/{achievementId}/reset',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'achievementId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"resetAll" => array(
-            'path' => "achievements/reset",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),
+            ),'resetAll' => array(
+              'path' => 'achievements/reset',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
     $this->applications = new Google_Service_GamesManagement_Applications_Resource(
         $this,
         $this->serviceName,
         'applications',
         array(
-    'methods' => array(
-          "listHidden" => array(
-            'path' => "applications/{applicationId}/players/hidden",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "applicationId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'listHidden' => array(
+              'path' => 'applications/{applicationId}/players/hidden',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'applicationId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->players = new Google_Service_GamesManagement_Players_Resource(
         $this,
         $this->serviceName,
         'players',
         array(
-    'methods' => array(
-          "hide" => array(
-            'path' => "applications/{applicationId}/players/hidden/{playerId}",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "applicationId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'hide' => array(
+              'path' => 'applications/{applicationId}/players/hidden/{playerId}',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'applicationId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "playerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'playerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"unhide" => array(
-            'path' => "applications/{applicationId}/players/hidden/{playerId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "applicationId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'unhide' => array(
+              'path' => 'applications/{applicationId}/players/hidden/{playerId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'applicationId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "playerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'playerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->rooms = new Google_Service_GamesManagement_Rooms_Resource(
         $this,
         $this->serviceName,
         'rooms',
         array(
-    'methods' => array(
-          "reset" => array(
-            'path' => "rooms/reset",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),
+          'methods' => array(
+            'reset' => array(
+              'path' => 'rooms/reset',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
     $this->scores = new Google_Service_GamesManagement_Scores_Resource(
         $this,
         $this->serviceName,
         'scores',
         array(
-    'methods' => array(
-          "reset" => array(
-            'path' => "leaderboards/{leaderboardId}/scores/reset",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "leaderboardId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'reset' => array(
+              'path' => 'leaderboards/{leaderboardId}/scores/reset',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'leaderboardId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
