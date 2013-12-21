@@ -67,477 +67,477 @@ class Google_Service_Fusiontables extends Google_Service
         $this->serviceName,
         'column',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "tables/{tableId}/columns/{columnId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'tables/{tableId}/columns/{columnId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "columnId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'columnId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "tables/{tableId}/columns/{columnId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'tables/{tableId}/columns/{columnId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "columnId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'columnId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "tables/{tableId}/columns",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'tables/{tableId}/columns',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "tables/{tableId}/columns",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'tables/{tableId}/columns',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "tables/{tableId}/columns/{columnId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'tables/{tableId}/columns/{columnId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "columnId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'columnId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "tables/{tableId}/columns/{columnId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'tables/{tableId}/columns/{columnId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "columnId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'columnId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->query = new Google_Service_Fusiontables_Query_Resource(
         $this,
         $this->serviceName,
         'query',
         array(
-    'methods' => array(
-          "sql" => array(
-            'path' => "query",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "sql" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'sql' => array(
+              'path' => 'query',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'sql' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'typed' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'hdrs' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "typed" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "hdrs" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),"sqlGet" => array(
-            'path' => "query",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "sql" => array(
-                  "location" => "query",
-                  "type" => "string",
+            ),'sqlGet' => array(
+              'path' => 'query',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'sql' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'typed' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'hdrs' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "typed" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "hdrs" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->style = new Google_Service_Fusiontables_Style_Resource(
         $this,
         $this->serviceName,
         'style',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "tables/{tableId}/styles/{styleId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'tables/{tableId}/styles/{styleId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "styleId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+                ),
+                'styleId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "tables/{tableId}/styles/{styleId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'tables/{tableId}/styles/{styleId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "styleId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+                ),
+                'styleId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "tables/{tableId}/styles",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'tables/{tableId}/styles',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "tables/{tableId}/styles",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'tables/{tableId}/styles',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "tables/{tableId}/styles/{styleId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'tables/{tableId}/styles/{styleId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "styleId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+                ),
+                'styleId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "tables/{tableId}/styles/{styleId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'tables/{tableId}/styles/{styleId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "styleId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+                ),
+                'styleId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->table = new Google_Service_Fusiontables_Table_Resource(
         $this,
         $this->serviceName,
         'table',
         array(
-    'methods' => array(
-          "copy" => array(
-            'path' => "tables/{tableId}/copy",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'copy' => array(
+              'path' => 'tables/{tableId}/copy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'copyPresentation' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "copyPresentation" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),"delete" => array(
-            'path' => "tables/{tableId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'delete' => array(
+              'path' => 'tables/{tableId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "tables/{tableId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'tables/{tableId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"importRows" => array(
-            'path' => "tables/{tableId}/import",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'importRows' => array(
+              'path' => 'tables/{tableId}/import',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'startLine' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'isStrict' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'encoding' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'delimiter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'endLine' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "startLine" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "isStrict" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "encoding" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "delimiter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "endLine" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"importTable" => array(
-            'path' => "tables/import",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "name" => array(
-                  "location" => "query",
-                  "type" => "string",
+            ),'importTable' => array(
+              'path' => 'tables/import',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'delimiter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'encoding' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "delimiter" => array(
-                  "location" => "query",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'tables',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'list' => array(
+              'path' => 'tables',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "encoding" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"insert" => array(
-            'path' => "tables",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"list" => array(
-            'path' => "tables",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "tables/{tableId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'tables/{tableId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'replaceViewDefinition' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "replaceViewDefinition" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),"update" => array(
-            'path' => "tables/{tableId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'tables/{tableId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'replaceViewDefinition' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "replaceViewDefinition" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->template = new Google_Service_Fusiontables_Template_Resource(
         $this,
         $this->serviceName,
         'template',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "tables/{tableId}/templates/{templateId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'tables/{tableId}/templates/{templateId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "templateId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+                ),
+                'templateId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "tables/{tableId}/templates/{templateId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'tables/{tableId}/templates/{templateId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "templateId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+                ),
+                'templateId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "tables/{tableId}/templates",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'tables/{tableId}/templates',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "tables/{tableId}/templates",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'tables/{tableId}/templates',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "tables/{tableId}/templates/{templateId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'tables/{tableId}/templates/{templateId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "templateId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+                ),
+                'templateId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "tables/{tableId}/templates/{templateId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "tableId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'tables/{tableId}/templates/{templateId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "templateId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+                ),
+                'templateId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -601,7 +601,7 @@ class Google_Service_Fusiontables_Column_Resource extends Google_Service_Resourc
     return $this->call('insert', array($params), "Google_Service_Fusiontables_Column");
   }
   /**
-   * Retrieves a list of columns. (column.list)
+   * Retrieves a list of columns. (column.listColumn)
    *
    * @param string $tableId
    * Table whose columns are being listed.
@@ -768,7 +768,7 @@ class Google_Service_Fusiontables_Style_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Fusiontables_StyleSetting");
   }
   /**
-   * Retrieves a list of styles. (style.list)
+   * Retrieves a list of styles. (style.listStyle)
    *
    * @param string $tableId
    * Table whose styles are being listed
@@ -946,7 +946,7 @@ class Google_Service_Fusiontables_Table_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Fusiontables_Table");
   }
   /**
-   * Retrieves a list of tables a user owns. (table.list)
+   * Retrieves a list of tables a user owns. (table.listTable)
    *
    * @param array $optParams Optional parameters.
    *
@@ -1063,7 +1063,7 @@ class Google_Service_Fusiontables_Template_Resource extends Google_Service_Resou
     return $this->call('insert', array($params), "Google_Service_Fusiontables_Template");
   }
   /**
-   * Retrieves a list of templates. (template.list)
+   * Retrieves a list of templates. (template.listTemplate)
    *
    * @param string $tableId
    * Identifier for the table whose templates are being requested
