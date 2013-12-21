@@ -67,414 +67,414 @@ class Google_Service_SQLAdmin extends Google_Service
         $this->serviceName,
         'backupRuns',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "{project}/instances/{instance}/backupRuns/{backupConfiguration}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => '{project}/instances/{instance}/backupRuns/{backupConfiguration}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "backupConfiguration" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'backupConfiguration' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "dueTime" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'dueTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/instances/{instance}/backupRuns",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/instances/{instance}/backupRuns',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "backupConfiguration" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'backupConfiguration' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->instances = new Google_Service_SQLAdmin_Instances_Resource(
         $this,
         $this->serviceName,
         'instances',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "{project}/instances/{instance}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/instances/{instance}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"export" => array(
-            'path' => "{project}/instances/{instance}/export",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'export' => array(
+              'path' => '{project}/instances/{instance}/export',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/instances/{instance}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/instances/{instance}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"import" => array(
-            'path' => "{project}/instances/{instance}/import",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'import' => array(
+              'path' => '{project}/instances/{instance}/import',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/instances",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/instances',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/instances",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/instances',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "{project}/instances/{instance}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => '{project}/instances/{instance}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"resetSslConfig" => array(
-            'path' => "{project}/instances/{instance}/resetSslConfig",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'resetSslConfig' => array(
+              'path' => '{project}/instances/{instance}/resetSslConfig',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"restart" => array(
-            'path' => "{project}/instances/{instance}/restart",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'restart' => array(
+              'path' => '{project}/instances/{instance}/restart',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"restoreBackup" => array(
-            'path' => "{project}/instances/{instance}/restoreBackup",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'restoreBackup' => array(
+              'path' => '{project}/instances/{instance}/restoreBackup',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "backupConfiguration" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'backupConfiguration' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "dueTime" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'dueTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"setRootPassword" => array(
-            'path' => "{project}/instances/{instance}/setRootPassword",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'setRootPassword' => array(
+              'path' => '{project}/instances/{instance}/setRootPassword',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "{project}/instances/{instance}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => '{project}/instances/{instance}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->operations = new Google_Service_SQLAdmin_Operations_Resource(
         $this,
         $this->serviceName,
         'operations',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "{project}/instances/{instance}/operations/{operation}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => '{project}/instances/{instance}/operations/{operation}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "operation" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'operation' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/instances/{instance}/operations",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/instances/{instance}/operations',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->sslCerts = new Google_Service_SQLAdmin_SslCerts_Resource(
         $this,
         $this->serviceName,
         'sslCerts',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "{project}/instances/{instance}/sslCerts/{sha1Fingerprint}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/instances/{instance}/sslCerts/{sha1Fingerprint}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "sha1Fingerprint" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'sha1Fingerprint' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/instances/{instance}/sslCerts/{sha1Fingerprint}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/instances/{instance}/sslCerts/{sha1Fingerprint}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "sha1Fingerprint" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'sha1Fingerprint' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/instances/{instance}/sslCerts",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/instances/{instance}/sslCerts',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/instances/{instance}/sslCerts",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/instances/{instance}/sslCerts',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->tiers = new Google_Service_SQLAdmin_Tiers_Resource(
         $this,
         $this->serviceName,
         'tiers',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "{project}/tiers",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => '{project}/tiers',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -515,7 +515,8 @@ class Google_Service_SQLAdmin_BackupRuns_Resource extends Google_Service_Resourc
   }
   /**
    * Lists all backup runs associated with a given instance and configuration in
-   * the reverse chronological order of the enqueued time. (backupRuns.list)
+   * the reverse chronological order of the enqueued time.
+   * (backupRuns.listBackupRuns)
    *
    * @param string $project
    * Project ID of the project that contains the instance.
@@ -637,7 +638,7 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
   }
   /**
    * Lists instances under a given project in the alphabetical order of the
-   * instance name. (instances.list)
+   * instance name. (instances.listInstances)
    *
    * @param string $project
    * Project ID of the project for which to list Cloud SQL instances.
@@ -802,7 +803,7 @@ class Google_Service_SQLAdmin_Operations_Resource extends Google_Service_Resourc
   /**
    * Lists all instance operations that have been performed on the given Cloud SQL
    * instance in the reverse chronological order of the start time.
-   * (operations.list)
+   * (operations.listOperations)
    *
    * @param string $project
    * Project ID of the project that contains the instance.
@@ -894,7 +895,8 @@ class Google_Service_SQLAdmin_SslCerts_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_SQLAdmin_SslCertsInsertResponse");
   }
   /**
-   * Lists all of the current SSL certificates for the instance. (sslCerts.list)
+   * Lists all of the current SSL certificates for the instance.
+   * (sslCerts.listSslCerts)
    *
    * @param string $project
    * Project ID of the project for which to list Cloud SQL instances.
@@ -924,7 +926,7 @@ class Google_Service_SQLAdmin_Tiers_Resource extends Google_Service_Resource
 
   /**
    * Lists all available service tiers for Google Cloud SQL, for example D1, D2.
-   * For related information, see Pricing. (tiers.list)
+   * For related information, see Pricing. (tiers.listTiers)
    *
    * @param string $project
    * Project ID of the project for which to list tiers.
@@ -2394,30 +2396,30 @@ class Google_Service_SQLAdmin_SslCertsListResponse extends Google_Collection
 
 class Google_Service_SQLAdmin_Tier extends Google_Collection
 {
-  public $DiskQuota;
-  public $RAM;
+  public $diskQuota;
+  public $rAM;
   public $kind;
   public $region;
   public $tier;
 
-  public function setDiskQuota($DiskQuota)
+  public function setDiskQuota($diskQuota)
   {
-    $this->DiskQuota = $DiskQuota;
+    $this->diskQuota = $diskQuota;
   }
 
   public function getDiskQuota()
   {
-    return $this->DiskQuota;
+    return $this->diskQuota;
   }
   
-  public function setRAM($RAM)
+  public function setRAM($rAM)
   {
-    $this->RAM = $RAM;
+    $this->rAM = $rAM;
   }
 
   public function getRAM()
   {
-    return $this->RAM;
+    return $this->rAM;
   }
   
   public function setKind($kind)
