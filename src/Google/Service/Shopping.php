@@ -62,245 +62,245 @@ class Google_Service_Shopping extends Google_Service
         $this->serviceName,
         'products',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "{source}/products/{accountId}/{productIdType}/{productId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "source" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => '{source}/products/{accountId}/{productIdType}/{productId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'source' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+                ),
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "productIdType" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'productIdType' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "productId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'categories.include' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'recommendations.enabled' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'thumbnails' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'taxonomy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'categories.useGcsConfig' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'recommendations.include' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'categories.enabled' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'location' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'attributeFilter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'recommendations.useGcsConfig' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "categories.include" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "recommendations.enabled" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "thumbnails" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "taxonomy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "categories.useGcsConfig" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "recommendations.include" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "categories.enabled" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "location" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "attributeFilter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "recommendations.useGcsConfig" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),"list" => array(
-            'path' => "{source}/products",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "source" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{source}/products',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'source' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'facets.include' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'categoryRecommendations.category' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'extras.enabled' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'facets.enabled' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'promotions.enabled' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'channels' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'currency' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'categoryRecommendations.enabled' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'facets.discover' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'extras.info' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'startIndex' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'availability' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'crowdBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'q' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'spelling.enabled' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'taxonomy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'spelling.useGcsConfig' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'useCase' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'location' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxVariants' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'categories.include' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'boostBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'safe' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'categories.useGcsConfig' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'facets.useGcsConfig' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'categories.enabled' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'attributeFilter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'clickTracking' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'thumbnails' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'categoryRecommendations.include' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'country' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'rankBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'restrictBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'facets.includeEmptyBuckets' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'redirects.enabled' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'redirects.useGcsConfig' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'categoryRecommendations.useGcsConfig' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'promotions.useGcsConfig' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "facets.include" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "categoryRecommendations.category" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "extras.enabled" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "facets.enabled" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "promotions.enabled" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "channels" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "currency" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "categoryRecommendations.enabled" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "facets.discover" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "extras.info" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "startIndex" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "availability" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "crowdBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "q" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "spelling.enabled" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "taxonomy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "spelling.useGcsConfig" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "useCase" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "location" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxVariants" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "categories.include" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "boostBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "safe" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "categories.useGcsConfig" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "facets.useGcsConfig" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "categories.enabled" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "attributeFilter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "clickTracking" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "thumbnails" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "categoryRecommendations.include" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "country" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "rankBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "restrictBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "facets.includeEmptyBuckets" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "redirects.enabled" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "redirects.useGcsConfig" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "categoryRecommendations.useGcsConfig" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "promotions.useGcsConfig" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -330,25 +330,25 @@ class Google_Service_Shopping_Products_Resource extends Google_Service_Resource
    * Id of product
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string categories_include
+   * @opt_param string categoriesInclude
    * Category specification
-   * @opt_param bool recommendations_enabled
+   * @opt_param bool recommendationsEnabled
    * Whether to return recommendation information
    * @opt_param string thumbnails
    * Thumbnail specification
    * @opt_param string taxonomy
    * Merchant taxonomy
-   * @opt_param bool categories_useGcsConfig
+   * @opt_param bool categoriesUseGcsConfig
    * This parameter is currently ignored
-   * @opt_param string recommendations_include
+   * @opt_param string recommendationsInclude
    * Recommendation specification
-   * @opt_param bool categories_enabled
+   * @opt_param bool categoriesEnabled
    * Whether to return category information
    * @opt_param string location
    * Location used to determine tax and shipping
    * @opt_param string attributeFilter
    * Comma separated list of attributes to return
-   * @opt_param bool recommendations_useGcsConfig
+   * @opt_param bool recommendationsUseGcsConfig
    * This parameter is currently ignored
    * @return Google_Service_Shopping_Product
    */
@@ -359,31 +359,31 @@ class Google_Service_Shopping_Products_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Shopping_Product");
   }
   /**
-   * Returns a list of products and content modules (products.list)
+   * Returns a list of products and content modules (products.listProducts)
    *
    * @param string $source
    * Query source
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string facets_include
+   * @opt_param string facetsInclude
    * Facets to include (applies when useGcsConfig == false)
-   * @opt_param string categoryRecommendations_category
+   * @opt_param string categoryRecommendationsCategory
    * Category for which to retrieve recommendations
-   * @opt_param bool extras_enabled
+   * @opt_param bool extrasEnabled
    * Whether to return extra information.
-   * @opt_param bool facets_enabled
+   * @opt_param bool facetsEnabled
    * Whether to return facet information
-   * @opt_param bool promotions_enabled
+   * @opt_param bool promotionsEnabled
    * Whether to return promotion information
    * @opt_param string channels
    * Channels specification
    * @opt_param string currency
    * Currency restriction (ISO 4217)
-   * @opt_param bool categoryRecommendations_enabled
+   * @opt_param bool categoryRecommendationsEnabled
    * Whether to return category recommendation information
-   * @opt_param string facets_discover
+   * @opt_param string facetsDiscover
    * Facets to discover
-   * @opt_param string extras_info
+   * @opt_param string extrasInfo
    * What extra information to return.
    * @opt_param string startIndex
    * Index (1-based) of first product to return
@@ -394,11 +394,11 @@ class Google_Service_Shopping_Products_Resource extends Google_Service_Resource
    * Crowding specification
    * @opt_param string q
    * Search query
-   * @opt_param bool spelling_enabled
+   * @opt_param bool spellingEnabled
    * Whether to return spelling suggestions
    * @opt_param string taxonomy
    * Taxonomy name
-   * @opt_param bool spelling_useGcsConfig
+   * @opt_param bool spellingUseGcsConfig
    * This parameter is currently ignored
    * @opt_param string useCase
    * One of CommerceSearchUseCase, ShoppingApiUseCase
@@ -406,19 +406,19 @@ class Google_Service_Shopping_Products_Resource extends Google_Service_Resource
    * Location used to determine tax and shipping
    * @opt_param int maxVariants
    * Maximum number of variant results to return per result
-   * @opt_param string categories_include
+   * @opt_param string categoriesInclude
    * Category specification
    * @opt_param string boostBy
    * Boosting specification
    * @opt_param bool safe
    * Whether safe search is enabled. Default: true
-   * @opt_param bool categories_useGcsConfig
+   * @opt_param bool categoriesUseGcsConfig
    * This parameter is currently ignored
    * @opt_param string maxResults
    * Maximum number of results to return
-   * @opt_param bool facets_useGcsConfig
+   * @opt_param bool facetsUseGcsConfig
    * Whether to return facet information as configured in the GCS account
-   * @opt_param bool categories_enabled
+   * @opt_param bool categoriesEnabled
    * Whether to return category information
    * @opt_param string attributeFilter
    * Comma separated list of attributes to return
@@ -428,7 +428,7 @@ class Google_Service_Shopping_Products_Resource extends Google_Service_Resource
    * Image thumbnails specification
    * @opt_param string language
    * Language restriction (BCP 47)
-   * @opt_param string categoryRecommendations_include
+   * @opt_param string categoryRecommendationsInclude
    * Category recommendation specification
    * @opt_param string country
    * Country restriction (ISO 3166)
@@ -436,15 +436,15 @@ class Google_Service_Shopping_Products_Resource extends Google_Service_Resource
    * Ranking specification
    * @opt_param string restrictBy
    * Restriction specification
-   * @opt_param bool facets_includeEmptyBuckets
+   * @opt_param bool facetsIncludeEmptyBuckets
    * Return empty facet buckets.
-   * @opt_param bool redirects_enabled
+   * @opt_param bool redirectsEnabled
    * Whether to return redirect information
-   * @opt_param bool redirects_useGcsConfig
+   * @opt_param bool redirectsUseGcsConfig
    * Whether to return redirect information as configured in the GCS account
-   * @opt_param bool categoryRecommendations_useGcsConfig
+   * @opt_param bool categoryRecommendationsUseGcsConfig
    * This parameter is currently ignored
-   * @opt_param bool promotions_useGcsConfig
+   * @opt_param bool promotionsUseGcsConfig
    * Whether to return promotion information as configured in the GCS account
    * @return Google_Service_Shopping_Products
    */
