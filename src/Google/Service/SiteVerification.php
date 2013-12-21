@@ -63,68 +63,68 @@ class Google_Service_SiteVerification extends Google_Service
         $this->serviceName,
         'webResource',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "webResource/{id}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'webResource/{id}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "webResource/{id}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'webResource/{id}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"getToken" => array(
-            'path' => "token",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"insert" => array(
-            'path' => "webResource",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "verificationMethod" => array(
-                  "location" => "query",
-                  "type" => "string",
+            ),'getToken' => array(
+              'path' => 'token',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'insert' => array(
+              'path' => 'webResource',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'verificationMethod' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "webResource",
-            'httpMethod' => "GET",
-            'parameters' => array(  ),
-          ),"patch" => array(
-            'path' => "webResource/{id}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'webResource',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),'patch' => array(
+              'path' => 'webResource/{id}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "webResource/{id}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'webResource/{id}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -198,7 +198,8 @@ class Google_Service_SiteVerification_WebResource_Resource extends Google_Servic
     return $this->call('insert', array($params), "Google_Service_SiteVerification_SiteVerificationWebResourceResource");
   }
   /**
-   * Get the list of your verified websites and domains. (webResource.list)
+   * Get the list of your verified websites and domains.
+   * (webResource.listWebResource)
    *
    * @param array $optParams Optional parameters.
    * @return Google_Service_SiteVerification_SiteVerificationWebResourceListResponse
