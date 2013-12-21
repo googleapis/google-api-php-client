@@ -64,193 +64,193 @@ class Google_Service_Reseller extends Google_Service
         $this->serviceName,
         'customers',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "customers/{customerId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'customers/{customerId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
+            ),'insert' => array(
+              'path' => 'customers',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customerAuthToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-          ),"insert" => array(
-            'path' => "customers",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "customerAuthToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "customers/{customerId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'customers/{customerId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "customers/{customerId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'customers/{customerId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->subscriptions = new Google_Service_Reseller_Subscriptions_Resource(
         $this,
         $this->serviceName,
         'subscriptions',
         array(
-    'methods' => array(
-          "changePlan" => array(
-            'path' => "customers/{customerId}/subscriptions/{subscriptionId}/changePlan",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'changePlan' => array(
+              'path' => 'customers/{customerId}/subscriptions/{subscriptionId}/changePlan',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "subscriptionId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"changeRenewalSettings" => array(
-            'path' => "customers/{customerId}/subscriptions/{subscriptionId}/changeRenewalSettings",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'changeRenewalSettings' => array(
+              'path' => 'customers/{customerId}/subscriptions/{subscriptionId}/changeRenewalSettings',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "subscriptionId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"changeSeats" => array(
-            'path' => "customers/{customerId}/subscriptions/{subscriptionId}/changeSeats",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'changeSeats' => array(
+              'path' => 'customers/{customerId}/subscriptions/{subscriptionId}/changeSeats',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "subscriptionId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"delete" => array(
-            'path' => "customers/{customerId}/subscriptions/{subscriptionId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'delete' => array(
+              'path' => 'customers/{customerId}/subscriptions/{subscriptionId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "subscriptionId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "deletionType" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'deletionType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "customers/{customerId}/subscriptions/{subscriptionId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'customers/{customerId}/subscriptions/{subscriptionId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "subscriptionId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "customers/{customerId}/subscriptions",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'customers/{customerId}/subscriptions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'customerAuthToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "customerAuthToken" => array(
-                  "location" => "query",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'subscriptions',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerAuthToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'customerNamePrefix' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "subscriptions",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customerAuthToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "customerId" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "customerNamePrefix" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"startPaidService" => array(
-            'path' => "customers/{customerId}/subscriptions/{subscriptionId}/startPaidService",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'startPaidService' => array(
+              'path' => 'customers/{customerId}/subscriptions/{subscriptionId}/startPaidService',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "subscriptionId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -450,7 +450,7 @@ class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Reso
   }
   /**
    * Lists subscriptions of a reseller, optionally filtered by a customer name
-   * prefix. (subscriptions.list)
+   * prefix. (subscriptions.listSubscriptions)
    *
    * @param array $optParams Optional parameters.
    *
