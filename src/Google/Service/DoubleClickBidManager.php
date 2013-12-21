@@ -61,86 +61,86 @@ class Google_Service_DoubleClickBidManager extends Google_Service
         $this->serviceName,
         'lineitems',
         array(
-    'methods' => array(
-          "downloadlineitems" => array(
-            'path' => "lineitems/downloadlineitems",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"uploadlineitems" => array(
-            'path' => "lineitems/uploadlineitems",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),
+          'methods' => array(
+            'downloadlineitems' => array(
+              'path' => 'lineitems/downloadlineitems',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'uploadlineitems' => array(
+              'path' => 'lineitems/uploadlineitems',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
     $this->queries = new Google_Service_DoubleClickBidManager_Queries_Resource(
         $this,
         $this->serviceName,
         'queries',
         array(
-    'methods' => array(
-          "createquery" => array(
-            'path' => "query",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"deletequery" => array(
-            'path' => "query/{queryId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "queryId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'createquery' => array(
+              'path' => 'query',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'deletequery' => array(
+              'path' => 'query/{queryId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'queryId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"getquery" => array(
-            'path' => "query/{queryId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "queryId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'getquery' => array(
+              'path' => 'query/{queryId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'queryId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"listqueries" => array(
-            'path' => "queries",
-            'httpMethod' => "GET",
-            'parameters' => array(  ),
-          ),"runquery" => array(
-            'path' => "query/{queryId}",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "queryId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'listqueries' => array(
+              'path' => 'queries',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),'runquery' => array(
+              'path' => 'query/{queryId}',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'queryId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->reports = new Google_Service_DoubleClickBidManager_Reports_Resource(
         $this,
         $this->serviceName,
         'reports',
         array(
-    'methods' => array(
-          "listreports" => array(
-            'path' => "queries/{queryId}/reports",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "queryId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'listreports' => array(
+              'path' => 'queries/{queryId}/reports',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'queryId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
