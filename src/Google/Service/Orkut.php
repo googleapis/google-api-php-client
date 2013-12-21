@@ -78,726 +78,726 @@ class Google_Service_Orkut extends Google_Service
         $this->serviceName,
         'acl',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "activities/{activityId}/acl/{userId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'activities/{activityId}/acl/{userId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->activities = new Google_Service_Orkut_Activities_Resource(
         $this,
         $this->serviceName,
         'activities',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "activities/{activityId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'activities/{activityId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "people/{userId}/activities/{collection}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'people/{userId}/activities/{collection}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "collection" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->activityVisibility = new Google_Service_Orkut_ActivityVisibility_Resource(
         $this,
         $this->serviceName,
         'activityVisibility',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "activities/{activityId}/visibility",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'activities/{activityId}/visibility',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"patch" => array(
-            'path' => "activities/{activityId}/visibility",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'activities/{activityId}/visibility',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "activities/{activityId}/visibility",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'activities/{activityId}/visibility',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->badges = new Google_Service_Orkut_Badges_Resource(
         $this,
         $this->serviceName,
         'badges',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "people/{userId}/badges/{badgeId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'people/{userId}/badges/{badgeId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "badgeId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'badgeId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "people/{userId}/badges",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'people/{userId}/badges',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->comments = new Google_Service_Orkut_Comments_Resource(
         $this,
         $this->serviceName,
         'comments',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "comments/{commentId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "commentId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'comments/{commentId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'commentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "comments/{commentId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "commentId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'comments/{commentId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'commentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"insert" => array(
-            'path' => "activities/{activityId}/comments",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'activities/{activityId}/comments',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "activities/{activityId}/comments",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'activities/{activityId}/comments',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "orderBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->communities = new Google_Service_Orkut_Communities_Resource(
         $this,
         $this->serviceName,
         'communities',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "communities/{communityId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+          'methods' => array(
+            'get' => array(
+              'path' => 'communities/{communityId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"list" => array(
-            'path' => "people/{userId}/communities",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'people/{userId}/communities',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "orderBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->communityFollow = new Google_Service_Orkut_CommunityFollow_Resource(
         $this,
         $this->serviceName,
         'communityFollow',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "communities/{communityId}/followers/{userId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'communities/{communityId}/followers/{userId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "communities/{communityId}/followers/{userId}",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'insert' => array(
+              'path' => 'communities/{communityId}/followers/{userId}',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->communityMembers = new Google_Service_Orkut_CommunityMembers_Resource(
         $this,
         $this->serviceName,
         'communityMembers',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "communities/{communityId}/members/{userId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'communities/{communityId}/members/{userId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "communities/{communityId}/members/{userId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'get' => array(
+              'path' => 'communities/{communityId}/members/{userId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"insert" => array(
-            'path' => "communities/{communityId}/members/{userId}",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'insert' => array(
+              'path' => 'communities/{communityId}/members/{userId}',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "communities/{communityId}/members",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'list' => array(
+              'path' => 'communities/{communityId}/members',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'friendsOnly' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "friendsOnly" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->communityMessages = new Google_Service_Orkut_CommunityMessages_Resource(
         $this,
         $this->serviceName,
         'communityMessages',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "communities/{communityId}/topics/{topicId}/messages/{messageId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'communities/{communityId}/topics/{topicId}/messages/{messageId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "topicId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'topicId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "messageId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'messageId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "communities/{communityId}/topics/{topicId}/messages",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'insert' => array(
+              'path' => 'communities/{communityId}/topics/{topicId}/messages',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "topicId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'topicId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "communities/{communityId}/topics/{topicId}/messages",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'list' => array(
+              'path' => 'communities/{communityId}/topics/{topicId}/messages',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "topicId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'topicId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->communityPollComments = new Google_Service_Orkut_CommunityPollComments_Resource(
         $this,
         $this->serviceName,
         'communityPollComments',
         array(
-    'methods' => array(
-          "insert" => array(
-            'path' => "communities/{communityId}/polls/{pollId}/comments",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+          'methods' => array(
+            'insert' => array(
+              'path' => 'communities/{communityId}/polls/{pollId}/comments',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "pollId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'pollId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "communities/{communityId}/polls/{pollId}/comments",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'list' => array(
+              'path' => 'communities/{communityId}/polls/{pollId}/comments',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "pollId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'pollId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->communityPollVotes = new Google_Service_Orkut_CommunityPollVotes_Resource(
         $this,
         $this->serviceName,
         'communityPollVotes',
         array(
-    'methods' => array(
-          "insert" => array(
-            'path' => "communities/{communityId}/polls/{pollId}/votes",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+          'methods' => array(
+            'insert' => array(
+              'path' => 'communities/{communityId}/polls/{pollId}/votes',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "pollId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'pollId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->communityPolls = new Google_Service_Orkut_CommunityPolls_Resource(
         $this,
         $this->serviceName,
         'communityPolls',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "communities/{communityId}/polls/{pollId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+          'methods' => array(
+            'get' => array(
+              'path' => 'communities/{communityId}/polls/{pollId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "pollId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'pollId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"list" => array(
-            'path' => "communities/{communityId}/polls",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'list' => array(
+              'path' => 'communities/{communityId}/polls',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->communityRelated = new Google_Service_Orkut_CommunityRelated_Resource(
         $this,
         $this->serviceName,
         'communityRelated',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "communities/{communityId}/related",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+          'methods' => array(
+            'list' => array(
+              'path' => 'communities/{communityId}/related',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->communityTopics = new Google_Service_Orkut_CommunityTopics_Resource(
         $this,
         $this->serviceName,
         'communityTopics',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "communities/{communityId}/topics/{topicId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'communities/{communityId}/topics/{topicId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "topicId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'topicId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "communities/{communityId}/topics/{topicId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'get' => array(
+              'path' => 'communities/{communityId}/topics/{topicId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "topicId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'topicId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"insert" => array(
-            'path' => "communities/{communityId}/topics",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'insert' => array(
+              'path' => 'communities/{communityId}/topics',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
+                'isShout' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "isShout" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),"list" => array(
-            'path' => "communities/{communityId}/topics",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "communityId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'list' => array(
+              'path' => 'communities/{communityId}/topics',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'communityId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->counters = new Google_Service_Orkut_Counters_Resource(
         $this,
         $this->serviceName,
         'counters',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "people/{userId}/counters",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => 'people/{userId}/counters',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->scraps = new Google_Service_Orkut_Scraps_Resource(
         $this,
         $this->serviceName,
         'scraps',
         array(
-    'methods' => array(
-          "insert" => array(
-            'path' => "activities/scraps",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),
+          'methods' => array(
+            'insert' => array(
+              'path' => 'activities/scraps',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -857,7 +857,7 @@ class Google_Service_Orkut_Activities_Resource extends Google_Service_Resource
     return $this->call('delete', array($params));
   }
   /**
-   * Retrieves a list of activities. (activities.list)
+   * Retrieves a list of activities. (activities.listActivities)
    *
    * @param string $userId
    * The ID of the user whose activities will be listed. Can be me to refer to the viewer (i.e. the
@@ -968,7 +968,7 @@ class Google_Service_Orkut_Badges_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Orkut_Badge");
   }
   /**
-   * Retrieves the list of visible badges of a user. (badges.list)
+   * Retrieves the list of visible badges of a user. (badges.listBadges)
    *
    * @param string $userId
    * The id of the user whose badges will be listed. Can be me to refer to caller.
@@ -1040,7 +1040,7 @@ class Google_Service_Orkut_Comments_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Orkut_Comment");
   }
   /**
-   * Retrieves a list of comments, possibly filtered. (comments.list)
+   * Retrieves a list of comments, possibly filtered. (comments.listComments)
    *
    * @param string $activityId
    * The ID of the activity containing the comments.
@@ -1095,7 +1095,7 @@ class Google_Service_Orkut_Communities_Resource extends Google_Service_Resource
   }
   /**
    * Retrieves the list of communities the current user is a member of.
-   * (communities.list)
+   * (communities.listCommunities)
    *
    * @param string $userId
    * The ID of the user whose communities will be listed. Can be me to refer to caller.
@@ -1227,7 +1227,7 @@ class Google_Service_Orkut_CommunityMembers_Resource extends Google_Service_Reso
    * Lists members of a community. Use the pagination tokens to retrieve the full
    * list; do not rely on the member count available in the community profile
    * information to know when to stop iterating, as that count may be approximate.
-   * (communityMembers.list)
+   * (communityMembers.listCommunityMembers)
    *
    * @param int $communityId
    * The ID of the community whose members will be listed.
@@ -1298,7 +1298,8 @@ class Google_Service_Orkut_CommunityMessages_Resource extends Google_Service_Res
     return $this->call('insert', array($params), "Google_Service_Orkut_CommunityMessage");
   }
   /**
-   * Retrieves the messages of a topic of a community. (communityMessages.list)
+   * Retrieves the messages of a topic of a community.
+   * (communityMessages.listCommunityMessages)
    *
    * @param int $communityId
    * The ID of the community which messages will be listed.
@@ -1351,7 +1352,8 @@ class Google_Service_Orkut_CommunityPollComments_Resource extends Google_Service
     return $this->call('insert', array($params), "Google_Service_Orkut_CommunityPollComment");
   }
   /**
-   * Retrieves the comments of a community poll. (communityPollComments.list)
+   * Retrieves the comments of a community poll.
+   * (communityPollComments.listCommunityPollComments)
    *
    * @param int $communityId
    * The ID of the community whose poll is having its comments listed.
@@ -1436,7 +1438,7 @@ class Google_Service_Orkut_CommunityPolls_Resource extends Google_Service_Resour
     return $this->call('get', array($params), "Google_Service_Orkut_CommunityPoll");
   }
   /**
-   * Retrieves the polls of a community. (communityPolls.list)
+   * Retrieves the polls of a community. (communityPolls.listCommunityPolls)
    *
    * @param int $communityId
    * The ID of the community which polls will be listed.
@@ -1470,7 +1472,8 @@ class Google_Service_Orkut_CommunityRelated_Resource extends Google_Service_Reso
 {
 
   /**
-   * Retrieves the communities related to another one. (communityRelated.list)
+   * Retrieves the communities related to another one.
+   * (communityRelated.listCommunityRelated)
    *
    * @param int $communityId
    * The ID of the community whose related communities will be listed.
@@ -1552,7 +1555,7 @@ class Google_Service_Orkut_CommunityTopics_Resource extends Google_Service_Resou
     return $this->call('insert', array($params), "Google_Service_Orkut_CommunityTopic");
   }
   /**
-   * Retrieves the topics of a community. (communityTopics.list)
+   * Retrieves the topics of a community. (communityTopics.listCommunityTopics)
    *
    * @param int $communityId
    * The ID of the community which topics will be listed.
@@ -1586,7 +1589,7 @@ class Google_Service_Orkut_Counters_Resource extends Google_Service_Resource
 {
 
   /**
-   * Retrieves the counters of a user. (counters.list)
+   * Retrieves the counters of a user. (counters.listCounters)
    *
    * @param string $userId
    * The ID of the user whose counters will be listed. Can be me to refer to caller.
@@ -2274,9 +2277,9 @@ class Google_Service_Orkut_CommentList extends Google_Collection
 class Google_Service_Orkut_Community extends Google_Collection
 {
   public $category;
-  protected $co_ownersType = 'Google_Service_Orkut_OrkutAuthorResource';
-  protected $co_ownersDataType = 'array';
-  public $creation_date;
+  protected $coOwnersType = 'Google_Service_Orkut_OrkutAuthorResource';
+  protected $coOwnersDataType = 'array';
+  public $creationDate;
   public $description;
   public $id;
   public $kind;
@@ -2284,13 +2287,13 @@ class Google_Service_Orkut_Community extends Google_Collection
   protected $linksType = 'Google_Service_Orkut_OrkutLinkResource';
   protected $linksDataType = 'array';
   public $location;
-  public $member_count;
+  public $memberCount;
   protected $moderatorsType = 'Google_Service_Orkut_OrkutAuthorResource';
   protected $moderatorsDataType = 'array';
   public $name;
   protected $ownerType = 'Google_Service_Orkut_OrkutAuthorResource';
   protected $ownerDataType = '';
-  public $photo_url;
+  public $photoUrl;
 
   public function setCategory($category)
   {
@@ -2302,24 +2305,24 @@ class Google_Service_Orkut_Community extends Google_Collection
     return $this->category;
   }
   
-  public function setCo_owners($co_owners)
+  public function setCoOwners($coOwners)
   {
-    $this->co_owners = $co_owners;
+    $this->coOwners = $coOwners;
   }
 
-  public function getCo_owners()
+  public function getCoOwners()
   {
-    return $this->co_owners;
+    return $this->coOwners;
   }
   
-  public function setCreation_date($creation_date)
+  public function setCreationDate($creationDate)
   {
-    $this->creation_date = $creation_date;
+    $this->creationDate = $creationDate;
   }
 
-  public function getCreation_date()
+  public function getCreationDate()
   {
-    return $this->creation_date;
+    return $this->creationDate;
   }
   
   public function setDescription($description)
@@ -2382,14 +2385,14 @@ class Google_Service_Orkut_Community extends Google_Collection
     return $this->location;
   }
   
-  public function setMember_count($member_count)
+  public function setMemberCount($memberCount)
   {
-    $this->member_count = $member_count;
+    $this->memberCount = $memberCount;
   }
 
-  public function getMember_count()
+  public function getMemberCount()
   {
-    return $this->member_count;
+    return $this->memberCount;
   }
   
   public function setModerators($moderators)
@@ -2422,14 +2425,14 @@ class Google_Service_Orkut_Community extends Google_Collection
     return $this->owner;
   }
   
-  public function setPhoto_url($photo_url)
+  public function setPhotoUrl($photoUrl)
   {
-    $this->photo_url = $photo_url;
+    $this->photoUrl = $photoUrl;
   }
 
-  public function getPhoto_url()
+  public function getPhotoUrl()
   {
-    return $this->photo_url;
+    return $this->photoUrl;
   }
   
 }
