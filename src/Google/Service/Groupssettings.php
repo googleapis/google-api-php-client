@@ -62,40 +62,40 @@ class Google_Service_Groupssettings extends Google_Service
         $this->serviceName,
         'groups',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "{groupUniqueId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "groupUniqueId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => '{groupUniqueId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'groupUniqueId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"patch" => array(
-            'path' => "{groupUniqueId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "groupUniqueId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => '{groupUniqueId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'groupUniqueId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "{groupUniqueId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "groupUniqueId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => '{groupUniqueId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'groupUniqueId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
