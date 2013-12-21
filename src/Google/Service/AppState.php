@@ -62,67 +62,67 @@ class Google_Service_AppState extends Google_Service
         $this->serviceName,
         'states',
         array(
-    'methods' => array(
-          "clear" => array(
-            'path' => "states/{stateKey}/clear",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "stateKey" => array(
-                  "location" => "path",
-                  "type" => "integer",
+          'methods' => array(
+            'clear' => array(
+              'path' => 'states/{stateKey}/clear',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'stateKey' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
+                'currentDataVersion' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "currentDataVersion" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"delete" => array(
-            'path' => "states/{stateKey}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "stateKey" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'delete' => array(
+              'path' => 'states/{stateKey}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'stateKey' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "states/{stateKey}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "stateKey" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'get' => array(
+              'path' => 'states/{stateKey}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'stateKey' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
+            ),'list' => array(
+              'path' => 'states',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'includeData' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-          ),"list" => array(
-            'path' => "states",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "includeData" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),"update" => array(
-            'path' => "states/{stateKey}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "stateKey" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'update' => array(
+              'path' => 'states/{stateKey}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'stateKey' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
+                'currentStateVersion' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "currentStateVersion" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -190,7 +190,7 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_AppState_GetResponse");
   }
   /**
-   * Lists all the states keys, and optionally the state data. (states.list)
+   * Lists all the states keys, and optionally the state data. (states.listStates)
    *
    * @param array $optParams Optional parameters.
    *
