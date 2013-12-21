@@ -60,79 +60,79 @@ class Google_Service_Translate extends Google_Service
         $this->serviceName,
         'detections',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "v2/detect",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "q" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => 'v2/detect',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'q' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'repeated' => true,
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->languages = new Google_Service_Translate_Languages_Resource(
         $this,
         $this->serviceName,
         'languages',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "v2/languages",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "target" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => 'v2/languages',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'target' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->translations = new Google_Service_Translate_Translations_Resource(
         $this,
         $this->serviceName,
         'translations',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "v2",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "q" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => 'v2',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'q' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'repeated' => true,
                   'required' => true,
-              ),
-                "target" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'target' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "source" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "format" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "cid" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'source' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'format' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'cid' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'repeated' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -150,7 +150,7 @@ class Google_Service_Translate_Detections_Resource extends Google_Service_Resour
 {
 
   /**
-   * Detect the language of text. (detections.list)
+   * Detect the language of text. (detections.listDetections)
    *
    * @param string $q
    * The text to detect
@@ -177,7 +177,8 @@ class Google_Service_Translate_Languages_Resource extends Google_Service_Resourc
 {
 
   /**
-   * List the source/target languages supported by the API (languages.list)
+   * List the source/target languages supported by the API
+   * (languages.listLanguages)
    *
    * @param array $optParams Optional parameters.
    *
@@ -205,7 +206,8 @@ class Google_Service_Translate_Translations_Resource extends Google_Service_Reso
 {
 
   /**
-   * Returns text translations from one language to another. (translations.list)
+   * Returns text translations from one language to another.
+   * (translations.listTranslations)
    *
    * @param string $q
    * The text to translate
