@@ -65,134 +65,134 @@ class Google_Service_Reports extends Google_Service
         $this->serviceName,
         'activities',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "activity/users/{userKey}/applications/{applicationName}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => 'activity/users/{userKey}/applications/{applicationName}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "applicationName" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'applicationName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'startTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'actorIpAddress' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'eventName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'filters' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'endTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "startTime" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "actorIpAddress" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "eventName" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "filters" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "endTime" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "customerId" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->customerUsageReports = new Google_Service_Reports_CustomerUsageReports_Resource(
         $this,
         $this->serviceName,
         'customerUsageReports',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "usage/dates/{date}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "date" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'usage/dates/{date}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'date' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'parameters' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "customerId" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "parameters" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->userUsageReport = new Google_Service_Reports_UserUsageReport_Resource(
         $this,
         $this->serviceName,
         'userUsageReport',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "usage/users/{userKey}/dates/{date}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'usage/users/{userKey}/dates/{date}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "date" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'date' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'parameters' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'filters' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "parameters" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "filters" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "customerId" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -211,7 +211,7 @@ class Google_Service_Reports_Activities_Resource extends Google_Service_Resource
 
   /**
    * Retrieves a list of activities for a specific customer and application.
-   * (activities.list)
+   * (activities.listActivities)
    *
    * @param string $userKey
    * Represents the profile id or the user email for which the data should be filtered. When 'all' is
