@@ -65,152 +65,152 @@ class Google_Service_Adexchangebuyer extends Google_Service
         $this->serviceName,
         'accounts',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "accounts/{id}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "integer",
+          'methods' => array(
+            'get' => array(
+              'path' => 'accounts/{id}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "accounts",
-            'httpMethod' => "GET",
-            'parameters' => array(  ),
-          ),"patch" => array(
-            'path' => "accounts/{id}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'list' => array(
+              'path' => 'accounts',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),'patch' => array(
+              'path' => 'accounts/{id}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "accounts/{id}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "integer",
+            ),'update' => array(
+              'path' => 'accounts/{id}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->creatives = new Google_Service_Adexchangebuyer_Creatives_Resource(
         $this,
         $this->serviceName,
         'creatives',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "creatives/{accountId}/{buyerCreativeId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+          'methods' => array(
+            'get' => array(
+              'path' => 'creatives/{accountId}/{buyerCreativeId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "buyerCreativeId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'buyerCreativeId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
+            ),'insert' => array(
+              'path' => 'creatives',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'list' => array(
+              'path' => 'creatives',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'statusFilter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-          ),"insert" => array(
-            'path' => "creatives",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"list" => array(
-            'path' => "creatives",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "statusFilter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->directDeals = new Google_Service_Adexchangebuyer_DirectDeals_Resource(
         $this,
         $this->serviceName,
         'directDeals',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "directdeals/{id}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'directdeals/{id}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "directdeals",
-            'httpMethod' => "GET",
-            'parameters' => array(  ),
-          ),
+            ),'list' => array(
+              'path' => 'directdeals',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
     $this->performanceReport = new Google_Service_Adexchangebuyer_PerformanceReport_Resource(
         $this,
         $this->serviceName,
         'performanceReport',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "performancereport",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => 'performancereport',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "endDateTime" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'endDateTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "startDateTime" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'startDateTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -242,7 +242,7 @@ class Google_Service_Adexchangebuyer_Accounts_Resource extends Google_Service_Re
     return $this->call('get', array($params), "Google_Service_Adexchangebuyer_Account");
   }
   /**
-   * Retrieves the authenticated user's list of accounts. (accounts.list)
+   * Retrieves the authenticated user's list of accounts. (accounts.listAccounts)
    *
    * @param array $optParams Optional parameters.
    * @return Google_Service_Adexchangebuyer_AccountsList
@@ -328,7 +328,7 @@ class Google_Service_Adexchangebuyer_Creatives_Resource extends Google_Service_R
   }
   /**
    * Retrieves a list of the authenticated user's active creatives.
-   * (creatives.list)
+   * (creatives.listCreatives)
    *
    * @param array $optParams Optional parameters.
    *
@@ -375,7 +375,8 @@ class Google_Service_Adexchangebuyer_DirectDeals_Resource extends Google_Service
     return $this->call('get', array($params), "Google_Service_Adexchangebuyer_DirectDeal");
   }
   /**
-   * Retrieves the authenticated user's list of direct deals. (directDeals.list)
+   * Retrieves the authenticated user's list of direct deals.
+   * (directDeals.listDirectDeals)
    *
    * @param array $optParams Optional parameters.
    * @return Google_Service_Adexchangebuyer_DirectDealsList
@@ -401,7 +402,7 @@ class Google_Service_Adexchangebuyer_PerformanceReport_Resource extends Google_S
 
   /**
    * Retrieves the authenticated user's list of performance metrics.
-   * (performanceReport.list)
+   * (performanceReport.listPerformanceReport)
    *
    * @param string $accountId
    * The account id to get the reports.
@@ -569,7 +570,7 @@ class Google_Service_Adexchangebuyer_AccountsList extends Google_Collection
 
 class Google_Service_Adexchangebuyer_Creative extends Google_Collection
 {
-  public $HTMLSnippet;
+  public $hTMLSnippet;
   public $accountId;
   public $advertiserId;
   public $advertiserName;
@@ -593,14 +594,14 @@ class Google_Service_Adexchangebuyer_Creative extends Google_Collection
   public $videoURL;
   public $width;
 
-  public function setHTMLSnippet($HTMLSnippet)
+  public function setHTMLSnippet($hTMLSnippet)
   {
-    $this->HTMLSnippet = $HTMLSnippet;
+    $this->hTMLSnippet = $hTMLSnippet;
   }
 
   public function getHTMLSnippet()
   {
-    return $this->HTMLSnippet;
+    return $this->hTMLSnippet;
   }
   
   public function setAccountId($accountId)
