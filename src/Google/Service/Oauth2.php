@@ -66,50 +66,50 @@ class Google_Service_Oauth2 extends Google_Service
         $this->serviceName,
         'userinfo',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "oauth2/v2/userinfo",
-            'httpMethod' => "GET",
-            'parameters' => array(  ),
-          ),
+          'methods' => array(
+            'get' => array(
+              'path' => 'oauth2/v2/userinfo',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
     $this->userinfo_v2_me = new Google_Service_Oauth2_UserinfoV2Me_Resource(
         $this,
         $this->serviceName,
         'me',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "userinfo/v2/me",
-            'httpMethod' => "GET",
-            'parameters' => array(  ),
-          ),
+          'methods' => array(
+            'get' => array(
+              'path' => 'userinfo/v2/me',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
     $this->base_methods = new Google_Service_Resource(
         $this,
         $this->serviceName,
         '',
         array(
-        'methods' => array(
-              "tokeninfo" => array(
-                'path' => "oauth2/v2/tokeninfo",
-                'httpMethod' => "POST",
-                'parameters' => array(
-                    "access_token" => array(
-                      "location" => "query",
-                      "type" => "string",
-                  ),
-                    "id_token" => array(
-                      "location" => "query",
-                      "type" => "string",
-                  ),
-                  ),
+          'methods' => array(
+            'tokeninfo' => array(
+              'path' => 'oauth2/v2/tokeninfo',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'access_token' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'id_token' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-            )
+            ),
+          )
         )
     );
   }
@@ -118,9 +118,9 @@ class Google_Service_Oauth2 extends Google_Service
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string access_token
+   * @opt_param string accessToken
    *
-   * @opt_param string id_token
+   * @opt_param string idToken
    *
    * @return Google_Service_Oauth2_Tokeninfo
    */
@@ -201,23 +201,23 @@ class Google_Service_Oauth2_UserinfoV2Me_Resource extends Google_Service_Resourc
 
 class Google_Service_Oauth2_Tokeninfo extends Google_Model
 {
-  public $access_type;
+  public $accessType;
   public $audience;
   public $email;
-  public $expires_in;
-  public $issued_to;
+  public $expiresIn;
+  public $issuedTo;
   public $scope;
-  public $user_id;
-  public $verified_email;
+  public $userId;
+  public $verifiedEmail;
 
-  public function setAccess_type($access_type)
+  public function setAccessType($accessType)
   {
-    $this->access_type = $access_type;
+    $this->accessType = $accessType;
   }
 
-  public function getAccess_type()
+  public function getAccessType()
   {
-    return $this->access_type;
+    return $this->accessType;
   }
   
   public function setAudience($audience)
@@ -240,24 +240,24 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
     return $this->email;
   }
   
-  public function setExpires_in($expires_in)
+  public function setExpiresIn($expiresIn)
   {
-    $this->expires_in = $expires_in;
+    $this->expiresIn = $expiresIn;
   }
 
-  public function getExpires_in()
+  public function getExpiresIn()
   {
-    return $this->expires_in;
+    return $this->expiresIn;
   }
   
-  public function setIssued_to($issued_to)
+  public function setIssuedTo($issuedTo)
   {
-    $this->issued_to = $issued_to;
+    $this->issuedTo = $issuedTo;
   }
 
-  public function getIssued_to()
+  public function getIssuedTo()
   {
-    return $this->issued_to;
+    return $this->issuedTo;
   }
   
   public function setScope($scope)
@@ -270,24 +270,24 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
     return $this->scope;
   }
   
-  public function setUser_id($user_id)
+  public function setUserId($userId)
   {
-    $this->user_id = $user_id;
+    $this->userId = $userId;
   }
 
-  public function getUser_id()
+  public function getUserId()
   {
-    return $this->user_id;
+    return $this->userId;
   }
   
-  public function setVerified_email($verified_email)
+  public function setVerifiedEmail($verifiedEmail)
   {
-    $this->verified_email = $verified_email;
+    $this->verifiedEmail = $verifiedEmail;
   }
 
-  public function getVerified_email()
+  public function getVerifiedEmail()
   {
-    return $this->verified_email;
+    return $this->verifiedEmail;
   }
   
 }
@@ -295,9 +295,9 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
 class Google_Service_Oauth2_Userinfo extends Google_Model
 {
   public $email;
-  public $family_name;
+  public $familyName;
   public $gender;
-  public $given_name;
+  public $givenName;
   public $hd;
   public $id;
   public $link;
@@ -305,7 +305,7 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   public $name;
   public $picture;
   public $timezone;
-  public $verified_email;
+  public $verifiedEmail;
 
   public function setEmail($email)
   {
@@ -317,14 +317,14 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
     return $this->email;
   }
   
-  public function setFamily_name($family_name)
+  public function setFamilyName($familyName)
   {
-    $this->family_name = $family_name;
+    $this->familyName = $familyName;
   }
 
-  public function getFamily_name()
+  public function getFamilyName()
   {
-    return $this->family_name;
+    return $this->familyName;
   }
   
   public function setGender($gender)
@@ -337,14 +337,14 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
     return $this->gender;
   }
   
-  public function setGiven_name($given_name)
+  public function setGivenName($givenName)
   {
-    $this->given_name = $given_name;
+    $this->givenName = $givenName;
   }
 
-  public function getGiven_name()
+  public function getGivenName()
   {
-    return $this->given_name;
+    return $this->givenName;
   }
   
   public function setHd($hd)
@@ -417,14 +417,14 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
     return $this->timezone;
   }
   
-  public function setVerified_email($verified_email)
+  public function setVerifiedEmail($verifiedEmail)
   {
-    $this->verified_email = $verified_email;
+    $this->verifiedEmail = $verifiedEmail;
   }
 
-  public function getVerified_email()
+  public function getVerifiedEmail()
   {
-    return $this->verified_email;
+    return $this->verifiedEmail;
   }
   
 }
