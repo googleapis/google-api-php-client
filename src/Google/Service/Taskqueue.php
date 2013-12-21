@@ -64,192 +64,192 @@ class Google_Service_Taskqueue extends Google_Service
         $this->serviceName,
         'taskqueues',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "{project}/taskqueues/{taskqueue}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => '{project}/taskqueues/{taskqueue}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "taskqueue" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'taskqueue' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'getStats' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "getStats" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->tasks = new Google_Service_Taskqueue_Tasks_Resource(
         $this,
         $this->serviceName,
         'tasks',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "{project}/taskqueues/{taskqueue}/tasks/{task}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/taskqueues/{taskqueue}/tasks/{task}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "taskqueue" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'taskqueue' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "task" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'task' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/taskqueues/{taskqueue}/tasks/{task}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/taskqueues/{taskqueue}/tasks/{task}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "taskqueue" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'taskqueue' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "task" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'task' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/taskqueues/{taskqueue}/tasks",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/taskqueues/{taskqueue}/tasks',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "taskqueue" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'taskqueue' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"lease" => array(
-            'path' => "{project}/taskqueues/{taskqueue}/tasks/lease",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'lease' => array(
+              'path' => '{project}/taskqueues/{taskqueue}/tasks/lease',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "taskqueue" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'taskqueue' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "numTasks" => array(
-                  "location" => "query",
-                  "type" => "integer",
+                ),
+                'numTasks' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "leaseSecs" => array(
-                  "location" => "query",
-                  "type" => "integer",
+                ),
+                'leaseSecs' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                   'required' => true,
+                ),
+                'groupByTag' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'tag' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "groupByTag" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "tag" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/taskqueues/{taskqueue}/tasks",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/taskqueues/{taskqueue}/tasks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "taskqueue" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'taskqueue' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"patch" => array(
-            'path' => "{project}/taskqueues/{taskqueue}/tasks/{task}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => '{project}/taskqueues/{taskqueue}/tasks/{task}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "taskqueue" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'taskqueue' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "task" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'task' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "newLeaseSeconds" => array(
-                  "location" => "query",
-                  "type" => "integer",
+                ),
+                'newLeaseSeconds' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "{project}/taskqueues/{taskqueue}/tasks/{task}",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => '{project}/taskqueues/{taskqueue}/tasks/{task}',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "taskqueue" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'taskqueue' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "task" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'task' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "newLeaseSeconds" => array(
-                  "location" => "query",
-                  "type" => "integer",
+                ),
+                'newLeaseSeconds' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -378,7 +378,7 @@ class Google_Service_Taskqueue_Tasks_Resource extends Google_Service_Resource
     return $this->call('lease', array($params), "Google_Service_Taskqueue_Tasks");
   }
   /**
-   * List Tasks in a TaskQueue (tasks.list)
+   * List Tasks in a TaskQueue (tasks.listTasks)
    *
    * @param string $project
    * The project under which the queue lies.
@@ -449,7 +449,7 @@ class Google_Service_Taskqueue_Task extends Google_Model
   public $leaseTimestamp;
   public $payloadBase64;
   public $queueName;
-  public $retry_count;
+  public $retryCount;
   public $tag;
 
   public function setEnqueueTimestamp($enqueueTimestamp)
@@ -512,14 +512,14 @@ class Google_Service_Taskqueue_Task extends Google_Model
     return $this->queueName;
   }
   
-  public function setRetry_count($retry_count)
+  public function setRetryCount($retryCount)
   {
-    $this->retry_count = $retry_count;
+    $this->retryCount = $retryCount;
   }
 
-  public function getRetry_count()
+  public function getRetryCount()
   {
-    return $this->retry_count;
+    return $this->retryCount;
   }
   
   public function setTag($tag)
