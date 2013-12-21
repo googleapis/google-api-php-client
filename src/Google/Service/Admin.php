@@ -62,20 +62,20 @@ class Google_Service_Admin extends Google_Service
         $this->serviceName,
         'mail',
         array(
-    'methods' => array(
-          "insert" => array(
-            'path' => "{userKey}/mail",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'insert' => array(
+              'path' => '{userKey}/mail',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
