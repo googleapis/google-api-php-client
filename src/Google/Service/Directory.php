@@ -90,960 +90,960 @@ class Google_Service_Directory extends Google_Service
         $this->serviceName,
         'asps',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "users/{userKey}/asps/{codeId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'users/{userKey}/asps/{codeId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "codeId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+                ),
+                'codeId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "users/{userKey}/asps/{codeId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'users/{userKey}/asps/{codeId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "codeId" => array(
-                  "location" => "path",
-                  "type" => "integer",
+                ),
+                'codeId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "users/{userKey}/asps",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'users/{userKey}/asps',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->chromeosdevices = new Google_Service_Directory_Chromeosdevices_Resource(
         $this,
         $this->serviceName,
         'chromeosdevices',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "customer/{customerId}/devices/chromeos/{deviceId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'customer/{customerId}/devices/chromeos/{deviceId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "deviceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'deviceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "projection" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"list" => array(
-            'path' => "customer/{customerId}/devices/chromeos",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'customer/{customerId}/devices/chromeos',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'query' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "orderBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "projection" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "sortOrder" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "query" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "customer/{customerId}/devices/chromeos/{deviceId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'customer/{customerId}/devices/chromeos/{deviceId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "deviceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'deviceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "projection" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"update" => array(
-            'path' => "customer/{customerId}/devices/chromeos/{deviceId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'customer/{customerId}/devices/chromeos/{deviceId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "deviceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'deviceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "projection" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->groups = new Google_Service_Directory_Groups_Resource(
         $this,
         $this->serviceName,
         'groups',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "groups/{groupKey}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'groups/{groupKey}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "groups/{groupKey}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'groups/{groupKey}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
+            ),'insert' => array(
+              'path' => 'groups',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'list' => array(
+              'path' => 'groups',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'domain' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'userKey' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-          ),"insert" => array(
-            'path' => "groups",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"list" => array(
-            'path' => "groups",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customer" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "domain" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "userKey" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "groups/{groupKey}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'groups/{groupKey}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "groups/{groupKey}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'groups/{groupKey}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->groups_aliases = new Google_Service_Directory_GroupsAliases_Resource(
         $this,
         $this->serviceName,
         'aliases',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "groups/{groupKey}/aliases/{alias}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'groups/{groupKey}/aliases/{alias}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "alias" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'alias' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "groups/{groupKey}/aliases",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'groups/{groupKey}/aliases',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "groups/{groupKey}/aliases",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'groups/{groupKey}/aliases',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->members = new Google_Service_Directory_Members_Resource(
         $this,
         $this->serviceName,
         'members',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "groups/{groupKey}/members/{memberKey}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'groups/{groupKey}/members/{memberKey}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "memberKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'memberKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "groups/{groupKey}/members/{memberKey}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'groups/{groupKey}/members/{memberKey}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "memberKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'memberKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "groups/{groupKey}/members",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'groups/{groupKey}/members',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "groups/{groupKey}/members",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'groups/{groupKey}/members',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'roles' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "roles" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "groups/{groupKey}/members/{memberKey}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'groups/{groupKey}/members/{memberKey}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "memberKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'memberKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "groups/{groupKey}/members/{memberKey}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "groupKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'groups/{groupKey}/members/{memberKey}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'groupKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "memberKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'memberKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->mobiledevices = new Google_Service_Directory_Mobiledevices_Resource(
         $this,
         $this->serviceName,
         'mobiledevices',
         array(
-    'methods' => array(
-          "action" => array(
-            'path' => "customer/{customerId}/devices/mobile/{resourceId}/action",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'action' => array(
+              'path' => 'customer/{customerId}/devices/mobile/{resourceId}/action',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "resourceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'resourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"delete" => array(
-            'path' => "customer/{customerId}/devices/mobile/{resourceId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'delete' => array(
+              'path' => 'customer/{customerId}/devices/mobile/{resourceId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "resourceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'resourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "customer/{customerId}/devices/mobile/{resourceId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'customer/{customerId}/devices/mobile/{resourceId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "resourceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'resourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "projection" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"list" => array(
-            'path' => "customer/{customerId}/devices/mobile",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'customer/{customerId}/devices/mobile',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'query' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "orderBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "projection" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "sortOrder" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "query" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->notifications = new Google_Service_Directory_Notifications_Resource(
         $this,
         $this->serviceName,
         'notifications',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "customer/{customer}/notifications/{notificationId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "customer" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'customer/{customer}/notifications/{notificationId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "notificationId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'notificationId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "customer/{customer}/notifications/{notificationId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customer" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'customer/{customer}/notifications/{notificationId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "notificationId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'notificationId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "customer/{customer}/notifications",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customer" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'customer/{customer}/notifications',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "customer/{customer}/notifications/{notificationId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "customer" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'customer/{customer}/notifications/{notificationId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "notificationId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'notificationId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "customer/{customer}/notifications/{notificationId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "customer" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'customer/{customer}/notifications/{notificationId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "notificationId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'notificationId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->orgunits = new Google_Service_Directory_Orgunits_Resource(
         $this,
         $this->serviceName,
         'orgunits',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "customer/{customerId}/orgunits{/orgUnitPath*}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'customer/{customerId}/orgunits{/orgUnitPath*}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "orgUnitPath" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'orgUnitPath' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'repeated' => true,
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "customer/{customerId}/orgunits{/orgUnitPath*}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'customer/{customerId}/orgunits{/orgUnitPath*}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "orgUnitPath" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'orgUnitPath' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'repeated' => true,
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "customer/{customerId}/orgunits",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'customer/{customerId}/orgunits',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "customer/{customerId}/orgunits",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'customer/{customerId}/orgunits',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'type' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'orgUnitPath' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "type" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "orgUnitPath" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "customer/{customerId}/orgunits{/orgUnitPath*}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'customer/{customerId}/orgunits{/orgUnitPath*}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "orgUnitPath" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'orgUnitPath' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'repeated' => true,
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "customer/{customerId}/orgunits{/orgUnitPath*}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'customer/{customerId}/orgunits{/orgUnitPath*}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "orgUnitPath" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'orgUnitPath' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'repeated' => true,
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->tokens = new Google_Service_Directory_Tokens_Resource(
         $this,
         $this->serviceName,
         'tokens',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "users/{userKey}/tokens/{clientId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'users/{userKey}/tokens/{clientId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "clientId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'clientId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "users/{userKey}/tokens/{clientId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'users/{userKey}/tokens/{clientId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "clientId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'clientId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "users/{userKey}/tokens",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'users/{userKey}/tokens',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->users = new Google_Service_Directory_Users_Resource(
         $this,
         $this->serviceName,
         'users',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "users/{userKey}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'users/{userKey}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "users/{userKey}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'users/{userKey}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
+            ),'insert' => array(
+              'path' => 'users',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'list' => array(
+              'path' => 'users',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'domain' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'showDeleted' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'query' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-          ),"insert" => array(
-            'path' => "users",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"list" => array(
-            'path' => "users",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customer" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "orderBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "domain" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "showDeleted" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "sortOrder" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "query" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"makeAdmin" => array(
-            'path' => "users/{userKey}/makeAdmin",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'makeAdmin' => array(
+              'path' => 'users/{userKey}/makeAdmin',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"patch" => array(
-            'path' => "users/{userKey}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'users/{userKey}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"undelete" => array(
-            'path' => "users/{userKey}/undelete",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'undelete' => array(
+              'path' => 'users/{userKey}/undelete',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "users/{userKey}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'users/{userKey}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->users_aliases = new Google_Service_Directory_UsersAliases_Resource(
         $this,
         $this->serviceName,
         'aliases',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "users/{userKey}/aliases/{alias}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'users/{userKey}/aliases/{alias}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "alias" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'alias' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "users/{userKey}/aliases",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'users/{userKey}/aliases',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "users/{userKey}/aliases",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'users/{userKey}/aliases',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->users_photos = new Google_Service_Directory_UsersPhotos_Resource(
         $this,
         $this->serviceName,
         'photos',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "users/{userKey}/photos/thumbnail",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'users/{userKey}/photos/thumbnail',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "users/{userKey}/photos/thumbnail",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'users/{userKey}/photos/thumbnail',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"patch" => array(
-            'path' => "users/{userKey}/photos/thumbnail",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'users/{userKey}/photos/thumbnail',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "users/{userKey}/photos/thumbnail",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'users/{userKey}/photos/thumbnail',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->verificationCodes = new Google_Service_Directory_VerificationCodes_Resource(
         $this,
         $this->serviceName,
         'verificationCodes',
         array(
-    'methods' => array(
-          "generate" => array(
-            'path' => "users/{userKey}/verificationCodes/generate",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'generate' => array(
+              'path' => 'users/{userKey}/verificationCodes/generate',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"invalidate" => array(
-            'path' => "users/{userKey}/verificationCodes/invalidate",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'invalidate' => array(
+              'path' => 'users/{userKey}/verificationCodes/invalidate',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "users/{userKey}/verificationCodes",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userKey" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'users/{userKey}/verificationCodes',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -1094,7 +1094,7 @@ class Google_Service_Directory_Asps_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Directory_Asp");
   }
   /**
-   * List the ASPs issued by a user. (asps.list)
+   * List the ASPs issued by a user. (asps.listAsps)
    *
    * @param string $userKey
    * Identifies the user in the API request. The value can be the user's primary email address, alias
@@ -1142,7 +1142,7 @@ class Google_Service_Directory_Chromeosdevices_Resource extends Google_Service_R
   }
   /**
    * Retrieve all Chrome OS Devices of a customer (paginated)
-   * (chromeosdevices.list)
+   * (chromeosdevices.listChromeosdevices)
    *
    * @param string $customerId
    * Immutable id of the Google Apps account
@@ -1265,7 +1265,7 @@ class Google_Service_Directory_Groups_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Directory_Group");
   }
   /**
-   * Retrieve all groups in a domain (paginated) (groups.list)
+   * Retrieve all groups in a domain (paginated) (groups.listGroups)
    *
    * @param array $optParams Optional parameters.
    *
@@ -1364,7 +1364,7 @@ class Google_Service_Directory_GroupsAliases_Resource extends Google_Service_Res
     return $this->call('insert', array($params), "Google_Service_Directory_Alias");
   }
   /**
-   * List all aliases for a group (aliases.list)
+   * List all aliases for a group (aliases.listGroupsAliases)
    *
    * @param string $groupKey
    * Email or immutable Id of the group
@@ -1437,7 +1437,7 @@ class Google_Service_Directory_Members_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Directory_Member");
   }
   /**
-   * Retrieve all members in a group (paginated) (members.list)
+   * Retrieve all members in a group (paginated) (members.listMembers)
    *
    * @param string $groupKey
    * Email or immutable Id of the group
@@ -1556,7 +1556,8 @@ class Google_Service_Directory_Mobiledevices_Resource extends Google_Service_Res
     return $this->call('get', array($params), "Google_Service_Directory_MobileDevice");
   }
   /**
-   * Retrieve all Mobile Devices of a customer (paginated) (mobiledevices.list)
+   * Retrieve all Mobile Devices of a customer (paginated)
+   * (mobiledevices.listMobiledevices)
    *
    * @param string $customerId
    * Immutable id of the Google Apps account
@@ -1631,7 +1632,7 @@ class Google_Service_Directory_Notifications_Resource extends Google_Service_Res
     return $this->call('get', array($params), "Google_Service_Directory_Notification");
   }
   /**
-   * Retrieves a list of notifications. (notifications.list)
+   * Retrieves a list of notifications. (notifications.listNotifications)
    *
    * @param string $customer
    * The unique ID for the customer's Google account.
@@ -1746,7 +1747,7 @@ class Google_Service_Directory_Orgunits_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Directory_OrgUnit");
   }
   /**
-   * Retrieve all Organization Units (orgunits.list)
+   * Retrieve all Organization Units (orgunits.listOrgunits)
    *
    * @param string $customerId
    * Immutable id of the Google Apps account
@@ -1847,7 +1848,7 @@ class Google_Service_Directory_Tokens_Resource extends Google_Service_Resource
   }
   /**
    * Returns the set of current, valid verification codes for the specified user.
-   * (tokens.list)
+   * (tokens.listTokens)
    *
    * @param string $userKey
    * Identifies the user in the API request. The value can be the user's primary email address, alias
@@ -1916,7 +1917,7 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
   }
   /**
    * Retrieve either deleted users or all users in a domain (paginated)
-   * (users.list)
+   * (users.listUsers)
    *
    * @param array $optParams Optional parameters.
    *
@@ -2050,7 +2051,7 @@ class Google_Service_Directory_UsersAliases_Resource extends Google_Service_Reso
     return $this->call('insert', array($params), "Google_Service_Directory_Alias");
   }
   /**
-   * List all aliases for a user (aliases.list)
+   * List all aliases for a user (aliases.listUsersAliases)
    *
    * @param string $userKey
    * Email or immutable Id of the user
@@ -2176,7 +2177,7 @@ class Google_Service_Directory_VerificationCodes_Resource extends Google_Service
   }
   /**
    * Returns the current set of valid backup verification codes for the specified
-   * user. (verificationCodes.list)
+   * user. (verificationCodes.listVerificationCodes)
    *
    * @param string $userKey
    * Identifies the user in the API request. The value can be the user's primary email address, alias
@@ -4732,7 +4733,7 @@ class Google_Service_Directory_Users extends Google_Collection
   public $etag;
   public $kind;
   public $nextPageToken;
-  public $trigger_event;
+  public $triggerEvent;
   protected $usersType = 'Google_Service_Directory_User';
   protected $usersDataType = 'array';
 
@@ -4766,14 +4767,14 @@ class Google_Service_Directory_Users extends Google_Collection
     return $this->nextPageToken;
   }
   
-  public function setTrigger_event($trigger_event)
+  public function setTriggerEvent($triggerEvent)
   {
-    $this->trigger_event = $trigger_event;
+    $this->triggerEvent = $triggerEvent;
   }
 
-  public function getTrigger_event()
+  public function getTriggerEvent()
   {
-    return $this->trigger_event;
+    return $this->triggerEvent;
   }
   
   public function setUsers($users)
