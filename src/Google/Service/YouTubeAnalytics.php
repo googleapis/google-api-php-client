@@ -63,55 +63,55 @@ class Google_Service_YouTubeAnalytics extends Google_Service
         $this->serviceName,
         'reports',
         array(
-    'methods' => array(
-          "query" => array(
-            'path' => "reports",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "ids" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'query' => array(
+              'path' => 'reports',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'ids' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "start-date" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'start-date' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "end-date" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'end-date' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "metrics" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'metrics' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'sort' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'dimensions' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'filters' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "sort" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "dimensions" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "filters" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -139,9 +139,9 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
   - To request data for a YouTube CMS
     * content owner, set the ids parameter value to contentOwner==OWNER_NAME, where OWNER_NAME is the
     * CMS name of the content owner.
-   * @param string $start_date
+   * @param string $startDate
    * The start date for fetching YouTube Analytics data. The value should be in YYYY-MM-DD format.
-   * @param string $end_date
+   * @param string $endDate
    * The end date for fetching YouTube Analytics data. The value should be in YYYY-MM-DD format.
    * @param string $metrics
    * A comma-separated list of YouTube Analytics metrics, such as views or likes,dislikes. See the
@@ -149,7 +149,7 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
     * available in each report, and see the Metrics document for definitions of those metrics.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of rows to include in the response.
    * @opt_param string sort
    * A comma-separated list of dimensions or metrics that determine the sort order for YouTube
@@ -160,7 +160,7 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
     * the Available Reports document for a list of the reports that you can retrieve and the
     * dimensions used for those reports. Also see the Dimensions document for definitions of those
     * dimensions.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter (one-based, inclusive).
    * @opt_param string filters
@@ -172,9 +172,9 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
     * include data for the given video in Italy.
    * @return Google_Service_YouTubeAnalytics_ResultTable
    */
-  public function query($ids, $start_date, $end_date, $metrics, $optParams = array())
+  public function query($ids, $startDate, $endDate, $metrics, $optParams = array())
   {
-    $params = array('ids' => $ids, 'start-date' => $start_date, 'end-date' => $end_date, 'metrics' => $metrics);
+    $params = array('ids' => $ids, 'start-date' => $startDate, 'end-date' => $endDate, 'metrics' => $metrics);
     $params = array_merge($params, $optParams);
     return $this->call('query', array($params), "Google_Service_YouTubeAnalytics_ResultTable");
   }
