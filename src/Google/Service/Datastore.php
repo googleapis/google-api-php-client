@@ -63,70 +63,70 @@ class Google_Service_Datastore extends Google_Service
         $this->serviceName,
         'datasets',
         array(
-    'methods' => array(
-          "allocateIds" => array(
-            'path' => "{datasetId}/allocateIds",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "datasetId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'allocateIds' => array(
+              'path' => '{datasetId}/allocateIds',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'datasetId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"beginTransaction" => array(
-            'path' => "{datasetId}/beginTransaction",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "datasetId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'beginTransaction' => array(
+              'path' => '{datasetId}/beginTransaction',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'datasetId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"commit" => array(
-            'path' => "{datasetId}/commit",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "datasetId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'commit' => array(
+              'path' => '{datasetId}/commit',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'datasetId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"lookup" => array(
-            'path' => "{datasetId}/lookup",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "datasetId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'lookup' => array(
+              'path' => '{datasetId}/lookup',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'datasetId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"rollback" => array(
-            'path' => "{datasetId}/rollback",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "datasetId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'rollback' => array(
+              'path' => '{datasetId}/rollback',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'datasetId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"runQuery" => array(
-            'path' => "{datasetId}/runQuery",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "datasetId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'runQuery' => array(
+              'path' => '{datasetId}/runQuery',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'datasetId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
