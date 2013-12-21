@@ -70,484 +70,484 @@ class Google_Service_Games extends Google_Service
         $this->serviceName,
         'achievementDefinitions',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "achievements",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => 'achievements',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->achievements = new Google_Service_Games_Achievements_Resource(
         $this,
         $this->serviceName,
         'achievements',
         array(
-    'methods' => array(
-          "increment" => array(
-            'path' => "achievements/{achievementId}/increment",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "achievementId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'increment' => array(
+              'path' => 'achievements/{achievementId}/increment',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'achievementId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "stepsToIncrement" => array(
-                  "location" => "query",
-                  "type" => "integer",
+                ),
+                'stepsToIncrement' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                   'required' => true,
+                ),
+                'requestId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "requestId" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"list" => array(
-            'path' => "players/{playerId}/achievements",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "playerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'players/{playerId}/achievements',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'playerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'state' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "state" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"reveal" => array(
-            'path' => "achievements/{achievementId}/reveal",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "achievementId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'reveal' => array(
+              'path' => 'achievements/{achievementId}/reveal',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'achievementId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"setStepsAtLeast" => array(
-            'path' => "achievements/{achievementId}/setStepsAtLeast",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "achievementId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'setStepsAtLeast' => array(
+              'path' => 'achievements/{achievementId}/setStepsAtLeast',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'achievementId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "steps" => array(
-                  "location" => "query",
-                  "type" => "integer",
+                ),
+                'steps' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"unlock" => array(
-            'path' => "achievements/{achievementId}/unlock",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "achievementId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'unlock' => array(
+              'path' => 'achievements/{achievementId}/unlock',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'achievementId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"updateMultiple" => array(
-            'path' => "achievements/updateMultiple",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),
+            ),'updateMultiple' => array(
+              'path' => 'achievements/updateMultiple',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
     $this->applications = new Google_Service_Games_Applications_Resource(
         $this,
         $this->serviceName,
         'applications',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "applications/{applicationId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "applicationId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'applications/{applicationId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'applicationId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'platformType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "platformType" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"played" => array(
-            'path' => "applications/played",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),
+            ),'played' => array(
+              'path' => 'applications/played',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
     $this->leaderboards = new Google_Service_Games_Leaderboards_Resource(
         $this,
         $this->serviceName,
         'leaderboards',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "leaderboards/{leaderboardId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "leaderboardId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'leaderboards/{leaderboardId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'leaderboardId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'leaderboards',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "leaderboards",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->players = new Google_Service_Games_Players_Resource(
         $this,
         $this->serviceName,
         'players',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "players/{playerId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "playerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'players/{playerId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'playerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->revisions = new Google_Service_Games_Revisions_Resource(
         $this,
         $this->serviceName,
         'revisions',
         array(
-    'methods' => array(
-          "check" => array(
-            'path' => "revisions/check",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "clientRevision" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'check' => array(
+              'path' => 'revisions/check',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'clientRevision' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->rooms = new Google_Service_Games_Rooms_Resource(
         $this,
         $this->serviceName,
         'rooms',
         array(
-    'methods' => array(
-          "create" => array(
-            'path' => "rooms/create",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'create' => array(
+              'path' => 'rooms/create',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-              ),
-          ),"decline" => array(
-            'path' => "rooms/{roomId}/decline",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "roomId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'decline' => array(
+              'path' => 'rooms/{roomId}/decline',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'roomId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"dismiss" => array(
-            'path' => "rooms/{roomId}/dismiss",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "roomId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'dismiss' => array(
+              'path' => 'rooms/{roomId}/dismiss',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'roomId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "rooms/{roomId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "roomId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'rooms/{roomId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'roomId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"join" => array(
-            'path' => "rooms/{roomId}/join",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "roomId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'join' => array(
+              'path' => 'rooms/{roomId}/join',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'roomId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"leave" => array(
-            'path' => "rooms/{roomId}/leave",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "roomId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'leave' => array(
+              'path' => 'rooms/{roomId}/leave',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'roomId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
+            ),'list' => array(
+              'path' => 'rooms',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-          ),"list" => array(
-            'path' => "rooms",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"reportStatus" => array(
-            'path' => "rooms/{roomId}/reportstatus",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "roomId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'reportStatus' => array(
+              'path' => 'rooms/{roomId}/reportstatus',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'roomId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->scores = new Google_Service_Games_Scores_Resource(
         $this,
         $this->serviceName,
         'scores',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "players/{playerId}/leaderboards/{leaderboardId}/scores/{timeSpan}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "playerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'players/{playerId}/leaderboards/{leaderboardId}/scores/{timeSpan}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'playerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "leaderboardId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'leaderboardId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "timeSpan" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'timeSpan' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'includeRankType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "includeRankType" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"list" => array(
-            'path' => "leaderboards/{leaderboardId}/scores/{collection}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "leaderboardId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'leaderboards/{leaderboardId}/scores/{collection}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'leaderboardId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "collection" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "timeSpan" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'timeSpan' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"listWindow" => array(
-            'path' => "leaderboards/{leaderboardId}/window/{collection}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "leaderboardId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'listWindow' => array(
+              'path' => 'leaderboards/{leaderboardId}/window/{collection}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'leaderboardId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "collection" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "timeSpan" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'timeSpan' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'returnTopIfAbsent' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'resultsAbove' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "returnTopIfAbsent" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "resultsAbove" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"submit" => array(
-            'path' => "leaderboards/{leaderboardId}/scores",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "leaderboardId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'submit' => array(
+              'path' => 'leaderboards/{leaderboardId}/scores',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'leaderboardId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "score" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'score' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'scoreTag' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
+            ),'submitMultiple' => array(
+              'path' => 'leaderboards/scores',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "scoreTag" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"submitMultiple" => array(
-            'path' => "leaderboards/scores",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -566,7 +566,7 @@ class Google_Service_Games_AchievementDefinitions_Resource extends Google_Servic
 
   /**
    * Lists all the achievement definitions for your application.
-   * (achievementDefinitions.list)
+   * (achievementDefinitions.listAchievementDefinitions)
    *
    * @param array $optParams Optional parameters.
    *
@@ -622,7 +622,7 @@ class Google_Service_Games_Achievements_Resource extends Google_Service_Resource
   }
   /**
    * Lists the progress for all your application's achievements for the currently
-   * authenticated player. (achievements.list)
+   * authenticated player. (achievements.listAchievements)
    *
    * @param string $playerId
    * A player ID. A value of me may be used in place of the authenticated player's ID.
@@ -788,7 +788,8 @@ class Google_Service_Games_Leaderboards_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Games_Leaderboard");
   }
   /**
-   * Lists all the leaderboard metadata for your application. (leaderboards.list)
+   * Lists all the leaderboard metadata for your application.
+   * (leaderboards.listLeaderboards)
    *
    * @param array $optParams Optional parameters.
    *
@@ -977,7 +978,7 @@ class Google_Service_Games_Rooms_Resource extends Google_Service_Resource
     return $this->call('leave', array($params), "Google_Service_Games_Room");
   }
   /**
-   * Returns invitations to join rooms. (rooms.list)
+   * Returns invitations to join rooms. (rooms.listRooms)
    *
    * @param array $optParams Optional parameters.
    *
@@ -1060,7 +1061,7 @@ class Google_Service_Games_Scores_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Games_PlayerLeaderboardScoreListResponse");
   }
   /**
-   * Lists the scores in a leaderboard, starting from the top. (scores.list)
+   * Lists the scores in a leaderboard, starting from the top. (scores.listScores)
    *
    * @param string $leaderboardId
    * The ID of the leaderboard.
@@ -1761,7 +1762,7 @@ class Google_Service_Games_AnonymousPlayer extends Google_Model
 
 class Google_Service_Games_Application extends Google_Collection
 {
-  public $achievement_count;
+  public $achievementCount;
   protected $assetsType = 'Google_Service_Games_ImageAsset';
   protected $assetsDataType = 'array';
   public $author;
@@ -1773,17 +1774,17 @@ class Google_Service_Games_Application extends Google_Collection
   protected $instancesDataType = 'array';
   public $kind;
   public $lastUpdatedTimestamp;
-  public $leaderboard_count;
+  public $leaderboardCount;
   public $name;
 
-  public function setAchievement_count($achievement_count)
+  public function setAchievementCount($achievementCount)
   {
-    $this->achievement_count = $achievement_count;
+    $this->achievementCount = $achievementCount;
   }
 
-  public function getAchievement_count()
+  public function getAchievementCount()
   {
-    return $this->achievement_count;
+    return $this->achievementCount;
   }
   
   public function setAssets($assets)
@@ -1866,14 +1867,14 @@ class Google_Service_Games_Application extends Google_Collection
     return $this->lastUpdatedTimestamp;
   }
   
-  public function setLeaderboard_count($leaderboard_count)
+  public function setLeaderboardCount($leaderboardCount)
   {
-    $this->leaderboard_count = $leaderboard_count;
+    $this->leaderboardCount = $leaderboardCount;
   }
 
-  public function getLeaderboard_count()
+  public function getLeaderboardCount()
   {
-    return $this->leaderboard_count;
+    return $this->leaderboardCount;
   }
   
   public function setName($name)
@@ -3044,7 +3045,7 @@ class Google_Service_Games_PlayerAchievementListResponse extends Google_Collecti
 class Google_Service_Games_PlayerLeaderboardScore extends Google_Model
 {
   public $kind;
-  public $leaderboard_id;
+  public $leaderboardId;
   protected $publicRankType = 'Google_Service_Games_LeaderboardScoreRank';
   protected $publicRankDataType = '';
   public $scoreString;
@@ -3065,14 +3066,14 @@ class Google_Service_Games_PlayerLeaderboardScore extends Google_Model
     return $this->kind;
   }
   
-  public function setLeaderboard_id($leaderboard_id)
+  public function setLeaderboardId($leaderboardId)
   {
-    $this->leaderboard_id = $leaderboard_id;
+    $this->leaderboardId = $leaderboardId;
   }
 
-  public function getLeaderboard_id()
+  public function getLeaderboardId()
   {
-    return $this->leaderboard_id;
+    return $this->leaderboardId;
   }
   
   public function setPublicRank(Google_Service_Games_LeaderboardScoreRank $publicRank)
@@ -3986,7 +3987,7 @@ class Google_Service_Games_RoomP2PStatus extends Google_Model
 {
   public $connectionSetupLatencyMillis;
   public $error;
-  public $error_reason;
+  public $errorReason;
   public $kind;
   public $participantId;
   public $status;
@@ -4012,14 +4013,14 @@ class Google_Service_Games_RoomP2PStatus extends Google_Model
     return $this->error;
   }
   
-  public function setError_reason($error_reason)
+  public function setErrorReason($errorReason)
   {
-    $this->error_reason = $error_reason;
+    $this->errorReason = $errorReason;
   }
 
-  public function getError_reason()
+  public function getErrorReason()
   {
-    return $this->error_reason;
+    return $this->errorReason;
   }
   
   public function setKind($kind)
