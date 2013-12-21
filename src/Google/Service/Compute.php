@@ -84,1990 +84,1990 @@ class Google_Service_Compute extends Google_Service
         $this->serviceName,
         'addresses',
         array(
-    'methods' => array(
-          "aggregatedList" => array(
-            'path' => "{project}/aggregated/addresses",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'aggregatedList' => array(
+              'path' => '{project}/aggregated/addresses',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"delete" => array(
-            'path' => "{project}/regions/{region}/addresses/{address}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'delete' => array(
+              'path' => '{project}/regions/{region}/addresses/{address}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "address" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'address' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/regions/{region}/addresses/{address}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/regions/{region}/addresses/{address}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "address" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'address' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/regions/{region}/addresses",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/regions/{region}/addresses',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/regions/{region}/addresses",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/regions/{region}/addresses',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->disks = new Google_Service_Compute_Disks_Resource(
         $this,
         $this->serviceName,
         'disks',
         array(
-    'methods' => array(
-          "aggregatedList" => array(
-            'path' => "{project}/aggregated/disks",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'aggregatedList' => array(
+              'path' => '{project}/aggregated/disks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"createSnapshot" => array(
-            'path' => "{project}/zones/{zone}/disks/{disk}/createSnapshot",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'createSnapshot' => array(
+              'path' => '{project}/zones/{zone}/disks/{disk}/createSnapshot',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "disk" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'disk' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"delete" => array(
-            'path' => "{project}/zones/{zone}/disks/{disk}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'delete' => array(
+              'path' => '{project}/zones/{zone}/disks/{disk}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "disk" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'disk' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/zones/{zone}/disks/{disk}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/zones/{zone}/disks/{disk}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "disk" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'disk' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/zones/{zone}/disks",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/zones/{zone}/disks',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'sourceImage' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "sourceImage" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/zones/{zone}/disks",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/zones/{zone}/disks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->firewalls = new Google_Service_Compute_Firewalls_Resource(
         $this,
         $this->serviceName,
         'firewalls',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "{project}/global/firewalls/{firewall}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/global/firewalls/{firewall}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "firewall" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'firewall' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/global/firewalls/{firewall}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/global/firewalls/{firewall}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "firewall" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'firewall' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/global/firewalls",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/global/firewalls',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/global/firewalls",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/global/firewalls',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "{project}/global/firewalls/{firewall}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => '{project}/global/firewalls/{firewall}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "firewall" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'firewall' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "{project}/global/firewalls/{firewall}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => '{project}/global/firewalls/{firewall}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "firewall" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'firewall' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->forwardingRules = new Google_Service_Compute_ForwardingRules_Resource(
         $this,
         $this->serviceName,
         'forwardingRules',
         array(
-    'methods' => array(
-          "aggregatedList" => array(
-            'path' => "{project}/aggregated/forwardingRules",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'aggregatedList' => array(
+              'path' => '{project}/aggregated/forwardingRules',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"delete" => array(
-            'path' => "{project}/regions/{region}/forwardingRules/{forwardingRule}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'delete' => array(
+              'path' => '{project}/regions/{region}/forwardingRules/{forwardingRule}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "forwardingRule" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'forwardingRule' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/regions/{region}/forwardingRules/{forwardingRule}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/regions/{region}/forwardingRules/{forwardingRule}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "forwardingRule" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'forwardingRule' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/regions/{region}/forwardingRules",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/regions/{region}/forwardingRules',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/regions/{region}/forwardingRules",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/regions/{region}/forwardingRules',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"setTarget" => array(
-            'path' => "{project}/regions/{region}/forwardingRules/{forwardingRule}/setTarget",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'setTarget' => array(
+              'path' => '{project}/regions/{region}/forwardingRules/{forwardingRule}/setTarget',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "forwardingRule" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'forwardingRule' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->globalOperations = new Google_Service_Compute_GlobalOperations_Resource(
         $this,
         $this->serviceName,
         'globalOperations',
         array(
-    'methods' => array(
-          "aggregatedList" => array(
-            'path' => "{project}/aggregated/operations",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'aggregatedList' => array(
+              'path' => '{project}/aggregated/operations',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"delete" => array(
-            'path' => "{project}/global/operations/{operation}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'delete' => array(
+              'path' => '{project}/global/operations/{operation}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "operation" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'operation' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/global/operations/{operation}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/global/operations/{operation}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "operation" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'operation' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/global/operations",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/global/operations',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->httpHealthChecks = new Google_Service_Compute_HttpHealthChecks_Resource(
         $this,
         $this->serviceName,
         'httpHealthChecks',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "{project}/global/httpHealthChecks/{httpHealthCheck}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/global/httpHealthChecks/{httpHealthCheck}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "httpHealthCheck" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'httpHealthCheck' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/global/httpHealthChecks/{httpHealthCheck}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/global/httpHealthChecks/{httpHealthCheck}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "httpHealthCheck" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'httpHealthCheck' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/global/httpHealthChecks",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/global/httpHealthChecks',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/global/httpHealthChecks",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/global/httpHealthChecks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "{project}/global/httpHealthChecks/{httpHealthCheck}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => '{project}/global/httpHealthChecks/{httpHealthCheck}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "httpHealthCheck" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'httpHealthCheck' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "{project}/global/httpHealthChecks/{httpHealthCheck}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => '{project}/global/httpHealthChecks/{httpHealthCheck}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "httpHealthCheck" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'httpHealthCheck' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->images = new Google_Service_Compute_Images_Resource(
         $this,
         $this->serviceName,
         'images',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "{project}/global/images/{image}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/global/images/{image}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "image" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'image' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"deprecate" => array(
-            'path' => "{project}/global/images/{image}/deprecate",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'deprecate' => array(
+              'path' => '{project}/global/images/{image}/deprecate',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "image" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'image' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/global/images/{image}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/global/images/{image}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "image" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'image' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/global/images",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/global/images',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/global/images",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/global/images',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->instances = new Google_Service_Compute_Instances_Resource(
         $this,
         $this->serviceName,
         'instances',
         array(
-    'methods' => array(
-          "addAccessConfig" => array(
-            'path' => "{project}/zones/{zone}/instances/{instance}/addAccessConfig",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'addAccessConfig' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/addAccessConfig',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "networkInterface" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'networkInterface' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"aggregatedList" => array(
-            'path' => "{project}/aggregated/instances",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'aggregatedList' => array(
+              'path' => '{project}/aggregated/instances',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"attachDisk" => array(
-            'path' => "{project}/zones/{zone}/instances/{instance}/attachDisk",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'attachDisk' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/attachDisk',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"delete" => array(
-            'path' => "{project}/zones/{zone}/instances/{instance}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'delete' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"deleteAccessConfig" => array(
-            'path' => "{project}/zones/{zone}/instances/{instance}/deleteAccessConfig",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'deleteAccessConfig' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/deleteAccessConfig',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "accessConfig" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'accessConfig' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "networkInterface" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'networkInterface' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"detachDisk" => array(
-            'path' => "{project}/zones/{zone}/instances/{instance}/detachDisk",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'detachDisk' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/detachDisk',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "deviceName" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'deviceName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/zones/{zone}/instances/{instance}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"getSerialPortOutput" => array(
-            'path' => "{project}/zones/{zone}/instances/{instance}/serialPort",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'getSerialPortOutput' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/serialPort',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/zones/{zone}/instances",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/zones/{zone}/instances',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/zones/{zone}/instances",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/zones/{zone}/instances',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"reset" => array(
-            'path' => "{project}/zones/{zone}/instances/{instance}/reset",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'reset' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/reset',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"setMetadata" => array(
-            'path' => "{project}/zones/{zone}/instances/{instance}/setMetadata",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'setMetadata' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/setMetadata',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"setScheduling" => array(
-            'path' => "{project}/zones/{zone}/instances/{instance}/setScheduling",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'setScheduling' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/setScheduling',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"setTags" => array(
-            'path' => "{project}/zones/{zone}/instances/{instance}/setTags",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'setTags' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/setTags',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "instance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->machineTypes = new Google_Service_Compute_MachineTypes_Resource(
         $this,
         $this->serviceName,
         'machineTypes',
         array(
-    'methods' => array(
-          "aggregatedList" => array(
-            'path' => "{project}/aggregated/machineTypes",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'aggregatedList' => array(
+              'path' => '{project}/aggregated/machineTypes',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/zones/{zone}/machineTypes/{machineType}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/zones/{zone}/machineTypes/{machineType}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "machineType" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'machineType' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/zones/{zone}/machineTypes",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/zones/{zone}/machineTypes',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->networks = new Google_Service_Compute_Networks_Resource(
         $this,
         $this->serviceName,
         'networks',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "{project}/global/networks/{network}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/global/networks/{network}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "network" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'network' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/global/networks/{network}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/global/networks/{network}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "network" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'network' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/global/networks",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/global/networks',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/global/networks",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/global/networks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->projects = new Google_Service_Compute_Projects_Resource(
         $this,
         $this->serviceName,
         'projects',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "{project}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => '{project}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"setCommonInstanceMetadata" => array(
-            'path' => "{project}/setCommonInstanceMetadata",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'setCommonInstanceMetadata' => array(
+              'path' => '{project}/setCommonInstanceMetadata',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->regionOperations = new Google_Service_Compute_RegionOperations_Resource(
         $this,
         $this->serviceName,
         'regionOperations',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "{project}/regions/{region}/operations/{operation}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/regions/{region}/operations/{operation}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "operation" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'operation' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/regions/{region}/operations/{operation}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/regions/{region}/operations/{operation}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "operation" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'operation' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/regions/{region}/operations",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/regions/{region}/operations',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->regions = new Google_Service_Compute_Regions_Resource(
         $this,
         $this->serviceName,
         'regions',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "{project}/regions/{region}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => '{project}/regions/{region}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/regions",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/regions',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->routes = new Google_Service_Compute_Routes_Resource(
         $this,
         $this->serviceName,
         'routes',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "{project}/global/routes/{route}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/global/routes/{route}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "route" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'route' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/global/routes/{route}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/global/routes/{route}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "route" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'route' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/global/routes",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/global/routes',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/global/routes",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/global/routes',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->snapshots = new Google_Service_Compute_Snapshots_Resource(
         $this,
         $this->serviceName,
         'snapshots',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "{project}/global/snapshots/{snapshot}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/global/snapshots/{snapshot}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "snapshot" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'snapshot' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/global/snapshots/{snapshot}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/global/snapshots/{snapshot}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "snapshot" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'snapshot' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/global/snapshots",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/global/snapshots',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->targetInstances = new Google_Service_Compute_TargetInstances_Resource(
         $this,
         $this->serviceName,
         'targetInstances',
         array(
-    'methods' => array(
-          "aggregatedList" => array(
-            'path' => "{project}/aggregated/targetInstances",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'aggregatedList' => array(
+              'path' => '{project}/aggregated/targetInstances',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"delete" => array(
-            'path' => "{project}/zones/{zone}/targetInstances/{targetInstance}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'delete' => array(
+              'path' => '{project}/zones/{zone}/targetInstances/{targetInstance}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "targetInstance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'targetInstance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/zones/{zone}/targetInstances/{targetInstance}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/zones/{zone}/targetInstances/{targetInstance}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "targetInstance" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'targetInstance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/zones/{zone}/targetInstances",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/zones/{zone}/targetInstances',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/zones/{zone}/targetInstances",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/zones/{zone}/targetInstances',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->targetPools = new Google_Service_Compute_TargetPools_Resource(
         $this,
         $this->serviceName,
         'targetPools',
         array(
-    'methods' => array(
-          "addHealthCheck" => array(
-            'path' => "{project}/regions/{region}/targetPools/{targetPool}/addHealthCheck",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'addHealthCheck' => array(
+              'path' => '{project}/regions/{region}/targetPools/{targetPool}/addHealthCheck',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "targetPool" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'targetPool' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"addInstance" => array(
-            'path' => "{project}/regions/{region}/targetPools/{targetPool}/addInstance",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'addInstance' => array(
+              'path' => '{project}/regions/{region}/targetPools/{targetPool}/addInstance',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "targetPool" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'targetPool' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"aggregatedList" => array(
-            'path' => "{project}/aggregated/targetPools",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'aggregatedList' => array(
+              'path' => '{project}/aggregated/targetPools',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"delete" => array(
-            'path' => "{project}/regions/{region}/targetPools/{targetPool}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'delete' => array(
+              'path' => '{project}/regions/{region}/targetPools/{targetPool}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "targetPool" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'targetPool' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/regions/{region}/targetPools/{targetPool}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/regions/{region}/targetPools/{targetPool}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "targetPool" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'targetPool' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"getHealth" => array(
-            'path' => "{project}/regions/{region}/targetPools/{targetPool}/getHealth",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'getHealth' => array(
+              'path' => '{project}/regions/{region}/targetPools/{targetPool}/getHealth',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "targetPool" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'targetPool' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{project}/regions/{region}/targetPools",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{project}/regions/{region}/targetPools',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/regions/{region}/targetPools",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/regions/{region}/targetPools',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"removeHealthCheck" => array(
-            'path' => "{project}/regions/{region}/targetPools/{targetPool}/removeHealthCheck",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'removeHealthCheck' => array(
+              'path' => '{project}/regions/{region}/targetPools/{targetPool}/removeHealthCheck',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "targetPool" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'targetPool' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"removeInstance" => array(
-            'path' => "{project}/regions/{region}/targetPools/{targetPool}/removeInstance",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'removeInstance' => array(
+              'path' => '{project}/regions/{region}/targetPools/{targetPool}/removeInstance',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "targetPool" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'targetPool' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"setBackup" => array(
-            'path' => "{project}/regions/{region}/targetPools/{targetPool}/setBackup",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'setBackup' => array(
+              'path' => '{project}/regions/{region}/targetPools/{targetPool}/setBackup',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "region" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "targetPool" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'targetPool' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'failoverRatio' => array(
+                  'location' => 'query',
+                  'type' => 'number',
+                ),
               ),
-                "failoverRatio" => array(
-                  "location" => "query",
-                  "type" => "number",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->zoneOperations = new Google_Service_Compute_ZoneOperations_Resource(
         $this,
         $this->serviceName,
         'zoneOperations',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "{project}/zones/{zone}/operations/{operation}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/zones/{zone}/operations/{operation}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "operation" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'operation' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "{project}/zones/{zone}/operations/{operation}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => '{project}/zones/{zone}/operations/{operation}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "operation" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'operation' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/zones/{zone}/operations",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/zones/{zone}/operations',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->zones = new Google_Service_Compute_Zones_Resource(
         $this,
         $this->serviceName,
         'zones',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "{project}/zones/{zone}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => '{project}/zones/{zone}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "zone" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{project}/zones",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "project" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{project}/zones',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -2163,7 +2163,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
   }
   /**
    * Retrieves the list of address resources contained within the specified
-   * region. (addresses.list)
+   * region. (addresses.listAddresses)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -2301,7 +2301,7 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   }
   /**
    * Retrieves the list of persistent disk resources contained within the
-   * specified zone. (disks.list)
+   * specified zone. (disks.listDisks)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -2388,7 +2388,7 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
   }
   /**
    * Retrieves the list of firewall resources available to the specified project.
-   * (firewalls.list)
+   * (firewalls.listFirewalls)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -2539,7 +2539,7 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
   }
   /**
    * Retrieves the list of ForwardingRule resources available to the specified
-   * project and region. (forwardingRules.list)
+   * project and region. (forwardingRules.listForwardingRules)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -2652,7 +2652,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
   }
   /**
    * Retrieves the list of operation resources contained within the specified
-   * project. (globalOperations.list)
+   * project. (globalOperations.listGlobalOperations)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -2737,7 +2737,7 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
   }
   /**
    * Retrieves the list of HttpHealthCheck resources available to the specified
-   * project. (httpHealthChecks.list)
+   * project. (httpHealthChecks.listHttpHealthChecks)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -2877,7 +2877,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
   }
   /**
    * Retrieves the list of image resources available to the specified project.
-   * (images.list)
+   * (images.listImages)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -3094,7 +3094,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
   /**
    * Retrieves the list of instance resources contained within the specified zone.
-   * (instances.list)
+   * (instances.listInstances)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -3252,7 +3252,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
   }
   /**
    * Retrieves the list of machine type resources available to the specified
-   * project. (machineTypes.list)
+   * project. (machineTypes.listMachineTypes)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -3339,7 +3339,7 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
   }
   /**
    * Retrieves the list of network resources available to the specified project.
-   * (networks.list)
+   * (networks.listNetworks)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -3456,7 +3456,7 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
   }
   /**
    * Retrieves the list of operation resources contained within the specified
-   * region. (regionOperations.list)
+   * region. (regionOperations.listRegionOperations)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -3511,7 +3511,7 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
   }
   /**
    * Retrieves the list of region resources available to the specified project.
-   * (regions.list)
+   * (regions.listRegions)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -3596,7 +3596,7 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
   }
   /**
    * Retrieves the list of route resources available to the specified project.
-   * (routes.list)
+   * (routes.listRoutes)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -3665,7 +3665,7 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
   }
   /**
    * Retrieves the list of persistent disk snapshot resources contained within the
-   * specified project. (snapshots.list)
+   * specified project. (snapshots.listSnapshots)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -3780,7 +3780,7 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
   }
   /**
    * Retrieves the list of TargetInstance resources available to the specified
-   * project and zone. (targetInstances.list)
+   * project and zone. (targetInstances.listTargetInstances)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -3955,7 +3955,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
   /**
    * Retrieves the list of TargetPool resources available to the specified project
-   * and region. (targetPools.list)
+   * and region. (targetPools.listTargetPools)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -4091,7 +4091,7 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
   }
   /**
    * Retrieves the list of operation resources contained within the specified
-   * zone. (zoneOperations.list)
+   * zone. (zoneOperations.listZoneOperations)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -4146,7 +4146,7 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
   }
   /**
    * Retrieves the list of zone resources available to the specified project.
-   * (zones.list)
+   * (zones.listZones)
    *
    * @param string $project
    * Name of the project scoping this request.
@@ -5201,17 +5201,17 @@ class Google_Service_Compute_Firewall extends Google_Collection
 
 class Google_Service_Compute_FirewallAllowed extends Google_Collection
 {
-  public $IPProtocol;
+  public $iPProtocol;
   public $ports;
 
-  public function setIPProtocol($IPProtocol)
+  public function setIPProtocol($iPProtocol)
   {
-    $this->IPProtocol = $IPProtocol;
+    $this->iPProtocol = $iPProtocol;
   }
 
   public function getIPProtocol()
   {
-    return $this->IPProtocol;
+    return $this->iPProtocol;
   }
   
   public function setPorts($ports)
@@ -5289,8 +5289,8 @@ class Google_Service_Compute_FirewallList extends Google_Collection
 
 class Google_Service_Compute_ForwardingRule extends Google_Model
 {
-  public $IPAddress;
-  public $IPProtocol;
+  public $iPAddress;
+  public $iPProtocol;
   public $creationTimestamp;
   public $description;
   public $id;
@@ -5301,24 +5301,24 @@ class Google_Service_Compute_ForwardingRule extends Google_Model
   public $selfLink;
   public $target;
 
-  public function setIPAddress($IPAddress)
+  public function setIPAddress($iPAddress)
   {
-    $this->IPAddress = $IPAddress;
+    $this->iPAddress = $iPAddress;
   }
 
   public function getIPAddress()
   {
-    return $this->IPAddress;
+    return $this->iPAddress;
   }
   
-  public function setIPProtocol($IPProtocol)
+  public function setIPProtocol($iPProtocol)
   {
-    $this->IPProtocol = $IPProtocol;
+    $this->iPProtocol = $iPProtocol;
   }
 
   public function getIPProtocol()
   {
-    return $this->IPProtocol;
+    return $this->iPProtocol;
   }
   
   public function setCreationTimestamp($creationTimestamp)
@@ -7013,7 +7013,7 @@ class Google_Service_Compute_MetadataItems extends Google_Model
 
 class Google_Service_Compute_Network extends Google_Model
 {
-  public $IPv4Range;
+  public $iPv4Range;
   public $creationTimestamp;
   public $description;
   public $gatewayIPv4;
@@ -7022,14 +7022,14 @@ class Google_Service_Compute_Network extends Google_Model
   public $name;
   public $selfLink;
 
-  public function setIPv4Range($IPv4Range)
+  public function setIPv4Range($iPv4Range)
   {
-    $this->IPv4Range = $IPv4Range;
+    $this->iPv4Range = $iPv4Range;
   }
 
   public function getIPv4Range()
   {
-    return $this->IPv4Range;
+    return $this->iPv4Range;
   }
   
   public function setCreationTimestamp($creationTimestamp)
