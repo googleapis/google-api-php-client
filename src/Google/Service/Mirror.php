@@ -67,267 +67,267 @@ class Google_Service_Mirror extends Google_Service
         $this->serviceName,
         'contacts',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "contacts/{id}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'contacts/{id}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "contacts/{id}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'contacts/{id}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "contacts",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"list" => array(
-            'path' => "contacts",
-            'httpMethod' => "GET",
-            'parameters' => array(  ),
-          ),"patch" => array(
-            'path' => "contacts/{id}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'contacts',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'list' => array(
+              'path' => 'contacts',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),'patch' => array(
+              'path' => 'contacts/{id}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "contacts/{id}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'contacts/{id}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->locations = new Google_Service_Mirror_Locations_Resource(
         $this,
         $this->serviceName,
         'locations',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "locations/{id}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'locations/{id}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "locations",
-            'httpMethod' => "GET",
-            'parameters' => array(  ),
-          ),
+            ),'list' => array(
+              'path' => 'locations',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
     $this->subscriptions = new Google_Service_Mirror_Subscriptions_Resource(
         $this,
         $this->serviceName,
         'subscriptions',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "subscriptions/{id}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'subscriptions/{id}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "subscriptions",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"list" => array(
-            'path' => "subscriptions",
-            'httpMethod' => "GET",
-            'parameters' => array(  ),
-          ),"update" => array(
-            'path' => "subscriptions/{id}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'subscriptions',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'list' => array(
+              'path' => 'subscriptions',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),'update' => array(
+              'path' => 'subscriptions/{id}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->timeline = new Google_Service_Mirror_Timeline_Resource(
         $this,
         $this->serviceName,
         'timeline',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "timeline/{id}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'timeline/{id}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "timeline/{id}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'timeline/{id}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
+            ),'insert' => array(
+              'path' => 'timeline',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'list' => array(
+              'path' => 'timeline',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'includeDeleted' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sourceItemId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pinnedOnly' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'bundleId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-          ),"insert" => array(
-            'path' => "timeline",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"list" => array(
-            'path' => "timeline",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "orderBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "includeDeleted" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "sourceItemId" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pinnedOnly" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "bundleId" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "timeline/{id}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'timeline/{id}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "timeline/{id}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'timeline/{id}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->timeline_attachments = new Google_Service_Mirror_TimelineAttachments_Resource(
         $this,
         $this->serviceName,
         'attachments',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "timeline/{itemId}/attachments/{attachmentId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "itemId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'timeline/{itemId}/attachments/{attachmentId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'itemId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "attachmentId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'attachmentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "timeline/{itemId}/attachments/{attachmentId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "itemId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'timeline/{itemId}/attachments/{attachmentId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'itemId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "attachmentId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'attachmentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "timeline/{itemId}/attachments",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "itemId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'timeline/{itemId}/attachments',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'itemId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "timeline/{itemId}/attachments",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "itemId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'timeline/{itemId}/attachments',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'itemId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -385,7 +385,8 @@ class Google_Service_Mirror_Contacts_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Mirror_Contact");
   }
   /**
-   * Retrieves a list of contacts for the authenticated user. (contacts.list)
+   * Retrieves a list of contacts for the authenticated user.
+   * (contacts.listContacts)
    *
    * @param array $optParams Optional parameters.
    * @return Google_Service_Mirror_ContactsListResponse
@@ -455,7 +456,7 @@ class Google_Service_Mirror_Locations_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Mirror_Location");
   }
   /**
-   * Retrieves a list of locations for the user. (locations.list)
+   * Retrieves a list of locations for the user. (locations.listLocations)
    *
    * @param array $optParams Optional parameters.
    * @return Google_Service_Mirror_LocationsListResponse
@@ -507,7 +508,7 @@ class Google_Service_Mirror_Subscriptions_Resource extends Google_Service_Resour
   }
   /**
    * Retrieves a list of subscriptions for the authenticated user and service.
-   * (subscriptions.list)
+   * (subscriptions.listSubscriptions)
    *
    * @param array $optParams Optional parameters.
    * @return Google_Service_Mirror_SubscriptionsListResponse
@@ -588,7 +589,7 @@ class Google_Service_Mirror_Timeline_Resource extends Google_Service_Resource
   }
   /**
    * Retrieves a list of timeline items for the authenticated user.
-   * (timeline.list)
+   * (timeline.listTimeline)
    *
    * @param array $optParams Optional parameters.
    *
@@ -705,7 +706,8 @@ class Google_Service_Mirror_TimelineAttachments_Resource extends Google_Service_
     return $this->call('insert', array($params), "Google_Service_Mirror_Attachment");
   }
   /**
-   * Returns a list of attachments for a timeline item. (attachments.list)
+   * Returns a list of attachments for a timeline item.
+   * (attachments.listTimelineAttachments)
    *
    * @param string $itemId
    * The ID of the timeline item whose attachments should be listed.
