@@ -58,19 +58,19 @@ class Google_Service_Webfonts extends Google_Service
         $this->serviceName,
         'webfonts',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "webfonts",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "sort" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => 'webfonts',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'sort' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -89,7 +89,7 @@ class Google_Service_Webfonts_Webfonts_Resource extends Google_Service_Resource
 
   /**
    * Retrieves the list of fonts currently served by the Google Fonts Developer
-   * API (webfonts.list)
+   * API (webfonts.listWebfonts)
    *
    * @param array $optParams Optional parameters.
    *
