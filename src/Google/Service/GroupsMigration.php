@@ -58,20 +58,20 @@ class Google_Service_GroupsMigration extends Google_Service
         $this->serviceName,
         'archive',
         array(
-    'methods' => array(
-          "insert" => array(
-            'path' => "{groupId}/archive",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "groupId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'insert' => array(
+              'path' => '{groupId}/archive',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'groupId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
