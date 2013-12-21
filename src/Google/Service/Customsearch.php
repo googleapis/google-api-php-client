@@ -58,144 +58,144 @@ class Google_Service_Customsearch extends Google_Service
         $this->serviceName,
         'cse',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "v1",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "q" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => 'v1',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'q' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'sort' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'orTerms' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'highRange' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'num' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'cr' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'imgType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'gl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'relatedSite' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'searchType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'fileType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'start' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'imgDominantColor' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'lr' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'siteSearch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'cref' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'dateRestrict' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'safe' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'c2coff' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'googlehost' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'hq' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'exactTerms' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'lowRange' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'imgSize' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'imgColorType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'rights' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'excludeTerms' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'linkSite' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'cx' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'siteSearchFilter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "sort" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "orTerms" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "highRange" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "num" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "cr" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "imgType" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "gl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "relatedSite" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "searchType" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "fileType" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "start" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "imgDominantColor" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "lr" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "siteSearch" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "cref" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "dateRestrict" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "safe" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "c2coff" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "googlehost" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "hq" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "exactTerms" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "hl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "lowRange" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "imgSize" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "imgColorType" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "rights" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "excludeTerms" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "filter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "linkSite" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "cx" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "siteSearchFilter" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -214,7 +214,7 @@ class Google_Service_Customsearch_Cse_Resource extends Google_Service_Resource
 
   /**
    * Returns metadata about the search performed, metadata about the custom search
-   * engine used for the search, and the search results. (cse.list)
+   * engine used for the search, and the search results. (cse.listCse)
    *
    * @param string $q
    * Query
@@ -333,7 +333,7 @@ class Google_Service_Customsearch_ContextFacets extends Google_Model
 {
   public $anchor;
   public $label;
-  public $label_with_op;
+  public $labelWithOp;
 
   public function setAnchor($anchor)
   {
@@ -355,14 +355,14 @@ class Google_Service_Customsearch_ContextFacets extends Google_Model
     return $this->label;
   }
   
-  public function setLabel_with_op($label_with_op)
+  public function setLabelWithOp($labelWithOp)
   {
-    $this->label_with_op = $label_with_op;
+    $this->labelWithOp = $labelWithOp;
   }
 
-  public function getLabel_with_op()
+  public function getLabelWithOp()
   {
-    return $this->label_with_op;
+    return $this->labelWithOp;
   }
   
 }
@@ -1196,7 +1196,7 @@ class Google_Service_Customsearch_ResultImage extends Google_Model
 class Google_Service_Customsearch_ResultLabels extends Google_Model
 {
   public $displayName;
-  public $label_with_op;
+  public $labelWithOp;
   public $name;
 
   public function setDisplayName($displayName)
@@ -1209,14 +1209,14 @@ class Google_Service_Customsearch_ResultLabels extends Google_Model
     return $this->displayName;
   }
   
-  public function setLabel_with_op($label_with_op)
+  public function setLabelWithOp($labelWithOp)
   {
-    $this->label_with_op = $label_with_op;
+    $this->labelWithOp = $labelWithOp;
   }
 
-  public function getLabel_with_op()
+  public function getLabelWithOp()
   {
-    return $this->label_with_op;
+    return $this->labelWithOp;
   }
   
   public function setName($name)
