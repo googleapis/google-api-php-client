@@ -80,1252 +80,1252 @@ class Google_Service_Analytics extends Google_Service
         $this->serviceName,
         'ga',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "data/ga",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "ids" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'data/ga',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'ids' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "start-date" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'start-date' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "end-date" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'end-date' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "metrics" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'metrics' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'sort' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'dimensions' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'segment' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'samplingLevel' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'filters' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'output' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "sort" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "dimensions" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "segment" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "samplingLevel" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "filters" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "output" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->data_mcf = new Google_Service_Analytics_DataMcf_Resource(
         $this,
         $this->serviceName,
         'mcf',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "data/mcf",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "ids" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'data/mcf',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'ids' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "start-date" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'start-date' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "end-date" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'end-date' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "metrics" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'metrics' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'sort' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'dimensions' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'samplingLevel' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'filters' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "sort" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "dimensions" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "samplingLevel" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "filters" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->data_realtime = new Google_Service_Analytics_DataRealtime_Resource(
         $this,
         $this->serviceName,
         'realtime',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "data/realtime",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "ids" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'data/realtime',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'ids' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "metrics" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'metrics' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'sort' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'dimensions' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'filters' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "sort" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "dimensions" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "filters" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->management_accountUserLinks = new Google_Service_Analytics_ManagementAccountUserLinks_Resource(
         $this,
         $this->serviceName,
         'accountUserLinks',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "management/accounts/{accountId}/entityUserLinks/{linkId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'management/accounts/{accountId}/entityUserLinks/{linkId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "linkId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'linkId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "management/accounts/{accountId}/entityUserLinks",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'management/accounts/{accountId}/entityUserLinks',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "management/accounts/{accountId}/entityUserLinks",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'management/accounts/{accountId}/entityUserLinks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"update" => array(
-            'path' => "management/accounts/{accountId}/entityUserLinks/{linkId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'management/accounts/{accountId}/entityUserLinks/{linkId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "linkId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'linkId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->management_accounts = new Google_Service_Analytics_ManagementAccounts_Resource(
         $this,
         $this->serviceName,
         'accounts',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "management/accounts",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
+          'methods' => array(
+            'list' => array(
+              'path' => 'management/accounts',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->management_customDataSources = new Google_Service_Analytics_ManagementCustomDataSources_Resource(
         $this,
         $this->serviceName,
         'customDataSources',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->management_dailyUploads = new Google_Service_Analytics_ManagementDailyUploads_Resource(
         $this,
         $this->serviceName,
         'dailyUploads',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/dailyUploads/{date}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/dailyUploads/{date}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "customDataSourceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'customDataSourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "date" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'date' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "type" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'type' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/dailyUploads",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/dailyUploads',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "customDataSourceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'customDataSourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "start-date" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'start-date' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "end-date" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'end-date' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"upload" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/dailyUploads/{date}/uploads",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'upload' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/dailyUploads/{date}/uploads',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "customDataSourceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'customDataSourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "date" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'date' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "appendNumber" => array(
-                  "location" => "query",
-                  "type" => "integer",
+                ),
+                'appendNumber' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                   'required' => true,
-              ),
-                "type" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'type' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'reset' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "reset" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->management_experiments = new Google_Service_Analytics_ManagementExperiments_Resource(
         $this,
         $this->serviceName,
         'experiments',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "experimentId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'experimentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "experimentId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'experimentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "experimentId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'experimentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/experiments/{experimentId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "experimentId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'experimentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->management_goals = new Google_Service_Analytics_ManagementGoals_Resource(
         $this,
         $this->serviceName,
         'goals',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "goalId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'goalId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "goalId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'goalId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/goals/{goalId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "goalId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'goalId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->management_profileUserLinks = new Google_Service_Analytics_ManagementProfileUserLinks_Resource(
         $this,
         $this->serviceName,
         'profileUserLinks',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks/{linkId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks/{linkId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "linkId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'linkId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"update" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks/{linkId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}/entityUserLinks/{linkId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "linkId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'linkId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->management_profiles = new Google_Service_Analytics_ManagementProfiles_Resource(
         $this,
         $this->serviceName,
         'profiles',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/profiles/{profileId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->management_segments = new Google_Service_Analytics_ManagementSegments_Resource(
         $this,
         $this->serviceName,
         'segments',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "management/segments",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
+          'methods' => array(
+            'list' => array(
+              'path' => 'management/segments',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->management_uploads = new Google_Service_Analytics_ManagementUploads_Resource(
         $this,
         $this->serviceName,
         'uploads',
         array(
-    'methods' => array(
-          "deleteUploadData" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/deleteUploadData",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'deleteUploadData' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/deleteUploadData',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "customDataSourceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'customDataSourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads/{uploadId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads/{uploadId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "customDataSourceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'customDataSourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "uploadId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'uploadId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "customDataSourceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'customDataSourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"uploadData" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'uploadData' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "customDataSourceId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'customDataSourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->management_webproperties = new Google_Service_Analytics_ManagementWebproperties_Resource(
         $this,
         $this->serviceName,
         'webproperties',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "management/accounts/{accountId}/webproperties",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'management/accounts/{accountId}/webproperties',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "management/accounts/{accountId}/webproperties",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'management/accounts/{accountId}/webproperties',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->management_webpropertyUserLinks = new Google_Service_Analytics_ManagementWebpropertyUserLinks_Resource(
         $this,
         $this->serviceName,
         'webpropertyUserLinks',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks/{linkId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks/{linkId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "linkId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'linkId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "max-results" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "start-index" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"update" => array(
-            'path' => "management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks/{linkId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "accountId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/entityUserLinks/{linkId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "webPropertyId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "linkId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'linkId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->metadata_columns = new Google_Service_Analytics_MetadataColumns_Resource(
         $this,
         $this->serviceName,
         'columns',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "metadata/{reportType}/columns",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "reportType" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => 'metadata/{reportType}/columns',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'reportType' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -1361,10 +1361,10 @@ class Google_Service_Analytics_DataGa_Resource extends Google_Service_Resource
    * @param string $ids
    * Unique table ID for retrieving Analytics data. Table ID is of the form ga:XXXX, where XXXX is
     * the Analytics view (profile) ID.
-   * @param string $start_date
+   * @param string $startDate
    * Start date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-
     * DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is 7daysAgo.
-   * @param string $end_date
+   * @param string $endDate
    * End date for fetching Analytics data. Request can should specify an end date formatted as YYYY-
     * MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is
     * yesterday.
@@ -1373,14 +1373,14 @@ class Google_Service_Analytics_DataGa_Resource extends Google_Service_Resource
     * must be specified.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of entries to include in this feed.
    * @opt_param string sort
    * A comma-separated list of dimensions or metrics that determine the sort order for Analytics
     * data.
    * @opt_param string dimensions
    * A comma-separated list of Analytics dimensions. E.g., 'ga:browser,ga:city'.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @opt_param string segment
@@ -1393,9 +1393,9 @@ class Google_Service_Analytics_DataGa_Resource extends Google_Service_Resource
    * The selected format for the response. Default format is JSON.
    * @return Google_Service_Analytics_GaData
    */
-  public function get($ids, $start_date, $end_date, $metrics, $optParams = array())
+  public function get($ids, $startDate, $endDate, $metrics, $optParams = array())
   {
-    $params = array('ids' => $ids, 'start-date' => $start_date, 'end-date' => $end_date, 'metrics' => $metrics);
+    $params = array('ids' => $ids, 'start-date' => $startDate, 'end-date' => $endDate, 'metrics' => $metrics);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Analytics_GaData");
   }
@@ -1417,10 +1417,10 @@ class Google_Service_Analytics_DataMcf_Resource extends Google_Service_Resource
    * @param string $ids
    * Unique table ID for retrieving Analytics data. Table ID is of the form ga:XXXX, where XXXX is
     * the Analytics view (profile) ID.
-   * @param string $start_date
+   * @param string $startDate
    * Start date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-
     * DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is 7daysAgo.
-   * @param string $end_date
+   * @param string $endDate
    * End date for fetching Analytics data. Requests can specify a start date formatted as YYYY-MM-DD,
     * or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is 7daysAgo.
    * @param string $metrics
@@ -1428,14 +1428,14 @@ class Google_Service_Analytics_DataMcf_Resource extends Google_Service_Resource
     * 'mcf:totalConversions,mcf:totalConversionValue'. At least one metric must be specified.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of entries to include in this feed.
    * @opt_param string sort
    * A comma-separated list of dimensions or metrics that determine the sort order for the Analytics
     * data.
    * @opt_param string dimensions
    * A comma-separated list of Multi-Channel Funnels dimensions. E.g., 'mcf:source,mcf:medium'.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @opt_param string samplingLevel
@@ -1444,9 +1444,9 @@ class Google_Service_Analytics_DataMcf_Resource extends Google_Service_Resource
    * A comma-separated list of dimension or metric filters to be applied to the Analytics data.
    * @return Google_Service_Analytics_McfData
    */
-  public function get($ids, $start_date, $end_date, $metrics, $optParams = array())
+  public function get($ids, $startDate, $endDate, $metrics, $optParams = array())
   {
-    $params = array('ids' => $ids, 'start-date' => $start_date, 'end-date' => $end_date, 'metrics' => $metrics);
+    $params = array('ids' => $ids, 'start-date' => $startDate, 'end-date' => $endDate, 'metrics' => $metrics);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Analytics_McfData");
   }
@@ -1473,7 +1473,7 @@ class Google_Service_Analytics_DataRealtime_Resource extends Google_Service_Reso
     * be specified.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of entries to include in this feed.
    * @opt_param string sort
    * A comma-separated list of dimensions or metrics that determine the sort order for real time
@@ -1547,15 +1547,16 @@ class Google_Service_Analytics_ManagementAccountUserLinks_Resource extends Googl
     return $this->call('insert', array($params), "Google_Service_Analytics_EntityUserLink");
   }
   /**
-   * Lists account-user links for a given account. (accountUserLinks.list)
+   * Lists account-user links for a given account.
+   * (accountUserLinks.listManagementAccountUserLinks)
    *
    * @param string $accountId
    * Account ID to retrieve the user links for.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of account-user links to include in this response.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * An index of the first account-user link to retrieve. Use this parameter as a pagination
     * mechanism along with the max-results parameter.
    * @return Google_Service_Analytics_EntityUserLinks
@@ -1597,13 +1598,14 @@ class Google_Service_Analytics_ManagementAccounts_Resource extends Google_Servic
 {
 
   /**
-   * Lists all accounts to which the user has access. (accounts.list)
+   * Lists all accounts to which the user has access.
+   * (accounts.listManagementAccounts)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of accounts to include in this response.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * An index of the first account to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @return Google_Service_Analytics_Accounts
@@ -1628,7 +1630,7 @@ class Google_Service_Analytics_ManagementCustomDataSources_Resource extends Goog
 
   /**
    * List custom data sources to which the user has access.
-   * (customDataSources.list)
+   * (customDataSources.listManagementCustomDataSources)
    *
    * @param string $accountId
    * Account Id for the custom data sources to retrieve.
@@ -1636,9 +1638,9 @@ class Google_Service_Analytics_ManagementCustomDataSources_Resource extends Goog
    * Web property Id for the custom data sources to retrieve.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of custom data sources to include in this response.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * A 1-based index of the first custom data source to retrieve. Use this parameter as a pagination
     * mechanism along with the max-results parameter.
    * @return Google_Service_Analytics_CustomDataSources
@@ -1683,7 +1685,8 @@ class Google_Service_Analytics_ManagementDailyUploads_Resource extends Google_Se
     return $this->call('delete', array($params));
   }
   /**
-   * List daily uploads to which the user has access. (dailyUploads.list)
+   * List daily uploads to which the user has access.
+   * (dailyUploads.listManagementDailyUploads)
    *
    * @param string $accountId
    * Account Id for the daily uploads to retrieve.
@@ -1691,22 +1694,22 @@ class Google_Service_Analytics_ManagementDailyUploads_Resource extends Google_Se
    * Web property Id for the daily uploads to retrieve.
    * @param string $customDataSourceId
    * Custom data source Id for daily uploads to retrieve.
-   * @param string $start_date
+   * @param string $startDate
    * Start date of the form YYYY-MM-DD.
-   * @param string $end_date
+   * @param string $endDate
    * End date of the form YYYY-MM-DD.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of custom data sources to include in this response.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * A 1-based index of the first daily upload to retrieve. Use this parameter as a pagination
     * mechanism along with the max-results parameter.
    * @return Google_Service_Analytics_DailyUploads
    */
-  public function listManagementDailyUploads($accountId, $webPropertyId, $customDataSourceId, $start_date, $end_date, $optParams = array())
+  public function listManagementDailyUploads($accountId, $webPropertyId, $customDataSourceId, $startDate, $endDate, $optParams = array())
   {
-    $params = array('accountId' => $accountId, 'webPropertyId' => $webPropertyId, 'customDataSourceId' => $customDataSourceId, 'start-date' => $start_date, 'end-date' => $end_date);
+    $params = array('accountId' => $accountId, 'webPropertyId' => $webPropertyId, 'customDataSourceId' => $customDataSourceId, 'start-date' => $startDate, 'end-date' => $endDate);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Analytics_DailyUploads");
   }
@@ -1809,7 +1812,8 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
     return $this->call('insert', array($params), "Google_Service_Analytics_Experiment");
   }
   /**
-   * Lists experiments to which the user has access. (experiments.list)
+   * Lists experiments to which the user has access.
+   * (experiments.listManagementExperiments)
    *
    * @param string $accountId
    * Account ID to retrieve experiments for.
@@ -1819,9 +1823,9 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
    * View (Profile) ID to retrieve experiments for.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of experiments to include in this response.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * An index of the first experiment to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @return Google_Service_Analytics_Experiments
@@ -1927,7 +1931,7 @@ class Google_Service_Analytics_ManagementGoals_Resource extends Google_Service_R
     return $this->call('insert', array($params), "Google_Service_Analytics_Goal");
   }
   /**
-   * Lists goals to which the user has access. (goals.list)
+   * Lists goals to which the user has access. (goals.listManagementGoals)
    *
    * @param string $accountId
    * Account ID to retrieve goals for. Can either be a specific account ID or '~all', which refers to
@@ -1940,9 +1944,9 @@ class Google_Service_Analytics_ManagementGoals_Resource extends Google_Service_R
     * which refers to all the views (profiles) that user has access to.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of goals to include in this response.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * An index of the first goal to retrieve. Use this parameter as a pagination mechanism along with
     * the max-results parameter.
    * @return Google_Service_Analytics_Goals
@@ -2047,7 +2051,8 @@ class Google_Service_Analytics_ManagementProfileUserLinks_Resource extends Googl
     return $this->call('insert', array($params), "Google_Service_Analytics_EntityUserLink");
   }
   /**
-   * Lists profile-user links for a given view (profile). (profileUserLinks.list)
+   * Lists profile-user links for a given view (profile).
+   * (profileUserLinks.listManagementProfileUserLinks)
    *
    * @param string $accountId
    * Account ID which the given view (profile) belongs to.
@@ -2057,9 +2062,9 @@ class Google_Service_Analytics_ManagementProfileUserLinks_Resource extends Googl
    * View (Profile) ID to retrieve the profile-user links for
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of profile-user links to include in this response.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * An index of the first profile-user link to retrieve. Use this parameter as a pagination
     * mechanism along with the max-results parameter.
    * @return Google_Service_Analytics_EntityUserLinks
@@ -2157,7 +2162,8 @@ class Google_Service_Analytics_ManagementProfiles_Resource extends Google_Servic
     return $this->call('insert', array($params), "Google_Service_Analytics_Profile");
   }
   /**
-   * Lists views (profiles) to which the user has access. (profiles.list)
+   * Lists views (profiles) to which the user has access.
+   * (profiles.listManagementProfiles)
    *
    * @param string $accountId
    * Account ID for the view (profiles) to retrieve. Can either be a specific account ID or '~all',
@@ -2167,9 +2173,9 @@ class Google_Service_Analytics_ManagementProfiles_Resource extends Google_Servic
     * or '~all', which refers to all the web properties to which the user has access.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of views (profiles) to include in this response.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @return Google_Service_Analytics_Profiles
@@ -2232,13 +2238,14 @@ class Google_Service_Analytics_ManagementSegments_Resource extends Google_Servic
 {
 
   /**
-   * Lists advanced segments to which the user has access. (segments.list)
+   * Lists advanced segments to which the user has access.
+   * (segments.listManagementSegments)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of advanced segments to include in this response.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * An index of the first advanced segment to retrieve. Use this parameter as a pagination mechanism
     * along with the max-results parameter.
    * @return Google_Service_Analytics_Segments
@@ -2300,7 +2307,7 @@ class Google_Service_Analytics_ManagementUploads_Resource extends Google_Service
     return $this->call('get', array($params), "Google_Service_Analytics_Upload");
   }
   /**
-   * List uploads to which the user has access. (uploads.list)
+   * List uploads to which the user has access. (uploads.listManagementUploads)
    *
    * @param string $accountId
    * Account Id for the uploads to retrieve.
@@ -2310,9 +2317,9 @@ class Google_Service_Analytics_ManagementUploads_Resource extends Google_Service
    * Custom data source Id for uploads to retrieve.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of uploads to include in this response.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * A 1-based index of the first upload to retrieve. Use this parameter as a pagination mechanism
     * along with the max-results parameter.
    * @return Google_Service_Analytics_Uploads
@@ -2387,16 +2394,17 @@ class Google_Service_Analytics_ManagementWebproperties_Resource extends Google_S
     return $this->call('insert', array($params), "Google_Service_Analytics_Webproperty");
   }
   /**
-   * Lists web properties to which the user has access. (webproperties.list)
+   * Lists web properties to which the user has access.
+   * (webproperties.listManagementWebproperties)
    *
    * @param string $accountId
    * Account ID to retrieve web properties for. Can either be a specific account ID or '~all', which
     * refers to all the accounts that user has access to.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of web properties to include in this response.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @return Google_Service_Analytics_Webproperties
@@ -2490,7 +2498,7 @@ class Google_Service_Analytics_ManagementWebpropertyUserLinks_Resource extends G
   }
   /**
    * Lists webProperty-user links for a given web property.
-   * (webpropertyUserLinks.list)
+   * (webpropertyUserLinks.listManagementWebpropertyUserLinks)
    *
    * @param string $accountId
    * Account ID which the given web property belongs to.
@@ -2498,9 +2506,9 @@ class Google_Service_Analytics_ManagementWebpropertyUserLinks_Resource extends G
    * Web Property ID for the webProperty-user links to retrieve.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max_results
+   * @opt_param int maxResults
    * The maximum number of webProperty-user Links to include in this response.
-   * @opt_param int start_index
+   * @opt_param int startIndex
    * An index of the first webProperty-user link to retrieve. Use this parameter as a pagination
     * mechanism along with the max-results parameter.
    * @return Google_Service_Analytics_EntityUserLinks
@@ -2558,7 +2566,7 @@ class Google_Service_Analytics_MetadataColumns_Resource extends Google_Service_R
 {
 
   /**
-   * Lists all columns for a report type (columns.list)
+   * Lists all columns for a report type (columns.listMetadataColumns)
    *
    * @param string $reportType
    * Report type. Allowed Values: 'ga'. Where 'ga' corresponds to the Core Reporting API
@@ -4746,16 +4754,16 @@ class Google_Service_Analytics_GaDataProfileInfo extends Google_Model
 class Google_Service_Analytics_GaDataQuery extends Google_Collection
 {
   public $dimensions;
-  public $end_date;
+  public $endDate;
   public $filters;
   public $ids;
-  public $max_results;
+  public $maxResults;
   public $metrics;
   public $samplingLevel;
   public $segment;
   public $sort;
-  public $start_date;
-  public $start_index;
+  public $startDate;
+  public $startIndex;
 
   public function setDimensions($dimensions)
   {
@@ -4767,14 +4775,14 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
     return $this->dimensions;
   }
   
-  public function setEnd_date($end_date)
+  public function setEndDate($endDate)
   {
-    $this->end_date = $end_date;
+    $this->endDate = $endDate;
   }
 
-  public function getEnd_date()
+  public function getEndDate()
   {
-    return $this->end_date;
+    return $this->endDate;
   }
   
   public function setFilters($filters)
@@ -4797,14 +4805,14 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
     return $this->ids;
   }
   
-  public function setMax_results($max_results)
+  public function setMaxResults($maxResults)
   {
-    $this->max_results = $max_results;
+    $this->maxResults = $maxResults;
   }
 
-  public function getMax_results()
+  public function getMaxResults()
   {
-    return $this->max_results;
+    return $this->maxResults;
   }
   
   public function setMetrics($metrics)
@@ -4847,24 +4855,24 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
     return $this->sort;
   }
   
-  public function setStart_date($start_date)
+  public function setStartDate($startDate)
   {
-    $this->start_date = $start_date;
+    $this->startDate = $startDate;
   }
 
-  public function getStart_date()
+  public function getStartDate()
   {
-    return $this->start_date;
+    return $this->startDate;
   }
   
-  public function setStart_index($start_index)
+  public function setStartIndex($startIndex)
   {
-    $this->start_index = $start_index;
+    $this->startIndex = $startIndex;
   }
 
-  public function getStart_index()
+  public function getStartIndex()
   {
-    return $this->start_index;
+    return $this->startIndex;
   }
   
 }
@@ -5725,16 +5733,16 @@ class Google_Service_Analytics_McfDataProfileInfo extends Google_Model
 class Google_Service_Analytics_McfDataQuery extends Google_Collection
 {
   public $dimensions;
-  public $end_date;
+  public $endDate;
   public $filters;
   public $ids;
-  public $max_results;
+  public $maxResults;
   public $metrics;
   public $samplingLevel;
   public $segment;
   public $sort;
-  public $start_date;
-  public $start_index;
+  public $startDate;
+  public $startIndex;
 
   public function setDimensions($dimensions)
   {
@@ -5746,14 +5754,14 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
     return $this->dimensions;
   }
   
-  public function setEnd_date($end_date)
+  public function setEndDate($endDate)
   {
-    $this->end_date = $end_date;
+    $this->endDate = $endDate;
   }
 
-  public function getEnd_date()
+  public function getEndDate()
   {
-    return $this->end_date;
+    return $this->endDate;
   }
   
   public function setFilters($filters)
@@ -5776,14 +5784,14 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
     return $this->ids;
   }
   
-  public function setMax_results($max_results)
+  public function setMaxResults($maxResults)
   {
-    $this->max_results = $max_results;
+    $this->maxResults = $maxResults;
   }
 
-  public function getMax_results()
+  public function getMaxResults()
   {
-    return $this->max_results;
+    return $this->maxResults;
   }
   
   public function setMetrics($metrics)
@@ -5826,24 +5834,24 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
     return $this->sort;
   }
   
-  public function setStart_date($start_date)
+  public function setStartDate($startDate)
   {
-    $this->start_date = $start_date;
+    $this->startDate = $startDate;
   }
 
-  public function getStart_date()
+  public function getStartDate()
   {
-    return $this->start_date;
+    return $this->startDate;
   }
   
-  public function setStart_index($start_index)
+  public function setStartIndex($startIndex)
   {
-    $this->start_index = $start_index;
+    $this->startIndex = $startIndex;
   }
 
-  public function getStart_index()
+  public function getStartIndex()
   {
-    return $this->start_index;
+    return $this->startIndex;
   }
   
 }
@@ -6609,7 +6617,7 @@ class Google_Service_Analytics_RealtimeDataQuery extends Google_Collection
   public $dimensions;
   public $filters;
   public $ids;
-  public $max_results;
+  public $maxResults;
   public $metrics;
   public $sort;
 
@@ -6643,14 +6651,14 @@ class Google_Service_Analytics_RealtimeDataQuery extends Google_Collection
     return $this->ids;
   }
   
-  public function setMax_results($max_results)
+  public function setMaxResults($maxResults)
   {
-    $this->max_results = $max_results;
+    $this->maxResults = $maxResults;
   }
 
-  public function getMax_results()
+  public function getMaxResults()
   {
-    return $this->max_results;
+    return $this->maxResults;
   }
   
   public function setMetrics($metrics)
