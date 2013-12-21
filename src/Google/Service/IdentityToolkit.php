@@ -58,50 +58,50 @@ class Google_Service_IdentityToolkit extends Google_Service
         $this->serviceName,
         'relyingparty',
         array(
-    'methods' => array(
-          "createAuthUri" => array(
-            'path' => "createAuthUri",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"deleteAccount" => array(
-            'path' => "deleteAccount",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"downloadAccount" => array(
-            'path' => "downloadAccount",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"getAccountInfo" => array(
-            'path' => "getAccountInfo",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"getOobConfirmationCode" => array(
-            'path' => "getOobConfirmationCode",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"resetPassword" => array(
-            'path' => "resetPassword",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"setAccountInfo" => array(
-            'path' => "setAccountInfo",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"uploadAccount" => array(
-            'path' => "uploadAccount",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"verifyAssertion" => array(
-            'path' => "verifyAssertion",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),"verifyPassword" => array(
-            'path' => "verifyPassword",
-            'httpMethod' => "POST",
-            'parameters' => array(  ),
-          ),
+          'methods' => array(
+            'createAuthUri' => array(
+              'path' => 'createAuthUri',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'deleteAccount' => array(
+              'path' => 'deleteAccount',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'downloadAccount' => array(
+              'path' => 'downloadAccount',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'getAccountInfo' => array(
+              'path' => 'getAccountInfo',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'getOobConfirmationCode' => array(
+              'path' => 'getOobConfirmationCode',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'resetPassword' => array(
+              'path' => 'resetPassword',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'setAccountInfo' => array(
+              'path' => 'setAccountInfo',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'uploadAccount' => array(
+              'path' => 'uploadAccount',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'verifyAssertion' => array(
+              'path' => 'verifyAssertion',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'verifyPassword' => array(
+              'path' => 'verifyPassword',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
   }
 }
