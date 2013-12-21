@@ -58,61 +58,61 @@ class Google_Service_Audit extends Google_Service
         $this->serviceName,
         'activities',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "{customerId}/{applicationId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "customerId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => '{customerId}/{applicationId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "applicationId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'applicationId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'actorEmail' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'actorApplicationId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'actorIpAddress' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'caller' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'eventName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'startTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'endTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'continuationToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "actorEmail" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "actorApplicationId" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "actorIpAddress" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "caller" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "eventName" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "startTime" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "endTime" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "continuationToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -131,7 +131,7 @@ class Google_Service_Audit_Activities_Resource extends Google_Service_Resource
 
   /**
    * Retrieves a list of activities for a specific customer and application.
-   * (activities.list)
+   * (activities.listActivities)
    *
    * @param string $customerId
    * Represents the customer who is the owner of target object on which action was performed.
