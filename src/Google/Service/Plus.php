@@ -68,273 +68,273 @@ class Google_Service_Plus extends Google_Service
         $this->serviceName,
         'activities',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "activities/{activityId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'activities/{activityId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "people/{userId}/activities/{collection}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'people/{userId}/activities/{collection}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "collection" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"search" => array(
-            'path' => "activities",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "query" => array(
-                  "location" => "query",
-                  "type" => "string",
+            ),'search' => array(
+              'path' => 'activities',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'query' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "orderBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->comments = new Google_Service_Plus_Comments_Resource(
         $this,
         $this->serviceName,
         'comments',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "comments/{commentId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "commentId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'comments/{commentId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'commentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "activities/{activityId}/comments",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'activities/{activityId}/comments',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "sortOrder" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->moments = new Google_Service_Plus_Moments_Resource(
         $this,
         $this->serviceName,
         'moments',
         array(
-    'methods' => array(
-          "insert" => array(
-            'path' => "people/{userId}/moments/{collection}",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'insert' => array(
+              'path' => 'people/{userId}/moments/{collection}',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "collection" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'debug' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "debug" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),"list" => array(
-            'path' => "people/{userId}/moments/{collection}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'people/{userId}/moments/{collection}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "collection" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'targetUrl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'type' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "targetUrl" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "type" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"remove" => array(
-            'path' => "moments/{id}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "id" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'remove' => array(
+              'path' => 'moments/{id}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->people = new Google_Service_Plus_People_Resource(
         $this,
         $this->serviceName,
         'people',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "people/{userId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'people/{userId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "people/{userId}/people/{collection}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "userId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'people/{userId}/people/{collection}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "collection" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "orderBy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"listByActivity" => array(
-            'path' => "activities/{activityId}/people/{collection}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "activityId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'listByActivity' => array(
+              'path' => 'activities/{activityId}/people/{collection}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'activityId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "collection" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),"search" => array(
-            'path' => "people",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "query" => array(
-                  "location" => "query",
-                  "type" => "string",
+            ),'search' => array(
+              'path' => 'people',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'query' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "language" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -367,7 +367,7 @@ class Google_Service_Plus_Activities_Resource extends Google_Service_Resource
   }
   /**
    * List all of the activities in the specified collection for a particular user.
-   * (activities.list)
+   * (activities.listActivities)
    *
    * @param string $userId
    * The ID of the user to get activities for. The special value "me" can be used to indicate the
@@ -444,7 +444,7 @@ class Google_Service_Plus_Comments_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Plus_Comment");
   }
   /**
-   * List all of the comments for an activity. (comments.list)
+   * List all of the comments for an activity. (comments.listComments)
    *
    * @param string $activityId
    * The ID of the activity to get comments for.
@@ -502,7 +502,7 @@ class Google_Service_Plus_Moments_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Plus_Moment");
   }
   /**
-   * List all of the moments for a particular user. (moments.list)
+   * List all of the moments for a particular user. (moments.listMoments)
    *
    * @param string $userId
    * The ID of the user to get moments for. The special value "me" can be used to indicate the
@@ -573,7 +573,7 @@ class Google_Service_Plus_People_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Plus_Person");
   }
   /**
-   * List all of the people in the specified collection. (people.list)
+   * List all of the people in the specified collection. (people.listPeople)
    *
    * @param string $userId
    * Get the collection of people for the person identified. Use "me" to indicate the authenticated
@@ -2115,8 +2115,8 @@ class Google_Service_Plus_ItemScope extends Google_Collection
   public $addressCountry;
   public $addressLocality;
   public $addressRegion;
-  protected $associated_mediaType = 'Google_Service_Plus_ItemScope';
-  protected $associated_mediaDataType = 'array';
+  protected $associatedMediaType = 'Google_Service_Plus_ItemScope';
+  protected $associatedMediaDataType = 'array';
   public $attendeeCount;
   protected $attendeesType = 'Google_Service_Plus_ItemScope';
   protected $attendeesDataType = 'array';
@@ -2238,14 +2238,14 @@ class Google_Service_Plus_ItemScope extends Google_Collection
     return $this->addressRegion;
   }
   
-  public function setAssociated_media($associated_media)
+  public function setAssociatedMedia($associatedMedia)
   {
-    $this->associated_media = $associated_media;
+    $this->associatedMedia = $associatedMedia;
   }
 
-  public function getAssociated_media()
+  public function getAssociatedMedia()
   {
-    return $this->associated_media;
+    return $this->associatedMedia;
   }
   
   public function setAttendeeCount($attendeeCount)
