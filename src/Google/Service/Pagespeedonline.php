@@ -58,45 +58,45 @@ class Google_Service_Pagespeedonline extends Google_Service
         $this->serviceName,
         'pagespeedapi',
         array(
-    'methods' => array(
-          "runpagespeed" => array(
-            'path' => "runPagespeed",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "url" => array(
-                  "location" => "query",
-                  "type" => "string",
+          'methods' => array(
+            'runpagespeed' => array(
+              'path' => 'runPagespeed',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'url' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "screenshot" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "locale" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "snapshots" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "strategy" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "rule" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'screenshot' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'locale' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'snapshots' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'strategy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'rule' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'repeated' => true,
+                ),
+                'filter_third_party_resources' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "filter_third_party_resources" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -132,7 +132,7 @@ class Google_Service_Pagespeedonline_Pagespeedapi_Resource extends Google_Servic
    * The analysis strategy to use
    * @opt_param string rule
    * A Page Speed rule to run; if none are given, all rules are run
-   * @opt_param bool filter_third_party_resources
+   * @opt_param bool filterThirdPartyResources
    * Indicates if third party resources should be filtered out before PageSpeed analysis.
    * @return Google_Service_Pagespeedonline_Result
    */
@@ -718,18 +718,18 @@ class Google_Service_Pagespeedonline_ResultPageStats extends Google_Model
 
 class Google_Service_Pagespeedonline_ResultRequest extends Google_Model
 {
-  public $filter_third_party_resources;
+  public $filterThirdPartyResources;
   public $strategy;
   public $url;
 
-  public function setFilter_third_party_resources($filter_third_party_resources)
+  public function setFilterThirdPartyResources($filterThirdPartyResources)
   {
-    $this->filter_third_party_resources = $filter_third_party_resources;
+    $this->filterThirdPartyResources = $filterThirdPartyResources;
   }
 
-  public function getFilter_third_party_resources()
+  public function getFilterThirdPartyResources()
   {
-    return $this->filter_third_party_resources;
+    return $this->filterThirdPartyResources;
   }
   
   public function setStrategy($strategy)
@@ -758,7 +758,7 @@ class Google_Service_Pagespeedonline_ResultScreenshot extends Google_Model
 {
   public $data;
   public $height;
-  public $mime_type;
+  public $mimeType;
   public $width;
 
   public function setData($data)
@@ -781,14 +781,14 @@ class Google_Service_Pagespeedonline_ResultScreenshot extends Google_Model
     return $this->height;
   }
   
-  public function setMime_type($mime_type)
+  public function setMimeType($mimeType)
   {
-    $this->mime_type = $mime_type;
+    $this->mimeType = $mimeType;
   }
 
-  public function getMime_type()
+  public function getMimeType()
   {
-    return $this->mime_type;
+    return $this->mimeType;
   }
   
   public function setWidth($width)
