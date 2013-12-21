@@ -59,47 +59,47 @@ class Google_Service_CivicInfo extends Google_Service
         $this->serviceName,
         'elections',
         array(
-    'methods' => array(
-          "electionQuery" => array(
-            'path' => "elections",
-            'httpMethod' => "GET",
-            'parameters' => array(  ),
-          ),"voterInfoQuery" => array(
-            'path' => "voterinfo/{electionId}/lookup",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "electionId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'electionQuery' => array(
+              'path' => 'elections',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),'voterInfoQuery' => array(
+              'path' => 'voterinfo/{electionId}/lookup',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'electionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'officialOnly' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "officialOnly" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->representatives = new Google_Service_CivicInfo_Representatives_Resource(
         $this,
         $this->serviceName,
         'representatives',
         array(
-    'methods' => array(
-          "representativeInfoQuery" => array(
-            'path' => "representatives/lookup",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "includeOffices" => array(
-                  "location" => "query",
-                  "type" => "boolean",
+          'methods' => array(
+            'representativeInfoQuery' => array(
+              'path' => 'representatives/lookup',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'includeOffices' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -189,8 +189,8 @@ class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
   protected $electionAdministrationBodyType = 'Google_Service_CivicInfo_AdministrativeBody';
   protected $electionAdministrationBodyDataType = '';
   public $id;
-  protected $local_jurisdictionType = 'Google_Service_CivicInfo_AdministrationRegion';
-  protected $local_jurisdictionDataType = '';
+  protected $localJurisdictionType = 'Google_Service_CivicInfo_AdministrationRegion';
+  protected $localJurisdictionDataType = '';
   public $name;
   protected $sourcesType = 'Google_Service_CivicInfo_Source';
   protected $sourcesDataType = 'array';
@@ -215,14 +215,14 @@ class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
     return $this->id;
   }
   
-  public function setLocal_jurisdiction(Google_Service_CivicInfo_AdministrationRegion $local_jurisdiction)
+  public function setLocalJurisdiction(Google_Service_CivicInfo_AdministrationRegion $localJurisdiction)
   {
-    $this->local_jurisdiction = $local_jurisdiction;
+    $this->localJurisdiction = $localJurisdiction;
   }
 
-  public function getLocal_jurisdiction()
+  public function getLocalJurisdiction()
   {
-    return $this->local_jurisdiction;
+    return $this->localJurisdiction;
   }
   
   public function setName($name)
@@ -263,7 +263,7 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   public $name;
   protected $physicalAddressType = 'Google_Service_CivicInfo_SimpleAddressType';
   protected $physicalAddressDataType = '';
-  public $voter_services;
+  public $voterServices;
   public $votingLocationFinderUrl;
 
   public function setAbsenteeVotingInfoUrl($absenteeVotingInfoUrl)
@@ -376,14 +376,14 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
     return $this->physicalAddress;
   }
   
-  public function setVoter_services($voter_services)
+  public function setVoterServices($voterServices)
   {
-    $this->voter_services = $voter_services;
+    $this->voterServices = $voterServices;
   }
 
-  public function getVoter_services()
+  public function getVoterServices()
   {
-    return $this->voter_services;
+    return $this->voterServices;
   }
   
   public function setVotingLocationFinderUrl($votingLocationFinderUrl)
