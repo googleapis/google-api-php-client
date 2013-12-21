@@ -67,375 +67,375 @@ class Google_Service_Coordinate extends Google_Service
         $this->serviceName,
         'customFieldDef',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "{teamId}/custom_fields",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "teamId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => '{teamId}/custom_fields',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'teamId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->jobs = new Google_Service_Coordinate_Jobs_Resource(
         $this,
         $this->serviceName,
         'jobs',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "{teamId}/jobs/{jobId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "teamId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => '{teamId}/jobs/{jobId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'teamId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "jobId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'jobId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "{teamId}/jobs",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "teamId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => '{teamId}/jobs',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'teamId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "address" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'address' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "lat" => array(
-                  "location" => "query",
-                  "type" => "number",
+                ),
+                'lat' => array(
+                  'location' => 'query',
+                  'type' => 'number',
                   'required' => true,
-              ),
-                "lng" => array(
-                  "location" => "query",
-                  "type" => "number",
+                ),
+                'lng' => array(
+                  'location' => 'query',
+                  'type' => 'number',
                   'required' => true,
-              ),
-                "title" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'title' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "customerName" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "note" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "assignee" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "customerPhoneNumber" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "customField" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'customerName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'note' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'assignee' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customerPhoneNumber' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'repeated' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "{teamId}/jobs",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "teamId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => '{teamId}/jobs',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'teamId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'minModifiedTimestampMs' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "minModifiedTimestampMs" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "{teamId}/jobs/{jobId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "teamId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => '{teamId}/jobs/{jobId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'teamId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "jobId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'jobId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "customerName" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "title" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "note" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "assignee" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "customerPhoneNumber" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "address" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "lat" => array(
-                  "location" => "query",
-                  "type" => "number",
-              ),
-                "progress" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "lng" => array(
-                  "location" => "query",
-                  "type" => "number",
-              ),
-                "customField" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'customerName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'title' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'note' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'assignee' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customerPhoneNumber' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'address' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'lat' => array(
+                  'location' => 'query',
+                  'type' => 'number',
+                ),
+                'progress' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'lng' => array(
+                  'location' => 'query',
+                  'type' => 'number',
+                ),
+                'customField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'repeated' => true,
+                ),
               ),
-              ),
-          ),"update" => array(
-            'path' => "{teamId}/jobs/{jobId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "teamId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => '{teamId}/jobs/{jobId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'teamId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "jobId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'jobId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "customerName" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "title" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "note" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "assignee" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "customerPhoneNumber" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "address" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "lat" => array(
-                  "location" => "query",
-                  "type" => "number",
-              ),
-                "progress" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "lng" => array(
-                  "location" => "query",
-                  "type" => "number",
-              ),
-                "customField" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'customerName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'title' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'note' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'assignee' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customerPhoneNumber' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'address' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'lat' => array(
+                  'location' => 'query',
+                  'type' => 'number',
+                ),
+                'progress' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'lng' => array(
+                  'location' => 'query',
+                  'type' => 'number',
+                ),
+                'customField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'repeated' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->location = new Google_Service_Coordinate_Location_Resource(
         $this,
         $this->serviceName,
         'location',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "{teamId}/workers/{workerEmail}/locations",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "teamId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => '{teamId}/workers/{workerEmail}/locations',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'teamId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "workerEmail" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'workerEmail' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "startTimestampMs" => array(
-                  "location" => "query",
-                  "type" => "string",
+                ),
+                'startTimestampMs' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->schedule = new Google_Service_Coordinate_Schedule_Resource(
         $this,
         $this->serviceName,
         'schedule',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "{teamId}/jobs/{jobId}/schedule",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "teamId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => '{teamId}/jobs/{jobId}/schedule',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'teamId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "jobId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'jobId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"patch" => array(
-            'path' => "{teamId}/jobs/{jobId}/schedule",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "teamId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => '{teamId}/jobs/{jobId}/schedule',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'teamId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "jobId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'jobId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'allDay' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'startTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'duration' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'endTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "allDay" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "startTime" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "duration" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "endTime" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"update" => array(
-            'path' => "{teamId}/jobs/{jobId}/schedule",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "teamId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => '{teamId}/jobs/{jobId}/schedule',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'teamId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "jobId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'jobId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'allDay' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'startTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'duration' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'endTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "allDay" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-                "startTime" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "duration" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "endTime" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->worker = new Google_Service_Coordinate_Worker_Resource(
         $this,
         $this->serviceName,
         'worker',
         array(
-    'methods' => array(
-          "list" => array(
-            'path' => "{teamId}/workers",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "teamId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'list' => array(
+              'path' => '{teamId}/workers',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'teamId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -454,7 +454,7 @@ class Google_Service_Coordinate_CustomFieldDef_Resource extends Google_Service_R
 
   /**
    * Retrieves a list of custom field definitions for a team.
-   * (customFieldDef.list)
+   * (customFieldDef.listCustomFieldDef)
    *
    * @param string $teamId
    * Team ID
@@ -532,7 +532,7 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Coordinate_Job");
   }
   /**
-   * Retrieves jobs created or modified since the given timestamp. (jobs.list)
+   * Retrieves jobs created or modified since the given timestamp. (jobs.listJobs)
    *
    * @param string $teamId
    * Team ID
@@ -644,7 +644,7 @@ class Google_Service_Coordinate_Location_Resource extends Google_Service_Resourc
 {
 
   /**
-   * Retrieves a list of locations for a worker. (location.list)
+   * Retrieves a list of locations for a worker. (location.listLocation)
    *
    * @param string $teamId
    * Team ID
@@ -764,7 +764,7 @@ class Google_Service_Coordinate_Worker_Resource extends Google_Service_Resource
 {
 
   /**
-   * Retrieves a list of workers in a team. (worker.list)
+   * Retrieves a list of workers in a team. (worker.listWorker)
    *
    * @param string $teamId
    * Team ID
