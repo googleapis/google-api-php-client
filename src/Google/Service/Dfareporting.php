@@ -67,317 +67,317 @@ class Google_Service_Dfareporting extends Google_Service
         $this->serviceName,
         'dimensionValues',
         array(
-    'methods' => array(
-          "query" => array(
-            'path' => "userprofiles/{profileId}/dimensionvalues/query",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'query' => array(
+              'path' => 'userprofiles/{profileId}/dimensionvalues/query',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->files = new Google_Service_Dfareporting_Files_Resource(
         $this,
         $this->serviceName,
         'files',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "reports/{reportId}/files/{fileId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "reportId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'reports/{reportId}/files/{fileId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'reportId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "fileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'fileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "userprofiles/{profileId}/files",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'userprofiles/{profileId}/files',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'scope' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "sortField" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "sortOrder" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "scope" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->reports = new Google_Service_Dfareporting_Reports_Resource(
         $this,
         $this->serviceName,
         'reports',
         array(
-    'methods' => array(
-          "delete" => array(
-            'path' => "userprofiles/{profileId}/reports/{reportId}",
-            'httpMethod' => "DELETE",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'delete' => array(
+              'path' => 'userprofiles/{profileId}/reports/{reportId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "reportId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'reportId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"get" => array(
-            'path' => "userprofiles/{profileId}/reports/{reportId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'get' => array(
+              'path' => 'userprofiles/{profileId}/reports/{reportId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "reportId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'reportId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"insert" => array(
-            'path' => "userprofiles/{profileId}/reports",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'insert' => array(
+              'path' => 'userprofiles/{profileId}/reports',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "userprofiles/{profileId}/reports",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'userprofiles/{profileId}/reports',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'scope' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "sortField" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "sortOrder" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "scope" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),"patch" => array(
-            'path' => "userprofiles/{profileId}/reports/{reportId}",
-            'httpMethod' => "PATCH",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'patch' => array(
+              'path' => 'userprofiles/{profileId}/reports/{reportId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "reportId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'reportId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"run" => array(
-            'path' => "userprofiles/{profileId}/reports/{reportId}/run",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'run' => array(
+              'path' => 'userprofiles/{profileId}/reports/{reportId}/run',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "reportId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'reportId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'synchronous' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
-                "synchronous" => array(
-                  "location" => "query",
-                  "type" => "boolean",
-              ),
-              ),
-          ),"update" => array(
-            'path' => "userprofiles/{profileId}/reports/{reportId}",
-            'httpMethod' => "PUT",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'update' => array(
+              'path' => 'userprofiles/{profileId}/reports/{reportId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "reportId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'reportId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->reports_compatibleFields = new Google_Service_Dfareporting_ReportsCompatibleFields_Resource(
         $this,
         $this->serviceName,
         'compatibleFields',
         array(
-    'methods' => array(
-          "query" => array(
-            'path' => "userprofiles/{profileId}/reports/compatiblefields/query",
-            'httpMethod' => "POST",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'query' => array(
+              'path' => 'userprofiles/{profileId}/reports/compatiblefields/query',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->reports_files = new Google_Service_Dfareporting_ReportsFiles_Resource(
         $this,
         $this->serviceName,
         'files',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "userprofiles/{profileId}/reports/{reportId}/files/{fileId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'userprofiles/{profileId}/reports/{reportId}/files/{fileId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "reportId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'reportId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "fileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'fileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "userprofiles/{profileId}/reports/{reportId}/files",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+            ),'list' => array(
+              'path' => 'userprofiles/{profileId}/reports/{reportId}/files',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
-              ),
-                "reportId" => array(
-                  "location" => "path",
-                  "type" => "string",
+                ),
+                'reportId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-                "sortField" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "maxResults" => array(
-                  "location" => "query",
-                  "type" => "integer",
-              ),
-                "pageToken" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-                "sortOrder" => array(
-                  "location" => "query",
-                  "type" => "string",
-              ),
-              ),
-          ),
+            ),
+          )
         )
-    )
     );
     $this->userProfiles = new Google_Service_Dfareporting_UserProfiles_Resource(
         $this,
         $this->serviceName,
         'userProfiles',
         array(
-    'methods' => array(
-          "get" => array(
-            'path' => "userprofiles/{profileId}",
-            'httpMethod' => "GET",
-            'parameters' => array(
-                "profileId" => array(
-                  "location" => "path",
-                  "type" => "string",
+          'methods' => array(
+            'get' => array(
+              'path' => 'userprofiles/{profileId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'profileId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
                   'required' => true,
+                ),
               ),
-              ),
-          ),"list" => array(
-            'path' => "userprofiles",
-            'httpMethod' => "GET",
-            'parameters' => array(  ),
-          ),
+            ),'list' => array(
+              'path' => 'userprofiles',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),
+          )
         )
-    )
     );
   }
 }
@@ -445,7 +445,7 @@ class Google_Service_Dfareporting_Files_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Dfareporting_DfareportingFile");
   }
   /**
-   * Lists files for a user profile. (files.list)
+   * Lists files for a user profile. (files.listFiles)
    *
    * @param string $profileId
    * The DFA profile ID.
@@ -529,7 +529,7 @@ class Google_Service_Dfareporting_Reports_Resource extends Google_Service_Resour
     return $this->call('insert', array($params), "Google_Service_Dfareporting_Report");
   }
   /**
-   * Retrieves list of reports. (reports.list)
+   * Retrieves list of reports. (reports.listReports)
    *
    * @param string $profileId
    * The DFA user profile ID.
@@ -667,7 +667,7 @@ class Google_Service_Dfareporting_ReportsFiles_Resource extends Google_Service_R
     return $this->call('get', array($params), "Google_Service_Dfareporting_DfareportingFile");
   }
   /**
-   * Lists files for a report. (files.list)
+   * Lists files for a report. (files.listReportsFiles)
    *
    * @param string $profileId
    * The DFA profile ID.
@@ -719,7 +719,7 @@ class Google_Service_Dfareporting_UserProfiles_Resource extends Google_Service_R
     return $this->call('get', array($params), "Google_Service_Dfareporting_UserProfile");
   }
   /**
-   * Retrieves list of user profiles for a user. (userProfiles.list)
+   * Retrieves list of user profiles for a user. (userProfiles.listUserProfiles)
    *
    * @param array $optParams Optional parameters.
    * @return Google_Service_Dfareporting_UserProfileList
