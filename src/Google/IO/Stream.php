@@ -55,6 +55,35 @@ class Google_IO_Stream extends Google_IO_Abstract
       }
     }
 
+    list($responseData, $responseHeader) = $this->makeFopenRequest($request);
+
+    if (false === $responseData) {
+      throw new Google_IO_Exception("HTTP Error: Unable to connect");
+    }
+
+    $respHttpCode = $this->getHttpResponseCode($responseHeader);
+    $responseHeaders = $this->getHttpResponseHeaders($responseHeader);
+
+    if ($respHttpCode == 304 && $cached) {
+      // If the server responded NOT_MODIFIED, return the cached request.
+      $this->updateCachedRequest($cached, $responseHeaders);
+      return $cached;
+    }
+
+    if (!isset($responseHeaders['Date']) && !isset($responseHeaders['date'])) {
+      $responseHeaders['Date'] = date("r");
+    }
+
+    $request->setResponseHttpCode($respHttpCode);
+    $request->setResponseHeaders($responseHeaders);
+    $request->setResponseBody($responseData);
+    // Store the request in cache (the function checks to see if the request
+    // can actually be cached)
+    $this->setCachedRequest($request);
+    return $request;
+  }
+
+  private function makeFopenRequest(Google_Http_Request $request) {
     $default_options = stream_context_get_options(stream_context_get_default());
 
     $requestHttpContext = array_key_exists('http', $default_options) ?
@@ -108,30 +137,7 @@ class Google_IO_Stream extends Google_IO_Abstract
         $context
     );
 
-    if (false === $response_data) {
-      throw new Google_IO_Exception("HTTP Error: Unable to connect");
-    }
-
-    $respHttpCode = $this->getHttpResponseCode($http_response_header);
-    $responseHeaders = $this->getHttpResponseHeaders($http_response_header);
-
-    if ($respHttpCode == 304 && $cached) {
-      // If the server responded NOT_MODIFIED, return the cached request.
-      $this->updateCachedRequest($cached, $responseHeaders);
-      return $cached;
-    }
-
-    if (!isset($responseHeaders['Date']) && !isset($responseHeaders['date'])) {
-      $responseHeaders['Date'] = date("r");
-    }
-
-    $request->setResponseHttpCode($respHttpCode);
-    $request->setResponseHeaders($responseHeaders);
-    $request->setResponseBody($response_data);
-    // Store the request in cache (the function checks to see if the request
-    // can actually be cached)
-    $this->setCachedRequest($request);
-    return $request;
+    return [$response_data, $http_response_header];
   }
 
   /**
