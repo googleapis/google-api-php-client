@@ -55,7 +55,12 @@ class Google_IO_Stream extends Google_IO_Abstract
       }
     }
 
-    list($responseData, $responseHeader) = $this->makeFopenRequest($request);
+    if ($this->useCurlRequests()) {
+      $requestFunction = "makeCurlRequest";
+    } else {
+      $requestFunction = "makeFopenRequest";
+    }
+    list($responseData, $responseHeader) = $this->$requestFunction($request);
 
     if (false === $responseData) {
       throw new Google_IO_Exception("HTTP Error: Unable to connect");
@@ -81,6 +86,53 @@ class Google_IO_Stream extends Google_IO_Abstract
     // can actually be cached)
     $this->setCachedRequest($request);
     return $request;
+  }
+
+  private static function useCurlRequests() {
+    return function_exists('curl_version');
+  }
+
+  private function makeCurlRequest(Google_Http_Request $request) {
+    $curl = curl_init();
+
+    if (array_key_exists(
+        $request->getRequestMethod(),
+        self::$ENTITY_HTTP_METHODS
+    )) {
+      $request = $this->processEntityRequest($request);
+    }
+
+    if ($request->getPostBody()) {
+      curl_setopt($curl, CURLOPT_POSTFIELDS, $request->getPostBody());
+    }
+
+    $requestHeaders = $request->getRequestHeaders();
+    if ($requestHeaders && is_array($requestHeaders)) {
+      $curlHeaders = array();
+      foreach ($requestHeaders as $k => $v) {
+        $curlHeaders[] = "$k: $v";
+      }
+      curl_setopt($curl, CURLOPT_HTTPHEADER, $curlHeaders);
+    }
+
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $request->getRequestMethod());
+    curl_setopt($curl, CURLOPT_USERAGENT, $request->getUserAgent());
+
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, false);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HEADER, true);
+
+    curl_setopt($curl, CURLOPT_URL, $request->getUrl());
+
+    $response = curl_exec($curl);
+    $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
+
+    $responseBody = substr($response, $headerSize);
+    $responseHeaderString = substr($response, 0, $headerSize);
+    $responseHeaders = array_filter(explode("\r\n", $responseHeaderString));
+
+    return [$responseBody, $responseHeaders];
   }
 
   private function makeFopenRequest(Google_Http_Request $request) {
