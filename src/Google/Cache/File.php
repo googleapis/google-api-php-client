@@ -70,7 +70,7 @@ class Google_Cache_File extends Google_Cache_Abstract
       // We serialize the whole request object, since we don't only want the
       // responseContent but also the postBody used, headers, size, etc.
       $data = serialize($value);
-      $result = file_put_contents($storageFile, $data);
+      $result = fwrite($this->fh, $data);
       $this->unlock($storageFile);
     }
   }
