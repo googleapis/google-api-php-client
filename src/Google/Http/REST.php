@@ -40,9 +40,6 @@ class Google_Http_REST
    */
   public static function execute(Google_Client $client, Google_Http_Request $req)
   {
-    if (!$req->getBaseComponent()) {
-      $req->setBaseComponent($client->getBasePath());
-    }
     $httpRequest = $client->getIo()->makeRequest($req);
     $httpRequest->setExpectedClass($req->getExpectedClass());
     return self::decodeHttpResponse($httpRequest);
