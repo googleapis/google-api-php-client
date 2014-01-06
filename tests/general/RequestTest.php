@@ -34,6 +34,12 @@ class RequestTest extends BaseTest {
     $this->assertEquals($url2, $request->getUrl());
     $this->assertEquals("Google_Client", $request->getExpectedClass());
     
+    $urlPath = "/foo/bar";
+    $request = new Google_Http_Request($urlPath);
+    $this->assertEquals($urlPath, $request->getUrl());
+    $request->setBaseComponent("http://example.com");
+    $this->assertEquals("http://example.com" . $urlPath, $request->getUrl());
+    
     $url3a = 'http://localhost:8080/foo/bar';
     $url3b = 'foo=a&foo=b&wowee=oh+my';
     $url3c = 'foo=a&foo=b&wowee=oh+my&hi=there';
