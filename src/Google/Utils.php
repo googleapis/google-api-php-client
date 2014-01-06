@@ -119,4 +119,15 @@ class Google_Utils
     }
     return $normalized;
   }
+
+  /**
+   * Convert a string to camelCase
+   * @param  string $value
+   * @return string
+   */
+  public static function camelCase($value)
+  {
+    $value = ucwords(str_replace(array('-', '_'), ' ', $value));
+    return lcfirst(str_replace(' ', '', $value));
+  }
 }
