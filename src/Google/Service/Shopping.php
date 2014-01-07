@@ -31,6 +31,9 @@
  */
 class Google_Service_Shopping extends Google_Service
 {
+  /** View your product data. */
+  const SHOPPINGAPI = "https://www.googleapis.com/auth/shoppingapi";
+
   public $products;
   
 
@@ -44,18 +47,7 @@ class Google_Service_Shopping extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'shopping/search/v1/';
     $this->version = 'v1';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/shoppingapi"
-    );
-    
     $this->serviceName = 'shopping';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->products = new Google_Service_Shopping_Products_Resource(
         $this,
@@ -483,7 +475,7 @@ class Google_Service_Shopping_Product extends Google_Collection
   {
     return $this->categories;
   }
-  
+
   public function setDebug(Google_Service_Shopping_ShoppingModelDebugJsonV1 $debug)
   {
     $this->debug = $debug;
@@ -493,7 +485,7 @@ class Google_Service_Shopping_Product extends Google_Collection
   {
     return $this->debug;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -503,7 +495,7 @@ class Google_Service_Shopping_Product extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -513,7 +505,7 @@ class Google_Service_Shopping_Product extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setProduct(Google_Service_Shopping_ShoppingModelProductJsonV1 $product)
   {
     $this->product = $product;
@@ -523,7 +515,7 @@ class Google_Service_Shopping_Product extends Google_Collection
   {
     return $this->product;
   }
-  
+
   public function setRecommendations($recommendations)
   {
     $this->recommendations = $recommendations;
@@ -533,7 +525,7 @@ class Google_Service_Shopping_Product extends Google_Collection
   {
     return $this->recommendations;
   }
-  
+
   public function setRequestId($requestId)
   {
     $this->requestId = $requestId;
@@ -543,7 +535,7 @@ class Google_Service_Shopping_Product extends Google_Collection
   {
     return $this->requestId;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -553,7 +545,6 @@ class Google_Service_Shopping_Product extends Google_Collection
   {
     return $this->selfLink;
   }
-  
 }
 
 class Google_Service_Shopping_Products extends Google_Collection
@@ -598,7 +589,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->categories;
   }
-  
+
   public function setCategoryRecommendations($categoryRecommendations)
   {
     $this->categoryRecommendations = $categoryRecommendations;
@@ -608,7 +599,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->categoryRecommendations;
   }
-  
+
   public function setCurrentItemCount($currentItemCount)
   {
     $this->currentItemCount = $currentItemCount;
@@ -618,7 +609,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->currentItemCount;
   }
-  
+
   public function setDebug(Google_Service_Shopping_ShoppingModelDebugJsonV1 $debug)
   {
     $this->debug = $debug;
@@ -628,7 +619,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->debug;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -638,7 +629,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setExtras(Google_Service_Shopping_ShoppingModelExtrasJsonV1 $extras)
   {
     $this->extras = $extras;
@@ -648,7 +639,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->extras;
   }
-  
+
   public function setFacets($facets)
   {
     $this->facets = $facets;
@@ -658,7 +649,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->facets;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -668,7 +659,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -678,7 +669,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -688,7 +679,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -698,7 +689,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -708,7 +699,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -718,7 +709,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setPromotions($promotions)
   {
     $this->promotions = $promotions;
@@ -728,7 +719,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->promotions;
   }
-  
+
   public function setRedirects($redirects)
   {
     $this->redirects = $redirects;
@@ -738,7 +729,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->redirects;
   }
-  
+
   public function setRequestId($requestId)
   {
     $this->requestId = $requestId;
@@ -748,7 +739,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->requestId;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -758,7 +749,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setSpelling(Google_Service_Shopping_ProductsSpelling $spelling)
   {
     $this->spelling = $spelling;
@@ -768,7 +759,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->spelling;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -778,7 +769,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->startIndex;
   }
-  
+
   public function setStores($stores)
   {
     $this->stores = $stores;
@@ -788,7 +779,7 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->stores;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -798,7 +789,6 @@ class Google_Service_Shopping_Products extends Google_Collection
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_Shopping_ProductsFacets extends Google_Collection
@@ -821,7 +811,7 @@ class Google_Service_Shopping_ProductsFacets extends Google_Collection
   {
     return $this->buckets;
   }
-  
+
   public function setCount($count)
   {
     $this->count = $count;
@@ -831,7 +821,7 @@ class Google_Service_Shopping_ProductsFacets extends Google_Collection
   {
     return $this->count;
   }
-  
+
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -841,7 +831,7 @@ class Google_Service_Shopping_ProductsFacets extends Google_Collection
   {
     return $this->displayName;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -851,7 +841,7 @@ class Google_Service_Shopping_ProductsFacets extends Google_Collection
   {
     return $this->name;
   }
-  
+
   public function setProperty($property)
   {
     $this->property = $property;
@@ -861,7 +851,7 @@ class Google_Service_Shopping_ProductsFacets extends Google_Collection
   {
     return $this->property;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -871,7 +861,7 @@ class Google_Service_Shopping_ProductsFacets extends Google_Collection
   {
     return $this->type;
   }
-  
+
   public function setUnit($unit)
   {
     $this->unit = $unit;
@@ -881,7 +871,6 @@ class Google_Service_Shopping_ProductsFacets extends Google_Collection
   {
     return $this->unit;
   }
-  
 }
 
 class Google_Service_Shopping_ProductsFacetsBuckets extends Google_Model
@@ -902,7 +891,7 @@ class Google_Service_Shopping_ProductsFacetsBuckets extends Google_Model
   {
     return $this->count;
   }
-  
+
   public function setMax($max)
   {
     $this->max = $max;
@@ -912,7 +901,7 @@ class Google_Service_Shopping_ProductsFacetsBuckets extends Google_Model
   {
     return $this->max;
   }
-  
+
   public function setMaxExclusive($maxExclusive)
   {
     $this->maxExclusive = $maxExclusive;
@@ -922,7 +911,7 @@ class Google_Service_Shopping_ProductsFacetsBuckets extends Google_Model
   {
     return $this->maxExclusive;
   }
-  
+
   public function setMin($min)
   {
     $this->min = $min;
@@ -932,7 +921,7 @@ class Google_Service_Shopping_ProductsFacetsBuckets extends Google_Model
   {
     return $this->min;
   }
-  
+
   public function setMinExclusive($minExclusive)
   {
     $this->minExclusive = $minExclusive;
@@ -942,7 +931,7 @@ class Google_Service_Shopping_ProductsFacetsBuckets extends Google_Model
   {
     return $this->minExclusive;
   }
-  
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -952,7 +941,6 @@ class Google_Service_Shopping_ProductsFacetsBuckets extends Google_Model
   {
     return $this->value;
   }
-  
 }
 
 class Google_Service_Shopping_ProductsPromotions extends Google_Collection
@@ -977,7 +965,7 @@ class Google_Service_Shopping_ProductsPromotions extends Google_Collection
   {
     return $this->customFields;
   }
-  
+
   public function setCustomHtml($customHtml)
   {
     $this->customHtml = $customHtml;
@@ -987,7 +975,7 @@ class Google_Service_Shopping_ProductsPromotions extends Google_Collection
   {
     return $this->customHtml;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -997,7 +985,7 @@ class Google_Service_Shopping_ProductsPromotions extends Google_Collection
   {
     return $this->description;
   }
-  
+
   public function setDestLink($destLink)
   {
     $this->destLink = $destLink;
@@ -1007,7 +995,7 @@ class Google_Service_Shopping_ProductsPromotions extends Google_Collection
   {
     return $this->destLink;
   }
-  
+
   public function setImageLink($imageLink)
   {
     $this->imageLink = $imageLink;
@@ -1017,7 +1005,7 @@ class Google_Service_Shopping_ProductsPromotions extends Google_Collection
   {
     return $this->imageLink;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -1027,7 +1015,7 @@ class Google_Service_Shopping_ProductsPromotions extends Google_Collection
   {
     return $this->name;
   }
-  
+
   public function setProduct(Google_Service_Shopping_ShoppingModelProductJsonV1 $product)
   {
     $this->product = $product;
@@ -1037,7 +1025,7 @@ class Google_Service_Shopping_ProductsPromotions extends Google_Collection
   {
     return $this->product;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -1047,7 +1035,6 @@ class Google_Service_Shopping_ProductsPromotions extends Google_Collection
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Shopping_ProductsPromotionsCustomFields extends Google_Model
@@ -1064,7 +1051,7 @@ class Google_Service_Shopping_ProductsPromotionsCustomFields extends Google_Mode
   {
     return $this->name;
   }
-  
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -1074,7 +1061,6 @@ class Google_Service_Shopping_ProductsPromotionsCustomFields extends Google_Mode
   {
     return $this->value;
   }
-  
 }
 
 class Google_Service_Shopping_ProductsSpelling extends Google_Model
@@ -1090,7 +1076,6 @@ class Google_Service_Shopping_ProductsSpelling extends Google_Model
   {
     return $this->suggestion;
   }
-  
 }
 
 class Google_Service_Shopping_ProductsStores extends Google_Model
@@ -1112,7 +1097,7 @@ class Google_Service_Shopping_ProductsStores extends Google_Model
   {
     return $this->address;
   }
-  
+
   public function setLocation($location)
   {
     $this->location = $location;
@@ -1122,7 +1107,7 @@ class Google_Service_Shopping_ProductsStores extends Google_Model
   {
     return $this->location;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -1132,7 +1117,7 @@ class Google_Service_Shopping_ProductsStores extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setStoreCode($storeCode)
   {
     $this->storeCode = $storeCode;
@@ -1142,7 +1127,7 @@ class Google_Service_Shopping_ProductsStores extends Google_Model
   {
     return $this->storeCode;
   }
-  
+
   public function setStoreId($storeId)
   {
     $this->storeId = $storeId;
@@ -1152,7 +1137,7 @@ class Google_Service_Shopping_ProductsStores extends Google_Model
   {
     return $this->storeId;
   }
-  
+
   public function setStoreName($storeName)
   {
     $this->storeName = $storeName;
@@ -1162,7 +1147,7 @@ class Google_Service_Shopping_ProductsStores extends Google_Model
   {
     return $this->storeName;
   }
-  
+
   public function setTelephone($telephone)
   {
     $this->telephone = $telephone;
@@ -1172,7 +1157,6 @@ class Google_Service_Shopping_ProductsStores extends Google_Model
   {
     return $this->telephone;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelCategoryJsonV1 extends Google_Collection
@@ -1191,7 +1175,7 @@ class Google_Service_Shopping_ShoppingModelCategoryJsonV1 extends Google_Collect
   {
     return $this->id;
   }
-  
+
   public function setParents($parents)
   {
     $this->parents = $parents;
@@ -1201,7 +1185,7 @@ class Google_Service_Shopping_ShoppingModelCategoryJsonV1 extends Google_Collect
   {
     return $this->parents;
   }
-  
+
   public function setShortName($shortName)
   {
     $this->shortName = $shortName;
@@ -1211,7 +1195,7 @@ class Google_Service_Shopping_ShoppingModelCategoryJsonV1 extends Google_Collect
   {
     return $this->shortName;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1221,7 +1205,6 @@ class Google_Service_Shopping_ShoppingModelCategoryJsonV1 extends Google_Collect
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelDebugJsonV1 extends Google_Collection
@@ -1246,7 +1229,7 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1 extends Google_Collection
   {
     return $this->backendTimes;
   }
-  
+
   public function setElapsedMillis($elapsedMillis)
   {
     $this->elapsedMillis = $elapsedMillis;
@@ -1256,7 +1239,7 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1 extends Google_Collection
   {
     return $this->elapsedMillis;
   }
-  
+
   public function setFacetsRequest($facetsRequest)
   {
     $this->facetsRequest = $facetsRequest;
@@ -1266,7 +1249,7 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1 extends Google_Collection
   {
     return $this->facetsRequest;
   }
-  
+
   public function setFacetsResponse($facetsResponse)
   {
     $this->facetsResponse = $facetsResponse;
@@ -1276,7 +1259,7 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1 extends Google_Collection
   {
     return $this->facetsResponse;
   }
-  
+
   public function setRdcResponse($rdcResponse)
   {
     $this->rdcResponse = $rdcResponse;
@@ -1286,7 +1269,7 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1 extends Google_Collection
   {
     return $this->rdcResponse;
   }
-  
+
   public function setRecommendedItemsRequest($recommendedItemsRequest)
   {
     $this->recommendedItemsRequest = $recommendedItemsRequest;
@@ -1296,7 +1279,7 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1 extends Google_Collection
   {
     return $this->recommendedItemsRequest;
   }
-  
+
   public function setRecommendedItemsResponse($recommendedItemsResponse)
   {
     $this->recommendedItemsResponse = $recommendedItemsResponse;
@@ -1306,7 +1289,7 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1 extends Google_Collection
   {
     return $this->recommendedItemsResponse;
   }
-  
+
   public function setSearchRequest($searchRequest)
   {
     $this->searchRequest = $searchRequest;
@@ -1316,7 +1299,7 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1 extends Google_Collection
   {
     return $this->searchRequest;
   }
-  
+
   public function setSearchResponse($searchResponse)
   {
     $this->searchResponse = $searchResponse;
@@ -1326,7 +1309,6 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1 extends Google_Collection
   {
     return $this->searchResponse;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelDebugJsonV1BackendTimes extends Google_Model
@@ -1345,7 +1327,7 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1BackendTimes extends Googl
   {
     return $this->elapsedMillis;
   }
-  
+
   public function setHostName($hostName)
   {
     $this->hostName = $hostName;
@@ -1355,7 +1337,7 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1BackendTimes extends Googl
   {
     return $this->hostName;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -1365,7 +1347,7 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1BackendTimes extends Googl
   {
     return $this->name;
   }
-  
+
   public function setServerMillis($serverMillis)
   {
     $this->serverMillis = $serverMillis;
@@ -1375,7 +1357,6 @@ class Google_Service_Shopping_ShoppingModelDebugJsonV1BackendTimes extends Googl
   {
     return $this->serverMillis;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelExtrasJsonV1 extends Google_Collection
@@ -1394,7 +1375,7 @@ class Google_Service_Shopping_ShoppingModelExtrasJsonV1 extends Google_Collectio
   {
     return $this->facetRules;
   }
-  
+
   public function setRankingRules($rankingRules)
   {
     $this->rankingRules = $rankingRules;
@@ -1404,7 +1385,6 @@ class Google_Service_Shopping_ShoppingModelExtrasJsonV1 extends Google_Collectio
   {
     return $this->rankingRules;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelExtrasJsonV1FacetRules extends Google_Model
@@ -1420,7 +1400,6 @@ class Google_Service_Shopping_ShoppingModelExtrasJsonV1FacetRules extends Google
   {
     return $this->name;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelExtrasJsonV1RankingRules extends Google_Model
@@ -1436,7 +1415,6 @@ class Google_Service_Shopping_ShoppingModelExtrasJsonV1RankingRules extends Goog
   {
     return $this->name;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collection
@@ -1494,7 +1472,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->attributes;
   }
-  
+
   public function setAuthor(Google_Service_Shopping_ShoppingModelProductJsonV1Author $author)
   {
     $this->author = $author;
@@ -1504,7 +1482,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->author;
   }
-  
+
   public function setBrand($brand)
   {
     $this->brand = $brand;
@@ -1514,7 +1492,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->brand;
   }
-  
+
   public function setCategories($categories)
   {
     $this->categories = $categories;
@@ -1524,7 +1502,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->categories;
   }
-  
+
   public function setCondition($condition)
   {
     $this->condition = $condition;
@@ -1534,7 +1512,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->condition;
   }
-  
+
   public function setCountry($country)
   {
     $this->country = $country;
@@ -1544,7 +1522,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->country;
   }
-  
+
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
@@ -1554,7 +1532,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->creationTime;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -1564,7 +1542,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->description;
   }
-  
+
   public function setGoogleId($googleId)
   {
     $this->googleId = $googleId;
@@ -1574,7 +1552,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->googleId;
   }
-  
+
   public function setGtin($gtin)
   {
     $this->gtin = $gtin;
@@ -1584,7 +1562,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->gtin;
   }
-  
+
   public function setGtins($gtins)
   {
     $this->gtins = $gtins;
@@ -1594,7 +1572,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->gtins;
   }
-  
+
   public function setImages($images)
   {
     $this->images = $images;
@@ -1604,7 +1582,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->images;
   }
-  
+
   public function setInternal1($internal1)
   {
     $this->internal1 = $internal1;
@@ -1614,7 +1592,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->internal1;
   }
-  
+
   public function setInternal10($internal10)
   {
     $this->internal10 = $internal10;
@@ -1624,7 +1602,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->internal10;
   }
-  
+
   public function setInternal12($internal12)
   {
     $this->internal12 = $internal12;
@@ -1634,7 +1612,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->internal12;
   }
-  
+
   public function setInternal13($internal13)
   {
     $this->internal13 = $internal13;
@@ -1644,7 +1622,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->internal13;
   }
-  
+
   public function setInternal14($internal14)
   {
     $this->internal14 = $internal14;
@@ -1654,7 +1632,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->internal14;
   }
-  
+
   public function setInternal15($internal15)
   {
     $this->internal15 = $internal15;
@@ -1664,7 +1642,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->internal15;
   }
-  
+
   public function setInternal16(Google_Service_Shopping_ShoppingModelProductJsonV1Internal16 $internal16)
   {
     $this->internal16 = $internal16;
@@ -1674,7 +1652,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->internal16;
   }
-  
+
   public function setInternal3($internal3)
   {
     $this->internal3 = $internal3;
@@ -1684,7 +1662,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->internal3;
   }
-  
+
   public function setInternal4($internal4)
   {
     $this->internal4 = $internal4;
@@ -1694,7 +1672,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->internal4;
   }
-  
+
   public function setInternal6($internal6)
   {
     $this->internal6 = $internal6;
@@ -1704,7 +1682,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->internal6;
   }
-  
+
   public function setInternal7($internal7)
   {
     $this->internal7 = $internal7;
@@ -1714,7 +1692,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->internal7;
   }
-  
+
   public function setInternal8($internal8)
   {
     $this->internal8 = $internal8;
@@ -1724,7 +1702,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->internal8;
   }
-  
+
   public function setInventories($inventories)
   {
     $this->inventories = $inventories;
@@ -1734,7 +1712,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->inventories;
   }
-  
+
   public function setLanguage($language)
   {
     $this->language = $language;
@@ -1744,7 +1722,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->language;
   }
-  
+
   public function setLink($link)
   {
     $this->link = $link;
@@ -1754,7 +1732,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->link;
   }
-  
+
   public function setModificationTime($modificationTime)
   {
     $this->modificationTime = $modificationTime;
@@ -1764,7 +1742,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->modificationTime;
   }
-  
+
   public function setMpns($mpns)
   {
     $this->mpns = $mpns;
@@ -1774,7 +1752,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->mpns;
   }
-  
+
   public function setPlusOne($plusOne)
   {
     $this->plusOne = $plusOne;
@@ -1784,7 +1762,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->plusOne;
   }
-  
+
   public function setProvidedId($providedId)
   {
     $this->providedId = $providedId;
@@ -1794,7 +1772,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->providedId;
   }
-  
+
   public function setQueryMatched($queryMatched)
   {
     $this->queryMatched = $queryMatched;
@@ -1804,7 +1782,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->queryMatched;
   }
-  
+
   public function setScore($score)
   {
     $this->score = $score;
@@ -1814,7 +1792,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->score;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -1824,7 +1802,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->title;
   }
-  
+
   public function setTotalMatchingVariants($totalMatchingVariants)
   {
     $this->totalMatchingVariants = $totalMatchingVariants;
@@ -1834,7 +1812,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->totalMatchingVariants;
   }
-  
+
   public function setVariants($variants)
   {
     $this->variants = $variants;
@@ -1844,7 +1822,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   {
     return $this->variants;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelProductJsonV1Attributes extends Google_Model
@@ -1864,7 +1841,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Attributes extends Googl
   {
     return $this->displayName;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -1874,7 +1851,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Attributes extends Googl
   {
     return $this->name;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -1884,7 +1861,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Attributes extends Googl
   {
     return $this->type;
   }
-  
+
   public function setUnit($unit)
   {
     $this->unit = $unit;
@@ -1894,7 +1871,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Attributes extends Googl
   {
     return $this->unit;
   }
-  
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -1904,7 +1881,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Attributes extends Googl
   {
     return $this->value;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelProductJsonV1Author extends Google_Model
@@ -1921,7 +1897,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Author extends Google_Mo
   {
     return $this->accountId;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -1931,7 +1907,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Author extends Google_Mo
   {
     return $this->name;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelProductJsonV1Images extends Google_Collection
@@ -1950,7 +1925,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Images extends Google_Co
   {
     return $this->link;
   }
-  
+
   public function setStatus($status)
   {
     $this->status = $status;
@@ -1960,7 +1935,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Images extends Google_Co
   {
     return $this->status;
   }
-  
+
   public function setThumbnails($thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -1970,7 +1945,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Images extends Google_Co
   {
     return $this->thumbnails;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelProductJsonV1ImagesThumbnails extends Google_Model
@@ -1989,7 +1963,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1ImagesThumbnails extends
   {
     return $this->content;
   }
-  
+
   public function setHeight($height)
   {
     $this->height = $height;
@@ -1999,7 +1973,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1ImagesThumbnails extends
   {
     return $this->height;
   }
-  
+
   public function setLink($link)
   {
     $this->link = $link;
@@ -2009,7 +1983,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1ImagesThumbnails extends
   {
     return $this->link;
   }
-  
+
   public function setWidth($width)
   {
     $this->width = $width;
@@ -2019,7 +1993,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1ImagesThumbnails extends
   {
     return $this->width;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelProductJsonV1Internal16 extends Google_Model
@@ -2037,7 +2010,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Internal16 extends Googl
   {
     return $this->length;
   }
-  
+
   public function setNumber($number)
   {
     $this->number = $number;
@@ -2047,7 +2020,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Internal16 extends Googl
   {
     return $this->number;
   }
-  
+
   public function setSize($size)
   {
     $this->size = $size;
@@ -2057,7 +2030,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Internal16 extends Googl
   {
     return $this->size;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelProductJsonV1Internal4 extends Google_Model
@@ -2074,7 +2046,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Internal4 extends Google
   {
     return $this->confidence;
   }
-  
+
   public function setNode($node)
   {
     $this->node = $node;
@@ -2084,7 +2056,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Internal4 extends Google
   {
     return $this->node;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Google_Model
@@ -2114,7 +2085,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->availability;
   }
-  
+
   public function setChannel($channel)
   {
     $this->channel = $channel;
@@ -2124,7 +2095,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->channel;
   }
-  
+
   public function setCurrency($currency)
   {
     $this->currency = $currency;
@@ -2134,7 +2105,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->currency;
   }
-  
+
   public function setDistance($distance)
   {
     $this->distance = $distance;
@@ -2144,7 +2115,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->distance;
   }
-  
+
   public function setDistanceUnit($distanceUnit)
   {
     $this->distanceUnit = $distanceUnit;
@@ -2154,7 +2125,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->distanceUnit;
   }
-  
+
   public function setInstallmentMonths($installmentMonths)
   {
     $this->installmentMonths = $installmentMonths;
@@ -2164,7 +2135,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->installmentMonths;
   }
-  
+
   public function setInstallmentPrice($installmentPrice)
   {
     $this->installmentPrice = $installmentPrice;
@@ -2174,7 +2145,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->installmentPrice;
   }
-  
+
   public function setOriginalPrice($originalPrice)
   {
     $this->originalPrice = $originalPrice;
@@ -2184,7 +2155,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->originalPrice;
   }
-  
+
   public function setPrice($price)
   {
     $this->price = $price;
@@ -2194,7 +2165,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->price;
   }
-  
+
   public function setSaleEndDate($saleEndDate)
   {
     $this->saleEndDate = $saleEndDate;
@@ -2204,7 +2175,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->saleEndDate;
   }
-  
+
   public function setSalePrice($salePrice)
   {
     $this->salePrice = $salePrice;
@@ -2214,7 +2185,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->salePrice;
   }
-  
+
   public function setSaleStartDate($saleStartDate)
   {
     $this->saleStartDate = $saleStartDate;
@@ -2224,7 +2195,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->saleStartDate;
   }
-  
+
   public function setShipping($shipping)
   {
     $this->shipping = $shipping;
@@ -2234,7 +2205,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->shipping;
   }
-  
+
   public function setStoreId($storeId)
   {
     $this->storeId = $storeId;
@@ -2244,7 +2215,7 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->storeId;
   }
-  
+
   public function setTax($tax)
   {
     $this->tax = $tax;
@@ -2254,7 +2225,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Inventories extends Goog
   {
     return $this->tax;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelProductJsonV1Variants extends Google_Model
@@ -2271,7 +2241,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Variants extends Google_
   {
     return $this->variant;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelRecommendationsJsonV1 extends Google_Collection
@@ -2289,7 +2258,7 @@ class Google_Service_Shopping_ShoppingModelRecommendationsJsonV1 extends Google_
   {
     return $this->recommendationList;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -2299,7 +2268,6 @@ class Google_Service_Shopping_ShoppingModelRecommendationsJsonV1 extends Google_
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Shopping_ShoppingModelRecommendationsJsonV1RecommendationList extends Google_Model
@@ -2316,5 +2284,4 @@ class Google_Service_Shopping_ShoppingModelRecommendationsJsonV1RecommendationLi
   {
     return $this->product;
   }
-  
 }
