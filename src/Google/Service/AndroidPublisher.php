@@ -31,6 +31,8 @@
  */
 class Google_Service_AndroidPublisher extends Google_Service
 {
+
+
   public $inapppurchases;
   public $purchases;
   
@@ -45,14 +47,7 @@ class Google_Service_AndroidPublisher extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'androidpublisher/v1.1/applications/';
     $this->version = 'v1.1';
-    
     $this->serviceName = 'androidpublisher';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->inapppurchases = new Google_Service_AndroidPublisher_Inapppurchases_Resource(
         $this,
@@ -243,7 +238,7 @@ class Google_Service_AndroidPublisher_InappPurchase extends Google_Model
   {
     return $this->consumptionState;
   }
-  
+
   public function setDeveloperPayload($developerPayload)
   {
     $this->developerPayload = $developerPayload;
@@ -253,7 +248,7 @@ class Google_Service_AndroidPublisher_InappPurchase extends Google_Model
   {
     return $this->developerPayload;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -263,7 +258,7 @@ class Google_Service_AndroidPublisher_InappPurchase extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPurchaseState($purchaseState)
   {
     $this->purchaseState = $purchaseState;
@@ -273,7 +268,7 @@ class Google_Service_AndroidPublisher_InappPurchase extends Google_Model
   {
     return $this->purchaseState;
   }
-  
+
   public function setPurchaseTime($purchaseTime)
   {
     $this->purchaseTime = $purchaseTime;
@@ -283,7 +278,6 @@ class Google_Service_AndroidPublisher_InappPurchase extends Google_Model
   {
     return $this->purchaseTime;
   }
-  
 }
 
 class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
@@ -302,7 +296,7 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   {
     return $this->autoRenewing;
   }
-  
+
   public function setInitiationTimestampMsec($initiationTimestampMsec)
   {
     $this->initiationTimestampMsec = $initiationTimestampMsec;
@@ -312,7 +306,7 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   {
     return $this->initiationTimestampMsec;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -322,7 +316,7 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setValidUntilTimestampMsec($validUntilTimestampMsec)
   {
     $this->validUntilTimestampMsec = $validUntilTimestampMsec;
@@ -332,5 +326,4 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   {
     return $this->validUntilTimestampMsec;
   }
-  
 }
