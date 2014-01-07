@@ -31,6 +31,8 @@
  */
 class Google_Service_DoubleClickBidManager extends Google_Service
 {
+
+
   public $lineitems;
   public $queries;
   public $reports;
@@ -47,14 +49,7 @@ class Google_Service_DoubleClickBidManager extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'doubleclickbidmanager/v1/';
     $this->version = 'v1';
-    
     $this->serviceName = 'doubleclickbidmanager';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->lineitems = new Google_Service_DoubleClickBidManager_Lineitems_Resource(
         $this,
@@ -310,7 +305,7 @@ class Google_Service_DoubleClickBidManager_DownloadLineItemsRequest extends Goog
   {
     return $this->filterIds;
   }
-  
+
   public function setFilterType($filterType)
   {
     $this->filterType = $filterType;
@@ -320,7 +315,7 @@ class Google_Service_DoubleClickBidManager_DownloadLineItemsRequest extends Goog
   {
     return $this->filterType;
   }
-  
+
   public function setFormat($format)
   {
     $this->format = $format;
@@ -330,7 +325,6 @@ class Google_Service_DoubleClickBidManager_DownloadLineItemsRequest extends Goog
   {
     return $this->format;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_DownloadLineItemsResponse extends Google_Model
@@ -346,7 +340,6 @@ class Google_Service_DoubleClickBidManager_DownloadLineItemsResponse extends Goo
   {
     return $this->lineItems;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_FilterPair extends Google_Model
@@ -363,7 +356,7 @@ class Google_Service_DoubleClickBidManager_FilterPair extends Google_Model
   {
     return $this->type;
   }
-  
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -373,7 +366,6 @@ class Google_Service_DoubleClickBidManager_FilterPair extends Google_Model
   {
     return $this->value;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_ListQueriesResponse extends Google_Collection
@@ -391,7 +383,7 @@ class Google_Service_DoubleClickBidManager_ListQueriesResponse extends Google_Co
   {
     return $this->kind;
   }
-  
+
   public function setQueries($queries)
   {
     $this->queries = $queries;
@@ -401,7 +393,6 @@ class Google_Service_DoubleClickBidManager_ListQueriesResponse extends Google_Co
   {
     return $this->queries;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_ListReportsResponse extends Google_Collection
@@ -419,7 +410,7 @@ class Google_Service_DoubleClickBidManager_ListReportsResponse extends Google_Co
   {
     return $this->kind;
   }
-  
+
   public function setReports($reports)
   {
     $this->reports = $reports;
@@ -429,7 +420,6 @@ class Google_Service_DoubleClickBidManager_ListReportsResponse extends Google_Co
   {
     return $this->reports;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_Parameters extends Google_Collection
@@ -450,7 +440,7 @@ class Google_Service_DoubleClickBidManager_Parameters extends Google_Collection
   {
     return $this->filters;
   }
-  
+
   public function setGroupBys($groupBys)
   {
     $this->groupBys = $groupBys;
@@ -460,7 +450,7 @@ class Google_Service_DoubleClickBidManager_Parameters extends Google_Collection
   {
     return $this->groupBys;
   }
-  
+
   public function setIncludeInviteData($includeInviteData)
   {
     $this->includeInviteData = $includeInviteData;
@@ -470,7 +460,7 @@ class Google_Service_DoubleClickBidManager_Parameters extends Google_Collection
   {
     return $this->includeInviteData;
   }
-  
+
   public function setMetrics($metrics)
   {
     $this->metrics = $metrics;
@@ -480,7 +470,7 @@ class Google_Service_DoubleClickBidManager_Parameters extends Google_Collection
   {
     return $this->metrics;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -490,7 +480,6 @@ class Google_Service_DoubleClickBidManager_Parameters extends Google_Collection
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_Query extends Google_Model
@@ -516,7 +505,7 @@ class Google_Service_DoubleClickBidManager_Query extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setMetadata(Google_Service_DoubleClickBidManager_QueryMetadata $metadata)
   {
     $this->metadata = $metadata;
@@ -526,7 +515,7 @@ class Google_Service_DoubleClickBidManager_Query extends Google_Model
   {
     return $this->metadata;
   }
-  
+
   public function setParams(Google_Service_DoubleClickBidManager_Parameters $params)
   {
     $this->params = $params;
@@ -536,7 +525,7 @@ class Google_Service_DoubleClickBidManager_Query extends Google_Model
   {
     return $this->params;
   }
-  
+
   public function setQueryId($queryId)
   {
     $this->queryId = $queryId;
@@ -546,7 +535,7 @@ class Google_Service_DoubleClickBidManager_Query extends Google_Model
   {
     return $this->queryId;
   }
-  
+
   public function setReportDataEndTimeMs($reportDataEndTimeMs)
   {
     $this->reportDataEndTimeMs = $reportDataEndTimeMs;
@@ -556,7 +545,7 @@ class Google_Service_DoubleClickBidManager_Query extends Google_Model
   {
     return $this->reportDataEndTimeMs;
   }
-  
+
   public function setReportDataStartTimeMs($reportDataStartTimeMs)
   {
     $this->reportDataStartTimeMs = $reportDataStartTimeMs;
@@ -566,7 +555,7 @@ class Google_Service_DoubleClickBidManager_Query extends Google_Model
   {
     return $this->reportDataStartTimeMs;
   }
-  
+
   public function setSchedule(Google_Service_DoubleClickBidManager_QuerySchedule $schedule)
   {
     $this->schedule = $schedule;
@@ -576,7 +565,7 @@ class Google_Service_DoubleClickBidManager_Query extends Google_Model
   {
     return $this->schedule;
   }
-  
+
   public function setTimezoneCode($timezoneCode)
   {
     $this->timezoneCode = $timezoneCode;
@@ -586,7 +575,6 @@ class Google_Service_DoubleClickBidManager_Query extends Google_Model
   {
     return $this->timezoneCode;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collection
@@ -611,7 +599,7 @@ class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collecti
   {
     return $this->dataRange;
   }
-  
+
   public function setFormat($format)
   {
     $this->format = $format;
@@ -621,7 +609,7 @@ class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collecti
   {
     return $this->format;
   }
-  
+
   public function setGoogleCloudStoragePathForLatestReport($googleCloudStoragePathForLatestReport)
   {
     $this->googleCloudStoragePathForLatestReport = $googleCloudStoragePathForLatestReport;
@@ -631,7 +619,7 @@ class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collecti
   {
     return $this->googleCloudStoragePathForLatestReport;
   }
-  
+
   public function setGoogleDrivePathForLatestReport($googleDrivePathForLatestReport)
   {
     $this->googleDrivePathForLatestReport = $googleDrivePathForLatestReport;
@@ -641,7 +629,7 @@ class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collecti
   {
     return $this->googleDrivePathForLatestReport;
   }
-  
+
   public function setLatestReportRunTimeMs($latestReportRunTimeMs)
   {
     $this->latestReportRunTimeMs = $latestReportRunTimeMs;
@@ -651,7 +639,7 @@ class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collecti
   {
     return $this->latestReportRunTimeMs;
   }
-  
+
   public function setReportCount($reportCount)
   {
     $this->reportCount = $reportCount;
@@ -661,7 +649,7 @@ class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collecti
   {
     return $this->reportCount;
   }
-  
+
   public function setRunning($running)
   {
     $this->running = $running;
@@ -671,7 +659,7 @@ class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collecti
   {
     return $this->running;
   }
-  
+
   public function setSendNotification($sendNotification)
   {
     $this->sendNotification = $sendNotification;
@@ -681,7 +669,7 @@ class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collecti
   {
     return $this->sendNotification;
   }
-  
+
   public function setShareEmailAddress($shareEmailAddress)
   {
     $this->shareEmailAddress = $shareEmailAddress;
@@ -691,7 +679,7 @@ class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collecti
   {
     return $this->shareEmailAddress;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -701,7 +689,6 @@ class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collecti
   {
     return $this->title;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_QuerySchedule extends Google_Model
@@ -720,7 +707,7 @@ class Google_Service_DoubleClickBidManager_QuerySchedule extends Google_Model
   {
     return $this->endTimeMs;
   }
-  
+
   public function setFrequency($frequency)
   {
     $this->frequency = $frequency;
@@ -730,7 +717,7 @@ class Google_Service_DoubleClickBidManager_QuerySchedule extends Google_Model
   {
     return $this->frequency;
   }
-  
+
   public function setNextRunMinuteOfDay($nextRunMinuteOfDay)
   {
     $this->nextRunMinuteOfDay = $nextRunMinuteOfDay;
@@ -740,7 +727,7 @@ class Google_Service_DoubleClickBidManager_QuerySchedule extends Google_Model
   {
     return $this->nextRunMinuteOfDay;
   }
-  
+
   public function setNextRunTimezoneCode($nextRunTimezoneCode)
   {
     $this->nextRunTimezoneCode = $nextRunTimezoneCode;
@@ -750,7 +737,6 @@ class Google_Service_DoubleClickBidManager_QuerySchedule extends Google_Model
   {
     return $this->nextRunTimezoneCode;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_Report extends Google_Model
@@ -771,7 +757,7 @@ class Google_Service_DoubleClickBidManager_Report extends Google_Model
   {
     return $this->key;
   }
-  
+
   public function setMetadata(Google_Service_DoubleClickBidManager_ReportMetadata $metadata)
   {
     $this->metadata = $metadata;
@@ -781,7 +767,7 @@ class Google_Service_DoubleClickBidManager_Report extends Google_Model
   {
     return $this->metadata;
   }
-  
+
   public function setParams(Google_Service_DoubleClickBidManager_Parameters $params)
   {
     $this->params = $params;
@@ -791,7 +777,6 @@ class Google_Service_DoubleClickBidManager_Report extends Google_Model
   {
     return $this->params;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_ReportFailure extends Google_Model
@@ -807,7 +792,6 @@ class Google_Service_DoubleClickBidManager_ReportFailure extends Google_Model
   {
     return $this->errorCode;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_ReportKey extends Google_Model
@@ -824,7 +808,7 @@ class Google_Service_DoubleClickBidManager_ReportKey extends Google_Model
   {
     return $this->queryId;
   }
-  
+
   public function setReportId($reportId)
   {
     $this->reportId = $reportId;
@@ -834,7 +818,6 @@ class Google_Service_DoubleClickBidManager_ReportKey extends Google_Model
   {
     return $this->reportId;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_ReportMetadata extends Google_Model
@@ -854,7 +837,7 @@ class Google_Service_DoubleClickBidManager_ReportMetadata extends Google_Model
   {
     return $this->googleCloudStoragePath;
   }
-  
+
   public function setReportDataEndTimeMs($reportDataEndTimeMs)
   {
     $this->reportDataEndTimeMs = $reportDataEndTimeMs;
@@ -864,7 +847,7 @@ class Google_Service_DoubleClickBidManager_ReportMetadata extends Google_Model
   {
     return $this->reportDataEndTimeMs;
   }
-  
+
   public function setReportDataStartTimeMs($reportDataStartTimeMs)
   {
     $this->reportDataStartTimeMs = $reportDataStartTimeMs;
@@ -874,7 +857,7 @@ class Google_Service_DoubleClickBidManager_ReportMetadata extends Google_Model
   {
     return $this->reportDataStartTimeMs;
   }
-  
+
   public function setStatus(Google_Service_DoubleClickBidManager_ReportStatus $status)
   {
     $this->status = $status;
@@ -884,7 +867,6 @@ class Google_Service_DoubleClickBidManager_ReportMetadata extends Google_Model
   {
     return $this->status;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_ReportStatus extends Google_Model
@@ -904,7 +886,7 @@ class Google_Service_DoubleClickBidManager_ReportStatus extends Google_Model
   {
     return $this->failure;
   }
-  
+
   public function setFinishTimeMs($finishTimeMs)
   {
     $this->finishTimeMs = $finishTimeMs;
@@ -914,7 +896,7 @@ class Google_Service_DoubleClickBidManager_ReportStatus extends Google_Model
   {
     return $this->finishTimeMs;
   }
-  
+
   public function setFormat($format)
   {
     $this->format = $format;
@@ -924,7 +906,7 @@ class Google_Service_DoubleClickBidManager_ReportStatus extends Google_Model
   {
     return $this->format;
   }
-  
+
   public function setState($state)
   {
     $this->state = $state;
@@ -934,7 +916,6 @@ class Google_Service_DoubleClickBidManager_ReportStatus extends Google_Model
   {
     return $this->state;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_RowStatus extends Google_Collection
@@ -955,7 +936,7 @@ class Google_Service_DoubleClickBidManager_RowStatus extends Google_Collection
   {
     return $this->changed;
   }
-  
+
   public function setEntityId($entityId)
   {
     $this->entityId = $entityId;
@@ -965,7 +946,7 @@ class Google_Service_DoubleClickBidManager_RowStatus extends Google_Collection
   {
     return $this->entityId;
   }
-  
+
   public function setEntityName($entityName)
   {
     $this->entityName = $entityName;
@@ -975,7 +956,7 @@ class Google_Service_DoubleClickBidManager_RowStatus extends Google_Collection
   {
     return $this->entityName;
   }
-  
+
   public function setErrors($errors)
   {
     $this->errors = $errors;
@@ -985,7 +966,7 @@ class Google_Service_DoubleClickBidManager_RowStatus extends Google_Collection
   {
     return $this->errors;
   }
-  
+
   public function setPersisted($persisted)
   {
     $this->persisted = $persisted;
@@ -995,7 +976,7 @@ class Google_Service_DoubleClickBidManager_RowStatus extends Google_Collection
   {
     return $this->persisted;
   }
-  
+
   public function setRowNumber($rowNumber)
   {
     $this->rowNumber = $rowNumber;
@@ -1005,7 +986,6 @@ class Google_Service_DoubleClickBidManager_RowStatus extends Google_Collection
   {
     return $this->rowNumber;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_RunQueryRequest extends Google_Model
@@ -1024,7 +1004,7 @@ class Google_Service_DoubleClickBidManager_RunQueryRequest extends Google_Model
   {
     return $this->dataRange;
   }
-  
+
   public function setReportDataEndTimeMs($reportDataEndTimeMs)
   {
     $this->reportDataEndTimeMs = $reportDataEndTimeMs;
@@ -1034,7 +1014,7 @@ class Google_Service_DoubleClickBidManager_RunQueryRequest extends Google_Model
   {
     return $this->reportDataEndTimeMs;
   }
-  
+
   public function setReportDataStartTimeMs($reportDataStartTimeMs)
   {
     $this->reportDataStartTimeMs = $reportDataStartTimeMs;
@@ -1044,7 +1024,7 @@ class Google_Service_DoubleClickBidManager_RunQueryRequest extends Google_Model
   {
     return $this->reportDataStartTimeMs;
   }
-  
+
   public function setTimezoneCode($timezoneCode)
   {
     $this->timezoneCode = $timezoneCode;
@@ -1054,7 +1034,6 @@ class Google_Service_DoubleClickBidManager_RunQueryRequest extends Google_Model
   {
     return $this->timezoneCode;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_UploadLineItemsRequest extends Google_Model
@@ -1072,7 +1051,7 @@ class Google_Service_DoubleClickBidManager_UploadLineItemsRequest extends Google
   {
     return $this->dryRun;
   }
-  
+
   public function setFormat($format)
   {
     $this->format = $format;
@@ -1082,7 +1061,7 @@ class Google_Service_DoubleClickBidManager_UploadLineItemsRequest extends Google
   {
     return $this->format;
   }
-  
+
   public function setLineItems($lineItems)
   {
     $this->lineItems = $lineItems;
@@ -1092,7 +1071,6 @@ class Google_Service_DoubleClickBidManager_UploadLineItemsRequest extends Google
   {
     return $this->lineItems;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_UploadLineItemsResponse extends Google_Model
@@ -1109,7 +1087,6 @@ class Google_Service_DoubleClickBidManager_UploadLineItemsResponse extends Googl
   {
     return $this->uploadStatus;
   }
-  
 }
 
 class Google_Service_DoubleClickBidManager_UploadStatus extends Google_Collection
@@ -1127,7 +1104,7 @@ class Google_Service_DoubleClickBidManager_UploadStatus extends Google_Collectio
   {
     return $this->errors;
   }
-  
+
   public function setRowStatus($rowStatus)
   {
     $this->rowStatus = $rowStatus;
@@ -1137,5 +1114,4 @@ class Google_Service_DoubleClickBidManager_UploadStatus extends Google_Collectio
   {
     return $this->rowStatus;
   }
-  
 }
