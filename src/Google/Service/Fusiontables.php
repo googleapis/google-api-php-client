@@ -31,6 +31,11 @@
  */
 class Google_Service_Fusiontables extends Google_Service
 {
+  /** Manage your Fusion Tables. */
+  const FUSIONTABLES = "https://www.googleapis.com/auth/fusiontables";
+  /** View your Fusion Tables. */
+  const FUSIONTABLES_READONLY = "https://www.googleapis.com/auth/fusiontables.readonly";
+
   public $column;
   public $query;
   public $style;
@@ -48,19 +53,7 @@ class Google_Service_Fusiontables extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'fusiontables/v1/';
     $this->version = 'v1';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/fusiontables",
-      "https://www.googleapis.com/auth/fusiontables.readonly"
-    );
-    
     $this->serviceName = 'fusiontables';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->column = new Google_Service_Fusiontables_Column_Resource(
         $this,
@@ -1139,7 +1132,7 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   {
     return $this->color;
   }
-  
+
   public function setIcon($icon)
   {
     $this->icon = $icon;
@@ -1149,7 +1142,7 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   {
     return $this->icon;
   }
-  
+
   public function setMax($max)
   {
     $this->max = $max;
@@ -1159,7 +1152,7 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   {
     return $this->max;
   }
-  
+
   public function setMin($min)
   {
     $this->min = $min;
@@ -1169,7 +1162,7 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   {
     return $this->min;
   }
-  
+
   public function setOpacity($opacity)
   {
     $this->opacity = $opacity;
@@ -1179,7 +1172,7 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   {
     return $this->opacity;
   }
-  
+
   public function setWeight($weight)
   {
     $this->weight = $weight;
@@ -1189,7 +1182,6 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   {
     return $this->weight;
   }
-  
 }
 
 class Google_Service_Fusiontables_Column extends Google_Model
@@ -1210,7 +1202,7 @@ class Google_Service_Fusiontables_Column extends Google_Model
   {
     return $this->baseColumn;
   }
-  
+
   public function setColumnId($columnId)
   {
     $this->columnId = $columnId;
@@ -1220,7 +1212,7 @@ class Google_Service_Fusiontables_Column extends Google_Model
   {
     return $this->columnId;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1230,7 +1222,7 @@ class Google_Service_Fusiontables_Column extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -1240,7 +1232,7 @@ class Google_Service_Fusiontables_Column extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -1250,7 +1242,6 @@ class Google_Service_Fusiontables_Column extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Fusiontables_ColumnBaseColumn extends Google_Model
@@ -1267,7 +1258,7 @@ class Google_Service_Fusiontables_ColumnBaseColumn extends Google_Model
   {
     return $this->columnId;
   }
-  
+
   public function setTableIndex($tableIndex)
   {
     $this->tableIndex = $tableIndex;
@@ -1277,7 +1268,6 @@ class Google_Service_Fusiontables_ColumnBaseColumn extends Google_Model
   {
     return $this->tableIndex;
   }
-  
 }
 
 class Google_Service_Fusiontables_ColumnList extends Google_Collection
@@ -1297,7 +1287,7 @@ class Google_Service_Fusiontables_ColumnList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1307,7 +1297,7 @@ class Google_Service_Fusiontables_ColumnList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1317,7 +1307,7 @@ class Google_Service_Fusiontables_ColumnList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -1327,7 +1317,6 @@ class Google_Service_Fusiontables_ColumnList extends Google_Collection
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_Fusiontables_Geometry extends Google_Collection
@@ -1345,7 +1334,7 @@ class Google_Service_Fusiontables_Geometry extends Google_Collection
   {
     return $this->geometries;
   }
-  
+
   public function setGeometry($geometry)
   {
     $this->geometry = $geometry;
@@ -1355,7 +1344,7 @@ class Google_Service_Fusiontables_Geometry extends Google_Collection
   {
     return $this->geometry;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -1365,7 +1354,6 @@ class Google_Service_Fusiontables_Geometry extends Google_Collection
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Fusiontables_Import extends Google_Model
@@ -1382,7 +1370,7 @@ class Google_Service_Fusiontables_Import extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setNumRowsReceived($numRowsReceived)
   {
     $this->numRowsReceived = $numRowsReceived;
@@ -1392,7 +1380,6 @@ class Google_Service_Fusiontables_Import extends Google_Model
   {
     return $this->numRowsReceived;
   }
-  
 }
 
 class Google_Service_Fusiontables_Line extends Google_Collection
@@ -1409,7 +1396,7 @@ class Google_Service_Fusiontables_Line extends Google_Collection
   {
     return $this->coordinates;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -1419,7 +1406,6 @@ class Google_Service_Fusiontables_Line extends Google_Collection
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Fusiontables_LineStyle extends Google_Model
@@ -1441,7 +1427,7 @@ class Google_Service_Fusiontables_LineStyle extends Google_Model
   {
     return $this->strokeColor;
   }
-  
+
   public function setStrokeColorStyler(Google_Service_Fusiontables_StyleFunction $strokeColorStyler)
   {
     $this->strokeColorStyler = $strokeColorStyler;
@@ -1451,7 +1437,7 @@ class Google_Service_Fusiontables_LineStyle extends Google_Model
   {
     return $this->strokeColorStyler;
   }
-  
+
   public function setStrokeOpacity($strokeOpacity)
   {
     $this->strokeOpacity = $strokeOpacity;
@@ -1461,7 +1447,7 @@ class Google_Service_Fusiontables_LineStyle extends Google_Model
   {
     return $this->strokeOpacity;
   }
-  
+
   public function setStrokeWeight($strokeWeight)
   {
     $this->strokeWeight = $strokeWeight;
@@ -1471,7 +1457,7 @@ class Google_Service_Fusiontables_LineStyle extends Google_Model
   {
     return $this->strokeWeight;
   }
-  
+
   public function setStrokeWeightStyler(Google_Service_Fusiontables_StyleFunction $strokeWeightStyler)
   {
     $this->strokeWeightStyler = $strokeWeightStyler;
@@ -1481,7 +1467,6 @@ class Google_Service_Fusiontables_LineStyle extends Google_Model
   {
     return $this->strokeWeightStyler;
   }
-  
 }
 
 class Google_Service_Fusiontables_Point extends Google_Collection
@@ -1498,7 +1483,7 @@ class Google_Service_Fusiontables_Point extends Google_Collection
   {
     return $this->coordinates;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -1508,7 +1493,6 @@ class Google_Service_Fusiontables_Point extends Google_Collection
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Fusiontables_PointStyle extends Google_Model
@@ -1526,7 +1510,7 @@ class Google_Service_Fusiontables_PointStyle extends Google_Model
   {
     return $this->iconName;
   }
-  
+
   public function setIconStyler(Google_Service_Fusiontables_StyleFunction $iconStyler)
   {
     $this->iconStyler = $iconStyler;
@@ -1536,7 +1520,6 @@ class Google_Service_Fusiontables_PointStyle extends Google_Model
   {
     return $this->iconStyler;
   }
-  
 }
 
 class Google_Service_Fusiontables_Polygon extends Google_Collection
@@ -1553,7 +1536,7 @@ class Google_Service_Fusiontables_Polygon extends Google_Collection
   {
     return $this->coordinates;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -1563,7 +1546,6 @@ class Google_Service_Fusiontables_Polygon extends Google_Collection
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Fusiontables_PolygonStyle extends Google_Model
@@ -1589,7 +1571,7 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     return $this->fillColor;
   }
-  
+
   public function setFillColorStyler(Google_Service_Fusiontables_StyleFunction $fillColorStyler)
   {
     $this->fillColorStyler = $fillColorStyler;
@@ -1599,7 +1581,7 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     return $this->fillColorStyler;
   }
-  
+
   public function setFillOpacity($fillOpacity)
   {
     $this->fillOpacity = $fillOpacity;
@@ -1609,7 +1591,7 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     return $this->fillOpacity;
   }
-  
+
   public function setStrokeColor($strokeColor)
   {
     $this->strokeColor = $strokeColor;
@@ -1619,7 +1601,7 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     return $this->strokeColor;
   }
-  
+
   public function setStrokeColorStyler(Google_Service_Fusiontables_StyleFunction $strokeColorStyler)
   {
     $this->strokeColorStyler = $strokeColorStyler;
@@ -1629,7 +1611,7 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     return $this->strokeColorStyler;
   }
-  
+
   public function setStrokeOpacity($strokeOpacity)
   {
     $this->strokeOpacity = $strokeOpacity;
@@ -1639,7 +1621,7 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     return $this->strokeOpacity;
   }
-  
+
   public function setStrokeWeight($strokeWeight)
   {
     $this->strokeWeight = $strokeWeight;
@@ -1649,7 +1631,7 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     return $this->strokeWeight;
   }
-  
+
   public function setStrokeWeightStyler(Google_Service_Fusiontables_StyleFunction $strokeWeightStyler)
   {
     $this->strokeWeightStyler = $strokeWeightStyler;
@@ -1659,7 +1641,6 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     return $this->strokeWeightStyler;
   }
-  
 }
 
 class Google_Service_Fusiontables_Sqlresponse extends Google_Collection
@@ -1677,7 +1658,7 @@ class Google_Service_Fusiontables_Sqlresponse extends Google_Collection
   {
     return $this->columns;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1687,7 +1668,7 @@ class Google_Service_Fusiontables_Sqlresponse extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setRows($rows)
   {
     $this->rows = $rows;
@@ -1697,7 +1678,6 @@ class Google_Service_Fusiontables_Sqlresponse extends Google_Collection
   {
     return $this->rows;
   }
-  
 }
 
 class Google_Service_Fusiontables_StyleFunction extends Google_Collection
@@ -1718,7 +1698,7 @@ class Google_Service_Fusiontables_StyleFunction extends Google_Collection
   {
     return $this->buckets;
   }
-  
+
   public function setColumnName($columnName)
   {
     $this->columnName = $columnName;
@@ -1728,7 +1708,7 @@ class Google_Service_Fusiontables_StyleFunction extends Google_Collection
   {
     return $this->columnName;
   }
-  
+
   public function setGradient(Google_Service_Fusiontables_StyleFunctionGradient $gradient)
   {
     $this->gradient = $gradient;
@@ -1738,7 +1718,7 @@ class Google_Service_Fusiontables_StyleFunction extends Google_Collection
   {
     return $this->gradient;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1748,7 +1728,6 @@ class Google_Service_Fusiontables_StyleFunction extends Google_Collection
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Fusiontables_StyleFunctionGradient extends Google_Collection
@@ -1767,7 +1746,7 @@ class Google_Service_Fusiontables_StyleFunctionGradient extends Google_Collectio
   {
     return $this->colors;
   }
-  
+
   public function setMax($max)
   {
     $this->max = $max;
@@ -1777,7 +1756,7 @@ class Google_Service_Fusiontables_StyleFunctionGradient extends Google_Collectio
   {
     return $this->max;
   }
-  
+
   public function setMin($min)
   {
     $this->min = $min;
@@ -1787,7 +1766,6 @@ class Google_Service_Fusiontables_StyleFunctionGradient extends Google_Collectio
   {
     return $this->min;
   }
-  
 }
 
 class Google_Service_Fusiontables_StyleFunctionGradientColors extends Google_Model
@@ -1804,7 +1782,7 @@ class Google_Service_Fusiontables_StyleFunctionGradientColors extends Google_Mod
   {
     return $this->color;
   }
-  
+
   public function setOpacity($opacity)
   {
     $this->opacity = $opacity;
@@ -1814,7 +1792,6 @@ class Google_Service_Fusiontables_StyleFunctionGradientColors extends Google_Mod
   {
     return $this->opacity;
   }
-  
 }
 
 class Google_Service_Fusiontables_StyleSetting extends Google_Model
@@ -1839,7 +1816,7 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setMarkerOptions(Google_Service_Fusiontables_PointStyle $markerOptions)
   {
     $this->markerOptions = $markerOptions;
@@ -1849,7 +1826,7 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     return $this->markerOptions;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -1859,7 +1836,7 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setPolygonOptions(Google_Service_Fusiontables_PolygonStyle $polygonOptions)
   {
     $this->polygonOptions = $polygonOptions;
@@ -1869,7 +1846,7 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     return $this->polygonOptions;
   }
-  
+
   public function setPolylineOptions(Google_Service_Fusiontables_LineStyle $polylineOptions)
   {
     $this->polylineOptions = $polylineOptions;
@@ -1879,7 +1856,7 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     return $this->polylineOptions;
   }
-  
+
   public function setStyleId($styleId)
   {
     $this->styleId = $styleId;
@@ -1889,7 +1866,7 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     return $this->styleId;
   }
-  
+
   public function setTableId($tableId)
   {
     $this->tableId = $tableId;
@@ -1899,7 +1876,6 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     return $this->tableId;
   }
-  
 }
 
 class Google_Service_Fusiontables_StyleSettingList extends Google_Collection
@@ -1919,7 +1895,7 @@ class Google_Service_Fusiontables_StyleSettingList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1929,7 +1905,7 @@ class Google_Service_Fusiontables_StyleSettingList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1939,7 +1915,7 @@ class Google_Service_Fusiontables_StyleSettingList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -1949,7 +1925,6 @@ class Google_Service_Fusiontables_StyleSettingList extends Google_Collection
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_Fusiontables_Table extends Google_Collection
@@ -1975,7 +1950,7 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     return $this->attribution;
   }
-  
+
   public function setAttributionLink($attributionLink)
   {
     $this->attributionLink = $attributionLink;
@@ -1985,7 +1960,7 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     return $this->attributionLink;
   }
-  
+
   public function setBaseTableIds($baseTableIds)
   {
     $this->baseTableIds = $baseTableIds;
@@ -1995,7 +1970,7 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     return $this->baseTableIds;
   }
-  
+
   public function setColumns($columns)
   {
     $this->columns = $columns;
@@ -2005,7 +1980,7 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     return $this->columns;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -2015,7 +1990,7 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     return $this->description;
   }
-  
+
   public function setIsExportable($isExportable)
   {
     $this->isExportable = $isExportable;
@@ -2025,7 +2000,7 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     return $this->isExportable;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2035,7 +2010,7 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -2045,7 +2020,7 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     return $this->name;
   }
-  
+
   public function setSql($sql)
   {
     $this->sql = $sql;
@@ -2055,7 +2030,7 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     return $this->sql;
   }
-  
+
   public function setTableId($tableId)
   {
     $this->tableId = $tableId;
@@ -2065,7 +2040,6 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     return $this->tableId;
   }
-  
 }
 
 class Google_Service_Fusiontables_TableList extends Google_Collection
@@ -2084,7 +2058,7 @@ class Google_Service_Fusiontables_TableList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2094,7 +2068,7 @@ class Google_Service_Fusiontables_TableList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2104,7 +2078,6 @@ class Google_Service_Fusiontables_TableList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
 }
 
 class Google_Service_Fusiontables_Template extends Google_Collection
@@ -2125,7 +2098,7 @@ class Google_Service_Fusiontables_Template extends Google_Collection
   {
     return $this->automaticColumnNames;
   }
-  
+
   public function setBody($body)
   {
     $this->body = $body;
@@ -2135,7 +2108,7 @@ class Google_Service_Fusiontables_Template extends Google_Collection
   {
     return $this->body;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2145,7 +2118,7 @@ class Google_Service_Fusiontables_Template extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -2155,7 +2128,7 @@ class Google_Service_Fusiontables_Template extends Google_Collection
   {
     return $this->name;
   }
-  
+
   public function setTableId($tableId)
   {
     $this->tableId = $tableId;
@@ -2165,7 +2138,7 @@ class Google_Service_Fusiontables_Template extends Google_Collection
   {
     return $this->tableId;
   }
-  
+
   public function setTemplateId($templateId)
   {
     $this->templateId = $templateId;
@@ -2175,7 +2148,6 @@ class Google_Service_Fusiontables_Template extends Google_Collection
   {
     return $this->templateId;
   }
-  
 }
 
 class Google_Service_Fusiontables_TemplateList extends Google_Collection
@@ -2195,7 +2167,7 @@ class Google_Service_Fusiontables_TemplateList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2205,7 +2177,7 @@ class Google_Service_Fusiontables_TemplateList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2215,7 +2187,7 @@ class Google_Service_Fusiontables_TemplateList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -2225,5 +2197,4 @@ class Google_Service_Fusiontables_TemplateList extends Google_Collection
   {
     return $this->totalItems;
   }
-  
 }
