@@ -31,6 +31,11 @@
  */
 class Google_Service_Taskqueue extends Google_Service
 {
+  /** Manage your Tasks and Taskqueues. */
+  const TASKQUEUE = "https://www.googleapis.com/auth/taskqueue";
+  /** Consume Tasks from your Taskqueues. */
+  const TASKQUEUE_CONSUMER = "https://www.googleapis.com/auth/taskqueue.consumer";
+
   public $taskqueues;
   public $tasks;
   
@@ -45,19 +50,7 @@ class Google_Service_Taskqueue extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'taskqueue/v1beta2/projects/';
     $this->version = 'v1beta2';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/taskqueue",
-      "https://www.googleapis.com/auth/taskqueue.consumer"
-    );
-    
     $this->serviceName = 'taskqueue';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->taskqueues = new Google_Service_Taskqueue_Taskqueues_Resource(
         $this,
@@ -461,7 +454,7 @@ class Google_Service_Taskqueue_Task extends Google_Model
   {
     return $this->enqueueTimestamp;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -471,7 +464,7 @@ class Google_Service_Taskqueue_Task extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -481,7 +474,7 @@ class Google_Service_Taskqueue_Task extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setLeaseTimestamp($leaseTimestamp)
   {
     $this->leaseTimestamp = $leaseTimestamp;
@@ -491,7 +484,7 @@ class Google_Service_Taskqueue_Task extends Google_Model
   {
     return $this->leaseTimestamp;
   }
-  
+
   public function setPayloadBase64($payloadBase64)
   {
     $this->payloadBase64 = $payloadBase64;
@@ -501,7 +494,7 @@ class Google_Service_Taskqueue_Task extends Google_Model
   {
     return $this->payloadBase64;
   }
-  
+
   public function setQueueName($queueName)
   {
     $this->queueName = $queueName;
@@ -511,7 +504,7 @@ class Google_Service_Taskqueue_Task extends Google_Model
   {
     return $this->queueName;
   }
-  
+
   public function setRetryCount($retryCount)
   {
     $this->retryCount = $retryCount;
@@ -521,7 +514,7 @@ class Google_Service_Taskqueue_Task extends Google_Model
   {
     return $this->retryCount;
   }
-  
+
   public function setTag($tag)
   {
     $this->tag = $tag;
@@ -531,7 +524,6 @@ class Google_Service_Taskqueue_Task extends Google_Model
   {
     return $this->tag;
   }
-  
 }
 
 class Google_Service_Taskqueue_TaskQueue extends Google_Model
@@ -553,7 +545,7 @@ class Google_Service_Taskqueue_TaskQueue extends Google_Model
   {
     return $this->acl;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -563,7 +555,7 @@ class Google_Service_Taskqueue_TaskQueue extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -573,7 +565,7 @@ class Google_Service_Taskqueue_TaskQueue extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setMaxLeases($maxLeases)
   {
     $this->maxLeases = $maxLeases;
@@ -583,7 +575,7 @@ class Google_Service_Taskqueue_TaskQueue extends Google_Model
   {
     return $this->maxLeases;
   }
-  
+
   public function setStats(Google_Service_Taskqueue_TaskQueueStats $stats)
   {
     $this->stats = $stats;
@@ -593,7 +585,6 @@ class Google_Service_Taskqueue_TaskQueue extends Google_Model
   {
     return $this->stats;
   }
-  
 }
 
 class Google_Service_Taskqueue_TaskQueueAcl extends Google_Collection
@@ -611,7 +602,7 @@ class Google_Service_Taskqueue_TaskQueueAcl extends Google_Collection
   {
     return $this->adminEmails;
   }
-  
+
   public function setConsumerEmails($consumerEmails)
   {
     $this->consumerEmails = $consumerEmails;
@@ -621,7 +612,7 @@ class Google_Service_Taskqueue_TaskQueueAcl extends Google_Collection
   {
     return $this->consumerEmails;
   }
-  
+
   public function setProducerEmails($producerEmails)
   {
     $this->producerEmails = $producerEmails;
@@ -631,7 +622,6 @@ class Google_Service_Taskqueue_TaskQueueAcl extends Google_Collection
   {
     return $this->producerEmails;
   }
-  
 }
 
 class Google_Service_Taskqueue_TaskQueueStats extends Google_Model
@@ -650,7 +640,7 @@ class Google_Service_Taskqueue_TaskQueueStats extends Google_Model
   {
     return $this->leasedLastHour;
   }
-  
+
   public function setLeasedLastMinute($leasedLastMinute)
   {
     $this->leasedLastMinute = $leasedLastMinute;
@@ -660,7 +650,7 @@ class Google_Service_Taskqueue_TaskQueueStats extends Google_Model
   {
     return $this->leasedLastMinute;
   }
-  
+
   public function setOldestTask($oldestTask)
   {
     $this->oldestTask = $oldestTask;
@@ -670,7 +660,7 @@ class Google_Service_Taskqueue_TaskQueueStats extends Google_Model
   {
     return $this->oldestTask;
   }
-  
+
   public function setTotalTasks($totalTasks)
   {
     $this->totalTasks = $totalTasks;
@@ -680,7 +670,6 @@ class Google_Service_Taskqueue_TaskQueueStats extends Google_Model
   {
     return $this->totalTasks;
   }
-  
 }
 
 class Google_Service_Taskqueue_Tasks extends Google_Collection
@@ -698,7 +687,7 @@ class Google_Service_Taskqueue_Tasks extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -708,7 +697,6 @@ class Google_Service_Taskqueue_Tasks extends Google_Collection
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Taskqueue_Tasks2 extends Google_Collection
@@ -726,7 +714,7 @@ class Google_Service_Taskqueue_Tasks2 extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -736,5 +724,4 @@ class Google_Service_Taskqueue_Tasks2 extends Google_Collection
   {
     return $this->kind;
   }
-  
 }
