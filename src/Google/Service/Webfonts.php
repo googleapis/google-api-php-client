@@ -31,6 +31,8 @@
  */
 class Google_Service_Webfonts extends Google_Service
 {
+
+
   public $webfonts;
   
 
@@ -44,14 +46,7 @@ class Google_Service_Webfonts extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'webfonts/v1/';
     $this->version = 'v1';
-    
     $this->serviceName = 'webfonts';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->webfonts = new Google_Service_Webfonts_Webfonts_Resource(
         $this,
@@ -127,7 +122,7 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     return $this->family;
   }
-  
+
   public function setFiles($files)
   {
     $this->files = $files;
@@ -137,7 +132,7 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     return $this->files;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -147,7 +142,7 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLastModified($lastModified)
   {
     $this->lastModified = $lastModified;
@@ -157,7 +152,7 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     return $this->lastModified;
   }
-  
+
   public function setSubsets($subsets)
   {
     $this->subsets = $subsets;
@@ -167,7 +162,7 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     return $this->subsets;
   }
-  
+
   public function setVariants($variants)
   {
     $this->variants = $variants;
@@ -177,7 +172,7 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     return $this->variants;
   }
-  
+
   public function setVersion($version)
   {
     $this->version = $version;
@@ -187,7 +182,6 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     return $this->version;
   }
-  
 }
 
 class Google_Service_Webfonts_WebfontList extends Google_Collection
@@ -205,7 +199,7 @@ class Google_Service_Webfonts_WebfontList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -215,5 +209,4 @@ class Google_Service_Webfonts_WebfontList extends Google_Collection
   {
     return $this->kind;
   }
-  
 }
