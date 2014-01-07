@@ -31,6 +31,11 @@
  */
 class Google_Service_Calendar extends Google_Service
 {
+  /** Manage your calendars. */
+  const CALENDAR = "https://www.googleapis.com/auth/calendar";
+  /** View your calendars. */
+  const CALENDAR_READONLY = "https://www.googleapis.com/auth/calendar.readonly";
+
   public $acl;
   public $calendarList;
   public $calendars;
@@ -51,19 +56,7 @@ class Google_Service_Calendar extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'calendar/v3/';
     $this->version = 'v3';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/calendar.readonly",
-      "https://www.googleapis.com/auth/calendar"
-    );
-    
     $this->serviceName = 'calendar';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->acl = new Google_Service_Calendar_Acl_Resource(
         $this,
@@ -1595,7 +1588,7 @@ class Google_Service_Calendar_Acl extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -1605,7 +1598,7 @@ class Google_Service_Calendar_Acl extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1615,7 +1608,7 @@ class Google_Service_Calendar_Acl extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1625,7 +1618,6 @@ class Google_Service_Calendar_Acl extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
 }
 
 class Google_Service_Calendar_AclRule extends Google_Model
@@ -1646,7 +1638,7 @@ class Google_Service_Calendar_AclRule extends Google_Model
   {
     return $this->etag;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -1656,7 +1648,7 @@ class Google_Service_Calendar_AclRule extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1666,7 +1658,7 @@ class Google_Service_Calendar_AclRule extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setRole($role)
   {
     $this->role = $role;
@@ -1676,7 +1668,7 @@ class Google_Service_Calendar_AclRule extends Google_Model
   {
     return $this->role;
   }
-  
+
   public function setScope(Google_Service_Calendar_AclRuleScope $scope)
   {
     $this->scope = $scope;
@@ -1686,7 +1678,6 @@ class Google_Service_Calendar_AclRule extends Google_Model
   {
     return $this->scope;
   }
-  
 }
 
 class Google_Service_Calendar_AclRuleScope extends Google_Model
@@ -1703,7 +1694,7 @@ class Google_Service_Calendar_AclRuleScope extends Google_Model
   {
     return $this->type;
   }
-  
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -1713,7 +1704,6 @@ class Google_Service_Calendar_AclRuleScope extends Google_Model
   {
     return $this->value;
   }
-  
 }
 
 class Google_Service_Calendar_Calendar extends Google_Model
@@ -1735,7 +1725,7 @@ class Google_Service_Calendar_Calendar extends Google_Model
   {
     return $this->description;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -1745,7 +1735,7 @@ class Google_Service_Calendar_Calendar extends Google_Model
   {
     return $this->etag;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -1755,7 +1745,7 @@ class Google_Service_Calendar_Calendar extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1765,7 +1755,7 @@ class Google_Service_Calendar_Calendar extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setLocation($location)
   {
     $this->location = $location;
@@ -1775,7 +1765,7 @@ class Google_Service_Calendar_Calendar extends Google_Model
   {
     return $this->location;
   }
-  
+
   public function setSummary($summary)
   {
     $this->summary = $summary;
@@ -1785,7 +1775,7 @@ class Google_Service_Calendar_Calendar extends Google_Model
   {
     return $this->summary;
   }
-  
+
   public function setTimeZone($timeZone)
   {
     $this->timeZone = $timeZone;
@@ -1795,7 +1785,6 @@ class Google_Service_Calendar_Calendar extends Google_Model
   {
     return $this->timeZone;
   }
-  
 }
 
 class Google_Service_Calendar_CalendarList extends Google_Collection
@@ -1815,7 +1804,7 @@ class Google_Service_Calendar_CalendarList extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -1825,7 +1814,7 @@ class Google_Service_Calendar_CalendarList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1835,7 +1824,7 @@ class Google_Service_Calendar_CalendarList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1845,7 +1834,6 @@ class Google_Service_Calendar_CalendarList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
 }
 
 class Google_Service_Calendar_CalendarListEntry extends Google_Collection
@@ -1877,7 +1865,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->accessRole;
   }
-  
+
   public function setBackgroundColor($backgroundColor)
   {
     $this->backgroundColor = $backgroundColor;
@@ -1887,7 +1875,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->backgroundColor;
   }
-  
+
   public function setColorId($colorId)
   {
     $this->colorId = $colorId;
@@ -1897,7 +1885,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->colorId;
   }
-  
+
   public function setDefaultReminders($defaultReminders)
   {
     $this->defaultReminders = $defaultReminders;
@@ -1907,7 +1895,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->defaultReminders;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -1917,7 +1905,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->description;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -1927,7 +1915,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setForegroundColor($foregroundColor)
   {
     $this->foregroundColor = $foregroundColor;
@@ -1937,7 +1925,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->foregroundColor;
   }
-  
+
   public function setHidden($hidden)
   {
     $this->hidden = $hidden;
@@ -1947,7 +1935,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->hidden;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -1957,7 +1945,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1967,7 +1955,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLocation($location)
   {
     $this->location = $location;
@@ -1977,7 +1965,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->location;
   }
-  
+
   public function setPrimary($primary)
   {
     $this->primary = $primary;
@@ -1987,7 +1975,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->primary;
   }
-  
+
   public function setSelected($selected)
   {
     $this->selected = $selected;
@@ -1997,7 +1985,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->selected;
   }
-  
+
   public function setSummary($summary)
   {
     $this->summary = $summary;
@@ -2007,7 +1995,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->summary;
   }
-  
+
   public function setSummaryOverride($summaryOverride)
   {
     $this->summaryOverride = $summaryOverride;
@@ -2017,7 +2005,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->summaryOverride;
   }
-  
+
   public function setTimeZone($timeZone)
   {
     $this->timeZone = $timeZone;
@@ -2027,7 +2015,6 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   {
     return $this->timeZone;
   }
-  
 }
 
 class Google_Service_Calendar_Channel extends Google_Model
@@ -2052,7 +2039,7 @@ class Google_Service_Calendar_Channel extends Google_Model
   {
     return $this->address;
   }
-  
+
   public function setExpiration($expiration)
   {
     $this->expiration = $expiration;
@@ -2062,7 +2049,7 @@ class Google_Service_Calendar_Channel extends Google_Model
   {
     return $this->expiration;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2072,7 +2059,7 @@ class Google_Service_Calendar_Channel extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2082,7 +2069,7 @@ class Google_Service_Calendar_Channel extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setParams($params)
   {
     $this->params = $params;
@@ -2092,7 +2079,7 @@ class Google_Service_Calendar_Channel extends Google_Model
   {
     return $this->params;
   }
-  
+
   public function setPayload($payload)
   {
     $this->payload = $payload;
@@ -2102,7 +2089,7 @@ class Google_Service_Calendar_Channel extends Google_Model
   {
     return $this->payload;
   }
-  
+
   public function setResourceId($resourceId)
   {
     $this->resourceId = $resourceId;
@@ -2112,7 +2099,7 @@ class Google_Service_Calendar_Channel extends Google_Model
   {
     return $this->resourceId;
   }
-  
+
   public function setResourceUri($resourceUri)
   {
     $this->resourceUri = $resourceUri;
@@ -2122,7 +2109,7 @@ class Google_Service_Calendar_Channel extends Google_Model
   {
     return $this->resourceUri;
   }
-  
+
   public function setToken($token)
   {
     $this->token = $token;
@@ -2132,7 +2119,7 @@ class Google_Service_Calendar_Channel extends Google_Model
   {
     return $this->token;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -2142,7 +2129,6 @@ class Google_Service_Calendar_Channel extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Calendar_ColorDefinition extends Google_Model
@@ -2159,7 +2145,7 @@ class Google_Service_Calendar_ColorDefinition extends Google_Model
   {
     return $this->background;
   }
-  
+
   public function setForeground($foreground)
   {
     $this->foreground = $foreground;
@@ -2169,7 +2155,6 @@ class Google_Service_Calendar_ColorDefinition extends Google_Model
   {
     return $this->foreground;
   }
-  
 }
 
 class Google_Service_Calendar_Colors extends Google_Model
@@ -2190,7 +2175,7 @@ class Google_Service_Calendar_Colors extends Google_Model
   {
     return $this->calendar;
   }
-  
+
   public function setEvent($event)
   {
     $this->event = $event;
@@ -2200,7 +2185,7 @@ class Google_Service_Calendar_Colors extends Google_Model
   {
     return $this->event;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2210,7 +2195,7 @@ class Google_Service_Calendar_Colors extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -2220,7 +2205,6 @@ class Google_Service_Calendar_Colors extends Google_Model
   {
     return $this->updated;
   }
-  
 }
 
 class Google_Service_Calendar_Error extends Google_Model
@@ -2237,7 +2221,7 @@ class Google_Service_Calendar_Error extends Google_Model
   {
     return $this->domain;
   }
-  
+
   public function setReason($reason)
   {
     $this->reason = $reason;
@@ -2247,7 +2231,6 @@ class Google_Service_Calendar_Error extends Google_Model
   {
     return $this->reason;
   }
-  
 }
 
 class Google_Service_Calendar_Event extends Google_Collection
@@ -2308,7 +2291,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->anyoneCanAddSelf;
   }
-  
+
   public function setAttendees($attendees)
   {
     $this->attendees = $attendees;
@@ -2318,7 +2301,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->attendees;
   }
-  
+
   public function setAttendeesOmitted($attendeesOmitted)
   {
     $this->attendeesOmitted = $attendeesOmitted;
@@ -2328,7 +2311,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->attendeesOmitted;
   }
-  
+
   public function setColorId($colorId)
   {
     $this->colorId = $colorId;
@@ -2338,7 +2321,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->colorId;
   }
-  
+
   public function setCreated($created)
   {
     $this->created = $created;
@@ -2348,7 +2331,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->created;
   }
-  
+
   public function setCreator(Google_Service_Calendar_EventCreator $creator)
   {
     $this->creator = $creator;
@@ -2358,7 +2341,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->creator;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -2368,7 +2351,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->description;
   }
-  
+
   public function setEnd(Google_Service_Calendar_EventDateTime $end)
   {
     $this->end = $end;
@@ -2378,7 +2361,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->end;
   }
-  
+
   public function setEndTimeUnspecified($endTimeUnspecified)
   {
     $this->endTimeUnspecified = $endTimeUnspecified;
@@ -2388,7 +2371,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->endTimeUnspecified;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -2398,7 +2381,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setExtendedProperties(Google_Service_Calendar_EventExtendedProperties $extendedProperties)
   {
     $this->extendedProperties = $extendedProperties;
@@ -2408,7 +2391,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->extendedProperties;
   }
-  
+
   public function setGadget(Google_Service_Calendar_EventGadget $gadget)
   {
     $this->gadget = $gadget;
@@ -2418,7 +2401,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->gadget;
   }
-  
+
   public function setGuestsCanInviteOthers($guestsCanInviteOthers)
   {
     $this->guestsCanInviteOthers = $guestsCanInviteOthers;
@@ -2428,7 +2411,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->guestsCanInviteOthers;
   }
-  
+
   public function setGuestsCanModify($guestsCanModify)
   {
     $this->guestsCanModify = $guestsCanModify;
@@ -2438,7 +2421,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->guestsCanModify;
   }
-  
+
   public function setGuestsCanSeeOtherGuests($guestsCanSeeOtherGuests)
   {
     $this->guestsCanSeeOtherGuests = $guestsCanSeeOtherGuests;
@@ -2448,7 +2431,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->guestsCanSeeOtherGuests;
   }
-  
+
   public function setHangoutLink($hangoutLink)
   {
     $this->hangoutLink = $hangoutLink;
@@ -2458,7 +2441,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->hangoutLink;
   }
-  
+
   public function setHtmlLink($htmlLink)
   {
     $this->htmlLink = $htmlLink;
@@ -2468,7 +2451,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->htmlLink;
   }
-  
+
   public function setICalUID($iCalUID)
   {
     $this->iCalUID = $iCalUID;
@@ -2478,7 +2461,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->iCalUID;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2488,7 +2471,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2498,7 +2481,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLocation($location)
   {
     $this->location = $location;
@@ -2508,7 +2491,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->location;
   }
-  
+
   public function setLocked($locked)
   {
     $this->locked = $locked;
@@ -2518,7 +2501,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->locked;
   }
-  
+
   public function setOrganizer(Google_Service_Calendar_EventOrganizer $organizer)
   {
     $this->organizer = $organizer;
@@ -2528,7 +2511,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->organizer;
   }
-  
+
   public function setOriginalStartTime(Google_Service_Calendar_EventDateTime $originalStartTime)
   {
     $this->originalStartTime = $originalStartTime;
@@ -2538,7 +2521,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->originalStartTime;
   }
-  
+
   public function setPrivateCopy($privateCopy)
   {
     $this->privateCopy = $privateCopy;
@@ -2548,7 +2531,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->privateCopy;
   }
-  
+
   public function setRecurrence($recurrence)
   {
     $this->recurrence = $recurrence;
@@ -2558,7 +2541,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->recurrence;
   }
-  
+
   public function setRecurringEventId($recurringEventId)
   {
     $this->recurringEventId = $recurringEventId;
@@ -2568,7 +2551,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->recurringEventId;
   }
-  
+
   public function setReminders(Google_Service_Calendar_EventReminders $reminders)
   {
     $this->reminders = $reminders;
@@ -2578,7 +2561,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->reminders;
   }
-  
+
   public function setSequence($sequence)
   {
     $this->sequence = $sequence;
@@ -2588,7 +2571,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->sequence;
   }
-  
+
   public function setSource(Google_Service_Calendar_EventSource $source)
   {
     $this->source = $source;
@@ -2598,7 +2581,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->source;
   }
-  
+
   public function setStart(Google_Service_Calendar_EventDateTime $start)
   {
     $this->start = $start;
@@ -2608,7 +2591,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->start;
   }
-  
+
   public function setStatus($status)
   {
     $this->status = $status;
@@ -2618,7 +2601,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->status;
   }
-  
+
   public function setSummary($summary)
   {
     $this->summary = $summary;
@@ -2628,7 +2611,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->summary;
   }
-  
+
   public function setTransparency($transparency)
   {
     $this->transparency = $transparency;
@@ -2638,7 +2621,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->transparency;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -2648,7 +2631,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->updated;
   }
-  
+
   public function setVisibility($visibility)
   {
     $this->visibility = $visibility;
@@ -2658,7 +2641,6 @@ class Google_Service_Calendar_Event extends Google_Collection
   {
     return $this->visibility;
   }
-  
 }
 
 class Google_Service_Calendar_EventAttendee extends Google_Model
@@ -2683,7 +2665,7 @@ class Google_Service_Calendar_EventAttendee extends Google_Model
   {
     return $this->additionalGuests;
   }
-  
+
   public function setComment($comment)
   {
     $this->comment = $comment;
@@ -2693,7 +2675,7 @@ class Google_Service_Calendar_EventAttendee extends Google_Model
   {
     return $this->comment;
   }
-  
+
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -2703,7 +2685,7 @@ class Google_Service_Calendar_EventAttendee extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setEmail($email)
   {
     $this->email = $email;
@@ -2713,7 +2695,7 @@ class Google_Service_Calendar_EventAttendee extends Google_Model
   {
     return $this->email;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2723,7 +2705,7 @@ class Google_Service_Calendar_EventAttendee extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setOptional($optional)
   {
     $this->optional = $optional;
@@ -2733,7 +2715,7 @@ class Google_Service_Calendar_EventAttendee extends Google_Model
   {
     return $this->optional;
   }
-  
+
   public function setOrganizer($organizer)
   {
     $this->organizer = $organizer;
@@ -2743,7 +2725,7 @@ class Google_Service_Calendar_EventAttendee extends Google_Model
   {
     return $this->organizer;
   }
-  
+
   public function setResource($resource)
   {
     $this->resource = $resource;
@@ -2753,7 +2735,7 @@ class Google_Service_Calendar_EventAttendee extends Google_Model
   {
     return $this->resource;
   }
-  
+
   public function setResponseStatus($responseStatus)
   {
     $this->responseStatus = $responseStatus;
@@ -2763,7 +2745,7 @@ class Google_Service_Calendar_EventAttendee extends Google_Model
   {
     return $this->responseStatus;
   }
-  
+
   public function setSelf($self)
   {
     $this->self = $self;
@@ -2773,7 +2755,6 @@ class Google_Service_Calendar_EventAttendee extends Google_Model
   {
     return $this->self;
   }
-  
 }
 
 class Google_Service_Calendar_EventCreator extends Google_Model
@@ -2792,7 +2773,7 @@ class Google_Service_Calendar_EventCreator extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setEmail($email)
   {
     $this->email = $email;
@@ -2802,7 +2783,7 @@ class Google_Service_Calendar_EventCreator extends Google_Model
   {
     return $this->email;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2812,7 +2793,7 @@ class Google_Service_Calendar_EventCreator extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setSelf($self)
   {
     $this->self = $self;
@@ -2822,7 +2803,6 @@ class Google_Service_Calendar_EventCreator extends Google_Model
   {
     return $this->self;
   }
-  
 }
 
 class Google_Service_Calendar_EventDateTime extends Google_Model
@@ -2840,7 +2820,7 @@ class Google_Service_Calendar_EventDateTime extends Google_Model
   {
     return $this->date;
   }
-  
+
   public function setDateTime($dateTime)
   {
     $this->dateTime = $dateTime;
@@ -2850,7 +2830,7 @@ class Google_Service_Calendar_EventDateTime extends Google_Model
   {
     return $this->dateTime;
   }
-  
+
   public function setTimeZone($timeZone)
   {
     $this->timeZone = $timeZone;
@@ -2860,7 +2840,6 @@ class Google_Service_Calendar_EventDateTime extends Google_Model
   {
     return $this->timeZone;
   }
-  
 }
 
 class Google_Service_Calendar_EventExtendedProperties extends Google_Model
@@ -2877,7 +2856,7 @@ class Google_Service_Calendar_EventExtendedProperties extends Google_Model
   {
     return $this->private;
   }
-  
+
   public function setShared($shared)
   {
     $this->shared = $shared;
@@ -2887,7 +2866,6 @@ class Google_Service_Calendar_EventExtendedProperties extends Google_Model
   {
     return $this->shared;
   }
-  
 }
 
 class Google_Service_Calendar_EventGadget extends Google_Model
@@ -2910,7 +2888,7 @@ class Google_Service_Calendar_EventGadget extends Google_Model
   {
     return $this->display;
   }
-  
+
   public function setHeight($height)
   {
     $this->height = $height;
@@ -2920,7 +2898,7 @@ class Google_Service_Calendar_EventGadget extends Google_Model
   {
     return $this->height;
   }
-  
+
   public function setIconLink($iconLink)
   {
     $this->iconLink = $iconLink;
@@ -2930,7 +2908,7 @@ class Google_Service_Calendar_EventGadget extends Google_Model
   {
     return $this->iconLink;
   }
-  
+
   public function setLink($link)
   {
     $this->link = $link;
@@ -2940,7 +2918,7 @@ class Google_Service_Calendar_EventGadget extends Google_Model
   {
     return $this->link;
   }
-  
+
   public function setPreferences($preferences)
   {
     $this->preferences = $preferences;
@@ -2950,7 +2928,7 @@ class Google_Service_Calendar_EventGadget extends Google_Model
   {
     return $this->preferences;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -2960,7 +2938,7 @@ class Google_Service_Calendar_EventGadget extends Google_Model
   {
     return $this->title;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -2970,7 +2948,7 @@ class Google_Service_Calendar_EventGadget extends Google_Model
   {
     return $this->type;
   }
-  
+
   public function setWidth($width)
   {
     $this->width = $width;
@@ -2980,7 +2958,6 @@ class Google_Service_Calendar_EventGadget extends Google_Model
   {
     return $this->width;
   }
-  
 }
 
 class Google_Service_Calendar_EventOrganizer extends Google_Model
@@ -2999,7 +2976,7 @@ class Google_Service_Calendar_EventOrganizer extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setEmail($email)
   {
     $this->email = $email;
@@ -3009,7 +2986,7 @@ class Google_Service_Calendar_EventOrganizer extends Google_Model
   {
     return $this->email;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3019,7 +2996,7 @@ class Google_Service_Calendar_EventOrganizer extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setSelf($self)
   {
     $this->self = $self;
@@ -3029,7 +3006,6 @@ class Google_Service_Calendar_EventOrganizer extends Google_Model
   {
     return $this->self;
   }
-  
 }
 
 class Google_Service_Calendar_EventReminder extends Google_Model
@@ -3046,7 +3022,7 @@ class Google_Service_Calendar_EventReminder extends Google_Model
   {
     return $this->method;
   }
-  
+
   public function setMinutes($minutes)
   {
     $this->minutes = $minutes;
@@ -3056,7 +3032,6 @@ class Google_Service_Calendar_EventReminder extends Google_Model
   {
     return $this->minutes;
   }
-  
 }
 
 class Google_Service_Calendar_EventReminders extends Google_Collection
@@ -3074,7 +3049,7 @@ class Google_Service_Calendar_EventReminders extends Google_Collection
   {
     return $this->overrides;
   }
-  
+
   public function setUseDefault($useDefault)
   {
     $this->useDefault = $useDefault;
@@ -3084,7 +3059,6 @@ class Google_Service_Calendar_EventReminders extends Google_Collection
   {
     return $this->useDefault;
   }
-  
 }
 
 class Google_Service_Calendar_EventSource extends Google_Model
@@ -3101,7 +3075,7 @@ class Google_Service_Calendar_EventSource extends Google_Model
   {
     return $this->title;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -3111,7 +3085,6 @@ class Google_Service_Calendar_EventSource extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Calendar_Events extends Google_Collection
@@ -3138,7 +3111,7 @@ class Google_Service_Calendar_Events extends Google_Collection
   {
     return $this->accessRole;
   }
-  
+
   public function setDefaultReminders($defaultReminders)
   {
     $this->defaultReminders = $defaultReminders;
@@ -3148,7 +3121,7 @@ class Google_Service_Calendar_Events extends Google_Collection
   {
     return $this->defaultReminders;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -3158,7 +3131,7 @@ class Google_Service_Calendar_Events extends Google_Collection
   {
     return $this->description;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -3168,7 +3141,7 @@ class Google_Service_Calendar_Events extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -3178,7 +3151,7 @@ class Google_Service_Calendar_Events extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3188,7 +3161,7 @@ class Google_Service_Calendar_Events extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3198,7 +3171,7 @@ class Google_Service_Calendar_Events extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setSummary($summary)
   {
     $this->summary = $summary;
@@ -3208,7 +3181,7 @@ class Google_Service_Calendar_Events extends Google_Collection
   {
     return $this->summary;
   }
-  
+
   public function setTimeZone($timeZone)
   {
     $this->timeZone = $timeZone;
@@ -3218,7 +3191,7 @@ class Google_Service_Calendar_Events extends Google_Collection
   {
     return $this->timeZone;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -3228,7 +3201,6 @@ class Google_Service_Calendar_Events extends Google_Collection
   {
     return $this->updated;
   }
-  
 }
 
 class Google_Service_Calendar_FreeBusyCalendar extends Google_Collection
@@ -3247,7 +3219,7 @@ class Google_Service_Calendar_FreeBusyCalendar extends Google_Collection
   {
     return $this->busy;
   }
-  
+
   public function setErrors($errors)
   {
     $this->errors = $errors;
@@ -3257,7 +3229,6 @@ class Google_Service_Calendar_FreeBusyCalendar extends Google_Collection
   {
     return $this->errors;
   }
-  
 }
 
 class Google_Service_Calendar_FreeBusyGroup extends Google_Collection
@@ -3275,7 +3246,7 @@ class Google_Service_Calendar_FreeBusyGroup extends Google_Collection
   {
     return $this->calendars;
   }
-  
+
   public function setErrors($errors)
   {
     $this->errors = $errors;
@@ -3285,7 +3256,6 @@ class Google_Service_Calendar_FreeBusyGroup extends Google_Collection
   {
     return $this->errors;
   }
-  
 }
 
 class Google_Service_Calendar_FreeBusyRequest extends Google_Collection
@@ -3307,7 +3277,7 @@ class Google_Service_Calendar_FreeBusyRequest extends Google_Collection
   {
     return $this->calendarExpansionMax;
   }
-  
+
   public function setGroupExpansionMax($groupExpansionMax)
   {
     $this->groupExpansionMax = $groupExpansionMax;
@@ -3317,7 +3287,7 @@ class Google_Service_Calendar_FreeBusyRequest extends Google_Collection
   {
     return $this->groupExpansionMax;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -3327,7 +3297,7 @@ class Google_Service_Calendar_FreeBusyRequest extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setTimeMax($timeMax)
   {
     $this->timeMax = $timeMax;
@@ -3337,7 +3307,7 @@ class Google_Service_Calendar_FreeBusyRequest extends Google_Collection
   {
     return $this->timeMax;
   }
-  
+
   public function setTimeMin($timeMin)
   {
     $this->timeMin = $timeMin;
@@ -3347,7 +3317,7 @@ class Google_Service_Calendar_FreeBusyRequest extends Google_Collection
   {
     return $this->timeMin;
   }
-  
+
   public function setTimeZone($timeZone)
   {
     $this->timeZone = $timeZone;
@@ -3357,7 +3327,6 @@ class Google_Service_Calendar_FreeBusyRequest extends Google_Collection
   {
     return $this->timeZone;
   }
-  
 }
 
 class Google_Service_Calendar_FreeBusyRequestItem extends Google_Model
@@ -3373,7 +3342,6 @@ class Google_Service_Calendar_FreeBusyRequestItem extends Google_Model
   {
     return $this->id;
   }
-  
 }
 
 class Google_Service_Calendar_FreeBusyResponse extends Google_Model
@@ -3395,7 +3363,7 @@ class Google_Service_Calendar_FreeBusyResponse extends Google_Model
   {
     return $this->calendars;
   }
-  
+
   public function setGroups($groups)
   {
     $this->groups = $groups;
@@ -3405,7 +3373,7 @@ class Google_Service_Calendar_FreeBusyResponse extends Google_Model
   {
     return $this->groups;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3415,7 +3383,7 @@ class Google_Service_Calendar_FreeBusyResponse extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setTimeMax($timeMax)
   {
     $this->timeMax = $timeMax;
@@ -3425,7 +3393,7 @@ class Google_Service_Calendar_FreeBusyResponse extends Google_Model
   {
     return $this->timeMax;
   }
-  
+
   public function setTimeMin($timeMin)
   {
     $this->timeMin = $timeMin;
@@ -3435,7 +3403,6 @@ class Google_Service_Calendar_FreeBusyResponse extends Google_Model
   {
     return $this->timeMin;
   }
-  
 }
 
 class Google_Service_Calendar_Setting extends Google_Model
@@ -3454,7 +3421,7 @@ class Google_Service_Calendar_Setting extends Google_Model
   {
     return $this->etag;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3464,7 +3431,7 @@ class Google_Service_Calendar_Setting extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3474,7 +3441,7 @@ class Google_Service_Calendar_Setting extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -3484,7 +3451,6 @@ class Google_Service_Calendar_Setting extends Google_Model
   {
     return $this->value;
   }
-  
 }
 
 class Google_Service_Calendar_Settings extends Google_Collection
@@ -3503,7 +3469,7 @@ class Google_Service_Calendar_Settings extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -3513,7 +3479,7 @@ class Google_Service_Calendar_Settings extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3523,7 +3489,6 @@ class Google_Service_Calendar_Settings extends Google_Collection
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Calendar_TimePeriod extends Google_Model
@@ -3540,7 +3505,7 @@ class Google_Service_Calendar_TimePeriod extends Google_Model
   {
     return $this->end;
   }
-  
+
   public function setStart($start)
   {
     $this->start = $start;
@@ -3550,5 +3515,4 @@ class Google_Service_Calendar_TimePeriod extends Google_Model
   {
     return $this->start;
   }
-  
 }
