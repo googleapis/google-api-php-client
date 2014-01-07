@@ -31,6 +31,11 @@
  */
 class Google_Service_Blogger extends Google_Service
 {
+  /** Manage your Blogger account. */
+  const BLOGGER = "https://www.googleapis.com/auth/blogger";
+  /** View your Blogger account. */
+  const BLOGGER_READONLY = "https://www.googleapis.com/auth/blogger.readonly";
+
   public $blogUserInfos;
   public $blogs;
   public $comments;
@@ -51,19 +56,7 @@ class Google_Service_Blogger extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'blogger/v3/';
     $this->version = 'v3';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/blogger",
-      "https://www.googleapis.com/auth/blogger.readonly"
-    );
-    
     $this->serviceName = 'blogger';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->blogUserInfos = new Google_Service_Blogger_BlogUserInfos_Resource(
         $this,
@@ -1669,7 +1662,7 @@ class Google_Service_Blogger_Blog extends Google_Model
   {
     return $this->customMetaData;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -1679,7 +1672,7 @@ class Google_Service_Blogger_Blog extends Google_Model
   {
     return $this->description;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -1689,7 +1682,7 @@ class Google_Service_Blogger_Blog extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1699,7 +1692,7 @@ class Google_Service_Blogger_Blog extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setLocale(Google_Service_Blogger_BlogLocale $locale)
   {
     $this->locale = $locale;
@@ -1709,7 +1702,7 @@ class Google_Service_Blogger_Blog extends Google_Model
   {
     return $this->locale;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -1719,7 +1712,7 @@ class Google_Service_Blogger_Blog extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setPages(Google_Service_Blogger_BlogPages $pages)
   {
     $this->pages = $pages;
@@ -1729,7 +1722,7 @@ class Google_Service_Blogger_Blog extends Google_Model
   {
     return $this->pages;
   }
-  
+
   public function setPosts(Google_Service_Blogger_BlogPosts $posts)
   {
     $this->posts = $posts;
@@ -1739,7 +1732,7 @@ class Google_Service_Blogger_Blog extends Google_Model
   {
     return $this->posts;
   }
-  
+
   public function setPublished($published)
   {
     $this->published = $published;
@@ -1749,7 +1742,7 @@ class Google_Service_Blogger_Blog extends Google_Model
   {
     return $this->published;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -1759,7 +1752,7 @@ class Google_Service_Blogger_Blog extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -1769,7 +1762,7 @@ class Google_Service_Blogger_Blog extends Google_Model
   {
     return $this->updated;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1779,7 +1772,6 @@ class Google_Service_Blogger_Blog extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Blogger_BlogList extends Google_Collection
@@ -1799,7 +1791,7 @@ class Google_Service_Blogger_BlogList extends Google_Collection
   {
     return $this->blogUserInfos;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -1809,7 +1801,7 @@ class Google_Service_Blogger_BlogList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1819,7 +1811,6 @@ class Google_Service_Blogger_BlogList extends Google_Collection
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Blogger_BlogLocale extends Google_Model
@@ -1837,7 +1828,7 @@ class Google_Service_Blogger_BlogLocale extends Google_Model
   {
     return $this->country;
   }
-  
+
   public function setLanguage($language)
   {
     $this->language = $language;
@@ -1847,7 +1838,7 @@ class Google_Service_Blogger_BlogLocale extends Google_Model
   {
     return $this->language;
   }
-  
+
   public function setVariant($variant)
   {
     $this->variant = $variant;
@@ -1857,7 +1848,6 @@ class Google_Service_Blogger_BlogLocale extends Google_Model
   {
     return $this->variant;
   }
-  
 }
 
 class Google_Service_Blogger_BlogPages extends Google_Model
@@ -1874,7 +1864,7 @@ class Google_Service_Blogger_BlogPages extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -1884,7 +1874,6 @@ class Google_Service_Blogger_BlogPages extends Google_Model
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_Blogger_BlogPerUserInfo extends Google_Model
@@ -1905,7 +1894,7 @@ class Google_Service_Blogger_BlogPerUserInfo extends Google_Model
   {
     return $this->blogId;
   }
-  
+
   public function setHasAdminAccess($hasAdminAccess)
   {
     $this->hasAdminAccess = $hasAdminAccess;
@@ -1915,7 +1904,7 @@ class Google_Service_Blogger_BlogPerUserInfo extends Google_Model
   {
     return $this->hasAdminAccess;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1925,7 +1914,7 @@ class Google_Service_Blogger_BlogPerUserInfo extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPhotosAlbumKey($photosAlbumKey)
   {
     $this->photosAlbumKey = $photosAlbumKey;
@@ -1935,7 +1924,7 @@ class Google_Service_Blogger_BlogPerUserInfo extends Google_Model
   {
     return $this->photosAlbumKey;
   }
-  
+
   public function setRole($role)
   {
     $this->role = $role;
@@ -1945,7 +1934,7 @@ class Google_Service_Blogger_BlogPerUserInfo extends Google_Model
   {
     return $this->role;
   }
-  
+
   public function setUserId($userId)
   {
     $this->userId = $userId;
@@ -1955,7 +1944,6 @@ class Google_Service_Blogger_BlogPerUserInfo extends Google_Model
   {
     return $this->userId;
   }
-  
 }
 
 class Google_Service_Blogger_BlogPosts extends Google_Collection
@@ -1974,7 +1962,7 @@ class Google_Service_Blogger_BlogPosts extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -1984,7 +1972,7 @@ class Google_Service_Blogger_BlogPosts extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -1994,7 +1982,6 @@ class Google_Service_Blogger_BlogPosts extends Google_Collection
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_Blogger_BlogUserInfo extends Google_Model
@@ -2014,7 +2001,7 @@ class Google_Service_Blogger_BlogUserInfo extends Google_Model
   {
     return $this->blog;
   }
-  
+
   public function setBlogUserInfo(Google_Service_Blogger_BlogPerUserInfo $blogUserInfo)
   {
     $this->blogUserInfo = $blogUserInfo;
@@ -2024,7 +2011,7 @@ class Google_Service_Blogger_BlogUserInfo extends Google_Model
   {
     return $this->blogUserInfo;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2034,7 +2021,6 @@ class Google_Service_Blogger_BlogUserInfo extends Google_Model
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Blogger_Comment extends Google_Model
@@ -2064,7 +2050,7 @@ class Google_Service_Blogger_Comment extends Google_Model
   {
     return $this->author;
   }
-  
+
   public function setBlog(Google_Service_Blogger_CommentBlog $blog)
   {
     $this->blog = $blog;
@@ -2074,7 +2060,7 @@ class Google_Service_Blogger_Comment extends Google_Model
   {
     return $this->blog;
   }
-  
+
   public function setContent($content)
   {
     $this->content = $content;
@@ -2084,7 +2070,7 @@ class Google_Service_Blogger_Comment extends Google_Model
   {
     return $this->content;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2094,7 +2080,7 @@ class Google_Service_Blogger_Comment extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setInReplyTo(Google_Service_Blogger_CommentInReplyTo $inReplyTo)
   {
     $this->inReplyTo = $inReplyTo;
@@ -2104,7 +2090,7 @@ class Google_Service_Blogger_Comment extends Google_Model
   {
     return $this->inReplyTo;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2114,7 +2100,7 @@ class Google_Service_Blogger_Comment extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPost(Google_Service_Blogger_CommentPost $post)
   {
     $this->post = $post;
@@ -2124,7 +2110,7 @@ class Google_Service_Blogger_Comment extends Google_Model
   {
     return $this->post;
   }
-  
+
   public function setPublished($published)
   {
     $this->published = $published;
@@ -2134,7 +2120,7 @@ class Google_Service_Blogger_Comment extends Google_Model
   {
     return $this->published;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -2144,7 +2130,7 @@ class Google_Service_Blogger_Comment extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setStatus($status)
   {
     $this->status = $status;
@@ -2154,7 +2140,7 @@ class Google_Service_Blogger_Comment extends Google_Model
   {
     return $this->status;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -2164,7 +2150,6 @@ class Google_Service_Blogger_Comment extends Google_Model
   {
     return $this->updated;
   }
-  
 }
 
 class Google_Service_Blogger_CommentAuthor extends Google_Model
@@ -2184,7 +2169,7 @@ class Google_Service_Blogger_CommentAuthor extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2194,7 +2179,7 @@ class Google_Service_Blogger_CommentAuthor extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setImage(Google_Service_Blogger_CommentAuthorImage $image)
   {
     $this->image = $image;
@@ -2204,7 +2189,7 @@ class Google_Service_Blogger_CommentAuthor extends Google_Model
   {
     return $this->image;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -2214,7 +2199,6 @@ class Google_Service_Blogger_CommentAuthor extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Blogger_CommentAuthorImage extends Google_Model
@@ -2230,7 +2214,6 @@ class Google_Service_Blogger_CommentAuthorImage extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Blogger_CommentBlog extends Google_Model
@@ -2246,7 +2229,6 @@ class Google_Service_Blogger_CommentBlog extends Google_Model
   {
     return $this->id;
   }
-  
 }
 
 class Google_Service_Blogger_CommentInReplyTo extends Google_Model
@@ -2262,7 +2244,6 @@ class Google_Service_Blogger_CommentInReplyTo extends Google_Model
   {
     return $this->id;
   }
-  
 }
 
 class Google_Service_Blogger_CommentList extends Google_Collection
@@ -2282,7 +2263,7 @@ class Google_Service_Blogger_CommentList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2292,7 +2273,7 @@ class Google_Service_Blogger_CommentList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2302,7 +2283,7 @@ class Google_Service_Blogger_CommentList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -2312,7 +2293,6 @@ class Google_Service_Blogger_CommentList extends Google_Collection
   {
     return $this->prevPageToken;
   }
-  
 }
 
 class Google_Service_Blogger_CommentPost extends Google_Model
@@ -2328,7 +2308,6 @@ class Google_Service_Blogger_CommentPost extends Google_Model
   {
     return $this->id;
   }
-  
 }
 
 class Google_Service_Blogger_Page extends Google_Model
@@ -2356,7 +2335,7 @@ class Google_Service_Blogger_Page extends Google_Model
   {
     return $this->author;
   }
-  
+
   public function setBlog(Google_Service_Blogger_PageBlog $blog)
   {
     $this->blog = $blog;
@@ -2366,7 +2345,7 @@ class Google_Service_Blogger_Page extends Google_Model
   {
     return $this->blog;
   }
-  
+
   public function setContent($content)
   {
     $this->content = $content;
@@ -2376,7 +2355,7 @@ class Google_Service_Blogger_Page extends Google_Model
   {
     return $this->content;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2386,7 +2365,7 @@ class Google_Service_Blogger_Page extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2396,7 +2375,7 @@ class Google_Service_Blogger_Page extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPublished($published)
   {
     $this->published = $published;
@@ -2406,7 +2385,7 @@ class Google_Service_Blogger_Page extends Google_Model
   {
     return $this->published;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -2416,7 +2395,7 @@ class Google_Service_Blogger_Page extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setStatus($status)
   {
     $this->status = $status;
@@ -2426,7 +2405,7 @@ class Google_Service_Blogger_Page extends Google_Model
   {
     return $this->status;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -2436,7 +2415,7 @@ class Google_Service_Blogger_Page extends Google_Model
   {
     return $this->title;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -2446,7 +2425,7 @@ class Google_Service_Blogger_Page extends Google_Model
   {
     return $this->updated;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -2456,7 +2435,6 @@ class Google_Service_Blogger_Page extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Blogger_PageAuthor extends Google_Model
@@ -2476,7 +2454,7 @@ class Google_Service_Blogger_PageAuthor extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2486,7 +2464,7 @@ class Google_Service_Blogger_PageAuthor extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setImage(Google_Service_Blogger_PageAuthorImage $image)
   {
     $this->image = $image;
@@ -2496,7 +2474,7 @@ class Google_Service_Blogger_PageAuthor extends Google_Model
   {
     return $this->image;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -2506,7 +2484,6 @@ class Google_Service_Blogger_PageAuthor extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Blogger_PageAuthorImage extends Google_Model
@@ -2522,7 +2499,6 @@ class Google_Service_Blogger_PageAuthorImage extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Blogger_PageBlog extends Google_Model
@@ -2538,7 +2514,6 @@ class Google_Service_Blogger_PageBlog extends Google_Model
   {
     return $this->id;
   }
-  
 }
 
 class Google_Service_Blogger_PageList extends Google_Collection
@@ -2556,7 +2531,7 @@ class Google_Service_Blogger_PageList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2566,7 +2541,6 @@ class Google_Service_Blogger_PageList extends Google_Collection
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Blogger_Pageviews extends Google_Collection
@@ -2585,7 +2559,7 @@ class Google_Service_Blogger_Pageviews extends Google_Collection
   {
     return $this->blogId;
   }
-  
+
   public function setCounts($counts)
   {
     $this->counts = $counts;
@@ -2595,7 +2569,7 @@ class Google_Service_Blogger_Pageviews extends Google_Collection
   {
     return $this->counts;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2605,7 +2579,6 @@ class Google_Service_Blogger_Pageviews extends Google_Collection
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Blogger_PageviewsCounts extends Google_Model
@@ -2622,7 +2595,7 @@ class Google_Service_Blogger_PageviewsCounts extends Google_Model
   {
     return $this->count;
   }
-  
+
   public function setTimeRange($timeRange)
   {
     $this->timeRange = $timeRange;
@@ -2632,7 +2605,6 @@ class Google_Service_Blogger_PageviewsCounts extends Google_Model
   {
     return $this->timeRange;
   }
-  
 }
 
 class Google_Service_Blogger_Post extends Google_Collection
@@ -2669,7 +2641,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->author;
   }
-  
+
   public function setBlog(Google_Service_Blogger_PostBlog $blog)
   {
     $this->blog = $blog;
@@ -2679,7 +2651,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->blog;
   }
-  
+
   public function setContent($content)
   {
     $this->content = $content;
@@ -2689,7 +2661,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->content;
   }
-  
+
   public function setCustomMetaData($customMetaData)
   {
     $this->customMetaData = $customMetaData;
@@ -2699,7 +2671,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->customMetaData;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2709,7 +2681,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setImages($images)
   {
     $this->images = $images;
@@ -2719,7 +2691,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->images;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2729,7 +2701,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLabels($labels)
   {
     $this->labels = $labels;
@@ -2739,7 +2711,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->labels;
   }
-  
+
   public function setLocation(Google_Service_Blogger_PostLocation $location)
   {
     $this->location = $location;
@@ -2749,7 +2721,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->location;
   }
-  
+
   public function setPublished($published)
   {
     $this->published = $published;
@@ -2759,7 +2731,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->published;
   }
-  
+
   public function setReplies(Google_Service_Blogger_PostReplies $replies)
   {
     $this->replies = $replies;
@@ -2769,7 +2741,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->replies;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -2779,7 +2751,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setStatus($status)
   {
     $this->status = $status;
@@ -2789,7 +2761,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->status;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -2799,7 +2771,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->title;
   }
-  
+
   public function setTitleLink($titleLink)
   {
     $this->titleLink = $titleLink;
@@ -2809,7 +2781,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->titleLink;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -2819,7 +2791,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->updated;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -2829,7 +2801,6 @@ class Google_Service_Blogger_Post extends Google_Collection
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Blogger_PostAuthor extends Google_Model
@@ -2849,7 +2820,7 @@ class Google_Service_Blogger_PostAuthor extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2859,7 +2830,7 @@ class Google_Service_Blogger_PostAuthor extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setImage(Google_Service_Blogger_PostAuthorImage $image)
   {
     $this->image = $image;
@@ -2869,7 +2840,7 @@ class Google_Service_Blogger_PostAuthor extends Google_Model
   {
     return $this->image;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -2879,7 +2850,6 @@ class Google_Service_Blogger_PostAuthor extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Blogger_PostAuthorImage extends Google_Model
@@ -2895,7 +2865,6 @@ class Google_Service_Blogger_PostAuthorImage extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Blogger_PostBlog extends Google_Model
@@ -2911,7 +2880,6 @@ class Google_Service_Blogger_PostBlog extends Google_Model
   {
     return $this->id;
   }
-  
 }
 
 class Google_Service_Blogger_PostImages extends Google_Model
@@ -2927,7 +2895,6 @@ class Google_Service_Blogger_PostImages extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Blogger_PostList extends Google_Collection
@@ -2946,7 +2913,7 @@ class Google_Service_Blogger_PostList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2956,7 +2923,7 @@ class Google_Service_Blogger_PostList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2966,7 +2933,6 @@ class Google_Service_Blogger_PostList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
 }
 
 class Google_Service_Blogger_PostLocation extends Google_Model
@@ -2985,7 +2951,7 @@ class Google_Service_Blogger_PostLocation extends Google_Model
   {
     return $this->lat;
   }
-  
+
   public function setLng($lng)
   {
     $this->lng = $lng;
@@ -2995,7 +2961,7 @@ class Google_Service_Blogger_PostLocation extends Google_Model
   {
     return $this->lng;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -3005,7 +2971,7 @@ class Google_Service_Blogger_PostLocation extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setSpan($span)
   {
     $this->span = $span;
@@ -3015,7 +2981,6 @@ class Google_Service_Blogger_PostLocation extends Google_Model
   {
     return $this->span;
   }
-  
 }
 
 class Google_Service_Blogger_PostPerUserInfo extends Google_Model
@@ -3035,7 +3000,7 @@ class Google_Service_Blogger_PostPerUserInfo extends Google_Model
   {
     return $this->blogId;
   }
-  
+
   public function setHasEditAccess($hasEditAccess)
   {
     $this->hasEditAccess = $hasEditAccess;
@@ -3045,7 +3010,7 @@ class Google_Service_Blogger_PostPerUserInfo extends Google_Model
   {
     return $this->hasEditAccess;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3055,7 +3020,7 @@ class Google_Service_Blogger_PostPerUserInfo extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPostId($postId)
   {
     $this->postId = $postId;
@@ -3065,7 +3030,7 @@ class Google_Service_Blogger_PostPerUserInfo extends Google_Model
   {
     return $this->postId;
   }
-  
+
   public function setUserId($userId)
   {
     $this->userId = $userId;
@@ -3075,7 +3040,6 @@ class Google_Service_Blogger_PostPerUserInfo extends Google_Model
   {
     return $this->userId;
   }
-  
 }
 
 class Google_Service_Blogger_PostReplies extends Google_Collection
@@ -3094,7 +3058,7 @@ class Google_Service_Blogger_PostReplies extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3104,7 +3068,7 @@ class Google_Service_Blogger_PostReplies extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -3114,7 +3078,6 @@ class Google_Service_Blogger_PostReplies extends Google_Collection
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_Blogger_PostUserInfo extends Google_Model
@@ -3134,7 +3097,7 @@ class Google_Service_Blogger_PostUserInfo extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPost(Google_Service_Blogger_Post $post)
   {
     $this->post = $post;
@@ -3144,7 +3107,7 @@ class Google_Service_Blogger_PostUserInfo extends Google_Model
   {
     return $this->post;
   }
-  
+
   public function setPostUserInfo(Google_Service_Blogger_PostPerUserInfo $postUserInfo)
   {
     $this->postUserInfo = $postUserInfo;
@@ -3154,7 +3117,6 @@ class Google_Service_Blogger_PostUserInfo extends Google_Model
   {
     return $this->postUserInfo;
   }
-  
 }
 
 class Google_Service_Blogger_PostUserInfosList extends Google_Collection
@@ -3173,7 +3135,7 @@ class Google_Service_Blogger_PostUserInfosList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3183,7 +3145,7 @@ class Google_Service_Blogger_PostUserInfosList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3193,7 +3155,6 @@ class Google_Service_Blogger_PostUserInfosList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
 }
 
 class Google_Service_Blogger_User extends Google_Model
@@ -3219,7 +3180,7 @@ class Google_Service_Blogger_User extends Google_Model
   {
     return $this->about;
   }
-  
+
   public function setBlogs(Google_Service_Blogger_UserBlogs $blogs)
   {
     $this->blogs = $blogs;
@@ -3229,7 +3190,7 @@ class Google_Service_Blogger_User extends Google_Model
   {
     return $this->blogs;
   }
-  
+
   public function setCreated($created)
   {
     $this->created = $created;
@@ -3239,7 +3200,7 @@ class Google_Service_Blogger_User extends Google_Model
   {
     return $this->created;
   }
-  
+
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -3249,7 +3210,7 @@ class Google_Service_Blogger_User extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3259,7 +3220,7 @@ class Google_Service_Blogger_User extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3269,7 +3230,7 @@ class Google_Service_Blogger_User extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setLocale(Google_Service_Blogger_UserLocale $locale)
   {
     $this->locale = $locale;
@@ -3279,7 +3240,7 @@ class Google_Service_Blogger_User extends Google_Model
   {
     return $this->locale;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3289,7 +3250,7 @@ class Google_Service_Blogger_User extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -3299,7 +3260,6 @@ class Google_Service_Blogger_User extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Blogger_UserBlogs extends Google_Model
@@ -3315,7 +3275,6 @@ class Google_Service_Blogger_UserBlogs extends Google_Model
   {
     return $this->selfLink;
   }
-  
 }
 
 class Google_Service_Blogger_UserLocale extends Google_Model
@@ -3333,7 +3292,7 @@ class Google_Service_Blogger_UserLocale extends Google_Model
   {
     return $this->country;
   }
-  
+
   public function setLanguage($language)
   {
     $this->language = $language;
@@ -3343,7 +3302,7 @@ class Google_Service_Blogger_UserLocale extends Google_Model
   {
     return $this->language;
   }
-  
+
   public function setVariant($variant)
   {
     $this->variant = $variant;
@@ -3353,5 +3312,4 @@ class Google_Service_Blogger_UserLocale extends Google_Model
   {
     return $this->variant;
   }
-  
 }
