@@ -31,6 +31,11 @@
  */
 class Google_Service_YouTubeAnalytics extends Google_Service
 {
+  /** View YouTube Analytics monetary reports for your YouTube content. */
+  const YT_ANALYTICS_MONETARY_READONLY = "https://www.googleapis.com/auth/yt-analytics-monetary.readonly";
+  /** View YouTube Analytics reports for your YouTube content. */
+  const YT_ANALYTICS_READONLY = "https://www.googleapis.com/auth/yt-analytics.readonly";
+
   public $reports;
   
 
@@ -44,19 +49,7 @@ class Google_Service_YouTubeAnalytics extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'youtube/analytics/v1/';
     $this->version = 'v1';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/yt-analytics.readonly",
-      "https://www.googleapis.com/auth/yt-analytics-monetary.readonly"
-    );
-    
     $this->serviceName = 'youtubeAnalytics';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->reports = new Google_Service_YouTubeAnalytics_Reports_Resource(
         $this,
@@ -199,7 +192,7 @@ class Google_Service_YouTubeAnalytics_ResultTable extends Google_Collection
   {
     return $this->columnHeaders;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -209,7 +202,7 @@ class Google_Service_YouTubeAnalytics_ResultTable extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setRows($rows)
   {
     $this->rows = $rows;
@@ -219,7 +212,6 @@ class Google_Service_YouTubeAnalytics_ResultTable extends Google_Collection
   {
     return $this->rows;
   }
-  
 }
 
 class Google_Service_YouTubeAnalytics_ResultTableColumnHeaders extends Google_Model
@@ -237,7 +229,7 @@ class Google_Service_YouTubeAnalytics_ResultTableColumnHeaders extends Google_Mo
   {
     return $this->columnType;
   }
-  
+
   public function setDataType($dataType)
   {
     $this->dataType = $dataType;
@@ -247,7 +239,7 @@ class Google_Service_YouTubeAnalytics_ResultTableColumnHeaders extends Google_Mo
   {
     return $this->dataType;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -257,5 +249,4 @@ class Google_Service_YouTubeAnalytics_ResultTableColumnHeaders extends Google_Mo
   {
     return $this->name;
   }
-  
 }
