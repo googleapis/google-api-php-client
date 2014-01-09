@@ -31,6 +31,15 @@
  */
 class Google_Service_Analytics extends Google_Service
 {
+  /** View and manage your Google Analytics data. */
+  const ANALYTICS = "https://www.googleapis.com/auth/analytics";
+  /** Edit Google Analytics management entities. */
+  const ANALYTICS_EDIT = "https://www.googleapis.com/auth/analytics.edit";
+  /** Manage Google Analytics Account users by email address. */
+  const ANALYTICS_MANAGE_USERS = "https://www.googleapis.com/auth/analytics.manage.users";
+  /** View your Google Analytics data. */
+  const ANALYTICS_READONLY = "https://www.googleapis.com/auth/analytics.readonly";
+
   public $data_ga;
   public $data_mcf;
   public $data_realtime;
@@ -59,21 +68,7 @@ class Google_Service_Analytics extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'analytics/v3/';
     $this->version = 'v3';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/analytics",
-      "https://www.googleapis.com/auth/analytics.manage.users",
-      "https://www.googleapis.com/auth/analytics.readonly",
-      "https://www.googleapis.com/auth/analytics.edit"
-    );
-    
     $this->serviceName = 'analytics';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->data_ga = new Google_Service_Analytics_DataGa_Resource(
         $this,
@@ -2606,7 +2601,7 @@ class Google_Service_Analytics_Account extends Google_Model
   {
     return $this->childLink;
   }
-  
+
   public function setCreated($created)
   {
     $this->created = $created;
@@ -2616,7 +2611,7 @@ class Google_Service_Analytics_Account extends Google_Model
   {
     return $this->created;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2626,7 +2621,7 @@ class Google_Service_Analytics_Account extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2636,7 +2631,7 @@ class Google_Service_Analytics_Account extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -2646,7 +2641,7 @@ class Google_Service_Analytics_Account extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setPermissions(Google_Service_Analytics_AccountPermissions $permissions)
   {
     $this->permissions = $permissions;
@@ -2656,7 +2651,7 @@ class Google_Service_Analytics_Account extends Google_Model
   {
     return $this->permissions;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -2666,7 +2661,7 @@ class Google_Service_Analytics_Account extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -2676,7 +2671,6 @@ class Google_Service_Analytics_Account extends Google_Model
   {
     return $this->updated;
   }
-  
 }
 
 class Google_Service_Analytics_AccountChildLink extends Google_Model
@@ -2693,7 +2687,7 @@ class Google_Service_Analytics_AccountChildLink extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -2703,7 +2697,6 @@ class Google_Service_Analytics_AccountChildLink extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Analytics_AccountPermissions extends Google_Collection
@@ -2719,7 +2712,6 @@ class Google_Service_Analytics_AccountPermissions extends Google_Collection
   {
     return $this->effective;
   }
-  
 }
 
 class Google_Service_Analytics_AccountRef extends Google_Model
@@ -2738,7 +2730,7 @@ class Google_Service_Analytics_AccountRef extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2748,7 +2740,7 @@ class Google_Service_Analytics_AccountRef extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2758,7 +2750,7 @@ class Google_Service_Analytics_AccountRef extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -2768,7 +2760,6 @@ class Google_Service_Analytics_AccountRef extends Google_Model
   {
     return $this->name;
   }
-  
 }
 
 class Google_Service_Analytics_Accounts extends Google_Collection
@@ -2792,7 +2783,7 @@ class Google_Service_Analytics_Accounts extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -2802,7 +2793,7 @@ class Google_Service_Analytics_Accounts extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2812,7 +2803,7 @@ class Google_Service_Analytics_Accounts extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -2822,7 +2813,7 @@ class Google_Service_Analytics_Accounts extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -2832,7 +2823,7 @@ class Google_Service_Analytics_Accounts extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -2842,7 +2833,7 @@ class Google_Service_Analytics_Accounts extends Google_Collection
   {
     return $this->startIndex;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -2852,7 +2843,7 @@ class Google_Service_Analytics_Accounts extends Google_Collection
   {
     return $this->totalResults;
   }
-  
+
   public function setUsername($username)
   {
     $this->username = $username;
@@ -2862,7 +2853,6 @@ class Google_Service_Analytics_Accounts extends Google_Collection
   {
     return $this->username;
   }
-  
 }
 
 class Google_Service_Analytics_AnalyticsDataimportDeleteUploadDataRequest extends Google_Collection
@@ -2878,7 +2868,6 @@ class Google_Service_Analytics_AnalyticsDataimportDeleteUploadDataRequest extend
   {
     return $this->customDataImportUids;
   }
-  
 }
 
 class Google_Service_Analytics_Column extends Google_Model
@@ -2896,7 +2885,7 @@ class Google_Service_Analytics_Column extends Google_Model
   {
     return $this->attributes;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2906,7 +2895,7 @@ class Google_Service_Analytics_Column extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2916,7 +2905,6 @@ class Google_Service_Analytics_Column extends Google_Model
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Analytics_Columns extends Google_Collection
@@ -2937,7 +2925,7 @@ class Google_Service_Analytics_Columns extends Google_Collection
   {
     return $this->attributeNames;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -2947,7 +2935,7 @@ class Google_Service_Analytics_Columns extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -2957,7 +2945,7 @@ class Google_Service_Analytics_Columns extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2967,7 +2955,7 @@ class Google_Service_Analytics_Columns extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -2977,7 +2965,6 @@ class Google_Service_Analytics_Columns extends Google_Collection
   {
     return $this->totalResults;
   }
-  
 }
 
 class Google_Service_Analytics_CustomDataSource extends Google_Collection
@@ -3007,7 +2994,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->accountId;
   }
-  
+
   public function setChildLink(Google_Service_Analytics_CustomDataSourceChildLink $childLink)
   {
     $this->childLink = $childLink;
@@ -3017,7 +3004,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->childLink;
   }
-  
+
   public function setCreated($created)
   {
     $this->created = $created;
@@ -3027,7 +3014,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->created;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -3037,7 +3024,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->description;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3047,7 +3034,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3057,7 +3044,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -3067,7 +3054,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->name;
   }
-  
+
   public function setParentLink(Google_Service_Analytics_CustomDataSourceParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -3077,7 +3064,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->parentLink;
   }
-  
+
   public function setProfilesLinked($profilesLinked)
   {
     $this->profilesLinked = $profilesLinked;
@@ -3087,7 +3074,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->profilesLinked;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3097,7 +3084,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -3107,7 +3094,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->type;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -3117,7 +3104,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->updated;
   }
-  
+
   public function setWebPropertyId($webPropertyId)
   {
     $this->webPropertyId = $webPropertyId;
@@ -3127,7 +3114,6 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   {
     return $this->webPropertyId;
   }
-  
 }
 
 class Google_Service_Analytics_CustomDataSourceChildLink extends Google_Model
@@ -3144,7 +3130,7 @@ class Google_Service_Analytics_CustomDataSourceChildLink extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -3154,7 +3140,6 @@ class Google_Service_Analytics_CustomDataSourceChildLink extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Analytics_CustomDataSourceParentLink extends Google_Model
@@ -3171,7 +3156,7 @@ class Google_Service_Analytics_CustomDataSourceParentLink extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -3181,7 +3166,6 @@ class Google_Service_Analytics_CustomDataSourceParentLink extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Analytics_CustomDataSources extends Google_Collection
@@ -3205,7 +3189,7 @@ class Google_Service_Analytics_CustomDataSources extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -3215,7 +3199,7 @@ class Google_Service_Analytics_CustomDataSources extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3225,7 +3209,7 @@ class Google_Service_Analytics_CustomDataSources extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -3235,7 +3219,7 @@ class Google_Service_Analytics_CustomDataSources extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -3245,7 +3229,7 @@ class Google_Service_Analytics_CustomDataSources extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -3255,7 +3239,7 @@ class Google_Service_Analytics_CustomDataSources extends Google_Collection
   {
     return $this->startIndex;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -3265,7 +3249,7 @@ class Google_Service_Analytics_CustomDataSources extends Google_Collection
   {
     return $this->totalResults;
   }
-  
+
   public function setUsername($username)
   {
     $this->username = $username;
@@ -3275,7 +3259,6 @@ class Google_Service_Analytics_CustomDataSources extends Google_Collection
   {
     return $this->username;
   }
-  
 }
 
 class Google_Service_Analytics_DailyUpload extends Google_Collection
@@ -3303,7 +3286,7 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   {
     return $this->accountId;
   }
-  
+
   public function setAppendCount($appendCount)
   {
     $this->appendCount = $appendCount;
@@ -3313,7 +3296,7 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   {
     return $this->appendCount;
   }
-  
+
   public function setCreatedTime($createdTime)
   {
     $this->createdTime = $createdTime;
@@ -3323,7 +3306,7 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   {
     return $this->createdTime;
   }
-  
+
   public function setCustomDataSourceId($customDataSourceId)
   {
     $this->customDataSourceId = $customDataSourceId;
@@ -3333,7 +3316,7 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   {
     return $this->customDataSourceId;
   }
-  
+
   public function setDate($date)
   {
     $this->date = $date;
@@ -3343,7 +3326,7 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   {
     return $this->date;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3353,7 +3336,7 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setModifiedTime($modifiedTime)
   {
     $this->modifiedTime = $modifiedTime;
@@ -3363,7 +3346,7 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   {
     return $this->modifiedTime;
   }
-  
+
   public function setParentLink(Google_Service_Analytics_DailyUploadParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -3373,7 +3356,7 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   {
     return $this->parentLink;
   }
-  
+
   public function setRecentChanges($recentChanges)
   {
     $this->recentChanges = $recentChanges;
@@ -3383,7 +3366,7 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   {
     return $this->recentChanges;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3393,7 +3376,7 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setWebPropertyId($webPropertyId)
   {
     $this->webPropertyId = $webPropertyId;
@@ -3403,7 +3386,6 @@ class Google_Service_Analytics_DailyUpload extends Google_Collection
   {
     return $this->webPropertyId;
   }
-  
 }
 
 class Google_Service_Analytics_DailyUploadAppend extends Google_Model
@@ -3425,7 +3407,7 @@ class Google_Service_Analytics_DailyUploadAppend extends Google_Model
   {
     return $this->accountId;
   }
-  
+
   public function setAppendNumber($appendNumber)
   {
     $this->appendNumber = $appendNumber;
@@ -3435,7 +3417,7 @@ class Google_Service_Analytics_DailyUploadAppend extends Google_Model
   {
     return $this->appendNumber;
   }
-  
+
   public function setCustomDataSourceId($customDataSourceId)
   {
     $this->customDataSourceId = $customDataSourceId;
@@ -3445,7 +3427,7 @@ class Google_Service_Analytics_DailyUploadAppend extends Google_Model
   {
     return $this->customDataSourceId;
   }
-  
+
   public function setDate($date)
   {
     $this->date = $date;
@@ -3455,7 +3437,7 @@ class Google_Service_Analytics_DailyUploadAppend extends Google_Model
   {
     return $this->date;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3465,7 +3447,7 @@ class Google_Service_Analytics_DailyUploadAppend extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setNextAppendLink($nextAppendLink)
   {
     $this->nextAppendLink = $nextAppendLink;
@@ -3475,7 +3457,7 @@ class Google_Service_Analytics_DailyUploadAppend extends Google_Model
   {
     return $this->nextAppendLink;
   }
-  
+
   public function setWebPropertyId($webPropertyId)
   {
     $this->webPropertyId = $webPropertyId;
@@ -3485,7 +3467,6 @@ class Google_Service_Analytics_DailyUploadAppend extends Google_Model
   {
     return $this->webPropertyId;
   }
-  
 }
 
 class Google_Service_Analytics_DailyUploadParentLink extends Google_Model
@@ -3502,7 +3483,7 @@ class Google_Service_Analytics_DailyUploadParentLink extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -3512,7 +3493,6 @@ class Google_Service_Analytics_DailyUploadParentLink extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Analytics_DailyUploadRecentChanges extends Google_Model
@@ -3529,7 +3509,7 @@ class Google_Service_Analytics_DailyUploadRecentChanges extends Google_Model
   {
     return $this->change;
   }
-  
+
   public function setTime($time)
   {
     $this->time = $time;
@@ -3539,7 +3519,6 @@ class Google_Service_Analytics_DailyUploadRecentChanges extends Google_Model
   {
     return $this->time;
   }
-  
 }
 
 class Google_Service_Analytics_DailyUploads extends Google_Collection
@@ -3563,7 +3542,7 @@ class Google_Service_Analytics_DailyUploads extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -3573,7 +3552,7 @@ class Google_Service_Analytics_DailyUploads extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3583,7 +3562,7 @@ class Google_Service_Analytics_DailyUploads extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -3593,7 +3572,7 @@ class Google_Service_Analytics_DailyUploads extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -3603,7 +3582,7 @@ class Google_Service_Analytics_DailyUploads extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -3613,7 +3592,7 @@ class Google_Service_Analytics_DailyUploads extends Google_Collection
   {
     return $this->startIndex;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -3623,7 +3602,7 @@ class Google_Service_Analytics_DailyUploads extends Google_Collection
   {
     return $this->totalResults;
   }
-  
+
   public function setUsername($username)
   {
     $this->username = $username;
@@ -3633,7 +3612,6 @@ class Google_Service_Analytics_DailyUploads extends Google_Collection
   {
     return $this->username;
   }
-  
 }
 
 class Google_Service_Analytics_EntityUserLink extends Google_Model
@@ -3657,7 +3635,7 @@ class Google_Service_Analytics_EntityUserLink extends Google_Model
   {
     return $this->entity;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3667,7 +3645,7 @@ class Google_Service_Analytics_EntityUserLink extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3677,7 +3655,7 @@ class Google_Service_Analytics_EntityUserLink extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPermissions(Google_Service_Analytics_EntityUserLinkPermissions $permissions)
   {
     $this->permissions = $permissions;
@@ -3687,7 +3665,7 @@ class Google_Service_Analytics_EntityUserLink extends Google_Model
   {
     return $this->permissions;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3697,7 +3675,7 @@ class Google_Service_Analytics_EntityUserLink extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setUserRef(Google_Service_Analytics_UserRef $userRef)
   {
     $this->userRef = $userRef;
@@ -3707,7 +3685,6 @@ class Google_Service_Analytics_EntityUserLink extends Google_Model
   {
     return $this->userRef;
   }
-  
 }
 
 class Google_Service_Analytics_EntityUserLinkEntity extends Google_Model
@@ -3728,7 +3705,7 @@ class Google_Service_Analytics_EntityUserLinkEntity extends Google_Model
   {
     return $this->accountRef;
   }
-  
+
   public function setProfileRef(Google_Service_Analytics_ProfileRef $profileRef)
   {
     $this->profileRef = $profileRef;
@@ -3738,7 +3715,7 @@ class Google_Service_Analytics_EntityUserLinkEntity extends Google_Model
   {
     return $this->profileRef;
   }
-  
+
   public function setWebPropertyRef(Google_Service_Analytics_WebPropertyRef $webPropertyRef)
   {
     $this->webPropertyRef = $webPropertyRef;
@@ -3748,7 +3725,6 @@ class Google_Service_Analytics_EntityUserLinkEntity extends Google_Model
   {
     return $this->webPropertyRef;
   }
-  
 }
 
 class Google_Service_Analytics_EntityUserLinkPermissions extends Google_Collection
@@ -3765,7 +3741,7 @@ class Google_Service_Analytics_EntityUserLinkPermissions extends Google_Collecti
   {
     return $this->effective;
   }
-  
+
   public function setLocal($local)
   {
     $this->local = $local;
@@ -3775,7 +3751,6 @@ class Google_Service_Analytics_EntityUserLinkPermissions extends Google_Collecti
   {
     return $this->local;
   }
-  
 }
 
 class Google_Service_Analytics_EntityUserLinks extends Google_Collection
@@ -3798,7 +3773,7 @@ class Google_Service_Analytics_EntityUserLinks extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -3808,7 +3783,7 @@ class Google_Service_Analytics_EntityUserLinks extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3818,7 +3793,7 @@ class Google_Service_Analytics_EntityUserLinks extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -3828,7 +3803,7 @@ class Google_Service_Analytics_EntityUserLinks extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -3838,7 +3813,7 @@ class Google_Service_Analytics_EntityUserLinks extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -3848,7 +3823,7 @@ class Google_Service_Analytics_EntityUserLinks extends Google_Collection
   {
     return $this->startIndex;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -3858,7 +3833,6 @@ class Google_Service_Analytics_EntityUserLinks extends Google_Collection
   {
     return $this->totalResults;
   }
-  
 }
 
 class Google_Service_Analytics_Experiment extends Google_Collection
@@ -3903,7 +3877,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->accountId;
   }
-  
+
   public function setCreated($created)
   {
     $this->created = $created;
@@ -3913,7 +3887,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->created;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -3923,7 +3897,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->description;
   }
-  
+
   public function setEditableInGaUi($editableInGaUi)
   {
     $this->editableInGaUi = $editableInGaUi;
@@ -3933,7 +3907,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->editableInGaUi;
   }
-  
+
   public function setEndTime($endTime)
   {
     $this->endTime = $endTime;
@@ -3943,7 +3917,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->endTime;
   }
-  
+
   public function setEqualWeighting($equalWeighting)
   {
     $this->equalWeighting = $equalWeighting;
@@ -3953,7 +3927,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->equalWeighting;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3963,7 +3937,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setInternalWebPropertyId($internalWebPropertyId)
   {
     $this->internalWebPropertyId = $internalWebPropertyId;
@@ -3973,7 +3947,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->internalWebPropertyId;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3983,7 +3957,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setMinimumExperimentLengthInDays($minimumExperimentLengthInDays)
   {
     $this->minimumExperimentLengthInDays = $minimumExperimentLengthInDays;
@@ -3993,7 +3967,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->minimumExperimentLengthInDays;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -4003,7 +3977,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->name;
   }
-  
+
   public function setObjectiveMetric($objectiveMetric)
   {
     $this->objectiveMetric = $objectiveMetric;
@@ -4013,7 +3987,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->objectiveMetric;
   }
-  
+
   public function setOptimizationType($optimizationType)
   {
     $this->optimizationType = $optimizationType;
@@ -4023,7 +3997,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->optimizationType;
   }
-  
+
   public function setParentLink(Google_Service_Analytics_ExperimentParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -4033,7 +4007,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->parentLink;
   }
-  
+
   public function setProfileId($profileId)
   {
     $this->profileId = $profileId;
@@ -4043,7 +4017,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->profileId;
   }
-  
+
   public function setReasonExperimentEnded($reasonExperimentEnded)
   {
     $this->reasonExperimentEnded = $reasonExperimentEnded;
@@ -4053,7 +4027,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->reasonExperimentEnded;
   }
-  
+
   public function setRewriteVariationUrlsAsOriginal($rewriteVariationUrlsAsOriginal)
   {
     $this->rewriteVariationUrlsAsOriginal = $rewriteVariationUrlsAsOriginal;
@@ -4063,7 +4037,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->rewriteVariationUrlsAsOriginal;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -4073,7 +4047,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setServingFramework($servingFramework)
   {
     $this->servingFramework = $servingFramework;
@@ -4083,7 +4057,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->servingFramework;
   }
-  
+
   public function setSnippet($snippet)
   {
     $this->snippet = $snippet;
@@ -4093,7 +4067,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->snippet;
   }
-  
+
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
@@ -4103,7 +4077,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->startTime;
   }
-  
+
   public function setStatus($status)
   {
     $this->status = $status;
@@ -4113,7 +4087,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->status;
   }
-  
+
   public function setTrafficCoverage($trafficCoverage)
   {
     $this->trafficCoverage = $trafficCoverage;
@@ -4123,7 +4097,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->trafficCoverage;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -4133,7 +4107,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->updated;
   }
-  
+
   public function setVariations($variations)
   {
     $this->variations = $variations;
@@ -4143,7 +4117,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->variations;
   }
-  
+
   public function setWebPropertyId($webPropertyId)
   {
     $this->webPropertyId = $webPropertyId;
@@ -4153,7 +4127,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->webPropertyId;
   }
-  
+
   public function setWinnerConfidenceLevel($winnerConfidenceLevel)
   {
     $this->winnerConfidenceLevel = $winnerConfidenceLevel;
@@ -4163,7 +4137,7 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->winnerConfidenceLevel;
   }
-  
+
   public function setWinnerFound($winnerFound)
   {
     $this->winnerFound = $winnerFound;
@@ -4173,7 +4147,6 @@ class Google_Service_Analytics_Experiment extends Google_Collection
   {
     return $this->winnerFound;
   }
-  
 }
 
 class Google_Service_Analytics_ExperimentParentLink extends Google_Model
@@ -4190,7 +4163,7 @@ class Google_Service_Analytics_ExperimentParentLink extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -4200,7 +4173,6 @@ class Google_Service_Analytics_ExperimentParentLink extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Analytics_ExperimentVariations extends Google_Model
@@ -4220,7 +4192,7 @@ class Google_Service_Analytics_ExperimentVariations extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setStatus($status)
   {
     $this->status = $status;
@@ -4230,7 +4202,7 @@ class Google_Service_Analytics_ExperimentVariations extends Google_Model
   {
     return $this->status;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -4240,7 +4212,7 @@ class Google_Service_Analytics_ExperimentVariations extends Google_Model
   {
     return $this->url;
   }
-  
+
   public function setWeight($weight)
   {
     $this->weight = $weight;
@@ -4250,7 +4222,7 @@ class Google_Service_Analytics_ExperimentVariations extends Google_Model
   {
     return $this->weight;
   }
-  
+
   public function setWon($won)
   {
     $this->won = $won;
@@ -4260,7 +4232,6 @@ class Google_Service_Analytics_ExperimentVariations extends Google_Model
   {
     return $this->won;
   }
-  
 }
 
 class Google_Service_Analytics_Experiments extends Google_Collection
@@ -4284,7 +4255,7 @@ class Google_Service_Analytics_Experiments extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -4294,7 +4265,7 @@ class Google_Service_Analytics_Experiments extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4304,7 +4275,7 @@ class Google_Service_Analytics_Experiments extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -4314,7 +4285,7 @@ class Google_Service_Analytics_Experiments extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -4324,7 +4295,7 @@ class Google_Service_Analytics_Experiments extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -4334,7 +4305,7 @@ class Google_Service_Analytics_Experiments extends Google_Collection
   {
     return $this->startIndex;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -4344,7 +4315,7 @@ class Google_Service_Analytics_Experiments extends Google_Collection
   {
     return $this->totalResults;
   }
-  
+
   public function setUsername($username)
   {
     $this->username = $username;
@@ -4354,7 +4325,6 @@ class Google_Service_Analytics_Experiments extends Google_Collection
   {
     return $this->username;
   }
-  
 }
 
 class Google_Service_Analytics_GaData extends Google_Collection
@@ -4389,7 +4359,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->columnHeaders;
   }
-  
+
   public function setContainsSampledData($containsSampledData)
   {
     $this->containsSampledData = $containsSampledData;
@@ -4399,7 +4369,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->containsSampledData;
   }
-  
+
   public function setDataTable(Google_Service_Analytics_GaDataDataTable $dataTable)
   {
     $this->dataTable = $dataTable;
@@ -4409,7 +4379,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->dataTable;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -4419,7 +4389,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -4429,7 +4399,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4439,7 +4409,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -4449,7 +4419,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -4459,7 +4429,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setProfileInfo(Google_Service_Analytics_GaDataProfileInfo $profileInfo)
   {
     $this->profileInfo = $profileInfo;
@@ -4469,7 +4439,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->profileInfo;
   }
-  
+
   public function setQuery(Google_Service_Analytics_GaDataQuery $query)
   {
     $this->query = $query;
@@ -4479,7 +4449,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->query;
   }
-  
+
   public function setRows($rows)
   {
     $this->rows = $rows;
@@ -4489,7 +4459,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->rows;
   }
-  
+
   public function setSampleSize($sampleSize)
   {
     $this->sampleSize = $sampleSize;
@@ -4499,7 +4469,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->sampleSize;
   }
-  
+
   public function setSampleSpace($sampleSpace)
   {
     $this->sampleSpace = $sampleSpace;
@@ -4509,7 +4479,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->sampleSpace;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -4519,7 +4489,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -4529,7 +4499,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->totalResults;
   }
-  
+
   public function setTotalsForAllResults($totalsForAllResults)
   {
     $this->totalsForAllResults = $totalsForAllResults;
@@ -4539,7 +4509,6 @@ class Google_Service_Analytics_GaData extends Google_Collection
   {
     return $this->totalsForAllResults;
   }
-  
 }
 
 class Google_Service_Analytics_GaDataColumnHeaders extends Google_Model
@@ -4557,7 +4526,7 @@ class Google_Service_Analytics_GaDataColumnHeaders extends Google_Model
   {
     return $this->columnType;
   }
-  
+
   public function setDataType($dataType)
   {
     $this->dataType = $dataType;
@@ -4567,7 +4536,7 @@ class Google_Service_Analytics_GaDataColumnHeaders extends Google_Model
   {
     return $this->dataType;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -4577,7 +4546,6 @@ class Google_Service_Analytics_GaDataColumnHeaders extends Google_Model
   {
     return $this->name;
   }
-  
 }
 
 class Google_Service_Analytics_GaDataDataTable extends Google_Collection
@@ -4596,7 +4564,7 @@ class Google_Service_Analytics_GaDataDataTable extends Google_Collection
   {
     return $this->cols;
   }
-  
+
   public function setRows($rows)
   {
     $this->rows = $rows;
@@ -4606,7 +4574,6 @@ class Google_Service_Analytics_GaDataDataTable extends Google_Collection
   {
     return $this->rows;
   }
-  
 }
 
 class Google_Service_Analytics_GaDataDataTableCols extends Google_Model
@@ -4624,7 +4591,7 @@ class Google_Service_Analytics_GaDataDataTableCols extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setLabel($label)
   {
     $this->label = $label;
@@ -4634,7 +4601,7 @@ class Google_Service_Analytics_GaDataDataTableCols extends Google_Model
   {
     return $this->label;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -4644,7 +4611,6 @@ class Google_Service_Analytics_GaDataDataTableCols extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Analytics_GaDataDataTableRows extends Google_Collection
@@ -4661,7 +4627,6 @@ class Google_Service_Analytics_GaDataDataTableRows extends Google_Collection
   {
     return $this->c;
   }
-  
 }
 
 class Google_Service_Analytics_GaDataDataTableRowsC extends Google_Model
@@ -4677,7 +4642,6 @@ class Google_Service_Analytics_GaDataDataTableRowsC extends Google_Model
   {
     return $this->v;
   }
-  
 }
 
 class Google_Service_Analytics_GaDataProfileInfo extends Google_Model
@@ -4698,7 +4662,7 @@ class Google_Service_Analytics_GaDataProfileInfo extends Google_Model
   {
     return $this->accountId;
   }
-  
+
   public function setInternalWebPropertyId($internalWebPropertyId)
   {
     $this->internalWebPropertyId = $internalWebPropertyId;
@@ -4708,7 +4672,7 @@ class Google_Service_Analytics_GaDataProfileInfo extends Google_Model
   {
     return $this->internalWebPropertyId;
   }
-  
+
   public function setProfileId($profileId)
   {
     $this->profileId = $profileId;
@@ -4718,7 +4682,7 @@ class Google_Service_Analytics_GaDataProfileInfo extends Google_Model
   {
     return $this->profileId;
   }
-  
+
   public function setProfileName($profileName)
   {
     $this->profileName = $profileName;
@@ -4728,7 +4692,7 @@ class Google_Service_Analytics_GaDataProfileInfo extends Google_Model
   {
     return $this->profileName;
   }
-  
+
   public function setTableId($tableId)
   {
     $this->tableId = $tableId;
@@ -4738,7 +4702,7 @@ class Google_Service_Analytics_GaDataProfileInfo extends Google_Model
   {
     return $this->tableId;
   }
-  
+
   public function setWebPropertyId($webPropertyId)
   {
     $this->webPropertyId = $webPropertyId;
@@ -4748,7 +4712,6 @@ class Google_Service_Analytics_GaDataProfileInfo extends Google_Model
   {
     return $this->webPropertyId;
   }
-  
 }
 
 class Google_Service_Analytics_GaDataQuery extends Google_Collection
@@ -4774,7 +4737,7 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   {
     return $this->dimensions;
   }
-  
+
   public function setEndDate($endDate)
   {
     $this->endDate = $endDate;
@@ -4784,7 +4747,7 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   {
     return $this->endDate;
   }
-  
+
   public function setFilters($filters)
   {
     $this->filters = $filters;
@@ -4794,7 +4757,7 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   {
     return $this->filters;
   }
-  
+
   public function setIds($ids)
   {
     $this->ids = $ids;
@@ -4804,7 +4767,7 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   {
     return $this->ids;
   }
-  
+
   public function setMaxResults($maxResults)
   {
     $this->maxResults = $maxResults;
@@ -4814,7 +4777,7 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   {
     return $this->maxResults;
   }
-  
+
   public function setMetrics($metrics)
   {
     $this->metrics = $metrics;
@@ -4824,7 +4787,7 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   {
     return $this->metrics;
   }
-  
+
   public function setSamplingLevel($samplingLevel)
   {
     $this->samplingLevel = $samplingLevel;
@@ -4834,7 +4797,7 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   {
     return $this->samplingLevel;
   }
-  
+
   public function setSegment($segment)
   {
     $this->segment = $segment;
@@ -4844,7 +4807,7 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   {
     return $this->segment;
   }
-  
+
   public function setSort($sort)
   {
     $this->sort = $sort;
@@ -4854,7 +4817,7 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   {
     return $this->sort;
   }
-  
+
   public function setStartDate($startDate)
   {
     $this->startDate = $startDate;
@@ -4864,7 +4827,7 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   {
     return $this->startDate;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -4874,7 +4837,6 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   {
     return $this->startIndex;
   }
-  
 }
 
 class Google_Service_Analytics_Goal extends Google_Model
@@ -4912,7 +4874,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->accountId;
   }
-  
+
   public function setActive($active)
   {
     $this->active = $active;
@@ -4922,7 +4884,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->active;
   }
-  
+
   public function setCreated($created)
   {
     $this->created = $created;
@@ -4932,7 +4894,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->created;
   }
-  
+
   public function setEventDetails(Google_Service_Analytics_GoalEventDetails $eventDetails)
   {
     $this->eventDetails = $eventDetails;
@@ -4942,7 +4904,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->eventDetails;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -4952,7 +4914,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setInternalWebPropertyId($internalWebPropertyId)
   {
     $this->internalWebPropertyId = $internalWebPropertyId;
@@ -4962,7 +4924,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->internalWebPropertyId;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4972,7 +4934,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -4982,7 +4944,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setParentLink(Google_Service_Analytics_GoalParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -4992,7 +4954,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->parentLink;
   }
-  
+
   public function setProfileId($profileId)
   {
     $this->profileId = $profileId;
@@ -5002,7 +4964,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->profileId;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5012,7 +4974,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -5022,7 +4984,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->type;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -5032,7 +4994,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->updated;
   }
-  
+
   public function setUrlDestinationDetails(Google_Service_Analytics_GoalUrlDestinationDetails $urlDestinationDetails)
   {
     $this->urlDestinationDetails = $urlDestinationDetails;
@@ -5042,7 +5004,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->urlDestinationDetails;
   }
-  
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -5052,7 +5014,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->value;
   }
-  
+
   public function setVisitNumPagesDetails(Google_Service_Analytics_GoalVisitNumPagesDetails $visitNumPagesDetails)
   {
     $this->visitNumPagesDetails = $visitNumPagesDetails;
@@ -5062,7 +5024,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->visitNumPagesDetails;
   }
-  
+
   public function setVisitTimeOnSiteDetails(Google_Service_Analytics_GoalVisitTimeOnSiteDetails $visitTimeOnSiteDetails)
   {
     $this->visitTimeOnSiteDetails = $visitTimeOnSiteDetails;
@@ -5072,7 +5034,7 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->visitTimeOnSiteDetails;
   }
-  
+
   public function setWebPropertyId($webPropertyId)
   {
     $this->webPropertyId = $webPropertyId;
@@ -5082,7 +5044,6 @@ class Google_Service_Analytics_Goal extends Google_Model
   {
     return $this->webPropertyId;
   }
-  
 }
 
 class Google_Service_Analytics_GoalEventDetails extends Google_Collection
@@ -5100,7 +5061,7 @@ class Google_Service_Analytics_GoalEventDetails extends Google_Collection
   {
     return $this->eventConditions;
   }
-  
+
   public function setUseEventValue($useEventValue)
   {
     $this->useEventValue = $useEventValue;
@@ -5110,7 +5071,6 @@ class Google_Service_Analytics_GoalEventDetails extends Google_Collection
   {
     return $this->useEventValue;
   }
-  
 }
 
 class Google_Service_Analytics_GoalEventDetailsEventConditions extends Google_Model
@@ -5130,7 +5090,7 @@ class Google_Service_Analytics_GoalEventDetailsEventConditions extends Google_Mo
   {
     return $this->comparisonType;
   }
-  
+
   public function setComparisonValue($comparisonValue)
   {
     $this->comparisonValue = $comparisonValue;
@@ -5140,7 +5100,7 @@ class Google_Service_Analytics_GoalEventDetailsEventConditions extends Google_Mo
   {
     return $this->comparisonValue;
   }
-  
+
   public function setExpression($expression)
   {
     $this->expression = $expression;
@@ -5150,7 +5110,7 @@ class Google_Service_Analytics_GoalEventDetailsEventConditions extends Google_Mo
   {
     return $this->expression;
   }
-  
+
   public function setMatchType($matchType)
   {
     $this->matchType = $matchType;
@@ -5160,7 +5120,7 @@ class Google_Service_Analytics_GoalEventDetailsEventConditions extends Google_Mo
   {
     return $this->matchType;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -5170,7 +5130,6 @@ class Google_Service_Analytics_GoalEventDetailsEventConditions extends Google_Mo
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Analytics_GoalParentLink extends Google_Model
@@ -5187,7 +5146,7 @@ class Google_Service_Analytics_GoalParentLink extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -5197,7 +5156,6 @@ class Google_Service_Analytics_GoalParentLink extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Analytics_GoalUrlDestinationDetails extends Google_Collection
@@ -5218,7 +5176,7 @@ class Google_Service_Analytics_GoalUrlDestinationDetails extends Google_Collecti
   {
     return $this->caseSensitive;
   }
-  
+
   public function setFirstStepRequired($firstStepRequired)
   {
     $this->firstStepRequired = $firstStepRequired;
@@ -5228,7 +5186,7 @@ class Google_Service_Analytics_GoalUrlDestinationDetails extends Google_Collecti
   {
     return $this->firstStepRequired;
   }
-  
+
   public function setMatchType($matchType)
   {
     $this->matchType = $matchType;
@@ -5238,7 +5196,7 @@ class Google_Service_Analytics_GoalUrlDestinationDetails extends Google_Collecti
   {
     return $this->matchType;
   }
-  
+
   public function setSteps($steps)
   {
     $this->steps = $steps;
@@ -5248,7 +5206,7 @@ class Google_Service_Analytics_GoalUrlDestinationDetails extends Google_Collecti
   {
     return $this->steps;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -5258,7 +5216,6 @@ class Google_Service_Analytics_GoalUrlDestinationDetails extends Google_Collecti
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Analytics_GoalUrlDestinationDetailsSteps extends Google_Model
@@ -5276,7 +5233,7 @@ class Google_Service_Analytics_GoalUrlDestinationDetailsSteps extends Google_Mod
   {
     return $this->name;
   }
-  
+
   public function setNumber($number)
   {
     $this->number = $number;
@@ -5286,7 +5243,7 @@ class Google_Service_Analytics_GoalUrlDestinationDetailsSteps extends Google_Mod
   {
     return $this->number;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -5296,7 +5253,6 @@ class Google_Service_Analytics_GoalUrlDestinationDetailsSteps extends Google_Mod
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Analytics_GoalVisitNumPagesDetails extends Google_Model
@@ -5313,7 +5269,7 @@ class Google_Service_Analytics_GoalVisitNumPagesDetails extends Google_Model
   {
     return $this->comparisonType;
   }
-  
+
   public function setComparisonValue($comparisonValue)
   {
     $this->comparisonValue = $comparisonValue;
@@ -5323,7 +5279,6 @@ class Google_Service_Analytics_GoalVisitNumPagesDetails extends Google_Model
   {
     return $this->comparisonValue;
   }
-  
 }
 
 class Google_Service_Analytics_GoalVisitTimeOnSiteDetails extends Google_Model
@@ -5340,7 +5295,7 @@ class Google_Service_Analytics_GoalVisitTimeOnSiteDetails extends Google_Model
   {
     return $this->comparisonType;
   }
-  
+
   public function setComparisonValue($comparisonValue)
   {
     $this->comparisonValue = $comparisonValue;
@@ -5350,7 +5305,6 @@ class Google_Service_Analytics_GoalVisitTimeOnSiteDetails extends Google_Model
   {
     return $this->comparisonValue;
   }
-  
 }
 
 class Google_Service_Analytics_Goals extends Google_Collection
@@ -5374,7 +5328,7 @@ class Google_Service_Analytics_Goals extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -5384,7 +5338,7 @@ class Google_Service_Analytics_Goals extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5394,7 +5348,7 @@ class Google_Service_Analytics_Goals extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -5404,7 +5358,7 @@ class Google_Service_Analytics_Goals extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -5414,7 +5368,7 @@ class Google_Service_Analytics_Goals extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -5424,7 +5378,7 @@ class Google_Service_Analytics_Goals extends Google_Collection
   {
     return $this->startIndex;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -5434,7 +5388,7 @@ class Google_Service_Analytics_Goals extends Google_Collection
   {
     return $this->totalResults;
   }
-  
+
   public function setUsername($username)
   {
     $this->username = $username;
@@ -5444,7 +5398,6 @@ class Google_Service_Analytics_Goals extends Google_Collection
   {
     return $this->username;
   }
-  
 }
 
 class Google_Service_Analytics_McfData extends Google_Collection
@@ -5478,7 +5431,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->columnHeaders;
   }
-  
+
   public function setContainsSampledData($containsSampledData)
   {
     $this->containsSampledData = $containsSampledData;
@@ -5488,7 +5441,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->containsSampledData;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -5498,7 +5451,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -5508,7 +5461,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5518,7 +5471,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -5528,7 +5481,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -5538,7 +5491,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setProfileInfo(Google_Service_Analytics_McfDataProfileInfo $profileInfo)
   {
     $this->profileInfo = $profileInfo;
@@ -5548,7 +5501,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->profileInfo;
   }
-  
+
   public function setQuery(Google_Service_Analytics_McfDataQuery $query)
   {
     $this->query = $query;
@@ -5558,7 +5511,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->query;
   }
-  
+
   public function setRows($rows)
   {
     $this->rows = $rows;
@@ -5568,7 +5521,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->rows;
   }
-  
+
   public function setSampleSize($sampleSize)
   {
     $this->sampleSize = $sampleSize;
@@ -5578,7 +5531,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->sampleSize;
   }
-  
+
   public function setSampleSpace($sampleSpace)
   {
     $this->sampleSpace = $sampleSpace;
@@ -5588,7 +5541,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->sampleSpace;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5598,7 +5551,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -5608,7 +5561,7 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->totalResults;
   }
-  
+
   public function setTotalsForAllResults($totalsForAllResults)
   {
     $this->totalsForAllResults = $totalsForAllResults;
@@ -5618,7 +5571,6 @@ class Google_Service_Analytics_McfData extends Google_Collection
   {
     return $this->totalsForAllResults;
   }
-  
 }
 
 class Google_Service_Analytics_McfDataColumnHeaders extends Google_Model
@@ -5636,7 +5588,7 @@ class Google_Service_Analytics_McfDataColumnHeaders extends Google_Model
   {
     return $this->columnType;
   }
-  
+
   public function setDataType($dataType)
   {
     $this->dataType = $dataType;
@@ -5646,7 +5598,7 @@ class Google_Service_Analytics_McfDataColumnHeaders extends Google_Model
   {
     return $this->dataType;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -5656,7 +5608,6 @@ class Google_Service_Analytics_McfDataColumnHeaders extends Google_Model
   {
     return $this->name;
   }
-  
 }
 
 class Google_Service_Analytics_McfDataProfileInfo extends Google_Model
@@ -5677,7 +5628,7 @@ class Google_Service_Analytics_McfDataProfileInfo extends Google_Model
   {
     return $this->accountId;
   }
-  
+
   public function setInternalWebPropertyId($internalWebPropertyId)
   {
     $this->internalWebPropertyId = $internalWebPropertyId;
@@ -5687,7 +5638,7 @@ class Google_Service_Analytics_McfDataProfileInfo extends Google_Model
   {
     return $this->internalWebPropertyId;
   }
-  
+
   public function setProfileId($profileId)
   {
     $this->profileId = $profileId;
@@ -5697,7 +5648,7 @@ class Google_Service_Analytics_McfDataProfileInfo extends Google_Model
   {
     return $this->profileId;
   }
-  
+
   public function setProfileName($profileName)
   {
     $this->profileName = $profileName;
@@ -5707,7 +5658,7 @@ class Google_Service_Analytics_McfDataProfileInfo extends Google_Model
   {
     return $this->profileName;
   }
-  
+
   public function setTableId($tableId)
   {
     $this->tableId = $tableId;
@@ -5717,7 +5668,7 @@ class Google_Service_Analytics_McfDataProfileInfo extends Google_Model
   {
     return $this->tableId;
   }
-  
+
   public function setWebPropertyId($webPropertyId)
   {
     $this->webPropertyId = $webPropertyId;
@@ -5727,7 +5678,6 @@ class Google_Service_Analytics_McfDataProfileInfo extends Google_Model
   {
     return $this->webPropertyId;
   }
-  
 }
 
 class Google_Service_Analytics_McfDataQuery extends Google_Collection
@@ -5753,7 +5703,7 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
   {
     return $this->dimensions;
   }
-  
+
   public function setEndDate($endDate)
   {
     $this->endDate = $endDate;
@@ -5763,7 +5713,7 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
   {
     return $this->endDate;
   }
-  
+
   public function setFilters($filters)
   {
     $this->filters = $filters;
@@ -5773,7 +5723,7 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
   {
     return $this->filters;
   }
-  
+
   public function setIds($ids)
   {
     $this->ids = $ids;
@@ -5783,7 +5733,7 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
   {
     return $this->ids;
   }
-  
+
   public function setMaxResults($maxResults)
   {
     $this->maxResults = $maxResults;
@@ -5793,7 +5743,7 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
   {
     return $this->maxResults;
   }
-  
+
   public function setMetrics($metrics)
   {
     $this->metrics = $metrics;
@@ -5803,7 +5753,7 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
   {
     return $this->metrics;
   }
-  
+
   public function setSamplingLevel($samplingLevel)
   {
     $this->samplingLevel = $samplingLevel;
@@ -5813,7 +5763,7 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
   {
     return $this->samplingLevel;
   }
-  
+
   public function setSegment($segment)
   {
     $this->segment = $segment;
@@ -5823,7 +5773,7 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
   {
     return $this->segment;
   }
-  
+
   public function setSort($sort)
   {
     $this->sort = $sort;
@@ -5833,7 +5783,7 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
   {
     return $this->sort;
   }
-  
+
   public function setStartDate($startDate)
   {
     $this->startDate = $startDate;
@@ -5843,7 +5793,7 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
   {
     return $this->startDate;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -5853,7 +5803,6 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
   {
     return $this->startIndex;
   }
-  
 }
 
 class Google_Service_Analytics_McfDataRows extends Google_Collection
@@ -5871,7 +5820,7 @@ class Google_Service_Analytics_McfDataRows extends Google_Collection
   {
     return $this->conversionPathValue;
   }
-  
+
   public function setPrimitiveValue($primitiveValue)
   {
     $this->primitiveValue = $primitiveValue;
@@ -5881,7 +5830,6 @@ class Google_Service_Analytics_McfDataRows extends Google_Collection
   {
     return $this->primitiveValue;
   }
-  
 }
 
 class Google_Service_Analytics_McfDataRowsConversionPathValue extends Google_Model
@@ -5898,7 +5846,7 @@ class Google_Service_Analytics_McfDataRowsConversionPathValue extends Google_Mod
   {
     return $this->interactionType;
   }
-  
+
   public function setNodeValue($nodeValue)
   {
     $this->nodeValue = $nodeValue;
@@ -5908,7 +5856,6 @@ class Google_Service_Analytics_McfDataRowsConversionPathValue extends Google_Mod
   {
     return $this->nodeValue;
   }
-  
 }
 
 class Google_Service_Analytics_Profile extends Google_Model
@@ -5947,7 +5894,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->accountId;
   }
-  
+
   public function setChildLink(Google_Service_Analytics_ProfileChildLink $childLink)
   {
     $this->childLink = $childLink;
@@ -5957,7 +5904,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->childLink;
   }
-  
+
   public function setCreated($created)
   {
     $this->created = $created;
@@ -5967,7 +5914,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->created;
   }
-  
+
   public function setCurrency($currency)
   {
     $this->currency = $currency;
@@ -5977,7 +5924,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->currency;
   }
-  
+
   public function setDefaultPage($defaultPage)
   {
     $this->defaultPage = $defaultPage;
@@ -5987,7 +5934,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->defaultPage;
   }
-  
+
   public function setECommerceTracking($eCommerceTracking)
   {
     $this->eCommerceTracking = $eCommerceTracking;
@@ -5997,7 +5944,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->eCommerceTracking;
   }
-  
+
   public function setExcludeQueryParameters($excludeQueryParameters)
   {
     $this->excludeQueryParameters = $excludeQueryParameters;
@@ -6007,7 +5954,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->excludeQueryParameters;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -6017,7 +5964,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setInternalWebPropertyId($internalWebPropertyId)
   {
     $this->internalWebPropertyId = $internalWebPropertyId;
@@ -6027,7 +5974,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->internalWebPropertyId;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6037,7 +5984,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -6047,7 +5994,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setParentLink(Google_Service_Analytics_ProfileParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -6057,7 +6004,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->parentLink;
   }
-  
+
   public function setPermissions(Google_Service_Analytics_ProfilePermissions $permissions)
   {
     $this->permissions = $permissions;
@@ -6067,7 +6014,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->permissions;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -6077,7 +6024,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setSiteSearchCategoryParameters($siteSearchCategoryParameters)
   {
     $this->siteSearchCategoryParameters = $siteSearchCategoryParameters;
@@ -6087,7 +6034,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->siteSearchCategoryParameters;
   }
-  
+
   public function setSiteSearchQueryParameters($siteSearchQueryParameters)
   {
     $this->siteSearchQueryParameters = $siteSearchQueryParameters;
@@ -6097,7 +6044,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->siteSearchQueryParameters;
   }
-  
+
   public function setTimezone($timezone)
   {
     $this->timezone = $timezone;
@@ -6107,7 +6054,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->timezone;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -6117,7 +6064,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->type;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -6127,7 +6074,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->updated;
   }
-  
+
   public function setWebPropertyId($webPropertyId)
   {
     $this->webPropertyId = $webPropertyId;
@@ -6137,7 +6084,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->webPropertyId;
   }
-  
+
   public function setWebsiteUrl($websiteUrl)
   {
     $this->websiteUrl = $websiteUrl;
@@ -6147,7 +6094,6 @@ class Google_Service_Analytics_Profile extends Google_Model
   {
     return $this->websiteUrl;
   }
-  
 }
 
 class Google_Service_Analytics_ProfileChildLink extends Google_Model
@@ -6164,7 +6110,7 @@ class Google_Service_Analytics_ProfileChildLink extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -6174,7 +6120,6 @@ class Google_Service_Analytics_ProfileChildLink extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Analytics_ProfileParentLink extends Google_Model
@@ -6191,7 +6136,7 @@ class Google_Service_Analytics_ProfileParentLink extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -6201,7 +6146,6 @@ class Google_Service_Analytics_ProfileParentLink extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Analytics_ProfilePermissions extends Google_Collection
@@ -6217,7 +6161,6 @@ class Google_Service_Analytics_ProfilePermissions extends Google_Collection
   {
     return $this->effective;
   }
-  
 }
 
 class Google_Service_Analytics_ProfileRef extends Google_Model
@@ -6239,7 +6182,7 @@ class Google_Service_Analytics_ProfileRef extends Google_Model
   {
     return $this->accountId;
   }
-  
+
   public function setHref($href)
   {
     $this->href = $href;
@@ -6249,7 +6192,7 @@ class Google_Service_Analytics_ProfileRef extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -6259,7 +6202,7 @@ class Google_Service_Analytics_ProfileRef extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setInternalWebPropertyId($internalWebPropertyId)
   {
     $this->internalWebPropertyId = $internalWebPropertyId;
@@ -6269,7 +6212,7 @@ class Google_Service_Analytics_ProfileRef extends Google_Model
   {
     return $this->internalWebPropertyId;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6279,7 +6222,7 @@ class Google_Service_Analytics_ProfileRef extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -6289,7 +6232,7 @@ class Google_Service_Analytics_ProfileRef extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setWebPropertyId($webPropertyId)
   {
     $this->webPropertyId = $webPropertyId;
@@ -6299,7 +6242,6 @@ class Google_Service_Analytics_ProfileRef extends Google_Model
   {
     return $this->webPropertyId;
   }
-  
 }
 
 class Google_Service_Analytics_Profiles extends Google_Collection
@@ -6323,7 +6265,7 @@ class Google_Service_Analytics_Profiles extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -6333,7 +6275,7 @@ class Google_Service_Analytics_Profiles extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6343,7 +6285,7 @@ class Google_Service_Analytics_Profiles extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -6353,7 +6295,7 @@ class Google_Service_Analytics_Profiles extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -6363,7 +6305,7 @@ class Google_Service_Analytics_Profiles extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -6373,7 +6315,7 @@ class Google_Service_Analytics_Profiles extends Google_Collection
   {
     return $this->startIndex;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -6383,7 +6325,7 @@ class Google_Service_Analytics_Profiles extends Google_Collection
   {
     return $this->totalResults;
   }
-  
+
   public function setUsername($username)
   {
     $this->username = $username;
@@ -6393,7 +6335,6 @@ class Google_Service_Analytics_Profiles extends Google_Collection
   {
     return $this->username;
   }
-  
 }
 
 class Google_Service_Analytics_RealtimeData extends Google_Collection
@@ -6420,7 +6361,7 @@ class Google_Service_Analytics_RealtimeData extends Google_Collection
   {
     return $this->columnHeaders;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -6430,7 +6371,7 @@ class Google_Service_Analytics_RealtimeData extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6440,7 +6381,7 @@ class Google_Service_Analytics_RealtimeData extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setProfileInfo(Google_Service_Analytics_RealtimeDataProfileInfo $profileInfo)
   {
     $this->profileInfo = $profileInfo;
@@ -6450,7 +6391,7 @@ class Google_Service_Analytics_RealtimeData extends Google_Collection
   {
     return $this->profileInfo;
   }
-  
+
   public function setQuery(Google_Service_Analytics_RealtimeDataQuery $query)
   {
     $this->query = $query;
@@ -6460,7 +6401,7 @@ class Google_Service_Analytics_RealtimeData extends Google_Collection
   {
     return $this->query;
   }
-  
+
   public function setRows($rows)
   {
     $this->rows = $rows;
@@ -6470,7 +6411,7 @@ class Google_Service_Analytics_RealtimeData extends Google_Collection
   {
     return $this->rows;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -6480,7 +6421,7 @@ class Google_Service_Analytics_RealtimeData extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -6490,7 +6431,7 @@ class Google_Service_Analytics_RealtimeData extends Google_Collection
   {
     return $this->totalResults;
   }
-  
+
   public function setTotalsForAllResults($totalsForAllResults)
   {
     $this->totalsForAllResults = $totalsForAllResults;
@@ -6500,7 +6441,6 @@ class Google_Service_Analytics_RealtimeData extends Google_Collection
   {
     return $this->totalsForAllResults;
   }
-  
 }
 
 class Google_Service_Analytics_RealtimeDataColumnHeaders extends Google_Model
@@ -6518,7 +6458,7 @@ class Google_Service_Analytics_RealtimeDataColumnHeaders extends Google_Model
   {
     return $this->columnType;
   }
-  
+
   public function setDataType($dataType)
   {
     $this->dataType = $dataType;
@@ -6528,7 +6468,7 @@ class Google_Service_Analytics_RealtimeDataColumnHeaders extends Google_Model
   {
     return $this->dataType;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -6538,7 +6478,6 @@ class Google_Service_Analytics_RealtimeDataColumnHeaders extends Google_Model
   {
     return $this->name;
   }
-  
 }
 
 class Google_Service_Analytics_RealtimeDataProfileInfo extends Google_Model
@@ -6559,7 +6498,7 @@ class Google_Service_Analytics_RealtimeDataProfileInfo extends Google_Model
   {
     return $this->accountId;
   }
-  
+
   public function setInternalWebPropertyId($internalWebPropertyId)
   {
     $this->internalWebPropertyId = $internalWebPropertyId;
@@ -6569,7 +6508,7 @@ class Google_Service_Analytics_RealtimeDataProfileInfo extends Google_Model
   {
     return $this->internalWebPropertyId;
   }
-  
+
   public function setProfileId($profileId)
   {
     $this->profileId = $profileId;
@@ -6579,7 +6518,7 @@ class Google_Service_Analytics_RealtimeDataProfileInfo extends Google_Model
   {
     return $this->profileId;
   }
-  
+
   public function setProfileName($profileName)
   {
     $this->profileName = $profileName;
@@ -6589,7 +6528,7 @@ class Google_Service_Analytics_RealtimeDataProfileInfo extends Google_Model
   {
     return $this->profileName;
   }
-  
+
   public function setTableId($tableId)
   {
     $this->tableId = $tableId;
@@ -6599,7 +6538,7 @@ class Google_Service_Analytics_RealtimeDataProfileInfo extends Google_Model
   {
     return $this->tableId;
   }
-  
+
   public function setWebPropertyId($webPropertyId)
   {
     $this->webPropertyId = $webPropertyId;
@@ -6609,7 +6548,6 @@ class Google_Service_Analytics_RealtimeDataProfileInfo extends Google_Model
   {
     return $this->webPropertyId;
   }
-  
 }
 
 class Google_Service_Analytics_RealtimeDataQuery extends Google_Collection
@@ -6630,7 +6568,7 @@ class Google_Service_Analytics_RealtimeDataQuery extends Google_Collection
   {
     return $this->dimensions;
   }
-  
+
   public function setFilters($filters)
   {
     $this->filters = $filters;
@@ -6640,7 +6578,7 @@ class Google_Service_Analytics_RealtimeDataQuery extends Google_Collection
   {
     return $this->filters;
   }
-  
+
   public function setIds($ids)
   {
     $this->ids = $ids;
@@ -6650,7 +6588,7 @@ class Google_Service_Analytics_RealtimeDataQuery extends Google_Collection
   {
     return $this->ids;
   }
-  
+
   public function setMaxResults($maxResults)
   {
     $this->maxResults = $maxResults;
@@ -6660,7 +6598,7 @@ class Google_Service_Analytics_RealtimeDataQuery extends Google_Collection
   {
     return $this->maxResults;
   }
-  
+
   public function setMetrics($metrics)
   {
     $this->metrics = $metrics;
@@ -6670,7 +6608,7 @@ class Google_Service_Analytics_RealtimeDataQuery extends Google_Collection
   {
     return $this->metrics;
   }
-  
+
   public function setSort($sort)
   {
     $this->sort = $sort;
@@ -6680,7 +6618,6 @@ class Google_Service_Analytics_RealtimeDataQuery extends Google_Collection
   {
     return $this->sort;
   }
-  
 }
 
 class Google_Service_Analytics_Segment extends Google_Model
@@ -6703,7 +6640,7 @@ class Google_Service_Analytics_Segment extends Google_Model
   {
     return $this->created;
   }
-  
+
   public function setDefinition($definition)
   {
     $this->definition = $definition;
@@ -6713,7 +6650,7 @@ class Google_Service_Analytics_Segment extends Google_Model
   {
     return $this->definition;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -6723,7 +6660,7 @@ class Google_Service_Analytics_Segment extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6733,7 +6670,7 @@ class Google_Service_Analytics_Segment extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -6743,7 +6680,7 @@ class Google_Service_Analytics_Segment extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setSegmentId($segmentId)
   {
     $this->segmentId = $segmentId;
@@ -6753,7 +6690,7 @@ class Google_Service_Analytics_Segment extends Google_Model
   {
     return $this->segmentId;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -6763,7 +6700,7 @@ class Google_Service_Analytics_Segment extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -6773,7 +6710,6 @@ class Google_Service_Analytics_Segment extends Google_Model
   {
     return $this->updated;
   }
-  
 }
 
 class Google_Service_Analytics_Segments extends Google_Collection
@@ -6797,7 +6733,7 @@ class Google_Service_Analytics_Segments extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -6807,7 +6743,7 @@ class Google_Service_Analytics_Segments extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6817,7 +6753,7 @@ class Google_Service_Analytics_Segments extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -6827,7 +6763,7 @@ class Google_Service_Analytics_Segments extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -6837,7 +6773,7 @@ class Google_Service_Analytics_Segments extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -6847,7 +6783,7 @@ class Google_Service_Analytics_Segments extends Google_Collection
   {
     return $this->startIndex;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -6857,7 +6793,7 @@ class Google_Service_Analytics_Segments extends Google_Collection
   {
     return $this->totalResults;
   }
-  
+
   public function setUsername($username)
   {
     $this->username = $username;
@@ -6867,7 +6803,6 @@ class Google_Service_Analytics_Segments extends Google_Collection
   {
     return $this->username;
   }
-  
 }
 
 class Google_Service_Analytics_Upload extends Google_Collection
@@ -6888,7 +6823,7 @@ class Google_Service_Analytics_Upload extends Google_Collection
   {
     return $this->accountId;
   }
-  
+
   public function setCustomDataSourceId($customDataSourceId)
   {
     $this->customDataSourceId = $customDataSourceId;
@@ -6898,7 +6833,7 @@ class Google_Service_Analytics_Upload extends Google_Collection
   {
     return $this->customDataSourceId;
   }
-  
+
   public function setErrors($errors)
   {
     $this->errors = $errors;
@@ -6908,7 +6843,7 @@ class Google_Service_Analytics_Upload extends Google_Collection
   {
     return $this->errors;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -6918,7 +6853,7 @@ class Google_Service_Analytics_Upload extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6928,7 +6863,7 @@ class Google_Service_Analytics_Upload extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setStatus($status)
   {
     $this->status = $status;
@@ -6938,7 +6873,6 @@ class Google_Service_Analytics_Upload extends Google_Collection
   {
     return $this->status;
   }
-  
 }
 
 class Google_Service_Analytics_Uploads extends Google_Collection
@@ -6961,7 +6895,7 @@ class Google_Service_Analytics_Uploads extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -6971,7 +6905,7 @@ class Google_Service_Analytics_Uploads extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6981,7 +6915,7 @@ class Google_Service_Analytics_Uploads extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -6991,7 +6925,7 @@ class Google_Service_Analytics_Uploads extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -7001,7 +6935,7 @@ class Google_Service_Analytics_Uploads extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -7011,7 +6945,7 @@ class Google_Service_Analytics_Uploads extends Google_Collection
   {
     return $this->startIndex;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -7021,7 +6955,6 @@ class Google_Service_Analytics_Uploads extends Google_Collection
   {
     return $this->totalResults;
   }
-  
 }
 
 class Google_Service_Analytics_UserRef extends Google_Model
@@ -7039,7 +6972,7 @@ class Google_Service_Analytics_UserRef extends Google_Model
   {
     return $this->email;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -7049,7 +6982,7 @@ class Google_Service_Analytics_UserRef extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7059,7 +6992,6 @@ class Google_Service_Analytics_UserRef extends Google_Model
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Analytics_WebPropertyRef extends Google_Model
@@ -7080,7 +7012,7 @@ class Google_Service_Analytics_WebPropertyRef extends Google_Model
   {
     return $this->accountId;
   }
-  
+
   public function setHref($href)
   {
     $this->href = $href;
@@ -7090,7 +7022,7 @@ class Google_Service_Analytics_WebPropertyRef extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -7100,7 +7032,7 @@ class Google_Service_Analytics_WebPropertyRef extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setInternalWebPropertyId($internalWebPropertyId)
   {
     $this->internalWebPropertyId = $internalWebPropertyId;
@@ -7110,7 +7042,7 @@ class Google_Service_Analytics_WebPropertyRef extends Google_Model
   {
     return $this->internalWebPropertyId;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7120,7 +7052,7 @@ class Google_Service_Analytics_WebPropertyRef extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -7130,7 +7062,6 @@ class Google_Service_Analytics_WebPropertyRef extends Google_Model
   {
     return $this->name;
   }
-  
 }
 
 class Google_Service_Analytics_Webproperties extends Google_Collection
@@ -7154,7 +7085,7 @@ class Google_Service_Analytics_Webproperties extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -7164,7 +7095,7 @@ class Google_Service_Analytics_Webproperties extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7174,7 +7105,7 @@ class Google_Service_Analytics_Webproperties extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -7184,7 +7115,7 @@ class Google_Service_Analytics_Webproperties extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setPreviousLink($previousLink)
   {
     $this->previousLink = $previousLink;
@@ -7194,7 +7125,7 @@ class Google_Service_Analytics_Webproperties extends Google_Collection
   {
     return $this->previousLink;
   }
-  
+
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -7204,7 +7135,7 @@ class Google_Service_Analytics_Webproperties extends Google_Collection
   {
     return $this->startIndex;
   }
-  
+
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -7214,7 +7145,7 @@ class Google_Service_Analytics_Webproperties extends Google_Collection
   {
     return $this->totalResults;
   }
-  
+
   public function setUsername($username)
   {
     $this->username = $username;
@@ -7224,7 +7155,6 @@ class Google_Service_Analytics_Webproperties extends Google_Collection
   {
     return $this->username;
   }
-  
 }
 
 class Google_Service_Analytics_Webproperty extends Google_Model
@@ -7258,7 +7188,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->accountId;
   }
-  
+
   public function setChildLink(Google_Service_Analytics_WebpropertyChildLink $childLink)
   {
     $this->childLink = $childLink;
@@ -7268,7 +7198,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->childLink;
   }
-  
+
   public function setCreated($created)
   {
     $this->created = $created;
@@ -7278,7 +7208,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->created;
   }
-  
+
   public function setDefaultProfileId($defaultProfileId)
   {
     $this->defaultProfileId = $defaultProfileId;
@@ -7288,7 +7218,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->defaultProfileId;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -7298,7 +7228,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setIndustryVertical($industryVertical)
   {
     $this->industryVertical = $industryVertical;
@@ -7308,7 +7238,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->industryVertical;
   }
-  
+
   public function setInternalWebPropertyId($internalWebPropertyId)
   {
     $this->internalWebPropertyId = $internalWebPropertyId;
@@ -7318,7 +7248,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->internalWebPropertyId;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7328,7 +7258,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setLevel($level)
   {
     $this->level = $level;
@@ -7338,7 +7268,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->level;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -7348,7 +7278,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setParentLink(Google_Service_Analytics_WebpropertyParentLink $parentLink)
   {
     $this->parentLink = $parentLink;
@@ -7358,7 +7288,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->parentLink;
   }
-  
+
   public function setPermissions(Google_Service_Analytics_WebpropertyPermissions $permissions)
   {
     $this->permissions = $permissions;
@@ -7368,7 +7298,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->permissions;
   }
-  
+
   public function setProfileCount($profileCount)
   {
     $this->profileCount = $profileCount;
@@ -7378,7 +7308,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->profileCount;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -7388,7 +7318,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -7398,7 +7328,7 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->updated;
   }
-  
+
   public function setWebsiteUrl($websiteUrl)
   {
     $this->websiteUrl = $websiteUrl;
@@ -7408,7 +7338,6 @@ class Google_Service_Analytics_Webproperty extends Google_Model
   {
     return $this->websiteUrl;
   }
-  
 }
 
 class Google_Service_Analytics_WebpropertyChildLink extends Google_Model
@@ -7425,7 +7354,7 @@ class Google_Service_Analytics_WebpropertyChildLink extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -7435,7 +7364,6 @@ class Google_Service_Analytics_WebpropertyChildLink extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Analytics_WebpropertyParentLink extends Google_Model
@@ -7452,7 +7380,7 @@ class Google_Service_Analytics_WebpropertyParentLink extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -7462,7 +7390,6 @@ class Google_Service_Analytics_WebpropertyParentLink extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Analytics_WebpropertyPermissions extends Google_Collection
@@ -7478,5 +7405,4 @@ class Google_Service_Analytics_WebpropertyPermissions extends Google_Collection
   {
     return $this->effective;
   }
-  
 }
