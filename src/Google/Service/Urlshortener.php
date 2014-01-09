@@ -31,6 +31,9 @@
  */
 class Google_Service_Urlshortener extends Google_Service
 {
+  /** Manage your goo.gl short URLs. */
+  const URLSHORTENER = "https://www.googleapis.com/auth/urlshortener";
+
   public $url;
   
 
@@ -44,18 +47,7 @@ class Google_Service_Urlshortener extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'urlshortener/v1/';
     $this->version = 'v1';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/urlshortener"
-    );
-    
     $this->serviceName = 'urlshortener';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->url = new Google_Service_Urlshortener_Url_Resource(
         $this,
@@ -187,7 +179,7 @@ class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
   {
     return $this->browsers;
   }
-  
+
   public function setCountries($countries)
   {
     $this->countries = $countries;
@@ -197,7 +189,7 @@ class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
   {
     return $this->countries;
   }
-  
+
   public function setLongUrlClicks($longUrlClicks)
   {
     $this->longUrlClicks = $longUrlClicks;
@@ -207,7 +199,7 @@ class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
   {
     return $this->longUrlClicks;
   }
-  
+
   public function setPlatforms($platforms)
   {
     $this->platforms = $platforms;
@@ -217,7 +209,7 @@ class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
   {
     return $this->platforms;
   }
-  
+
   public function setReferrers($referrers)
   {
     $this->referrers = $referrers;
@@ -227,7 +219,7 @@ class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
   {
     return $this->referrers;
   }
-  
+
   public function setShortUrlClicks($shortUrlClicks)
   {
     $this->shortUrlClicks = $shortUrlClicks;
@@ -237,7 +229,6 @@ class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
   {
     return $this->shortUrlClicks;
   }
-  
 }
 
 class Google_Service_Urlshortener_AnalyticsSummary extends Google_Model
@@ -262,7 +253,7 @@ class Google_Service_Urlshortener_AnalyticsSummary extends Google_Model
   {
     return $this->allTime;
   }
-  
+
   public function setDay(Google_Service_Urlshortener_AnalyticsSnapshot $day)
   {
     $this->day = $day;
@@ -272,7 +263,7 @@ class Google_Service_Urlshortener_AnalyticsSummary extends Google_Model
   {
     return $this->day;
   }
-  
+
   public function setMonth(Google_Service_Urlshortener_AnalyticsSnapshot $month)
   {
     $this->month = $month;
@@ -282,7 +273,7 @@ class Google_Service_Urlshortener_AnalyticsSummary extends Google_Model
   {
     return $this->month;
   }
-  
+
   public function setTwoHours(Google_Service_Urlshortener_AnalyticsSnapshot $twoHours)
   {
     $this->twoHours = $twoHours;
@@ -292,7 +283,7 @@ class Google_Service_Urlshortener_AnalyticsSummary extends Google_Model
   {
     return $this->twoHours;
   }
-  
+
   public function setWeek(Google_Service_Urlshortener_AnalyticsSnapshot $week)
   {
     $this->week = $week;
@@ -302,7 +293,6 @@ class Google_Service_Urlshortener_AnalyticsSummary extends Google_Model
   {
     return $this->week;
   }
-  
 }
 
 class Google_Service_Urlshortener_StringCount extends Google_Model
@@ -319,7 +309,7 @@ class Google_Service_Urlshortener_StringCount extends Google_Model
   {
     return $this->count;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -329,7 +319,6 @@ class Google_Service_Urlshortener_StringCount extends Google_Model
   {
     return $this->id;
   }
-  
 }
 
 class Google_Service_Urlshortener_Url extends Google_Model
@@ -351,7 +340,7 @@ class Google_Service_Urlshortener_Url extends Google_Model
   {
     return $this->analytics;
   }
-  
+
   public function setCreated($created)
   {
     $this->created = $created;
@@ -361,7 +350,7 @@ class Google_Service_Urlshortener_Url extends Google_Model
   {
     return $this->created;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -371,7 +360,7 @@ class Google_Service_Urlshortener_Url extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -381,7 +370,7 @@ class Google_Service_Urlshortener_Url extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setLongUrl($longUrl)
   {
     $this->longUrl = $longUrl;
@@ -391,7 +380,7 @@ class Google_Service_Urlshortener_Url extends Google_Model
   {
     return $this->longUrl;
   }
-  
+
   public function setStatus($status)
   {
     $this->status = $status;
@@ -401,7 +390,6 @@ class Google_Service_Urlshortener_Url extends Google_Model
   {
     return $this->status;
   }
-  
 }
 
 class Google_Service_Urlshortener_UrlHistory extends Google_Collection
@@ -422,7 +410,7 @@ class Google_Service_Urlshortener_UrlHistory extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setItemsPerPage($itemsPerPage)
   {
     $this->itemsPerPage = $itemsPerPage;
@@ -432,7 +420,7 @@ class Google_Service_Urlshortener_UrlHistory extends Google_Collection
   {
     return $this->itemsPerPage;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -442,7 +430,7 @@ class Google_Service_Urlshortener_UrlHistory extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -452,7 +440,7 @@ class Google_Service_Urlshortener_UrlHistory extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -462,5 +450,4 @@ class Google_Service_Urlshortener_UrlHistory extends Google_Collection
   {
     return $this->totalItems;
   }
-  
 }
