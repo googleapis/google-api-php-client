@@ -31,6 +31,9 @@
  */
 class Google_Service_Groupssettings extends Google_Service
 {
+  /** View and manage the settings of a Google Apps Group. */
+  const APPS_GROUPS_SETTINGS = "https://www.googleapis.com/auth/apps.groups.settings";
+
   public $groups;
   
 
@@ -44,18 +47,7 @@ class Google_Service_Groupssettings extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'groups/v1/groups/';
     $this->version = 'v1';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/apps.groups.settings"
-    );
-    
     $this->serviceName = 'groupssettings';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->groups = new Google_Service_Groupssettings_Groups_Resource(
         $this,
@@ -200,7 +192,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->allowExternalMembers;
   }
-  
+
   public function setAllowGoogleCommunication($allowGoogleCommunication)
   {
     $this->allowGoogleCommunication = $allowGoogleCommunication;
@@ -210,7 +202,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->allowGoogleCommunication;
   }
-  
+
   public function setAllowWebPosting($allowWebPosting)
   {
     $this->allowWebPosting = $allowWebPosting;
@@ -220,7 +212,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->allowWebPosting;
   }
-  
+
   public function setArchiveOnly($archiveOnly)
   {
     $this->archiveOnly = $archiveOnly;
@@ -230,7 +222,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->archiveOnly;
   }
-  
+
   public function setCustomReplyTo($customReplyTo)
   {
     $this->customReplyTo = $customReplyTo;
@@ -240,7 +232,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->customReplyTo;
   }
-  
+
   public function setDefaultMessageDenyNotificationText($defaultMessageDenyNotificationText)
   {
     $this->defaultMessageDenyNotificationText = $defaultMessageDenyNotificationText;
@@ -250,7 +242,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->defaultMessageDenyNotificationText;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -260,7 +252,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->description;
   }
-  
+
   public function setEmail($email)
   {
     $this->email = $email;
@@ -270,7 +262,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->email;
   }
-  
+
   public function setIncludeInGlobalAddressList($includeInGlobalAddressList)
   {
     $this->includeInGlobalAddressList = $includeInGlobalAddressList;
@@ -280,7 +272,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->includeInGlobalAddressList;
   }
-  
+
   public function setIsArchived($isArchived)
   {
     $this->isArchived = $isArchived;
@@ -290,7 +282,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->isArchived;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -300,7 +292,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setMaxMessageBytes($maxMessageBytes)
   {
     $this->maxMessageBytes = $maxMessageBytes;
@@ -310,7 +302,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->maxMessageBytes;
   }
-  
+
   public function setMembersCanPostAsTheGroup($membersCanPostAsTheGroup)
   {
     $this->membersCanPostAsTheGroup = $membersCanPostAsTheGroup;
@@ -320,7 +312,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->membersCanPostAsTheGroup;
   }
-  
+
   public function setMessageDisplayFont($messageDisplayFont)
   {
     $this->messageDisplayFont = $messageDisplayFont;
@@ -330,7 +322,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->messageDisplayFont;
   }
-  
+
   public function setMessageModerationLevel($messageModerationLevel)
   {
     $this->messageModerationLevel = $messageModerationLevel;
@@ -340,7 +332,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->messageModerationLevel;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -350,7 +342,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setPrimaryLanguage($primaryLanguage)
   {
     $this->primaryLanguage = $primaryLanguage;
@@ -360,7 +352,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->primaryLanguage;
   }
-  
+
   public function setReplyTo($replyTo)
   {
     $this->replyTo = $replyTo;
@@ -370,7 +362,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->replyTo;
   }
-  
+
   public function setSendMessageDenyNotification($sendMessageDenyNotification)
   {
     $this->sendMessageDenyNotification = $sendMessageDenyNotification;
@@ -380,7 +372,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->sendMessageDenyNotification;
   }
-  
+
   public function setShowInGroupDirectory($showInGroupDirectory)
   {
     $this->showInGroupDirectory = $showInGroupDirectory;
@@ -390,7 +382,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->showInGroupDirectory;
   }
-  
+
   public function setSpamModerationLevel($spamModerationLevel)
   {
     $this->spamModerationLevel = $spamModerationLevel;
@@ -400,7 +392,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->spamModerationLevel;
   }
-  
+
   public function setWhoCanInvite($whoCanInvite)
   {
     $this->whoCanInvite = $whoCanInvite;
@@ -410,7 +402,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->whoCanInvite;
   }
-  
+
   public function setWhoCanJoin($whoCanJoin)
   {
     $this->whoCanJoin = $whoCanJoin;
@@ -420,7 +412,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->whoCanJoin;
   }
-  
+
   public function setWhoCanPostMessage($whoCanPostMessage)
   {
     $this->whoCanPostMessage = $whoCanPostMessage;
@@ -430,7 +422,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->whoCanPostMessage;
   }
-  
+
   public function setWhoCanViewGroup($whoCanViewGroup)
   {
     $this->whoCanViewGroup = $whoCanViewGroup;
@@ -440,7 +432,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->whoCanViewGroup;
   }
-  
+
   public function setWhoCanViewMembership($whoCanViewMembership)
   {
     $this->whoCanViewMembership = $whoCanViewMembership;
@@ -450,5 +442,4 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   {
     return $this->whoCanViewMembership;
   }
-  
 }
