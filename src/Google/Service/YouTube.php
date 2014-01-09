@@ -3538,6 +3538,8 @@ class Google_Service_YouTube_Channel extends Google_Model
   protected $brandingSettingsDataType = '';
   protected $contentDetailsType = 'Google_Service_YouTube_ChannelContentDetails';
   protected $contentDetailsDataType = '';
+  protected $contentOwnerDetailsType = 'Google_Service_YouTube_ChannelContentOwnerDetails';
+  protected $contentOwnerDetailsDataType = '';
   protected $conversionPingsType = 'Google_Service_YouTube_ChannelConversionPings';
   protected $conversionPingsDataType = '';
   public $etag;
@@ -3582,6 +3584,16 @@ class Google_Service_YouTube_Channel extends Google_Model
   public function getContentDetails()
   {
     return $this->contentDetails;
+  }
+
+  public function setContentOwnerDetails(Google_Service_YouTube_ChannelContentOwnerDetails $contentOwnerDetails)
+  {
+    $this->contentOwnerDetails = $contentOwnerDetails;
+  }
+
+  public function getContentOwnerDetails()
+  {
+    return $this->contentOwnerDetails;
   }
 
   public function setConversionPings(Google_Service_YouTube_ChannelConversionPings $conversionPings)
@@ -3895,6 +3907,32 @@ class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Googl
   public function getWatchLater()
   {
     return $this->watchLater;
+  }
+}
+
+class Google_Service_YouTube_ChannelContentOwnerDetails extends Google_Model
+{
+  public $contentOwner;
+  public $timeLinked;
+
+  public function setContentOwner($contentOwner)
+  {
+    $this->contentOwner = $contentOwner;
+  }
+
+  public function getContentOwner()
+  {
+    return $this->contentOwner;
+  }
+
+  public function setTimeLinked($timeLinked)
+  {
+    $this->timeLinked = $timeLinked;
+  }
+
+  public function getTimeLinked()
+  {
+    return $this->timeLinked;
   }
 }
 
