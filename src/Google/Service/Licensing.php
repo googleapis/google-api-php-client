@@ -31,6 +31,8 @@
  */
 class Google_Service_Licensing extends Google_Service
 {
+
+
   public $licenseAssignments;
   
 
@@ -44,14 +46,7 @@ class Google_Service_Licensing extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'apps/licensing/v1/product/';
     $this->version = 'v1';
-    
     $this->serviceName = 'licensing';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->licenseAssignments = new Google_Service_Licensing_LicenseAssignments_Resource(
         $this,
@@ -387,7 +382,7 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   {
     return $this->etags;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -397,7 +392,7 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setProductId($productId)
   {
     $this->productId = $productId;
@@ -407,7 +402,7 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   {
     return $this->productId;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -417,7 +412,7 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setSkuId($skuId)
   {
     $this->skuId = $skuId;
@@ -427,7 +422,7 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   {
     return $this->skuId;
   }
-  
+
   public function setUserId($userId)
   {
     $this->userId = $userId;
@@ -437,7 +432,6 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   {
     return $this->userId;
   }
-  
 }
 
 class Google_Service_Licensing_LicenseAssignmentInsert extends Google_Model
@@ -453,7 +447,6 @@ class Google_Service_Licensing_LicenseAssignmentInsert extends Google_Model
   {
     return $this->userId;
   }
-  
 }
 
 class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
@@ -473,7 +466,7 @@ class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -483,7 +476,7 @@ class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -493,7 +486,7 @@ class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -503,5 +496,4 @@ class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
 }
