@@ -31,6 +31,11 @@
  */
 class Google_Service_Reports extends Google_Service
 {
+  /** View audit reports of Google Apps for your domain. */
+  const ADMIN_REPORTS_AUDIT_READONLY = "https://www.googleapis.com/auth/admin.reports.audit.readonly";
+  /** View usage reports of Google Apps for your domain. */
+  const ADMIN_REPORTS_USAGE_READONLY = "https://www.googleapis.com/auth/admin.reports.usage.readonly";
+
   public $activities;
   public $customerUsageReports;
   public $userUsageReport;
@@ -46,19 +51,7 @@ class Google_Service_Reports extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'admin/reports/v1/';
     $this->version = 'reports_v1';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/admin.reports.usage.readonly",
-      "https://www.googleapis.com/auth/admin.reports.audit.readonly"
-    );
-    
     $this->serviceName = 'admin';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->activities = new Google_Service_Reports_Activities_Resource(
         $this,
@@ -345,7 +338,7 @@ class Google_Service_Reports_Activities extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -355,7 +348,7 @@ class Google_Service_Reports_Activities extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -365,7 +358,7 @@ class Google_Service_Reports_Activities extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -375,7 +368,6 @@ class Google_Service_Reports_Activities extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
 }
 
 class Google_Service_Reports_Activity extends Google_Collection
@@ -400,7 +392,7 @@ class Google_Service_Reports_Activity extends Google_Collection
   {
     return $this->actor;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -410,7 +402,7 @@ class Google_Service_Reports_Activity extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setEvents($events)
   {
     $this->events = $events;
@@ -420,7 +412,7 @@ class Google_Service_Reports_Activity extends Google_Collection
   {
     return $this->events;
   }
-  
+
   public function setId(Google_Service_Reports_ActivityId $id)
   {
     $this->id = $id;
@@ -430,7 +422,7 @@ class Google_Service_Reports_Activity extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setIpAddress($ipAddress)
   {
     $this->ipAddress = $ipAddress;
@@ -440,7 +432,7 @@ class Google_Service_Reports_Activity extends Google_Collection
   {
     return $this->ipAddress;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -450,7 +442,7 @@ class Google_Service_Reports_Activity extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setOwnerDomain($ownerDomain)
   {
     $this->ownerDomain = $ownerDomain;
@@ -460,7 +452,6 @@ class Google_Service_Reports_Activity extends Google_Collection
   {
     return $this->ownerDomain;
   }
-  
 }
 
 class Google_Service_Reports_ActivityActor extends Google_Model
@@ -479,7 +470,7 @@ class Google_Service_Reports_ActivityActor extends Google_Model
   {
     return $this->callerType;
   }
-  
+
   public function setEmail($email)
   {
     $this->email = $email;
@@ -489,7 +480,7 @@ class Google_Service_Reports_ActivityActor extends Google_Model
   {
     return $this->email;
   }
-  
+
   public function setKey($key)
   {
     $this->key = $key;
@@ -499,7 +490,7 @@ class Google_Service_Reports_ActivityActor extends Google_Model
   {
     return $this->key;
   }
-  
+
   public function setProfileId($profileId)
   {
     $this->profileId = $profileId;
@@ -509,7 +500,6 @@ class Google_Service_Reports_ActivityActor extends Google_Model
   {
     return $this->profileId;
   }
-  
 }
 
 class Google_Service_Reports_ActivityEvents extends Google_Collection
@@ -528,7 +518,7 @@ class Google_Service_Reports_ActivityEvents extends Google_Collection
   {
     return $this->name;
   }
-  
+
   public function setParameters($parameters)
   {
     $this->parameters = $parameters;
@@ -538,7 +528,7 @@ class Google_Service_Reports_ActivityEvents extends Google_Collection
   {
     return $this->parameters;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -548,7 +538,6 @@ class Google_Service_Reports_ActivityEvents extends Google_Collection
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Reports_ActivityEventsParameters extends Google_Model
@@ -567,7 +556,7 @@ class Google_Service_Reports_ActivityEventsParameters extends Google_Model
   {
     return $this->boolValue;
   }
-  
+
   public function setIntValue($intValue)
   {
     $this->intValue = $intValue;
@@ -577,7 +566,7 @@ class Google_Service_Reports_ActivityEventsParameters extends Google_Model
   {
     return $this->intValue;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -587,7 +576,7 @@ class Google_Service_Reports_ActivityEventsParameters extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -597,7 +586,6 @@ class Google_Service_Reports_ActivityEventsParameters extends Google_Model
   {
     return $this->value;
   }
-  
 }
 
 class Google_Service_Reports_ActivityId extends Google_Model
@@ -616,7 +604,7 @@ class Google_Service_Reports_ActivityId extends Google_Model
   {
     return $this->applicationName;
   }
-  
+
   public function setCustomerId($customerId)
   {
     $this->customerId = $customerId;
@@ -626,7 +614,7 @@ class Google_Service_Reports_ActivityId extends Google_Model
   {
     return $this->customerId;
   }
-  
+
   public function setTime($time)
   {
     $this->time = $time;
@@ -636,7 +624,7 @@ class Google_Service_Reports_ActivityId extends Google_Model
   {
     return $this->time;
   }
-  
+
   public function setUniqueQualifier($uniqueQualifier)
   {
     $this->uniqueQualifier = $uniqueQualifier;
@@ -646,7 +634,6 @@ class Google_Service_Reports_ActivityId extends Google_Model
   {
     return $this->uniqueQualifier;
   }
-  
 }
 
 class Google_Service_Reports_UsageReport extends Google_Collection
@@ -668,7 +655,7 @@ class Google_Service_Reports_UsageReport extends Google_Collection
   {
     return $this->date;
   }
-  
+
   public function setEntity(Google_Service_Reports_UsageReportEntity $entity)
   {
     $this->entity = $entity;
@@ -678,7 +665,7 @@ class Google_Service_Reports_UsageReport extends Google_Collection
   {
     return $this->entity;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -688,7 +675,7 @@ class Google_Service_Reports_UsageReport extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -698,7 +685,7 @@ class Google_Service_Reports_UsageReport extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setParameters($parameters)
   {
     $this->parameters = $parameters;
@@ -708,7 +695,6 @@ class Google_Service_Reports_UsageReport extends Google_Collection
   {
     return $this->parameters;
   }
-  
 }
 
 class Google_Service_Reports_UsageReportEntity extends Google_Model
@@ -727,7 +713,7 @@ class Google_Service_Reports_UsageReportEntity extends Google_Model
   {
     return $this->customerId;
   }
-  
+
   public function setProfileId($profileId)
   {
     $this->profileId = $profileId;
@@ -737,7 +723,7 @@ class Google_Service_Reports_UsageReportEntity extends Google_Model
   {
     return $this->profileId;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -747,7 +733,7 @@ class Google_Service_Reports_UsageReportEntity extends Google_Model
   {
     return $this->type;
   }
-  
+
   public function setUserEmail($userEmail)
   {
     $this->userEmail = $userEmail;
@@ -757,7 +743,6 @@ class Google_Service_Reports_UsageReportEntity extends Google_Model
   {
     return $this->userEmail;
   }
-  
 }
 
 class Google_Service_Reports_UsageReportParameters extends Google_Collection
@@ -778,7 +763,7 @@ class Google_Service_Reports_UsageReportParameters extends Google_Collection
   {
     return $this->boolValue;
   }
-  
+
   public function setDatetimeValue($datetimeValue)
   {
     $this->datetimeValue = $datetimeValue;
@@ -788,7 +773,7 @@ class Google_Service_Reports_UsageReportParameters extends Google_Collection
   {
     return $this->datetimeValue;
   }
-  
+
   public function setIntValue($intValue)
   {
     $this->intValue = $intValue;
@@ -798,7 +783,7 @@ class Google_Service_Reports_UsageReportParameters extends Google_Collection
   {
     return $this->intValue;
   }
-  
+
   public function setMsgValue($msgValue)
   {
     $this->msgValue = $msgValue;
@@ -808,7 +793,7 @@ class Google_Service_Reports_UsageReportParameters extends Google_Collection
   {
     return $this->msgValue;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -818,7 +803,7 @@ class Google_Service_Reports_UsageReportParameters extends Google_Collection
   {
     return $this->name;
   }
-  
+
   public function setStringValue($stringValue)
   {
     $this->stringValue = $stringValue;
@@ -828,7 +813,6 @@ class Google_Service_Reports_UsageReportParameters extends Google_Collection
   {
     return $this->stringValue;
   }
-  
 }
 
 class Google_Service_Reports_UsageReports extends Google_Collection
@@ -850,7 +834,7 @@ class Google_Service_Reports_UsageReports extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -860,7 +844,7 @@ class Google_Service_Reports_UsageReports extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -870,7 +854,7 @@ class Google_Service_Reports_UsageReports extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setUsageReports($usageReports)
   {
     $this->usageReports = $usageReports;
@@ -880,7 +864,7 @@ class Google_Service_Reports_UsageReports extends Google_Collection
   {
     return $this->usageReports;
   }
-  
+
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -890,7 +874,6 @@ class Google_Service_Reports_UsageReports extends Google_Collection
   {
     return $this->warnings;
   }
-  
 }
 
 class Google_Service_Reports_UsageReportsWarnings extends Google_Collection
@@ -909,7 +892,7 @@ class Google_Service_Reports_UsageReportsWarnings extends Google_Collection
   {
     return $this->code;
   }
-  
+
   public function setData($data)
   {
     $this->data = $data;
@@ -919,7 +902,7 @@ class Google_Service_Reports_UsageReportsWarnings extends Google_Collection
   {
     return $this->data;
   }
-  
+
   public function setMessage($message)
   {
     $this->message = $message;
@@ -929,7 +912,6 @@ class Google_Service_Reports_UsageReportsWarnings extends Google_Collection
   {
     return $this->message;
   }
-  
 }
 
 class Google_Service_Reports_UsageReportsWarningsData extends Google_Model
@@ -946,7 +928,7 @@ class Google_Service_Reports_UsageReportsWarningsData extends Google_Model
   {
     return $this->key;
   }
-  
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -956,5 +938,4 @@ class Google_Service_Reports_UsageReportsWarningsData extends Google_Model
   {
     return $this->value;
   }
-  
 }
