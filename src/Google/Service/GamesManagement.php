@@ -31,11 +31,17 @@
  */
 class Google_Service_GamesManagement extends Google_Service
 {
+  /** View and manage your game activity. */
+  const GAMES = "https://www.googleapis.com/auth/games";
+  /** Know your basic profile info and list of people in your circles.. */
+  const PLUS_LOGIN = "https://www.googleapis.com/auth/plus.login";
+
   public $achievements;
   public $applications;
   public $players;
   public $rooms;
   public $scores;
+  public $turnBasedMatches;
   
 
   /**
@@ -48,19 +54,7 @@ class Google_Service_GamesManagement extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'games/v1management/';
     $this->version = 'v1management';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/plus.login",
-      "https://www.googleapis.com/auth/games"
-    );
-    
     $this->serviceName = 'gamesManagement';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->achievements = new Google_Service_GamesManagement_Achievements_Resource(
         $this,
@@ -184,6 +178,20 @@ class Google_Service_GamesManagement extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),
+          )
+        )
+    );
+    $this->turnBasedMatches = new Google_Service_GamesManagement_TurnBasedMatches_Resource(
+        $this,
+        $this->serviceName,
+        'turnBasedMatches',
+        array(
+          'methods' => array(
+            'reset' => array(
+              'path' => 'turnbasedmatches/reset',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),
           )
         )
@@ -373,6 +381,31 @@ class Google_Service_GamesManagement_Scores_Resource extends Google_Service_Reso
   }
 }
 
+/**
+ * The "turnBasedMatches" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $gamesManagementService = new Google_Service_GamesManagement(...);
+ *   $turnBasedMatches = $gamesManagementService->turnBasedMatches;
+ *  </code>
+ */
+class Google_Service_GamesManagement_TurnBasedMatches_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Reset all turn-based match data for a user. This method is only accessible to
+   * whitelisted tester accounts for your application. (turnBasedMatches.reset)
+   *
+   * @param array $optParams Optional parameters.
+   */
+  public function reset($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('reset', array($params));
+  }
+}
+
 
 
 
@@ -391,7 +424,7 @@ class Google_Service_GamesManagement_AchievementResetAllResponse extends Google_
   {
     return $this->kind;
   }
-  
+
   public function setResults($results)
   {
     $this->results = $results;
@@ -401,7 +434,6 @@ class Google_Service_GamesManagement_AchievementResetAllResponse extends Google_
   {
     return $this->results;
   }
-  
 }
 
 class Google_Service_GamesManagement_AchievementResetResponse extends Google_Model
@@ -420,7 +452,7 @@ class Google_Service_GamesManagement_AchievementResetResponse extends Google_Mod
   {
     return $this->currentState;
   }
-  
+
   public function setDefinitionId($definitionId)
   {
     $this->definitionId = $definitionId;
@@ -430,7 +462,7 @@ class Google_Service_GamesManagement_AchievementResetResponse extends Google_Mod
   {
     return $this->definitionId;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -440,7 +472,7 @@ class Google_Service_GamesManagement_AchievementResetResponse extends Google_Mod
   {
     return $this->kind;
   }
-  
+
   public function setUpdateOccurred($updateOccurred)
   {
     $this->updateOccurred = $updateOccurred;
@@ -450,7 +482,6 @@ class Google_Service_GamesManagement_AchievementResetResponse extends Google_Mod
   {
     return $this->updateOccurred;
   }
-  
 }
 
 class Google_Service_GamesManagement_HiddenPlayer extends Google_Model
@@ -469,7 +500,7 @@ class Google_Service_GamesManagement_HiddenPlayer extends Google_Model
   {
     return $this->hiddenTimeMillis;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -479,7 +510,7 @@ class Google_Service_GamesManagement_HiddenPlayer extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPlayer(Google_Service_GamesManagement_Player $player)
   {
     $this->player = $player;
@@ -489,7 +520,6 @@ class Google_Service_GamesManagement_HiddenPlayer extends Google_Model
   {
     return $this->player;
   }
-  
 }
 
 class Google_Service_GamesManagement_HiddenPlayerList extends Google_Collection
@@ -508,7 +538,7 @@ class Google_Service_GamesManagement_HiddenPlayerList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -518,7 +548,7 @@ class Google_Service_GamesManagement_HiddenPlayerList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -528,7 +558,6 @@ class Google_Service_GamesManagement_HiddenPlayerList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
 }
 
 class Google_Service_GamesManagement_Player extends Google_Model
@@ -547,7 +576,7 @@ class Google_Service_GamesManagement_Player extends Google_Model
   {
     return $this->avatarImageUrl;
   }
-  
+
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -557,7 +586,7 @@ class Google_Service_GamesManagement_Player extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -567,7 +596,7 @@ class Google_Service_GamesManagement_Player extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPlayerId($playerId)
   {
     $this->playerId = $playerId;
@@ -577,7 +606,6 @@ class Google_Service_GamesManagement_Player extends Google_Model
   {
     return $this->playerId;
   }
-  
 }
 
 class Google_Service_GamesManagement_PlayerScoreResetResponse extends Google_Collection
@@ -594,7 +622,7 @@ class Google_Service_GamesManagement_PlayerScoreResetResponse extends Google_Col
   {
     return $this->kind;
   }
-  
+
   public function setResetScoreTimeSpans($resetScoreTimeSpans)
   {
     $this->resetScoreTimeSpans = $resetScoreTimeSpans;
@@ -604,5 +632,4 @@ class Google_Service_GamesManagement_PlayerScoreResetResponse extends Google_Col
   {
     return $this->resetScoreTimeSpans;
   }
-  
 }
