@@ -31,6 +31,11 @@
  */
 class Google_Service_Orkut extends Google_Service
 {
+  /** Manage your Orkut activity. */
+  const ORKUT = "https://www.googleapis.com/auth/orkut";
+  /** View your Orkut data. */
+  const ORKUT_READONLY = "https://www.googleapis.com/auth/orkut.readonly";
+
   public $acl;
   public $activities;
   public $activityVisibility;
@@ -59,19 +64,7 @@ class Google_Service_Orkut extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'orkut/v2/';
     $this->version = 'v2';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/orkut",
-      "https://www.googleapis.com/auth/orkut.readonly"
-    );
-    
     $this->serviceName = 'orkut';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->acl = new Google_Service_Orkut_Acl_Resource(
         $this,
@@ -1650,7 +1643,7 @@ class Google_Service_Orkut_Acl extends Google_Collection
   {
     return $this->description;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -1660,7 +1653,7 @@ class Google_Service_Orkut_Acl extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1670,7 +1663,7 @@ class Google_Service_Orkut_Acl extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setTotalParticipants($totalParticipants)
   {
     $this->totalParticipants = $totalParticipants;
@@ -1680,7 +1673,6 @@ class Google_Service_Orkut_Acl extends Google_Collection
   {
     return $this->totalParticipants;
   }
-  
 }
 
 class Google_Service_Orkut_AclItems extends Google_Model
@@ -1697,7 +1689,7 @@ class Google_Service_Orkut_AclItems extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -1707,7 +1699,6 @@ class Google_Service_Orkut_AclItems extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Orkut_Activity extends Google_Collection
@@ -1736,7 +1727,7 @@ class Google_Service_Orkut_Activity extends Google_Collection
   {
     return $this->access;
   }
-  
+
   public function setActor(Google_Service_Orkut_OrkutAuthorResource $actor)
   {
     $this->actor = $actor;
@@ -1746,7 +1737,7 @@ class Google_Service_Orkut_Activity extends Google_Collection
   {
     return $this->actor;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -1756,7 +1747,7 @@ class Google_Service_Orkut_Activity extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1766,7 +1757,7 @@ class Google_Service_Orkut_Activity extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLinks($links)
   {
     $this->links = $links;
@@ -1776,7 +1767,7 @@ class Google_Service_Orkut_Activity extends Google_Collection
   {
     return $this->links;
   }
-  
+
   public function setObject(Google_Service_Orkut_ActivityObject $object)
   {
     $this->object = $object;
@@ -1786,7 +1777,7 @@ class Google_Service_Orkut_Activity extends Google_Collection
   {
     return $this->object;
   }
-  
+
   public function setPublished($published)
   {
     $this->published = $published;
@@ -1796,7 +1787,7 @@ class Google_Service_Orkut_Activity extends Google_Collection
   {
     return $this->published;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -1806,7 +1797,7 @@ class Google_Service_Orkut_Activity extends Google_Collection
   {
     return $this->title;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -1816,7 +1807,7 @@ class Google_Service_Orkut_Activity extends Google_Collection
   {
     return $this->updated;
   }
-  
+
   public function setVerb($verb)
   {
     $this->verb = $verb;
@@ -1826,7 +1817,6 @@ class Google_Service_Orkut_Activity extends Google_Collection
   {
     return $this->verb;
   }
-  
 }
 
 class Google_Service_Orkut_ActivityList extends Google_Collection
@@ -1845,7 +1835,7 @@ class Google_Service_Orkut_ActivityList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1855,7 +1845,7 @@ class Google_Service_Orkut_ActivityList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1865,7 +1855,6 @@ class Google_Service_Orkut_ActivityList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
 }
 
 class Google_Service_Orkut_ActivityObject extends Google_Collection
@@ -1886,7 +1875,7 @@ class Google_Service_Orkut_ActivityObject extends Google_Collection
   {
     return $this->content;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -1896,7 +1885,7 @@ class Google_Service_Orkut_ActivityObject extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setObjectType($objectType)
   {
     $this->objectType = $objectType;
@@ -1906,7 +1895,7 @@ class Google_Service_Orkut_ActivityObject extends Google_Collection
   {
     return $this->objectType;
   }
-  
+
   public function setReplies(Google_Service_Orkut_ActivityObjectReplies $replies)
   {
     $this->replies = $replies;
@@ -1916,7 +1905,6 @@ class Google_Service_Orkut_ActivityObject extends Google_Collection
   {
     return $this->replies;
   }
-  
 }
 
 class Google_Service_Orkut_ActivityObjectReplies extends Google_Collection
@@ -1935,7 +1923,7 @@ class Google_Service_Orkut_ActivityObjectReplies extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -1945,7 +1933,7 @@ class Google_Service_Orkut_ActivityObjectReplies extends Google_Collection
   {
     return $this->totalItems;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1955,7 +1943,6 @@ class Google_Service_Orkut_ActivityObjectReplies extends Google_Collection
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Orkut_Badge extends Google_Model
@@ -1979,7 +1966,7 @@ class Google_Service_Orkut_Badge extends Google_Model
   {
     return $this->badgeLargeLogo;
   }
-  
+
   public function setBadgeSmallLogo($badgeSmallLogo)
   {
     $this->badgeSmallLogo = $badgeSmallLogo;
@@ -1989,7 +1976,7 @@ class Google_Service_Orkut_Badge extends Google_Model
   {
     return $this->badgeSmallLogo;
   }
-  
+
   public function setCaption($caption)
   {
     $this->caption = $caption;
@@ -1999,7 +1986,7 @@ class Google_Service_Orkut_Badge extends Google_Model
   {
     return $this->caption;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -2009,7 +1996,7 @@ class Google_Service_Orkut_Badge extends Google_Model
   {
     return $this->description;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2019,7 +2006,7 @@ class Google_Service_Orkut_Badge extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2029,7 +2016,7 @@ class Google_Service_Orkut_Badge extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setSponsorLogo($sponsorLogo)
   {
     $this->sponsorLogo = $sponsorLogo;
@@ -2039,7 +2026,7 @@ class Google_Service_Orkut_Badge extends Google_Model
   {
     return $this->sponsorLogo;
   }
-  
+
   public function setSponsorName($sponsorName)
   {
     $this->sponsorName = $sponsorName;
@@ -2049,7 +2036,7 @@ class Google_Service_Orkut_Badge extends Google_Model
   {
     return $this->sponsorName;
   }
-  
+
   public function setSponsorUrl($sponsorUrl)
   {
     $this->sponsorUrl = $sponsorUrl;
@@ -2059,7 +2046,6 @@ class Google_Service_Orkut_Badge extends Google_Model
   {
     return $this->sponsorUrl;
   }
-  
 }
 
 class Google_Service_Orkut_BadgeList extends Google_Collection
@@ -2077,7 +2063,7 @@ class Google_Service_Orkut_BadgeList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2087,7 +2073,6 @@ class Google_Service_Orkut_BadgeList extends Google_Collection
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Orkut_Comment extends Google_Collection
@@ -2112,7 +2097,7 @@ class Google_Service_Orkut_Comment extends Google_Collection
   {
     return $this->actor;
   }
-  
+
   public function setContent($content)
   {
     $this->content = $content;
@@ -2122,7 +2107,7 @@ class Google_Service_Orkut_Comment extends Google_Collection
   {
     return $this->content;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2132,7 +2117,7 @@ class Google_Service_Orkut_Comment extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setInReplyTo(Google_Service_Orkut_CommentInReplyTo $inReplyTo)
   {
     $this->inReplyTo = $inReplyTo;
@@ -2142,7 +2127,7 @@ class Google_Service_Orkut_Comment extends Google_Collection
   {
     return $this->inReplyTo;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2152,7 +2137,7 @@ class Google_Service_Orkut_Comment extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLinks($links)
   {
     $this->links = $links;
@@ -2162,7 +2147,7 @@ class Google_Service_Orkut_Comment extends Google_Collection
   {
     return $this->links;
   }
-  
+
   public function setPublished($published)
   {
     $this->published = $published;
@@ -2172,7 +2157,6 @@ class Google_Service_Orkut_Comment extends Google_Collection
   {
     return $this->published;
   }
-  
 }
 
 class Google_Service_Orkut_CommentInReplyTo extends Google_Model
@@ -2191,7 +2175,7 @@ class Google_Service_Orkut_CommentInReplyTo extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setRef($ref)
   {
     $this->ref = $ref;
@@ -2201,7 +2185,7 @@ class Google_Service_Orkut_CommentInReplyTo extends Google_Model
   {
     return $this->ref;
   }
-  
+
   public function setRel($rel)
   {
     $this->rel = $rel;
@@ -2211,7 +2195,7 @@ class Google_Service_Orkut_CommentInReplyTo extends Google_Model
   {
     return $this->rel;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -2221,7 +2205,6 @@ class Google_Service_Orkut_CommentInReplyTo extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Orkut_CommentList extends Google_Collection
@@ -2241,7 +2224,7 @@ class Google_Service_Orkut_CommentList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2251,7 +2234,7 @@ class Google_Service_Orkut_CommentList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2261,7 +2244,7 @@ class Google_Service_Orkut_CommentList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setPreviousPageToken($previousPageToken)
   {
     $this->previousPageToken = $previousPageToken;
@@ -2271,7 +2254,6 @@ class Google_Service_Orkut_CommentList extends Google_Collection
   {
     return $this->previousPageToken;
   }
-  
 }
 
 class Google_Service_Orkut_Community extends Google_Collection
@@ -2304,7 +2286,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->category;
   }
-  
+
   public function setCoOwners($coOwners)
   {
     $this->coOwners = $coOwners;
@@ -2314,7 +2296,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->coOwners;
   }
-  
+
   public function setCreationDate($creationDate)
   {
     $this->creationDate = $creationDate;
@@ -2324,7 +2306,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->creationDate;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -2334,7 +2316,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->description;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2344,7 +2326,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2354,7 +2336,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLanguage($language)
   {
     $this->language = $language;
@@ -2364,7 +2346,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->language;
   }
-  
+
   public function setLinks($links)
   {
     $this->links = $links;
@@ -2374,7 +2356,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->links;
   }
-  
+
   public function setLocation($location)
   {
     $this->location = $location;
@@ -2384,7 +2366,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->location;
   }
-  
+
   public function setMemberCount($memberCount)
   {
     $this->memberCount = $memberCount;
@@ -2394,7 +2376,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->memberCount;
   }
-  
+
   public function setModerators($moderators)
   {
     $this->moderators = $moderators;
@@ -2404,7 +2386,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->moderators;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -2414,7 +2396,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->name;
   }
-  
+
   public function setOwner(Google_Service_Orkut_OrkutAuthorResource $owner)
   {
     $this->owner = $owner;
@@ -2424,7 +2406,7 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->owner;
   }
-  
+
   public function setPhotoUrl($photoUrl)
   {
     $this->photoUrl = $photoUrl;
@@ -2434,7 +2416,6 @@ class Google_Service_Orkut_Community extends Google_Collection
   {
     return $this->photoUrl;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityList extends Google_Collection
@@ -2452,7 +2433,7 @@ class Google_Service_Orkut_CommunityList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2462,7 +2443,6 @@ class Google_Service_Orkut_CommunityList extends Google_Collection
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityMembers extends Google_Model
@@ -2482,7 +2462,7 @@ class Google_Service_Orkut_CommunityMembers extends Google_Model
   {
     return $this->communityMembershipStatus;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2492,7 +2472,7 @@ class Google_Service_Orkut_CommunityMembers extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPerson(Google_Service_Orkut_OrkutActivitypersonResource $person)
   {
     $this->person = $person;
@@ -2502,7 +2482,6 @@ class Google_Service_Orkut_CommunityMembers extends Google_Model
   {
     return $this->person;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityMembersList extends Google_Collection
@@ -2524,7 +2503,7 @@ class Google_Service_Orkut_CommunityMembersList extends Google_Collection
   {
     return $this->firstPageToken;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -2534,7 +2513,7 @@ class Google_Service_Orkut_CommunityMembersList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2544,7 +2523,7 @@ class Google_Service_Orkut_CommunityMembersList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLastPageToken($lastPageToken)
   {
     $this->lastPageToken = $lastPageToken;
@@ -2554,7 +2533,7 @@ class Google_Service_Orkut_CommunityMembersList extends Google_Collection
   {
     return $this->lastPageToken;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2564,7 +2543,7 @@ class Google_Service_Orkut_CommunityMembersList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -2574,7 +2553,6 @@ class Google_Service_Orkut_CommunityMembersList extends Google_Collection
   {
     return $this->prevPageToken;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
@@ -2600,7 +2578,7 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
   {
     return $this->canCreatePoll;
   }
-  
+
   public function setCanCreateTopic($canCreateTopic)
   {
     $this->canCreateTopic = $canCreateTopic;
@@ -2610,7 +2588,7 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
   {
     return $this->canCreateTopic;
   }
-  
+
   public function setCanShout($canShout)
   {
     $this->canShout = $canShout;
@@ -2620,7 +2598,7 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
   {
     return $this->canShout;
   }
-  
+
   public function setIsCoOwner($isCoOwner)
   {
     $this->isCoOwner = $isCoOwner;
@@ -2630,7 +2608,7 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
   {
     return $this->isCoOwner;
   }
-  
+
   public function setIsFollowing($isFollowing)
   {
     $this->isFollowing = $isFollowing;
@@ -2640,7 +2618,7 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
   {
     return $this->isFollowing;
   }
-  
+
   public function setIsModerator($isModerator)
   {
     $this->isModerator = $isModerator;
@@ -2650,7 +2628,7 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
   {
     return $this->isModerator;
   }
-  
+
   public function setIsOwner($isOwner)
   {
     $this->isOwner = $isOwner;
@@ -2660,7 +2638,7 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
   {
     return $this->isOwner;
   }
-  
+
   public function setIsRestoreAvailable($isRestoreAvailable)
   {
     $this->isRestoreAvailable = $isRestoreAvailable;
@@ -2670,7 +2648,7 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
   {
     return $this->isRestoreAvailable;
   }
-  
+
   public function setIsTakebackAvailable($isTakebackAvailable)
   {
     $this->isTakebackAvailable = $isTakebackAvailable;
@@ -2680,7 +2658,7 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
   {
     return $this->isTakebackAvailable;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2690,7 +2668,7 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setStatus($status)
   {
     $this->status = $status;
@@ -2700,7 +2678,6 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
   {
     return $this->status;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityMessage extends Google_Collection
@@ -2725,7 +2702,7 @@ class Google_Service_Orkut_CommunityMessage extends Google_Collection
   {
     return $this->addedDate;
   }
-  
+
   public function setAuthor(Google_Service_Orkut_OrkutAuthorResource $author)
   {
     $this->author = $author;
@@ -2735,7 +2712,7 @@ class Google_Service_Orkut_CommunityMessage extends Google_Collection
   {
     return $this->author;
   }
-  
+
   public function setBody($body)
   {
     $this->body = $body;
@@ -2745,7 +2722,7 @@ class Google_Service_Orkut_CommunityMessage extends Google_Collection
   {
     return $this->body;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2755,7 +2732,7 @@ class Google_Service_Orkut_CommunityMessage extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setIsSpam($isSpam)
   {
     $this->isSpam = $isSpam;
@@ -2765,7 +2742,7 @@ class Google_Service_Orkut_CommunityMessage extends Google_Collection
   {
     return $this->isSpam;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2775,7 +2752,7 @@ class Google_Service_Orkut_CommunityMessage extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLinks($links)
   {
     $this->links = $links;
@@ -2785,7 +2762,7 @@ class Google_Service_Orkut_CommunityMessage extends Google_Collection
   {
     return $this->links;
   }
-  
+
   public function setSubject($subject)
   {
     $this->subject = $subject;
@@ -2795,7 +2772,6 @@ class Google_Service_Orkut_CommunityMessage extends Google_Collection
   {
     return $this->subject;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityMessageList extends Google_Collection
@@ -2817,7 +2793,7 @@ class Google_Service_Orkut_CommunityMessageList extends Google_Collection
   {
     return $this->firstPageToken;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -2827,7 +2803,7 @@ class Google_Service_Orkut_CommunityMessageList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2837,7 +2813,7 @@ class Google_Service_Orkut_CommunityMessageList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLastPageToken($lastPageToken)
   {
     $this->lastPageToken = $lastPageToken;
@@ -2847,7 +2823,7 @@ class Google_Service_Orkut_CommunityMessageList extends Google_Collection
   {
     return $this->lastPageToken;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2857,7 +2833,7 @@ class Google_Service_Orkut_CommunityMessageList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -2867,7 +2843,6 @@ class Google_Service_Orkut_CommunityMessageList extends Google_Collection
   {
     return $this->prevPageToken;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityPoll extends Google_Collection
@@ -2908,7 +2883,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->author;
   }
-  
+
   public function setCommunityId($communityId)
   {
     $this->communityId = $communityId;
@@ -2918,7 +2893,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->communityId;
   }
-  
+
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
@@ -2928,7 +2903,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->creationTime;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -2938,7 +2913,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->description;
   }
-  
+
   public function setEndingTime($endingTime)
   {
     $this->endingTime = $endingTime;
@@ -2948,7 +2923,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->endingTime;
   }
-  
+
   public function setHasVoted($hasVoted)
   {
     $this->hasVoted = $hasVoted;
@@ -2958,7 +2933,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->hasVoted;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2968,7 +2943,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setImage(Google_Service_Orkut_CommunityPollImage $image)
   {
     $this->image = $image;
@@ -2978,7 +2953,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->image;
   }
-  
+
   public function setIsClosed($isClosed)
   {
     $this->isClosed = $isClosed;
@@ -2988,7 +2963,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->isClosed;
   }
-  
+
   public function setIsMultipleAnswers($isMultipleAnswers)
   {
     $this->isMultipleAnswers = $isMultipleAnswers;
@@ -2998,7 +2973,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->isMultipleAnswers;
   }
-  
+
   public function setIsOpenForVoting($isOpenForVoting)
   {
     $this->isOpenForVoting = $isOpenForVoting;
@@ -3008,7 +2983,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->isOpenForVoting;
   }
-  
+
   public function setIsRestricted($isRestricted)
   {
     $this->isRestricted = $isRestricted;
@@ -3018,7 +2993,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->isRestricted;
   }
-  
+
   public function setIsSpam($isSpam)
   {
     $this->isSpam = $isSpam;
@@ -3028,7 +3003,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->isSpam;
   }
-  
+
   public function setIsUsersVotePublic($isUsersVotePublic)
   {
     $this->isUsersVotePublic = $isUsersVotePublic;
@@ -3038,7 +3013,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->isUsersVotePublic;
   }
-  
+
   public function setIsVotingAllowedForNonMembers($isVotingAllowedForNonMembers)
   {
     $this->isVotingAllowedForNonMembers = $isVotingAllowedForNonMembers;
@@ -3048,7 +3023,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->isVotingAllowedForNonMembers;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3058,7 +3033,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLastUpdate($lastUpdate)
   {
     $this->lastUpdate = $lastUpdate;
@@ -3068,7 +3043,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->lastUpdate;
   }
-  
+
   public function setLinks($links)
   {
     $this->links = $links;
@@ -3078,7 +3053,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->links;
   }
-  
+
   public function setOptions($options)
   {
     $this->options = $options;
@@ -3088,7 +3063,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->options;
   }
-  
+
   public function setQuestion($question)
   {
     $this->question = $question;
@@ -3098,7 +3073,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->question;
   }
-  
+
   public function setTotalNumberOfVotes($totalNumberOfVotes)
   {
     $this->totalNumberOfVotes = $totalNumberOfVotes;
@@ -3108,7 +3083,7 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->totalNumberOfVotes;
   }
-  
+
   public function setVotedOptions($votedOptions)
   {
     $this->votedOptions = $votedOptions;
@@ -3118,7 +3093,6 @@ class Google_Service_Orkut_CommunityPoll extends Google_Collection
   {
     return $this->votedOptions;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityPollComment extends Google_Model
@@ -3139,7 +3113,7 @@ class Google_Service_Orkut_CommunityPollComment extends Google_Model
   {
     return $this->addedDate;
   }
-  
+
   public function setAuthor(Google_Service_Orkut_OrkutAuthorResource $author)
   {
     $this->author = $author;
@@ -3149,7 +3123,7 @@ class Google_Service_Orkut_CommunityPollComment extends Google_Model
   {
     return $this->author;
   }
-  
+
   public function setBody($body)
   {
     $this->body = $body;
@@ -3159,7 +3133,7 @@ class Google_Service_Orkut_CommunityPollComment extends Google_Model
   {
     return $this->body;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3169,7 +3143,7 @@ class Google_Service_Orkut_CommunityPollComment extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3179,7 +3153,6 @@ class Google_Service_Orkut_CommunityPollComment extends Google_Model
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityPollCommentList extends Google_Collection
@@ -3201,7 +3174,7 @@ class Google_Service_Orkut_CommunityPollCommentList extends Google_Collection
   {
     return $this->firstPageToken;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -3211,7 +3184,7 @@ class Google_Service_Orkut_CommunityPollCommentList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3221,7 +3194,7 @@ class Google_Service_Orkut_CommunityPollCommentList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLastPageToken($lastPageToken)
   {
     $this->lastPageToken = $lastPageToken;
@@ -3231,7 +3204,7 @@ class Google_Service_Orkut_CommunityPollCommentList extends Google_Collection
   {
     return $this->lastPageToken;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3241,7 +3214,7 @@ class Google_Service_Orkut_CommunityPollCommentList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -3251,7 +3224,6 @@ class Google_Service_Orkut_CommunityPollCommentList extends Google_Collection
   {
     return $this->prevPageToken;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityPollImage extends Google_Model
@@ -3267,7 +3239,6 @@ class Google_Service_Orkut_CommunityPollImage extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityPollList extends Google_Collection
@@ -3289,7 +3260,7 @@ class Google_Service_Orkut_CommunityPollList extends Google_Collection
   {
     return $this->firstPageToken;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -3299,7 +3270,7 @@ class Google_Service_Orkut_CommunityPollList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3309,7 +3280,7 @@ class Google_Service_Orkut_CommunityPollList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLastPageToken($lastPageToken)
   {
     $this->lastPageToken = $lastPageToken;
@@ -3319,7 +3290,7 @@ class Google_Service_Orkut_CommunityPollList extends Google_Collection
   {
     return $this->lastPageToken;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3329,7 +3300,7 @@ class Google_Service_Orkut_CommunityPollList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -3339,7 +3310,6 @@ class Google_Service_Orkut_CommunityPollList extends Google_Collection
   {
     return $this->prevPageToken;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityPollVote extends Google_Collection
@@ -3357,7 +3327,7 @@ class Google_Service_Orkut_CommunityPollVote extends Google_Collection
   {
     return $this->isVotevisible;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3367,7 +3337,7 @@ class Google_Service_Orkut_CommunityPollVote extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setOptionIds($optionIds)
   {
     $this->optionIds = $optionIds;
@@ -3377,7 +3347,6 @@ class Google_Service_Orkut_CommunityPollVote extends Google_Collection
   {
     return $this->optionIds;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityTopic extends Google_Collection
@@ -3406,7 +3375,7 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
   {
     return $this->author;
   }
-  
+
   public function setBody($body)
   {
     $this->body = $body;
@@ -3416,7 +3385,7 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
   {
     return $this->body;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3426,7 +3395,7 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setIsClosed($isClosed)
   {
     $this->isClosed = $isClosed;
@@ -3436,7 +3405,7 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
   {
     return $this->isClosed;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3446,7 +3415,7 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLastUpdate($lastUpdate)
   {
     $this->lastUpdate = $lastUpdate;
@@ -3456,7 +3425,7 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
   {
     return $this->lastUpdate;
   }
-  
+
   public function setLatestMessageSnippet($latestMessageSnippet)
   {
     $this->latestMessageSnippet = $latestMessageSnippet;
@@ -3466,7 +3435,7 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
   {
     return $this->latestMessageSnippet;
   }
-  
+
   public function setLinks($links)
   {
     $this->links = $links;
@@ -3476,7 +3445,7 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
   {
     return $this->links;
   }
-  
+
   public function setMessages($messages)
   {
     $this->messages = $messages;
@@ -3486,7 +3455,7 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
   {
     return $this->messages;
   }
-  
+
   public function setNumberOfReplies($numberOfReplies)
   {
     $this->numberOfReplies = $numberOfReplies;
@@ -3496,7 +3465,7 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
   {
     return $this->numberOfReplies;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -3506,7 +3475,6 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
   {
     return $this->title;
   }
-  
 }
 
 class Google_Service_Orkut_CommunityTopicList extends Google_Collection
@@ -3528,7 +3496,7 @@ class Google_Service_Orkut_CommunityTopicList extends Google_Collection
   {
     return $this->firstPageToken;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -3538,7 +3506,7 @@ class Google_Service_Orkut_CommunityTopicList extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3548,7 +3516,7 @@ class Google_Service_Orkut_CommunityTopicList extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLastPageToken($lastPageToken)
   {
     $this->lastPageToken = $lastPageToken;
@@ -3558,7 +3526,7 @@ class Google_Service_Orkut_CommunityTopicList extends Google_Collection
   {
     return $this->lastPageToken;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3568,7 +3536,7 @@ class Google_Service_Orkut_CommunityTopicList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -3578,7 +3546,6 @@ class Google_Service_Orkut_CommunityTopicList extends Google_Collection
   {
     return $this->prevPageToken;
   }
-  
 }
 
 class Google_Service_Orkut_Counters extends Google_Collection
@@ -3596,7 +3563,7 @@ class Google_Service_Orkut_Counters extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3606,7 +3573,6 @@ class Google_Service_Orkut_Counters extends Google_Collection
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_Orkut_OrkutActivityobjectsResource extends Google_Collection
@@ -3631,7 +3597,7 @@ class Google_Service_Orkut_OrkutActivityobjectsResource extends Google_Collectio
   {
     return $this->community;
   }
-  
+
   public function setContent($content)
   {
     $this->content = $content;
@@ -3641,7 +3607,7 @@ class Google_Service_Orkut_OrkutActivityobjectsResource extends Google_Collectio
   {
     return $this->content;
   }
-  
+
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -3651,7 +3617,7 @@ class Google_Service_Orkut_OrkutActivityobjectsResource extends Google_Collectio
   {
     return $this->displayName;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3661,7 +3627,7 @@ class Google_Service_Orkut_OrkutActivityobjectsResource extends Google_Collectio
   {
     return $this->id;
   }
-  
+
   public function setLinks($links)
   {
     $this->links = $links;
@@ -3671,7 +3637,7 @@ class Google_Service_Orkut_OrkutActivityobjectsResource extends Google_Collectio
   {
     return $this->links;
   }
-  
+
   public function setObjectType($objectType)
   {
     $this->objectType = $objectType;
@@ -3681,7 +3647,7 @@ class Google_Service_Orkut_OrkutActivityobjectsResource extends Google_Collectio
   {
     return $this->objectType;
   }
-  
+
   public function setPerson(Google_Service_Orkut_OrkutActivitypersonResource $person)
   {
     $this->person = $person;
@@ -3691,7 +3657,6 @@ class Google_Service_Orkut_OrkutActivityobjectsResource extends Google_Collectio
   {
     return $this->person;
   }
-  
 }
 
 class Google_Service_Orkut_OrkutActivitypersonResource extends Google_Model
@@ -3714,7 +3679,7 @@ class Google_Service_Orkut_OrkutActivitypersonResource extends Google_Model
   {
     return $this->birthday;
   }
-  
+
   public function setGender($gender)
   {
     $this->gender = $gender;
@@ -3724,7 +3689,7 @@ class Google_Service_Orkut_OrkutActivitypersonResource extends Google_Model
   {
     return $this->gender;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3734,7 +3699,7 @@ class Google_Service_Orkut_OrkutActivitypersonResource extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setImage(Google_Service_Orkut_OrkutActivitypersonResourceImage $image)
   {
     $this->image = $image;
@@ -3744,7 +3709,7 @@ class Google_Service_Orkut_OrkutActivitypersonResource extends Google_Model
   {
     return $this->image;
   }
-  
+
   public function setName(Google_Service_Orkut_OrkutActivitypersonResourceName $name)
   {
     $this->name = $name;
@@ -3754,7 +3719,7 @@ class Google_Service_Orkut_OrkutActivitypersonResource extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -3764,7 +3729,6 @@ class Google_Service_Orkut_OrkutActivitypersonResource extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Orkut_OrkutActivitypersonResourceImage extends Google_Model
@@ -3780,7 +3744,6 @@ class Google_Service_Orkut_OrkutActivitypersonResourceImage extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Orkut_OrkutActivitypersonResourceName extends Google_Model
@@ -3797,7 +3760,7 @@ class Google_Service_Orkut_OrkutActivitypersonResourceName extends Google_Model
   {
     return $this->familyName;
   }
-  
+
   public function setGivenName($givenName)
   {
     $this->givenName = $givenName;
@@ -3807,7 +3770,6 @@ class Google_Service_Orkut_OrkutActivitypersonResourceName extends Google_Model
   {
     return $this->givenName;
   }
-  
 }
 
 class Google_Service_Orkut_OrkutAuthorResource extends Google_Model
@@ -3827,7 +3789,7 @@ class Google_Service_Orkut_OrkutAuthorResource extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3837,7 +3799,7 @@ class Google_Service_Orkut_OrkutAuthorResource extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setImage(Google_Service_Orkut_OrkutAuthorResourceImage $image)
   {
     $this->image = $image;
@@ -3847,7 +3809,7 @@ class Google_Service_Orkut_OrkutAuthorResource extends Google_Model
   {
     return $this->image;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -3857,7 +3819,6 @@ class Google_Service_Orkut_OrkutAuthorResource extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Orkut_OrkutAuthorResourceImage extends Google_Model
@@ -3873,7 +3834,6 @@ class Google_Service_Orkut_OrkutAuthorResourceImage extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Orkut_OrkutCommunitypolloptionResource extends Google_Model
@@ -3893,7 +3853,7 @@ class Google_Service_Orkut_OrkutCommunitypolloptionResource extends Google_Model
   {
     return $this->description;
   }
-  
+
   public function setImage(Google_Service_Orkut_OrkutCommunitypolloptionResourceImage $image)
   {
     $this->image = $image;
@@ -3903,7 +3863,7 @@ class Google_Service_Orkut_OrkutCommunitypolloptionResource extends Google_Model
   {
     return $this->image;
   }
-  
+
   public function setNumberOfVotes($numberOfVotes)
   {
     $this->numberOfVotes = $numberOfVotes;
@@ -3913,7 +3873,7 @@ class Google_Service_Orkut_OrkutCommunitypolloptionResource extends Google_Model
   {
     return $this->numberOfVotes;
   }
-  
+
   public function setOptionId($optionId)
   {
     $this->optionId = $optionId;
@@ -3923,7 +3883,6 @@ class Google_Service_Orkut_OrkutCommunitypolloptionResource extends Google_Model
   {
     return $this->optionId;
   }
-  
 }
 
 class Google_Service_Orkut_OrkutCommunitypolloptionResourceImage extends Google_Model
@@ -3939,7 +3898,6 @@ class Google_Service_Orkut_OrkutCommunitypolloptionResourceImage extends Google_
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_Orkut_OrkutCounterResource extends Google_Model
@@ -3958,7 +3916,7 @@ class Google_Service_Orkut_OrkutCounterResource extends Google_Model
   {
     return $this->link;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -3968,7 +3926,7 @@ class Google_Service_Orkut_OrkutCounterResource extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setTotal($total)
   {
     $this->total = $total;
@@ -3978,7 +3936,6 @@ class Google_Service_Orkut_OrkutCounterResource extends Google_Model
   {
     return $this->total;
   }
-  
 }
 
 class Google_Service_Orkut_OrkutLinkResource extends Google_Model
@@ -3997,7 +3954,7 @@ class Google_Service_Orkut_OrkutLinkResource extends Google_Model
   {
     return $this->href;
   }
-  
+
   public function setRel($rel)
   {
     $this->rel = $rel;
@@ -4007,7 +3964,7 @@ class Google_Service_Orkut_OrkutLinkResource extends Google_Model
   {
     return $this->rel;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -4017,7 +3974,7 @@ class Google_Service_Orkut_OrkutLinkResource extends Google_Model
   {
     return $this->title;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -4027,7 +3984,6 @@ class Google_Service_Orkut_OrkutLinkResource extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_Orkut_Visibility extends Google_Collection
@@ -4046,7 +4002,7 @@ class Google_Service_Orkut_Visibility extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setLinks($links)
   {
     $this->links = $links;
@@ -4056,7 +4012,7 @@ class Google_Service_Orkut_Visibility extends Google_Collection
   {
     return $this->links;
   }
-  
+
   public function setVisibility($visibility)
   {
     $this->visibility = $visibility;
@@ -4066,5 +4022,4 @@ class Google_Service_Orkut_Visibility extends Google_Collection
   {
     return $this->visibility;
   }
-  
 }
