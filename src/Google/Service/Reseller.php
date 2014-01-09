@@ -31,6 +31,11 @@
  */
 class Google_Service_Reseller extends Google_Service
 {
+  /** Manage users on your domain. */
+  const APPS_ORDER = "https://www.googleapis.com/auth/apps.order";
+  /** Manage users on your domain. */
+  const APPS_ORDER_READONLY = "https://www.googleapis.com/auth/apps.order.readonly";
+
   public $customers;
   public $subscriptions;
   
@@ -45,19 +50,7 @@ class Google_Service_Reseller extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'apps/reseller/v1/';
     $this->version = 'v1';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/apps.order",
-      "https://www.googleapis.com/auth/apps.order.readonly"
-    );
-    
     $this->serviceName = 'reseller';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->customers = new Google_Service_Reseller_Customers_Resource(
         $this,
@@ -516,7 +509,7 @@ class Google_Service_Reseller_Address extends Google_Model
   {
     return $this->addressLine1;
   }
-  
+
   public function setAddressLine2($addressLine2)
   {
     $this->addressLine2 = $addressLine2;
@@ -526,7 +519,7 @@ class Google_Service_Reseller_Address extends Google_Model
   {
     return $this->addressLine2;
   }
-  
+
   public function setAddressLine3($addressLine3)
   {
     $this->addressLine3 = $addressLine3;
@@ -536,7 +529,7 @@ class Google_Service_Reseller_Address extends Google_Model
   {
     return $this->addressLine3;
   }
-  
+
   public function setContactName($contactName)
   {
     $this->contactName = $contactName;
@@ -546,7 +539,7 @@ class Google_Service_Reseller_Address extends Google_Model
   {
     return $this->contactName;
   }
-  
+
   public function setCountryCode($countryCode)
   {
     $this->countryCode = $countryCode;
@@ -556,7 +549,7 @@ class Google_Service_Reseller_Address extends Google_Model
   {
     return $this->countryCode;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -566,7 +559,7 @@ class Google_Service_Reseller_Address extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setLocality($locality)
   {
     $this->locality = $locality;
@@ -576,7 +569,7 @@ class Google_Service_Reseller_Address extends Google_Model
   {
     return $this->locality;
   }
-  
+
   public function setOrganizationName($organizationName)
   {
     $this->organizationName = $organizationName;
@@ -586,7 +579,7 @@ class Google_Service_Reseller_Address extends Google_Model
   {
     return $this->organizationName;
   }
-  
+
   public function setPostalCode($postalCode)
   {
     $this->postalCode = $postalCode;
@@ -596,7 +589,7 @@ class Google_Service_Reseller_Address extends Google_Model
   {
     return $this->postalCode;
   }
-  
+
   public function setRegion($region)
   {
     $this->region = $region;
@@ -606,7 +599,6 @@ class Google_Service_Reseller_Address extends Google_Model
   {
     return $this->region;
   }
-  
 }
 
 class Google_Service_Reseller_ChangePlanRequest extends Google_Model
@@ -626,7 +618,7 @@ class Google_Service_Reseller_ChangePlanRequest extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPlanName($planName)
   {
     $this->planName = $planName;
@@ -636,7 +628,7 @@ class Google_Service_Reseller_ChangePlanRequest extends Google_Model
   {
     return $this->planName;
   }
-  
+
   public function setPurchaseOrderId($purchaseOrderId)
   {
     $this->purchaseOrderId = $purchaseOrderId;
@@ -646,7 +638,7 @@ class Google_Service_Reseller_ChangePlanRequest extends Google_Model
   {
     return $this->purchaseOrderId;
   }
-  
+
   public function setSeats(Google_Service_Reseller_Seats $seats)
   {
     $this->seats = $seats;
@@ -656,7 +648,6 @@ class Google_Service_Reseller_ChangePlanRequest extends Google_Model
   {
     return $this->seats;
   }
-  
 }
 
 class Google_Service_Reseller_Customer extends Google_Model
@@ -679,7 +670,7 @@ class Google_Service_Reseller_Customer extends Google_Model
   {
     return $this->alternateEmail;
   }
-  
+
   public function setCustomerDomain($customerDomain)
   {
     $this->customerDomain = $customerDomain;
@@ -689,7 +680,7 @@ class Google_Service_Reseller_Customer extends Google_Model
   {
     return $this->customerDomain;
   }
-  
+
   public function setCustomerId($customerId)
   {
     $this->customerId = $customerId;
@@ -699,7 +690,7 @@ class Google_Service_Reseller_Customer extends Google_Model
   {
     return $this->customerId;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -709,7 +700,7 @@ class Google_Service_Reseller_Customer extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPhoneNumber($phoneNumber)
   {
     $this->phoneNumber = $phoneNumber;
@@ -719,7 +710,7 @@ class Google_Service_Reseller_Customer extends Google_Model
   {
     return $this->phoneNumber;
   }
-  
+
   public function setPostalAddress(Google_Service_Reseller_Address $postalAddress)
   {
     $this->postalAddress = $postalAddress;
@@ -729,7 +720,7 @@ class Google_Service_Reseller_Customer extends Google_Model
   {
     return $this->postalAddress;
   }
-  
+
   public function setResourceUiUrl($resourceUiUrl)
   {
     $this->resourceUiUrl = $resourceUiUrl;
@@ -739,7 +730,6 @@ class Google_Service_Reseller_Customer extends Google_Model
   {
     return $this->resourceUiUrl;
   }
-  
 }
 
 class Google_Service_Reseller_RenewalSettings extends Google_Model
@@ -756,7 +746,7 @@ class Google_Service_Reseller_RenewalSettings extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setRenewalType($renewalType)
   {
     $this->renewalType = $renewalType;
@@ -766,7 +756,6 @@ class Google_Service_Reseller_RenewalSettings extends Google_Model
   {
     return $this->renewalType;
   }
-  
 }
 
 class Google_Service_Reseller_Seats extends Google_Model
@@ -784,7 +773,7 @@ class Google_Service_Reseller_Seats extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setMaximumNumberOfSeats($maximumNumberOfSeats)
   {
     $this->maximumNumberOfSeats = $maximumNumberOfSeats;
@@ -794,7 +783,7 @@ class Google_Service_Reseller_Seats extends Google_Model
   {
     return $this->maximumNumberOfSeats;
   }
-  
+
   public function setNumberOfSeats($numberOfSeats)
   {
     $this->numberOfSeats = $numberOfSeats;
@@ -804,7 +793,6 @@ class Google_Service_Reseller_Seats extends Google_Model
   {
     return $this->numberOfSeats;
   }
-  
 }
 
 class Google_Service_Reseller_Subscription extends Google_Model
@@ -837,7 +825,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->creationTime;
   }
-  
+
   public function setCustomerId($customerId)
   {
     $this->customerId = $customerId;
@@ -847,7 +835,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->customerId;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -857,7 +845,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPlan(Google_Service_Reseller_SubscriptionPlan $plan)
   {
     $this->plan = $plan;
@@ -867,7 +855,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->plan;
   }
-  
+
   public function setPurchaseOrderId($purchaseOrderId)
   {
     $this->purchaseOrderId = $purchaseOrderId;
@@ -877,7 +865,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->purchaseOrderId;
   }
-  
+
   public function setRenewalSettings(Google_Service_Reseller_RenewalSettings $renewalSettings)
   {
     $this->renewalSettings = $renewalSettings;
@@ -887,7 +875,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->renewalSettings;
   }
-  
+
   public function setResourceUiUrl($resourceUiUrl)
   {
     $this->resourceUiUrl = $resourceUiUrl;
@@ -897,7 +885,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->resourceUiUrl;
   }
-  
+
   public function setSeats(Google_Service_Reseller_Seats $seats)
   {
     $this->seats = $seats;
@@ -907,7 +895,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->seats;
   }
-  
+
   public function setSkuId($skuId)
   {
     $this->skuId = $skuId;
@@ -917,7 +905,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->skuId;
   }
-  
+
   public function setStatus($status)
   {
     $this->status = $status;
@@ -927,7 +915,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->status;
   }
-  
+
   public function setSubscriptionId($subscriptionId)
   {
     $this->subscriptionId = $subscriptionId;
@@ -937,7 +925,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->subscriptionId;
   }
-  
+
   public function setTransferInfo(Google_Service_Reseller_SubscriptionTransferInfo $transferInfo)
   {
     $this->transferInfo = $transferInfo;
@@ -947,7 +935,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->transferInfo;
   }
-  
+
   public function setTrialSettings(Google_Service_Reseller_SubscriptionTrialSettings $trialSettings)
   {
     $this->trialSettings = $trialSettings;
@@ -957,7 +945,6 @@ class Google_Service_Reseller_Subscription extends Google_Model
   {
     return $this->trialSettings;
   }
-  
 }
 
 class Google_Service_Reseller_SubscriptionPlan extends Google_Model
@@ -976,7 +963,7 @@ class Google_Service_Reseller_SubscriptionPlan extends Google_Model
   {
     return $this->commitmentInterval;
   }
-  
+
   public function setIsCommitmentPlan($isCommitmentPlan)
   {
     $this->isCommitmentPlan = $isCommitmentPlan;
@@ -986,7 +973,7 @@ class Google_Service_Reseller_SubscriptionPlan extends Google_Model
   {
     return $this->isCommitmentPlan;
   }
-  
+
   public function setPlanName($planName)
   {
     $this->planName = $planName;
@@ -996,7 +983,6 @@ class Google_Service_Reseller_SubscriptionPlan extends Google_Model
   {
     return $this->planName;
   }
-  
 }
 
 class Google_Service_Reseller_SubscriptionPlanCommitmentInterval extends Google_Model
@@ -1013,7 +999,7 @@ class Google_Service_Reseller_SubscriptionPlanCommitmentInterval extends Google_
   {
     return $this->endTime;
   }
-  
+
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
@@ -1023,7 +1009,6 @@ class Google_Service_Reseller_SubscriptionPlanCommitmentInterval extends Google_
   {
     return $this->startTime;
   }
-  
 }
 
 class Google_Service_Reseller_SubscriptionTransferInfo extends Google_Model
@@ -1040,7 +1025,7 @@ class Google_Service_Reseller_SubscriptionTransferInfo extends Google_Model
   {
     return $this->minimumTransferableSeats;
   }
-  
+
   public function setTransferabilityExpirationTime($transferabilityExpirationTime)
   {
     $this->transferabilityExpirationTime = $transferabilityExpirationTime;
@@ -1050,7 +1035,6 @@ class Google_Service_Reseller_SubscriptionTransferInfo extends Google_Model
   {
     return $this->transferabilityExpirationTime;
   }
-  
 }
 
 class Google_Service_Reseller_SubscriptionTrialSettings extends Google_Model
@@ -1067,7 +1051,7 @@ class Google_Service_Reseller_SubscriptionTrialSettings extends Google_Model
   {
     return $this->isInTrial;
   }
-  
+
   public function setTrialEndTime($trialEndTime)
   {
     $this->trialEndTime = $trialEndTime;
@@ -1077,7 +1061,6 @@ class Google_Service_Reseller_SubscriptionTrialSettings extends Google_Model
   {
     return $this->trialEndTime;
   }
-  
 }
 
 class Google_Service_Reseller_Subscriptions extends Google_Collection
@@ -1096,7 +1079,7 @@ class Google_Service_Reseller_Subscriptions extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1106,7 +1089,7 @@ class Google_Service_Reseller_Subscriptions extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setSubscriptions($subscriptions)
   {
     $this->subscriptions = $subscriptions;
@@ -1116,5 +1099,4 @@ class Google_Service_Reseller_Subscriptions extends Google_Collection
   {
     return $this->subscriptions;
   }
-  
 }
