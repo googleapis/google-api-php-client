@@ -31,6 +31,27 @@
  */
 class Google_Service_PlusDomains extends Google_Service
 {
+  /** View your circles and the people and pages in them. */
+  const PLUS_CIRCLES_READ = "https://www.googleapis.com/auth/plus.circles.read";
+  /** Manage your circles and add people and pages, who will be notified and may appear on your public Google+ profile. */
+  const PLUS_CIRCLES_WRITE = "https://www.googleapis.com/auth/plus.circles.write";
+  /** Know your basic profile info and list of people in your circles.. */
+  const PLUS_LOGIN = "https://www.googleapis.com/auth/plus.login";
+  /** Know who you are on Google. */
+  const PLUS_ME = "https://www.googleapis.com/auth/plus.me";
+  /** Send your photos and videos to Google+. */
+  const PLUS_MEDIA_UPLOAD = "https://www.googleapis.com/auth/plus.media.upload";
+  /** View your own Google+ profile and profiles visible to you. */
+  const PLUS_PROFILES_READ = "https://www.googleapis.com/auth/plus.profiles.read";
+  /** View your Google+ posts, comments, and stream. */
+  const PLUS_STREAM_READ = "https://www.googleapis.com/auth/plus.stream.read";
+  /** Manage your Google+ posts, comments, and stream. */
+  const PLUS_STREAM_WRITE = "https://www.googleapis.com/auth/plus.stream.write";
+  /** View your email address. */
+  const USERINFO_EMAIL = "https://www.googleapis.com/auth/userinfo.email";
+  /** View basic information about your account. */
+  const USERINFO_PROFILE = "https://www.googleapis.com/auth/userinfo.profile";
+
   public $activities;
   public $audiences;
   public $circles;
@@ -49,27 +70,7 @@ class Google_Service_PlusDomains extends Google_Service
     parent::__construct($client);
     $this->servicePath = 'plusDomains/v1/';
     $this->version = 'v1';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/plus.login",
-      "https://www.googleapis.com/auth/plus.media.upload",
-      "https://www.googleapis.com/auth/userinfo.profile",
-      "https://www.googleapis.com/auth/plus.stream.read",
-      "https://www.googleapis.com/auth/plus.circles.read",
-      "https://www.googleapis.com/auth/plus.profiles.read",
-      "https://www.googleapis.com/auth/userinfo.email",
-      "https://www.googleapis.com/auth/plus.circles.write",
-      "https://www.googleapis.com/auth/plus.stream.write",
-      "https://www.googleapis.com/auth/plus.me"
-    );
-    
     $this->serviceName = 'plusDomains';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->activities = new Google_Service_PlusDomains_Activities_Resource(
         $this,
@@ -916,7 +917,7 @@ class Google_Service_PlusDomains_Acl extends Google_Collection
   {
     return $this->description;
   }
-  
+
   public function setDomainRestricted($domainRestricted)
   {
     $this->domainRestricted = $domainRestricted;
@@ -926,7 +927,7 @@ class Google_Service_PlusDomains_Acl extends Google_Collection
   {
     return $this->domainRestricted;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -936,7 +937,7 @@ class Google_Service_PlusDomains_Acl extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -946,7 +947,6 @@ class Google_Service_PlusDomains_Acl extends Google_Collection
   {
     return $this->kind;
   }
-  
 }
 
 class Google_Service_PlusDomains_Activity extends Google_Model
@@ -986,7 +986,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->access;
   }
-  
+
   public function setActor(Google_Service_PlusDomains_ActivityActor $actor)
   {
     $this->actor = $actor;
@@ -996,7 +996,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->actor;
   }
-  
+
   public function setAddress($address)
   {
     $this->address = $address;
@@ -1006,7 +1006,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->address;
   }
-  
+
   public function setAnnotation($annotation)
   {
     $this->annotation = $annotation;
@@ -1016,7 +1016,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->annotation;
   }
-  
+
   public function setCrosspostSource($crosspostSource)
   {
     $this->crosspostSource = $crosspostSource;
@@ -1026,7 +1026,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->crosspostSource;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -1036,7 +1036,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->etag;
   }
-  
+
   public function setGeocode($geocode)
   {
     $this->geocode = $geocode;
@@ -1046,7 +1046,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->geocode;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -1056,7 +1056,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1066,7 +1066,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setLocation(Google_Service_PlusDomains_Place $location)
   {
     $this->location = $location;
@@ -1076,7 +1076,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->location;
   }
-  
+
   public function setObject(Google_Service_PlusDomains_ActivityObject $object)
   {
     $this->object = $object;
@@ -1086,7 +1086,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->object;
   }
-  
+
   public function setPlaceId($placeId)
   {
     $this->placeId = $placeId;
@@ -1096,7 +1096,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->placeId;
   }
-  
+
   public function setPlaceName($placeName)
   {
     $this->placeName = $placeName;
@@ -1106,7 +1106,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->placeName;
   }
-  
+
   public function setProvider(Google_Service_PlusDomains_ActivityProvider $provider)
   {
     $this->provider = $provider;
@@ -1116,7 +1116,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->provider;
   }
-  
+
   public function setPublished($published)
   {
     $this->published = $published;
@@ -1126,7 +1126,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->published;
   }
-  
+
   public function setRadius($radius)
   {
     $this->radius = $radius;
@@ -1136,7 +1136,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->radius;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -1146,7 +1146,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->title;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -1156,7 +1156,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->updated;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1166,7 +1166,7 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->url;
   }
-  
+
   public function setVerb($verb)
   {
     $this->verb = $verb;
@@ -1176,7 +1176,6 @@ class Google_Service_PlusDomains_Activity extends Google_Model
   {
     return $this->verb;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityActor extends Google_Model
@@ -1198,7 +1197,7 @@ class Google_Service_PlusDomains_ActivityActor extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -1208,7 +1207,7 @@ class Google_Service_PlusDomains_ActivityActor extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setImage(Google_Service_PlusDomains_ActivityActorImage $image)
   {
     $this->image = $image;
@@ -1218,7 +1217,7 @@ class Google_Service_PlusDomains_ActivityActor extends Google_Model
   {
     return $this->image;
   }
-  
+
   public function setName(Google_Service_PlusDomains_ActivityActorName $name)
   {
     $this->name = $name;
@@ -1228,7 +1227,7 @@ class Google_Service_PlusDomains_ActivityActor extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1238,7 +1237,6 @@ class Google_Service_PlusDomains_ActivityActor extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityActorImage extends Google_Model
@@ -1254,7 +1252,6 @@ class Google_Service_PlusDomains_ActivityActorImage extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityActorName extends Google_Model
@@ -1271,7 +1268,7 @@ class Google_Service_PlusDomains_ActivityActorName extends Google_Model
   {
     return $this->familyName;
   }
-  
+
   public function setGivenName($givenName)
   {
     $this->givenName = $givenName;
@@ -1281,7 +1278,6 @@ class Google_Service_PlusDomains_ActivityActorName extends Google_Model
   {
     return $this->givenName;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityFeed extends Google_Collection
@@ -1306,7 +1302,7 @@ class Google_Service_PlusDomains_ActivityFeed extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -1316,7 +1312,7 @@ class Google_Service_PlusDomains_ActivityFeed extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -1326,7 +1322,7 @@ class Google_Service_PlusDomains_ActivityFeed extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1336,7 +1332,7 @@ class Google_Service_PlusDomains_ActivityFeed extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -1346,7 +1342,7 @@ class Google_Service_PlusDomains_ActivityFeed extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1356,7 +1352,7 @@ class Google_Service_PlusDomains_ActivityFeed extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -1366,7 +1362,7 @@ class Google_Service_PlusDomains_ActivityFeed extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -1376,7 +1372,7 @@ class Google_Service_PlusDomains_ActivityFeed extends Google_Collection
   {
     return $this->title;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -1386,7 +1382,6 @@ class Google_Service_PlusDomains_ActivityFeed extends Google_Collection
   {
     return $this->updated;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObject extends Google_Collection
@@ -1418,7 +1413,7 @@ class Google_Service_PlusDomains_ActivityObject extends Google_Collection
   {
     return $this->actor;
   }
-  
+
   public function setAttachments($attachments)
   {
     $this->attachments = $attachments;
@@ -1428,7 +1423,7 @@ class Google_Service_PlusDomains_ActivityObject extends Google_Collection
   {
     return $this->attachments;
   }
-  
+
   public function setContent($content)
   {
     $this->content = $content;
@@ -1438,7 +1433,7 @@ class Google_Service_PlusDomains_ActivityObject extends Google_Collection
   {
     return $this->content;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -1448,7 +1443,7 @@ class Google_Service_PlusDomains_ActivityObject extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setObjectType($objectType)
   {
     $this->objectType = $objectType;
@@ -1458,7 +1453,7 @@ class Google_Service_PlusDomains_ActivityObject extends Google_Collection
   {
     return $this->objectType;
   }
-  
+
   public function setOriginalContent($originalContent)
   {
     $this->originalContent = $originalContent;
@@ -1468,7 +1463,7 @@ class Google_Service_PlusDomains_ActivityObject extends Google_Collection
   {
     return $this->originalContent;
   }
-  
+
   public function setPlusoners(Google_Service_PlusDomains_ActivityObjectPlusoners $plusoners)
   {
     $this->plusoners = $plusoners;
@@ -1478,7 +1473,7 @@ class Google_Service_PlusDomains_ActivityObject extends Google_Collection
   {
     return $this->plusoners;
   }
-  
+
   public function setReplies(Google_Service_PlusDomains_ActivityObjectReplies $replies)
   {
     $this->replies = $replies;
@@ -1488,7 +1483,7 @@ class Google_Service_PlusDomains_ActivityObject extends Google_Collection
   {
     return $this->replies;
   }
-  
+
   public function setResharers(Google_Service_PlusDomains_ActivityObjectResharers $resharers)
   {
     $this->resharers = $resharers;
@@ -1498,7 +1493,7 @@ class Google_Service_PlusDomains_ActivityObject extends Google_Collection
   {
     return $this->resharers;
   }
-  
+
   public function setStatusForViewer(Google_Service_PlusDomains_ActivityObjectStatusForViewer $statusForViewer)
   {
     $this->statusForViewer = $statusForViewer;
@@ -1508,7 +1503,7 @@ class Google_Service_PlusDomains_ActivityObject extends Google_Collection
   {
     return $this->statusForViewer;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1518,7 +1513,6 @@ class Google_Service_PlusDomains_ActivityObject extends Google_Collection
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectActor extends Google_Model
@@ -1538,7 +1532,7 @@ class Google_Service_PlusDomains_ActivityObjectActor extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -1548,7 +1542,7 @@ class Google_Service_PlusDomains_ActivityObjectActor extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setImage(Google_Service_PlusDomains_ActivityObjectActorImage $image)
   {
     $this->image = $image;
@@ -1558,7 +1552,7 @@ class Google_Service_PlusDomains_ActivityObjectActor extends Google_Model
   {
     return $this->image;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1568,7 +1562,6 @@ class Google_Service_PlusDomains_ActivityObjectActor extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectActorImage extends Google_Model
@@ -1584,7 +1577,6 @@ class Google_Service_PlusDomains_ActivityObjectActorImage extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectAttachments extends Google_Collection
@@ -1614,7 +1606,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachments extends Google_Collec
   {
     return $this->content;
   }
-  
+
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -1624,7 +1616,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachments extends Google_Collec
   {
     return $this->displayName;
   }
-  
+
   public function setEmbed(Google_Service_PlusDomains_ActivityObjectAttachmentsEmbed $embed)
   {
     $this->embed = $embed;
@@ -1634,7 +1626,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachments extends Google_Collec
   {
     return $this->embed;
   }
-  
+
   public function setFullImage(Google_Service_PlusDomains_ActivityObjectAttachmentsFullImage $fullImage)
   {
     $this->fullImage = $fullImage;
@@ -1644,7 +1636,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachments extends Google_Collec
   {
     return $this->fullImage;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -1654,7 +1646,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachments extends Google_Collec
   {
     return $this->id;
   }
-  
+
   public function setImage(Google_Service_PlusDomains_ActivityObjectAttachmentsImage $image)
   {
     $this->image = $image;
@@ -1664,7 +1656,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachments extends Google_Collec
   {
     return $this->image;
   }
-  
+
   public function setObjectType($objectType)
   {
     $this->objectType = $objectType;
@@ -1674,7 +1666,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachments extends Google_Collec
   {
     return $this->objectType;
   }
-  
+
   public function setPreviewThumbnails($previewThumbnails)
   {
     $this->previewThumbnails = $previewThumbnails;
@@ -1684,7 +1676,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachments extends Google_Collec
   {
     return $this->previewThumbnails;
   }
-  
+
   public function setThumbnails($thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -1694,7 +1686,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachments extends Google_Collec
   {
     return $this->thumbnails;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1704,7 +1696,6 @@ class Google_Service_PlusDomains_ActivityObjectAttachments extends Google_Collec
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectAttachmentsEmbed extends Google_Model
@@ -1721,7 +1712,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsEmbed extends Google_M
   {
     return $this->type;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1731,7 +1722,6 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsEmbed extends Google_M
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectAttachmentsFullImage extends Google_Model
@@ -1750,7 +1740,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsFullImage extends Goog
   {
     return $this->height;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -1760,7 +1750,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsFullImage extends Goog
   {
     return $this->type;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1770,7 +1760,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsFullImage extends Goog
   {
     return $this->url;
   }
-  
+
   public function setWidth($width)
   {
     $this->width = $width;
@@ -1780,7 +1770,6 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsFullImage extends Goog
   {
     return $this->width;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectAttachmentsImage extends Google_Model
@@ -1799,7 +1788,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsImage extends Google_M
   {
     return $this->height;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -1809,7 +1798,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsImage extends Google_M
   {
     return $this->type;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1819,7 +1808,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsImage extends Google_M
   {
     return $this->url;
   }
-  
+
   public function setWidth($width)
   {
     $this->width = $width;
@@ -1829,7 +1818,6 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsImage extends Google_M
   {
     return $this->width;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectAttachmentsPreviewThumbnails extends Google_Model
@@ -1845,7 +1833,6 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsPreviewThumbnails exte
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectAttachmentsThumbnails extends Google_Model
@@ -1864,7 +1851,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsThumbnails extends Goo
   {
     return $this->description;
   }
-  
+
   public function setImage(Google_Service_PlusDomains_ActivityObjectAttachmentsThumbnailsImage $image)
   {
     $this->image = $image;
@@ -1874,7 +1861,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsThumbnails extends Goo
   {
     return $this->image;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1884,7 +1871,6 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsThumbnails extends Goo
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectAttachmentsThumbnailsImage extends Google_Model
@@ -1903,7 +1889,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsThumbnailsImage extend
   {
     return $this->height;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -1913,7 +1899,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsThumbnailsImage extend
   {
     return $this->type;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -1923,7 +1909,7 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsThumbnailsImage extend
   {
     return $this->url;
   }
-  
+
   public function setWidth($width)
   {
     $this->width = $width;
@@ -1933,7 +1919,6 @@ class Google_Service_PlusDomains_ActivityObjectAttachmentsThumbnailsImage extend
   {
     return $this->width;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectPlusoners extends Google_Model
@@ -1950,7 +1935,7 @@ class Google_Service_PlusDomains_ActivityObjectPlusoners extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -1960,7 +1945,6 @@ class Google_Service_PlusDomains_ActivityObjectPlusoners extends Google_Model
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectReplies extends Google_Model
@@ -1977,7 +1961,7 @@ class Google_Service_PlusDomains_ActivityObjectReplies extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -1987,7 +1971,6 @@ class Google_Service_PlusDomains_ActivityObjectReplies extends Google_Model
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectResharers extends Google_Model
@@ -2004,7 +1987,7 @@ class Google_Service_PlusDomains_ActivityObjectResharers extends Google_Model
   {
     return $this->selfLink;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -2014,7 +1997,6 @@ class Google_Service_PlusDomains_ActivityObjectResharers extends Google_Model
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityObjectStatusForViewer extends Google_Model
@@ -2033,7 +2015,7 @@ class Google_Service_PlusDomains_ActivityObjectStatusForViewer extends Google_Mo
   {
     return $this->canComment;
   }
-  
+
   public function setCanPlusone($canPlusone)
   {
     $this->canPlusone = $canPlusone;
@@ -2043,7 +2025,7 @@ class Google_Service_PlusDomains_ActivityObjectStatusForViewer extends Google_Mo
   {
     return $this->canPlusone;
   }
-  
+
   public function setIsPlusOned($isPlusOned)
   {
     $this->isPlusOned = $isPlusOned;
@@ -2053,7 +2035,7 @@ class Google_Service_PlusDomains_ActivityObjectStatusForViewer extends Google_Mo
   {
     return $this->isPlusOned;
   }
-  
+
   public function setResharingDisabled($resharingDisabled)
   {
     $this->resharingDisabled = $resharingDisabled;
@@ -2063,7 +2045,6 @@ class Google_Service_PlusDomains_ActivityObjectStatusForViewer extends Google_Mo
   {
     return $this->resharingDisabled;
   }
-  
 }
 
 class Google_Service_PlusDomains_ActivityProvider extends Google_Model
@@ -2079,7 +2060,6 @@ class Google_Service_PlusDomains_ActivityProvider extends Google_Model
   {
     return $this->title;
   }
-  
 }
 
 class Google_Service_PlusDomains_Audience extends Google_Model
@@ -2099,7 +2079,7 @@ class Google_Service_PlusDomains_Audience extends Google_Model
   {
     return $this->etag;
   }
-  
+
   public function setItem(Google_Service_PlusDomains_PlusDomainsAclentryResource $item)
   {
     $this->item = $item;
@@ -2109,7 +2089,7 @@ class Google_Service_PlusDomains_Audience extends Google_Model
   {
     return $this->item;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2119,7 +2099,7 @@ class Google_Service_PlusDomains_Audience extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setVisibility($visibility)
   {
     $this->visibility = $visibility;
@@ -2129,7 +2109,6 @@ class Google_Service_PlusDomains_Audience extends Google_Model
   {
     return $this->visibility;
   }
-  
 }
 
 class Google_Service_PlusDomains_AudiencesFeed extends Google_Collection
@@ -2150,7 +2129,7 @@ class Google_Service_PlusDomains_AudiencesFeed extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -2160,7 +2139,7 @@ class Google_Service_PlusDomains_AudiencesFeed extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2170,7 +2149,7 @@ class Google_Service_PlusDomains_AudiencesFeed extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2180,7 +2159,7 @@ class Google_Service_PlusDomains_AudiencesFeed extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -2190,7 +2169,6 @@ class Google_Service_PlusDomains_AudiencesFeed extends Google_Collection
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_PlusDomains_Circle extends Google_Model
@@ -2213,7 +2191,7 @@ class Google_Service_PlusDomains_Circle extends Google_Model
   {
     return $this->description;
   }
-  
+
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -2223,7 +2201,7 @@ class Google_Service_PlusDomains_Circle extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -2233,7 +2211,7 @@ class Google_Service_PlusDomains_Circle extends Google_Model
   {
     return $this->etag;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2243,7 +2221,7 @@ class Google_Service_PlusDomains_Circle extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2253,7 +2231,7 @@ class Google_Service_PlusDomains_Circle extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPeople(Google_Service_PlusDomains_CirclePeople $people)
   {
     $this->people = $people;
@@ -2263,7 +2241,7 @@ class Google_Service_PlusDomains_Circle extends Google_Model
   {
     return $this->people;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -2273,7 +2251,6 @@ class Google_Service_PlusDomains_Circle extends Google_Model
   {
     return $this->selfLink;
   }
-  
 }
 
 class Google_Service_PlusDomains_CircleFeed extends Google_Collection
@@ -2297,7 +2274,7 @@ class Google_Service_PlusDomains_CircleFeed extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -2307,7 +2284,7 @@ class Google_Service_PlusDomains_CircleFeed extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2317,7 +2294,7 @@ class Google_Service_PlusDomains_CircleFeed extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -2327,7 +2304,7 @@ class Google_Service_PlusDomains_CircleFeed extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2337,7 +2314,7 @@ class Google_Service_PlusDomains_CircleFeed extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -2347,7 +2324,7 @@ class Google_Service_PlusDomains_CircleFeed extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -2357,7 +2334,7 @@ class Google_Service_PlusDomains_CircleFeed extends Google_Collection
   {
     return $this->title;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -2367,7 +2344,6 @@ class Google_Service_PlusDomains_CircleFeed extends Google_Collection
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_PlusDomains_CirclePeople extends Google_Model
@@ -2383,7 +2359,6 @@ class Google_Service_PlusDomains_CirclePeople extends Google_Model
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_PlusDomains_Comment extends Google_Collection
@@ -2413,7 +2388,7 @@ class Google_Service_PlusDomains_Comment extends Google_Collection
   {
     return $this->actor;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -2423,7 +2398,7 @@ class Google_Service_PlusDomains_Comment extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2433,7 +2408,7 @@ class Google_Service_PlusDomains_Comment extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setInReplyTo($inReplyTo)
   {
     $this->inReplyTo = $inReplyTo;
@@ -2443,7 +2418,7 @@ class Google_Service_PlusDomains_Comment extends Google_Collection
   {
     return $this->inReplyTo;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2453,7 +2428,7 @@ class Google_Service_PlusDomains_Comment extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setObject(Google_Service_PlusDomains_CommentObject $object)
   {
     $this->object = $object;
@@ -2463,7 +2438,7 @@ class Google_Service_PlusDomains_Comment extends Google_Collection
   {
     return $this->object;
   }
-  
+
   public function setPlusoners(Google_Service_PlusDomains_CommentPlusoners $plusoners)
   {
     $this->plusoners = $plusoners;
@@ -2473,7 +2448,7 @@ class Google_Service_PlusDomains_Comment extends Google_Collection
   {
     return $this->plusoners;
   }
-  
+
   public function setPublished($published)
   {
     $this->published = $published;
@@ -2483,7 +2458,7 @@ class Google_Service_PlusDomains_Comment extends Google_Collection
   {
     return $this->published;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -2493,7 +2468,7 @@ class Google_Service_PlusDomains_Comment extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -2503,7 +2478,7 @@ class Google_Service_PlusDomains_Comment extends Google_Collection
   {
     return $this->updated;
   }
-  
+
   public function setVerb($verb)
   {
     $this->verb = $verb;
@@ -2513,7 +2488,6 @@ class Google_Service_PlusDomains_Comment extends Google_Collection
   {
     return $this->verb;
   }
-  
 }
 
 class Google_Service_PlusDomains_CommentActor extends Google_Model
@@ -2533,7 +2507,7 @@ class Google_Service_PlusDomains_CommentActor extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2543,7 +2517,7 @@ class Google_Service_PlusDomains_CommentActor extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setImage(Google_Service_PlusDomains_CommentActorImage $image)
   {
     $this->image = $image;
@@ -2553,7 +2527,7 @@ class Google_Service_PlusDomains_CommentActor extends Google_Model
   {
     return $this->image;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -2563,7 +2537,6 @@ class Google_Service_PlusDomains_CommentActor extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_CommentActorImage extends Google_Model
@@ -2579,7 +2552,6 @@ class Google_Service_PlusDomains_CommentActorImage extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_CommentFeed extends Google_Collection
@@ -2603,7 +2575,7 @@ class Google_Service_PlusDomains_CommentFeed extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2613,7 +2585,7 @@ class Google_Service_PlusDomains_CommentFeed extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -2623,7 +2595,7 @@ class Google_Service_PlusDomains_CommentFeed extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2633,7 +2605,7 @@ class Google_Service_PlusDomains_CommentFeed extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -2643,7 +2615,7 @@ class Google_Service_PlusDomains_CommentFeed extends Google_Collection
   {
     return $this->nextLink;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2653,7 +2625,7 @@ class Google_Service_PlusDomains_CommentFeed extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -2663,7 +2635,7 @@ class Google_Service_PlusDomains_CommentFeed extends Google_Collection
   {
     return $this->title;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -2673,7 +2645,6 @@ class Google_Service_PlusDomains_CommentFeed extends Google_Collection
   {
     return $this->updated;
   }
-  
 }
 
 class Google_Service_PlusDomains_CommentInReplyTo extends Google_Model
@@ -2690,7 +2661,7 @@ class Google_Service_PlusDomains_CommentInReplyTo extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -2700,7 +2671,6 @@ class Google_Service_PlusDomains_CommentInReplyTo extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_CommentObject extends Google_Model
@@ -2718,7 +2688,7 @@ class Google_Service_PlusDomains_CommentObject extends Google_Model
   {
     return $this->content;
   }
-  
+
   public function setObjectType($objectType)
   {
     $this->objectType = $objectType;
@@ -2728,7 +2698,7 @@ class Google_Service_PlusDomains_CommentObject extends Google_Model
   {
     return $this->objectType;
   }
-  
+
   public function setOriginalContent($originalContent)
   {
     $this->originalContent = $originalContent;
@@ -2738,7 +2708,6 @@ class Google_Service_PlusDomains_CommentObject extends Google_Model
   {
     return $this->originalContent;
   }
-  
 }
 
 class Google_Service_PlusDomains_CommentPlusoners extends Google_Model
@@ -2754,7 +2723,6 @@ class Google_Service_PlusDomains_CommentPlusoners extends Google_Model
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_PlusDomains_Media extends Google_Collection
@@ -2790,7 +2758,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->author;
   }
-  
+
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -2800,7 +2768,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->displayName;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -2810,7 +2778,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setExif(Google_Service_PlusDomains_MediaExif $exif)
   {
     $this->exif = $exif;
@@ -2820,7 +2788,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->exif;
   }
-  
+
   public function setHeight($height)
   {
     $this->height = $height;
@@ -2830,7 +2798,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->height;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2840,7 +2808,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2850,7 +2818,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setMediaCreatedTime($mediaCreatedTime)
   {
     $this->mediaCreatedTime = $mediaCreatedTime;
@@ -2860,7 +2828,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->mediaCreatedTime;
   }
-  
+
   public function setMediaUrl($mediaUrl)
   {
     $this->mediaUrl = $mediaUrl;
@@ -2870,7 +2838,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->mediaUrl;
   }
-  
+
   public function setPublished($published)
   {
     $this->published = $published;
@@ -2880,7 +2848,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->published;
   }
-  
+
   public function setSizeBytes($sizeBytes)
   {
     $this->sizeBytes = $sizeBytes;
@@ -2890,7 +2858,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->sizeBytes;
   }
-  
+
   public function setStreams($streams)
   {
     $this->streams = $streams;
@@ -2900,7 +2868,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->streams;
   }
-  
+
   public function setSummary($summary)
   {
     $this->summary = $summary;
@@ -2910,7 +2878,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->summary;
   }
-  
+
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -2920,7 +2888,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->updated;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -2930,7 +2898,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->url;
   }
-  
+
   public function setVideoDuration($videoDuration)
   {
     $this->videoDuration = $videoDuration;
@@ -2940,7 +2908,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->videoDuration;
   }
-  
+
   public function setVideoStatus($videoStatus)
   {
     $this->videoStatus = $videoStatus;
@@ -2950,7 +2918,7 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->videoStatus;
   }
-  
+
   public function setWidth($width)
   {
     $this->width = $width;
@@ -2960,7 +2928,6 @@ class Google_Service_PlusDomains_Media extends Google_Collection
   {
     return $this->width;
   }
-  
 }
 
 class Google_Service_PlusDomains_MediaAuthor extends Google_Model
@@ -2980,7 +2947,7 @@ class Google_Service_PlusDomains_MediaAuthor extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -2990,7 +2957,7 @@ class Google_Service_PlusDomains_MediaAuthor extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setImage(Google_Service_PlusDomains_MediaAuthorImage $image)
   {
     $this->image = $image;
@@ -3000,7 +2967,7 @@ class Google_Service_PlusDomains_MediaAuthor extends Google_Model
   {
     return $this->image;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -3010,7 +2977,6 @@ class Google_Service_PlusDomains_MediaAuthor extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_MediaAuthorImage extends Google_Model
@@ -3026,7 +2992,6 @@ class Google_Service_PlusDomains_MediaAuthorImage extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_MediaExif extends Google_Model
@@ -3042,7 +3007,6 @@ class Google_Service_PlusDomains_MediaExif extends Google_Model
   {
     return $this->time;
   }
-  
 }
 
 class Google_Service_PlusDomains_PeopleFeed extends Google_Collection
@@ -3065,7 +3029,7 @@ class Google_Service_PlusDomains_PeopleFeed extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setItems($items)
   {
     $this->items = $items;
@@ -3075,7 +3039,7 @@ class Google_Service_PlusDomains_PeopleFeed extends Google_Collection
   {
     return $this->items;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3085,7 +3049,7 @@ class Google_Service_PlusDomains_PeopleFeed extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3095,7 +3059,7 @@ class Google_Service_PlusDomains_PeopleFeed extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  
+
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3105,7 +3069,7 @@ class Google_Service_PlusDomains_PeopleFeed extends Google_Collection
   {
     return $this->selfLink;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -3115,7 +3079,7 @@ class Google_Service_PlusDomains_PeopleFeed extends Google_Collection
   {
     return $this->title;
   }
-  
+
   public function setTotalItems($totalItems)
   {
     $this->totalItems = $totalItems;
@@ -3125,7 +3089,6 @@ class Google_Service_PlusDomains_PeopleFeed extends Google_Collection
   {
     return $this->totalItems;
   }
-  
 }
 
 class Google_Service_PlusDomains_Person extends Google_Collection
@@ -3175,7 +3138,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->aboutMe;
   }
-  
+
   public function setBirthday($birthday)
   {
     $this->birthday = $birthday;
@@ -3185,7 +3148,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->birthday;
   }
-  
+
   public function setBraggingRights($braggingRights)
   {
     $this->braggingRights = $braggingRights;
@@ -3195,7 +3158,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->braggingRights;
   }
-  
+
   public function setCircledByCount($circledByCount)
   {
     $this->circledByCount = $circledByCount;
@@ -3205,7 +3168,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->circledByCount;
   }
-  
+
   public function setCover(Google_Service_PlusDomains_PersonCover $cover)
   {
     $this->cover = $cover;
@@ -3215,7 +3178,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->cover;
   }
-  
+
   public function setCurrentLocation($currentLocation)
   {
     $this->currentLocation = $currentLocation;
@@ -3225,7 +3188,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->currentLocation;
   }
-  
+
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -3235,7 +3198,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->displayName;
   }
-  
+
   public function setDomain($domain)
   {
     $this->domain = $domain;
@@ -3245,7 +3208,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->domain;
   }
-  
+
   public function setEmails($emails)
   {
     $this->emails = $emails;
@@ -3255,7 +3218,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->emails;
   }
-  
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -3265,7 +3228,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->etag;
   }
-  
+
   public function setGender($gender)
   {
     $this->gender = $gender;
@@ -3275,7 +3238,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->gender;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3285,7 +3248,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->id;
   }
-  
+
   public function setImage(Google_Service_PlusDomains_PersonImage $image)
   {
     $this->image = $image;
@@ -3295,7 +3258,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->image;
   }
-  
+
   public function setIsPlusUser($isPlusUser)
   {
     $this->isPlusUser = $isPlusUser;
@@ -3305,7 +3268,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->isPlusUser;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3315,7 +3278,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->kind;
   }
-  
+
   public function setName(Google_Service_PlusDomains_PersonName $name)
   {
     $this->name = $name;
@@ -3325,7 +3288,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->name;
   }
-  
+
   public function setNickname($nickname)
   {
     $this->nickname = $nickname;
@@ -3335,7 +3298,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->nickname;
   }
-  
+
   public function setObjectType($objectType)
   {
     $this->objectType = $objectType;
@@ -3345,7 +3308,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->objectType;
   }
-  
+
   public function setOccupation($occupation)
   {
     $this->occupation = $occupation;
@@ -3355,7 +3318,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->occupation;
   }
-  
+
   public function setOrganizations($organizations)
   {
     $this->organizations = $organizations;
@@ -3365,7 +3328,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->organizations;
   }
-  
+
   public function setPlacesLived($placesLived)
   {
     $this->placesLived = $placesLived;
@@ -3375,7 +3338,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->placesLived;
   }
-  
+
   public function setPlusOneCount($plusOneCount)
   {
     $this->plusOneCount = $plusOneCount;
@@ -3385,7 +3348,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->plusOneCount;
   }
-  
+
   public function setRelationshipStatus($relationshipStatus)
   {
     $this->relationshipStatus = $relationshipStatus;
@@ -3395,7 +3358,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->relationshipStatus;
   }
-  
+
   public function setSkills($skills)
   {
     $this->skills = $skills;
@@ -3405,7 +3368,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->skills;
   }
-  
+
   public function setTagline($tagline)
   {
     $this->tagline = $tagline;
@@ -3415,7 +3378,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->tagline;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -3425,7 +3388,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->url;
   }
-  
+
   public function setUrls($urls)
   {
     $this->urls = $urls;
@@ -3435,7 +3398,7 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->urls;
   }
-  
+
   public function setVerified($verified)
   {
     $this->verified = $verified;
@@ -3445,7 +3408,6 @@ class Google_Service_PlusDomains_Person extends Google_Collection
   {
     return $this->verified;
   }
-  
 }
 
 class Google_Service_PlusDomains_PersonCover extends Google_Model
@@ -3465,7 +3427,7 @@ class Google_Service_PlusDomains_PersonCover extends Google_Model
   {
     return $this->coverInfo;
   }
-  
+
   public function setCoverPhoto(Google_Service_PlusDomains_PersonCoverCoverPhoto $coverPhoto)
   {
     $this->coverPhoto = $coverPhoto;
@@ -3475,7 +3437,7 @@ class Google_Service_PlusDomains_PersonCover extends Google_Model
   {
     return $this->coverPhoto;
   }
-  
+
   public function setLayout($layout)
   {
     $this->layout = $layout;
@@ -3485,7 +3447,6 @@ class Google_Service_PlusDomains_PersonCover extends Google_Model
   {
     return $this->layout;
   }
-  
 }
 
 class Google_Service_PlusDomains_PersonCoverCoverInfo extends Google_Model
@@ -3502,7 +3463,7 @@ class Google_Service_PlusDomains_PersonCoverCoverInfo extends Google_Model
   {
     return $this->leftImageOffset;
   }
-  
+
   public function setTopImageOffset($topImageOffset)
   {
     $this->topImageOffset = $topImageOffset;
@@ -3512,7 +3473,6 @@ class Google_Service_PlusDomains_PersonCoverCoverInfo extends Google_Model
   {
     return $this->topImageOffset;
   }
-  
 }
 
 class Google_Service_PlusDomains_PersonCoverCoverPhoto extends Google_Model
@@ -3530,7 +3490,7 @@ class Google_Service_PlusDomains_PersonCoverCoverPhoto extends Google_Model
   {
     return $this->height;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -3540,7 +3500,7 @@ class Google_Service_PlusDomains_PersonCoverCoverPhoto extends Google_Model
   {
     return $this->url;
   }
-  
+
   public function setWidth($width)
   {
     $this->width = $width;
@@ -3550,7 +3510,6 @@ class Google_Service_PlusDomains_PersonCoverCoverPhoto extends Google_Model
   {
     return $this->width;
   }
-  
 }
 
 class Google_Service_PlusDomains_PersonEmails extends Google_Model
@@ -3567,7 +3526,7 @@ class Google_Service_PlusDomains_PersonEmails extends Google_Model
   {
     return $this->type;
   }
-  
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -3577,7 +3536,6 @@ class Google_Service_PlusDomains_PersonEmails extends Google_Model
   {
     return $this->value;
   }
-  
 }
 
 class Google_Service_PlusDomains_PersonImage extends Google_Model
@@ -3593,7 +3551,6 @@ class Google_Service_PlusDomains_PersonImage extends Google_Model
   {
     return $this->url;
   }
-  
 }
 
 class Google_Service_PlusDomains_PersonName extends Google_Model
@@ -3614,7 +3571,7 @@ class Google_Service_PlusDomains_PersonName extends Google_Model
   {
     return $this->familyName;
   }
-  
+
   public function setFormatted($formatted)
   {
     $this->formatted = $formatted;
@@ -3624,7 +3581,7 @@ class Google_Service_PlusDomains_PersonName extends Google_Model
   {
     return $this->formatted;
   }
-  
+
   public function setGivenName($givenName)
   {
     $this->givenName = $givenName;
@@ -3634,7 +3591,7 @@ class Google_Service_PlusDomains_PersonName extends Google_Model
   {
     return $this->givenName;
   }
-  
+
   public function setHonorificPrefix($honorificPrefix)
   {
     $this->honorificPrefix = $honorificPrefix;
@@ -3644,7 +3601,7 @@ class Google_Service_PlusDomains_PersonName extends Google_Model
   {
     return $this->honorificPrefix;
   }
-  
+
   public function setHonorificSuffix($honorificSuffix)
   {
     $this->honorificSuffix = $honorificSuffix;
@@ -3654,7 +3611,7 @@ class Google_Service_PlusDomains_PersonName extends Google_Model
   {
     return $this->honorificSuffix;
   }
-  
+
   public function setMiddleName($middleName)
   {
     $this->middleName = $middleName;
@@ -3664,7 +3621,6 @@ class Google_Service_PlusDomains_PersonName extends Google_Model
   {
     return $this->middleName;
   }
-  
 }
 
 class Google_Service_PlusDomains_PersonOrganizations extends Google_Model
@@ -3688,7 +3644,7 @@ class Google_Service_PlusDomains_PersonOrganizations extends Google_Model
   {
     return $this->department;
   }
-  
+
   public function setDescription($description)
   {
     $this->description = $description;
@@ -3698,7 +3654,7 @@ class Google_Service_PlusDomains_PersonOrganizations extends Google_Model
   {
     return $this->description;
   }
-  
+
   public function setEndDate($endDate)
   {
     $this->endDate = $endDate;
@@ -3708,7 +3664,7 @@ class Google_Service_PlusDomains_PersonOrganizations extends Google_Model
   {
     return $this->endDate;
   }
-  
+
   public function setLocation($location)
   {
     $this->location = $location;
@@ -3718,7 +3674,7 @@ class Google_Service_PlusDomains_PersonOrganizations extends Google_Model
   {
     return $this->location;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -3728,7 +3684,7 @@ class Google_Service_PlusDomains_PersonOrganizations extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setPrimary($primary)
   {
     $this->primary = $primary;
@@ -3738,7 +3694,7 @@ class Google_Service_PlusDomains_PersonOrganizations extends Google_Model
   {
     return $this->primary;
   }
-  
+
   public function setStartDate($startDate)
   {
     $this->startDate = $startDate;
@@ -3748,7 +3704,7 @@ class Google_Service_PlusDomains_PersonOrganizations extends Google_Model
   {
     return $this->startDate;
   }
-  
+
   public function setTitle($title)
   {
     $this->title = $title;
@@ -3758,7 +3714,7 @@ class Google_Service_PlusDomains_PersonOrganizations extends Google_Model
   {
     return $this->title;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -3768,7 +3724,6 @@ class Google_Service_PlusDomains_PersonOrganizations extends Google_Model
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_PlusDomains_PersonPlacesLived extends Google_Model
@@ -3785,7 +3740,7 @@ class Google_Service_PlusDomains_PersonPlacesLived extends Google_Model
   {
     return $this->primary;
   }
-  
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -3795,7 +3750,6 @@ class Google_Service_PlusDomains_PersonPlacesLived extends Google_Model
   {
     return $this->value;
   }
-  
 }
 
 class Google_Service_PlusDomains_PersonUrls extends Google_Model
@@ -3813,7 +3767,7 @@ class Google_Service_PlusDomains_PersonUrls extends Google_Model
   {
     return $this->label;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -3823,7 +3777,7 @@ class Google_Service_PlusDomains_PersonUrls extends Google_Model
   {
     return $this->type;
   }
-  
+
   public function setValue($value)
   {
     $this->value = $value;
@@ -3833,7 +3787,6 @@ class Google_Service_PlusDomains_PersonUrls extends Google_Model
   {
     return $this->value;
   }
-  
 }
 
 class Google_Service_PlusDomains_Place extends Google_Model
@@ -3854,7 +3807,7 @@ class Google_Service_PlusDomains_Place extends Google_Model
   {
     return $this->address;
   }
-  
+
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -3864,7 +3817,7 @@ class Google_Service_PlusDomains_Place extends Google_Model
   {
     return $this->displayName;
   }
-  
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3874,7 +3827,7 @@ class Google_Service_PlusDomains_Place extends Google_Model
   {
     return $this->kind;
   }
-  
+
   public function setPosition(Google_Service_PlusDomains_PlacePosition $position)
   {
     $this->position = $position;
@@ -3884,7 +3837,6 @@ class Google_Service_PlusDomains_Place extends Google_Model
   {
     return $this->position;
   }
-  
 }
 
 class Google_Service_PlusDomains_PlaceAddress extends Google_Model
@@ -3900,7 +3852,6 @@ class Google_Service_PlusDomains_PlaceAddress extends Google_Model
   {
     return $this->formatted;
   }
-  
 }
 
 class Google_Service_PlusDomains_PlacePosition extends Google_Model
@@ -3917,7 +3868,7 @@ class Google_Service_PlusDomains_PlacePosition extends Google_Model
   {
     return $this->latitude;
   }
-  
+
   public function setLongitude($longitude)
   {
     $this->longitude = $longitude;
@@ -3927,7 +3878,6 @@ class Google_Service_PlusDomains_PlacePosition extends Google_Model
   {
     return $this->longitude;
   }
-  
 }
 
 class Google_Service_PlusDomains_PlusDomainsAclentryResource extends Google_Model
@@ -3945,7 +3895,7 @@ class Google_Service_PlusDomains_PlusDomainsAclentryResource extends Google_Mode
   {
     return $this->displayName;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3955,7 +3905,7 @@ class Google_Service_PlusDomains_PlusDomainsAclentryResource extends Google_Mode
   {
     return $this->id;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -3965,7 +3915,6 @@ class Google_Service_PlusDomains_PlusDomainsAclentryResource extends Google_Mode
   {
     return $this->type;
   }
-  
 }
 
 class Google_Service_PlusDomains_Videostream extends Google_Model
@@ -3984,7 +3933,7 @@ class Google_Service_PlusDomains_Videostream extends Google_Model
   {
     return $this->height;
   }
-  
+
   public function setType($type)
   {
     $this->type = $type;
@@ -3994,7 +3943,7 @@ class Google_Service_PlusDomains_Videostream extends Google_Model
   {
     return $this->type;
   }
-  
+
   public function setUrl($url)
   {
     $this->url = $url;
@@ -4004,7 +3953,7 @@ class Google_Service_PlusDomains_Videostream extends Google_Model
   {
     return $this->url;
   }
-  
+
   public function setWidth($width)
   {
     $this->width = $width;
@@ -4014,5 +3963,4 @@ class Google_Service_PlusDomains_Videostream extends Google_Model
   {
     return $this->width;
   }
-  
 }
