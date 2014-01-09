@@ -31,6 +31,15 @@
  */
 class Google_Service_Oauth2 extends Google_Service
 {
+  /** Know your basic profile info and list of people in your circles.. */
+  const PLUS_LOGIN = "https://www.googleapis.com/auth/plus.login";
+  /** Know who you are on Google. */
+  const PLUS_ME = "https://www.googleapis.com/auth/plus.me";
+  /** View your email address. */
+  const USERINFO_EMAIL = "https://www.googleapis.com/auth/userinfo.email";
+  /** View basic information about your account. */
+  const USERINFO_PROFILE = "https://www.googleapis.com/auth/userinfo.profile";
+
   public $userinfo;
   public $userinfo_v2_me;
   private $base_methods;
@@ -45,21 +54,7 @@ class Google_Service_Oauth2 extends Google_Service
     parent::__construct($client);
     $this->servicePath = '';
     $this->version = 'v2';
-    
-    $this->availableScopes = array(
-      "https://www.googleapis.com/auth/plus.login",
-      "https://www.googleapis.com/auth/userinfo.email",
-      "https://www.googleapis.com/auth/userinfo.profile",
-      "https://www.googleapis.com/auth/plus.me"
-    );
-    
     $this->serviceName = 'oauth2';
-
-    $client->addService(
-        $this->serviceName,
-        $this->version,
-        $this->availableScopes
-    );
 
     $this->userinfo = new Google_Service_Oauth2_Userinfo_Resource(
         $this,
@@ -219,7 +214,7 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     return $this->accessType;
   }
-  
+
   public function setAudience($audience)
   {
     $this->audience = $audience;
@@ -229,7 +224,7 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     return $this->audience;
   }
-  
+
   public function setEmail($email)
   {
     $this->email = $email;
@@ -239,7 +234,7 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     return $this->email;
   }
-  
+
   public function setExpiresIn($expiresIn)
   {
     $this->expiresIn = $expiresIn;
@@ -249,7 +244,7 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     return $this->expiresIn;
   }
-  
+
   public function setIssuedTo($issuedTo)
   {
     $this->issuedTo = $issuedTo;
@@ -259,7 +254,7 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     return $this->issuedTo;
   }
-  
+
   public function setScope($scope)
   {
     $this->scope = $scope;
@@ -269,7 +264,7 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     return $this->scope;
   }
-  
+
   public function setUserId($userId)
   {
     $this->userId = $userId;
@@ -279,7 +274,7 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     return $this->userId;
   }
-  
+
   public function setVerifiedEmail($verifiedEmail)
   {
     $this->verifiedEmail = $verifiedEmail;
@@ -289,7 +284,6 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     return $this->verifiedEmail;
   }
-  
 }
 
 class Google_Service_Oauth2_Userinfo extends Google_Model
@@ -316,7 +310,7 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   {
     return $this->email;
   }
-  
+
   public function setFamilyName($familyName)
   {
     $this->familyName = $familyName;
@@ -326,7 +320,7 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   {
     return $this->familyName;
   }
-  
+
   public function setGender($gender)
   {
     $this->gender = $gender;
@@ -336,7 +330,7 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   {
     return $this->gender;
   }
-  
+
   public function setGivenName($givenName)
   {
     $this->givenName = $givenName;
@@ -346,7 +340,7 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   {
     return $this->givenName;
   }
-  
+
   public function setHd($hd)
   {
     $this->hd = $hd;
@@ -356,7 +350,7 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   {
     return $this->hd;
   }
-  
+
   public function setId($id)
   {
     $this->id = $id;
@@ -366,7 +360,7 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   {
     return $this->id;
   }
-  
+
   public function setLink($link)
   {
     $this->link = $link;
@@ -376,7 +370,7 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   {
     return $this->link;
   }
-  
+
   public function setLocale($locale)
   {
     $this->locale = $locale;
@@ -386,7 +380,7 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   {
     return $this->locale;
   }
-  
+
   public function setName($name)
   {
     $this->name = $name;
@@ -396,7 +390,7 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   {
     return $this->name;
   }
-  
+
   public function setPicture($picture)
   {
     $this->picture = $picture;
@@ -406,7 +400,7 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   {
     return $this->picture;
   }
-  
+
   public function setTimezone($timezone)
   {
     $this->timezone = $timezone;
@@ -416,7 +410,7 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   {
     return $this->timezone;
   }
-  
+
   public function setVerifiedEmail($verifiedEmail)
   {
     $this->verifiedEmail = $verifiedEmail;
@@ -426,5 +420,4 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   {
     return $this->verifiedEmail;
   }
-  
 }
