@@ -25,7 +25,7 @@ require_once 'Google/IO/Abstract.php';
 
 class Google_IO_Stream extends Google_IO_Abstract
 {
-
+  const ZLIB = "compress.zlib://";
   private static $ENTITY_HTTP_METHODS = array("POST" => null, "PUT" => null);
 
   private static $DEFAULT_HTTP_CONTEXT = array(
@@ -74,7 +74,7 @@ class Google_IO_Stream extends Google_IO_Abstract
     if ($requestHeaders && is_array($requestHeaders)) {
       $headers = "";
       foreach ($requestHeaders as $k => $v) {
-        $headers .= "$k: $v\n";
+        $headers .= "$k: $v\r\n";
       }
       $requestHttpContext["header"] = $headers;
     }
@@ -101,9 +101,15 @@ class Google_IO_Stream extends Google_IO_Abstract
     );
 
     $context = stream_context_create($options);
+    
+    $url = $request->getUrl();
+    
+    if (!$this->client->getClassConfig("Google_Http_Request", "disable_gzip")) {
+      $url = self::ZLIB . $url;
+    }
 
     $response_data = file_get_contents(
-        $request->getUrl(),
+        $url,
         false,
         $context
     );

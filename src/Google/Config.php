@@ -48,6 +48,10 @@ class Google_Config
       'classes' => array(
         // If you want to pass in OAuth 2.0 settings, they will need to be
         // structured like this.
+        'Google_Http_Request' => array(
+          // Disable the use of gzip on calls if set to true.
+          'disable_gzip' => false
+        ),
         'Google_Auth_OAuth2' => array(
           // Keys for OAuth 2.0 access, see the API console at
           // https://developers.google.com/console
