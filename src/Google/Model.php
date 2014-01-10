@@ -84,9 +84,9 @@ class Google_Model implements ArrayAccess
         property_exists($this, $key)) {
           $this->$key = $val;
           unset($array[$key]);
-      // Check if property exists as camelCase, leave it in array as snake_case
-      // in case of backwards compatibility issues
       } elseif (property_exists($this, $camelKey = Google_Utils::camelCase($key))) {
+          // This checks if property exists as camelCase, leaving it in array as snake_case
+          // in case of backwards compatibility issues.
           $this->$camelKey = $val;
       }
     }
