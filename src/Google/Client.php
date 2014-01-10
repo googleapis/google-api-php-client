@@ -107,16 +107,6 @@ class Google_Client
   {
     return self::LIBVER;
   }
-  
-  /**
-   * Shim function until templates are updated. 
-   * @todo(ianbarber): remove this.
-   * @deprecated 
-   */
-  public function addService($a, $b, $c)
-  {
-    return;
-  }
 
   /**
    * Attempt to exchange a code for an valid authentication token.
