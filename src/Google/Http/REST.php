@@ -29,8 +29,7 @@ require_once 'Google/Utils/URITemplate.php';
 class Google_Http_REST
 {
   /**
-   * Executes a apiServiceRequest using a RESTful call by transforming it into
-   * an apiHttpRequest, and executed via apiIO::authenticatedRequest().
+   * Executes a Google_Http_Request
    *
    * @param Google_Client $client
    * @param Google_Http_Request $req
