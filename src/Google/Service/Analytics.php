@@ -3187,6 +3187,8 @@ class Google_Service_Analytics_CustomDataSources extends Google_Collection
 
   public function getItems()
   {
+    if ($this->totalResults === 0)
+      return array();
     return $this->items;
   }
 
