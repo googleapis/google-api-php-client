@@ -46,7 +46,13 @@ class Google_Model implements ArrayAccess
     $keyTypeName = $this->keyType($key);
     $keyDataType = $this->dataType($key);
     if (isset($this->$keyTypeName) && !isset($this->processed[$key])) {
-      $val = $this->data[$key];
+      if (isset($this->data[$key]))
+        $val = $this->data[$key];
+      elseif (isset($this->itemsDataType) && $this->itemsDataType == 'array')
+        $val = array();
+      else
+        $val = null;
+
       if ($this->isAssociativeArray($val)) {
         if (isset($this->$keyDataType) && 'map' == $this->$keyDataType) {
           foreach ($val as $arrayKey => $arrayItem) {
