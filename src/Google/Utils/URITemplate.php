@@ -134,25 +134,63 @@ class Google_Utils_URITemplate
   ) {
     if (strpos($section, ",") === false) {
       // If we only have a single value, we can immediately process.
-      return $this->combine($section, $parameters, $combine, $reserved, $tag_empty);
+      return $this->combine($section, $parameters, $sep, $combine, $reserved, $tag_empty);
     } else {
       // If we have multiple values, we need to split and loop over them.
       // Each is treated individually, then glued together with the
       // separator character.
       $vars = explode(",", $section);
-      $ret = array();
-      foreach ($vars as $var) {
-        $ret[] = $this->combine($var, $parameters, $combine, $reserved, $tag_empty);
-      }
-      return implode($sep, $ret);
+      return $this->combineList($vars, $sep, $parameters, $combine, $reserved, $tag_empty);
     }
   }
-
-  public function combine($key, $parameters, $combine, $reserved, $tag_empty)
+ 
+  public function combine($key, $parameters, $sep, $combine, $reserved, $tag_empty)
   {
+    $length = false;
+    $explode = false;
+    $skip_final_combine = false;
+
+    if (strpos($key, ":") !== false) {
+      list($key, $length) = explode(":", $key);
+    }
+    
+    if ($key[strlen($key) - 1] == "*") {
+      $explode = true;
+      $key = substr($key, 0, -1);
+    }
+    
     if (!empty($parameters[$key])) {
-      // For an individual value, we need to URL encode the data.
-      $value = rawurlencode($parameters[$key]);
+      if (is_array($parameters[$key])) {
+        $values = array();
+        $use_keys = false;
+        if (!is_numeric(key($parameters[$key]))) {
+          $use_keys = true;
+        }
+        foreach ($parameters[$key] as $pkey => $pvalue) {
+          $pvalue = $this->getValue($pvalue, $length);
+          if ($use_keys) {
+            if ($explode) {
+              $skip_final_combine = true;
+              $values[] = $pkey . "=" . $pvalue; // Explode triggers = combine.
+            } else {
+              $values[] = $pkey;
+              $values[] = $pvalue;
+            }
+          } else {
+            if ($combine && $explode) {
+              $skip_final_combine = true;
+              $values[$pkey] = $key . $combine . $pvalue;
+            } else {
+              $values[$pkey] = $pvalue;
+            }
+          }
+        }
+        $list_sep = $explode ? $sep : ",";
+        $value = implode($list_sep, $values); 
+      } else { 
+        // For an individual value, we need to URL encode the data.
+        $value = $this->getValue($parameters[$key], $length);
+      }
     } else if ($tag_empty) {
       // If we are just indicating empty values with their key name, return that.
       return $key;
@@ -165,10 +203,28 @@ class Google_Utils_URITemplate
     }
     // If we do not need to include the key name, we just return the raw
     // value.
-    if (!$combine) {
+    if (!$combine || $skip_final_combine) {
       return $value;
     }
     // Else we combine the key name: foo=bar
     return $key . $combine . $value;
+  }
+  
+  private function combineList($vars, $sep, $parameters, $combine, $reserved, $tag_empty)
+  {
+    $ret = array();
+    foreach ($vars as $var) {
+      $ret[] = $this->combine($var, $parameters, $sep, $combine, $reserved, $tag_empty);
+    }
+    return implode($sep, $ret);
+  }
+  
+  private function getValue($value, $length)
+  {
+    if ($length) {
+      $value = substr($value, 0, $length);
+    }
+    $value = rawurlencode($value);
+    return $value;
   }
 }

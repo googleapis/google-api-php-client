@@ -37,7 +37,7 @@ class URITemplateTest extends BaseTest {
     $var = "value";
     $hello = "Hello World!";
     $path = "/foo/bar";
-
+  
     $urit = new Google_Utils_URITemplate();
     $this->assertEquals("value", 
         $urit->parse("{+var}", array("var" => $var)));
@@ -106,6 +106,70 @@ class URITemplateTest extends BaseTest {
         $urit->parse("?fixed=yes{&x}", array("x" => $x, "y" => $y)));
     $this->assertEquals("&x=1024&y=768&empty=", 
         $urit->parse("{&x,y,empty}", array("x" => $x, "y" => $y, "empty" => $empty)));                        
+  }
+  
+  public function testLevelFour() {
+    $values = array(
+      'var'   => "value",
+      'hello' => "Hello World!",
+      'path'  => "/foo/bar",
+      'list'  => array("red", "green", "blue"),
+      'keys'  => array("semi" => ";", "dot" => ".", "comma" => ","),
+    );
+    
+    $tests = array(
+      "{var:3}" => "val",
+      "{var:30}" => "value",
+      "{list}" => "red,green,blue",
+      "{list*}" => "red,green,blue",
+      "{keys}" => "semi,%3B,dot,.,comma,%2C",
+      "{keys*}" => "semi=%3B,dot=.,comma=%2C",
+      "{+path:6}/here" => "/foo/b/here",
+      "{+list}" => "red,green,blue",
+      "{+list*}" => "red,green,blue",
+      "{+keys}" => "semi,;,dot,.,comma,,",
+      "{+keys*}" => "semi=;,dot=.,comma=,",
+      "{#path:6}/here" => "#/foo/b/here",
+      "{#list}" => "#red,green,blue",
+      "{#list*}" => "#red,green,blue",
+      "{#keys}" => "#semi,;,dot,.,comma,,",
+      "{#keys*}" => "#semi=;,dot=.,comma=,",
+      "X{.var:3}" => "X.val",
+      "X{.list}" => "X.red,green,blue",
+      "X{.list*}" => "X.red.green.blue",
+      "X{.keys}" => "X.semi,%3B,dot,.,comma,%2C",
+      "X{.keys*}" => "X.semi=%3B.dot=..comma=%2C",
+      "{/var:1,var}" => "/v/value",
+      "{/list}" => "/red,green,blue",
+      "{/list*}" => "/red/green/blue",
+      "{/list*,path:4}" => "/red/green/blue/%2Ffoo",
+      "{/keys}" => "/semi,%3B,dot,.,comma,%2C",
+      "{/keys*}" => "/semi=%3B/dot=./comma=%2C",
+      "{;hello:5}" => ";hello=Hello",
+      "{;list}" => ";list=red,green,blue",
+      "{;list*}" => ";list=red;list=green;list=blue",
+      "{;keys}" => ";keys=semi,%3B,dot,.,comma,%2C",
+      "{;keys*}" => ";semi=%3B;dot=.;comma=%2C",
+      "{?var:3}" => "?var=val",
+      "{?list}" => "?list=red,green,blue",
+      "{?list*}" => "?list=red&list=green&list=blue",
+      "{?keys}" => "?keys=semi,%3B,dot,.,comma,%2C",
+      "{?keys*}" => "?semi=%3B&dot=.&comma=%2C",
+      "{&var:3}" => "&var=val",
+      "{&list}" => "&list=red,green,blue",
+      "{&list*}" => "&list=red&list=green&list=blue",
+      "{&keys}" => "&keys=semi,%3B,dot,.,comma,%2C",
+      "{&keys*}" => "&semi=%3B&dot=.&comma=%2C",
+      "find{?list*}" => "find?list=red&list=green&list=blue",
+      "www{.list*}" => "www.red.green.blue"
+                      
+    );
+    
+    $urit = new Google_Utils_URITemplate();
+    
+    foreach($tests as $input => $output) {
+      $this->assertEquals($output, $urit->parse($input, $values), $input . " failed");
+    }
   }
   
   public function testMultipleAnnotations() {
