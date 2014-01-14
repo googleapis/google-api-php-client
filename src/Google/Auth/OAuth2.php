@@ -99,7 +99,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
     // fetch the access token
     $request = $this->client->getIo()->makeRequest(
         new Google_Http_Request(
-            self::OAUTH2_TOKEN_URI,
+            $this->getOAuth2TokenUri(),
             'POST',
             array(),
             array(
@@ -161,7 +161,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       $params['state'] = $this->state;
     }
 
-    return self::OAUTH2_AUTH_URL . "?" . http_build_query($params);
+    return $this->getOAuth2AuthUrl() . "?" . http_build_query($params);
   }
 
   /**
@@ -265,7 +265,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
     if (!$assertionCredentials) {
       $assertionCredentials = $this->assertionCredentials;
     }
-    
+
     $cacheKey = $assertionCredentials->getCacheKey();
 
     if ($cacheKey) {
@@ -280,7 +280,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
         return;
       }
     }
-    
+
     $this->refreshTokenRequest(
         array(
           'grant_type' => 'assertion',
@@ -288,7 +288,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
           'assertion' => $assertionCredentials->generateAssertion(),
         )
     );
-    
+
     if ($cacheKey) {
       // Attempt to cache the token.
       $this->client->getCache()->set(
@@ -301,7 +301,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
   private function refreshTokenRequest($params)
   {
     $http = new Google_Http_Request(
-        self::OAUTH2_TOKEN_URI,
+        $this->getOAuth2TokenUri(),
         'POST',
         array(),
         $params
@@ -341,7 +341,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       $token = $this->token['access_token'];
     }
     $request = new Google_Http_Request(
-        self::OAUTH2_REVOKE_URI,
+        $this->getOAuth2RevokeUri(),
         'POST',
         array(),
         "token=$token"
@@ -381,6 +381,50 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
     return $this->retrieveCertsFromLocation(
         $this->client->getClassConfig($this, 'federated_signon_certs_url')
     );
+  }
+
+  // Gets OAuth 2.0 revoke URI.
+  // Return OAuth 2.0 revoke URI from client config if set, local otherwise.
+  private function getOAuth2RevokeUri()
+  {
+    if ($this->client->getClassConfig($this, 'oauth2_revoke_uri')) {
+      return $this->client->getClassConfig($this, 'oauth2_revoke_uri');
+    } else {
+      return $this::OAUTH2_REVOKE_URI;
+    }
+  }
+
+  // Gets OAuth 2.0 token URI.
+  // Returns OAuth 2.0 token URI from client config if set, local otherwise.
+  private function getOAuth2TokenUri()
+  {
+    if ($this->client->getClassConfig($this, 'oauth2_token_uri')) {
+      return $this->client->getClassConfig($this, 'oauth2_token_uri');
+    } else {
+      return $this::OAUTH2_TOKEN_URI;
+    }
+  }
+
+  // Gets OAuth 2.0 Auth URL.
+  // Returns OAuth 2.0 Auth URL from client config if set, local otherwise.
+  private function getOAuth2AuthUrl()
+  {
+    if ($this->client->getClassConfig($this, 'oauth2_auth_url')) {
+      return $this->client->getClassConfig($this, 'oauth2_auth_url');
+    } else {
+      return $this::OAUTH2_AUTH_URL;
+    }
+  }
+
+  // Gets OAuth 2.0 issuer.
+  // Returns OAuth 2.0 issuer from client config if set, local otherwise.
+  private function getOAuth2Issuer()
+  {
+    if ($this->client->getClassConfig($this, 'oauth2_issuer')) {
+      return $this->client->getClassConfig($this, 'oauth2_issuer');
+    } else {
+      return $this::OAUTH2_ISSUER;
+    }
   }
 
   /**
@@ -442,7 +486,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       $audience = $this->client->getClassConfig($this, 'client_id');
     }
 
-    return $this->verifySignedJwtWithCerts($id_token, $certs, $audience, self::OAUTH2_ISSUER);
+    return $this->verifySignedJwtWithCerts($id_token, $certs, $audience, $this->getOAuth2Issuer());
   }
 
   /**
