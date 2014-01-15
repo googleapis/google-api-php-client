@@ -248,6 +248,15 @@ class Google_Config
   }
 
   /**
+   * Set API base path.
+   * @param $key string - API base path.
+   */
+  public function setBasePath($basePath)
+  {
+    $this->setAuthConfig('base_path', $basePath);
+  }
+
+  /**
    * Set the auth revoke URI for the auth class.
    * @param $key string - the auth revoke URI.
    */

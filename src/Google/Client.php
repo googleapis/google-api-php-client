@@ -316,6 +316,15 @@ class Google_Client
   }
 
   /**
+   * Set the API base path.
+   * @param string $basePath
+   */
+  public function setBasePath($basePath)
+  {
+    $this->config->setBasePath($basePath);
+  }
+
+  /**
    * Set the OAuth 2.0 Revoke URI.
    * @param string $revokeUri
    */
