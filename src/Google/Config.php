@@ -338,6 +338,15 @@ class Google_Config
   }
 
   /**
+   * Set API base path.
+   * @param $key string - API base path.
+   */
+  public function setBasePath($basePath)
+  {
+    $this->configuration['base_path'] = $basePath;
+  }
+
+  /**
    * Set the auth configuration for the current auth class.
    * @param $key - the key to set
    * @param $value - the parameter value
