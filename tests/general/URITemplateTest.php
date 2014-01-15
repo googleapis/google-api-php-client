@@ -193,4 +193,44 @@ class URITemplateTest extends BaseTest {
         )
     );
   }
+  
+  /**
+   * This test test against the JSON files defined in 
+   * https://github.com/uri-templates/uritemplate-test
+   * 
+   * We don't ship these tests with it, so they'll just silently
+   * skip unless provided - this is mainly for use when
+   * making specific URI template changes and wanting
+   * to do a full regression check.
+   */
+  public function testAgainstStandardTests() {
+    $location = "../../uritemplate-test/*.json";
+    
+    $urit = new Google_Utils_URITemplate();
+    foreach(glob($location) as $file) {
+      $test = json_decode(file_get_contents($file), true);
+      foreach($test as $title => $testsets) {
+        foreach($testsets['testcases'] as $cases) {
+          $input = $cases[0];
+          $output = $cases[1];
+          if ($output == false) {
+            continue; // skipping negative tests for now
+          } else if(is_array($output)) {
+            $response = $urit->parse($input, $testsets['variables']);
+            $this->assertContains(
+                $response, 
+                $output, 
+                $input . " failed from " . $title
+            );
+          } else {
+            $this->assertEquals(
+                $output, 
+                $urit->parse($input, $testsets['variables']),
+                $input . " failed."
+            );
+          }
+        }
+      }
+    }
+  }
 }
