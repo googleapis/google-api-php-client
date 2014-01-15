@@ -227,7 +227,7 @@ class Google_Utils_URITemplate
               $values[$pkey] = $pvalue;
             }
           }
-          $value = implode($list_sep, $values); 
+          $value = implode($list_sep, $values);
           if ($value == '') {
             return '';
           }
@@ -244,7 +244,7 @@ class Google_Utils_URITemplate
               $values[] = $pvalue;
             }
           }
-          $value = implode($list_sep, $values); 
+          $value = implode($list_sep, $values);
           if ($value == '') {
             return false;
           }
