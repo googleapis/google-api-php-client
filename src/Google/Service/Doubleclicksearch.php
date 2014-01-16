@@ -385,7 +385,7 @@ class Google_Service_Doubleclicksearch_Reports_Resource extends Google_Service_R
 
 
 
-class Google_Service_Doubleclicksearch_Conversion extends Google_Model
+class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
 {
   public $adGroupId;
   public $adId;
@@ -398,8 +398,13 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Model
   public $conversionTimestamp;
   public $criterionId;
   public $currencyCode;
+  protected $customDimensionType = 'Google_Service_Doubleclicksearch_CustomDimension';
+  protected $customDimensionDataType = 'array';
+  protected $customMetricType = 'Google_Service_Doubleclicksearch_CustomMetric';
+  protected $customMetricDataType = 'array';
   public $dsConversionId;
   public $engineAccountId;
+  public $floodlightOrderId;
   public $quantityMillis;
   public $revenueMicros;
   public $segmentationId;
@@ -518,6 +523,26 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Model
     return $this->currencyCode;
   }
 
+  public function setCustomDimension($customDimension)
+  {
+    $this->customDimension = $customDimension;
+  }
+
+  public function getCustomDimension()
+  {
+    return $this->customDimension;
+  }
+
+  public function setCustomMetric($customMetric)
+  {
+    $this->customMetric = $customMetric;
+  }
+
+  public function getCustomMetric()
+  {
+    return $this->customMetric;
+  }
+
   public function setDsConversionId($dsConversionId)
   {
     $this->dsConversionId = $dsConversionId;
@@ -536,6 +561,16 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Model
   public function getEngineAccountId()
   {
     return $this->engineAccountId;
+  }
+
+  public function setFloodlightOrderId($floodlightOrderId)
+  {
+    $this->floodlightOrderId = $floodlightOrderId;
+  }
+
+  public function getFloodlightOrderId()
+  {
+    return $this->floodlightOrderId;
   }
 
   public function setQuantityMillis($quantityMillis)
@@ -633,6 +668,58 @@ class Google_Service_Doubleclicksearch_ConversionList extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+}
+
+class Google_Service_Doubleclicksearch_CustomDimension extends Google_Model
+{
+  public $name;
+  public $value;
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
+class Google_Service_Doubleclicksearch_CustomMetric extends Google_Model
+{
+  public $name;
+  public $value;
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
   }
 }
 
