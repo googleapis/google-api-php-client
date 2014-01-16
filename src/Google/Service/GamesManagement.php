@@ -31,7 +31,7 @@
  */
 class Google_Service_GamesManagement extends Google_Service
 {
-  /** View and manage your game activity. */
+  /** Share your Google+ profile information and view and manage your game activity. */
   const GAMES = "https://www.googleapis.com/auth/games";
   /** Know your basic profile info and list of people in your circles.. */
   const PLUS_LOGIN = "https://www.googleapis.com/auth/plus.login";
