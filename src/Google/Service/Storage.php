@@ -908,8 +908,8 @@ class Google_Service_Storage_BucketAccessControls_Resource extends Google_Servic
    * @param string $bucket
    * Name of a bucket.
    * @param string $entity
-   * The entity holding the permission. Can be user-userId, group-groupId, allUsers, or
-    * allAuthenticatedUsers.
+   * The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-
+    * emailAddress, allUsers, or allAuthenticatedUsers.
    * @param array $optParams Optional parameters.
    */
   public function delete($bucket, $entity, $optParams = array())
@@ -925,8 +925,8 @@ class Google_Service_Storage_BucketAccessControls_Resource extends Google_Servic
    * @param string $bucket
    * Name of a bucket.
    * @param string $entity
-   * The entity holding the permission. Can be user-userId, group-groupId, allUsers, or
-    * allAuthenticatedUsers.
+   * The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-
+    * emailAddress, allUsers, or allAuthenticatedUsers.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Storage_BucketAccessControl
    */
@@ -974,8 +974,8 @@ class Google_Service_Storage_BucketAccessControls_Resource extends Google_Servic
    * @param string $bucket
    * Name of a bucket.
    * @param string $entity
-   * The entity holding the permission. Can be user-userId, group-groupId, allUsers, or
-    * allAuthenticatedUsers.
+   * The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-
+    * emailAddress, allUsers, or allAuthenticatedUsers.
    * @param Google_BucketAccessControl $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Storage_BucketAccessControl
@@ -992,8 +992,8 @@ class Google_Service_Storage_BucketAccessControls_Resource extends Google_Servic
    * @param string $bucket
    * Name of a bucket.
    * @param string $entity
-   * The entity holding the permission. Can be user-userId, group-groupId, allUsers, or
-    * allAuthenticatedUsers.
+   * The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-
+    * emailAddress, allUsers, or allAuthenticatedUsers.
    * @param Google_BucketAccessControl $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Storage_BucketAccessControl
@@ -1193,8 +1193,8 @@ class Google_Service_Storage_DefaultObjectAccessControls_Resource extends Google
    * @param string $bucket
    * Name of a bucket.
    * @param string $entity
-   * The entity holding the permission. Can be user-userId, group-groupId, allUsers, or
-    * allAuthenticatedUsers.
+   * The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-
+    * emailAddress, allUsers, or allAuthenticatedUsers.
    * @param array $optParams Optional parameters.
    */
   public function delete($bucket, $entity, $optParams = array())
@@ -1210,8 +1210,8 @@ class Google_Service_Storage_DefaultObjectAccessControls_Resource extends Google
    * @param string $bucket
    * Name of a bucket.
    * @param string $entity
-   * The entity holding the permission. Can be user-userId, group-groupId, allUsers, or
-    * allAuthenticatedUsers.
+   * The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-
+    * emailAddress, allUsers, or allAuthenticatedUsers.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Storage_ObjectAccessControl
    */
@@ -1266,8 +1266,8 @@ class Google_Service_Storage_DefaultObjectAccessControls_Resource extends Google
    * @param string $bucket
    * Name of a bucket.
    * @param string $entity
-   * The entity holding the permission. Can be user-userId, group-groupId, allUsers, or
-    * allAuthenticatedUsers.
+   * The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-
+    * emailAddress, allUsers, or allAuthenticatedUsers.
    * @param Google_ObjectAccessControl $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Storage_ObjectAccessControl
@@ -1285,8 +1285,8 @@ class Google_Service_Storage_DefaultObjectAccessControls_Resource extends Google
    * @param string $bucket
    * Name of a bucket.
    * @param string $entity
-   * The entity holding the permission. Can be user-userId, group-groupId, allUsers, or
-    * allAuthenticatedUsers.
+   * The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-
+    * emailAddress, allUsers, or allAuthenticatedUsers.
    * @param Google_ObjectAccessControl $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Storage_ObjectAccessControl
@@ -1319,8 +1319,8 @@ class Google_Service_Storage_ObjectAccessControls_Resource extends Google_Servic
    * @param string $object
    * Name of the object.
    * @param string $entity
-   * The entity holding the permission. Can be user-userId, group-groupId, allUsers, or
-    * allAuthenticatedUsers.
+   * The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-
+    * emailAddress, allUsers, or allAuthenticatedUsers.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string generation
@@ -1342,8 +1342,8 @@ class Google_Service_Storage_ObjectAccessControls_Resource extends Google_Servic
    * @param string $object
    * Name of the object.
    * @param string $entity
-   * The entity holding the permission. Can be user-userId, group-groupId, allUsers, or
-    * allAuthenticatedUsers.
+   * The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-
+    * emailAddress, allUsers, or allAuthenticatedUsers.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string generation
@@ -1409,8 +1409,8 @@ class Google_Service_Storage_ObjectAccessControls_Resource extends Google_Servic
    * @param string $object
    * Name of the object.
    * @param string $entity
-   * The entity holding the permission. Can be user-userId, group-groupId, allUsers, or
-    * allAuthenticatedUsers.
+   * The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-
+    * emailAddress, allUsers, or allAuthenticatedUsers.
    * @param Google_ObjectAccessControl $postBody
    * @param array $optParams Optional parameters.
    *
@@ -1433,8 +1433,8 @@ class Google_Service_Storage_ObjectAccessControls_Resource extends Google_Servic
    * @param string $object
    * Name of the object.
    * @param string $entity
-   * The entity holding the permission. Can be user-userId, group-groupId, allUsers, or
-    * allAuthenticatedUsers.
+   * The entity holding the permission. Can be user-userId, user-emailAddress, group-groupId, group-
+    * emailAddress, allUsers, or allAuthenticatedUsers.
    * @param Google_ObjectAccessControl $postBody
    * @param array $optParams Optional parameters.
    *
