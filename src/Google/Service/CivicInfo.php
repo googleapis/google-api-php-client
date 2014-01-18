@@ -87,6 +87,10 @@ class Google_Service_CivicInfo extends Google_Service
               'path' => 'representatives/lookup',
               'httpMethod' => 'POST',
               'parameters' => array(
+                'ocdId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'includeOffices' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -163,6 +167,9 @@ class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_R
    * @param Google_RepresentativeInfoRequest $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string ocdId
+   * The division to look up. May only be specified if the address field is not given in the request
+    * body.
    * @opt_param bool includeOffices
    * Whether to return information about offices and officials. If false, only the top-level district
     * information will be returned.
