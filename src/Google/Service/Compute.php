@@ -2094,7 +2094,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_AddressAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -2174,7 +2174,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_AddressList
    */
   public function listAddresses($project, $region, $optParams = array())
@@ -2210,7 +2210,7 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_DiskAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -2227,7 +2227,7 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * @param string $zone
    * Name of the zone scoping this request.
    * @param string $disk
-   * Name of the persistent disk resource to delete.
+   * Name of the persistent disk resource to snapshot.
    * @param Google_Snapshot $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -2312,7 +2312,7 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_DiskList
    */
   public function listDisks($project, $zone, $optParams = array())
@@ -2397,7 +2397,7 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_FirewallList
    */
   public function listFirewalls($project, $optParams = array())
@@ -2470,7 +2470,7 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_ForwardingRuleAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -2550,7 +2550,7 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_ForwardingRuleList
    */
   public function listForwardingRules($project, $region, $optParams = array())
@@ -2606,7 +2606,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_OperationAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -2661,7 +2661,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_OperationList
    */
   public function listGlobalOperations($project, $optParams = array())
@@ -2746,7 +2746,7 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_HttpHealthCheckList
    */
   public function listHttpHealthChecks($project, $optParams = array())
@@ -2886,7 +2886,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_ImageList
    */
   public function listImages($project, $optParams = array())
@@ -2944,7 +2944,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_InstanceAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -3105,7 +3105,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_InstanceList
    */
   public function listInstances($project, $zone, $optParams = array())
@@ -3219,7 +3219,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_MachineTypeAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -3263,7 +3263,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_MachineTypeList
    */
   public function listMachineTypes($project, $zone, $optParams = array())
@@ -3348,7 +3348,7 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_NetworkList
    */
   public function listNetworks($project, $optParams = array())
@@ -3467,7 +3467,7 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_OperationList
    */
   public function listRegionOperations($project, $region, $optParams = array())
@@ -3520,7 +3520,7 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_RegionList
    */
   public function listRegions($project, $optParams = array())
@@ -3605,7 +3605,7 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_RouteList
    */
   public function listRoutes($project, $optParams = array())
@@ -3674,7 +3674,7 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_SnapshotList
    */
   public function listSnapshots($project, $optParams = array())
@@ -3711,7 +3711,7 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_TargetInstanceAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -3791,7 +3791,7 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_TargetInstanceList
    */
   public function listTargetInstances($project, $zone, $optParams = array())
@@ -3866,7 +3866,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_TargetPoolAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -3966,7 +3966,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_TargetPoolList
    */
   public function listTargetPools($project, $region, $optParams = array())
@@ -4102,7 +4102,7 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_OperationList
    */
   public function listZoneOperations($project, $zone, $optParams = array())
@@ -4155,7 +4155,7 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
     * previous list request.
    * @opt_param string maxResults
    * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 100.
+    * 500.
    * @return Google_Service_Compute_ZoneList
    */
   public function listZones($project, $optParams = array())
