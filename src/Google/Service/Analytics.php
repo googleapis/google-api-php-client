@@ -1464,7 +1464,7 @@ class Google_Service_Analytics_DataRealtime_Resource extends Google_Service_Reso
    * Unique table ID for retrieving real time data. Table ID is of the form ga:XXXX, where XXXX is
     * the Analytics view (profile) ID.
    * @param string $metrics
-   * A comma-separated list of real time metrics. E.g., 'ga:activeVisitors'. At least one metric must
+   * A comma-separated list of real time metrics. E.g., 'rt:activeVisitors'. At least one metric must
     * be specified.
    * @param array $optParams Optional parameters.
    *
@@ -1474,7 +1474,7 @@ class Google_Service_Analytics_DataRealtime_Resource extends Google_Service_Reso
    * A comma-separated list of dimensions or metrics that determine the sort order for real time
     * data.
    * @opt_param string dimensions
-   * A comma-separated list of real time dimensions. E.g., 'ga:medium,ga:city'.
+   * A comma-separated list of real time dimensions. E.g., 'rt:medium,rt:city'.
    * @opt_param string filters
    * A comma-separated list of dimension or metric filters to be applied to real time data.
    * @return Google_Service_Analytics_RealtimeData
