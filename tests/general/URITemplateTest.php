@@ -37,7 +37,7 @@ class URITemplateTest extends BaseTest {
     $var = "value";
     $hello = "Hello World!";
     $path = "/foo/bar";
-
+  
     $urit = new Google_Utils_URITemplate();
     $this->assertEquals("value", 
         $urit->parse("{+var}", array("var" => $var)));
@@ -108,6 +108,70 @@ class URITemplateTest extends BaseTest {
         $urit->parse("{&x,y,empty}", array("x" => $x, "y" => $y, "empty" => $empty)));                        
   }
   
+  public function testLevelFour() {
+    $values = array(
+      'var'   => "value",
+      'hello' => "Hello World!",
+      'path'  => "/foo/bar",
+      'list'  => array("red", "green", "blue"),
+      'keys'  => array("semi" => ";", "dot" => ".", "comma" => ","),
+    );
+    
+    $tests = array(
+      "{var:3}" => "val",
+      "{var:30}" => "value",
+      "{list}" => "red,green,blue",
+      "{list*}" => "red,green,blue",
+      "{keys}" => "semi,%3B,dot,.,comma,%2C",
+      "{keys*}" => "semi=%3B,dot=.,comma=%2C",
+      "{+path:6}/here" => "/foo/b/here",
+      "{+list}" => "red,green,blue",
+      "{+list*}" => "red,green,blue",
+      "{+keys}" => "semi,;,dot,.,comma,,",
+      "{+keys*}" => "semi=;,dot=.,comma=,",
+      "{#path:6}/here" => "#/foo/b/here",
+      "{#list}" => "#red,green,blue",
+      "{#list*}" => "#red,green,blue",
+      "{#keys}" => "#semi,;,dot,.,comma,,",
+      "{#keys*}" => "#semi=;,dot=.,comma=,",
+      "X{.var:3}" => "X.val",
+      "X{.list}" => "X.red,green,blue",
+      "X{.list*}" => "X.red.green.blue",
+      "X{.keys}" => "X.semi,%3B,dot,.,comma,%2C",
+      "X{.keys*}" => "X.semi=%3B.dot=..comma=%2C",
+      "{/var:1,var}" => "/v/value",
+      "{/list}" => "/red,green,blue",
+      "{/list*}" => "/red/green/blue",
+      "{/list*,path:4}" => "/red/green/blue/%2Ffoo",
+      "{/keys}" => "/semi,%3B,dot,.,comma,%2C",
+      "{/keys*}" => "/semi=%3B/dot=./comma=%2C",
+      "{;hello:5}" => ";hello=Hello",
+      "{;list}" => ";list=red,green,blue",
+      "{;list*}" => ";list=red;list=green;list=blue",
+      "{;keys}" => ";keys=semi,%3B,dot,.,comma,%2C",
+      "{;keys*}" => ";semi=%3B;dot=.;comma=%2C",
+      "{?var:3}" => "?var=val",
+      "{?list}" => "?list=red,green,blue",
+      "{?list*}" => "?list=red&list=green&list=blue",
+      "{?keys}" => "?keys=semi,%3B,dot,.,comma,%2C",
+      "{?keys*}" => "?semi=%3B&dot=.&comma=%2C",
+      "{&var:3}" => "&var=val",
+      "{&list}" => "&list=red,green,blue",
+      "{&list*}" => "&list=red&list=green&list=blue",
+      "{&keys}" => "&keys=semi,%3B,dot,.,comma,%2C",
+      "{&keys*}" => "&semi=%3B&dot=.&comma=%2C",
+      "find{?list*}" => "find?list=red&list=green&list=blue",
+      "www{.list*}" => "www.red.green.blue"
+                      
+    );
+    
+    $urit = new Google_Utils_URITemplate();
+    
+    foreach($tests as $input => $output) {
+      $this->assertEquals($output, $urit->parse($input, $values), $input . " failed");
+    }
+  }
+  
   public function testMultipleAnnotations() {
     $var = "value";
     $hello = "Hello World!";
@@ -128,5 +192,45 @@ class URITemplateTest extends BaseTest {
             $params
         )
     );
+  }
+  
+  /**
+   * This test test against the JSON files defined in 
+   * https://github.com/uri-templates/uritemplate-test
+   * 
+   * We don't ship these tests with it, so they'll just silently
+   * skip unless provided - this is mainly for use when
+   * making specific URI template changes and wanting
+   * to do a full regression check.
+   */
+  public function testAgainstStandardTests() {
+    $location = "../../uritemplate-test/*.json";
+    
+    $urit = new Google_Utils_URITemplate();
+    foreach(glob($location) as $file) {
+      $test = json_decode(file_get_contents($file), true);
+      foreach($test as $title => $testsets) {
+        foreach($testsets['testcases'] as $cases) {
+          $input = $cases[0];
+          $output = $cases[1];
+          if ($output == false) {
+            continue; // skipping negative tests for now
+          } else if(is_array($output)) {
+            $response = $urit->parse($input, $testsets['variables']);
+            $this->assertContains(
+                $response, 
+                $output, 
+                $input . " failed from " . $title
+            );
+          } else {
+            $this->assertEquals(
+                $output, 
+                $urit->parse($input, $testsets['variables']),
+                $input . " failed."
+            );
+          }
+        }
+      }
+    }
   }
 }
