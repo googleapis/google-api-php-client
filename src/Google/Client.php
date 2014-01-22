@@ -90,9 +90,11 @@ class Google_Client
     } else if ( !($config instanceof Google_Config)) {
       $config = new Google_Config();
 
-      // Automatically use Memcache if we're in AppEngine.
       if ($this->isAppEngine()) {
+        // Automatically use Memcache if we're in AppEngine.
         $config->setCacheClass('Google_Cache_Memcache');
+        // Automatically disable compress.zlib, as currently unsupported.
+        $config->setClassConfig('Google_Http_Request', 'disable_gzip', true);
       }
     }
 
@@ -261,7 +263,7 @@ class Google_Client
 
   /**
    * @param string $accessType Possible values for access_type include:
-   *  {@code "offline"} to request offline access from the user. (This is the default value)
+   *  {@code "offline"} to request offline access from the user.
    *  {@code "online"} to request online access from the user.
    */
   public function setAccessType($accessType)
