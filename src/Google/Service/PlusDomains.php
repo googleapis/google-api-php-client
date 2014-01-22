@@ -2003,6 +2003,7 @@ class Google_Service_PlusDomains_ActivityObjectStatusForViewer extends Google_Mo
 {
   public $canComment;
   public $canPlusone;
+  public $canUpdate;
   public $isPlusOned;
   public $resharingDisabled;
 
@@ -2024,6 +2025,16 @@ class Google_Service_PlusDomains_ActivityObjectStatusForViewer extends Google_Mo
   public function getCanPlusone()
   {
     return $this->canPlusone;
+  }
+
+  public function setCanUpdate($canUpdate)
+  {
+    $this->canUpdate = $canUpdate;
+  }
+
+  public function getCanUpdate()
+  {
+    return $this->canUpdate;
   }
 
   public function setIsPlusOned($isPlusOned)
