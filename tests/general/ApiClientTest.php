@@ -120,34 +120,34 @@ class ApiClientTest extends BaseTest {
     $this->assertInstanceOf('Google_Cache_Memcache', $client->getCache());
     unset($_SERVER['SERVER_SOFTWARE']);
   }
-	
+  
     public function testJsonConfig() {
         // Device config
-		$config = new Google_Config();
-		$client = new Google_Client($config);
-		$device = '{"installed":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret":"N0aHCBT1qX1VAcF5J1pJAn6S","token_uri":"https://accounts.google.com/o/oauth2/token","client_email":"","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","oob"],"client_x509_cert_url":"","client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs"}}';
-		$dObj = json_decode($device);
-		$client->setAuthConfig($device);
-		$cfg = $config->getClassConfig('Google_Auth_OAuth2');
-		$this->assertEquals($cfg['client_id'], $dObj->installed->client_id);
-		$this->assertEquals($cfg['client_secret'], $dObj->installed->client_secret);
-		$this->assertEquals($cfg['redirect_uri'], $dObj->installed->redirect_uris[0]);
-		
-		// Web config 
-		$config = new Google_Config();
-		$client = new Google_Client($config);
-		$web = '{"web":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret":"lpoubuib8bj-Fmke_YhhyHGgXc","token_uri":"https://accounts.google.com/o/oauth2/token","client_email":"123456789@developer.gserviceaccount.com","client_x509_cert_url":"https://www.googleapis.com/robot/v1/metadata/x509/123456789@developer.gserviceaccount.com","client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs"}}';
-		$wObj = json_decode($web);
-		$client->setAuthConfig($web);
-		$cfg = $config->getClassConfig('Google_Auth_OAuth2');
-		$this->assertEquals($cfg['client_id'], $wObj->web->client_id);
-		$this->assertEquals($cfg['client_secret'], $wObj->web->client_secret);
-		$this->assertEquals($cfg['redirect_uri'], '');
-	}
-	
-	public function testIniConfig() {
-	  $config = new Google_Config(__DIR__ . "/testdata/test.ini");
-	  $this->assertEquals('My Test application', $config->getApplicationName());
-	  $this->assertEquals('gjfiwnGinpena3', $config->getClassConfig('Google_Auth_OAuth2', 'client_secret'));
-	}
+    $config = new Google_Config();
+    $client = new Google_Client($config);
+    $device = '{"installed":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret":"N0aHCBT1qX1VAcF5J1pJAn6S","token_uri":"https://accounts.google.com/o/oauth2/token","client_email":"","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","oob"],"client_x509_cert_url":"","client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs"}}';
+    $dObj = json_decode($device);
+    $client->setAuthConfig($device);
+    $cfg = $config->getClassConfig('Google_Auth_OAuth2');
+    $this->assertEquals($cfg['client_id'], $dObj->installed->client_id);
+    $this->assertEquals($cfg['client_secret'], $dObj->installed->client_secret);
+    $this->assertEquals($cfg['redirect_uri'], $dObj->installed->redirect_uris[0]);
+    
+    // Web config 
+    $config = new Google_Config();
+    $client = new Google_Client($config);
+    $web = '{"web":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret":"lpoubuib8bj-Fmke_YhhyHGgXc","token_uri":"https://accounts.google.com/o/oauth2/token","client_email":"123456789@developer.gserviceaccount.com","client_x509_cert_url":"https://www.googleapis.com/robot/v1/metadata/x509/123456789@developer.gserviceaccount.com","client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs"}}';
+    $wObj = json_decode($web);
+    $client->setAuthConfig($web);
+    $cfg = $config->getClassConfig('Google_Auth_OAuth2');
+    $this->assertEquals($cfg['client_id'], $wObj->web->client_id);
+    $this->assertEquals($cfg['client_secret'], $wObj->web->client_secret);
+    $this->assertEquals($cfg['redirect_uri'], '');
+  }
+  
+  public function testIniConfig() {
+    $config = new Google_Config(__DIR__ . "/testdata/test.ini");
+    $this->assertEquals('My Test application', $config->getApplicationName());
+    $this->assertEquals('gjfiwnGinpena3', $config->getClassConfig('Google_Auth_OAuth2', 'client_secret'));
+  }
 }
