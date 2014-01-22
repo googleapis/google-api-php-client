@@ -261,7 +261,7 @@ class Google_Client
 
   /**
    * @param string $accessType Possible values for access_type include:
-   *  {@code "offline"} to request offline access from the user. (This is the default value)
+   *  {@code "offline"} to request offline access from the user.
    *  {@code "online"} to request online access from the user.
    */
   public function setAccessType($accessType)
