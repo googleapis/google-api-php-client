@@ -30,7 +30,7 @@ See the examples/ directory for examples of the key client features.
 
 ## Frequently Asked Questions ##
 
-### What do I do if something isn't woring? ###
+### What do I do if something isn't working? ###
 
 For support with the library the best place to ask is via the  google-api-php-client tag on StackOverflow: http://stackoverflow.com/questions/tagged/google-api-php-client
 
@@ -46,7 +46,7 @@ When we started working on the 1.0.0 branch we knew there were several fundament
 
 ### Why does Google_..._Service have weird names? ###
 
-The _Service classes are generally automatically generated from the API discovery documents: https://developers.google.com/discovery/. Sometimes new features are added to APIs with unusual names, which can cause some unexpected or non-standard style naming in the PHP classes. 
+The _Service classes are generally automatically generated from the API discovery documents: https://developers.google.com/discovery/. Sometimes new features are added to APIs with unusual names, which can cause some unexpected or non-standard style naming in the PHP classes.
 
 ## Code Quality ##
 
