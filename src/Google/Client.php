@@ -379,15 +379,15 @@ class Google_Client
   }
 
   /**
-	 * Verify a JWT that was signed with your own certificates.
-	 *
-	 * @param $jwt the token
-	 * @param $certs array of certificates
-	 * @param $required_audience the expected consumer of the token
-	 * @param [$issuer] the expected issues, defaults to Google
-	 * @param [$max_expiry] the max lifetime of a token, defaults to MAX_TOKEN_LIFETIME_SECS
-	 * @return token information if valid, false if not
-	 */
+   * Verify a JWT that was signed with your own certificates.
+   *
+   * @param $jwt the token
+   * @param $certs array of certificates
+   * @param $required_audience the expected consumer of the token
+   * @param [$issuer] the expected issues, defaults to Google
+   * @param [$max_expiry] the max lifetime of a token, defaults to MAX_TOKEN_LIFETIME_SECS
+   * @return token information if valid, false if not
+   */
   public function verifySignedJwt($id_token, $cert_location, $audience, $issuer, $max_expiry = null)
   {
     $auth = new Google_Auth_OAuth2($this);
