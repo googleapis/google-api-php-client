@@ -104,7 +104,7 @@ class Google_IO_Stream extends Google_IO_Abstract
     
     $url = $request->getUrl();
     
-    if (!$this->client->getClassConfig("Google_Http_Request", "disable_gzip")) {
+    if ($request->canGzip()) {
       $url = self::ZLIB . $url;
     }
 

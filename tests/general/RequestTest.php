@@ -57,4 +57,18 @@ class RequestTest extends BaseTest {
     $request->setBaseComponent($base . '/upload');
     $this->assertEquals($url4, $request->getUrl());
   }
+  
+  public function testGzipSupport() 
+  {
+    $url = 'http://localhost:8080/foo/bar?foo=a&foo=b&wowee=oh+my';
+    $request = new Google_Http_Request($url);  
+    $request->enableGzip();
+    $this->assertStringEndsWith(Google_Http_Request::GZIP_UA, $request->getUserAgent());
+    $this->assertArrayHasKey('accept-encoding', $request->getRequestHeaders());
+    $this->assertTrue($request->canGzip());
+    $request->disableGzip();
+    $this->assertStringEndsNotWith(Google_Http_Request::GZIP_UA, $request->getUserAgent());
+    $this->assertArrayNotHasKey('accept-encoding', $request->getRequestHeaders());
+    $this->assertFalse($request->canGzip());
+  }
 }
