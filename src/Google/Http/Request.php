@@ -384,8 +384,10 @@ class Google_Http_Request
       list($key, $value) = explode('=', $part, 2);
       $value = urldecode($value);
       if (isset($return[$key])) {
-        $return[$key] = array($return[$key]);
-        $return[$key][] = $value;
+          if (!is_array($return[$key])) {
+              $return[$key] = array($return[$key]);
+          }
+          $return[$key][] = $value;
       } else {
         $return[$key] = $value;
       }
