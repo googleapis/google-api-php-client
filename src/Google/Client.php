@@ -35,7 +35,7 @@ require_once 'Google/Service/Resource.php';
  */
 class Google_Client
 {
-  const LIBVER = "1.0.1-beta";
+  const LIBVER = "1.0.2-beta";
   const USER_AGENT_SUFFIX = "google-api-php-client/";
   const GZIP_UA = " (gzip)";
   /**
