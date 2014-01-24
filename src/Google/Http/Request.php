@@ -27,6 +27,8 @@ require_once 'Google/Utils.php';
  */
 class Google_Http_Request
 {
+  const GZIP_UA = " (gzip)";
+
   private $batchHeaders = array(
     'Content-Type' => 'application/http',
     'Content-Transfer-Encoding' => 'binary',
@@ -40,6 +42,7 @@ class Google_Http_Request
   protected $path;
   protected $postBody;
   protected $userAgent;
+  protected $canGzip = null;
 
   protected $responseHttpCode;
   protected $responseHeaders;
@@ -78,6 +81,40 @@ class Google_Http_Request
   public function setBaseComponent($baseComponent)
   {
     $this->baseComponent = $baseComponent;
+  }
+  
+  /**
+   * Enable support for gzipped responses with this request.
+   */
+  public function enableGzip()
+  {
+    $this->setRequestHeaders(array("Accept-Encoding" => "gzip"));
+    $this->canGzip = true;
+    $this->setUserAgent($this->userAgent);
+  }
+  
+  /**
+   * Disable support for gzip responses with this request.
+   */
+  public function disableGzip()
+  {
+    if (
+        isset($this->requestHeaders['accept-encoding']) &&
+        $this->requestHeaders['accept-encoding'] == "gzip"
+    ) {
+      unset($this->requestHeaders['accept-encoding']);
+    }
+    $this->canGzip = false;
+    $this->userAgent = str_replace(self::GZIP_UA, "", $this->userAgent);
+  }
+  
+  /**
+   * Can this request accept a gzip response?
+   * @return bool
+   */
+  public function canGzip()
+  {
+    return $this->canGzip;
   }
 
   /**
@@ -297,6 +334,9 @@ class Google_Http_Request
   public function setUserAgent($userAgent)
   {
     $this->userAgent = $userAgent;
+    if ($this->canGzip) {
+      $this->userAgent = $userAgent . self::GZIP_UA;
+    }
   }
 
   /**

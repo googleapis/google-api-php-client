@@ -37,7 +37,6 @@ class Google_Client
 {
   const LIBVER = "1.0.2-beta";
   const USER_AGENT_SUFFIX = "google-api-php-client/";
-  const GZIP_UA = " (gzip)";
   /**
    * @var Google_Auth_Abstract $auth
    */
@@ -476,17 +475,14 @@ class Google_Client
   public function execute($request)
   {
     if ($request instanceof Google_Http_Request) {
-      $userAgentGzipSuffix = "";
-      if (!$this->getClassConfig("Google_Http_Request", "disable_gzip")) {
-        $request->setRequestHeaders(array("Accept-Encoding" => "gzip"));
-        $userAgentGzipSuffix = self::GZIP_UA;
-      }
       $request->setUserAgent(
           $this->getApplicationName()
           . " " . self::USER_AGENT_SUFFIX
           . $this->getLibraryVersion()
-          . $userAgentGzipSuffix
       );
+      if (!$this->getClassConfig("Google_Http_Request", "disable_gzip")) {
+        $request->enableGzip();
+      }
       $request->maybeMoveParametersToBody();
       return Google_Http_REST::execute($this, $request);
     } else if ($request instanceof Google_Http_Batch) {

@@ -141,6 +141,7 @@ class Google_Http_MediaFileUpload
         $headers,
         $chunk
     );
+    $httpRequest->disableGzip(); // Disable gzip for uploads.
     $response = $this->client->getIo()->makeRequest($httpRequest);
     $response->setExpectedClass($this->request->getExpectedClass());
     $code = $response->getResponseHttpCode();
