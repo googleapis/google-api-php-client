@@ -46,7 +46,7 @@ When we started working on the 1.0.0 branch we knew there were several fundament
 
 ### Why does Google_..._Service have weird names? ###
 
-The _Service classes are generally automatically generated from the API discovery documents: https://developers.google.com/discovery/. Sometimes new features are added to APIs with unusual names, which can cause some unexpected or non-standard style naming in the PHP classes. 
+The _Service classes are generally automatically generated from the API discovery documents: https://developers.google.com/discovery/. Sometimes new features are added to APIs with unusual names, which can cause some unexpected or non-standard style naming in the PHP classes.
 
 ## Code Quality ##
 
