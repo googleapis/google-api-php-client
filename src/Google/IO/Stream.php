@@ -55,6 +55,87 @@ class Google_IO_Stream extends Google_IO_Abstract
       }
     }
 
+    if ($this->useCurlRequests()) {
+      $requestFunction = "makeCurlRequest";
+    } else {
+      $requestFunction = "makeFopenRequest";
+    }
+    list($responseData, $responseHeader) = $this->$requestFunction($request);
+
+    if (false === $responseData) {
+      throw new Google_IO_Exception("HTTP Error: Unable to connect");
+    }
+
+    $respHttpCode = $this->getHttpResponseCode($responseHeader);
+    $responseHeaders = $this->getHttpResponseHeaders($responseHeader);
+
+    if ($respHttpCode == 304 && $cached) {
+      // If the server responded NOT_MODIFIED, return the cached request.
+      $this->updateCachedRequest($cached, $responseHeaders);
+      return $cached;
+    }
+
+    if (!isset($responseHeaders['Date']) && !isset($responseHeaders['date'])) {
+      $responseHeaders['Date'] = date("r");
+    }
+
+    $request->setResponseHttpCode($respHttpCode);
+    $request->setResponseHeaders($responseHeaders);
+    $request->setResponseBody($responseData);
+    // Store the request in cache (the function checks to see if the request
+    // can actually be cached)
+    $this->setCachedRequest($request);
+    return $request;
+  }
+
+  private static function useCurlRequests() {
+    return function_exists('curl_version');
+  }
+
+  private function makeCurlRequest(Google_Http_Request $request) {
+    $curl = curl_init();
+
+    if (array_key_exists(
+        $request->getRequestMethod(),
+        self::$ENTITY_HTTP_METHODS
+    )) {
+      $request = $this->processEntityRequest($request);
+    }
+
+    if ($request->getPostBody()) {
+      curl_setopt($curl, CURLOPT_POSTFIELDS, $request->getPostBody());
+    }
+
+    $requestHeaders = $request->getRequestHeaders();
+    if ($requestHeaders && is_array($requestHeaders)) {
+      $curlHeaders = array();
+      foreach ($requestHeaders as $k => $v) {
+        $curlHeaders[] = "$k: $v";
+      }
+      curl_setopt($curl, CURLOPT_HTTPHEADER, $curlHeaders);
+    }
+
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $request->getRequestMethod());
+    curl_setopt($curl, CURLOPT_USERAGENT, $request->getUserAgent());
+
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, false);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HEADER, true);
+
+    curl_setopt($curl, CURLOPT_URL, $request->getUrl());
+
+    $response = curl_exec($curl);
+    $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
+
+    $responseBody = substr($response, $headerSize);
+    $responseHeaderString = substr($response, 0, $headerSize);
+    $responseHeaders = array_filter(explode("\r\n", $responseHeaderString));
+
+    return [$responseBody, $responseHeaders];
+  }
+
+  private function makeFopenRequest(Google_Http_Request $request) {
     $default_options = stream_context_get_options(stream_context_get_default());
 
     $requestHttpContext = array_key_exists('http', $default_options) ?
@@ -114,30 +195,7 @@ class Google_IO_Stream extends Google_IO_Abstract
         $context
     );
 
-    if (false === $response_data) {
-      throw new Google_IO_Exception("HTTP Error: Unable to connect");
-    }
-
-    $respHttpCode = $this->getHttpResponseCode($http_response_header);
-    $responseHeaders = $this->getHttpResponseHeaders($http_response_header);
-
-    if ($respHttpCode == 304 && $cached) {
-      // If the server responded NOT_MODIFIED, return the cached request.
-      $this->updateCachedRequest($cached, $responseHeaders);
-      return $cached;
-    }
-
-    if (!isset($responseHeaders['Date']) && !isset($responseHeaders['date'])) {
-      $responseHeaders['Date'] = date("r");
-    }
-
-    $request->setResponseHttpCode($respHttpCode);
-    $request->setResponseHeaders($responseHeaders);
-    $request->setResponseBody($response_data);
-    // Store the request in cache (the function checks to see if the request
-    // can actually be cached)
-    $this->setCachedRequest($request);
-    return $request;
+    return [$response_data, $http_response_header];
   }
 
   /**
