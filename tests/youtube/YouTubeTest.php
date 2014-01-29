@@ -72,5 +72,13 @@ class YouTubeTest extends BaseTest {
     $simpleManual = $o_channel->toSimpleObject();
     $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);    
     $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
+  
+    $ping = new Google_Service_YouTube_ChannelConversionPing();
+    $ping->setContext("hello");
+    $pings = new Google_Service_YouTube_ChannelConversionPings();
+    $pings->setPings(array($ping));
+    $simplePings = $pings->toSimpleObject();
+    $this->assertObjectHasAttribute('context', $simplePings->pings[0]);    
+    $this->assertObjectNotHasAttribute('conversionUrl', $simplePings->pings[0]);    
   }
 }
