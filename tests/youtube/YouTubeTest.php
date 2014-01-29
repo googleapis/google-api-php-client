@@ -48,5 +48,29 @@ class YouTubeTest extends BaseTest {
     
     $this->assertObjectHasAttribute('etag', $simpleOriginal);
     $this->assertObjectNotHasAttribute('etag', $simpleNew);
+    
+    $owner_details = new Google_Service_YouTube_ChannelContentOwnerDetails();
+    $owner_details->setTimeLinked("123456789");
+    $o_channel = new Google_Service_YouTube_Channel();
+    $o_channel->setContentOwnerDetails($owner_details);
+    $simpleManual = $o_channel->toSimpleObject();
+    $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);    
+    $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
+    
+    $owner_details = new Google_Service_YouTube_ChannelContentOwnerDetails();
+    $owner_details->timeLinked = "123456789";
+    $o_channel = new Google_Service_YouTube_Channel();
+    $o_channel->setContentOwnerDetails($owner_details);
+    $simpleManual = $o_channel->toSimpleObject();
+    $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);    
+    $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
+    
+    $owner_details = new Google_Service_YouTube_ChannelContentOwnerDetails();
+    $owner_details['timeLinked'] = "123456789";
+    $o_channel = new Google_Service_YouTube_Channel();
+    $o_channel->setContentOwnerDetails($owner_details);
+    $simpleManual = $o_channel->toSimpleObject();
+    $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);    
+    $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
   }
 }
