@@ -317,6 +317,51 @@ class Google_Client
   }
 
   /**
+   * Set the API base path.
+   * @param string $basePath
+   */
+  public function setBasePath($basePath)
+  {
+    $this->config->setBasePath($basePath);
+  }
+
+  /**
+   * Set the OAuth 2.0 Revoke URI.
+   * @param string $revokeUri
+   */
+  public function setOAuth2RevokeUri($revokeUri)
+  {
+    $this->config->setOAuth2RevokeUri($revokeUri);
+  }
+
+  /**
+   * Set the OAuth 2.0 Token URI.
+   * @param string $tokenUri
+   */
+  public function setOAuth2TokenUri($tokenUri)
+  {
+    $this->config->setOAuth2TokenUri($tokenUri);
+  }
+
+  /**
+   * Set the OAuth 2.0 Auth URL.
+   * @param string $authUrl
+   */
+  public function setOAuth2AuthUrl($authUrl)
+  {
+    $this->config->setOAuth2AuthUrl($authUrl);
+  }
+
+  /**
+   * Set the OAuth 2.0 Issuer.
+   * @param string $issuer
+   */
+  public function setOAuth2Issuer($issuer)
+  {
+    $this->config->setOAuth2Issuer($issuer);
+  }
+
+  /**
    * If 'plus.login' is included in the list of requested scopes, you can use
    * this method to define types of app activities that your app will write.
    * You can find a list of available types here:
@@ -414,9 +459,9 @@ class Google_Client
     $this->requestedScopes = array();
     $this->addScope($scopes);
   }
-  
+
   /**
-   * This functions adds a scope to be requested as part of the OAuth2.0 flow. 
+   * This functions adds a scope to be requested as part of the OAuth2.0 flow.
    * Will append any scopes not previously requested to the scope parameter.
    * A single string will be treated as a scope to request. An array of strings
    * will each be appended.
@@ -466,7 +511,7 @@ class Google_Client
   {
     $this->deferExecution = $defer;
   }
-  
+
   /**
    * Helper method to execute deferred HTTP requests.
    *

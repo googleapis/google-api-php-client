@@ -63,6 +63,12 @@ class Google_Config
           // a Server key, and not a Browser key.
           'developer_key' => '',
 
+          // Auth URIs
+          'oauth2_revoke_uri' => '',
+          'oauth2_token_uri' => '',
+          'oauth2_auth_url' => '',
+          'oauth2_issuer' => '',
+
           // Other parameters.
           'access_type' => 'online',
           'approval_prompt' => 'auto',
@@ -108,7 +114,7 @@ class Google_Config
       $this->configuration['classes'][$class] = $config;
     }
   }
-  
+
   public function getClassConfig($class, $key = null)
   {
     if (!isset($this->configuration['classes'][$class])) {
@@ -138,7 +144,7 @@ class Google_Config
   {
     return $this->configuration['auth_class'];
   }
-  
+
   /**
    * Set the auth class.
    *
@@ -154,7 +160,7 @@ class Google_Config
     }
     $this->configuration['auth_class'] = $class;
   }
-  
+
   /**
    * Set the IO class.
    *
@@ -242,6 +248,42 @@ class Google_Config
   }
 
   /**
+   * Set the auth revoke URI for the auth class.
+   * @param $key string - the auth revoke URI.
+   */
+  public function setOAuth2RevokeUri($revokeUri)
+  {
+    $this->setAuthConfig('oauth2_revoke_uri', $revokeUri);
+  }
+
+  /**
+   * Set the auth token URI for the auth class.
+   * @param $key string - the auth token URI.
+   */
+  public function setOAuth2TokenUri($tokenUri)
+  {
+    $this->setAuthConfig('oauth2_token_uri', $tokenUri);
+  }
+
+  /**
+   * Set the auth URL for the auth class.
+   * @param $key string - the auth URL.
+   */
+  public function setOAuth2AuthUrl($authUrl)
+  {
+    $this->setAuthConfig('oauth2_auth_url', $authUrl);
+  }
+
+  /**
+   * Set the auth Issuer for the auth class.
+   * @param $key string - the auth issuer.
+   */
+  public function setOAuth2Issuer($issuer)
+  {
+    $this->setAuthConfig('oauth2_issuer', $issuer);
+  }
+
+  /**
    * Set the app activities for the auth class.
    * @param $rva string a space separated list of app activity types
    */
@@ -267,7 +309,7 @@ class Google_Config
   {
     $this->setAuthConfig('approval_prompt', $approval);
   }
-  
+
   /**
    * Set the developer key for the auth class. Note that this is separate value
    * from the client ID - if it looks like a URL, its a client ID!
@@ -285,7 +327,16 @@ class Google_Config
   {
     return $this->configuration['base_path'];
   }
-  
+
+  /**
+   * Set API base path.
+   * @param $key string - API base path.
+   */
+  public function setBasePath($basePath)
+  {
+    $this->configuration['base_path'] = $basePath;
+  }
+
   /**
    * Set the auth configuration for the current auth class.
    * @param $key - the key to set
