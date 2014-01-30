@@ -67,6 +67,7 @@ class Google_Service_Directory extends Google_Service
   const ADMIN_DIRECTORY_USER_SECURITY = "https://www.googleapis.com/auth/admin.directory.user.security";
 
   public $asps;
+  public $channels;
   public $chromeosdevices;
   public $groups;
   public $groups_aliases;
@@ -139,6 +140,20 @@ class Google_Service_Directory extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),
+          )
+        )
+    );
+    $this->channels = new Google_Service_Directory_Channels_Resource(
+        $this,
+        $this->serviceName,
+        'channels',
+        array(
+          'methods' => array(
+            'stop' => array(
+              'path' => '/admin/directory_v1/channels/stop',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),
           )
         )
@@ -873,6 +888,10 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'event' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'makeAdmin' => array(
               'path' => 'users/{userKey}/makeAdmin',
@@ -912,6 +931,47 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),'watch' => array(
+              'path' => 'users/watch',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'domain' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'showDeleted' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'query' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'event' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -957,6 +1017,24 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'event' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'watch' => array(
+              'path' => 'users/{userKey}/aliases/watch',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'event' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1115,6 +1193,31 @@ class Google_Service_Directory_Asps_Resource extends Google_Service_Resource
     $params = array('userKey' => $userKey);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Directory_Asps");
+  }
+}
+
+/**
+ * The "channels" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adminService = new Google_Service_Directory(...);
+ *   $channels = $adminService->channels;
+ *  </code>
+ */
+class Google_Service_Directory_Channels_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Stop watching resources through this channel (channels.stop)
+   *
+   * @param Google_Channel $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function stop(Google_Service_Directory_Channel $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('stop', array($params));
   }
 }
 
@@ -1949,6 +2052,8 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
    * Query string for prefix matching searches. Should be of the form "key:value*" where key can be
     * "email", "givenName" or "familyName". The asterisk is required, for example: "givenName:Ann*" is
     * a valid query.
+   * @opt_param string event
+   * Event on which subscription is intended (if subscribing)
    * @return Google_Service_Directory_Users
    */
   public function listUsers($optParams = array())
@@ -2015,6 +2120,42 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('update', array($params), "Google_Service_Directory_User");
   }
+  /**
+   * Watch for changes in users list (users.watch)
+   *
+   * @param Google_Channel $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string customer
+   * Immutable id of the Google Apps account. In case of multi-domain, to fetch all users for a
+    * customer, fill this field instead of domain.
+   * @opt_param string orderBy
+   * Column to use for sorting results
+   * @opt_param string domain
+   * Name of the domain. Fill this field to get users from only this domain. To return all users in a
+    * multi-domain fill customer field instead.
+   * @opt_param string showDeleted
+   * If set to true retrieves the list of deleted users. Default is false
+   * @opt_param int maxResults
+   * Maximum number of results to return. Default is 100. Max allowed is 500
+   * @opt_param string pageToken
+   * Token to specify next page in the list
+   * @opt_param string sortOrder
+   * Whether to return results in ascending or descending order.
+   * @opt_param string query
+   * Query string for prefix matching searches. Should be of the form "key:value*" where key can be
+    * "email", "givenName" or "familyName". The asterisk is required, for example: "givenName:Ann*" is
+    * a valid query.
+   * @opt_param string event
+   * Event on which subscription is intended (if subscribing)
+   * @return Google_Service_Directory_Channel
+   */
+  public function watch(Google_Service_Directory_Channel $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('watch', array($params), "Google_Service_Directory_Channel");
+  }
 }
 
 /**
@@ -2064,6 +2205,9 @@ class Google_Service_Directory_UsersAliases_Resource extends Google_Service_Reso
    * @param string $userKey
    * Email or immutable Id of the user
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string event
+   * Event on which subscription is intended (if subscribing)
    * @return Google_Service_Directory_Aliases
    */
   public function listUsersAliases($userKey, $optParams = array())
@@ -2071,6 +2215,24 @@ class Google_Service_Directory_UsersAliases_Resource extends Google_Service_Reso
     $params = array('userKey' => $userKey);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Directory_Aliases");
+  }
+  /**
+   * Watch for changes in user aliases list (aliases.watch)
+   *
+   * @param string $userKey
+   * Email or immutable Id of the user
+   * @param Google_Channel $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string event
+   * Event on which subscription is intended (if subscribing)
+   * @return Google_Service_Directory_Channel
+   */
+  public function watch($userKey, Google_Service_Directory_Channel $postBody, $optParams = array())
+  {
+    $params = array('userKey' => $userKey, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('watch', array($params), "Google_Service_Directory_Channel");
   }
 }
 /**
@@ -2417,6 +2579,120 @@ class Google_Service_Directory_Asps extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+}
+
+class Google_Service_Directory_Channel extends Google_Model
+{
+  public $address;
+  public $expiration;
+  public $id;
+  public $kind;
+  public $params;
+  public $payload;
+  public $resourceId;
+  public $resourceUri;
+  public $token;
+  public $type;
+
+  public function setAddress($address)
+  {
+    $this->address = $address;
+  }
+
+  public function getAddress()
+  {
+    return $this->address;
+  }
+
+  public function setExpiration($expiration)
+  {
+    $this->expiration = $expiration;
+  }
+
+  public function getExpiration()
+  {
+    return $this->expiration;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setParams($params)
+  {
+    $this->params = $params;
+  }
+
+  public function getParams()
+  {
+    return $this->params;
+  }
+
+  public function setPayload($payload)
+  {
+    $this->payload = $payload;
+  }
+
+  public function getPayload()
+  {
+    return $this->payload;
+  }
+
+  public function setResourceId($resourceId)
+  {
+    $this->resourceId = $resourceId;
+  }
+
+  public function getResourceId()
+  {
+    return $this->resourceId;
+  }
+
+  public function setResourceUri($resourceUri)
+  {
+    $this->resourceUri = $resourceUri;
+  }
+
+  public function getResourceUri()
+  {
+    return $this->resourceUri;
+  }
+
+  public function setToken($token)
+  {
+    $this->token = $token;
+  }
+
+  public function getToken()
+  {
+    return $this->token;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
   }
 }
 
