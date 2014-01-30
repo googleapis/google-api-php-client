@@ -113,5 +113,45 @@ class RestTest extends BaseTest {
     $value = $this->rest->createRequestUri($basePath, '/plus', $params);
     $this->assertEquals("http://localhost/plus?u=%40me%2F", $value);
   }
+  
+  /**
+   * @expectedException Google_Service_Exception
+   */
+  public function testBadErrorFormatting()
+  {
+    $request = new Google_Http_Request("/a/b");
+    $request->setResponseHttpCode(500);
+    $request->setResponseBody('{
+     "error": {
+      "code": 500,
+      "message": null
+     }
+    }');
+    Google_Http_Rest::decodeHttpResponse($request);
+  }
+  
+  /**
+   * @expectedException Google_Service_Exception
+   */
+  public function tesProperErrorFormatting()
+  {
+    $request = new Google_Http_Request("/a/b");
+    $request->setResponseHttpCode(401);
+    $request->setResponseBody('{
+    error: {
+      errors: [
+        {
+          "domain": "global",
+          "reason": "authError",
+          "message": "Invalid Credentials",
+          "locationType": "header",
+          "location": "Authorization",
+        }
+      ],
+      "code": 401,
+      "message": "Invalid Credentials"
+    }');
+    Google_Http_Rest::decodeHttpResponse($request);
+  }
 }
  
