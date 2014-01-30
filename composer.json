@@ -9,9 +9,9 @@
         "php": ">=5.2.1"
     },
     "autoload": {
-        "classmap": [
-            "src/"
-        ]
+        "psr-0": {
+            "Google": "src"
+        }
     },
     "include-path": ["src/"]
 }
