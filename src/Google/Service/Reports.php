@@ -37,6 +37,7 @@ class Google_Service_Reports extends Google_Service
   const ADMIN_REPORTS_USAGE_READONLY = "https://www.googleapis.com/auth/admin.reports.usage.readonly";
 
   public $activities;
+  public $channels;
   public $customerUsageReports;
   public $userUsageReport;
   
@@ -106,6 +107,67 @@ class Google_Service_Reports extends Google_Service
                   'type' => 'string',
                 ),
               ),
+            ),'watch' => array(
+              'path' => 'activity/users/{userKey}/applications/{applicationName}/watch',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'applicationName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'startTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'actorIpAddress' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'eventName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'filters' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'endTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->channels = new Google_Service_Reports_Channels_Resource(
+        $this,
+        $this->serviceName,
+        'channels',
+        array(
+          'methods' => array(
+            'stop' => array(
+              'path' => '/admin/reports_v1/channels/stop',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),
           )
         )
@@ -237,6 +299,67 @@ class Google_Service_Reports_Activities_Resource extends Google_Service_Resource
     $params = array('userKey' => $userKey, 'applicationName' => $applicationName);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Reports_Activities");
+  }
+  /**
+   * Push changes to activities (activities.watch)
+   *
+   * @param string $userKey
+   * Represents the profile id or the user email for which the data should be filtered. When 'all' is
+    * specified as the userKey, it returns usageReports for all users.
+   * @param string $applicationName
+   * Application name for which the events are to be retrieved.
+   * @param Google_Channel $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string startTime
+   * Return events which occured at or after this time.
+   * @opt_param string actorIpAddress
+   * IP Address of host where the event was performed. Supports both IPv4 and IPv6 addresses.
+   * @opt_param int maxResults
+   * Number of activity records to be shown in each page.
+   * @opt_param string eventName
+   * Name of the event being queried.
+   * @opt_param string pageToken
+   * Token to specify next page.
+   * @opt_param string filters
+   * Event parameters in the form [parameter1 name][operator][parameter1 value],[parameter2
+    * name][operator][parameter2 value],...
+   * @opt_param string endTime
+   * Return events which occured at or before this time.
+   * @opt_param string customerId
+   * Represents the customer for which the data is to be fetched.
+   * @return Google_Service_Reports_Channel
+   */
+  public function watch($userKey, $applicationName, Google_Service_Reports_Channel $postBody, $optParams = array())
+  {
+    $params = array('userKey' => $userKey, 'applicationName' => $applicationName, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('watch', array($params), "Google_Service_Reports_Channel");
+  }
+}
+
+/**
+ * The "channels" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adminService = new Google_Service_Reports(...);
+ *   $channels = $adminService->channels;
+ *  </code>
+ */
+class Google_Service_Reports_Channels_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Stop watching resources through this channel (channels.stop)
+   *
+   * @param Google_Channel $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function stop(Google_Service_Reports_Channel $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('stop', array($params));
   }
 }
 
@@ -633,6 +756,120 @@ class Google_Service_Reports_ActivityId extends Google_Model
   public function getUniqueQualifier()
   {
     return $this->uniqueQualifier;
+  }
+}
+
+class Google_Service_Reports_Channel extends Google_Model
+{
+  public $address;
+  public $expiration;
+  public $id;
+  public $kind;
+  public $params;
+  public $payload;
+  public $resourceId;
+  public $resourceUri;
+  public $token;
+  public $type;
+
+  public function setAddress($address)
+  {
+    $this->address = $address;
+  }
+
+  public function getAddress()
+  {
+    return $this->address;
+  }
+
+  public function setExpiration($expiration)
+  {
+    $this->expiration = $expiration;
+  }
+
+  public function getExpiration()
+  {
+    return $this->expiration;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setParams($params)
+  {
+    $this->params = $params;
+  }
+
+  public function getParams()
+  {
+    return $this->params;
+  }
+
+  public function setPayload($payload)
+  {
+    $this->payload = $payload;
+  }
+
+  public function getPayload()
+  {
+    return $this->payload;
+  }
+
+  public function setResourceId($resourceId)
+  {
+    $this->resourceId = $resourceId;
+  }
+
+  public function getResourceId()
+  {
+    return $this->resourceId;
+  }
+
+  public function setResourceUri($resourceUri)
+  {
+    $this->resourceUri = $resourceUri;
+  }
+
+  public function getResourceUri()
+  {
+    return $this->resourceUri;
+  }
+
+  public function setToken($token)
+  {
+    $this->token = $token;
+  }
+
+  public function getToken()
+  {
+    return $this->token;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
   }
 }
 
