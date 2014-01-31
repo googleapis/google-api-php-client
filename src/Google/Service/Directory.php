@@ -2049,9 +2049,9 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
    * @opt_param string sortOrder
    * Whether to return results in ascending or descending order.
    * @opt_param string query
-   * Query string for prefix matching searches. Should be of the form "key:value*" where key can be
-    * "email", "givenName" or "familyName". The asterisk is required, for example: "givenName:Ann*" is
-    * a valid query.
+   * Query string search. Should be of the form "" where field can be any of supported fields,
+    * operators can be one of '=' for exact match or ':' for prefix match. For prefix match, the value
+    * should always be followed by a *.
    * @opt_param string event
    * Event on which subscription is intended (if subscribing)
    * @return Google_Service_Directory_Users
@@ -2143,9 +2143,9 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
    * @opt_param string sortOrder
    * Whether to return results in ascending or descending order.
    * @opt_param string query
-   * Query string for prefix matching searches. Should be of the form "key:value*" where key can be
-    * "email", "givenName" or "familyName". The asterisk is required, for example: "givenName:Ann*" is
-    * a valid query.
+   * Query string search. Should be of the form "" where field can be any of supported fields,
+    * operators can be one of '=' for exact match or ':' for prefix match. For prefix match, the value
+    * should always be followed by a *.
    * @opt_param string event
    * Event on which subscription is intended (if subscribing)
    * @return Google_Service_Directory_Channel
