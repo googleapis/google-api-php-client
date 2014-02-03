@@ -128,6 +128,8 @@ class Google_Utils
   public static function camelCase($value)
   {
     $value = ucwords(str_replace(array('-', '_'), ' ', $value));
-    return lcfirst(str_replace(' ', '', $value));
+    $value = str_replace(' ', '', $value);
+    $value[0] = strtolower($value[0]);
+    return $value;
   }
 }

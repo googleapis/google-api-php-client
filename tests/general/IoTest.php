@@ -46,6 +46,16 @@ class IoTest extends BaseTest {
     $io = new Google_IO_Stream($client);
     $this->authCache($io, $client);
   }
+  
+  /**
+   * @expectedException Google_IO_Exception
+   */
+  public function testInvalidRequest() {
+    $io = new Google_IO_Stream($this->getClient());
+    $url = "http://localhost:1";
+    $req = new Google_Http_Request($url, "GET");
+    $io->makeRequest($req);
+  }
 
   // Asserting Functions
   
