@@ -109,8 +109,8 @@ class Google_IO_Stream extends Google_IO_Abstract
       $url = self::ZLIB . $url;
     }
 
-    // Not entirely happy about this, but supressing the warning from the 
-    // fopen seems like the best situation here - we can't do anything 
+    // Not entirely happy about this, but supressing the warning from the
+    // fopen seems like the best situation here - we can't do anything
     // useful with it, and failure to connect is a legitimate run
     // time situation.
     @$fh = fopen($url, 'r', false, $context);
@@ -126,11 +126,11 @@ class Google_IO_Stream extends Google_IO_Abstract
 
     if (false === $response_data) {
       throw new Google_IO_Exception(
-        sprintf(
-            "HTTP Error: Unable to connect: '%s'",
-            $respHttpCode
-        ),
-        $respHttpCode
+          sprintf(
+              "HTTP Error: Unable to connect: '%s'",
+              $respHttpCode
+          ),
+          $respHttpCode
       );
     }
     
