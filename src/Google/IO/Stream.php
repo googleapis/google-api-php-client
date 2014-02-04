@@ -25,6 +25,7 @@ require_once 'Google/IO/Abstract.php';
 
 class Google_IO_Stream extends Google_IO_Abstract
 {
+  const UNKNOWN_CODE = 0;
   const ZLIB = "compress.zlib://";
   private static $ENTITY_HTTP_METHODS = array("POST" => null, "PUT" => null);
 
@@ -108,17 +109,31 @@ class Google_IO_Stream extends Google_IO_Abstract
       $url = self::ZLIB . $url;
     }
 
-    $response_data = file_get_contents(
-        $url,
-        false,
-        $context
-    );
+    // Not entirely happy about this, but supressing the warning from the
+    // fopen seems like the best situation here - we can't do anything
+    // useful with it, and failure to connect is a legitimate run
+    // time situation.
+    @$fh = fopen($url, 'r', false, $context);
 
-    if (false === $response_data) {
-      throw new Google_IO_Exception("HTTP Error: Unable to connect");
+    $response_data = false;
+    $respHttpCode = self::UNKNOWN_CODE;
+    if ($fh) {
+      $response_data = stream_get_contents($fh);
+      fclose($fh);
+
+      $respHttpCode = $this->getHttpResponseCode($http_response_header);
     }
 
-    $respHttpCode = $this->getHttpResponseCode($http_response_header);
+    if (false === $response_data) {
+      throw new Google_IO_Exception(
+          sprintf(
+              "HTTP Error: Unable to connect: '%s'",
+              $respHttpCode
+          ),
+          $respHttpCode
+      );
+    }
+    
     $responseHeaders = $this->getHttpResponseHeaders($http_response_header);
 
     if ($respHttpCode == 304 && $cached) {
@@ -160,6 +175,6 @@ class Google_IO_Stream extends Google_IO_Abstract
         return $response[1];
       }
     }
-    return 'UNKNOWN';
+    return self::UNKNOWN_CODE;
   }
 }

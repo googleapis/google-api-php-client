@@ -97,37 +97,36 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
 
     // We got here from the redirect from a successful authorization grant,
     // fetch the access token
-    $request = $this->client->getIo()->makeRequest(
-        new Google_Http_Request(
-            self::OAUTH2_TOKEN_URI,
-            'POST',
-            array(),
-            array(
-              'code' => $code,
-              'grant_type' => 'authorization_code',
-              'redirect_uri' => $this->client->getClassConfig($this, 'redirect_uri'),
-              'client_id' => $this->client->getClassConfig($this, 'client_id'),
-              'client_secret' => $this->client->getClassConfig($this, 'client_secret')
-            )
+    $request = new Google_Http_Request(
+        self::OAUTH2_TOKEN_URI,
+        'POST',
+        array(),
+        array(
+          'code' => $code,
+          'grant_type' => 'authorization_code',
+          'redirect_uri' => $this->client->getClassConfig($this, 'redirect_uri'),
+          'client_id' => $this->client->getClassConfig($this, 'client_id'),
+          'client_secret' => $this->client->getClassConfig($this, 'client_secret')
         )
     );
+    $request->disableGzip();
+    $response = $this->client->getIo()->makeRequest($request);
 
-    if ($request->getResponseHttpCode() == 200) {
-      $this->setAccessToken($request->getResponseBody());
+    if ($response->getResponseHttpCode() == 200) {
+      $this->setAccessToken($response->getResponseBody());
       $this->token['created'] = time();
       return $this->getAccessToken();
     } else {
-      $response = $request->getResponseBody();
-      $decodedResponse = json_decode($response, true);
+      $decodedResponse = json_decode($response->getResponseBody(), true);
       if ($decodedResponse != null && $decodedResponse['error']) {
-        $response = $decodedResponse['error'];
+        $decodedResponse = $decodedResponse['error'];
       }
       throw new Google_Auth_Exception(
           sprintf(
               "Error fetching OAuth2 access token, message: '%s'",
-              $response
+              $decodedResponse
           ),
-          $request->getResponseHttpCode()
+          $response->getResponseHttpCode()
       );
     }
   }
@@ -306,6 +305,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
         array(),
         $params
     );
+    $http->disableGzip();
     $request = $this->client->getIo()->makeRequest($http);
 
     $code = $request->getResponseHttpCode();
@@ -346,6 +346,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
         array(),
         "token=$token"
     );
+    $request->disableGzip();
     $response = $this->client->getIo()->makeRequest($request);
     $code = $response->getResponseHttpCode();
     if ($code == 200) {
