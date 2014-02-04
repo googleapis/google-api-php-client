@@ -17,8 +17,10 @@
 
 require_once 'Google/Service/YouTube.php';
 
-class YouTubeTests extends PHPUnit_Framework_TestSuite {
-  public static function suite() {
+class YouTubeTests extends PHPUnit_Framework_TestSuite
+{
+  public static function suite()
+  {
     $suite = new PHPUnit_Framework_TestSuite();
     $suite->setName('Google YouTube API tests');
     $suite->addTestSuite('YouTubeTest');
@@ -26,59 +28,68 @@ class YouTubeTests extends PHPUnit_Framework_TestSuite {
   }
 }
 
-class YouTubeTest extends BaseTest {
+class YouTubeTest extends BaseTest
+{
   /** @var Google_PlusService */
   public $plus;
-  public function __construct() {
+  public function __construct()
+  {
     parent::__construct();
     $this->youtube = new Google_Service_YouTube($this->getClient());
   }
 
-  public function testMissingFieldsAreNull() {
+  public function testMissingFieldsAreNull()
+  {
+    if (!$this->checkToken()) {
+      return;
+    }
+
     $parts = "id,brandingSettings";
     $opts = array("mine" => true);
     $channels = $this->youtube->channels->listChannels($parts, $opts);
-    
+
     $newChannel = new Google_Service_YouTube_Channel();
     $newChannel->setId($channels[0]->getId());
     $newChannel->setBrandingSettings($channels[0]->getBrandingSettings());
-    
+
     $simpleOriginal = $channels[0]->toSimpleObject();
     $simpleNew = $newChannel->toSimpleObject();
-    
+
     $this->assertObjectHasAttribute('etag', $simpleOriginal);
     $this->assertObjectNotHasAttribute('etag', $simpleNew);
-    
+
     $owner_details = new Google_Service_YouTube_ChannelContentOwnerDetails();
     $owner_details->setTimeLinked("123456789");
     $o_channel = new Google_Service_YouTube_Channel();
     $o_channel->setContentOwnerDetails($owner_details);
     $simpleManual = $o_channel->toSimpleObject();
-    $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);    
+    $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);
     $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
-    
+
     $owner_details = new Google_Service_YouTube_ChannelContentOwnerDetails();
     $owner_details->timeLinked = "123456789";
     $o_channel = new Google_Service_YouTube_Channel();
     $o_channel->setContentOwnerDetails($owner_details);
     $simpleManual = $o_channel->toSimpleObject();
-    $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);    
-    $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
     
+    $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);
+    $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
+
     $owner_details = new Google_Service_YouTube_ChannelContentOwnerDetails();
     $owner_details['timeLinked'] = "123456789";
     $o_channel = new Google_Service_YouTube_Channel();
     $o_channel->setContentOwnerDetails($owner_details);
     $simpleManual = $o_channel->toSimpleObject();
-    $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);    
-    $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
   
+    $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);
+    $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
+
     $ping = new Google_Service_YouTube_ChannelConversionPing();
     $ping->setContext("hello");
     $pings = new Google_Service_YouTube_ChannelConversionPings();
     $pings->setPings(array($ping));
     $simplePings = $pings->toSimpleObject();
-    $this->assertObjectHasAttribute('context', $simplePings->pings[0]);    
-    $this->assertObjectNotHasAttribute('conversionUrl', $simplePings->pings[0]);    
+    $this->assertObjectHasAttribute('context', $simplePings->pings[0]);
+    $this->assertObjectNotHasAttribute('conversionUrl', $simplePings->pings[0]);
   }
 }

@@ -19,17 +19,20 @@ require_once 'BaseTest.php';
 require_once "Google/Http/Request.php";
 require_once "Google/Http/REST.php";
 
-class RestTest extends BaseTest {
+class RestTest extends BaseTest
+{
   /**
    * @var Google_Http_REST $rest
    */
   private $rest;
   
-  public function setUp() {
+  public function setUp()
+  {
     $this->rest = new Google_Http_REST();
   }
 
-  public function testDecodeResponse() {
+  public function testDecodeResponse()
+  {
     $url = 'http://localhost';
     $client = $this->getClient();
     $response = new Google_Http_Request($url);
@@ -62,7 +65,8 @@ class RestTest extends BaseTest {
   }
 
 
-  public function testDecodeEmptyResponse() {
+  public function testDecodeEmptyResponse()
+  {
     $url = 'http://localhost';
 
     $response = new Google_Http_Request($url, 'GET', array());
@@ -73,7 +77,8 @@ class RestTest extends BaseTest {
     $this->assertEquals(array(), $decoded);
   }
 
-  public function testCreateRequestUri() {
+  public function testCreateRequestUri()
+  {
     $basePath = "http://localhost";
     $restPath = "/plus/{u}";
     
@@ -121,12 +126,14 @@ class RestTest extends BaseTest {
   {
     $request = new Google_Http_Request("/a/b");
     $request->setResponseHttpCode(500);
-    $request->setResponseBody('{
-     "error": {
-      "code": 500,
-      "message": null
-     }
-    }');
+    $request->setResponseBody(
+        '{
+         "error": {
+          "code": 500,
+          "message": null
+         }
+        }'
+    );
     Google_Http_Rest::decodeHttpResponse($request);
   }
   
@@ -137,21 +144,22 @@ class RestTest extends BaseTest {
   {
     $request = new Google_Http_Request("/a/b");
     $request->setResponseHttpCode(401);
-    $request->setResponseBody('{
-    error: {
-      errors: [
-        {
-          "domain": "global",
-          "reason": "authError",
-          "message": "Invalid Credentials",
-          "locationType": "header",
-          "location": "Authorization",
-        }
-      ],
-      "code": 401,
-      "message": "Invalid Credentials"
-    }');
+    $request->setResponseBody(
+        '{
+          error: {
+           errors: [
+            {
+             "domain": "global",
+             "reason": "authError",
+             "message": "Invalid Credentials",
+             "locationType": "header",
+             "location": "Authorization",
+            }
+           ],
+          "code": 401,
+          "message": "Invalid Credentials"
+        }'
+    );
     Google_Http_Rest::decodeHttpResponse($request);
   }
 }
- 

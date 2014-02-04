@@ -58,10 +58,10 @@ class RequestTest extends BaseTest {
     $this->assertEquals($url4, $request->getUrl());
   }
   
-  public function testGzipSupport() 
+  public function testGzipSupport()
   {
     $url = 'http://localhost:8080/foo/bar?foo=a&foo=b&wowee=oh+my';
-    $request = new Google_Http_Request($url);  
+    $request = new Google_Http_Request($url);
     $request->enableGzip();
     $this->assertStringEndsWith(Google_Http_Request::GZIP_UA, $request->getUserAgent());
     $this->assertArrayHasKey('accept-encoding', $request->getRequestHeaders());
