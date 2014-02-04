@@ -94,7 +94,7 @@ class Google_Client
         $config->setCacheClass('Google_Cache_Memcache');
       }
 
-      if (version_compare(phpversion(), "5.3.4", ">=") || $this->isAppEngine()) {
+      if (version_compare(phpversion(), "5.3.4", "<=") || $this->isAppEngine()) {
         // Automatically disable compress.zlib, as currently unsupported.
         $config->setClassConfig('Google_Http_Request', 'disable_gzip', true);
       }
