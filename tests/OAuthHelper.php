@@ -22,9 +22,11 @@ $client->setScopes(array(
   "https://www.googleapis.com/auth/plus.me",
   "https://www.googleapis.com/auth/urlshortener",
   "https://www.googleapis.com/auth/tasks",
-  "https://www.googleapis.com/auth/adsense"
+  "https://www.googleapis.com/auth/adsense",
+  "https://www.googleapis.com/auth/youtube"
 ));
 $client->setRedirectUri("urn:ietf:wg:oauth:2.0:oob");
+$client->setAccessType("offline");
 // Visit https://code.google.com/apis/console to
 // generate your oauth2_client_id, oauth2_client_secret, and to
 // register your oauth2_redirect_uri.

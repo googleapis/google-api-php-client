@@ -269,6 +269,24 @@ class Google_Service_Games extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'list' => array(
+              'path' => 'players/me/players/{collection}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'collection' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
             ),
           )
         )
@@ -1047,6 +1065,28 @@ class Google_Service_Games_Players_Resource extends Google_Service_Resource
     $params = array('playerId' => $playerId);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Games_Player");
+  }
+  /**
+   * Get the collection of players for the currently authenticated user.
+   * (players.listPlayers)
+   *
+   * @param string $collection
+   * Collection of players being retrieved
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string pageToken
+   * The token returned by the previous request.
+   * @opt_param int maxResults
+   * The maximum number of player resources to return in the response, used for paging. For any
+    * response, the actual number of player resources returned may be less than the specified
+    * maxResults.
+   * @return Google_Service_Games_PlayerListResponse
+   */
+  public function listPlayers($collection, $optParams = array())
+  {
+    $params = array('collection' => $collection);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Games_PlayerListResponse");
   }
 }
 
@@ -3387,11 +3427,50 @@ class Google_Service_Games_PeerSessionDiagnostics extends Google_Model
   }
 }
 
+class Google_Service_Games_Played extends Google_Model
+{
+  public $autoMatched;
+  public $kind;
+  public $timeMillis;
+
+  public function setAutoMatched($autoMatched)
+  {
+    $this->autoMatched = $autoMatched;
+  }
+
+  public function getAutoMatched()
+  {
+    return $this->autoMatched;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setTimeMillis($timeMillis)
+  {
+    $this->timeMillis = $timeMillis;
+  }
+
+  public function getTimeMillis()
+  {
+    return $this->timeMillis;
+  }
+}
+
 class Google_Service_Games_Player extends Google_Model
 {
   public $avatarImageUrl;
   public $displayName;
   public $kind;
+  protected $lastPlayedWithType = 'Google_Service_Games_Played';
+  protected $lastPlayedWithDataType = '';
   public $playerId;
 
   public function setAvatarImageUrl($avatarImageUrl)
@@ -3422,6 +3501,16 @@ class Google_Service_Games_Player extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+
+  public function setLastPlayedWith(Google_Service_Games_Played $lastPlayedWith)
+  {
+    $this->lastPlayedWith = $lastPlayedWith;
+  }
+
+  public function getLastPlayedWith()
+  {
+    return $this->lastPlayedWith;
   }
 
   public function setPlayerId($playerId)
@@ -3695,6 +3784,44 @@ class Google_Service_Games_PlayerLeaderboardScoreListResponse extends Google_Col
   public function getPlayer()
   {
     return $this->player;
+  }
+}
+
+class Google_Service_Games_PlayerListResponse extends Google_Collection
+{
+  protected $itemsType = 'Google_Service_Games_Player';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
   }
 }
 
@@ -4171,6 +4298,7 @@ class Google_Service_Games_RoomCreateRequest extends Google_Collection
   public $kind;
   protected $networkDiagnosticsType = 'Google_Service_Games_NetworkDiagnostics';
   protected $networkDiagnosticsDataType = '';
+  public $requestId;
   public $variant;
 
   public function setAutoMatchingCriteria(Google_Service_Games_RoomAutoMatchingCriteria $autoMatchingCriteria)
@@ -4231,6 +4359,16 @@ class Google_Service_Games_RoomCreateRequest extends Google_Collection
   public function getNetworkDiagnostics()
   {
     return $this->networkDiagnostics;
+  }
+
+  public function setRequestId($requestId)
+  {
+    $this->requestId = $requestId;
+  }
+
+  public function getRequestId()
+  {
+    return $this->requestId;
   }
 
   public function setVariant($variant)
@@ -4577,6 +4715,7 @@ class Google_Service_Games_RoomP2PStatuses extends Google_Collection
 
 class Google_Service_Games_RoomParticipant extends Google_Collection
 {
+  public $autoMatched;
   protected $autoMatchedPlayerType = 'Google_Service_Games_AnonymousPlayer';
   protected $autoMatchedPlayerDataType = '';
   public $capabilities;
@@ -4589,6 +4728,16 @@ class Google_Service_Games_RoomParticipant extends Google_Collection
   protected $playerType = 'Google_Service_Games_Player';
   protected $playerDataType = '';
   public $status;
+
+  public function setAutoMatched($autoMatched)
+  {
+    $this->autoMatched = $autoMatched;
+  }
+
+  public function getAutoMatched()
+  {
+    return $this->autoMatched;
+  }
 
   public function setAutoMatchedPlayer(Google_Service_Games_AnonymousPlayer $autoMatchedPlayer)
   {
@@ -5247,6 +5396,7 @@ class Google_Service_Games_TurnBasedMatchModification extends Google_Model
 
 class Google_Service_Games_TurnBasedMatchParticipant extends Google_Model
 {
+  public $autoMatched;
   protected $autoMatchedPlayerType = 'Google_Service_Games_AnonymousPlayer';
   protected $autoMatchedPlayerDataType = '';
   public $id;
@@ -5254,6 +5404,16 @@ class Google_Service_Games_TurnBasedMatchParticipant extends Google_Model
   protected $playerType = 'Google_Service_Games_Player';
   protected $playerDataType = '';
   public $status;
+
+  public function setAutoMatched($autoMatched)
+  {
+    $this->autoMatched = $autoMatched;
+  }
+
+  public function getAutoMatched()
+  {
+    return $this->autoMatched;
+  }
 
   public function setAutoMatchedPlayer(Google_Service_Games_AnonymousPlayer $autoMatchedPlayer)
   {

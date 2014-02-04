@@ -143,13 +143,13 @@ class Google_Service_Oauth2_Userinfo_Resource extends Google_Service_Resource
    * (userinfo.get)
    *
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Oauth2_Userinfo
+   * @return Google_Service_Oauth2_Userinfoplus
    */
   public function get($optParams = array())
   {
     $params = array();
     $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Oauth2_Userinfo");
+    return $this->call('get', array($params), "Google_Service_Oauth2_Userinfoplus");
   }
 }
 
@@ -181,13 +181,13 @@ class Google_Service_Oauth2_UserinfoV2Me_Resource extends Google_Service_Resourc
    * (me.get)
    *
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Oauth2_Userinfo
+   * @return Google_Service_Oauth2_Userinfoplus
    */
   public function get($optParams = array())
   {
     $params = array();
     $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Oauth2_Userinfo");
+    return $this->call('get', array($params), "Google_Service_Oauth2_Userinfoplus");
   }
 }
 
@@ -286,7 +286,7 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   }
 }
 
-class Google_Service_Oauth2_Userinfo extends Google_Model
+class Google_Service_Oauth2_Userinfoplus extends Google_Model
 {
   public $email;
   public $familyName;
@@ -298,7 +298,6 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   public $locale;
   public $name;
   public $picture;
-  public $timezone;
   public $verifiedEmail;
 
   public function setEmail($email)
@@ -399,16 +398,6 @@ class Google_Service_Oauth2_Userinfo extends Google_Model
   public function getPicture()
   {
     return $this->picture;
-  }
-
-  public function setTimezone($timezone)
-  {
-    $this->timezone = $timezone;
-  }
-
-  public function getTimezone()
-  {
-    return $this->timezone;
   }
 
   public function setVerifiedEmail($verifiedEmail)

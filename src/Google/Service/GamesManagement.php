@@ -484,6 +484,32 @@ class Google_Service_GamesManagement_AchievementResetResponse extends Google_Mod
   }
 }
 
+class Google_Service_GamesManagement_GamesPlayedResource extends Google_Model
+{
+  public $autoMatched;
+  public $timeMillis;
+
+  public function setAutoMatched($autoMatched)
+  {
+    $this->autoMatched = $autoMatched;
+  }
+
+  public function getAutoMatched()
+  {
+    return $this->autoMatched;
+  }
+
+  public function setTimeMillis($timeMillis)
+  {
+    $this->timeMillis = $timeMillis;
+  }
+
+  public function getTimeMillis()
+  {
+    return $this->timeMillis;
+  }
+}
+
 class Google_Service_GamesManagement_HiddenPlayer extends Google_Model
 {
   public $hiddenTimeMillis;
@@ -565,6 +591,8 @@ class Google_Service_GamesManagement_Player extends Google_Model
   public $avatarImageUrl;
   public $displayName;
   public $kind;
+  protected $lastPlayedWithType = 'Google_Service_GamesManagement_GamesPlayedResource';
+  protected $lastPlayedWithDataType = '';
   public $playerId;
 
   public function setAvatarImageUrl($avatarImageUrl)
@@ -595,6 +623,16 @@ class Google_Service_GamesManagement_Player extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+
+  public function setLastPlayedWith(Google_Service_GamesManagement_GamesPlayedResource $lastPlayedWith)
+  {
+    $this->lastPlayedWith = $lastPlayedWith;
+  }
+
+  public function getLastPlayedWith()
+  {
+    return $this->lastPlayedWith;
   }
 
   public function setPlayerId($playerId)

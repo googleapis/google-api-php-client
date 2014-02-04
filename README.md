@@ -30,7 +30,7 @@ See the examples/ directory for examples of the key client features.
 
 ## Frequently Asked Questions ##
 
-### What do I do if something isn't woring? ###
+### What do I do if something isn't working? ###
 
 For support with the library the best place to ask is via the  google-api-php-client tag on StackOverflow: http://stackoverflow.com/questions/tagged/google-api-php-client
 

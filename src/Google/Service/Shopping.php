@@ -217,10 +217,6 @@ class Google_Service_Shopping extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'safe' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
                 'categories.useGcsConfig' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -402,8 +398,6 @@ class Google_Service_Shopping_Products_Resource extends Google_Service_Resource
    * Category specification
    * @opt_param string boostBy
    * Boosting specification
-   * @opt_param bool safe
-   * Whether safe search is enabled. Default: true
    * @opt_param bool categoriesUseGcsConfig
    * This parameter is currently ignored
    * @opt_param string maxResults
@@ -1434,27 +1428,14 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   public $gtins;
   protected $imagesType = 'Google_Service_Shopping_ShoppingModelProductJsonV1Images';
   protected $imagesDataType = 'array';
-  public $internal1;
-  public $internal10;
-  public $internal12;
-  public $internal13;
-  public $internal14;
-  public $internal15;
   protected $internal16Type = 'Google_Service_Shopping_ShoppingModelProductJsonV1Internal16';
   protected $internal16DataType = '';
-  public $internal3;
-  protected $internal4Type = 'Google_Service_Shopping_ShoppingModelProductJsonV1Internal4';
-  protected $internal4DataType = 'array';
-  public $internal6;
-  public $internal7;
-  public $internal8;
   protected $inventoriesType = 'Google_Service_Shopping_ShoppingModelProductJsonV1Inventories';
   protected $inventoriesDataType = 'array';
   public $language;
   public $link;
   public $modificationTime;
   public $mpns;
-  public $plusOne;
   public $providedId;
   public $queryMatched;
   public $score;
@@ -1583,66 +1564,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
     return $this->images;
   }
 
-  public function setInternal1($internal1)
-  {
-    $this->internal1 = $internal1;
-  }
-
-  public function getInternal1()
-  {
-    return $this->internal1;
-  }
-
-  public function setInternal10($internal10)
-  {
-    $this->internal10 = $internal10;
-  }
-
-  public function getInternal10()
-  {
-    return $this->internal10;
-  }
-
-  public function setInternal12($internal12)
-  {
-    $this->internal12 = $internal12;
-  }
-
-  public function getInternal12()
-  {
-    return $this->internal12;
-  }
-
-  public function setInternal13($internal13)
-  {
-    $this->internal13 = $internal13;
-  }
-
-  public function getInternal13()
-  {
-    return $this->internal13;
-  }
-
-  public function setInternal14($internal14)
-  {
-    $this->internal14 = $internal14;
-  }
-
-  public function getInternal14()
-  {
-    return $this->internal14;
-  }
-
-  public function setInternal15($internal15)
-  {
-    $this->internal15 = $internal15;
-  }
-
-  public function getInternal15()
-  {
-    return $this->internal15;
-  }
-
   public function setInternal16(Google_Service_Shopping_ShoppingModelProductJsonV1Internal16 $internal16)
   {
     $this->internal16 = $internal16;
@@ -1651,56 +1572,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   public function getInternal16()
   {
     return $this->internal16;
-  }
-
-  public function setInternal3($internal3)
-  {
-    $this->internal3 = $internal3;
-  }
-
-  public function getInternal3()
-  {
-    return $this->internal3;
-  }
-
-  public function setInternal4($internal4)
-  {
-    $this->internal4 = $internal4;
-  }
-
-  public function getInternal4()
-  {
-    return $this->internal4;
-  }
-
-  public function setInternal6($internal6)
-  {
-    $this->internal6 = $internal6;
-  }
-
-  public function getInternal6()
-  {
-    return $this->internal6;
-  }
-
-  public function setInternal7($internal7)
-  {
-    $this->internal7 = $internal7;
-  }
-
-  public function getInternal7()
-  {
-    return $this->internal7;
-  }
-
-  public function setInternal8($internal8)
-  {
-    $this->internal8 = $internal8;
-  }
-
-  public function getInternal8()
-  {
-    return $this->internal8;
   }
 
   public function setInventories($inventories)
@@ -1751,16 +1622,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1 extends Google_Collecti
   public function getMpns()
   {
     return $this->mpns;
-  }
-
-  public function setPlusOne($plusOne)
-  {
-    $this->plusOne = $plusOne;
-  }
-
-  public function getPlusOne()
-  {
-    return $this->plusOne;
   }
 
   public function setProvidedId($providedId)
@@ -2029,32 +1890,6 @@ class Google_Service_Shopping_ShoppingModelProductJsonV1Internal16 extends Googl
   public function getSize()
   {
     return $this->size;
-  }
-}
-
-class Google_Service_Shopping_ShoppingModelProductJsonV1Internal4 extends Google_Model
-{
-  public $confidence;
-  public $node;
-
-  public function setConfidence($confidence)
-  {
-    $this->confidence = $confidence;
-  }
-
-  public function getConfidence()
-  {
-    return $this->confidence;
-  }
-
-  public function setNode($node)
-  {
-    $this->node = $node;
-  }
-
-  public function getNode()
-  {
-    return $this->node;
   }
 }
 
