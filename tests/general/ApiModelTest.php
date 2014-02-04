@@ -42,4 +42,17 @@ class ApiModelTest extends BaseTest {
     $this->assertEquals("hello", $data['publicG'][1]);
     $this->assertArrayNotHasKey("data", $data);
   }
+
+  public function testIssetPropertyOnModel() {
+    $model = new Google_Model();
+    $model['foo'] = 'bar';
+    $this->assertTrue(isset($model->foo));
+  }
+
+  public function testUnsetPropertyOnModel() {
+    $model = new Google_Model();
+    $model['foo'] = 'bar';
+    unset($model->foo);
+    $this->assertFalse(isset($model->foo));
+  }
 }
