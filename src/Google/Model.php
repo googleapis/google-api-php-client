@@ -234,4 +234,14 @@ class Google_Model implements ArrayAccess
   {
     return $key . "DataType";
   }
+
+  public function __isset($key)
+  {
+    return isset($this->data[$key]);
+  }
+
+  public function __unset($key)
+  {
+    unset($this->data[$key]);
+  }
 }
