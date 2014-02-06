@@ -417,9 +417,9 @@ class Google_Client
     $this->requestedScopes = array();
     $this->addScope($scopes);
   }
-  
+
   /**
-   * This functions adds a scope to be requested as part of the OAuth2.0 flow. 
+   * This functions adds a scope to be requested as part of the OAuth2.0 flow.
    * Will append any scopes not previously requested to the scope parameter.
    * A single string will be treated as a scope to request. An array of strings
    * will each be appended.
@@ -469,7 +469,7 @@ class Google_Client
   {
     $this->deferExecution = $defer;
   }
-  
+
   /**
    * Helper method to execute deferred HTTP requests.
    *

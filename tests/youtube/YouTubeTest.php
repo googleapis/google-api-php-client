@@ -71,7 +71,7 @@ class YouTubeTest extends BaseTest
     $o_channel = new Google_Service_YouTube_Channel();
     $o_channel->setContentOwnerDetails($owner_details);
     $simpleManual = $o_channel->toSimpleObject();
-    
+
     $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);
     $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
 
@@ -80,7 +80,7 @@ class YouTubeTest extends BaseTest
     $o_channel = new Google_Service_YouTube_Channel();
     $o_channel->setContentOwnerDetails($owner_details);
     $simpleManual = $o_channel->toSimpleObject();
-  
+
     $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);
     $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
 

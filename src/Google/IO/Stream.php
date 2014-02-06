@@ -102,9 +102,9 @@ class Google_IO_Stream extends Google_IO_Abstract
     );
 
     $context = stream_context_create($options);
-    
+
     $url = $request->getUrl();
-    
+
     if ($request->canGzip()) {
       $url = self::ZLIB . $url;
     }
@@ -133,7 +133,7 @@ class Google_IO_Stream extends Google_IO_Abstract
           $respHttpCode
       );
     }
-    
+
     $responseHeaders = $this->getHttpResponseHeaders($http_response_header);
 
     if ($respHttpCode == 304 && $cached) {

@@ -51,7 +51,7 @@ class Google_Model implements ArrayAccess
       } else {
         $val = null;
       }
-      
+
       if ($this->isAssociativeArray($val)) {
         if (isset($this->$keyDataType) && 'map' == $this->$keyDataType) {
           foreach ($val as $arrayKey => $arrayItem) {
@@ -97,7 +97,7 @@ class Google_Model implements ArrayAccess
     }
     $this->data = $array;
   }
-  
+
   /**
    * Create a simplified object suitable for straightforward
    * conversion to JSON. This is relatively expensive
@@ -128,7 +128,7 @@ class Google_Model implements ArrayAccess
     }
     return $object;
   }
-  
+
   /**
    * Handle different types of values, primarily
    * other objects and map and array data types.

@@ -22,35 +22,41 @@ require_once 'BaseTest.php';
 require_once 'Google/Http/Request.php';
 require_once 'Google/IO/Stream.php';
 
-class IoTest extends BaseTest {
-  
-  public function testStreamParseHttpResponseBody() {
+class IoTest extends BaseTest
+{
+
+  public function testStreamParseHttpResponseBody()
+  {
     $io = new Google_IO_Stream($this->getClient());
     $this->responseChecker($io);
   }
 
-  public function testStreamProcessEntityRequest() {
+  public function testStreamProcessEntityRequest()
+  {
     $client = $this->getClient();
     $io = new Google_IO_Stream($client);
     $this->processEntityRequest($io, $client);
   }
-  
-  public function testStreamCacheHit() {
+
+  public function testStreamCacheHit()
+  {
     $client = $this->getClient();
     $io = new Google_IO_Stream($client);
     $this->cacheHit($io, $client);
   }
-  
-  public function testStreamAuthCache() {
+
+  public function testStreamAuthCache()
+  {
     $client = $this->getClient();
     $io = new Google_IO_Stream($client);
     $this->authCache($io, $client);
   }
-  
+
   /**
    * @expectedException Google_IO_Exception
    */
-  public function testInvalidRequest() {
+  public function testInvalidRequest()
+  {
     $io = new Google_IO_Stream($this->getClient());
     $url = "http://localhost:1";
     $req = new Google_Http_Request($url, "GET");
@@ -58,24 +64,27 @@ class IoTest extends BaseTest {
   }
 
   // Asserting Functions
-  
-  public function cacheHit($io, $client) {
+
+  public function cacheHit($io, $client)
+  {
     $url = "http://www.googleapis.com";
     // Create a cacheable request/response.
     // Should not be revalidated.
     $cacheReq = new Google_Http_Request($url, "GET");
-    $cacheReq->setRequestHeaders(array(
-      "Accept" => "*/*",
-    ));
+    $cacheReq->setRequestHeaders(
+        array("Accept" => "*/*",)
+    );
     $cacheReq->setResponseBody("{\"a\": \"foo\"}");
     $cacheReq->setResponseHttpCode(200);
-    $cacheReq->setResponseHeaders(array(
-      "Cache-Control" => "private",
-      "ETag" => "\"this-is-an-etag\"",
-      "Expires" => "Sun, 22 Jan 2022 09:00:56 GMT",
-      "Date" => "Sun, 1 Jan 2012 09:00:56 GMT",
-      "Content-Type" => "application/json; charset=UTF-8",
-    ));
+    $cacheReq->setResponseHeaders(
+        array(
+            "Cache-Control" => "private",
+            "ETag" => "\"this-is-an-etag\"",
+            "Expires" => "Sun, 22 Jan 2022 09:00:56 GMT",
+            "Date" => "Sun, 1 Jan 2012 09:00:56 GMT",
+            "Content-Type" => "application/json; charset=UTF-8",
+        )
+    );
 
     // Populate the cache.
     $io->setCachedRequest($cacheReq);
@@ -86,30 +95,36 @@ class IoTest extends BaseTest {
     $this->assertEquals(200, $res->getResponseHttpCode());
   }
 
-  public function authCache($io, $client) {
+  public function authCache($io, $client)
+  {
     $url = "http://www.googleapis.com/protected/resource";
 
     // Create a cacheable request/response, but it should not be cached.
     $cacheReq = new Google_Http_Request($url, "GET");
-    $cacheReq->setRequestHeaders(array(
-      "Accept" => "*/*",
-      "Authorization" => "Bearer Foo"
-    ));
+    $cacheReq->setRequestHeaders(
+        array(
+            "Accept" => "*/*",
+            "Authorization" => "Bearer Foo"
+        )
+    );
     $cacheReq->setResponseBody("{\"a\": \"foo\"}");
     $cacheReq->setResponseHttpCode(200);
-    $cacheReq->setResponseHeaders(array(
-      "Cache-Control" => "private",
-      "ETag" => "\"this-is-an-etag\"",
-      "Expires" => "Sun, 22 Jan 2022 09:00:56 GMT",
-      "Date: Sun, 1 Jan 2012 09:00:56 GMT",
-      "Content-Type" => "application/json; charset=UTF-8",
-    ));
+    $cacheReq->setResponseHeaders(
+        array(
+            "Cache-Control" => "private",
+            "ETag" => "\"this-is-an-etag\"",
+            "Expires" => "Sun, 22 Jan 2022 09:00:56 GMT",
+            "Date: Sun, 1 Jan 2012 09:00:56 GMT",
+            "Content-Type" => "application/json; charset=UTF-8",
+        )
+    );
 
     $result = $io->setCachedRequest($cacheReq);
     $this->assertFalse($result);
   }
-  
-  public function responseChecker($io) {
+
+  public function responseChecker($io)
+  {
     $rawHeaders = "HTTP/1.1 200 OK\r\n"
         . "Expires: Sun, 22 Jan 2012 09:00:56 GMT\r\n"
         . "Date: Sun, 22 Jan 2012 09:00:56 GMT\r\n"
@@ -140,7 +155,8 @@ class IoTest extends BaseTest {
     $this->assertEquals(array(), json_decode($body, true));
   }
 
-  public function processEntityRequest($io, $client) {
+  public function processEntityRequest($io, $client)
+  {
     $req = new Google_Http_Request("http://localhost.com");
     $req->setRequestMethod("POST");
 
@@ -163,8 +179,10 @@ class IoTest extends BaseTest {
     $req->setPostBody(array("a" => "1", "b" => 2));
     $io->processEntityRequest($req);
     $this->assertEquals(7, $req->getRequestHeader("content-length"));
-    $this->assertEquals(Google_IO_Abstract::FORM_URLENCODED,
-        $req->getRequestHeader("content-type"));
+    $this->assertEquals(
+        Google_IO_Abstract::FORM_URLENCODED,
+        $req->getRequestHeader("content-type")
+    );
     $this->assertEquals("a=1&b=2", $req->getPostBody());
 
     // Verify that the content-type isn't reset.
@@ -172,8 +190,10 @@ class IoTest extends BaseTest {
     $req->setPostBody($payload);
     $req->setRequestHeaders(array("content-type" => "multipart/form-data"));
     $io->processEntityRequest($req);
-    $this->assertEquals("multipart/form-data",
-        $req->getRequestHeader("content-type"));
+    $this->assertEquals(
+        "multipart/form-data",
+        $req->getRequestHeader("content-type")
+    );
     $this->assertEquals($payload, $req->getPostBody());
   }
 }
