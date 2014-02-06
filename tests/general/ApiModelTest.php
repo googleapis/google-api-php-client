@@ -20,8 +20,10 @@
 
 require_once 'BaseTest.php';
 
-class ApiModelTest extends BaseTest {
-  public function testJsonStructure() {
+class ApiModelTest extends BaseTest
+{
+  public function testJsonStructure()
+  {
     $model = new Google_Model();
     $model->publicA = "This is a string";
     $model2 = new Google_Model();
@@ -43,13 +45,15 @@ class ApiModelTest extends BaseTest {
     $this->assertArrayNotHasKey("data", $data);
   }
 
-  public function testIssetPropertyOnModel() {
+  public function testIssetPropertyOnModel()
+  {
     $model = new Google_Model();
     $model['foo'] = 'bar';
     $this->assertTrue(isset($model->foo));
   }
 
-  public function testUnsetPropertyOnModel() {
+  public function testUnsetPropertyOnModel()
+  {
     $model = new Google_Model();
     $model['foo'] = 'bar';
     unset($model->foo);

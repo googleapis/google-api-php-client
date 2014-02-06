@@ -264,7 +264,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
     if (!$assertionCredentials) {
       $assertionCredentials = $this->assertionCredentials;
     }
-    
+
     $cacheKey = $assertionCredentials->getCacheKey();
 
     if ($cacheKey) {
@@ -279,7 +279,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
         return;
       }
     }
-    
+
     $this->refreshTokenRequest(
         array(
           'grant_type' => 'assertion',
@@ -287,7 +287,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
           'assertion' => $assertionCredentials->generateAssertion(),
         )
     );
-    
+
     if ($cacheKey) {
       // Attempt to cache the token.
       $this->client->getCache()->set(
