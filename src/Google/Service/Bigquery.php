@@ -1697,6 +1697,7 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   protected $destinationTableDataType = '';
   public $encoding;
   public $fieldDelimiter;
+  public $ignoreUnknownValues;
   public $maxBadRecords;
   public $quote;
   protected $schemaType = 'Google_Service_Bigquery_TableSchema';
@@ -1766,6 +1767,16 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public function getFieldDelimiter()
   {
     return $this->fieldDelimiter;
+  }
+
+  public function setIgnoreUnknownValues($ignoreUnknownValues)
+  {
+    $this->ignoreUnknownValues = $ignoreUnknownValues;
+  }
+
+  public function getIgnoreUnknownValues()
+  {
+    return $this->ignoreUnknownValues;
   }
 
   public function setMaxBadRecords($maxBadRecords)
