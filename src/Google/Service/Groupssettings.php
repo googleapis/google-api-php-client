@@ -177,8 +177,10 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   public $sendMessageDenyNotification;
   public $showInGroupDirectory;
   public $spamModerationLevel;
+  public $whoCanContactOwner;
   public $whoCanInvite;
   public $whoCanJoin;
+  public $whoCanLeaveGroup;
   public $whoCanPostMessage;
   public $whoCanViewGroup;
   public $whoCanViewMembership;
@@ -393,6 +395,16 @@ class Google_Service_Groupssettings_Groups extends Google_Model
     return $this->spamModerationLevel;
   }
 
+  public function setWhoCanContactOwner($whoCanContactOwner)
+  {
+    $this->whoCanContactOwner = $whoCanContactOwner;
+  }
+
+  public function getWhoCanContactOwner()
+  {
+    return $this->whoCanContactOwner;
+  }
+
   public function setWhoCanInvite($whoCanInvite)
   {
     $this->whoCanInvite = $whoCanInvite;
@@ -411,6 +423,16 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   public function getWhoCanJoin()
   {
     return $this->whoCanJoin;
+  }
+
+  public function setWhoCanLeaveGroup($whoCanLeaveGroup)
+  {
+    $this->whoCanLeaveGroup = $whoCanLeaveGroup;
+  }
+
+  public function getWhoCanLeaveGroup()
+  {
+    return $this->whoCanLeaveGroup;
   }
 
   public function setWhoCanPostMessage($whoCanPostMessage)
