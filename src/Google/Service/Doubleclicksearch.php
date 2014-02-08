@@ -31,7 +31,8 @@
  */
 class Google_Service_Doubleclicksearch extends Google_Service
 {
-
+  /** View and manage your advertising data in DoubleClick Search. */
+  const DOUBLECLICKSEARCH = "https://www.googleapis.com/auth/doubleclicksearch";
 
   public $conversion;
   public $reports;
