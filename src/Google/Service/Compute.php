@@ -3817,7 +3817,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * Adds health check URL to targetPool. (targetPools.addHealthCheck)
    *
    * @param string $project
-   * Name of the project scoping this request.
+   *
    * @param string $region
    * Name of the region scoping this request.
    * @param string $targetPool
@@ -3836,7 +3836,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * Adds instance url to targetPool. (targetPools.addInstance)
    *
    * @param string $project
-   * Name of the project scoping this request.
+   *
    * @param string $region
    * Name of the region scoping this request.
    * @param string $targetPool
@@ -3916,7 +3916,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * that is referenced by given TargetPool. (targetPools.getHealth)
    *
    * @param string $project
-   * Name of the project scoping this request.
+   *
    * @param string $region
    * Name of the region scoping this request.
    * @param string $targetPool
@@ -3979,7 +3979,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * Removes health check URL from targetPool. (targetPools.removeHealthCheck)
    *
    * @param string $project
-   * Name of the project scoping this request.
+   *
    * @param string $region
    * Name of the region scoping this request.
    * @param string $targetPool
@@ -3998,7 +3998,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * Removes instance URL from targetPool. (targetPools.removeInstance)
    *
    * @param string $project
-   * Name of the project scoping this request.
+   *
    * @param string $region
    * Name of the region scoping this request.
    * @param string $targetPool
