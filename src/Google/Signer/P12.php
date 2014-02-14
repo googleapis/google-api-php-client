@@ -39,21 +39,30 @@ class Google_Signer_P12 extends Google_Signer_Abstract
       );
     }
 
-    // This throws on error
-    $certs = array();
-    if (!openssl_pkcs12_read($p12, $certs, $password)) {
-      throw new Google_Auth_Exception(
-          "Unable to parse the p12 file.  " .
-          "Is this a .p12 file?  Is the password correct?  OpenSSL error: " .
-          openssl_error_string()
-      );
+    // If the private key is provided directly, then this isn't in the p12 
+    // format. Different versions of openssl support different p12 formats
+    // and the key from google wasn't being accepted by the version available 
+    // at the time.
+    if (preg_match("#^-----BEGIN RSA PRIVATE KEY-----#", $p12)) {
+      $this->privateKey = openssl_pkey_get_private($p12);
+    } else {
+      // This throws on error
+      $certs = array();
+      if (!openssl_pkcs12_read($p12, $certs, $password)) {
+        throw new Google_Auth_Exception(
+            "Unable to parse the p12 file.  " .
+            "Is this a .p12 file?  Is the password correct?  OpenSSL error: " .
+            openssl_error_string()
+        );
+      }
+      // TODO(beaton): is this part of the contract for the openssl_pkcs12_read
+      // method?  What happens if there are multiple private keys?  Do we care?
+      if (!array_key_exists("pkey", $certs) || !$certs["pkey"]) {
+        throw new Google_Auth_Exception("No private key found in p12 file.");
+      }
+      $this->privateKey = openssl_pkey_get_private($certs['pkey']);
     }
-    // TODO(beaton): is this part of the contract for the openssl_pkcs12_read
-    // method?  What happens if there are multiple private keys?  Do we care?
-    if (!array_key_exists("pkey", $certs) || !$certs["pkey"]) {
-      throw new Google_Auth_Exception("No private key found in p12 file.");
-    }
-    $this->privateKey = openssl_pkey_get_private($certs["pkey"]);
+
     if (!$this->privateKey) {
       throw new Google_Auth_Exception("Unable to load private key in ");
     }
