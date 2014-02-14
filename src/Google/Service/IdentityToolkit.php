@@ -326,19 +326,10 @@ class Google_Service_IdentityToolkit_DeleteAccountResponse extends Google_Model
 
 class Google_Service_IdentityToolkit_DownloadAccountResponse extends Google_Collection
 {
-  public $accounts;
   public $kind;
   public $nextPageToken;
-
-  public function setAccounts($accounts)
-  {
-    $this->accounts = $accounts;
-  }
-
-  public function getAccounts()
-  {
-    return $this->accounts;
-  }
+  protected $usersType = 'Google_Service_IdentityToolkit_UserInfo';
+  protected $usersDataType = 'array';
 
   public function setKind($kind)
   {
@@ -359,12 +350,22 @@ class Google_Service_IdentityToolkit_DownloadAccountResponse extends Google_Coll
   {
     return $this->nextPageToken;
   }
+
+  public function setUsers($users)
+  {
+    $this->users = $users;
+  }
+
+  public function getUsers()
+  {
+    return $this->users;
+  }
 }
 
 class Google_Service_IdentityToolkit_GetAccountInfoResponse extends Google_Collection
 {
   public $kind;
-  protected $usersType = 'Google_Service_IdentityToolkit_GetAccountInfoResponseUsers';
+  protected $usersType = 'Google_Service_IdentityToolkit_UserInfo';
   protected $usersDataType = 'array';
 
   public function setKind($kind)
@@ -385,191 +386,6 @@ class Google_Service_IdentityToolkit_GetAccountInfoResponse extends Google_Colle
   public function getUsers()
   {
     return $this->users;
-  }
-}
-
-class Google_Service_IdentityToolkit_GetAccountInfoResponseUsers extends Google_Collection
-{
-  public $dateOfBirth;
-  public $displayName;
-  public $email;
-  public $language;
-  public $localId;
-  public $password;
-  public $passwordUpdatedAt;
-  public $photoUrl;
-  protected $providerUserInfoType = 'Google_Service_IdentityToolkit_GetAccountInfoResponseUsersProviderUserInfo';
-  protected $providerUserInfoDataType = 'array';
-  public $salt;
-  public $timeZone;
-  public $version;
-
-  public function setDateOfBirth($dateOfBirth)
-  {
-    $this->dateOfBirth = $dateOfBirth;
-  }
-
-  public function getDateOfBirth()
-  {
-    return $this->dateOfBirth;
-  }
-
-  public function setDisplayName($displayName)
-  {
-    $this->displayName = $displayName;
-  }
-
-  public function getDisplayName()
-  {
-    return $this->displayName;
-  }
-
-  public function setEmail($email)
-  {
-    $this->email = $email;
-  }
-
-  public function getEmail()
-  {
-    return $this->email;
-  }
-
-  public function setLanguage($language)
-  {
-    $this->language = $language;
-  }
-
-  public function getLanguage()
-  {
-    return $this->language;
-  }
-
-  public function setLocalId($localId)
-  {
-    $this->localId = $localId;
-  }
-
-  public function getLocalId()
-  {
-    return $this->localId;
-  }
-
-  public function setPassword($password)
-  {
-    $this->password = $password;
-  }
-
-  public function getPassword()
-  {
-    return $this->password;
-  }
-
-  public function setPasswordUpdatedAt($passwordUpdatedAt)
-  {
-    $this->passwordUpdatedAt = $passwordUpdatedAt;
-  }
-
-  public function getPasswordUpdatedAt()
-  {
-    return $this->passwordUpdatedAt;
-  }
-
-  public function setPhotoUrl($photoUrl)
-  {
-    $this->photoUrl = $photoUrl;
-  }
-
-  public function getPhotoUrl()
-  {
-    return $this->photoUrl;
-  }
-
-  public function setProviderUserInfo($providerUserInfo)
-  {
-    $this->providerUserInfo = $providerUserInfo;
-  }
-
-  public function getProviderUserInfo()
-  {
-    return $this->providerUserInfo;
-  }
-
-  public function setSalt($salt)
-  {
-    $this->salt = $salt;
-  }
-
-  public function getSalt()
-  {
-    return $this->salt;
-  }
-
-  public function setTimeZone($timeZone)
-  {
-    $this->timeZone = $timeZone;
-  }
-
-  public function getTimeZone()
-  {
-    return $this->timeZone;
-  }
-
-  public function setVersion($version)
-  {
-    $this->version = $version;
-  }
-
-  public function getVersion()
-  {
-    return $this->version;
-  }
-}
-
-class Google_Service_IdentityToolkit_GetAccountInfoResponseUsersProviderUserInfo extends Google_Model
-{
-  public $displayName;
-  public $federatedId;
-  public $photoUrl;
-  public $providerId;
-
-  public function setDisplayName($displayName)
-  {
-    $this->displayName = $displayName;
-  }
-
-  public function getDisplayName()
-  {
-    return $this->displayName;
-  }
-
-  public function setFederatedId($federatedId)
-  {
-    $this->federatedId = $federatedId;
-  }
-
-  public function getFederatedId()
-  {
-    return $this->federatedId;
-  }
-
-  public function setPhotoUrl($photoUrl)
-  {
-    $this->photoUrl = $photoUrl;
-  }
-
-  public function getPhotoUrl()
-  {
-    return $this->photoUrl;
-  }
-
-  public function setProviderId($providerId)
-  {
-    $this->providerId = $providerId;
-  }
-
-  public function getProviderId()
-  {
-    return $this->providerId;
   }
 }
 
@@ -819,6 +635,8 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyResetPasswordReq
 
 class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRequest extends Google_Collection
 {
+  public $captchaChallenge;
+  public $captchaResponse;
   public $displayName;
   public $email;
   public $emailVerified;
@@ -828,6 +646,26 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   public $password;
   public $provider;
   public $upgradeToFederatedLogin;
+
+  public function setCaptchaChallenge($captchaChallenge)
+  {
+    $this->captchaChallenge = $captchaChallenge;
+  }
+
+  public function getCaptchaChallenge()
+  {
+    return $this->captchaChallenge;
+  }
+
+  public function setCaptchaResponse($captchaResponse)
+  {
+    $this->captchaResponse = $captchaResponse;
+  }
+
+  public function getCaptchaResponse()
+  {
+    return $this->captchaResponse;
+  }
 
   public function setDisplayName($displayName)
   {
@@ -927,8 +765,8 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyUploadAccountReq
   public $rounds;
   public $saltSeparator;
   public $signerKey;
-  protected $userAccountType = 'Google_Service_IdentityToolkit_Userinfo';
-  protected $userAccountDataType = 'array';
+  protected $usersType = 'Google_Service_IdentityToolkit_UserInfo';
+  protected $usersDataType = 'array';
 
   public function setHashAlgorithm($hashAlgorithm)
   {
@@ -980,14 +818,14 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyUploadAccountReq
     return $this->signerKey;
   }
 
-  public function setUserAccount($userAccount)
+  public function setUsers($users)
   {
-    $this->userAccount = $userAccount;
+    $this->users = $users;
   }
 
-  public function getUserAccount()
+  public function getUsers()
   {
-    return $this->userAccount;
+    return $this->users;
   }
 }
 
@@ -1355,13 +1193,29 @@ class Google_Service_IdentityToolkit_UploadAccountResponseError extends Google_M
   }
 }
 
-class Google_Service_IdentityToolkit_Userinfo extends Google_Model
+class Google_Service_IdentityToolkit_UserInfo extends Google_Collection
 {
+  public $displayName;
   public $email;
-  public $kind;
+  public $emailVerified;
   public $localId;
-  public $password;
+  public $passwordHash;
+  public $passwordUpdatedAt;
+  public $photoUrl;
+  protected $providerUserInfoType = 'Google_Service_IdentityToolkit_UserInfoProviderUserInfo';
+  protected $providerUserInfoDataType = 'array';
   public $salt;
+  public $version;
+
+  public function setDisplayName($displayName)
+  {
+    $this->displayName = $displayName;
+  }
+
+  public function getDisplayName()
+  {
+    return $this->displayName;
+  }
 
   public function setEmail($email)
   {
@@ -1373,14 +1227,14 @@ class Google_Service_IdentityToolkit_Userinfo extends Google_Model
     return $this->email;
   }
 
-  public function setKind($kind)
+  public function setEmailVerified($emailVerified)
   {
-    $this->kind = $kind;
+    $this->emailVerified = $emailVerified;
   }
 
-  public function getKind()
+  public function getEmailVerified()
   {
-    return $this->kind;
+    return $this->emailVerified;
   }
 
   public function setLocalId($localId)
@@ -1393,14 +1247,44 @@ class Google_Service_IdentityToolkit_Userinfo extends Google_Model
     return $this->localId;
   }
 
-  public function setPassword($password)
+  public function setPasswordHash($passwordHash)
   {
-    $this->password = $password;
+    $this->passwordHash = $passwordHash;
   }
 
-  public function getPassword()
+  public function getPasswordHash()
   {
-    return $this->password;
+    return $this->passwordHash;
+  }
+
+  public function setPasswordUpdatedAt($passwordUpdatedAt)
+  {
+    $this->passwordUpdatedAt = $passwordUpdatedAt;
+  }
+
+  public function getPasswordUpdatedAt()
+  {
+    return $this->passwordUpdatedAt;
+  }
+
+  public function setPhotoUrl($photoUrl)
+  {
+    $this->photoUrl = $photoUrl;
+  }
+
+  public function getPhotoUrl()
+  {
+    return $this->photoUrl;
+  }
+
+  public function setProviderUserInfo($providerUserInfo)
+  {
+    $this->providerUserInfo = $providerUserInfo;
+  }
+
+  public function getProviderUserInfo()
+  {
+    return $this->providerUserInfo;
   }
 
   public function setSalt($salt)
@@ -1411,6 +1295,64 @@ class Google_Service_IdentityToolkit_Userinfo extends Google_Model
   public function getSalt()
   {
     return $this->salt;
+  }
+
+  public function setVersion($version)
+  {
+    $this->version = $version;
+  }
+
+  public function getVersion()
+  {
+    return $this->version;
+  }
+}
+
+class Google_Service_IdentityToolkit_UserInfoProviderUserInfo extends Google_Model
+{
+  public $displayName;
+  public $federatedId;
+  public $photoUrl;
+  public $providerId;
+
+  public function setDisplayName($displayName)
+  {
+    $this->displayName = $displayName;
+  }
+
+  public function getDisplayName()
+  {
+    return $this->displayName;
+  }
+
+  public function setFederatedId($federatedId)
+  {
+    $this->federatedId = $federatedId;
+  }
+
+  public function getFederatedId()
+  {
+    return $this->federatedId;
+  }
+
+  public function setPhotoUrl($photoUrl)
+  {
+    $this->photoUrl = $photoUrl;
+  }
+
+  public function getPhotoUrl()
+  {
+    return $this->photoUrl;
+  }
+
+  public function setProviderId($providerId)
+  {
+    $this->providerId = $providerId;
+  }
+
+  public function getProviderId()
+  {
+    return $this->providerId;
   }
 }
 
