@@ -222,7 +222,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
             throw new Google_Auth_Exception(
                 "The OAuth 2.0 access token has expired,"
                 ." and a refresh token is not available. Refresh tokens"
-                . "are not returned for responses that were auto-approved."
+                ." are not returned for responses that were auto-approved."
             );
         }
         $this->refreshToken($this->token['refresh_token']);
