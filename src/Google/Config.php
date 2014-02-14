@@ -20,6 +20,7 @@
  */
 class Google_Config
 {
+  const USE_AUTO_IO_SELECTION = "auto";
   private $configuration;
 
   /**
@@ -37,7 +38,7 @@ class Google_Config
 
       // Which Authentication, Storage and HTTP IO classes to use.
       'auth_class'    => 'Google_Auth_OAuth2',
-      'io_class'      => 'Google_IO_Stream',
+      'io_class'      => self::USE_AUTO_IO_SELECTION,
       'cache_class'   => 'Google_Cache_File',
 
       // Don't change these unless you're working against a special development

@@ -47,6 +47,27 @@ class AuthTest extends BaseTest {
     $this->pem = file_get_contents(self::PUBLIC_KEY_FILE, true);
     $this->verifier = new Google_Verifier_Pem($this->pem);
   }
+  
+  public function testDirectInject() {
+    $privateKeyString = <<<PK
+-----BEGIN RSA PRIVATE KEY-----
+MIICWwIBAAKBgQC8iqFTYTrSGxddW+Tsx6cdWbQxITdM2anRbMYcohnQpQuPG46B
+HO3WbUA8suC6PXqeIi4JkDrAYbI2+TN6w1FE/fh2H7WczuDVKtosBcfsoL2C5loU
+mOf+4jL1xx4EL6xy8wMntZhNgimVCO9LkWCix/Qh9mpqx2zbC3OV4QsSQQIDAQAB
+AoGASAosRCClifxB/DENko9iwisxV4haiemtIlEOjYg+luNJPGAKHjlAgyrxXX/3
+sBGnlV53+r16RWHO54RmcCTLGwpC6zzVc6C4Or9KItdMDMnqBjmqiYDz3Na7tIPv
+vwzn8k8Uto26HZF8d1bTdoinxHrv7w1OVkDQWnHmWkQRjBUCQQDpNw8F1qiJJoYr
+tkkBmlObmSQRYD3mlEvRwu348e4dFb01oN2cfw/YNhh+Lt2TPHFz2GNn6VwJf1Yb
+qRKBqo/jAkEAzvY91ReYrkBm50pi2nqJc1Hcxm5CVP7MMnHbn8wExKrRG2rCDY9Y
+zOdsw7pP/x6mesdUy3tTrPYVbeWP6YPmiwJANx41Jbsa7/cz5KbbUE6qDe8+sACg
+AJvx42x/k8OR9DvMER2o4rDBDOeUGFZ5NbAmXCu7KrbjcrcuobDu18h44wJAQ2s5
+x0HxjcoS+4Ni4nMKdZOUTNu8Jf3+vOwUNGD8qKhQiBLl9g7dSZqV9sipqJzudI6c
+k9Cv+GcNoggnMlWycwJAHMVgaBmNc+RVCMar/gN6i5sENjN9Itu7U1V4Qj/mG6+4
+MHOXhXSKhtTe0Bqm/MssVvCmc8AraKwBMs0rkMadsA==
+-----END RSA PRIVATE KEY-----
+PK;
+    $sign = new Google_Signer_P12($privateKeyString, null);
+  }
 
   public function testCantOpenP12() {
     try {

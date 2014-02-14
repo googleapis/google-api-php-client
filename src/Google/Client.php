@@ -21,6 +21,7 @@ require_once 'Google/Cache/Memcache.php';
 require_once 'Google/Config.php';
 require_once 'Google/Collection.php';
 require_once 'Google/Exception.php';
+require_once 'Google/IO/Curl.php';
 require_once 'Google/IO/Stream.php';
 require_once 'Google/Model.php';
 require_once 'Google/Service.php';
@@ -97,6 +98,14 @@ class Google_Client
       if (version_compare(phpversion(), "5.3.4", "<=") || $this->isAppEngine()) {
         // Automatically disable compress.zlib, as currently unsupported.
         $config->setClassConfig('Google_Http_Request', 'disable_gzip', true);
+      }
+    }
+    
+    if ($config->getIoClass() == Google_Config::USE_AUTO_IO_SELECTION) {
+      if (function_exists('curl_version')) {
+        $config->setIoClass("Google_Io_Curl");
+      } else {
+        $config->setIoClass("Google_Io_Stream");
       }
     }
 

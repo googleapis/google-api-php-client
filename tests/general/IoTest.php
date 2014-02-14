@@ -20,10 +20,21 @@
 
 require_once 'BaseTest.php';
 require_once 'Google/Http/Request.php';
+require_once 'Google/IO/Curl.php';
 require_once 'Google/IO/Stream.php';
 
 class IoTest extends BaseTest
 {
+  
+  public function testExecutorSelection()
+  {
+    $client = $this->getClient();
+    $this->assertInstanceOf('Google_IO_Curl', $client->getIo());
+    $config = new Google_Config();
+    $config->setIoClass('Google_IO_Stream');
+    $client = new Google_Client($config);
+    $this->assertInstanceOf('Google_IO_Stream', $client->getIo());
+  }
 
   public function testStreamParseHttpResponseBody()
   {
@@ -55,15 +66,56 @@ class IoTest extends BaseTest
   /**
    * @expectedException Google_IO_Exception
    */
-  public function testInvalidRequest()
+  public function testStreamInvalidRequest()
   {
     $io = new Google_IO_Stream($this->getClient());
+    $this->invalidRequest($io);
+  }
+  
+  public function testCurlParseHttpResponseBody()
+  {
+    $io = new Google_IO_Stream($this->getClient());
+    $this->responseChecker($io);
+  }
+
+  public function testCurlProcessEntityRequest()
+  {
+    $client = $this->getClient();
+    $io = new Google_IO_Stream($client);
+    $this->processEntityRequest($io, $client);
+  }
+
+  public function testCurlCacheHit()
+  {
+    $client = $this->getClient();
+    $io = new Google_IO_Stream($client);
+    $this->cacheHit($io, $client);
+  }
+
+  public function testCurlAuthCache()
+  {
+    $client = $this->getClient();
+    $io = new Google_IO_Stream($client);
+    $this->authCache($io, $client);
+  }
+
+  /**
+   * @expectedException Google_IO_Exception
+   */
+  public function testCurlInvalidRequest()
+  {
+    $io = new Google_IO_Stream($this->getClient());
+    $this->invalidRequest($io);
+  }
+
+  // Asserting Functions
+
+
+  public function invalidRequest($io) {
     $url = "http://localhost:1";
     $req = new Google_Http_Request($url, "GET");
     $io->makeRequest($req);
   }
-
-  // Asserting Functions
 
   public function cacheHit($io, $client)
   {

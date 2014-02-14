@@ -25,7 +25,8 @@ require_once 'Google/Http/Batch.php';
 class ApiBatchRequestTest extends BaseTest {
   public $plus;
 
-  public function testBatchRequestWithAuth() {
+  public function testBatchRequestWithAuth()
+  {
     if (!$this->checkToken()) {
       return;
     }
@@ -44,7 +45,8 @@ class ApiBatchRequestTest extends BaseTest {
     $this->assertTrue(isset($result['response-key3']));
   }
 
-  public function testBatchRequest() {
+  public function testBatchRequest()
+  {
     $client = $this->getClient();
     $batch = new Google_Http_Batch($client);
     $this->plus = new Google_Service_Plus($client);
@@ -60,7 +62,8 @@ class ApiBatchRequestTest extends BaseTest {
     $this->assertTrue(isset($result['response-key3']));
   }
 
-  public function testInvalidBatchRequest() {
+  public function testInvalidBatchRequest()
+  {
     $client = $this->getClient();
     $batch = new Google_Http_Batch($client);
     $this->plus = new Google_Service_Plus($client);

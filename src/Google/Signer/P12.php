@@ -39,11 +39,11 @@ class Google_Signer_P12 extends Google_Signer_Abstract
       );
     }
 
-    // If the private key is provided directly, then this isn't in the p12 
+    // If the private key is provided directly, then this isn't in the p12
     // format. Different versions of openssl support different p12 formats
-    // and the key from google wasn't being accepted by the version available 
+    // and the key from google wasn't being accepted by the version available
     // at the time.
-    if (preg_match("#^-----BEGIN RSA PRIVATE KEY-----#", $p12)) {
+    if (!$password && strpos($p12, "-----BEGIN RSA PRIVATE KEY-----") !== false) {
       $this->privateKey = openssl_pkey_get_private($p12);
     } else {
       // This throws on error
@@ -64,7 +64,7 @@ class Google_Signer_P12 extends Google_Signer_Abstract
     }
 
     if (!$this->privateKey) {
-      throw new Google_Auth_Exception("Unable to load private key in ");
+      throw new Google_Auth_Exception("Unable to load private key");
     }
   }
 

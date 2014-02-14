@@ -26,8 +26,10 @@ require_once 'Google/Http/Request.php';
 
 abstract class Google_IO_Abstract
 {
+  const UNKNOWN_CODE = 0;
   const FORM_URLENCODED = 'application/x-www-form-urlencoded';
   const CONNECTION_ESTABLISHED = "HTTP/1.0 200 Connection established\r\n\r\n";
+  private static $ENTITY_HTTP_METHODS = array("POST" => null, "PUT" => null);
 
   /** @var Google_Client */
   protected $client;
@@ -42,7 +44,7 @@ abstract class Google_IO_Abstract
    * @param Google_Http_Request $request
    * @return Google_Http_Request $request
    */
-  abstract public function makeRequest(Google_Http_Request $request);
+  abstract public function executeRequest(Google_Http_Request $request);
 
   /**
    * Set options that update the transport implementation's behavior.
@@ -66,6 +68,49 @@ abstract class Google_IO_Abstract
     }
 
     return false;
+  }
+  
+  /**
+   * Execute an HTTP Request
+   *
+   * @param Google_HttpRequest $request the http request to be executed
+   * @return Google_HttpRequest http request with the response http code,
+   * response headers and response body filled in
+   * @throws Google_IO_Exception on curl or IO error
+   */
+  public function makeRequest(Google_Http_Request $request)
+  {
+    // First, check to see if we have a valid cached version.
+    $cached = $this->getCachedRequest($request);
+    if ($cached !== false) {
+      if (!$this->checkMustRevalidateCachedRequest($cached, $request)) {
+        return $cached;
+      }
+    }
+
+    if (array_key_exists($request->getRequestMethod(), self::$ENTITY_HTTP_METHODS)) {
+      $request = $this->processEntityRequest($request);
+    }
+
+    list($responseData, $responseHeaders, $respHttpCode) = $this->executeRequest($request);
+
+    if ($respHttpCode == 304 && $cached) {
+      // If the server responded NOT_MODIFIED, return the cached request.
+      $this->updateCachedRequest($cached, $responseHeaders);
+      return $cached;
+    }
+
+    if (!isset($responseHeaders['Date']) && !isset($responseHeaders['date'])) {
+      $responseHeaders['Date'] = date("r");
+    }
+
+    $request->setResponseHttpCode($respHttpCode);
+    $request->setResponseHeaders($responseHeaders);
+    $request->setResponseBody($responseData);
+    // Store the request in cache (the function checks to see if the request
+    // can actually be cached)
+    $this->setCachedRequest($request);
+    return $request;
   }
 
   /**
