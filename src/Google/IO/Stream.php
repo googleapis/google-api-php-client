@@ -25,9 +25,7 @@ require_once 'Google/IO/Abstract.php';
 
 class Google_IO_Stream extends Google_IO_Abstract
 {
-  const UNKNOWN_CODE = 0;
   const ZLIB = "compress.zlib://";
-  private static $ENTITY_HTTP_METHODS = array("POST" => null, "PUT" => null);
 
   private static $DEFAULT_HTTP_CONTEXT = array(
     "follow_location" => 0,
@@ -46,26 +44,12 @@ class Google_IO_Stream extends Google_IO_Abstract
    * response headers and response body filled in
    * @throws Google_IO_Exception on curl or IO error
    */
-  public function makeRequest(Google_Http_Request $request)
+  public function executeRequest(Google_Http_Request $request)
   {
-    // First, check to see if we have a valid cached version.
-    $cached = $this->getCachedRequest($request);
-    if ($cached !== false) {
-      if (!$this->checkMustRevalidateCachedRequest($cached, $request)) {
-        return $cached;
-      }
-    }
-
     $default_options = stream_context_get_options(stream_context_get_default());
 
     $requestHttpContext = array_key_exists('http', $default_options) ?
         $default_options['http'] : array();
-    if (array_key_exists(
-        $request->getRequestMethod(),
-        self::$ENTITY_HTTP_METHODS
-    )) {
-      $request = $this->processEntityRequest($request);
-    }
 
     if ($request->getPostBody()) {
       $requestHttpContext["content"] = $request->getPostBody();
@@ -135,24 +119,8 @@ class Google_IO_Stream extends Google_IO_Abstract
     }
 
     $responseHeaders = $this->getHttpResponseHeaders($http_response_header);
-
-    if ($respHttpCode == 304 && $cached) {
-      // If the server responded NOT_MODIFIED, return the cached request.
-      $this->updateCachedRequest($cached, $responseHeaders);
-      return $cached;
-    }
-
-    if (!isset($responseHeaders['Date']) && !isset($responseHeaders['date'])) {
-      $responseHeaders['Date'] = date("r");
-    }
-
-    $request->setResponseHttpCode($respHttpCode);
-    $request->setResponseHeaders($responseHeaders);
-    $request->setResponseBody($response_data);
-    // Store the request in cache (the function checks to see if the request
-    // can actually be cached)
-    $this->setCachedRequest($request);
-    return $request;
+    
+    return [$response_data, $responseHeaders, $respHttpCode];
   }
 
   /**
@@ -163,8 +131,8 @@ class Google_IO_Stream extends Google_IO_Abstract
   {
     // NO-OP
   }
-
-  private function getHttpResponseCode($response_headers)
+  
+  protected function getHttpResponseCode($response_headers)
   {
     $header_count = count($response_headers);
 
