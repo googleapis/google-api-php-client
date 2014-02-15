@@ -2755,6 +2755,9 @@ class Google_Service_Bigquery_Table extends Google_Model
   public $selfLink;
   protected $tableReferenceType = 'Google_Service_Bigquery_TableReference';
   protected $tableReferenceDataType = '';
+  public $type;
+  protected $viewType = 'Google_Service_Bigquery_ViewDefinition';
+  protected $viewDataType = '';
 
   public function setCreationTime($creationTime)
   {
@@ -2884,6 +2887,26 @@ class Google_Service_Bigquery_Table extends Google_Model
   public function getTableReference()
   {
     return $this->tableReference;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
+  }
+
+  public function setView(Google_Service_Bigquery_ViewDefinition $view)
+  {
+    $this->view = $view;
+  }
+
+  public function getView()
+  {
+    return $this->view;
   }
 }
 
@@ -3196,6 +3219,7 @@ class Google_Service_Bigquery_TableListTables extends Google_Model
   public $kind;
   protected $tableReferenceType = 'Google_Service_Bigquery_TableReference';
   protected $tableReferenceDataType = '';
+  public $type;
 
   public function setFriendlyName($friendlyName)
   {
@@ -3235,6 +3259,16 @@ class Google_Service_Bigquery_TableListTables extends Google_Model
   public function getTableReference()
   {
     return $this->tableReference;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
   }
 }
 
@@ -3304,5 +3338,20 @@ class Google_Service_Bigquery_TableSchema extends Google_Collection
   public function getFields()
   {
     return $this->fields;
+  }
+}
+
+class Google_Service_Bigquery_ViewDefinition extends Google_Model
+{
+  public $query;
+
+  public function setQuery($query)
+  {
+    $this->query = $query;
+  }
+
+  public function getQuery()
+  {
+    return $this->query;
   }
 }
