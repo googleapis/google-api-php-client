@@ -120,7 +120,7 @@ class Google_IO_Stream extends Google_IO_Abstract
 
     $responseHeaders = $this->getHttpResponseHeaders($http_response_header);
     
-    return [$response_data, $responseHeaders, $respHttpCode];
+    return array($response_data, $responseHeaders, $respHttpCode);
   }
 
   /**

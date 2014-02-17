@@ -69,6 +69,10 @@ class Google_IO_Curl extends Google_IO_Abstract
       curl_setopt($curl, $key, $var);
     }
 
+    if (!isset($this->options[CURLOPT_CAINFO])) {
+      curl_setopt($curl, CURLOPT_CAINFO, dirname(__FILE__) . '/cacerts.pem');
+    }
+
     $response = curl_exec($curl);
     $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
 
@@ -77,7 +81,7 @@ class Google_IO_Curl extends Google_IO_Abstract
     $responseHeaders = $this->getHttpResponseHeaders($responseHeaderString);
     $responseCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-    return [$responseBody, $responseHeaders, $responseCode];
+    return array($responseBody, $responseHeaders, $responseCode);
   }
 
   /**
