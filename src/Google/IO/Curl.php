@@ -77,7 +77,7 @@ class Google_IO_Curl extends Google_IO_Abstract
     $responseHeaders = $this->getHttpResponseHeaders($responseHeaderString);
     $responseCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-    return [$responseBody, $responseHeaders, $responseCode];
+    return array($responseBody, $responseHeaders, $responseCode);
   }
 
   /**
