@@ -111,7 +111,8 @@ class IoTest extends BaseTest
   // Asserting Functions
 
 
-  public function invalidRequest($io) {
+  public function invalidRequest($io)
+  {
     $url = "http://localhost:1";
     $req = new Google_Http_Request($url, "GET");
     $io->makeRequest($req);
