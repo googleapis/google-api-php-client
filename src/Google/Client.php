@@ -190,7 +190,7 @@ class Google_Client
    */
   public function setAccessToken($accessToken)
   {
-    if ($accessToken == null || 'null' == $accessToken) {
+    if ($accessToken == 'null') {
       $accessToken = null;
     }
     $this->getAuth()->setAccessToken($accessToken);

@@ -34,7 +34,7 @@ class Google_Model implements ArrayAccess
    */
   public function __construct()
   {
-    if (func_num_args() ==  1 && is_array(func_get_arg(0))) {
+    if (func_num_args() == 1 && is_array(func_get_arg(0))) {
       // Initialize the model with the array's contents.
       $array = func_get_arg(0);
       $this->mapTypes($array);
@@ -192,8 +192,7 @@ class Google_Model implements ArrayAccess
   {
     if ($obj && !is_array($obj)) {
       throw new Google_Exception(
-          "Incorrect parameter type passed to $method(),"
-          . " expected an array."
+          "Incorrect parameter type passed to $method(). Expected an array."
       );
     }
   }
