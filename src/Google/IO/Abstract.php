@@ -82,7 +82,7 @@ abstract class Google_IO_Abstract
   {
     // First, check to see if we have a valid cached version.
     $cached = $this->getCachedRequest($request);
-    if ($cached !== false) {
+    if ($cached !== false && $cached instanceof Google_Http_Request) {
       if (!$this->checkMustRevalidateCachedRequest($cached, $request)) {
         return $cached;
       }
