@@ -105,6 +105,7 @@ class Google_Service_Webfonts_Webfonts_Resource extends Google_Service_Resource
 
 class Google_Service_Webfonts_Webfont extends Google_Collection
 {
+  public $category;
   public $family;
   public $files;
   public $kind;
@@ -112,6 +113,16 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   public $subsets;
   public $variants;
   public $version;
+
+  public function setCategory($category)
+  {
+    $this->category = $category;
+  }
+
+  public function getCategory()
+  {
+    return $this->category;
+  }
 
   public function setFamily($family)
   {
