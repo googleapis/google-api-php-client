@@ -108,6 +108,14 @@ class Google_Model implements ArrayAccess
   {
     $object = new stdClass();
 
+    // Process all other data.
+    foreach ($this->data as $key => $val) {
+      $result = $this->getSimpleValue($val);
+      if ($result != null) {
+        $object->$key = $result;
+      }
+    }
+
     // Process all public properties.
     $reflect = new ReflectionObject($this);
     $props = $reflect->getProperties(ReflectionProperty::IS_PUBLIC);
@@ -119,13 +127,6 @@ class Google_Model implements ArrayAccess
       }
     }
 
-    // Process all other data.
-    foreach ($this->data as $key => $val) {
-      $result = $this->getSimpleValue($val);
-      if ($result != null) {
-        $object->$key = $result;
-      }
-    }
     return $object;
   }
 
