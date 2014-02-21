@@ -33,6 +33,7 @@ class Google_Service_CivicInfo extends Google_Service
 {
 
 
+  public $divisions;
   public $elections;
   public $representatives;
   
@@ -49,6 +50,25 @@ class Google_Service_CivicInfo extends Google_Service
     $this->version = 'us_v1';
     $this->serviceName = 'civicinfo';
 
+    $this->divisions = new Google_Service_CivicInfo_Divisions_Resource(
+        $this,
+        $this->serviceName,
+        'divisions',
+        array(
+          'methods' => array(
+            'search' => array(
+              'path' => 'representatives/division_search',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'query' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->elections = new Google_Service_CivicInfo_Elections_Resource(
         $this,
         $this->serviceName,
@@ -103,6 +123,38 @@ class Google_Service_CivicInfo extends Google_Service
   }
 }
 
+
+/**
+ * The "divisions" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $civicinfoService = new Google_Service_CivicInfo(...);
+ *   $divisions = $civicinfoService->divisions;
+ *  </code>
+ */
+class Google_Service_CivicInfo_Divisions_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Searches for political divisions by their natural name or OCD ID.
+   * (divisions.search)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string query
+   * The search query. Queries can cover any parts of a OCD ID or a human readable division name. All
+    * words given in the query are treated as required patterns. In addition to that, most query
+    * operators of the Apache Lucene library are supported. See
+    * http://lucene.apache.org/core/2_9_4/queryparsersyntax.html
+   * @return Google_Service_CivicInfo_DivisionSearchResponse
+   */
+  public function search($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('search', array($params), "Google_Service_CivicInfo_DivisionSearchResponse");
+  }
+}
 
 /**
  * The "elections" collection of methods.
@@ -697,6 +749,70 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   public function getType()
   {
     return $this->type;
+  }
+}
+
+class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
+{
+  public $kind;
+  protected $resultsType = 'Google_Service_CivicInfo_DivisionSearchResult';
+  protected $resultsDataType = 'array';
+  public $status;
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setResults($results)
+  {
+    $this->results = $results;
+  }
+
+  public function getResults()
+  {
+    return $this->results;
+  }
+
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+
+  public function getStatus()
+  {
+    return $this->status;
+  }
+}
+
+class Google_Service_CivicInfo_DivisionSearchResult extends Google_Model
+{
+  public $name;
+  public $ocdId;
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setOcdId($ocdId)
+  {
+    $this->ocdId = $ocdId;
+  }
+
+  public function getOcdId()
+  {
+    return $this->ocdId;
   }
 }
 
