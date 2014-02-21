@@ -19,9 +19,56 @@
  */
 
 require_once 'BaseTest.php';
+require_once 'Google/Service/Calendar.php';
 
 class ApiModelTest extends BaseTest
 {
+  public function testModelMutation()
+  {
+    $data = json_decode('{"kind": "calendar#event",
+       "etag": "\"-kteSF26GsdKQ5bfmcd4H3_-u3g/MTE0NTUyNTAxOTk0MjAwMA\"",
+       "id": "1234566",
+       "status": "confirmed",
+       "htmlLink": "https://www.google.com/calendar/event?eid=NWdpMmFjNDkzbm5yZzh2N2poZXNhZmdldDggaWFuLmJhcmJlckBt",
+       "created": "2006-04-13T14:22:08.000Z",
+       "updated": "2006-04-20T09:23:39.942Z",
+       "summary": "Evening Jolt Q3 CTFL",
+       "description": "6.30 - Adminning\n9.30 - Game",
+       "creator": {
+        "email": "ian@example.com",
+        "displayName": "Ian Test",
+        "self": true
+       },
+       "organizer": {
+        "email": "ian@example.com",
+        "displayName": "Ian Test",
+        "self": true
+       },
+       "start": {
+        "date": "2006-04-23"
+       },
+       "end": {
+        "date": "2006-04-24"
+       },
+       "iCalUID": "5gi2ac493nnrfdfd7jhesafget8@google.com",
+       "sequence": 0,
+       "reminders": {
+        "useDefault": false
+       }}', true);
+    $event = new Google_Service_Calendar_Event($data);
+    $date = new Google_Service_Calendar_EventDateTime();
+    $dateString = Date("c");
+    $summary = "hello";
+    $date->setDate($dateString);
+    $event->setStart($date);
+    $event->setEnd($date);
+    $event->setSummary($summary);
+    $simpleEvent = $event->toSimpleObject();
+    $this->assertEquals($dateString, $simpleEvent->start->date);
+    $this->assertEquals($dateString, $simpleEvent->end->date);
+    $this->assertEquals($summary, $simpleEvent->summary);
+  }
+
   public function testJsonStructure()
   {
     $model = new Google_Model();
