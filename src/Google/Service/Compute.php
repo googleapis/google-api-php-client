@@ -1086,6 +1086,36 @@ class Google_Service_Compute extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'setDiskAutoDelete' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/setDiskAutoDelete',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'autoDelete' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                  'required' => true,
+                ),
+                'deviceName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'setMetadata' => array(
               'path' => '{project}/zones/{zone}/instances/{instance}/setMetadata',
               'httpMethod' => 'POST',
@@ -3133,6 +3163,29 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
     return $this->call('reset', array($params), "Google_Service_Compute_Operation");
   }
   /**
+   * Sets the auto-delete flag for a disk attached to an instance
+   * (instances.setDiskAutoDelete)
+   *
+   * @param string $project
+   * Project name.
+   * @param string $zone
+   * Name of the zone scoping this request.
+   * @param string $instance
+   * Instance name.
+   * @param bool $autoDelete
+   * Whether to auto-delete the disk when the instance is deleted.
+   * @param string $deviceName
+   * Disk device name to modify.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function setDiskAutoDelete($project, $zone, $instance, $autoDelete, $deviceName, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instance' => $instance, 'autoDelete' => $autoDelete, 'deviceName' => $deviceName);
+    $params = array_merge($params, $optParams);
+    return $this->call('setDiskAutoDelete', array($params), "Google_Service_Compute_Operation");
+  }
+  /**
    * Sets metadata for the specified instance to the data included in the request.
    * (instances.setMetadata)
    *
@@ -4545,13 +4598,26 @@ class Google_Service_Compute_AddressesScopedListWarningData extends Google_Model
 
 class Google_Service_Compute_AttachedDisk extends Google_Model
 {
+  public $autoDelete;
   public $boot;
   public $deviceName;
   public $index;
+  protected $initializeParamsType = 'Google_Service_Compute_AttachedDiskInitializeParams';
+  protected $initializeParamsDataType = '';
   public $kind;
   public $mode;
   public $source;
   public $type;
+
+  public function setAutoDelete($autoDelete)
+  {
+    $this->autoDelete = $autoDelete;
+  }
+
+  public function getAutoDelete()
+  {
+    return $this->autoDelete;
+  }
 
   public function setBoot($boot)
   {
@@ -4581,6 +4647,16 @@ class Google_Service_Compute_AttachedDisk extends Google_Model
   public function getIndex()
   {
     return $this->index;
+  }
+
+  public function setInitializeParams(Google_Service_Compute_AttachedDiskInitializeParams $initializeParams)
+  {
+    $this->initializeParams = $initializeParams;
+  }
+
+  public function getInitializeParams()
+  {
+    return $this->initializeParams;
   }
 
   public function setKind($kind)
@@ -4621,6 +4697,43 @@ class Google_Service_Compute_AttachedDisk extends Google_Model
   public function getType()
   {
     return $this->type;
+  }
+}
+
+class Google_Service_Compute_AttachedDiskInitializeParams extends Google_Model
+{
+  public $diskName;
+  public $diskSizeGb;
+  public $sourceImage;
+
+  public function setDiskName($diskName)
+  {
+    $this->diskName = $diskName;
+  }
+
+  public function getDiskName()
+  {
+    return $this->diskName;
+  }
+
+  public function setDiskSizeGb($diskSizeGb)
+  {
+    $this->diskSizeGb = $diskSizeGb;
+  }
+
+  public function getDiskSizeGb()
+  {
+    return $this->diskSizeGb;
+  }
+
+  public function setSourceImage($sourceImage)
+  {
+    $this->sourceImage = $sourceImage;
+  }
+
+  public function getSourceImage()
+  {
+    return $this->sourceImage;
   }
 }
 
