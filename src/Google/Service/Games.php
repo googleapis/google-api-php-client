@@ -41,6 +41,7 @@ class Google_Service_Games extends Google_Service
   public $applications;
   public $leaderboards;
   public $players;
+  public $pushtokens;
   public $revisions;
   public $rooms;
   public $scores;
@@ -287,6 +288,24 @@ class Google_Service_Games extends Google_Service
                   'type' => 'integer',
                 ),
               ),
+            ),
+          )
+        )
+    );
+    $this->pushtokens = new Google_Service_Games_Pushtokens_Resource(
+        $this,
+        $this->serviceName,
+        'pushtokens',
+        array(
+          'methods' => array(
+            'remove' => array(
+              'path' => 'pushtokens/remove',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'update' => array(
+              'path' => 'pushtokens',
+              'httpMethod' => 'PUT',
+              'parameters' => array(),
             ),
           )
         )
@@ -1087,6 +1106,45 @@ class Google_Service_Games_Players_Resource extends Google_Service_Resource
     $params = array('collection' => $collection);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Games_PlayerListResponse");
+  }
+}
+
+/**
+ * The "pushtokens" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $gamesService = new Google_Service_Games(...);
+ *   $pushtokens = $gamesService->pushtokens;
+ *  </code>
+ */
+class Google_Service_Games_Pushtokens_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Removes a push token for the current user and application. Removing a non-
+   * existent push token will report success. (pushtokens.remove)
+   *
+   * @param Google_PushTokenId $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function remove(Google_Service_Games_PushTokenId $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('remove', array($params));
+  }
+  /**
+   * Registers a push token for the current user and application.
+   * (pushtokens.update)
+   *
+   * @param Google_PushToken $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function update(Google_Service_Games_PushToken $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params));
   }
 }
 
@@ -3179,6 +3237,7 @@ class Google_Service_Games_NetworkDiagnostics extends Google_Model
 {
   public $androidNetworkSubtype;
   public $androidNetworkType;
+  public $iosNetworkType;
   public $kind;
   public $registrationLatencyMillis;
 
@@ -3200,6 +3259,16 @@ class Google_Service_Games_NetworkDiagnostics extends Google_Model
   public function getAndroidNetworkType()
   {
     return $this->androidNetworkType;
+  }
+
+  public function setIosNetworkType($iosNetworkType)
+  {
+    $this->iosNetworkType = $iosNetworkType;
+  }
+
+  public function getIosNetworkType()
+  {
+    return $this->iosNetworkType;
   }
 
   public function setKind($kind)
@@ -4009,6 +4078,108 @@ class Google_Service_Games_PlayerScoreSubmissionList extends Google_Collection
   }
 }
 
+class Google_Service_Games_PushToken extends Google_Model
+{
+  public $clientRevision;
+  protected $idType = 'Google_Service_Games_PushTokenId';
+  protected $idDataType = '';
+  public $kind;
+  public $language;
+
+  public function setClientRevision($clientRevision)
+  {
+    $this->clientRevision = $clientRevision;
+  }
+
+  public function getClientRevision()
+  {
+    return $this->clientRevision;
+  }
+
+  public function setId(Google_Service_Games_PushTokenId $id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setLanguage($language)
+  {
+    $this->language = $language;
+  }
+
+  public function getLanguage()
+  {
+    return $this->language;
+  }
+}
+
+class Google_Service_Games_PushTokenId extends Google_Model
+{
+  protected $iosType = 'Google_Service_Games_PushTokenIdIos';
+  protected $iosDataType = '';
+  public $kind;
+
+  public function setIos(Google_Service_Games_PushTokenIdIos $ios)
+  {
+    $this->ios = $ios;
+  }
+
+  public function getIos()
+  {
+    return $this->ios;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_Games_PushTokenIdIos extends Google_Model
+{
+  public $apnsDeviceToken;
+  public $apnsEnvironment;
+
+  public function setApnsDeviceToken($apnsDeviceToken)
+  {
+    $this->apnsDeviceToken = $apnsDeviceToken;
+  }
+
+  public function getApnsDeviceToken()
+  {
+    return $this->apnsDeviceToken;
+  }
+
+  public function setApnsEnvironment($apnsEnvironment)
+  {
+    $this->apnsEnvironment = $apnsEnvironment;
+  }
+
+  public function getApnsEnvironment()
+  {
+    return $this->apnsEnvironment;
+  }
+}
+
 class Google_Service_Games_RevisionCheckResponse extends Google_Model
 {
   public $apiVersion;
@@ -4436,6 +4607,7 @@ class Google_Service_Games_RoomLeaveDiagnostics extends Google_Collection
 {
   public $androidNetworkSubtype;
   public $androidNetworkType;
+  public $iosNetworkType;
   public $kind;
   protected $peerSessionType = 'Google_Service_Games_PeerSessionDiagnostics';
   protected $peerSessionDataType = 'array';
@@ -4459,6 +4631,16 @@ class Google_Service_Games_RoomLeaveDiagnostics extends Google_Collection
   public function getAndroidNetworkType()
   {
     return $this->androidNetworkType;
+  }
+
+  public function setIosNetworkType($iosNetworkType)
+  {
+    $this->iosNetworkType = $iosNetworkType;
+  }
+
+  public function getIosNetworkType()
+  {
+    return $this->iosNetworkType;
   }
 
   public function setKind($kind)
