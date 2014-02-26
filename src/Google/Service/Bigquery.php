@@ -1579,10 +1579,11 @@ class Google_Service_Bigquery_JobConfiguration extends Google_Model
   }
 }
 
-class Google_Service_Bigquery_JobConfigurationExtract extends Google_Model
+class Google_Service_Bigquery_JobConfigurationExtract extends Google_Collection
 {
   public $destinationFormat;
   public $destinationUri;
+  public $destinationUris;
   public $fieldDelimiter;
   public $printHeader;
   protected $sourceTableType = 'Google_Service_Bigquery_TableReference';
@@ -1606,6 +1607,16 @@ class Google_Service_Bigquery_JobConfigurationExtract extends Google_Model
   public function getDestinationUri()
   {
     return $this->destinationUri;
+  }
+
+  public function setDestinationUris($destinationUris)
+  {
+    $this->destinationUris = $destinationUris;
+  }
+
+  public function getDestinationUris()
+  {
+    return $this->destinationUris;
   }
 
   public function setFieldDelimiter($fieldDelimiter)
