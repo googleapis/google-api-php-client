@@ -51,8 +51,9 @@ class Google_Config
 
       // Definition of class specific values, like file paths and so on.
       'classes' => array(
-        // If you want to pass in OAuth 2.0 settings, they will need to be
-        // structured like this.
+        'Google_IO_Abstract' => array(
+          'request_timeout_seconds' => 100,
+        ),
         'Google_Http_Request' => array(
           // Disable the use of gzip on calls if set to true. Defaults to false.
           'disable_gzip' => self::GZIP_ENABLED,
@@ -63,6 +64,8 @@ class Google_Config
           // a production environment.
           'enable_gzip_for_uploads' => self::GZIP_UPLOADS_DISABLED,
         ),
+        // If you want to pass in OAuth 2.0 settings, they will need to be
+        // structured like this.
         'Google_Auth_OAuth2' => array(
           // Keys for OAuth 2.0 access, see the API console at
           // https://developers.google.com/console

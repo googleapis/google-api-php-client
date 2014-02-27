@@ -25,7 +25,9 @@ require_once 'Google/IO/Abstract.php';
 
 class Google_IO_Stream extends Google_IO_Abstract
 {
+  const TIMEOUT = "timeout";
   const ZLIB = "compress.zlib://";
+  private $options = array();
 
   private static $DEFAULT_HTTP_CONTEXT = array(
     "follow_location" => 0,
@@ -119,7 +121,7 @@ class Google_IO_Stream extends Google_IO_Abstract
     }
 
     $responseHeaders = $this->getHttpResponseHeaders($http_response_header);
-    
+
     return array($response_data, $responseHeaders, $respHttpCode);
   }
 
@@ -129,9 +131,18 @@ class Google_IO_Stream extends Google_IO_Abstract
    */
   public function setOptions($options)
   {
-    // NO-OP
+    $this->options = array_merge($this->options, $options);
   }
-  
+
+  /**
+   * Set the maximum request time in seconds.
+   * @param $timeout in seconds
+   */
+  public function setTimeout($timeout)
+  {
+    $this->options[self::TIMEOUT] = $timeout;
+  }
+
   protected function getHttpResponseCode($response_headers)
   {
     $header_count = count($response_headers);

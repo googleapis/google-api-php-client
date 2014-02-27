@@ -37,6 +37,10 @@ abstract class Google_IO_Abstract
   public function __construct(Google_Client $client)
   {
     $this->client = $client;
+    $timeout = $client->getClassConfig('Google_IO_Abstract', 'request_timeout_seconds');
+    if ($timeout > 0) {
+      $this->setTimeout($timeout);
+    }
   }
 
   /**
@@ -51,6 +55,12 @@ abstract class Google_IO_Abstract
    * @param $options
    */
   abstract public function setOptions($options);
+  
+  /**
+   * Set the maximum request time in seconds.
+   * @param $timeout in seconds
+   */
+  abstract public function setTimeout($timeout);
 
   /**
    * @visible for testing.
