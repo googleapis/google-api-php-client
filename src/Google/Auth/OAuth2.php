@@ -146,7 +146,6 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
         'client_id' => $this->client->getClassConfig($this, 'client_id'),
         'scope' => $scope,
         'access_type' => $this->client->getClassConfig($this, 'access_type'),
-        'approval_prompt' => $this->client->getClassConfig($this, 'approval_prompt'),
     );
 
     // prompt and approval_prompt parameters cannot be used at the same time.
