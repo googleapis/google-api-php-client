@@ -67,6 +67,7 @@ class Google_Config
           // Other parameters.
           'access_type' => 'online',
           'approval_prompt' => 'auto',
+          'prompt' => '',
           'request_visible_actions' => '',
           'federated_signon_certs_url' =>
               'https://www.googleapis.com/oauth2/v1/certs',
