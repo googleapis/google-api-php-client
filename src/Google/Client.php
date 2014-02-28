@@ -293,6 +293,18 @@ class Google_Client
   }
 
   /**
+   * @param string $Prompt Possible values for prompt include:
+   *  {@code "none"} to not display any authentication or user consent screens
+   *  {@code "consent"} to prompts the user for consent before returning information to the client
+   *  {@code "select_account"} to prompts the user to select a user account (for user who has multiple accounts)
+   *  {@code ""} to shown a consent screen if the user has not previously authorized access
+   */
+  public function setPrompt($Prompt)
+  {
+    $this->config->setPrompt($Prompt);
+  }
+
+  /**
    * Set the application name, this is included in the User-Agent HTTP header.
    * @param string $applicationName
    */
