@@ -146,8 +146,17 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
         'client_id' => $this->client->getClassConfig($this, 'client_id'),
         'scope' => $scope,
         'access_type' => $this->client->getClassConfig($this, 'access_type'),
-        'approval_prompt' => $this->client->getClassConfig($this, 'approval_prompt'),
     );
+
+    // prompt and approval_prompt parameters cannot be used at the same time.
+    // If prompt has been defined we use it, otherwise we use approval_prompt.
+    // prompt = '' has the same effect than approval_prompt = 'auto'
+    $prompt = $this->client->getClassConfig($this, 'prompt');
+    if ($prompt != '') {
+      $params['prompt'] = $prompt;
+    } else {
+      $params['approval_prompt'] = $this->client->getClassConfig($this, 'approval_prompt');
+    }
 
     // If the list of scopes contains plus.login, add request_visible_actions
     // to auth URL.

@@ -67,6 +67,7 @@ class Google_Config
           // Other parameters.
           'access_type' => 'online',
           'approval_prompt' => 'auto',
+          'prompt' => '',
           'request_visible_actions' => '',
           'federated_signon_certs_url' =>
               'https://www.googleapis.com/oauth2/v1/certs',
@@ -268,7 +269,17 @@ class Google_Config
   {
     $this->setAuthConfig('approval_prompt', $approval);
   }
-  
+
+  /**
+   * Set the prompt parameter
+   * can be empty ('') or combination of (none, consent, select_account)
+   * @param $prompt string - the prompt param value
+   */
+  public function setPrompt($prompt)
+  {
+    $this->setAuthConfig('prompt', $prompt);
+  }
+
   /**
    * Set the developer key for the auth class. Note that this is separate value
    * from the client ID - if it looks like a URL, its a client ID!
