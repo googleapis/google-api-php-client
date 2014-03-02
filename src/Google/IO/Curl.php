@@ -74,6 +74,9 @@ class Google_IO_Curl extends Google_IO_Abstract
     }
 
     $response = curl_exec($curl);
+    if ($response === false) {
+      throw new Google_IO_Exception(curl_error($curl));
+    }
     $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
 
     $responseBody = substr($response, $headerSize);
@@ -105,5 +108,13 @@ class Google_IO_Curl extends Google_IO_Abstract
     // do is use the setOptions method for the values individually.
     $this->options[CURLOPT_CONNECTTIMEOUT] = $timeout;
     $this->options[CURLOPT_TIMEOUT] = $timeout;
+  }
+
+  /**
+   * Get the maximum request time in seconds.
+   * @return timeout in seconds
+   */
+  public function getTimeout() {
+    return $this->options[CURLOPT_TIMEOUT];
   }
 }

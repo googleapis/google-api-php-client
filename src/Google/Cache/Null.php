@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 require_once "Google/Cache/Abstract.php";
 require_once "Google/Cache/Exception.php";
 
@@ -24,6 +24,11 @@ require_once "Google/Cache/Exception.php";
  */
 class Google_Cache_Null extends Google_Cache_Abstract
 {
+  public function __construct(Google_Client $client)
+  {
+
+  }
+
    /**
    * @inheritDoc
    */

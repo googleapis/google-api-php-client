@@ -22,9 +22,10 @@ require_once 'BaseTest.php';
 require_once 'Google/Cache/File.php';
 require_once 'Google/Cache/Memcache.php';
 require_once 'Google/Cache/Apc.php';
+require_once 'Google/Cache/Null.php';
 
 class CacheTest extends BaseTest {
-  
+
   public function testFile() {
     $dir = sys_get_temp_dir() . '/google-api-php-client/tests';
     $client = $this->getClient();
@@ -36,8 +37,32 @@ class CacheTest extends BaseTest {
     $cache = new Google_Cache_File($client);
     $cache->set('foo', 'bar');
     $this->assertEquals($cache->get('foo'), 'bar');
-    
+
     $this->getSetDelete($cache);
+  }
+
+  public function testNull()
+  {
+    if (!function_exists('memcache_connect')) {
+      $this->markTestSkipped('Test requires memcache');
+    }
+    $client = $this->getClient();
+    $cache = new Google_Cache_Null($client);
+    $client->setCache($cache);
+
+    $cache->set('foo', 'bar');
+    $cache->delete('foo');
+    $this->assertEquals(false, $cache->get('foo'));
+
+    $cache->set('foo.1', 'bar.1');
+    $this->assertEquals($cache->get('foo.1'), false);
+
+    $cache->set('foo', 'baz');
+    $this->assertEquals($cache->get('foo'), false);
+
+    $cache->set('foo', null);
+    $cache->delete('foo');
+    $this->assertEquals($cache->get('foo'), false);
   }
 
   public function testMemcache() {
@@ -48,12 +73,12 @@ class CacheTest extends BaseTest {
     if (!$client->getClassConfig('Google_Cache_Memcache', 'host')) {
       $this->markTestSkipped('Test requires memcache host specified');
     }
-    
+
     $cache = new Google_Cache_Memcache($client);
-    
-    $this->getSetDelete($cache);    
+
+    $this->getSetDelete($cache);
   }
-  
+
   public function testAPC() {
     if (!function_exists('apc_add')) {
       $this->markTestSkipped('Test requires APC');
@@ -63,15 +88,15 @@ class CacheTest extends BaseTest {
     }
     $client = $this->getClient();
     $cache = new Google_Cache_APC($client);
-    
+
     $this->getSetDelete($cache);
   }
-  
+
   public function getSetDelete($cache) {
     $cache->set('foo', 'bar');
     $cache->delete('foo');
     $this->assertEquals(false, $cache->get('foo'));
-    
+
     $cache->set('foo.1', 'bar.1');
     $cache->delete('foo.1');
     $this->assertEquals($cache->get('foo.1'), false);
@@ -89,7 +114,7 @@ class CacheTest extends BaseTest {
     $cache->set('foo', $obj);
     $cache->delete('foo');
     $this->assertEquals($cache->get('foo'), false);
-    
+
     $cache->set('foo.1', 'bar.1');
     $this->assertEquals($cache->get('foo.1'), 'bar.1');
 

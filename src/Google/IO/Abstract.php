@@ -61,6 +61,12 @@ abstract class Google_IO_Abstract
    * @param $timeout in seconds
    */
   abstract public function setTimeout($timeout);
+  
+  /**
+   * Get the maximum request time in seconds.
+   * @return timeout in seconds
+   */
+  abstract public function getTimeout();
 
   /**
    * @visible for testing.
