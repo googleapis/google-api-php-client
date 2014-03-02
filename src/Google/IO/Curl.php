@@ -114,7 +114,8 @@ class Google_IO_Curl extends Google_IO_Abstract
    * Get the maximum request time in seconds.
    * @return timeout in seconds
    */
-  public function getTimeout() {
+  public function getTimeout()
+  {
     return $this->options[CURLOPT_TIMEOUT];
   }
 }
