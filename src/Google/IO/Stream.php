@@ -101,6 +101,10 @@ class Google_IO_Stream extends Google_IO_Abstract
     // time situation.
     @$fh = fopen($url, 'r', false, $context);
 
+    if (isset($this->options[self::TIMEOUT])) {
+      stream_set_timeout($fh, $this->options[self::TIMEOUT]);
+    }
+
     $response_data = false;
     $respHttpCode = self::UNKNOWN_CODE;
     if ($fh) {

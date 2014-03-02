@@ -99,6 +99,11 @@ class Google_IO_Curl extends Google_IO_Abstract
    */
   public function setTimeout($timeout)
   {
+    // Since this timeout is really for putting a bound on the time
+    // we'll set them both to the same. If you need to specify a longer
+    // CURLOPT_TIMEOUT, or a tigher CONNECTTIMEOUT, the best thing to
+    // do is use the setOptions method for the values individually.
+    $this->options[CURLOPT_CONNECTTIMEOUT] = $timeout;
     $this->options[CURLOPT_TIMEOUT] = $timeout;
   }
 }
