@@ -5879,6 +5879,8 @@ class Google_Service_Analytics_Profile extends Google_Model
   public $selfLink;
   public $siteSearchCategoryParameters;
   public $siteSearchQueryParameters;
+  public $stripSiteSearchCategoryParameters;
+  public $stripSiteSearchQueryParameters;
   public $timezone;
   public $type;
   public $updated;
@@ -6043,6 +6045,26 @@ class Google_Service_Analytics_Profile extends Google_Model
   public function getSiteSearchQueryParameters()
   {
     return $this->siteSearchQueryParameters;
+  }
+
+  public function setStripSiteSearchCategoryParameters($stripSiteSearchCategoryParameters)
+  {
+    $this->stripSiteSearchCategoryParameters = $stripSiteSearchCategoryParameters;
+  }
+
+  public function getStripSiteSearchCategoryParameters()
+  {
+    return $this->stripSiteSearchCategoryParameters;
+  }
+
+  public function setStripSiteSearchQueryParameters($stripSiteSearchQueryParameters)
+  {
+    $this->stripSiteSearchQueryParameters = $stripSiteSearchQueryParameters;
+  }
+
+  public function getStripSiteSearchQueryParameters()
+  {
+    return $this->stripSiteSearchQueryParameters;
   }
 
   public function setTimezone($timezone)
