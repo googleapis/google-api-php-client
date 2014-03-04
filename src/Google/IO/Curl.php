@@ -25,6 +25,9 @@ require_once 'Google/IO/Abstract.php';
 
 class Google_IO_Curl extends Google_IO_Abstract
 {
+  // hex for version 7.31.0
+  const NO_QUIRK_VERSION = 0x071F00;
+
   private $options = array();
   /**
    * Execute an HTTP Request
@@ -117,5 +120,16 @@ class Google_IO_Curl extends Google_IO_Abstract
   public function getTimeout()
   {
     return $this->options[CURLOPT_TIMEOUT];
+  }
+
+  /**
+   * Determine whether "Connection Established" quirk is needed
+   * @return boolean
+   */
+  protected function _needsQuirk()
+  {
+    $ver = curl_version();
+    $versionNum = $ver['version_number'];
+    return $versionNum < static::NO_QUIRK_VERSION;
   }
 }
