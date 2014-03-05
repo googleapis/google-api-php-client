@@ -51,13 +51,13 @@ class Google_Http_MediaFileUpload
 
   /** @var int $progress */
   private $progress;
-  
+
   /** @var Google_Client */
   private $client;
-  
+
   /** @var Google_Http_Request */
   private $request;
-  
+
   /** @var string */
   private $boundary;
 
@@ -89,7 +89,7 @@ class Google_Http_MediaFileUpload
     $this->chunkSize = $chunkSize;
     $this->progress = 0;
     $this->boundary = $boundary;
-    
+
     // Process Media Request
     $this->process();
   }
@@ -102,8 +102,8 @@ class Google_Http_MediaFileUpload
   {
     $this->size = $size;
   }
-  
-  /** 
+
+  /**
    * Return the progress on the upload
    * @return int progress in bytes uploaded.
    */
@@ -111,7 +111,7 @@ class Google_Http_MediaFileUpload
   {
     return $this->progress;
   }
-  
+
   /**
    * Send the next part of the file to upload.
    * @param [$chunk] the next set of bytes to send. If false will used $data passed
@@ -141,7 +141,13 @@ class Google_Http_MediaFileUpload
         $headers,
         $chunk
     );
-    $httpRequest->disableGzip(); // Disable gzip for uploads.
+
+    if ($client->getClassConfig("Google_Http_Request", "enable_gzip_for_uploads")) {
+      $httpRequest->enableGzip();
+    } else {
+      $httpRequest->disableGzip();
+    }
+
     $response = $this->client->getIo()->makeRequest($httpRequest);
     $response->setExpectedClass($this->request->getExpectedClass());
     $code = $response->getResponseHttpCode();
@@ -150,13 +156,13 @@ class Google_Http_MediaFileUpload
       // Track the amount uploaded.
       $range = explode('-', $response->getResponseHeader('range'));
       $this->progress = $range[1] + 1;
-      
+
       // Allow for changing upload URLs.
       $location = $response->getResponseHeader('location');
       if ($location) {
         $this->resumeUri = $location;
       }
-      
+
       // No problems, but upload not complete.
       return false;
     } else {
@@ -177,7 +183,7 @@ class Google_Http_MediaFileUpload
 
     $meta = $this->request->getPostBody();
     $meta = is_string($meta) ? json_decode($meta, true) : $meta;
-    
+
     $uploadType = $this->getUploadType($meta);
     $this->request->setQueryParam('uploadType', $uploadType);
     $this->transformToUploadUrl();
@@ -214,7 +220,7 @@ class Google_Http_MediaFileUpload
       $this->request->setRequestHeaders($contentTypeHeader);
     }
   }
-  
+
   private function transformToUploadUrl()
   {
     $base = $this->request->getBaseComponent();

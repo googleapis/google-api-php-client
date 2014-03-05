@@ -37,11 +37,11 @@ class Google_IO_Curl extends Google_IO_Abstract
   public function executeRequest(Google_Http_Request $request)
   {
     $curl = curl_init();
-    
+
     if ($request->getPostBody()) {
       curl_setopt($curl, CURLOPT_POSTFIELDS, $request->getPostBody());
     }
-    
+
     $requestHeaders = $request->getRequestHeaders();
     if ($requestHeaders && is_array($requestHeaders)) {
       $curlHeaders = array();
@@ -60,11 +60,11 @@ class Google_IO_Curl extends Google_IO_Abstract
     curl_setopt($curl, CURLOPT_HEADER, true);
 
     curl_setopt($curl, CURLOPT_URL, $request->getUrl());
-    
+
     if ($request->canGzip()) {
       curl_setopt($curl, CURLOPT_ENCODING, 'gzip,deflate');
     }
-    
+
     foreach ($this->options as $key => $var) {
       curl_setopt($curl, $key, $var);
     }
@@ -74,6 +74,9 @@ class Google_IO_Curl extends Google_IO_Abstract
     }
 
     $response = curl_exec($curl);
+    if ($response === false) {
+      throw new Google_IO_Exception(curl_error($curl));
+    }
     $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
 
     $responseBody = substr($response, $headerSize);
@@ -90,6 +93,29 @@ class Google_IO_Curl extends Google_IO_Abstract
    */
   public function setOptions($options)
   {
-    $this->options = $options;
+    $this->options = array_merge($this->options, $options);
+  }
+
+  /**
+   * Set the maximum request time in seconds.
+   * @param $timeout in seconds
+   */
+  public function setTimeout($timeout)
+  {
+    // Since this timeout is really for putting a bound on the time
+    // we'll set them both to the same. If you need to specify a longer
+    // CURLOPT_TIMEOUT, or a tigher CONNECTTIMEOUT, the best thing to
+    // do is use the setOptions method for the values individually.
+    $this->options[CURLOPT_CONNECTTIMEOUT] = $timeout;
+    $this->options[CURLOPT_TIMEOUT] = $timeout;
+  }
+
+  /**
+   * Get the maximum request time in seconds.
+   * @return timeout in seconds
+   */
+  public function getTimeout()
+  {
+    return $this->options[CURLOPT_TIMEOUT];
   }
 }

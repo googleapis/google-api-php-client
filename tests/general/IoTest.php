@@ -25,7 +25,7 @@ require_once 'Google/IO/Stream.php';
 
 class IoTest extends BaseTest
 {
-  
+
   public function testExecutorSelection()
   {
     $client = $this->getClient();
@@ -34,6 +34,12 @@ class IoTest extends BaseTest
     $config->setIoClass('Google_IO_Stream');
     $client = new Google_Client($config);
     $this->assertInstanceOf('Google_IO_Stream', $client->getIo());
+  }
+
+  public function testStreamSetTimeout()
+  {
+    $io = new Google_IO_Stream($this->getClient());
+    $this->timeoutChecker($io);
   }
 
   public function testStreamParseHttpResponseBody()
@@ -71,31 +77,37 @@ class IoTest extends BaseTest
     $io = new Google_IO_Stream($this->getClient());
     $this->invalidRequest($io);
   }
-  
+
+  public function testCurlSetTimeout()
+  {
+    $io = new Google_IO_Curl($this->getClient());
+    $this->timeoutChecker($io);
+  }
+
   public function testCurlParseHttpResponseBody()
   {
-    $io = new Google_IO_Stream($this->getClient());
+    $io = new Google_IO_Curl($this->getClient());
     $this->responseChecker($io);
   }
 
   public function testCurlProcessEntityRequest()
   {
     $client = $this->getClient();
-    $io = new Google_IO_Stream($client);
+    $io = new Google_IO_Curl($client);
     $this->processEntityRequest($io, $client);
   }
 
   public function testCurlCacheHit()
   {
     $client = $this->getClient();
-    $io = new Google_IO_Stream($client);
+    $io = new Google_IO_Curl($client);
     $this->cacheHit($io, $client);
   }
 
   public function testCurlAuthCache()
   {
     $client = $this->getClient();
-    $io = new Google_IO_Stream($client);
+    $io = new Google_IO_Curl($client);
     $this->authCache($io, $client);
   }
 
@@ -104,12 +116,18 @@ class IoTest extends BaseTest
    */
   public function testCurlInvalidRequest()
   {
-    $io = new Google_IO_Stream($this->getClient());
+    $io = new Google_IO_Curl($this->getClient());
     $this->invalidRequest($io);
   }
 
   // Asserting Functions
 
+  public function timeoutChecker($io)
+  {
+    $this->assertEquals(100, $io->getTimeout());
+    $io->setTimeout(120);
+    $this->assertEquals(120, $io->getTimeout());
+  }
 
   public function invalidRequest($io)
   {
