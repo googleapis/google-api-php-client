@@ -160,6 +160,10 @@ class Google_Service_Doubleclicksearch extends Google_Service
               'path' => 'conversion',
               'httpMethod' => 'PUT',
               'parameters' => array(),
+            ),'updateAvailability' => array(
+              'path' => 'conversion/updateAvailability',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),
           )
         )
@@ -313,6 +317,20 @@ class Google_Service_Doubleclicksearch_Conversion_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('update', array($params), "Google_Service_Doubleclicksearch_ConversionList");
   }
+  /**
+   * Updates the availabilities of a batch of floodlight activities in DoubleClick
+   * Search. (conversion.updateAvailability)
+   *
+   * @param Google_UpdateAvailabilityRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Doubleclicksearch_UpdateAvailabilityResponse
+   */
+  public function updateAvailability(Google_Service_Doubleclicksearch_UpdateAvailabilityRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('updateAvailability', array($params), "Google_Service_Doubleclicksearch_UpdateAvailabilityResponse");
+  }
 }
 
 /**
@@ -385,6 +403,76 @@ class Google_Service_Doubleclicksearch_Reports_Resource extends Google_Service_R
 
 
 
+
+class Google_Service_Doubleclicksearch_Availability extends Google_Model
+{
+  public $advertiserId;
+  public $agencyId;
+  public $availabilityTimestamp;
+  public $segmentationId;
+  public $segmentationName;
+  public $segmentationType;
+
+  public function setAdvertiserId($advertiserId)
+  {
+    $this->advertiserId = $advertiserId;
+  }
+
+  public function getAdvertiserId()
+  {
+    return $this->advertiserId;
+  }
+
+  public function setAgencyId($agencyId)
+  {
+    $this->agencyId = $agencyId;
+  }
+
+  public function getAgencyId()
+  {
+    return $this->agencyId;
+  }
+
+  public function setAvailabilityTimestamp($availabilityTimestamp)
+  {
+    $this->availabilityTimestamp = $availabilityTimestamp;
+  }
+
+  public function getAvailabilityTimestamp()
+  {
+    return $this->availabilityTimestamp;
+  }
+
+  public function setSegmentationId($segmentationId)
+  {
+    $this->segmentationId = $segmentationId;
+  }
+
+  public function getSegmentationId()
+  {
+    return $this->segmentationId;
+  }
+
+  public function setSegmentationName($segmentationName)
+  {
+    $this->segmentationName = $segmentationName;
+  }
+
+  public function getSegmentationName()
+  {
+    return $this->segmentationName;
+  }
+
+  public function setSegmentationType($segmentationType)
+  {
+    $this->segmentationType = $segmentationType;
+  }
+
+  public function getSegmentationType()
+  {
+    return $this->segmentationType;
+  }
+}
 
 class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
 {
@@ -1320,5 +1408,37 @@ class Google_Service_Doubleclicksearch_ReportRequestTimeRange extends Google_Mod
   public function getStartDate()
   {
     return $this->startDate;
+  }
+}
+
+class Google_Service_Doubleclicksearch_UpdateAvailabilityRequest extends Google_Collection
+{
+  protected $availabilitiesType = 'Google_Service_Doubleclicksearch_Availability';
+  protected $availabilitiesDataType = 'array';
+
+  public function setAvailabilities($availabilities)
+  {
+    $this->availabilities = $availabilities;
+  }
+
+  public function getAvailabilities()
+  {
+    return $this->availabilities;
+  }
+}
+
+class Google_Service_Doubleclicksearch_UpdateAvailabilityResponse extends Google_Collection
+{
+  protected $availabilitiesType = 'Google_Service_Doubleclicksearch_Availability';
+  protected $availabilitiesDataType = 'array';
+
+  public function setAvailabilities($availabilities)
+  {
+    $this->availabilities = $availabilities;
+  }
+
+  public function getAvailabilities()
+  {
+    return $this->availabilities;
   }
 }
