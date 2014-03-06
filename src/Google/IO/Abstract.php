@@ -69,6 +69,12 @@ abstract class Google_IO_Abstract
   abstract public function getTimeout();
 
   /**
+   * Determine whether "Connection Established" quirk is needed
+   * @return boolean
+   */
+  abstract protected function _needsQuirk();
+
+  /**
    * @visible for testing.
    * Cache the response to an HTTP request if it is cacheable.
    * @param Google_Http_Request $request
@@ -238,7 +244,8 @@ abstract class Google_IO_Abstract
    */
   public function parseHttpResponse($respData, $headerSize)
   {
-    if (stripos($respData, self::CONNECTION_ESTABLISHED) !== false) {
+    // only strip this header if the sub-class needs this quirk
+    if ($this->_needsQuirk() && stripos($respData, self::CONNECTION_ESTABLISHED) !== false) {
       $respData = str_ireplace(self::CONNECTION_ESTABLISHED, '', $respData);
     }
 

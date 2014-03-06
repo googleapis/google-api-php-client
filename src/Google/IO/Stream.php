@@ -156,6 +156,16 @@ class Google_IO_Stream extends Google_IO_Abstract
     return $this->options[self::TIMEOUT];
   }
 
+ /**
+   * Determine whether "Connection Established" quirk is needed
+   * @return boolean
+   */
+  protected function _needsQuirk()
+  {
+      // Stream needs the special quirk
+      return true;
+  }
+
   protected function getHttpResponseCode($response_headers)
   {
     $header_count = count($response_headers);
