@@ -76,16 +76,6 @@ class Google_Service_GamesManagement extends Google_Service
               'path' => 'achievements/reset',
               'httpMethod' => 'POST',
               'parameters' => array(),
-            ),'resetForAllPlayers' => array(
-              'path' => 'achievements/{achievementId}/resetForAllPlayers',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'achievementId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
             ),
           )
         )
@@ -188,16 +178,6 @@ class Google_Service_GamesManagement extends Google_Service
                   'required' => true,
                 ),
               ),
-            ),'resetForAllPlayers' => array(
-              'path' => 'leaderboards/{leaderboardId}/scores/resetForAllPlayers',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'leaderboardId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
             ),
           )
         )
@@ -260,21 +240,6 @@ class Google_Service_GamesManagement_Achievements_Resource extends Google_Servic
     $params = array();
     $params = array_merge($params, $optParams);
     return $this->call('resetAll', array($params), "Google_Service_GamesManagement_AchievementResetAllResponse");
-  }
-  /**
-   * Resets the achievement with the given ID for the all players. This method is
-   * only accessible to whitelisted tester accounts for your application.
-   * (achievements.resetForAllPlayers)
-   *
-   * @param string $achievementId
-   * The ID of the achievement used by this method.
-   * @param array $optParams Optional parameters.
-   */
-  public function resetForAllPlayers($achievementId, $optParams = array())
-  {
-    $params = array('achievementId' => $achievementId);
-    $params = array_merge($params, $optParams);
-    return $this->call('resetForAllPlayers', array($params));
   }
 }
 
@@ -413,21 +378,6 @@ class Google_Service_GamesManagement_Scores_Resource extends Google_Service_Reso
     $params = array('leaderboardId' => $leaderboardId);
     $params = array_merge($params, $optParams);
     return $this->call('reset', array($params), "Google_Service_GamesManagement_PlayerScoreResetResponse");
-  }
-  /**
-   * Reset scores for the specified leaderboard for all players. This method is
-   * only accessible to whitelisted tester accounts for your application. Only
-   * draft leaderboards can be reset. (scores.resetForAllPlayers)
-   *
-   * @param string $leaderboardId
-   * The ID of the leaderboard.
-   * @param array $optParams Optional parameters.
-   */
-  public function resetForAllPlayers($leaderboardId, $optParams = array())
-  {
-    $params = array('leaderboardId' => $leaderboardId);
-    $params = array_merge($params, $optParams);
-    return $this->call('resetForAllPlayers', array($params));
   }
 }
 
@@ -643,8 +593,6 @@ class Google_Service_GamesManagement_Player extends Google_Model
   public $kind;
   protected $lastPlayedWithType = 'Google_Service_GamesManagement_GamesPlayedResource';
   protected $lastPlayedWithDataType = '';
-  protected $nameType = 'Google_Service_GamesManagement_PlayerName';
-  protected $nameDataType = '';
   public $playerId;
 
   public function setAvatarImageUrl($avatarImageUrl)
@@ -687,16 +635,6 @@ class Google_Service_GamesManagement_Player extends Google_Model
     return $this->lastPlayedWith;
   }
 
-  public function setName(Google_Service_GamesManagement_PlayerName $name)
-  {
-    $this->name = $name;
-  }
-
-  public function getName()
-  {
-    return $this->name;
-  }
-
   public function setPlayerId($playerId)
   {
     $this->playerId = $playerId;
@@ -705,32 +643,6 @@ class Google_Service_GamesManagement_Player extends Google_Model
   public function getPlayerId()
   {
     return $this->playerId;
-  }
-}
-
-class Google_Service_GamesManagement_PlayerName extends Google_Model
-{
-  public $familyName;
-  public $givenName;
-
-  public function setFamilyName($familyName)
-  {
-    $this->familyName = $familyName;
-  }
-
-  public function getFamilyName()
-  {
-    return $this->familyName;
-  }
-
-  public function setGivenName($givenName)
-  {
-    $this->givenName = $givenName;
-  }
-
-  public function getGivenName()
-  {
-    return $this->givenName;
   }
 }
 
