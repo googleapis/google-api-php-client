@@ -111,7 +111,7 @@ class Google_Model implements ArrayAccess
     // Process all other data.
     foreach ($this->data as $key => $val) {
       $result = $this->getSimpleValue($val);
-      if ($result != null) {
+      if ($result !== null) {
         $object->$key = $result;
       }
     }
@@ -122,7 +122,7 @@ class Google_Model implements ArrayAccess
     foreach ($props as $member) {
       $name = $member->getName();
       $result = $this->getSimpleValue($this->$name);
-      if ($result != null) {
+      if ($result !== null) {
         $object->$name = $result;
       }
     }
