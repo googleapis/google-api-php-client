@@ -151,8 +151,6 @@ class Google_Service_Pagespeedonline_Result extends Google_Collection
   public $kind;
   protected $pageStatsType = 'Google_Service_Pagespeedonline_ResultPageStats';
   protected $pageStatsDataType = '';
-  protected $requestType = 'Google_Service_Pagespeedonline_ResultRequest';
-  protected $requestDataType = '';
   public $responseCode;
   public $score;
   protected $screenshotType = 'Google_Service_Pagespeedonline_ResultScreenshot';
@@ -209,16 +207,6 @@ class Google_Service_Pagespeedonline_Result extends Google_Collection
   public function getPageStats()
   {
     return $this->pageStats;
-  }
-
-  public function setRequest(Google_Service_Pagespeedonline_ResultRequest $request)
-  {
-    $this->request = $request;
-  }
-
-  public function getRequest()
-  {
-    return $this->request;
   }
 
   public function setResponseCode($responseCode)
@@ -696,43 +684,6 @@ class Google_Service_Pagespeedonline_ResultPageStats extends Google_Model
   public function getTotalRequestBytes()
   {
     return $this->totalRequestBytes;
-  }
-}
-
-class Google_Service_Pagespeedonline_ResultRequest extends Google_Model
-{
-  public $filterThirdPartyResources;
-  public $strategy;
-  public $url;
-
-  public function setFilterThirdPartyResources($filterThirdPartyResources)
-  {
-    $this->filterThirdPartyResources = $filterThirdPartyResources;
-  }
-
-  public function getFilterThirdPartyResources()
-  {
-    return $this->filterThirdPartyResources;
-  }
-
-  public function setStrategy($strategy)
-  {
-    $this->strategy = $strategy;
-  }
-
-  public function getStrategy()
-  {
-    return $this->strategy;
-  }
-
-  public function setUrl($url)
-  {
-    $this->url = $url;
-  }
-
-  public function getUrl()
-  {
-    return $this->url;
   }
 }
 
