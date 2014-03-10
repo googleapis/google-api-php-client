@@ -96,7 +96,7 @@ class Google_IO_Curl extends Google_IO_Abstract
    */
   public function setOptions($options)
   {
-    $this->options += $options;
+    $this->options = $options + $this->options;
   }
 
   /**
