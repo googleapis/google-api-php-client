@@ -86,7 +86,8 @@ class Google_Service_Freebase extends Google_Service
                   'type' => 'integer',
                 ),
               ),
-            ),'search' => array(
+            ),
+            'search' => array(
               'path' => 'search',
               'httpMethod' => 'GET',
               'parameters' => array(
@@ -277,7 +278,7 @@ class Google_Service_Freebase extends Google_Service
   {
     $params = array();
     $params = array_merge($params, $optParams);
-    return $this->call('search', array($params));
+    return $this->base_methods->call('search', array($params));
   }
 }
 
