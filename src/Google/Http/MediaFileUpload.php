@@ -62,6 +62,12 @@ class Google_Http_MediaFileUpload
   private $boundary;
 
   /**
+   * Result code from last HTTP call
+   * @var int
+   */
+  private $httpResultCode;
+
+  /**
    * @param $mimeType string
    * @param $data string The bytes you want to upload.
    * @param $resumable bool
@@ -113,6 +119,15 @@ class Google_Http_MediaFileUpload
   }
 
   /**
+   * Return the HTTP result code from the last call made.
+   * @return int code
+   */
+  public function getHttpResultCode()
+  {
+    return $this->httpResultCode;
+  }
+
+  /**
    * Send the next part of the file to upload.
    * @param [$chunk] the next set of bytes to send. If false will used $data passed
    * at construct time.
@@ -151,6 +166,7 @@ class Google_Http_MediaFileUpload
     $response = $this->client->getIo()->makeRequest($httpRequest);
     $response->setExpectedClass($this->request->getExpectedClass());
     $code = $response->getResponseHttpCode();
+    $this->httpResultCode = $code;
 
     if (308 == $code) {
       // Track the amount uploaded.
