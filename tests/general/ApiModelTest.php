@@ -80,7 +80,9 @@ class ApiModelTest extends BaseTest
     $model3 = new Google_Model();
     $model3->publicE = 54321;
     $model3->publicF = null;
-    $model->publicG = array($model3, "hello");
+    $model->publicG = array($model3, "hello", false);
+    $model->publicH = false;
+    $model->publicI = 0;
     $string = json_encode($model->toSimpleObject());
     $data = json_decode($string, true);
     $this->assertEquals(12345, $data['publicB']['publicC']);
@@ -89,7 +91,10 @@ class ApiModelTest extends BaseTest
     $this->assertArrayHasKey("publicE", $data['publicG'][0]);
     $this->assertArrayNotHasKey("publicF", $data['publicG'][0]);
     $this->assertEquals("hello", $data['publicG'][1]);
+    $this->assertEquals(false, $data['publicG'][2]);
     $this->assertArrayNotHasKey("data", $data);
+    $this->assertEquals(false, $data['publicH']);
+    $this->assertEquals(0, $data['publicI']);
   }
 
   public function testIssetPropertyOnModel()
