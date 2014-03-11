@@ -130,6 +130,6 @@ class Google_IO_Curl extends Google_IO_Abstract
   {
     $ver = curl_version();
     $versionNum = $ver['version_number'];
-    return $versionNum < static::NO_QUIRK_VERSION;
+    return $versionNum < Google_IO_Curl::NO_QUIRK_VERSION;
   }
 }
