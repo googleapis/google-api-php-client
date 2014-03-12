@@ -1246,7 +1246,7 @@ class Google_Service_Games_Rooms_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string language
-   * Specify the preferred language to use to format room info.
+   * The preferred language to use for strings returned by this method.
    * @return Google_Service_Games_Room
    */
   public function get($roomId, $optParams = array())
@@ -1505,7 +1505,7 @@ class Google_Service_Games_TurnBasedMatches_Resource extends Google_Service_Reso
    * @param array $optParams Optional parameters.
    *
    * @opt_param string language
-   * Specify the preferred language to use to format match info.
+   * The preferred language to use for strings returned by this method.
    * @return Google_Service_Games_TurnBasedMatch
    */
   public function create(Google_Service_Games_TurnBasedMatchCreateRequest $postBody, $optParams = array())
@@ -1574,7 +1574,7 @@ class Google_Service_Games_TurnBasedMatches_Resource extends Google_Service_Reso
    * @param array $optParams Optional parameters.
    *
    * @opt_param string language
-   * Specify the preferred language to use to format match info.
+   * The preferred language to use for strings returned by this method.
    * @opt_param bool includeMatchData
    * Get match data along with metadata.
    * @return Google_Service_Games_TurnBasedMatch
@@ -1736,7 +1736,7 @@ class Google_Service_Games_TurnBasedMatches_Resource extends Google_Service_Reso
    * @param array $optParams Optional parameters.
    *
    * @opt_param string language
-   * Specify the preferred language to use to format match info.
+   * The preferred language to use for strings returned by this method.
    * @return Google_Service_Games_TurnBasedMatch
    */
   public function takeTurn($matchId, Google_Service_Games_TurnBasedMatchTurn $postBody, $optParams = array())
@@ -3540,6 +3540,8 @@ class Google_Service_Games_Player extends Google_Model
   public $kind;
   protected $lastPlayedWithType = 'Google_Service_Games_Played';
   protected $lastPlayedWithDataType = '';
+  protected $nameType = 'Google_Service_Games_PlayerName';
+  protected $nameDataType = '';
   public $playerId;
 
   public function setAvatarImageUrl($avatarImageUrl)
@@ -3580,6 +3582,16 @@ class Google_Service_Games_Player extends Google_Model
   public function getLastPlayedWith()
   {
     return $this->lastPlayedWith;
+  }
+
+  public function setName(Google_Service_Games_PlayerName $name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
   }
 
   public function setPlayerId($playerId)
@@ -3891,6 +3903,32 @@ class Google_Service_Games_PlayerListResponse extends Google_Collection
   public function getNextPageToken()
   {
     return $this->nextPageToken;
+  }
+}
+
+class Google_Service_Games_PlayerName extends Google_Model
+{
+  public $familyName;
+  public $givenName;
+
+  public function setFamilyName($familyName)
+  {
+    $this->familyName = $familyName;
+  }
+
+  public function getFamilyName()
+  {
+    return $this->familyName;
+  }
+
+  public function setGivenName($givenName)
+  {
+    $this->givenName = $givenName;
+  }
+
+  public function getGivenName()
+  {
+    return $this->givenName;
   }
 }
 
@@ -4227,6 +4265,7 @@ class Google_Service_Games_Room extends Google_Collection
   protected $creationDetailsType = 'Google_Service_Games_RoomModification';
   protected $creationDetailsDataType = '';
   public $description;
+  public $inviterId;
   public $kind;
   protected $lastUpdateDetailsType = 'Google_Service_Games_RoomModification';
   protected $lastUpdateDetailsDataType = '';
@@ -4285,6 +4324,16 @@ class Google_Service_Games_Room extends Google_Collection
   public function getDescription()
   {
     return $this->description;
+  }
+
+  public function setInviterId($inviterId)
+  {
+    $this->inviterId = $inviterId;
+  }
+
+  public function getInviterId()
+  {
+    return $this->inviterId;
   }
 
   public function setKind($kind)
@@ -5189,6 +5238,8 @@ class Google_Service_Games_TurnBasedMatch extends Google_Collection
   protected $creationDetailsDataType = '';
   protected $dataType = 'Google_Service_Games_TurnBasedMatchData';
   protected $dataDataType = '';
+  public $description;
+  public $inviterId;
   public $kind;
   protected $lastUpdateDetailsType = 'Google_Service_Games_TurnBasedMatchModification';
   protected $lastUpdateDetailsDataType = '';
@@ -5206,6 +5257,7 @@ class Google_Service_Games_TurnBasedMatch extends Google_Collection
   public $status;
   public $userMatchStatus;
   public $variant;
+  public $withParticipantId;
 
   public function setApplicationId($applicationId)
   {
@@ -5245,6 +5297,26 @@ class Google_Service_Games_TurnBasedMatch extends Google_Collection
   public function getData()
   {
     return $this->data;
+  }
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  public function setInviterId($inviterId)
+  {
+    $this->inviterId = $inviterId;
+  }
+
+  public function getInviterId()
+  {
+    return $this->inviterId;
   }
 
   public function setKind($kind)
@@ -5375,6 +5447,16 @@ class Google_Service_Games_TurnBasedMatch extends Google_Collection
   public function getVariant()
   {
     return $this->variant;
+  }
+
+  public function setWithParticipantId($withParticipantId)
+  {
+    $this->withParticipantId = $withParticipantId;
+  }
+
+  public function getWithParticipantId()
+  {
+    return $this->withParticipantId;
   }
 }
 
