@@ -157,7 +157,7 @@ class Google_Http_MediaFileUpload
         $chunk
     );
 
-    if ($client->getClassConfig("Google_Http_Request", "enable_gzip_for_uploads")) {
+    if ($this->client->getClassConfig("Google_Http_Request", "enable_gzip_for_uploads")) {
       $httpRequest->enableGzip();
     } else {
       $httpRequest->disableGzip();

@@ -126,7 +126,7 @@ class Google_IO_Curl extends Google_IO_Abstract
    * Determine whether "Connection Established" quirk is needed
    * @return boolean
    */
-  protected function _needsQuirk()
+  protected function needsQuirk()
   {
     $ver = curl_version();
     $versionNum = $ver['version_number'];
