@@ -156,11 +156,11 @@ class Google_IO_Stream extends Google_IO_Abstract
     return $this->options[self::TIMEOUT];
   }
 
- /**
+  /**
    * Determine whether "Connection Established" quirk is needed
    * @return boolean
    */
-  protected function _needsQuirk()
+  protected function needsQuirk()
   {
       // Stream needs the special quirk
       return true;

@@ -72,7 +72,7 @@ abstract class Google_IO_Abstract
    * Determine whether "Connection Established" quirk is needed
    * @return boolean
    */
-  abstract protected function _needsQuirk();
+  abstract protected function needsQuirk();
 
   /**
    * @visible for testing.
@@ -245,7 +245,7 @@ abstract class Google_IO_Abstract
   public function parseHttpResponse($respData, $headerSize)
   {
     // only strip this header if the sub-class needs this quirk
-    if ($this->_needsQuirk() && stripos($respData, self::CONNECTION_ESTABLISHED) !== false) {
+    if ($this->needsQuirk() && stripos($respData, self::CONNECTION_ESTABLISHED) !== false) {
       $respData = str_ireplace(self::CONNECTION_ESTABLISHED, '', $respData);
     }
 

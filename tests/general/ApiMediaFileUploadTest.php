@@ -51,6 +51,15 @@ class ApiMediaFileUploadTest extends BaseTest {
       $this->assertEquals('multipart',
         $media->getUploadType(array('a' => 'b')));
     }
+    
+    public function testResultCode() {
+      $client = $this->getClient();
+      $request = new Google_Http_Request('http://www.example.com', 'POST');
+
+      // Test resumable upload
+      $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', 'a', true);
+      $this->assertEquals(null, $media->getHttpResultCode());
+    }
   
     public function testProcess() {
       $client = $this->getClient();
