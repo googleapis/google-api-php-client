@@ -2079,6 +2079,7 @@ class Google_Service_PlusDomains_Audience extends Google_Model
   protected $itemType = 'Google_Service_PlusDomains_PlusDomainsAclentryResource';
   protected $itemDataType = '';
   public $kind;
+  public $memberCount;
   public $visibility;
 
   public function setEtag($etag)
@@ -2109,6 +2110,16 @@ class Google_Service_PlusDomains_Audience extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+
+  public function setMemberCount($memberCount)
+  {
+    $this->memberCount = $memberCount;
+  }
+
+  public function getMemberCount()
+  {
+    return $this->memberCount;
   }
 
   public function setVisibility($visibility)
