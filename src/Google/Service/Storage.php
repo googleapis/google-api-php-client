@@ -2850,6 +2850,7 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   protected $ownerDataType = '';
   public $selfLink;
   public $size;
+  public $storageClass;
   public $timeDeleted;
   public $updated;
 
@@ -3061,6 +3062,16 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   public function getSize()
   {
     return $this->size;
+  }
+
+  public function setStorageClass($storageClass)
+  {
+    $this->storageClass = $storageClass;
+  }
+
+  public function getStorageClass()
+  {
+    return $this->storageClass;
   }
 
   public function setTimeDeleted($timeDeleted)
