@@ -25,7 +25,7 @@
  */
 class Google_Model implements ArrayAccess
 {
-  protected $data = array();
+  protected $modelData = array();
   protected $processed = array();
 
   /**
@@ -46,8 +46,8 @@ class Google_Model implements ArrayAccess
     $keyTypeName = $this->keyType($key);
     $keyDataType = $this->dataType($key);
     if (isset($this->$keyTypeName) && !isset($this->processed[$key])) {
-      if (isset($this->data[$key])) {
-        $val = $this->data[$key];
+      if (isset($this->modelData[$key])) {
+        $val = $this->modelData[$key];
       } else {
         $val = null;
       }
@@ -55,11 +55,11 @@ class Google_Model implements ArrayAccess
       if ($this->isAssociativeArray($val)) {
         if (isset($this->$keyDataType) && 'map' == $this->$keyDataType) {
           foreach ($val as $arrayKey => $arrayItem) {
-              $this->data[$key][$arrayKey] =
+              $this->modelData[$key][$arrayKey] =
                 $this->createObjectFromName($keyTypeName, $arrayItem);
           }
         } else {
-          $this->data[$key] = $this->createObjectFromName($keyTypeName, $val);
+          $this->modelData[$key] = $this->createObjectFromName($keyTypeName, $val);
         }
       } else if (is_array($val)) {
         $arrayObject = array();
@@ -67,12 +67,12 @@ class Google_Model implements ArrayAccess
           $arrayObject[$arrayIndex] =
             $this->createObjectFromName($keyTypeName, $arrayItem);
         }
-        $this->data[$key] = $arrayObject;
+        $this->modelData[$key] = $arrayObject;
       }
       $this->processed[$key] = true;
     }
 
-    return $this->data[$key];
+    return $this->modelData[$key];
   }
 
   /**
@@ -95,7 +95,7 @@ class Google_Model implements ArrayAccess
           $this->$camelKey = $val;
       }
     }
-    $this->data = $array;
+    $this->modelData = $array;
   }
 
   /**
@@ -109,7 +109,7 @@ class Google_Model implements ArrayAccess
     $object = new stdClass();
 
     // Process all other data.
-    foreach ($this->data as $key => $val) {
+    foreach ($this->modelData as $key => $val) {
       $result = $this->getSimpleValue($val);
       if ($result !== null) {
         $object->$key = $result;
@@ -200,7 +200,7 @@ class Google_Model implements ArrayAccess
 
   public function offsetExists($offset)
   {
-    return isset($this->$offset) || isset($this->data[$offset]);
+    return isset($this->$offset) || isset($this->modelData[$offset]);
   }
 
   public function offsetGet($offset)
@@ -215,14 +215,14 @@ class Google_Model implements ArrayAccess
     if (property_exists($this, $offset)) {
       $this->$offset = $value;
     } else {
-      $this->data[$offset] = $value;
+      $this->modelData[$offset] = $value;
       $this->processed[$offset] = true;
     }
   }
 
   public function offsetUnset($offset)
   {
-    unset($this->data[$offset]);
+    unset($this->modelData[$offset]);
   }
 
   protected function keyType($key)
@@ -237,11 +237,11 @@ class Google_Model implements ArrayAccess
 
   public function __isset($key)
   {
-    return isset($this->data[$key]);
+    return isset($this->modelData[$key]);
   }
 
   public function __unset($key)
   {
-    unset($this->data[$key]);
+    unset($this->modelData[$key]);
   }
 }
