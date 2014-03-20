@@ -1850,6 +1850,8 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   public $id;
   public $kind;
   public $location;
+  protected $notificationSettingsType = 'Google_Service_Calendar_CalendarListEntryNotificationSettings';
+  protected $notificationSettingsDataType = '';
   public $primary;
   public $selected;
   public $summary;
@@ -1966,6 +1968,16 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
     return $this->location;
   }
 
+  public function setNotificationSettings(Google_Service_Calendar_CalendarListEntryNotificationSettings $notificationSettings)
+  {
+    $this->notificationSettings = $notificationSettings;
+  }
+
+  public function getNotificationSettings()
+  {
+    return $this->notificationSettings;
+  }
+
   public function setPrimary($primary)
   {
     $this->primary = $primary;
@@ -2014,6 +2026,48 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
   public function getTimeZone()
   {
     return $this->timeZone;
+  }
+}
+
+class Google_Service_Calendar_CalendarListEntryNotificationSettings extends Google_Collection
+{
+  protected $notificationsType = 'Google_Service_Calendar_CalendarNotification';
+  protected $notificationsDataType = 'array';
+
+  public function setNotifications($notifications)
+  {
+    $this->notifications = $notifications;
+  }
+
+  public function getNotifications()
+  {
+    return $this->notifications;
+  }
+}
+
+class Google_Service_Calendar_CalendarNotification extends Google_Model
+{
+  public $method;
+  public $type;
+
+  public function setMethod($method)
+  {
+    $this->method = $method;
+  }
+
+  public function getMethod()
+  {
+    return $this->method;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
   }
 }
 
