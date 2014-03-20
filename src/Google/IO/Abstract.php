@@ -247,6 +247,7 @@ abstract class Google_IO_Abstract
     // only strip this header if the sub-class needs this quirk
     if ($this->needsQuirk() && stripos($respData, self::CONNECTION_ESTABLISHED) !== false) {
       $respData = str_ireplace(self::CONNECTION_ESTABLISHED, '', $respData);
+      $headerSize -= strlen(self::CONNECTION_ESTABLISHED);
     }
 
     if ($headerSize) {
@@ -277,7 +278,6 @@ abstract class Google_IO_Abstract
   private function parseStringHeaders($rawHeaders)
   {
     $headers = array();
-
     $responseHeaderLines = explode("\r\n", $rawHeaders);
     foreach ($responseHeaderLines as $headerLine) {
       if ($headerLine && strpos($headerLine, ':') !== false) {
