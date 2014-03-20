@@ -215,13 +215,13 @@ class IoTest extends BaseTest
     $this->assertEquals(null, json_decode($body, true));
 
     // Test transforms from proxies.
-    $rawHeaders = "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n";
-    $size = strlen($rawHeaders);
+    $rawHeaders = Google_IO_Abstract::CONNECTION_ESTABLISHED
+        . "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n";
+    $headersSize = strlen($rawHeaders);
     $rawBody = "{}";
 
-    $rawResponse = Google_IO_Abstract::CONNECTION_ESTABLISHED
-          . "$rawHeaders\r\n$rawBody";
-    list($headers, $body) = $io->parseHttpResponse($rawResponse, $size);
+    $rawResponse = "$rawHeaders\r\n$rawBody";
+    list($headers, $body) = $io->parseHttpResponse($rawResponse, $headersSize);
     $this->assertEquals(1, sizeof($headers));
     $this->assertEquals(array(), json_decode($body, true));
   }
