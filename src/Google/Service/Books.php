@@ -4938,6 +4938,7 @@ class Google_Service_Books_VolumeAccessInfo extends Google_Model
   public $country;
   protected $downloadAccessType = 'Google_Service_Books_DownloadAccessRestriction';
   protected $downloadAccessDataType = '';
+  public $driveImportedContentLink;
   public $embeddable;
   protected $epubType = 'Google_Service_Books_VolumeAccessInfoEpub';
   protected $epubDataType = '';
@@ -4979,6 +4980,16 @@ class Google_Service_Books_VolumeAccessInfo extends Google_Model
   public function getDownloadAccess()
   {
     return $this->downloadAccess;
+  }
+
+  public function setDriveImportedContentLink($driveImportedContentLink)
+  {
+    $this->driveImportedContentLink = $driveImportedContentLink;
+  }
+
+  public function getDriveImportedContentLink()
+  {
+    return $this->driveImportedContentLink;
   }
 
   public function setEmbeddable($embeddable)
