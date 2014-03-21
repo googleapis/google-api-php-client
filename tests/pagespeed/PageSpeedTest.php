@@ -25,6 +25,7 @@ class PageSpeedTest extends BaseTest {
   }
 
   public function testPageSpeed() {
+    $this->checkToken();
     $psapi = $this->service->pagespeedapi;
     $result = $psapi->runpagespeed('http://code.google.com');
     $this->assertArrayHasKey('kind', $result);
