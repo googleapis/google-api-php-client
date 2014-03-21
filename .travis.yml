@@ -1,0 +1,14 @@
+language: php
+
+php:
+  # Can't test against 5.2; openssl is not available:
+  # http://docs.travis-ci.com/user/languages/php/#PHP-installation
+  - 5.3
+  - 5.4
+  - 5.5
+
+before_script:
+  - composer install
+
+script: 
+  - cd tests ; phpunit .
