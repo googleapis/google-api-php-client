@@ -46,6 +46,8 @@ class Google_Service_YouTube extends Google_Service
   public $channelBanners;
   public $channels;
   public $guideCategories;
+  public $i18nLanguage;
+  public $i18nRegion;
   public $liveBroadcasts;
   public $liveStreams;
   public $playlistItems;
@@ -244,6 +246,44 @@ class Google_Service_YouTube extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->i18nLanguage = new Google_Service_YouTube_I18nLanguage_Resource(
+        $this,
+        $this->serviceName,
+        'i18nLanguage',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'i18nLanguages',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->i18nRegion = new Google_Service_YouTube_I18nRegion_Resource(
+        $this,
+        $this->serviceName,
+        'i18nRegion',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'i18nRegions',
+              'httpMethod' => 'GET',
+              'parameters' => array(
                 'hl' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -1446,6 +1486,62 @@ class Google_Service_YouTube_GuideCategories_Resource extends Google_Service_Res
     $params = array('part' => $part);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_YouTube_GuideCategoryListResponse");
+  }
+}
+
+/**
+ * The "i18nLanguage" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $youtubeService = new Google_Service_YouTube(...);
+ *   $i18nLanguage = $youtubeService->i18nLanguage;
+ *  </code>
+ */
+class Google_Service_YouTube_I18nLanguage_Resource extends Google_Service_Resource
+{
+
+  /**
+   * (i18nLanguage.listI18nLanguage)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string hl
+   * The hl parameter specifies the language that should be used for text values in the API response.
+   * @return Google_Service_YouTube_I18nLanguageListResponse
+   */
+  public function listI18nLanguage($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_YouTube_I18nLanguageListResponse");
+  }
+}
+
+/**
+ * The "i18nRegion" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $youtubeService = new Google_Service_YouTube(...);
+ *   $i18nRegion = $youtubeService->i18nRegion;
+ *  </code>
+ */
+class Google_Service_YouTube_I18nRegion_Resource extends Google_Service_Resource
+{
+
+  /**
+   * (i18nRegion.listI18nRegion)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string hl
+   * The hl parameter specifies the language that should be used for text values in the API response.
+   * @return Google_Service_YouTube_I18nRegionListResponse
+   */
+  public function listI18nRegion($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_YouTube_I18nRegionListResponse");
   }
 }
 
@@ -5079,6 +5175,276 @@ class Google_Service_YouTube_GuideCategorySnippet extends Google_Model
   public function getTitle()
   {
     return $this->title;
+  }
+}
+
+class Google_Service_YouTube_I18nLanguage extends Google_Model
+{
+  public $etag;
+  public $id;
+  public $kind;
+  protected $snippetType = 'Google_Service_YouTube_I18nLanguageSnippet';
+  protected $snippetDataType = '';
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setSnippet(Google_Service_YouTube_I18nLanguageSnippet $snippet)
+  {
+    $this->snippet = $snippet;
+  }
+
+  public function getSnippet()
+  {
+    return $this->snippet;
+  }
+}
+
+class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
+{
+  public $etag;
+  public $eventId;
+  protected $itemsType = 'Google_Service_YouTube_I18nLanguage';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $visitorId;
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+
+  public function setEventId($eventId)
+  {
+    $this->eventId = $eventId;
+  }
+
+  public function getEventId()
+  {
+    return $this->eventId;
+  }
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setVisitorId($visitorId)
+  {
+    $this->visitorId = $visitorId;
+  }
+
+  public function getVisitorId()
+  {
+    return $this->visitorId;
+  }
+}
+
+class Google_Service_YouTube_I18nLanguageSnippet extends Google_Model
+{
+  public $hl;
+  public $name;
+
+  public function setHl($hl)
+  {
+    $this->hl = $hl;
+  }
+
+  public function getHl()
+  {
+    return $this->hl;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+}
+
+class Google_Service_YouTube_I18nRegion extends Google_Model
+{
+  public $etag;
+  public $id;
+  public $kind;
+  protected $snippetType = 'Google_Service_YouTube_I18nRegionSnippet';
+  protected $snippetDataType = '';
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setSnippet(Google_Service_YouTube_I18nRegionSnippet $snippet)
+  {
+    $this->snippet = $snippet;
+  }
+
+  public function getSnippet()
+  {
+    return $this->snippet;
+  }
+}
+
+class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
+{
+  public $etag;
+  public $eventId;
+  protected $itemsType = 'Google_Service_YouTube_I18nRegion';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $visitorId;
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+
+  public function setEventId($eventId)
+  {
+    $this->eventId = $eventId;
+  }
+
+  public function getEventId()
+  {
+    return $this->eventId;
+  }
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setVisitorId($visitorId)
+  {
+    $this->visitorId = $visitorId;
+  }
+
+  public function getVisitorId()
+  {
+    return $this->visitorId;
+  }
+}
+
+class Google_Service_YouTube_I18nRegionSnippet extends Google_Model
+{
+  public $gl;
+  public $name;
+
+  public function setGl($gl)
+  {
+    $this->gl = $gl;
+  }
+
+  public function getGl()
+  {
+    return $this->gl;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
   }
 }
 
@@ -9400,6 +9766,7 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   public $license;
   public $privacyStatus;
   public $publicStatsViewable;
+  public $publishAt;
   public $rejectionReason;
   public $uploadStatus;
 
@@ -9451,6 +9818,16 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   public function getPublicStatsViewable()
   {
     return $this->publicStatsViewable;
+  }
+
+  public function setPublishAt($publishAt)
+  {
+    $this->publishAt = $publishAt;
+  }
+
+  public function getPublishAt()
+  {
+    return $this->publishAt;
   }
 
   public function setRejectionReason($rejectionReason)
