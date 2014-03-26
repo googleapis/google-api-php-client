@@ -43,6 +43,7 @@ class Google_Service_Analytics extends Google_Service
   public $data_ga;
   public $data_mcf;
   public $data_realtime;
+  public $management_accountSummaries;
   public $management_accountUserLinks;
   public $management_accounts;
   public $management_customDataSources;
@@ -231,6 +232,29 @@ class Google_Service_Analytics extends Google_Service
                 'filters' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->management_accountSummaries = new Google_Service_Analytics_ManagementAccountSummaries_Resource(
+        $this,
+        $this->serviceName,
+        'accountSummaries',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'management/accountSummaries',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'max-results' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'start-index' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -1501,6 +1525,38 @@ class Google_Service_Analytics_Management_Resource extends Google_Service_Resour
 }
 
 /**
+ * The "accountSummaries" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $analyticsService = new Google_Service_Analytics(...);
+ *   $accountSummaries = $analyticsService->accountSummaries;
+ *  </code>
+ */
+class Google_Service_Analytics_ManagementAccountSummaries_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Lists account summaries (lightweight tree comprised of
+   * accounts/properties/profiles) to which the user has access.
+   * (accountSummaries.listManagementAccountSummaries)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param int maxResults
+   * The maximum number of filters to include in this response.
+   * @opt_param int startIndex
+   * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
+    * with the max-results parameter.
+   * @return Google_Service_Analytics_AccountSummaries
+   */
+  public function listManagementAccountSummaries($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Analytics_AccountSummaries");
+  }
+}
+/**
  * The "accountUserLinks" collection of methods.
  * Typical usage is:
  *  <code>
@@ -2759,6 +2815,148 @@ class Google_Service_Analytics_AccountRef extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+}
+
+class Google_Service_Analytics_AccountSummaries extends Google_Collection
+{
+  protected $itemsType = 'Google_Service_Analytics_AccountSummary';
+  protected $itemsDataType = 'array';
+  public $itemsPerPage;
+  public $kind;
+  public $nextLink;
+  public $previousLink;
+  public $startIndex;
+  public $totalResults;
+  public $username;
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+
+  public function setItemsPerPage($itemsPerPage)
+  {
+    $this->itemsPerPage = $itemsPerPage;
+  }
+
+  public function getItemsPerPage()
+  {
+    return $this->itemsPerPage;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setNextLink($nextLink)
+  {
+    $this->nextLink = $nextLink;
+  }
+
+  public function getNextLink()
+  {
+    return $this->nextLink;
+  }
+
+  public function setPreviousLink($previousLink)
+  {
+    $this->previousLink = $previousLink;
+  }
+
+  public function getPreviousLink()
+  {
+    return $this->previousLink;
+  }
+
+  public function setStartIndex($startIndex)
+  {
+    $this->startIndex = $startIndex;
+  }
+
+  public function getStartIndex()
+  {
+    return $this->startIndex;
+  }
+
+  public function setTotalResults($totalResults)
+  {
+    $this->totalResults = $totalResults;
+  }
+
+  public function getTotalResults()
+  {
+    return $this->totalResults;
+  }
+
+  public function setUsername($username)
+  {
+    $this->username = $username;
+  }
+
+  public function getUsername()
+  {
+    return $this->username;
+  }
+}
+
+class Google_Service_Analytics_AccountSummary extends Google_Collection
+{
+  public $id;
+  public $kind;
+  public $name;
+  protected $webPropertiesType = 'Google_Service_Analytics_WebPropertySummary';
+  protected $webPropertiesDataType = 'array';
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setWebProperties($webProperties)
+  {
+    $this->webProperties = $webProperties;
+  }
+
+  public function getWebProperties()
+  {
+    return $this->webProperties;
   }
 }
 
@@ -6266,6 +6464,54 @@ class Google_Service_Analytics_ProfileRef extends Google_Model
   }
 }
 
+class Google_Service_Analytics_ProfileSummary extends Google_Model
+{
+  public $id;
+  public $kind;
+  public $name;
+  public $type;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
+  }
+}
+
 class Google_Service_Analytics_Profiles extends Google_Collection
 {
   protected $itemsType = 'Google_Service_Analytics_Profile';
@@ -7083,6 +7329,88 @@ class Google_Service_Analytics_WebPropertyRef extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+}
+
+class Google_Service_Analytics_WebPropertySummary extends Google_Collection
+{
+  public $id;
+  public $internalWebPropertyId;
+  public $kind;
+  public $level;
+  public $name;
+  protected $profilesType = 'Google_Service_Analytics_ProfileSummary';
+  protected $profilesDataType = 'array';
+  public $websiteUrl;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setInternalWebPropertyId($internalWebPropertyId)
+  {
+    $this->internalWebPropertyId = $internalWebPropertyId;
+  }
+
+  public function getInternalWebPropertyId()
+  {
+    return $this->internalWebPropertyId;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setLevel($level)
+  {
+    $this->level = $level;
+  }
+
+  public function getLevel()
+  {
+    return $this->level;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setProfiles($profiles)
+  {
+    $this->profiles = $profiles;
+  }
+
+  public function getProfiles()
+  {
+    return $this->profiles;
+  }
+
+  public function setWebsiteUrl($websiteUrl)
+  {
+    $this->websiteUrl = $websiteUrl;
+  }
+
+  public function getWebsiteUrl()
+  {
+    return $this->websiteUrl;
   }
 }
 
