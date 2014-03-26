@@ -31,7 +31,8 @@
  */
 class Google_Service_AndroidPublisher extends Google_Service
 {
-
+  /** View and manage your Google Play Android Developer account. */
+  const ANDROIDPUBLISHER = "https://www.googleapis.com/auth/androidpublisher";
 
   public $inapppurchases;
   public $purchases;
