@@ -24,7 +24,8 @@ require_once "Google/Http/Request.php";
 
 class ApiOAuth2Test extends BaseTest {
 
-  public function testSign() {
+  public function testSign() 
+  {
     $client = $this->getClient();
     $oauth = new Google_Auth_OAuth2($client);
 
@@ -53,7 +54,57 @@ class ApiOAuth2Test extends BaseTest {
     $this->assertEquals('Bearer ACCESS_TOKEN', $auth);
   }
 
-  public function testCreateAuthUrl() {
+  public function testRevokeAccess() 
+  {
+    $accessToken = "ACCESS_TOKEN";
+    $refreshToken = "REFRESH_TOKEN";
+    $accessToken2 = "ACCESS_TOKEN_2";
+    $token = "";
+
+    $client = $this->getClient();
+    $response = $this->getMock("Google_Http_Request", array(), array(''));
+    $response->expects($this->any())
+            ->method('getResponseHttpCode')
+            ->will($this->returnValue(200));
+    $io = $this->getMock("Google_IO_Stream", array(), array($client));
+    $io->expects($this->any())
+        ->method('makeRequest')
+        ->will($this->returnCallback(function($request) use (&$token, $response) {
+          $elements = array();
+          parse_str($request->getPostBody(), $elements);
+          $token = isset($elements['token']) ? $elements['token'] : null;
+          return $response;
+        }));
+    $client->setIo($io);
+
+    // Test with access token.
+    $oauth  = new Google_Auth_OAuth2($client);
+    $oauth->setAccessToken(json_encode(array(
+        'access_token' => $accessToken,
+        'created' => time(),
+        'expires_in' => '3600'
+    )));
+    $this->assertTrue($oauth->revokeToken());
+    $this->assertEquals($accessToken, $token);
+
+    // Test with refresh token.
+    $oauth  = new Google_Auth_OAuth2($client);
+    $oauth->setAccessToken(json_encode(array(
+        'access_token' => $accessToken,
+        'refresh_token' => $refreshToken,
+        'created' => time(),
+        'expires_in' => '3600'
+    )));
+    $this->assertTrue($oauth->revokeToken());
+    $this->assertEquals($refreshToken, $token);
+
+    // Test with passed in token.
+    $this->assertTrue($oauth->revokeToken($accessToken2));
+    $this->assertEquals($accessToken2, $token);
+  }
+
+  public function testCreateAuthUrl() 
+  {
     $client = $this->getClient();
     $oauth = new Google_Auth_OAuth2($client);
 
@@ -81,7 +132,8 @@ class ApiOAuth2Test extends BaseTest {
    * this is just a general check to ensure we verify a valid
    * id token if one exists.
    */
-  public function testValidateIdToken() {
+  public function testValidateIdToken() 
+  {
     if (!$this->checkToken()) {
       return;
     }
