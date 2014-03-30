@@ -119,4 +119,29 @@ class ApiModelTest extends BaseTest
     unset($model->foo);
     $this->assertFalse(isset($model->foo));
   }
+
+  public function testCollection()
+  {
+    $data = json_decode(
+        '{
+           "kind": "calendar#events",
+           "id": "1234566",
+           "etag": "abcdef",
+           "totalItems": 4,
+           "items": [
+              {"id": 1},
+              {"id": 2},
+              {"id": 3},
+              {"id": 4}
+           ]
+         }', true);
+    $collection = new Google_Service_Calendar_Events($data);
+    $this->assertEquals(4, count($collection));
+    $count = 0;
+    foreach ($collection as $col) {
+      $count++;
+    }
+    $this->assertEquals(4, $count);
+    $this->assertEquals(1, $collection[0]->id);
+  }
 }
