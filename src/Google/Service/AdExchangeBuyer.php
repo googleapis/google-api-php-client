@@ -937,6 +937,7 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   public $fixedCpm;
   public $id;
   public $kind;
+  public $name;
   public $privateExchangeMinCpm;
   public $sellerNetwork;
   public $startTime;
@@ -1009,6 +1010,16 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
   }
 
   public function setPrivateExchangeMinCpm($privateExchangeMinCpm)
