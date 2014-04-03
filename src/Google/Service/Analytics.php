@@ -6897,6 +6897,7 @@ class Google_Service_Analytics_Segment extends Google_Model
   public $name;
   public $segmentId;
   public $selfLink;
+  public $type;
   public $updated;
 
   public function setCreated($created)
@@ -6967,6 +6968,16 @@ class Google_Service_Analytics_Segment extends Google_Model
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
   }
 
   public function setUpdated($updated)
