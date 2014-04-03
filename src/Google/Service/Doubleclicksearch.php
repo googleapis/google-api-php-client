@@ -951,6 +951,7 @@ class Google_Service_Doubleclicksearch_ReportRequest extends Google_Collection
   protected $filtersType = 'Google_Service_Doubleclicksearch_ReportRequestFilters';
   protected $filtersDataType = 'array';
   public $includeDeletedEntities;
+  public $includeRemovedEntities;
   public $maxRowsPerFile;
   protected $orderByType = 'Google_Service_Doubleclicksearch_ReportRequestOrderBy';
   protected $orderByDataType = 'array';
@@ -1002,6 +1003,16 @@ class Google_Service_Doubleclicksearch_ReportRequest extends Google_Collection
   public function getIncludeDeletedEntities()
   {
     return $this->includeDeletedEntities;
+  }
+
+  public function setIncludeRemovedEntities($includeRemovedEntities)
+  {
+    $this->includeRemovedEntities = $includeRemovedEntities;
+  }
+
+  public function getIncludeRemovedEntities()
+  {
+    return $this->includeRemovedEntities;
   }
 
   public function setMaxRowsPerFile($maxRowsPerFile)
