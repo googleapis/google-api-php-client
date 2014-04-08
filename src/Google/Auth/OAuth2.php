@@ -50,9 +50,9 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
   private $state;
 
   /**
-   * @var string The token bundle.
+   * @var array The token bundle.
    */
-  private $token;
+  private $token = array();
 
   /**
    * @var Google_Client the base client
@@ -338,7 +338,10 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
   public function revokeToken($token = null)
   {
     if (!$token) {
-      if (array_key_exists('refresh_token', $this->token)) {
+      if (!$this->token) {
+        // Not initialized, no token to actually revoke
+        return false;
+      } elseif (array_key_exists('refresh_token', $this->token)) {
         $token = $this->token['refresh_token'];
       } else {
         $token = $this->token['access_token'];

@@ -164,4 +164,12 @@ class ApiOAuth2Test extends BaseTest {
       $oauth->verifyIdToken($token->id_token, $data->aud)
     );
   }
+
+  /**
+   * Test for revoking token when none is opened
+   */
+  public function testRevokeWhenNoTokenExists() {
+    $client = $this->getClient();
+    $client->revokeToken();
+  }
 }
