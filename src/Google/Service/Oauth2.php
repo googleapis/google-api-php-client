@@ -113,9 +113,9 @@ class Google_Service_Oauth2 extends Google_Service
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string accessToken
+   * @opt_param string access_token
    *
-   * @opt_param string idToken
+   * @opt_param string id_token
    *
    * @return Google_Service_Oauth2_Tokeninfo
    */
