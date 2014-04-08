@@ -1392,14 +1392,14 @@ class Google_Service_Analytics_DataGa_Resource extends Google_Service_Resource
     * must be specified.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of entries to include in this feed.
    * @opt_param string sort
    * A comma-separated list of dimensions or metrics that determine the sort order for Analytics
     * data.
    * @opt_param string dimensions
    * A comma-separated list of Analytics dimensions. E.g., 'ga:browser,ga:city'.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @opt_param string segment
@@ -1447,14 +1447,14 @@ class Google_Service_Analytics_DataMcf_Resource extends Google_Service_Resource
     * 'mcf:totalConversions,mcf:totalConversionValue'. At least one metric must be specified.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of entries to include in this feed.
    * @opt_param string sort
    * A comma-separated list of dimensions or metrics that determine the sort order for the Analytics
     * data.
    * @opt_param string dimensions
    * A comma-separated list of Multi-Channel Funnels dimensions. E.g., 'mcf:source,mcf:medium'.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @opt_param string samplingLevel
@@ -1492,7 +1492,7 @@ class Google_Service_Analytics_DataRealtime_Resource extends Google_Service_Reso
     * be specified.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of entries to include in this feed.
    * @opt_param string sort
    * A comma-separated list of dimensions or metrics that determine the sort order for real time
@@ -1542,9 +1542,9 @@ class Google_Service_Analytics_ManagementAccountSummaries_Resource extends Googl
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of filters to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @return Google_Service_Analytics_AccountSummaries
@@ -1605,9 +1605,9 @@ class Google_Service_Analytics_ManagementAccountUserLinks_Resource extends Googl
    * Account ID to retrieve the user links for.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of account-user links to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first account-user link to retrieve. Use this parameter as a pagination
     * mechanism along with the max-results parameter.
    * @return Google_Service_Analytics_EntityUserLinks
@@ -1654,9 +1654,9 @@ class Google_Service_Analytics_ManagementAccounts_Resource extends Google_Servic
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of accounts to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first account to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @return Google_Service_Analytics_Accounts
@@ -1689,9 +1689,9 @@ class Google_Service_Analytics_ManagementCustomDataSources_Resource extends Goog
    * Web property Id for the custom data sources to retrieve.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of custom data sources to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * A 1-based index of the first custom data source to retrieve. Use this parameter as a pagination
     * mechanism along with the max-results parameter.
    * @return Google_Service_Analytics_CustomDataSources
@@ -1751,9 +1751,9 @@ class Google_Service_Analytics_ManagementDailyUploads_Resource extends Google_Se
    * End date of the form YYYY-MM-DD.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of custom data sources to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * A 1-based index of the first daily upload to retrieve. Use this parameter as a pagination
     * mechanism along with the max-results parameter.
    * @return Google_Service_Analytics_DailyUploads
@@ -1874,9 +1874,9 @@ class Google_Service_Analytics_ManagementExperiments_Resource extends Google_Ser
    * View (Profile) ID to retrieve experiments for.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of experiments to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first experiment to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @return Google_Service_Analytics_Experiments
@@ -1995,9 +1995,9 @@ class Google_Service_Analytics_ManagementGoals_Resource extends Google_Service_R
     * which refers to all the views (profiles) that user has access to.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of goals to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first goal to retrieve. Use this parameter as a pagination mechanism along with
     * the max-results parameter.
    * @return Google_Service_Analytics_Goals
@@ -2113,9 +2113,9 @@ class Google_Service_Analytics_ManagementProfileUserLinks_Resource extends Googl
    * View (Profile) ID to retrieve the profile-user links for
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of profile-user links to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first profile-user link to retrieve. Use this parameter as a pagination
     * mechanism along with the max-results parameter.
    * @return Google_Service_Analytics_EntityUserLinks
@@ -2224,9 +2224,9 @@ class Google_Service_Analytics_ManagementProfiles_Resource extends Google_Servic
     * or '~all', which refers to all the web properties to which the user has access.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of views (profiles) to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @return Google_Service_Analytics_Profiles
@@ -2294,9 +2294,9 @@ class Google_Service_Analytics_ManagementSegments_Resource extends Google_Servic
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of advanced segments to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first advanced segment to retrieve. Use this parameter as a pagination mechanism
     * along with the max-results parameter.
    * @return Google_Service_Analytics_Segments
@@ -2368,9 +2368,9 @@ class Google_Service_Analytics_ManagementUploads_Resource extends Google_Service
    * Custom data source Id for uploads to retrieve.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of uploads to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * A 1-based index of the first upload to retrieve. Use this parameter as a pagination mechanism
     * along with the max-results parameter.
    * @return Google_Service_Analytics_Uploads
@@ -2453,9 +2453,9 @@ class Google_Service_Analytics_ManagementWebproperties_Resource extends Google_S
     * refers to all the accounts that user has access to.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of web properties to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @return Google_Service_Analytics_Webproperties
@@ -2557,9 +2557,9 @@ class Google_Service_Analytics_ManagementWebpropertyUserLinks_Resource extends G
    * Web Property ID for the webProperty-user links to retrieve.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of webProperty-user Links to include in this response.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first webProperty-user link to retrieve. Use this parameter as a pagination
     * mechanism along with the max-results parameter.
    * @return Google_Service_Analytics_EntityUserLinks
