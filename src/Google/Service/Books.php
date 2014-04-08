@@ -1300,11 +1300,11 @@ class Google_Service_Books_Cloudloading_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string uploadClientToken
+   * @opt_param string upload_client_token
    *
-   * @opt_param string driveDocumentId
+   * @opt_param string drive_document_id
    * A drive document id. The upload_client_token must not be set.
-   * @opt_param string mimeType
+   * @opt_param string mime_type
    * The document MIME type. It can be set only if the drive_document_id is set.
    * @opt_param string name
    * The document name. It can be set only if the drive_document_id is set.
