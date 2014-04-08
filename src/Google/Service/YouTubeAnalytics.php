@@ -249,7 +249,7 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
     * available in each report, and see the Metrics document for definitions of those metrics.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults
+   * @opt_param int max-results
    * The maximum number of rows to include in the response.
    * @opt_param string sort
    * A comma-separated list of dimensions or metrics that determine the sort order for YouTube
@@ -260,7 +260,7 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
     * the Available Reports document for a list of the reports that you can retrieve and the
     * dimensions used for those reports. Also see the Dimensions document for definitions of those
     * dimensions.
-   * @opt_param int startIndex
+   * @opt_param int start-index
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter (one-based, inclusive).
    * @opt_param string filters
