@@ -140,7 +140,7 @@ class Google_Service_Urlshortener_Url_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string startToken
+   * @opt_param string start-token
    * Token for requesting successive pages of results.
    * @opt_param string projection
    * Additional information to return.
