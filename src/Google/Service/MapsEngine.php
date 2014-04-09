@@ -1993,18 +1993,8 @@ class Google_Service_MapsEngine_FeatureInfo extends Google_Model
 
 class Google_Service_MapsEngine_FeaturesBatchDeleteRequest extends Google_Collection
 {
-  public $featureIds;
   public $gxIds;
-
-  public function setFeatureIds($featureIds)
-  {
-    $this->featureIds = $featureIds;
-  }
-
-  public function getFeatureIds()
-  {
-    return $this->featureIds;
-  }
+  public $primaryKeys;
 
   public function setGxIds($gxIds)
   {
@@ -2014,6 +2004,16 @@ class Google_Service_MapsEngine_FeaturesBatchDeleteRequest extends Google_Collec
   public function getGxIds()
   {
     return $this->gxIds;
+  }
+
+  public function setPrimaryKeys($primaryKeys)
+  {
+    $this->primaryKeys = $primaryKeys;
+  }
+
+  public function getPrimaryKeys()
+  {
+    return $this->primaryKeys;
   }
 }
 
