@@ -48,7 +48,8 @@ class Google_Model implements ArrayAccess
     if (isset($this->$keyTypeName) && !isset($this->processed[$key])) {
       if (isset($this->modelData[$key])) {
         $val = $this->modelData[$key];
-      } else if (isset($this->$keyDataType) && ($this->$keyDataType == 'array' || $this->$keyDataType == 'map')) {
+      } else if (isset($this->$keyDataType) &&
+          ($this->$keyDataType == 'array' || $this->$keyDataType == 'map')) {
         $val = array();
       } else {
         $val = null;
