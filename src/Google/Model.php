@@ -16,7 +16,7 @@
  */
 
 /**
- * This class defines attributes, valid values, and usage which is generated         
+ * This class defines attributes, valid values, and usage which is generated
  * from a given json schema.
  * http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5
  *
@@ -48,6 +48,9 @@ class Google_Model implements ArrayAccess
     if (isset($this->$keyTypeName) && !isset($this->processed[$key])) {
       if (isset($this->modelData[$key])) {
         $val = $this->modelData[$key];
+      } else if (isset($this->$keyDataType) &&
+          ($this->$keyDataType == 'array' || $this->$keyDataType == 'map')) {
+        $val = array();
       } else {
         $val = null;
       }
