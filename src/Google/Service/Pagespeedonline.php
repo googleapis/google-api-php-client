@@ -127,7 +127,7 @@ class Google_Service_Pagespeedonline_Pagespeedapi_Resource extends Google_Servic
    * The analysis strategy to use
    * @opt_param string rule
    * A Page Speed rule to run; if none are given, all rules are run
-   * @opt_param bool filterThirdPartyResources
+   * @opt_param bool filter_third_party_resources
    * Indicates if third party resources should be filtered out before PageSpeed analysis.
    * @return Google_Service_Pagespeedonline_Result
    */
