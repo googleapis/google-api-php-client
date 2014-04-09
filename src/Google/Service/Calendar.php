@@ -907,8 +907,8 @@ class Google_Service_Calendar_CalendarList_Resource extends Google_Service_Resou
    * @param array $optParams Optional parameters.
    *
    * @opt_param bool colorRgbFormat
-   * Whether to use the 'foregroundColor' and 'backgroundColor' fields to write the calendar colors
-    * (RGB). If this feature is used, the index-based 'colorId' field will be set to the best matching
+   * Whether to use the foregroundColor and backgroundColor fields to write the calendar colors
+    * (RGB). If this feature is used, the index-based colorId field will be set to the best matching
     * option automatically. Optional. The default is False.
    * @return Google_Service_Calendar_CalendarListEntry
    */
