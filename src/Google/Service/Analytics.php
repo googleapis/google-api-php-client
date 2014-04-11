@@ -1403,7 +1403,7 @@ class Google_Service_Analytics_DataGa_Resource extends Google_Service_Resource
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
    * @opt_param string segment
-   * An Analytics advanced segment to be applied to data.
+   * An Analytics segment to be applied to data.
    * @opt_param string samplingLevel
    * The desired sampling level.
    * @opt_param string filters
@@ -2289,16 +2289,16 @@ class Google_Service_Analytics_ManagementSegments_Resource extends Google_Servic
 {
 
   /**
-   * Lists advanced segments to which the user has access.
+   * Lists segments to which the user has access.
    * (segments.listManagementSegments)
    *
    * @param array $optParams Optional parameters.
    *
    * @opt_param int max-results
-   * The maximum number of advanced segments to include in this response.
+   * The maximum number of segments to include in this response.
    * @opt_param int start-index
-   * An index of the first advanced segment to retrieve. Use this parameter as a pagination mechanism
-    * along with the max-results parameter.
+   * An index of the first segment to retrieve. Use this parameter as a pagination mechanism along
+    * with the max-results parameter.
    * @return Google_Service_Analytics_Segments
    */
   public function listManagementSegments($optParams = array())
