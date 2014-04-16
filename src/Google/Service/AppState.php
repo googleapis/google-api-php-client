@@ -168,7 +168,8 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
     return $this->call('delete', array($params));
   }
   /**
-   * Retrieves the data corresponding to the passed key. (states.get)
+   * Retrieves the data corresponding to the passed key. If the key does not exist
+   * on the server, an HTTP 404 will be returned. (states.get)
    *
    * @param int $stateKey
    * The key for the data to be retrieved.
