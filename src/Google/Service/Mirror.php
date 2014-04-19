@@ -36,6 +36,7 @@ class Google_Service_Mirror extends Google_Service
   /** View and manage your Glass timeline. */
   const GLASS_TIMELINE = "https://www.googleapis.com/auth/glass.timeline";
 
+  public $accounts;
   public $contacts;
   public $locations;
   public $subscriptions;
@@ -55,6 +56,36 @@ class Google_Service_Mirror extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'mirror';
 
+    $this->accounts = new Google_Service_Mirror_Accounts_Resource(
+        $this,
+        $this->serviceName,
+        'accounts',
+        array(
+          'methods' => array(
+            'insert' => array(
+              'path' => 'accounts/{userToken}/{accountType}/{accountName}',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userToken' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'accountType' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'accountName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->contacts = new Google_Service_Mirror_Contacts_Resource(
         $this,
         $this->serviceName,
@@ -325,6 +356,38 @@ class Google_Service_Mirror extends Google_Service
   }
 }
 
+
+/**
+ * The "accounts" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $mirrorService = new Google_Service_Mirror(...);
+ *   $accounts = $mirrorService->accounts;
+ *  </code>
+ */
+class Google_Service_Mirror_Accounts_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Inserts a new account for a user (accounts.insert)
+   *
+   * @param string $userToken
+   * The ID for the user.
+   * @param string $accountType
+   * Account type to be passed to Android Account Manager.
+   * @param string $accountName
+   * The name of the account to be passed to the Android Account Manager.
+   * @param Google_Account $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Mirror_Account
+   */
+  public function insert($userToken, $accountType, $accountName, Google_Service_Mirror_Account $postBody, $optParams = array())
+  {
+    $params = array('userToken' => $userToken, 'accountType' => $accountType, 'accountName' => $accountName, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Mirror_Account");
+  }
+}
 
 /**
  * The "contacts" collection of methods.
@@ -718,6 +781,56 @@ class Google_Service_Mirror_TimelineAttachments_Resource extends Google_Service_
 
 
 
+class Google_Service_Mirror_Account extends Google_Collection
+{
+  protected $authTokensType = 'Google_Service_Mirror_AuthToken';
+  protected $authTokensDataType = 'array';
+  public $features;
+  public $password;
+  protected $userDataType = 'Google_Service_Mirror_UserData';
+  protected $userDataDataType = 'array';
+
+  public function setAuthTokens($authTokens)
+  {
+    $this->authTokens = $authTokens;
+  }
+
+  public function getAuthTokens()
+  {
+    return $this->authTokens;
+  }
+
+  public function setFeatures($features)
+  {
+    $this->features = $features;
+  }
+
+  public function getFeatures()
+  {
+    return $this->features;
+  }
+
+  public function setPassword($password)
+  {
+    $this->password = $password;
+  }
+
+  public function getPassword()
+  {
+    return $this->password;
+  }
+
+  public function setUserData($userData)
+  {
+    $this->userData = $userData;
+  }
+
+  public function getUserData()
+  {
+    return $this->userData;
+  }
+}
+
 class Google_Service_Mirror_Attachment extends Google_Model
 {
   public $contentType;
@@ -790,6 +903,32 @@ class Google_Service_Mirror_AttachmentsListResponse extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+}
+
+class Google_Service_Mirror_AuthToken extends Google_Model
+{
+  public $authToken;
+  public $type;
+
+  public function setAuthToken($authToken)
+  {
+    $this->authToken = $authToken;
+  }
+
+  public function getAuthToken()
+  {
+    return $this->authToken;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
   }
 }
 
@@ -1773,5 +1912,31 @@ class Google_Service_Mirror_UserAction extends Google_Model
   public function getType()
   {
     return $this->type;
+  }
+}
+
+class Google_Service_Mirror_UserData extends Google_Model
+{
+  public $key;
+  public $value;
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+
+  public function getKey()
+  {
+    return $this->key;
+  }
+
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
   }
 }
