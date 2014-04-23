@@ -269,6 +269,10 @@ class Google_Service_Games extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'list' => array(
               'path' => 'players/me/players/{collection}',
@@ -286,6 +290,10 @@ class Google_Service_Games extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -354,6 +362,10 @@ class Google_Service_Games extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'dismiss' => array(
               'path' => 'rooms/{roomId}/dismiss',
@@ -388,6 +400,10 @@ class Google_Service_Games extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'leave' => array(
               'path' => 'rooms/{roomId}/leave',
@@ -397,6 +413,10 @@ class Google_Service_Games extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'list' => array(
@@ -424,6 +444,10 @@ class Google_Service_Games extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'language' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1077,6 +1101,9 @@ class Google_Service_Games_Players_Resource extends Google_Service_Resource
    * @param string $playerId
    * A player ID. A value of me may be used in place of the authenticated player's ID.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string language
+   * The preferred language to use for strings returned by this method.
    * @return Google_Service_Games_Player
    */
   public function get($playerId, $optParams = array())
@@ -1099,6 +1126,8 @@ class Google_Service_Games_Players_Resource extends Google_Service_Resource
    * The maximum number of player resources to return in the response, used for paging. For any
     * response, the actual number of player resources returned may be less than the specified
     * maxResults.
+   * @opt_param string language
+   * The preferred language to use for strings returned by this method.
    * @return Google_Service_Games_PlayerListResponse
    */
   public function listPlayers($collection, $optParams = array())
@@ -1216,6 +1245,9 @@ class Google_Service_Games_Rooms_Resource extends Google_Service_Resource
    * @param string $roomId
    * The ID of the room.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string language
+   * The preferred language to use for strings returned by this method.
    * @return Google_Service_Games_Room
    */
   public function decline($roomId, $optParams = array())
@@ -1263,6 +1295,9 @@ class Google_Service_Games_Rooms_Resource extends Google_Service_Resource
    * The ID of the room.
    * @param Google_RoomJoinRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string language
+   * The preferred language to use for strings returned by this method.
    * @return Google_Service_Games_Room
    */
   public function join($roomId, Google_Service_Games_RoomJoinRequest $postBody, $optParams = array())
@@ -1279,6 +1314,9 @@ class Google_Service_Games_Rooms_Resource extends Google_Service_Resource
    * The ID of the room.
    * @param Google_RoomLeaveRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string language
+   * The preferred language to use for strings returned by this method.
    * @return Google_Service_Games_Room
    */
   public function leave($roomId, Google_Service_Games_RoomLeaveRequest $postBody, $optParams = array())
@@ -1316,6 +1354,9 @@ class Google_Service_Games_Rooms_Resource extends Google_Service_Resource
    * The ID of the room.
    * @param Google_RoomP2PStatuses $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string language
+   * The preferred language to use for strings returned by this method.
    * @return Google_Service_Games_RoomStatus
    */
   public function reportStatus($roomId, Google_Service_Games_RoomP2PStatuses $postBody, $optParams = array())
