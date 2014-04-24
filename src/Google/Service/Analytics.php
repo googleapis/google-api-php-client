@@ -1388,8 +1388,8 @@ class Google_Service_Analytics_DataGa_Resource extends Google_Service_Resource
     * MM-DD, or as a relative date (e.g., today, yesterday, or 7daysAgo). The default value is
     * yesterday.
    * @param string $metrics
-   * A comma-separated list of Analytics metrics. E.g., 'ga:visits,ga:pageviews'. At least one metric
-    * must be specified.
+   * A comma-separated list of Analytics metrics. E.g., 'ga:sessions,ga:pageviews'. At least one
+    * metric must be specified.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int max-results
@@ -1488,8 +1488,8 @@ class Google_Service_Analytics_DataRealtime_Resource extends Google_Service_Reso
    * Unique table ID for retrieving real time data. Table ID is of the form ga:XXXX, where XXXX is
     * the Analytics view (profile) ID.
    * @param string $metrics
-   * A comma-separated list of real time metrics. E.g., 'rt:activeVisitors'. At least one metric must
-    * be specified.
+   * A comma-separated list of real time metrics. E.g., 'rt:activeUsers'. At least one metric must be
+    * specified.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int max-results
