@@ -838,13 +838,13 @@ class Google_Service_MapsEngine_Assets_Resource extends Google_Service_Resource
    * @param string $id
    * The ID of the asset.
    * @param array $optParams Optional parameters.
-   * @return Google_Service_MapsEngine_Asset
+   * @return Google_Service_MapsEngine_MapsengineResource
    */
   public function get($id, $optParams = array())
   {
     $params = array('id' => $id);
     $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_MapsEngine_Asset");
+    return $this->call('get', array($params), "Google_Service_MapsEngine_MapsengineResource");
   }
   /**
    * Return all assets readable by the current user. (assets.listAssets)
@@ -881,13 +881,13 @@ class Google_Service_MapsEngine_Assets_Resource extends Google_Service_Resource
     * been created at or before this time.
    * @opt_param string type
    * An asset type restriction. If set, only resources of this type will be returned.
-   * @return Google_Service_MapsEngine_AssetsListResponse
+   * @return Google_Service_MapsEngine_ResourcesListResponse
    */
   public function listAssets($optParams = array())
   {
     $params = array();
     $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_MapsEngine_AssetsListResponse");
+    return $this->call('list', array($params), "Google_Service_MapsEngine_ResourcesListResponse");
   }
 }
 
@@ -1782,147 +1782,6 @@ class Google_Service_MapsEngine_AcquisitionTime extends Google_Model
   public function getStart()
   {
     return $this->start;
-  }
-}
-
-class Google_Service_MapsEngine_Asset extends Google_Collection
-{
-  public $bbox;
-  public $creationTime;
-  public $description;
-  public $id;
-  public $lastModifiedTime;
-  public $name;
-  public $projectId;
-  public $resource;
-  public $tags;
-  public $type;
-
-  public function setBbox($bbox)
-  {
-    $this->bbox = $bbox;
-  }
-
-  public function getBbox()
-  {
-    return $this->bbox;
-  }
-
-  public function setCreationTime($creationTime)
-  {
-    $this->creationTime = $creationTime;
-  }
-
-  public function getCreationTime()
-  {
-    return $this->creationTime;
-  }
-
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-
-  public function getDescription()
-  {
-    return $this->description;
-  }
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-
-  public function getId()
-  {
-    return $this->id;
-  }
-
-  public function setLastModifiedTime($lastModifiedTime)
-  {
-    $this->lastModifiedTime = $lastModifiedTime;
-  }
-
-  public function getLastModifiedTime()
-  {
-    return $this->lastModifiedTime;
-  }
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-
-  public function getName()
-  {
-    return $this->name;
-  }
-
-  public function setProjectId($projectId)
-  {
-    $this->projectId = $projectId;
-  }
-
-  public function getProjectId()
-  {
-    return $this->projectId;
-  }
-
-  public function setResource($resource)
-  {
-    $this->resource = $resource;
-  }
-
-  public function getResource()
-  {
-    return $this->resource;
-  }
-
-  public function setTags($tags)
-  {
-    $this->tags = $tags;
-  }
-
-  public function getTags()
-  {
-    return $this->tags;
-  }
-
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
-
-  public function getType()
-  {
-    return $this->type;
-  }
-}
-
-class Google_Service_MapsEngine_AssetsListResponse extends Google_Collection
-{
-  protected $assetsType = 'Google_Service_MapsEngine_Asset';
-  protected $assetsDataType = 'array';
-  public $nextPageToken;
-
-  public function setAssets($assets)
-  {
-    $this->assets = $assets;
-  }
-
-  public function getAssets()
-  {
-    return $this->assets;
-  }
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
   }
 }
 
@@ -3164,7 +3023,7 @@ class Google_Service_MapsEngine_MapItem extends Google_Model
   }
 }
 
-class Google_Service_MapsEngine_MapKmlLink extends Google_Collection
+class Google_Service_MapsEngine_MapKmlLink extends Google_Model
 {
   public $defaultViewport;
   public $kmlUrl;
@@ -3332,6 +3191,120 @@ class Google_Service_MapsEngine_MapsengineFile extends Google_Model
   public function getUploadStatus()
   {
     return $this->uploadStatus;
+  }
+}
+
+class Google_Service_MapsEngine_MapsengineResource extends Google_Collection
+{
+  public $bbox;
+  public $creationTime;
+  public $description;
+  public $id;
+  public $lastModifiedTime;
+  public $name;
+  public $projectId;
+  public $resource;
+  public $tags;
+  public $type;
+
+  public function setBbox($bbox)
+  {
+    $this->bbox = $bbox;
+  }
+
+  public function getBbox()
+  {
+    return $this->bbox;
+  }
+
+  public function setCreationTime($creationTime)
+  {
+    $this->creationTime = $creationTime;
+  }
+
+  public function getCreationTime()
+  {
+    return $this->creationTime;
+  }
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setLastModifiedTime($lastModifiedTime)
+  {
+    $this->lastModifiedTime = $lastModifiedTime;
+  }
+
+  public function getLastModifiedTime()
+  {
+    return $this->lastModifiedTime;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setProjectId($projectId)
+  {
+    $this->projectId = $projectId;
+  }
+
+  public function getProjectId()
+  {
+    return $this->projectId;
+  }
+
+  public function setResource($resource)
+  {
+    $this->resource = $resource;
+  }
+
+  public function getResource()
+  {
+    return $this->resource;
+  }
+
+  public function setTags($tags)
+  {
+    $this->tags = $tags;
+  }
+
+  public function getTags()
+  {
+    return $this->tags;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
   }
 }
 
@@ -3778,9 +3751,36 @@ class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
   }
 }
 
+class Google_Service_MapsEngine_ResourcesListResponse extends Google_Collection
+{
+  protected $assetsType = 'Google_Service_MapsEngine_MapsengineResource';
+  protected $assetsDataType = 'array';
+  public $nextPageToken;
+
+  public function setAssets($assets)
+  {
+    $this->assets = $assets;
+  }
+
+  public function getAssets()
+  {
+    return $this->assets;
+  }
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+}
+
 class Google_Service_MapsEngine_Schema extends Google_Collection
 {
-  protected $columnsType = 'Google_Service_MapsEngine_TableColumn';
+  protected $columnsType = 'Google_Service_MapsEngine_SchemaColumns';
   protected $columnsDataType = 'array';
   public $primaryGeometry;
   public $primaryKey;
@@ -3813,6 +3813,32 @@ class Google_Service_MapsEngine_Schema extends Google_Collection
   public function getPrimaryKey()
   {
     return $this->primaryKey;
+  }
+}
+
+class Google_Service_MapsEngine_SchemaColumns extends Google_Model
+{
+  public $name;
+  public $type;
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
   }
 }
 
@@ -3973,32 +3999,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   public function getTags()
   {
     return $this->tags;
-  }
-}
-
-class Google_Service_MapsEngine_TableColumn extends Google_Model
-{
-  public $name;
-  public $type;
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-
-  public function getName()
-  {
-    return $this->name;
-  }
-
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
-
-  public function getType()
-  {
-    return $this->type;
   }
 }
 
