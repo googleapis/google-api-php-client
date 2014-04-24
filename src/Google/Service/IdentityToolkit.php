@@ -74,6 +74,10 @@ class Google_Service_IdentityToolkit extends Google_Service
               'path' => 'getOobConfirmationCode',
               'httpMethod' => 'POST',
               'parameters' => array(),
+            ),'getPublicKeys' => array(
+              'path' => 'publicKeys',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
             ),'resetPassword' => array(
               'path' => 'resetPassword',
               'httpMethod' => 'POST',
@@ -179,6 +183,18 @@ class Google_Service_IdentityToolkit_Relyingparty_Resource extends Google_Servic
     $params = array('postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('getOobConfirmationCode', array($params), "Google_Service_IdentityToolkit_GetOobConfirmationCodeResponse");
+  }
+  /**
+   * Get token signing public key. (relyingparty.getPublicKeys)
+   *
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyGetPublicKeysResponse
+   */
+  public function getPublicKeys($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('getPublicKeys', array($params), "Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyGetPublicKeysResponse");
   }
   /**
    * Set account info for a user. (relyingparty.resetPassword)
