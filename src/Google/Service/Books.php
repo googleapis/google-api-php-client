@@ -45,6 +45,7 @@ class Google_Service_Books extends Google_Service
   public $mylibrary_bookshelves;
   public $mylibrary_bookshelves_volumes;
   public $mylibrary_readingpositions;
+  public $promooffer;
   public $volumes;
   public $volumes_associated;
   public $volumes_mybooks;
@@ -928,6 +929,103 @@ class Google_Service_Books extends Google_Service
                   'type' => 'string',
                 ),
                 'action' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->promooffer = new Google_Service_Books_Promooffer_Resource(
+        $this,
+        $this->serviceName,
+        'promooffer',
+        array(
+          'methods' => array(
+            'accept' => array(
+              'path' => 'promooffer/accept',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'product' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'offer_id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'volume_id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'device' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'model' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'serial' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'manufacturer' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'dismiss' => array(
+              'path' => 'promooffer/dismiss',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'product' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'offer_id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'device' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'model' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'serial' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'manufacturer' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'promooffer/get',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'device' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'model' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'product' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'serial' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'manufacturer' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2025,6 +2123,92 @@ class Google_Service_Books_MylibraryReadingpositions_Resource extends Google_Ser
     $params = array('volumeId' => $volumeId, 'timestamp' => $timestamp, 'position' => $position);
     $params = array_merge($params, $optParams);
     return $this->call('setPosition', array($params));
+  }
+}
+
+/**
+ * The "promooffer" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $booksService = new Google_Service_Books(...);
+ *   $promooffer = $booksService->promooffer;
+ *  </code>
+ */
+class Google_Service_Books_Promooffer_Resource extends Google_Service_Resource
+{
+
+  /**
+   * (promooffer.accept)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string product
+   * device product
+   * @opt_param string offer_id
+   *
+   * @opt_param string volume_id
+   * Volume id to exercise the offer
+   * @opt_param string device
+   * device device
+   * @opt_param string model
+   * device model
+   * @opt_param string serial
+   * device serial
+   * @opt_param string manufacturer
+   * device manufacturer
+   */
+  public function accept($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('accept', array($params));
+  }
+  /**
+   * (promooffer.dismiss)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string product
+   * device product
+   * @opt_param string offer_id
+   * Offer to dimiss
+   * @opt_param string device
+   * device device
+   * @opt_param string model
+   * device model
+   * @opt_param string serial
+   * device serial
+   * @opt_param string manufacturer
+   * device manufacturer
+   */
+  public function dismiss($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('dismiss', array($params));
+  }
+  /**
+   * Returns a list of promo offers available to the user (promooffer.get)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string device
+   * device device
+   * @opt_param string model
+   * device model
+   * @opt_param string product
+   * device product
+   * @opt_param string serial
+   * device serial
+   * @opt_param string manufacturer
+   * device manufacturer
+   * @return Google_Service_Books_Offers
+   */
+  public function get($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Books_Offers");
   }
 }
 
@@ -4512,6 +4696,141 @@ class Google_Service_Books_Layersummary extends Google_Collection
   }
 }
 
+class Google_Service_Books_Offers extends Google_Collection
+{
+  protected $itemsType = 'Google_Service_Books_OffersItems';
+  protected $itemsDataType = 'array';
+  public $kind;
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_Books_OffersItems extends Google_Collection
+{
+  public $artUrl;
+  public $id;
+  protected $itemsType = 'Google_Service_Books_OffersItemsItems';
+  protected $itemsDataType = 'array';
+
+  public function setArtUrl($artUrl)
+  {
+    $this->artUrl = $artUrl;
+  }
+
+  public function getArtUrl()
+  {
+    return $this->artUrl;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+}
+
+class Google_Service_Books_OffersItemsItems extends Google_Model
+{
+  public $author;
+  public $canonicalVolumeLink;
+  public $coverUrl;
+  public $description;
+  public $title;
+  public $volumeId;
+
+  public function setAuthor($author)
+  {
+    $this->author = $author;
+  }
+
+  public function getAuthor()
+  {
+    return $this->author;
+  }
+
+  public function setCanonicalVolumeLink($canonicalVolumeLink)
+  {
+    $this->canonicalVolumeLink = $canonicalVolumeLink;
+  }
+
+  public function getCanonicalVolumeLink()
+  {
+    return $this->canonicalVolumeLink;
+  }
+
+  public function setCoverUrl($coverUrl)
+  {
+    $this->coverUrl = $coverUrl;
+  }
+
+  public function getCoverUrl()
+  {
+    return $this->coverUrl;
+  }
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+
+  public function getTitle()
+  {
+    return $this->title;
+  }
+
+  public function setVolumeId($volumeId)
+  {
+    $this->volumeId = $volumeId;
+  }
+
+  public function getVolumeId()
+  {
+    return $this->volumeId;
+  }
+}
+
 class Google_Service_Books_ReadingPosition extends Google_Model
 {
   public $epubCfiPosition;
@@ -5758,6 +6077,7 @@ class Google_Service_Books_VolumeVolumeInfo extends Google_Collection
   public $publishedDate;
   public $publisher;
   public $ratingsCount;
+  public $readingModes;
   public $subtitle;
   public $title;
 
@@ -5949,6 +6269,16 @@ class Google_Service_Books_VolumeVolumeInfo extends Google_Collection
   public function getRatingsCount()
   {
     return $this->ratingsCount;
+  }
+
+  public function setReadingModes($readingModes)
+  {
+    $this->readingModes = $readingModes;
+  }
+
+  public function getReadingModes()
+  {
+    return $this->readingModes;
   }
 
   public function setSubtitle($subtitle)
