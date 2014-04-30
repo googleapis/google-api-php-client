@@ -48,6 +48,12 @@ class ApiClientTest extends BaseTest {
     $this->assertEquals("", $scopes);
   }
 
+  public function testNoAuthIsNull() {
+    $client = new Google_Client();
+
+    $this->assertNull($client->getAccessToken());
+  }
+
   public function testPrepareService() {
     $client = new Google_Client();
     $client->setScopes(array("scope1", "scope2"));
