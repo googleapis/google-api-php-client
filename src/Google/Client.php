@@ -250,7 +250,7 @@ class Google_Client
     // The response is json encoded, so could be the string null.
     // It is arguable whether this check should be here or lower
     // in the library.
-    return (null == $token || 'null' == $token) ? null : $token;
+    return (null == $token || 'null' == $token || '[]' == $token) ? null : $token;
   }
 
   /**
