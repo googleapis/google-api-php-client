@@ -183,6 +183,10 @@ class Google_Service_YouTube extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'list' => array(
               'path' => 'channelSections',
@@ -1477,6 +1481,16 @@ class Google_Service_YouTube_ChannelSections_Resource extends Google_Service_Res
     * different YouTube channels. It allows content owners to authenticate once and perform actions on
     * behalf of the channel specified in the parameter value, without having to provide authentication
     * credentials for each separate channel.
+   * @opt_param string onBehalfOfContentOwner
+   * Note: This parameter is intended exclusively for YouTube content partners.
+  The
+    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
+    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
+    * value. This parameter is intended for YouTube content partners that own and manage many
+    * different YouTube channels. It allows content owners to authenticate once and get access to all
+    * their video and channel data, without having to provide authentication credentials for each
+    * individual channel. The CMS account that the user authenticates with must be linked to the
+    * specified YouTube content owner.
    * @return Google_Service_YouTube_ChannelSection
    */
   public function insert($part, Google_Service_YouTube_ChannelSection $postBody, $optParams = array())
@@ -2561,12 +2575,12 @@ class Google_Service_YouTube_Playlists_Resource extends Google_Service_Resource
    * @param string $part
    * The part parameter specifies a comma-separated list of one or more playlist resource properties
     * that the API response will include. The part names that you can include in the parameter value
-    * are id, snippet, and status.
-  If the parameter identifies a property that contains child
-    * properties, the child properties will be included in the response. For example, in a playlist
-    * resource, the snippet property contains properties like author, title, description, tags, and
-    * timeCreated. As such, if you set part=snippet, the API response will contain all of those
-    * properties.
+    * are id, snippet, status, and contentDetails.
+  If the parameter identifies a property that
+    * contains child properties, the child properties will be included in the response. For example,
+    * in a playlist resource, the snippet property contains properties like author, title,
+    * description, tags, and timeCreated. As such, if you set part=snippet, the API response will
+    * contain all of those properties.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string onBehalfOfContentOwner
