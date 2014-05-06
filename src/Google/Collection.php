@@ -13,7 +13,7 @@ class Google_Collection extends Google_Model implements Iterator, Countable
 
   public function rewind()
   {
-    if (is_array($this->modelData[$this->collection_key])) {
+    if (isset($this->modelData[$this->collection_key]) && is_array($this->modelData[$this->collection_key])) {
       reset($this->modelData[$this->collection_key]);
     }
   }
@@ -28,7 +28,7 @@ class Google_Collection extends Google_Model implements Iterator, Countable
 
   public function key()
   {
-    if (is_array($this->modelData[$this->collection_key])) {
+    if (isset($this->modelData[$this->collection_key]) && is_array($this->modelData[$this->collection_key])) {
       return key($this->modelData[$this->collection_key]);
     }
   }
