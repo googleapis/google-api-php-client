@@ -19,12 +19,12 @@
  * Service definition for Replicapool (v1beta1).
  *
  * <p>
- * The Google Replica Pool API provides groups of homogenous VMs.
+ * The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.
  * </p>
  *
  * <p>
  * For more information about this service, see the API
- * <a href="http://code.google.com/apis/cloud/replicapool/v1/using_rest.html" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/compute/docs/replica-pool/" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -319,7 +319,7 @@ class Google_Service_Replicapool_Pools_Resource extends Google_Service_Resource
    * @param string $zone
    * The zone for this replica pool.
    * @param string $poolName
-   * The name of the replica pool for which you want to get more information.
+   * The name of the replica pool to get more information about.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapool_Pool
    */
@@ -350,14 +350,14 @@ class Google_Service_Replicapool_Pools_Resource extends Google_Service_Resource
    * List all replica pools. (pools.listPools)
    *
    * @param string $projectName
-   * The project ID for this replica pool.
+   * The project ID for this request.
    * @param string $zone
    * The zone for this replica pool.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken
-   * Specifies a nextPageToken returned by a previous list request. This token can be used to request
-    * the next page of results from a previous list request.
+   * Set this to the nextPageToken value returned by a previous list request to obtain the next page
+    * of results from the previous list request.
    * @opt_param int maxResults
    * Maximum count of results to be returned. Acceptable values are 0 to 100, inclusive. (Default:
     * 50)
@@ -370,7 +370,9 @@ class Google_Service_Replicapool_Pools_Resource extends Google_Service_Resource
     return $this->call('list', array($params), "Google_Service_Replicapool_PoolsListResponse");
   }
   /**
-   * Resize a pool. (pools.resize)
+   * Resize a pool. This is an asynchronous operation, and multiple overlapping
+   * resize requests can be made. Replica Pools will use the information from the
+   * last resize request. (pools.resize)
    *
    * @param string $projectName
    * The project ID for this replica pool.
@@ -384,8 +386,6 @@ class Google_Service_Replicapool_Pools_Resource extends Google_Service_Resource
    * The desired number of replicas to resize to. If this number is larger than the existing number
     * of replicas, new replicas will be added. If the number is smaller, then existing replicas will
     * be deleted.
-  This is an asynchronous operation, and multiple overlapping resize requests can be
-    * made. Replica Pools will use the information from the last resize request.
    * @return Google_Service_Replicapool_Pool
    */
   public function resize($projectName, $zone, $poolName, $optParams = array())
@@ -429,13 +429,13 @@ class Google_Service_Replicapool_Replicas_Resource extends Google_Service_Resour
    * Gets information about a specific replica. (replicas.get)
    *
    * @param string $projectName
-   * The name of project ID for this request.
+   * The project ID for this request.
    * @param string $zone
    * The zone where the replica lives.
    * @param string $poolName
    * The replica pool name for this request.
    * @param string $replicaName
-   * The name of the replica for which you want to get more information.
+   * The name of the replica to get more information about.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapool_Replica
    */
@@ -449,16 +449,16 @@ class Google_Service_Replicapool_Replicas_Resource extends Google_Service_Resour
    * Lists all replicas in a pool. (replicas.listReplicas)
    *
    * @param string $projectName
-   * The name of project ID for this request.
+   * The project ID for this request.
    * @param string $zone
-   * The zone where the replica lives.
+   * The zone where the replica pool lives.
    * @param string $poolName
    * The replica pool name for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken
-   * Specifies a nextPageToken returned by a previous list request. This token can be used to request
-    * the next page of results from a previous list request.
+   * Set this to the nextPageToken value returned by a previous list request to obtain the next page
+    * of results from the previous list request.
    * @opt_param int maxResults
    * Maximum count of results to be returned. Acceptable values are 0 to 100, inclusive. (Default:
     * 50)
@@ -474,7 +474,7 @@ class Google_Service_Replicapool_Replicas_Resource extends Google_Service_Resour
    * Restarts a replica in a pool. (replicas.restart)
    *
    * @param string $projectName
-   * The name of project ID for this request.
+   * The project ID for this request.
    * @param string $zone
    * The zone where the replica lives.
    * @param string $poolName
