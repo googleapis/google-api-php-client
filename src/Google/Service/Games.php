@@ -3280,6 +3280,8 @@ class Google_Service_Games_NetworkDiagnostics extends Google_Model
   public $androidNetworkType;
   public $iosNetworkType;
   public $kind;
+  public $networkOperatorCode;
+  public $networkOperatorName;
   public $registrationLatencyMillis;
 
   public function setAndroidNetworkSubtype($androidNetworkSubtype)
@@ -3320,6 +3322,26 @@ class Google_Service_Games_NetworkDiagnostics extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+
+  public function setNetworkOperatorCode($networkOperatorCode)
+  {
+    $this->networkOperatorCode = $networkOperatorCode;
+  }
+
+  public function getNetworkOperatorCode()
+  {
+    return $this->networkOperatorCode;
+  }
+
+  public function setNetworkOperatorName($networkOperatorName)
+  {
+    $this->networkOperatorName = $networkOperatorName;
+  }
+
+  public function getNetworkOperatorName()
+  {
+    return $this->networkOperatorName;
   }
 
   public function setRegistrationLatencyMillis($registrationLatencyMillis)
@@ -4699,6 +4721,8 @@ class Google_Service_Games_RoomLeaveDiagnostics extends Google_Collection
   public $androidNetworkType;
   public $iosNetworkType;
   public $kind;
+  public $networkOperatorCode;
+  public $networkOperatorName;
   protected $peerSessionType = 'Google_Service_Games_PeerSessionDiagnostics';
   protected $peerSessionDataType = 'array';
   public $socketsUsed;
@@ -4741,6 +4765,26 @@ class Google_Service_Games_RoomLeaveDiagnostics extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+
+  public function setNetworkOperatorCode($networkOperatorCode)
+  {
+    $this->networkOperatorCode = $networkOperatorCode;
+  }
+
+  public function getNetworkOperatorCode()
+  {
+    return $this->networkOperatorCode;
+  }
+
+  public function setNetworkOperatorName($networkOperatorName)
+  {
+    $this->networkOperatorName = $networkOperatorName;
+  }
+
+  public function getNetworkOperatorName()
+  {
+    return $this->networkOperatorName;
   }
 
   public function setPeerSession($peerSession)
