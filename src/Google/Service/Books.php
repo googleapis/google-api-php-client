@@ -951,11 +951,15 @@ class Google_Service_Books extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'offer_id' => array(
+                'volumeId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'volume_id' => array(
+                'offerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'androidId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -984,7 +988,11 @@ class Google_Service_Books extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'offer_id' => array(
+                'offerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'androidId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1009,15 +1017,19 @@ class Google_Service_Books extends Google_Service
               'path' => 'promooffer/get',
               'httpMethod' => 'GET',
               'parameters' => array(
+                'product' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'androidId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'device' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'model' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'product' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2144,10 +2156,12 @@ class Google_Service_Books_Promooffer_Resource extends Google_Service_Resource
    *
    * @opt_param string product
    * device product
-   * @opt_param string offer_id
-   *
-   * @opt_param string volume_id
+   * @opt_param string volumeId
    * Volume id to exercise the offer
+   * @opt_param string offerId
+   *
+   * @opt_param string androidId
+   * device android_id
    * @opt_param string device
    * device device
    * @opt_param string model
@@ -2170,8 +2184,10 @@ class Google_Service_Books_Promooffer_Resource extends Google_Service_Resource
    *
    * @opt_param string product
    * device product
-   * @opt_param string offer_id
+   * @opt_param string offerId
    * Offer to dimiss
+   * @opt_param string androidId
+   * device android_id
    * @opt_param string device
    * device device
    * @opt_param string model
@@ -2192,12 +2208,14 @@ class Google_Service_Books_Promooffer_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string product
+   * device product
+   * @opt_param string androidId
+   * device android_id
    * @opt_param string device
    * device device
    * @opt_param string model
    * device model
-   * @opt_param string product
-   * device product
    * @opt_param string serial
    * device serial
    * @opt_param string manufacturer
