@@ -1889,6 +1889,7 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   protected $defaultDatasetDataType = '';
   protected $destinationTableType = 'Google_Service_Bigquery_TableReference';
   protected $destinationTableDataType = '';
+  public $flattenResults;
   public $preserveNulls;
   public $priority;
   public $query;
@@ -1933,6 +1934,16 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   public function getDestinationTable()
   {
     return $this->destinationTable;
+  }
+
+  public function setFlattenResults($flattenResults)
+  {
+    $this->flattenResults = $flattenResults;
+  }
+
+  public function getFlattenResults()
+  {
+    return $this->flattenResults;
   }
 
   public function setPreserveNulls($preserveNulls)
