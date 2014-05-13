@@ -287,7 +287,11 @@ class Google_Service_MapsEngine extends Google_Service
         'maps',
         array(
           'methods' => array(
-            'get' => array(
+            'create' => array(
+              'path' => 'maps',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'get' => array(
               'path' => 'maps/{id}',
               'httpMethod' => 'GET',
               'parameters' => array(
@@ -340,6 +344,16 @@ class Google_Service_MapsEngine extends Google_Service
                 'createdBefore' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+              ),
+            ),'publish' => array(
+              'path' => 'maps/{id}/publish',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),
@@ -1116,6 +1130,19 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
 {
 
   /**
+   * Create a map asset. (maps.create)
+   *
+   * @param Google_Map $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_Map
+   */
+  public function create(Google_Service_MapsEngine_Map $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('create', array($params), "Google_Service_MapsEngine_Map");
+  }
+  /**
    * Return metadata for a particular map. (maps.get)
    *
    * @param string $id
@@ -1172,6 +1199,20 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     $params = array();
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_MapsListResponse");
+  }
+  /**
+   * Publish a map asset. (maps.publish)
+   *
+   * @param string $id
+   * The ID of the map.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PublishResponse
+   */
+  public function publish($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('publish', array($params), "Google_Service_MapsEngine_PublishResponse");
   }
 }
 
@@ -3052,6 +3093,7 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public $creationTime;
   public $defaultViewport;
   public $description;
+  public $draftAccessList;
   public $id;
   public $lastModifiedTime;
   public $name;
@@ -3107,6 +3149,16 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public function getDescription()
   {
     return $this->description;
+  }
+
+  public function setDraftAccessList($draftAccessList)
+  {
+    $this->draftAccessList = $draftAccessList;
+  }
+
+  public function getDraftAccessList()
+  {
+    return $this->draftAccessList;
   }
 
   public function setId($id)
