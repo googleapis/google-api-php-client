@@ -82,9 +82,8 @@ class Google_IO_Curl extends Google_IO_Abstract
     }
     $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
 
-    $responseBody = substr($response, $headerSize);
-    $responseHeaderString = substr($response, 0, $headerSize);
-    $responseHeaders = $this->getHttpResponseHeaders($responseHeaderString);
+    list($responseHeaders, $responseBody) = $this->parseHttpResponse($response, $headerSize);
+
     $responseCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
     return array($responseBody, $responseHeaders, $responseCode);
