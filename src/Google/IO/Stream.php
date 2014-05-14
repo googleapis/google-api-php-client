@@ -157,13 +157,15 @@ class Google_IO_Stream extends Google_IO_Abstract
   }
 
   /**
-   * Determine whether "Connection Established" quirk is needed
+   * Test for the presence of a cURL header processing bug
+   *
+   * {@inheritDoc}
+   *
    * @return boolean
    */
   protected function needsQuirk()
   {
-      // Stream needs the special quirk
-      return true;
+    return false;
   }
 
   protected function getHttpResponseCode($response_headers)
