@@ -5981,6 +5981,7 @@ class Google_Service_Compute_Image extends Google_Model
   protected $deprecatedType = 'Google_Service_Compute_DeprecationStatus';
   protected $deprecatedDataType = '';
   public $description;
+  public $diskSizeGb;
   public $id;
   public $kind;
   public $name;
@@ -6028,6 +6029,16 @@ class Google_Service_Compute_Image extends Google_Model
   public function getDescription()
   {
     return $this->description;
+  }
+
+  public function setDiskSizeGb($diskSizeGb)
+  {
+    $this->diskSizeGb = $diskSizeGb;
+  }
+
+  public function getDiskSizeGb()
+  {
+    return $this->diskSizeGb;
   }
 
   public function setId($id)
@@ -7863,6 +7874,8 @@ class Google_Service_Compute_Project extends Google_Collection
   protected $quotasType = 'Google_Service_Compute_Quota';
   protected $quotasDataType = 'array';
   public $selfLink;
+  protected $usageExportLocationType = 'Google_Service_Compute_UsageExportLocation';
+  protected $usageExportLocationDataType = '';
 
   public function setCommonInstanceMetadata(Google_Service_Compute_Metadata $commonInstanceMetadata)
   {
@@ -7942,6 +7955,16 @@ class Google_Service_Compute_Project extends Google_Collection
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+
+  public function setUsageExportLocation(Google_Service_Compute_UsageExportLocation $usageExportLocation)
+  {
+    $this->usageExportLocation = $usageExportLocation;
+  }
+
+  public function getUsageExportLocation()
+  {
+    return $this->usageExportLocation;
   }
 }
 
@@ -9529,6 +9552,32 @@ class Google_Service_Compute_TargetReference extends Google_Model
   public function getTarget()
   {
     return $this->target;
+  }
+}
+
+class Google_Service_Compute_UsageExportLocation extends Google_Model
+{
+  public $bucketName;
+  public $reportNamePrefix;
+
+  public function setBucketName($bucketName)
+  {
+    $this->bucketName = $bucketName;
+  }
+
+  public function getBucketName()
+  {
+    return $this->bucketName;
+  }
+
+  public function setReportNamePrefix($reportNamePrefix)
+  {
+    $this->reportNamePrefix = $reportNamePrefix;
+  }
+
+  public function getReportNamePrefix()
+  {
+    return $this->reportNamePrefix;
   }
 }
 
