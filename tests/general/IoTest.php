@@ -28,8 +28,9 @@ class IoTest extends BaseTest
 
   public function testExecutorSelection()
   {
+    $default = function_exists('curl_version') ? 'Google_IO_Curl' : 'Google_IO_Stream';
     $client = $this->getClient();
-    $this->assertInstanceOf('Google_IO_Curl', $client->getIo());
+    $this->assertInstanceOf($default, $client->getIo());
     $config = new Google_Config();
     $config->setIoClass('Google_IO_Stream');
     $client = new Google_Client($config);
@@ -80,18 +81,27 @@ class IoTest extends BaseTest
 
   public function testCurlSetTimeout()
   {
+    if (!function_exists('curl_version')) {
+      $this->markTestSkipped('cURL not present');
+    }
     $io = new Google_IO_Curl($this->getClient());
     $this->timeoutChecker($io);
   }
 
   public function testCurlParseHttpResponseBody()
   {
+    if (!function_exists('curl_version')) {
+      $this->markTestSkipped('cURL not present');
+    }
     $io = new Google_IO_Curl($this->getClient());
     $this->responseChecker($io);
   }
 
   public function testCurlProcessEntityRequest()
   {
+    if (!function_exists('curl_version')) {
+      $this->markTestSkipped('cURL not present');
+    }
     $client = $this->getClient();
     $io = new Google_IO_Curl($client);
     $this->processEntityRequest($io, $client);
@@ -99,6 +109,9 @@ class IoTest extends BaseTest
 
   public function testCurlCacheHit()
   {
+    if (!function_exists('curl_version')) {
+      $this->markTestSkipped('cURL not present');
+    }
     $client = $this->getClient();
     $io = new Google_IO_Curl($client);
     $this->cacheHit($io, $client);
@@ -106,6 +119,9 @@ class IoTest extends BaseTest
 
   public function testCurlAuthCache()
   {
+    if (!function_exists('curl_version')) {
+      $this->markTestSkipped('cURL not present');
+    }
     $client = $this->getClient();
     $io = new Google_IO_Curl($client);
     $this->authCache($io, $client);
@@ -116,6 +132,9 @@ class IoTest extends BaseTest
    */
   public function testCurlInvalidRequest()
   {
+    if (!function_exists('curl_version')) {
+      $this->markTestSkipped('cURL not present');
+    }
     $io = new Google_IO_Curl($this->getClient());
     $this->invalidRequest($io);
   }
