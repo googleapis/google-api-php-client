@@ -169,7 +169,7 @@ class ApiOAuth2Test extends BaseTest {
    * Test for revoking token when none is opened
    */
   public function testRevokeWhenNoTokenExists() {
-    $client = $this->getClient();
-    $client->revokeToken();
+    $client = new Google_Client();
+    $this->assertFalse($client->revokeToken());
   }
 }
