@@ -69,7 +69,12 @@ abstract class Google_IO_Abstract
   abstract public function getTimeout();
 
   /**
-   * Determine whether "Connection Established" quirk is needed
+   * Test for the presence of a cURL header processing bug
+   *
+   * The cURL bug was present in versions prior to 7.30.0 and caused the header
+   * length to be miscalculated when a "Connection established" header added by
+   * some proxies was present.
+   *
    * @return boolean
    */
   abstract protected function needsQuirk();
@@ -244,10 +249,15 @@ abstract class Google_IO_Abstract
    */
   public function parseHttpResponse($respData, $headerSize)
   {
-    // only strip this header if the sub-class needs this quirk
-    if ($this->needsQuirk() && stripos($respData, self::CONNECTION_ESTABLISHED) !== false) {
+    if (stripos($respData, self::CONNECTION_ESTABLISHED) !== false) {
       $respData = str_ireplace(self::CONNECTION_ESTABLISHED, '', $respData);
-      $headerSize -= strlen(self::CONNECTION_ESTABLISHED);
+
+      // Subtract the proxy header size unless the cURL bug prior to 7.30.0
+      // is present which prevented the proxy header size from being taken into
+      // account.
+      if (!$this->needsQuirk()) {
+        $headerSize -= strlen(self::CONNECTION_ESTABLISHED);
+      }
     }
 
     if ($headerSize) {
