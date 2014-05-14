@@ -25,8 +25,8 @@ require_once 'Google/IO/Abstract.php';
 
 class Google_IO_Curl extends Google_IO_Abstract
 {
-  // hex for version 7.31.0
-  const NO_QUIRK_VERSION = 0x071F00;
+  // hex for version 7.30.0
+  const NO_QUIRK_VERSION = 0x071E00;
 
   private $options = array();
   /**
