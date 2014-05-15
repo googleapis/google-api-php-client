@@ -2540,11 +2540,14 @@ class Google_Service_Drive_About extends Google_Collection
   protected $importFormatsDataType = 'array';
   public $isCurrentAppInstalled;
   public $kind;
+  public $languageCode;
   public $largestChangeId;
   protected $maxUploadSizesType = 'Google_Service_Drive_AboutMaxUploadSizes';
   protected $maxUploadSizesDataType = 'array';
   public $name;
   public $permissionId;
+  protected $quotaBytesByServiceType = 'Google_Service_Drive_AboutQuotaBytesByService';
+  protected $quotaBytesByServiceDataType = 'array';
   public $quotaBytesTotal;
   public $quotaBytesUsed;
   public $quotaBytesUsedAggregate;
@@ -2635,6 +2638,16 @@ class Google_Service_Drive_About extends Google_Collection
     return $this->kind;
   }
 
+  public function setLanguageCode($languageCode)
+  {
+    $this->languageCode = $languageCode;
+  }
+
+  public function getLanguageCode()
+  {
+    return $this->languageCode;
+  }
+
   public function setLargestChangeId($largestChangeId)
   {
     $this->largestChangeId = $largestChangeId;
@@ -2673,6 +2686,16 @@ class Google_Service_Drive_About extends Google_Collection
   public function getPermissionId()
   {
     return $this->permissionId;
+  }
+
+  public function setQuotaBytesByService($quotaBytesByService)
+  {
+    $this->quotaBytesByService = $quotaBytesByService;
+  }
+
+  public function getQuotaBytesByService()
+  {
+    return $this->quotaBytesByService;
   }
 
   public function setQuotaBytesTotal($quotaBytesTotal)
@@ -2913,11 +2936,38 @@ class Google_Service_Drive_AboutMaxUploadSizes extends Google_Model
   }
 }
 
+class Google_Service_Drive_AboutQuotaBytesByService extends Google_Model
+{
+  public $bytesUsed;
+  public $serviceName;
+
+  public function setBytesUsed($bytesUsed)
+  {
+    $this->bytesUsed = $bytesUsed;
+  }
+
+  public function getBytesUsed()
+  {
+    return $this->bytesUsed;
+  }
+
+  public function setServiceName($serviceName)
+  {
+    $this->serviceName = $serviceName;
+  }
+
+  public function getServiceName()
+  {
+    return $this->serviceName;
+  }
+}
+
 class Google_Service_Drive_App extends Google_Collection
 {
   public $authorized;
   public $createInFolderTemplate;
   public $createUrl;
+  public $hasDriveWideScope;
   protected $iconsType = 'Google_Service_Drive_AppIcons';
   protected $iconsDataType = 'array';
   public $id;
@@ -2937,6 +2987,7 @@ class Google_Service_Drive_App extends Google_Collection
   public $supportsCreate;
   public $supportsImport;
   public $supportsMultiOpen;
+  public $supportsOfflineCreate;
   public $useByDefault;
 
   public function setAuthorized($authorized)
@@ -2967,6 +3018,16 @@ class Google_Service_Drive_App extends Google_Collection
   public function getCreateUrl()
   {
     return $this->createUrl;
+  }
+
+  public function setHasDriveWideScope($hasDriveWideScope)
+  {
+    $this->hasDriveWideScope = $hasDriveWideScope;
+  }
+
+  public function getHasDriveWideScope()
+  {
+    return $this->hasDriveWideScope;
   }
 
   public function setIcons($icons)
@@ -3149,6 +3210,16 @@ class Google_Service_Drive_App extends Google_Collection
     return $this->supportsMultiOpen;
   }
 
+  public function setSupportsOfflineCreate($supportsOfflineCreate)
+  {
+    $this->supportsOfflineCreate = $supportsOfflineCreate;
+  }
+
+  public function getSupportsOfflineCreate()
+  {
+    return $this->supportsOfflineCreate;
+  }
+
   public function setUseByDefault($useByDefault)
   {
     $this->useByDefault = $useByDefault;
@@ -3199,11 +3270,22 @@ class Google_Service_Drive_AppIcons extends Google_Model
 
 class Google_Service_Drive_AppList extends Google_Collection
 {
+  public $defaultAppIds;
   public $etag;
   protected $itemsType = 'Google_Service_Drive_App';
   protected $itemsDataType = 'array';
   public $kind;
   public $selfLink;
+
+  public function setDefaultAppIds($defaultAppIds)
+  {
+    $this->defaultAppIds = $defaultAppIds;
+  }
+
+  public function getDefaultAppIds()
+  {
+    return $this->defaultAppIds;
+  }
 
   public function setEtag($etag)
   {
@@ -4095,6 +4177,7 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   protected $lastModifyingUserDataType = '';
   public $lastModifyingUserName;
   public $lastViewedByMeDate;
+  public $markedViewedByMeDate;
   public $md5Checksum;
   public $mimeType;
   public $modifiedByMeDate;
@@ -4106,18 +4189,23 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   protected $ownersDataType = 'array';
   protected $parentsType = 'Google_Service_Drive_ParentReference';
   protected $parentsDataType = 'array';
+  protected $permissionsType = 'Google_Service_Drive_Permission';
+  protected $permissionsDataType = 'array';
   protected $propertiesType = 'Google_Service_Drive_Property';
   protected $propertiesDataType = 'array';
   public $quotaBytesUsed;
   public $selfLink;
   public $shared;
   public $sharedWithMeDate;
+  protected $sharingUserType = 'Google_Service_Drive_User';
+  protected $sharingUserDataType = '';
   protected $thumbnailType = 'Google_Service_Drive_DriveFileThumbnail';
   protected $thumbnailDataType = '';
   public $thumbnailLink;
   public $title;
   protected $userPermissionType = 'Google_Service_Drive_Permission';
   protected $userPermissionDataType = '';
+  public $version;
   public $webContentLink;
   public $webViewLink;
   public $writersCanShare;
@@ -4362,6 +4450,16 @@ class Google_Service_Drive_DriveFile extends Google_Collection
     return $this->lastViewedByMeDate;
   }
 
+  public function setMarkedViewedByMeDate($markedViewedByMeDate)
+  {
+    $this->markedViewedByMeDate = $markedViewedByMeDate;
+  }
+
+  public function getMarkedViewedByMeDate()
+  {
+    return $this->markedViewedByMeDate;
+  }
+
   public function setMd5Checksum($md5Checksum)
   {
     $this->md5Checksum = $md5Checksum;
@@ -4452,6 +4550,16 @@ class Google_Service_Drive_DriveFile extends Google_Collection
     return $this->parents;
   }
 
+  public function setPermissions($permissions)
+  {
+    $this->permissions = $permissions;
+  }
+
+  public function getPermissions()
+  {
+    return $this->permissions;
+  }
+
   public function setProperties($properties)
   {
     $this->properties = $properties;
@@ -4502,6 +4610,16 @@ class Google_Service_Drive_DriveFile extends Google_Collection
     return $this->sharedWithMeDate;
   }
 
+  public function setSharingUser(Google_Service_Drive_User $sharingUser)
+  {
+    $this->sharingUser = $sharingUser;
+  }
+
+  public function getSharingUser()
+  {
+    return $this->sharingUser;
+  }
+
   public function setThumbnail(Google_Service_Drive_DriveFileThumbnail $thumbnail)
   {
     $this->thumbnail = $thumbnail;
@@ -4540,6 +4658,16 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   public function getUserPermission()
   {
     return $this->userPermission;
+  }
+
+  public function setVersion($version)
+  {
+    $this->version = $version;
+  }
+
+  public function getVersion()
+  {
+    return $this->version;
   }
 
   public function setWebContentLink($webContentLink)
