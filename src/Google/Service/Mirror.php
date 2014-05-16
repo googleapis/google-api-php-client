@@ -39,6 +39,7 @@ class Google_Service_Mirror extends Google_Service
   public $accounts;
   public $contacts;
   public $locations;
+  public $settings;
   public $subscriptions;
   public $timeline;
   public $timeline_attachments;
@@ -164,6 +165,26 @@ class Google_Service_Mirror extends Google_Service
               'path' => 'locations',
               'httpMethod' => 'GET',
               'parameters' => array(),
+            ),
+          )
+        )
+    );
+    $this->settings = new Google_Service_Mirror_Settings_Resource(
+        $this,
+        $this->serviceName,
+        'settings',
+        array(
+          'methods' => array(
+            'get' => array(
+              'path' => 'settings/{id}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )
@@ -522,6 +543,33 @@ class Google_Service_Mirror_Locations_Resource extends Google_Service_Resource
     $params = array();
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Mirror_LocationsListResponse");
+  }
+}
+
+/**
+ * The "settings" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $mirrorService = new Google_Service_Mirror(...);
+ *   $settings = $mirrorService->settings;
+ *  </code>
+ */
+class Google_Service_Mirror_Settings_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Gets a single setting by ID. (settings.get)
+   *
+   * @param string $id
+   * The ID of the setting.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Mirror_Setting
+   */
+  public function get($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Mirror_Setting");
   }
 }
 
@@ -1421,6 +1469,43 @@ class Google_Service_Mirror_NotificationConfig extends Google_Model
   public function getLevel()
   {
     return $this->level;
+  }
+}
+
+class Google_Service_Mirror_Setting extends Google_Model
+{
+  public $id;
+  public $kind;
+  public $value;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
   }
 }
 
