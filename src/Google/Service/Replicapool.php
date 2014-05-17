@@ -196,7 +196,32 @@ class Google_Service_Replicapool extends Google_Service
         'replicas',
         array(
           'methods' => array(
-            'get' => array(
+            'delete' => array(
+              'path' => '{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'projectName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'poolName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'replicaName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
               'path' => '{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}',
               'httpMethod' => 'GET',
               'parameters' => array(
@@ -425,6 +450,27 @@ class Google_Service_Replicapool_Pools_Resource extends Google_Service_Resource
 class Google_Service_Replicapool_Replicas_Resource extends Google_Service_Resource
 {
 
+  /**
+   * Deletes a replica from the pool. (replicas.delete)
+   *
+   * @param string $projectName
+   * The project ID for this request.
+   * @param string $zone
+   * The zone where the replica lives.
+   * @param string $poolName
+   * The replica pool name for this request.
+   * @param string $replicaName
+   * The name of the replica to delete.
+   * @param Google_ReplicasDeleteRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Replicapool_Replica
+   */
+  public function delete($projectName, $zone, $poolName, $replicaName, Google_Service_Replicapool_ReplicasDeleteRequest $postBody, $optParams = array())
+  {
+    $params = array('projectName' => $projectName, 'zone' => $zone, 'poolName' => $poolName, 'replicaName' => $replicaName, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Replicapool_Replica");
+  }
   /**
    * Gets information about a specific replica. (replicas.get)
    *
@@ -1263,6 +1309,21 @@ class Google_Service_Replicapool_ReplicaStatus extends Google_Model
   public function getVmStartTime()
   {
     return $this->vmStartTime;
+  }
+}
+
+class Google_Service_Replicapool_ReplicasDeleteRequest extends Google_Model
+{
+  public $abandonInstance;
+
+  public function setAbandonInstance($abandonInstance)
+  {
+    $this->abandonInstance = $abandonInstance;
+  }
+
+  public function getAbandonInstance()
+  {
+    return $this->abandonInstance;
   }
 }
 
