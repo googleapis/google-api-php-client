@@ -1,5 +1,11 @@
 language: php
 
+services:
+  - memcached
+
+env:
+  - MEMCACHE_HOST=127.0.0.1 MEMCACHE_PORT=11211
+
 php:
   # Can't test against 5.2; openssl is not available:
   # http://docs.travis-ci.com/user/languages/php/#PHP-installation
@@ -9,6 +15,10 @@ php:
 
 before_script:
   - composer install
+  - echo "extension=memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - echo "extension=memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - phpenv version-name | grep ^5.[34] && echo "extension=apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ; true
+  - phpenv version-name | grep ^5.[34] && echo "apc.enable_cli=1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ; true
 
-script: 
+script:
   - cd tests ; phpunit .

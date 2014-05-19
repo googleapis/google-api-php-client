@@ -118,7 +118,7 @@ class ApiClientTest extends BaseTest {
   }
 
   public function testAppEngineAutoConfig() {
-    if (!function_exists('memcache_connect')) {
+    if (!class_exists("Memcached")) {
       $this->markTestSkipped('Test requires memcache');
     }
     $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';

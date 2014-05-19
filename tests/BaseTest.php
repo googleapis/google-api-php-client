@@ -29,10 +29,9 @@ class BaseTest extends PHPUnit_Framework_TestCase {
     // Fill in a token JSON here and you can test the oauth token 
     // requiring functions.
     // $this->token = '';
-    
-    // Fill in memcache values to test the memcache class.
-    // $this->memcacheHost = '127.0.0.1';
-    // $this->memcachePort = '11211';
+
+    $this->memcacheHost = getenv('MEMCACHE_HOST') ? getenv('MEMCACHE_HOST') : null;
+    $this->memcachePort = getenv('MEMCACHE_PORT') ? getenv('MEMCACHE_PORT') : null;
   }
   
   public function getClient() {
