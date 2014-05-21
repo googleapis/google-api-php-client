@@ -41,7 +41,6 @@ class Google_Service_Genomics extends Google_Service
   public $datasets;
   public $experimental_jobs;
   public $jobs;
-  public $jobs_deprecated;
   public $reads;
   public $readsets;
   public $variants;
@@ -238,26 +237,6 @@ class Google_Service_Genomics extends Google_Service
           'methods' => array(
             'get' => array(
               'path' => 'jobs/{jobId}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'jobId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),
-          )
-        )
-    );
-    $this->jobs_deprecated = new Google_Service_Genomics_JobsDeprecated_Resource(
-        $this,
-        $this->serviceName,
-        'deprecated',
-        array(
-          'methods' => array(
-            'get' => array(
-              'path' => 'jobs/deprecated/{jobId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'jobId' => array(
@@ -688,8 +667,8 @@ class Google_Service_Genomics_ExperimentalJobs_Resource extends Google_Service_R
 {
 
   /**
-   * Creates and asynchronously runs an ad-hoc job. NOTE: This is an experimental
-   * call and may vanish or change without warning. (jobs.create)
+   * Creates and asynchronously runs an ad-hoc job. This is an experimental call
+   * and may be removed or changed at any time. (jobs.create)
    *
    * @param Google_ExperimentalCreateJobRequest $postBody
    * @param array $optParams Optional parameters.
@@ -716,33 +695,6 @@ class Google_Service_Genomics_Jobs_Resource extends Google_Service_Resource
 
   /**
    * Gets a job by ID. (jobs.get)
-   *
-   * @param string $jobId
-   * The ID of the job.
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Genomics_Job
-   */
-  public function get($jobId, $optParams = array())
-  {
-    $params = array('jobId' => $jobId);
-    $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Genomics_Job");
-  }
-}
-
-/**
- * The "deprecated" collection of methods.
- * Typical usage is:
- *  <code>
- *   $genomicsService = new Google_Service_Genomics(...);
- *   $deprecated = $genomicsService->deprecated;
- *  </code>
- */
-class Google_Service_Genomics_JobsDeprecated_Resource extends Google_Service_Resource
-{
-
-  /**
-   * TODO(garrick): Remove in follow-up CL. Gets a job by ID. (deprecated.get)
    *
    * @param string $jobId
    * The ID of the job.
@@ -1340,26 +1292,48 @@ class Google_Service_Genomics_ExportReadsetsRequest extends Google_Collection
 
 class Google_Service_Genomics_ExportReadsetsResponse extends Google_Model
 {
-  public $exportId;
+  public $jobId;
 
-  public function setExportId($exportId)
+  public function setJobId($jobId)
   {
-    $this->exportId = $exportId;
+    $this->jobId = $jobId;
   }
 
-  public function getExportId()
+  public function getJobId()
   {
-    return $this->exportId;
+    return $this->jobId;
   }
 }
 
 class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
 {
+  public $bigqueryDataset;
+  public $bigqueryTable;
   public $callsetIds;
   public $datasetIds;
   public $exportUri;
   public $format;
   public $projectId;
+
+  public function setBigqueryDataset($bigqueryDataset)
+  {
+    $this->bigqueryDataset = $bigqueryDataset;
+  }
+
+  public function getBigqueryDataset()
+  {
+    return $this->bigqueryDataset;
+  }
+
+  public function setBigqueryTable($bigqueryTable)
+  {
+    $this->bigqueryTable = $bigqueryTable;
+  }
+
+  public function getBigqueryTable()
+  {
+    return $this->bigqueryTable;
+  }
 
   public function setCallsetIds($callsetIds)
   {
