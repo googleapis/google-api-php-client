@@ -561,7 +561,9 @@ class Google_Service_Mirror_Settings_Resource extends Google_Service_Resource
    * Gets a single setting by ID. (settings.get)
    *
    * @param string $id
-   * The ID of the setting.
+   * The ID of the setting. The following IDs are valid:
+  - locale - The key to the user’s
+    * language/locale (BCP 47 identifier) that Glassware should use to render localized content.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Mirror_Setting
    */
