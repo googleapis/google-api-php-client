@@ -19,12 +19,12 @@
  * Service definition for Manager (v1beta2).
  *
  * <p>
- * The Deployment Manager API allows users to declaratively configure and deploy Cloud resources on the Google Cloud Platform.
+ * The Deployment Manager API allows users to declaratively configure, deploy and run complex solutions on the Google Cloud Platform.
  * </p>
  *
  * <p>
  * For more information about this service, see the API
- * <a href="http://code.google.com/apis/cloud/manager/v1beta2/using_rest.html" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/deployment-manager/" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
