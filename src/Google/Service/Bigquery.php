@@ -33,6 +33,8 @@ class Google_Service_Bigquery extends Google_Service
 {
   /** View and manage your data in Google BigQuery. */
   const BIGQUERY = "https://www.googleapis.com/auth/bigquery";
+  /** New Service. */
+  const BIGQUERY_INSERTDATA = "https://www.googleapis.com/auth/bigquery.insertdata";
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM = "https://www.googleapis.com/auth/cloud-platform";
   /** Manage your data and permissions in Google Cloud Storage. */
@@ -1581,6 +1583,7 @@ class Google_Service_Bigquery_JobConfiguration extends Google_Model
 
 class Google_Service_Bigquery_JobConfigurationExtract extends Google_Collection
 {
+  public $compression;
   public $destinationFormat;
   public $destinationUri;
   public $destinationUris;
@@ -1588,6 +1591,16 @@ class Google_Service_Bigquery_JobConfigurationExtract extends Google_Collection
   public $printHeader;
   protected $sourceTableType = 'Google_Service_Bigquery_TableReference';
   protected $sourceTableDataType = '';
+
+  public function setCompression($compression)
+  {
+    $this->compression = $compression;
+  }
+
+  public function getCompression()
+  {
+    return $this->compression;
+  }
 
   public function setDestinationFormat($destinationFormat)
   {
