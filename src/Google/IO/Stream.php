@@ -28,6 +28,8 @@ class Google_IO_Stream extends Google_IO_Abstract
   const TIMEOUT = "timeout";
   const ZLIB = "compress.zlib://";
   private $options = array();
+  private $trappedErrorNumber;
+  private $trappedErrorString;
 
   private static $DEFAULT_HTTP_CONTEXT = array(
     "follow_location" => 0,
@@ -95,11 +97,26 @@ class Google_IO_Stream extends Google_IO_Abstract
       $url = self::ZLIB . $url;
     }
 
-    // Not entirely happy about this, but supressing the warning from the
-    // fopen seems like the best situation here - we can't do anything
-    // useful with it, and failure to connect is a legitimate run
-    // time situation.
-    @$fh = fopen($url, 'r', false, $context);
+    // We are trapping any thrown errors in this method only and
+    // throwing an exception.
+    $this->trappedErrorNumber = null;
+    $this->trappedErrorString = null;
+
+    // START - error trap.
+    set_error_handler(array($this, 'trapError'));
+    $fh = fopen($url, 'r', false, $context);
+    restore_error_handler();
+    // END - error trap.
+
+    if ($this->trappedErrorNumber) {
+      throw new Google_IO_Exception(
+          sprintf(
+              "HTTP Error: Unable to connect: '%s'",
+              $this->trappedErrorString
+          ),
+          $this->trappedErrorNumber
+      );
+    }
 
     $response_data = false;
     $respHttpCode = self::UNKNOWN_CODE;
@@ -136,6 +153,15 @@ class Google_IO_Stream extends Google_IO_Abstract
   public function setOptions($options)
   {
     $this->options = $options + $this->options;
+  }
+
+  /**
+   * Method to handle errors, used for error handling around
+   * stream connection methods.
+   */
+  public function trapError($errno, $errstr) {
+    $this->trappedErrorNumber = $errno;
+    $this->trappedErrorString = $errstr;
   }
 
   /**
