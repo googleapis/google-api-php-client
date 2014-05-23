@@ -234,17 +234,6 @@ PK;
     $req = new Google_Http_Request("http://example.com");
 
     $resp = $noAuth->sign($req);
-    try {
-      $noAuth->authenticate(null);
-      $this->assertTrue(false, "Exception expected");
-    } catch (Google_Auth_Exception $e) {
-
-    }
-    $noAuth->createAuthUrl(null);
-    $noAuth->setAccessToken(null);
-    $noAuth->getAccessToken();
-    $noAuth->refreshToken(null);
-    $noAuth->revokeToken();
     $this->assertEquals("http://example.com", $resp->getUrl());
     $this->getClient()->setAuth($oldAuth);
   }
