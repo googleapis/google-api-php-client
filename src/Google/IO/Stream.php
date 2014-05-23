@@ -159,7 +159,8 @@ class Google_IO_Stream extends Google_IO_Abstract
    * Method to handle errors, used for error handling around
    * stream connection methods.
    */
-  public function trapError($errno, $errstr) {
+  public function trapError($errno, $errstr)
+  {
     $this->trappedErrorNumber = $errno;
     $this->trappedErrorString = $errstr;
   }

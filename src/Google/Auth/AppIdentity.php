@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
+ * Copyright 2014 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,24 +15,51 @@
  * limitations under the License.
  */
 
+/*
+ * WARNING - this class depends on the Google App Engine PHP library
+ * which is 5.3 and above only, so if you include this in a PHP 5.2
+ * setup or one without 5.3 things will blow up.
+ */
+use google\appengine\api\app_identity\AppIdentityService;
+
 require_once "Google/Auth/Abstract.php";
 require_once "Google/Http/Request.php";
 
 /**
- * Simple API access implementation. Can either be used to make requests
- * completely unauthenticated, or by using a Simple API Access developer
- * key.
- * @author Chris Chabot <chabotc@google.com>
- * @author Chirag Shah <chirags@google.com>
+ * Authentication via the Google App Engine App Identity service.
  */
-class Google_Auth_Simple extends Google_Auth_Abstract
+class Google_Auth_AppIdentity extends Google_Auth_Abstract
 {
+  const CACHE_PREFIX = "Google_Auth_AppIdentity::";
+  const CACHE_LIFETIME = 1500;
   private $key = null;
   private $client;
+  private $token = false;
+  private $tokenScopes = false;
 
   public function __construct(Google_Client $client, $config = null)
   {
     $this->client = $client;
+  }
+
+  /**
+   * Retrieve an access token for the scopes supplied.
+   */
+  public function authenticateForScope($scopes)
+  {
+    if ($this->token && $this->tokenScopes == $scopes) {
+      return $this->token;
+    }
+    $memcache = new Memcached();
+    $this->token = $memcache->get(self::CACHE_PREFIX . $scopes);
+    if (!$this->token) {
+      $this->token = AppIdentityService::getAccessToken($scopes);
+      if ($this->token) {
+        $memcache->set(self::CACHE_PREFIX . $scopes, $this->token, self::CACHE_LIFETIME);
+      }
+    }
+    $this->tokenScopes = $scopes;
+    return $this->token;
   }
 
   /**
@@ -53,10 +80,15 @@ class Google_Auth_Simple extends Google_Auth_Abstract
 
   public function sign(Google_Http_Request $request)
   {
-    $key = $this->client->getClassConfig($this, 'developer_key');
-    if ($key) {
-      $request->setQueryParam('key', $key);
+    if (!$this->token) {
+      // No token, so nothing to do.
+      return $request;
     }
+    // Add the OAuth2 header to the request
+    $request->setRequestHeaders(
+        array('Authorization' => 'Bearer ' . $this->token['access_token'])
+    );
+
     return $request;
   }
 }
