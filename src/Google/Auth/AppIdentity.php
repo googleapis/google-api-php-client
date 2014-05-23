@@ -45,7 +45,8 @@ class Google_Auth_AppIdentity extends Google_Auth_Abstract
   /**
    * Retrieve an access token for the scopes supplied.
    */
-  public function authenticateForScope($scopes) {
+  public function authenticateForScope($scopes)
+  {
     if ($this->token && $this->tokenScopes == $scopes) {
       return $this->token;
     }
