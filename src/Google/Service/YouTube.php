@@ -895,6 +895,14 @@ class Google_Service_YouTube extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'location' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'locationRadius' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'videoType' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -2739,6 +2747,17 @@ class Google_Service_YouTube_Search_Resource extends Google_Service_Resource
    * @opt_param string regionCode
    * The regionCode parameter instructs the API to return search results for the specified country.
     * The parameter value is an ISO 3166-1 alpha-2 country code.
+   * @opt_param string location
+   * The location parameter restricts a search to videos that have a geographical location specified
+    * in their metadata. The value is a string that specifies geographic longitude/latitude
+    * coordinates e.g. (-122.08427,37.42307)
+   * @opt_param string locationRadius
+   * The locationRadius, in conjunction with the location parameter, defines a geographic area. If
+    * the geographic coordinates associated with a video fall within that area, then the video may be
+    * included in search results. This parameter value must be a floating point number followed by a
+    * measurement unit. Valid measurement units are m, km, ft, and mi. For example, valid parameter
+    * values include 1500m, 5km, 10000ft, and 0.75mi. The API does not support locationRadius
+    * parameter values larger than 1000 kilometers.
    * @opt_param string videoType
    * The videoType parameter lets you restrict a search to a particular type of videos.
    * @opt_param string type
@@ -5182,22 +5201,66 @@ class Google_Service_YouTube_ChannelTopicDetails extends Google_Collection
 class Google_Service_YouTube_ContentRating extends Google_Model
 {
   public $acbRating;
+  public $agcomRating;
+  public $anatelRating;
   public $bbfcRating;
+  public $bfvcRating;
+  public $bmukkRating;
   public $catvRating;
   public $catvfrRating;
   public $cbfcRating;
+  public $cccRating;
+  public $cceRating;
+  public $chfilmRating;
   public $chvrsRating;
+  public $cicfRating;
+  public $cnaRating;
+  public $csaRating;
+  public $cscfRating;
+  public $czfilmRating;
   public $djctqRating;
+  public $eefilmRating;
+  public $egfilmRating;
   public $eirinRating;
+  public $fcbmRating;
+  public $fcoRating;
   public $fmocRating;
+  public $fpbRating;
   public $fskRating;
+  public $grfilmRating;
   public $icaaRating;
+  public $ifcoRating;
+  public $ilfilmRating;
+  public $incaaRating;
+  public $kfcbRating;
+  public $kijkwijzerRating;
   public $kmrbRating;
+  public $lsfRating;
+  public $mccaaRating;
+  public $mccypRating;
+  public $mdaRating;
+  public $medietilsynetRating;
+  public $mekuRating;
   public $mibacRating;
+  public $mocRating;
+  public $moctwRating;
   public $mpaaRating;
+  public $mtrcbRating;
+  public $nbcRating;
+  public $nbcplRating;
+  public $nfrcRating;
+  public $nfvcbRating;
+  public $nkclvRating;
   public $oflcRating;
+  public $pefilmRating;
+  public $rcnofRating;
+  public $resorteviolenciaRating;
   public $rtcRating;
+  public $rteRating;
   public $russiaRating;
+  public $skfilmRating;
+  public $smaisRating;
+  public $smsaRating;
   public $tvpgRating;
   public $ytRating;
 
@@ -5211,6 +5274,26 @@ class Google_Service_YouTube_ContentRating extends Google_Model
     return $this->acbRating;
   }
 
+  public function setAgcomRating($agcomRating)
+  {
+    $this->agcomRating = $agcomRating;
+  }
+
+  public function getAgcomRating()
+  {
+    return $this->agcomRating;
+  }
+
+  public function setAnatelRating($anatelRating)
+  {
+    $this->anatelRating = $anatelRating;
+  }
+
+  public function getAnatelRating()
+  {
+    return $this->anatelRating;
+  }
+
   public function setBbfcRating($bbfcRating)
   {
     $this->bbfcRating = $bbfcRating;
@@ -5219,6 +5302,26 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   public function getBbfcRating()
   {
     return $this->bbfcRating;
+  }
+
+  public function setBfvcRating($bfvcRating)
+  {
+    $this->bfvcRating = $bfvcRating;
+  }
+
+  public function getBfvcRating()
+  {
+    return $this->bfvcRating;
+  }
+
+  public function setBmukkRating($bmukkRating)
+  {
+    $this->bmukkRating = $bmukkRating;
+  }
+
+  public function getBmukkRating()
+  {
+    return $this->bmukkRating;
   }
 
   public function setCatvRating($catvRating)
@@ -5251,6 +5354,36 @@ class Google_Service_YouTube_ContentRating extends Google_Model
     return $this->cbfcRating;
   }
 
+  public function setCccRating($cccRating)
+  {
+    $this->cccRating = $cccRating;
+  }
+
+  public function getCccRating()
+  {
+    return $this->cccRating;
+  }
+
+  public function setCceRating($cceRating)
+  {
+    $this->cceRating = $cceRating;
+  }
+
+  public function getCceRating()
+  {
+    return $this->cceRating;
+  }
+
+  public function setChfilmRating($chfilmRating)
+  {
+    $this->chfilmRating = $chfilmRating;
+  }
+
+  public function getChfilmRating()
+  {
+    return $this->chfilmRating;
+  }
+
   public function setChvrsRating($chvrsRating)
   {
     $this->chvrsRating = $chvrsRating;
@@ -5259,6 +5392,56 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   public function getChvrsRating()
   {
     return $this->chvrsRating;
+  }
+
+  public function setCicfRating($cicfRating)
+  {
+    $this->cicfRating = $cicfRating;
+  }
+
+  public function getCicfRating()
+  {
+    return $this->cicfRating;
+  }
+
+  public function setCnaRating($cnaRating)
+  {
+    $this->cnaRating = $cnaRating;
+  }
+
+  public function getCnaRating()
+  {
+    return $this->cnaRating;
+  }
+
+  public function setCsaRating($csaRating)
+  {
+    $this->csaRating = $csaRating;
+  }
+
+  public function getCsaRating()
+  {
+    return $this->csaRating;
+  }
+
+  public function setCscfRating($cscfRating)
+  {
+    $this->cscfRating = $cscfRating;
+  }
+
+  public function getCscfRating()
+  {
+    return $this->cscfRating;
+  }
+
+  public function setCzfilmRating($czfilmRating)
+  {
+    $this->czfilmRating = $czfilmRating;
+  }
+
+  public function getCzfilmRating()
+  {
+    return $this->czfilmRating;
   }
 
   public function setDjctqRating($djctqRating)
@@ -5271,6 +5454,26 @@ class Google_Service_YouTube_ContentRating extends Google_Model
     return $this->djctqRating;
   }
 
+  public function setEefilmRating($eefilmRating)
+  {
+    $this->eefilmRating = $eefilmRating;
+  }
+
+  public function getEefilmRating()
+  {
+    return $this->eefilmRating;
+  }
+
+  public function setEgfilmRating($egfilmRating)
+  {
+    $this->egfilmRating = $egfilmRating;
+  }
+
+  public function getEgfilmRating()
+  {
+    return $this->egfilmRating;
+  }
+
   public function setEirinRating($eirinRating)
   {
     $this->eirinRating = $eirinRating;
@@ -5279,6 +5482,26 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   public function getEirinRating()
   {
     return $this->eirinRating;
+  }
+
+  public function setFcbmRating($fcbmRating)
+  {
+    $this->fcbmRating = $fcbmRating;
+  }
+
+  public function getFcbmRating()
+  {
+    return $this->fcbmRating;
+  }
+
+  public function setFcoRating($fcoRating)
+  {
+    $this->fcoRating = $fcoRating;
+  }
+
+  public function getFcoRating()
+  {
+    return $this->fcoRating;
   }
 
   public function setFmocRating($fmocRating)
@@ -5291,6 +5514,16 @@ class Google_Service_YouTube_ContentRating extends Google_Model
     return $this->fmocRating;
   }
 
+  public function setFpbRating($fpbRating)
+  {
+    $this->fpbRating = $fpbRating;
+  }
+
+  public function getFpbRating()
+  {
+    return $this->fpbRating;
+  }
+
   public function setFskRating($fskRating)
   {
     $this->fskRating = $fskRating;
@@ -5299,6 +5532,16 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   public function getFskRating()
   {
     return $this->fskRating;
+  }
+
+  public function setGrfilmRating($grfilmRating)
+  {
+    $this->grfilmRating = $grfilmRating;
+  }
+
+  public function getGrfilmRating()
+  {
+    return $this->grfilmRating;
   }
 
   public function setIcaaRating($icaaRating)
@@ -5311,6 +5554,56 @@ class Google_Service_YouTube_ContentRating extends Google_Model
     return $this->icaaRating;
   }
 
+  public function setIfcoRating($ifcoRating)
+  {
+    $this->ifcoRating = $ifcoRating;
+  }
+
+  public function getIfcoRating()
+  {
+    return $this->ifcoRating;
+  }
+
+  public function setIlfilmRating($ilfilmRating)
+  {
+    $this->ilfilmRating = $ilfilmRating;
+  }
+
+  public function getIlfilmRating()
+  {
+    return $this->ilfilmRating;
+  }
+
+  public function setIncaaRating($incaaRating)
+  {
+    $this->incaaRating = $incaaRating;
+  }
+
+  public function getIncaaRating()
+  {
+    return $this->incaaRating;
+  }
+
+  public function setKfcbRating($kfcbRating)
+  {
+    $this->kfcbRating = $kfcbRating;
+  }
+
+  public function getKfcbRating()
+  {
+    return $this->kfcbRating;
+  }
+
+  public function setKijkwijzerRating($kijkwijzerRating)
+  {
+    $this->kijkwijzerRating = $kijkwijzerRating;
+  }
+
+  public function getKijkwijzerRating()
+  {
+    return $this->kijkwijzerRating;
+  }
+
   public function setKmrbRating($kmrbRating)
   {
     $this->kmrbRating = $kmrbRating;
@@ -5319,6 +5612,66 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   public function getKmrbRating()
   {
     return $this->kmrbRating;
+  }
+
+  public function setLsfRating($lsfRating)
+  {
+    $this->lsfRating = $lsfRating;
+  }
+
+  public function getLsfRating()
+  {
+    return $this->lsfRating;
+  }
+
+  public function setMccaaRating($mccaaRating)
+  {
+    $this->mccaaRating = $mccaaRating;
+  }
+
+  public function getMccaaRating()
+  {
+    return $this->mccaaRating;
+  }
+
+  public function setMccypRating($mccypRating)
+  {
+    $this->mccypRating = $mccypRating;
+  }
+
+  public function getMccypRating()
+  {
+    return $this->mccypRating;
+  }
+
+  public function setMdaRating($mdaRating)
+  {
+    $this->mdaRating = $mdaRating;
+  }
+
+  public function getMdaRating()
+  {
+    return $this->mdaRating;
+  }
+
+  public function setMedietilsynetRating($medietilsynetRating)
+  {
+    $this->medietilsynetRating = $medietilsynetRating;
+  }
+
+  public function getMedietilsynetRating()
+  {
+    return $this->medietilsynetRating;
+  }
+
+  public function setMekuRating($mekuRating)
+  {
+    $this->mekuRating = $mekuRating;
+  }
+
+  public function getMekuRating()
+  {
+    return $this->mekuRating;
   }
 
   public function setMibacRating($mibacRating)
@@ -5331,6 +5684,26 @@ class Google_Service_YouTube_ContentRating extends Google_Model
     return $this->mibacRating;
   }
 
+  public function setMocRating($mocRating)
+  {
+    $this->mocRating = $mocRating;
+  }
+
+  public function getMocRating()
+  {
+    return $this->mocRating;
+  }
+
+  public function setMoctwRating($moctwRating)
+  {
+    $this->moctwRating = $moctwRating;
+  }
+
+  public function getMoctwRating()
+  {
+    return $this->moctwRating;
+  }
+
   public function setMpaaRating($mpaaRating)
   {
     $this->mpaaRating = $mpaaRating;
@@ -5339,6 +5712,66 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   public function getMpaaRating()
   {
     return $this->mpaaRating;
+  }
+
+  public function setMtrcbRating($mtrcbRating)
+  {
+    $this->mtrcbRating = $mtrcbRating;
+  }
+
+  public function getMtrcbRating()
+  {
+    return $this->mtrcbRating;
+  }
+
+  public function setNbcRating($nbcRating)
+  {
+    $this->nbcRating = $nbcRating;
+  }
+
+  public function getNbcRating()
+  {
+    return $this->nbcRating;
+  }
+
+  public function setNbcplRating($nbcplRating)
+  {
+    $this->nbcplRating = $nbcplRating;
+  }
+
+  public function getNbcplRating()
+  {
+    return $this->nbcplRating;
+  }
+
+  public function setNfrcRating($nfrcRating)
+  {
+    $this->nfrcRating = $nfrcRating;
+  }
+
+  public function getNfrcRating()
+  {
+    return $this->nfrcRating;
+  }
+
+  public function setNfvcbRating($nfvcbRating)
+  {
+    $this->nfvcbRating = $nfvcbRating;
+  }
+
+  public function getNfvcbRating()
+  {
+    return $this->nfvcbRating;
+  }
+
+  public function setNkclvRating($nkclvRating)
+  {
+    $this->nkclvRating = $nkclvRating;
+  }
+
+  public function getNkclvRating()
+  {
+    return $this->nkclvRating;
   }
 
   public function setOflcRating($oflcRating)
@@ -5351,6 +5784,36 @@ class Google_Service_YouTube_ContentRating extends Google_Model
     return $this->oflcRating;
   }
 
+  public function setPefilmRating($pefilmRating)
+  {
+    $this->pefilmRating = $pefilmRating;
+  }
+
+  public function getPefilmRating()
+  {
+    return $this->pefilmRating;
+  }
+
+  public function setRcnofRating($rcnofRating)
+  {
+    $this->rcnofRating = $rcnofRating;
+  }
+
+  public function getRcnofRating()
+  {
+    return $this->rcnofRating;
+  }
+
+  public function setResorteviolenciaRating($resorteviolenciaRating)
+  {
+    $this->resorteviolenciaRating = $resorteviolenciaRating;
+  }
+
+  public function getResorteviolenciaRating()
+  {
+    return $this->resorteviolenciaRating;
+  }
+
   public function setRtcRating($rtcRating)
   {
     $this->rtcRating = $rtcRating;
@@ -5361,6 +5824,16 @@ class Google_Service_YouTube_ContentRating extends Google_Model
     return $this->rtcRating;
   }
 
+  public function setRteRating($rteRating)
+  {
+    $this->rteRating = $rteRating;
+  }
+
+  public function getRteRating()
+  {
+    return $this->rteRating;
+  }
+
   public function setRussiaRating($russiaRating)
   {
     $this->russiaRating = $russiaRating;
@@ -5369,6 +5842,36 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   public function getRussiaRating()
   {
     return $this->russiaRating;
+  }
+
+  public function setSkfilmRating($skfilmRating)
+  {
+    $this->skfilmRating = $skfilmRating;
+  }
+
+  public function getSkfilmRating()
+  {
+    return $this->skfilmRating;
+  }
+
+  public function setSmaisRating($smaisRating)
+  {
+    $this->smaisRating = $smaisRating;
+  }
+
+  public function getSmaisRating()
+  {
+    return $this->smaisRating;
+  }
+
+  public function setSmsaRating($smsaRating)
+  {
+    $this->smsaRating = $smsaRating;
+  }
+
+  public function getSmsaRating()
+  {
+    return $this->smsaRating;
   }
 
   public function setTvpgRating($tvpgRating)
