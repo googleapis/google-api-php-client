@@ -4106,7 +4106,6 @@ class Google_Service_Analytics_AdWordsAccount extends Google_Model
   public $autoTaggingEnabled;
   public $customerId;
   public $kind;
-  public $name;
 
   public function setAutoTaggingEnabled($autoTaggingEnabled)
   {
@@ -4136,16 +4135,6 @@ class Google_Service_Analytics_AdWordsAccount extends Google_Model
   public function getKind()
   {
     return $this->kind;
-  }
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-
-  public function getName()
-  {
-    return $this->name;
   }
 }
 
