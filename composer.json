@@ -16,5 +16,10 @@
             "src/"
         ]
     },
-    "include-path": ["src/"]
+    "include-path": ["src/"],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
