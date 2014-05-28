@@ -3227,6 +3227,7 @@ class Google_Service_MapsEngine_MapFolder extends Google_Collection
   protected $contentsType = 'Google_Service_MapsEngine_MapItem';
   protected $contentsDataType = 'array';
   public $defaultViewport;
+  public $expandable;
   public $key;
   public $name;
   public $visibility;
@@ -3249,6 +3250,16 @@ class Google_Service_MapsEngine_MapFolder extends Google_Collection
   public function getDefaultViewport()
   {
     return $this->defaultViewport;
+  }
+
+  public function setExpandable($expandable)
+  {
+    $this->expandable = $expandable;
+  }
+
+  public function getExpandable()
+  {
+    return $this->expandable;
   }
 
   public function setKey($key)
