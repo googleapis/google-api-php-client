@@ -373,6 +373,15 @@ class Google_Service_Genomics extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'getSummary' => array(
+              'path' => 'variants/summary',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'datasetId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
             ),'import' => array(
               'path' => 'variants/import',
               'httpMethod' => 'POST',
@@ -937,6 +946,21 @@ class Google_Service_Genomics_Variants_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Genomics_Variant");
   }
   /**
+   * Gets a summary of all the variant data in a dataset. (variants.getSummary)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string datasetId
+   * Required. The ID of the dataset to get variant summary information for.
+   * @return Google_Service_Genomics_GetVariantsSummaryResponse
+   */
+  public function getSummary($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('getSummary', array($params), "Google_Service_Genomics_GetVariantsSummaryResponse");
+  }
+  /**
    * Creates variant data by asynchronously importing the provided information.
    * (variants.import)
    *
@@ -1139,6 +1163,32 @@ class Google_Service_Genomics_Callset extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+}
+
+class Google_Service_Genomics_ContigBound extends Google_Model
+{
+  public $contig;
+  public $upperBound;
+
+  public function setContig($contig)
+  {
+    $this->contig = $contig;
+  }
+
+  public function getContig()
+  {
+    return $this->contig;
+  }
+
+  public function setUpperBound($upperBound)
+  {
+    $this->upperBound = $upperBound;
+  }
+
+  public function getUpperBound()
+  {
+    return $this->upperBound;
   }
 }
 
@@ -1398,6 +1448,22 @@ class Google_Service_Genomics_ExportVariantsResponse extends Google_Model
   public function getJobId()
   {
     return $this->jobId;
+  }
+}
+
+class Google_Service_Genomics_GetVariantsSummaryResponse extends Google_Collection
+{
+  protected $contigBoundsType = 'Google_Service_Genomics_ContigBound';
+  protected $contigBoundsDataType = 'array';
+
+  public function setContigBounds($contigBounds)
+  {
+    $this->contigBounds = $contigBounds;
+  }
+
+  public function getContigBounds()
+  {
+    return $this->contigBounds;
   }
 }
 
