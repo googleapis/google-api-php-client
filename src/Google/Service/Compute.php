@@ -43,6 +43,7 @@ class Google_Service_Compute extends Google_Service
   const DEVSTORAGE_READ_WRITE = "https://www.googleapis.com/auth/devstorage.read_write";
 
   public $addresses;
+  public $diskTypes;
   public $disks;
   public $firewalls;
   public $forwardingRules;
@@ -168,6 +169,85 @@ class Google_Service_Compute extends Google_Service
                   'required' => true,
                 ),
                 'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->diskTypes = new Google_Service_Compute_DiskTypes_Resource(
+        $this,
+        $this->serviceName,
+        'diskTypes',
+        array(
+          'methods' => array(
+            'aggregatedList' => array(
+              'path' => '{project}/aggregated/diskTypes',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'get' => array(
+              'path' => '{project}/zones/{zone}/diskTypes/{diskType}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'diskType' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{project}/zones/{zone}/diskTypes',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -2212,6 +2292,87 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
     $params = array('project' => $project, 'region' => $region);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Compute_AddressList");
+  }
+}
+
+/**
+ * The "diskTypes" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $diskTypes = $computeService->diskTypes;
+ *  </code>
+ */
+class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Retrieves the list of disk type resources grouped by scope.
+   * (diskTypes.aggregatedList)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter
+   * Optional. Filter expression for filtering listed resources.
+   * @opt_param string pageToken
+   * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
+    * previous list request.
+   * @opt_param string maxResults
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 500.
+   * @return Google_Service_Compute_DiskTypeAggregatedList
+   */
+  public function aggregatedList($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('aggregatedList', array($params), "Google_Service_Compute_DiskTypeAggregatedList");
+  }
+  /**
+   * Returns the specified disk type resource. (diskTypes.get)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param string $zone
+   * Name of the zone scoping this request.
+   * @param string $diskType
+   * Name of the disk type resource to return.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_DiskType
+   */
+  public function get($project, $zone, $diskType, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'diskType' => $diskType);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_DiskType");
+  }
+  /**
+   * Retrieves the list of disk type resources available to the specified project.
+   * (diskTypes.listDiskTypes)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param string $zone
+   * Name of the zone scoping this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter
+   * Optional. Filter expression for filtering listed resources.
+   * @opt_param string pageToken
+   * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
+    * previous list request.
+   * @opt_param string maxResults
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 500.
+   * @return Google_Service_Compute_DiskTypeList
+   */
+  public function listDiskTypes($project, $zone, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Compute_DiskTypeList");
   }
 }
 
@@ -5071,6 +5232,322 @@ class Google_Service_Compute_DiskList extends Google_Collection
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_DiskType extends Google_Model
+{
+  public $creationTimestamp;
+  protected $deprecatedType = 'Google_Service_Compute_DeprecationStatus';
+  protected $deprecatedDataType = '';
+  public $description;
+  public $id;
+  public $kind;
+  public $name;
+  public $selfLink;
+  public $validDiskSize;
+  public $zone;
+
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+
+  public function setDeprecated(Google_Service_Compute_DeprecationStatus $deprecated)
+  {
+    $this->deprecated = $deprecated;
+  }
+
+  public function getDeprecated()
+  {
+    return $this->deprecated;
+  }
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+
+  public function setValidDiskSize($validDiskSize)
+  {
+    $this->validDiskSize = $validDiskSize;
+  }
+
+  public function getValidDiskSize()
+  {
+    return $this->validDiskSize;
+  }
+
+  public function setZone($zone)
+  {
+    $this->zone = $zone;
+  }
+
+  public function getZone()
+  {
+    return $this->zone;
+  }
+}
+
+class Google_Service_Compute_DiskTypeAggregatedList extends Google_Model
+{
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_DiskTypesScopedList';
+  protected $itemsDataType = 'map';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_DiskTypeList extends Google_Collection
+{
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_DiskType';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_DiskTypesScopedList extends Google_Collection
+{
+  protected $diskTypesType = 'Google_Service_Compute_DiskType';
+  protected $diskTypesDataType = 'array';
+  protected $warningType = 'Google_Service_Compute_DiskTypesScopedListWarning';
+  protected $warningDataType = '';
+
+  public function setDiskTypes($diskTypes)
+  {
+    $this->diskTypes = $diskTypes;
+  }
+
+  public function getDiskTypes()
+  {
+    return $this->diskTypes;
+  }
+
+  public function setWarning(Google_Service_Compute_DiskTypesScopedListWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+
+  public function getWarning()
+  {
+    return $this->warning;
+  }
+}
+
+class Google_Service_Compute_DiskTypesScopedListWarning extends Google_Collection
+{
+  public $code;
+  protected $dataType = 'Google_Service_Compute_DiskTypesScopedListWarningData';
+  protected $dataDataType = 'array';
+  public $message;
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+
+  public function getCode()
+  {
+    return $this->code;
+  }
+
+  public function setData($data)
+  {
+    $this->data = $data;
+  }
+
+  public function getData()
+  {
+    return $this->data;
+  }
+
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Compute_DiskTypesScopedListWarningData extends Google_Model
+{
+  public $key;
+  public $value;
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+
+  public function getKey()
+  {
+    return $this->key;
+  }
+
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
   }
 }
 
