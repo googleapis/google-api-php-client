@@ -2381,6 +2381,7 @@ class Google_Service_Games_Application extends Google_Collection
   protected $categoryType = 'Google_Service_Games_ApplicationCategory';
   protected $categoryDataType = '';
   public $description;
+  public $enabledFeatures;
   public $id;
   protected $instancesType = 'Google_Service_Games_Instance';
   protected $instancesDataType = 'array';
@@ -2437,6 +2438,16 @@ class Google_Service_Games_Application extends Google_Collection
   public function getDescription()
   {
     return $this->description;
+  }
+
+  public function setEnabledFeatures($enabledFeatures)
+  {
+    $this->enabledFeatures = $enabledFeatures;
+  }
+
+  public function getEnabledFeatures()
+  {
+    return $this->enabledFeatures;
   }
 
   public function setId($id)
