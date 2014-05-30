@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for CivicInfo (us_v1).
+ * Service definition for CivicInfo (v1).
  *
  * <p>
  * An API for accessing civic information.
@@ -46,8 +46,8 @@ class Google_Service_CivicInfo extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->servicePath = 'civicinfo/us_v1/';
-    $this->version = 'us_v1';
+    $this->servicePath = 'civicinfo/v1/';
+    $this->version = 'v1';
     $this->serviceName = 'civicinfo';
 
     $this->divisions = new Google_Service_CivicInfo_Divisions_Resource(
@@ -112,6 +112,10 @@ class Google_Service_CivicInfo extends Google_Service
                   'type' => 'string',
                 ),
                 'includeOffices' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'recursive' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
@@ -225,6 +229,10 @@ class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_R
    * @opt_param bool includeOffices
    * Whether to return information about offices and officials. If false, only the top-level district
     * information will be returned.
+   * @opt_param bool recursive
+   * When ocd_id is supplied, return all divisions which are hierarchically nested within the queried
+    * division. For example, if querying ocd-division/country:us/district:dc, this would also return
+    * all DC's wards and ANCs.
    * @return Google_Service_CivicInfo_RepresentativeInfoResponse
    */
   public function representativeInfoQuery(Google_Service_CivicInfo_RepresentativeInfoRequest $postBody, $optParams = array())
@@ -790,10 +798,21 @@ class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
   }
 }
 
-class Google_Service_CivicInfo_DivisionSearchResult extends Google_Model
+class Google_Service_CivicInfo_DivisionSearchResult extends Google_Collection
 {
+  public $aliases;
   public $name;
   public $ocdId;
+
+  public function setAliases($aliases)
+  {
+    $this->aliases = $aliases;
+  }
+
+  public function getAliases()
+  {
+    return $this->aliases;
+  }
 
   public function setName($name)
   {
@@ -978,9 +997,20 @@ class Google_Service_CivicInfo_ElectoralDistrict extends Google_Model
 
 class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
 {
+  public $alsoKnownAs;
   public $name;
   public $officeIds;
   public $scope;
+
+  public function setAlsoKnownAs($alsoKnownAs)
+  {
+    $this->alsoKnownAs = $alsoKnownAs;
+  }
+
+  public function getAlsoKnownAs()
+  {
+    return $this->alsoKnownAs;
+  }
 
   public function setName($name)
   {
@@ -1015,11 +1045,22 @@ class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
 
 class Google_Service_CivicInfo_Office extends Google_Collection
 {
+  public $divisionId;
   public $level;
   public $name;
   public $officialIds;
   protected $sourcesType = 'Google_Service_CivicInfo_Source';
   protected $sourcesDataType = 'array';
+
+  public function setDivisionId($divisionId)
+  {
+    $this->divisionId = $divisionId;
+  }
+
+  public function getDivisionId()
+  {
+    return $this->divisionId;
+  }
 
   public function setLevel($level)
   {
