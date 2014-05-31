@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
-require_once "Google/Auth/Abstract.php";
-require_once "Google/Auth/AssertionCredentials.php";
-require_once "Google/Auth/Exception.php";
-require_once "Google/Auth/LoginTicket.php";
-require_once "Google/Client.php";
-require_once "Google/Http/Request.php";
-require_once "Google/Utils.php";
-require_once "Google/Verifier/Pem.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Auth/Abstract.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Auth/AssertionCredentials.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Auth/Exception.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Auth/LoginTicket.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Client.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Http/Request.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Utils.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Verifier/Pem.php";
 
 /**
  * Authentication class that deals with the OAuth 2 web-server authentication flow

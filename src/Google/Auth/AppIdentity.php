@@ -22,8 +22,8 @@
  */
 use google\appengine\api\app_identity\AppIdentityService;
 
-require_once "Google/Auth/Abstract.php";
-require_once "Google/Http/Request.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Auth/Abstract.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Http/Request.php";
 
 /**
  * Authentication via the Google App Engine App Identity service.

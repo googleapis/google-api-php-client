@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-require_once 'Google/Client.php';
-require_once 'Google/Http/Request.php';
-require_once 'Google/Http/REST.php';
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Client.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Http/Request.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Http/REST.php";
 
 /**
  * @author Chirag Shah <chirags@google.com>

@@ -15,17 +15,17 @@
  * limitations under the License.
  */
 
-require_once 'Google/Auth/AssertionCredentials.php';
-require_once 'Google/Cache/File.php';
-require_once 'Google/Cache/Memcache.php';
-require_once 'Google/Config.php';
-require_once 'Google/Collection.php';
-require_once 'Google/Exception.php';
-require_once 'Google/IO/Curl.php';
-require_once 'Google/IO/Stream.php';
-require_once 'Google/Model.php';
-require_once 'Google/Service.php';
-require_once 'Google/Service/Resource.php';
+require_once dirname(dirname(__FILE__)) . '/Google/Auth/AssertionCredentials.php';
+require_once dirname(dirname(__FILE__)) . '/Google/Cache/File.php';
+require_once dirname(dirname(__FILE__)) . '/Google/Cache/Memcache.php';
+require_once dirname(dirname(__FILE__)) . '/Google/Config.php';
+require_once dirname(dirname(__FILE__)) . '/Google/Collection.php';
+require_once dirname(dirname(__FILE__)) . '/Google/Exception.php';
+require_once dirname(dirname(__FILE__)) . '/Google/IO/Curl.php';
+require_once dirname(dirname(__FILE__)) . '/Google/IO/Stream.php';
+require_once dirname(dirname(__FILE__)) . '/Google/Model.php';
+require_once dirname(dirname(__FILE__)) . '/Google/Service.php';
+require_once dirname(dirname(__FILE__)) . '/Google/Service/Resource.php';
 
 /**
  * The Google API Client

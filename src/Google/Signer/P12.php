@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-require_once 'Google/Auth/Exception.php';
-require_once 'Google/Signer/Abstract.php';
+require_once dirname(dirname(dirname(__FILE__))) . '/Google/Auth/Exception.php';
+require_once dirname(dirname(dirname(__FILE__))) . '/Google/Signer/Abstract.php';
 
 /**
  * Signs data.

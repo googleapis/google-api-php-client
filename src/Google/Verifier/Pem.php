@@ -15,8 +15,8 @@
  * limitations under the License.
  */
  
-require_once 'Google/Auth/Exception.php';
-require_once 'Google/Verifier/Abstract.php';
+require_once dirname(dirname(dirname(__FILE__))) . '/Google/Auth/Exception.php';
+require_once dirname(dirname(dirname(__FILE__))) . '/Google/Verifier/Abstract.php';
 
 /**
  * Verifies signatures using PEM encoded certificates.
