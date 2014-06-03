@@ -1437,6 +1437,16 @@ class Google_Service_Compute extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'setUsageExportBucket' => array(
+              'path' => '{project}/setUsageExportBucket',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )
@@ -3614,6 +3624,21 @@ class Google_Service_Compute_Projects_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('setCommonInstanceMetadata', array($params), "Google_Service_Compute_Operation");
   }
+  /**
+   * Sets usage export location (projects.setUsageExportBucket)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param Google_UsageExportLocation $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function setUsageExportBucket($project, Google_Service_Compute_UsageExportLocation $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setUsageExportBucket', array($params), "Google_Service_Compute_Operation");
+  }
 }
 
 /**
@@ -4865,6 +4890,7 @@ class Google_Service_Compute_AttachedDiskInitializeParams extends Google_Model
 {
   public $diskName;
   public $diskSizeGb;
+  public $diskType;
   public $sourceImage;
 
   public function setDiskName($diskName)
@@ -4885,6 +4911,16 @@ class Google_Service_Compute_AttachedDiskInitializeParams extends Google_Model
   public function getDiskSizeGb()
   {
     return $this->diskSizeGb;
+  }
+
+  public function setDiskType($diskType)
+  {
+    $this->diskType = $diskType;
+  }
+
+  public function getDiskType()
+  {
+    return $this->diskType;
   }
 
   public function setSourceImage($sourceImage)
@@ -4972,6 +5008,7 @@ class Google_Service_Compute_Disk extends Google_Model
   public $sourceSnapshot;
   public $sourceSnapshotId;
   public $status;
+  public $type;
   public $zone;
 
   public function setCreationTimestamp($creationTimestamp)
@@ -5102,6 +5139,16 @@ class Google_Service_Compute_Disk extends Google_Model
   public function getStatus()
   {
     return $this->status;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
   }
 
   public function setZone($zone)
