@@ -33,7 +33,7 @@ class Google_Service_Bigquery extends Google_Service
 {
   /** View and manage your data in Google BigQuery. */
   const BIGQUERY = "https://www.googleapis.com/auth/bigquery";
-  /** Insert data into Google BigQuery. */
+  /** New Service. */
   const BIGQUERY_INSERTDATA = "https://www.googleapis.com/auth/bigquery.insertdata";
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM = "https://www.googleapis.com/auth/cloud-platform";
