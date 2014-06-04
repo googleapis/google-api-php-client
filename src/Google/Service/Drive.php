@@ -2063,7 +2063,8 @@ class Google_Service_Drive_Permissions_Resource extends Google_Service_Resource
    * @opt_param string emailMessage
    * A custom message to include in notification emails.
    * @opt_param bool sendNotificationEmails
-   * Whether to send notification emails when sharing to users or groups.
+   * Whether to send notification emails when sharing to users or groups. This parameter is ignored
+    * and an email is sent if the role is owner.
    * @return Google_Service_Drive_Permission
    */
   public function insert($fileId, Google_Service_Drive_Permission $postBody, $optParams = array())
