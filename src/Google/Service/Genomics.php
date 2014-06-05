@@ -186,6 +186,10 @@ class Google_Service_Genomics extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'projectId' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -609,8 +613,10 @@ class Google_Service_Genomics_Datasets_Resource extends Google_Service_Resource
    * @opt_param string pageToken
    * The continuation token, which is used to page through large result sets. To get the next page of
     * results, set this parameter to the value of "nextPageToken" from the previous response.
+   * @opt_param string maxResults
+   * The maximum number of results returned by this request.
    * @opt_param string projectId
-   * Only return datasets which belong to this Google Developers Console project.
+   * The Google Cloud Console project number.
    * @return Google_Service_Genomics_ListDatasetsResponse
    */
   public function listDatasets($optParams = array())
@@ -1196,6 +1202,7 @@ class Google_Service_Genomics_Dataset extends Google_Model
 {
   public $id;
   public $isPublic;
+  public $name;
   public $projectId;
 
   public function setId($id)
@@ -1216,6 +1223,16 @@ class Google_Service_Genomics_Dataset extends Google_Model
   public function getIsPublic()
   {
     return $this->isPublic;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
   }
 
   public function setProjectId($projectId)
