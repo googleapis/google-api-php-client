@@ -616,7 +616,7 @@ class Google_Service_Genomics_Datasets_Resource extends Google_Service_Resource
    * @opt_param string maxResults
    * The maximum number of results returned by this request.
    * @opt_param string projectId
-   * The Google Cloud Console project number.
+   * Only return datasets which belong to this Google Developers Console project.
    * @return Google_Service_Genomics_ListDatasetsResponse
    */
   public function listDatasets($optParams = array())
@@ -2282,6 +2282,7 @@ class Google_Service_Genomics_ReferenceSequence extends Google_Model
 class Google_Service_Genomics_SearchCallsetsRequest extends Google_Collection
 {
   public $datasetIds;
+  public $maxResults;
   public $name;
   public $pageToken;
 
@@ -2293,6 +2294,16 @@ class Google_Service_Genomics_SearchCallsetsRequest extends Google_Collection
   public function getDatasetIds()
   {
     return $this->datasetIds;
+  }
+
+  public function setMaxResults($maxResults)
+  {
+    $this->maxResults = $maxResults;
+  }
+
+  public function getMaxResults()
+  {
+    return $this->maxResults;
   }
 
   public function setName($name)
