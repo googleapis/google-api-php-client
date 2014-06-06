@@ -19,7 +19,7 @@
  * Service definition for Content (v2).
  *
  * <p>
- * Manage product items, inventory, and Merchant Center accounts.
+ * Manage product items, inventory, and Merchant Center accounts for Google Shopping.
  * </p>
  *
  * <p>
