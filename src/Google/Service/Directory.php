@@ -1958,8 +1958,8 @@ class Google_Service_Directory_Tokens_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Directory_Token");
   }
   /**
-   * Returns the set of current, valid verification codes for the specified user.
-   * (tokens.listTokens)
+   * Returns the set of tokens specified user has issued to 3rd party
+   * applications. (tokens.listTokens)
    *
    * @param string $userKey
    * Identifies the user in the API request. The value can be the user's primary email address, alias
@@ -3958,23 +3958,19 @@ class Google_Service_Directory_Tokens extends Google_Collection
 
 class Google_Service_Directory_User extends Google_Collection
 {
-  protected $addressesType = 'Google_Service_Directory_UserAddress';
-  protected $addressesDataType = 'array';
+  public $addresses;
   public $agreedToTerms;
   public $aliases;
   public $changePasswordAtNextLogin;
   public $creationTime;
   public $customerId;
   public $deletionTime;
-  protected $emailsType = 'Google_Service_Directory_UserEmail';
-  protected $emailsDataType = 'array';
+  public $emails;
   public $etag;
-  protected $externalIdsType = 'Google_Service_Directory_UserExternalId';
-  protected $externalIdsDataType = 'array';
+  public $externalIds;
   public $hashFunction;
   public $id;
-  protected $imsType = 'Google_Service_Directory_UserIm';
-  protected $imsDataType = 'array';
+  public $ims;
   public $includeInGlobalAddressList;
   public $ipWhitelisted;
   public $isAdmin;
@@ -3986,14 +3982,11 @@ class Google_Service_Directory_User extends Google_Collection
   protected $nameDataType = '';
   public $nonEditableAliases;
   public $orgUnitPath;
-  protected $organizationsType = 'Google_Service_Directory_UserOrganization';
-  protected $organizationsDataType = 'array';
+  public $organizations;
   public $password;
-  protected $phonesType = 'Google_Service_Directory_UserPhone';
-  protected $phonesDataType = 'array';
+  public $phones;
   public $primaryEmail;
-  protected $relationsType = 'Google_Service_Directory_UserRelation';
-  protected $relationsDataType = 'array';
+  public $relations;
   public $suspended;
   public $suspensionReason;
   public $thumbnailPhotoUrl;
