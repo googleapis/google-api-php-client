@@ -19,12 +19,12 @@
  * Service definition for Resourceviews (v1beta1).
  *
  * <p>
- * The Google Resource Views API provides views of VMs.
+ * The Resource View API allows users to create and manage logical sets of Google Compute Engine instances.
  * </p>
  *
  * <p>
  * For more information about this service, see the API
- * <a href="http://code.google.com/apis/cloud/resourceviews/v1/using_rest.html" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/compute/" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -801,6 +801,7 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   public $creationTime;
   public $description;
   public $id;
+  public $kind;
   protected $labelsType = 'Google_Service_Resourceviews_Label';
   protected $labelsDataType = 'array';
   public $lastModified;
@@ -837,6 +838,16 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   public function getId()
   {
     return $this->id;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
   }
 
   public function setLabels($labels)
