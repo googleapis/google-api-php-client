@@ -33,7 +33,7 @@ class Google_Service_PlusDomains extends Google_Service
 {
   /** View your circles and the people and pages in them. */
   const PLUS_CIRCLES_READ = "https://www.googleapis.com/auth/plus.circles.read";
-  /** Manage your circles and add people and pages, who will be notified and may appear on your public Google+ profile. */
+  /** Manage your circles and add people and pages. People and pages you add to your circles will be notified. Others may see this information publicly. People you add to circles can use Hangouts with you.. */
   const PLUS_CIRCLES_WRITE = "https://www.googleapis.com/auth/plus.circles.write";
   /** Know your basic profile info and list of people in your circles.. */
   const PLUS_LOGIN = "https://www.googleapis.com/auth/plus.login";
