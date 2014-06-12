@@ -1378,7 +1378,6 @@ class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
   public $bigqueryTable;
   public $callsetIds;
   public $datasetIds;
-  public $exportUri;
   public $format;
   public $projectId;
 
@@ -1420,16 +1419,6 @@ class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
   public function getDatasetIds()
   {
     return $this->datasetIds;
-  }
-
-  public function setExportUri($exportUri)
-  {
-    $this->exportUri = $exportUri;
-  }
-
-  public function getExportUri()
-  {
-    return $this->exportUri;
   }
 
   public function setFormat($format)
