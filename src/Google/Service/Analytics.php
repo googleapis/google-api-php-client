@@ -2850,9 +2850,11 @@ class Google_Service_Analytics_ManagementProfileUserLinks_Resource extends Googl
    * @param string $accountId
    * Account ID which the given view (profile) belongs to.
    * @param string $webPropertyId
-   * Web Property ID which the given view (profile) belongs to.
+   * Web Property ID which the given view (profile) belongs to. Can either be a specific web property
+    * ID or '~all', which refers to all the web properties that user has access to.
    * @param string $profileId
-   * View (Profile) ID to retrieve the profile-user links for
+   * View (Profile) ID to retrieve the profile-user links for. Can either be a specific profile ID or
+    * '~all', which refers to all the profiles that user has access to.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int max-results
@@ -3503,7 +3505,8 @@ class Google_Service_Analytics_ManagementWebpropertyUserLinks_Resource extends G
    * @param string $accountId
    * Account ID which the given web property belongs to.
    * @param string $webPropertyId
-   * Web Property ID for the webProperty-user links to retrieve.
+   * Web Property ID for the webProperty-user links to retrieve. Can either be a specific web
+    * property ID or '~all', which refers to all the web properties that user has access to.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int max-results
