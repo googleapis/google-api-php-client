@@ -528,12 +528,13 @@ class Google_Service_Replicapool_Replicas_Resource extends Google_Service_Resour
    * @param string $replicaName
    * The name of the replica for this request.
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Replicapool_Replica
    */
   public function restart($projectName, $zone, $poolName, $replicaName, $optParams = array())
   {
     $params = array('projectName' => $projectName, 'zone' => $zone, 'poolName' => $poolName, 'replicaName' => $replicaName);
     $params = array_merge($params, $optParams);
-    return $this->call('restart', array($params));
+    return $this->call('restart', array($params), "Google_Service_Replicapool_Replica");
   }
 }
 
