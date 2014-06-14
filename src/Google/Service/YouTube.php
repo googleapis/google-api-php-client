@@ -2749,8 +2749,8 @@ class Google_Service_YouTube_Search_Resource extends Google_Service_Resource
     * The parameter value is an ISO 3166-1 alpha-2 country code.
    * @opt_param string location
    * The location parameter restricts a search to videos that have a geographical location specified
-    * in their metadata. The value is a string that specifies geographic longitude/latitude
-    * coordinates e.g. (-122.08427,37.42307)
+    * in their metadata. The value is a string that specifies geographic latitude/longitude
+    * coordinates e.g. (37.42307,-122.08427)
    * @opt_param string locationRadius
    * The locationRadius, in conjunction with the location parameter, defines a geographic area. If
     * the geographic coordinates associated with a video fall within that area, then the video may be
