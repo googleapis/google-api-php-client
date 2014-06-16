@@ -774,7 +774,7 @@ class Google_Service_AdExchangeBuyer_AccountsList extends Google_Collection
 
 class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
 {
-  public $hTMLSnippet;
+  public $HTMLSnippet;
   public $accountId;
   public $advertiserId;
   public $advertiserName;
@@ -798,14 +798,14 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   public $videoURL;
   public $width;
 
-  public function setHTMLSnippet($hTMLSnippet)
+  public function setHTMLSnippet($HTMLSnippet)
   {
-    $this->hTMLSnippet = $hTMLSnippet;
+    $this->HTMLSnippet = $HTMLSnippet;
   }
 
   public function getHTMLSnippet()
   {
-    return $this->hTMLSnippet;
+    return $this->HTMLSnippet;
   }
 
   public function setAccountId($accountId)
