@@ -3697,6 +3697,7 @@ class Google_Service_Plus_Place extends Google_Model
   protected $addressType = 'Google_Service_Plus_PlaceAddress';
   protected $addressDataType = '';
   public $displayName;
+  public $id;
   public $kind;
   protected $positionType = 'Google_Service_Plus_PlacePosition';
   protected $positionDataType = '';
@@ -3719,6 +3720,16 @@ class Google_Service_Plus_Place extends Google_Model
   public function getDisplayName()
   {
     return $this->displayName;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
   }
 
   public function setKind($kind)
