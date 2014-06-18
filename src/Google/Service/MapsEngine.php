@@ -3098,6 +3098,7 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public $lastModifiedTime;
   public $name;
   public $projectId;
+  public $publishedAccessList;
   public $tags;
   public $versions;
 
@@ -3199,6 +3200,16 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public function getProjectId()
   {
     return $this->projectId;
+  }
+
+  public function setPublishedAccessList($publishedAccessList)
+  {
+    $this->publishedAccessList = $publishedAccessList;
+  }
+
+  public function getPublishedAccessList()
+  {
+    return $this->publishedAccessList;
   }
 
   public function setTags($tags)
