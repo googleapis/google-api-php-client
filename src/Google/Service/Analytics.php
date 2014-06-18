@@ -1477,6 +1477,26 @@ class Google_Service_Analytics extends Google_Service
                   'type' => 'integer',
                 ),
               ),
+            ),'migrateDataImport' => array(
+              'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/migrateDataImport',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'webPropertyId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'customDataSourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'uploadData' => array(
               'path' => 'management/accounts/{accountId}/webproperties/{webPropertyId}/customDataSources/{customDataSourceId}/uploads',
               'httpMethod' => 'POST',
@@ -3205,6 +3225,24 @@ class Google_Service_Analytics_ManagementUploads_Resource extends Google_Service
     return $this->call('list', array($params), "Google_Service_Analytics_Uploads");
   }
   /**
+   * Migrate custom data source and data imports to latest version.
+   * (uploads.migrateDataImport)
+   *
+   * @param string $accountId
+   * Account Id for migration.
+   * @param string $webPropertyId
+   * Web property Id for migration.
+   * @param string $customDataSourceId
+   * Custom data source Id for migration.
+   * @param array $optParams Optional parameters.
+   */
+  public function migrateDataImport($accountId, $webPropertyId, $customDataSourceId, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'webPropertyId' => $webPropertyId, 'customDataSourceId' => $customDataSourceId);
+    $params = array_merge($params, $optParams);
+    return $this->call('migrateDataImport', array($params));
+  }
+  /**
    * Upload data for a custom data source. (uploads.uploadData)
    *
    * @param string $accountId
@@ -4261,6 +4299,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   public $created;
   public $description;
   public $id;
+  public $importBehavior;
   public $kind;
   public $name;
   protected $parentLinkType = 'Google_Service_Analytics_CustomDataSourceParentLink';
@@ -4269,6 +4308,7 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   public $selfLink;
   public $type;
   public $updated;
+  public $uploadType;
   public $webPropertyId;
 
   public function setAccountId($accountId)
@@ -4319,6 +4359,16 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   public function getId()
   {
     return $this->id;
+  }
+
+  public function setImportBehavior($importBehavior)
+  {
+    $this->importBehavior = $importBehavior;
+  }
+
+  public function getImportBehavior()
+  {
+    return $this->importBehavior;
   }
 
   public function setKind($kind)
@@ -4389,6 +4439,16 @@ class Google_Service_Analytics_CustomDataSource extends Google_Collection
   public function getUpdated()
   {
     return $this->updated;
+  }
+
+  public function setUploadType($uploadType)
+  {
+    $this->uploadType = $uploadType;
+  }
+
+  public function getUploadType()
+  {
+    return $this->uploadType;
   }
 
   public function setWebPropertyId($webPropertyId)
