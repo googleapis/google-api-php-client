@@ -750,7 +750,12 @@ class Google_Service_Genomics_Reads_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Genomics_Read");
   }
   /**
-   * Gets a list of reads matching the criteria. (reads.search)
+   * Gets a list of reads for one or more readsets. SearchReads operates over a
+   * genomic coordinate space of sequence+position defined over the reference
+   * sequences to which the requested readsets are aligned. If a target positional
+   * range is specified, SearchReads returns all reads whose alignment to the
+   * reference genome overlap the range. A query which specifies only readset IDs
+   * yields all reads in those readsets, including unmapped reads. (reads.search)
    *
    * @param Google_SearchReadsRequest $postBody
    * @param array $optParams Optional parameters.
