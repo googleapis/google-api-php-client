@@ -54,6 +54,7 @@ class Google_Service_Compute extends Google_Service
   public $httpHealthChecks;
   public $images;
   public $instances;
+  public $licenses;
   public $machineTypes;
   public $networks;
   public $projects;
@@ -1532,6 +1533,31 @@ class Google_Service_Compute extends Google_Service
                   'required' => true,
                 ),
                 'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->licenses = new Google_Service_Compute_Licenses_Resource(
+        $this,
+        $this->serviceName,
+        'licenses',
+        array(
+          'methods' => array(
+            'get' => array(
+              'path' => '{project}/global/licenses/{license}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'license' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -4229,6 +4255,35 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
 }
 
 /**
+ * The "licenses" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $licenses = $computeService->licenses;
+ *  </code>
+ */
+class Google_Service_Compute_Licenses_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Returns the specified license resource. (licenses.get)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param string $license
+   * Name of the license resource to return.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_License
+   */
+  public function get($project, $license, $optParams = array())
+  {
+    $params = array('project' => $project, 'license' => $license);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_License");
+  }
+}
+
+/**
  * The "machineTypes" collection of methods.
  * Typical usage is:
  *  <code>
@@ -5834,7 +5889,7 @@ class Google_Service_Compute_AddressesScopedListWarningData extends Google_Model
   }
 }
 
-class Google_Service_Compute_AttachedDisk extends Google_Model
+class Google_Service_Compute_AttachedDisk extends Google_Collection
 {
   public $autoDelete;
   public $boot;
@@ -5843,6 +5898,7 @@ class Google_Service_Compute_AttachedDisk extends Google_Model
   protected $initializeParamsType = 'Google_Service_Compute_AttachedDiskInitializeParams';
   protected $initializeParamsDataType = '';
   public $kind;
+  public $licenses;
   public $mode;
   public $source;
   public $type;
@@ -5905,6 +5961,16 @@ class Google_Service_Compute_AttachedDisk extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+
+  public function setLicenses($licenses)
+  {
+    $this->licenses = $licenses;
+  }
+
+  public function getLicenses()
+  {
+    return $this->licenses;
   }
 
   public function setMode($mode)
@@ -6350,12 +6416,13 @@ class Google_Service_Compute_DeprecationStatus extends Google_Model
   }
 }
 
-class Google_Service_Compute_Disk extends Google_Model
+class Google_Service_Compute_Disk extends Google_Collection
 {
   public $creationTimestamp;
   public $description;
   public $id;
   public $kind;
+  public $licenses;
   public $name;
   public $options;
   public $selfLink;
@@ -6406,6 +6473,16 @@ class Google_Service_Compute_Disk extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+
+  public function setLicenses($licenses)
+  {
+    $this->licenses = $licenses;
+  }
+
+  public function getLicenses()
+  {
+    return $this->licenses;
   }
 
   public function setName($name)
@@ -7892,7 +7969,7 @@ class Google_Service_Compute_HttpHealthCheckList extends Google_Collection
   }
 }
 
-class Google_Service_Compute_Image extends Google_Model
+class Google_Service_Compute_Image extends Google_Collection
 {
   public $archiveSizeBytes;
   public $creationTimestamp;
@@ -7902,6 +7979,7 @@ class Google_Service_Compute_Image extends Google_Model
   public $diskSizeGb;
   public $id;
   public $kind;
+  public $licenses;
   public $name;
   protected $rawDiskType = 'Google_Service_Compute_ImageRawDisk';
   protected $rawDiskDataType = '';
@@ -7977,6 +8055,16 @@ class Google_Service_Compute_Image extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+
+  public function setLicenses($licenses)
+  {
+    $this->licenses = $licenses;
+  }
+
+  public function getLicenses()
+  {
+    return $this->licenses;
   }
 
   public function setName($name)
@@ -8548,6 +8636,43 @@ class Google_Service_Compute_InstancesScopedListWarningData extends Google_Model
   public function getValue()
   {
     return $this->value;
+  }
+}
+
+class Google_Service_Compute_License extends Google_Model
+{
+  public $kind;
+  public $name;
+  public $selfLink;
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
   }
 }
 
@@ -10572,13 +10697,14 @@ class Google_Service_Compute_ServiceAccount extends Google_Collection
   }
 }
 
-class Google_Service_Compute_Snapshot extends Google_Model
+class Google_Service_Compute_Snapshot extends Google_Collection
 {
   public $creationTimestamp;
   public $description;
   public $diskSizeGb;
   public $id;
   public $kind;
+  public $licenses;
   public $name;
   public $selfLink;
   public $sourceDisk;
@@ -10635,6 +10761,16 @@ class Google_Service_Compute_Snapshot extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+
+  public function setLicenses($licenses)
+  {
+    $this->licenses = $licenses;
+  }
+
+  public function getLicenses()
+  {
+    return $this->licenses;
   }
 
   public function setName($name)
