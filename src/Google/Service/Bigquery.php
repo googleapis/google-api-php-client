@@ -777,7 +777,8 @@ class Google_Service_Bigquery_Tabledata_Resource extends Google_Service_Resource
 {
 
   /**
-   * Inserts the supplied rows into the table. (tabledata.insertAll)
+   * Streams data into BigQuery one record at a time without needing to run a load
+   * job. (tabledata.insertAll)
    *
    * @param string $projectId
    * Project ID of the destination table.
