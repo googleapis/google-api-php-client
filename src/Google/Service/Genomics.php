@@ -1382,7 +1382,7 @@ class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
   public $bigqueryDataset;
   public $bigqueryTable;
   public $callsetIds;
-  public $datasetIds;
+  public $datasetId;
   public $format;
   public $projectId;
 
@@ -1416,14 +1416,14 @@ class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
     return $this->callsetIds;
   }
 
-  public function setDatasetIds($datasetIds)
+  public function setDatasetId($datasetId)
   {
-    $this->datasetIds = $datasetIds;
+    $this->datasetId = $datasetId;
   }
 
-  public function getDatasetIds()
+  public function getDatasetId()
   {
-    return $this->datasetIds;
+    return $this->datasetId;
   }
 
   public function setFormat($format)
