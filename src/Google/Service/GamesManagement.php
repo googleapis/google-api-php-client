@@ -38,7 +38,9 @@ class Google_Service_GamesManagement extends Google_Service
 
   public $achievements;
   public $applications;
+  public $events;
   public $players;
+  public $quests;
   public $rooms;
   public $scores;
   public $turnBasedMatches;
@@ -118,6 +120,40 @@ class Google_Service_GamesManagement extends Google_Service
           )
         )
     );
+    $this->events = new Google_Service_GamesManagement_Events_Resource(
+        $this,
+        $this->serviceName,
+        'events',
+        array(
+          'methods' => array(
+            'reset' => array(
+              'path' => 'events/{eventId}/reset',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'eventId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'resetAll' => array(
+              'path' => 'events/reset',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'resetForAllPlayers' => array(
+              'path' => 'events/{eventId}/resetForAllPlayers',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'eventId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->players = new Google_Service_GamesManagement_Players_Resource(
         $this,
         $this->serviceName,
@@ -149,6 +185,26 @@ class Google_Service_GamesManagement extends Google_Service
                   'required' => true,
                 ),
                 'playerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->quests = new Google_Service_GamesManagement_Quests_Resource(
+        $this,
+        $this->serviceName,
+        'quests',
+        array(
+          'methods' => array(
+            'reset' => array(
+              'path' => 'quests/{questId}/reset',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'questId' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -315,6 +371,65 @@ class Google_Service_GamesManagement_Applications_Resource extends Google_Servic
 }
 
 /**
+ * The "events" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $gamesManagementService = new Google_Service_GamesManagement(...);
+ *   $events = $gamesManagementService->events;
+ *  </code>
+ */
+class Google_Service_GamesManagement_Events_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Reset all player progress on the event for the currently authenticated
+   * player. This method is only accessible to whitelisted tester accounts for
+   * your application. All resources that use the event will also be reset.
+   * (events.reset)
+   *
+   * @param string $eventId
+   * The ID of the event.
+   * @param array $optParams Optional parameters.
+   */
+  public function reset($eventId, $optParams = array())
+  {
+    $params = array('eventId' => $eventId);
+    $params = array_merge($params, $optParams);
+    return $this->call('reset', array($params));
+  }
+  /**
+   * Reset all player progress on all unpublished events for the currently
+   * authenticated player. This method is only accessible to whitelisted tester
+   * accounts for your application. All resources that use the events will also be
+   * reset. (events.resetAll)
+   *
+   * @param array $optParams Optional parameters.
+   */
+  public function resetAll($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('resetAll', array($params));
+  }
+  /**
+   * Reset all player progress on the event for all players. This method is only
+   * available to user accounts for your developer console. Only draft events can
+   * be reset. All resources that use the event will also be reset.
+   * (events.resetForAllPlayers)
+   *
+   * @param string $eventId
+   * The ID of the event.
+   * @param array $optParams Optional parameters.
+   */
+  public function resetForAllPlayers($eventId, $optParams = array())
+  {
+    $params = array('eventId' => $eventId);
+    $params = array_merge($params, $optParams);
+    return $this->call('resetForAllPlayers', array($params));
+  }
+}
+
+/**
  * The "players" collection of methods.
  * Typical usage is:
  *  <code>
@@ -358,6 +473,34 @@ class Google_Service_GamesManagement_Players_Resource extends Google_Service_Res
     $params = array('applicationId' => $applicationId, 'playerId' => $playerId);
     $params = array_merge($params, $optParams);
     return $this->call('unhide', array($params));
+  }
+}
+
+/**
+ * The "quests" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $gamesManagementService = new Google_Service_GamesManagement(...);
+ *   $quests = $gamesManagementService->quests;
+ *  </code>
+ */
+class Google_Service_GamesManagement_Quests_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Reset all player progress on the quest for the currently authenticated
+   * player. This method is only accessible to whitelisted tester accounts for
+   * your application. (quests.reset)
+   *
+   * @param string $questId
+   * The ID of the quest.
+   * @param array $optParams Optional parameters.
+   */
+  public function reset($questId, $optParams = array())
+  {
+    $params = array('questId' => $questId);
+    $params = array_merge($params, $optParams);
+    return $this->call('reset', array($params));
   }
 }
 
@@ -560,6 +703,93 @@ class Google_Service_GamesManagement_GamesPlayedResource extends Google_Model
   }
 }
 
+class Google_Service_GamesManagement_GamesPlayerExperienceInfoResource extends Google_Model
+{
+  public $currentExperiencePoints;
+  protected $currentLevelType = 'Google_Service_GamesManagement_GamesPlayerLevelResource';
+  protected $currentLevelDataType = '';
+  public $lastLevelUpTimestampMillis;
+  protected $nextLevelType = 'Google_Service_GamesManagement_GamesPlayerLevelResource';
+  protected $nextLevelDataType = '';
+
+  public function setCurrentExperiencePoints($currentExperiencePoints)
+  {
+    $this->currentExperiencePoints = $currentExperiencePoints;
+  }
+
+  public function getCurrentExperiencePoints()
+  {
+    return $this->currentExperiencePoints;
+  }
+
+  public function setCurrentLevel(Google_Service_GamesManagement_GamesPlayerLevelResource $currentLevel)
+  {
+    $this->currentLevel = $currentLevel;
+  }
+
+  public function getCurrentLevel()
+  {
+    return $this->currentLevel;
+  }
+
+  public function setLastLevelUpTimestampMillis($lastLevelUpTimestampMillis)
+  {
+    $this->lastLevelUpTimestampMillis = $lastLevelUpTimestampMillis;
+  }
+
+  public function getLastLevelUpTimestampMillis()
+  {
+    return $this->lastLevelUpTimestampMillis;
+  }
+
+  public function setNextLevel(Google_Service_GamesManagement_GamesPlayerLevelResource $nextLevel)
+  {
+    $this->nextLevel = $nextLevel;
+  }
+
+  public function getNextLevel()
+  {
+    return $this->nextLevel;
+  }
+}
+
+class Google_Service_GamesManagement_GamesPlayerLevelResource extends Google_Model
+{
+  public $level;
+  public $maxExperiencePoints;
+  public $minExperiencePoints;
+
+  public function setLevel($level)
+  {
+    $this->level = $level;
+  }
+
+  public function getLevel()
+  {
+    return $this->level;
+  }
+
+  public function setMaxExperiencePoints($maxExperiencePoints)
+  {
+    $this->maxExperiencePoints = $maxExperiencePoints;
+  }
+
+  public function getMaxExperiencePoints()
+  {
+    return $this->maxExperiencePoints;
+  }
+
+  public function setMinExperiencePoints($minExperiencePoints)
+  {
+    $this->minExperiencePoints = $minExperiencePoints;
+  }
+
+  public function getMinExperiencePoints()
+  {
+    return $this->minExperiencePoints;
+  }
+}
+
 class Google_Service_GamesManagement_HiddenPlayer extends Google_Model
 {
   public $hiddenTimeMillis;
@@ -640,12 +870,15 @@ class Google_Service_GamesManagement_Player extends Google_Model
 {
   public $avatarImageUrl;
   public $displayName;
+  protected $experienceInfoType = 'Google_Service_GamesManagement_GamesPlayerExperienceInfoResource';
+  protected $experienceInfoDataType = '';
   public $kind;
   protected $lastPlayedWithType = 'Google_Service_GamesManagement_GamesPlayedResource';
   protected $lastPlayedWithDataType = '';
   protected $nameType = 'Google_Service_GamesManagement_PlayerName';
   protected $nameDataType = '';
   public $playerId;
+  public $title;
 
   public function setAvatarImageUrl($avatarImageUrl)
   {
@@ -665,6 +898,16 @@ class Google_Service_GamesManagement_Player extends Google_Model
   public function getDisplayName()
   {
     return $this->displayName;
+  }
+
+  public function setExperienceInfo(Google_Service_GamesManagement_GamesPlayerExperienceInfoResource $experienceInfo)
+  {
+    $this->experienceInfo = $experienceInfo;
+  }
+
+  public function getExperienceInfo()
+  {
+    return $this->experienceInfo;
   }
 
   public function setKind($kind)
@@ -705,6 +948,16 @@ class Google_Service_GamesManagement_Player extends Google_Model
   public function getPlayerId()
   {
     return $this->playerId;
+  }
+
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+
+  public function getTitle()
+  {
+    return $this->title;
   }
 }
 
