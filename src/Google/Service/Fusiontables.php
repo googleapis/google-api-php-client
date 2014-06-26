@@ -1189,6 +1189,8 @@ class Google_Service_Fusiontables_Column extends Google_Model
   protected $baseColumnType = 'Google_Service_Fusiontables_ColumnBaseColumn';
   protected $baseColumnDataType = '';
   public $columnId;
+  public $description;
+  public $graphPredicate;
   public $kind;
   public $name;
   public $type;
@@ -1211,6 +1213,26 @@ class Google_Service_Fusiontables_Column extends Google_Model
   public function getColumnId()
   {
     return $this->columnId;
+  }
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  public function setGraphPredicate($graphPredicate)
+  {
+    $this->graphPredicate = $graphPredicate;
+  }
+
+  public function getGraphPredicate()
+  {
+    return $this->graphPredicate;
   }
 
   public function setKind($kind)
