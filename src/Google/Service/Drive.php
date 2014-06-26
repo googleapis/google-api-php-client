@@ -2553,6 +2553,7 @@ class Google_Service_Drive_About extends Google_Collection
   public $quotaBytesUsed;
   public $quotaBytesUsedAggregate;
   public $quotaBytesUsedInTrash;
+  public $quotaType;
   public $remainingChangeIds;
   public $rootFolderId;
   public $selfLink;
@@ -2737,6 +2738,16 @@ class Google_Service_Drive_About extends Google_Collection
   public function getQuotaBytesUsedInTrash()
   {
     return $this->quotaBytesUsedInTrash;
+  }
+
+  public function setQuotaType($quotaType)
+  {
+    $this->quotaType = $quotaType;
+  }
+
+  public function getQuotaType()
+  {
+    return $this->quotaType;
   }
 
   public function setRemainingChangeIds($remainingChangeIds)
