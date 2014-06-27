@@ -2696,7 +2696,7 @@ class Google_Service_Directory_Channel extends Google_Model
   }
 }
 
-class Google_Service_Directory_ChromeOsDevice extends Google_Model
+class Google_Service_Directory_ChromeOsDevice extends Google_Collection
 {
   public $annotatedLocation;
   public $annotatedUser;
@@ -2715,6 +2715,8 @@ class Google_Service_Directory_ChromeOsDevice extends Google_Model
   public $orgUnitPath;
   public $osVersion;
   public $platformVersion;
+  protected $recentUsersType = 'Google_Service_Directory_ChromeOsDeviceRecentUsers';
+  protected $recentUsersDataType = 'array';
   public $serialNumber;
   public $status;
   public $supportEndDate;
@@ -2890,6 +2892,16 @@ class Google_Service_Directory_ChromeOsDevice extends Google_Model
     return $this->platformVersion;
   }
 
+  public function setRecentUsers($recentUsers)
+  {
+    $this->recentUsers = $recentUsers;
+  }
+
+  public function getRecentUsers()
+  {
+    return $this->recentUsers;
+  }
+
   public function setSerialNumber($serialNumber)
   {
     $this->serialNumber = $serialNumber;
@@ -2928,6 +2940,32 @@ class Google_Service_Directory_ChromeOsDevice extends Google_Model
   public function getWillAutoRenew()
   {
     return $this->willAutoRenew;
+  }
+}
+
+class Google_Service_Directory_ChromeOsDeviceRecentUsers extends Google_Model
+{
+  public $email;
+  public $type;
+
+  public function setEmail($email)
+  {
+    $this->email = $email;
+  }
+
+  public function getEmail()
+  {
+    return $this->email;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
   }
 }
 
@@ -3266,20 +3304,31 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
 {
   protected $applicationsType = 'Google_Service_Directory_MobileDeviceApplications';
   protected $applicationsDataType = 'array';
+  public $basebandVersion;
+  public $buildNumber;
+  public $defaultLanguage;
+  public $deviceCompromisedStatus;
   public $deviceId;
   public $email;
   public $etag;
   public $firstSync;
   public $hardwareId;
+  public $imei;
+  public $kernelVersion;
   public $kind;
   public $lastSync;
+  public $managedAccountIsOnOwnerProfile;
+  public $meid;
   public $model;
   public $name;
+  public $networkOperator;
   public $os;
   public $resourceId;
+  public $serialNumber;
   public $status;
   public $type;
   public $userAgent;
+  public $wifiMacAddress;
 
   public function setApplications($applications)
   {
@@ -3289,6 +3338,46 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   public function getApplications()
   {
     return $this->applications;
+  }
+
+  public function setBasebandVersion($basebandVersion)
+  {
+    $this->basebandVersion = $basebandVersion;
+  }
+
+  public function getBasebandVersion()
+  {
+    return $this->basebandVersion;
+  }
+
+  public function setBuildNumber($buildNumber)
+  {
+    $this->buildNumber = $buildNumber;
+  }
+
+  public function getBuildNumber()
+  {
+    return $this->buildNumber;
+  }
+
+  public function setDefaultLanguage($defaultLanguage)
+  {
+    $this->defaultLanguage = $defaultLanguage;
+  }
+
+  public function getDefaultLanguage()
+  {
+    return $this->defaultLanguage;
+  }
+
+  public function setDeviceCompromisedStatus($deviceCompromisedStatus)
+  {
+    $this->deviceCompromisedStatus = $deviceCompromisedStatus;
+  }
+
+  public function getDeviceCompromisedStatus()
+  {
+    return $this->deviceCompromisedStatus;
   }
 
   public function setDeviceId($deviceId)
@@ -3341,6 +3430,26 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
     return $this->hardwareId;
   }
 
+  public function setImei($imei)
+  {
+    $this->imei = $imei;
+  }
+
+  public function getImei()
+  {
+    return $this->imei;
+  }
+
+  public function setKernelVersion($kernelVersion)
+  {
+    $this->kernelVersion = $kernelVersion;
+  }
+
+  public function getKernelVersion()
+  {
+    return $this->kernelVersion;
+  }
+
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3359,6 +3468,26 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   public function getLastSync()
   {
     return $this->lastSync;
+  }
+
+  public function setManagedAccountIsOnOwnerProfile($managedAccountIsOnOwnerProfile)
+  {
+    $this->managedAccountIsOnOwnerProfile = $managedAccountIsOnOwnerProfile;
+  }
+
+  public function getManagedAccountIsOnOwnerProfile()
+  {
+    return $this->managedAccountIsOnOwnerProfile;
+  }
+
+  public function setMeid($meid)
+  {
+    $this->meid = $meid;
+  }
+
+  public function getMeid()
+  {
+    return $this->meid;
   }
 
   public function setModel($model)
@@ -3381,6 +3510,16 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
     return $this->name;
   }
 
+  public function setNetworkOperator($networkOperator)
+  {
+    $this->networkOperator = $networkOperator;
+  }
+
+  public function getNetworkOperator()
+  {
+    return $this->networkOperator;
+  }
+
   public function setOs($os)
   {
     $this->os = $os;
@@ -3399,6 +3538,16 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   public function getResourceId()
   {
     return $this->resourceId;
+  }
+
+  public function setSerialNumber($serialNumber)
+  {
+    $this->serialNumber = $serialNumber;
+  }
+
+  public function getSerialNumber()
+  {
+    return $this->serialNumber;
   }
 
   public function setStatus($status)
@@ -3429,6 +3578,16 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   public function getUserAgent()
   {
     return $this->userAgent;
+  }
+
+  public function setWifiMacAddress($wifiMacAddress)
+  {
+    $this->wifiMacAddress = $wifiMacAddress;
+  }
+
+  public function getWifiMacAddress()
+  {
+    return $this->wifiMacAddress;
   }
 }
 
