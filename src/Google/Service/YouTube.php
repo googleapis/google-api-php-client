@@ -1893,7 +1893,7 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
     * broadcast stream is delayed.
    * @opt_param string walltime
    * The walltime parameter specifies the wall clock time at which the specified slate change will
-    * occur.
+    * occur. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
    * @return Google_Service_YouTube_LiveBroadcast
    */
   public function control($id, $part, $optParams = array())
@@ -7214,6 +7214,7 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
 class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
 {
   public $lifeCycleStatus;
+  public $liveBroadcastPriority;
   public $privacyStatus;
   public $recordingStatus;
 
@@ -7225,6 +7226,16 @@ class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
   public function getLifeCycleStatus()
   {
     return $this->lifeCycleStatus;
+  }
+
+  public function setLiveBroadcastPriority($liveBroadcastPriority)
+  {
+    $this->liveBroadcastPriority = $liveBroadcastPriority;
+  }
+
+  public function getLiveBroadcastPriority()
+  {
+    return $this->liveBroadcastPriority;
   }
 
   public function setPrivacyStatus($privacyStatus)
