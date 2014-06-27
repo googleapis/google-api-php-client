@@ -475,11 +475,11 @@ class Google_Service_Plus_Moments_Resource extends Google_Service_Resource
 {
 
   /**
-   * Record a moment representing a user's activity such as making a purchase or
+   * Record a moment representing a user's action such as making a purchase or
    * commenting on a blog. (moments.insert)
    *
    * @param string $userId
-   * The ID of the user to record activities for. The only valid values are "me" and the ID of the
+   * The ID of the user to record actions for. The only valid values are "me" and the ID of the
     * authenticated user.
    * @param string $collection
    * The collection to which to write moments.
@@ -2702,6 +2702,8 @@ class Google_Service_Plus_Moment extends Google_Model
 {
   public $id;
   public $kind;
+  protected $objectType = 'Google_Service_Plus_ItemScope';
+  protected $objectDataType = '';
   protected $resultType = 'Google_Service_Plus_ItemScope';
   protected $resultDataType = '';
   public $startDate;
@@ -2727,6 +2729,16 @@ class Google_Service_Plus_Moment extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+
+  public function setObject(Google_Service_Plus_ItemScope $object)
+  {
+    $this->object = $object;
+  }
+
+  public function getObject()
+  {
+    return $this->object;
   }
 
   public function setResult(Google_Service_Plus_ItemScope $result)
