@@ -94,6 +94,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'tags' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'projectId' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -165,13 +169,33 @@ class Google_Service_MapsEngine extends Google_Service
         'layers',
         array(
           'methods' => array(
-            'create' => array(
+            'cancelProcessing' => array(
+              'path' => 'layers/{id}/cancelProcessing',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'create' => array(
               'path' => 'layers',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'process' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+              ),
+            ),'delete' => array(
+              'path' => 'layers/{id}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),'get' => array(
@@ -197,6 +221,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'createdAfter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'tags' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -229,6 +257,16 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
               ),
+            ),'patch' => array(
+              'path' => 'layers/{id}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'process' => array(
               'path' => 'layers/{id}/process',
               'httpMethod' => 'POST',
@@ -241,6 +279,16 @@ class Google_Service_MapsEngine extends Google_Service
               ),
             ),'publish' => array(
               'path' => 'layers/{id}/publish',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'unpublish' => array(
+              'path' => 'layers/{id}/unpublish',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'id' => array(
@@ -291,6 +339,16 @@ class Google_Service_MapsEngine extends Google_Service
               'path' => 'maps',
               'httpMethod' => 'POST',
               'parameters' => array(),
+            ),'delete' => array(
+              'path' => 'maps/{id}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'get' => array(
               'path' => 'maps/{id}',
               'httpMethod' => 'GET',
@@ -314,6 +372,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'createdAfter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'tags' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -346,8 +408,28 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
               ),
+            ),'patch' => array(
+              'path' => 'maps/{id}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'publish' => array(
               'path' => 'maps/{id}/publish',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'unpublish' => array(
+              'path' => 'maps/{id}/unpublish',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'id' => array(
@@ -380,10 +462,30 @@ class Google_Service_MapsEngine extends Google_Service
         'rasterCollections',
         array(
           'methods' => array(
-            'create' => array(
+            'cancelProcessing' => array(
+              'path' => 'rasterCollections/{id}/cancelProcessing',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'create' => array(
               'path' => 'rasterCollections',
               'httpMethod' => 'POST',
               'parameters' => array(),
+            ),'delete' => array(
+              'path' => 'rasterCollections/{id}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'get' => array(
               'path' => 'rasterCollections/{id}',
               'httpMethod' => 'GET',
@@ -403,6 +505,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'createdAfter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'tags' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -433,6 +539,16 @@ class Google_Service_MapsEngine extends Google_Service
                 'createdBefore' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+              ),
+            ),'patch' => array(
+              'path' => 'rasterCollections/{id}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),'process' => array(
@@ -520,6 +636,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'tags' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -555,9 +675,29 @@ class Google_Service_MapsEngine extends Google_Service
         'rasters',
         array(
           'methods' => array(
-            'get' => array(
+            'delete' => array(
+              'path' => 'rasters/{id}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
               'path' => 'rasters/{id}',
               'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'patch' => array(
+              'path' => 'rasters/{id}',
+              'httpMethod' => 'PATCH',
               'parameters' => array(
                 'id' => array(
                   'location' => 'path',
@@ -636,6 +776,16 @@ class Google_Service_MapsEngine extends Google_Service
               'path' => 'tables',
               'httpMethod' => 'POST',
               'parameters' => array(),
+            ),'delete' => array(
+              'path' => 'tables/{id}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'get' => array(
               'path' => 'tables/{id}',
               'httpMethod' => 'GET',
@@ -659,6 +809,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'createdAfter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'tags' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -689,6 +843,16 @@ class Google_Service_MapsEngine extends Google_Service
                 'createdBefore' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+              ),
+            ),'patch' => array(
+              'path' => 'tables/{id}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),'upload' => array(
@@ -901,6 +1065,8 @@ class Google_Service_MapsEngine_Assets_Resource extends Google_Service_Resource
    * @opt_param string createdAfter
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or after this time.
+   * @opt_param string tags
+   * A comma separated list of tags. Returned assets will contain all the tags from the list.
    * @opt_param string projectId
    * The ID of a Maps Engine project, used to filter the response. To list all available projects
     * with their IDs, send a Projects: list request. You can also find your project ID as the value of
@@ -981,6 +1147,20 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
 {
 
   /**
+   * Cancel processing on a layer asset. (layers.cancelProcessing)
+   *
+   * @param string $id
+   * The ID of the layer.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_ProcessResponse
+   */
+  public function cancelProcessing($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('cancelProcessing', array($params), "Google_Service_MapsEngine_ProcessResponse");
+  }
+  /**
    * Create a layer asset. (layers.create)
    *
    * @param Google_Layer $postBody
@@ -995,6 +1175,21 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array('postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('create', array($params), "Google_Service_MapsEngine_Layer");
+  }
+  /**
+   * Delete a layer. (layers.delete)
+   *
+   * @param string $id
+   * The ID of the layer. Only the layer creator or project owner are permitted to delete. If the
+    * layer is published, or included in a map, the request will fail. Unpublish the layer, and remove
+    * it from all maps prior to deleting.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
   }
   /**
    * Return metadata for a particular layer. (layers.get)
@@ -1024,6 +1219,8 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
    * @opt_param string createdAfter
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or after this time.
+   * @opt_param string tags
+   * A comma separated list of tags. Returned assets will contain all the tags from the list.
    * @opt_param string projectId
    * The ID of a Maps Engine project, used to filter the response. To list all available projects
     * with their IDs, send a Projects: list request. You can also find your project ID as the value of
@@ -1055,6 +1252,22 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     return $this->call('list', array($params), "Google_Service_MapsEngine_LayersListResponse");
   }
   /**
+   * Mutate a layer asset. Note that if a VectorStyle object is provided, it fully
+   * replaces the original VectorStyle present in the layer. This is a known
+   * issue. (layers.patch)
+   *
+   * @param string $id
+   * The ID of the layer.
+   * @param Google_Layer $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function patch($id, Google_Service_MapsEngine_Layer $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params));
+  }
+  /**
    * Process a layer asset. (layers.process)
    *
    * @param string $id
@@ -1081,6 +1294,20 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array('id' => $id);
     $params = array_merge($params, $optParams);
     return $this->call('publish', array($params), "Google_Service_MapsEngine_PublishResponse");
+  }
+  /**
+   * Unpublish a layer asset. (layers.unpublish)
+   *
+   * @param string $id
+   * The ID of the layer.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PublishResponse
+   */
+  public function unpublish($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('unpublish', array($params), "Google_Service_MapsEngine_PublishResponse");
   }
 }
 
@@ -1143,6 +1370,20 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     return $this->call('create', array($params), "Google_Service_MapsEngine_Map");
   }
   /**
+   * Delete a map. (maps.delete)
+   *
+   * @param string $id
+   * The ID of the map. Only the map creator or project owner are permitted to delete. If the map is
+    * published the request will fail. Unpublish the map prior to deleting.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+  /**
    * Return metadata for a particular map. (maps.get)
    *
    * @param string $id
@@ -1170,6 +1411,8 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
    * @opt_param string createdAfter
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or after this time.
+   * @opt_param string tags
+   * A comma separated list of tags. Returned assets will contain all the tags from the list.
    * @opt_param string projectId
    * The ID of a Maps Engine project, used to filter the response. To list all available projects
     * with their IDs, send a Projects: list request. You can also find your project ID as the value of
@@ -1201,6 +1444,20 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     return $this->call('list', array($params), "Google_Service_MapsEngine_MapsListResponse");
   }
   /**
+   * Mutate a map asset. (maps.patch)
+   *
+   * @param string $id
+   * The ID of the map.
+   * @param Google_Map $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function patch($id, Google_Service_MapsEngine_Map $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params));
+  }
+  /**
    * Publish a map asset. (maps.publish)
    *
    * @param string $id
@@ -1213,6 +1470,20 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     $params = array('id' => $id);
     $params = array_merge($params, $optParams);
     return $this->call('publish', array($params), "Google_Service_MapsEngine_PublishResponse");
+  }
+  /**
+   * Unpublish a map asset. (maps.unpublish)
+   *
+   * @param string $id
+   * The ID of the map.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PublishResponse
+   */
+  public function unpublish($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('unpublish', array($params), "Google_Service_MapsEngine_PublishResponse");
   }
 }
 
@@ -1253,6 +1524,21 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
 {
 
   /**
+   * Cancel processing on a raster collection asset.
+   * (rasterCollections.cancelProcessing)
+   *
+   * @param string $id
+   * The ID of the raster collection.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_ProcessResponse
+   */
+  public function cancelProcessing($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('cancelProcessing', array($params), "Google_Service_MapsEngine_ProcessResponse");
+  }
+  /**
    * Create a raster collection asset. (rasterCollections.create)
    *
    * @param Google_RasterCollection $postBody
@@ -1264,6 +1550,21 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
     $params = array('postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('create', array($params), "Google_Service_MapsEngine_RasterCollection");
+  }
+  /**
+   * Delete a raster collection. (rasterCollections.delete)
+   *
+   * @param string $id
+   * The ID of the raster collection. Only the raster collection creator or project owner are
+    * permitted to delete. If the rastor collection is included in a layer, the request will fail.
+    * Remove the raster collection from all layers prior to deleting.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
   }
   /**
    * Return metadata for a particular raster collection. (rasterCollections.get)
@@ -1291,6 +1592,8 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
    * @opt_param string createdAfter
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or after this time.
+   * @opt_param string tags
+   * A comma separated list of tags. Returned assets will contain all the tags from the list.
    * @opt_param string projectId
    * The ID of a Maps Engine project, used to filter the response. To list all available projects
     * with their IDs, send a Projects: list request. You can also find your project ID as the value of
@@ -1320,6 +1623,20 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
     $params = array();
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_RastercollectionsListResponse");
+  }
+  /**
+   * Mutate a raster collection asset. (rasterCollections.patch)
+   *
+   * @param string $id
+   * The ID of the raster collection.
+   * @param Google_RasterCollection $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function patch($id, Google_Service_MapsEngine_RasterCollection $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params));
   }
   /**
    * Process a raster collection asset. (rasterCollections.process)
@@ -1433,6 +1750,8 @@ class Google_Service_MapsEngine_RasterCollectionsRasters_Resource extends Google
    * @opt_param string createdAfter
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or after this time.
+   * @opt_param string tags
+   * A comma separated list of tags. Returned assets will contain all the tags from the list.
    * @opt_param string maxResults
    * The maximum number of items to include in a single response page. The maximum supported value is
     * 100.
@@ -1473,31 +1792,60 @@ class Google_Service_MapsEngine_Rasters_Resource extends Google_Service_Resource
 {
 
   /**
+   * Delete a raster. (rasters.delete)
+   *
+   * @param string $id
+   * The ID of the raster. Only the raster creator or project owner are permitted to delete. If the
+    * raster is included in a layer or mosaic, the request will fail. Remove it from all parents prior
+    * to deleting.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+  /**
    * Return metadata for a single raster. (rasters.get)
    *
    * @param string $id
    * The ID of the raster.
    * @param array $optParams Optional parameters.
-   * @return Google_Service_MapsEngine_Image
+   * @return Google_Service_MapsEngine_Raster
    */
   public function get($id, $optParams = array())
   {
     $params = array('id' => $id);
     $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_MapsEngine_Image");
+    return $this->call('get', array($params), "Google_Service_MapsEngine_Raster");
+  }
+  /**
+   * Mutate a raster asset. (rasters.patch)
+   *
+   * @param string $id
+   * The ID of the raster.
+   * @param Google_Raster $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function patch($id, Google_Service_MapsEngine_Raster $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params));
   }
   /**
    * Create a skeleton raster asset for upload. (rasters.upload)
    *
-   * @param Google_Image $postBody
+   * @param Google_Raster $postBody
    * @param array $optParams Optional parameters.
-   * @return Google_Service_MapsEngine_Image
+   * @return Google_Service_MapsEngine_Raster
    */
-  public function upload(Google_Service_MapsEngine_Image $postBody, $optParams = array())
+  public function upload(Google_Service_MapsEngine_Raster $postBody, $optParams = array())
   {
     $params = array('postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('upload', array($params), "Google_Service_MapsEngine_Image");
+    return $this->call('upload', array($params), "Google_Service_MapsEngine_Raster");
   }
 }
 
@@ -1587,6 +1935,21 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
     return $this->call('create', array($params), "Google_Service_MapsEngine_Table");
   }
   /**
+   * Delete a table. (tables.delete)
+   *
+   * @param string $id
+   * The ID of the table. Only the table creator or project owner are permitted to delete. If the
+    * table is included in a layer, the request will fail. Remove it from all layers prior to
+    * deleting.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+  /**
    * Return metadata for a particular table, including the schema. (tables.get)
    *
    * @param string $id
@@ -1614,6 +1977,8 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
    * @opt_param string createdAfter
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or after this time.
+   * @opt_param string tags
+   * A comma separated list of tags. Returned assets will contain all the tags from the list.
    * @opt_param string projectId
    * The ID of a Maps Engine project, used to filter the response. To list all available projects
     * with their IDs, send a Projects: list request. You can also find your project ID as the value of
@@ -1643,6 +2008,20 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
     $params = array();
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_TablesListResponse");
+  }
+  /**
+   * Mutate a table asset. (tables.patch)
+   *
+   * @param string $id
+   * The ID of the table.
+   * @param Google_Table $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function patch($id, Google_Service_MapsEngine_Table $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params));
   }
   /**
    * Create a placeholder table asset to which table files can be uploaded. Once
@@ -1912,6 +2291,7 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   public $bbox;
   public $creationTime;
   public $description;
+  public $etag;
   public $id;
   public $lastModifiedTime;
   public $name;
@@ -1948,6 +2328,16 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   public function getDescription()
   {
     return $this->description;
+  }
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
   }
 
   public function setId($id)
@@ -2557,177 +2947,6 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
   }
 }
 
-class Google_Service_MapsEngine_Image extends Google_Collection
-{
-  protected $acquisitionTimeType = 'Google_Service_MapsEngine_AcquisitionTime';
-  protected $acquisitionTimeDataType = '';
-  public $attribution;
-  public $bbox;
-  public $creationTime;
-  public $description;
-  public $draftAccessList;
-  protected $filesType = 'Google_Service_MapsEngine_MapsengineFile';
-  protected $filesDataType = 'array';
-  public $id;
-  public $lastModifiedTime;
-  public $maskType;
-  public $name;
-  public $processingStatus;
-  public $projectId;
-  public $rasterType;
-  public $tags;
-
-  public function setAcquisitionTime(Google_Service_MapsEngine_AcquisitionTime $acquisitionTime)
-  {
-    $this->acquisitionTime = $acquisitionTime;
-  }
-
-  public function getAcquisitionTime()
-  {
-    return $this->acquisitionTime;
-  }
-
-  public function setAttribution($attribution)
-  {
-    $this->attribution = $attribution;
-  }
-
-  public function getAttribution()
-  {
-    return $this->attribution;
-  }
-
-  public function setBbox($bbox)
-  {
-    $this->bbox = $bbox;
-  }
-
-  public function getBbox()
-  {
-    return $this->bbox;
-  }
-
-  public function setCreationTime($creationTime)
-  {
-    $this->creationTime = $creationTime;
-  }
-
-  public function getCreationTime()
-  {
-    return $this->creationTime;
-  }
-
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-
-  public function getDescription()
-  {
-    return $this->description;
-  }
-
-  public function setDraftAccessList($draftAccessList)
-  {
-    $this->draftAccessList = $draftAccessList;
-  }
-
-  public function getDraftAccessList()
-  {
-    return $this->draftAccessList;
-  }
-
-  public function setFiles($files)
-  {
-    $this->files = $files;
-  }
-
-  public function getFiles()
-  {
-    return $this->files;
-  }
-
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-
-  public function getId()
-  {
-    return $this->id;
-  }
-
-  public function setLastModifiedTime($lastModifiedTime)
-  {
-    $this->lastModifiedTime = $lastModifiedTime;
-  }
-
-  public function getLastModifiedTime()
-  {
-    return $this->lastModifiedTime;
-  }
-
-  public function setMaskType($maskType)
-  {
-    $this->maskType = $maskType;
-  }
-
-  public function getMaskType()
-  {
-    return $this->maskType;
-  }
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-
-  public function getName()
-  {
-    return $this->name;
-  }
-
-  public function setProcessingStatus($processingStatus)
-  {
-    $this->processingStatus = $processingStatus;
-  }
-
-  public function getProcessingStatus()
-  {
-    return $this->processingStatus;
-  }
-
-  public function setProjectId($projectId)
-  {
-    $this->projectId = $projectId;
-  }
-
-  public function getProjectId()
-  {
-    return $this->projectId;
-  }
-
-  public function setRasterType($rasterType)
-  {
-    $this->rasterType = $rasterType;
-  }
-
-  public function getRasterType()
-  {
-    return $this->rasterType;
-  }
-
-  public function setTags($tags)
-  {
-    $this->tags = $tags;
-  }
-
-  public function getTags()
-  {
-    return $this->tags;
-  }
-}
-
 class Google_Service_MapsEngine_LabelStyle extends Google_Model
 {
   public $color;
@@ -2819,6 +3038,7 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   protected $datasourcesDataType = 'array';
   public $description;
   public $draftAccessList;
+  public $etag;
   public $id;
   public $lastModifiedTime;
   public $name;
@@ -2887,6 +3107,16 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   public function getDraftAccessList()
   {
     return $this->draftAccessList;
+  }
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
   }
 
   public function setId($id)
@@ -3094,6 +3324,7 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public $defaultViewport;
   public $description;
   public $draftAccessList;
+  public $etag;
   public $id;
   public $lastModifiedTime;
   public $name;
@@ -3160,6 +3391,16 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public function getDraftAccessList()
   {
     return $this->draftAccessList;
+  }
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
   }
 
   public function setId($id)
@@ -3642,15 +3883,44 @@ class Google_Service_MapsEngine_PublishResponse extends Google_Model
 
 class Google_Service_MapsEngine_Raster extends Google_Collection
 {
+  protected $acquisitionTimeType = 'Google_Service_MapsEngine_AcquisitionTime';
+  protected $acquisitionTimeDataType = '';
+  public $attribution;
   public $bbox;
   public $creationTime;
   public $description;
+  public $draftAccessList;
+  public $etag;
+  protected $filesType = 'Google_Service_MapsEngine_MapsengineFile';
+  protected $filesDataType = 'array';
   public $id;
   public $lastModifiedTime;
+  public $maskType;
   public $name;
+  public $processingStatus;
   public $projectId;
   public $rasterType;
   public $tags;
+
+  public function setAcquisitionTime(Google_Service_MapsEngine_AcquisitionTime $acquisitionTime)
+  {
+    $this->acquisitionTime = $acquisitionTime;
+  }
+
+  public function getAcquisitionTime()
+  {
+    return $this->acquisitionTime;
+  }
+
+  public function setAttribution($attribution)
+  {
+    $this->attribution = $attribution;
+  }
+
+  public function getAttribution()
+  {
+    return $this->attribution;
+  }
 
   public function setBbox($bbox)
   {
@@ -3682,6 +3952,36 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
     return $this->description;
   }
 
+  public function setDraftAccessList($draftAccessList)
+  {
+    $this->draftAccessList = $draftAccessList;
+  }
+
+  public function getDraftAccessList()
+  {
+    return $this->draftAccessList;
+  }
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+
+  public function setFiles($files)
+  {
+    $this->files = $files;
+  }
+
+  public function getFiles()
+  {
+    return $this->files;
+  }
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3702,6 +4002,16 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
     return $this->lastModifiedTime;
   }
 
+  public function setMaskType($maskType)
+  {
+    $this->maskType = $maskType;
+  }
+
+  public function getMaskType()
+  {
+    return $this->maskType;
+  }
+
   public function setName($name)
   {
     $this->name = $name;
@@ -3710,6 +4020,16 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   public function getName()
   {
     return $this->name;
+  }
+
+  public function setProcessingStatus($processingStatus)
+  {
+    $this->processingStatus = $processingStatus;
+  }
+
+  public function getProcessingStatus()
+  {
+    return $this->processingStatus;
   }
 
   public function setProjectId($projectId)
@@ -3750,6 +4070,7 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   public $creationTime;
   public $description;
   public $draftAccessList;
+  public $etag;
   public $id;
   public $lastModifiedTime;
   public $mosaic;
@@ -3809,6 +4130,16 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
     return $this->draftAccessList;
   }
 
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3857,6 +4188,109 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   public function getProcessingStatus()
   {
     return $this->processingStatus;
+  }
+
+  public function setProjectId($projectId)
+  {
+    $this->projectId = $projectId;
+  }
+
+  public function getProjectId()
+  {
+    return $this->projectId;
+  }
+
+  public function setRasterType($rasterType)
+  {
+    $this->rasterType = $rasterType;
+  }
+
+  public function getRasterType()
+  {
+    return $this->rasterType;
+  }
+
+  public function setTags($tags)
+  {
+    $this->tags = $tags;
+  }
+
+  public function getTags()
+  {
+    return $this->tags;
+  }
+}
+
+class Google_Service_MapsEngine_RasterCollectionRaster extends Google_Collection
+{
+  public $bbox;
+  public $creationTime;
+  public $description;
+  public $id;
+  public $lastModifiedTime;
+  public $name;
+  public $projectId;
+  public $rasterType;
+  public $tags;
+
+  public function setBbox($bbox)
+  {
+    $this->bbox = $bbox;
+  }
+
+  public function getBbox()
+  {
+    return $this->bbox;
+  }
+
+  public function setCreationTime($creationTime)
+  {
+    $this->creationTime = $creationTime;
+  }
+
+  public function getCreationTime()
+  {
+    return $this->creationTime;
+  }
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setLastModifiedTime($lastModifiedTime)
+  {
+    $this->lastModifiedTime = $lastModifiedTime;
+  }
+
+  public function getLastModifiedTime()
+  {
+    return $this->lastModifiedTime;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
   }
 
   public function setProjectId($projectId)
@@ -3960,7 +4394,7 @@ class Google_Service_MapsEngine_RastercollectionsListResponse extends Google_Col
 class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
 {
   public $nextPageToken;
-  protected $rastersType = 'Google_Service_MapsEngine_Raster';
+  protected $rastersType = 'Google_Service_MapsEngine_RasterCollectionRaster';
   protected $rastersDataType = 'array';
 
   public function setNextPageToken($nextPageToken)
@@ -4028,6 +4462,7 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   public $creationTime;
   public $description;
   public $draftAccessList;
+  public $etag;
   protected $filesType = 'Google_Service_MapsEngine_MapsengineFile';
   protected $filesDataType = 'array';
   public $id;
@@ -4079,6 +4514,16 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   public function getDraftAccessList()
   {
     return $this->draftAccessList;
+  }
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
   }
 
   public function setFiles($files)
