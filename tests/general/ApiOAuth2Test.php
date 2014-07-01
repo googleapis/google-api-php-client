@@ -197,8 +197,10 @@ class ApiOAuth2Test extends BaseTest {
         ->method('makeRequest')
         ->will($this->returnCallback(function($request) use (&$token, $response) {
           $elements = $request->getPostBody();
-          $this->assertEquals($elements['grant_type'], "refresh_token");
-          $this->assertEquals($elements['refresh_token'], "REFRESH_TOKEN");
+          PHPUnit_Framework_TestCase::assertEquals($elements['grant_type'],
+              "refresh_token");
+          PHPUnit_Framework_TestCase::assertEquals($elements['refresh_token'],
+              "REFRESH_TOKEN");
           return $response;
         }));
     $client->setIo($io);
