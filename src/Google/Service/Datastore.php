@@ -321,10 +321,21 @@ class Google_Service_Datastore_BeginTransactionResponse extends Google_Model
 
 class Google_Service_Datastore_CommitRequest extends Google_Model
 {
+  public $ignoreReadOnly;
   public $mode;
   protected $mutationType = 'Google_Service_Datastore_Mutation';
   protected $mutationDataType = '';
   public $transaction;
+
+  public function setIgnoreReadOnly($ignoreReadOnly)
+  {
+    $this->ignoreReadOnly = $ignoreReadOnly;
+  }
+
+  public function getIgnoreReadOnly()
+  {
+    return $this->ignoreReadOnly;
+  }
 
   public function setMode($mode)
   {
