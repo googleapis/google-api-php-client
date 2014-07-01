@@ -7984,6 +7984,8 @@ class Google_Service_Compute_Image extends Google_Collection
   protected $rawDiskType = 'Google_Service_Compute_ImageRawDisk';
   protected $rawDiskDataType = '';
   public $selfLink;
+  public $sourceDisk;
+  public $sourceDiskId;
   public $sourceType;
   public $status;
 
@@ -8095,6 +8097,26 @@ class Google_Service_Compute_Image extends Google_Collection
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+
+  public function setSourceDisk($sourceDisk)
+  {
+    $this->sourceDisk = $sourceDisk;
+  }
+
+  public function getSourceDisk()
+  {
+    return $this->sourceDisk;
+  }
+
+  public function setSourceDiskId($sourceDiskId)
+  {
+    $this->sourceDiskId = $sourceDiskId;
+  }
+
+  public function getSourceDiskId()
+  {
+    return $this->sourceDiskId;
   }
 
   public function setSourceType($sourceType)
