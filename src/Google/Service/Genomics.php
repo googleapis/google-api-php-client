@@ -186,6 +186,10 @@ class Google_Service_Genomics extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'maxTimestamp' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -613,6 +617,8 @@ class Google_Service_Genomics_Datasets_Resource extends Google_Service_Resource
    * @opt_param string pageToken
    * The continuation token, which is used to page through large result sets. To get the next page of
     * results, set this parameter to the value of "nextPageToken" from the previous response.
+   * @opt_param string maxTimestamp
+   *
    * @opt_param string maxResults
    * The maximum number of results returned by this request.
    * @opt_param string projectId
@@ -797,7 +803,8 @@ class Google_Service_Genomics_Readsets_Resource extends Google_Service_Resource
    * Deletes a readset. (readsets.delete)
    *
    * @param string $readsetId
-   * The ID of the readset to be deleted.
+   * The ID of the readset to be deleted. The caller must have WRITE permissions to the dataset
+    * associated with this readset.
    * @param array $optParams Optional parameters.
    */
   public function delete($readsetId, $optParams = array())
@@ -807,7 +814,11 @@ class Google_Service_Genomics_Readsets_Resource extends Google_Service_Resource
     return $this->call('delete', array($params));
   }
   /**
-   * Exports readsets to a file. (readsets.export)
+   * Exports readsets to a BAM file in Google Cloud Storage. Note that currently
+   * there may be some differences between exported BAM files and the original BAM
+   * file at the time of import. In particular, comments in the input file header
+   * will not be preserved, and some custom tags will be converted to strings.
+   * (readsets.export)
    *
    * @param Google_ExportReadsetsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -834,8 +845,10 @@ class Google_Service_Genomics_Readsets_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Genomics_Readset");
   }
   /**
-   * Creates readsets by asynchronously importing the provided information.
-   * (readsets.import)
+   * Creates readsets by asynchronously importing the provided information. Note
+   * that currently comments in the input file header are not imported and some
+   * custom tags will be converted to strings, rather than preserving tag types.
+   * The caller must have WRITE permissions to the dataset. (readsets.import)
    *
    * @param Google_ImportReadsetsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -2350,11 +2363,22 @@ class Google_Service_Genomics_SearchCallsetsResponse extends Google_Collection
 
 class Google_Service_Genomics_SearchReadsRequest extends Google_Collection
 {
+  public $maxResults;
   public $pageToken;
   public $readsetIds;
   public $sequenceEnd;
   public $sequenceName;
   public $sequenceStart;
+
+  public function setMaxResults($maxResults)
+  {
+    $this->maxResults = $maxResults;
+  }
+
+  public function getMaxResults()
+  {
+    return $this->maxResults;
+  }
 
   public function setPageToken($pageToken)
   {
@@ -2437,6 +2461,7 @@ class Google_Service_Genomics_SearchReadsResponse extends Google_Collection
 class Google_Service_Genomics_SearchReadsetsRequest extends Google_Collection
 {
   public $datasetIds;
+  public $maxResults;
   public $name;
   public $pageToken;
 
@@ -2448,6 +2473,16 @@ class Google_Service_Genomics_SearchReadsetsRequest extends Google_Collection
   public function getDatasetIds()
   {
     return $this->datasetIds;
+  }
+
+  public function setMaxResults($maxResults)
+  {
+    $this->maxResults = $maxResults;
+  }
+
+  public function getMaxResults()
+  {
+    return $this->maxResults;
   }
 
   public function setName($name)
