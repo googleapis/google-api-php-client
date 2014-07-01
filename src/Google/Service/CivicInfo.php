@@ -217,8 +217,9 @@ class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_R
 {
 
   /**
-   * Looks up political geography and (optionally) representative information
-   * based on an address. (representatives.representativeInfoQuery)
+   * Looks up political geography and representative information based on an
+   * address or Open Civic Data division identifier.
+   * (representatives.representativeInfoQuery)
    *
    * @param Google_RepresentativeInfoRequest $postBody
    * @param array $optParams Optional parameters.
