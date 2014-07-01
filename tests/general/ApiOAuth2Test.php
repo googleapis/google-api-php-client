@@ -168,8 +168,45 @@ class ApiOAuth2Test extends BaseTest {
   /**
    * Test for revoking token when none is opened
    */
-  public function testRevokeWhenNoTokenExists() {
+  public function testRevokeWhenNoTokenExists()
+  {
     $client = new Google_Client();
     $this->assertFalse($client->revokeToken());
+  }
+
+  /**
+   * Test that the ID token is properly refreshed.
+   */
+  public function testRefreshTokenSetsValues()
+  {
+    $client = new Google_Client();
+    $response_data = json_encode(array(
+      'access_token' => "ACCESS_TOKEN",
+      'id_token' => "ID_TOKEN",
+      'expires_in' => "12345",
+    ));
+    $response = $this->getMock("Google_Http_Request", array(), array(''));
+    $response->expects($this->any())
+            ->method('getResponseHttpCode')
+            ->will($this->returnValue(200));
+    $response->expects($this->any())
+            ->method('getResponseBody')
+            ->will($this->returnValue($response_data));
+    $io = $this->getMock("Google_IO_Stream", array(), array($client));
+    $io->expects($this->any())
+        ->method('makeRequest')
+        ->will($this->returnCallback(function($request) use (&$token, $response) {
+          $elements = $request->getPostBody();
+          PHPUnit_Framework_TestCase::assertEquals($elements['grant_type'],
+              "refresh_token");
+          PHPUnit_Framework_TestCase::assertEquals($elements['refresh_token'],
+              "REFRESH_TOKEN");
+          return $response;
+        }));
+    $client->setIo($io);
+    $oauth = new Google_Auth_OAuth2($client);
+    $oauth->refreshToken("REFRESH_TOKEN");
+    $token = json_decode($oauth->getAccessToken(), true);
+    $this->assertEquals($token['id_token'], "ID_TOKEN");
   }
 }
