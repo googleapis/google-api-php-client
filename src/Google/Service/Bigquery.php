@@ -2011,13 +2011,15 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   }
 }
 
-class Google_Service_Bigquery_JobConfigurationTableCopy extends Google_Model
+class Google_Service_Bigquery_JobConfigurationTableCopy extends Google_Collection
 {
   public $createDisposition;
   protected $destinationTableType = 'Google_Service_Bigquery_TableReference';
   protected $destinationTableDataType = '';
   protected $sourceTableType = 'Google_Service_Bigquery_TableReference';
   protected $sourceTableDataType = '';
+  protected $sourceTablesType = 'Google_Service_Bigquery_TableReference';
+  protected $sourceTablesDataType = 'array';
   public $writeDisposition;
 
   public function setCreateDisposition($createDisposition)
@@ -2048,6 +2050,16 @@ class Google_Service_Bigquery_JobConfigurationTableCopy extends Google_Model
   public function getSourceTable()
   {
     return $this->sourceTable;
+  }
+
+  public function setSourceTables($sourceTables)
+  {
+    $this->sourceTables = $sourceTables;
+  }
+
+  public function getSourceTables()
+  {
+    return $this->sourceTables;
   }
 
   public function setWriteDisposition($writeDisposition)
