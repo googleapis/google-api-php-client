@@ -527,8 +527,8 @@ class Google_Service_Content_Accounts_Resource extends Google_Service_Resource
 {
 
   /**
-   * Retrieve, insert, update, and delete multiple Merchant Center (sub-)accounts
-   * in a single request. (accounts.custombatch)
+   * Retrieves, inserts, updates, and deletes multiple Merchant Center
+   * (sub-)accounts in a single request. (accounts.custombatch)
    *
    * @param Google_AccountsCustomBatchRequest $postBody
    * @param array $optParams Optional parameters.
@@ -541,7 +541,7 @@ class Google_Service_Content_Accounts_Resource extends Google_Service_Resource
     return $this->call('custombatch', array($params), "Google_Service_Content_AccountsCustomBatchResponse");
   }
   /**
-   * Delete a Merchant Center sub-account. (accounts.delete)
+   * Deletes a Merchant Center sub-account. (accounts.delete)
    *
    * @param string $merchantId
    * The ID of the managing account.
@@ -556,7 +556,7 @@ class Google_Service_Content_Accounts_Resource extends Google_Service_Resource
     return $this->call('delete', array($params));
   }
   /**
-   * Retrieve a Merchant Center account. (accounts.get)
+   * Retrieves a Merchant Center account. (accounts.get)
    *
    * @param string $merchantId
    * The ID of the managing account.
@@ -572,7 +572,7 @@ class Google_Service_Content_Accounts_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Content_Account");
   }
   /**
-   * Create a Merchant Center sub-account. (accounts.insert)
+   * Creates a Merchant Center sub-account. (accounts.insert)
    *
    * @param string $merchantId
    * The ID of the managing account.
@@ -587,7 +587,7 @@ class Google_Service_Content_Accounts_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Content_Account");
   }
   /**
-   * List the sub-accounts in your Merchant Center account.
+   * Lists the sub-accounts in your Merchant Center account.
    * (accounts.listAccounts)
    *
    * @param string $merchantId
@@ -607,7 +607,7 @@ class Google_Service_Content_Accounts_Resource extends Google_Service_Resource
     return $this->call('list', array($params), "Google_Service_Content_AccountsListResponse");
   }
   /**
-   * Update a Merchant Center account. This method supports patch semantics.
+   * Updates a Merchant Center account. This method supports patch semantics.
    * (accounts.patch)
    *
    * @param string $merchantId
@@ -625,7 +625,7 @@ class Google_Service_Content_Accounts_Resource extends Google_Service_Resource
     return $this->call('patch', array($params), "Google_Service_Content_Account");
   }
   /**
-   * Update a Merchant Center account. (accounts.update)
+   * Updates a Merchant Center account. (accounts.update)
    *
    * @param string $merchantId
    * The ID of the managing account.
@@ -668,7 +668,7 @@ class Google_Service_Content_Accountstatuses_Resource extends Google_Service_Res
     return $this->call('custombatch', array($params), "Google_Service_Content_AccountstatusesCustomBatchResponse");
   }
   /**
-   * Retrieve the status of a Merchant Center account. (accountstatuses.get)
+   * Retrieves the status of a Merchant Center account. (accountstatuses.get)
    *
    * @param string $merchantId
    * The ID of the managing account.
@@ -684,7 +684,7 @@ class Google_Service_Content_Accountstatuses_Resource extends Google_Service_Res
     return $this->call('get', array($params), "Google_Service_Content_AccountStatus");
   }
   /**
-   * List the statuses of the sub-accounts in your Merchant Center account.
+   * Lists the statuses of the sub-accounts in your Merchant Center account.
    * (accountstatuses.listAccountstatuses)
    *
    * @param string $merchantId
@@ -743,7 +743,7 @@ class Google_Service_Content_Datafeeds_Resource extends Google_Service_Resource
     return $this->call('custombatch', array($params), "Google_Service_Content_DatafeedsCustomBatchResponse");
   }
   /**
-   * Delete a datafeed from your Merchant Center account. (datafeeds.delete)
+   * Deletes a datafeed from your Merchant Center account. (datafeeds.delete)
    *
    * @param string $merchantId
    *
@@ -758,7 +758,7 @@ class Google_Service_Content_Datafeeds_Resource extends Google_Service_Resource
     return $this->call('delete', array($params));
   }
   /**
-   * Retrieve a datafeed from your Merchant Center account. (datafeeds.get)
+   * Retrieves a datafeed from your Merchant Center account. (datafeeds.get)
    *
    * @param string $merchantId
    *
@@ -774,7 +774,7 @@ class Google_Service_Content_Datafeeds_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Content_Datafeed");
   }
   /**
-   * Register a datafeed against your Merchant Center account. (datafeeds.insert)
+   * Registers a datafeed with your Merchant Center account. (datafeeds.insert)
    *
    * @param string $merchantId
    *
@@ -789,7 +789,8 @@ class Google_Service_Content_Datafeeds_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Content_Datafeed");
   }
   /**
-   * List the datafeeds in your Merchant Center account. (datafeeds.listDatafeeds)
+   * Lists the datafeeds in your Merchant Center account.
+   * (datafeeds.listDatafeeds)
    *
    * @param string $merchantId
    *
@@ -803,8 +804,8 @@ class Google_Service_Content_Datafeeds_Resource extends Google_Service_Resource
     return $this->call('list', array($params), "Google_Service_Content_DatafeedsListResponse");
   }
   /**
-   * Update a datafeed of your Merchant Center account. This method supports patch
-   * semantics. (datafeeds.patch)
+   * Updates a datafeed of your Merchant Center account. This method supports
+   * patch semantics. (datafeeds.patch)
    *
    * @param string $merchantId
    *
@@ -821,7 +822,7 @@ class Google_Service_Content_Datafeeds_Resource extends Google_Service_Resource
     return $this->call('patch', array($params), "Google_Service_Content_Datafeed");
   }
   /**
-   * Update a datafeed of your Merchant Center account. (datafeeds.update)
+   * Updates a datafeed of your Merchant Center account. (datafeeds.update)
    *
    * @param string $merchantId
    *
@@ -877,7 +878,7 @@ class Google_Service_Content_Datafeedstatuses_Resource extends Google_Service_Re
     return $this->call('custombatch', array($params), "Google_Service_Content_DatafeedstatusesCustomBatchResponse");
   }
   /**
-   * Retrieve the status of a datafeed from your Merchant Center account.
+   * Retrieves the status of a datafeed from your Merchant Center account.
    * (datafeedstatuses.get)
    *
    * @param string $merchantId
@@ -894,7 +895,7 @@ class Google_Service_Content_Datafeedstatuses_Resource extends Google_Service_Re
     return $this->call('get', array($params), "Google_Service_Content_DatafeedStatus");
   }
   /**
-   * List the statuses of the datafeeds in your Merchant Center account.
+   * Lists the statuses of the datafeeds in your Merchant Center account.
    * (datafeedstatuses.listDatafeedstatuses)
    *
    * @param string $merchantId
@@ -922,7 +923,7 @@ class Google_Service_Content_Inventory_Resource extends Google_Service_Resource
 {
 
   /**
-   * Update price and availability for multiple products or stores in a single
+   * Updates price and availability for multiple products or stores in a single
    * request. (inventory.custombatch)
    *
    * @param Google_InventoryCustomBatchRequest $postBody
@@ -936,13 +937,14 @@ class Google_Service_Content_Inventory_Resource extends Google_Service_Resource
     return $this->call('custombatch', array($params), "Google_Service_Content_InventoryCustomBatchResponse");
   }
   /**
-   * Update price and availability of a product in your Merchant Center account.
+   * Updates price and availability of a product in your Merchant Center account.
    * (inventory.set)
    *
    * @param string $merchantId
    * The ID of the managing account.
    * @param string $storeCode
-   * The code of the store for which to update price and availability.
+   * The code of the store for which to update price and availability. Use online to update price and
+    * availability of an online product.
    * @param string $productId
    * The ID of the product for which to update price and availability.
    * @param Google_InventorySetRequest $postBody
@@ -969,7 +971,7 @@ class Google_Service_Content_Products_Resource extends Google_Service_Resource
 {
 
   /**
-   * Retrieve, insert, and delete multiple products in a single request.
+   * Retrieves, inserts, and deletes multiple products in a single request.
    * (products.custombatch)
    *
    * @param Google_ProductsCustomBatchRequest $postBody
@@ -986,7 +988,7 @@ class Google_Service_Content_Products_Resource extends Google_Service_Resource
     return $this->call('custombatch', array($params), "Google_Service_Content_ProductsCustomBatchResponse");
   }
   /**
-   * Delete a product from your Merchant Center account. (products.delete)
+   * Deletes a product from your Merchant Center account. (products.delete)
    *
    * @param string $merchantId
    * The ID of the managing account.
@@ -1004,7 +1006,7 @@ class Google_Service_Content_Products_Resource extends Google_Service_Resource
     return $this->call('delete', array($params));
   }
   /**
-   * Retrieve a product from your Merchant Center account. (products.get)
+   * Retrieves a product from your Merchant Center account. (products.get)
    *
    * @param string $merchantId
    * The ID of the managing account.
@@ -1020,7 +1022,7 @@ class Google_Service_Content_Products_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Content_Product");
   }
   /**
-   * Upload products to your Merchant Center account. (products.insert)
+   * Uploads a product to your Merchant Center account. (products.insert)
    *
    * @param string $merchantId
    * The ID of the managing account.
@@ -1038,7 +1040,7 @@ class Google_Service_Content_Products_Resource extends Google_Service_Resource
     return $this->call('insert', array($params), "Google_Service_Content_Product");
   }
   /**
-   * List the products in your Merchant Center account. (products.listProducts)
+   * Lists the products in your Merchant Center account. (products.listProducts)
    *
    * @param string $merchantId
    * The ID of the managing account.
@@ -1070,7 +1072,7 @@ class Google_Service_Content_Productstatuses_Resource extends Google_Service_Res
 {
 
   /**
-   * Get the statuses of multiple products in a single request.
+   * Gets the statuses of multiple products in a single request.
    * (productstatuses.custombatch)
    *
    * @param Google_ProductstatusesCustomBatchRequest $postBody
@@ -1084,7 +1086,7 @@ class Google_Service_Content_Productstatuses_Resource extends Google_Service_Res
     return $this->call('custombatch', array($params), "Google_Service_Content_ProductstatusesCustomBatchResponse");
   }
   /**
-   * Get the status of a product from your Merchant Center account.
+   * Gets the status of a product from your Merchant Center account.
    * (productstatuses.get)
    *
    * @param string $merchantId
@@ -1101,7 +1103,7 @@ class Google_Service_Content_Productstatuses_Resource extends Google_Service_Res
     return $this->call('get', array($params), "Google_Service_Content_ProductStatus");
   }
   /**
-   * List the statuses of the products in your Merchant Center account.
+   * Lists the statuses of the products in your Merchant Center account.
    * (productstatuses.listProductstatuses)
    *
    * @param string $merchantId
@@ -3387,6 +3389,7 @@ class Google_Service_Content_Product extends Google_Collection
   public $adwordsRedirect;
   public $ageGroup;
   public $availability;
+  public $availabilityDate;
   public $brand;
   public $channel;
   public $color;
@@ -3414,6 +3417,7 @@ class Google_Service_Content_Product extends Google_Collection
   public $imageLink;
   protected $installmentType = 'Google_Service_Content_ProductInstallment';
   protected $installmentDataType = '';
+  public $isBundle;
   public $itemGroupId;
   public $kind;
   public $link;
@@ -3421,6 +3425,7 @@ class Google_Service_Content_Product extends Google_Collection
   protected $loyaltyPointsDataType = '';
   public $material;
   public $merchantMultipackQuantity;
+  public $mobileLink;
   public $mpn;
   public $offerId;
   public $onlineOnly;
@@ -3435,10 +3440,12 @@ class Google_Service_Content_Product extends Google_Collection
   protected $shippingDataType = 'array';
   protected $shippingWeightType = 'Google_Service_Content_ProductShippingWeight';
   protected $shippingWeightDataType = '';
+  public $sizeSystem;
+  public $sizeType;
   public $sizes;
   public $targetCountry;
-  protected $taxType = 'Google_Service_Content_ProductTax';
-  protected $taxDataType = '';
+  protected $taxesType = 'Google_Service_Content_ProductTax';
+  protected $taxesDataType = 'array';
   public $title;
   public $unitPricingBaseMeasure;
   public $unitPricingMeasure;
@@ -3514,6 +3521,16 @@ class Google_Service_Content_Product extends Google_Collection
   public function getAvailability()
   {
     return $this->availability;
+  }
+
+  public function setAvailabilityDate($availabilityDate)
+  {
+    $this->availabilityDate = $availabilityDate;
+  }
+
+  public function getAvailabilityDate()
+  {
+    return $this->availabilityDate;
   }
 
   public function setBrand($brand)
@@ -3746,6 +3763,16 @@ class Google_Service_Content_Product extends Google_Collection
     return $this->installment;
   }
 
+  public function setIsBundle($isBundle)
+  {
+    $this->isBundle = $isBundle;
+  }
+
+  public function getIsBundle()
+  {
+    return $this->isBundle;
+  }
+
   public function setItemGroupId($itemGroupId)
   {
     $this->itemGroupId = $itemGroupId;
@@ -3804,6 +3831,16 @@ class Google_Service_Content_Product extends Google_Collection
   public function getMerchantMultipackQuantity()
   {
     return $this->merchantMultipackQuantity;
+  }
+
+  public function setMobileLink($mobileLink)
+  {
+    $this->mobileLink = $mobileLink;
+  }
+
+  public function getMobileLink()
+  {
+    return $this->mobileLink;
   }
 
   public function setMpn($mpn)
@@ -3906,6 +3943,26 @@ class Google_Service_Content_Product extends Google_Collection
     return $this->shippingWeight;
   }
 
+  public function setSizeSystem($sizeSystem)
+  {
+    $this->sizeSystem = $sizeSystem;
+  }
+
+  public function getSizeSystem()
+  {
+    return $this->sizeSystem;
+  }
+
+  public function setSizeType($sizeType)
+  {
+    $this->sizeType = $sizeType;
+  }
+
+  public function getSizeType()
+  {
+    return $this->sizeType;
+  }
+
   public function setSizes($sizes)
   {
     $this->sizes = $sizes;
@@ -3926,14 +3983,14 @@ class Google_Service_Content_Product extends Google_Collection
     return $this->targetCountry;
   }
 
-  public function setTax(Google_Service_Content_ProductTax $tax)
+  public function setTaxes($taxes)
   {
-    $this->tax = $tax;
+    $this->taxes = $taxes;
   }
 
-  public function getTax()
+  public function getTaxes()
   {
-    return $this->tax;
+    return $this->taxes;
   }
 
   public function setTitle($title)
