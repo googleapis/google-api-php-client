@@ -12,7 +12,13 @@ php:
   - 5.3
   - 5.4
   - 5.5
-
+  - 5.6
+  - hhvm
+ 
+matrix:
+    allow_failures:
+        - php: hhvm
+        
 before_script:
   - composer install
   - echo "extension=memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
