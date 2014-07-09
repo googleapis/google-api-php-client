@@ -14,15 +14,11 @@ php:
   - 5.5
   - 5.6
   - hhvm
- 
-matrix:
-    allow_failures:
-        - php: hhvm
         
 before_script:
   - composer install
-  - echo "extension=memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - echo "extension=memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then echo "extension=memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
+  - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then echo "extension=memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
   - phpenv version-name | grep ^5.[34] && echo "extension=apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ; true
   - phpenv version-name | grep ^5.[34] && echo "apc.enable_cli=1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ; true
 
