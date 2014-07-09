@@ -43,8 +43,8 @@ class AuthTest extends BaseTest {
   private $verifier;
 
   public function setUp() {
-    $this->signer = new Google_Signer_P12(file_get_contents(self::PRIVATE_KEY_FILE, true), "notasecret");
-    $this->pem = file_get_contents(self::PUBLIC_KEY_FILE, true);
+    $this->signer = new Google_Signer_P12(file_get_contents(__DIR__.'/'.self::PRIVATE_KEY_FILE, true), "notasecret");
+    $this->pem = file_get_contents(__DIR__.'/'.self::PUBLIC_KEY_FILE, true);
     $this->verifier = new Google_Verifier_Pem($this->pem);
   }
   
@@ -71,14 +71,14 @@ PK;
 
   public function testCantOpenP12() {
     try {
-      new Google_Signer_P12(file_get_contents(self::PRIVATE_KEY_FILE, true), "badpassword");
+      new Google_Signer_P12(file_get_contents(__DIR__.'/'.self::PRIVATE_KEY_FILE, true), "badpassword");
       $this->fail("Should have thrown");
     } catch (Google_Auth_Exception $e) {
       $this->assertContains("mac verify failure", $e->getMessage());
     }
 
     try {
-      new Google_Signer_P12(file_get_contents(self::PRIVATE_KEY_FILE, true) . "foo", "badpassword");
+      new Google_Signer_P12(file_get_contents(__DIR__.'/'.self::PRIVATE_KEY_FILE, true) . "foo", "badpassword");
       $this->fail("Should have thrown");
     } catch (Exception $e) {
       $this->assertContains("Unable to parse", $e->getMessage());
@@ -240,7 +240,7 @@ PK;
 
   public function testAssertionCredentials() {
     $assertion = new Google_Auth_AssertionCredentials('name', 'scope',
-        file_get_contents(self::PRIVATE_KEY_FILE, true));
+        file_get_contents(__DIR__.'/'.self::PRIVATE_KEY_FILE, true));
 
     $token = explode(".", $assertion->generateAssertion());
     $this->assertEquals('{"typ":"JWT","alg":"RS256"}', base64_decode($token[0]));
@@ -253,13 +253,13 @@ PK;
     $key = $assertion->getCacheKey();
     $this->assertTrue($key != false);
     $assertion = new Google_Auth_AssertionCredentials('name2', 'scope',
-        file_get_contents(self::PRIVATE_KEY_FILE, true));
+        file_get_contents(__DIR__.'/'.self::PRIVATE_KEY_FILE, true));
     $this->assertNotEquals($key, $assertion->getCacheKey());
   }
 
   public function testVerifySignedJWT() {
     $assertion = new Google_Auth_AssertionCredentials('issuer', 'scope',
-        file_get_contents(self::PRIVATE_KEY_FILE, true));
+        file_get_contents(__DIR__.'/'.self::PRIVATE_KEY_FILE, true));
     $client = $this->getClient();
 
     $this->assertInstanceOf('Google_Auth_LoginTicket', $client->verifySignedJwt(
