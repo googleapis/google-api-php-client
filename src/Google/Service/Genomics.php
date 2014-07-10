@@ -31,10 +31,14 @@
  */
 class Google_Service_Genomics extends Google_Service
 {
+  /** View and manage your data in Google BigQuery. */
+  const BIGQUERY = "https://www.googleapis.com/auth/bigquery";
   /** Manage your data in Google Cloud Storage. */
   const DEVSTORAGE_READ_WRITE = "https://www.googleapis.com/auth/devstorage.read_write";
   /** View and manage Genomics data. */
   const GENOMICS = "https://www.googleapis.com/auth/genomics";
+  /** View Genomics data. */
+  const GENOMICS_READONLY = "https://www.googleapis.com/auth/genomics.readonly";
 
   public $beacons;
   public $callsets;
@@ -183,10 +187,6 @@ class Google_Service_Genomics extends Google_Service
               'httpMethod' => 'GET',
               'parameters' => array(
                 'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxTimestamp' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -617,8 +617,6 @@ class Google_Service_Genomics_Datasets_Resource extends Google_Service_Resource
    * @opt_param string pageToken
    * The continuation token, which is used to page through large result sets. To get the next page of
     * results, set this parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param string maxTimestamp
-   *
    * @opt_param string maxResults
    * The maximum number of results returned by this request.
    * @opt_param string projectId
@@ -756,12 +754,15 @@ class Google_Service_Genomics_Reads_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Genomics_Read");
   }
   /**
-   * Gets a list of reads for one or more readsets. SearchReads operates over a
-   * genomic coordinate space of sequence+position defined over the reference
-   * sequences to which the requested readsets are aligned. If a target positional
-   * range is specified, SearchReads returns all reads whose alignment to the
-   * reference genome overlap the range. A query which specifies only readset IDs
-   * yields all reads in those readsets, including unmapped reads. (reads.search)
+   * Gets a list of reads for one or more readsets. Reads search operates over a
+   * genomic coordinate space of reference sequence & position defined over the
+   * reference sequences to which the requested readsets are aligned. If a target
+   * positional range is specified, search returns all reads whose alignment to
+   * the reference genome overlap the range. A query which specifies only readset
+   * IDs yields all reads in those readsets, including unmapped reads. All reads
+   * returned (including reads on subsequent pages) are ordered by genomic
+   * coordinate (reference sequence & position). Reads with equivalent genomic
+   * coordinates are returned in a deterministic order. (reads.search)
    *
    * @param Google_SearchReadsRequest $postBody
    * @param array $optParams Optional parameters.
