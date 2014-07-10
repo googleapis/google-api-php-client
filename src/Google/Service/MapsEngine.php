@@ -1252,9 +1252,7 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     return $this->call('list', array($params), "Google_Service_MapsEngine_LayersListResponse");
   }
   /**
-   * Mutate a layer asset. Note that if a VectorStyle object is provided, it fully
-   * replaces the original VectorStyle present in the layer. This is a known
-   * issue. (layers.patch)
+   * Mutate a layer asset. (layers.patch)
    *
    * @param string $id
    * The ID of the layer.
@@ -1616,13 +1614,13 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
    * @opt_param string createdBefore
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or before this time.
-   * @return Google_Service_MapsEngine_RastercollectionsListResponse
+   * @return Google_Service_MapsEngine_RasterCollectionsListResponse
    */
   public function listRasterCollections($optParams = array())
   {
     $params = array();
     $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_MapsEngine_RastercollectionsListResponse");
+    return $this->call('list', array($params), "Google_Service_MapsEngine_RasterCollectionsListResponse");
   }
   /**
    * Mutate a raster collection asset. (rasterCollections.patch)
@@ -1770,13 +1768,13 @@ class Google_Service_MapsEngine_RasterCollectionsRasters_Resource extends Google
    * @opt_param string createdBefore
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or before this time.
-   * @return Google_Service_MapsEngine_RastersListResponse
+   * @return Google_Service_MapsEngine_RasterCollectionsRastersListResponse
    */
   public function listRasterCollectionsRasters($id, $optParams = array())
   {
     $params = array('id' => $id);
     $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_MapsEngine_RastersListResponse");
+    return $this->call('list', array($params), "Google_Service_MapsEngine_RasterCollectionsRastersListResponse");
   }
 }
 
@@ -4221,7 +4219,34 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   }
 }
 
-class Google_Service_MapsEngine_RasterCollectionRaster extends Google_Collection
+class Google_Service_MapsEngine_RasterCollectionsListResponse extends Google_Collection
+{
+  public $nextPageToken;
+  protected $rasterCollectionsType = 'Google_Service_MapsEngine_RasterCollection';
+  protected $rasterCollectionsDataType = 'array';
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+
+  public function setRasterCollections($rasterCollections)
+  {
+    $this->rasterCollections = $rasterCollections;
+  }
+
+  public function getRasterCollections()
+  {
+    return $this->rasterCollections;
+  }
+}
+
+class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collection
 {
   public $bbox;
   public $creationTime;
@@ -4364,37 +4389,10 @@ class Google_Service_MapsEngine_RasterCollectionsRastersBatchInsertResponse exte
 
 }
 
-class Google_Service_MapsEngine_RastercollectionsListResponse extends Google_Collection
+class Google_Service_MapsEngine_RasterCollectionsRastersListResponse extends Google_Collection
 {
   public $nextPageToken;
-  protected $rasterCollectionsType = 'Google_Service_MapsEngine_RasterCollection';
-  protected $rasterCollectionsDataType = 'array';
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
-
-  public function setRasterCollections($rasterCollections)
-  {
-    $this->rasterCollections = $rasterCollections;
-  }
-
-  public function getRasterCollections()
-  {
-    return $this->rasterCollections;
-  }
-}
-
-class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
-{
-  public $nextPageToken;
-  protected $rastersType = 'Google_Service_MapsEngine_RasterCollectionRaster';
+  protected $rastersType = 'Google_Service_MapsEngine_RasterCollectionsRaster';
   protected $rastersDataType = 'array';
 
   public function setNextPageToken($nextPageToken)
