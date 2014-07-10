@@ -6459,7 +6459,7 @@ class Google_Service_Analytics_Filters extends Google_Collection
   }
 }
 
-class Google_Service_Analytics_GaData extends Google_Collection
+class Google_Service_Analytics_GaData extends Google_Model
 {
   protected $columnHeadersType = 'Google_Service_Analytics_GaDataColumnHeaders';
   protected $columnHeadersDataType = 'array';
