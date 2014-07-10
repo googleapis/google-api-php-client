@@ -3562,7 +3562,18 @@ class Google_Service_PlusDomains_PersonEmails extends Google_Model
 
 class Google_Service_PlusDomains_PersonImage extends Google_Model
 {
+  public $isDefault;
   public $url;
+
+  public function setIsDefault($isDefault)
+  {
+    $this->isDefault = $isDefault;
+  }
+
+  public function getIsDefault()
+  {
+    return $this->isDefault;
+  }
 
   public function setUrl($url)
   {
