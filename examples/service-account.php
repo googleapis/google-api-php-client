@@ -38,9 +38,9 @@ require_once 'Google/Service/Books.php';
   Make sure the Books API is enabled on this
   account as well, or the call will fail.
  ************************************************/
-$client_id = '<YOUR_CLIENT_ID>';
-$service_account_name = '';
-$key_file_location = '';
+$client_id = '<YOUR_CLIENT_ID>'; //Client ID
+$service_account_name = ''; //Email Address 
+$key_file_location = ''; //key.p12
 
 echo pageHeader("Service Account Access");
 if ($client_id == '<YOUR_CLIENT_ID>'
