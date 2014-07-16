@@ -1266,8 +1266,8 @@ class Google_Service_Games_Events_Resource extends Google_Service_Resource
 {
 
   /**
-   * Returns a list of the current progress on events in this application for the
-   * currently authorized user. (events.listByPlayer)
+   * Returns a list showing the current progress on events in this application for
+   * the currently authenticated user. (events.listByPlayer)
    *
    * @param array $optParams Optional parameters.
    *
@@ -1309,8 +1309,8 @@ class Google_Service_Games_Events_Resource extends Google_Service_Resource
     return $this->call('listDefinitions', array($params), "Google_Service_Games_EventDefinitionListResponse");
   }
   /**
-   * Records a batch of event updates for the currently authorized user of this
-   * application. (events.record)
+   * Records a batch of changes to the number of times events have occurred for
+   * the currently authenticated user of this application. (events.record)
    *
    * @param Google_EventRecordRequest $postBody
    * @param array $optParams Optional parameters.
@@ -1537,17 +1537,17 @@ class Google_Service_Games_QuestMilestones_Resource extends Google_Service_Resou
 {
 
   /**
-   * Report that reward for the milestone corresponding to milestoneId for the
+   * Report that a reward for the milestone corresponding to milestoneId for the
    * quest corresponding to questId has been claimed by the currently authorized
    * user. (questMilestones.claim)
    *
    * @param string $questId
    * The ID of the quest.
    * @param string $milestoneId
-   * The ID of the Milestone.
+   * The ID of the milestone.
    * @param string $requestId
-   * A randomly generated numeric ID for each request specified by the caller. This number is used at
-    * the server to ensure that the request is handled correctly across retries.
+   * A numeric ID to ensure that the request is handled correctly across retries. Your client
+    * application must generate this ID randomly.
    * @param array $optParams Optional parameters.
    */
   public function claim($questId, $milestoneId, $requestId, $optParams = array())
