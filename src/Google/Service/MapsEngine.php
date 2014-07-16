@@ -3326,6 +3326,7 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public $id;
   public $lastModifiedTime;
   public $name;
+  public $processingStatus;
   public $projectId;
   public $publishedAccessList;
   public $tags;
@@ -3429,6 +3430,16 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public function getName()
   {
     return $this->name;
+  }
+
+  public function setProcessingStatus($processingStatus)
+  {
+    $this->processingStatus = $processingStatus;
+  }
+
+  public function getProcessingStatus()
+  {
+    return $this->processingStatus;
   }
 
   public function setProjectId($projectId)
