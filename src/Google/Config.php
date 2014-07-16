@@ -80,6 +80,7 @@ class Google_Config
           // Other parameters.
           'access_type' => 'online',
           'approval_prompt' => 'auto',
+          'login_hint' => '',
           'request_visible_actions' => '',
           'federated_signon_certs_url' =>
               'https://www.googleapis.com/oauth2/v1/certs',
@@ -280,6 +281,15 @@ class Google_Config
   public function setApprovalPrompt($approval)
   {
     $this->setAuthConfig('approval_prompt', $approval);
+  }
+
+  /**
+   * Set the login hint (email address or sub identifier)
+   * @param $hint string
+   */
+  public function setLoginHint($hint)
+  {
+    $this->setAuthConfig('login_hint', $hint);
   }
 
   /**
