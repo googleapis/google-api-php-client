@@ -149,6 +149,11 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
         'approval_prompt' => $this->client->getClassConfig($this, 'approval_prompt'),
     );
 
+    $login_hint = $this->client->getClassConfig($this, 'login_hint');
+    if ($login_hint != '') {
+      $params['login_hint'] = $login_hint;
+    }
+
     // If the list of scopes contains plus.login, add request_visible_actions
     // to auth URL.
     $rva = $this->client->getClassConfig($this, 'request_visible_actions');

@@ -24,7 +24,7 @@ require_once "Google/Http/Request.php";
 
 class ApiOAuth2Test extends BaseTest {
 
-  public function testSign() 
+  public function testSign()
   {
     $client = $this->getClient();
     $oauth = new Google_Auth_OAuth2($client);
@@ -54,7 +54,7 @@ class ApiOAuth2Test extends BaseTest {
     $this->assertEquals('Bearer ACCESS_TOKEN', $auth);
   }
 
-  public function testRevokeAccess() 
+  public function testRevokeAccess()
   {
     $accessToken = "ACCESS_TOKEN";
     $refreshToken = "REFRESH_TOKEN";
@@ -103,7 +103,7 @@ class ApiOAuth2Test extends BaseTest {
     $this->assertEquals($accessToken2, $token);
   }
 
-  public function testCreateAuthUrl() 
+  public function testCreateAuthUrl()
   {
     $client = $this->getClient();
     $oauth = new Google_Auth_OAuth2($client);
@@ -115,7 +115,21 @@ class ApiOAuth2Test extends BaseTest {
     $client->setAccessType('offline');
     $client->setApprovalPrompt('force');
     $client->setRequestVisibleActions(array('http://foo'));
+    $client->setLoginHint("bob@example.org");
 
+    $authUrl = $oauth->createAuthUrl("http://googleapis.com/scope/foo");
+    $expected = "https://accounts.google.com/o/oauth2/auth"
+        . "?response_type=code"
+        . "&redirect_uri=http%3A%2F%2Flocalhost"
+        . "&client_id=clientId1"
+        . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
+        . "&access_type=offline"
+        . "&approval_prompt=force"
+        . "&login_hint=bob%40example.org";
+    $this->assertEquals($expected, $authUrl);
+
+    // Again with a blank login hint (should remove all traces from authUrl)
+    $client->setLoginHint("");
     $authUrl = $oauth->createAuthUrl("http://googleapis.com/scope/foo");
     $expected = "https://accounts.google.com/o/oauth2/auth"
         . "?response_type=code"
@@ -128,11 +142,11 @@ class ApiOAuth2Test extends BaseTest {
   }
 
   /**
-   * Most of the logic for ID token validation is in AuthTest - 
+   * Most of the logic for ID token validation is in AuthTest -
    * this is just a general check to ensure we verify a valid
    * id token if one exists.
    */
-  public function testValidateIdToken() 
+  public function testValidateIdToken()
   {
     if (!$this->checkToken()) {
       return;

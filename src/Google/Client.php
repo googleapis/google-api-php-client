@@ -100,7 +100,7 @@ class Google_Client
         $config->setClassConfig('Google_Http_Request', 'disable_gzip', true);
       }
     }
-    
+
     if ($config->getIoClass() == Google_Config::USE_AUTO_IO_SELECTION) {
       if (function_exists('curl_version') && function_exists('curl_exec')) {
         $config->setIoClass("Google_IO_Curl");
@@ -290,6 +290,15 @@ class Google_Client
   public function setApprovalPrompt($approvalPrompt)
   {
     $this->config->setApprovalPrompt($approvalPrompt);
+  }
+
+  /**
+   * Set the login hint, email address or sub id.
+   * @param string $loginHint
+   */
+  public function setLoginHint($loginHint)
+  {
+      $this->config->setLoginHint($loginHint);
   }
 
   /**
