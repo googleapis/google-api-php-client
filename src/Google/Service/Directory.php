@@ -2703,6 +2703,7 @@ class Google_Service_Directory_ChromeOsDevice extends Google_Collection
   public $bootMode;
   public $deviceId;
   public $etag;
+  public $ethernetMacAddress;
   public $firmwareVersion;
   public $kind;
   public $lastEnrollmentTime;
@@ -2770,6 +2771,16 @@ class Google_Service_Directory_ChromeOsDevice extends Google_Collection
   public function getEtag()
   {
     return $this->etag;
+  }
+
+  public function setEthernetMacAddress($ethernetMacAddress)
+  {
+    $this->ethernetMacAddress = $ethernetMacAddress;
+  }
+
+  public function getEthernetMacAddress()
+  {
+    return $this->ethernetMacAddress;
   }
 
   public function setFirmwareVersion($firmwareVersion)
