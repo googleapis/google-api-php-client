@@ -253,6 +253,10 @@ class Google_Service_Genomics extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'search' => array(
+              'path' => 'jobs/search',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),
           )
         )
@@ -725,6 +729,19 @@ class Google_Service_Genomics_Jobs_Resource extends Google_Service_Resource
     $params = array('jobId' => $jobId);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Genomics_Job");
+  }
+  /**
+   * Searches jobs within a project. (jobs.search)
+   *
+   * @param Google_SearchJobsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Genomics_SearchJobsResponse
+   */
+  public function search(Google_Service_Genomics_SearchJobsRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('search', array($params), "Google_Service_Genomics_SearchJobsResponse");
   }
 }
 
@@ -1270,6 +1287,7 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
   public $align;
   public $callVariants;
   public $gcsOutputPath;
+  public $pairedSourceUris;
   public $projectId;
   public $sourceUris;
 
@@ -1301,6 +1319,16 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
   public function getGcsOutputPath()
   {
     return $this->gcsOutputPath;
+  }
+
+  public function setPairedSourceUris($pairedSourceUris)
+  {
+    $this->pairedSourceUris = $pairedSourceUris;
+  }
+
+  public function getPairedSourceUris()
+  {
+    return $this->pairedSourceUris;
   }
 
   public function setProjectId($projectId)
@@ -1676,6 +1704,7 @@ class Google_Service_Genomics_ImportVariantsResponse extends Google_Model
 
 class Google_Service_Genomics_Job extends Google_Collection
 {
+  public $created;
   public $description;
   public $errors;
   public $id;
@@ -1683,6 +1712,16 @@ class Google_Service_Genomics_Job extends Google_Collection
   public $projectId;
   public $status;
   public $warnings;
+
+  public function setCreated($created)
+  {
+    $this->created = $created;
+  }
+
+  public function getCreated()
+  {
+    return $this->created;
+  }
 
   public function setDescription($description)
   {
@@ -2349,6 +2388,103 @@ class Google_Service_Genomics_SearchCallsetsResponse extends Google_Collection
   public function getCallsets()
   {
     return $this->callsets;
+  }
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+}
+
+class Google_Service_Genomics_SearchJobsRequest extends Google_Collection
+{
+  public $createdAfter;
+  public $createdBefore;
+  public $maxResults;
+  public $pageToken;
+  public $projectId;
+  public $status;
+
+  public function setCreatedAfter($createdAfter)
+  {
+    $this->createdAfter = $createdAfter;
+  }
+
+  public function getCreatedAfter()
+  {
+    return $this->createdAfter;
+  }
+
+  public function setCreatedBefore($createdBefore)
+  {
+    $this->createdBefore = $createdBefore;
+  }
+
+  public function getCreatedBefore()
+  {
+    return $this->createdBefore;
+  }
+
+  public function setMaxResults($maxResults)
+  {
+    $this->maxResults = $maxResults;
+  }
+
+  public function getMaxResults()
+  {
+    return $this->maxResults;
+  }
+
+  public function setPageToken($pageToken)
+  {
+    $this->pageToken = $pageToken;
+  }
+
+  public function getPageToken()
+  {
+    return $this->pageToken;
+  }
+
+  public function setProjectId($projectId)
+  {
+    $this->projectId = $projectId;
+  }
+
+  public function getProjectId()
+  {
+    return $this->projectId;
+  }
+
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+
+  public function getStatus()
+  {
+    return $this->status;
+  }
+}
+
+class Google_Service_Genomics_SearchJobsResponse extends Google_Collection
+{
+  protected $jobsType = 'Google_Service_Genomics_Job';
+  protected $jobsDataType = 'array';
+  public $nextPageToken;
+
+  public function setJobs($jobs)
+  {
+    $this->jobs = $jobs;
+  }
+
+  public function getJobs()
+  {
+    return $this->jobs;
   }
 
   public function setNextPageToken($nextPageToken)
