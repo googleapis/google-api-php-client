@@ -528,6 +528,10 @@ class Google_Service_Drive extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'corpus' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'projection' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -1762,6 +1766,8 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * Query string for searching files.
    * @opt_param string pageToken
    * Page token for files.
+   * @opt_param string corpus
+   * The body of items (files/documents) to which the query applies.
    * @opt_param string projection
    * This parameter is deprecated and has no function.
    * @opt_param int maxResults
