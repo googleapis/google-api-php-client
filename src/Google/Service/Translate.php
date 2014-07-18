@@ -98,7 +98,8 @@ class Google_Service_Translate extends Google_Service
           'methods' => array(
             'list' => array(
               'path' => 'v2',
-              'httpMethod' => 'GET',
+              'httpHeaders' => array("X-HTTP-Method-Override" => "GET"),
+              'httpMethod' => 'POST',
               'parameters' => array(
                 'q' => array(
                   'location' => 'query',

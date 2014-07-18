@@ -161,7 +161,7 @@ class Google_Service_Resource
     $httpRequest = new Google_Http_Request(
         $url,
         $method['httpMethod'],
-        null,
+        (isset($method['httpHeaders']) && is_array($method['httpHeaders'])) ? $method['httpHeaders'] : null,
         $postBody
     );
     $httpRequest->setBaseComponent($this->client->getBasePath());
