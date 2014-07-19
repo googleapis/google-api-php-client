@@ -267,17 +267,7 @@ class Google_Service_Genomics extends Google_Service
         'reads',
         array(
           'methods' => array(
-            'get' => array(
-              'path' => 'reads/{readId}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'readId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'search' => array(
+            'search' => array(
               'path' => 'reads/search',
               'httpMethod' => 'POST',
               'parameters' => array(),
@@ -291,11 +281,7 @@ class Google_Service_Genomics extends Google_Service
         'readsets',
         array(
           'methods' => array(
-            'create' => array(
-              'path' => 'readsets',
-              'httpMethod' => 'POST',
-              'parameters' => array(),
-            ),'delete' => array(
+            'delete' => array(
               'path' => 'readsets/{readsetId}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
@@ -624,7 +610,8 @@ class Google_Service_Genomics_Datasets_Resource extends Google_Service_Resource
    * @opt_param string maxResults
    * The maximum number of results returned by this request.
    * @opt_param string projectId
-   * Only return datasets which belong to this Google Developers Console project.
+   * Only return datasets which belong to this Google Developers Console project. Only accepts
+    * project numbers.
    * @return Google_Service_Genomics_ListDatasetsResponse
    */
   public function listDatasets($optParams = array())
@@ -731,7 +718,7 @@ class Google_Service_Genomics_Jobs_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Genomics_Job");
   }
   /**
-   * Searches jobs within a project. (jobs.search)
+   * Gets a list of jobs matching the criteria. (jobs.search)
    *
    * @param Google_SearchJobsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -756,20 +743,6 @@ class Google_Service_Genomics_Jobs_Resource extends Google_Service_Resource
 class Google_Service_Genomics_Reads_Resource extends Google_Service_Resource
 {
 
-  /**
-   * Gets a read by ID. (reads.get)
-   *
-   * @param string $readId
-   * The ID of the read.
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Genomics_Read
-   */
-  public function get($readId, $optParams = array())
-  {
-    $params = array('readId' => $readId);
-    $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Genomics_Read");
-  }
   /**
    * Gets a list of reads for one or more readsets. Reads search operates over a
    * genomic coordinate space of reference sequence & position defined over the
@@ -804,19 +777,6 @@ class Google_Service_Genomics_Reads_Resource extends Google_Service_Resource
 class Google_Service_Genomics_Readsets_Resource extends Google_Service_Resource
 {
 
-  /**
-   * Creates a new readset. (readsets.create)
-   *
-   * @param Google_Readset $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Genomics_Readset
-   */
-  public function create(Google_Service_Genomics_Readset $postBody, $optParams = array())
-  {
-    $params = array('postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('create', array($params), "Google_Service_Genomics_Readset");
-  }
   /**
    * Deletes a readset. (readsets.delete)
    *
@@ -882,7 +842,8 @@ class Google_Service_Genomics_Readsets_Resource extends Google_Service_Resource
    * Updates a readset. This method supports patch semantics. (readsets.patch)
    *
    * @param string $readsetId
-   * The ID of the readset to be updated.
+   * The ID of the readset to be updated. The caller must have WRITE permissions to the dataset
+    * associated with this readset.
    * @param Google_Readset $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Genomics_Readset
@@ -910,7 +871,8 @@ class Google_Service_Genomics_Readsets_Resource extends Google_Service_Resource
    * Updates a readset. (readsets.update)
    *
    * @param string $readsetId
-   * The ID of the readset to be updated.
+   * The ID of the readset to be updated. The caller must have WRITE permissions to the dataset
+    * associated with this readset.
    * @param Google_Readset $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Genomics_Readset
@@ -1508,6 +1470,8 @@ class Google_Service_Genomics_GetVariantsSummaryResponse extends Google_Collecti
 {
   protected $contigBoundsType = 'Google_Service_Genomics_ContigBound';
   protected $contigBoundsDataType = 'array';
+  protected $metadataType = 'Google_Service_Genomics_Metadata';
+  protected $metadataDataType = 'array';
 
   public function setContigBounds($contigBounds)
   {
@@ -1517,6 +1481,16 @@ class Google_Service_Genomics_GetVariantsSummaryResponse extends Google_Collecti
   public function getContigBounds()
   {
     return $this->contigBounds;
+  }
+
+  public function setMetadata($metadata)
+  {
+    $this->metadata = $metadata;
+  }
+
+  public function getMetadata()
+  {
+    return $this->metadata;
   }
 }
 
@@ -1818,6 +1792,87 @@ class Google_Service_Genomics_ListDatasetsResponse extends Google_Collection
   public function getNextPageToken()
   {
     return $this->nextPageToken;
+  }
+}
+
+class Google_Service_Genomics_Metadata extends Google_Model
+{
+  public $description;
+  public $id;
+  public $info;
+  public $key;
+  public $number;
+  public $type;
+  public $value;
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setInfo($info)
+  {
+    $this->info = $info;
+  }
+
+  public function getInfo()
+  {
+    return $this->info;
+  }
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+
+  public function getKey()
+  {
+    return $this->key;
+  }
+
+  public function setNumber($number)
+  {
+    $this->number = $number;
+  }
+
+  public function getNumber()
+  {
+    return $this->number;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
+  }
+
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
   }
 }
 
