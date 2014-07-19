@@ -37,7 +37,7 @@ class Google_Service_Oauth2 extends Google_Service
   const PLUS_ME = "https://www.googleapis.com/auth/plus.me";
   /** View your email address. */
   const USERINFO_EMAIL = "https://www.googleapis.com/auth/userinfo.email";
-  /** View basic information about your account. */
+  /** View your basic profile info. */
   const USERINFO_PROFILE = "https://www.googleapis.com/auth/userinfo.profile";
 
   public $userinfo;
