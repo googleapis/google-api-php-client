@@ -969,3 +969,8 @@ class Google_Service_Cloudmonitoring_TimeseriesDescriptor extends Google_Model
     return $this->project;
   }
 }
+
+class Google_Service_Cloudmonitoring_TimeseriesDescriptorLabels extends Google_Model
+{
+
+}
