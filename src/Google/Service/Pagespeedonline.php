@@ -281,6 +281,11 @@ class Google_Service_Pagespeedonline_ResultFormattedResults extends Google_Model
   }
 }
 
+class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResults extends Google_Model
+{
+
+}
+
 class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElement extends Google_Collection
 {
   public $localizedRuleName;
