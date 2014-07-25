@@ -4231,6 +4231,11 @@ class Google_Service_Analytics_Column extends Google_Model
   }
 }
 
+class Google_Service_Analytics_ColumnAttributes extends Google_Model
+{
+
+}
+
 class Google_Service_Analytics_Columns extends Google_Collection
 {
   public $attributeNames;
@@ -6971,6 +6976,11 @@ class Google_Service_Analytics_GaDataQuery extends Google_Collection
   }
 }
 
+class Google_Service_Analytics_GaDataTotalsForAllResults extends Google_Model
+{
+
+}
+
 class Google_Service_Analytics_Goal extends Google_Model
 {
   public $accountId;
@@ -7990,6 +8000,11 @@ class Google_Service_Analytics_McfDataRowsConversionPathValue extends Google_Mod
   }
 }
 
+class Google_Service_Analytics_McfDataTotalsForAllResults extends Google_Model
+{
+
+}
+
 class Google_Service_Analytics_Profile extends Google_Model
 {
   public $accountId;
@@ -8985,6 +9000,11 @@ class Google_Service_Analytics_RealtimeDataQuery extends Google_Collection
   {
     return $this->sort;
   }
+}
+
+class Google_Service_Analytics_RealtimeDataTotalsForAllResults extends Google_Model
+{
+
 }
 
 class Google_Service_Analytics_Segment extends Google_Model
