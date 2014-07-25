@@ -1217,6 +1217,16 @@ class Google_Service_Customsearch_ResultLabels extends Google_Model
   }
 }
 
+class Google_Service_Customsearch_ResultPagemap extends Google_Model
+{
+
+}
+
+class Google_Service_Customsearch_ResultPagemapItemElement extends Google_Model
+{
+
+}
+
 class Google_Service_Customsearch_Search extends Google_Collection
 {
   protected $contextType = 'Google_Service_Customsearch_Context';
@@ -1314,6 +1324,11 @@ class Google_Service_Customsearch_Search extends Google_Collection
   {
     return $this->url;
   }
+}
+
+class Google_Service_Customsearch_SearchQueries extends Google_Model
+{
+
 }
 
 class Google_Service_Customsearch_SearchSearchInformation extends Google_Model
