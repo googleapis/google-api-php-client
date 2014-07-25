@@ -2696,6 +2696,11 @@ class Google_Service_Directory_Channel extends Google_Model
   }
 }
 
+class Google_Service_Directory_ChannelParams extends Google_Model
+{
+
+}
+
 class Google_Service_Directory_ChromeOsDevice extends Google_Collection
 {
   public $annotatedLocation;
