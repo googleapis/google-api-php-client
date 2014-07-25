@@ -686,6 +686,11 @@ class Google_Service_Manager_Deployment extends Google_Collection
   }
 }
 
+class Google_Service_Manager_DeploymentModules extends Google_Model
+{
+
+}
+
 class Google_Service_Manager_DeploymentsListResponse extends Google_Collection
 {
   public $nextPageToken;
@@ -1584,6 +1589,11 @@ class Google_Service_Manager_ReplicaPoolModule extends Google_Collection
   }
 }
 
+class Google_Service_Manager_ReplicaPoolModuleEnvVariables extends Google_Model
+{
+
+}
+
 class Google_Service_Manager_ReplicaPoolModuleStatus extends Google_Model
 {
   public $replicaPoolUrl;
@@ -1890,6 +1900,16 @@ class Google_Service_Manager_Template extends Google_Model
   {
     return $this->name;
   }
+}
+
+class Google_Service_Manager_TemplateActions extends Google_Model
+{
+
+}
+
+class Google_Service_Manager_TemplateModules extends Google_Model
+{
+
 }
 
 class Google_Service_Manager_TemplatesListResponse extends Google_Collection
