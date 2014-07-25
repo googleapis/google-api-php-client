@@ -2919,6 +2919,11 @@ class Google_Service_MapsEngine_GeoJsonPolygon extends Google_Collection
   }
 }
 
+class Google_Service_MapsEngine_GeoJsonProperties extends Google_Model
+{
+
+}
+
 class Google_Service_MapsEngine_IconStyle extends Google_Model
 {
   public $id;
