@@ -3624,6 +3624,11 @@ class Google_Service_Drive_Channel extends Google_Model
   }
 }
 
+class Google_Service_Drive_ChannelParams extends Google_Model
+{
+
+}
+
 class Google_Service_Drive_ChildList extends Google_Collection
 {
   public $etag;
@@ -4719,6 +4724,11 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   }
 }
 
+class Google_Service_Drive_DriveFileExportLinks extends Google_Model
+{
+
+}
+
 class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
 {
   public $aperture;
@@ -5064,6 +5074,11 @@ class Google_Service_Drive_DriveFileLabels extends Google_Model
   {
     return $this->viewed;
   }
+}
+
+class Google_Service_Drive_DriveFileOpenWithLinks extends Google_Model
+{
+
 }
 
 class Google_Service_Drive_DriveFileThumbnail extends Google_Model
@@ -5824,6 +5839,11 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->selfLink;
   }
+}
+
+class Google_Service_Drive_RevisionExportLinks extends Google_Model
+{
+
 }
 
 class Google_Service_Drive_RevisionList extends Google_Collection
