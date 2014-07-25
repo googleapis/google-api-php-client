@@ -2545,6 +2545,11 @@ class Google_Service_Calendar_Channel extends Google_Model
   }
 }
 
+class Google_Service_Calendar_ChannelParams extends Google_Model
+{
+
+}
+
 class Google_Service_Calendar_ColorDefinition extends Google_Model
 {
   public $background;
@@ -2619,6 +2624,16 @@ class Google_Service_Calendar_Colors extends Google_Model
   {
     return $this->updated;
   }
+}
+
+class Google_Service_Calendar_ColorsCalendar extends Google_Model
+{
+
+}
+
+class Google_Service_Calendar_ColorsEvent extends Google_Model
+{
+
 }
 
 class Google_Service_Calendar_Error extends Google_Model
@@ -3282,6 +3297,16 @@ class Google_Service_Calendar_EventExtendedProperties extends Google_Model
   }
 }
 
+class Google_Service_Calendar_EventExtendedPropertiesPrivate extends Google_Model
+{
+
+}
+
+class Google_Service_Calendar_EventExtendedPropertiesShared extends Google_Model
+{
+
+}
+
 class Google_Service_Calendar_EventGadget extends Google_Model
 {
   public $display;
@@ -3372,6 +3397,11 @@ class Google_Service_Calendar_EventGadget extends Google_Model
   {
     return $this->width;
   }
+}
+
+class Google_Service_Calendar_EventGadgetPreferences extends Google_Model
+{
+
 }
 
 class Google_Service_Calendar_EventOrganizer extends Google_Model
@@ -3828,6 +3858,16 @@ class Google_Service_Calendar_FreeBusyResponse extends Google_Model
   {
     return $this->timeMin;
   }
+}
+
+class Google_Service_Calendar_FreeBusyResponseCalendars extends Google_Model
+{
+
+}
+
+class Google_Service_Calendar_FreeBusyResponseGroups extends Google_Model
+{
+
 }
 
 class Google_Service_Calendar_Setting extends Google_Model
