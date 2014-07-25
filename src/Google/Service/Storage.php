@@ -2626,6 +2626,11 @@ class Google_Service_Storage_Channel extends Google_Model
   }
 }
 
+class Google_Service_Storage_ChannelParams extends Google_Model
+{
+
+}
+
 class Google_Service_Storage_ComposeRequest extends Google_Collection
 {
   protected $destinationType = 'Google_Service_Storage_StorageObject';
@@ -3235,6 +3240,11 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->updated;
   }
+}
+
+class Google_Service_Storage_StorageObjectMetadata extends Google_Model
+{
+
 }
 
 class Google_Service_Storage_StorageObjectOwner extends Google_Model
