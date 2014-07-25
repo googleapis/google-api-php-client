@@ -1111,6 +1111,11 @@ class Google_Service_Genomics_Call extends Google_Collection
   }
 }
 
+class Google_Service_Genomics_CallInfo extends Google_Model
+{
+
+}
+
 class Google_Service_Genomics_Callset extends Google_Model
 {
   public $created;
@@ -1168,6 +1173,11 @@ class Google_Service_Genomics_Callset extends Google_Model
   {
     return $this->name;
   }
+}
+
+class Google_Service_Genomics_CallsetInfo extends Google_Model
+{
+
 }
 
 class Google_Service_Genomics_ContigBound extends Google_Model
@@ -1876,6 +1886,11 @@ class Google_Service_Genomics_Metadata extends Google_Model
   }
 }
 
+class Google_Service_Genomics_MetadataInfo extends Google_Model
+{
+
+}
+
 class Google_Service_Genomics_Program extends Google_Model
 {
   public $commandLine;
@@ -2238,6 +2253,11 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->sequencingTechnology;
   }
+}
+
+class Google_Service_Genomics_ReadTags extends Google_Model
+{
+
 }
 
 class Google_Service_Genomics_Readset extends Google_Collection
@@ -2968,4 +2988,9 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->referenceBases;
   }
+}
+
+class Google_Service_Genomics_VariantInfo extends Google_Model
+{
+
 }
