@@ -873,6 +873,11 @@ class Google_Service_Reports_Channel extends Google_Model
   }
 }
 
+class Google_Service_Reports_ChannelParams extends Google_Model
+{
+
+}
+
 class Google_Service_Reports_UsageReport extends Google_Collection
 {
   public $date;
@@ -1050,6 +1055,11 @@ class Google_Service_Reports_UsageReportParameters extends Google_Collection
   {
     return $this->stringValue;
   }
+}
+
+class Google_Service_Reports_UsageReportParametersMsgValue extends Google_Model
+{
+
 }
 
 class Google_Service_Reports_UsageReports extends Google_Collection
