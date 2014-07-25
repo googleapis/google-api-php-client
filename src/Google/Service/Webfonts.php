@@ -195,6 +195,11 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   }
 }
 
+class Google_Service_Webfonts_WebfontFiles extends Google_Model
+{
+
+}
+
 class Google_Service_Webfonts_WebfontList extends Google_Collection
 {
   protected $itemsType = 'Google_Service_Webfonts_Webfont';
