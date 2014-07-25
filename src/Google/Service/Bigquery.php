@@ -2452,6 +2452,11 @@ class Google_Service_Bigquery_JobStatus extends Google_Collection
   }
 }
 
+class Google_Service_Bigquery_JsonObject extends Google_Model
+{
+
+}
+
 class Google_Service_Bigquery_ProjectList extends Google_Collection
 {
   public $etag;
