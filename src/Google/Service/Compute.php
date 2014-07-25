@@ -5737,6 +5737,11 @@ class Google_Service_Compute_AddressAggregatedList extends Google_Model
   }
 }
 
+class Google_Service_Compute_AddressAggregatedListItems extends Google_Model
+{
+
+}
+
 class Google_Service_Compute_AddressList extends Google_Collection
 {
   public $id;
@@ -6656,6 +6661,11 @@ class Google_Service_Compute_DiskAggregatedList extends Google_Model
   }
 }
 
+class Google_Service_Compute_DiskAggregatedListItems extends Google_Model
+{
+
+}
+
 class Google_Service_Compute_DiskList extends Google_Collection
 {
   public $id;
@@ -6878,6 +6888,11 @@ class Google_Service_Compute_DiskTypeAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+}
+
+class Google_Service_Compute_DiskTypeAggregatedListItems extends Google_Model
+{
+
 }
 
 class Google_Service_Compute_DiskTypeList extends Google_Collection
@@ -7519,6 +7534,11 @@ class Google_Service_Compute_ForwardingRuleAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+}
+
+class Google_Service_Compute_ForwardingRuleAggregatedListItems extends Google_Model
+{
+
 }
 
 class Google_Service_Compute_ForwardingRuleList extends Google_Collection
@@ -8494,6 +8514,11 @@ class Google_Service_Compute_InstanceAggregatedList extends Google_Model
   }
 }
 
+class Google_Service_Compute_InstanceAggregatedListItems extends Google_Model
+{
+
+}
+
 class Google_Service_Compute_InstanceList extends Google_Collection
 {
   public $id;
@@ -8916,6 +8941,11 @@ class Google_Service_Compute_MachineTypeAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+}
+
+class Google_Service_Compute_MachineTypeAggregatedListItems extends Google_Model
+{
+
 }
 
 class Google_Service_Compute_MachineTypeList extends Google_Collection
@@ -9656,6 +9686,11 @@ class Google_Service_Compute_OperationAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+}
+
+class Google_Service_Compute_OperationAggregatedListItems extends Google_Model
+{
+
 }
 
 class Google_Service_Compute_OperationError extends Google_Collection
@@ -11256,6 +11291,11 @@ class Google_Service_Compute_TargetInstanceAggregatedList extends Google_Model
   }
 }
 
+class Google_Service_Compute_TargetInstanceAggregatedListItems extends Google_Model
+{
+
+}
+
 class Google_Service_Compute_TargetInstanceList extends Google_Collection
 {
   public $id;
@@ -11602,6 +11642,11 @@ class Google_Service_Compute_TargetPoolAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+}
+
+class Google_Service_Compute_TargetPoolAggregatedListItems extends Google_Model
+{
+
 }
 
 class Google_Service_Compute_TargetPoolInstanceHealth extends Google_Collection
