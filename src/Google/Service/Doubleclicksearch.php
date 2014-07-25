@@ -1448,6 +1448,11 @@ class Google_Service_Doubleclicksearch_ReportRequestTimeRange extends Google_Mod
   }
 }
 
+class Google_Service_Doubleclicksearch_ReportRow extends Google_Model
+{
+
+}
+
 class Google_Service_Doubleclicksearch_SavedColumn extends Google_Model
 {
   public $kind;
