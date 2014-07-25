@@ -1392,6 +1392,21 @@ class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Model
   }
 }
 
+class Google_Service_CivicInfo_RepresentativeInfoResponseDivisions extends Google_Model
+{
+
+}
+
+class Google_Service_CivicInfo_RepresentativeInfoResponseOffices extends Google_Model
+{
+
+}
+
+class Google_Service_CivicInfo_RepresentativeInfoResponseOfficials extends Google_Model
+{
+
+}
+
 class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
 {
   public $city;
