@@ -451,6 +451,11 @@ class Google_Service_Datastore_Entity extends Google_Model
   }
 }
 
+class Google_Service_Datastore_EntityProperties extends Google_Model
+{
+
+}
+
 class Google_Service_Datastore_EntityResult extends Google_Model
 {
   protected $entityType = 'Google_Service_Datastore_Entity';
