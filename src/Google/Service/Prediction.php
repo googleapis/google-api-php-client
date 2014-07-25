@@ -708,6 +708,11 @@ class Google_Service_Prediction_AnalyzeDataDescriptionOutputFeatureText extends 
   }
 }
 
+class Google_Service_Prediction_AnalyzeErrors extends Google_Model
+{
+
+}
+
 class Google_Service_Prediction_AnalyzeModelDescription extends Google_Model
 {
   public $confusionMatrix;
@@ -744,6 +749,21 @@ class Google_Service_Prediction_AnalyzeModelDescription extends Google_Model
   {
     return $this->modelinfo;
   }
+}
+
+class Google_Service_Prediction_AnalyzeModelDescriptionConfusionMatrix extends Google_Model
+{
+
+}
+
+class Google_Service_Prediction_AnalyzeModelDescriptionConfusionMatrixElement extends Google_Model
+{
+
+}
+
+class Google_Service_Prediction_AnalyzeModelDescriptionConfusionMatrixRowTotals extends Google_Model
+{
+
 }
 
 class Google_Service_Prediction_Input extends Google_Model
@@ -1090,6 +1110,11 @@ class Google_Service_Prediction_InsertTrainingInstances extends Google_Collectio
   {
     return $this->output;
   }
+}
+
+class Google_Service_Prediction_InsertUtility extends Google_Model
+{
+
 }
 
 class Google_Service_Prediction_Output extends Google_Collection
