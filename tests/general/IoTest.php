@@ -237,20 +237,25 @@ class IoTest extends BaseTest
     $this->assertEquals(null, json_decode($body, true));
 
     // Test transforms from proxies.
-    $rawHeaders = Google_IO_Abstract::CONNECTION_ESTABLISHED
-        . "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n";
-    $headersSize = strlen($rawHeaders);
-    // If we have a broken cURL version we have to simulate it to get the
-    // correct test result.
-    if ($hasQuirk && get_class($io) === 'Google_IO_Curl') {
-        $headersSize -= strlen(Google_IO_Abstract::CONNECTION_ESTABLISHED);
-    }
-    $rawBody = "{}";
+    $connection_established_headers = array(
+      "HTTP/1.0 200 Connection established\r\n\r\n",
+      "HTTP/1.1 200 Connection established\r\n\r\n",
+    );
+    foreach ($connection_established_headers as $established_header) {
+        $rawHeaders = "{$established_header}HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n";
+        $headersSize = strlen($rawHeaders);
+        // If we have a broken cURL version we have to simulate it to get the
+        // correct test result.
+        if ($hasQuirk && get_class($io) === 'Google_IO_Curl') {
+            $headersSize -= strlen($established_header);
+        }
+        $rawBody = "{}";
 
-    $rawResponse = "$rawHeaders\r\n$rawBody";
-    list($headers, $body) = $io->parseHttpResponse($rawResponse, $headersSize);
-    $this->assertEquals(1, sizeof($headers));
-    $this->assertEquals(array(), json_decode($body, true));
+        $rawResponse = "$rawHeaders\r\n$rawBody";
+        list($headers, $body) = $io->parseHttpResponse($rawResponse, $headersSize);
+        $this->assertEquals(1, sizeof($headers));
+        $this->assertEquals(array(), json_decode($body, true));
+    }
   }
 
   public function processEntityRequest($io, $client)
