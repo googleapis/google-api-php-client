@@ -209,6 +209,16 @@ class Google_Service_Genomics extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'undelete' => array(
+              'path' => 'datasets/{datasetId}/undelete',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'datasetId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'update' => array(
               'path' => 'datasets/{datasetId}',
               'httpMethod' => 'PUT',
@@ -243,7 +253,17 @@ class Google_Service_Genomics extends Google_Service
         'jobs',
         array(
           'methods' => array(
-            'get' => array(
+            'cancel' => array(
+              'path' => 'jobs/{jobId}/cancel',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'jobId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
               'path' => 'jobs/{jobId}',
               'httpMethod' => 'GET',
               'parameters' => array(
@@ -636,6 +656,22 @@ class Google_Service_Genomics_Datasets_Resource extends Google_Service_Resource
     return $this->call('patch', array($params), "Google_Service_Genomics_Dataset");
   }
   /**
+   * Undeletes a dataset by restoring a dataset which was deleted via this API.
+   * This operation is only possible for a week after the deletion occurred.
+   * (datasets.undelete)
+   *
+   * @param string $datasetId
+   * The ID of the dataset to be undeleted.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Genomics_Dataset
+   */
+  public function undelete($datasetId, $optParams = array())
+  {
+    $params = array('datasetId' => $datasetId);
+    $params = array_merge($params, $optParams);
+    return $this->call('undelete', array($params), "Google_Service_Genomics_Dataset");
+  }
+  /**
    * Updates a dataset. (datasets.update)
    *
    * @param string $datasetId
@@ -704,10 +740,24 @@ class Google_Service_Genomics_Jobs_Resource extends Google_Service_Resource
 {
 
   /**
+   * Cancels a job by ID. Note that it is possible for partial results to be
+   * generated and stored for cancelled jobs. (jobs.cancel)
+   *
+   * @param string $jobId
+   * Required. The ID of the job.
+   * @param array $optParams Optional parameters.
+   */
+  public function cancel($jobId, $optParams = array())
+  {
+    $params = array('jobId' => $jobId);
+    $params = array_merge($params, $optParams);
+    return $this->call('cancel', array($params));
+  }
+  /**
    * Gets a job by ID. (jobs.get)
    *
    * @param string $jobId
-   * The ID of the job.
+   * Required. The ID of the job.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Genomics_Job
    */
@@ -2262,23 +2312,11 @@ class Google_Service_Genomics_ReadTags extends Google_Model
 
 class Google_Service_Genomics_Readset extends Google_Collection
 {
-  public $created;
   public $datasetId;
   protected $fileDataType = 'Google_Service_Genomics_HeaderSection';
   protected $fileDataDataType = 'array';
   public $id;
   public $name;
-  public $readCount;
-
-  public function setCreated($created)
-  {
-    $this->created = $created;
-  }
-
-  public function getCreated()
-  {
-    return $this->created;
-  }
 
   public function setDatasetId($datasetId)
   {
@@ -2318,16 +2356,6 @@ class Google_Service_Genomics_Readset extends Google_Collection
   public function getName()
   {
     return $this->name;
-  }
-
-  public function setReadCount($readCount)
-  {
-    $this->readCount = $readCount;
-  }
-
-  public function getReadCount()
-  {
-    return $this->readCount;
   }
 }
 
