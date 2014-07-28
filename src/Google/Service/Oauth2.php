@@ -111,18 +111,21 @@ class Google_Service_Oauth2 extends Google_Service
   /**
    * (tokeninfo)
    *
-   * @param array $optParams Optional parameters.
+   * @param sarray Optional parameters.
    *
-   * @opt_param string access_token
+   * @params array ( 'access_token' => string )
    *
-   * @opt_param string id_token
+   * @params array ( 'id_token' => string )
    *
    * @return Google_Service_Oauth2_Tokeninfo
+   * 
+   * throws Google_Service_Exception on revoked or invalid token
+   * 
    */
-  public function tokeninfo($optParams = array())
+  public function tokeninfo($params)
   {
-    $params = array();
-    $params = array_merge($params, $optParams);
+    $emptyParams = array();
+    $params = array_merge($emptyParams, $params);
     return $this->base_methods->call('tokeninfo', array($params), "Google_Service_Oauth2_Tokeninfo");
   }
 }
