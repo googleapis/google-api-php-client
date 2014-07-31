@@ -470,6 +470,36 @@ class Google_Service_Blogger extends Google_Service
                   'type' => 'boolean',
                 ),
               ),
+            ),'publish' => array(
+              'path' => 'blogs/{blogId}/pages/{pageId}/publish',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'blogId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'revert' => array(
+              'path' => 'blogs/{blogId}/pages/{pageId}/revert',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'blogId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'update' => array(
               'path' => 'blogs/{blogId}/pages/{pageId}',
               'httpMethod' => 'PUT',
@@ -1296,6 +1326,38 @@ class Google_Service_Blogger_Pages_Resource extends Google_Service_Resource
     $params = array('blogId' => $blogId, 'pageId' => $pageId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_Blogger_Page");
+  }
+  /**
+   * Publishes a draft page. (pages.publish)
+   *
+   * @param string $blogId
+   * The ID of the blog.
+   * @param string $pageId
+   * The ID of the page.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Blogger_Page
+   */
+  public function publish($blogId, $pageId, $optParams = array())
+  {
+    $params = array('blogId' => $blogId, 'pageId' => $pageId);
+    $params = array_merge($params, $optParams);
+    return $this->call('publish', array($params), "Google_Service_Blogger_Page");
+  }
+  /**
+   * Revert a published or scheduled page to draft state. (pages.revert)
+   *
+   * @param string $blogId
+   * The ID of the blog.
+   * @param string $pageId
+   * The ID of the page.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Blogger_Page
+   */
+  public function revert($blogId, $pageId, $optParams = array())
+  {
+    $params = array('blogId' => $blogId, 'pageId' => $pageId);
+    $params = array_merge($params, $optParams);
+    return $this->call('revert', array($params), "Google_Service_Blogger_Page");
   }
   /**
    * Update a page. (pages.update)
@@ -2372,6 +2434,7 @@ class Google_Service_Blogger_Page extends Google_Model
   protected $blogType = 'Google_Service_Blogger_PageBlog';
   protected $blogDataType = '';
   public $content;
+  public $etag;
   public $id;
   public $kind;
   public $published;
@@ -2409,6 +2472,16 @@ class Google_Service_Blogger_Page extends Google_Model
   public function getContent()
   {
     return $this->content;
+  }
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
   }
 
   public function setId($id)
@@ -2670,6 +2743,7 @@ class Google_Service_Blogger_Post extends Google_Collection
   protected $blogDataType = '';
   public $content;
   public $customMetaData;
+  public $etag;
   public $id;
   protected $imagesType = 'Google_Service_Blogger_PostImages';
   protected $imagesDataType = 'array';
@@ -2726,6 +2800,16 @@ class Google_Service_Blogger_Post extends Google_Collection
   public function getCustomMetaData()
   {
     return $this->customMetaData;
+  }
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
   }
 
   public function setId($id)
