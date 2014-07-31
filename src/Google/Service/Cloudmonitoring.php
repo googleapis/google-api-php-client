@@ -255,7 +255,6 @@ class Google_Service_Cloudmonitoring_Timeseries_Resource extends Google_Service_
     * string-based project name.
    * @param string $metric
    * Metric names are protocol-free URLs as listed in the Supported Metrics page. For example,
-    * appengine.googleapis.com/http/server/response_count or
     * compute.googleapis.com/instance/disk/read_ops_count.
    * @param string $youngest
    * End of the time interval (inclusive), which is expressed as an RFC 3339 timestamp.
@@ -326,7 +325,6 @@ class Google_Service_Cloudmonitoring_TimeseriesDescriptors_Resource extends Goog
     * string-based project name.
    * @param string $metric
    * Metric names are protocol-free URLs as listed in the Supported Metrics page. For example,
-    * appengine.googleapis.com/http/server/response_count or
     * compute.googleapis.com/instance/disk/read_ops_count.
    * @param string $youngest
    * End of the time interval (inclusive), which is expressed as an RFC 3339 timestamp.
