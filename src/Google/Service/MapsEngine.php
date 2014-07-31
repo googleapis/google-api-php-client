@@ -2156,7 +2156,8 @@ class Google_Service_MapsEngine_TablesFeatures_Resource extends Google_Service_R
    * @opt_param string intersects
    * A geometry literal that specifies the spatial restriction of the query.
    * @opt_param string maxResults
-   * The maximum number of items to include in the response, used for paging.
+   * The maximum number of items to include in the response, used for paging. The maximum supported
+    * value is 1000.
    * @opt_param string pageToken
    * The continuation token, used to page through large result sets. To get the next page of results,
     * set this parameter to the value of nextPageToken from the previous response.
@@ -3082,7 +3083,7 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
     return $this->datasourceType;
   }
 
-  public function setDatasources($datasources)
+  public function setDatasources(Google_Service_MapsEngine_Datasource $datasources)
   {
     $this->datasources = $datasources;
   }
@@ -3322,7 +3323,7 @@ class Google_Service_MapsEngine_Map extends Google_Collection
 {
   public $bbox;
   protected $contentsType = 'Google_Service_MapsEngine_MapItem';
-  protected $contentsDataType = 'array';
+  protected $contentsDataType = '';
   public $creationTime;
   public $defaultViewport;
   public $description;
@@ -3347,7 +3348,7 @@ class Google_Service_MapsEngine_Map extends Google_Collection
     return $this->bbox;
   }
 
-  public function setContents($contents)
+  public function setContents(Google_Service_MapsEngine_MapItem $contents)
   {
     $this->contents = $contents;
   }
