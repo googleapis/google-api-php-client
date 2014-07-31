@@ -266,12 +266,12 @@ class Google_Service_IdentityToolkit_Relyingparty_Resource extends Google_Servic
 
 
 
-class Google_Service_IdentityToolkit_CreateAuthUriResponse extends Google_Collection
+class Google_Service_IdentityToolkit_CreateAuthUriResponse extends Google_Model
 {
   public $authUri;
+  public $forExistingProvider;
   public $kind;
   public $providerId;
-  public $providers;
   public $registered;
 
   public function setAuthUri($authUri)
@@ -282,6 +282,16 @@ class Google_Service_IdentityToolkit_CreateAuthUriResponse extends Google_Collec
   public function getAuthUri()
   {
     return $this->authUri;
+  }
+
+  public function setForExistingProvider($forExistingProvider)
+  {
+    $this->forExistingProvider = $forExistingProvider;
+  }
+
+  public function getForExistingProvider()
+  {
+    return $this->forExistingProvider;
   }
 
   public function setKind($kind)
@@ -302,16 +312,6 @@ class Google_Service_IdentityToolkit_CreateAuthUriResponse extends Google_Collec
   public function getProviderId()
   {
     return $this->providerId;
-  }
-
-  public function setProviders($providers)
-  {
-    $this->providers = $providers;
-  }
-
-  public function getProviders()
-  {
-    return $this->providers;
   }
 
   public function setRegistered($registered)
