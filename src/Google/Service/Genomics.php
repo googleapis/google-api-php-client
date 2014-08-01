@@ -2911,6 +2911,7 @@ class Google_Service_Genomics_Variant extends Google_Collection
   public $contig;
   public $created;
   public $datasetId;
+  public $end;
   public $id;
   public $info;
   public $names;
@@ -2965,6 +2966,16 @@ class Google_Service_Genomics_Variant extends Google_Collection
   public function getDatasetId()
   {
     return $this->datasetId;
+  }
+
+  public function setEnd($end)
+  {
+    $this->end = $end;
+  }
+
+  public function getEnd()
+  {
+    return $this->end;
   }
 
   public function setId($id)
