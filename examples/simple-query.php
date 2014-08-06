@@ -38,7 +38,7 @@ require_once 'Google/Service/Books.php';
 $client = new Google_Client();
 $client->setApplicationName("Client_Library_Examples");
 $apiKey = "<YOUR_API_KEY>";
-if ($apiKey == '<YOUR_API_KEY>') {
+if ($apiKey != '<YOUR_API_KEY>') {
   echo missingApiKeyWarning();
 }
 $client->setDeveloperKey($apiKey);
