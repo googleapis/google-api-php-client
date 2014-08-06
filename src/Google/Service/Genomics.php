@@ -47,6 +47,7 @@ class Google_Service_Genomics extends Google_Service
   public $jobs;
   public $reads;
   public $readsets;
+  public $readsets_coveragebuckets;
   public $variants;
   
 
@@ -351,6 +352,50 @@ class Google_Service_Genomics extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->readsets_coveragebuckets = new Google_Service_Genomics_ReadsetsCoveragebuckets_Resource(
+        $this,
+        $this->serviceName,
+        'coveragebuckets',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'readsets/{readsetId}/coveragebuckets',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'readsetId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'range.sequenceStart' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'range.sequenceName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'targetBucketWidth' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'range.sequenceEnd' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -936,6 +981,60 @@ class Google_Service_Genomics_Readsets_Resource extends Google_Service_Resource
 }
 
 /**
+ * The "coveragebuckets" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $genomicsService = new Google_Service_Genomics(...);
+ *   $coveragebuckets = $genomicsService->coveragebuckets;
+ *  </code>
+ */
+class Google_Service_Genomics_ReadsetsCoveragebuckets_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Lists fixed width coverage buckets for a readset, each of which correspond to
+   * a range of a reference sequence. Each bucket summarizes coverage information
+   * across its corresponding genomic range. Coverage is defined as the number of
+   * reads which are aligned to a given base in the reference sequence. Coverage
+   * buckets are available at various bucket widths, enabling various coverage
+   * "zoom levels". The caller must have READ permissions for the target readset.
+   * (coveragebuckets.listReadsetsCoveragebuckets)
+   *
+   * @param string $readsetId
+   * Required. The ID of the readset over which coverage is requested.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string range.sequenceStart
+   * The start position of the range on the reference, 1-based inclusive. If specified, sequenceName
+    * must also be specified.
+   * @opt_param string maxResults
+   * The maximum number of results to return in a single page. If unspecified, defaults to 1024. The
+    * maximum value is 2048.
+   * @opt_param string range.sequenceName
+   * The reference sequence name, for example "chr1", "1", or "chrX".
+   * @opt_param string pageToken
+   * The continuation token, which is used to page through large result sets. To get the next page of
+    * results, set this parameter to the value of "nextPageToken" from the previous response.
+   * @opt_param string targetBucketWidth
+   * The desired width of each reported coverage bucket in base pairs. This will be rounded down to
+    * the nearest precomputed bucket width; the value of which is returned as bucket_width in the
+    * response. Defaults to infinity (each bucket spans an entire reference sequence) or the length of
+    * the target range, if specified. The smallest precomputed bucket_width is currently 2048 base
+    * pairs; this is subject to change.
+   * @opt_param string range.sequenceEnd
+   * The end position of the range on the reference, 1-based exclusive. If specified, sequenceName
+    * must also be specified.
+   * @return Google_Service_Genomics_ListCoverageBucketsResponse
+   */
+  public function listReadsetsCoveragebuckets($readsetId, $optParams = array())
+  {
+    $params = array('readsetId' => $readsetId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Genomics_ListCoverageBucketsResponse");
+  }
+}
+
+/**
  * The "variants" collection of methods.
  * Typical usage is:
  *  <code>
@@ -1256,6 +1355,33 @@ class Google_Service_Genomics_ContigBound extends Google_Model
   }
 }
 
+class Google_Service_Genomics_CoverageBucket extends Google_Model
+{
+  public $meanCoverage;
+  protected $rangeType = 'Google_Service_Genomics_GenomicRange';
+  protected $rangeDataType = '';
+
+  public function setMeanCoverage($meanCoverage)
+  {
+    $this->meanCoverage = $meanCoverage;
+  }
+
+  public function getMeanCoverage()
+  {
+    return $this->meanCoverage;
+  }
+
+  public function setRange(Google_Service_Genomics_GenomicRange $range)
+  {
+    $this->range = $range;
+  }
+
+  public function getRange()
+  {
+    return $this->range;
+  }
+}
+
 class Google_Service_Genomics_Dataset extends Google_Model
 {
   public $id;
@@ -1526,6 +1652,43 @@ class Google_Service_Genomics_ExportVariantsResponse extends Google_Model
   }
 }
 
+class Google_Service_Genomics_GenomicRange extends Google_Model
+{
+  public $sequenceEnd;
+  public $sequenceName;
+  public $sequenceStart;
+
+  public function setSequenceEnd($sequenceEnd)
+  {
+    $this->sequenceEnd = $sequenceEnd;
+  }
+
+  public function getSequenceEnd()
+  {
+    return $this->sequenceEnd;
+  }
+
+  public function setSequenceName($sequenceName)
+  {
+    $this->sequenceName = $sequenceName;
+  }
+
+  public function getSequenceName()
+  {
+    return $this->sequenceName;
+  }
+
+  public function setSequenceStart($sequenceStart)
+  {
+    $this->sequenceStart = $sequenceStart;
+  }
+
+  public function getSequenceStart()
+  {
+    return $this->sequenceStart;
+  }
+}
+
 class Google_Service_Genomics_GetVariantsSummaryResponse extends Google_Collection
 {
   protected $contigBoundsType = 'Google_Service_Genomics_ContigBound';
@@ -1584,6 +1747,7 @@ class Google_Service_Genomics_HeaderSection extends Google_Collection
 {
   public $comments;
   public $fileUri;
+  public $filename;
   protected $headersType = 'Google_Service_Genomics_Header';
   protected $headersDataType = 'array';
   protected $programsType = 'Google_Service_Genomics_Program';
@@ -1611,6 +1775,16 @@ class Google_Service_Genomics_HeaderSection extends Google_Collection
   public function getFileUri()
   {
     return $this->fileUri;
+  }
+
+  public function setFilename($filename)
+  {
+    $this->filename = $filename;
+  }
+
+  public function getFilename()
+  {
+    return $this->filename;
   }
 
   public function setHeaders($headers)
@@ -1825,6 +1999,44 @@ class Google_Service_Genomics_Job extends Google_Collection
   public function getWarnings()
   {
     return $this->warnings;
+  }
+}
+
+class Google_Service_Genomics_ListCoverageBucketsResponse extends Google_Collection
+{
+  public $bucketWidth;
+  protected $coverageBucketsType = 'Google_Service_Genomics_CoverageBucket';
+  protected $coverageBucketsDataType = 'array';
+  public $nextPageToken;
+
+  public function setBucketWidth($bucketWidth)
+  {
+    $this->bucketWidth = $bucketWidth;
+  }
+
+  public function getBucketWidth()
+  {
+    return $this->bucketWidth;
+  }
+
+  public function setCoverageBuckets($coverageBuckets)
+  {
+    $this->coverageBuckets = $coverageBuckets;
+  }
+
+  public function getCoverageBuckets()
+  {
+    return $this->coverageBuckets;
+  }
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
   }
 }
 
