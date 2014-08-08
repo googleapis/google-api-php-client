@@ -19,7 +19,7 @@
  * Service definition for AdExchangeBuyer (v1.3).
  *
  * <p>
- * Lets you manage your Ad Exchange Buyer account.
+ * Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.
  * </p>
  *
  * <p>
@@ -35,6 +35,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
   const ADEXCHANGE_BUYER = "https://www.googleapis.com/auth/adexchange.buyer";
 
   public $accounts;
+  public $billingInfo;
   public $creatives;
   public $directDeals;
   public $performanceReport;
@@ -93,6 +94,30 @@ class Google_Service_AdExchangeBuyer extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),
+          )
+        )
+    );
+    $this->billingInfo = new Google_Service_AdExchangeBuyer_BillingInfo_Resource(
+        $this,
+        $this->serviceName,
+        'billingInfo',
+        array(
+          'methods' => array(
+            'get' => array(
+              'path' => 'billinginfo/{accountId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'billinginfo',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
             ),
           )
         )
@@ -376,6 +401,47 @@ class Google_Service_AdExchangeBuyer_Accounts_Resource extends Google_Service_Re
     $params = array('id' => $id, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('update', array($params), "Google_Service_AdExchangeBuyer_Account");
+  }
+}
+
+/**
+ * The "billingInfo" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adexchangebuyerService = new Google_Service_AdExchangeBuyer(...);
+ *   $billingInfo = $adexchangebuyerService->billingInfo;
+ *  </code>
+ */
+class Google_Service_AdExchangeBuyer_BillingInfo_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Returns the billing information for one account specified by account ID.
+   * (billingInfo.get)
+   *
+   * @param int $accountId
+   * The account id.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_AdExchangeBuyer_BillingInfo
+   */
+  public function get($accountId, $optParams = array())
+  {
+    $params = array('accountId' => $accountId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_AdExchangeBuyer_BillingInfo");
+  }
+  /**
+   * Retrieves a list of billing information for all accounts of the authenticated
+   * user. (billingInfo.listBillingInfo)
+   *
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_AdExchangeBuyer_BillingInfoList
+   */
+  public function listBillingInfo($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_AdExchangeBuyer_BillingInfoList");
   }
 }
 
@@ -748,6 +814,81 @@ class Google_Service_AdExchangeBuyer_AccountBidderLocation extends Google_Model
 class Google_Service_AdExchangeBuyer_AccountsList extends Google_Collection
 {
   protected $itemsType = 'Google_Service_AdExchangeBuyer_Account';
+  protected $itemsDataType = 'array';
+  public $kind;
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_AdExchangeBuyer_BillingInfo extends Google_Collection
+{
+  public $accountId;
+  public $accountName;
+  public $billingId;
+  public $kind;
+
+  public function setAccountId($accountId)
+  {
+    $this->accountId = $accountId;
+  }
+
+  public function getAccountId()
+  {
+    return $this->accountId;
+  }
+
+  public function setAccountName($accountName)
+  {
+    $this->accountName = $accountName;
+  }
+
+  public function getAccountName()
+  {
+    return $this->accountName;
+  }
+
+  public function setBillingId($billingId)
+  {
+    $this->billingId = $billingId;
+  }
+
+  public function getBillingId()
+  {
+    return $this->billingId;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_AdExchangeBuyer_BillingInfoList extends Google_Collection
+{
+  protected $itemsType = 'Google_Service_AdExchangeBuyer_BillingInfo';
   protected $itemsDataType = 'array';
   public $kind;
 
