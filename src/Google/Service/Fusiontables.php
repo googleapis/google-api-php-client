@@ -40,6 +40,7 @@ class Google_Service_Fusiontables extends Google_Service
   public $query;
   public $style;
   public $table;
+  public $task;
   public $template;
   
 
@@ -428,6 +429,68 @@ class Google_Service_Fusiontables extends Google_Service
                 'replaceViewDefinition' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->task = new Google_Service_Fusiontables_Task_Resource(
+        $this,
+        $this->serviceName,
+        'task',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => 'tables/{tableId}/tasks/{taskId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'taskId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'tables/{tableId}/tasks/{taskId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'taskId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'tables/{tableId}/tasks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'startIndex' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -995,6 +1058,71 @@ class Google_Service_Fusiontables_Table_Resource extends Google_Service_Resource
     $params = array('tableId' => $tableId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('update', array($params), "Google_Service_Fusiontables_Table");
+  }
+}
+
+/**
+ * The "task" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $fusiontablesService = new Google_Service_Fusiontables(...);
+ *   $task = $fusiontablesService->task;
+ *  </code>
+ */
+class Google_Service_Fusiontables_Task_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Deletes the task, unless already started. (task.delete)
+   *
+   * @param string $tableId
+   * Table from which the task is being deleted.
+   * @param string $taskId
+   *
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($tableId, $taskId, $optParams = array())
+  {
+    $params = array('tableId' => $tableId, 'taskId' => $taskId);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+  /**
+   * Retrieves a specific task by its id. (task.get)
+   *
+   * @param string $tableId
+   * Table to which the task belongs.
+   * @param string $taskId
+   *
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Fusiontables_Task
+   */
+  public function get($tableId, $taskId, $optParams = array())
+  {
+    $params = array('tableId' => $tableId, 'taskId' => $taskId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Fusiontables_Task");
+  }
+  /**
+   * Retrieves a list of tasks. (task.listTask)
+   *
+   * @param string $tableId
+   * Table whose tasks are being listed.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string pageToken
+   *
+   * @opt_param string startIndex
+   *
+   * @opt_param string maxResults
+   * Maximum number of columns to return. Optional. Default is 5.
+   * @return Google_Service_Fusiontables_TaskList
+   */
+  public function listTask($tableId, $optParams = array())
+  {
+    $params = array('tableId' => $tableId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Fusiontables_TaskList");
   }
 }
 
@@ -2099,6 +2227,114 @@ class Google_Service_Fusiontables_TableList extends Google_Collection
   public function getNextPageToken()
   {
     return $this->nextPageToken;
+  }
+}
+
+class Google_Service_Fusiontables_Task extends Google_Model
+{
+  public $kind;
+  public $progress;
+  public $started;
+  public $taskId;
+  public $type;
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setProgress($progress)
+  {
+    $this->progress = $progress;
+  }
+
+  public function getProgress()
+  {
+    return $this->progress;
+  }
+
+  public function setStarted($started)
+  {
+    $this->started = $started;
+  }
+
+  public function getStarted()
+  {
+    return $this->started;
+  }
+
+  public function setTaskId($taskId)
+  {
+    $this->taskId = $taskId;
+  }
+
+  public function getTaskId()
+  {
+    return $this->taskId;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
+  }
+}
+
+class Google_Service_Fusiontables_TaskList extends Google_Collection
+{
+  protected $itemsType = 'Google_Service_Fusiontables_Task';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $totalItems;
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+
+  public function setTotalItems($totalItems)
+  {
+    $this->totalItems = $totalItems;
+  }
+
+  public function getTotalItems()
+  {
+    return $this->totalItems;
   }
 }
 
