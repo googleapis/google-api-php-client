@@ -6150,6 +6150,7 @@ class Google_Service_Compute_BackendService extends Google_Collection
   public $kind;
   public $name;
   public $port;
+  public $portName;
   public $protocol;
   public $selfLink;
   public $timeoutSec;
@@ -6242,6 +6243,16 @@ class Google_Service_Compute_BackendService extends Google_Collection
   public function getPort()
   {
     return $this->port;
+  }
+
+  public function setPortName($portName)
+  {
+    $this->portName = $portName;
+  }
+
+  public function getPortName()
+  {
+    return $this->portName;
   }
 
   public function setProtocol($protocol)
