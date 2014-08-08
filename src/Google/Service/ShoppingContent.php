@@ -1532,7 +1532,8 @@ class Google_Service_ShoppingContent_AccountShippingCondition extends Google_Mod
 {
   public $deliveryLocationGroup;
   public $deliveryLocationId;
-  public $deliveryPostalCode;
+  protected $deliveryPostalCodeType = 'Google_Service_ShoppingContent_AccountShippingPostalCodeRange';
+  protected $deliveryPostalCodeDataType = '';
   protected $priceMaxType = 'Google_Service_ShoppingContent_Price';
   protected $priceMaxDataType = '';
   public $shippingLabel;
@@ -1559,7 +1560,7 @@ class Google_Service_ShoppingContent_AccountShippingCondition extends Google_Mod
     return $this->deliveryLocationId;
   }
 
-  public function setDeliveryPostalCode($deliveryPostalCode)
+  public function setDeliveryPostalCode(Google_Service_ShoppingContent_AccountShippingPostalCodeRange $deliveryPostalCode)
   {
     $this->deliveryPostalCode = $deliveryPostalCode;
   }
@@ -1605,7 +1606,8 @@ class Google_Service_ShoppingContent_AccountShippingLocationGroup extends Google
   public $country;
   public $locationIds;
   public $name;
-  public $postalCodes;
+  protected $postalCodesType = 'Google_Service_ShoppingContent_AccountShippingPostalCodeRange';
+  protected $postalCodesDataType = 'array';
 
   public function setCountry($country)
   {
@@ -1645,6 +1647,32 @@ class Google_Service_ShoppingContent_AccountShippingLocationGroup extends Google
   public function getPostalCodes()
   {
     return $this->postalCodes;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountShippingPostalCodeRange extends Google_Model
+{
+  public $end;
+  public $start;
+
+  public function setEnd($end)
+  {
+    $this->end = $end;
+  }
+
+  public function getEnd()
+  {
+    return $this->end;
+  }
+
+  public function setStart($start)
+  {
+    $this->start = $start;
+  }
+
+  public function getStart()
+  {
+    return $this->start;
   }
 }
 
