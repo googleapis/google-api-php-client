@@ -80,11 +80,6 @@ class Google_Client
    */
   public function __construct($config = null)
   {
-    if (! ini_get('date.timezone') &&
-        function_exists('date_default_timezone_set')) {
-      date_default_timezone_set('UTC');
-    }
-
     if (is_string($config) && strlen($config)) {
       $config = new Google_Config($config);
     } else if ( !($config instanceof Google_Config)) {
