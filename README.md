@@ -12,6 +12,10 @@ The Google API Client Library enables you to work with Google APIs such as Googl
 ## Developer Documentation ##
 http://developers.google.com/api-client-library/php
 
+## Installation ##
+
+For the latest installation and setup instructions, see [the documentation](https://developers.google.com/api-client-library/php/start/installation).
+
 ## Basic Example ##
 See the examples/ directory for examples of the key client features.
 ```PHP
