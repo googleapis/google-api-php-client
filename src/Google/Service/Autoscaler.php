@@ -579,11 +579,15 @@ class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
   }
 }
 
-class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Model
+class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
 {
   public $coolDownPeriodSec;
   protected $cpuUtilizationType = 'Google_Service_Autoscaler_AutoscalingPolicyCpuUtilization';
   protected $cpuUtilizationDataType = '';
+  protected $customMetricUtilizationsType = 'Google_Service_Autoscaler_AutoscalingPolicyCustomMetricUtilization';
+  protected $customMetricUtilizationsDataType = 'array';
+  protected $loadBalancingUtilizationType = 'Google_Service_Autoscaler_AutoscalingPolicyLoadBalancingUtilization';
+  protected $loadBalancingUtilizationDataType = '';
   public $maxNumReplicas;
   public $minNumReplicas;
 
@@ -605,6 +609,26 @@ class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Model
   public function getCpuUtilization()
   {
     return $this->cpuUtilization;
+  }
+
+  public function setCustomMetricUtilizations($customMetricUtilizations)
+  {
+    $this->customMetricUtilizations = $customMetricUtilizations;
+  }
+
+  public function getCustomMetricUtilizations()
+  {
+    return $this->customMetricUtilizations;
+  }
+
+  public function setLoadBalancingUtilization(Google_Service_Autoscaler_AutoscalingPolicyLoadBalancingUtilization $loadBalancingUtilization)
+  {
+    $this->loadBalancingUtilization = $loadBalancingUtilization;
+  }
+
+  public function getLoadBalancingUtilization()
+  {
+    return $this->loadBalancingUtilization;
   }
 
   public function setMaxNumReplicas($maxNumReplicas)
@@ -629,6 +653,47 @@ class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Model
 }
 
 class Google_Service_Autoscaler_AutoscalingPolicyCpuUtilization extends Google_Model
+{
+  public $utilizationTarget;
+
+  public function setUtilizationTarget($utilizationTarget)
+  {
+    $this->utilizationTarget = $utilizationTarget;
+  }
+
+  public function getUtilizationTarget()
+  {
+    return $this->utilizationTarget;
+  }
+}
+
+class Google_Service_Autoscaler_AutoscalingPolicyCustomMetricUtilization extends Google_Model
+{
+  public $metric;
+  public $utilizationTarget;
+
+  public function setMetric($metric)
+  {
+    $this->metric = $metric;
+  }
+
+  public function getMetric()
+  {
+    return $this->metric;
+  }
+
+  public function setUtilizationTarget($utilizationTarget)
+  {
+    $this->utilizationTarget = $utilizationTarget;
+  }
+
+  public function getUtilizationTarget()
+  {
+    return $this->utilizationTarget;
+  }
+}
+
+class Google_Service_Autoscaler_AutoscalingPolicyLoadBalancingUtilization extends Google_Model
 {
   public $utilizationTarget;
 
