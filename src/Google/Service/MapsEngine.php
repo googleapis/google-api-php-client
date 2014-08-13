@@ -3335,6 +3335,7 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public $processingStatus;
   public $projectId;
   public $publishedAccessList;
+  public $publishingStatus;
   public $tags;
   public $versions;
 
@@ -3466,6 +3467,16 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public function getPublishedAccessList()
   {
     return $this->publishedAccessList;
+  }
+
+  public function setPublishingStatus($publishingStatus)
+  {
+    $this->publishingStatus = $publishingStatus;
+  }
+
+  public function getPublishingStatus()
+  {
+    return $this->publishingStatus;
   }
 
   public function setTags($tags)
