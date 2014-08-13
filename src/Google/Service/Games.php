@@ -6912,6 +6912,7 @@ class Google_Service_Games_ScoreSubmission extends Google_Model
   public $leaderboardId;
   public $score;
   public $scoreTag;
+  public $signature;
 
   public function setKind($kind)
   {
@@ -6951,6 +6952,16 @@ class Google_Service_Games_ScoreSubmission extends Google_Model
   public function getScoreTag()
   {
     return $this->scoreTag;
+  }
+
+  public function setSignature($signature)
+  {
+    $this->signature = $signature;
+  }
+
+  public function getSignature()
+  {
+    return $this->signature;
   }
 }
 
