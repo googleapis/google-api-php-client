@@ -55,7 +55,13 @@ class Google_Auth_AppIdentity extends Google_Auth_Abstract
     if (!$this->token) {
       $this->token = AppIdentityService::getAccessToken($scopes);
       if ($this->token) {
-        $memcache->set(self::CACHE_PREFIX . $scopes, $this->token, self::CACHE_LIFETIME);
+        $memcache_key = self::CACHE_PREFIX;
+        if (is_string($scopes)) {
+          $memcache_key .= $scopes;
+        } else if (is_array($scopes)) {
+          $memcache_key .= implode(":", $scopes);
+        }
+        $memcache->set($memcache_key, $this->token, self::CACHE_LIFETIME);
       }
     }
     $this->tokenScopes = $scopes;
