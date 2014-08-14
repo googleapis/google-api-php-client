@@ -33,6 +33,10 @@ class Google_Service_Resourceviews extends Google_Service
 {
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM = "https://www.googleapis.com/auth/cloud-platform";
+  /** View and manage your Google Compute Engine resources. */
+  const COMPUTE = "https://www.googleapis.com/auth/compute";
+  /** View your Google Compute Engine resources. */
+  const COMPUTE_READONLY = "https://www.googleapis.com/auth/compute.readonly";
   /** View and manage your Google Cloud Platform management resources and deployment status information. */
   const NDEV_CLOUDMAN = "https://www.googleapis.com/auth/ndev.cloudman";
   /** View your Google Cloud Platform management resources and deployment status information. */
@@ -464,8 +468,8 @@ class Google_Service_Resourceviews_RegionViews_Resource extends Google_Service_R
    * Specifies a nextPageToken returned by a previous list request. This token can be used to request
     * the next page of results from a previous list request.
    * @opt_param int maxResults
-   * Maximum count of results to be returned. Acceptable values are 0 to 500, inclusive. (Default:
-    * 50)
+   * Maximum count of results to be returned. Acceptable values are 0 to 5000, inclusive. (Default:
+    * 5000)
    * @return Google_Service_Resourceviews_RegionViewsListResponse
    */
   public function listRegionViews($projectName, $region, $optParams = array())
@@ -489,8 +493,8 @@ class Google_Service_Resourceviews_RegionViews_Resource extends Google_Service_R
    * Specifies a nextPageToken returned by a previous list request. This token can be used to request
     * the next page of results from a previous list request.
    * @opt_param int maxResults
-   * Maximum count of results to be returned. Acceptable values are 0 to 500, inclusive. (Default:
-    * 50)
+   * Maximum count of results to be returned. Acceptable values are 0 to 5000, inclusive. (Default:
+    * 5000)
    * @return Google_Service_Resourceviews_RegionViewsListResourcesResponse
    */
   public function listresources($projectName, $region, $resourceViewName, $optParams = array())
@@ -613,8 +617,8 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
    * Specifies a nextPageToken returned by a previous list request. This token can be used to request
     * the next page of results from a previous list request.
    * @opt_param int maxResults
-   * Maximum count of results to be returned. Acceptable values are 0 to 500, inclusive. (Default:
-    * 50)
+   * Maximum count of results to be returned. Acceptable values are 0 to 5000, inclusive. (Default:
+    * 5000)
    * @return Google_Service_Resourceviews_ZoneViewsListResponse
    */
   public function listZoneViews($projectName, $zone, $optParams = array())
@@ -638,8 +642,8 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
    * Specifies a nextPageToken returned by a previous list request. This token can be used to request
     * the next page of results from a previous list request.
    * @opt_param int maxResults
-   * Maximum count of results to be returned. Acceptable values are 0 to 500, inclusive. (Default:
-    * 50)
+   * Maximum count of results to be returned. Acceptable values are 0 to 5000, inclusive. (Default:
+    * 5000)
    * @return Google_Service_Resourceviews_ZoneViewsListResourcesResponse
    */
   public function listresources($projectName, $zone, $resourceViewName, $optParams = array())
