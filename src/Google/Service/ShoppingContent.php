@@ -210,11 +210,7 @@ class Google_Service_ShoppingContent extends Google_Service
         'datafeeds',
         array(
           'methods' => array(
-            'batch' => array(
-              'path' => 'datafeedsNativeBatch',
-              'httpMethod' => 'POST',
-              'parameters' => array(),
-            ),'custombatch' => array(
+            'custombatch' => array(
               'path' => 'datafeeds/batch',
               'httpMethod' => 'POST',
               'parameters' => array(),
@@ -308,11 +304,7 @@ class Google_Service_ShoppingContent extends Google_Service
         'datafeedstatuses',
         array(
           'methods' => array(
-            'batch' => array(
-              'path' => 'datafeedstatusesNativeBatch',
-              'httpMethod' => 'POST',
-              'parameters' => array(),
-            ),'custombatch' => array(
+            'custombatch' => array(
               'path' => 'datafeedstatuses/batch',
               'httpMethod' => 'POST',
               'parameters' => array(),
@@ -717,19 +709,6 @@ class Google_Service_ShoppingContent_Datafeeds_Resource extends Google_Service_R
 {
 
   /**
-   * (datafeeds.batch)
-   *
-   * @param Google_DatafeedsBatchRequest $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_ShoppingContent_DatafeedsBatchResponse
-   */
-  public function batch(Google_Service_ShoppingContent_DatafeedsBatchRequest $postBody, $optParams = array())
-  {
-    $params = array('postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('batch', array($params), "Google_Service_ShoppingContent_DatafeedsBatchResponse");
-  }
-  /**
    * (datafeeds.custombatch)
    *
    * @param Google_DatafeedsCustomBatchRequest $postBody
@@ -851,19 +830,6 @@ class Google_Service_ShoppingContent_Datafeeds_Resource extends Google_Service_R
 class Google_Service_ShoppingContent_Datafeedstatuses_Resource extends Google_Service_Resource
 {
 
-  /**
-   * (datafeedstatuses.batch)
-   *
-   * @param Google_DatafeedstatusesBatchRequest $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_ShoppingContent_DatafeedstatusesBatchResponse
-   */
-  public function batch(Google_Service_ShoppingContent_DatafeedstatusesBatchRequest $postBody, $optParams = array())
-  {
-    $params = array('postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('batch', array($params), "Google_Service_ShoppingContent_DatafeedstatusesBatchResponse");
-  }
   /**
    * (datafeedstatuses.custombatch)
    *
@@ -2247,150 +2213,6 @@ class Google_Service_ShoppingContent_DatafeedStatusExample extends Google_Model
   }
 }
 
-class Google_Service_ShoppingContent_DatafeedsBatchRequest extends Google_Collection
-{
-  protected $entrysType = 'Google_Service_ShoppingContent_DatafeedsBatchRequestEntry';
-  protected $entrysDataType = 'array';
-
-  public function setEntrys($entrys)
-  {
-    $this->entrys = $entrys;
-  }
-
-  public function getEntrys()
-  {
-    return $this->entrys;
-  }
-}
-
-class Google_Service_ShoppingContent_DatafeedsBatchRequestEntry extends Google_Model
-{
-  public $batchId;
-  protected $datafeedsinsertrequestType = 'Google_Service_ShoppingContent_DatafeedsInsertRequest';
-  protected $datafeedsinsertrequestDataType = '';
-  protected $datafeedsupdaterequestType = 'Google_Service_ShoppingContent_DatafeedsUpdateRequest';
-  protected $datafeedsupdaterequestDataType = '';
-  public $methodName;
-
-  public function setBatchId($batchId)
-  {
-    $this->batchId = $batchId;
-  }
-
-  public function getBatchId()
-  {
-    return $this->batchId;
-  }
-
-  public function setDatafeedsinsertrequest(Google_Service_ShoppingContent_DatafeedsInsertRequest $datafeedsinsertrequest)
-  {
-    $this->datafeedsinsertrequest = $datafeedsinsertrequest;
-  }
-
-  public function getDatafeedsinsertrequest()
-  {
-    return $this->datafeedsinsertrequest;
-  }
-
-  public function setDatafeedsupdaterequest(Google_Service_ShoppingContent_DatafeedsUpdateRequest $datafeedsupdaterequest)
-  {
-    $this->datafeedsupdaterequest = $datafeedsupdaterequest;
-  }
-
-  public function getDatafeedsupdaterequest()
-  {
-    return $this->datafeedsupdaterequest;
-  }
-
-  public function setMethodName($methodName)
-  {
-    $this->methodName = $methodName;
-  }
-
-  public function getMethodName()
-  {
-    return $this->methodName;
-  }
-}
-
-class Google_Service_ShoppingContent_DatafeedsBatchResponse extends Google_Collection
-{
-  protected $entrysType = 'Google_Service_ShoppingContent_DatafeedsBatchResponseEntry';
-  protected $entrysDataType = 'array';
-  public $kind;
-
-  public function setEntrys($entrys)
-  {
-    $this->entrys = $entrys;
-  }
-
-  public function getEntrys()
-  {
-    return $this->entrys;
-  }
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-
-  public function getKind()
-  {
-    return $this->kind;
-  }
-}
-
-class Google_Service_ShoppingContent_DatafeedsBatchResponseEntry extends Google_Model
-{
-  public $batchId;
-  protected $datafeedsgetresponseType = 'Google_Service_ShoppingContent_DatafeedsGetResponse';
-  protected $datafeedsgetresponseDataType = '';
-  protected $datafeedsinsertresponseType = 'Google_Service_ShoppingContent_DatafeedsInsertResponse';
-  protected $datafeedsinsertresponseDataType = '';
-  protected $datafeedsupdateresponseType = 'Google_Service_ShoppingContent_DatafeedsUpdateResponse';
-  protected $datafeedsupdateresponseDataType = '';
-
-  public function setBatchId($batchId)
-  {
-    $this->batchId = $batchId;
-  }
-
-  public function getBatchId()
-  {
-    return $this->batchId;
-  }
-
-  public function setDatafeedsgetresponse(Google_Service_ShoppingContent_DatafeedsGetResponse $datafeedsgetresponse)
-  {
-    $this->datafeedsgetresponse = $datafeedsgetresponse;
-  }
-
-  public function getDatafeedsgetresponse()
-  {
-    return $this->datafeedsgetresponse;
-  }
-
-  public function setDatafeedsinsertresponse(Google_Service_ShoppingContent_DatafeedsInsertResponse $datafeedsinsertresponse)
-  {
-    $this->datafeedsinsertresponse = $datafeedsinsertresponse;
-  }
-
-  public function getDatafeedsinsertresponse()
-  {
-    return $this->datafeedsinsertresponse;
-  }
-
-  public function setDatafeedsupdateresponse(Google_Service_ShoppingContent_DatafeedsUpdateResponse $datafeedsupdateresponse)
-  {
-    $this->datafeedsupdateresponse = $datafeedsupdateresponse;
-  }
-
-  public function getDatafeedsupdateresponse()
-  {
-    return $this->datafeedsupdateresponse;
-  }
-}
-
 class Google_Service_ShoppingContent_DatafeedsCustomBatchRequest extends Google_Collection
 {
   protected $entriesType = 'Google_Service_ShoppingContent_DatafeedsCustomBatchRequestEntry';
@@ -2533,76 +2355,6 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchResponseEntry extends G
   }
 }
 
-class Google_Service_ShoppingContent_DatafeedsGetResponse extends Google_Model
-{
-  public $kind;
-  protected $resourceType = 'Google_Service_ShoppingContent_Datafeed';
-  protected $resourceDataType = '';
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-
-  public function getKind()
-  {
-    return $this->kind;
-  }
-
-  public function setResource(Google_Service_ShoppingContent_Datafeed $resource)
-  {
-    $this->resource = $resource;
-  }
-
-  public function getResource()
-  {
-    return $this->resource;
-  }
-}
-
-class Google_Service_ShoppingContent_DatafeedsInsertRequest extends Google_Model
-{
-  protected $resourceType = 'Google_Service_ShoppingContent_Datafeed';
-  protected $resourceDataType = '';
-
-  public function setResource(Google_Service_ShoppingContent_Datafeed $resource)
-  {
-    $this->resource = $resource;
-  }
-
-  public function getResource()
-  {
-    return $this->resource;
-  }
-}
-
-class Google_Service_ShoppingContent_DatafeedsInsertResponse extends Google_Model
-{
-  public $kind;
-  protected $resourceType = 'Google_Service_ShoppingContent_Datafeed';
-  protected $resourceDataType = '';
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-
-  public function getKind()
-  {
-    return $this->kind;
-  }
-
-  public function setResource(Google_Service_ShoppingContent_Datafeed $resource)
-  {
-    $this->resource = $resource;
-  }
-
-  public function getResource()
-  {
-    return $this->resource;
-  }
-}
-
 class Google_Service_ShoppingContent_DatafeedsListResponse extends Google_Collection
 {
   public $kind;
@@ -2627,145 +2379,6 @@ class Google_Service_ShoppingContent_DatafeedsListResponse extends Google_Collec
   public function getResources()
   {
     return $this->resources;
-  }
-}
-
-class Google_Service_ShoppingContent_DatafeedsUpdateRequest extends Google_Model
-{
-  protected $resourceType = 'Google_Service_ShoppingContent_Datafeed';
-  protected $resourceDataType = '';
-
-  public function setResource(Google_Service_ShoppingContent_Datafeed $resource)
-  {
-    $this->resource = $resource;
-  }
-
-  public function getResource()
-  {
-    return $this->resource;
-  }
-}
-
-class Google_Service_ShoppingContent_DatafeedsUpdateResponse extends Google_Model
-{
-  public $kind;
-  protected $resourceType = 'Google_Service_ShoppingContent_Datafeed';
-  protected $resourceDataType = '';
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-
-  public function getKind()
-  {
-    return $this->kind;
-  }
-
-  public function setResource(Google_Service_ShoppingContent_Datafeed $resource)
-  {
-    $this->resource = $resource;
-  }
-
-  public function getResource()
-  {
-    return $this->resource;
-  }
-}
-
-class Google_Service_ShoppingContent_DatafeedstatusesBatchRequest extends Google_Collection
-{
-  protected $entrysType = 'Google_Service_ShoppingContent_DatafeedstatusesBatchRequestEntry';
-  protected $entrysDataType = 'array';
-
-  public function setEntrys($entrys)
-  {
-    $this->entrys = $entrys;
-  }
-
-  public function getEntrys()
-  {
-    return $this->entrys;
-  }
-}
-
-class Google_Service_ShoppingContent_DatafeedstatusesBatchRequestEntry extends Google_Model
-{
-  public $batchId;
-  public $methodName;
-
-  public function setBatchId($batchId)
-  {
-    $this->batchId = $batchId;
-  }
-
-  public function getBatchId()
-  {
-    return $this->batchId;
-  }
-
-  public function setMethodName($methodName)
-  {
-    $this->methodName = $methodName;
-  }
-
-  public function getMethodName()
-  {
-    return $this->methodName;
-  }
-}
-
-class Google_Service_ShoppingContent_DatafeedstatusesBatchResponse extends Google_Collection
-{
-  protected $entrysType = 'Google_Service_ShoppingContent_DatafeedstatusesBatchResponseEntry';
-  protected $entrysDataType = 'array';
-  public $kind;
-
-  public function setEntrys($entrys)
-  {
-    $this->entrys = $entrys;
-  }
-
-  public function getEntrys()
-  {
-    return $this->entrys;
-  }
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-
-  public function getKind()
-  {
-    return $this->kind;
-  }
-}
-
-class Google_Service_ShoppingContent_DatafeedstatusesBatchResponseEntry extends Google_Model
-{
-  public $batchId;
-  protected $datafeedstatusesgetresponseType = 'Google_Service_ShoppingContent_DatafeedstatusesGetResponse';
-  protected $datafeedstatusesgetresponseDataType = '';
-
-  public function setBatchId($batchId)
-  {
-    $this->batchId = $batchId;
-  }
-
-  public function getBatchId()
-  {
-    return $this->batchId;
-  }
-
-  public function setDatafeedstatusesgetresponse(Google_Service_ShoppingContent_DatafeedstatusesGetResponse $datafeedstatusesgetresponse)
-  {
-    $this->datafeedstatusesgetresponse = $datafeedstatusesgetresponse;
-  }
-
-  public function getDatafeedstatusesgetresponse()
-  {
-    return $this->datafeedstatusesgetresponse;
   }
 }
 
@@ -2896,33 +2509,6 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponseEntry ex
   public function getErrors()
   {
     return $this->errors;
-  }
-}
-
-class Google_Service_ShoppingContent_DatafeedstatusesGetResponse extends Google_Model
-{
-  public $kind;
-  protected $resourceType = 'Google_Service_ShoppingContent_DatafeedStatus';
-  protected $resourceDataType = '';
-
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-
-  public function getKind()
-  {
-    return $this->kind;
-  }
-
-  public function setResource(Google_Service_ShoppingContent_DatafeedStatus $resource)
-  {
-    $this->resource = $resource;
-  }
-
-  public function getResource()
-  {
-    return $this->resource;
   }
 }
 
