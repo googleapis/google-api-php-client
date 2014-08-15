@@ -564,6 +564,9 @@ class Google_Service_Mirror_Settings_Resource extends Google_Service_Resource
    * The ID of the setting. The following IDs are valid:
   - locale - The key to the user’s
     * language/locale (BCP 47 identifier) that Glassware should use to render localized content.
+  -
+    * timezone - The key to the user’s current time zone region as defined in the tz database.
+    * Example: America/Los_Angeles.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Mirror_Setting
    */
