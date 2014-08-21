@@ -1669,7 +1669,8 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * The visibility of the new file. This parameter is only relevant when the source is not a native
     * Google Doc and convert=false.
    * @opt_param bool pinned
-   * Whether to pin the head revision of the new copy.
+   * Whether to pin the head revision of the new copy. A file can have a maximum of 200 pinned
+    * revisions.
    * @opt_param bool ocr
    * Whether to attempt OCR on .jpg, .png, .gif, or .pdf uploads.
    * @opt_param string timedTextTrackName
@@ -1742,7 +1743,8 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @opt_param string visibility
    * The visibility of the new file. This parameter is only relevant when convert=false.
    * @opt_param bool pinned
-   * Whether to pin the head revision of the uploaded file.
+   * Whether to pin the head revision of the uploaded file. A file can have a maximum of 200 pinned
+    * revisions.
    * @opt_param bool ocr
    * Whether to attempt OCR on .jpg, .png, .gif, or .pdf uploads.
    * @opt_param string timedTextTrackName
@@ -1804,7 +1806,7 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @opt_param string ocrLanguage
    * If ocr is true, hints at the language to use. Valid values are ISO 639-1 codes.
    * @opt_param bool pinned
-   * Whether to pin the new revision.
+   * Whether to pin the new revision. A file can have a maximum of 200 pinned revisions.
    * @opt_param bool newRevision
    * Whether a blob upload should create a new revision. If false, the blob data in the current head
     * revision is replaced. If not set or true, a new blob is created as head revision, and previous
@@ -1888,7 +1890,7 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @opt_param string ocrLanguage
    * If ocr is true, hints at the language to use. Valid values are ISO 639-1 codes.
    * @opt_param bool pinned
-   * Whether to pin the new revision.
+   * Whether to pin the new revision. A file can have a maximum of 200 pinned revisions.
    * @opt_param bool newRevision
    * Whether a blob upload should create a new revision. If false, the blob data in the current head
     * revision is replaced. If not set or true, a new blob is created as head revision, and previous
