@@ -224,11 +224,15 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'tags' => array(
+                'processingStatus' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'tags' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -285,6 +289,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'force' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'unpublish' => array(
@@ -375,11 +383,15 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'tags' => array(
+                'processingStatus' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'tags' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -426,6 +438,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'force' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'unpublish' => array(
@@ -508,11 +524,15 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'tags' => array(
+                'processingStatus' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'tags' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -705,6 +725,16 @@ class Google_Service_MapsEngine extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'process' => array(
+              'path' => 'rasters/{id}/process',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'upload' => array(
               'path' => 'rasters/upload',
               'httpMethod' => 'POST',
@@ -812,11 +842,15 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'tags' => array(
+                'processingStatus' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'tags' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1219,12 +1253,14 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
    * @opt_param string createdAfter
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or after this time.
-   * @opt_param string tags
-   * A comma separated list of tags. Returned assets will contain all the tags from the list.
+   * @opt_param string processingStatus
+   *
    * @opt_param string projectId
    * The ID of a Maps Engine project, used to filter the response. To list all available projects
     * with their IDs, send a Projects: list request. You can also find your project ID as the value of
     * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @opt_param string tags
+   * A comma separated list of tags. Returned assets will contain all the tags from the list.
    * @opt_param string maxResults
    * The maximum number of items to include in a single response page. The maximum supported value is
     * 100.
@@ -1285,6 +1321,10 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
    * @param string $id
    * The ID of the layer.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool force
+   * If set to true, the API will allow publication of the layer even if it's out of date. If not
+    * true, you'll need to reprocess any out-of-date layer before publishing.
    * @return Google_Service_MapsEngine_PublishResponse
    */
   public function publish($id, $optParams = array())
@@ -1409,12 +1449,14 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
    * @opt_param string createdAfter
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or after this time.
-   * @opt_param string tags
-   * A comma separated list of tags. Returned assets will contain all the tags from the list.
+   * @opt_param string processingStatus
+   *
    * @opt_param string projectId
    * The ID of a Maps Engine project, used to filter the response. To list all available projects
     * with their IDs, send a Projects: list request. You can also find your project ID as the value of
     * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @opt_param string tags
+   * A comma separated list of tags. Returned assets will contain all the tags from the list.
    * @opt_param string maxResults
    * The maximum number of items to include in a single response page. The maximum supported value is
     * 100.
@@ -1461,6 +1503,10 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
    * @param string $id
    * The ID of the map.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool force
+   * If set to true, the API will allow publication of the map even if it's out of date. If false,
+    * the map must have a processingStatus of complete before publishing.
    * @return Google_Service_MapsEngine_PublishResponse
    */
   public function publish($id, $optParams = array())
@@ -1590,12 +1636,14 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
    * @opt_param string createdAfter
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or after this time.
-   * @opt_param string tags
-   * A comma separated list of tags. Returned assets will contain all the tags from the list.
+   * @opt_param string processingStatus
+   *
    * @opt_param string projectId
    * The ID of a Maps Engine project, used to filter the response. To list all available projects
     * with their IDs, send a Projects: list request. You can also find your project ID as the value of
     * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @opt_param string tags
+   * A comma separated list of tags. Returned assets will contain all the tags from the list.
    * @opt_param string maxResults
    * The maximum number of items to include in a single response page. The maximum supported value is
     * 100.
@@ -1833,6 +1881,20 @@ class Google_Service_MapsEngine_Rasters_Resource extends Google_Service_Resource
     return $this->call('patch', array($params));
   }
   /**
+   * Process a raster asset. (rasters.process)
+   *
+   * @param string $id
+   * The ID of the raster.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_ProcessResponse
+   */
+  public function process($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('process', array($params), "Google_Service_MapsEngine_ProcessResponse");
+  }
+  /**
    * Create a skeleton raster asset for upload. (rasters.upload)
    *
    * @param Google_Raster $postBody
@@ -1975,12 +2037,14 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
    * @opt_param string createdAfter
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or after this time.
-   * @opt_param string tags
-   * A comma separated list of tags. Returned assets will contain all the tags from the list.
+   * @opt_param string processingStatus
+   *
    * @opt_param string projectId
    * The ID of a Maps Engine project, used to filter the response. To list all available projects
     * with their IDs, send a Projects: list request. You can also find your project ID as the value of
     * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @opt_param string tags
+   * A comma separated list of tags. Returned assets will contain all the tags from the list.
    * @opt_param string maxResults
    * The maximum number of items to include in a single response page. The maximum supported value is
     * 100.
@@ -3049,6 +3113,7 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   public $processingStatus;
   public $projectId;
   public $publishedAccessList;
+  public $publishingStatus;
   protected $styleType = 'Google_Service_MapsEngine_VectorStyle';
   protected $styleDataType = '';
   public $tags;
@@ -3181,6 +3246,16 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   public function getPublishedAccessList()
   {
     return $this->publishedAccessList;
+  }
+
+  public function setPublishingStatus($publishingStatus)
+  {
+    $this->publishingStatus = $publishingStatus;
+  }
+
+  public function getPublishingStatus()
+  {
+    return $this->publishingStatus;
   }
 
   public function setStyle(Google_Service_MapsEngine_VectorStyle $style)
