@@ -42,6 +42,7 @@ class Google_Service_MapsEngine extends Google_Service
   public $layers_parents;
   public $maps;
   public $projects;
+  public $projects_icons;
   public $rasterCollections;
   public $rasterCollections_parents;
   public $rasterCollections_rasters;
@@ -123,6 +124,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'createdBefore' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'role' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -257,6 +262,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'createdBefore' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'role' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -419,6 +428,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'role' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'patch' => array(
               'path' => 'maps/{id}',
@@ -468,6 +481,59 @@ class Google_Service_MapsEngine extends Google_Service
               'path' => 'projects',
               'httpMethod' => 'GET',
               'parameters' => array(),
+            ),
+          )
+        )
+    );
+    $this->projects_icons = new Google_Service_MapsEngine_ProjectsIcons_Resource(
+        $this,
+        $this->serviceName,
+        'icons',
+        array(
+          'methods' => array(
+            'create' => array(
+              'path' => 'projects/{projectId}/icons',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'projects/{projectId}/icons/{id}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'projects/{projectId}/icons',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
             ),
           )
         )
@@ -557,6 +623,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'createdBefore' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'role' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -684,6 +754,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'role' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),
           )
@@ -713,6 +787,60 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'rasters',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'modifiedAfter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'createdAfter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'processingStatus' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'tags' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'creatorEmail' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'bbox' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'modifiedBefore' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'createdBefore' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'role' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -875,6 +1003,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'createdBefore' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'role' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1123,6 +1255,9 @@ class Google_Service_MapsEngine_Assets_Resource extends Google_Service_Resource
    * @opt_param string createdBefore
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or before this time.
+   * @opt_param string role
+   * The role parameter indicates that the response should only contain assets where the current user
+    * has the specified level of access.
    * @opt_param string type
    * An asset type restriction. If set, only resources of this type will be returned.
    * @return Google_Service_MapsEngine_AssetsListResponse
@@ -1279,6 +1414,9 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
    * @opt_param string createdBefore
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or before this time.
+   * @opt_param string role
+   * The role parameter indicates that the response should only contain assets where the current user
+    * has the specified level of access.
    * @return Google_Service_MapsEngine_LayersListResponse
    */
   public function listLayers($optParams = array())
@@ -1475,6 +1613,9 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
    * @opt_param string createdBefore
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or before this time.
+   * @opt_param string role
+   * The role parameter indicates that the response should only contain assets where the current user
+    * has the specified level of access.
    * @return Google_Service_MapsEngine_MapsListResponse
    */
   public function listMaps($optParams = array())
@@ -1553,6 +1694,71 @@ class Google_Service_MapsEngine_Projects_Resource extends Google_Service_Resourc
     $params = array();
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_ProjectsListResponse");
+  }
+}
+
+/**
+ * The "icons" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $mapsengineService = new Google_Service_MapsEngine(...);
+ *   $icons = $mapsengineService->icons;
+ *  </code>
+ */
+class Google_Service_MapsEngine_ProjectsIcons_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Create an icon. (icons.create)
+   *
+   * @param string $projectId
+   * The ID of the project.
+   * @param Google_Icon $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_Icon
+   */
+  public function create($projectId, Google_Service_MapsEngine_Icon $postBody, $optParams = array())
+  {
+    $params = array('projectId' => $projectId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('create', array($params), "Google_Service_MapsEngine_Icon");
+  }
+  /**
+   * Return metadata for a specific icon (icons.get)
+   *
+   * @param string $projectId
+   * The ID of the project.
+   * @param string $id
+   * The ID of the icon.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_Icon
+   */
+  public function get($projectId, $id, $optParams = array())
+  {
+    $params = array('projectId' => $projectId, 'id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_MapsEngine_Icon");
+  }
+  /**
+   * Return all icons in the current project (icons.listProjectsIcons)
+   *
+   * @param string $projectId
+   * The ID of the project.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string pageToken
+   * The continuation token, used to page through large result sets. To get the next page of results,
+    * set this parameter to the value of nextPageToken from the previous response.
+   * @opt_param string maxResults
+   * The maximum number of items to include in a single response page. The maximum supported value is
+    * 50.
+   * @return Google_Service_MapsEngine_IconsListResponse
+   */
+  public function listProjectsIcons($projectId, $optParams = array())
+  {
+    $params = array('projectId' => $projectId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_MapsEngine_IconsListResponse");
   }
 }
 
@@ -1662,6 +1868,9 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
    * @opt_param string createdBefore
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or before this time.
+   * @opt_param string role
+   * The role parameter indicates that the response should only contain assets where the current user
+    * has the specified level of access.
    * @return Google_Service_MapsEngine_RasterCollectionsListResponse
    */
   public function listRasterCollections($optParams = array())
@@ -1816,6 +2025,9 @@ class Google_Service_MapsEngine_RasterCollectionsRasters_Resource extends Google
    * @opt_param string createdBefore
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or before this time.
+   * @opt_param string role
+   * The role parameter indicates that the response should only contain assets where the current user
+    * has the specified level of access.
    * @return Google_Service_MapsEngine_RasterCollectionsRastersListResponse
    */
   public function listRasterCollectionsRasters($id, $optParams = array())
@@ -1865,6 +2077,54 @@ class Google_Service_MapsEngine_Rasters_Resource extends Google_Service_Resource
     $params = array('id' => $id);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_MapsEngine_Raster");
+  }
+  /**
+   * Return all rasters readable by the current user. (rasters.listRasters)
+   *
+   * @param string $projectId
+   * The ID of a Maps Engine project, used to filter the response. To list all available projects
+    * with their IDs, send a Projects: list request. You can also find your project ID as the value of
+    * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string modifiedAfter
+   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
+    * been modified at or after this time.
+   * @opt_param string createdAfter
+   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
+    * been created at or after this time.
+   * @opt_param string processingStatus
+   *
+   * @opt_param string tags
+   * A comma separated list of tags. Returned assets will contain all the tags from the list.
+   * @opt_param string maxResults
+   * The maximum number of items to include in a single response page. The maximum supported value is
+    * 100.
+   * @opt_param string pageToken
+   * The continuation token, used to page through large result sets. To get the next page of results,
+    * set this parameter to the value of nextPageToken from the previous response.
+   * @opt_param string creatorEmail
+   * An email address representing a user. Returned assets that have been created by the user
+    * associated with the provided email address.
+   * @opt_param string bbox
+   * A bounding box, expressed as "west,south,east,north". If set, only assets which intersect this
+    * bounding box will be returned.
+   * @opt_param string modifiedBefore
+   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
+    * been modified at or before this time.
+   * @opt_param string createdBefore
+   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
+    * been created at or before this time.
+   * @opt_param string role
+   * The role parameter indicates that the response should only contain assets where the current user
+    * has the specified level of access.
+   * @return Google_Service_MapsEngine_RastersListResponse
+   */
+  public function listRasters($projectId, $optParams = array())
+  {
+    $params = array('projectId' => $projectId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_MapsEngine_RastersListResponse");
   }
   /**
    * Mutate a raster asset. (rasters.patch)
@@ -2063,6 +2323,9 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
    * @opt_param string createdBefore
    * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
     * been created at or before this time.
+   * @opt_param string role
+   * The role parameter indicates that the response should only contain assets where the current user
+    * has the specified level of access.
    * @return Google_Service_MapsEngine_TablesListResponse
    */
   public function listTables($optParams = array())
@@ -2989,6 +3252,43 @@ class Google_Service_MapsEngine_GeoJsonProperties extends Google_Model
 
 }
 
+class Google_Service_MapsEngine_Icon extends Google_Model
+{
+  public $description;
+  public $id;
+  public $name;
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+}
+
 class Google_Service_MapsEngine_IconStyle extends Google_Model
 {
   public $id;
@@ -3012,6 +3312,33 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+}
+
+class Google_Service_MapsEngine_IconsListResponse extends Google_Collection
+{
+  protected $iconsType = 'Google_Service_MapsEngine_Icon';
+  protected $iconsDataType = 'array';
+  public $nextPageToken;
+
+  public function setIcons($icons)
+  {
+    $this->icons = $icons;
+  }
+
+  public function getIcons()
+  {
+    return $this->icons;
+  }
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
   }
 }
 
@@ -4496,6 +4823,33 @@ class Google_Service_MapsEngine_RasterCollectionsRastersListResponse extends Goo
 {
   public $nextPageToken;
   protected $rastersType = 'Google_Service_MapsEngine_RasterCollectionsRaster';
+  protected $rastersDataType = 'array';
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+
+  public function setRasters($rasters)
+  {
+    $this->rasters = $rasters;
+  }
+
+  public function getRasters()
+  {
+    return $this->rasters;
+  }
+}
+
+class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
+{
+  public $nextPageToken;
+  protected $rastersType = 'Google_Service_MapsEngine_Raster';
   protected $rastersDataType = 'array';
 
   public function setNextPageToken($nextPageToken)
