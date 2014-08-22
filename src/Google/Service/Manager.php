@@ -997,6 +997,7 @@ class Google_Service_Manager_LbModule extends Google_Collection
   public $ipAddress;
   public $ipProtocol;
   public $portRange;
+  public $sessionAffinity;
   public $targetModules;
 
   public function setDescription($description)
@@ -1047,6 +1048,16 @@ class Google_Service_Manager_LbModule extends Google_Collection
   public function getPortRange()
   {
     return $this->portRange;
+  }
+
+  public function setSessionAffinity($sessionAffinity)
+  {
+    $this->sessionAffinity = $sessionAffinity;
+  }
+
+  public function getSessionAffinity()
+  {
+    return $this->sessionAffinity;
   }
 
   public function setTargetModules($targetModules)
