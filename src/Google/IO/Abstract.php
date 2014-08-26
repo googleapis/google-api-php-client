@@ -300,7 +300,7 @@ abstract class Google_IO_Abstract
       if ($headerLine && strpos($headerLine, ':') !== false) {
         list($header, $value) = explode(': ', $headerLine, 2);
         $header = strtolower($header);
-        if (isset($responseHeaders[$header])) {
+        if (isset($headers[$header])) {
           $headers[$header] .= "\n" . $value;
         } else {
           $headers[$header] = $value;
