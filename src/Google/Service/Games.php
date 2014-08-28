@@ -2430,6 +2430,7 @@ class Google_Service_Games_AchievementDefinition extends Google_Model
 
 class Google_Service_Games_AchievementDefinitionsListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_AchievementDefinition';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2594,6 +2595,7 @@ class Google_Service_Games_AchievementUnlockResponse extends Google_Model
 
 class Google_Service_Games_AchievementUpdateMultipleRequest extends Google_Collection
 {
+  protected $collection_key = 'updates';
   public $kind;
   protected $updatesType = 'Google_Service_Games_AchievementUpdateRequest';
   protected $updatesDataType = 'array';
@@ -2621,6 +2623,7 @@ class Google_Service_Games_AchievementUpdateMultipleRequest extends Google_Colle
 
 class Google_Service_Games_AchievementUpdateMultipleResponse extends Google_Collection
 {
+  protected $collection_key = 'updatedAchievements';
   public $kind;
   protected $updatedAchievementsType = 'Google_Service_Games_AchievementUpdateResponse';
   protected $updatedAchievementsDataType = 'array';
@@ -2875,6 +2878,7 @@ class Google_Service_Games_AnonymousPlayer extends Google_Model
 
 class Google_Service_Games_Application extends Google_Collection
 {
+  protected $collection_key = 'instances';
   public $achievementCount;
   protected $assetsType = 'Google_Service_Games_ImageAsset';
   protected $assetsDataType = 'array';
@@ -3088,6 +3092,7 @@ class Google_Service_Games_Category extends Google_Model
 
 class Google_Service_Games_CategoryListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_Category';
   protected $itemsDataType = 'array';
   public $kind;
@@ -3190,6 +3195,7 @@ class Google_Service_Games_EventChild extends Google_Model
 
 class Google_Service_Games_EventDefinition extends Google_Collection
 {
+  protected $collection_key = 'childEvents';
   protected $childEventsType = 'Google_Service_Games_EventChild';
   protected $childEventsDataType = 'array';
   public $description;
@@ -3283,6 +3289,7 @@ class Google_Service_Games_EventDefinition extends Google_Collection
 
 class Google_Service_Games_EventDefinitionListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_EventDefinition';
   protected $itemsDataType = 'array';
   public $kind;
@@ -3358,6 +3365,7 @@ class Google_Service_Games_EventPeriodRange extends Google_Model
 
 class Google_Service_Games_EventPeriodUpdate extends Google_Collection
 {
+  protected $collection_key = 'updates';
   public $kind;
   protected $timePeriodType = 'Google_Service_Games_EventPeriodRange';
   protected $timePeriodDataType = '';
@@ -3434,6 +3442,7 @@ class Google_Service_Games_EventRecordFailure extends Google_Model
 
 class Google_Service_Games_EventRecordRequest extends Google_Collection
 {
+  protected $collection_key = 'timePeriods';
   public $currentTimeMillis;
   public $kind;
   public $requestId;
@@ -3520,6 +3529,7 @@ class Google_Service_Games_EventUpdateRequest extends Google_Model
 
 class Google_Service_Games_EventUpdateResponse extends Google_Collection
 {
+  protected $collection_key = 'playerEvents';
   protected $batchFailuresType = 'Google_Service_Games_EventBatchRecordFailure';
   protected $batchFailuresDataType = 'array';
   protected $eventFailuresType = 'Google_Service_Games_EventRecordFailure';
@@ -4139,6 +4149,7 @@ class Google_Service_Games_LeaderboardEntry extends Google_Model
 
 class Google_Service_Games_LeaderboardListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_Leaderboard';
   protected $itemsDataType = 'array';
   public $kind;
@@ -4236,6 +4247,7 @@ class Google_Service_Games_LeaderboardScoreRank extends Google_Model
 
 class Google_Service_Games_LeaderboardScores extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_LeaderboardEntry';
   protected $itemsDataType = 'array';
   public $kind;
@@ -4308,6 +4320,7 @@ class Google_Service_Games_LeaderboardScores extends Google_Collection
 
 class Google_Service_Games_MetagameConfig extends Google_Collection
 {
+  protected $collection_key = 'playerLevels';
   public $currentVersion;
   public $kind;
   protected $playerLevelsType = 'Google_Service_Games_PlayerLevel';
@@ -4844,6 +4857,7 @@ class Google_Service_Games_PlayerAchievement extends Google_Model
 
 class Google_Service_Games_PlayerAchievementListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_PlayerAchievement';
   protected $itemsDataType = 'array';
   public $kind;
@@ -4941,6 +4955,7 @@ class Google_Service_Games_PlayerEvent extends Google_Model
 
 class Google_Service_Games_PlayerEventListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_PlayerEvent';
   protected $itemsDataType = 'array';
   public $kind;
@@ -5145,6 +5160,7 @@ class Google_Service_Games_PlayerLeaderboardScore extends Google_Model
 
 class Google_Service_Games_PlayerLeaderboardScoreListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_PlayerLeaderboardScore';
   protected $itemsDataType = 'array';
   public $kind;
@@ -5243,6 +5259,7 @@ class Google_Service_Games_PlayerLevel extends Google_Model
 
 class Google_Service_Games_PlayerListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_Player';
   protected $itemsDataType = 'array';
   public $kind;
@@ -5366,6 +5383,7 @@ class Google_Service_Games_PlayerScore extends Google_Model
 
 class Google_Service_Games_PlayerScoreListResponse extends Google_Collection
 {
+  protected $collection_key = 'submittedScores';
   public $kind;
   protected $submittedScoresType = 'Google_Service_Games_PlayerScoreResponse';
   protected $submittedScoresDataType = 'array';
@@ -5393,6 +5411,7 @@ class Google_Service_Games_PlayerScoreListResponse extends Google_Collection
 
 class Google_Service_Games_PlayerScoreResponse extends Google_Collection
 {
+  protected $collection_key = 'unbeatenScores';
   public $beatenScoreTimeSpans;
   public $formattedScore;
   public $kind;
@@ -5464,6 +5483,7 @@ class Google_Service_Games_PlayerScoreResponse extends Google_Collection
 
 class Google_Service_Games_PlayerScoreSubmissionList extends Google_Collection
 {
+  protected $collection_key = 'scores';
   public $kind;
   protected $scoresType = 'Google_Service_Games_ScoreSubmission';
   protected $scoresDataType = 'array';
@@ -5593,6 +5613,7 @@ class Google_Service_Games_PushTokenIdIos extends Google_Model
 
 class Google_Service_Games_Quest extends Google_Collection
 {
+  protected $collection_key = 'milestones';
   public $acceptedTimestampMillis;
   public $applicationId;
   public $bannerUrl;
@@ -5873,6 +5894,7 @@ class Google_Service_Games_QuestCriterion extends Google_Model
 
 class Google_Service_Games_QuestListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_Quest';
   protected $itemsDataType = 'array';
   public $kind;
@@ -5911,6 +5933,7 @@ class Google_Service_Games_QuestListResponse extends Google_Collection
 
 class Google_Service_Games_QuestMilestone extends Google_Collection
 {
+  protected $collection_key = 'criteria';
   public $completionRewardData;
   protected $criteriaType = 'Google_Service_Games_QuestCriterion';
   protected $criteriaDataType = 'array';
@@ -6008,6 +6031,7 @@ class Google_Service_Games_RevisionCheckResponse extends Google_Model
 
 class Google_Service_Games_Room extends Google_Collection
 {
+  protected $collection_key = 'participants';
   public $applicationId;
   protected $autoMatchingCriteriaType = 'Google_Service_Games_RoomAutoMatchingCriteria';
   protected $autoMatchingCriteriaDataType = '';
@@ -6260,6 +6284,7 @@ class Google_Service_Games_RoomClientAddress extends Google_Model
 
 class Google_Service_Games_RoomCreateRequest extends Google_Collection
 {
+  protected $collection_key = 'invitedPlayerIds';
   protected $autoMatchingCriteriaType = 'Google_Service_Games_RoomAutoMatchingCriteria';
   protected $autoMatchingCriteriaDataType = '';
   public $capabilities;
@@ -6355,6 +6380,7 @@ class Google_Service_Games_RoomCreateRequest extends Google_Collection
 
 class Google_Service_Games_RoomJoinRequest extends Google_Collection
 {
+  protected $collection_key = 'capabilities';
   public $capabilities;
   protected $clientAddressType = 'Google_Service_Games_RoomClientAddress';
   protected $clientAddressDataType = '';
@@ -6405,6 +6431,7 @@ class Google_Service_Games_RoomJoinRequest extends Google_Collection
 
 class Google_Service_Games_RoomLeaveDiagnostics extends Google_Collection
 {
+  protected $collection_key = 'peerSession';
   public $androidNetworkSubtype;
   public $androidNetworkType;
   public $iosNetworkType;
@@ -6536,6 +6563,7 @@ class Google_Service_Games_RoomLeaveRequest extends Google_Model
 
 class Google_Service_Games_RoomList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_Room';
   protected $itemsDataType = 'array';
   public $kind;
@@ -6692,6 +6720,7 @@ class Google_Service_Games_RoomP2PStatus extends Google_Model
 
 class Google_Service_Games_RoomP2PStatuses extends Google_Collection
 {
+  protected $collection_key = 'updates';
   public $kind;
   protected $updatesType = 'Google_Service_Games_RoomP2PStatus';
   protected $updatesDataType = 'array';
@@ -6719,6 +6748,7 @@ class Google_Service_Games_RoomP2PStatuses extends Google_Collection
 
 class Google_Service_Games_RoomParticipant extends Google_Collection
 {
+  protected $collection_key = 'capabilities';
   public $autoMatched;
   protected $autoMatchedPlayerType = 'Google_Service_Games_AnonymousPlayer';
   protected $autoMatchedPlayerDataType = '';
@@ -6836,6 +6866,7 @@ class Google_Service_Games_RoomParticipant extends Google_Collection
 
 class Google_Service_Games_RoomStatus extends Google_Collection
 {
+  protected $collection_key = 'participants';
   protected $autoMatchingStatusType = 'Google_Service_Games_RoomAutoMatchStatus';
   protected $autoMatchingStatusDataType = '';
   public $kind;
@@ -7141,6 +7172,7 @@ class Google_Service_Games_SnapshotImage extends Google_Model
 
 class Google_Service_Games_SnapshotListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_Snapshot';
   protected $itemsDataType = 'array';
   public $kind;
@@ -7227,6 +7259,7 @@ class Google_Service_Games_TurnBasedAutoMatchingCriteria extends Google_Model
 
 class Google_Service_Games_TurnBasedMatch extends Google_Collection
 {
+  protected $collection_key = 'results';
   public $applicationId;
   protected $autoMatchingCriteriaType = 'Google_Service_Games_TurnBasedAutoMatchingCriteria';
   protected $autoMatchingCriteriaDataType = '';
@@ -7458,6 +7491,7 @@ class Google_Service_Games_TurnBasedMatch extends Google_Collection
 
 class Google_Service_Games_TurnBasedMatchCreateRequest extends Google_Collection
 {
+  protected $collection_key = 'invitedPlayerIds';
   protected $autoMatchingCriteriaType = 'Google_Service_Games_TurnBasedAutoMatchingCriteria';
   protected $autoMatchingCriteriaDataType = '';
   public $invitedPlayerIds;
@@ -7581,6 +7615,7 @@ class Google_Service_Games_TurnBasedMatchDataRequest extends Google_Model
 
 class Google_Service_Games_TurnBasedMatchList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_TurnBasedMatch';
   protected $itemsDataType = 'array';
   public $kind;
@@ -7767,6 +7802,7 @@ class Google_Service_Games_TurnBasedMatchRematch extends Google_Model
 
 class Google_Service_Games_TurnBasedMatchResults extends Google_Collection
 {
+  protected $collection_key = 'results';
   protected $dataType = 'Google_Service_Games_TurnBasedMatchDataRequest';
   protected $dataDataType = '';
   public $kind;
@@ -7817,6 +7853,7 @@ class Google_Service_Games_TurnBasedMatchResults extends Google_Collection
 
 class Google_Service_Games_TurnBasedMatchSync extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Games_TurnBasedMatch';
   protected $itemsDataType = 'array';
   public $kind;
@@ -7866,6 +7903,7 @@ class Google_Service_Games_TurnBasedMatchSync extends Google_Collection
 
 class Google_Service_Games_TurnBasedMatchTurn extends Google_Collection
 {
+  protected $collection_key = 'results';
   protected $dataType = 'Google_Service_Games_TurnBasedMatchDataRequest';
   protected $dataDataType = '';
   public $kind;
