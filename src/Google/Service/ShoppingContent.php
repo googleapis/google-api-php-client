@@ -3024,6 +3024,7 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   public $salePriceEffectiveDate;
   protected $shippingType = 'Google_Service_ShoppingContent_ProductShipping';
   protected $shippingDataType = 'array';
+  public $shippingLabel;
   protected $shippingWeightType = 'Google_Service_ShoppingContent_ProductShippingWeight';
   protected $shippingWeightDataType = '';
   public $sizeSystem;
@@ -3519,6 +3520,16 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
     return $this->shipping;
   }
 
+  public function setShippingLabel($shippingLabel)
+  {
+    $this->shippingLabel = $shippingLabel;
+  }
+
+  public function getShippingLabel()
+  {
+    return $this->shippingLabel;
+  }
+
   public function setShippingWeight(Google_Service_ShoppingContent_ProductShippingWeight $shippingWeight)
   {
     $this->shippingWeight = $shippingWeight;
@@ -3761,6 +3772,9 @@ class Google_Service_ShoppingContent_ProductInstallment extends Google_Model
 class Google_Service_ShoppingContent_ProductShipping extends Google_Model
 {
   public $country;
+  public $locationGroupName;
+  public $locationId;
+  public $postalCode;
   protected $priceType = 'Google_Service_ShoppingContent_Price';
   protected $priceDataType = '';
   public $region;
@@ -3774,6 +3788,36 @@ class Google_Service_ShoppingContent_ProductShipping extends Google_Model
   public function getCountry()
   {
     return $this->country;
+  }
+
+  public function setLocationGroupName($locationGroupName)
+  {
+    $this->locationGroupName = $locationGroupName;
+  }
+
+  public function getLocationGroupName()
+  {
+    return $this->locationGroupName;
+  }
+
+  public function setLocationId($locationId)
+  {
+    $this->locationId = $locationId;
+  }
+
+  public function getLocationId()
+  {
+    return $this->locationId;
+  }
+
+  public function setPostalCode($postalCode)
+  {
+    $this->postalCode = $postalCode;
+  }
+
+  public function getPostalCode()
+  {
+    return $this->postalCode;
   }
 
   public function setPrice(Google_Service_ShoppingContent_Price $price)
@@ -4026,6 +4070,8 @@ class Google_Service_ShoppingContent_ProductStatusDestinationStatus extends Goog
 class Google_Service_ShoppingContent_ProductTax extends Google_Model
 {
   public $country;
+  public $locationId;
+  public $postalCode;
   public $rate;
   public $region;
   public $taxShip;
@@ -4038,6 +4084,26 @@ class Google_Service_ShoppingContent_ProductTax extends Google_Model
   public function getCountry()
   {
     return $this->country;
+  }
+
+  public function setLocationId($locationId)
+  {
+    $this->locationId = $locationId;
+  }
+
+  public function getLocationId()
+  {
+    return $this->locationId;
+  }
+
+  public function setPostalCode($postalCode)
+  {
+    $this->postalCode = $postalCode;
+  }
+
+  public function getPostalCode()
+  {
+    return $this->postalCode;
   }
 
   public function setRate($rate)
