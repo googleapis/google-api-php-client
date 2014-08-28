@@ -589,6 +589,7 @@ class Google_Service_Taskqueue_TaskQueue extends Google_Model
 
 class Google_Service_Taskqueue_TaskQueueAcl extends Google_Collection
 {
+  protected $collection_key = 'producerEmails';
   public $adminEmails;
   public $consumerEmails;
   public $producerEmails;
@@ -674,6 +675,7 @@ class Google_Service_Taskqueue_TaskQueueStats extends Google_Model
 
 class Google_Service_Taskqueue_Tasks extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Taskqueue_Task';
   protected $itemsDataType = 'array';
   public $kind;
@@ -701,6 +703,7 @@ class Google_Service_Taskqueue_Tasks extends Google_Collection
 
 class Google_Service_Taskqueue_Tasks2 extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Taskqueue_Task';
   protected $itemsDataType = 'array';
   public $kind;
