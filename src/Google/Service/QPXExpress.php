@@ -182,6 +182,7 @@ class Google_Service_QPXExpress_AirportData extends Google_Model
 
 class Google_Service_QPXExpress_BagDescriptor extends Google_Collection
 {
+  protected $collection_key = 'description';
   public $commercialName;
   public $count;
   public $description;
@@ -326,6 +327,7 @@ class Google_Service_QPXExpress_CityData extends Google_Model
 
 class Google_Service_QPXExpress_Data extends Google_Collection
 {
+  protected $collection_key = 'tax';
   protected $aircraftType = 'Google_Service_QPXExpress_AircraftData';
   protected $aircraftDataType = 'array';
   protected $airportType = 'Google_Service_QPXExpress_AirportData';
@@ -508,6 +510,7 @@ class Google_Service_QPXExpress_FlightInfo extends Google_Model
 
 class Google_Service_QPXExpress_FreeBaggageAllowance extends Google_Collection
 {
+  protected $collection_key = 'bagDescriptor';
   protected $bagDescriptorType = 'Google_Service_QPXExpress_BagDescriptor';
   protected $bagDescriptorDataType = 'array';
   public $kilos;
@@ -840,6 +843,7 @@ class Google_Service_QPXExpress_PassengerCounts extends Google_Model
 
 class Google_Service_QPXExpress_PricingInfo extends Google_Collection
 {
+  protected $collection_key = 'tax';
   public $baseFareTotal;
   protected $fareType = 'Google_Service_QPXExpress_FareInfo';
   protected $fareDataType = 'array';
@@ -991,6 +995,7 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
 
 class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
 {
+  protected $collection_key = 'leg';
   public $bookingCode;
   public $bookingCodeCount;
   public $cabin;
@@ -1118,6 +1123,7 @@ class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
 
 class Google_Service_QPXExpress_SegmentPricing extends Google_Collection
 {
+  protected $collection_key = 'freeBaggageOption';
   public $fareId;
   protected $freeBaggageOptionType = 'Google_Service_QPXExpress_FreeBaggageAllowance';
   protected $freeBaggageOptionDataType = 'array';
@@ -1167,6 +1173,7 @@ class Google_Service_QPXExpress_SegmentPricing extends Google_Collection
 
 class Google_Service_QPXExpress_SliceInfo extends Google_Collection
 {
+  protected $collection_key = 'segment';
   public $duration;
   public $kind;
   protected $segmentType = 'Google_Service_QPXExpress_SegmentInfo';
@@ -1205,6 +1212,7 @@ class Google_Service_QPXExpress_SliceInfo extends Google_Collection
 
 class Google_Service_QPXExpress_SliceInput extends Google_Collection
 {
+  protected $collection_key = 'prohibitedCarrier';
   public $alliance;
   public $date;
   public $destination;
@@ -1475,6 +1483,7 @@ class Google_Service_QPXExpress_TimeOfDayRange extends Google_Model
 
 class Google_Service_QPXExpress_TripOption extends Google_Collection
 {
+  protected $collection_key = 'slice';
   public $id;
   public $kind;
   protected $pricingType = 'Google_Service_QPXExpress_PricingInfo';
@@ -1536,6 +1545,7 @@ class Google_Service_QPXExpress_TripOption extends Google_Collection
 
 class Google_Service_QPXExpress_TripOptionsRequest extends Google_Collection
 {
+  protected $collection_key = 'slice';
   public $maxPrice;
   protected $passengersType = 'Google_Service_QPXExpress_PassengerCounts';
   protected $passengersDataType = '';
@@ -1608,6 +1618,7 @@ class Google_Service_QPXExpress_TripOptionsRequest extends Google_Collection
 
 class Google_Service_QPXExpress_TripOptionsResponse extends Google_Collection
 {
+  protected $collection_key = 'tripOption';
   protected $dataType = 'Google_Service_QPXExpress_Data';
   protected $dataDataType = '';
   public $kind;
