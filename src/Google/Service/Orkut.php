@@ -1628,6 +1628,7 @@ class Google_Service_Orkut_Scraps_Resource extends Google_Service_Resource
 
 class Google_Service_Orkut_Acl extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $description;
   protected $itemsType = 'Google_Service_Orkut_AclItems';
   protected $itemsDataType = 'array';
@@ -1703,6 +1704,7 @@ class Google_Service_Orkut_AclItems extends Google_Model
 
 class Google_Service_Orkut_Activity extends Google_Collection
 {
+  protected $collection_key = 'links';
   protected $accessType = 'Google_Service_Orkut_Acl';
   protected $accessDataType = '';
   protected $actorType = 'Google_Service_Orkut_OrkutAuthorResource';
@@ -1821,6 +1823,7 @@ class Google_Service_Orkut_Activity extends Google_Collection
 
 class Google_Service_Orkut_ActivityList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Orkut_Activity';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1859,6 +1862,7 @@ class Google_Service_Orkut_ActivityList extends Google_Collection
 
 class Google_Service_Orkut_ActivityObject extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $content;
   protected $itemsType = 'Google_Service_Orkut_OrkutActivityobjectsResource';
   protected $itemsDataType = 'array';
@@ -1909,6 +1913,7 @@ class Google_Service_Orkut_ActivityObject extends Google_Collection
 
 class Google_Service_Orkut_ActivityObjectReplies extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Orkut_Comment';
   protected $itemsDataType = 'array';
   public $totalItems;
@@ -2050,6 +2055,7 @@ class Google_Service_Orkut_Badge extends Google_Model
 
 class Google_Service_Orkut_BadgeList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Orkut_Badge';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2077,6 +2083,7 @@ class Google_Service_Orkut_BadgeList extends Google_Collection
 
 class Google_Service_Orkut_Comment extends Google_Collection
 {
+  protected $collection_key = 'links';
   protected $actorType = 'Google_Service_Orkut_OrkutAuthorResource';
   protected $actorDataType = '';
   public $content;
@@ -2209,6 +2216,7 @@ class Google_Service_Orkut_CommentInReplyTo extends Google_Model
 
 class Google_Service_Orkut_CommentList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Orkut_Comment';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2258,6 +2266,7 @@ class Google_Service_Orkut_CommentList extends Google_Collection
 
 class Google_Service_Orkut_Community extends Google_Collection
 {
+  protected $collection_key = 'moderators';
   public $category;
   protected $coOwnersType = 'Google_Service_Orkut_OrkutAuthorResource';
   protected $coOwnersDataType = 'array';
@@ -2420,6 +2429,7 @@ class Google_Service_Orkut_Community extends Google_Collection
 
 class Google_Service_Orkut_CommunityList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Orkut_Community';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2486,6 +2496,7 @@ class Google_Service_Orkut_CommunityMembers extends Google_Model
 
 class Google_Service_Orkut_CommunityMembersList extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $firstPageToken;
   protected $itemsType = 'Google_Service_Orkut_CommunityMembers';
   protected $itemsDataType = 'array';
@@ -2682,6 +2693,7 @@ class Google_Service_Orkut_CommunityMembershipStatus extends Google_Model
 
 class Google_Service_Orkut_CommunityMessage extends Google_Collection
 {
+  protected $collection_key = 'links';
   public $addedDate;
   protected $authorType = 'Google_Service_Orkut_OrkutAuthorResource';
   protected $authorDataType = '';
@@ -2776,6 +2788,7 @@ class Google_Service_Orkut_CommunityMessage extends Google_Collection
 
 class Google_Service_Orkut_CommunityMessageList extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $firstPageToken;
   protected $itemsType = 'Google_Service_Orkut_CommunityMessage';
   protected $itemsDataType = 'array';
@@ -2847,6 +2860,7 @@ class Google_Service_Orkut_CommunityMessageList extends Google_Collection
 
 class Google_Service_Orkut_CommunityPoll extends Google_Collection
 {
+  protected $collection_key = 'votedOptions';
   protected $authorType = 'Google_Service_Orkut_OrkutAuthorResource';
   protected $authorDataType = '';
   public $communityId;
@@ -3157,6 +3171,7 @@ class Google_Service_Orkut_CommunityPollComment extends Google_Model
 
 class Google_Service_Orkut_CommunityPollCommentList extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $firstPageToken;
   protected $itemsType = 'Google_Service_Orkut_CommunityPollComment';
   protected $itemsDataType = 'array';
@@ -3243,6 +3258,7 @@ class Google_Service_Orkut_CommunityPollImage extends Google_Model
 
 class Google_Service_Orkut_CommunityPollList extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $firstPageToken;
   protected $itemsType = 'Google_Service_Orkut_CommunityPoll';
   protected $itemsDataType = 'array';
@@ -3314,6 +3330,7 @@ class Google_Service_Orkut_CommunityPollList extends Google_Collection
 
 class Google_Service_Orkut_CommunityPollVote extends Google_Collection
 {
+  protected $collection_key = 'optionIds';
   public $isVotevisible;
   public $kind;
   public $optionIds;
@@ -3351,6 +3368,7 @@ class Google_Service_Orkut_CommunityPollVote extends Google_Collection
 
 class Google_Service_Orkut_CommunityTopic extends Google_Collection
 {
+  protected $collection_key = 'messages';
   protected $authorType = 'Google_Service_Orkut_OrkutAuthorResource';
   protected $authorDataType = '';
   public $body;
@@ -3479,6 +3497,7 @@ class Google_Service_Orkut_CommunityTopic extends Google_Collection
 
 class Google_Service_Orkut_CommunityTopicList extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $firstPageToken;
   protected $itemsType = 'Google_Service_Orkut_CommunityTopic';
   protected $itemsDataType = 'array';
@@ -3550,6 +3569,7 @@ class Google_Service_Orkut_CommunityTopicList extends Google_Collection
 
 class Google_Service_Orkut_Counters extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Orkut_OrkutCounterResource';
   protected $itemsDataType = 'array';
   public $kind;
@@ -3577,6 +3597,7 @@ class Google_Service_Orkut_Counters extends Google_Collection
 
 class Google_Service_Orkut_OrkutActivityobjectsResource extends Google_Collection
 {
+  protected $collection_key = 'links';
   protected $communityType = 'Google_Service_Orkut_Community';
   protected $communityDataType = '';
   public $content;
@@ -3988,6 +4009,7 @@ class Google_Service_Orkut_OrkutLinkResource extends Google_Model
 
 class Google_Service_Orkut_Visibility extends Google_Collection
 {
+  protected $collection_key = 'links';
   public $kind;
   protected $linksType = 'Google_Service_Orkut_OrkutLinkResource';
   protected $linksDataType = 'array';
