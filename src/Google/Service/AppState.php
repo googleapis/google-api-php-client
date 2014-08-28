@@ -274,6 +274,7 @@ class Google_Service_AppState_GetResponse extends Google_Model
 
 class Google_Service_AppState_ListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_AppState_GetResponse';
   protected $itemsDataType = 'array';
   public $kind;
