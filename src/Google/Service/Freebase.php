@@ -373,6 +373,7 @@ class Google_Service_Freebase_ReconcileCandidateNotable extends Google_Model
 
 class Google_Service_Freebase_ReconcileGet extends Google_Collection
 {
+  protected $collection_key = 'warning';
   protected $candidateType = 'Google_Service_Freebase_ReconcileCandidate';
   protected $candidateDataType = 'array';
   protected $costsType = 'Google_Service_Freebase_ReconcileGetCosts';
