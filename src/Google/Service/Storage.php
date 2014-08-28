@@ -1839,6 +1839,7 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
 
 class Google_Service_Storage_Bucket extends Google_Collection
 {
+  protected $collection_key = 'defaultObjectAcl';
   protected $aclType = 'Google_Service_Storage_BucketAccessControl';
   protected $aclDataType = 'array';
   protected $corsType = 'Google_Service_Storage_BucketCors';
@@ -2201,6 +2202,7 @@ class Google_Service_Storage_BucketAccessControlProjectTeam extends Google_Model
 
 class Google_Service_Storage_BucketAccessControls extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Storage_BucketAccessControl';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2228,6 +2230,7 @@ class Google_Service_Storage_BucketAccessControls extends Google_Collection
 
 class Google_Service_Storage_BucketCors extends Google_Collection
 {
+  protected $collection_key = 'responseHeader';
   public $maxAgeSeconds;
   public $method;
   public $origin;
@@ -2276,6 +2279,7 @@ class Google_Service_Storage_BucketCors extends Google_Collection
 
 class Google_Service_Storage_BucketLifecycle extends Google_Collection
 {
+  protected $collection_key = 'rule';
   protected $ruleType = 'Google_Service_Storage_BucketLifecycleRule';
   protected $ruleDataType = 'array';
 
@@ -2476,6 +2480,7 @@ class Google_Service_Storage_BucketWebsite extends Google_Model
 
 class Google_Service_Storage_Buckets extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Storage_Bucket';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2633,6 +2638,7 @@ class Google_Service_Storage_ChannelParams extends Google_Model
 
 class Google_Service_Storage_ComposeRequest extends Google_Collection
 {
+  protected $collection_key = 'sourceObjects';
   protected $destinationType = 'Google_Service_Storage_StorageObject';
   protected $destinationDataType = '';
   public $kind;
@@ -2899,6 +2905,7 @@ class Google_Service_Storage_ObjectAccessControlProjectTeam extends Google_Model
 
 class Google_Service_Storage_ObjectAccessControls extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $items;
   public $kind;
 
@@ -2925,6 +2932,7 @@ class Google_Service_Storage_ObjectAccessControls extends Google_Collection
 
 class Google_Service_Storage_Objects extends Google_Collection
 {
+  protected $collection_key = 'prefixes';
   protected $itemsType = 'Google_Service_Storage_StorageObject';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2974,6 +2982,7 @@ class Google_Service_Storage_Objects extends Google_Collection
 
 class Google_Service_Storage_StorageObject extends Google_Collection
 {
+  protected $collection_key = 'acl';
   protected $aclType = 'Google_Service_Storage_ObjectAccessControl';
   protected $aclDataType = 'array';
   public $bucket;
