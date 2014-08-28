@@ -1303,6 +1303,7 @@ class Google_Service_AdSenseHost_Account extends Google_Model
 
 class Google_Service_AdSenseHost_Accounts extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdSenseHost_Account';
   protected $itemsDataType = 'array';
@@ -1400,6 +1401,7 @@ class Google_Service_AdSenseHost_AdClient extends Google_Model
 
 class Google_Service_AdSenseHost_AdClients extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdSenseHost_AdClient';
   protected $itemsDataType = 'array';
@@ -1828,6 +1830,7 @@ class Google_Service_AdSenseHost_AdUnitMobileContentAdsSettings extends Google_M
 
 class Google_Service_AdSenseHost_AdUnits extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdSenseHost_AdUnit';
   protected $itemsDataType = 'array';
@@ -1877,6 +1880,7 @@ class Google_Service_AdSenseHost_AdUnits extends Google_Collection
 
 class Google_Service_AdSenseHost_AssociationSession extends Google_Collection
 {
+  protected $collection_key = 'productCodes';
   public $accountId;
   public $id;
   public $kind;
@@ -2028,6 +2032,7 @@ class Google_Service_AdSenseHost_CustomChannel extends Google_Model
 
 class Google_Service_AdSenseHost_CustomChannels extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdSenseHost_CustomChannel';
   protected $itemsDataType = 'array';
@@ -2077,6 +2082,7 @@ class Google_Service_AdSenseHost_CustomChannels extends Google_Collection
 
 class Google_Service_AdSenseHost_Report extends Google_Collection
 {
+  protected $collection_key = 'warnings';
   public $averages;
   protected $headersType = 'Google_Service_AdSenseHost_ReportHeaders';
   protected $headersDataType = 'array';
@@ -2233,6 +2239,7 @@ class Google_Service_AdSenseHost_UrlChannel extends Google_Model
 
 class Google_Service_AdSenseHost_UrlChannels extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdSenseHost_UrlChannel';
   protected $itemsDataType = 'array';
