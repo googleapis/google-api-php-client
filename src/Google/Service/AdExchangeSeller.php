@@ -1079,6 +1079,7 @@ class Google_Service_AdExchangeSeller_AdClient extends Google_Model
 
 class Google_Service_AdExchangeSeller_AdClients extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdExchangeSeller_AdClient';
   protected $itemsDataType = 'array';
@@ -1187,6 +1188,7 @@ class Google_Service_AdExchangeSeller_AdUnit extends Google_Model
 
 class Google_Service_AdExchangeSeller_AdUnits extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdExchangeSeller_AdUnit';
   protected $itemsDataType = 'array';
@@ -1295,6 +1297,7 @@ class Google_Service_AdExchangeSeller_Alert extends Google_Model
 
 class Google_Service_AdExchangeSeller_Alerts extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_AdExchangeSeller_Alert';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1430,6 +1433,7 @@ class Google_Service_AdExchangeSeller_CustomChannelTargetingInfo extends Google_
 
 class Google_Service_AdExchangeSeller_CustomChannels extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdExchangeSeller_CustomChannel';
   protected $itemsDataType = 'array';
@@ -1479,6 +1483,7 @@ class Google_Service_AdExchangeSeller_CustomChannels extends Google_Collection
 
 class Google_Service_AdExchangeSeller_Metadata extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_AdExchangeSeller_ReportingMetadataEntry';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1598,6 +1603,7 @@ class Google_Service_AdExchangeSeller_PreferredDeal extends Google_Model
 
 class Google_Service_AdExchangeSeller_PreferredDeals extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_AdExchangeSeller_PreferredDeal';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1625,6 +1631,7 @@ class Google_Service_AdExchangeSeller_PreferredDeals extends Google_Collection
 
 class Google_Service_AdExchangeSeller_Report extends Google_Collection
 {
+  protected $collection_key = 'warnings';
   public $averages;
   protected $headersType = 'Google_Service_AdExchangeSeller_ReportHeaders';
   protected $headersDataType = 'array';
@@ -1744,6 +1751,7 @@ class Google_Service_AdExchangeSeller_ReportHeaders extends Google_Model
 
 class Google_Service_AdExchangeSeller_ReportingMetadataEntry extends Google_Collection
 {
+  protected $collection_key = 'supportedProducts';
   public $compatibleDimensions;
   public $compatibleMetrics;
   public $id;
@@ -1862,6 +1870,7 @@ class Google_Service_AdExchangeSeller_SavedReport extends Google_Model
 
 class Google_Service_AdExchangeSeller_SavedReports extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdExchangeSeller_SavedReport';
   protected $itemsDataType = 'array';
@@ -1948,6 +1957,7 @@ class Google_Service_AdExchangeSeller_UrlChannel extends Google_Model
 
 class Google_Service_AdExchangeSeller_UrlChannels extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdExchangeSeller_UrlChannel';
   protected $itemsDataType = 'array';
