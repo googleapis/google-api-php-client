@@ -604,6 +604,7 @@ class Google_Service_GamesManagement_TurnBasedMatches_Resource extends Google_Se
 
 class Google_Service_GamesManagement_AchievementResetAllResponse extends Google_Collection
 {
+  protected $collection_key = 'results';
   public $kind;
   protected $resultsType = 'Google_Service_GamesManagement_AchievementResetResponse';
   protected $resultsDataType = 'array';
@@ -830,6 +831,7 @@ class Google_Service_GamesManagement_HiddenPlayer extends Google_Model
 
 class Google_Service_GamesManagement_HiddenPlayerList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_GamesManagement_HiddenPlayer';
   protected $itemsDataType = 'array';
   public $kind;
@@ -989,6 +991,7 @@ class Google_Service_GamesManagement_PlayerName extends Google_Model
 
 class Google_Service_GamesManagement_PlayerScoreResetResponse extends Google_Collection
 {
+  protected $collection_key = 'resetScoreTimeSpans';
   public $kind;
   public $resetScoreTimeSpans;
 
