@@ -235,6 +235,7 @@ class Google_Service_Datastore_Datasets_Resource extends Google_Service_Resource
 
 class Google_Service_Datastore_AllocateIdsRequest extends Google_Collection
 {
+  protected $collection_key = 'keys';
   protected $keysType = 'Google_Service_Datastore_Key';
   protected $keysDataType = 'array';
 
@@ -251,6 +252,7 @@ class Google_Service_Datastore_AllocateIdsRequest extends Google_Collection
 
 class Google_Service_Datastore_AllocateIdsResponse extends Google_Collection
 {
+  protected $collection_key = 'keys';
   protected $headerType = 'Google_Service_Datastore_ResponseHeader';
   protected $headerDataType = '';
   protected $keysType = 'Google_Service_Datastore_Key';
@@ -398,6 +400,7 @@ class Google_Service_Datastore_CommitResponse extends Google_Model
 
 class Google_Service_Datastore_CompositeFilter extends Google_Collection
 {
+  protected $collection_key = 'filters';
   protected $filtersType = 'Google_Service_Datastore_Filter';
   protected $filtersDataType = 'array';
   public $operator;
@@ -502,6 +505,7 @@ class Google_Service_Datastore_Filter extends Google_Model
 
 class Google_Service_Datastore_GqlQuery extends Google_Collection
 {
+  protected $collection_key = 'numberArgs';
   public $allowLiteral;
   protected $nameArgsType = 'Google_Service_Datastore_GqlQueryArg';
   protected $nameArgsDataType = 'array';
@@ -590,6 +594,7 @@ class Google_Service_Datastore_GqlQueryArg extends Google_Model
 
 class Google_Service_Datastore_Key extends Google_Collection
 {
+  protected $collection_key = 'path';
   protected $partitionIdType = 'Google_Service_Datastore_PartitionId';
   protected $partitionIdDataType = '';
   protected $pathType = 'Google_Service_Datastore_KeyPathElement';
@@ -670,6 +675,7 @@ class Google_Service_Datastore_KindExpression extends Google_Model
 
 class Google_Service_Datastore_LookupRequest extends Google_Collection
 {
+  protected $collection_key = 'keys';
   protected $keysType = 'Google_Service_Datastore_Key';
   protected $keysDataType = 'array';
   protected $readOptionsType = 'Google_Service_Datastore_ReadOptions';
@@ -698,6 +704,7 @@ class Google_Service_Datastore_LookupRequest extends Google_Collection
 
 class Google_Service_Datastore_LookupResponse extends Google_Collection
 {
+  protected $collection_key = 'missing';
   protected $deferredType = 'Google_Service_Datastore_Key';
   protected $deferredDataType = 'array';
   protected $foundType = 'Google_Service_Datastore_EntityResult';
@@ -750,6 +757,7 @@ class Google_Service_Datastore_LookupResponse extends Google_Collection
 
 class Google_Service_Datastore_Mutation extends Google_Collection
 {
+  protected $collection_key = 'upsert';
   protected $deleteType = 'Google_Service_Datastore_Key';
   protected $deleteDataType = 'array';
   public $force;
@@ -825,6 +833,7 @@ class Google_Service_Datastore_Mutation extends Google_Collection
 
 class Google_Service_Datastore_MutationResult extends Google_Collection
 {
+  protected $collection_key = 'insertAutoIdKeys';
   public $indexUpdates;
   protected $insertAutoIdKeysType = 'Google_Service_Datastore_Key';
   protected $insertAutoIdKeysDataType = 'array';
@@ -878,6 +887,7 @@ class Google_Service_Datastore_PartitionId extends Google_Model
 
 class Google_Service_Datastore_Property extends Google_Collection
 {
+  protected $collection_key = 'listValue';
   public $blobKeyValue;
   public $blobValue;
   public $booleanValue;
@@ -1125,6 +1135,7 @@ class Google_Service_Datastore_PropertyReference extends Google_Model
 
 class Google_Service_Datastore_Query extends Google_Collection
 {
+  protected $collection_key = 'projection';
   public $endCursor;
   protected $filterType = 'Google_Service_Datastore_Filter';
   protected $filterDataType = '';
@@ -1233,6 +1244,7 @@ class Google_Service_Datastore_Query extends Google_Collection
 
 class Google_Service_Datastore_QueryResultBatch extends Google_Collection
 {
+  protected $collection_key = 'entityResults';
   public $endCursor;
   public $entityResultType;
   protected $entityResultsType = 'Google_Service_Datastore_EntityResult';
@@ -1445,6 +1457,7 @@ class Google_Service_Datastore_RunQueryResponse extends Google_Model
 
 class Google_Service_Datastore_Value extends Google_Collection
 {
+  protected $collection_key = 'listValue';
   public $blobKeyValue;
   public $blobValue;
   public $booleanValue;
