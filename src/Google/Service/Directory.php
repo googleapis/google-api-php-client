@@ -2427,6 +2427,7 @@ class Google_Service_Directory_Alias extends Google_Model
 
 class Google_Service_Directory_Aliases extends Google_Collection
 {
+  protected $collection_key = 'aliases';
   protected $aliasesType = 'Google_Service_Directory_Alias';
   protected $aliasesDataType = 'array';
   public $etag;
@@ -2546,6 +2547,7 @@ class Google_Service_Directory_Asp extends Google_Model
 
 class Google_Service_Directory_Asps extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_Directory_Asp';
   protected $itemsDataType = 'array';
@@ -2703,6 +2705,7 @@ class Google_Service_Directory_ChannelParams extends Google_Model
 
 class Google_Service_Directory_ChromeOsDevice extends Google_Collection
 {
+  protected $collection_key = 'recentUsers';
   public $annotatedLocation;
   public $annotatedUser;
   public $bootMode;
@@ -2987,6 +2990,7 @@ class Google_Service_Directory_ChromeOsDeviceRecentUsers extends Google_Model
 
 class Google_Service_Directory_ChromeOsDevices extends Google_Collection
 {
+  protected $collection_key = 'chromeosdevices';
   protected $chromeosdevicesType = 'Google_Service_Directory_ChromeOsDevice';
   protected $chromeosdevicesDataType = 'array';
   public $etag;
@@ -3036,6 +3040,7 @@ class Google_Service_Directory_ChromeOsDevices extends Google_Collection
 
 class Google_Service_Directory_Group extends Google_Collection
 {
+  protected $collection_key = 'nonEditableAliases';
   public $adminCreated;
   public $aliases;
   public $description;
@@ -3150,6 +3155,7 @@ class Google_Service_Directory_Group extends Google_Collection
 
 class Google_Service_Directory_Groups extends Google_Collection
 {
+  protected $collection_key = 'groups';
   public $etag;
   protected $groupsType = 'Google_Service_Directory_Group';
   protected $groupsDataType = 'array';
@@ -3269,6 +3275,7 @@ class Google_Service_Directory_Member extends Google_Model
 
 class Google_Service_Directory_Members extends Google_Collection
 {
+  protected $collection_key = 'members';
   public $etag;
   public $kind;
   protected $membersType = 'Google_Service_Directory_Member';
@@ -3318,6 +3325,7 @@ class Google_Service_Directory_Members extends Google_Collection
 
 class Google_Service_Directory_MobileDevice extends Google_Collection
 {
+  protected $collection_key = 'name';
   protected $applicationsType = 'Google_Service_Directory_MobileDeviceApplications';
   protected $applicationsDataType = 'array';
   public $basebandVersion;
@@ -3624,6 +3632,7 @@ class Google_Service_Directory_MobileDeviceAction extends Google_Model
 
 class Google_Service_Directory_MobileDeviceApplications extends Google_Collection
 {
+  protected $collection_key = 'permission';
   public $displayName;
   public $packageName;
   public $permission;
@@ -3683,6 +3692,7 @@ class Google_Service_Directory_MobileDeviceApplications extends Google_Collectio
 
 class Google_Service_Directory_MobileDevices extends Google_Collection
 {
+  protected $collection_key = 'mobiledevices';
   public $etag;
   public $kind;
   protected $mobiledevicesType = 'Google_Service_Directory_MobileDevice';
@@ -3824,6 +3834,7 @@ class Google_Service_Directory_Notification extends Google_Model
 
 class Google_Service_Directory_Notifications extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_Directory_Notification';
   protected $itemsDataType = 'array';
@@ -3965,6 +3976,7 @@ class Google_Service_Directory_OrgUnit extends Google_Model
 
 class Google_Service_Directory_OrgUnits extends Google_Collection
 {
+  protected $collection_key = 'organizationUnits';
   public $etag;
   public $kind;
   protected $organizationUnitsType = 'Google_Service_Directory_OrgUnit';
@@ -4003,6 +4015,7 @@ class Google_Service_Directory_OrgUnits extends Google_Collection
 
 class Google_Service_Directory_Token extends Google_Collection
 {
+  protected $collection_key = 'scopes';
   public $anonymous;
   public $clientId;
   public $displayText;
@@ -4095,6 +4108,7 @@ class Google_Service_Directory_Token extends Google_Collection
 
 class Google_Service_Directory_Tokens extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_Directory_Token';
   protected $itemsDataType = 'array';
@@ -4133,6 +4147,7 @@ class Google_Service_Directory_Tokens extends Google_Collection
 
 class Google_Service_Directory_User extends Google_Collection
 {
+  protected $collection_key = 'nonEditableAliases';
   public $addresses;
   public $agreedToTerms;
   public $aliases;
@@ -5150,6 +5165,7 @@ class Google_Service_Directory_UserUndelete extends Google_Model
 
 class Google_Service_Directory_Users extends Google_Collection
 {
+  protected $collection_key = 'users';
   public $etag;
   public $kind;
   public $nextPageToken;
@@ -5258,6 +5274,7 @@ class Google_Service_Directory_VerificationCode extends Google_Model
 
 class Google_Service_Directory_VerificationCodes extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_Directory_VerificationCode';
   protected $itemsDataType = 'array';
