@@ -320,6 +320,7 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRespons
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_SiteVerification_SiteVerificationWebResourceResource';
   protected $itemsDataType = 'array';
 
@@ -336,6 +337,7 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceListResponse ex
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceResource extends Google_Collection
 {
+  protected $collection_key = 'owners';
   public $id;
   public $owners;
   protected $siteType = 'Google_Service_SiteVerification_SiteVerificationWebResourceResourceSite';
