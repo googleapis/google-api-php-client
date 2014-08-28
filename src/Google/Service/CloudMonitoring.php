@@ -393,6 +393,7 @@ class Google_Service_CloudMonitoring_ListMetricDescriptorsRequest extends Google
 
 class Google_Service_CloudMonitoring_ListMetricDescriptorsResponse extends Google_Collection
 {
+  protected $collection_key = 'metrics';
   public $kind;
   protected $metricsType = 'Google_Service_CloudMonitoring_MetricDescriptor';
   protected $metricsDataType = 'array';
@@ -446,6 +447,7 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsRequest extends Go
 
 class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends Google_Collection
 {
+  protected $collection_key = 'timeseries';
   public $kind;
   public $nextPageToken;
   public $oldest;
@@ -521,6 +523,7 @@ class Google_Service_CloudMonitoring_ListTimeseriesRequest extends Google_Model
 
 class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Collection
 {
+  protected $collection_key = 'timeseries';
   public $kind;
   public $nextPageToken;
   public $oldest;
@@ -581,6 +584,7 @@ class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Colle
 
 class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
 {
+  protected $collection_key = 'labels';
   public $description;
   protected $labelsType = 'Google_Service_CloudMonitoring_MetricDescriptorLabelDescriptor';
   protected $labelsDataType = 'array';
@@ -776,6 +780,7 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
 
 class Google_Service_CloudMonitoring_PointDistribution extends Google_Collection
 {
+  protected $collection_key = 'buckets';
   protected $bucketsType = 'Google_Service_CloudMonitoring_PointDistributionBucket';
   protected $bucketsDataType = 'array';
   protected $overflowBucketType = 'Google_Service_CloudMonitoring_PointDistributionOverflowBucket';
@@ -905,6 +910,7 @@ class Google_Service_CloudMonitoring_PointDistributionUnderflowBucket extends Go
 
 class Google_Service_CloudMonitoring_Timeseries extends Google_Collection
 {
+  protected $collection_key = 'points';
   protected $pointsType = 'Google_Service_CloudMonitoring_Point';
   protected $pointsDataType = 'array';
   protected $timeseriesDescType = 'Google_Service_CloudMonitoring_TimeseriesDescriptor';
