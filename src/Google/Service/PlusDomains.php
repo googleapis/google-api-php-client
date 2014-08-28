@@ -902,6 +902,7 @@ class Google_Service_PlusDomains_People_Resource extends Google_Service_Resource
 
 class Google_Service_PlusDomains_Acl extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $description;
   public $domainRestricted;
   protected $itemsType = 'Google_Service_PlusDomains_PlusDomainsAclentryResource';
@@ -1282,6 +1283,7 @@ class Google_Service_PlusDomains_ActivityActorName extends Google_Model
 
 class Google_Service_PlusDomains_ActivityFeed extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $id;
   protected $itemsType = 'Google_Service_PlusDomains_Activity';
@@ -1386,6 +1388,7 @@ class Google_Service_PlusDomains_ActivityFeed extends Google_Collection
 
 class Google_Service_PlusDomains_ActivityObject extends Google_Collection
 {
+  protected $collection_key = 'attachments';
   protected $actorType = 'Google_Service_PlusDomains_ActivityObjectActor';
   protected $actorDataType = '';
   protected $attachmentsType = 'Google_Service_PlusDomains_ActivityObjectAttachments';
@@ -1581,6 +1584,7 @@ class Google_Service_PlusDomains_ActivityObjectActorImage extends Google_Model
 
 class Google_Service_PlusDomains_ActivityObjectAttachments extends Google_Collection
 {
+  protected $collection_key = 'thumbnails';
   public $content;
   public $displayName;
   protected $embedType = 'Google_Service_PlusDomains_ActivityObjectAttachmentsEmbed';
@@ -2135,6 +2139,7 @@ class Google_Service_PlusDomains_Audience extends Google_Model
 
 class Google_Service_PlusDomains_AudiencesFeed extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_PlusDomains_Audience';
   protected $itemsDataType = 'array';
@@ -2277,6 +2282,7 @@ class Google_Service_PlusDomains_Circle extends Google_Model
 
 class Google_Service_PlusDomains_CircleFeed extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_PlusDomains_Circle';
   protected $itemsDataType = 'array';
@@ -2385,6 +2391,7 @@ class Google_Service_PlusDomains_CirclePeople extends Google_Model
 
 class Google_Service_PlusDomains_Comment extends Google_Collection
 {
+  protected $collection_key = 'inReplyTo';
   protected $actorType = 'Google_Service_PlusDomains_CommentActor';
   protected $actorDataType = '';
   public $etag;
@@ -2578,6 +2585,7 @@ class Google_Service_PlusDomains_CommentActorImage extends Google_Model
 
 class Google_Service_PlusDomains_CommentFeed extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $id;
   protected $itemsType = 'Google_Service_PlusDomains_Comment';
@@ -2749,6 +2757,7 @@ class Google_Service_PlusDomains_CommentPlusoners extends Google_Model
 
 class Google_Service_PlusDomains_Media extends Google_Collection
 {
+  protected $collection_key = 'streams';
   protected $authorType = 'Google_Service_PlusDomains_MediaAuthor';
   protected $authorDataType = '';
   public $displayName;
@@ -3033,6 +3042,7 @@ class Google_Service_PlusDomains_MediaExif extends Google_Model
 
 class Google_Service_PlusDomains_PeopleFeed extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_PlusDomains_Person';
   protected $itemsDataType = 'array';
@@ -3115,6 +3125,7 @@ class Google_Service_PlusDomains_PeopleFeed extends Google_Collection
 
 class Google_Service_PlusDomains_Person extends Google_Collection
 {
+  protected $collection_key = 'urls';
   public $aboutMe;
   public $birthday;
   public $braggingRights;
