@@ -3333,6 +3333,7 @@ class Google_Service_YouTube_Watermarks_Resource extends Google_Service_Resource
 
 class Google_Service_YouTube_AccessPolicy extends Google_Collection
 {
+  protected $collection_key = 'exception';
   public $allowed;
   public $exception;
 
@@ -3674,6 +3675,7 @@ class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_M
 
 class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_Collection
 {
+  protected $collection_key = 'impressionUrl';
   public $adTag;
   public $clickTrackingUrl;
   public $creativeViewUrl;
@@ -3918,6 +3920,7 @@ class Google_Service_YouTube_ActivityContentDetailsUpload extends Google_Model
 
 class Google_Service_YouTube_ActivityListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_Activity';
@@ -4397,6 +4400,7 @@ class Google_Service_YouTube_ChannelBannerResource extends Google_Model
 
 class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
 {
+  protected $collection_key = 'hints';
   protected $channelType = 'Google_Service_YouTube_ChannelSettings';
   protected $channelDataType = '';
   protected $hintsType = 'Google_Service_YouTube_PropertyValue';
@@ -4587,6 +4591,7 @@ class Google_Service_YouTube_ChannelConversionPing extends Google_Model
 
 class Google_Service_YouTube_ChannelConversionPings extends Google_Collection
 {
+  protected $collection_key = 'pings';
   protected $pingsType = 'Google_Service_YouTube_ChannelConversionPing';
   protected $pingsDataType = 'array';
 
@@ -4603,6 +4608,7 @@ class Google_Service_YouTube_ChannelConversionPings extends Google_Collection
 
 class Google_Service_YouTube_ChannelListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_Channel';
@@ -4770,6 +4776,7 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
 
 class Google_Service_YouTube_ChannelSectionContentDetails extends Google_Collection
 {
+  protected $collection_key = 'playlists';
   public $channels;
   public $playlists;
 
@@ -4796,6 +4803,7 @@ class Google_Service_YouTube_ChannelSectionContentDetails extends Google_Collect
 
 class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_ChannelSection';
@@ -4915,6 +4923,7 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
 
 class Google_Service_YouTube_ChannelSettings extends Google_Collection
 {
+  protected $collection_key = 'featuredChannelsUrls';
   public $defaultTab;
   public $description;
   public $featuredChannelsTitle;
@@ -5185,6 +5194,7 @@ class Google_Service_YouTube_ChannelStatus extends Google_Model
 
 class Google_Service_YouTube_ChannelTopicDetails extends Google_Collection
 {
+  protected $collection_key = 'topicIds';
   public $topicIds;
 
   public function setTopicIds($topicIds)
@@ -5983,6 +5993,7 @@ class Google_Service_YouTube_GuideCategory extends Google_Model
 
 class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_GuideCategory';
@@ -6164,6 +6175,7 @@ class Google_Service_YouTube_I18nLanguage extends Google_Model
 
 class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_I18nLanguage';
@@ -6299,6 +6311,7 @@ class Google_Service_YouTube_I18nRegion extends Google_Model
 
 class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_I18nRegion';
@@ -6760,6 +6773,7 @@ class Google_Service_YouTube_InvideoPosition extends Google_Model
 
 class Google_Service_YouTube_InvideoPromotion extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $defaultTimingType = 'Google_Service_YouTube_InvideoTiming';
   protected $defaultTimingDataType = '';
   protected $itemsType = 'Google_Service_YouTube_PromotedItem';
@@ -7003,6 +7017,7 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
 
 class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_LiveBroadcast';
@@ -7361,6 +7376,7 @@ class Google_Service_YouTube_LiveStreamContentDetails extends Google_Model
 
 class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_LiveStream';
@@ -7530,6 +7546,7 @@ class Google_Service_YouTube_LiveStreamStatus extends Google_Model
 
 class Google_Service_YouTube_LocalizedProperty extends Google_Collection
 {
+  protected $collection_key = 'localized';
   public $default;
   protected $localizedType = 'Google_Service_YouTube_LocalizedString';
   protected $localizedDataType = 'array';
@@ -7867,6 +7884,7 @@ class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
 
 class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_PlaylistItem';
@@ -8093,6 +8111,7 @@ class Google_Service_YouTube_PlaylistItemStatus extends Google_Model
 
 class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_Playlist';
@@ -8214,6 +8233,7 @@ class Google_Service_YouTube_PlaylistPlayer extends Google_Model
 
 class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
 {
+  protected $collection_key = 'tags';
   public $channelId;
   public $channelTitle;
   public $description;
@@ -8483,6 +8503,7 @@ class Google_Service_YouTube_ResourceId extends Google_Model
 
 class Google_Service_YouTube_SearchListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_SearchResult';
@@ -8831,6 +8852,7 @@ class Google_Service_YouTube_SubscriptionContentDetails extends Google_Model
 
 class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_Subscription';
@@ -9170,6 +9192,7 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
 
 class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_ThumbnailDetails';
@@ -9538,6 +9561,7 @@ class Google_Service_YouTube_VideoCategory extends Google_Model
 
 class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_VideoCategory';
@@ -9776,6 +9800,7 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
 
 class Google_Service_YouTube_VideoContentDetailsRegionRestriction extends Google_Collection
 {
+  protected $collection_key = 'blocked';
   public $allowed;
   public $blocked;
 
@@ -9828,6 +9853,7 @@ class Google_Service_YouTube_VideoConversionPing extends Google_Model
 
 class Google_Service_YouTube_VideoConversionPings extends Google_Collection
 {
+  protected $collection_key = 'pings';
   protected $pingsType = 'Google_Service_YouTube_VideoConversionPing';
   protected $pingsDataType = 'array';
 
@@ -9844,6 +9870,7 @@ class Google_Service_YouTube_VideoConversionPings extends Google_Collection
 
 class Google_Service_YouTube_VideoFileDetails extends Google_Collection
 {
+  protected $collection_key = 'videoStreams';
   protected $audioStreamsType = 'Google_Service_YouTube_VideoFileDetailsAudioStream';
   protected $audioStreamsDataType = 'array';
   public $bitrateBps;
@@ -10101,6 +10128,7 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
 
 class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_YouTube_VideoRating';
   protected $itemsDataType = 'array';
@@ -10139,6 +10167,7 @@ class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
 
 class Google_Service_YouTube_VideoListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $eventId;
   protected $itemsType = 'Google_Service_YouTube_Video';
@@ -10465,6 +10494,7 @@ class Google_Service_YouTube_VideoProcessingDetailsProcessingProgress extends Go
 
 class Google_Service_YouTube_VideoProjectDetails extends Google_Collection
 {
+  protected $collection_key = 'tags';
   public $tags;
 
   public function setTags($tags)
@@ -10544,6 +10574,7 @@ class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
 
 class Google_Service_YouTube_VideoSnippet extends Google_Collection
 {
+  protected $collection_key = 'tags';
   public $categoryId;
   public $channelId;
   public $channelTitle;
@@ -10799,6 +10830,7 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
 
 class Google_Service_YouTube_VideoSuggestions extends Google_Collection
 {
+  protected $collection_key = 'tagSuggestions';
   public $editorSuggestions;
   public $processingErrors;
   public $processingHints;
@@ -10859,6 +10891,7 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
 
 class Google_Service_YouTube_VideoSuggestionsTagSuggestion extends Google_Collection
 {
+  protected $collection_key = 'categoryRestricts';
   public $categoryRestricts;
   public $tag;
 
@@ -10885,6 +10918,7 @@ class Google_Service_YouTube_VideoSuggestionsTagSuggestion extends Google_Collec
 
 class Google_Service_YouTube_VideoTopicDetails extends Google_Collection
 {
+  protected $collection_key = 'topicIds';
   public $relevantTopicIds;
   public $topicIds;
 
