@@ -648,6 +648,7 @@ class Google_Service_Plus_People_Resource extends Google_Service_Resource
 
 class Google_Service_Plus_Acl extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $description;
   protected $itemsType = 'Google_Service_Plus_PlusAclentryResource';
   protected $itemsDataType = 'array';
@@ -1017,6 +1018,7 @@ class Google_Service_Plus_ActivityActorName extends Google_Model
 
 class Google_Service_Plus_ActivityFeed extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $id;
   protected $itemsType = 'Google_Service_Plus_Activity';
@@ -1121,6 +1123,7 @@ class Google_Service_Plus_ActivityFeed extends Google_Collection
 
 class Google_Service_Plus_ActivityObject extends Google_Collection
 {
+  protected $collection_key = 'attachments';
   protected $actorType = 'Google_Service_Plus_ActivityObjectActor';
   protected $actorDataType = '';
   protected $attachmentsType = 'Google_Service_Plus_ActivityObjectAttachments';
@@ -1304,6 +1307,7 @@ class Google_Service_Plus_ActivityObjectActorImage extends Google_Model
 
 class Google_Service_Plus_ActivityObjectAttachments extends Google_Collection
 {
+  protected $collection_key = 'thumbnails';
   public $content;
   public $displayName;
   protected $embedType = 'Google_Service_Plus_ActivityObjectAttachmentsEmbed';
@@ -1712,6 +1716,7 @@ class Google_Service_Plus_ActivityProvider extends Google_Model
 
 class Google_Service_Plus_Comment extends Google_Collection
 {
+  protected $collection_key = 'inReplyTo';
   protected $actorType = 'Google_Service_Plus_CommentActor';
   protected $actorDataType = '';
   public $etag;
@@ -1905,6 +1910,7 @@ class Google_Service_Plus_CommentActorImage extends Google_Model
 
 class Google_Service_Plus_CommentFeed extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   public $id;
   protected $itemsType = 'Google_Service_Plus_Comment';
@@ -2076,6 +2082,7 @@ class Google_Service_Plus_CommentPlusoners extends Google_Model
 
 class Google_Service_Plus_ItemScope extends Google_Collection
 {
+  protected $collection_key = 'performers';
   protected $aboutType = 'Google_Service_Plus_ItemScope';
   protected $aboutDataType = '';
   public $additionalName;
@@ -2784,6 +2791,7 @@ class Google_Service_Plus_Moment extends Google_Model
 
 class Google_Service_Plus_MomentsFeed extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_Plus_Moment';
   protected $itemsDataType = 'array';
@@ -2877,6 +2885,7 @@ class Google_Service_Plus_MomentsFeed extends Google_Collection
 
 class Google_Service_Plus_PeopleFeed extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_Plus_Person';
   protected $itemsDataType = 'array';
@@ -2959,6 +2968,7 @@ class Google_Service_Plus_PeopleFeed extends Google_Collection
 
 class Google_Service_Plus_Person extends Google_Collection
 {
+  protected $collection_key = 'urls';
   public $aboutMe;
   protected $ageRangeType = 'Google_Service_Plus_PersonAgeRange';
   protected $ageRangeDataType = '';
