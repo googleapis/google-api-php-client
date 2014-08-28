@@ -532,6 +532,7 @@ class Google_Service_Doubleclicksearch_Availability extends Google_Model
 
 class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
 {
+  protected $collection_key = 'customMetric';
   public $adGroupId;
   public $adId;
   public $advertiserId;
@@ -791,6 +792,7 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
 
 class Google_Service_Doubleclicksearch_ConversionList extends Google_Collection
 {
+  protected $collection_key = 'conversion';
   protected $conversionType = 'Google_Service_Doubleclicksearch_Conversion';
   protected $conversionDataType = 'array';
   public $kind;
@@ -870,6 +872,7 @@ class Google_Service_Doubleclicksearch_CustomMetric extends Google_Model
 
 class Google_Service_Doubleclicksearch_Report extends Google_Collection
 {
+  protected $collection_key = 'rows';
   protected $filesType = 'Google_Service_Doubleclicksearch_ReportFiles';
   protected $filesDataType = 'array';
   public $id;
@@ -1093,6 +1096,7 @@ class Google_Service_Doubleclicksearch_ReportFiles extends Google_Model
 
 class Google_Service_Doubleclicksearch_ReportRequest extends Google_Collection
 {
+  protected $collection_key = 'orderBy';
   protected $columnsType = 'Google_Service_Doubleclicksearch_ReportApiColumnSpec';
   protected $columnsDataType = 'array';
   public $downloadFormat;
@@ -1256,6 +1260,7 @@ class Google_Service_Doubleclicksearch_ReportRequest extends Google_Collection
 
 class Google_Service_Doubleclicksearch_ReportRequestFilters extends Google_Collection
 {
+  protected $collection_key = 'values';
   protected $columnType = 'Google_Service_Doubleclicksearch_ReportApiColumnSpec';
   protected $columnDataType = '';
   public $operator;
@@ -1492,6 +1497,7 @@ class Google_Service_Doubleclicksearch_SavedColumn extends Google_Model
 
 class Google_Service_Doubleclicksearch_SavedColumnList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Doubleclicksearch_SavedColumn';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1519,6 +1525,7 @@ class Google_Service_Doubleclicksearch_SavedColumnList extends Google_Collection
 
 class Google_Service_Doubleclicksearch_UpdateAvailabilityRequest extends Google_Collection
 {
+  protected $collection_key = 'availabilities';
   protected $availabilitiesType = 'Google_Service_Doubleclicksearch_Availability';
   protected $availabilitiesDataType = 'array';
 
@@ -1535,6 +1542,7 @@ class Google_Service_Doubleclicksearch_UpdateAvailabilityRequest extends Google_
 
 class Google_Service_Doubleclicksearch_UpdateAvailabilityResponse extends Google_Collection
 {
+  protected $collection_key = 'availabilities';
   protected $availabilitiesType = 'Google_Service_Doubleclicksearch_Availability';
   protected $availabilitiesDataType = 'array';
 
