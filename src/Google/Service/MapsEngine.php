@@ -2614,6 +2614,7 @@ class Google_Service_MapsEngine_AcquisitionTime extends Google_Model
 
 class Google_Service_MapsEngine_Asset extends Google_Collection
 {
+  protected $collection_key = 'tags';
   public $bbox;
   public $creationTime;
   public $description;
@@ -2739,6 +2740,7 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
 
 class Google_Service_MapsEngine_AssetsListResponse extends Google_Collection
 {
+  protected $collection_key = 'assets';
   protected $assetsType = 'Google_Service_MapsEngine_Asset';
   protected $assetsDataType = 'array';
   public $nextPageToken;
@@ -2844,6 +2846,7 @@ class Google_Service_MapsEngine_Datasource extends Google_Model
 
 class Google_Service_MapsEngine_DisplayRule extends Google_Collection
 {
+  protected $collection_key = 'filters';
   protected $filtersType = 'Google_Service_MapsEngine_Filter';
   protected $filtersDataType = 'array';
   protected $lineOptionsType = 'Google_Service_MapsEngine_LineStyle';
@@ -2972,6 +2975,7 @@ class Google_Service_MapsEngine_FeatureInfo extends Google_Model
 
 class Google_Service_MapsEngine_FeaturesBatchDeleteRequest extends Google_Collection
 {
+  protected $collection_key = 'primaryKeys';
   public $gxIds;
   public $primaryKeys;
 
@@ -2998,6 +3002,7 @@ class Google_Service_MapsEngine_FeaturesBatchDeleteRequest extends Google_Collec
 
 class Google_Service_MapsEngine_FeaturesBatchInsertRequest extends Google_Collection
 {
+  protected $collection_key = 'features';
   protected $featuresType = 'Google_Service_MapsEngine_Feature';
   protected $featuresDataType = 'array';
 
@@ -3014,6 +3019,7 @@ class Google_Service_MapsEngine_FeaturesBatchInsertRequest extends Google_Collec
 
 class Google_Service_MapsEngine_FeaturesBatchPatchRequest extends Google_Collection
 {
+  protected $collection_key = 'features';
   protected $featuresType = 'Google_Service_MapsEngine_Feature';
   protected $featuresDataType = 'array';
 
@@ -3030,6 +3036,7 @@ class Google_Service_MapsEngine_FeaturesBatchPatchRequest extends Google_Collect
 
 class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
 {
+  protected $collection_key = 'features';
   public $allowedQueriesPerSecond;
   protected $featuresType = 'Google_Service_MapsEngine_Feature';
   protected $featuresDataType = 'array';
@@ -3143,6 +3150,7 @@ class Google_Service_MapsEngine_GeoJsonGeometry extends Google_Model
 
 class Google_Service_MapsEngine_GeoJsonGeometryCollection extends Google_Collection
 {
+  protected $collection_key = 'geometries';
   protected $geometriesType = 'Google_Service_MapsEngine_GeoJsonGeometry';
   protected $geometriesDataType = 'array';
 
@@ -3159,6 +3167,7 @@ class Google_Service_MapsEngine_GeoJsonGeometryCollection extends Google_Collect
 
 class Google_Service_MapsEngine_GeoJsonLineString extends Google_Collection
 {
+  protected $collection_key = 'coordinates';
   public $coordinates;
 
   public function setCoordinates($coordinates)
@@ -3174,6 +3183,7 @@ class Google_Service_MapsEngine_GeoJsonLineString extends Google_Collection
 
 class Google_Service_MapsEngine_GeoJsonMultiLineString extends Google_Collection
 {
+  protected $collection_key = 'coordinates';
   public $coordinates;
 
   public function setCoordinates($coordinates)
@@ -3189,6 +3199,7 @@ class Google_Service_MapsEngine_GeoJsonMultiLineString extends Google_Collection
 
 class Google_Service_MapsEngine_GeoJsonMultiPoint extends Google_Collection
 {
+  protected $collection_key = 'coordinates';
   public $coordinates;
 
   public function setCoordinates($coordinates)
@@ -3204,6 +3215,7 @@ class Google_Service_MapsEngine_GeoJsonMultiPoint extends Google_Collection
 
 class Google_Service_MapsEngine_GeoJsonMultiPolygon extends Google_Collection
 {
+  protected $collection_key = 'coordinates';
   public $coordinates;
 
   public function setCoordinates($coordinates)
@@ -3219,6 +3231,7 @@ class Google_Service_MapsEngine_GeoJsonMultiPolygon extends Google_Collection
 
 class Google_Service_MapsEngine_GeoJsonPoint extends Google_Collection
 {
+  protected $collection_key = 'coordinates';
   public $coordinates;
 
   public function setCoordinates($coordinates)
@@ -3234,6 +3247,7 @@ class Google_Service_MapsEngine_GeoJsonPoint extends Google_Collection
 
 class Google_Service_MapsEngine_GeoJsonPolygon extends Google_Collection
 {
+  protected $collection_key = 'coordinates';
   public $coordinates;
 
   public function setCoordinates($coordinates)
@@ -3317,6 +3331,7 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
 
 class Google_Service_MapsEngine_IconsListResponse extends Google_Collection
 {
+  protected $collection_key = 'icons';
   protected $iconsType = 'Google_Service_MapsEngine_Icon';
   protected $iconsDataType = 'array';
   public $nextPageToken;
@@ -3426,6 +3441,7 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
 
 class Google_Service_MapsEngine_Layer extends Google_Collection
 {
+  protected $collection_key = 'tags';
   public $bbox;
   public $creationTime;
   public $datasourceType;
@@ -3608,6 +3624,7 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
 
 class Google_Service_MapsEngine_LayersListResponse extends Google_Collection
 {
+  protected $collection_key = 'layers';
   protected $layersType = 'Google_Service_MapsEngine_Layer';
   protected $layersDataType = 'array';
   public $nextPageToken;
@@ -3635,6 +3652,7 @@ class Google_Service_MapsEngine_LayersListResponse extends Google_Collection
 
 class Google_Service_MapsEngine_LineStyle extends Google_Collection
 {
+  protected $collection_key = 'dash';
   protected $borderType = 'Google_Service_MapsEngine_Border';
   protected $borderDataType = '';
   public $dash;
@@ -3723,6 +3741,7 @@ class Google_Service_MapsEngine_LineStyleStroke extends Google_Model
 
 class Google_Service_MapsEngine_Map extends Google_Collection
 {
+  protected $collection_key = 'versions';
   public $bbox;
   protected $contentsType = 'Google_Service_MapsEngine_MapItem';
   protected $contentsDataType = '';
@@ -3904,6 +3923,7 @@ class Google_Service_MapsEngine_Map extends Google_Collection
 
 class Google_Service_MapsEngine_MapFolder extends Google_Collection
 {
+  protected $collection_key = 'defaultViewport';
   protected $contentsType = 'Google_Service_MapsEngine_MapItem';
   protected $contentsDataType = 'array';
   public $defaultViewport;
@@ -3990,6 +4010,7 @@ class Google_Service_MapsEngine_MapItem extends Google_Model
 
 class Google_Service_MapsEngine_MapKmlLink extends Google_Collection
 {
+  protected $collection_key = 'defaultViewport';
   public $defaultViewport;
   public $kmlUrl;
   public $name;
@@ -4038,6 +4059,7 @@ class Google_Service_MapsEngine_MapKmlLink extends Google_Collection
 
 class Google_Service_MapsEngine_MapLayer extends Google_Collection
 {
+  protected $collection_key = 'defaultViewport';
   public $defaultViewport;
   public $id;
   public $key;
@@ -4097,6 +4119,7 @@ class Google_Service_MapsEngine_MapLayer extends Google_Collection
 
 class Google_Service_MapsEngine_MapsListResponse extends Google_Collection
 {
+  protected $collection_key = 'maps';
   protected $mapsType = 'Google_Service_MapsEngine_Map';
   protected $mapsDataType = 'array';
   public $nextPageToken;
@@ -4176,6 +4199,7 @@ class Google_Service_MapsEngine_Parent extends Google_Model
 
 class Google_Service_MapsEngine_ParentsListResponse extends Google_Collection
 {
+  protected $collection_key = 'parents';
   public $nextPageToken;
   protected $parentsType = 'Google_Service_MapsEngine_Parent';
   protected $parentsDataType = 'array';
@@ -4290,6 +4314,7 @@ class Google_Service_MapsEngine_Project extends Google_Model
 
 class Google_Service_MapsEngine_ProjectsListResponse extends Google_Collection
 {
+  protected $collection_key = 'projects';
   protected $projectsType = 'Google_Service_MapsEngine_Project';
   protected $projectsDataType = 'array';
 
@@ -4311,6 +4336,7 @@ class Google_Service_MapsEngine_PublishResponse extends Google_Model
 
 class Google_Service_MapsEngine_Raster extends Google_Collection
 {
+  protected $collection_key = 'files';
   protected $acquisitionTimeType = 'Google_Service_MapsEngine_AcquisitionTime';
   protected $acquisitionTimeDataType = '';
   public $attribution;
@@ -4493,6 +4519,7 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
 
 class Google_Service_MapsEngine_RasterCollection extends Google_Collection
 {
+  protected $collection_key = 'bbox';
   public $attribution;
   public $bbox;
   public $creationTime;
@@ -4651,6 +4678,7 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
 
 class Google_Service_MapsEngine_RasterCollectionsListResponse extends Google_Collection
 {
+  protected $collection_key = 'rasterCollections';
   public $nextPageToken;
   protected $rasterCollectionsType = 'Google_Service_MapsEngine_RasterCollection';
   protected $rasterCollectionsDataType = 'array';
@@ -4678,6 +4706,7 @@ class Google_Service_MapsEngine_RasterCollectionsListResponse extends Google_Col
 
 class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collection
 {
+  protected $collection_key = 'tags';
   public $bbox;
   public $creationTime;
   public $description;
@@ -4781,6 +4810,7 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
 
 class Google_Service_MapsEngine_RasterCollectionsRasterBatchDeleteRequest extends Google_Collection
 {
+  protected $collection_key = 'ids';
   public $ids;
 
   public function setIds($ids)
@@ -4801,6 +4831,7 @@ class Google_Service_MapsEngine_RasterCollectionsRastersBatchDeleteResponse exte
 
 class Google_Service_MapsEngine_RasterCollectionsRastersBatchInsertRequest extends Google_Collection
 {
+  protected $collection_key = 'ids';
   public $ids;
 
   public function setIds($ids)
@@ -4821,6 +4852,7 @@ class Google_Service_MapsEngine_RasterCollectionsRastersBatchInsertResponse exte
 
 class Google_Service_MapsEngine_RasterCollectionsRastersListResponse extends Google_Collection
 {
+  protected $collection_key = 'rasters';
   public $nextPageToken;
   protected $rastersType = 'Google_Service_MapsEngine_RasterCollectionsRaster';
   protected $rastersDataType = 'array';
@@ -4848,6 +4880,7 @@ class Google_Service_MapsEngine_RasterCollectionsRastersListResponse extends Goo
 
 class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
 {
+  protected $collection_key = 'rasters';
   public $nextPageToken;
   protected $rastersType = 'Google_Service_MapsEngine_Raster';
   protected $rastersDataType = 'array';
@@ -4875,6 +4908,7 @@ class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
 
 class Google_Service_MapsEngine_Schema extends Google_Collection
 {
+  protected $collection_key = 'columns';
   protected $columnsType = 'Google_Service_MapsEngine_TableColumn';
   protected $columnsDataType = 'array';
   public $primaryGeometry;
@@ -4913,6 +4947,7 @@ class Google_Service_MapsEngine_Schema extends Google_Collection
 
 class Google_Service_MapsEngine_Table extends Google_Collection
 {
+  protected $collection_key = 'tags';
   public $bbox;
   public $creationTime;
   public $description;
@@ -5110,6 +5145,7 @@ class Google_Service_MapsEngine_TableColumn extends Google_Model
 
 class Google_Service_MapsEngine_TablesListResponse extends Google_Collection
 {
+  protected $collection_key = 'tables';
   public $nextPageToken;
   protected $tablesType = 'Google_Service_MapsEngine_Table';
   protected $tablesDataType = 'array';
@@ -5137,6 +5173,7 @@ class Google_Service_MapsEngine_TablesListResponse extends Google_Collection
 
 class Google_Service_MapsEngine_VectorStyle extends Google_Collection
 {
+  protected $collection_key = 'displayRules';
   protected $displayRulesType = 'Google_Service_MapsEngine_DisplayRule';
   protected $displayRulesDataType = 'array';
   protected $featureInfoType = 'Google_Service_MapsEngine_FeatureInfo';
