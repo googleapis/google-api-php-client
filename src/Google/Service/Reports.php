@@ -446,6 +446,7 @@ class Google_Service_Reports_UserUsageReport_Resource extends Google_Service_Res
 
 class Google_Service_Reports_Activities extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_Reports_Activity';
   protected $itemsDataType = 'array';
@@ -495,6 +496,7 @@ class Google_Service_Reports_Activities extends Google_Collection
 
 class Google_Service_Reports_Activity extends Google_Collection
 {
+  protected $collection_key = 'events';
   protected $actorType = 'Google_Service_Reports_ActivityActor';
   protected $actorDataType = '';
   public $etag;
@@ -627,6 +629,7 @@ class Google_Service_Reports_ActivityActor extends Google_Model
 
 class Google_Service_Reports_ActivityEvents extends Google_Collection
 {
+  protected $collection_key = 'parameters';
   public $name;
   protected $parametersType = 'Google_Service_Reports_ActivityEventsParameters';
   protected $parametersDataType = 'array';
@@ -880,6 +883,7 @@ class Google_Service_Reports_ChannelParams extends Google_Model
 
 class Google_Service_Reports_UsageReport extends Google_Collection
 {
+  protected $collection_key = 'parameters';
   public $date;
   protected $entityType = 'Google_Service_Reports_UsageReportEntity';
   protected $entityDataType = '';
@@ -989,6 +993,7 @@ class Google_Service_Reports_UsageReportEntity extends Google_Model
 
 class Google_Service_Reports_UsageReportParameters extends Google_Collection
 {
+  protected $collection_key = 'msgValue';
   public $boolValue;
   public $datetimeValue;
   public $intValue;
@@ -1064,6 +1069,7 @@ class Google_Service_Reports_UsageReportParametersMsgValue extends Google_Model
 
 class Google_Service_Reports_UsageReports extends Google_Collection
 {
+  protected $collection_key = 'warnings';
   public $etag;
   public $kind;
   public $nextPageToken;
@@ -1125,6 +1131,7 @@ class Google_Service_Reports_UsageReports extends Google_Collection
 
 class Google_Service_Reports_UsageReportsWarnings extends Google_Collection
 {
+  protected $collection_key = 'data';
   public $code;
   protected $dataType = 'Google_Service_Reports_UsageReportsWarningsData';
   protected $dataDataType = 'array';
