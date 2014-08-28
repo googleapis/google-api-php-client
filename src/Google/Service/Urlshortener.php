@@ -159,6 +159,7 @@ class Google_Service_Urlshortener_Url_Resource extends Google_Service_Resource
 
 class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
 {
+  protected $collection_key = 'referrers';
   protected $browsersType = 'Google_Service_Urlshortener_StringCount';
   protected $browsersDataType = 'array';
   protected $countriesType = 'Google_Service_Urlshortener_StringCount';
@@ -394,6 +395,7 @@ class Google_Service_Urlshortener_Url extends Google_Model
 
 class Google_Service_Urlshortener_UrlHistory extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Urlshortener_Url';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
