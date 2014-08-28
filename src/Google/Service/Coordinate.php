@@ -884,6 +884,7 @@ class Google_Service_Coordinate_CustomFieldDef extends Google_Model
 
 class Google_Service_Coordinate_CustomFieldDefListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Coordinate_CustomFieldDef';
   protected $itemsDataType = 'array';
   public $kind;
@@ -911,6 +912,7 @@ class Google_Service_Coordinate_CustomFieldDefListResponse extends Google_Collec
 
 class Google_Service_Coordinate_CustomFields extends Google_Collection
 {
+  protected $collection_key = 'customField';
   protected $customFieldType = 'Google_Service_Coordinate_CustomField';
   protected $customFieldDataType = 'array';
   public $kind;
@@ -938,6 +940,7 @@ class Google_Service_Coordinate_CustomFields extends Google_Collection
 
 class Google_Service_Coordinate_Job extends Google_Collection
 {
+  protected $collection_key = 'jobChange';
   public $id;
   protected $jobChangeType = 'Google_Service_Coordinate_JobChange';
   protected $jobChangeDataType = 'array';
@@ -1026,6 +1029,7 @@ class Google_Service_Coordinate_JobChange extends Google_Model
 
 class Google_Service_Coordinate_JobListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Coordinate_Job';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1064,6 +1068,7 @@ class Google_Service_Coordinate_JobListResponse extends Google_Collection
 
 class Google_Service_Coordinate_JobState extends Google_Collection
 {
+  protected $collection_key = 'note';
   public $assignee;
   protected $customFieldsType = 'Google_Service_Coordinate_CustomFields';
   protected $customFieldsDataType = '';
@@ -1169,6 +1174,7 @@ class Google_Service_Coordinate_JobState extends Google_Collection
 
 class Google_Service_Coordinate_Location extends Google_Collection
 {
+  protected $collection_key = 'addressLine';
   public $addressLine;
   public $kind;
   public $lat;
@@ -1217,6 +1223,7 @@ class Google_Service_Coordinate_Location extends Google_Collection
 
 class Google_Service_Coordinate_LocationListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Coordinate_LocationRecord';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1448,6 +1455,7 @@ class Google_Service_Coordinate_Worker extends Google_Model
 
 class Google_Service_Coordinate_WorkerListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Coordinate_Worker';
   protected $itemsDataType = 'array';
   public $kind;
