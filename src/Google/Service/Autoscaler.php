@@ -554,6 +554,7 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
 
 class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Autoscaler_Autoscaler';
   protected $itemsDataType = 'array';
   public $nextPageToken;
@@ -581,6 +582,7 @@ class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
 
 class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
 {
+  protected $collection_key = 'customMetricUtilizations';
   public $coolDownPeriodSec;
   protected $cpuUtilizationType = 'Google_Service_Autoscaler_AutoscalingPolicyCpuUtilization';
   protected $cpuUtilizationDataType = '';
@@ -710,6 +712,7 @@ class Google_Service_Autoscaler_AutoscalingPolicyLoadBalancingUtilization extend
 
 class Google_Service_Autoscaler_Operation extends Google_Collection
 {
+  protected $collection_key = 'warnings';
   public $clientOperationId;
   public $creationTimestamp;
   public $endTime;
@@ -958,6 +961,7 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
 
 class Google_Service_Autoscaler_OperationError extends Google_Collection
 {
+  protected $collection_key = 'errors';
   protected $errorsType = 'Google_Service_Autoscaler_OperationErrorErrors';
   protected $errorsDataType = 'array';
 
@@ -1011,6 +1015,7 @@ class Google_Service_Autoscaler_OperationErrorErrors extends Google_Model
 
 class Google_Service_Autoscaler_OperationList extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $id;
   protected $itemsType = 'Google_Service_Autoscaler_Operation';
   protected $itemsDataType = 'array';
@@ -1071,6 +1076,7 @@ class Google_Service_Autoscaler_OperationList extends Google_Collection
 
 class Google_Service_Autoscaler_OperationWarnings extends Google_Collection
 {
+  protected $collection_key = 'data';
   public $code;
   protected $dataType = 'Google_Service_Autoscaler_OperationWarningsData';
   protected $dataDataType = 'array';
