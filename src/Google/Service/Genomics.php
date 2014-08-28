@@ -1192,6 +1192,7 @@ class Google_Service_Genomics_Beacon extends Google_Model
 
 class Google_Service_Genomics_Call extends Google_Collection
 {
+  protected $collection_key = 'genotypeLikelihood';
   public $callsetId;
   public $callsetName;
   public $genotype;
@@ -1432,6 +1433,7 @@ class Google_Service_Genomics_Dataset extends Google_Model
 
 class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collection
 {
+  protected $collection_key = 'sourceUris';
   public $align;
   public $callVariants;
   public $gcsOutputPath;
@@ -1517,6 +1519,7 @@ class Google_Service_Genomics_ExperimentalCreateJobResponse extends Google_Model
 
 class Google_Service_Genomics_ExportReadsetsRequest extends Google_Collection
 {
+  protected $collection_key = 'readsetIds';
   public $exportUri;
   public $projectId;
   public $readsetIds;
@@ -1569,6 +1572,7 @@ class Google_Service_Genomics_ExportReadsetsResponse extends Google_Model
 
 class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
 {
+  protected $collection_key = 'callsetIds';
   public $bigqueryDataset;
   public $bigqueryTable;
   public $callsetIds;
@@ -1691,6 +1695,7 @@ class Google_Service_Genomics_GenomicRange extends Google_Model
 
 class Google_Service_Genomics_GetVariantsSummaryResponse extends Google_Collection
 {
+  protected $collection_key = 'metadata';
   protected $contigBoundsType = 'Google_Service_Genomics_ContigBound';
   protected $contigBoundsDataType = 'array';
   protected $metadataType = 'Google_Service_Genomics_Metadata';
@@ -1745,6 +1750,7 @@ class Google_Service_Genomics_Header extends Google_Model
 
 class Google_Service_Genomics_HeaderSection extends Google_Collection
 {
+  protected $collection_key = 'refSequences';
   public $comments;
   public $fileUri;
   public $filename;
@@ -1830,6 +1836,7 @@ class Google_Service_Genomics_HeaderSection extends Google_Collection
 
 class Google_Service_Genomics_ImportReadsetsRequest extends Google_Collection
 {
+  protected $collection_key = 'sourceUris';
   public $datasetId;
   public $sourceUris;
 
@@ -1871,6 +1878,7 @@ class Google_Service_Genomics_ImportReadsetsResponse extends Google_Model
 
 class Google_Service_Genomics_ImportVariantsRequest extends Google_Collection
 {
+  protected $collection_key = 'sourceUris';
   public $datasetId;
   public $format;
   public $sourceUris;
@@ -1923,6 +1931,7 @@ class Google_Service_Genomics_ImportVariantsResponse extends Google_Model
 
 class Google_Service_Genomics_Job extends Google_Collection
 {
+  protected $collection_key = 'warnings';
   public $created;
   public $description;
   public $errors;
@@ -2027,6 +2036,7 @@ class Google_Service_Genomics_Job extends Google_Collection
 
 class Google_Service_Genomics_JobRequest extends Google_Collection
 {
+  protected $collection_key = 'source';
   public $destination;
   public $source;
   public $type;
@@ -2064,6 +2074,7 @@ class Google_Service_Genomics_JobRequest extends Google_Collection
 
 class Google_Service_Genomics_ListCoverageBucketsResponse extends Google_Collection
 {
+  protected $collection_key = 'coverageBuckets';
   public $bucketWidth;
   protected $coverageBucketsType = 'Google_Service_Genomics_CoverageBucket';
   protected $coverageBucketsDataType = 'array';
@@ -2102,6 +2113,7 @@ class Google_Service_Genomics_ListCoverageBucketsResponse extends Google_Collect
 
 class Google_Service_Genomics_ListDatasetsResponse extends Google_Collection
 {
+  protected $collection_key = 'datasets';
   protected $datasetsType = 'Google_Service_Genomics_Dataset';
   protected $datasetsDataType = 'array';
   public $nextPageToken;
@@ -2584,6 +2596,7 @@ class Google_Service_Genomics_ReadTags extends Google_Model
 
 class Google_Service_Genomics_Readset extends Google_Collection
 {
+  protected $collection_key = 'fileData';
   public $datasetId;
   protected $fileDataType = 'Google_Service_Genomics_HeaderSection';
   protected $fileDataDataType = 'array';
@@ -2703,6 +2716,7 @@ class Google_Service_Genomics_ReferenceSequence extends Google_Model
 
 class Google_Service_Genomics_SearchCallsetsRequest extends Google_Collection
 {
+  protected $collection_key = 'datasetIds';
   public $datasetIds;
   public $maxResults;
   public $name;
@@ -2751,6 +2765,7 @@ class Google_Service_Genomics_SearchCallsetsRequest extends Google_Collection
 
 class Google_Service_Genomics_SearchCallsetsResponse extends Google_Collection
 {
+  protected $collection_key = 'callsets';
   protected $callsetsType = 'Google_Service_Genomics_Callset';
   protected $callsetsDataType = 'array';
   public $nextPageToken;
@@ -2778,6 +2793,7 @@ class Google_Service_Genomics_SearchCallsetsResponse extends Google_Collection
 
 class Google_Service_Genomics_SearchJobsRequest extends Google_Collection
 {
+  protected $collection_key = 'status';
   public $createdAfter;
   public $createdBefore;
   public $maxResults;
@@ -2848,6 +2864,7 @@ class Google_Service_Genomics_SearchJobsRequest extends Google_Collection
 
 class Google_Service_Genomics_SearchJobsResponse extends Google_Collection
 {
+  protected $collection_key = 'jobs';
   protected $jobsType = 'Google_Service_Genomics_Job';
   protected $jobsDataType = 'array';
   public $nextPageToken;
@@ -2875,6 +2892,7 @@ class Google_Service_Genomics_SearchJobsResponse extends Google_Collection
 
 class Google_Service_Genomics_SearchReadsRequest extends Google_Collection
 {
+  protected $collection_key = 'readsetIds';
   public $maxResults;
   public $pageToken;
   public $readsetIds;
@@ -2945,6 +2963,7 @@ class Google_Service_Genomics_SearchReadsRequest extends Google_Collection
 
 class Google_Service_Genomics_SearchReadsResponse extends Google_Collection
 {
+  protected $collection_key = 'reads';
   public $nextPageToken;
   protected $readsType = 'Google_Service_Genomics_Read';
   protected $readsDataType = 'array';
@@ -2972,6 +2991,7 @@ class Google_Service_Genomics_SearchReadsResponse extends Google_Collection
 
 class Google_Service_Genomics_SearchReadsetsRequest extends Google_Collection
 {
+  protected $collection_key = 'datasetIds';
   public $datasetIds;
   public $maxResults;
   public $name;
@@ -3020,6 +3040,7 @@ class Google_Service_Genomics_SearchReadsetsRequest extends Google_Collection
 
 class Google_Service_Genomics_SearchReadsetsResponse extends Google_Collection
 {
+  protected $collection_key = 'readsets';
   public $nextPageToken;
   protected $readsetsType = 'Google_Service_Genomics_Readset';
   protected $readsetsDataType = 'array';
@@ -3047,6 +3068,7 @@ class Google_Service_Genomics_SearchReadsetsResponse extends Google_Collection
 
 class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
 {
+  protected $collection_key = 'callsetNames';
   public $callsetIds;
   public $callsetNames;
   public $contig;
@@ -3150,6 +3172,7 @@ class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
 
 class Google_Service_Genomics_SearchVariantsResponse extends Google_Collection
 {
+  protected $collection_key = 'variants';
   public $nextPageToken;
   protected $variantsType = 'Google_Service_Genomics_Variant';
   protected $variantsDataType = 'array';
@@ -3177,6 +3200,7 @@ class Google_Service_Genomics_SearchVariantsResponse extends Google_Collection
 
 class Google_Service_Genomics_Variant extends Google_Collection
 {
+  protected $collection_key = 'names';
   public $alternateBases;
   protected $callsType = 'Google_Service_Genomics_Call';
   protected $callsDataType = 'array';
