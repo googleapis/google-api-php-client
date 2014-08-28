@@ -332,6 +332,10 @@ class Google_Service_Gmail extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'internalDateSource' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'insert' => array(
               'path' => '{userId}/messages',
@@ -341,6 +345,10 @@ class Google_Service_Gmail extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'internalDateSource' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'list' => array(
@@ -909,13 +917,17 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
     return $this->call('get', array($params), "Google_Service_Gmail_Message");
   }
   /**
-   * Directly imports a message into only this user's mailbox, similar to
-   * receiving via SMTP. Does not send a message. (messages.import)
+   * Imports a message into only this user's mailbox, with standard email delivery
+   * scanning and classification similar to receiving via SMTP. Does not send a
+   * message. (messages.import)
    *
    * @param string $userId
    * The user's email address. The special value me can be used to indicate the authenticated user.
    * @param Google_Message $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string internalDateSource
+   * Source for Gmail's internal date of the message.
    * @return Google_Service_Gmail_Message
    */
   public function import($userId, Google_Service_Gmail_Message $postBody, $optParams = array())
@@ -925,13 +937,17 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
     return $this->call('import', array($params), "Google_Service_Gmail_Message");
   }
   /**
-   * Directly inserts a message into only this user's mailbox. Does not send a
-   * message. (messages.insert)
+   * Directly inserts a message into only this user's mailbox similar to IMAP
+   * APPEND, bypassing most scanning and classification. Does not send a message.
+   * (messages.insert)
    *
    * @param string $userId
    * The user's email address. The special value me can be used to indicate the authenticated user.
    * @param Google_Message $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string internalDateSource
+   * Source for Gmail's internal date of the message.
    * @return Google_Service_Gmail_Message
    */
   public function insert($userId, Google_Service_Gmail_Message $postBody, $optParams = array())
