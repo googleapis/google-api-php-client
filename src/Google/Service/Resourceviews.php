@@ -703,6 +703,7 @@ class Google_Service_Resourceviews_Label extends Google_Model
 
 class Google_Service_Resourceviews_RegionViewsAddResourcesRequest extends Google_Collection
 {
+  protected $collection_key = 'resources';
   public $resources;
 
   public function setResources($resources)
@@ -734,6 +735,7 @@ class Google_Service_Resourceviews_RegionViewsInsertResponse extends Google_Mode
 
 class Google_Service_Resourceviews_RegionViewsListResourcesResponse extends Google_Collection
 {
+  protected $collection_key = 'members';
   public $members;
   public $nextPageToken;
 
@@ -760,6 +762,7 @@ class Google_Service_Resourceviews_RegionViewsListResourcesResponse extends Goog
 
 class Google_Service_Resourceviews_RegionViewsListResponse extends Google_Collection
 {
+  protected $collection_key = 'resourceViews';
   public $nextPageToken;
   protected $resourceViewsType = 'Google_Service_Resourceviews_ResourceView';
   protected $resourceViewsDataType = 'array';
@@ -787,6 +790,7 @@ class Google_Service_Resourceviews_RegionViewsListResponse extends Google_Collec
 
 class Google_Service_Resourceviews_RegionViewsRemoveResourcesRequest extends Google_Collection
 {
+  protected $collection_key = 'resources';
   public $resources;
 
   public function setResources($resources)
@@ -802,6 +806,7 @@ class Google_Service_Resourceviews_RegionViewsRemoveResourcesRequest extends Goo
 
 class Google_Service_Resourceviews_ResourceView extends Google_Collection
 {
+  protected $collection_key = 'members';
   public $creationTime;
   public $description;
   public $id;
@@ -917,6 +922,7 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
 
 class Google_Service_Resourceviews_ZoneViewsAddResourcesRequest extends Google_Collection
 {
+  protected $collection_key = 'resources';
   public $resources;
 
   public function setResources($resources)
@@ -948,6 +954,7 @@ class Google_Service_Resourceviews_ZoneViewsInsertResponse extends Google_Model
 
 class Google_Service_Resourceviews_ZoneViewsListResourcesResponse extends Google_Collection
 {
+  protected $collection_key = 'members';
   public $members;
   public $nextPageToken;
 
@@ -974,6 +981,7 @@ class Google_Service_Resourceviews_ZoneViewsListResourcesResponse extends Google
 
 class Google_Service_Resourceviews_ZoneViewsListResponse extends Google_Collection
 {
+  protected $collection_key = 'resourceViews';
   public $nextPageToken;
   protected $resourceViewsType = 'Google_Service_Resourceviews_ResourceView';
   protected $resourceViewsDataType = 'array';
@@ -1001,6 +1009,7 @@ class Google_Service_Resourceviews_ZoneViewsListResponse extends Google_Collecti
 
 class Google_Service_Resourceviews_ZoneViewsRemoveResourcesRequest extends Google_Collection
 {
+  protected $collection_key = 'resources';
   public $resources;
 
   public function setResources($resources)
