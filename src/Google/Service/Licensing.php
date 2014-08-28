@@ -451,6 +451,7 @@ class Google_Service_Licensing_LicenseAssignmentInsert extends Google_Model
 
 class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_Licensing_LicenseAssignment';
   protected $itemsDataType = 'array';
