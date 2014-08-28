@@ -256,6 +256,7 @@ class Google_Service_Spectrum_DatabaseSpec extends Google_Model
 
 class Google_Service_Spectrum_DbUpdateSpec extends Google_Collection
 {
+  protected $collection_key = 'databases';
   protected $databasesType = 'Google_Service_Spectrum_DatabaseSpec';
   protected $databasesDataType = 'array';
 
@@ -272,6 +273,7 @@ class Google_Service_Spectrum_DbUpdateSpec extends Google_Collection
 
 class Google_Service_Spectrum_DeviceCapabilities extends Google_Collection
 {
+  protected $collection_key = 'frequencyRanges';
   protected $frequencyRangesType = 'Google_Service_Spectrum_FrequencyRange';
   protected $frequencyRangesDataType = 'array';
 
@@ -288,6 +290,7 @@ class Google_Service_Spectrum_DeviceCapabilities extends Google_Collection
 
 class Google_Service_Spectrum_DeviceDescriptor extends Google_Collection
 {
+  protected $collection_key = 'rulesetIds';
   public $etsiEnDeviceCategory;
   public $etsiEnDeviceEmissionsClass;
   public $etsiEnDeviceType;
@@ -656,6 +659,7 @@ class Google_Service_Spectrum_GeoLocationPoint extends Google_Model
 
 class Google_Service_Spectrum_GeoLocationPolygon extends Google_Collection
 {
+  protected $collection_key = 'exterior';
   protected $exteriorType = 'Google_Service_Spectrum_GeoLocationPoint';
   protected $exteriorDataType = 'array';
 
@@ -672,6 +676,7 @@ class Google_Service_Spectrum_GeoLocationPolygon extends Google_Collection
 
 class Google_Service_Spectrum_GeoSpectrumSchedule extends Google_Collection
 {
+  protected $collection_key = 'spectrumSchedules';
   protected $locationType = 'Google_Service_Spectrum_GeoLocation';
   protected $locationDataType = '';
   protected $spectrumSchedulesType = 'Google_Service_Spectrum_SpectrumSchedule';
@@ -700,6 +705,7 @@ class Google_Service_Spectrum_GeoSpectrumSchedule extends Google_Collection
 
 class Google_Service_Spectrum_PawsGetSpectrumBatchRequest extends Google_Collection
 {
+  protected $collection_key = 'locations';
   protected $antennaType = 'Google_Service_Spectrum_AntennaCharacteristics';
   protected $antennaDataType = '';
   protected $capabilitiesType = 'Google_Service_Spectrum_DeviceCapabilities';
@@ -809,6 +815,7 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchRequest extends Google_Collect
 
 class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collection
 {
+  protected $collection_key = 'geoSpectrumSchedules';
   protected $databaseChangeType = 'Google_Service_Spectrum_DbUpdateSpec';
   protected $databaseChangeDataType = '';
   protected $deviceDescType = 'Google_Service_Spectrum_DeviceDescriptor';
@@ -1047,6 +1054,7 @@ class Google_Service_Spectrum_PawsGetSpectrumRequest extends Google_Model
 
 class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
 {
+  protected $collection_key = 'spectrumSchedules';
   protected $databaseChangeType = 'Google_Service_Spectrum_DbUpdateSpec';
   protected $databaseChangeDataType = '';
   protected $deviceDescType = 'Google_Service_Spectrum_DeviceDescriptor';
@@ -1287,6 +1295,7 @@ class Google_Service_Spectrum_PawsInitResponse extends Google_Model
 
 class Google_Service_Spectrum_PawsNotifySpectrumUseRequest extends Google_Collection
 {
+  protected $collection_key = 'spectra';
   protected $deviceDescType = 'Google_Service_Spectrum_DeviceDescriptor';
   protected $deviceDescDataType = '';
   protected $locationType = 'Google_Service_Spectrum_GeoLocation';
@@ -1509,6 +1518,7 @@ class Google_Service_Spectrum_PawsRegisterResponse extends Google_Model
 
 class Google_Service_Spectrum_PawsVerifyDeviceRequest extends Google_Collection
 {
+  protected $collection_key = 'deviceDescs';
   protected $deviceDescsType = 'Google_Service_Spectrum_DeviceDescriptor';
   protected $deviceDescsDataType = 'array';
   public $type;
@@ -1547,6 +1557,7 @@ class Google_Service_Spectrum_PawsVerifyDeviceRequest extends Google_Collection
 
 class Google_Service_Spectrum_PawsVerifyDeviceResponse extends Google_Collection
 {
+  protected $collection_key = 'deviceValidities';
   protected $databaseChangeType = 'Google_Service_Spectrum_DbUpdateSpec';
   protected $databaseChangeDataType = '';
   protected $deviceValiditiesType = 'Google_Service_Spectrum_DeviceValidity';
@@ -1608,6 +1619,7 @@ class Google_Service_Spectrum_PawsVerifyDeviceResponse extends Google_Collection
 
 class Google_Service_Spectrum_RulesetInfo extends Google_Collection
 {
+  protected $collection_key = 'rulesetIds';
   public $authority;
   public $maxLocationChange;
   public $maxPollingSecs;
@@ -1656,6 +1668,7 @@ class Google_Service_Spectrum_RulesetInfo extends Google_Collection
 
 class Google_Service_Spectrum_SpectrumMessage extends Google_Collection
 {
+  protected $collection_key = 'frequencyRanges';
   public $bandwidth;
   protected $frequencyRangesType = 'Google_Service_Spectrum_FrequencyRange';
   protected $frequencyRangesDataType = 'array';
@@ -1683,6 +1696,7 @@ class Google_Service_Spectrum_SpectrumMessage extends Google_Collection
 
 class Google_Service_Spectrum_SpectrumSchedule extends Google_Collection
 {
+  protected $collection_key = 'spectra';
   protected $eventTimeType = 'Google_Service_Spectrum_EventTime';
   protected $eventTimeDataType = '';
   protected $spectraType = 'Google_Service_Spectrum_SpectrumMessage';
