@@ -231,6 +231,7 @@ class Google_Service_Translate_Translations_Resource extends Google_Service_Reso
 
 class Google_Service_Translate_DetectionsListResponse extends Google_Collection
 {
+  protected $collection_key = 'detections';
   protected $detectionsType = 'Google_Service_Translate_DetectionsResourceItems';
   protected $detectionsDataType = 'array';
 
@@ -284,6 +285,7 @@ class Google_Service_Translate_DetectionsResourceItems extends Google_Model
 
 class Google_Service_Translate_LanguagesListResponse extends Google_Collection
 {
+  protected $collection_key = 'languages';
   protected $languagesType = 'Google_Service_Translate_LanguagesResource';
   protected $languagesDataType = 'array';
 
@@ -326,6 +328,7 @@ class Google_Service_Translate_LanguagesResource extends Google_Model
 
 class Google_Service_Translate_TranslationsListResponse extends Google_Collection
 {
+  protected $collection_key = 'translations';
   protected $translationsType = 'Google_Service_Translate_TranslationsResource';
   protected $translationsDataType = 'array';
 
