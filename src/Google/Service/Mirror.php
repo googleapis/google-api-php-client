@@ -836,6 +836,7 @@ class Google_Service_Mirror_TimelineAttachments_Resource extends Google_Service_
 
 class Google_Service_Mirror_Account extends Google_Collection
 {
+  protected $collection_key = 'userData';
   protected $authTokensType = 'Google_Service_Mirror_AuthToken';
   protected $authTokensDataType = 'array';
   public $features;
@@ -934,6 +935,7 @@ class Google_Service_Mirror_Attachment extends Google_Model
 
 class Google_Service_Mirror_AttachmentsListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Mirror_Attachment';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1002,6 +1004,7 @@ class Google_Service_Mirror_Command extends Google_Model
 
 class Google_Service_Mirror_Contact extends Google_Collection
 {
+  protected $collection_key = 'sharingFeatures';
   protected $acceptCommandsType = 'Google_Service_Mirror_Command';
   protected $acceptCommandsDataType = 'array';
   public $acceptTypes;
@@ -1139,6 +1142,7 @@ class Google_Service_Mirror_Contact extends Google_Collection
 
 class Google_Service_Mirror_ContactsListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Mirror_Contact';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1258,6 +1262,7 @@ class Google_Service_Mirror_Location extends Google_Model
 
 class Google_Service_Mirror_LocationsListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Mirror_Location';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1285,6 +1290,7 @@ class Google_Service_Mirror_LocationsListResponse extends Google_Collection
 
 class Google_Service_Mirror_MenuItem extends Google_Collection
 {
+  protected $collection_key = 'values';
   public $action;
   public $id;
   public $payload;
@@ -1382,6 +1388,7 @@ class Google_Service_Mirror_MenuValue extends Google_Model
 
 class Google_Service_Mirror_Notification extends Google_Collection
 {
+  protected $collection_key = 'userActions';
   public $collection;
   public $itemId;
   public $operation;
@@ -1516,6 +1523,7 @@ class Google_Service_Mirror_Setting extends Google_Model
 
 class Google_Service_Mirror_Subscription extends Google_Collection
 {
+  protected $collection_key = 'operation';
   public $callbackUrl;
   public $collection;
   public $id;
@@ -1620,6 +1628,7 @@ class Google_Service_Mirror_Subscription extends Google_Collection
 
 class Google_Service_Mirror_SubscriptionsListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Mirror_Subscription';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1647,6 +1656,7 @@ class Google_Service_Mirror_SubscriptionsListResponse extends Google_Collection
 
 class Google_Service_Mirror_TimelineItem extends Google_Collection
 {
+  protected $collection_key = 'recipients';
   protected $attachmentsType = 'Google_Service_Mirror_Attachment';
   protected $attachmentsDataType = 'array';
   public $bundleId;
@@ -1943,6 +1953,7 @@ class Google_Service_Mirror_TimelineItem extends Google_Collection
 
 class Google_Service_Mirror_TimelineListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Mirror_TimelineItem';
   protected $itemsDataType = 'array';
   public $kind;
