@@ -285,6 +285,7 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
 
 class Google_Service_YouTubeAnalytics_BatchReportDefinitionList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplate';
   protected $itemsDataType = 'array';
   public $kind;
@@ -312,6 +313,7 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionList extends Google_C
 
 class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplate extends Google_Collection
 {
+  protected $collection_key = 'defaultOutput';
   protected $defaultOutputType = 'Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplateDefaultOutput';
   protected $defaultOutputDataType = 'array';
   public $id;
@@ -398,6 +400,7 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplateDefaultOutput
 
 class Google_Service_YouTubeAnalytics_BatchReportList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_YouTubeAnalytics_BatchReportTemplate';
   protected $itemsDataType = 'array';
   public $kind;
@@ -425,6 +428,7 @@ class Google_Service_YouTubeAnalytics_BatchReportList extends Google_Collection
 
 class Google_Service_YouTubeAnalytics_BatchReportTemplate extends Google_Collection
 {
+  protected $collection_key = 'outputs';
   public $id;
   protected $outputsType = 'Google_Service_YouTubeAnalytics_BatchReportTemplateOutputs';
   protected $outputsDataType = 'array';
@@ -549,6 +553,7 @@ class Google_Service_YouTubeAnalytics_BatchReportTemplateTimeSpan extends Google
 
 class Google_Service_YouTubeAnalytics_ResultTable extends Google_Collection
 {
+  protected $collection_key = 'rows';
   protected $columnHeadersType = 'Google_Service_YouTubeAnalytics_ResultTableColumnHeaders';
   protected $columnHeadersDataType = 'array';
   public $kind;
