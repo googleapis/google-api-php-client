@@ -412,6 +412,7 @@ class Google_Service_Pubsub_Topics_Resource extends Google_Service_Resource
 
 class Google_Service_Pubsub_AcknowledgeRequest extends Google_Collection
 {
+  protected $collection_key = 'ackId';
   public $ackId;
   public $subscription;
 
@@ -475,6 +476,7 @@ class Google_Service_Pubsub_Label extends Google_Model
 
 class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
 {
+  protected $collection_key = 'subscription';
   public $nextPageToken;
   protected $subscriptionType = 'Google_Service_Pubsub_Subscription';
   protected $subscriptionDataType = 'array';
@@ -502,6 +504,7 @@ class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
 
 class Google_Service_Pubsub_ListTopicsResponse extends Google_Collection
 {
+  protected $collection_key = 'topic';
   public $nextPageToken;
   protected $topicType = 'Google_Service_Pubsub_Topic';
   protected $topicDataType = 'array';
@@ -669,6 +672,7 @@ class Google_Service_Pubsub_PubsubEvent extends Google_Model
 
 class Google_Service_Pubsub_PubsubMessage extends Google_Collection
 {
+  protected $collection_key = 'label';
   public $data;
   protected $labelType = 'Google_Service_Pubsub_Label';
   protected $labelDataType = 'array';
