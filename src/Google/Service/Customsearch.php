@@ -298,6 +298,7 @@ class Google_Service_Customsearch_Cse_Resource extends Google_Service_Resource
 
 class Google_Service_Customsearch_Context extends Google_Collection
 {
+  protected $collection_key = 'facets';
   protected $facetsType = 'Google_Service_Customsearch_ContextFacets';
   protected $facetsDataType = 'array';
   public $title;
@@ -362,6 +363,7 @@ class Google_Service_Customsearch_ContextFacets extends Google_Model
 
 class Google_Service_Customsearch_Promotion extends Google_Collection
 {
+  protected $collection_key = 'bodyLines';
   protected $bodyLinesType = 'Google_Service_Customsearch_PromotionBodyLines';
   protected $bodyLinesDataType = 'array';
   public $displayLink;
@@ -930,6 +932,7 @@ class Google_Service_Customsearch_Query extends Google_Model
 
 class Google_Service_Customsearch_Result extends Google_Collection
 {
+  protected $collection_key = 'labels';
   public $cacheId;
   public $displayLink;
   public $fileFormat;
@@ -1229,6 +1232,7 @@ class Google_Service_Customsearch_ResultPagemapItemElement extends Google_Model
 
 class Google_Service_Customsearch_Search extends Google_Collection
 {
+  protected $collection_key = 'promotions';
   protected $contextType = 'Google_Service_Customsearch_Context';
   protected $contextDataType = '';
   protected $itemsType = 'Google_Service_Customsearch_Result';
