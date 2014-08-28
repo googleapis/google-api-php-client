@@ -342,6 +342,7 @@ class Google_Service_IdentityToolkit_DeleteAccountResponse extends Google_Model
 
 class Google_Service_IdentityToolkit_DownloadAccountResponse extends Google_Collection
 {
+  protected $collection_key = 'users';
   public $kind;
   public $nextPageToken;
   protected $usersType = 'Google_Service_IdentityToolkit_UserInfo';
@@ -380,6 +381,7 @@ class Google_Service_IdentityToolkit_DownloadAccountResponse extends Google_Coll
 
 class Google_Service_IdentityToolkit_GetAccountInfoResponse extends Google_Collection
 {
+  protected $collection_key = 'users';
   public $kind;
   protected $usersType = 'Google_Service_IdentityToolkit_UserInfo';
   protected $usersDataType = 'array';
@@ -566,6 +568,7 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyDownloadAccountR
 
 class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyGetAccountInfoRequest extends Google_Collection
 {
+  protected $collection_key = 'localId';
   public $email;
   public $idToken;
   public $localId;
@@ -656,6 +659,7 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyResetPasswordReq
 
 class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRequest extends Google_Collection
 {
+  protected $collection_key = 'provider';
   public $captchaChallenge;
   public $captchaResponse;
   public $displayName;
@@ -781,6 +785,7 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
 
 class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyUploadAccountRequest extends Google_Collection
 {
+  protected $collection_key = 'users';
   public $hashAlgorithm;
   public $memoryCost;
   public $rounds;
@@ -1066,6 +1071,7 @@ class Google_Service_IdentityToolkit_ResetPasswordResponse extends Google_Model
 
 class Google_Service_IdentityToolkit_SetAccountInfoResponse extends Google_Collection
 {
+  protected $collection_key = 'providerUserInfo';
   public $displayName;
   public $email;
   public $idToken;
@@ -1163,6 +1169,7 @@ class Google_Service_IdentityToolkit_SetAccountInfoResponseProviderUserInfo exte
 
 class Google_Service_IdentityToolkit_UploadAccountResponse extends Google_Collection
 {
+  protected $collection_key = 'error';
   protected $errorType = 'Google_Service_IdentityToolkit_UploadAccountResponseError';
   protected $errorDataType = 'array';
   public $kind;
@@ -1216,6 +1223,7 @@ class Google_Service_IdentityToolkit_UploadAccountResponseError extends Google_M
 
 class Google_Service_IdentityToolkit_UserInfo extends Google_Collection
 {
+  protected $collection_key = 'providerUserInfo';
   public $displayName;
   public $email;
   public $emailVerified;
@@ -1379,6 +1387,7 @@ class Google_Service_IdentityToolkit_UserInfoProviderUserInfo extends Google_Mod
 
 class Google_Service_IdentityToolkit_VerifyAssertionResponse extends Google_Collection
 {
+  protected $collection_key = 'verifiedProvider';
   public $action;
   public $appInstallationUrl;
   public $appScheme;
