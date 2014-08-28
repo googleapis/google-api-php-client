@@ -3773,6 +3773,7 @@ class Google_Service_Analytics_AccountChildLink extends Google_Model
 
 class Google_Service_Analytics_AccountPermissions extends Google_Collection
 {
+  protected $collection_key = 'effective';
   public $effective;
 
   public function setEffective($effective)
@@ -3836,6 +3837,7 @@ class Google_Service_Analytics_AccountRef extends Google_Model
 
 class Google_Service_Analytics_AccountSummaries extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_AccountSummary';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -3929,6 +3931,7 @@ class Google_Service_Analytics_AccountSummaries extends Google_Collection
 
 class Google_Service_Analytics_AccountSummary extends Google_Collection
 {
+  protected $collection_key = 'webProperties';
   public $id;
   public $kind;
   public $name;
@@ -4051,6 +4054,7 @@ class Google_Service_Analytics_AccountTicket extends Google_Model
 
 class Google_Service_Analytics_Accounts extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_Account';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -4181,6 +4185,7 @@ class Google_Service_Analytics_AdWordsAccount extends Google_Model
 
 class Google_Service_Analytics_AnalyticsDataimportDeleteUploadDataRequest extends Google_Collection
 {
+  protected $collection_key = 'customDataImportUids';
   public $customDataImportUids;
 
   public function setCustomDataImportUids($customDataImportUids)
@@ -4238,6 +4243,7 @@ class Google_Service_Analytics_ColumnAttributes extends Google_Model
 
 class Google_Service_Analytics_Columns extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $attributeNames;
   public $etag;
   protected $itemsType = 'Google_Service_Analytics_Column';
@@ -4298,6 +4304,7 @@ class Google_Service_Analytics_Columns extends Google_Collection
 
 class Google_Service_Analytics_CustomDataSource extends Google_Collection
 {
+  protected $collection_key = 'profilesLinked';
   public $accountId;
   protected $childLinkType = 'Google_Service_Analytics_CustomDataSourceChildLink';
   protected $childLinkDataType = '';
@@ -4521,6 +4528,7 @@ class Google_Service_Analytics_CustomDataSourceParentLink extends Google_Model
 
 class Google_Service_Analytics_CustomDataSources extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_CustomDataSource';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -4614,6 +4622,7 @@ class Google_Service_Analytics_CustomDataSources extends Google_Collection
 
 class Google_Service_Analytics_DailyUpload extends Google_Collection
 {
+  protected $collection_key = 'recentChanges';
   public $accountId;
   public $appendCount;
   public $createdTime;
@@ -4874,6 +4883,7 @@ class Google_Service_Analytics_DailyUploadRecentChanges extends Google_Model
 
 class Google_Service_Analytics_DailyUploads extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_DailyUpload';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -4967,6 +4977,7 @@ class Google_Service_Analytics_DailyUploads extends Google_Collection
 
 class Google_Service_Analytics_EntityAdWordsLink extends Google_Collection
 {
+  protected $collection_key = 'profileIds';
   protected $adWordsAccountsType = 'Google_Service_Analytics_AdWordsAccount';
   protected $adWordsAccountsDataType = 'array';
   protected $entityType = 'Google_Service_Analytics_EntityAdWordsLinkEntity';
@@ -5066,6 +5077,7 @@ class Google_Service_Analytics_EntityAdWordsLinkEntity extends Google_Model
 
 class Google_Service_Analytics_EntityAdWordsLinks extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_EntityAdWordsLink';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -5261,6 +5273,7 @@ class Google_Service_Analytics_EntityUserLinkEntity extends Google_Model
 
 class Google_Service_Analytics_EntityUserLinkPermissions extends Google_Collection
 {
+  protected $collection_key = 'local';
   public $effective;
   public $local;
 
@@ -5287,6 +5300,7 @@ class Google_Service_Analytics_EntityUserLinkPermissions extends Google_Collecti
 
 class Google_Service_Analytics_EntityUserLinks extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_EntityUserLink';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -5369,6 +5383,7 @@ class Google_Service_Analytics_EntityUserLinks extends Google_Collection
 
 class Google_Service_Analytics_Experiment extends Google_Collection
 {
+  protected $collection_key = 'variations';
   public $accountId;
   public $created;
   public $description;
@@ -5768,6 +5783,7 @@ class Google_Service_Analytics_ExperimentVariations extends Google_Model
 
 class Google_Service_Analytics_Experiments extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_Experiment';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -6373,6 +6389,7 @@ class Google_Service_Analytics_FilterUppercaseDetails extends Google_Model
 
 class Google_Service_Analytics_Filters extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_Filter';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -6466,6 +6483,7 @@ class Google_Service_Analytics_Filters extends Google_Collection
 
 class Google_Service_Analytics_GaData extends Google_Collection
 {
+  protected $collection_key = 'rows';
   protected $columnHeadersType = 'Google_Service_Analytics_GaDataColumnHeaders';
   protected $columnHeadersDataType = 'array';
   public $containsSampledData;
@@ -6687,6 +6705,7 @@ class Google_Service_Analytics_GaDataColumnHeaders extends Google_Model
 
 class Google_Service_Analytics_GaDataDataTable extends Google_Collection
 {
+  protected $collection_key = 'rows';
   protected $colsType = 'Google_Service_Analytics_GaDataDataTableCols';
   protected $colsDataType = 'array';
   protected $rowsType = 'Google_Service_Analytics_GaDataDataTableRows';
@@ -6752,6 +6771,7 @@ class Google_Service_Analytics_GaDataDataTableCols extends Google_Model
 
 class Google_Service_Analytics_GaDataDataTableRows extends Google_Collection
 {
+  protected $collection_key = 'c';
   protected $cType = 'Google_Service_Analytics_GaDataDataTableRowsC';
   protected $cDataType = 'array';
 
@@ -6853,6 +6873,7 @@ class Google_Service_Analytics_GaDataProfileInfo extends Google_Model
 
 class Google_Service_Analytics_GaDataQuery extends Google_Collection
 {
+  protected $collection_key = 'sort';
   public $dimensions;
   public $endDate;
   public $filters;
@@ -7190,6 +7211,7 @@ class Google_Service_Analytics_Goal extends Google_Model
 
 class Google_Service_Analytics_GoalEventDetails extends Google_Collection
 {
+  protected $collection_key = 'eventConditions';
   protected $eventConditionsType = 'Google_Service_Analytics_GoalEventDetailsEventConditions';
   protected $eventConditionsDataType = 'array';
   public $useEventValue;
@@ -7302,6 +7324,7 @@ class Google_Service_Analytics_GoalParentLink extends Google_Model
 
 class Google_Service_Analytics_GoalUrlDestinationDetails extends Google_Collection
 {
+  protected $collection_key = 'steps';
   public $caseSensitive;
   public $firstStepRequired;
   public $matchType;
@@ -7451,6 +7474,7 @@ class Google_Service_Analytics_GoalVisitTimeOnSiteDetails extends Google_Model
 
 class Google_Service_Analytics_Goals extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_Goal';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -7544,6 +7568,7 @@ class Google_Service_Analytics_Goals extends Google_Collection
 
 class Google_Service_Analytics_McfData extends Google_Collection
 {
+  protected $collection_key = 'rows';
   protected $columnHeadersType = 'Google_Service_Analytics_McfDataColumnHeaders';
   protected $columnHeadersDataType = 'array';
   public $containsSampledData;
@@ -7824,6 +7849,7 @@ class Google_Service_Analytics_McfDataProfileInfo extends Google_Model
 
 class Google_Service_Analytics_McfDataQuery extends Google_Collection
 {
+  protected $collection_key = 'sort';
   public $dimensions;
   public $endDate;
   public $filters;
@@ -7949,6 +7975,7 @@ class Google_Service_Analytics_McfDataQuery extends Google_Collection
 
 class Google_Service_Analytics_McfDataRows extends Google_Collection
 {
+  protected $collection_key = 'conversionPathValue';
   protected $conversionPathValueType = 'Google_Service_Analytics_McfDataRowsConversionPathValue';
   protected $conversionPathValueDataType = 'array';
   public $primitiveValue;
@@ -8365,6 +8392,7 @@ class Google_Service_Analytics_ProfileFilterLink extends Google_Model
 
 class Google_Service_Analytics_ProfileFilterLinks extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_ProfileFilterLink';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -8484,6 +8512,7 @@ class Google_Service_Analytics_ProfileParentLink extends Google_Model
 
 class Google_Service_Analytics_ProfilePermissions extends Google_Collection
 {
+  protected $collection_key = 'effective';
   public $effective;
 
   public function setEffective($effective)
@@ -8628,6 +8657,7 @@ class Google_Service_Analytics_ProfileSummary extends Google_Model
 
 class Google_Service_Analytics_Profiles extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_Profile';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -8721,6 +8751,7 @@ class Google_Service_Analytics_Profiles extends Google_Collection
 
 class Google_Service_Analytics_RealtimeData extends Google_Collection
 {
+  protected $collection_key = 'rows';
   protected $columnHeadersType = 'Google_Service_Analytics_RealtimeDataColumnHeaders';
   protected $columnHeadersDataType = 'array';
   public $id;
@@ -8934,6 +8965,7 @@ class Google_Service_Analytics_RealtimeDataProfileInfo extends Google_Model
 
 class Google_Service_Analytics_RealtimeDataQuery extends Google_Collection
 {
+  protected $collection_key = 'sort';
   public $dimensions;
   public $filters;
   public $ids;
@@ -9112,6 +9144,7 @@ class Google_Service_Analytics_Segment extends Google_Model
 
 class Google_Service_Analytics_Segments extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_Segment';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -9461,6 +9494,7 @@ class Google_Service_Analytics_UnsampledReportDriveDownloadDetails extends Googl
 
 class Google_Service_Analytics_UnsampledReports extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_UnsampledReport';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -9554,6 +9588,7 @@ class Google_Service_Analytics_UnsampledReports extends Google_Collection
 
 class Google_Service_Analytics_Upload extends Google_Collection
 {
+  protected $collection_key = 'errors';
   public $accountId;
   public $customDataSourceId;
   public $errors;
@@ -9624,6 +9659,7 @@ class Google_Service_Analytics_Upload extends Google_Collection
 
 class Google_Service_Analytics_Uploads extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_Upload';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -9813,6 +9849,7 @@ class Google_Service_Analytics_WebPropertyRef extends Google_Model
 
 class Google_Service_Analytics_WebPropertySummary extends Google_Collection
 {
+  protected $collection_key = 'profiles';
   public $id;
   public $internalWebPropertyId;
   public $kind;
@@ -9895,6 +9932,7 @@ class Google_Service_Analytics_WebPropertySummary extends Google_Collection
 
 class Google_Service_Analytics_Webproperties extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Analytics_Webproperty';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
@@ -10223,6 +10261,7 @@ class Google_Service_Analytics_WebpropertyParentLink extends Google_Model
 
 class Google_Service_Analytics_WebpropertyPermissions extends Google_Collection
 {
+  protected $collection_key = 'effective';
   public $effective;
 
   public function setEffective($effective)
