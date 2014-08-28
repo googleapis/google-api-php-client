@@ -292,6 +292,7 @@ class Google_Service_DoubleClickBidManager_Reports_Resource extends Google_Servi
 
 class Google_Service_DoubleClickBidManager_DownloadLineItemsRequest extends Google_Collection
 {
+  protected $collection_key = 'filterIds';
   public $filterIds;
   public $filterType;
   public $format;
@@ -370,6 +371,7 @@ class Google_Service_DoubleClickBidManager_FilterPair extends Google_Model
 
 class Google_Service_DoubleClickBidManager_ListQueriesResponse extends Google_Collection
 {
+  protected $collection_key = 'queries';
   public $kind;
   protected $queriesType = 'Google_Service_DoubleClickBidManager_Query';
   protected $queriesDataType = 'array';
@@ -397,6 +399,7 @@ class Google_Service_DoubleClickBidManager_ListQueriesResponse extends Google_Co
 
 class Google_Service_DoubleClickBidManager_ListReportsResponse extends Google_Collection
 {
+  protected $collection_key = 'reports';
   public $kind;
   protected $reportsType = 'Google_Service_DoubleClickBidManager_Report';
   protected $reportsDataType = 'array';
@@ -424,6 +427,7 @@ class Google_Service_DoubleClickBidManager_ListReportsResponse extends Google_Co
 
 class Google_Service_DoubleClickBidManager_Parameters extends Google_Collection
 {
+  protected $collection_key = 'metrics';
   protected $filtersType = 'Google_Service_DoubleClickBidManager_FilterPair';
   protected $filtersDataType = 'array';
   public $groupBys;
@@ -579,6 +583,7 @@ class Google_Service_DoubleClickBidManager_Query extends Google_Model
 
 class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collection
 {
+  protected $collection_key = 'shareEmailAddress';
   public $dataRange;
   public $format;
   public $googleCloudStoragePathForLatestReport;
@@ -920,6 +925,7 @@ class Google_Service_DoubleClickBidManager_ReportStatus extends Google_Model
 
 class Google_Service_DoubleClickBidManager_RowStatus extends Google_Collection
 {
+  protected $collection_key = 'errors';
   public $changed;
   public $entityId;
   public $entityName;
@@ -1091,6 +1097,7 @@ class Google_Service_DoubleClickBidManager_UploadLineItemsResponse extends Googl
 
 class Google_Service_DoubleClickBidManager_UploadStatus extends Google_Collection
 {
+  protected $collection_key = 'rowStatus';
   public $errors;
   protected $rowStatusType = 'Google_Service_DoubleClickBidManager_RowStatus';
   protected $rowStatusDataType = 'array';
