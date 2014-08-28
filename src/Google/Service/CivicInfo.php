@@ -249,6 +249,7 @@ class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_R
 
 class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
 {
+  protected $collection_key = 'sources';
   protected $electionAdministrationBodyType = 'Google_Service_CivicInfo_AdministrativeBody';
   protected $electionAdministrationBodyDataType = '';
   public $id;
@@ -311,6 +312,7 @@ class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
 
 class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
 {
+  protected $collection_key = 'voter_services';
   public $absenteeVotingInfoUrl;
   public $ballotInfoUrl;
   protected $correspondenceAddressType = 'Google_Service_CivicInfo_SimpleAddressType';
@@ -461,6 +463,7 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
 
 class Google_Service_CivicInfo_Candidate extends Google_Collection
 {
+  protected $collection_key = 'channels';
   public $candidateUrl;
   protected $channelsType = 'Google_Service_CivicInfo_Channel';
   protected $channelsDataType = 'array';
@@ -580,6 +583,7 @@ class Google_Service_CivicInfo_Channel extends Google_Model
 
 class Google_Service_CivicInfo_Contest extends Google_Collection
 {
+  protected $collection_key = 'sources';
   public $ballotPlacement;
   protected $candidatesType = 'Google_Service_CivicInfo_Candidate';
   protected $candidatesDataType = 'array';
@@ -763,6 +767,7 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
 
 class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
 {
+  protected $collection_key = 'results';
   public $kind;
   protected $resultsType = 'Google_Service_CivicInfo_DivisionSearchResult';
   protected $resultsDataType = 'array';
@@ -801,6 +806,7 @@ class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
 
 class Google_Service_CivicInfo_DivisionSearchResult extends Google_Collection
 {
+  protected $collection_key = 'aliases';
   public $aliases;
   public $name;
   public $ocdId;
@@ -934,6 +940,7 @@ class Google_Service_CivicInfo_ElectionOfficial extends Google_Model
 
 class Google_Service_CivicInfo_ElectionsQueryResponse extends Google_Collection
 {
+  protected $collection_key = 'elections';
   protected $electionsType = 'Google_Service_CivicInfo_Election';
   protected $electionsDataType = 'array';
   public $kind;
@@ -998,6 +1005,7 @@ class Google_Service_CivicInfo_ElectoralDistrict extends Google_Model
 
 class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
 {
+  protected $collection_key = 'officeIds';
   public $alsoKnownAs;
   public $name;
   public $officeIds;
@@ -1046,6 +1054,7 @@ class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
 
 class Google_Service_CivicInfo_Office extends Google_Collection
 {
+  protected $collection_key = 'sources';
   public $divisionId;
   public $level;
   public $name;
@@ -1106,6 +1115,7 @@ class Google_Service_CivicInfo_Office extends Google_Collection
 
 class Google_Service_CivicInfo_Official extends Google_Collection
 {
+  protected $collection_key = 'urls';
   protected $addressType = 'Google_Service_CivicInfo_SimpleAddressType';
   protected $addressDataType = 'array';
   protected $channelsType = 'Google_Service_CivicInfo_Channel';
@@ -1200,6 +1210,7 @@ class Google_Service_CivicInfo_Official extends Google_Collection
 
 class Google_Service_CivicInfo_PollingLocation extends Google_Collection
 {
+  protected $collection_key = 'sources';
   protected $addressType = 'Google_Service_CivicInfo_SimpleAddressType';
   protected $addressDataType = '';
   public $endDate;
@@ -1531,6 +1542,7 @@ class Google_Service_CivicInfo_VoterInfoRequest extends Google_Model
 
 class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
 {
+  protected $collection_key = 'state';
   protected $contestsType = 'Google_Service_CivicInfo_Contest';
   protected $contestsDataType = 'array';
   protected $earlyVoteSitesType = 'Google_Service_CivicInfo_PollingLocation';
