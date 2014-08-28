@@ -2174,6 +2174,7 @@ class Google_Service_AdSense_Urlchannels_Resource extends Google_Service_Resourc
 
 class Google_Service_AdSense_Account extends Google_Collection
 {
+  protected $collection_key = 'subAccounts';
   public $id;
   public $kind;
   public $name;
@@ -2245,6 +2246,7 @@ class Google_Service_AdSense_Account extends Google_Collection
 
 class Google_Service_AdSense_Accounts extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_Account';
   protected $itemsDataType = 'array';
@@ -2364,6 +2366,7 @@ class Google_Service_AdSense_AdClient extends Google_Model
 
 class Google_Service_AdSense_AdClients extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_AdClient';
   protected $itemsDataType = 'array';
@@ -2863,6 +2866,7 @@ class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
 
 class Google_Service_AdSense_AdUnits extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_AdUnit';
   protected $itemsDataType = 'array';
@@ -2912,6 +2916,7 @@ class Google_Service_AdSense_AdUnits extends Google_Collection
 
 class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Collection
 {
+  protected $collection_key = 'warnings';
   public $averages;
   public $endDate;
   protected $headersType = 'Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders';
@@ -3123,6 +3128,7 @@ class Google_Service_AdSense_Alert extends Google_Model
 
 class Google_Service_AdSense_Alerts extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_AdSense_Alert';
   protected $itemsDataType = 'array';
   public $kind;
@@ -3258,6 +3264,7 @@ class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
 
 class Google_Service_AdSense_CustomChannels extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_CustomChannel';
   protected $itemsDataType = 'array';
@@ -3307,6 +3314,7 @@ class Google_Service_AdSense_CustomChannels extends Google_Collection
 
 class Google_Service_AdSense_Metadata extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_AdSense_ReportingMetadataEntry';
   protected $itemsDataType = 'array';
   public $kind;
@@ -3393,6 +3401,7 @@ class Google_Service_AdSense_Payment extends Google_Model
 
 class Google_Service_AdSense_Payments extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_AdSense_Payment';
   protected $itemsDataType = 'array';
   public $kind;
@@ -3420,6 +3429,7 @@ class Google_Service_AdSense_Payments extends Google_Collection
 
 class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
 {
+  protected $collection_key = 'supportedProducts';
   public $compatibleDimensions;
   public $compatibleMetrics;
   public $id;
@@ -3550,6 +3560,7 @@ class Google_Service_AdSense_SavedAdStyle extends Google_Model
 
 class Google_Service_AdSense_SavedAdStyles extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_SavedAdStyle';
   protected $itemsDataType = 'array';
@@ -3636,6 +3647,7 @@ class Google_Service_AdSense_SavedReport extends Google_Model
 
 class Google_Service_AdSense_SavedReports extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_SavedReport';
   protected $itemsDataType = 'array';
@@ -3722,6 +3734,7 @@ class Google_Service_AdSense_UrlChannel extends Google_Model
 
 class Google_Service_AdSense_UrlChannels extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_UrlChannel';
   protected $itemsDataType = 'array';
