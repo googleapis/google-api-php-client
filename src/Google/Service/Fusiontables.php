@@ -1422,6 +1422,7 @@ class Google_Service_Fusiontables_ColumnBaseColumn extends Google_Model
 
 class Google_Service_Fusiontables_ColumnList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Fusiontables_Column';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1471,6 +1472,7 @@ class Google_Service_Fusiontables_ColumnList extends Google_Collection
 
 class Google_Service_Fusiontables_Geometry extends Google_Collection
 {
+  protected $collection_key = 'geometries';
   public $geometries;
   public $geometry;
   public $type;
@@ -1534,6 +1536,7 @@ class Google_Service_Fusiontables_Import extends Google_Model
 
 class Google_Service_Fusiontables_Line extends Google_Collection
 {
+  protected $collection_key = 'coordinates';
   public $coordinates;
   public $type;
 
@@ -1621,6 +1624,7 @@ class Google_Service_Fusiontables_LineStyle extends Google_Model
 
 class Google_Service_Fusiontables_Point extends Google_Collection
 {
+  protected $collection_key = 'coordinates';
   public $coordinates;
   public $type;
 
@@ -1674,6 +1678,7 @@ class Google_Service_Fusiontables_PointStyle extends Google_Model
 
 class Google_Service_Fusiontables_Polygon extends Google_Collection
 {
+  protected $collection_key = 'coordinates';
   public $coordinates;
   public $type;
 
@@ -1795,6 +1800,7 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
 
 class Google_Service_Fusiontables_Sqlresponse extends Google_Collection
 {
+  protected $collection_key = 'rows';
   public $columns;
   public $kind;
   public $rows;
@@ -1832,6 +1838,7 @@ class Google_Service_Fusiontables_Sqlresponse extends Google_Collection
 
 class Google_Service_Fusiontables_StyleFunction extends Google_Collection
 {
+  protected $collection_key = 'buckets';
   protected $bucketsType = 'Google_Service_Fusiontables_Bucket';
   protected $bucketsDataType = 'array';
   public $columnName;
@@ -1882,6 +1889,7 @@ class Google_Service_Fusiontables_StyleFunction extends Google_Collection
 
 class Google_Service_Fusiontables_StyleFunctionGradient extends Google_Collection
 {
+  protected $collection_key = 'colors';
   protected $colorsType = 'Google_Service_Fusiontables_StyleFunctionGradientColors';
   protected $colorsDataType = 'array';
   public $max;
@@ -2030,6 +2038,7 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
 
 class Google_Service_Fusiontables_StyleSettingList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Fusiontables_StyleSetting';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2079,6 +2088,7 @@ class Google_Service_Fusiontables_StyleSettingList extends Google_Collection
 
 class Google_Service_Fusiontables_Table extends Google_Collection
 {
+  protected $collection_key = 'columns';
   public $attribution;
   public $attributionLink;
   public $baseTableIds;
@@ -2194,6 +2204,7 @@ class Google_Service_Fusiontables_Table extends Google_Collection
 
 class Google_Service_Fusiontables_TableList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Fusiontables_Table';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2291,6 +2302,7 @@ class Google_Service_Fusiontables_Task extends Google_Model
 
 class Google_Service_Fusiontables_TaskList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Fusiontables_Task';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2340,6 +2352,7 @@ class Google_Service_Fusiontables_TaskList extends Google_Collection
 
 class Google_Service_Fusiontables_Template extends Google_Collection
 {
+  protected $collection_key = 'automaticColumnNames';
   public $automaticColumnNames;
   public $body;
   public $kind;
@@ -2410,6 +2423,7 @@ class Google_Service_Fusiontables_Template extends Google_Collection
 
 class Google_Service_Fusiontables_TemplateList extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Fusiontables_Template';
   protected $itemsDataType = 'array';
   public $kind;
