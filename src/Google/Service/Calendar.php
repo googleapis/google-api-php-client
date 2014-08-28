@@ -1900,6 +1900,7 @@ class Google_Service_Calendar_Settings_Resource extends Google_Service_Resource
 
 class Google_Service_Calendar_Acl extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_Calendar_AclRule';
   protected $itemsDataType = 'array';
@@ -2127,6 +2128,7 @@ class Google_Service_Calendar_Calendar extends Google_Model
 
 class Google_Service_Calendar_CalendarList extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_Calendar_CalendarListEntry';
   protected $itemsDataType = 'array';
@@ -2187,6 +2189,7 @@ class Google_Service_Calendar_CalendarList extends Google_Collection
 
 class Google_Service_Calendar_CalendarListEntry extends Google_Collection
 {
+  protected $collection_key = 'defaultReminders';
   public $accessRole;
   public $backgroundColor;
   public $colorId;
@@ -2391,6 +2394,7 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
 
 class Google_Service_Calendar_CalendarListEntryNotificationSettings extends Google_Collection
 {
+  protected $collection_key = 'notifications';
   protected $notificationsType = 'Google_Service_Calendar_CalendarNotification';
   protected $notificationsDataType = 'array';
 
@@ -2664,6 +2668,7 @@ class Google_Service_Calendar_Error extends Google_Model
 
 class Google_Service_Calendar_Event extends Google_Collection
 {
+  protected $collection_key = 'recurrence';
   public $anyoneCanAddSelf;
   protected $attendeesType = 'Google_Service_Calendar_EventAttendee';
   protected $attendeesDataType = 'array';
@@ -3480,6 +3485,7 @@ class Google_Service_Calendar_EventReminder extends Google_Model
 
 class Google_Service_Calendar_EventReminders extends Google_Collection
 {
+  protected $collection_key = 'overrides';
   protected $overridesType = 'Google_Service_Calendar_EventReminder';
   protected $overridesDataType = 'array';
   public $useDefault;
@@ -3533,6 +3539,7 @@ class Google_Service_Calendar_EventSource extends Google_Model
 
 class Google_Service_Calendar_Events extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $accessRole;
   protected $defaultRemindersType = 'Google_Service_Calendar_EventReminder';
   protected $defaultRemindersDataType = 'array';
@@ -3660,6 +3667,7 @@ class Google_Service_Calendar_Events extends Google_Collection
 
 class Google_Service_Calendar_FreeBusyCalendar extends Google_Collection
 {
+  protected $collection_key = 'errors';
   protected $busyType = 'Google_Service_Calendar_TimePeriod';
   protected $busyDataType = 'array';
   protected $errorsType = 'Google_Service_Calendar_Error';
@@ -3688,6 +3696,7 @@ class Google_Service_Calendar_FreeBusyCalendar extends Google_Collection
 
 class Google_Service_Calendar_FreeBusyGroup extends Google_Collection
 {
+  protected $collection_key = 'errors';
   public $calendars;
   protected $errorsType = 'Google_Service_Calendar_Error';
   protected $errorsDataType = 'array';
@@ -3715,6 +3724,7 @@ class Google_Service_Calendar_FreeBusyGroup extends Google_Collection
 
 class Google_Service_Calendar_FreeBusyRequest extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $calendarExpansionMax;
   public $groupExpansionMax;
   protected $itemsType = 'Google_Service_Calendar_FreeBusyRequestItem';
@@ -3920,6 +3930,7 @@ class Google_Service_Calendar_Setting extends Google_Model
 
 class Google_Service_Calendar_Settings extends Google_Collection
 {
+  protected $collection_key = 'items';
   public $etag;
   protected $itemsType = 'Google_Service_Calendar_Setting';
   protected $itemsDataType = 'array';
