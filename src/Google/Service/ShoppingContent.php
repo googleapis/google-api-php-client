@@ -1095,6 +1095,7 @@ class Google_Service_ShoppingContent_Productstatuses_Resource extends Google_Ser
 
 class Google_Service_ShoppingContent_Account extends Google_Collection
 {
+  protected $collection_key = 'users';
   public $adultContent;
   protected $adwordsLinksType = 'Google_Service_ShoppingContent_AccountAdwordsLink';
   protected $adwordsLinksDataType = 'array';
@@ -1226,6 +1227,7 @@ class Google_Service_ShoppingContent_AccountAdwordsLink extends Google_Model
 
 class Google_Service_ShoppingContent_AccountStatus extends Google_Collection
 {
+  protected $collection_key = 'dataQualityIssues';
   public $accountId;
   protected $dataQualityIssuesType = 'Google_Service_ShoppingContent_AccountStatusDataQualityIssue';
   protected $dataQualityIssuesDataType = 'array';
@@ -1264,6 +1266,7 @@ class Google_Service_ShoppingContent_AccountStatus extends Google_Collection
 
 class Google_Service_ShoppingContent_AccountStatusDataQualityIssue extends Google_Collection
 {
+  protected $collection_key = 'exampleItems';
   public $country;
   public $displayedValue;
   protected $exampleItemsType = 'Google_Service_ShoppingContent_AccountStatusExampleItem';
@@ -1442,6 +1445,7 @@ class Google_Service_ShoppingContent_AccountUser extends Google_Model
 
 class Google_Service_ShoppingContent_AccountsCustomBatchRequest extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -1518,6 +1522,7 @@ class Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry extends Goo
 
 class Google_Service_ShoppingContent_AccountsCustomBatchResponse extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_AccountsCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -1595,6 +1600,7 @@ class Google_Service_ShoppingContent_AccountsCustomBatchResponseEntry extends Go
 
 class Google_Service_ShoppingContent_AccountsListResponse extends Google_Collection
 {
+  protected $collection_key = 'resources';
   public $kind;
   public $nextPageToken;
   protected $resourcesType = 'Google_Service_ShoppingContent_Account';
@@ -1633,6 +1639,7 @@ class Google_Service_ShoppingContent_AccountsListResponse extends Google_Collect
 
 class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequest extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_AccountstatusesCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -1697,6 +1704,7 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequestEntry exte
 
 class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponse extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_AccountstatusesCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -1763,6 +1771,7 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponseEntry ext
 
 class Google_Service_ShoppingContent_AccountstatusesListResponse extends Google_Collection
 {
+  protected $collection_key = 'resources';
   public $kind;
   public $nextPageToken;
   protected $resourcesType = 'Google_Service_ShoppingContent_AccountStatus';
@@ -1801,6 +1810,7 @@ class Google_Service_ShoppingContent_AccountstatusesListResponse extends Google_
 
 class Google_Service_ShoppingContent_Datafeed extends Google_Collection
 {
+  protected $collection_key = 'intendedDestinations';
   public $attributeLanguage;
   public $contentLanguage;
   public $contentType;
@@ -2046,6 +2056,7 @@ class Google_Service_ShoppingContent_DatafeedFormat extends Google_Model
 
 class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
 {
+  protected $collection_key = 'warnings';
   public $datafeedId;
   protected $errorsType = 'Google_Service_ShoppingContent_DatafeedStatusError';
   protected $errorsDataType = 'array';
@@ -2129,6 +2140,7 @@ class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
 
 class Google_Service_ShoppingContent_DatafeedStatusError extends Google_Collection
 {
+  protected $collection_key = 'examples';
   public $code;
   public $count;
   protected $examplesType = 'Google_Service_ShoppingContent_DatafeedStatusExample';
@@ -2215,6 +2227,7 @@ class Google_Service_ShoppingContent_DatafeedStatusExample extends Google_Model
 
 class Google_Service_ShoppingContent_DatafeedsCustomBatchRequest extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_DatafeedsCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -2291,6 +2304,7 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchRequestEntry extends Go
 
 class Google_Service_ShoppingContent_DatafeedsCustomBatchResponse extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_DatafeedsCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -2357,6 +2371,7 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchResponseEntry extends G
 
 class Google_Service_ShoppingContent_DatafeedsListResponse extends Google_Collection
 {
+  protected $collection_key = 'resources';
   public $kind;
   protected $resourcesType = 'Google_Service_ShoppingContent_Datafeed';
   protected $resourcesDataType = 'array';
@@ -2384,6 +2399,7 @@ class Google_Service_ShoppingContent_DatafeedsListResponse extends Google_Collec
 
 class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequest extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -2448,6 +2464,7 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequestEntry ext
 
 class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponse extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -2514,6 +2531,7 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponseEntry ex
 
 class Google_Service_ShoppingContent_DatafeedstatusesListResponse extends Google_Collection
 {
+  protected $collection_key = 'resources';
   public $kind;
   protected $resourcesType = 'Google_Service_ShoppingContent_DatafeedStatus';
   protected $resourcesDataType = 'array';
@@ -2578,6 +2596,7 @@ class Google_Service_ShoppingContent_Error extends Google_Model
 
 class Google_Service_ShoppingContent_Errors extends Google_Collection
 {
+  protected $collection_key = 'errors';
   public $code;
   protected $errorsType = 'Google_Service_ShoppingContent_Error';
   protected $errorsDataType = 'array';
@@ -2688,6 +2707,7 @@ class Google_Service_ShoppingContent_Inventory extends Google_Model
 
 class Google_Service_ShoppingContent_InventoryCustomBatchRequest extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_InventoryCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -2764,6 +2784,7 @@ class Google_Service_ShoppingContent_InventoryCustomBatchRequestEntry extends Go
 
 class Google_Service_ShoppingContent_InventoryCustomBatchResponse extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_InventoryCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -2968,6 +2989,7 @@ class Google_Service_ShoppingContent_Price extends Google_Model
 
 class Google_Service_ShoppingContent_Product extends Google_Collection
 {
+  protected $collection_key = 'warnings';
   public $additionalImageLinks;
   public $adult;
   public $adwordsGrouping;
@@ -3691,6 +3713,7 @@ class Google_Service_ShoppingContent_ProductCustomAttribute extends Google_Model
 
 class Google_Service_ShoppingContent_ProductCustomGroup extends Google_Collection
 {
+  protected $collection_key = 'attributes';
   protected $attributesType = 'Google_Service_ShoppingContent_ProductCustomAttribute';
   protected $attributesDataType = 'array';
   public $name;
@@ -3879,6 +3902,7 @@ class Google_Service_ShoppingContent_ProductShippingWeight extends Google_Model
 
 class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
 {
+  protected $collection_key = 'destinationStatuses';
   protected $dataQualityIssuesType = 'Google_Service_ShoppingContent_ProductStatusDataQualityIssue';
   protected $dataQualityIssuesDataType = 'array';
   protected $destinationStatusesType = 'Google_Service_ShoppingContent_ProductStatusDestinationStatus';
@@ -4139,6 +4163,7 @@ class Google_Service_ShoppingContent_ProductTax extends Google_Model
 
 class Google_Service_ShoppingContent_ProductsCustomBatchRequest extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_ProductsCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -4215,6 +4240,7 @@ class Google_Service_ShoppingContent_ProductsCustomBatchRequestEntry extends Goo
 
 class Google_Service_ShoppingContent_ProductsCustomBatchResponse extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_ProductsCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -4292,6 +4318,7 @@ class Google_Service_ShoppingContent_ProductsCustomBatchResponseEntry extends Go
 
 class Google_Service_ShoppingContent_ProductsListResponse extends Google_Collection
 {
+  protected $collection_key = 'resources';
   public $kind;
   public $nextPageToken;
   protected $resourcesType = 'Google_Service_ShoppingContent_Product';
@@ -4330,6 +4357,7 @@ class Google_Service_ShoppingContent_ProductsListResponse extends Google_Collect
 
 class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequest extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_ProductstatusesCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -4394,6 +4422,7 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequestEntry exte
 
 class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponse extends Google_Collection
 {
+  protected $collection_key = 'entries';
   protected $entriesType = 'Google_Service_ShoppingContent_ProductstatusesCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -4471,6 +4500,7 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponseEntry ext
 
 class Google_Service_ShoppingContent_ProductstatusesListResponse extends Google_Collection
 {
+  protected $collection_key = 'resources';
   public $kind;
   public $nextPageToken;
   protected $resourcesType = 'Google_Service_ShoppingContent_ProductStatus';
