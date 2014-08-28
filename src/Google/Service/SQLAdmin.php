@@ -1190,6 +1190,7 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
 
 class Google_Service_SQLAdmin_BackupRunsListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_SQLAdmin_BackupRun';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1340,6 +1341,7 @@ class Google_Service_SQLAdmin_DatabaseFlags extends Google_Model
 
 class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
 {
+  protected $collection_key = 'replicaNames';
   public $currentDiskSize;
   public $databaseVersion;
   public $etag;
@@ -1512,6 +1514,7 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
 
 class Google_Service_SQLAdmin_ExportContext extends Google_Collection
 {
+  protected $collection_key = 'table';
   public $database;
   public $kind;
   public $table;
@@ -1560,6 +1563,7 @@ class Google_Service_SQLAdmin_ExportContext extends Google_Collection
 
 class Google_Service_SQLAdmin_Flag extends Google_Collection
 {
+  protected $collection_key = 'appliesTo';
   public $allowedStringValues;
   public $appliesTo;
   public $kind;
@@ -1641,6 +1645,7 @@ class Google_Service_SQLAdmin_Flag extends Google_Collection
 
 class Google_Service_SQLAdmin_FlagsListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_SQLAdmin_Flag';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1668,6 +1673,7 @@ class Google_Service_SQLAdmin_FlagsListResponse extends Google_Collection
 
 class Google_Service_SQLAdmin_ImportContext extends Google_Collection
 {
+  protected $collection_key = 'uri';
   public $database;
   public $kind;
   public $uri;
@@ -1705,6 +1711,7 @@ class Google_Service_SQLAdmin_ImportContext extends Google_Collection
 
 class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
 {
+  protected $collection_key = 'error';
   public $endTime;
   public $enqueuedTime;
   protected $errorType = 'Google_Service_SQLAdmin_OperationError';
@@ -2038,6 +2045,7 @@ class Google_Service_SQLAdmin_InstancesInsertResponse extends Google_Model
 
 class Google_Service_SQLAdmin_InstancesListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_SQLAdmin_DatabaseInstance';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2232,6 +2240,7 @@ class Google_Service_SQLAdmin_InstancesUpdateResponse extends Google_Model
 
 class Google_Service_SQLAdmin_IpConfiguration extends Google_Collection
 {
+  protected $collection_key = 'authorizedNetworks';
   public $authorizedNetworks;
   public $enabled;
   public $requireSsl;
@@ -2358,6 +2367,7 @@ class Google_Service_SQLAdmin_OperationError extends Google_Model
 
 class Google_Service_SQLAdmin_OperationsListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_SQLAdmin_InstanceOperation';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2422,6 +2432,7 @@ class Google_Service_SQLAdmin_SetRootPasswordContext extends Google_Model
 
 class Google_Service_SQLAdmin_Settings extends Google_Collection
 {
+  protected $collection_key = 'databaseFlags';
   public $activationPolicy;
   public $authorizedGaeApplications;
   protected $backupConfigurationType = 'Google_Service_SQLAdmin_BackupConfiguration';
@@ -2761,6 +2772,7 @@ class Google_Service_SQLAdmin_SslCertsInsertResponse extends Google_Model
 
 class Google_Service_SQLAdmin_SslCertsListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_SQLAdmin_SslCert';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2788,6 +2800,7 @@ class Google_Service_SQLAdmin_SslCertsListResponse extends Google_Collection
 
 class Google_Service_SQLAdmin_Tier extends Google_Collection
 {
+  protected $collection_key = 'region';
   public $diskQuota;
   public $rAM;
   public $kind;
@@ -2847,6 +2860,7 @@ class Google_Service_SQLAdmin_Tier extends Google_Collection
 
 class Google_Service_SQLAdmin_TiersListResponse extends Google_Collection
 {
+  protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_SQLAdmin_Tier';
   protected $itemsDataType = 'array';
   public $kind;
