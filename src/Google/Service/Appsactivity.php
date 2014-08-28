@@ -157,6 +157,7 @@ class Google_Service_Appsactivity_Activities_Resource extends Google_Service_Res
 
 class Google_Service_Appsactivity_Activity extends Google_Collection
 {
+  protected $collection_key = 'singleEvents';
   protected $combinedEventType = 'Google_Service_Appsactivity_Event';
   protected $combinedEventDataType = '';
   protected $singleEventsType = 'Google_Service_Appsactivity_Event';
@@ -185,6 +186,7 @@ class Google_Service_Appsactivity_Activity extends Google_Collection
 
 class Google_Service_Appsactivity_Event extends Google_Collection
 {
+  protected $collection_key = 'permissionChanges';
   public $additionalEventTypes;
   public $eventTimeMillis;
   public $fromUserDeletion;
@@ -293,6 +295,7 @@ class Google_Service_Appsactivity_Event extends Google_Collection
 
 class Google_Service_Appsactivity_ListActivitiesResponse extends Google_Collection
 {
+  protected $collection_key = 'activities';
   protected $activitiesType = 'Google_Service_Appsactivity_Activity';
   protected $activitiesDataType = 'array';
   public $nextPageToken;
@@ -320,6 +323,7 @@ class Google_Service_Appsactivity_ListActivitiesResponse extends Google_Collecti
 
 class Google_Service_Appsactivity_Move extends Google_Collection
 {
+  protected $collection_key = 'removedParents';
   protected $addedParentsType = 'Google_Service_Appsactivity_Parent';
   protected $addedParentsDataType = 'array';
   protected $removedParentsType = 'Google_Service_Appsactivity_Parent';
@@ -456,6 +460,7 @@ class Google_Service_Appsactivity_Permission extends Google_Model
 
 class Google_Service_Appsactivity_PermissionChange extends Google_Collection
 {
+  protected $collection_key = 'removedPermissions';
   protected $addedPermissionsType = 'Google_Service_Appsactivity_Permission';
   protected $addedPermissionsDataType = 'array';
   protected $removedPermissionsType = 'Google_Service_Appsactivity_Permission';
