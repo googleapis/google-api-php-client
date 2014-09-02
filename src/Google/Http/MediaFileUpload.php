@@ -287,6 +287,15 @@ class Google_Http_MediaFileUpload
     if (200 == $code && true == $location) {
       return $location;
     }
-    throw new Google_Exception("Failed to start the resumable upload");
+    $message = $code;
+    $body = @json_decode( $response->getResponseBody() );
+    if ( ! empty( $body->error ) ) {
+      $message .= ': ';
+      foreach( $body->error->errors as $error ) {
+        $message .= "{$error->domain}, {$error->message};";
+      }
+      $message = rtrim( $message, ';' );
+    }
+    throw new Google_Exception("Failed to start the resumable upload (HTTP {$message})");
   }
 }
