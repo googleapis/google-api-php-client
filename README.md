@@ -5,6 +5,9 @@
 ## Description ##
 The Google API Client Library enables you to work with Google APIs such as Google+, Drive, or YouTube on your server.
 
+## Beta ##
+This library is in Beta. We're comfortable enough with the stability and features of the library that we want you to build real production applications on it. We will make an effort to support the public and protected surface of the library and maintain backwards compatibility in the future. While we are still in Beta, we reserve the right to make incompatible changes. If we do remove some functionality (typically because better functionality exists or if the feature proved infeasible), our intention is to deprecate and provide ample time for developers to update their code.
+
 ## Requirements ##
 * [PHP 5.2.1 or higher](http://www.php.net/)
 * [PHP JSON extension](http://php.net/manual/en/book.json.php)
