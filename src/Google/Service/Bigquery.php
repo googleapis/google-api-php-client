@@ -692,7 +692,8 @@ class Google_Service_Bigquery_Jobs_Resource extends Google_Service_Resource
   }
   /**
    * Lists all the Jobs in the specified project that were started by the user.
-   * (jobs.listJobs)
+   * The job list returns in reverse chronological order of when the jobs were
+   * created, starting with the most recent job created. (jobs.listJobs)
    *
    * @param string $projectId
    * Project ID of the jobs to list
