@@ -6750,6 +6750,7 @@ class Google_Service_Compute_DiskList extends Google_Collection
 class Google_Service_Compute_DiskType extends Google_Model
 {
   public $creationTimestamp;
+  public $defaultDiskSizeGb;
   protected $deprecatedType = 'Google_Service_Compute_DeprecationStatus';
   protected $deprecatedDataType = '';
   public $description;
@@ -6768,6 +6769,16 @@ class Google_Service_Compute_DiskType extends Google_Model
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
+  }
+
+  public function setDefaultDiskSizeGb($defaultDiskSizeGb)
+  {
+    $this->defaultDiskSizeGb = $defaultDiskSizeGb;
+  }
+
+  public function getDefaultDiskSizeGb()
+  {
+    return $this->defaultDiskSizeGb;
   }
 
   public function setDeprecated(Google_Service_Compute_DeprecationStatus $deprecated)
@@ -7745,6 +7756,7 @@ class Google_Service_Compute_HealthStatus extends Google_Model
   public $healthState;
   public $instance;
   public $ipAddress;
+  public $port;
 
   public function setHealthState($healthState)
   {
@@ -7774,6 +7786,16 @@ class Google_Service_Compute_HealthStatus extends Google_Model
   public function getIpAddress()
   {
     return $this->ipAddress;
+  }
+
+  public function setPort($port)
+  {
+    $this->port = $port;
+  }
+
+  public function getPort()
+  {
+    return $this->port;
   }
 }
 
@@ -8728,9 +8750,20 @@ class Google_Service_Compute_InstancesScopedListWarningData extends Google_Model
 
 class Google_Service_Compute_License extends Google_Model
 {
+  public $chargesUseFee;
   public $kind;
   public $name;
   public $selfLink;
+
+  public function setChargesUseFee($chargesUseFee)
+  {
+    $this->chargesUseFee = $chargesUseFee;
+  }
+
+  public function getChargesUseFee()
+  {
+    return $this->chargesUseFee;
+  }
 
   public function setKind($kind)
   {
