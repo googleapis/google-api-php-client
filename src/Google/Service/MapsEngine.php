@@ -103,6 +103,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'search' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -238,6 +242,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'tags' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'search' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -401,6 +409,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'tags' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'search' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -602,6 +614,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'search' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -730,6 +746,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'search' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -811,6 +831,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'tags' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'search' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -982,6 +1006,10 @@ class Google_Service_MapsEngine extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'search' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -1014,6 +1042,16 @@ class Google_Service_MapsEngine extends Google_Service
             ),'patch' => array(
               'path' => 'tables/{id}',
               'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'process' => array(
+              'path' => 'tables/{id}/process',
+              'httpMethod' => 'POST',
               'parameters' => array(
                 'id' => array(
                   'location' => 'path',
@@ -1237,6 +1275,8 @@ class Google_Service_MapsEngine_Assets_Resource extends Google_Service_Resource
    * The ID of a Maps Engine project, used to filter the response. To list all available projects
     * with their IDs, send a Projects: list request. You can also find your project ID as the value of
     * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @opt_param string search
+   * An unstructured search string used to filter the set of results based on asset metadata.
    * @opt_param string maxResults
    * The maximum number of items to include in a single response page. The maximum supported value is
     * 100.
@@ -1259,7 +1299,8 @@ class Google_Service_MapsEngine_Assets_Resource extends Google_Service_Resource
    * The role parameter indicates that the response should only contain assets where the current user
     * has the specified level of access.
    * @opt_param string type
-   * An asset type restriction. If set, only resources of this type will be returned.
+   * A comma separated list of asset types. Returned assets will have one of the types from the
+    * provided list. Supported values are 'map', 'layer', 'rasterCollection' and 'table'.
    * @return Google_Service_MapsEngine_AssetsListResponse
    */
   public function listAssets($optParams = array())
@@ -1396,6 +1437,8 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
    * @opt_param string tags
    * A comma separated list of tags. Returned assets will contain all the tags from the list.
+   * @opt_param string search
+   * An unstructured search string used to filter the set of results based on asset metadata.
    * @opt_param string maxResults
    * The maximum number of items to include in a single response page. The maximum supported value is
     * 100.
@@ -1595,6 +1638,8 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
    * @opt_param string tags
    * A comma separated list of tags. Returned assets will contain all the tags from the list.
+   * @opt_param string search
+   * An unstructured search string used to filter the set of results based on asset metadata.
    * @opt_param string maxResults
    * The maximum number of items to include in a single response page. The maximum supported value is
     * 100.
@@ -1850,6 +1895,8 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
     * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
    * @opt_param string tags
    * A comma separated list of tags. Returned assets will contain all the tags from the list.
+   * @opt_param string search
+   * An unstructured search string used to filter the set of results based on asset metadata.
    * @opt_param string maxResults
    * The maximum number of items to include in a single response page. The maximum supported value is
     * 100.
@@ -2007,6 +2054,8 @@ class Google_Service_MapsEngine_RasterCollectionsRasters_Resource extends Google
     * been created at or after this time.
    * @opt_param string tags
    * A comma separated list of tags. Returned assets will contain all the tags from the list.
+   * @opt_param string search
+   * An unstructured search string used to filter the set of results based on asset metadata.
    * @opt_param string maxResults
    * The maximum number of items to include in a single response page. The maximum supported value is
     * 100.
@@ -2097,6 +2146,8 @@ class Google_Service_MapsEngine_Rasters_Resource extends Google_Service_Resource
    *
    * @opt_param string tags
    * A comma separated list of tags. Returned assets will contain all the tags from the list.
+   * @opt_param string search
+   * An unstructured search string used to filter the set of results based on asset metadata.
    * @opt_param string maxResults
    * The maximum number of items to include in a single response page. The maximum supported value is
     * 100.
@@ -2305,6 +2356,8 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
     * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
    * @opt_param string tags
    * A comma separated list of tags. Returned assets will contain all the tags from the list.
+   * @opt_param string search
+   * An unstructured search string used to filter the set of results based on asset metadata.
    * @opt_param string maxResults
    * The maximum number of items to include in a single response page. The maximum supported value is
     * 100.
@@ -2347,6 +2400,20 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
     $params = array('id' => $id, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params));
+  }
+  /**
+   * Process a table asset. (tables.process)
+   *
+   * @param string $id
+   * The ID of the table.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_ProcessResponse
+   */
+  public function process($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('process', array($params), "Google_Service_MapsEngine_ProcessResponse");
   }
   /**
    * Create a placeholder table asset to which table files can be uploaded. Once
@@ -3452,6 +3519,7 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   public $etag;
   public $id;
   public $lastModifiedTime;
+  public $layerType;
   public $name;
   public $processingStatus;
   public $projectId;
@@ -3549,6 +3617,16 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
+  }
+
+  public function setLayerType($layerType)
+  {
+    $this->layerType = $layerType;
+  }
+
+  public function getLayerType()
+  {
+    return $this->layerType;
   }
 
   public function setName($name)
