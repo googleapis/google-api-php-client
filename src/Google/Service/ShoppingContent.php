@@ -3032,9 +3032,9 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   protected $loyaltyPointsType = 'Google_Service_ShoppingContent_LoyaltyPoints';
   protected $loyaltyPointsDataType = '';
   public $material;
-  public $merchantMultipackQuantity;
   public $mobileLink;
   public $mpn;
+  public $multipack;
   public $offerId;
   public $onlineOnly;
   public $pattern;
@@ -3056,8 +3056,10 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   protected $taxesType = 'Google_Service_ShoppingContent_ProductTax';
   protected $taxesDataType = 'array';
   public $title;
-  public $unitPricingBaseMeasure;
-  public $unitPricingMeasure;
+  protected $unitPricingBaseMeasureType = 'Google_Service_ShoppingContent_ProductUnitPricingBaseMeasure';
+  protected $unitPricingBaseMeasureDataType = '';
+  protected $unitPricingMeasureType = 'Google_Service_ShoppingContent_ProductUnitPricingMeasure';
+  protected $unitPricingMeasureDataType = '';
   public $validatedDestinations;
   protected $warningsType = 'Google_Service_ShoppingContent_Error';
   protected $warningsDataType = 'array';
@@ -3432,16 +3434,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
     return $this->material;
   }
 
-  public function setMerchantMultipackQuantity($merchantMultipackQuantity)
-  {
-    $this->merchantMultipackQuantity = $merchantMultipackQuantity;
-  }
-
-  public function getMerchantMultipackQuantity()
-  {
-    return $this->merchantMultipackQuantity;
-  }
-
   public function setMobileLink($mobileLink)
   {
     $this->mobileLink = $mobileLink;
@@ -3460,6 +3452,16 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   public function getMpn()
   {
     return $this->mpn;
+  }
+
+  public function setMultipack($multipack)
+  {
+    $this->multipack = $multipack;
+  }
+
+  public function getMultipack()
+  {
+    return $this->multipack;
   }
 
   public function setOfferId($offerId)
@@ -3622,7 +3624,7 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
     return $this->title;
   }
 
-  public function setUnitPricingBaseMeasure($unitPricingBaseMeasure)
+  public function setUnitPricingBaseMeasure(Google_Service_ShoppingContent_ProductUnitPricingBaseMeasure $unitPricingBaseMeasure)
   {
     $this->unitPricingBaseMeasure = $unitPricingBaseMeasure;
   }
@@ -3632,7 +3634,7 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
     return $this->unitPricingBaseMeasure;
   }
 
-  public function setUnitPricingMeasure($unitPricingMeasure)
+  public function setUnitPricingMeasure(Google_Service_ShoppingContent_ProductUnitPricingMeasure $unitPricingMeasure)
   {
     $this->unitPricingMeasure = $unitPricingMeasure;
   }
@@ -4158,6 +4160,58 @@ class Google_Service_ShoppingContent_ProductTax extends Google_Model
   public function getTaxShip()
   {
     return $this->taxShip;
+  }
+}
+
+class Google_Service_ShoppingContent_ProductUnitPricingBaseMeasure extends Google_Model
+{
+  public $unit;
+  public $value;
+
+  public function setUnit($unit)
+  {
+    $this->unit = $unit;
+  }
+
+  public function getUnit()
+  {
+    return $this->unit;
+  }
+
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
+class Google_Service_ShoppingContent_ProductUnitPricingMeasure extends Google_Model
+{
+  public $unit;
+  public $value;
+
+  public function setUnit($unit)
+  {
+    $this->unit = $unit;
+  }
+
+  public function getUnit()
+  {
+    return $this->unit;
+  }
+
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
   }
 }
 
