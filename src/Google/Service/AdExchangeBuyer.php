@@ -1303,6 +1303,7 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   public $kind;
   public $name;
   public $privateExchangeMinCpm;
+  public $publisherBlocksOverriden;
   public $sellerNetwork;
   public $startTime;
 
@@ -1394,6 +1395,16 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   public function getPrivateExchangeMinCpm()
   {
     return $this->privateExchangeMinCpm;
+  }
+
+  public function setPublisherBlocksOverriden($publisherBlocksOverriden)
+  {
+    $this->publisherBlocksOverriden = $publisherBlocksOverriden;
+  }
+
+  public function getPublisherBlocksOverriden()
+  {
+    return $this->publisherBlocksOverriden;
   }
 
   public function setSellerNetwork($sellerNetwork)
