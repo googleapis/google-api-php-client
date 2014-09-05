@@ -1809,7 +1809,7 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * Whether to pin the new revision. A file can have a maximum of 200 pinned revisions.
    * @opt_param bool newRevision
    * Whether a blob upload should create a new revision. If false, the blob data in the current head
-    * revision is replaced. If not set or true, a new blob is created as head revision, and previous
+    * revision is replaced. If true or not set, a new blob is created as head revision, and previous
     * revisions are preserved (causing increased use of the user's data storage quota).
    * @opt_param bool ocr
    * Whether to attempt OCR on .jpg, .png, .gif, or .pdf uploads.
@@ -1893,7 +1893,7 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * Whether to pin the new revision. A file can have a maximum of 200 pinned revisions.
    * @opt_param bool newRevision
    * Whether a blob upload should create a new revision. If false, the blob data in the current head
-    * revision is replaced. If not set or true, a new blob is created as head revision, and previous
+    * revision is replaced. If true or not set, a new blob is created as head revision, and previous
     * revisions are preserved (causing increased use of the user's data storage quota).
    * @opt_param bool ocr
    * Whether to attempt OCR on .jpg, .png, .gif, or .pdf uploads.
