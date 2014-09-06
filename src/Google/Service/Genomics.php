@@ -506,7 +506,7 @@ class Google_Service_Genomics_Beacons_Resource extends Google_Service_Resource
    * @opt_param string contig
    * Required. The contig to query over.
    * @opt_param string position
-   * Required. The 1-based position to query at.
+   * Required. The 0-based position to query.
    * @return Google_Service_Genomics_Beacon
    */
   public function get($variantsetId, $optParams = array())
@@ -1104,7 +1104,7 @@ class Google_Service_Genomics_Variants_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string variantsetId
-   * Required. The ID of the variantset to get variant summary information for.
+   * Required. The ID of the variant set to get variant summary information for.
    * @return Google_Service_Genomics_GetVariantsSummaryResponse
    */
   public function getSummary($optParams = array())
@@ -1519,10 +1519,11 @@ class Google_Service_Genomics_ExperimentalCreateJobResponse extends Google_Model
 
 class Google_Service_Genomics_ExportReadsetsRequest extends Google_Collection
 {
-  protected $collection_key = 'readsetIds';
+  protected $collection_key = 'referenceNames';
   public $exportUri;
   public $projectId;
   public $readsetIds;
+  public $referenceNames;
 
   public function setExportUri($exportUri)
   {
@@ -1552,6 +1553,16 @@ class Google_Service_Genomics_ExportReadsetsRequest extends Google_Collection
   public function getReadsetIds()
   {
     return $this->readsetIds;
+  }
+
+  public function setReferenceNames($referenceNames)
+  {
+    $this->referenceNames = $referenceNames;
+  }
+
+  public function getReferenceNames()
+  {
+    return $this->referenceNames;
   }
 }
 
