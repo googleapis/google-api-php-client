@@ -318,6 +318,11 @@ class Google_Service_Gmail extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'metadataHeaders' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
                 'format' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -906,6 +911,8 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
    * The ID of the message to retrieve.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string metadataHeaders
+   * When given and format is METADATA, only include headers specified.
    * @opt_param string format
    * The format to return the message in.
    * @return Google_Service_Gmail_Message
