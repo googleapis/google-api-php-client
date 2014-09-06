@@ -121,6 +121,21 @@ class Google_Service_AndroidPublisher extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'validate' => array(
+              'path' => '{packageName}/edits/{editId}:validate',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'packageName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'editId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )
@@ -1148,6 +1163,23 @@ class Google_Service_AndroidPublisher_Edits_Resource extends Google_Service_Reso
     $params = array('packageName' => $packageName, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_AndroidPublisher_AppEdit");
+  }
+  /**
+   * Checks that the edit can be successfully committed. The edit's changes are
+   * not applied to the live app. (edits.validate)
+   *
+   * @param string $packageName
+   * Unique identifier for the Android app that is being updated; for example, "com.spiffygame".
+   * @param string $editId
+   * Unique identifier for this edit.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_AndroidPublisher_AppEdit
+   */
+  public function validate($packageName, $editId, $optParams = array())
+  {
+    $params = array('packageName' => $packageName, 'editId' => $editId);
+    $params = array_merge($params, $optParams);
+    return $this->call('validate', array($params), "Google_Service_AndroidPublisher_AppEdit");
   }
 }
 
