@@ -192,7 +192,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
   public function getRefreshToken()
   {
     if (array_key_exists('refresh_token', $this->token)) {
-      return this->token['refresh_token'];
+      return $this->token['refresh_token'];
     } else {
       return null;
     }

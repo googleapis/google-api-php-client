@@ -254,7 +254,7 @@ class Google_Client
    */
   public function getRefreshToken()
   {
-    return = $this->getAuth()->getRefreshToken();
+    return $this->getAuth()->getRefreshToken();
   }
 
   /**
