@@ -1083,6 +1083,8 @@ class Google_Service_Bigquery_DatasetAccess extends Google_Model
   public $role;
   public $specialGroup;
   public $userByEmail;
+  protected $viewType = 'Google_Service_Bigquery_TableReference';
+  protected $viewDataType = '';
 
   public function setDomain($domain)
   {
@@ -1132,6 +1134,16 @@ class Google_Service_Bigquery_DatasetAccess extends Google_Model
   public function getUserByEmail()
   {
     return $this->userByEmail;
+  }
+
+  public function setView(Google_Service_Bigquery_TableReference $view)
+  {
+    $this->view = $view;
+  }
+
+  public function getView()
+  {
+    return $this->view;
   }
 }
 
