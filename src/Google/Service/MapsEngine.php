@@ -221,6 +221,16 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
               ),
+            ),'getPublished' => array(
+              'path' => 'layers/{id}/published',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'list' => array(
               'path' => 'layers',
               'httpMethod' => 'GET',
@@ -274,6 +284,23 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'role' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'listPublished' => array(
+              'path' => 'layers/published',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'projectId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -388,6 +415,16 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
               ),
+            ),'getPublished' => array(
+              'path' => 'maps/{id}/published',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'list' => array(
               'path' => 'maps',
               'httpMethod' => 'GET',
@@ -441,6 +478,23 @@ class Google_Service_MapsEngine extends Google_Service
                   'type' => 'string',
                 ),
                 'role' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'listPublished' => array(
+              'path' => 'maps/published',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'projectId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1419,6 +1473,20 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_MapsEngine_Layer");
   }
   /**
+   * Return the published metadata for a particular layer. (layers.getPublished)
+   *
+   * @param string $id
+   * The ID of the layer.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PublishedLayer
+   */
+  public function getPublished($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('getPublished', array($params), "Google_Service_MapsEngine_PublishedLayer");
+  }
+  /**
    * Return all layers readable by the current user. (layers.listLayers)
    *
    * @param array $optParams Optional parameters.
@@ -1467,6 +1535,30 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array();
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_LayersListResponse");
+  }
+  /**
+   * Return all published layers readable by the current user.
+   * (layers.listPublished)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string pageToken
+   * The continuation token, used to page through large result sets. To get the next page of results,
+    * set this parameter to the value of nextPageToken from the previous response.
+   * @opt_param string maxResults
+   * The maximum number of items to include in a single response page. The maximum supported value is
+    * 100.
+   * @opt_param string projectId
+   * The ID of a Maps Engine project, used to filter the response. To list all available projects
+    * with their IDs, send a Projects: list request. You can also find your project ID as the value of
+    * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @return Google_Service_MapsEngine_PublishedLayersListResponse
+   */
+  public function listPublished($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('listPublished', array($params), "Google_Service_MapsEngine_PublishedLayersListResponse");
   }
   /**
    * Mutate a layer asset. (layers.patch)
@@ -1620,6 +1712,20 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_MapsEngine_Map");
   }
   /**
+   * Return the published metadata for a particular map. (maps.getPublished)
+   *
+   * @param string $id
+   * The ID of the map.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PublishedMap
+   */
+  public function getPublished($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('getPublished', array($params), "Google_Service_MapsEngine_PublishedMap");
+  }
+  /**
    * Return all maps readable by the current user. (maps.listMaps)
    *
    * @param array $optParams Optional parameters.
@@ -1668,6 +1774,29 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     $params = array();
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_MapsListResponse");
+  }
+  /**
+   * Return all published maps readable by the current user. (maps.listPublished)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string pageToken
+   * The continuation token, used to page through large result sets. To get the next page of results,
+    * set this parameter to the value of nextPageToken from the previous response.
+   * @opt_param string maxResults
+   * The maximum number of items to include in a single response page. The maximum supported value is
+    * 100.
+   * @opt_param string projectId
+   * The ID of a Maps Engine project, used to filter the response. To list all available projects
+    * with their IDs, send a Projects: list request. You can also find your project ID as the value of
+    * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @return Google_Service_MapsEngine_PublishedMapsListResponse
+   */
+  public function listPublished($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('listPublished', array($params), "Google_Service_MapsEngine_PublishedMapsListResponse");
   }
   /**
    * Mutate a map asset. (maps.patch)
@@ -1769,7 +1898,7 @@ class Google_Service_MapsEngine_ProjectsIcons_Resource extends Google_Service_Re
     return $this->call('create', array($params), "Google_Service_MapsEngine_Icon");
   }
   /**
-   * Return metadata for a specific icon (icons.get)
+   * Return an icon or its associated metadata (icons.get)
    *
    * @param string $projectId
    * The ID of the project.
@@ -3072,6 +3201,7 @@ class Google_Service_MapsEngine_FeaturesBatchInsertRequest extends Google_Collec
   protected $collection_key = 'features';
   protected $featuresType = 'Google_Service_MapsEngine_Feature';
   protected $featuresDataType = 'array';
+  public $normalizeGeometries;
 
   public function setFeatures($features)
   {
@@ -3081,6 +3211,16 @@ class Google_Service_MapsEngine_FeaturesBatchInsertRequest extends Google_Collec
   public function getFeatures()
   {
     return $this->features;
+  }
+
+  public function setNormalizeGeometries($normalizeGeometries)
+  {
+    $this->normalizeGeometries = $normalizeGeometries;
+  }
+
+  public function getNormalizeGeometries()
+  {
+    return $this->normalizeGeometries;
   }
 }
 
@@ -3089,6 +3229,7 @@ class Google_Service_MapsEngine_FeaturesBatchPatchRequest extends Google_Collect
   protected $collection_key = 'features';
   protected $featuresType = 'Google_Service_MapsEngine_Feature';
   protected $featuresDataType = 'array';
+  public $normalizeGeometries;
 
   public function setFeatures($features)
   {
@@ -3098,6 +3239,16 @@ class Google_Service_MapsEngine_FeaturesBatchPatchRequest extends Google_Collect
   public function getFeatures()
   {
     return $this->features;
+  }
+
+  public function setNormalizeGeometries($normalizeGeometries)
+  {
+    $this->normalizeGeometries = $normalizeGeometries;
+  }
+
+  public function getNormalizeGeometries()
+  {
+    return $this->normalizeGeometries;
   }
 }
 
@@ -3374,6 +3525,10 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
 {
   public $id;
   public $name;
+  protected $scaledShapeType = 'Google_Service_MapsEngine_ScaledShape';
+  protected $scaledShapeDataType = '';
+  protected $scalingFunctionType = 'Google_Service_MapsEngine_ScalingFunction';
+  protected $scalingFunctionDataType = '';
 
   public function setId($id)
   {
@@ -3393,6 +3548,26 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+
+  public function setScaledShape(Google_Service_MapsEngine_ScaledShape $scaledShape)
+  {
+    $this->scaledShape = $scaledShape;
+  }
+
+  public function getScaledShape()
+  {
+    return $this->scaledShape;
+  }
+
+  public function setScalingFunction(Google_Service_MapsEngine_ScalingFunction $scalingFunction)
+  {
+    $this->scalingFunction = $scalingFunction;
+  }
+
+  public function getScalingFunction()
+  {
+    return $this->scalingFunction;
   }
 }
 
@@ -4412,6 +4587,214 @@ class Google_Service_MapsEngine_PublishResponse extends Google_Model
 
 }
 
+class Google_Service_MapsEngine_PublishedLayer extends Google_Model
+{
+  public $description;
+  public $etag;
+  public $id;
+  public $layerType;
+  public $name;
+  public $projectId;
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setLayerType($layerType)
+  {
+    $this->layerType = $layerType;
+  }
+
+  public function getLayerType()
+  {
+    return $this->layerType;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setProjectId($projectId)
+  {
+    $this->projectId = $projectId;
+  }
+
+  public function getProjectId()
+  {
+    return $this->projectId;
+  }
+}
+
+class Google_Service_MapsEngine_PublishedLayersListResponse extends Google_Collection
+{
+  protected $collection_key = 'layers';
+  protected $layersType = 'Google_Service_MapsEngine_PublishedLayer';
+  protected $layersDataType = 'array';
+  public $nextPageToken;
+
+  public function setLayers($layers)
+  {
+    $this->layers = $layers;
+  }
+
+  public function getLayers()
+  {
+    return $this->layers;
+  }
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+}
+
+class Google_Service_MapsEngine_PublishedMap extends Google_Model
+{
+  protected $contentsType = 'Google_Service_MapsEngine_MapItem';
+  protected $contentsDataType = '';
+  public $defaultViewport;
+  public $description;
+  public $etag;
+  public $id;
+  public $name;
+  public $projectId;
+
+  public function setContents(Google_Service_MapsEngine_MapItem $contents)
+  {
+    $this->contents = $contents;
+  }
+
+  public function getContents()
+  {
+    return $this->contents;
+  }
+
+  public function setDefaultViewport($defaultViewport)
+  {
+    $this->defaultViewport = $defaultViewport;
+  }
+
+  public function getDefaultViewport()
+  {
+    return $this->defaultViewport;
+  }
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setProjectId($projectId)
+  {
+    $this->projectId = $projectId;
+  }
+
+  public function getProjectId()
+  {
+    return $this->projectId;
+  }
+}
+
+class Google_Service_MapsEngine_PublishedMapsListResponse extends Google_Collection
+{
+  protected $collection_key = 'maps';
+  protected $mapsType = 'Google_Service_MapsEngine_PublishedMap';
+  protected $mapsDataType = 'array';
+  public $nextPageToken;
+
+  public function setMaps($maps)
+  {
+    $this->maps = $maps;
+  }
+
+  public function getMaps()
+  {
+    return $this->maps;
+  }
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+}
+
 class Google_Service_MapsEngine_Raster extends Google_Collection
 {
   protected $collection_key = 'files';
@@ -4984,6 +5367,95 @@ class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
   }
 }
 
+class Google_Service_MapsEngine_ScaledShape extends Google_Model
+{
+  protected $borderType = 'Google_Service_MapsEngine_Border';
+  protected $borderDataType = '';
+  protected $fillType = 'Google_Service_MapsEngine_Color';
+  protected $fillDataType = '';
+  public $shape;
+
+  public function setBorder(Google_Service_MapsEngine_Border $border)
+  {
+    $this->border = $border;
+  }
+
+  public function getBorder()
+  {
+    return $this->border;
+  }
+
+  public function setFill(Google_Service_MapsEngine_Color $fill)
+  {
+    $this->fill = $fill;
+  }
+
+  public function getFill()
+  {
+    return $this->fill;
+  }
+
+  public function setShape($shape)
+  {
+    $this->shape = $shape;
+  }
+
+  public function getShape()
+  {
+    return $this->shape;
+  }
+}
+
+class Google_Service_MapsEngine_ScalingFunction extends Google_Model
+{
+  public $column;
+  public $scalingType;
+  protected $sizeRangeType = 'Google_Service_MapsEngine_SizeRange';
+  protected $sizeRangeDataType = '';
+  protected $valueRangeType = 'Google_Service_MapsEngine_ValueRange';
+  protected $valueRangeDataType = '';
+
+  public function setColumn($column)
+  {
+    $this->column = $column;
+  }
+
+  public function getColumn()
+  {
+    return $this->column;
+  }
+
+  public function setScalingType($scalingType)
+  {
+    $this->scalingType = $scalingType;
+  }
+
+  public function getScalingType()
+  {
+    return $this->scalingType;
+  }
+
+  public function setSizeRange(Google_Service_MapsEngine_SizeRange $sizeRange)
+  {
+    $this->sizeRange = $sizeRange;
+  }
+
+  public function getSizeRange()
+  {
+    return $this->sizeRange;
+  }
+
+  public function setValueRange(Google_Service_MapsEngine_ValueRange $valueRange)
+  {
+    $this->valueRange = $valueRange;
+  }
+
+  public function getValueRange()
+  {
+    return $this->valueRange;
+  }
+}
+
 class Google_Service_MapsEngine_Schema extends Google_Collection
 {
   protected $collection_key = 'columns';
@@ -5020,6 +5492,32 @@ class Google_Service_MapsEngine_Schema extends Google_Collection
   public function getPrimaryKey()
   {
     return $this->primaryKey;
+  }
+}
+
+class Google_Service_MapsEngine_SizeRange extends Google_Model
+{
+  public $max;
+  public $min;
+
+  public function setMax($max)
+  {
+    $this->max = $max;
+  }
+
+  public function getMax()
+  {
+    return $this->max;
+  }
+
+  public function setMin($min)
+  {
+    $this->min = $min;
+  }
+
+  public function getMin()
+  {
+    return $this->min;
   }
 }
 
@@ -5246,6 +5744,32 @@ class Google_Service_MapsEngine_TablesListResponse extends Google_Collection
   public function getTables()
   {
     return $this->tables;
+  }
+}
+
+class Google_Service_MapsEngine_ValueRange extends Google_Model
+{
+  public $max;
+  public $min;
+
+  public function setMax($max)
+  {
+    $this->max = $max;
+  }
+
+  public function getMax()
+  {
+    return $this->max;
+  }
+
+  public function setMin($min)
+  {
+    $this->min = $min;
+  }
+
+  public function getMin()
+  {
+    return $this->min;
   }
 }
 
