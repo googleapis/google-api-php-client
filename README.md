@@ -12,6 +12,8 @@ This library is in Beta. We're comfortable enough with the stability and feature
 * [PHP 5.2.1 or higher](http://www.php.net/)
 * [PHP JSON extension](http://php.net/manual/en/book.json.php)
 
+*Note*: some features (service accounts and id token verification) require PHP 5.3.0 and above due to cryptographic algorithm requirements. 
+
 ## Developer Documentation ##
 http://developers.google.com/api-client-library/php
 
