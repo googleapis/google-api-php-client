@@ -1702,7 +1702,9 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string version
-   *
+   * Deprecated: The version parameter indicates which version of the map should be returned. When
+    * version is set to published, the published version of the map will be returned. Please use the
+    * maps.getPublished endpoint instead.
    * @return Google_Service_MapsEngine_Map
    */
   public function get($id, $optParams = array())
@@ -3686,6 +3688,7 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   protected $collection_key = 'tags';
   public $bbox;
   public $creationTime;
+  public $creatorEmail;
   public $datasourceType;
   protected $datasourcesType = 'Google_Service_MapsEngine_Datasource';
   protected $datasourcesDataType = 'array';
@@ -3694,6 +3697,7 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   public $etag;
   public $id;
   public $lastModifiedTime;
+  public $lastModifierEmail;
   public $layerType;
   public $name;
   public $processingStatus;
@@ -3722,6 +3726,16 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   public function getCreationTime()
   {
     return $this->creationTime;
+  }
+
+  public function setCreatorEmail($creatorEmail)
+  {
+    $this->creatorEmail = $creatorEmail;
+  }
+
+  public function getCreatorEmail()
+  {
+    return $this->creatorEmail;
   }
 
   public function setDatasourceType($datasourceType)
@@ -3792,6 +3806,16 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
+  }
+
+  public function setLastModifierEmail($lastModifierEmail)
+  {
+    $this->lastModifierEmail = $lastModifierEmail;
+  }
+
+  public function getLastModifierEmail()
+  {
+    return $this->lastModifierEmail;
   }
 
   public function setLayerType($layerType)
@@ -3999,12 +4023,14 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   protected $contentsType = 'Google_Service_MapsEngine_MapItem';
   protected $contentsDataType = '';
   public $creationTime;
+  public $creatorEmail;
   public $defaultViewport;
   public $description;
   public $draftAccessList;
   public $etag;
   public $id;
   public $lastModifiedTime;
+  public $lastModifierEmail;
   public $name;
   public $processingStatus;
   public $projectId;
@@ -4041,6 +4067,16 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public function getCreationTime()
   {
     return $this->creationTime;
+  }
+
+  public function setCreatorEmail($creatorEmail)
+  {
+    $this->creatorEmail = $creatorEmail;
+  }
+
+  public function getCreatorEmail()
+  {
+    return $this->creatorEmail;
   }
 
   public function setDefaultViewport($defaultViewport)
@@ -4101,6 +4137,16 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
+  }
+
+  public function setLastModifierEmail($lastModifierEmail)
+  {
+    $this->lastModifierEmail = $lastModifierEmail;
+  }
+
+  public function getLastModifierEmail()
+  {
+    return $this->lastModifierEmail;
   }
 
   public function setName($name)
@@ -4590,7 +4636,6 @@ class Google_Service_MapsEngine_PublishResponse extends Google_Model
 class Google_Service_MapsEngine_PublishedLayer extends Google_Model
 {
   public $description;
-  public $etag;
   public $id;
   public $layerType;
   public $name;
@@ -4604,16 +4649,6 @@ class Google_Service_MapsEngine_PublishedLayer extends Google_Model
   public function getDescription()
   {
     return $this->description;
-  }
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
-
-  public function getEtag()
-  {
-    return $this->etag;
   }
 
   public function setId($id)
@@ -4691,7 +4726,6 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   protected $contentsDataType = '';
   public $defaultViewport;
   public $description;
-  public $etag;
   public $id;
   public $name;
   public $projectId;
@@ -4724,16 +4758,6 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   public function getDescription()
   {
     return $this->description;
-  }
-
-  public function setEtag($etag)
-  {
-    $this->etag = $etag;
-  }
-
-  public function getEtag()
-  {
-    return $this->etag;
   }
 
   public function setId($id)
@@ -4803,6 +4827,7 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   public $attribution;
   public $bbox;
   public $creationTime;
+  public $creatorEmail;
   public $description;
   public $draftAccessList;
   public $etag;
@@ -4810,6 +4835,7 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   protected $filesDataType = 'array';
   public $id;
   public $lastModifiedTime;
+  public $lastModifierEmail;
   public $maskType;
   public $name;
   public $processingStatus;
@@ -4855,6 +4881,16 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   public function getCreationTime()
   {
     return $this->creationTime;
+  }
+
+  public function setCreatorEmail($creatorEmail)
+  {
+    $this->creatorEmail = $creatorEmail;
+  }
+
+  public function getCreatorEmail()
+  {
+    return $this->creatorEmail;
   }
 
   public function setDescription($description)
@@ -4915,6 +4951,16 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
+  }
+
+  public function setLastModifierEmail($lastModifierEmail)
+  {
+    $this->lastModifierEmail = $lastModifierEmail;
+  }
+
+  public function getLastModifierEmail()
+  {
+    return $this->lastModifierEmail;
   }
 
   public function setMaskType($maskType)
@@ -4984,11 +5030,13 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   public $attribution;
   public $bbox;
   public $creationTime;
+  public $creatorEmail;
   public $description;
   public $draftAccessList;
   public $etag;
   public $id;
   public $lastModifiedTime;
+  public $lastModifierEmail;
   public $mosaic;
   public $name;
   public $processingStatus;
@@ -5024,6 +5072,16 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   public function getCreationTime()
   {
     return $this->creationTime;
+  }
+
+  public function setCreatorEmail($creatorEmail)
+  {
+    $this->creatorEmail = $creatorEmail;
+  }
+
+  public function getCreatorEmail()
+  {
+    return $this->creatorEmail;
   }
 
   public function setDescription($description)
@@ -5074,6 +5132,16 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
+  }
+
+  public function setLastModifierEmail($lastModifierEmail)
+  {
+    $this->lastModifierEmail = $lastModifierEmail;
+  }
+
+  public function getLastModifierEmail()
+  {
+    return $this->lastModifierEmail;
   }
 
   public function setMosaic($mosaic)
@@ -5526,6 +5594,7 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   protected $collection_key = 'tags';
   public $bbox;
   public $creationTime;
+  public $creatorEmail;
   public $description;
   public $draftAccessList;
   public $etag;
@@ -5533,6 +5602,7 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   protected $filesDataType = 'array';
   public $id;
   public $lastModifiedTime;
+  public $lastModifierEmail;
   public $name;
   public $processingStatus;
   public $projectId;
@@ -5560,6 +5630,16 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   public function getCreationTime()
   {
     return $this->creationTime;
+  }
+
+  public function setCreatorEmail($creatorEmail)
+  {
+    $this->creatorEmail = $creatorEmail;
+  }
+
+  public function getCreatorEmail()
+  {
+    return $this->creatorEmail;
   }
 
   public function setDescription($description)
@@ -5620,6 +5700,16 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
+  }
+
+  public function setLastModifierEmail($lastModifierEmail)
+  {
+    $this->lastModifierEmail = $lastModifierEmail;
+  }
+
+  public function getLastModifierEmail()
+  {
+    return $this->lastModifierEmail;
   }
 
   public function setName($name)
