@@ -25,7 +25,7 @@ class Google_Config
   const GZIP_UPLOADS_ENABLED = true;
   const GZIP_UPLOADS_DISABLED = false;
   const USE_AUTO_IO_SELECTION = "auto";
-  private $configuration;
+  protected $configuration;
 
   /**
    * Create a new Google_Config. Can accept an ini file location with the
@@ -89,11 +89,6 @@ class Google_Config
         'Google_Cache_File' => array(
           'directory' => sys_get_temp_dir() . '/Google_Client'
         )
-      ),
-
-      // Definition of service specific values like scopes, oauth token URLs,
-      // etc. Example:
-      'services' => array(
       ),
     );
     if ($ini_file_location) {
