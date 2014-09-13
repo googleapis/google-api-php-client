@@ -933,7 +933,7 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   protected $disapprovalReasonsType = 'Google_Service_AdExchangeBuyer_CreativeDisapprovalReasons';
   protected $disapprovalReasonsDataType = 'array';
   protected $filteringReasonsType = 'Google_Service_AdExchangeBuyer_CreativeFilteringReasons';
-  protected $filteringReasonsDataType = '';
+  protected $filteringReasonsDataType = 'array';
   public $height;
   public $kind;
   public $productCategories;
