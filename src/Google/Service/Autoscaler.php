@@ -477,6 +477,7 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
   public $creationTimestamp;
   public $description;
   public $id;
+  public $kind;
   public $name;
   public $selfLink;
   public $target;
@@ -521,6 +522,16 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
     return $this->id;
   }
 
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
   public function setName($name)
   {
     $this->name = $name;
@@ -557,6 +568,7 @@ class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
   protected $collection_key = 'items';
   protected $itemsType = 'Google_Service_Autoscaler_Autoscaler';
   protected $itemsDataType = 'array';
+  public $kind;
   public $nextPageToken;
 
   public function setItems($items)
@@ -567,6 +579,16 @@ class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
   public function getItems()
   {
     return $this->items;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
   }
 
   public function setNextPageToken($nextPageToken)
@@ -673,6 +695,7 @@ class Google_Service_Autoscaler_AutoscalingPolicyCustomMetricUtilization extends
 {
   public $metric;
   public $utilizationTarget;
+  public $utilizationTargetType;
 
   public function setMetric($metric)
   {
@@ -692,6 +715,16 @@ class Google_Service_Autoscaler_AutoscalingPolicyCustomMetricUtilization extends
   public function getUtilizationTarget()
   {
     return $this->utilizationTarget;
+  }
+
+  public function setUtilizationTargetType($utilizationTargetType)
+  {
+    $this->utilizationTargetType = $utilizationTargetType;
+  }
+
+  public function getUtilizationTargetType()
+  {
+    return $this->utilizationTargetType;
   }
 }
 
