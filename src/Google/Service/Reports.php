@@ -666,10 +666,13 @@ class Google_Service_Reports_ActivityEvents extends Google_Collection
   }
 }
 
-class Google_Service_Reports_ActivityEventsParameters extends Google_Model
+class Google_Service_Reports_ActivityEventsParameters extends Google_Collection
 {
+  protected $collection_key = 'multiValue';
   public $boolValue;
   public $intValue;
+  public $multiIntValue;
+  public $multiValue;
   public $name;
   public $value;
 
@@ -691,6 +694,26 @@ class Google_Service_Reports_ActivityEventsParameters extends Google_Model
   public function getIntValue()
   {
     return $this->intValue;
+  }
+
+  public function setMultiIntValue($multiIntValue)
+  {
+    $this->multiIntValue = $multiIntValue;
+  }
+
+  public function getMultiIntValue()
+  {
+    return $this->multiIntValue;
+  }
+
+  public function setMultiValue($multiValue)
+  {
+    $this->multiValue = $multiValue;
+  }
+
+  public function getMultiValue()
+  {
+    return $this->multiValue;
   }
 
   public function setName($name)
