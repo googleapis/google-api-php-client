@@ -247,6 +247,15 @@ class Google_Client
     // in the library.
     return (null == $token || 'null' == $token || '[]' == $token) ? null : $token;
   }
+  
+  /**
+   * Get the OAuth 2.0 refresh token.
+   * @return string $refreshToken refresh token or null if not available
+   */
+  public function getRefreshToken()
+  {
+    return $this->getAuth()->getRefreshToken();
+  }
 
   /**
    * Returns if the access_token is expired.
