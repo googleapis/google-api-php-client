@@ -486,7 +486,7 @@ class Google_Client
   /**
    * Helper method to execute deferred HTTP requests.
    *
-   * @returns object of the type of the expected class or array.
+   * @return object of the type of the expected class or array.
    */
   public function execute($request)
   {
