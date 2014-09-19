@@ -1059,9 +1059,69 @@ class Google_Service_AndroidPublisher extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'defer' => array(
+              'path' => '{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:defer',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'packageName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'token' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'get' => array(
               'path' => '{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}',
               'httpMethod' => 'GET',
+              'parameters' => array(
+                'packageName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'token' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'refund' => array(
+              'path' => '{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:refund',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'packageName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'token' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'revoke' => array(
+              'path' => '{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:revoke',
+              'httpMethod' => 'POST',
               'parameters' => array(
                 'packageName' => array(
                   'location' => 'path',
@@ -2125,6 +2185,27 @@ class Google_Service_AndroidPublisher_PurchasesSubscriptions_Resource extends Go
     return $this->call('cancel', array($params));
   }
   /**
+   * Defers a user's subscription purchase until a specified future expiration
+   * time. (subscriptions.defer)
+   *
+   * @param string $packageName
+   * The package name of the application for which this subscription was purchased (for example,
+    * 'com.some.thing').
+   * @param string $subscriptionId
+   * The purchased subscription ID (for example, 'monthly001').
+   * @param string $token
+   * The token provided to the user's device when the subscription was purchased.
+   * @param Google_SubscriptionPurchasesDeferRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_AndroidPublisher_SubscriptionPurchasesDeferResponse
+   */
+  public function defer($packageName, $subscriptionId, $token, Google_Service_AndroidPublisher_SubscriptionPurchasesDeferRequest $postBody, $optParams = array())
+  {
+    $params = array('packageName' => $packageName, 'subscriptionId' => $subscriptionId, 'token' => $token, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('defer', array($params), "Google_Service_AndroidPublisher_SubscriptionPurchasesDeferResponse");
+  }
+  /**
    * Checks whether a user's subscription purchase is valid and returns its expiry
    * time. (subscriptions.get)
    *
@@ -2143,6 +2224,46 @@ class Google_Service_AndroidPublisher_PurchasesSubscriptions_Resource extends Go
     $params = array('packageName' => $packageName, 'subscriptionId' => $subscriptionId, 'token' => $token);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AndroidPublisher_SubscriptionPurchase");
+  }
+  /**
+   * Refunds a user's subscription purchase, but the subscription remains valid
+   * until its expiration time and it will continue to recur.
+   * (subscriptions.refund)
+   *
+   * @param string $packageName
+   * The package name of the application for which this subscription was purchased (for example,
+    * 'com.some.thing').
+   * @param string $subscriptionId
+   * The purchased subscription ID (for example, 'monthly001').
+   * @param string $token
+   * The token provided to the user's device when the subscription was purchased.
+   * @param array $optParams Optional parameters.
+   */
+  public function refund($packageName, $subscriptionId, $token, $optParams = array())
+  {
+    $params = array('packageName' => $packageName, 'subscriptionId' => $subscriptionId, 'token' => $token);
+    $params = array_merge($params, $optParams);
+    return $this->call('refund', array($params));
+  }
+  /**
+   * Refunds and immediately revokes a user's subscription purchase. Access to the
+   * subscription will be terminated immediately and it will stop recurring.
+   * (subscriptions.revoke)
+   *
+   * @param string $packageName
+   * The package name of the application for which this subscription was purchased (for example,
+    * 'com.some.thing').
+   * @param string $subscriptionId
+   * The purchased subscription ID (for example, 'monthly001').
+   * @param string $token
+   * The token provided to the user's device when the subscription was purchased.
+   * @param array $optParams Optional parameters.
+   */
+  public function revoke($packageName, $subscriptionId, $token, $optParams = array())
+  {
+    $params = array('packageName' => $packageName, 'subscriptionId' => $subscriptionId, 'token' => $token);
+    $params = array_merge($params, $optParams);
+    return $this->call('revoke', array($params));
   }
 }
 
@@ -2487,6 +2608,8 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   protected $pricesType = 'Google_Service_AndroidPublisher_Price';
   protected $pricesDataType = 'map';
   public $purchaseType;
+  protected $seasonType = 'Google_Service_AndroidPublisher_Season';
+  protected $seasonDataType = '';
   public $sku;
   public $status;
   public $subscriptionPeriod;
@@ -2550,6 +2673,16 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   public function getPurchaseType()
   {
     return $this->purchaseType;
+  }
+
+  public function setSeason(Google_Service_AndroidPublisher_Season $season)
+  {
+    $this->season = $season;
+  }
+
+  public function getSeason()
+  {
+    return $this->season;
   }
 
   public function setSku($sku)
@@ -2966,6 +3099,32 @@ class Google_Service_AndroidPublisher_ListingsListResponse extends Google_Collec
   }
 }
 
+class Google_Service_AndroidPublisher_MonthDay extends Google_Model
+{
+  public $day;
+  public $month;
+
+  public function setDay($day)
+  {
+    $this->day = $day;
+  }
+
+  public function getDay()
+  {
+    return $this->day;
+  }
+
+  public function setMonth($month)
+  {
+    $this->month = $month;
+  }
+
+  public function getMonth()
+  {
+    return $this->month;
+  }
+}
+
 class Google_Service_AndroidPublisher_PageInfo extends Google_Model
 {
   public $resultPerPage;
@@ -3088,6 +3247,60 @@ class Google_Service_AndroidPublisher_ProductPurchase extends Google_Model
   }
 }
 
+class Google_Service_AndroidPublisher_Season extends Google_Model
+{
+  protected $endType = 'Google_Service_AndroidPublisher_MonthDay';
+  protected $endDataType = '';
+  protected $startType = 'Google_Service_AndroidPublisher_MonthDay';
+  protected $startDataType = '';
+
+  public function setEnd(Google_Service_AndroidPublisher_MonthDay $end)
+  {
+    $this->end = $end;
+  }
+
+  public function getEnd()
+  {
+    return $this->end;
+  }
+
+  public function setStart(Google_Service_AndroidPublisher_MonthDay $start)
+  {
+    $this->start = $start;
+  }
+
+  public function getStart()
+  {
+    return $this->start;
+  }
+}
+
+class Google_Service_AndroidPublisher_SubscriptionDeferralInfo extends Google_Model
+{
+  public $desiredExpiryTimeMillis;
+  public $expectedExpiryTimeMillis;
+
+  public function setDesiredExpiryTimeMillis($desiredExpiryTimeMillis)
+  {
+    $this->desiredExpiryTimeMillis = $desiredExpiryTimeMillis;
+  }
+
+  public function getDesiredExpiryTimeMillis()
+  {
+    return $this->desiredExpiryTimeMillis;
+  }
+
+  public function setExpectedExpiryTimeMillis($expectedExpiryTimeMillis)
+  {
+    $this->expectedExpiryTimeMillis = $expectedExpiryTimeMillis;
+  }
+
+  public function getExpectedExpiryTimeMillis()
+  {
+    return $this->expectedExpiryTimeMillis;
+  }
+}
+
 class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
 {
   public $autoRenewing;
@@ -3133,6 +3346,37 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   public function getStartTimeMillis()
   {
     return $this->startTimeMillis;
+  }
+}
+
+class Google_Service_AndroidPublisher_SubscriptionPurchasesDeferRequest extends Google_Model
+{
+  protected $deferralInfoType = 'Google_Service_AndroidPublisher_SubscriptionDeferralInfo';
+  protected $deferralInfoDataType = '';
+
+  public function setDeferralInfo(Google_Service_AndroidPublisher_SubscriptionDeferralInfo $deferralInfo)
+  {
+    $this->deferralInfo = $deferralInfo;
+  }
+
+  public function getDeferralInfo()
+  {
+    return $this->deferralInfo;
+  }
+}
+
+class Google_Service_AndroidPublisher_SubscriptionPurchasesDeferResponse extends Google_Model
+{
+  public $newExpiryTimeMillis;
+
+  public function setNewExpiryTimeMillis($newExpiryTimeMillis)
+  {
+    $this->newExpiryTimeMillis = $newExpiryTimeMillis;
+  }
+
+  public function getNewExpiryTimeMillis()
+  {
+    return $this->newExpiryTimeMillis;
   }
 }
 
