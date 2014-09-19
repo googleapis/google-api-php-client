@@ -1292,6 +1292,7 @@ class Google_Service_Mirror_MenuItem extends Google_Collection
 {
   protected $collection_key = 'values';
   public $action;
+  public $contextualCommand;
   public $id;
   public $payload;
   public $removeWhenSelected;
@@ -1306,6 +1307,16 @@ class Google_Service_Mirror_MenuItem extends Google_Collection
   public function getAction()
   {
     return $this->action;
+  }
+
+  public function setContextualCommand($contextualCommand)
+  {
+    $this->contextualCommand = $contextualCommand;
+  }
+
+  public function getContextualCommand()
+  {
+    return $this->contextualCommand;
   }
 
   public function setId($id)
