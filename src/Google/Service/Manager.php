@@ -1498,6 +1498,7 @@ class Google_Service_Manager_NewDisk extends Google_Model
 class Google_Service_Manager_NewDiskInitializeParams extends Google_Model
 {
   public $diskSizeGb;
+  public $diskType;
   public $sourceImage;
 
   public function setDiskSizeGb($diskSizeGb)
@@ -1508,6 +1509,16 @@ class Google_Service_Manager_NewDiskInitializeParams extends Google_Model
   public function getDiskSizeGb()
   {
     return $this->diskSizeGb;
+  }
+
+  public function setDiskType($diskType)
+  {
+    $this->diskType = $diskType;
+  }
+
+  public function getDiskType()
+  {
+    return $this->diskType;
   }
 
   public function setSourceImage($sourceImage)
