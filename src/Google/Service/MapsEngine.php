@@ -1463,7 +1463,9 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string version
-   *
+   * Deprecated: The version parameter indicates which version of the layer should be returned. When
+    * version is set to published, the published version of the layer will be returned. Please use the
+    * layers.getPublished endpoint instead.
    * @return Google_Service_MapsEngine_Layer
    */
   public function get($id, $optParams = array())
@@ -2815,10 +2817,12 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   protected $collection_key = 'tags';
   public $bbox;
   public $creationTime;
+  public $creatorEmail;
   public $description;
   public $etag;
   public $id;
   public $lastModifiedTime;
+  public $lastModifierEmail;
   public $name;
   public $projectId;
   public $resource;
@@ -2843,6 +2847,16 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   public function getCreationTime()
   {
     return $this->creationTime;
+  }
+
+  public function setCreatorEmail($creatorEmail)
+  {
+    $this->creatorEmail = $creatorEmail;
+  }
+
+  public function getCreatorEmail()
+  {
+    return $this->creatorEmail;
   }
 
   public function setDescription($description)
@@ -2883,6 +2897,16 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
+  }
+
+  public function setLastModifierEmail($lastModifierEmail)
+  {
+    $this->lastModifierEmail = $lastModifierEmail;
+  }
+
+  public function getLastModifierEmail()
+  {
+    return $this->lastModifierEmail;
   }
 
   public function setName($name)
