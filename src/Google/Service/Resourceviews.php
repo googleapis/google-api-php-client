@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Resourceviews (v1beta1).
+ * Service definition for Resourceviews (v1beta2).
  *
  * <p>
  * The Resource View API allows users to create and manage logical sets of Google Compute Engine instances.
@@ -42,7 +42,7 @@ class Google_Service_Resourceviews extends Google_Service
   /** View your Google Cloud Platform management resources and deployment status information. */
   const NDEV_CLOUDMAN_READONLY = "https://www.googleapis.com/auth/ndev.cloudman.readonly";
 
-  public $regionViews;
+  public $zoneOperations;
   public $zoneViews;
   
 
@@ -54,104 +54,53 @@ class Google_Service_Resourceviews extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->servicePath = 'resourceviews/v1beta1/projects/';
-    $this->version = 'v1beta1';
+    $this->servicePath = 'resourceviews/v1beta2/projects/';
+    $this->version = 'v1beta2';
     $this->serviceName = 'resourceviews';
 
-    $this->regionViews = new Google_Service_Resourceviews_RegionViews_Resource(
+    $this->zoneOperations = new Google_Service_Resourceviews_ZoneOperations_Resource(
         $this,
         $this->serviceName,
-        'regionViews',
+        'zoneOperations',
         array(
           'methods' => array(
-            'addresources' => array(
-              'path' => '{projectName}/regions/{region}/resourceViews/{resourceViewName}/addResources',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'projectName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'region' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'resourceViewName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'delete' => array(
-              'path' => '{projectName}/regions/{region}/resourceViews/{resourceViewName}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'projectName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'region' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'resourceViewName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'get' => array(
-              'path' => '{projectName}/regions/{region}/resourceViews/{resourceViewName}',
+            'get' => array(
+              'path' => '{project}/zones/{zone}/operations/{operation}',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
-                'region' => array(
+                'zone' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
-                'resourceViewName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'insert' => array(
-              'path' => '{projectName}/regions/{region}/resourceViews',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'projectName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'region' => array(
+                'operation' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'list' => array(
-              'path' => '{projectName}/regions/{region}/resourceViews',
+              'path' => '{project}/zones/{zone}/operations',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
-                'region' => array(
+                'zone' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -160,54 +109,6 @@ class Google_Service_Resourceviews extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-              ),
-            ),'listresources' => array(
-              'path' => '{projectName}/regions/{region}/resourceViews/{resourceViewName}/resources',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'projectName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'region' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'resourceViewName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
-            ),'removeresources' => array(
-              'path' => '{projectName}/regions/{region}/resourceViews/{resourceViewName}/removeResources',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'projectName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'region' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'resourceViewName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
                 ),
               ),
             ),
@@ -220,11 +121,11 @@ class Google_Service_Resourceviews extends Google_Service
         'zoneViews',
         array(
           'methods' => array(
-            'addresources' => array(
-              'path' => '{projectName}/zones/{zone}/resourceViews/{resourceViewName}/addResources',
+            'addResources' => array(
+              'path' => '{project}/zones/{zone}/resourceViews/{resourceView}/addResources',
               'httpMethod' => 'POST',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -234,17 +135,17 @@ class Google_Service_Resourceviews extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'resourceViewName' => array(
+                'resourceView' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'delete' => array(
-              'path' => '{projectName}/zones/{zone}/resourceViews/{resourceViewName}',
+              'path' => '{project}/zones/{zone}/resourceViews/{resourceView}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -254,17 +155,17 @@ class Google_Service_Resourceviews extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'resourceViewName' => array(
+                'resourceView' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'get' => array(
-              'path' => '{projectName}/zones/{zone}/resourceViews/{resourceViewName}',
+              'path' => '{project}/zones/{zone}/resourceViews/{resourceView}',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -274,17 +175,41 @@ class Google_Service_Resourceviews extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'resourceViewName' => array(
+                'resourceView' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
-            ),'insert' => array(
-              'path' => '{projectName}/zones/{zone}/resourceViews',
+            ),'getService' => array(
+              'path' => '{project}/zones/{zone}/resourceViews/{resourceView}/getService',
               'httpMethod' => 'POST',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resourceView' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resourceName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'insert' => array(
+              'path' => '{project}/zones/{zone}/resourceViews',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -296,10 +221,10 @@ class Google_Service_Resourceviews extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => '{projectName}/zones/{zone}/resourceViews',
+              'path' => '{project}/zones/{zone}/resourceViews',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -318,11 +243,11 @@ class Google_Service_Resourceviews extends Google_Service
                   'type' => 'integer',
                 ),
               ),
-            ),'listresources' => array(
-              'path' => '{projectName}/zones/{zone}/resourceViews/{resourceViewName}/resources',
-              'httpMethod' => 'POST',
+            ),'listResources' => array(
+              'path' => '{project}/zones/{zone}/resourceViews/{resourceView}/resources',
+              'httpMethod' => 'GET',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -332,12 +257,16 @@ class Google_Service_Resourceviews extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'resourceViewName' => array(
+                'resourceView' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
+                'listState' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'format' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -345,12 +274,20 @@ class Google_Service_Resourceviews extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'serviceName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
-            ),'removeresources' => array(
-              'path' => '{projectName}/zones/{zone}/resourceViews/{resourceViewName}/removeResources',
+            ),'removeResources' => array(
+              'path' => '{project}/zones/{zone}/resourceViews/{resourceView}/removeResources',
               'httpMethod' => 'POST',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -360,7 +297,27 @@ class Google_Service_Resourceviews extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'resourceViewName' => array(
+                'resourceView' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'setService' => array(
+              'path' => '{project}/zones/{zone}/resourceViews/{resourceView}/setService',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resourceView' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -375,151 +332,60 @@ class Google_Service_Resourceviews extends Google_Service
 
 
 /**
- * The "regionViews" collection of methods.
+ * The "zoneOperations" collection of methods.
  * Typical usage is:
  *  <code>
  *   $resourceviewsService = new Google_Service_Resourceviews(...);
- *   $regionViews = $resourceviewsService->regionViews;
+ *   $zoneOperations = $resourceviewsService->zoneOperations;
  *  </code>
  */
-class Google_Service_Resourceviews_RegionViews_Resource extends Google_Service_Resource
+class Google_Service_Resourceviews_ZoneOperations_Resource extends Google_Service_Resource
 {
 
   /**
-   * Add resources to the view. (regionViews.addresources)
+   * Retrieves the specified zone-specific operation resource.
+   * (zoneOperations.get)
    *
-   * @param string $projectName
-   * The project name of the resource view.
-   * @param string $region
-   * The region name of the resource view.
-   * @param string $resourceViewName
-   * The name of the resource view.
-   * @param Google_RegionViewsAddResourcesRequest $postBody
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param string $zone
+   * Name of the zone scoping this request.
+   * @param string $operation
+   * Name of the operation resource to return.
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Resourceviews_Operation
    */
-  public function addresources($projectName, $region, $resourceViewName, Google_Service_Resourceviews_RegionViewsAddResourcesRequest $postBody, $optParams = array())
+  public function get($project, $zone, $operation, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'region' => $region, 'resourceViewName' => $resourceViewName, 'postBody' => $postBody);
+    $params = array('project' => $project, 'zone' => $zone, 'operation' => $operation);
     $params = array_merge($params, $optParams);
-    return $this->call('addresources', array($params));
+    return $this->call('get', array($params), "Google_Service_Resourceviews_Operation");
   }
   /**
-   * Delete a resource view. (regionViews.delete)
+   * Retrieves the list of operation resources contained within the specified
+   * zone. (zoneOperations.listZoneOperations)
    *
-   * @param string $projectName
-   * The project name of the resource view.
-   * @param string $region
-   * The region name of the resource view.
-   * @param string $resourceViewName
-   * The name of the resource view.
-   * @param array $optParams Optional parameters.
-   */
-  public function delete($projectName, $region, $resourceViewName, $optParams = array())
-  {
-    $params = array('projectName' => $projectName, 'region' => $region, 'resourceViewName' => $resourceViewName);
-    $params = array_merge($params, $optParams);
-    return $this->call('delete', array($params));
-  }
-  /**
-   * Get the information of a resource view. (regionViews.get)
-   *
-   * @param string $projectName
-   * The project name of the resource view.
-   * @param string $region
-   * The region name of the resource view.
-   * @param string $resourceViewName
-   * The name of the resource view.
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Resourceviews_ResourceView
-   */
-  public function get($projectName, $region, $resourceViewName, $optParams = array())
-  {
-    $params = array('projectName' => $projectName, 'region' => $region, 'resourceViewName' => $resourceViewName);
-    $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Resourceviews_ResourceView");
-  }
-  /**
-   * Create a resource view. (regionViews.insert)
-   *
-   * @param string $projectName
-   * The project name of the resource view.
-   * @param string $region
-   * The region name of the resource view.
-   * @param Google_ResourceView $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Resourceviews_RegionViewsInsertResponse
-   */
-  public function insert($projectName, $region, Google_Service_Resourceviews_ResourceView $postBody, $optParams = array())
-  {
-    $params = array('projectName' => $projectName, 'region' => $region, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('insert', array($params), "Google_Service_Resourceviews_RegionViewsInsertResponse");
-  }
-  /**
-   * List resource views. (regionViews.listRegionViews)
-   *
-   * @param string $projectName
-   * The project name of the resource view.
-   * @param string $region
-   * The region name of the resource view.
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param string $zone
+   * Name of the zone scoping this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string filter
+   * Optional. Filter expression for filtering listed resources.
    * @opt_param string pageToken
-   * Specifies a nextPageToken returned by a previous list request. This token can be used to request
-    * the next page of results from a previous list request.
-   * @opt_param int maxResults
-   * Maximum count of results to be returned. Acceptable values are 0 to 5000, inclusive. (Default:
-    * 5000)
-   * @return Google_Service_Resourceviews_RegionViewsListResponse
+   * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
+    * previous list request.
+   * @opt_param string maxResults
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 500.
+   * @return Google_Service_Resourceviews_OperationList
    */
-  public function listRegionViews($projectName, $region, $optParams = array())
+  public function listZoneOperations($project, $zone, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'region' => $region);
+    $params = array('project' => $project, 'zone' => $zone);
     $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Resourceviews_RegionViewsListResponse");
-  }
-  /**
-   * List the resources in the view. (regionViews.listresources)
-   *
-   * @param string $projectName
-   * The project name of the resource view.
-   * @param string $region
-   * The region name of the resource view.
-   * @param string $resourceViewName
-   * The name of the resource view.
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string pageToken
-   * Specifies a nextPageToken returned by a previous list request. This token can be used to request
-    * the next page of results from a previous list request.
-   * @opt_param int maxResults
-   * Maximum count of results to be returned. Acceptable values are 0 to 5000, inclusive. (Default:
-    * 5000)
-   * @return Google_Service_Resourceviews_RegionViewsListResourcesResponse
-   */
-  public function listresources($projectName, $region, $resourceViewName, $optParams = array())
-  {
-    $params = array('projectName' => $projectName, 'region' => $region, 'resourceViewName' => $resourceViewName);
-    $params = array_merge($params, $optParams);
-    return $this->call('listresources', array($params), "Google_Service_Resourceviews_RegionViewsListResourcesResponse");
-  }
-  /**
-   * Remove resources from the view. (regionViews.removeresources)
-   *
-   * @param string $projectName
-   * The project name of the resource view.
-   * @param string $region
-   * The region name of the resource view.
-   * @param string $resourceViewName
-   * The name of the resource view.
-   * @param Google_RegionViewsRemoveResourcesRequest $postBody
-   * @param array $optParams Optional parameters.
-   */
-  public function removeresources($projectName, $region, $resourceViewName, Google_Service_Resourceviews_RegionViewsRemoveResourcesRequest $postBody, $optParams = array())
-  {
-    $params = array('projectName' => $projectName, 'region' => $region, 'resourceViewName' => $resourceViewName, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('removeresources', array($params));
+    return $this->call('list', array($params), "Google_Service_Resourceviews_OperationList");
   }
 }
 
@@ -535,79 +401,103 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
 {
 
   /**
-   * Add resources to the view. (zoneViews.addresources)
+   * Add resources to the view. (zoneViews.addResources)
    *
-   * @param string $projectName
+   * @param string $project
    * The project name of the resource view.
    * @param string $zone
    * The zone name of the resource view.
-   * @param string $resourceViewName
+   * @param string $resourceView
    * The name of the resource view.
    * @param Google_ZoneViewsAddResourcesRequest $postBody
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Resourceviews_Operation
    */
-  public function addresources($projectName, $zone, $resourceViewName, Google_Service_Resourceviews_ZoneViewsAddResourcesRequest $postBody, $optParams = array())
+  public function addResources($project, $zone, $resourceView, Google_Service_Resourceviews_ZoneViewsAddResourcesRequest $postBody, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'resourceViewName' => $resourceViewName, 'postBody' => $postBody);
+    $params = array('project' => $project, 'zone' => $zone, 'resourceView' => $resourceView, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('addresources', array($params));
+    return $this->call('addResources', array($params), "Google_Service_Resourceviews_Operation");
   }
   /**
    * Delete a resource view. (zoneViews.delete)
    *
-   * @param string $projectName
+   * @param string $project
    * The project name of the resource view.
    * @param string $zone
    * The zone name of the resource view.
-   * @param string $resourceViewName
+   * @param string $resourceView
    * The name of the resource view.
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Resourceviews_Operation
    */
-  public function delete($projectName, $zone, $resourceViewName, $optParams = array())
+  public function delete($project, $zone, $resourceView, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'resourceViewName' => $resourceViewName);
+    $params = array('project' => $project, 'zone' => $zone, 'resourceView' => $resourceView);
     $params = array_merge($params, $optParams);
-    return $this->call('delete', array($params));
+    return $this->call('delete', array($params), "Google_Service_Resourceviews_Operation");
   }
   /**
    * Get the information of a zonal resource view. (zoneViews.get)
    *
-   * @param string $projectName
+   * @param string $project
    * The project name of the resource view.
    * @param string $zone
    * The zone name of the resource view.
-   * @param string $resourceViewName
+   * @param string $resourceView
    * The name of the resource view.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Resourceviews_ResourceView
    */
-  public function get($projectName, $zone, $resourceViewName, $optParams = array())
+  public function get($project, $zone, $resourceView, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'resourceViewName' => $resourceViewName);
+    $params = array('project' => $project, 'zone' => $zone, 'resourceView' => $resourceView);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Resourceviews_ResourceView");
   }
   /**
+   * Get the service information of a resource view or a resource.
+   * (zoneViews.getService)
+   *
+   * @param string $project
+   * The project name of the resource view.
+   * @param string $zone
+   * The zone name of the resource view.
+   * @param string $resourceView
+   * The name of the resource view.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string resourceName
+   * The name of the resource if user wants to get the service information of the resource.
+   * @return Google_Service_Resourceviews_ZoneViewsGetServiceResponse
+   */
+  public function getService($project, $zone, $resourceView, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'resourceView' => $resourceView);
+    $params = array_merge($params, $optParams);
+    return $this->call('getService', array($params), "Google_Service_Resourceviews_ZoneViewsGetServiceResponse");
+  }
+  /**
    * Create a resource view. (zoneViews.insert)
    *
-   * @param string $projectName
+   * @param string $project
    * The project name of the resource view.
    * @param string $zone
    * The zone name of the resource view.
    * @param Google_ResourceView $postBody
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Resourceviews_ZoneViewsInsertResponse
+   * @return Google_Service_Resourceviews_Operation
    */
-  public function insert($projectName, $zone, Google_Service_Resourceviews_ResourceView $postBody, $optParams = array())
+  public function insert($project, $zone, Google_Service_Resourceviews_ResourceView $postBody, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'postBody' => $postBody);
+    $params = array('project' => $project, 'zone' => $zone, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('insert', array($params), "Google_Service_Resourceviews_ZoneViewsInsertResponse");
+    return $this->call('insert', array($params), "Google_Service_Resourceviews_Operation");
   }
   /**
    * List resource views. (zoneViews.listZoneViews)
    *
-   * @param string $projectName
+   * @param string $project
    * The project name of the resource view.
    * @param string $zone
    * The zone name of the resource view.
@@ -619,56 +509,86 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
    * @opt_param int maxResults
    * Maximum count of results to be returned. Acceptable values are 0 to 5000, inclusive. (Default:
     * 5000)
-   * @return Google_Service_Resourceviews_ZoneViewsListResponse
+   * @return Google_Service_Resourceviews_ZoneViewsList
    */
-  public function listZoneViews($projectName, $zone, $optParams = array())
+  public function listZoneViews($project, $zone, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone);
+    $params = array('project' => $project, 'zone' => $zone);
     $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Resourceviews_ZoneViewsListResponse");
+    return $this->call('list', array($params), "Google_Service_Resourceviews_ZoneViewsList");
   }
   /**
-   * List the resources of the resource view. (zoneViews.listresources)
+   * List the resources of the resource view. (zoneViews.listResources)
    *
-   * @param string $projectName
+   * @param string $project
    * The project name of the resource view.
    * @param string $zone
    * The zone name of the resource view.
-   * @param string $resourceViewName
+   * @param string $resourceView
    * The name of the resource view.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Specifies a nextPageToken returned by a previous list request. This token can be used to request
-    * the next page of results from a previous list request.
+   * @opt_param string listState
+   * The state of the instance to list. By default, it lists all instances.
+   * @opt_param string format
+   * The requested format of the return value. It can be URL or URL_PORT. A JSON object will be
+    * included in the response based on the format. The default format is NONE, which results in no
+    * JSON in the response.
    * @opt_param int maxResults
    * Maximum count of results to be returned. Acceptable values are 0 to 5000, inclusive. (Default:
     * 5000)
+   * @opt_param string pageToken
+   * Specifies a nextPageToken returned by a previous list request. This token can be used to request
+    * the next page of results from a previous list request.
+   * @opt_param string serviceName
+   * The service name to return in the response. It is optional and if it is not set, all the service
+    * end points will be returned.
    * @return Google_Service_Resourceviews_ZoneViewsListResourcesResponse
    */
-  public function listresources($projectName, $zone, $resourceViewName, $optParams = array())
+  public function listResources($project, $zone, $resourceView, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'resourceViewName' => $resourceViewName);
+    $params = array('project' => $project, 'zone' => $zone, 'resourceView' => $resourceView);
     $params = array_merge($params, $optParams);
-    return $this->call('listresources', array($params), "Google_Service_Resourceviews_ZoneViewsListResourcesResponse");
+    return $this->call('listResources', array($params), "Google_Service_Resourceviews_ZoneViewsListResourcesResponse");
   }
   /**
-   * Remove resources from the view. (zoneViews.removeresources)
+   * Remove resources from the view. (zoneViews.removeResources)
    *
-   * @param string $projectName
+   * @param string $project
    * The project name of the resource view.
    * @param string $zone
    * The zone name of the resource view.
-   * @param string $resourceViewName
+   * @param string $resourceView
    * The name of the resource view.
    * @param Google_ZoneViewsRemoveResourcesRequest $postBody
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Resourceviews_Operation
    */
-  public function removeresources($projectName, $zone, $resourceViewName, Google_Service_Resourceviews_ZoneViewsRemoveResourcesRequest $postBody, $optParams = array())
+  public function removeResources($project, $zone, $resourceView, Google_Service_Resourceviews_ZoneViewsRemoveResourcesRequest $postBody, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'resourceViewName' => $resourceViewName, 'postBody' => $postBody);
+    $params = array('project' => $project, 'zone' => $zone, 'resourceView' => $resourceView, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('removeresources', array($params));
+    return $this->call('removeResources', array($params), "Google_Service_Resourceviews_Operation");
+  }
+  /**
+   * Update the service information of a resource view or a resource.
+   * (zoneViews.setService)
+   *
+   * @param string $project
+   * The project name of the resource view.
+   * @param string $zone
+   * The zone name of the resource view.
+   * @param string $resourceView
+   * The name of the resource view.
+   * @param Google_ZoneViewsSetServiceRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Resourceviews_Operation
+   */
+  public function setService($project, $zone, $resourceView, Google_Service_Resourceviews_ZoneViewsSetServiceRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'resourceView' => $resourceView, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setService', array($params), "Google_Service_Resourceviews_Operation");
   }
 }
 
@@ -701,28 +621,22 @@ class Google_Service_Resourceviews_Label extends Google_Model
   }
 }
 
-class Google_Service_Resourceviews_RegionViewsAddResourcesRequest extends Google_Collection
+class Google_Service_Resourceviews_ListResourceResponseItem extends Google_Model
 {
-  protected $collection_key = 'resources';
-  public $resources;
+  public $endpoints;
+  public $resource;
 
-  public function setResources($resources)
+  public function setEndpoints($endpoints)
   {
-    $this->resources = $resources;
+    $this->endpoints = $endpoints;
   }
 
-  public function getResources()
+  public function getEndpoints()
   {
-    return $this->resources;
+    return $this->endpoints;
   }
-}
 
-class Google_Service_Resourceviews_RegionViewsInsertResponse extends Google_Model
-{
-  protected $resourceType = 'Google_Service_Resourceviews_ResourceView';
-  protected $resourceDataType = '';
-
-  public function setResource(Google_Service_Resourceviews_ResourceView $resource)
+  public function setResource($resource)
   {
     $this->resource = $resource;
   }
@@ -733,20 +647,352 @@ class Google_Service_Resourceviews_RegionViewsInsertResponse extends Google_Mode
   }
 }
 
-class Google_Service_Resourceviews_RegionViewsListResourcesResponse extends Google_Collection
+class Google_Service_Resourceviews_ListResourceResponseItemEndpoints extends Google_Model
 {
-  protected $collection_key = 'members';
-  public $members;
-  public $nextPageToken;
 
-  public function setMembers($members)
+}
+
+class Google_Service_Resourceviews_Operation extends Google_Collection
+{
+  protected $collection_key = 'warnings';
+  public $clientOperationId;
+  public $creationTimestamp;
+  public $endTime;
+  protected $errorType = 'Google_Service_Resourceviews_OperationError';
+  protected $errorDataType = '';
+  public $httpErrorMessage;
+  public $httpErrorStatusCode;
+  public $id;
+  public $insertTime;
+  public $kind;
+  public $name;
+  public $operationType;
+  public $progress;
+  public $region;
+  public $selfLink;
+  public $startTime;
+  public $status;
+  public $statusMessage;
+  public $targetId;
+  public $targetLink;
+  public $user;
+  protected $warningsType = 'Google_Service_Resourceviews_OperationWarnings';
+  protected $warningsDataType = 'array';
+  public $zone;
+
+  public function setClientOperationId($clientOperationId)
   {
-    $this->members = $members;
+    $this->clientOperationId = $clientOperationId;
   }
 
-  public function getMembers()
+  public function getClientOperationId()
   {
-    return $this->members;
+    return $this->clientOperationId;
+  }
+
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+
+  public function setEndTime($endTime)
+  {
+    $this->endTime = $endTime;
+  }
+
+  public function getEndTime()
+  {
+    return $this->endTime;
+  }
+
+  public function setError(Google_Service_Resourceviews_OperationError $error)
+  {
+    $this->error = $error;
+  }
+
+  public function getError()
+  {
+    return $this->error;
+  }
+
+  public function setHttpErrorMessage($httpErrorMessage)
+  {
+    $this->httpErrorMessage = $httpErrorMessage;
+  }
+
+  public function getHttpErrorMessage()
+  {
+    return $this->httpErrorMessage;
+  }
+
+  public function setHttpErrorStatusCode($httpErrorStatusCode)
+  {
+    $this->httpErrorStatusCode = $httpErrorStatusCode;
+  }
+
+  public function getHttpErrorStatusCode()
+  {
+    return $this->httpErrorStatusCode;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setInsertTime($insertTime)
+  {
+    $this->insertTime = $insertTime;
+  }
+
+  public function getInsertTime()
+  {
+    return $this->insertTime;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setOperationType($operationType)
+  {
+    $this->operationType = $operationType;
+  }
+
+  public function getOperationType()
+  {
+    return $this->operationType;
+  }
+
+  public function setProgress($progress)
+  {
+    $this->progress = $progress;
+  }
+
+  public function getProgress()
+  {
+    return $this->progress;
+  }
+
+  public function setRegion($region)
+  {
+    $this->region = $region;
+  }
+
+  public function getRegion()
+  {
+    return $this->region;
+  }
+
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+
+  public function setStartTime($startTime)
+  {
+    $this->startTime = $startTime;
+  }
+
+  public function getStartTime()
+  {
+    return $this->startTime;
+  }
+
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+
+  public function getStatus()
+  {
+    return $this->status;
+  }
+
+  public function setStatusMessage($statusMessage)
+  {
+    $this->statusMessage = $statusMessage;
+  }
+
+  public function getStatusMessage()
+  {
+    return $this->statusMessage;
+  }
+
+  public function setTargetId($targetId)
+  {
+    $this->targetId = $targetId;
+  }
+
+  public function getTargetId()
+  {
+    return $this->targetId;
+  }
+
+  public function setTargetLink($targetLink)
+  {
+    $this->targetLink = $targetLink;
+  }
+
+  public function getTargetLink()
+  {
+    return $this->targetLink;
+  }
+
+  public function setUser($user)
+  {
+    $this->user = $user;
+  }
+
+  public function getUser()
+  {
+    return $this->user;
+  }
+
+  public function setWarnings($warnings)
+  {
+    $this->warnings = $warnings;
+  }
+
+  public function getWarnings()
+  {
+    return $this->warnings;
+  }
+
+  public function setZone($zone)
+  {
+    $this->zone = $zone;
+  }
+
+  public function getZone()
+  {
+    return $this->zone;
+  }
+}
+
+class Google_Service_Resourceviews_OperationError extends Google_Collection
+{
+  protected $collection_key = 'errors';
+  protected $errorsType = 'Google_Service_Resourceviews_OperationErrorErrors';
+  protected $errorsDataType = 'array';
+
+  public function setErrors($errors)
+  {
+    $this->errors = $errors;
+  }
+
+  public function getErrors()
+  {
+    return $this->errors;
+  }
+}
+
+class Google_Service_Resourceviews_OperationErrorErrors extends Google_Model
+{
+  public $code;
+  public $location;
+  public $message;
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+
+  public function getCode()
+  {
+    return $this->code;
+  }
+
+  public function setLocation($location)
+  {
+    $this->location = $location;
+  }
+
+  public function getLocation()
+  {
+    return $this->location;
+  }
+
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Resourceviews_OperationList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  public $id;
+  protected $itemsType = 'Google_Service_Resourceviews_Operation';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
   }
 
   public function setNextPageToken($nextPageToken)
@@ -758,75 +1004,109 @@ class Google_Service_Resourceviews_RegionViewsListResourcesResponse extends Goog
   {
     return $this->nextPageToken;
   }
-}
 
-class Google_Service_Resourceviews_RegionViewsListResponse extends Google_Collection
-{
-  protected $collection_key = 'resourceViews';
-  public $nextPageToken;
-  protected $resourceViewsType = 'Google_Service_Resourceviews_ResourceView';
-  protected $resourceViewsDataType = 'array';
-
-  public function setNextPageToken($nextPageToken)
+  public function setSelfLink($selfLink)
   {
-    $this->nextPageToken = $nextPageToken;
+    $this->selfLink = $selfLink;
   }
 
-  public function getNextPageToken()
+  public function getSelfLink()
   {
-    return $this->nextPageToken;
-  }
-
-  public function setResourceViews($resourceViews)
-  {
-    $this->resourceViews = $resourceViews;
-  }
-
-  public function getResourceViews()
-  {
-    return $this->resourceViews;
+    return $this->selfLink;
   }
 }
 
-class Google_Service_Resourceviews_RegionViewsRemoveResourcesRequest extends Google_Collection
+class Google_Service_Resourceviews_OperationWarnings extends Google_Collection
 {
-  protected $collection_key = 'resources';
-  public $resources;
+  protected $collection_key = 'data';
+  public $code;
+  protected $dataType = 'Google_Service_Resourceviews_OperationWarningsData';
+  protected $dataDataType = 'array';
+  public $message;
 
-  public function setResources($resources)
+  public function setCode($code)
   {
-    $this->resources = $resources;
+    $this->code = $code;
   }
 
-  public function getResources()
+  public function getCode()
   {
-    return $this->resources;
+    return $this->code;
+  }
+
+  public function setData($data)
+  {
+    $this->data = $data;
+  }
+
+  public function getData()
+  {
+    return $this->data;
+  }
+
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Resourceviews_OperationWarningsData extends Google_Model
+{
+  public $key;
+  public $value;
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+
+  public function getKey()
+  {
+    return $this->key;
+  }
+
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
   }
 }
 
 class Google_Service_Resourceviews_ResourceView extends Google_Collection
 {
-  protected $collection_key = 'members';
-  public $creationTime;
+  protected $collection_key = 'resources';
+  public $creationTimestamp;
   public $description;
+  protected $endpointsType = 'Google_Service_Resourceviews_ServiceEndpoint';
+  protected $endpointsDataType = 'array';
+  public $fingerprint;
   public $id;
   public $kind;
   protected $labelsType = 'Google_Service_Resourceviews_Label';
   protected $labelsDataType = 'array';
-  public $lastModified;
-  public $members;
   public $name;
-  public $numMembers;
+  public $network;
+  public $resources;
   public $selfLink;
+  public $size;
 
-  public function setCreationTime($creationTime)
+  public function setCreationTimestamp($creationTimestamp)
   {
-    $this->creationTime = $creationTime;
+    $this->creationTimestamp = $creationTimestamp;
   }
 
-  public function getCreationTime()
+  public function getCreationTimestamp()
   {
-    return $this->creationTime;
+    return $this->creationTimestamp;
   }
 
   public function setDescription($description)
@@ -837,6 +1117,26 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   public function getDescription()
   {
     return $this->description;
+  }
+
+  public function setEndpoints($endpoints)
+  {
+    $this->endpoints = $endpoints;
+  }
+
+  public function getEndpoints()
+  {
+    return $this->endpoints;
+  }
+
+  public function setFingerprint($fingerprint)
+  {
+    $this->fingerprint = $fingerprint;
+  }
+
+  public function getFingerprint()
+  {
+    return $this->fingerprint;
   }
 
   public function setId($id)
@@ -869,25 +1169,61 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
     return $this->labels;
   }
 
-  public function setLastModified($lastModified)
+  public function setName($name)
   {
-    $this->lastModified = $lastModified;
+    $this->name = $name;
   }
 
-  public function getLastModified()
+  public function getName()
   {
-    return $this->lastModified;
+    return $this->name;
   }
 
-  public function setMembers($members)
+  public function setNetwork($network)
   {
-    $this->members = $members;
+    $this->network = $network;
   }
 
-  public function getMembers()
+  public function getNetwork()
   {
-    return $this->members;
+    return $this->network;
   }
+
+  public function setResources($resources)
+  {
+    $this->resources = $resources;
+  }
+
+  public function getResources()
+  {
+    return $this->resources;
+  }
+
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+
+  public function setSize($size)
+  {
+    $this->size = $size;
+  }
+
+  public function getSize()
+  {
+    return $this->size;
+  }
+}
+
+class Google_Service_Resourceviews_ServiceEndpoint extends Google_Model
+{
+  public $name;
+  public $port;
 
   public function setName($name)
   {
@@ -899,24 +1235,14 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
     return $this->name;
   }
 
-  public function setNumMembers($numMembers)
+  public function setPort($port)
   {
-    $this->numMembers = $numMembers;
+    $this->port = $port;
   }
 
-  public function getNumMembers()
+  public function getPort()
   {
-    return $this->numMembers;
-  }
-
-  public function setSelfLink($selfLink)
-  {
-    $this->selfLink = $selfLink;
-  }
-
-  public function getSelfLink()
-  {
-    return $this->selfLink;
+    return $this->port;
   }
 }
 
@@ -936,36 +1262,110 @@ class Google_Service_Resourceviews_ZoneViewsAddResourcesRequest extends Google_C
   }
 }
 
-class Google_Service_Resourceviews_ZoneViewsInsertResponse extends Google_Model
+class Google_Service_Resourceviews_ZoneViewsGetServiceResponse extends Google_Collection
 {
-  protected $resourceType = 'Google_Service_Resourceviews_ResourceView';
-  protected $resourceDataType = '';
+  protected $collection_key = 'endpoints';
+  protected $endpointsType = 'Google_Service_Resourceviews_ServiceEndpoint';
+  protected $endpointsDataType = 'array';
+  public $fingerprint;
 
-  public function setResource(Google_Service_Resourceviews_ResourceView $resource)
+  public function setEndpoints($endpoints)
   {
-    $this->resource = $resource;
+    $this->endpoints = $endpoints;
   }
 
-  public function getResource()
+  public function getEndpoints()
   {
-    return $this->resource;
+    return $this->endpoints;
+  }
+
+  public function setFingerprint($fingerprint)
+  {
+    $this->fingerprint = $fingerprint;
+  }
+
+  public function getFingerprint()
+  {
+    return $this->fingerprint;
+  }
+}
+
+class Google_Service_Resourceviews_ZoneViewsList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $itemsType = 'Google_Service_Resourceviews_ResourceView';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
   }
 }
 
 class Google_Service_Resourceviews_ZoneViewsListResourcesResponse extends Google_Collection
 {
-  protected $collection_key = 'members';
-  public $members;
+  protected $collection_key = 'items';
+  protected $itemsType = 'Google_Service_Resourceviews_ListResourceResponseItem';
+  protected $itemsDataType = 'array';
+  public $network;
   public $nextPageToken;
 
-  public function setMembers($members)
+  public function setItems($items)
   {
-    $this->members = $members;
+    $this->items = $items;
   }
 
-  public function getMembers()
+  public function getItems()
   {
-    return $this->members;
+    return $this->items;
+  }
+
+  public function setNetwork($network)
+  {
+    $this->network = $network;
+  }
+
+  public function getNetwork()
+  {
+    return $this->network;
   }
 
   public function setNextPageToken($nextPageToken)
@@ -976,34 +1376,6 @@ class Google_Service_Resourceviews_ZoneViewsListResourcesResponse extends Google
   public function getNextPageToken()
   {
     return $this->nextPageToken;
-  }
-}
-
-class Google_Service_Resourceviews_ZoneViewsListResponse extends Google_Collection
-{
-  protected $collection_key = 'resourceViews';
-  public $nextPageToken;
-  protected $resourceViewsType = 'Google_Service_Resourceviews_ResourceView';
-  protected $resourceViewsDataType = 'array';
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
-
-  public function setResourceViews($resourceViews)
-  {
-    $this->resourceViews = $resourceViews;
-  }
-
-  public function getResourceViews()
-  {
-    return $this->resourceViews;
   }
 }
 
@@ -1020,5 +1392,44 @@ class Google_Service_Resourceviews_ZoneViewsRemoveResourcesRequest extends Googl
   public function getResources()
   {
     return $this->resources;
+  }
+}
+
+class Google_Service_Resourceviews_ZoneViewsSetServiceRequest extends Google_Collection
+{
+  protected $collection_key = 'endpoints';
+  protected $endpointsType = 'Google_Service_Resourceviews_ServiceEndpoint';
+  protected $endpointsDataType = 'array';
+  public $fingerprint;
+  public $resourceName;
+
+  public function setEndpoints($endpoints)
+  {
+    $this->endpoints = $endpoints;
+  }
+
+  public function getEndpoints()
+  {
+    return $this->endpoints;
+  }
+
+  public function setFingerprint($fingerprint)
+  {
+    $this->fingerprint = $fingerprint;
+  }
+
+  public function getFingerprint()
+  {
+    return $this->fingerprint;
+  }
+
+  public function setResourceName($resourceName)
+  {
+    $this->resourceName = $resourceName;
+  }
+
+  public function getResourceName()
+  {
+    return $this->resourceName;
   }
 }
