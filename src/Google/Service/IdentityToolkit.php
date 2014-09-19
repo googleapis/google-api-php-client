@@ -197,7 +197,7 @@ class Google_Service_IdentityToolkit_Relyingparty_Resource extends Google_Servic
     return $this->call('getPublicKeys', array($params), "Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyGetPublicKeysResponse");
   }
   /**
-   * Set account info for a user. (relyingparty.resetPassword)
+   * Reset password for a user. (relyingparty.resetPassword)
    *
    * @param Google_IdentitytoolkitRelyingpartyResetPasswordRequest $postBody
    * @param array $optParams Optional parameters.
@@ -269,6 +269,7 @@ class Google_Service_IdentityToolkit_Relyingparty_Resource extends Google_Servic
 class Google_Service_IdentityToolkit_CreateAuthUriResponse extends Google_Model
 {
   public $authUri;
+  public $captchaRequired;
   public $forExistingProvider;
   public $kind;
   public $providerId;
@@ -282,6 +283,16 @@ class Google_Service_IdentityToolkit_CreateAuthUriResponse extends Google_Model
   public function getAuthUri()
   {
     return $this->authUri;
+  }
+
+  public function setCaptchaRequired($captchaRequired)
+  {
+    $this->captchaRequired = $captchaRequired;
+  }
+
+  public function getCaptchaRequired()
+  {
+    return $this->captchaRequired;
   }
 
   public function setForExistingProvider($forExistingProvider)
