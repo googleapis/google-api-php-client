@@ -31,6 +31,8 @@
  */
 class Google_Service_Datastore extends Google_Service
 {
+  /** View and manage your data across Google Cloud Platform services. */
+  const CLOUD_PLATFORM = "https://www.googleapis.com/auth/cloud-platform";
   /** View and manage your Google Cloud Datastore data. */
   const DATASTORE = "https://www.googleapis.com/auth/datastore";
   /** View your email address. */
