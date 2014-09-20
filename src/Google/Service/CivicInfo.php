@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for CivicInfo (v1).
+ * Service definition for CivicInfo (v2).
  *
  * <p>
  * An API for accessing civic information.
@@ -46,8 +46,8 @@ class Google_Service_CivicInfo extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->servicePath = 'civicinfo/v1/';
-    $this->version = 'v1';
+    $this->servicePath = 'civicinfo/v2/';
+    $this->version = 'v2';
     $this->serviceName = 'civicinfo';
 
     $this->divisions = new Google_Service_CivicInfo_Divisions_Resource(
@@ -57,7 +57,7 @@ class Google_Service_CivicInfo extends Google_Service
         array(
           'methods' => array(
             'search' => array(
-              'path' => 'representatives/division_search',
+              'path' => 'divisions',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'query' => array(
@@ -80,13 +80,17 @@ class Google_Service_CivicInfo extends Google_Service
               'httpMethod' => 'GET',
               'parameters' => array(),
             ),'voterInfoQuery' => array(
-              'path' => 'voterinfo/{electionId}/lookup',
-              'httpMethod' => 'POST',
+              'path' => 'voterinfo',
+              'httpMethod' => 'GET',
               'parameters' => array(
-                'electionId' => array(
-                  'location' => 'path',
+                'address' => array(
+                  'location' => 'query',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'electionId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'officialOnly' => array(
                   'location' => 'query',
@@ -103,21 +107,51 @@ class Google_Service_CivicInfo extends Google_Service
         'representatives',
         array(
           'methods' => array(
-            'representativeInfoQuery' => array(
-              'path' => 'representatives/lookup',
-              'httpMethod' => 'POST',
+            'representativeInfoByAddress' => array(
+              'path' => 'representatives',
+              'httpMethod' => 'GET',
               'parameters' => array(
-                'ocdId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'includeOffices' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
+                'levels' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'roles' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'address' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'representativeInfoByDivision' => array(
+              'path' => 'representatives/{ocdId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'ocdId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'levels' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
                 'recursive' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+                'roles' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
                 ),
               ),
             ),
@@ -187,19 +221,20 @@ class Google_Service_CivicInfo_Elections_Resource extends Google_Service_Resourc
    * Looks up information relevant to a voter based on the voter's registered
    * address. (elections.voterInfoQuery)
    *
-   * @param string $electionId
-   * The unique ID of the election to look up. A list of election IDs can be obtained at
-    * https://www.googleapis.com/civicinfo/{version}/elections
-   * @param Google_VoterInfoRequest $postBody
+   * @param string $address
+   * The registered address of the voter to look up.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string electionId
+   * The unique ID of the election to look up. A list of election IDs can be obtained at
+    * https://www.googleapis.com/civicinfo/{version}/elections
    * @opt_param bool officialOnly
    * If set to true, only data from official state sources will be returned.
    * @return Google_Service_CivicInfo_VoterInfoResponse
    */
-  public function voterInfoQuery($electionId, Google_Service_CivicInfo_VoterInfoRequest $postBody, $optParams = array())
+  public function voterInfoQuery($address, $optParams = array())
   {
-    $params = array('electionId' => $electionId, 'postBody' => $postBody);
+    $params = array('address' => $address);
     $params = array_merge($params, $optParams);
     return $this->call('voterInfoQuery', array($params), "Google_Service_CivicInfo_VoterInfoResponse");
   }
@@ -217,30 +252,55 @@ class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_R
 {
 
   /**
-   * Looks up political geography and representative information based on an
-   * address or Open Civic Data division identifier.
-   * (representatives.representativeInfoQuery)
+   * Looks up political geography and representative information for a single
+   * address. (representatives.representativeInfoByAddress)
    *
-   * @param Google_RepresentativeInfoRequest $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string ocdId
-   * The division to look up. May only be specified if the address field is not given in the request
-    * body.
    * @opt_param bool includeOffices
    * Whether to return information about offices and officials. If false, only the top-level district
     * information will be returned.
-   * @opt_param bool recursive
-   * When ocd_id is supplied, return all divisions which are hierarchically nested within the queried
-    * division. For example, if querying ocd-division/country:us/district:dc, this would also return
-    * all DC's wards and ANCs.
+   * @opt_param string levels
+   * A list of office levels to filter by. Only offices that serve at least one of these levels will
+    * be returned. Divisions that don't contain a matching office will not be returned.
+   * @opt_param string roles
+   * A list of office roles to filter by. Only offices fulfilling one of these roles will be
+    * returned. Divisions that don't contain a matching office will not be returned.
+   * @opt_param string address
+   * The address to look up. May only be specified if the field ocdId is not given in the URL.
    * @return Google_Service_CivicInfo_RepresentativeInfoResponse
    */
-  public function representativeInfoQuery(Google_Service_CivicInfo_RepresentativeInfoRequest $postBody, $optParams = array())
+  public function representativeInfoByAddress($optParams = array())
   {
-    $params = array('postBody' => $postBody);
+    $params = array();
     $params = array_merge($params, $optParams);
-    return $this->call('representativeInfoQuery', array($params), "Google_Service_CivicInfo_RepresentativeInfoResponse");
+    return $this->call('representativeInfoByAddress', array($params), "Google_Service_CivicInfo_RepresentativeInfoResponse");
+  }
+  /**
+   * Looks up representative information for a single geographic division.
+   * (representatives.representativeInfoByDivision)
+   *
+   * @param string $ocdId
+   * The Open Civic Data division identifier of the division to look up.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string levels
+   * A list of office levels to filter by. Only offices that serve at least one of these levels will
+    * be returned. Divisions that don't contain a matching office will not be returned.
+   * @opt_param bool recursive
+   * If true, information about all divisions contained in the division requested will be included as
+    * well. For example, if querying ocd-division/country:us/district:dc, this would also return all
+    * DC's wards and ANCs.
+   * @opt_param string roles
+   * A list of office roles to filter by. Only offices fulfilling one of these roles will be
+    * returned. Divisions that don't contain a matching office will not be returned.
+   * @return Google_Service_CivicInfo_RepresentativeInfoData
+   */
+  public function representativeInfoByDivision($ocdId, $optParams = array())
+  {
+    $params = array('ocdId' => $ocdId);
+    $params = array_merge($params, $optParams);
+    return $this->call('representativeInfoByDivision', array($params), "Google_Service_CivicInfo_RepresentativeInfoData");
   }
 }
 
@@ -599,6 +659,7 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   public $referendumSubtitle;
   public $referendumTitle;
   public $referendumUrl;
+  public $roles;
   protected $sourcesType = 'Google_Service_CivicInfo_Source';
   protected $sourcesDataType = 'array';
   public $special;
@@ -734,6 +795,16 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
     return $this->referendumUrl;
   }
 
+  public function setRoles($roles)
+  {
+    $this->roles = $roles;
+  }
+
+  public function getRoles()
+  {
+    return $this->roles;
+  }
+
   public function setSources($sources)
   {
     $this->sources = $sources;
@@ -771,7 +842,6 @@ class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
   public $kind;
   protected $resultsType = 'Google_Service_CivicInfo_DivisionSearchResult';
   protected $resultsDataType = 'array';
-  public $status;
 
   public function setKind($kind)
   {
@@ -791,16 +861,6 @@ class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
   public function getResults()
   {
     return $this->results;
-  }
-
-  public function setStatus($status)
-  {
-    $this->status = $status;
-  }
-
-  public function getStatus()
-  {
-    return $this->status;
   }
 }
 
@@ -1005,11 +1065,10 @@ class Google_Service_CivicInfo_ElectoralDistrict extends Google_Model
 
 class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
 {
-  protected $collection_key = 'officeIds';
+  protected $collection_key = 'officeIndices';
   public $alsoKnownAs;
   public $name;
-  public $officeIds;
-  public $scope;
+  public $officeIndices;
 
   public function setAlsoKnownAs($alsoKnownAs)
   {
@@ -1031,24 +1090,14 @@ class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
     return $this->name;
   }
 
-  public function setOfficeIds($officeIds)
+  public function setOfficeIndices($officeIndices)
   {
-    $this->officeIds = $officeIds;
+    $this->officeIndices = $officeIndices;
   }
 
-  public function getOfficeIds()
+  public function getOfficeIndices()
   {
-    return $this->officeIds;
-  }
-
-  public function setScope($scope)
-  {
-    $this->scope = $scope;
-  }
-
-  public function getScope()
-  {
-    return $this->scope;
+    return $this->officeIndices;
   }
 }
 
@@ -1056,9 +1105,10 @@ class Google_Service_CivicInfo_Office extends Google_Collection
 {
   protected $collection_key = 'sources';
   public $divisionId;
-  public $level;
+  public $levels;
   public $name;
-  public $officialIds;
+  public $officialIndices;
+  public $roles;
   protected $sourcesType = 'Google_Service_CivicInfo_Source';
   protected $sourcesDataType = 'array';
 
@@ -1072,14 +1122,14 @@ class Google_Service_CivicInfo_Office extends Google_Collection
     return $this->divisionId;
   }
 
-  public function setLevel($level)
+  public function setLevels($levels)
   {
-    $this->level = $level;
+    $this->levels = $levels;
   }
 
-  public function getLevel()
+  public function getLevels()
   {
-    return $this->level;
+    return $this->levels;
   }
 
   public function setName($name)
@@ -1092,14 +1142,24 @@ class Google_Service_CivicInfo_Office extends Google_Collection
     return $this->name;
   }
 
-  public function setOfficialIds($officialIds)
+  public function setOfficialIndices($officialIndices)
   {
-    $this->officialIds = $officialIds;
+    $this->officialIndices = $officialIndices;
   }
 
-  public function getOfficialIds()
+  public function getOfficialIndices()
   {
-    return $this->officialIds;
+    return $this->officialIndices;
+  }
+
+  public function setRoles($roles)
+  {
+    $this->roles = $roles;
+  }
+
+  public function getRoles()
+  {
+    return $this->roles;
   }
 
   public function setSources($sources)
@@ -1314,33 +1374,64 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   }
 }
 
-class Google_Service_CivicInfo_RepresentativeInfoRequest extends Google_Model
+class Google_Service_CivicInfo_RepresentativeInfoData extends Google_Collection
 {
-  public $address;
+  protected $collection_key = 'officials';
+  protected $divisionsType = 'Google_Service_CivicInfo_GeographicDivision';
+  protected $divisionsDataType = 'map';
+  protected $officesType = 'Google_Service_CivicInfo_Office';
+  protected $officesDataType = 'array';
+  protected $officialsType = 'Google_Service_CivicInfo_Official';
+  protected $officialsDataType = 'array';
 
-  public function setAddress($address)
+  public function setDivisions($divisions)
   {
-    $this->address = $address;
+    $this->divisions = $divisions;
   }
 
-  public function getAddress()
+  public function getDivisions()
   {
-    return $this->address;
+    return $this->divisions;
+  }
+
+  public function setOffices($offices)
+  {
+    $this->offices = $offices;
+  }
+
+  public function getOffices()
+  {
+    return $this->offices;
+  }
+
+  public function setOfficials($officials)
+  {
+    $this->officials = $officials;
+  }
+
+  public function getOfficials()
+  {
+    return $this->officials;
   }
 }
 
-class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Model
+class Google_Service_CivicInfo_RepresentativeInfoDataDivisions extends Google_Model
 {
+
+}
+
+class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collection
+{
+  protected $collection_key = 'officials';
   protected $divisionsType = 'Google_Service_CivicInfo_GeographicDivision';
   protected $divisionsDataType = 'map';
   public $kind;
   protected $normalizedInputType = 'Google_Service_CivicInfo_SimpleAddressType';
   protected $normalizedInputDataType = '';
   protected $officesType = 'Google_Service_CivicInfo_Office';
-  protected $officesDataType = 'map';
+  protected $officesDataType = 'array';
   protected $officialsType = 'Google_Service_CivicInfo_Official';
-  protected $officialsDataType = 'map';
-  public $status;
+  protected $officialsDataType = 'array';
 
   public function setDivisions($divisions)
   {
@@ -1391,29 +1482,9 @@ class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Model
   {
     return $this->officials;
   }
-
-  public function setStatus($status)
-  {
-    $this->status = $status;
-  }
-
-  public function getStatus()
-  {
-    return $this->status;
-  }
 }
 
 class Google_Service_CivicInfo_RepresentativeInfoResponseDivisions extends Google_Model
-{
-
-}
-
-class Google_Service_CivicInfo_RepresentativeInfoResponseOffices extends Google_Model
-{
-
-}
-
-class Google_Service_CivicInfo_RepresentativeInfoResponseOfficials extends Google_Model
 {
 
 }
@@ -1525,21 +1596,6 @@ class Google_Service_CivicInfo_Source extends Google_Model
   }
 }
 
-class Google_Service_CivicInfo_VoterInfoRequest extends Google_Model
-{
-  public $address;
-
-  public function setAddress($address)
-  {
-    $this->address = $address;
-  }
-
-  public function getAddress()
-  {
-    return $this->address;
-  }
-}
-
 class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
 {
   protected $collection_key = 'state';
@@ -1552,11 +1608,12 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   public $kind;
   protected $normalizedInputType = 'Google_Service_CivicInfo_SimpleAddressType';
   protected $normalizedInputDataType = '';
+  protected $otherElectionsType = 'Google_Service_CivicInfo_Election';
+  protected $otherElectionsDataType = 'array';
   protected $pollingLocationsType = 'Google_Service_CivicInfo_PollingLocation';
   protected $pollingLocationsDataType = 'array';
   protected $stateType = 'Google_Service_CivicInfo_AdministrationRegion';
   protected $stateDataType = 'array';
-  public $status;
 
   public function setContests($contests)
   {
@@ -1608,6 +1665,16 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
     return $this->normalizedInput;
   }
 
+  public function setOtherElections($otherElections)
+  {
+    $this->otherElections = $otherElections;
+  }
+
+  public function getOtherElections()
+  {
+    return $this->otherElections;
+  }
+
   public function setPollingLocations($pollingLocations)
   {
     $this->pollingLocations = $pollingLocations;
@@ -1626,15 +1693,5 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   public function getState()
   {
     return $this->state;
-  }
-
-  public function setStatus($status)
-  {
-    $this->status = $status;
-  }
-
-  public function getStatus()
-  {
-    return $this->status;
   }
 }
