@@ -38,21 +38,27 @@ class Google_Service_MapsEngine extends Google_Service
 
   public $assets;
   public $assets_parents;
+  public $assets_permissions;
   public $layers;
   public $layers_parents;
+  public $layers_permissions;
   public $maps;
+  public $maps_permissions;
   public $projects;
   public $projects_icons;
   public $rasterCollections;
   public $rasterCollections_parents;
+  public $rasterCollections_permissions;
   public $rasterCollections_rasters;
   public $rasters;
   public $rasters_files;
   public $rasters_parents;
+  public $rasters_permissions;
   public $tables;
   public $tables_features;
   public $tables_files;
   public $tables_parents;
+  public $tables_permissions;
   
 
   /**
@@ -166,6 +172,26 @@ class Google_Service_MapsEngine extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->assets_permissions = new Google_Service_MapsEngine_AssetsPermissions_Resource(
+        $this,
+        $this->serviceName,
+        'permissions',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'assets/{id}/permissions',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),
@@ -381,6 +407,46 @@ class Google_Service_MapsEngine extends Google_Service
           )
         )
     );
+    $this->layers_permissions = new Google_Service_MapsEngine_LayersPermissions_Resource(
+        $this,
+        $this->serviceName,
+        'permissions',
+        array(
+          'methods' => array(
+            'batchDelete' => array(
+              'path' => 'layers/{id}/permissions/batchDelete',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'batchUpdate' => array(
+              'path' => 'layers/{id}/permissions/batchUpdate',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'layers/{id}/permissions',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->maps = new Google_Service_MapsEngine_Maps_Resource(
         $this,
         $this->serviceName,
@@ -526,6 +592,46 @@ class Google_Service_MapsEngine extends Google_Service
             ),'unpublish' => array(
               'path' => 'maps/{id}/unpublish',
               'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->maps_permissions = new Google_Service_MapsEngine_MapsPermissions_Resource(
+        $this,
+        $this->serviceName,
+        'permissions',
+        array(
+          'methods' => array(
+            'batchDelete' => array(
+              'path' => 'maps/{id}/permissions/batchDelete',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'batchUpdate' => array(
+              'path' => 'maps/{id}/permissions/batchUpdate',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'maps/{id}/permissions',
+              'httpMethod' => 'GET',
               'parameters' => array(
                 'id' => array(
                   'location' => 'path',
@@ -747,6 +853,46 @@ class Google_Service_MapsEngine extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->rasterCollections_permissions = new Google_Service_MapsEngine_RasterCollectionsPermissions_Resource(
+        $this,
+        $this->serviceName,
+        'permissions',
+        array(
+          'methods' => array(
+            'batchDelete' => array(
+              'path' => 'rasterCollections/{id}/permissions/batchDelete',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'batchUpdate' => array(
+              'path' => 'rasterCollections/{id}/permissions/batchUpdate',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'rasterCollections/{id}/permissions',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),
@@ -996,6 +1142,46 @@ class Google_Service_MapsEngine extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->rasters_permissions = new Google_Service_MapsEngine_RastersPermissions_Resource(
+        $this,
+        $this->serviceName,
+        'permissions',
+        array(
+          'methods' => array(
+            'batchDelete' => array(
+              'path' => 'rasters/{id}/permissions/batchDelete',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'batchUpdate' => array(
+              'path' => 'rasters/{id}/permissions/batchUpdate',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'rasters/{id}/permissions',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),
@@ -1283,6 +1469,46 @@ class Google_Service_MapsEngine extends Google_Service
           )
         )
     );
+    $this->tables_permissions = new Google_Service_MapsEngine_TablesPermissions_Resource(
+        $this,
+        $this->serviceName,
+        'permissions',
+        array(
+          'methods' => array(
+            'batchDelete' => array(
+              'path' => 'tables/{id}/permissions/batchDelete',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'batchUpdate' => array(
+              'path' => 'tables/{id}/permissions/batchUpdate',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'tables/{id}/permissions',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
   }
 }
 
@@ -1396,6 +1622,33 @@ class Google_Service_MapsEngine_AssetsParents_Resource extends Google_Service_Re
     $params = array('id' => $id);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_ParentsListResponse");
+  }
+}
+/**
+ * The "permissions" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $mapsengineService = new Google_Service_MapsEngine(...);
+ *   $permissions = $mapsengineService->permissions;
+ *  </code>
+ */
+class Google_Service_MapsEngine_AssetsPermissions_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Return all of the permissions for the specified asset.
+   * (permissions.listAssetsPermissions)
+   *
+   * @param string $id
+   * The ID of the asset whose permissions will be listed.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsListResponse
+   */
+  public function listAssetsPermissions($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_MapsEngine_PermissionsListResponse");
   }
 }
 
@@ -1657,6 +1910,67 @@ class Google_Service_MapsEngine_LayersParents_Resource extends Google_Service_Re
     return $this->call('list', array($params), "Google_Service_MapsEngine_ParentsListResponse");
   }
 }
+/**
+ * The "permissions" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $mapsengineService = new Google_Service_MapsEngine(...);
+ *   $permissions = $mapsengineService->permissions;
+ *  </code>
+ */
+class Google_Service_MapsEngine_LayersPermissions_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Remove permission entries from an already existing asset.
+   * (permissions.batchDelete)
+   *
+   * @param string $id
+   * The ID of the asset from which permissions will be removed.
+   * @param Google_PermissionsBatchDeleteRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsBatchDeleteResponse
+   */
+  public function batchDelete($id, Google_Service_MapsEngine_PermissionsBatchDeleteRequest $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchDelete', array($params), "Google_Service_MapsEngine_PermissionsBatchDeleteResponse");
+  }
+  /**
+   * Add or update permission entries to an already existing asset.
+   *
+   * An asset can hold up to 20 different permission entries. Each batchInsert
+   * request is atomic. (permissions.batchUpdate)
+   *
+   * @param string $id
+   * The ID of the asset to which permissions will be added.
+   * @param Google_PermissionsBatchUpdateRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsBatchUpdateResponse
+   */
+  public function batchUpdate($id, Google_Service_MapsEngine_PermissionsBatchUpdateRequest $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchUpdate', array($params), "Google_Service_MapsEngine_PermissionsBatchUpdateResponse");
+  }
+  /**
+   * Return all of the permissions for the specified asset.
+   * (permissions.listLayersPermissions)
+   *
+   * @param string $id
+   * The ID of the asset whose permissions will be listed.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsListResponse
+   */
+  public function listLayersPermissions($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_MapsEngine_PermissionsListResponse");
+  }
+}
 
 /**
  * The "maps" collection of methods.
@@ -1847,6 +2161,68 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     $params = array('id' => $id);
     $params = array_merge($params, $optParams);
     return $this->call('unpublish', array($params), "Google_Service_MapsEngine_PublishResponse");
+  }
+}
+
+/**
+ * The "permissions" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $mapsengineService = new Google_Service_MapsEngine(...);
+ *   $permissions = $mapsengineService->permissions;
+ *  </code>
+ */
+class Google_Service_MapsEngine_MapsPermissions_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Remove permission entries from an already existing asset.
+   * (permissions.batchDelete)
+   *
+   * @param string $id
+   * The ID of the asset from which permissions will be removed.
+   * @param Google_PermissionsBatchDeleteRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsBatchDeleteResponse
+   */
+  public function batchDelete($id, Google_Service_MapsEngine_PermissionsBatchDeleteRequest $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchDelete', array($params), "Google_Service_MapsEngine_PermissionsBatchDeleteResponse");
+  }
+  /**
+   * Add or update permission entries to an already existing asset.
+   *
+   * An asset can hold up to 20 different permission entries. Each batchInsert
+   * request is atomic. (permissions.batchUpdate)
+   *
+   * @param string $id
+   * The ID of the asset to which permissions will be added.
+   * @param Google_PermissionsBatchUpdateRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsBatchUpdateResponse
+   */
+  public function batchUpdate($id, Google_Service_MapsEngine_PermissionsBatchUpdateRequest $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchUpdate', array($params), "Google_Service_MapsEngine_PermissionsBatchUpdateResponse");
+  }
+  /**
+   * Return all of the permissions for the specified asset.
+   * (permissions.listMapsPermissions)
+   *
+   * @param string $id
+   * The ID of the asset whose permissions will be listed.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsListResponse
+   */
+  public function listMapsPermissions($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_MapsEngine_PermissionsListResponse");
   }
 }
 
@@ -2121,6 +2497,67 @@ class Google_Service_MapsEngine_RasterCollectionsParents_Resource extends Google
     $params = array('id' => $id);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_ParentsListResponse");
+  }
+}
+/**
+ * The "permissions" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $mapsengineService = new Google_Service_MapsEngine(...);
+ *   $permissions = $mapsengineService->permissions;
+ *  </code>
+ */
+class Google_Service_MapsEngine_RasterCollectionsPermissions_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Remove permission entries from an already existing asset.
+   * (permissions.batchDelete)
+   *
+   * @param string $id
+   * The ID of the asset from which permissions will be removed.
+   * @param Google_PermissionsBatchDeleteRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsBatchDeleteResponse
+   */
+  public function batchDelete($id, Google_Service_MapsEngine_PermissionsBatchDeleteRequest $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchDelete', array($params), "Google_Service_MapsEngine_PermissionsBatchDeleteResponse");
+  }
+  /**
+   * Add or update permission entries to an already existing asset.
+   *
+   * An asset can hold up to 20 different permission entries. Each batchInsert
+   * request is atomic. (permissions.batchUpdate)
+   *
+   * @param string $id
+   * The ID of the asset to which permissions will be added.
+   * @param Google_PermissionsBatchUpdateRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsBatchUpdateResponse
+   */
+  public function batchUpdate($id, Google_Service_MapsEngine_PermissionsBatchUpdateRequest $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchUpdate', array($params), "Google_Service_MapsEngine_PermissionsBatchUpdateResponse");
+  }
+  /**
+   * Return all of the permissions for the specified asset.
+   * (permissions.listRasterCollectionsPermissions)
+   *
+   * @param string $id
+   * The ID of the asset whose permissions will be listed.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsListResponse
+   */
+  public function listRasterCollectionsPermissions($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_MapsEngine_PermissionsListResponse");
   }
 }
 /**
@@ -2411,6 +2848,67 @@ class Google_Service_MapsEngine_RastersParents_Resource extends Google_Service_R
     $params = array('id' => $id);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_ParentsListResponse");
+  }
+}
+/**
+ * The "permissions" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $mapsengineService = new Google_Service_MapsEngine(...);
+ *   $permissions = $mapsengineService->permissions;
+ *  </code>
+ */
+class Google_Service_MapsEngine_RastersPermissions_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Remove permission entries from an already existing asset.
+   * (permissions.batchDelete)
+   *
+   * @param string $id
+   * The ID of the asset from which permissions will be removed.
+   * @param Google_PermissionsBatchDeleteRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsBatchDeleteResponse
+   */
+  public function batchDelete($id, Google_Service_MapsEngine_PermissionsBatchDeleteRequest $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchDelete', array($params), "Google_Service_MapsEngine_PermissionsBatchDeleteResponse");
+  }
+  /**
+   * Add or update permission entries to an already existing asset.
+   *
+   * An asset can hold up to 20 different permission entries. Each batchInsert
+   * request is atomic. (permissions.batchUpdate)
+   *
+   * @param string $id
+   * The ID of the asset to which permissions will be added.
+   * @param Google_PermissionsBatchUpdateRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsBatchUpdateResponse
+   */
+  public function batchUpdate($id, Google_Service_MapsEngine_PermissionsBatchUpdateRequest $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchUpdate', array($params), "Google_Service_MapsEngine_PermissionsBatchUpdateResponse");
+  }
+  /**
+   * Return all of the permissions for the specified asset.
+   * (permissions.listRastersPermissions)
+   *
+   * @param string $id
+   * The ID of the asset whose permissions will be listed.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsListResponse
+   */
+  public function listRastersPermissions($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_MapsEngine_PermissionsListResponse");
   }
 }
 
@@ -2771,6 +3269,67 @@ class Google_Service_MapsEngine_TablesParents_Resource extends Google_Service_Re
     return $this->call('list', array($params), "Google_Service_MapsEngine_ParentsListResponse");
   }
 }
+/**
+ * The "permissions" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $mapsengineService = new Google_Service_MapsEngine(...);
+ *   $permissions = $mapsengineService->permissions;
+ *  </code>
+ */
+class Google_Service_MapsEngine_TablesPermissions_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Remove permission entries from an already existing asset.
+   * (permissions.batchDelete)
+   *
+   * @param string $id
+   * The ID of the asset from which permissions will be removed.
+   * @param Google_PermissionsBatchDeleteRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsBatchDeleteResponse
+   */
+  public function batchDelete($id, Google_Service_MapsEngine_PermissionsBatchDeleteRequest $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchDelete', array($params), "Google_Service_MapsEngine_PermissionsBatchDeleteResponse");
+  }
+  /**
+   * Add or update permission entries to an already existing asset.
+   *
+   * An asset can hold up to 20 different permission entries. Each batchInsert
+   * request is atomic. (permissions.batchUpdate)
+   *
+   * @param string $id
+   * The ID of the asset to which permissions will be added.
+   * @param Google_PermissionsBatchUpdateRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsBatchUpdateResponse
+   */
+  public function batchUpdate($id, Google_Service_MapsEngine_PermissionsBatchUpdateRequest $postBody, $optParams = array())
+  {
+    $params = array('id' => $id, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchUpdate', array($params), "Google_Service_MapsEngine_PermissionsBatchUpdateResponse");
+  }
+  /**
+   * Return all of the permissions for the specified asset.
+   * (permissions.listTablesPermissions)
+   *
+   * @param string $id
+   * The ID of the asset whose permissions will be listed.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_MapsEngine_PermissionsListResponse
+   */
+  public function listTablesPermissions($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_MapsEngine_PermissionsListResponse");
+  }
+}
 
 
 
@@ -2828,6 +3387,7 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   public $resource;
   public $tags;
   public $type;
+  public $writersCanEditPermissions;
 
   public function setBbox($bbox)
   {
@@ -2957,6 +3517,16 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   public function getType()
   {
     return $this->type;
+  }
+
+  public function setWritersCanEditPermissions($writersCanEditPermissions)
+  {
+    $this->writersCanEditPermissions = $writersCanEditPermissions;
+  }
+
+  public function getWritersCanEditPermissions()
+  {
+    return $this->writersCanEditPermissions;
   }
 }
 
@@ -3731,6 +4301,7 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   protected $styleType = 'Google_Service_MapsEngine_VectorStyle';
   protected $styleDataType = '';
   public $tags;
+  public $writersCanEditPermissions;
 
   public function setBbox($bbox)
   {
@@ -3921,6 +4492,16 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->tags;
   }
+
+  public function setWritersCanEditPermissions($writersCanEditPermissions)
+  {
+    $this->writersCanEditPermissions = $writersCanEditPermissions;
+  }
+
+  public function getWritersCanEditPermissions()
+  {
+    return $this->writersCanEditPermissions;
+  }
 }
 
 class Google_Service_MapsEngine_LayersListResponse extends Google_Collection
@@ -4062,6 +4643,7 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public $publishingStatus;
   public $tags;
   public $versions;
+  public $writersCanEditPermissions;
 
   public function setBbox($bbox)
   {
@@ -4241,6 +4823,16 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public function getVersions()
   {
     return $this->versions;
+  }
+
+  public function setWritersCanEditPermissions($writersCanEditPermissions)
+  {
+    $this->writersCanEditPermissions = $writersCanEditPermissions;
+  }
+
+  public function getWritersCanEditPermissions()
+  {
+    return $this->writersCanEditPermissions;
   }
 }
 
@@ -4545,6 +5137,114 @@ class Google_Service_MapsEngine_ParentsListResponse extends Google_Collection
   public function getParents()
   {
     return $this->parents;
+  }
+}
+
+class Google_Service_MapsEngine_Permission extends Google_Model
+{
+  public $discoverable;
+  public $id;
+  public $role;
+  public $type;
+
+  public function setDiscoverable($discoverable)
+  {
+    $this->discoverable = $discoverable;
+  }
+
+  public function getDiscoverable()
+  {
+    return $this->discoverable;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setRole($role)
+  {
+    $this->role = $role;
+  }
+
+  public function getRole()
+  {
+    return $this->role;
+  }
+
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+
+  public function getType()
+  {
+    return $this->type;
+  }
+}
+
+class Google_Service_MapsEngine_PermissionsBatchDeleteRequest extends Google_Collection
+{
+  protected $collection_key = 'ids';
+  public $ids;
+
+  public function setIds($ids)
+  {
+    $this->ids = $ids;
+  }
+
+  public function getIds()
+  {
+    return $this->ids;
+  }
+}
+
+class Google_Service_MapsEngine_PermissionsBatchDeleteResponse extends Google_Model
+{
+
+}
+
+class Google_Service_MapsEngine_PermissionsBatchUpdateRequest extends Google_Collection
+{
+  protected $collection_key = 'permissions';
+  protected $permissionsType = 'Google_Service_MapsEngine_Permission';
+  protected $permissionsDataType = 'array';
+
+  public function setPermissions($permissions)
+  {
+    $this->permissions = $permissions;
+  }
+
+  public function getPermissions()
+  {
+    return $this->permissions;
+  }
+}
+
+class Google_Service_MapsEngine_PermissionsBatchUpdateResponse extends Google_Model
+{
+
+}
+
+class Google_Service_MapsEngine_PermissionsListResponse extends Google_Collection
+{
+  protected $collection_key = 'permissions';
+  protected $permissionsType = 'Google_Service_MapsEngine_Permission';
+  protected $permissionsDataType = 'array';
+
+  public function setPermissions($permissions)
+  {
+    $this->permissions = $permissions;
+  }
+
+  public function getPermissions()
+  {
+    return $this->permissions;
   }
 }
 
@@ -4866,6 +5566,7 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   public $projectId;
   public $rasterType;
   public $tags;
+  public $writersCanEditPermissions;
 
   public function setAcquisitionTime(Google_Service_MapsEngine_AcquisitionTime $acquisitionTime)
   {
@@ -5046,6 +5747,16 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->tags;
   }
+
+  public function setWritersCanEditPermissions($writersCanEditPermissions)
+  {
+    $this->writersCanEditPermissions = $writersCanEditPermissions;
+  }
+
+  public function getWritersCanEditPermissions()
+  {
+    return $this->writersCanEditPermissions;
+  }
 }
 
 class Google_Service_MapsEngine_RasterCollection extends Google_Collection
@@ -5067,6 +5778,7 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   public $projectId;
   public $rasterType;
   public $tags;
+  public $writersCanEditPermissions;
 
   public function setAttribution($attribution)
   {
@@ -5226,6 +5938,16 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   public function getTags()
   {
     return $this->tags;
+  }
+
+  public function setWritersCanEditPermissions($writersCanEditPermissions)
+  {
+    $this->writersCanEditPermissions = $writersCanEditPermissions;
+  }
+
+  public function getWritersCanEditPermissions()
+  {
+    return $this->writersCanEditPermissions;
   }
 }
 
@@ -5635,6 +6357,7 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   protected $schemaDataType = '';
   public $sourceEncoding;
   public $tags;
+  public $writersCanEditPermissions;
 
   public function setBbox($bbox)
   {
@@ -5804,6 +6527,16 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   public function getTags()
   {
     return $this->tags;
+  }
+
+  public function setWritersCanEditPermissions($writersCanEditPermissions)
+  {
+    $this->writersCanEditPermissions = $writersCanEditPermissions;
+  }
+
+  public function getWritersCanEditPermissions()
+  {
+    return $this->writersCanEditPermissions;
   }
 }
 
