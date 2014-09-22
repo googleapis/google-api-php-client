@@ -65,6 +65,10 @@ class Google_Service_Directory extends Google_Service
   const ADMIN_DIRECTORY_USER_READONLY = "https://www.googleapis.com/auth/admin.directory.user.readonly";
   /** Manage data access permissions for users on your domain. */
   const ADMIN_DIRECTORY_USER_SECURITY = "https://www.googleapis.com/auth/admin.directory.user.security";
+  /** View and manage the provisioning of user schemas on your domain. */
+  const ADMIN_DIRECTORY_USERSCHEMA = "https://www.googleapis.com/auth/admin.directory.userschema";
+  /** View user schemas on your domain. */
+  const ADMIN_DIRECTORY_USERSCHEMA_READONLY = "https://www.googleapis.com/auth/admin.directory.userschema.readonly";
 
   public $asps;
   public $channels;
@@ -75,6 +79,7 @@ class Google_Service_Directory extends Google_Service
   public $mobiledevices;
   public $notifications;
   public $orgunits;
+  public $schemas;
   public $tokens;
   public $users;
   public $users_aliases;
@@ -772,6 +777,96 @@ class Google_Service_Directory extends Google_Service
           )
         )
     );
+    $this->schemas = new Google_Service_Directory_Schemas_Resource(
+        $this,
+        $this->serviceName,
+        'schemas',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => 'customer/{customerId}/schemas/{schemaKey}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'schemaKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'customer/{customerId}/schemas/{schemaKey}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'schemaKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => 'customer/{customerId}/schemas',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'customer/{customerId}/schemas',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'patch' => array(
+              'path' => 'customer/{customerId}/schemas/{schemaKey}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'schemaKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'customer/{customerId}/schemas/{schemaKey}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'schemaKey' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->tokens = new Google_Service_Directory_Tokens_Resource(
         $this,
         $this->serviceName,
@@ -847,6 +942,18 @@ class Google_Service_Directory extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'viewType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customFieldMask' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'insert' => array(
               'path' => 'users',
@@ -868,7 +975,15 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'showDeleted' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customFieldMask' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -885,6 +1000,10 @@ class Google_Service_Directory extends Google_Service
                   'type' => 'string',
                 ),
                 'query' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'viewType' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -949,7 +1068,15 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'showDeleted' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customFieldMask' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -966,6 +1093,10 @@ class Google_Service_Directory extends Google_Service
                   'type' => 'string',
                 ),
                 'query' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'viewType' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1914,6 +2045,113 @@ class Google_Service_Directory_Orgunits_Resource extends Google_Service_Resource
 }
 
 /**
+ * The "schemas" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adminService = new Google_Service_Directory(...);
+ *   $schemas = $adminService->schemas;
+ *  </code>
+ */
+class Google_Service_Directory_Schemas_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Delete schema (schemas.delete)
+   *
+   * @param string $customerId
+   * Immutable id of the Google Apps account
+   * @param string $schemaKey
+   * Name or immutable Id of the schema
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($customerId, $schemaKey, $optParams = array())
+  {
+    $params = array('customerId' => $customerId, 'schemaKey' => $schemaKey);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+  /**
+   * Retrieve schema (schemas.get)
+   *
+   * @param string $customerId
+   * Immutable id of the Google Apps account
+   * @param string $schemaKey
+   * Name or immutable Id of the schema
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_Schema
+   */
+  public function get($customerId, $schemaKey, $optParams = array())
+  {
+    $params = array('customerId' => $customerId, 'schemaKey' => $schemaKey);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Directory_Schema");
+  }
+  /**
+   * Create schema. (schemas.insert)
+   *
+   * @param string $customerId
+   * Immutable id of the Google Apps account
+   * @param Google_Schema $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_Schema
+   */
+  public function insert($customerId, Google_Service_Directory_Schema $postBody, $optParams = array())
+  {
+    $params = array('customerId' => $customerId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Directory_Schema");
+  }
+  /**
+   * Retrieve all schemas for a customer (schemas.listSchemas)
+   *
+   * @param string $customerId
+   * Immutable id of the Google Apps account
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_Schemas
+   */
+  public function listSchemas($customerId, $optParams = array())
+  {
+    $params = array('customerId' => $customerId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Directory_Schemas");
+  }
+  /**
+   * Update schema. This method supports patch semantics. (schemas.patch)
+   *
+   * @param string $customerId
+   * Immutable id of the Google Apps account
+   * @param string $schemaKey
+   * Name or immutable Id of the schema.
+   * @param Google_Schema $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_Schema
+   */
+  public function patch($customerId, $schemaKey, Google_Service_Directory_Schema $postBody, $optParams = array())
+  {
+    $params = array('customerId' => $customerId, 'schemaKey' => $schemaKey, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_Directory_Schema");
+  }
+  /**
+   * Update schema (schemas.update)
+   *
+   * @param string $customerId
+   * Immutable id of the Google Apps account
+   * @param string $schemaKey
+   * Name or immutable Id of the schema.
+   * @param Google_Schema $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_Schema
+   */
+  public function update($customerId, $schemaKey, Google_Service_Directory_Schema $postBody, $optParams = array())
+  {
+    $params = array('customerId' => $customerId, 'schemaKey' => $schemaKey, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_Directory_Schema");
+  }
+}
+
+/**
  * The "tokens" collection of methods.
  * Typical usage is:
  *  <code>
@@ -2005,6 +2243,14 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
    * @param string $userKey
    * Email or immutable Id of the user
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string viewType
+   * Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC view of the user.
+   * @opt_param string customFieldMask
+   * Comma-separated list of schema names. All fields from these schemas are fetched. This should
+    * only be set when projection=custom.
+   * @opt_param string projection
+   * What subset of fields to fetch for this user.
    * @return Google_Service_Directory_User
    */
   public function get($userKey, $optParams = array())
@@ -2040,8 +2286,13 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
    * @opt_param string domain
    * Name of the domain. Fill this field to get users from only this domain. To return all users in a
     * multi-domain fill customer field instead.
+   * @opt_param string projection
+   * What subset of fields to fetch for this user.
    * @opt_param string showDeleted
    * If set to true retrieves the list of deleted users. Default is false
+   * @opt_param string customFieldMask
+   * Comma-separated list of schema names. All fields from these schemas are fetched. This should
+    * only be set when projection=custom.
    * @opt_param int maxResults
    * Maximum number of results to return. Default is 100. Max allowed is 500
    * @opt_param string pageToken
@@ -2049,9 +2300,10 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
    * @opt_param string sortOrder
    * Whether to return results in ascending or descending order.
    * @opt_param string query
-   * Query string search. Should be of the form "" where field can be any of supported fields,
-    * operators can be one of '=' for exact match or ':' for prefix match. For prefix match, the value
-    * should always be followed by a *.
+   * Query string search. Should be of the form "". Complete documentation is at
+    * https://developers.google.com/admin-sdk/directory/v1/guides/search-users
+   * @opt_param string viewType
+   * Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC view of the user.
    * @opt_param string event
    * Event on which subscription is intended (if subscribing)
    * @return Google_Service_Directory_Users
@@ -2134,8 +2386,13 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
    * @opt_param string domain
    * Name of the domain. Fill this field to get users from only this domain. To return all users in a
     * multi-domain fill customer field instead.
+   * @opt_param string projection
+   * What subset of fields to fetch for this user.
    * @opt_param string showDeleted
    * If set to true retrieves the list of deleted users. Default is false
+   * @opt_param string customFieldMask
+   * Comma-separated list of schema names. All fields from these schemas are fetched. This should
+    * only be set when projection=custom.
    * @opt_param int maxResults
    * Maximum number of results to return. Default is 100. Max allowed is 500
    * @opt_param string pageToken
@@ -2143,9 +2400,10 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
    * @opt_param string sortOrder
    * Whether to return results in ascending or descending order.
    * @opt_param string query
-   * Query string search. Should be of the form "" where field can be any of supported fields,
-    * operators can be one of '=' for exact match or ':' for prefix match. For prefix match, the value
-    * should always be followed by a *.
+   * Query string search. Should be of the form "". Complete documentation is at
+    * https://developers.google.com/admin-sdk/directory/v1/guides/search-users
+   * @opt_param string viewType
+   * Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC view of the user.
    * @opt_param string event
    * Event on which subscription is intended (if subscribing)
    * @return Google_Service_Directory_Channel
@@ -4013,6 +4271,236 @@ class Google_Service_Directory_OrgUnits extends Google_Collection
   }
 }
 
+class Google_Service_Directory_Schema extends Google_Collection
+{
+  protected $collection_key = 'fields';
+  public $etag;
+  protected $fieldsType = 'Google_Service_Directory_SchemaFieldSpec';
+  protected $fieldsDataType = 'array';
+  public $kind;
+  public $schemaId;
+  public $schemaName;
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+
+  public function setFields($fields)
+  {
+    $this->fields = $fields;
+  }
+
+  public function getFields()
+  {
+    return $this->fields;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setSchemaId($schemaId)
+  {
+    $this->schemaId = $schemaId;
+  }
+
+  public function getSchemaId()
+  {
+    return $this->schemaId;
+  }
+
+  public function setSchemaName($schemaName)
+  {
+    $this->schemaName = $schemaName;
+  }
+
+  public function getSchemaName()
+  {
+    return $this->schemaName;
+  }
+}
+
+class Google_Service_Directory_SchemaFieldSpec extends Google_Model
+{
+  public $etag;
+  public $fieldId;
+  public $fieldName;
+  public $fieldType;
+  public $indexed;
+  public $kind;
+  public $multiValued;
+  protected $numericIndexingSpecType = 'Google_Service_Directory_SchemaFieldSpecNumericIndexingSpec';
+  protected $numericIndexingSpecDataType = '';
+  public $readAccessType;
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+
+  public function setFieldId($fieldId)
+  {
+    $this->fieldId = $fieldId;
+  }
+
+  public function getFieldId()
+  {
+    return $this->fieldId;
+  }
+
+  public function setFieldName($fieldName)
+  {
+    $this->fieldName = $fieldName;
+  }
+
+  public function getFieldName()
+  {
+    return $this->fieldName;
+  }
+
+  public function setFieldType($fieldType)
+  {
+    $this->fieldType = $fieldType;
+  }
+
+  public function getFieldType()
+  {
+    return $this->fieldType;
+  }
+
+  public function setIndexed($indexed)
+  {
+    $this->indexed = $indexed;
+  }
+
+  public function getIndexed()
+  {
+    return $this->indexed;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setMultiValued($multiValued)
+  {
+    $this->multiValued = $multiValued;
+  }
+
+  public function getMultiValued()
+  {
+    return $this->multiValued;
+  }
+
+  public function setNumericIndexingSpec(Google_Service_Directory_SchemaFieldSpecNumericIndexingSpec $numericIndexingSpec)
+  {
+    $this->numericIndexingSpec = $numericIndexingSpec;
+  }
+
+  public function getNumericIndexingSpec()
+  {
+    return $this->numericIndexingSpec;
+  }
+
+  public function setReadAccessType($readAccessType)
+  {
+    $this->readAccessType = $readAccessType;
+  }
+
+  public function getReadAccessType()
+  {
+    return $this->readAccessType;
+  }
+}
+
+class Google_Service_Directory_SchemaFieldSpecNumericIndexingSpec extends Google_Model
+{
+  public $maxValue;
+  public $minValue;
+
+  public function setMaxValue($maxValue)
+  {
+    $this->maxValue = $maxValue;
+  }
+
+  public function getMaxValue()
+  {
+    return $this->maxValue;
+  }
+
+  public function setMinValue($minValue)
+  {
+    $this->minValue = $minValue;
+  }
+
+  public function getMinValue()
+  {
+    return $this->minValue;
+  }
+}
+
+class Google_Service_Directory_Schemas extends Google_Collection
+{
+  protected $collection_key = 'schemas';
+  public $etag;
+  public $kind;
+  protected $schemasType = 'Google_Service_Directory_Schema';
+  protected $schemasDataType = 'array';
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setSchemas($schemas)
+  {
+    $this->schemas = $schemas;
+  }
+
+  public function getSchemas()
+  {
+    return $this->schemas;
+  }
+}
+
 class Google_Service_Directory_Token extends Google_Collection
 {
   protected $collection_key = 'scopes';
@@ -4153,6 +4641,7 @@ class Google_Service_Directory_User extends Google_Collection
   public $aliases;
   public $changePasswordAtNextLogin;
   public $creationTime;
+  public $customSchemas;
   public $customerId;
   public $deletionTime;
   public $emails;
@@ -4229,6 +4718,16 @@ class Google_Service_Directory_User extends Google_Collection
   public function getCreationTime()
   {
     return $this->creationTime;
+  }
+
+  public function setCustomSchemas($customSchemas)
+  {
+    $this->customSchemas = $customSchemas;
+  }
+
+  public function getCustomSchemas()
+  {
+    return $this->customSchemas;
   }
 
   public function setCustomerId($customerId)
@@ -4637,6 +5136,16 @@ class Google_Service_Directory_UserAddress extends Google_Model
   {
     return $this->type;
   }
+}
+
+class Google_Service_Directory_UserCustomProperties extends Google_Model
+{
+
+}
+
+class Google_Service_Directory_UserCustomSchemas extends Google_Model
+{
+
 }
 
 class Google_Service_Directory_UserEmail extends Google_Model
