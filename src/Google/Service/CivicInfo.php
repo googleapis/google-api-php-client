@@ -1612,6 +1612,7 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   protected $otherElectionsDataType = 'array';
   protected $pollingLocationsType = 'Google_Service_CivicInfo_PollingLocation';
   protected $pollingLocationsDataType = 'array';
+  public $precinctId;
   protected $stateType = 'Google_Service_CivicInfo_AdministrationRegion';
   protected $stateDataType = 'array';
 
@@ -1683,6 +1684,16 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   public function getPollingLocations()
   {
     return $this->pollingLocations;
+  }
+
+  public function setPrecinctId($precinctId)
+  {
+    $this->precinctId = $precinctId;
+  }
+
+  public function getPrecinctId()
+  {
+    return $this->precinctId;
   }
 
   public function setState($state)
