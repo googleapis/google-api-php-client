@@ -485,6 +485,16 @@ class Google_Service_Genomics extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'mergeVariants' => array(
+              'path' => 'variantsets/{variantSetId}/mergeVariants',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'variantSetId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'search' => array(
               'path' => 'variantsets/search',
               'httpMethod' => 'POST',
@@ -1115,8 +1125,9 @@ class Google_Service_Genomics_Variants_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Genomics_Variant");
   }
   /**
-   * Creates variant data by asynchronously importing the provided information.
-   * (variants.import)
+   * Creates variant data by asynchronously importing the provided information. If
+   * the destination variant set already contains data, new variants will be
+   * merged according to the behavior of mergeVariants. (variants.import)
    *
    * @param Google_ImportVariantsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -1198,6 +1209,27 @@ class Google_Service_Genomics_Variantsets_Resource extends Google_Service_Resour
     $params = array('variantSetId' => $variantSetId);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Genomics_VariantSet");
+  }
+  /**
+   * Merges the given variants with existing variants. Each variant will be merged
+   * with an existing variant that matches its reference sequence, start, end,
+   * reference bases, and alternative bases. If no such variant exists, a new one
+   * will be created.
+   *
+   * When variants are merged, the call information from the new variant is added
+   * to the existing variant, and other fields (such as key/value pairs) are
+   * discarded. (variantsets.mergeVariants)
+   *
+   * @param string $variantSetId
+   * The destination variant set.
+   * @param Google_Variant $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function mergeVariants($variantSetId, Google_Service_Genomics_Variant $postBody, $optParams = array())
+  {
+    $params = array('variantSetId' => $variantSetId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('mergeVariants', array($params));
   }
   /**
    * Returns a list of all variant sets matching search criteria.
@@ -1466,8 +1498,13 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
   public $align;
   public $callVariants;
   public $gcsOutputPath;
+  public $libraryName;
   public $pairedSourceUris;
+  public $platformName;
+  public $platformUnit;
   public $projectId;
+  public $readGroupId;
+  public $sampleName;
   public $sourceUris;
 
   public function setAlign($align)
@@ -1500,6 +1537,16 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
     return $this->gcsOutputPath;
   }
 
+  public function setLibraryName($libraryName)
+  {
+    $this->libraryName = $libraryName;
+  }
+
+  public function getLibraryName()
+  {
+    return $this->libraryName;
+  }
+
   public function setPairedSourceUris($pairedSourceUris)
   {
     $this->pairedSourceUris = $pairedSourceUris;
@@ -1510,6 +1557,26 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
     return $this->pairedSourceUris;
   }
 
+  public function setPlatformName($platformName)
+  {
+    $this->platformName = $platformName;
+  }
+
+  public function getPlatformName()
+  {
+    return $this->platformName;
+  }
+
+  public function setPlatformUnit($platformUnit)
+  {
+    $this->platformUnit = $platformUnit;
+  }
+
+  public function getPlatformUnit()
+  {
+    return $this->platformUnit;
+  }
+
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -1518,6 +1585,26 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
   public function getProjectId()
   {
     return $this->projectId;
+  }
+
+  public function setReadGroupId($readGroupId)
+  {
+    $this->readGroupId = $readGroupId;
+  }
+
+  public function getReadGroupId()
+  {
+    return $this->readGroupId;
+  }
+
+  public function setSampleName($sampleName)
+  {
+    $this->sampleName = $sampleName;
+  }
+
+  public function getSampleName()
+  {
+    return $this->sampleName;
   }
 
   public function setSourceUris($sourceUris)
