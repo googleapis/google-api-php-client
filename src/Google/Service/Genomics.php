@@ -3396,9 +3396,11 @@ class Google_Service_Genomics_Variant extends Google_Collection
   protected $callsDataType = 'array';
   public $created;
   public $end;
+  public $filter;
   public $id;
   public $info;
   public $names;
+  public $quality;
   public $referenceBases;
   public $referenceName;
   public $start;
@@ -3444,6 +3446,16 @@ class Google_Service_Genomics_Variant extends Google_Collection
     return $this->end;
   }
 
+  public function setFilter($filter)
+  {
+    $this->filter = $filter;
+  }
+
+  public function getFilter()
+  {
+    return $this->filter;
+  }
+
   public function setId($id)
   {
     $this->id = $id;
@@ -3472,6 +3484,16 @@ class Google_Service_Genomics_Variant extends Google_Collection
   public function getNames()
   {
     return $this->names;
+  }
+
+  public function setQuality($quality)
+  {
+    $this->quality = $quality;
+  }
+
+  public function getQuality()
+  {
+    return $this->quality;
   }
 
   public function setReferenceBases($referenceBases)
