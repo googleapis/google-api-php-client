@@ -5169,6 +5169,7 @@ class Google_Service_YouTube_ChannelStatistics extends Google_Model
 class Google_Service_YouTube_ChannelStatus extends Google_Model
 {
   public $isLinked;
+  public $longUploadsStatus;
   public $privacyStatus;
 
   public function setIsLinked($isLinked)
@@ -5179,6 +5180,16 @@ class Google_Service_YouTube_ChannelStatus extends Google_Model
   public function getIsLinked()
   {
     return $this->isLinked;
+  }
+
+  public function setLongUploadsStatus($longUploadsStatus)
+  {
+    $this->longUploadsStatus = $longUploadsStatus;
+  }
+
+  public function getLongUploadsStatus()
+  {
+    return $this->longUploadsStatus;
   }
 
   public function setPrivacyStatus($privacyStatus)
@@ -6780,6 +6791,7 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
   protected $itemsDataType = 'array';
   protected $positionType = 'Google_Service_YouTube_InvideoPosition';
   protected $positionDataType = '';
+  public $useSmartTiming;
 
   public function setDefaultTiming(Google_Service_YouTube_InvideoTiming $defaultTiming)
   {
@@ -6809,6 +6821,16 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
   public function getPosition()
   {
     return $this->position;
+  }
+
+  public function setUseSmartTiming($useSmartTiming)
+  {
+    $this->useSmartTiming = $useSmartTiming;
+  }
+
+  public function getUseSmartTiming()
+  {
+    return $this->useSmartTiming;
   }
 }
 
@@ -7362,6 +7384,7 @@ class Google_Service_YouTube_LiveStream extends Google_Model
 class Google_Service_YouTube_LiveStreamContentDetails extends Google_Model
 {
   public $closedCaptionsIngestionUrl;
+  public $isReusable;
 
   public function setClosedCaptionsIngestionUrl($closedCaptionsIngestionUrl)
   {
@@ -7371,6 +7394,16 @@ class Google_Service_YouTube_LiveStreamContentDetails extends Google_Model
   public function getClosedCaptionsIngestionUrl()
   {
     return $this->closedCaptionsIngestionUrl;
+  }
+
+  public function setIsReusable($isReusable)
+  {
+    $this->isReusable = $isReusable;
+  }
+
+  public function getIsReusable()
+  {
+    return $this->isReusable;
   }
 }
 
