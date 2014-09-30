@@ -597,6 +597,8 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
 
 class Google_Service_Resourceviews_Label extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $key;
   public $value;
 
@@ -623,6 +625,8 @@ class Google_Service_Resourceviews_Label extends Google_Model
 
 class Google_Service_Resourceviews_ListResourceResponseItem extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $endpoints;
   public $resource;
 
@@ -649,12 +653,15 @@ class Google_Service_Resourceviews_ListResourceResponseItem extends Google_Model
 
 class Google_Service_Resourceviews_ListResourceResponseItemEndpoints extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Resourceviews_Operation extends Google_Collection
 {
   protected $collection_key = 'warnings';
+  protected $internal_gapi_mappings = array(
+  );
   public $clientOperationId;
   public $creationTimestamp;
   public $endTime;
@@ -904,6 +911,8 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
 class Google_Service_Resourceviews_OperationError extends Google_Collection
 {
   protected $collection_key = 'errors';
+  protected $internal_gapi_mappings = array(
+  );
   protected $errorsType = 'Google_Service_Resourceviews_OperationErrorErrors';
   protected $errorsDataType = 'array';
 
@@ -920,6 +929,8 @@ class Google_Service_Resourceviews_OperationError extends Google_Collection
 
 class Google_Service_Resourceviews_OperationErrorErrors extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $code;
   public $location;
   public $message;
@@ -958,6 +969,8 @@ class Google_Service_Resourceviews_OperationErrorErrors extends Google_Model
 class Google_Service_Resourceviews_OperationList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   protected $itemsType = 'Google_Service_Resourceviews_Operation';
   protected $itemsDataType = 'array';
@@ -1019,6 +1032,8 @@ class Google_Service_Resourceviews_OperationList extends Google_Collection
 class Google_Service_Resourceviews_OperationWarnings extends Google_Collection
 {
   protected $collection_key = 'data';
+  protected $internal_gapi_mappings = array(
+  );
   public $code;
   protected $dataType = 'Google_Service_Resourceviews_OperationWarningsData';
   protected $dataDataType = 'array';
@@ -1057,6 +1072,8 @@ class Google_Service_Resourceviews_OperationWarnings extends Google_Collection
 
 class Google_Service_Resourceviews_OperationWarningsData extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $key;
   public $value;
 
@@ -1084,6 +1101,8 @@ class Google_Service_Resourceviews_OperationWarningsData extends Google_Model
 class Google_Service_Resourceviews_ResourceView extends Google_Collection
 {
   protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
   public $creationTimestamp;
   public $description;
   protected $endpointsType = 'Google_Service_Resourceviews_ServiceEndpoint';
@@ -1222,6 +1241,8 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
 
 class Google_Service_Resourceviews_ServiceEndpoint extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $name;
   public $port;
 
@@ -1249,6 +1270,8 @@ class Google_Service_Resourceviews_ServiceEndpoint extends Google_Model
 class Google_Service_Resourceviews_ZoneViewsAddResourcesRequest extends Google_Collection
 {
   protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
   public $resources;
 
   public function setResources($resources)
@@ -1265,6 +1288,8 @@ class Google_Service_Resourceviews_ZoneViewsAddResourcesRequest extends Google_C
 class Google_Service_Resourceviews_ZoneViewsGetServiceResponse extends Google_Collection
 {
   protected $collection_key = 'endpoints';
+  protected $internal_gapi_mappings = array(
+  );
   protected $endpointsType = 'Google_Service_Resourceviews_ServiceEndpoint';
   protected $endpointsDataType = 'array';
   public $fingerprint;
@@ -1293,6 +1318,8 @@ class Google_Service_Resourceviews_ZoneViewsGetServiceResponse extends Google_Co
 class Google_Service_Resourceviews_ZoneViewsList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_Resourceviews_ResourceView';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1343,6 +1370,8 @@ class Google_Service_Resourceviews_ZoneViewsList extends Google_Collection
 class Google_Service_Resourceviews_ZoneViewsListResourcesResponse extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_Resourceviews_ListResourceResponseItem';
   protected $itemsDataType = 'array';
   public $network;
@@ -1382,6 +1411,8 @@ class Google_Service_Resourceviews_ZoneViewsListResourcesResponse extends Google
 class Google_Service_Resourceviews_ZoneViewsRemoveResourcesRequest extends Google_Collection
 {
   protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
   public $resources;
 
   public function setResources($resources)
@@ -1398,6 +1429,8 @@ class Google_Service_Resourceviews_ZoneViewsRemoveResourcesRequest extends Googl
 class Google_Service_Resourceviews_ZoneViewsSetServiceRequest extends Google_Collection
 {
   protected $collection_key = 'endpoints';
+  protected $internal_gapi_mappings = array(
+  );
   protected $endpointsType = 'Google_Service_Resourceviews_ServiceEndpoint';
   protected $endpointsDataType = 'array';
   public $fingerprint;
