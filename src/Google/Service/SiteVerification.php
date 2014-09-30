@@ -241,6 +241,8 @@ class Google_Service_SiteVerification_WebResource_Resource extends Google_Servic
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $siteType = 'Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequestSite';
   protected $siteDataType = '';
   public $verificationMethod;
@@ -268,6 +270,8 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequest
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequestSite extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $identifier;
   public $type;
 
@@ -294,6 +298,8 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequest
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $method;
   public $token;
 
@@ -321,6 +327,8 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRespons
 class Google_Service_SiteVerification_SiteVerificationWebResourceListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_SiteVerification_SiteVerificationWebResourceResource';
   protected $itemsDataType = 'array';
 
@@ -338,6 +346,8 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceListResponse ex
 class Google_Service_SiteVerification_SiteVerificationWebResourceResource extends Google_Collection
 {
   protected $collection_key = 'owners';
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $owners;
   protected $siteType = 'Google_Service_SiteVerification_SiteVerificationWebResourceResourceSite';
@@ -376,6 +386,8 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceResource extend
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceResourceSite extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $identifier;
   public $type;
 
