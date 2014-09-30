@@ -139,6 +139,8 @@ class Google_Service_Pagespeedonline_Pagespeedapi_Resource extends Google_Servic
 class Google_Service_Pagespeedonline_Result extends Google_Collection
 {
   protected $collection_key = 'invalidRules';
+  protected $internal_gapi_mappings = array(
+  );
   protected $formattedResultsType = 'Google_Service_Pagespeedonline_ResultFormattedResults';
   protected $formattedResultsDataType = '';
   public $id;
@@ -257,6 +259,8 @@ class Google_Service_Pagespeedonline_Result extends Google_Collection
 
 class Google_Service_Pagespeedonline_ResultFormattedResults extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $locale;
   protected $ruleResultsType = 'Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElement';
   protected $ruleResultsDataType = 'map';
@@ -284,12 +288,15 @@ class Google_Service_Pagespeedonline_ResultFormattedResults extends Google_Model
 
 class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResults extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElement extends Google_Collection
 {
   protected $collection_key = 'urlBlocks';
+  protected $internal_gapi_mappings = array(
+  );
   public $localizedRuleName;
   public $ruleImpact;
   protected $urlBlocksType = 'Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocks';
@@ -329,6 +336,8 @@ class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElement ex
 class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocks extends Google_Collection
 {
   protected $collection_key = 'urls';
+  protected $internal_gapi_mappings = array(
+  );
   protected $headerType = 'Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksHeader';
   protected $headerDataType = '';
   protected $urlsType = 'Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksUrls';
@@ -358,6 +367,8 @@ class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrl
 class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksHeader extends Google_Collection
 {
   protected $collection_key = 'args';
+  protected $internal_gapi_mappings = array(
+  );
   protected $argsType = 'Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksHeaderArgs';
   protected $argsDataType = 'array';
   public $format;
@@ -385,6 +396,8 @@ class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrl
 
 class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksHeaderArgs extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $type;
   public $value;
 
@@ -412,6 +425,8 @@ class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrl
 class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksUrls extends Google_Collection
 {
   protected $collection_key = 'details';
+  protected $internal_gapi_mappings = array(
+  );
   protected $detailsType = 'Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksUrlsDetails';
   protected $detailsDataType = 'array';
   protected $resultType = 'Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksUrlsResult';
@@ -441,6 +456,8 @@ class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrl
 class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksUrlsDetails extends Google_Collection
 {
   protected $collection_key = 'args';
+  protected $internal_gapi_mappings = array(
+  );
   protected $argsType = 'Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksUrlsDetailsArgs';
   protected $argsDataType = 'array';
   public $format;
@@ -468,6 +485,8 @@ class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrl
 
 class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksUrlsDetailsArgs extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $type;
   public $value;
 
@@ -495,6 +514,8 @@ class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrl
 class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksUrlsResult extends Google_Collection
 {
   protected $collection_key = 'args';
+  protected $internal_gapi_mappings = array(
+  );
   protected $argsType = 'Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksUrlsResultArgs';
   protected $argsDataType = 'array';
   public $format;
@@ -522,6 +543,8 @@ class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrl
 
 class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrlBlocksUrlsResultArgs extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $type;
   public $value;
 
@@ -548,6 +571,8 @@ class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElementUrl
 
 class Google_Service_Pagespeedonline_ResultPageStats extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $cssResponseBytes;
   public $flashResponseBytes;
   public $htmlResponseBytes;
@@ -695,6 +720,9 @@ class Google_Service_Pagespeedonline_ResultPageStats extends Google_Model
 
 class Google_Service_Pagespeedonline_ResultScreenshot extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+        "mimeType" => "mime_type",
+  );
   public $data;
   public $height;
   public $mimeType;
@@ -743,6 +771,8 @@ class Google_Service_Pagespeedonline_ResultScreenshot extends Google_Model
 
 class Google_Service_Pagespeedonline_ResultVersion extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $major;
   public $minor;
 
