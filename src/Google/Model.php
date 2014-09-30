@@ -76,7 +76,7 @@ class Google_Model implements ArrayAccess
       $this->processed[$key] = true;
     }
 
-    return $this->modelData[$key];
+    return isset($this->modelData[$key]) ? $this->modelData[$key] : null;
   }
 
   /**

@@ -76,9 +76,13 @@ class ApiModelTest extends BaseTest
     $this->assertEquals($dateString, $simpleEvent->start->date);
     $this->assertEquals($dateString, $simpleEvent->end->date);
     $this->assertEquals($summary, $simpleEvent->summary);
+
+    $event2 = new Google_Service_Calendar_Event();
+    $this->assertNull($event2->getStart());
   }
 
-  public function testOddMappingNames() {
+  public function testOddMappingNames()
+  {
     $creative = new Google_Service_AdExchangeBuyer_Creative();
     $creative->setAccountId('12345');
     $creative->setBuyerCreativeId('12345');
