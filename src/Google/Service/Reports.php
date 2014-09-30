@@ -447,6 +447,8 @@ class Google_Service_Reports_UserUsageReport_Resource extends Google_Service_Res
 class Google_Service_Reports_Activities extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Reports_Activity';
   protected $itemsDataType = 'array';
@@ -497,6 +499,8 @@ class Google_Service_Reports_Activities extends Google_Collection
 class Google_Service_Reports_Activity extends Google_Collection
 {
   protected $collection_key = 'events';
+  protected $internal_gapi_mappings = array(
+  );
   protected $actorType = 'Google_Service_Reports_ActivityActor';
   protected $actorDataType = '';
   public $etag;
@@ -581,6 +585,8 @@ class Google_Service_Reports_Activity extends Google_Collection
 
 class Google_Service_Reports_ActivityActor extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $callerType;
   public $email;
   public $key;
@@ -630,6 +636,8 @@ class Google_Service_Reports_ActivityActor extends Google_Model
 class Google_Service_Reports_ActivityEvents extends Google_Collection
 {
   protected $collection_key = 'parameters';
+  protected $internal_gapi_mappings = array(
+  );
   public $name;
   protected $parametersType = 'Google_Service_Reports_ActivityEventsParameters';
   protected $parametersDataType = 'array';
@@ -669,6 +677,8 @@ class Google_Service_Reports_ActivityEvents extends Google_Collection
 class Google_Service_Reports_ActivityEventsParameters extends Google_Collection
 {
   protected $collection_key = 'multiValue';
+  protected $internal_gapi_mappings = array(
+  );
   public $boolValue;
   public $intValue;
   public $multiIntValue;
@@ -739,6 +749,8 @@ class Google_Service_Reports_ActivityEventsParameters extends Google_Collection
 
 class Google_Service_Reports_ActivityId extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $applicationName;
   public $customerId;
   public $time;
@@ -787,6 +799,8 @@ class Google_Service_Reports_ActivityId extends Google_Model
 
 class Google_Service_Reports_Channel extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $address;
   public $expiration;
   public $id;
@@ -901,12 +915,15 @@ class Google_Service_Reports_Channel extends Google_Model
 
 class Google_Service_Reports_ChannelParams extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Reports_UsageReport extends Google_Collection
 {
   protected $collection_key = 'parameters';
+  protected $internal_gapi_mappings = array(
+  );
   public $date;
   protected $entityType = 'Google_Service_Reports_UsageReportEntity';
   protected $entityDataType = '';
@@ -968,6 +985,8 @@ class Google_Service_Reports_UsageReport extends Google_Collection
 
 class Google_Service_Reports_UsageReportEntity extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $customerId;
   public $profileId;
   public $type;
@@ -1017,6 +1036,8 @@ class Google_Service_Reports_UsageReportEntity extends Google_Model
 class Google_Service_Reports_UsageReportParameters extends Google_Collection
 {
   protected $collection_key = 'msgValue';
+  protected $internal_gapi_mappings = array(
+  );
   public $boolValue;
   public $datetimeValue;
   public $intValue;
@@ -1087,12 +1108,15 @@ class Google_Service_Reports_UsageReportParameters extends Google_Collection
 
 class Google_Service_Reports_UsageReportParametersMsgValue extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Reports_UsageReports extends Google_Collection
 {
   protected $collection_key = 'warnings';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   public $kind;
   public $nextPageToken;
@@ -1155,6 +1179,8 @@ class Google_Service_Reports_UsageReports extends Google_Collection
 class Google_Service_Reports_UsageReportsWarnings extends Google_Collection
 {
   protected $collection_key = 'data';
+  protected $internal_gapi_mappings = array(
+  );
   public $code;
   protected $dataType = 'Google_Service_Reports_UsageReportsWarningsData';
   protected $dataDataType = 'array';
@@ -1193,6 +1219,8 @@ class Google_Service_Reports_UsageReportsWarnings extends Google_Collection
 
 class Google_Service_Reports_UsageReportsWarningsData extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $key;
   public $value;
 
