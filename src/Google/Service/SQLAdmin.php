@@ -1027,6 +1027,8 @@ class Google_Service_SQLAdmin_Tiers_Resource extends Google_Service_Resource
 
 class Google_Service_SQLAdmin_BackupConfiguration extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $binaryLogEnabled;
   public $enabled;
   public $id;
@@ -1086,6 +1088,8 @@ class Google_Service_SQLAdmin_BackupConfiguration extends Google_Model
 
 class Google_Service_SQLAdmin_BackupRun extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $backupConfiguration;
   public $dueTime;
   public $endTime;
@@ -1191,6 +1195,8 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
 class Google_Service_SQLAdmin_BackupRunsListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_SQLAdmin_BackupRun';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1229,6 +1235,8 @@ class Google_Service_SQLAdmin_BackupRunsListResponse extends Google_Collection
 
 class Google_Service_SQLAdmin_BinLogCoordinates extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $binLogFileName;
   public $binLogPosition;
   public $kind;
@@ -1266,6 +1274,8 @@ class Google_Service_SQLAdmin_BinLogCoordinates extends Google_Model
 
 class Google_Service_SQLAdmin_CloneContext extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $binLogCoordinatesType = 'Google_Service_SQLAdmin_BinLogCoordinates';
   protected $binLogCoordinatesDataType = '';
   public $destinationInstanceName;
@@ -1315,6 +1325,8 @@ class Google_Service_SQLAdmin_CloneContext extends Google_Model
 
 class Google_Service_SQLAdmin_DatabaseFlags extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $name;
   public $value;
 
@@ -1342,6 +1354,8 @@ class Google_Service_SQLAdmin_DatabaseFlags extends Google_Model
 class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
 {
   protected $collection_key = 'replicaNames';
+  protected $internal_gapi_mappings = array(
+  );
   public $currentDiskSize;
   public $databaseVersion;
   public $etag;
@@ -1515,6 +1529,8 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
 class Google_Service_SQLAdmin_ExportContext extends Google_Collection
 {
   protected $collection_key = 'table';
+  protected $internal_gapi_mappings = array(
+  );
   public $database;
   public $kind;
   public $table;
@@ -1564,6 +1580,8 @@ class Google_Service_SQLAdmin_ExportContext extends Google_Collection
 class Google_Service_SQLAdmin_Flag extends Google_Collection
 {
   protected $collection_key = 'appliesTo';
+  protected $internal_gapi_mappings = array(
+  );
   public $allowedStringValues;
   public $appliesTo;
   public $kind;
@@ -1646,6 +1664,8 @@ class Google_Service_SQLAdmin_Flag extends Google_Collection
 class Google_Service_SQLAdmin_FlagsListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_SQLAdmin_Flag';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1674,6 +1694,8 @@ class Google_Service_SQLAdmin_FlagsListResponse extends Google_Collection
 class Google_Service_SQLAdmin_ImportContext extends Google_Collection
 {
   protected $collection_key = 'uri';
+  protected $internal_gapi_mappings = array(
+  );
   public $database;
   public $kind;
   public $uri;
@@ -1712,6 +1734,8 @@ class Google_Service_SQLAdmin_ImportContext extends Google_Collection
 class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
 {
   protected $collection_key = 'error';
+  protected $internal_gapi_mappings = array(
+  );
   public $endTime;
   public $enqueuedTime;
   protected $errorType = 'Google_Service_SQLAdmin_OperationError';
@@ -1851,6 +1875,8 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
 
 class Google_Service_SQLAdmin_InstanceSetRootPasswordRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $setRootPasswordContextType = 'Google_Service_SQLAdmin_SetRootPasswordContext';
   protected $setRootPasswordContextDataType = '';
 
@@ -1867,6 +1893,8 @@ class Google_Service_SQLAdmin_InstanceSetRootPasswordRequest extends Google_Mode
 
 class Google_Service_SQLAdmin_InstancesCloneRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $cloneContextType = 'Google_Service_SQLAdmin_CloneContext';
   protected $cloneContextDataType = '';
 
@@ -1883,6 +1911,8 @@ class Google_Service_SQLAdmin_InstancesCloneRequest extends Google_Model
 
 class Google_Service_SQLAdmin_InstancesCloneResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $operation;
 
@@ -1909,6 +1939,8 @@ class Google_Service_SQLAdmin_InstancesCloneResponse extends Google_Model
 
 class Google_Service_SQLAdmin_InstancesDeleteResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $operation;
 
@@ -1935,6 +1967,8 @@ class Google_Service_SQLAdmin_InstancesDeleteResponse extends Google_Model
 
 class Google_Service_SQLAdmin_InstancesExportRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $exportContextType = 'Google_Service_SQLAdmin_ExportContext';
   protected $exportContextDataType = '';
 
@@ -1951,6 +1985,8 @@ class Google_Service_SQLAdmin_InstancesExportRequest extends Google_Model
 
 class Google_Service_SQLAdmin_InstancesExportResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $operation;
 
@@ -1977,6 +2013,8 @@ class Google_Service_SQLAdmin_InstancesExportResponse extends Google_Model
 
 class Google_Service_SQLAdmin_InstancesImportRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $importContextType = 'Google_Service_SQLAdmin_ImportContext';
   protected $importContextDataType = '';
 
@@ -1993,6 +2031,8 @@ class Google_Service_SQLAdmin_InstancesImportRequest extends Google_Model
 
 class Google_Service_SQLAdmin_InstancesImportResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $operation;
 
@@ -2019,6 +2059,8 @@ class Google_Service_SQLAdmin_InstancesImportResponse extends Google_Model
 
 class Google_Service_SQLAdmin_InstancesInsertResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $operation;
 
@@ -2046,6 +2088,8 @@ class Google_Service_SQLAdmin_InstancesInsertResponse extends Google_Model
 class Google_Service_SQLAdmin_InstancesListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_SQLAdmin_DatabaseInstance';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2084,6 +2128,8 @@ class Google_Service_SQLAdmin_InstancesListResponse extends Google_Collection
 
 class Google_Service_SQLAdmin_InstancesPromoteReplicaResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $operation;
 
@@ -2110,6 +2156,8 @@ class Google_Service_SQLAdmin_InstancesPromoteReplicaResponse extends Google_Mod
 
 class Google_Service_SQLAdmin_InstancesResetSslConfigResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $operation;
 
@@ -2136,6 +2184,8 @@ class Google_Service_SQLAdmin_InstancesResetSslConfigResponse extends Google_Mod
 
 class Google_Service_SQLAdmin_InstancesRestartResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $operation;
 
@@ -2162,6 +2212,8 @@ class Google_Service_SQLAdmin_InstancesRestartResponse extends Google_Model
 
 class Google_Service_SQLAdmin_InstancesRestoreBackupResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $operation;
 
@@ -2188,6 +2240,8 @@ class Google_Service_SQLAdmin_InstancesRestoreBackupResponse extends Google_Mode
 
 class Google_Service_SQLAdmin_InstancesSetRootPasswordResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $operation;
 
@@ -2214,6 +2268,8 @@ class Google_Service_SQLAdmin_InstancesSetRootPasswordResponse extends Google_Mo
 
 class Google_Service_SQLAdmin_InstancesUpdateResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $operation;
 
@@ -2241,6 +2297,8 @@ class Google_Service_SQLAdmin_InstancesUpdateResponse extends Google_Model
 class Google_Service_SQLAdmin_IpConfiguration extends Google_Collection
 {
   protected $collection_key = 'authorizedNetworks';
+  protected $internal_gapi_mappings = array(
+  );
   public $authorizedNetworks;
   public $enabled;
   public $requireSsl;
@@ -2278,6 +2336,8 @@ class Google_Service_SQLAdmin_IpConfiguration extends Google_Collection
 
 class Google_Service_SQLAdmin_IpMapping extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $ipAddress;
   public $timeToRetire;
 
@@ -2304,6 +2364,8 @@ class Google_Service_SQLAdmin_IpMapping extends Google_Model
 
 class Google_Service_SQLAdmin_LocationPreference extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $followGaeApplication;
   public $kind;
   public $zone;
@@ -2341,6 +2403,8 @@ class Google_Service_SQLAdmin_LocationPreference extends Google_Model
 
 class Google_Service_SQLAdmin_OperationError extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $code;
   public $kind;
 
@@ -2368,6 +2432,8 @@ class Google_Service_SQLAdmin_OperationError extends Google_Model
 class Google_Service_SQLAdmin_OperationsListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_SQLAdmin_InstanceOperation';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2406,6 +2472,8 @@ class Google_Service_SQLAdmin_OperationsListResponse extends Google_Collection
 
 class Google_Service_SQLAdmin_SetRootPasswordContext extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $password;
 
@@ -2433,6 +2501,8 @@ class Google_Service_SQLAdmin_SetRootPasswordContext extends Google_Model
 class Google_Service_SQLAdmin_Settings extends Google_Collection
 {
   protected $collection_key = 'databaseFlags';
+  protected $internal_gapi_mappings = array(
+  );
   public $activationPolicy;
   public $authorizedGaeApplications;
   protected $backupConfigurationType = 'Google_Service_SQLAdmin_BackupConfiguration';
@@ -2573,6 +2643,8 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
 
 class Google_Service_SQLAdmin_SslCert extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $cert;
   public $certSerialNumber;
   public $commonName;
@@ -2665,6 +2737,8 @@ class Google_Service_SQLAdmin_SslCert extends Google_Model
 
 class Google_Service_SQLAdmin_SslCertDetail extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $certInfoType = 'Google_Service_SQLAdmin_SslCert';
   protected $certInfoDataType = '';
   public $certPrivateKey;
@@ -2692,6 +2766,8 @@ class Google_Service_SQLAdmin_SslCertDetail extends Google_Model
 
 class Google_Service_SQLAdmin_SslCertsDeleteResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $operation;
 
@@ -2718,6 +2794,8 @@ class Google_Service_SQLAdmin_SslCertsDeleteResponse extends Google_Model
 
 class Google_Service_SQLAdmin_SslCertsInsertRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $commonName;
 
   public function setCommonName($commonName)
@@ -2733,6 +2811,8 @@ class Google_Service_SQLAdmin_SslCertsInsertRequest extends Google_Model
 
 class Google_Service_SQLAdmin_SslCertsInsertResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $clientCertType = 'Google_Service_SQLAdmin_SslCertDetail';
   protected $clientCertDataType = '';
   public $kind;
@@ -2773,6 +2853,8 @@ class Google_Service_SQLAdmin_SslCertsInsertResponse extends Google_Model
 class Google_Service_SQLAdmin_SslCertsListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_SQLAdmin_SslCert';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2801,6 +2883,10 @@ class Google_Service_SQLAdmin_SslCertsListResponse extends Google_Collection
 class Google_Service_SQLAdmin_Tier extends Google_Collection
 {
   protected $collection_key = 'region';
+  protected $internal_gapi_mappings = array(
+        "diskQuota" => "DiskQuota",
+        "rAM" => "RAM",
+  );
   public $diskQuota;
   public $rAM;
   public $kind;
@@ -2861,6 +2947,8 @@ class Google_Service_SQLAdmin_Tier extends Google_Collection
 class Google_Service_SQLAdmin_TiersListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_SQLAdmin_Tier';
   protected $itemsDataType = 'array';
   public $kind;
