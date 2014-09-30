@@ -106,6 +106,8 @@ class Google_Service_Admin_Mail_Resource extends Google_Service_Resource
 class Google_Service_Admin_MailItem extends Google_Collection
 {
   protected $collection_key = 'labels';
+  protected $internal_gapi_mappings = array(
+  );
   public $isDeleted;
   public $isDraft;
   public $isInbox;
