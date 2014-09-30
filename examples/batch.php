@@ -36,7 +36,7 @@ require_once 'Google/Http/Batch.php';
 $client = new Google_Client();
 $client->setApplicationName("Client_Library_Examples");
 $apiKey = "<YOUR_API_KEY>";
-if ($apiKey == '<YOUR_API_KEY>') {
+if ($apiKey != '<YOUR_API_KEY>') {
   echo missingApiKeyWarning();
 } else {
   $client->setDeveloperKey($apiKey);
