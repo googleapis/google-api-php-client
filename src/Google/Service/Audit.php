@@ -169,6 +169,8 @@ class Google_Service_Audit_Activities_Resource extends Google_Service_Resource
 class Google_Service_Audit_Activities extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_Audit_Activity';
   protected $itemsDataType = 'array';
   public $kind;
@@ -208,6 +210,8 @@ class Google_Service_Audit_Activities extends Google_Collection
 class Google_Service_Audit_Activity extends Google_Collection
 {
   protected $collection_key = 'events';
+  protected $internal_gapi_mappings = array(
+  );
   protected $actorType = 'Google_Service_Audit_ActivityActor';
   protected $actorDataType = '';
   protected $eventsType = 'Google_Service_Audit_ActivityEvents';
@@ -281,6 +285,8 @@ class Google_Service_Audit_Activity extends Google_Collection
 
 class Google_Service_Audit_ActivityActor extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $applicationId;
   public $callerType;
   public $email;
@@ -330,6 +336,8 @@ class Google_Service_Audit_ActivityActor extends Google_Model
 class Google_Service_Audit_ActivityEvents extends Google_Collection
 {
   protected $collection_key = 'parameters';
+  protected $internal_gapi_mappings = array(
+  );
   public $eventType;
   public $name;
   protected $parametersType = 'Google_Service_Audit_ActivityEventsParameters';
@@ -368,6 +376,8 @@ class Google_Service_Audit_ActivityEvents extends Google_Collection
 
 class Google_Service_Audit_ActivityEventsParameters extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $name;
   public $value;
 
@@ -394,6 +404,8 @@ class Google_Service_Audit_ActivityEventsParameters extends Google_Model
 
 class Google_Service_Audit_ActivityId extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $applicationId;
   public $customerId;
   public $time;
