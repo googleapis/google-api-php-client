@@ -310,6 +310,9 @@ class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_R
 class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
 {
   protected $collection_key = 'sources';
+  protected $internal_gapi_mappings = array(
+        "localJurisdiction" => "local_jurisdiction",
+  );
   protected $electionAdministrationBodyType = 'Google_Service_CivicInfo_AdministrativeBody';
   protected $electionAdministrationBodyDataType = '';
   public $id;
@@ -373,6 +376,9 @@ class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
 class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
 {
   protected $collection_key = 'voter_services';
+  protected $internal_gapi_mappings = array(
+        "voterServices" => "voter_services",
+  );
   public $absenteeVotingInfoUrl;
   public $ballotInfoUrl;
   protected $correspondenceAddressType = 'Google_Service_CivicInfo_SimpleAddressType';
@@ -524,6 +530,8 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
 class Google_Service_CivicInfo_Candidate extends Google_Collection
 {
   protected $collection_key = 'channels';
+  protected $internal_gapi_mappings = array(
+  );
   public $candidateUrl;
   protected $channelsType = 'Google_Service_CivicInfo_Channel';
   protected $channelsDataType = 'array';
@@ -617,6 +625,8 @@ class Google_Service_CivicInfo_Candidate extends Google_Collection
 
 class Google_Service_CivicInfo_Channel extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $type;
 
@@ -644,6 +654,8 @@ class Google_Service_CivicInfo_Channel extends Google_Model
 class Google_Service_CivicInfo_Contest extends Google_Collection
 {
   protected $collection_key = 'sources';
+  protected $internal_gapi_mappings = array(
+  );
   public $ballotPlacement;
   protected $candidatesType = 'Google_Service_CivicInfo_Candidate';
   protected $candidatesDataType = 'array';
@@ -839,6 +851,8 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
 class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
 {
   protected $collection_key = 'results';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   protected $resultsType = 'Google_Service_CivicInfo_DivisionSearchResult';
   protected $resultsDataType = 'array';
@@ -867,6 +881,8 @@ class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
 class Google_Service_CivicInfo_DivisionSearchResult extends Google_Collection
 {
   protected $collection_key = 'aliases';
+  protected $internal_gapi_mappings = array(
+  );
   public $aliases;
   public $name;
   public $ocdId;
@@ -904,6 +920,8 @@ class Google_Service_CivicInfo_DivisionSearchResult extends Google_Collection
 
 class Google_Service_CivicInfo_Election extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $electionDay;
   public $id;
   public $name;
@@ -941,6 +959,8 @@ class Google_Service_CivicInfo_Election extends Google_Model
 
 class Google_Service_CivicInfo_ElectionOfficial extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $emailAddress;
   public $faxNumber;
   public $name;
@@ -1001,6 +1021,8 @@ class Google_Service_CivicInfo_ElectionOfficial extends Google_Model
 class Google_Service_CivicInfo_ElectionsQueryResponse extends Google_Collection
 {
   protected $collection_key = 'elections';
+  protected $internal_gapi_mappings = array(
+  );
   protected $electionsType = 'Google_Service_CivicInfo_Election';
   protected $electionsDataType = 'array';
   public $kind;
@@ -1028,6 +1050,8 @@ class Google_Service_CivicInfo_ElectionsQueryResponse extends Google_Collection
 
 class Google_Service_CivicInfo_ElectoralDistrict extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $name;
   public $scope;
@@ -1066,6 +1090,8 @@ class Google_Service_CivicInfo_ElectoralDistrict extends Google_Model
 class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
 {
   protected $collection_key = 'officeIndices';
+  protected $internal_gapi_mappings = array(
+  );
   public $alsoKnownAs;
   public $name;
   public $officeIndices;
@@ -1104,6 +1130,8 @@ class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
 class Google_Service_CivicInfo_Office extends Google_Collection
 {
   protected $collection_key = 'sources';
+  protected $internal_gapi_mappings = array(
+  );
   public $divisionId;
   public $levels;
   public $name;
@@ -1176,6 +1204,8 @@ class Google_Service_CivicInfo_Office extends Google_Collection
 class Google_Service_CivicInfo_Official extends Google_Collection
 {
   protected $collection_key = 'urls';
+  protected $internal_gapi_mappings = array(
+  );
   protected $addressType = 'Google_Service_CivicInfo_SimpleAddressType';
   protected $addressDataType = 'array';
   protected $channelsType = 'Google_Service_CivicInfo_Channel';
@@ -1271,6 +1301,8 @@ class Google_Service_CivicInfo_Official extends Google_Collection
 class Google_Service_CivicInfo_PollingLocation extends Google_Collection
 {
   protected $collection_key = 'sources';
+  protected $internal_gapi_mappings = array(
+  );
   protected $addressType = 'Google_Service_CivicInfo_SimpleAddressType';
   protected $addressDataType = '';
   public $endDate;
@@ -1377,6 +1409,8 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
 class Google_Service_CivicInfo_RepresentativeInfoData extends Google_Collection
 {
   protected $collection_key = 'officials';
+  protected $internal_gapi_mappings = array(
+  );
   protected $divisionsType = 'Google_Service_CivicInfo_GeographicDivision';
   protected $divisionsDataType = 'map';
   protected $officesType = 'Google_Service_CivicInfo_Office';
@@ -1417,12 +1451,15 @@ class Google_Service_CivicInfo_RepresentativeInfoData extends Google_Collection
 
 class Google_Service_CivicInfo_RepresentativeInfoDataDivisions extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collection
 {
   protected $collection_key = 'officials';
+  protected $internal_gapi_mappings = array(
+  );
   protected $divisionsType = 'Google_Service_CivicInfo_GeographicDivision';
   protected $divisionsDataType = 'map';
   public $kind;
@@ -1486,11 +1523,14 @@ class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collect
 
 class Google_Service_CivicInfo_RepresentativeInfoResponseDivisions extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $city;
   public $line1;
   public $line2;
@@ -1572,6 +1612,8 @@ class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
 
 class Google_Service_CivicInfo_Source extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $name;
   public $official;
 
@@ -1599,6 +1641,8 @@ class Google_Service_CivicInfo_Source extends Google_Model
 class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
 {
   protected $collection_key = 'state';
+  protected $internal_gapi_mappings = array(
+  );
   protected $contestsType = 'Google_Service_CivicInfo_Contest';
   protected $contestsDataType = 'array';
   protected $earlyVoteSitesType = 'Google_Service_CivicInfo_PollingLocation';
