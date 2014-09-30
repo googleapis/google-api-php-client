@@ -106,6 +106,8 @@ class Google_Service_Webfonts_Webfonts_Resource extends Google_Service_Resource
 class Google_Service_Webfonts_Webfont extends Google_Collection
 {
   protected $collection_key = 'variants';
+  protected $internal_gapi_mappings = array(
+  );
   public $category;
   public $family;
   public $files;
@@ -198,12 +200,15 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
 
 class Google_Service_Webfonts_WebfontFiles extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Webfonts_WebfontList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_Webfonts_Webfont';
   protected $itemsDataType = 'array';
   public $kind;
