@@ -730,6 +730,8 @@ class Google_Service_Dfareporting_UserProfiles_Resource extends Google_Service_R
 class Google_Service_Dfareporting_Activities extends Google_Collection
 {
   protected $collection_key = 'metricNames';
+  protected $internal_gapi_mappings = array(
+  );
   protected $filtersType = 'Google_Service_Dfareporting_DimensionValue';
   protected $filtersDataType = 'array';
   public $kind;
@@ -768,6 +770,8 @@ class Google_Service_Dfareporting_Activities extends Google_Collection
 
 class Google_Service_Dfareporting_CompatibleFields extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $crossDimensionReachReportCompatibleFieldsType = 'Google_Service_Dfareporting_CrossDimensionReachReportCompatibleFields';
   protected $crossDimensionReachReportCompatibleFieldsDataType = '';
   protected $floodlightReportCompatibleFieldsType = 'Google_Service_Dfareporting_FloodlightReportCompatibleFields';
@@ -844,6 +848,8 @@ class Google_Service_Dfareporting_CompatibleFields extends Google_Model
 class Google_Service_Dfareporting_CrossDimensionReachReportCompatibleFields extends Google_Collection
 {
   protected $collection_key = 'overlapMetrics';
+  protected $internal_gapi_mappings = array(
+  );
   protected $breakdownType = 'Google_Service_Dfareporting_Dimension';
   protected $breakdownDataType = 'array';
   protected $dimensionFiltersType = 'Google_Service_Dfareporting_Dimension';
@@ -908,6 +914,8 @@ class Google_Service_Dfareporting_CrossDimensionReachReportCompatibleFields exte
 class Google_Service_Dfareporting_CustomRichMediaEvents extends Google_Collection
 {
   protected $collection_key = 'filteredEventIds';
+  protected $internal_gapi_mappings = array(
+  );
   protected $filteredEventIdsType = 'Google_Service_Dfareporting_DimensionValue';
   protected $filteredEventIdsDataType = 'array';
   public $kind;
@@ -935,6 +943,8 @@ class Google_Service_Dfareporting_CustomRichMediaEvents extends Google_Collectio
 
 class Google_Service_Dfareporting_DateRange extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $endDate;
   public $kind;
   public $relativeDateRange;
@@ -983,6 +993,8 @@ class Google_Service_Dfareporting_DateRange extends Google_Model
 
 class Google_Service_Dfareporting_DfareportingFile extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $dateRangeType = 'Google_Service_Dfareporting_DateRange';
   protected $dateRangeDataType = '';
   public $etag;
@@ -1099,6 +1111,8 @@ class Google_Service_Dfareporting_DfareportingFile extends Google_Model
 
 class Google_Service_Dfareporting_DfareportingFileUrls extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $apiUrl;
   public $browserUrl;
 
@@ -1125,6 +1139,8 @@ class Google_Service_Dfareporting_DfareportingFileUrls extends Google_Model
 
 class Google_Service_Dfareporting_Dimension extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $name;
 
@@ -1151,6 +1167,8 @@ class Google_Service_Dfareporting_Dimension extends Google_Model
 
 class Google_Service_Dfareporting_DimensionFilter extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $dimensionName;
   public $kind;
   public $value;
@@ -1188,6 +1206,8 @@ class Google_Service_Dfareporting_DimensionFilter extends Google_Model
 
 class Google_Service_Dfareporting_DimensionValue extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $dimensionName;
   public $etag;
   public $id;
@@ -1259,6 +1279,8 @@ class Google_Service_Dfareporting_DimensionValue extends Google_Model
 class Google_Service_Dfareporting_DimensionValueList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Dfareporting_DimensionValue';
   protected $itemsDataType = 'array';
@@ -1309,6 +1331,8 @@ class Google_Service_Dfareporting_DimensionValueList extends Google_Collection
 class Google_Service_Dfareporting_DimensionValueRequest extends Google_Collection
 {
   protected $collection_key = 'filters';
+  protected $internal_gapi_mappings = array(
+  );
   public $dimensionName;
   public $endDate;
   protected $filtersType = 'Google_Service_Dfareporting_DimensionFilter';
@@ -1370,6 +1394,8 @@ class Google_Service_Dfareporting_DimensionValueRequest extends Google_Collectio
 class Google_Service_Dfareporting_FileList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Dfareporting_DfareportingFile';
   protected $itemsDataType = 'array';
@@ -1420,6 +1446,8 @@ class Google_Service_Dfareporting_FileList extends Google_Collection
 class Google_Service_Dfareporting_FloodlightReportCompatibleFields extends Google_Collection
 {
   protected $collection_key = 'metrics';
+  protected $internal_gapi_mappings = array(
+  );
   protected $dimensionFiltersType = 'Google_Service_Dfareporting_Dimension';
   protected $dimensionFiltersDataType = 'array';
   protected $dimensionsType = 'Google_Service_Dfareporting_Dimension';
@@ -1471,6 +1499,8 @@ class Google_Service_Dfareporting_FloodlightReportCompatibleFields extends Googl
 
 class Google_Service_Dfareporting_Metric extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $name;
 
@@ -1498,6 +1528,8 @@ class Google_Service_Dfareporting_Metric extends Google_Model
 class Google_Service_Dfareporting_PathToConversionReportCompatibleFields extends Google_Collection
 {
   protected $collection_key = 'perInteractionDimensions';
+  protected $internal_gapi_mappings = array(
+  );
   protected $conversionDimensionsType = 'Google_Service_Dfareporting_Dimension';
   protected $conversionDimensionsDataType = 'array';
   protected $customFloodlightVariablesType = 'Google_Service_Dfareporting_Dimension';
@@ -1562,6 +1594,8 @@ class Google_Service_Dfareporting_PathToConversionReportCompatibleFields extends
 class Google_Service_Dfareporting_ReachReportCompatibleFields extends Google_Collection
 {
   protected $collection_key = 'reachByFrequencyMetrics';
+  protected $internal_gapi_mappings = array(
+  );
   protected $dimensionFiltersType = 'Google_Service_Dfareporting_Dimension';
   protected $dimensionFiltersDataType = 'array';
   protected $dimensionsType = 'Google_Service_Dfareporting_Dimension';
@@ -1637,6 +1671,8 @@ class Google_Service_Dfareporting_ReachReportCompatibleFields extends Google_Col
 
 class Google_Service_Dfareporting_Recipient extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $deliveryType;
   public $email;
   public $kind;
@@ -1674,6 +1710,8 @@ class Google_Service_Dfareporting_Recipient extends Google_Model
 
 class Google_Service_Dfareporting_Report extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $accountId;
   protected $activeGrpCriteriaType = 'Google_Service_Dfareporting_ReportActiveGrpCriteria';
   protected $activeGrpCriteriaDataType = '';
@@ -1896,6 +1934,8 @@ class Google_Service_Dfareporting_Report extends Google_Model
 class Google_Service_Dfareporting_ReportActiveGrpCriteria extends Google_Collection
 {
   protected $collection_key = 'metricNames';
+  protected $internal_gapi_mappings = array(
+  );
   protected $dateRangeType = 'Google_Service_Dfareporting_DateRange';
   protected $dateRangeDataType = '';
   protected $dimensionFiltersType = 'Google_Service_Dfareporting_DimensionValue';
@@ -1948,6 +1988,8 @@ class Google_Service_Dfareporting_ReportActiveGrpCriteria extends Google_Collect
 class Google_Service_Dfareporting_ReportCompatibleFields extends Google_Collection
 {
   protected $collection_key = 'pivotedActivityMetrics';
+  protected $internal_gapi_mappings = array(
+  );
   protected $dimensionFiltersType = 'Google_Service_Dfareporting_Dimension';
   protected $dimensionFiltersDataType = 'array';
   protected $dimensionsType = 'Google_Service_Dfareporting_Dimension';
@@ -2012,6 +2054,8 @@ class Google_Service_Dfareporting_ReportCompatibleFields extends Google_Collecti
 class Google_Service_Dfareporting_ReportCriteria extends Google_Collection
 {
   protected $collection_key = 'metricNames';
+  protected $internal_gapi_mappings = array(
+  );
   protected $activitiesType = 'Google_Service_Dfareporting_Activities';
   protected $activitiesDataType = '';
   protected $customRichMediaEventsType = 'Google_Service_Dfareporting_CustomRichMediaEvents';
@@ -2088,6 +2132,8 @@ class Google_Service_Dfareporting_ReportCriteria extends Google_Collection
 class Google_Service_Dfareporting_ReportCrossDimensionReachCriteria extends Google_Collection
 {
   protected $collection_key = 'overlapMetricNames';
+  protected $internal_gapi_mappings = array(
+  );
   protected $breakdownType = 'Google_Service_Dfareporting_SortedDimension';
   protected $breakdownDataType = 'array';
   protected $dateRangeType = 'Google_Service_Dfareporting_DateRange';
@@ -2173,6 +2219,8 @@ class Google_Service_Dfareporting_ReportCrossDimensionReachCriteria extends Goog
 class Google_Service_Dfareporting_ReportDelivery extends Google_Collection
 {
   protected $collection_key = 'recipients';
+  protected $internal_gapi_mappings = array(
+  );
   public $emailOwner;
   public $emailOwnerDeliveryType;
   public $message;
@@ -2223,6 +2271,8 @@ class Google_Service_Dfareporting_ReportDelivery extends Google_Collection
 class Google_Service_Dfareporting_ReportFloodlightCriteria extends Google_Collection
 {
   protected $collection_key = 'metricNames';
+  protected $internal_gapi_mappings = array(
+  );
   protected $customRichMediaEventsType = 'Google_Service_Dfareporting_DimensionValue';
   protected $customRichMediaEventsDataType = 'array';
   protected $dateRangeType = 'Google_Service_Dfareporting_DateRange';
@@ -2310,6 +2360,8 @@ class Google_Service_Dfareporting_ReportFloodlightCriteria extends Google_Collec
 
 class Google_Service_Dfareporting_ReportFloodlightCriteriaReportProperties extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $includeAttributedIPConversions;
   public $includeUnattributedCookieConversions;
   public $includeUnattributedIPConversions;
@@ -2348,6 +2400,8 @@ class Google_Service_Dfareporting_ReportFloodlightCriteriaReportProperties exten
 class Google_Service_Dfareporting_ReportList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Dfareporting_Report';
   protected $itemsDataType = 'array';
@@ -2398,6 +2452,8 @@ class Google_Service_Dfareporting_ReportList extends Google_Collection
 class Google_Service_Dfareporting_ReportPathToConversionCriteria extends Google_Collection
 {
   protected $collection_key = 'perInteractionDimensions';
+  protected $internal_gapi_mappings = array(
+  );
   protected $activityFiltersType = 'Google_Service_Dfareporting_DimensionValue';
   protected $activityFiltersDataType = 'array';
   protected $conversionDimensionsType = 'Google_Service_Dfareporting_SortedDimension';
@@ -2509,6 +2565,8 @@ class Google_Service_Dfareporting_ReportPathToConversionCriteria extends Google_
 
 class Google_Service_Dfareporting_ReportPathToConversionCriteriaReportProperties extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $clicksLookbackWindow;
   public $impressionsLookbackWindow;
   public $includeAttributedIPConversions;
@@ -2613,6 +2671,8 @@ class Google_Service_Dfareporting_ReportPathToConversionCriteriaReportProperties
 class Google_Service_Dfareporting_ReportReachCriteria extends Google_Collection
 {
   protected $collection_key = 'reachByFrequencyMetricNames';
+  protected $internal_gapi_mappings = array(
+  );
   protected $activitiesType = 'Google_Service_Dfareporting_Activities';
   protected $activitiesDataType = '';
   protected $customRichMediaEventsType = 'Google_Service_Dfareporting_CustomRichMediaEvents';
@@ -2700,6 +2760,8 @@ class Google_Service_Dfareporting_ReportReachCriteria extends Google_Collection
 class Google_Service_Dfareporting_ReportSchedule extends Google_Collection
 {
   protected $collection_key = 'repeatsOnWeekDays';
+  protected $internal_gapi_mappings = array(
+  );
   public $active;
   public $every;
   public $expirationDate;
@@ -2781,6 +2843,8 @@ class Google_Service_Dfareporting_ReportSchedule extends Google_Collection
 
 class Google_Service_Dfareporting_SortedDimension extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $name;
   public $sortOrder;
@@ -2818,6 +2882,8 @@ class Google_Service_Dfareporting_SortedDimension extends Google_Model
 
 class Google_Service_Dfareporting_UserProfile extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $accountId;
   public $accountName;
   public $etag;
@@ -2911,6 +2977,8 @@ class Google_Service_Dfareporting_UserProfile extends Google_Model
 class Google_Service_Dfareporting_UserProfileList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Dfareporting_UserProfile';
   protected $itemsDataType = 'array';
