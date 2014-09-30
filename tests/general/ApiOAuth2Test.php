@@ -130,6 +130,10 @@ class ApiOAuth2Test extends BaseTest {
 
     // Again with a blank login hint (should remove all traces from authUrl)
     $client->setLoginHint("");
+    $client->setHostedDomain("example.com");
+    $client->setOpenidRealm("example.com");
+    $client->setPrompt("select_account");
+    $client->setIncludeGrantedScopes(true);
     $authUrl = $oauth->createAuthUrl("http://googleapis.com/scope/foo");
     $expected = "https://accounts.google.com/o/oauth2/auth"
         . "?response_type=code"
@@ -137,7 +141,11 @@ class ApiOAuth2Test extends BaseTest {
         . "&client_id=clientId1"
         . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
         . "&access_type=offline"
-        . "&approval_prompt=force";
+        . "&approval_prompt=force"
+        . "&hd=example.com"
+        . "&openid.realm=example.com"
+        . "&prompt=select_account"
+        . "&include_granted_scopes=true";
     $this->assertEquals($expected, $authUrl);
   }
 

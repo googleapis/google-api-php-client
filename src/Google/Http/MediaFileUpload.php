@@ -288,13 +288,13 @@ class Google_Http_MediaFileUpload
       return $location;
     }
     $message = $code;
-    $body = @json_decode( $response->getResponseBody() );
-    if ( ! empty( $body->error->errors ) ) {
+    $body = @json_decode($response->getResponseBody());
+    if (!empty( $body->error->errors ) ) {
       $message .= ': ';
-      foreach( $body->error->errors as $error ) {
+      foreach ($body->error->errors as $error) {
         $message .= "{$error->domain}, {$error->message};";
       }
-      $message = rtrim( $message, ';' );
+      $message = rtrim($message, ';');
     }
     throw new Google_Exception("Failed to start the resumable upload (HTTP {$message})");
   }
