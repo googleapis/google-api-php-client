@@ -489,6 +489,8 @@ class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Reso
 
 class Google_Service_Reseller_Address extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $addressLine1;
   public $addressLine2;
   public $addressLine3;
@@ -603,6 +605,8 @@ class Google_Service_Reseller_Address extends Google_Model
 
 class Google_Service_Reseller_ChangePlanRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $planName;
   public $purchaseOrderId;
@@ -652,6 +656,8 @@ class Google_Service_Reseller_ChangePlanRequest extends Google_Model
 
 class Google_Service_Reseller_Customer extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $alternateEmail;
   public $customerDomain;
   public $customerId;
@@ -734,6 +740,8 @@ class Google_Service_Reseller_Customer extends Google_Model
 
 class Google_Service_Reseller_RenewalSettings extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $renewalType;
 
@@ -760,6 +768,8 @@ class Google_Service_Reseller_RenewalSettings extends Google_Model
 
 class Google_Service_Reseller_Seats extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $maximumNumberOfSeats;
   public $numberOfSeats;
@@ -797,6 +807,8 @@ class Google_Service_Reseller_Seats extends Google_Model
 
 class Google_Service_Reseller_Subscription extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $creationTime;
   public $customerId;
   public $kind;
@@ -949,6 +961,8 @@ class Google_Service_Reseller_Subscription extends Google_Model
 
 class Google_Service_Reseller_SubscriptionPlan extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $commitmentIntervalType = 'Google_Service_Reseller_SubscriptionPlanCommitmentInterval';
   protected $commitmentIntervalDataType = '';
   public $isCommitmentPlan;
@@ -987,6 +1001,8 @@ class Google_Service_Reseller_SubscriptionPlan extends Google_Model
 
 class Google_Service_Reseller_SubscriptionPlanCommitmentInterval extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $endTime;
   public $startTime;
 
@@ -1013,6 +1029,8 @@ class Google_Service_Reseller_SubscriptionPlanCommitmentInterval extends Google_
 
 class Google_Service_Reseller_SubscriptionTransferInfo extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $minimumTransferableSeats;
   public $transferabilityExpirationTime;
 
@@ -1039,6 +1057,8 @@ class Google_Service_Reseller_SubscriptionTransferInfo extends Google_Model
 
 class Google_Service_Reseller_SubscriptionTrialSettings extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $isInTrial;
   public $trialEndTime;
 
@@ -1066,6 +1086,8 @@ class Google_Service_Reseller_SubscriptionTrialSettings extends Google_Model
 class Google_Service_Reseller_Subscriptions extends Google_Collection
 {
   protected $collection_key = 'subscriptions';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $nextPageToken;
   protected $subscriptionsType = 'Google_Service_Reseller_Subscription';
