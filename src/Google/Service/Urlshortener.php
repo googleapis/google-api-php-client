@@ -160,6 +160,8 @@ class Google_Service_Urlshortener_Url_Resource extends Google_Service_Resource
 class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
 {
   protected $collection_key = 'referrers';
+  protected $internal_gapi_mappings = array(
+  );
   protected $browsersType = 'Google_Service_Urlshortener_StringCount';
   protected $browsersDataType = 'array';
   protected $countriesType = 'Google_Service_Urlshortener_StringCount';
@@ -234,6 +236,8 @@ class Google_Service_Urlshortener_AnalyticsSnapshot extends Google_Collection
 
 class Google_Service_Urlshortener_AnalyticsSummary extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $allTimeType = 'Google_Service_Urlshortener_AnalyticsSnapshot';
   protected $allTimeDataType = '';
   protected $dayType = 'Google_Service_Urlshortener_AnalyticsSnapshot';
@@ -298,6 +302,8 @@ class Google_Service_Urlshortener_AnalyticsSummary extends Google_Model
 
 class Google_Service_Urlshortener_StringCount extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $count;
   public $id;
 
@@ -324,6 +330,8 @@ class Google_Service_Urlshortener_StringCount extends Google_Model
 
 class Google_Service_Urlshortener_Url extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $analyticsType = 'Google_Service_Urlshortener_AnalyticsSummary';
   protected $analyticsDataType = '';
   public $created;
@@ -396,6 +404,8 @@ class Google_Service_Urlshortener_Url extends Google_Model
 class Google_Service_Urlshortener_UrlHistory extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_Urlshortener_Url';
   protected $itemsDataType = 'array';
   public $itemsPerPage;
