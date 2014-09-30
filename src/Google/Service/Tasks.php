@@ -585,6 +585,8 @@ class Google_Service_Tasks_Tasks_Resource extends Google_Service_Resource
 class Google_Service_Tasks_Task extends Google_Collection
 {
   protected $collection_key = 'links';
+  protected $internal_gapi_mappings = array(
+  );
   public $completed;
   public $deleted;
   public $due;
@@ -755,6 +757,8 @@ class Google_Service_Tasks_Task extends Google_Collection
 
 class Google_Service_Tasks_TaskLinks extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $description;
   public $link;
   public $type;
@@ -792,6 +796,8 @@ class Google_Service_Tasks_TaskLinks extends Google_Model
 
 class Google_Service_Tasks_TaskList extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   public $id;
   public $kind;
@@ -863,6 +869,8 @@ class Google_Service_Tasks_TaskList extends Google_Model
 class Google_Service_Tasks_TaskLists extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Tasks_TaskList';
   protected $itemsDataType = 'array';
@@ -913,6 +921,8 @@ class Google_Service_Tasks_TaskLists extends Google_Collection
 class Google_Service_Tasks_Tasks extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Tasks_Task';
   protected $itemsDataType = 'array';
