@@ -413,6 +413,8 @@ class Google_Service_Pubsub_Topics_Resource extends Google_Service_Resource
 class Google_Service_Pubsub_AcknowledgeRequest extends Google_Collection
 {
   protected $collection_key = 'ackId';
+  protected $internal_gapi_mappings = array(
+  );
   public $ackId;
   public $subscription;
 
@@ -439,6 +441,8 @@ class Google_Service_Pubsub_AcknowledgeRequest extends Google_Collection
 
 class Google_Service_Pubsub_Label extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $key;
   public $numValue;
   public $strValue;
@@ -477,6 +481,8 @@ class Google_Service_Pubsub_Label extends Google_Model
 class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
 {
   protected $collection_key = 'subscription';
+  protected $internal_gapi_mappings = array(
+  );
   public $nextPageToken;
   protected $subscriptionType = 'Google_Service_Pubsub_Subscription';
   protected $subscriptionDataType = 'array';
@@ -505,6 +511,8 @@ class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
 class Google_Service_Pubsub_ListTopicsResponse extends Google_Collection
 {
   protected $collection_key = 'topic';
+  protected $internal_gapi_mappings = array(
+  );
   public $nextPageToken;
   protected $topicType = 'Google_Service_Pubsub_Topic';
   protected $topicDataType = 'array';
@@ -532,6 +540,8 @@ class Google_Service_Pubsub_ListTopicsResponse extends Google_Collection
 
 class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $ackDeadlineSeconds;
   public $ackId;
   public $subscription;
@@ -569,6 +579,8 @@ class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Model
 
 class Google_Service_Pubsub_ModifyPushConfigRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $pushConfigType = 'Google_Service_Pubsub_PushConfig';
   protected $pushConfigDataType = '';
   public $subscription;
@@ -596,6 +608,8 @@ class Google_Service_Pubsub_ModifyPushConfigRequest extends Google_Model
 
 class Google_Service_Pubsub_PublishRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $messageType = 'Google_Service_Pubsub_PubsubMessage';
   protected $messageDataType = '';
   public $topic;
@@ -623,6 +637,8 @@ class Google_Service_Pubsub_PublishRequest extends Google_Model
 
 class Google_Service_Pubsub_PubsubEvent extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $deleted;
   protected $messageType = 'Google_Service_Pubsub_PubsubMessage';
   protected $messageDataType = '';
@@ -673,6 +689,8 @@ class Google_Service_Pubsub_PubsubEvent extends Google_Model
 class Google_Service_Pubsub_PubsubMessage extends Google_Collection
 {
   protected $collection_key = 'label';
+  protected $internal_gapi_mappings = array(
+  );
   public $data;
   protected $labelType = 'Google_Service_Pubsub_Label';
   protected $labelDataType = 'array';
@@ -700,6 +718,8 @@ class Google_Service_Pubsub_PubsubMessage extends Google_Collection
 
 class Google_Service_Pubsub_PullRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $returnImmediately;
   public $subscription;
 
@@ -726,6 +746,8 @@ class Google_Service_Pubsub_PullRequest extends Google_Model
 
 class Google_Service_Pubsub_PullResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $ackId;
   protected $pubsubEventType = 'Google_Service_Pubsub_PubsubEvent';
   protected $pubsubEventDataType = '';
@@ -753,6 +775,8 @@ class Google_Service_Pubsub_PullResponse extends Google_Model
 
 class Google_Service_Pubsub_PushConfig extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $pushEndpoint;
 
   public function setPushEndpoint($pushEndpoint)
@@ -768,6 +792,8 @@ class Google_Service_Pubsub_PushConfig extends Google_Model
 
 class Google_Service_Pubsub_Subscription extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $ackDeadlineSeconds;
   public $name;
   protected $pushConfigType = 'Google_Service_Pubsub_PushConfig';
@@ -817,6 +843,8 @@ class Google_Service_Pubsub_Subscription extends Google_Model
 
 class Google_Service_Pubsub_Topic extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $name;
 
   public function setName($name)
