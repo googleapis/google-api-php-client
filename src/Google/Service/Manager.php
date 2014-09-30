@@ -393,6 +393,8 @@ class Google_Service_Manager_Templates_Resource extends Google_Service_Resource
 
 class Google_Service_Manager_AccessConfig extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $name;
   public $natIp;
   public $type;
@@ -431,6 +433,8 @@ class Google_Service_Manager_AccessConfig extends Google_Model
 class Google_Service_Manager_Action extends Google_Collection
 {
   protected $collection_key = 'commands';
+  protected $internal_gapi_mappings = array(
+  );
   public $commands;
   public $timeoutMs;
 
@@ -458,6 +462,9 @@ class Google_Service_Manager_Action extends Google_Collection
 class Google_Service_Manager_AllowedRule extends Google_Collection
 {
   protected $collection_key = 'ports';
+  protected $internal_gapi_mappings = array(
+        "iPProtocol" => "IPProtocol",
+  );
   public $iPProtocol;
   public $ports;
 
@@ -484,6 +491,8 @@ class Google_Service_Manager_AllowedRule extends Google_Collection
 
 class Google_Service_Manager_AutoscalingModule extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $coolDownPeriodSec;
   public $description;
   public $maxNumReplicas;
@@ -565,6 +574,8 @@ class Google_Service_Manager_AutoscalingModule extends Google_Model
 
 class Google_Service_Manager_AutoscalingModuleStatus extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $autoscalingConfigUrl;
 
   public function setAutoscalingConfigUrl($autoscalingConfigUrl)
@@ -580,6 +591,8 @@ class Google_Service_Manager_AutoscalingModuleStatus extends Google_Model
 
 class Google_Service_Manager_DeployState extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $details;
   public $status;
 
@@ -607,6 +620,8 @@ class Google_Service_Manager_DeployState extends Google_Model
 class Google_Service_Manager_Deployment extends Google_Collection
 {
   protected $collection_key = 'overrides';
+  protected $internal_gapi_mappings = array(
+  );
   public $creationDate;
   public $description;
   protected $modulesType = 'Google_Service_Manager_ModuleStatus';
@@ -691,12 +706,15 @@ class Google_Service_Manager_Deployment extends Google_Collection
 
 class Google_Service_Manager_DeploymentModules extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Manager_DeploymentsListResponse extends Google_Collection
 {
   protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
   public $nextPageToken;
   protected $resourcesType = 'Google_Service_Manager_Deployment';
   protected $resourcesDataType = 'array';
@@ -724,6 +742,8 @@ class Google_Service_Manager_DeploymentsListResponse extends Google_Collection
 
 class Google_Service_Manager_DiskAttachment extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $deviceName;
   public $index;
 
@@ -750,6 +770,8 @@ class Google_Service_Manager_DiskAttachment extends Google_Model
 
 class Google_Service_Manager_EnvVariable extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $hidden;
   public $value;
 
@@ -776,6 +798,8 @@ class Google_Service_Manager_EnvVariable extends Google_Model
 
 class Google_Service_Manager_ExistingDisk extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $attachmentType = 'Google_Service_Manager_DiskAttachment';
   protected $attachmentDataType = '';
   public $source;
@@ -804,6 +828,8 @@ class Google_Service_Manager_ExistingDisk extends Google_Model
 class Google_Service_Manager_FirewallModule extends Google_Collection
 {
   protected $collection_key = 'targetTags';
+  protected $internal_gapi_mappings = array(
+  );
   protected $allowedType = 'Google_Service_Manager_AllowedRule';
   protected $allowedDataType = 'array';
   public $description;
@@ -875,6 +901,8 @@ class Google_Service_Manager_FirewallModule extends Google_Collection
 
 class Google_Service_Manager_FirewallModuleStatus extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $firewallUrl;
 
   public function setFirewallUrl($firewallUrl)
@@ -890,6 +918,8 @@ class Google_Service_Manager_FirewallModuleStatus extends Google_Model
 
 class Google_Service_Manager_HealthCheckModule extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $checkIntervalSec;
   public $description;
   public $healthyThreshold;
@@ -982,6 +1012,8 @@ class Google_Service_Manager_HealthCheckModule extends Google_Model
 
 class Google_Service_Manager_HealthCheckModuleStatus extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $healthCheckUrl;
 
   public function setHealthCheckUrl($healthCheckUrl)
@@ -998,6 +1030,8 @@ class Google_Service_Manager_HealthCheckModuleStatus extends Google_Model
 class Google_Service_Manager_LbModule extends Google_Collection
 {
   protected $collection_key = 'targetModules';
+  protected $internal_gapi_mappings = array(
+  );
   public $description;
   public $healthChecks;
   public $ipAddress;
@@ -1079,6 +1113,8 @@ class Google_Service_Manager_LbModule extends Google_Collection
 
 class Google_Service_Manager_LbModuleStatus extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $forwardingRuleUrl;
   public $targetPoolUrl;
 
@@ -1106,6 +1142,8 @@ class Google_Service_Manager_LbModuleStatus extends Google_Model
 class Google_Service_Manager_Metadata extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $fingerPrint;
   protected $itemsType = 'Google_Service_Manager_MetadataItem';
   protected $itemsDataType = 'array';
@@ -1133,6 +1171,8 @@ class Google_Service_Manager_Metadata extends Google_Collection
 
 class Google_Service_Manager_MetadataItem extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $key;
   public $value;
 
@@ -1159,6 +1199,8 @@ class Google_Service_Manager_MetadataItem extends Google_Model
 
 class Google_Service_Manager_Module extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $autoscalingModuleType = 'Google_Service_Manager_AutoscalingModule';
   protected $autoscalingModuleDataType = '';
   protected $firewallModuleType = 'Google_Service_Manager_FirewallModule';
@@ -1246,6 +1288,8 @@ class Google_Service_Manager_Module extends Google_Model
 
 class Google_Service_Manager_ModuleStatus extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $autoscalingModuleStatusType = 'Google_Service_Manager_AutoscalingModuleStatus';
   protected $autoscalingModuleStatusDataType = '';
   protected $firewallModuleStatusType = 'Google_Service_Manager_FirewallModuleStatus';
@@ -1346,6 +1390,8 @@ class Google_Service_Manager_ModuleStatus extends Google_Model
 class Google_Service_Manager_NetworkInterface extends Google_Collection
 {
   protected $collection_key = 'accessConfigs';
+  protected $internal_gapi_mappings = array(
+  );
   protected $accessConfigsType = 'Google_Service_Manager_AccessConfig';
   protected $accessConfigsDataType = 'array';
   public $name;
@@ -1395,6 +1441,9 @@ class Google_Service_Manager_NetworkInterface extends Google_Collection
 
 class Google_Service_Manager_NetworkModule extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+        "iPv4Range" => "IPv4Range",
+  );
   public $iPv4Range;
   public $description;
   public $gatewayIPv4;
@@ -1432,6 +1481,8 @@ class Google_Service_Manager_NetworkModule extends Google_Model
 
 class Google_Service_Manager_NetworkModuleStatus extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $networkUrl;
 
   public function setNetworkUrl($networkUrl)
@@ -1447,6 +1498,8 @@ class Google_Service_Manager_NetworkModuleStatus extends Google_Model
 
 class Google_Service_Manager_NewDisk extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $attachmentType = 'Google_Service_Manager_DiskAttachment';
   protected $attachmentDataType = '';
   public $autoDelete;
@@ -1497,6 +1550,8 @@ class Google_Service_Manager_NewDisk extends Google_Model
 
 class Google_Service_Manager_NewDiskInitializeParams extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $diskSizeGb;
   public $diskType;
   public $sourceImage;
@@ -1534,6 +1589,8 @@ class Google_Service_Manager_NewDiskInitializeParams extends Google_Model
 
 class Google_Service_Manager_ParamOverride extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $path;
   public $value;
 
@@ -1561,6 +1618,8 @@ class Google_Service_Manager_ParamOverride extends Google_Model
 class Google_Service_Manager_ReplicaPoolModule extends Google_Collection
 {
   protected $collection_key = 'healthChecks';
+  protected $internal_gapi_mappings = array(
+  );
   protected $envVariablesType = 'Google_Service_Manager_EnvVariable';
   protected $envVariablesDataType = 'map';
   public $healthChecks;
@@ -1622,11 +1681,14 @@ class Google_Service_Manager_ReplicaPoolModule extends Google_Collection
 
 class Google_Service_Manager_ReplicaPoolModuleEnvVariables extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Manager_ReplicaPoolModuleStatus extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $replicaPoolUrl;
   public $resourceViewUrl;
 
@@ -1653,6 +1715,8 @@ class Google_Service_Manager_ReplicaPoolModuleStatus extends Google_Model
 
 class Google_Service_Manager_ReplicaPoolParams extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $v1beta1Type = 'Google_Service_Manager_ReplicaPoolParamsV1Beta1';
   protected $v1beta1DataType = '';
 
@@ -1670,6 +1734,8 @@ class Google_Service_Manager_ReplicaPoolParams extends Google_Model
 class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
 {
   protected $collection_key = 'serviceAccounts';
+  protected $internal_gapi_mappings = array(
+  );
   public $autoRestart;
   public $baseInstanceName;
   public $canIpForward;
@@ -1835,6 +1901,8 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
 class Google_Service_Manager_ServiceAccount extends Google_Collection
 {
   protected $collection_key = 'scopes';
+  protected $internal_gapi_mappings = array(
+  );
   public $email;
   public $scopes;
 
@@ -1862,6 +1930,8 @@ class Google_Service_Manager_ServiceAccount extends Google_Collection
 class Google_Service_Manager_Tag extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $fingerPrint;
   public $items;
 
@@ -1888,6 +1958,8 @@ class Google_Service_Manager_Tag extends Google_Collection
 
 class Google_Service_Manager_Template extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $actionsType = 'Google_Service_Manager_Action';
   protected $actionsDataType = 'map';
   public $description;
@@ -1938,17 +2010,21 @@ class Google_Service_Manager_Template extends Google_Model
 
 class Google_Service_Manager_TemplateActions extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Manager_TemplateModules extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Manager_TemplatesListResponse extends Google_Collection
 {
   protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
   public $nextPageToken;
   protected $resourcesType = 'Google_Service_Manager_Template';
   protected $resourcesDataType = 'array';
