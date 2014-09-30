@@ -1096,6 +1096,8 @@ class Google_Service_ShoppingContent_Productstatuses_Resource extends Google_Ser
 class Google_Service_ShoppingContent_Account extends Google_Collection
 {
   protected $collection_key = 'users';
+  protected $internal_gapi_mappings = array(
+  );
   public $adultContent;
   protected $adwordsLinksType = 'Google_Service_ShoppingContent_AccountAdwordsLink';
   protected $adwordsLinksDataType = 'array';
@@ -1201,6 +1203,8 @@ class Google_Service_ShoppingContent_Account extends Google_Collection
 
 class Google_Service_ShoppingContent_AccountAdwordsLink extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $adwordsId;
   public $status;
 
@@ -1228,6 +1232,8 @@ class Google_Service_ShoppingContent_AccountAdwordsLink extends Google_Model
 class Google_Service_ShoppingContent_AccountStatus extends Google_Collection
 {
   protected $collection_key = 'dataQualityIssues';
+  protected $internal_gapi_mappings = array(
+  );
   public $accountId;
   protected $dataQualityIssuesType = 'Google_Service_ShoppingContent_AccountStatusDataQualityIssue';
   protected $dataQualityIssuesDataType = 'array';
@@ -1267,6 +1273,8 @@ class Google_Service_ShoppingContent_AccountStatus extends Google_Collection
 class Google_Service_ShoppingContent_AccountStatusDataQualityIssue extends Google_Collection
 {
   protected $collection_key = 'exampleItems';
+  protected $internal_gapi_mappings = array(
+  );
   public $country;
   public $displayedValue;
   protected $exampleItemsType = 'Google_Service_ShoppingContent_AccountStatusExampleItem';
@@ -1360,6 +1368,8 @@ class Google_Service_ShoppingContent_AccountStatusDataQualityIssue extends Googl
 
 class Google_Service_ShoppingContent_AccountStatusExampleItem extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $itemId;
   public $link;
   public $submittedValue;
@@ -1419,6 +1429,8 @@ class Google_Service_ShoppingContent_AccountStatusExampleItem extends Google_Mod
 
 class Google_Service_ShoppingContent_AccountUser extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $admin;
   public $emailAddress;
 
@@ -1446,6 +1458,8 @@ class Google_Service_ShoppingContent_AccountUser extends Google_Model
 class Google_Service_ShoppingContent_AccountsCustomBatchRequest extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -1462,6 +1476,8 @@ class Google_Service_ShoppingContent_AccountsCustomBatchRequest extends Google_C
 
 class Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $accountType = 'Google_Service_ShoppingContent_Account';
   protected $accountDataType = '';
   public $accountId;
@@ -1523,6 +1539,8 @@ class Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry extends Goo
 class Google_Service_ShoppingContent_AccountsCustomBatchResponse extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_AccountsCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -1550,6 +1568,8 @@ class Google_Service_ShoppingContent_AccountsCustomBatchResponse extends Google_
 
 class Google_Service_ShoppingContent_AccountsCustomBatchResponseEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $accountType = 'Google_Service_ShoppingContent_Account';
   protected $accountDataType = '';
   public $batchId;
@@ -1601,6 +1621,8 @@ class Google_Service_ShoppingContent_AccountsCustomBatchResponseEntry extends Go
 class Google_Service_ShoppingContent_AccountsListResponse extends Google_Collection
 {
   protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $nextPageToken;
   protected $resourcesType = 'Google_Service_ShoppingContent_Account';
@@ -1640,6 +1662,8 @@ class Google_Service_ShoppingContent_AccountsListResponse extends Google_Collect
 class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequest extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_AccountstatusesCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -1656,6 +1680,8 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequest extends G
 
 class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequestEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $accountId;
   public $batchId;
   public $merchantId;
@@ -1705,6 +1731,8 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequestEntry exte
 class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponse extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_AccountstatusesCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -1732,6 +1760,8 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponse extends 
 
 class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponseEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $accountStatusType = 'Google_Service_ShoppingContent_AccountStatus';
   protected $accountStatusDataType = '';
   public $batchId;
@@ -1772,6 +1802,8 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponseEntry ext
 class Google_Service_ShoppingContent_AccountstatusesListResponse extends Google_Collection
 {
   protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $nextPageToken;
   protected $resourcesType = 'Google_Service_ShoppingContent_AccountStatus';
@@ -1811,6 +1843,8 @@ class Google_Service_ShoppingContent_AccountstatusesListResponse extends Google_
 class Google_Service_ShoppingContent_Datafeed extends Google_Collection
 {
   protected $collection_key = 'intendedDestinations';
+  protected $internal_gapi_mappings = array(
+  );
   public $attributeLanguage;
   public $contentLanguage;
   public $contentType;
@@ -1938,6 +1972,8 @@ class Google_Service_ShoppingContent_Datafeed extends Google_Collection
 
 class Google_Service_ShoppingContent_DatafeedFetchSchedule extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $dayOfMonth;
   public $fetchUrl;
   public $hour;
@@ -2019,6 +2055,8 @@ class Google_Service_ShoppingContent_DatafeedFetchSchedule extends Google_Model
 
 class Google_Service_ShoppingContent_DatafeedFormat extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $columnDelimiter;
   public $fileEncoding;
   public $quotingMode;
@@ -2057,6 +2095,8 @@ class Google_Service_ShoppingContent_DatafeedFormat extends Google_Model
 class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
 {
   protected $collection_key = 'warnings';
+  protected $internal_gapi_mappings = array(
+  );
   public $datafeedId;
   protected $errorsType = 'Google_Service_ShoppingContent_DatafeedStatusError';
   protected $errorsDataType = 'array';
@@ -2141,6 +2181,8 @@ class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
 class Google_Service_ShoppingContent_DatafeedStatusError extends Google_Collection
 {
   protected $collection_key = 'examples';
+  protected $internal_gapi_mappings = array(
+  );
   public $code;
   public $count;
   protected $examplesType = 'Google_Service_ShoppingContent_DatafeedStatusExample';
@@ -2190,6 +2232,8 @@ class Google_Service_ShoppingContent_DatafeedStatusError extends Google_Collecti
 
 class Google_Service_ShoppingContent_DatafeedStatusExample extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $itemId;
   public $lineNumber;
   public $value;
@@ -2228,6 +2272,8 @@ class Google_Service_ShoppingContent_DatafeedStatusExample extends Google_Model
 class Google_Service_ShoppingContent_DatafeedsCustomBatchRequest extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_DatafeedsCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -2244,6 +2290,8 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchRequest extends Google_
 
 class Google_Service_ShoppingContent_DatafeedsCustomBatchRequestEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $batchId;
   protected $datafeedType = 'Google_Service_ShoppingContent_Datafeed';
   protected $datafeedDataType = '';
@@ -2305,6 +2353,8 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchRequestEntry extends Go
 class Google_Service_ShoppingContent_DatafeedsCustomBatchResponse extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_DatafeedsCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -2332,6 +2382,8 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchResponse extends Google
 
 class Google_Service_ShoppingContent_DatafeedsCustomBatchResponseEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $batchId;
   protected $datafeedType = 'Google_Service_ShoppingContent_Datafeed';
   protected $datafeedDataType = '';
@@ -2372,6 +2424,8 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchResponseEntry extends G
 class Google_Service_ShoppingContent_DatafeedsListResponse extends Google_Collection
 {
   protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   protected $resourcesType = 'Google_Service_ShoppingContent_Datafeed';
   protected $resourcesDataType = 'array';
@@ -2400,6 +2454,8 @@ class Google_Service_ShoppingContent_DatafeedsListResponse extends Google_Collec
 class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequest extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -2416,6 +2472,8 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequest extends 
 
 class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequestEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $batchId;
   public $datafeedId;
   public $merchantId;
@@ -2465,6 +2523,8 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequestEntry ext
 class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponse extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -2492,6 +2552,8 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponse extends
 
 class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponseEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $batchId;
   protected $datafeedStatusType = 'Google_Service_ShoppingContent_DatafeedStatus';
   protected $datafeedStatusDataType = '';
@@ -2532,6 +2594,8 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponseEntry ex
 class Google_Service_ShoppingContent_DatafeedstatusesListResponse extends Google_Collection
 {
   protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   protected $resourcesType = 'Google_Service_ShoppingContent_DatafeedStatus';
   protected $resourcesDataType = 'array';
@@ -2559,6 +2623,8 @@ class Google_Service_ShoppingContent_DatafeedstatusesListResponse extends Google
 
 class Google_Service_ShoppingContent_Error extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $domain;
   public $message;
   public $reason;
@@ -2597,6 +2663,8 @@ class Google_Service_ShoppingContent_Error extends Google_Model
 class Google_Service_ShoppingContent_Errors extends Google_Collection
 {
   protected $collection_key = 'errors';
+  protected $internal_gapi_mappings = array(
+  );
   public $code;
   protected $errorsType = 'Google_Service_ShoppingContent_Error';
   protected $errorsDataType = 'array';
@@ -2635,6 +2703,8 @@ class Google_Service_ShoppingContent_Errors extends Google_Collection
 
 class Google_Service_ShoppingContent_Inventory extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $availability;
   public $kind;
   protected $priceType = 'Google_Service_ShoppingContent_Price';
@@ -2708,6 +2778,8 @@ class Google_Service_ShoppingContent_Inventory extends Google_Model
 class Google_Service_ShoppingContent_InventoryCustomBatchRequest extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_InventoryCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -2724,6 +2796,8 @@ class Google_Service_ShoppingContent_InventoryCustomBatchRequest extends Google_
 
 class Google_Service_ShoppingContent_InventoryCustomBatchRequestEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $batchId;
   protected $inventoryType = 'Google_Service_ShoppingContent_Inventory';
   protected $inventoryDataType = '';
@@ -2785,6 +2859,8 @@ class Google_Service_ShoppingContent_InventoryCustomBatchRequestEntry extends Go
 class Google_Service_ShoppingContent_InventoryCustomBatchResponse extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_InventoryCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -2812,6 +2888,8 @@ class Google_Service_ShoppingContent_InventoryCustomBatchResponse extends Google
 
 class Google_Service_ShoppingContent_InventoryCustomBatchResponseEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $batchId;
   protected $errorsType = 'Google_Service_ShoppingContent_Errors';
   protected $errorsDataType = '';
@@ -2850,6 +2928,8 @@ class Google_Service_ShoppingContent_InventoryCustomBatchResponseEntry extends G
 
 class Google_Service_ShoppingContent_InventorySetRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $availability;
   protected $priceType = 'Google_Service_ShoppingContent_Price';
   protected $priceDataType = '';
@@ -2911,6 +2991,8 @@ class Google_Service_ShoppingContent_InventorySetRequest extends Google_Model
 
 class Google_Service_ShoppingContent_InventorySetResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
 
   public function setKind($kind)
@@ -2926,6 +3008,8 @@ class Google_Service_ShoppingContent_InventorySetResponse extends Google_Model
 
 class Google_Service_ShoppingContent_LoyaltyPoints extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $name;
   public $pointsValue;
   public $ratio;
@@ -2963,6 +3047,8 @@ class Google_Service_ShoppingContent_LoyaltyPoints extends Google_Model
 
 class Google_Service_ShoppingContent_Price extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $currency;
   public $value;
 
@@ -2990,6 +3076,8 @@ class Google_Service_ShoppingContent_Price extends Google_Model
 class Google_Service_ShoppingContent_Product extends Google_Collection
 {
   protected $collection_key = 'warnings';
+  protected $internal_gapi_mappings = array(
+  );
   public $additionalImageLinks;
   public $adult;
   public $adwordsGrouping;
@@ -3667,6 +3755,8 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
 
 class Google_Service_ShoppingContent_ProductCustomAttribute extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $name;
   public $type;
   public $unit;
@@ -3716,6 +3806,8 @@ class Google_Service_ShoppingContent_ProductCustomAttribute extends Google_Model
 class Google_Service_ShoppingContent_ProductCustomGroup extends Google_Collection
 {
   protected $collection_key = 'attributes';
+  protected $internal_gapi_mappings = array(
+  );
   protected $attributesType = 'Google_Service_ShoppingContent_ProductCustomAttribute';
   protected $attributesDataType = 'array';
   public $name;
@@ -3743,6 +3835,8 @@ class Google_Service_ShoppingContent_ProductCustomGroup extends Google_Collectio
 
 class Google_Service_ShoppingContent_ProductDestination extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $destinationName;
   public $intention;
 
@@ -3769,6 +3863,8 @@ class Google_Service_ShoppingContent_ProductDestination extends Google_Model
 
 class Google_Service_ShoppingContent_ProductInstallment extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $amountType = 'Google_Service_ShoppingContent_Price';
   protected $amountDataType = '';
   public $months;
@@ -3796,6 +3892,8 @@ class Google_Service_ShoppingContent_ProductInstallment extends Google_Model
 
 class Google_Service_ShoppingContent_ProductShipping extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $country;
   public $locationGroupName;
   public $locationId;
@@ -3878,6 +3976,8 @@ class Google_Service_ShoppingContent_ProductShipping extends Google_Model
 
 class Google_Service_ShoppingContent_ProductShippingWeight extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $unit;
   public $value;
 
@@ -3905,6 +4005,8 @@ class Google_Service_ShoppingContent_ProductShippingWeight extends Google_Model
 class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
 {
   protected $collection_key = 'destinationStatuses';
+  protected $internal_gapi_mappings = array(
+  );
   protected $dataQualityIssuesType = 'Google_Service_ShoppingContent_ProductStatusDataQualityIssue';
   protected $dataQualityIssuesDataType = 'array';
   protected $destinationStatusesType = 'Google_Service_ShoppingContent_ProductStatusDestinationStatus';
@@ -3977,6 +4079,8 @@ class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
 
 class Google_Service_ShoppingContent_ProductStatusDataQualityIssue extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $detail;
   public $fetchStatus;
   public $id;
@@ -4058,6 +4162,8 @@ class Google_Service_ShoppingContent_ProductStatusDataQualityIssue extends Googl
 
 class Google_Service_ShoppingContent_ProductStatusDestinationStatus extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $approvalStatus;
   public $destination;
   public $intention;
@@ -4095,6 +4201,8 @@ class Google_Service_ShoppingContent_ProductStatusDestinationStatus extends Goog
 
 class Google_Service_ShoppingContent_ProductTax extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $country;
   public $locationId;
   public $postalCode;
@@ -4165,6 +4273,8 @@ class Google_Service_ShoppingContent_ProductTax extends Google_Model
 
 class Google_Service_ShoppingContent_ProductUnitPricingBaseMeasure extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $unit;
   public $value;
 
@@ -4191,6 +4301,8 @@ class Google_Service_ShoppingContent_ProductUnitPricingBaseMeasure extends Googl
 
 class Google_Service_ShoppingContent_ProductUnitPricingMeasure extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $unit;
   public $value;
 
@@ -4218,6 +4330,8 @@ class Google_Service_ShoppingContent_ProductUnitPricingMeasure extends Google_Mo
 class Google_Service_ShoppingContent_ProductsCustomBatchRequest extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_ProductsCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -4234,6 +4348,8 @@ class Google_Service_ShoppingContent_ProductsCustomBatchRequest extends Google_C
 
 class Google_Service_ShoppingContent_ProductsCustomBatchRequestEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $batchId;
   public $merchantId;
   public $method;
@@ -4295,6 +4411,8 @@ class Google_Service_ShoppingContent_ProductsCustomBatchRequestEntry extends Goo
 class Google_Service_ShoppingContent_ProductsCustomBatchResponse extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_ProductsCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -4322,6 +4440,8 @@ class Google_Service_ShoppingContent_ProductsCustomBatchResponse extends Google_
 
 class Google_Service_ShoppingContent_ProductsCustomBatchResponseEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $batchId;
   protected $errorsType = 'Google_Service_ShoppingContent_Errors';
   protected $errorsDataType = '';
@@ -4373,6 +4493,8 @@ class Google_Service_ShoppingContent_ProductsCustomBatchResponseEntry extends Go
 class Google_Service_ShoppingContent_ProductsListResponse extends Google_Collection
 {
   protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $nextPageToken;
   protected $resourcesType = 'Google_Service_ShoppingContent_Product';
@@ -4412,6 +4534,8 @@ class Google_Service_ShoppingContent_ProductsListResponse extends Google_Collect
 class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequest extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_ProductstatusesCustomBatchRequestEntry';
   protected $entriesDataType = 'array';
 
@@ -4428,6 +4552,8 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequest extends G
 
 class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequestEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $batchId;
   public $merchantId;
   public $method;
@@ -4477,6 +4603,8 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequestEntry exte
 class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponse extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   protected $entriesType = 'Google_Service_ShoppingContent_ProductstatusesCustomBatchResponseEntry';
   protected $entriesDataType = 'array';
   public $kind;
@@ -4504,6 +4632,8 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponse extends 
 
 class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponseEntry extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $batchId;
   protected $errorsType = 'Google_Service_ShoppingContent_Errors';
   protected $errorsDataType = '';
@@ -4555,6 +4685,8 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponseEntry ext
 class Google_Service_ShoppingContent_ProductstatusesListResponse extends Google_Collection
 {
   protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $nextPageToken;
   protected $resourcesType = 'Google_Service_ShoppingContent_ProductStatus';
