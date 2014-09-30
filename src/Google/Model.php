@@ -25,6 +25,7 @@
  */
 class Google_Model implements ArrayAccess
 {
+  protected $internal_gapi_mappings = array();
   protected $modelData = array();
   protected $processed = array();
 
@@ -75,7 +76,7 @@ class Google_Model implements ArrayAccess
       $this->processed[$key] = true;
     }
 
-    return $this->modelData[$key];
+    return isset($this->modelData[$key]) ? $this->modelData[$key] : null;
   }
 
   /**
@@ -126,6 +127,7 @@ class Google_Model implements ArrayAccess
       $name = $member->getName();
       $result = $this->getSimpleValue($this->$name);
       if ($result !== null) {
+        $name = $this->getMappedName($name);
         $object->$name = $result;
       }
     }
@@ -146,12 +148,25 @@ class Google_Model implements ArrayAccess
       foreach ($value as $key => $a_value) {
         $a_value = $this->getSimpleValue($a_value);
         if ($a_value !== null) {
+          $key = $this->getMappedName($key);
           $return[$key] = $a_value;
         }
       }
       return $return;
     }
     return $value;
+  }
+
+  /**
+   * If there is an internal name mapping, use that.
+   */
+  private function getMappedName($key)
+  {
+    if (isset($this->internal_gapi_mappings) &&
+        isset($this->internal_gapi_mappings[$key])) {
+      $key = $this->internal_gapi_mappings[$key];
+    }
+    return $key;
   }
 
   /**
