@@ -299,6 +299,8 @@ class Google_Service_Customsearch_Cse_Resource extends Google_Service_Resource
 class Google_Service_Customsearch_Context extends Google_Collection
 {
   protected $collection_key = 'facets';
+  protected $internal_gapi_mappings = array(
+  );
   protected $facetsType = 'Google_Service_Customsearch_ContextFacets';
   protected $facetsDataType = 'array';
   public $title;
@@ -326,6 +328,9 @@ class Google_Service_Customsearch_Context extends Google_Collection
 
 class Google_Service_Customsearch_ContextFacets extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+        "labelWithOp" => "label_with_op",
+  );
   public $anchor;
   public $label;
   public $labelWithOp;
@@ -364,6 +369,8 @@ class Google_Service_Customsearch_ContextFacets extends Google_Model
 class Google_Service_Customsearch_Promotion extends Google_Collection
 {
   protected $collection_key = 'bodyLines';
+  protected $internal_gapi_mappings = array(
+  );
   protected $bodyLinesType = 'Google_Service_Customsearch_PromotionBodyLines';
   protected $bodyLinesDataType = 'array';
   public $displayLink;
@@ -436,6 +443,8 @@ class Google_Service_Customsearch_Promotion extends Google_Collection
 
 class Google_Service_Customsearch_PromotionBodyLines extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $htmlTitle;
   public $link;
   public $title;
@@ -484,6 +493,8 @@ class Google_Service_Customsearch_PromotionBodyLines extends Google_Model
 
 class Google_Service_Customsearch_PromotionImage extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $height;
   public $source;
   public $width;
@@ -521,6 +532,8 @@ class Google_Service_Customsearch_PromotionImage extends Google_Model
 
 class Google_Service_Customsearch_Query extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $count;
   public $cr;
   public $cref;
@@ -933,6 +946,8 @@ class Google_Service_Customsearch_Query extends Google_Model
 class Google_Service_Customsearch_Result extends Google_Collection
 {
   protected $collection_key = 'labels';
+  protected $internal_gapi_mappings = array(
+  );
   public $cacheId;
   public $displayLink;
   public $fileFormat;
@@ -1104,6 +1119,8 @@ class Google_Service_Customsearch_Result extends Google_Collection
 
 class Google_Service_Customsearch_ResultImage extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $byteSize;
   public $contextLink;
   public $height;
@@ -1185,6 +1202,9 @@ class Google_Service_Customsearch_ResultImage extends Google_Model
 
 class Google_Service_Customsearch_ResultLabels extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+        "labelWithOp" => "label_with_op",
+  );
   public $displayName;
   public $labelWithOp;
   public $name;
@@ -1222,17 +1242,21 @@ class Google_Service_Customsearch_ResultLabels extends Google_Model
 
 class Google_Service_Customsearch_ResultPagemap extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Customsearch_ResultPagemapItemElement extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Customsearch_Search extends Google_Collection
 {
   protected $collection_key = 'promotions';
+  protected $internal_gapi_mappings = array(
+  );
   protected $contextType = 'Google_Service_Customsearch_Context';
   protected $contextDataType = '';
   protected $itemsType = 'Google_Service_Customsearch_Result';
@@ -1332,11 +1356,14 @@ class Google_Service_Customsearch_Search extends Google_Collection
 
 class Google_Service_Customsearch_SearchQueries extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Customsearch_SearchSearchInformation extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $formattedSearchTime;
   public $formattedTotalResults;
   public $searchTime;
@@ -1385,6 +1412,8 @@ class Google_Service_Customsearch_SearchSearchInformation extends Google_Model
 
 class Google_Service_Customsearch_SearchSpelling extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $correctedQuery;
   public $htmlCorrectedQuery;
 
@@ -1411,6 +1440,8 @@ class Google_Service_Customsearch_SearchSpelling extends Google_Model
 
 class Google_Service_Customsearch_SearchUrl extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $template;
   public $type;
 
