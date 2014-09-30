@@ -436,6 +436,9 @@ class Google_Service_Taskqueue_Tasks_Resource extends Google_Service_Resource
 
 class Google_Service_Taskqueue_Task extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+        "retryCount" => "retry_count",
+  );
   public $enqueueTimestamp;
   public $id;
   public $kind;
@@ -528,6 +531,8 @@ class Google_Service_Taskqueue_Task extends Google_Model
 
 class Google_Service_Taskqueue_TaskQueue extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $aclType = 'Google_Service_Taskqueue_TaskQueueAcl';
   protected $aclDataType = '';
   public $id;
@@ -590,6 +595,8 @@ class Google_Service_Taskqueue_TaskQueue extends Google_Model
 class Google_Service_Taskqueue_TaskQueueAcl extends Google_Collection
 {
   protected $collection_key = 'producerEmails';
+  protected $internal_gapi_mappings = array(
+  );
   public $adminEmails;
   public $consumerEmails;
   public $producerEmails;
@@ -627,6 +634,8 @@ class Google_Service_Taskqueue_TaskQueueAcl extends Google_Collection
 
 class Google_Service_Taskqueue_TaskQueueStats extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $leasedLastHour;
   public $leasedLastMinute;
   public $oldestTask;
@@ -676,6 +685,8 @@ class Google_Service_Taskqueue_TaskQueueStats extends Google_Model
 class Google_Service_Taskqueue_Tasks extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_Taskqueue_Task';
   protected $itemsDataType = 'array';
   public $kind;
@@ -704,6 +715,8 @@ class Google_Service_Taskqueue_Tasks extends Google_Collection
 class Google_Service_Taskqueue_Tasks2 extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_Taskqueue_Task';
   protected $itemsDataType = 'array';
   public $kind;
