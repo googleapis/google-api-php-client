@@ -496,6 +496,8 @@ class Google_Service_Dns_ResourceRecordSets_Resource extends Google_Service_Reso
 class Google_Service_Dns_Change extends Google_Collection
 {
   protected $collection_key = 'deletions';
+  protected $internal_gapi_mappings = array(
+  );
   protected $additionsType = 'Google_Service_Dns_ResourceRecordSet';
   protected $additionsDataType = 'array';
   protected $deletionsType = 'Google_Service_Dns_ResourceRecordSet';
@@ -569,6 +571,8 @@ class Google_Service_Dns_Change extends Google_Collection
 class Google_Service_Dns_ChangesListResponse extends Google_Collection
 {
   protected $collection_key = 'changes';
+  protected $internal_gapi_mappings = array(
+  );
   protected $changesType = 'Google_Service_Dns_Change';
   protected $changesDataType = 'array';
   public $kind;
@@ -608,6 +612,8 @@ class Google_Service_Dns_ChangesListResponse extends Google_Collection
 class Google_Service_Dns_ManagedZone extends Google_Collection
 {
   protected $collection_key = 'nameServers';
+  protected $internal_gapi_mappings = array(
+  );
   public $creationTime;
   public $description;
   public $dnsName;
@@ -690,6 +696,8 @@ class Google_Service_Dns_ManagedZone extends Google_Collection
 class Google_Service_Dns_ManagedZonesListResponse extends Google_Collection
 {
   protected $collection_key = 'managedZones';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   protected $managedZonesType = 'Google_Service_Dns_ManagedZone';
   protected $managedZonesDataType = 'array';
@@ -728,6 +736,8 @@ class Google_Service_Dns_ManagedZonesListResponse extends Google_Collection
 
 class Google_Service_Dns_Project extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $kind;
   public $number;
@@ -777,6 +787,8 @@ class Google_Service_Dns_Project extends Google_Model
 
 class Google_Service_Dns_Quota extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $managedZones;
   public $resourceRecordsPerRrset;
@@ -859,6 +871,8 @@ class Google_Service_Dns_Quota extends Google_Model
 class Google_Service_Dns_ResourceRecordSet extends Google_Collection
 {
   protected $collection_key = 'rrdatas';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $name;
   public $rrdatas;
@@ -919,6 +933,8 @@ class Google_Service_Dns_ResourceRecordSet extends Google_Collection
 class Google_Service_Dns_ResourceRecordSetsListResponse extends Google_Collection
 {
   protected $collection_key = 'rrsets';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $nextPageToken;
   protected $rrsetsType = 'Google_Service_Dns_ResourceRecordSet';
