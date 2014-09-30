@@ -2626,6 +2626,8 @@ class Google_Service_Directory_VerificationCodes_Resource extends Google_Service
 
 class Google_Service_Directory_Alias extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $alias;
   public $etag;
   public $id;
@@ -2686,6 +2688,8 @@ class Google_Service_Directory_Alias extends Google_Model
 class Google_Service_Directory_Aliases extends Google_Collection
 {
   protected $collection_key = 'aliases';
+  protected $internal_gapi_mappings = array(
+  );
   protected $aliasesType = 'Google_Service_Directory_Alias';
   protected $aliasesDataType = 'array';
   public $etag;
@@ -2724,6 +2728,8 @@ class Google_Service_Directory_Aliases extends Google_Collection
 
 class Google_Service_Directory_Asp extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $codeId;
   public $creationTime;
   public $etag;
@@ -2806,6 +2812,8 @@ class Google_Service_Directory_Asp extends Google_Model
 class Google_Service_Directory_Asps extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Directory_Asp';
   protected $itemsDataType = 'array';
@@ -2844,6 +2852,8 @@ class Google_Service_Directory_Asps extends Google_Collection
 
 class Google_Service_Directory_Channel extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $address;
   public $expiration;
   public $id;
@@ -2958,12 +2968,15 @@ class Google_Service_Directory_Channel extends Google_Model
 
 class Google_Service_Directory_ChannelParams extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Directory_ChromeOsDevice extends Google_Collection
 {
   protected $collection_key = 'recentUsers';
+  protected $internal_gapi_mappings = array(
+  );
   public $annotatedLocation;
   public $annotatedUser;
   public $bootMode;
@@ -3222,6 +3235,8 @@ class Google_Service_Directory_ChromeOsDevice extends Google_Collection
 
 class Google_Service_Directory_ChromeOsDeviceRecentUsers extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $email;
   public $type;
 
@@ -3249,6 +3264,8 @@ class Google_Service_Directory_ChromeOsDeviceRecentUsers extends Google_Model
 class Google_Service_Directory_ChromeOsDevices extends Google_Collection
 {
   protected $collection_key = 'chromeosdevices';
+  protected $internal_gapi_mappings = array(
+  );
   protected $chromeosdevicesType = 'Google_Service_Directory_ChromeOsDevice';
   protected $chromeosdevicesDataType = 'array';
   public $etag;
@@ -3299,6 +3316,8 @@ class Google_Service_Directory_ChromeOsDevices extends Google_Collection
 class Google_Service_Directory_Group extends Google_Collection
 {
   protected $collection_key = 'nonEditableAliases';
+  protected $internal_gapi_mappings = array(
+  );
   public $adminCreated;
   public $aliases;
   public $description;
@@ -3414,6 +3433,8 @@ class Google_Service_Directory_Group extends Google_Collection
 class Google_Service_Directory_Groups extends Google_Collection
 {
   protected $collection_key = 'groups';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $groupsType = 'Google_Service_Directory_Group';
   protected $groupsDataType = 'array';
@@ -3463,6 +3484,8 @@ class Google_Service_Directory_Groups extends Google_Collection
 
 class Google_Service_Directory_Member extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $email;
   public $etag;
   public $id;
@@ -3534,6 +3557,8 @@ class Google_Service_Directory_Member extends Google_Model
 class Google_Service_Directory_Members extends Google_Collection
 {
   protected $collection_key = 'members';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   public $kind;
   protected $membersType = 'Google_Service_Directory_Member';
@@ -3584,6 +3609,8 @@ class Google_Service_Directory_Members extends Google_Collection
 class Google_Service_Directory_MobileDevice extends Google_Collection
 {
   protected $collection_key = 'name';
+  protected $internal_gapi_mappings = array(
+  );
   protected $applicationsType = 'Google_Service_Directory_MobileDeviceApplications';
   protected $applicationsDataType = 'array';
   public $basebandVersion;
@@ -3875,6 +3902,8 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
 
 class Google_Service_Directory_MobileDeviceAction extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $action;
 
   public function setAction($action)
@@ -3891,6 +3920,8 @@ class Google_Service_Directory_MobileDeviceAction extends Google_Model
 class Google_Service_Directory_MobileDeviceApplications extends Google_Collection
 {
   protected $collection_key = 'permission';
+  protected $internal_gapi_mappings = array(
+  );
   public $displayName;
   public $packageName;
   public $permission;
@@ -3951,6 +3982,8 @@ class Google_Service_Directory_MobileDeviceApplications extends Google_Collectio
 class Google_Service_Directory_MobileDevices extends Google_Collection
 {
   protected $collection_key = 'mobiledevices';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   public $kind;
   protected $mobiledevicesType = 'Google_Service_Directory_MobileDevice';
@@ -4000,6 +4033,8 @@ class Google_Service_Directory_MobileDevices extends Google_Collection
 
 class Google_Service_Directory_Notification extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $body;
   public $etag;
   public $fromAddress;
@@ -4093,6 +4128,8 @@ class Google_Service_Directory_Notification extends Google_Model
 class Google_Service_Directory_Notifications extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Directory_Notification';
   protected $itemsDataType = 'array';
@@ -4153,6 +4190,8 @@ class Google_Service_Directory_Notifications extends Google_Collection
 
 class Google_Service_Directory_OrgUnit extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $blockInheritance;
   public $description;
   public $etag;
@@ -4235,6 +4274,8 @@ class Google_Service_Directory_OrgUnit extends Google_Model
 class Google_Service_Directory_OrgUnits extends Google_Collection
 {
   protected $collection_key = 'organizationUnits';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   public $kind;
   protected $organizationUnitsType = 'Google_Service_Directory_OrgUnit';
@@ -4274,6 +4315,8 @@ class Google_Service_Directory_OrgUnits extends Google_Collection
 class Google_Service_Directory_Schema extends Google_Collection
 {
   protected $collection_key = 'fields';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $fieldsType = 'Google_Service_Directory_SchemaFieldSpec';
   protected $fieldsDataType = 'array';
@@ -4334,6 +4377,8 @@ class Google_Service_Directory_Schema extends Google_Collection
 
 class Google_Service_Directory_SchemaFieldSpec extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   public $fieldId;
   public $fieldName;
@@ -4438,6 +4483,8 @@ class Google_Service_Directory_SchemaFieldSpec extends Google_Model
 
 class Google_Service_Directory_SchemaFieldSpecNumericIndexingSpec extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $maxValue;
   public $minValue;
 
@@ -4465,6 +4512,8 @@ class Google_Service_Directory_SchemaFieldSpecNumericIndexingSpec extends Google
 class Google_Service_Directory_Schemas extends Google_Collection
 {
   protected $collection_key = 'schemas';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   public $kind;
   protected $schemasType = 'Google_Service_Directory_Schema';
@@ -4504,6 +4553,8 @@ class Google_Service_Directory_Schemas extends Google_Collection
 class Google_Service_Directory_Token extends Google_Collection
 {
   protected $collection_key = 'scopes';
+  protected $internal_gapi_mappings = array(
+  );
   public $anonymous;
   public $clientId;
   public $displayText;
@@ -4597,6 +4648,8 @@ class Google_Service_Directory_Token extends Google_Collection
 class Google_Service_Directory_Tokens extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Directory_Token';
   protected $itemsDataType = 'array';
@@ -4636,6 +4689,8 @@ class Google_Service_Directory_Tokens extends Google_Collection
 class Google_Service_Directory_User extends Google_Collection
 {
   protected $collection_key = 'nonEditableAliases';
+  protected $internal_gapi_mappings = array(
+  );
   public $addresses;
   public $agreedToTerms;
   public $aliases;
@@ -4993,6 +5048,8 @@ class Google_Service_Directory_User extends Google_Collection
 
 class Google_Service_Directory_UserAddress extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $country;
   public $countryCode;
   public $customType;
@@ -5140,16 +5197,20 @@ class Google_Service_Directory_UserAddress extends Google_Model
 
 class Google_Service_Directory_UserCustomProperties extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Directory_UserCustomSchemas extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Directory_UserEmail extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $address;
   public $customType;
   public $primary;
@@ -5198,6 +5259,8 @@ class Google_Service_Directory_UserEmail extends Google_Model
 
 class Google_Service_Directory_UserExternalId extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $customType;
   public $type;
   public $value;
@@ -5235,6 +5298,8 @@ class Google_Service_Directory_UserExternalId extends Google_Model
 
 class Google_Service_Directory_UserIm extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $customProtocol;
   public $customType;
   public $im;
@@ -5305,6 +5370,8 @@ class Google_Service_Directory_UserIm extends Google_Model
 
 class Google_Service_Directory_UserMakeAdmin extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $status;
 
   public function setStatus($status)
@@ -5320,6 +5387,8 @@ class Google_Service_Directory_UserMakeAdmin extends Google_Model
 
 class Google_Service_Directory_UserName extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $familyName;
   public $fullName;
   public $givenName;
@@ -5357,6 +5426,8 @@ class Google_Service_Directory_UserName extends Google_Model
 
 class Google_Service_Directory_UserOrganization extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $costCenter;
   public $customType;
   public $department;
@@ -5482,6 +5553,8 @@ class Google_Service_Directory_UserOrganization extends Google_Model
 
 class Google_Service_Directory_UserPhone extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $customType;
   public $primary;
   public $type;
@@ -5530,6 +5603,8 @@ class Google_Service_Directory_UserPhone extends Google_Model
 
 class Google_Service_Directory_UserPhoto extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   public $height;
   public $id;
@@ -5622,6 +5697,8 @@ class Google_Service_Directory_UserPhoto extends Google_Model
 
 class Google_Service_Directory_UserRelation extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $customType;
   public $type;
   public $value;
@@ -5659,6 +5736,8 @@ class Google_Service_Directory_UserRelation extends Google_Model
 
 class Google_Service_Directory_UserUndelete extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $orgUnitPath;
 
   public function setOrgUnitPath($orgUnitPath)
@@ -5675,6 +5754,9 @@ class Google_Service_Directory_UserUndelete extends Google_Model
 class Google_Service_Directory_Users extends Google_Collection
 {
   protected $collection_key = 'users';
+  protected $internal_gapi_mappings = array(
+        "triggerEvent" => "trigger_event",
+  );
   public $etag;
   public $kind;
   public $nextPageToken;
@@ -5735,6 +5817,8 @@ class Google_Service_Directory_Users extends Google_Collection
 
 class Google_Service_Directory_VerificationCode extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   public $kind;
   public $userId;
@@ -5784,6 +5868,8 @@ class Google_Service_Directory_VerificationCode extends Google_Model
 class Google_Service_Directory_VerificationCodes extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Directory_VerificationCode';
   protected $itemsDataType = 'array';
