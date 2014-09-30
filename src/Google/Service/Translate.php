@@ -232,6 +232,8 @@ class Google_Service_Translate_Translations_Resource extends Google_Service_Reso
 class Google_Service_Translate_DetectionsListResponse extends Google_Collection
 {
   protected $collection_key = 'detections';
+  protected $internal_gapi_mappings = array(
+  );
   protected $detectionsType = 'Google_Service_Translate_DetectionsResourceItems';
   protected $detectionsDataType = 'array';
 
@@ -248,6 +250,8 @@ class Google_Service_Translate_DetectionsListResponse extends Google_Collection
 
 class Google_Service_Translate_DetectionsResourceItems extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $confidence;
   public $isReliable;
   public $language;
@@ -286,6 +290,8 @@ class Google_Service_Translate_DetectionsResourceItems extends Google_Model
 class Google_Service_Translate_LanguagesListResponse extends Google_Collection
 {
   protected $collection_key = 'languages';
+  protected $internal_gapi_mappings = array(
+  );
   protected $languagesType = 'Google_Service_Translate_LanguagesResource';
   protected $languagesDataType = 'array';
 
@@ -302,6 +308,8 @@ class Google_Service_Translate_LanguagesListResponse extends Google_Collection
 
 class Google_Service_Translate_LanguagesResource extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $language;
   public $name;
 
@@ -329,6 +337,8 @@ class Google_Service_Translate_LanguagesResource extends Google_Model
 class Google_Service_Translate_TranslationsListResponse extends Google_Collection
 {
   protected $collection_key = 'translations';
+  protected $internal_gapi_mappings = array(
+  );
   protected $translationsType = 'Google_Service_Translate_TranslationsResource';
   protected $translationsDataType = 'array';
 
@@ -345,6 +355,8 @@ class Google_Service_Translate_TranslationsListResponse extends Google_Collectio
 
 class Google_Service_Translate_TranslationsResource extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $detectedSourceLanguage;
   public $translatedText;
 
