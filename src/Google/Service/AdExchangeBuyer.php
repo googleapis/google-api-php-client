@@ -706,6 +706,8 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig_Resource extends Google_
 class Google_Service_AdExchangeBuyer_Account extends Google_Collection
 {
   protected $collection_key = 'bidderLocation';
+  protected $internal_gapi_mappings = array(
+  );
   protected $bidderLocationType = 'Google_Service_AdExchangeBuyer_AccountBidderLocation';
   protected $bidderLocationDataType = 'array';
   public $cookieMatchingNid;
@@ -777,6 +779,8 @@ class Google_Service_AdExchangeBuyer_Account extends Google_Collection
 
 class Google_Service_AdExchangeBuyer_AccountBidderLocation extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $maximumQps;
   public $region;
   public $url;
@@ -815,6 +819,8 @@ class Google_Service_AdExchangeBuyer_AccountBidderLocation extends Google_Model
 class Google_Service_AdExchangeBuyer_AccountsList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_AdExchangeBuyer_Account';
   protected $itemsDataType = 'array';
   public $kind;
@@ -843,6 +849,8 @@ class Google_Service_AdExchangeBuyer_AccountsList extends Google_Collection
 class Google_Service_AdExchangeBuyer_BillingInfo extends Google_Collection
 {
   protected $collection_key = 'billingId';
+  protected $internal_gapi_mappings = array(
+  );
   public $accountId;
   public $accountName;
   public $billingId;
@@ -892,6 +900,8 @@ class Google_Service_AdExchangeBuyer_BillingInfo extends Google_Collection
 class Google_Service_AdExchangeBuyer_BillingInfoList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_AdExchangeBuyer_BillingInfo';
   protected $itemsDataType = 'array';
   public $kind;
@@ -920,6 +930,9 @@ class Google_Service_AdExchangeBuyer_BillingInfoList extends Google_Collection
 class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
 {
   protected $collection_key = 'vendorType';
+  protected $internal_gapi_mappings = array(
+        "hTMLSnippet" => "HTMLSnippet",
+  );
   public $hTMLSnippet;
   public $accountId;
   public $advertiserId;
@@ -1148,6 +1161,8 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
 class Google_Service_AdExchangeBuyer_CreativeCorrections extends Google_Collection
 {
   protected $collection_key = 'details';
+  protected $internal_gapi_mappings = array(
+  );
   public $details;
   public $reason;
 
@@ -1175,6 +1190,8 @@ class Google_Service_AdExchangeBuyer_CreativeCorrections extends Google_Collecti
 class Google_Service_AdExchangeBuyer_CreativeDisapprovalReasons extends Google_Collection
 {
   protected $collection_key = 'details';
+  protected $internal_gapi_mappings = array(
+  );
   public $details;
   public $reason;
 
@@ -1202,6 +1219,8 @@ class Google_Service_AdExchangeBuyer_CreativeDisapprovalReasons extends Google_C
 class Google_Service_AdExchangeBuyer_CreativeFilteringReasons extends Google_Collection
 {
   protected $collection_key = 'reasons';
+  protected $internal_gapi_mappings = array(
+  );
   public $date;
   protected $reasonsType = 'Google_Service_AdExchangeBuyer_CreativeFilteringReasonsReasons';
   protected $reasonsDataType = 'array';
@@ -1229,6 +1248,8 @@ class Google_Service_AdExchangeBuyer_CreativeFilteringReasons extends Google_Col
 
 class Google_Service_AdExchangeBuyer_CreativeFilteringReasonsReasons extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $filteringCount;
   public $filteringStatus;
 
@@ -1256,6 +1277,8 @@ class Google_Service_AdExchangeBuyer_CreativeFilteringReasonsReasons extends Goo
 class Google_Service_AdExchangeBuyer_CreativesList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_AdExchangeBuyer_Creative';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1294,6 +1317,8 @@ class Google_Service_AdExchangeBuyer_CreativesList extends Google_Collection
 
 class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $accountId;
   public $advertiser;
   public $currencyCode;
@@ -1431,6 +1456,8 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
 class Google_Service_AdExchangeBuyer_DirectDealsList extends Google_Collection
 {
   protected $collection_key = 'directDeals';
+  protected $internal_gapi_mappings = array(
+  );
   protected $directDealsType = 'Google_Service_AdExchangeBuyer_DirectDeal';
   protected $directDealsDataType = 'array';
   public $kind;
@@ -1459,6 +1486,8 @@ class Google_Service_AdExchangeBuyer_DirectDealsList extends Google_Collection
 class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
 {
   protected $collection_key = 'hostedMatchStatusRate';
+  protected $internal_gapi_mappings = array(
+  );
   public $calloutStatusRate;
   public $cookieMatcherStatusRate;
   public $creativeStatusRate;
@@ -1640,6 +1669,8 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
 class Google_Service_AdExchangeBuyer_PerformanceReportList extends Google_Collection
 {
   protected $collection_key = 'performanceReport';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   protected $performanceReportType = 'Google_Service_AdExchangeBuyer_PerformanceReport';
   protected $performanceReportDataType = 'array';
@@ -1668,6 +1699,8 @@ class Google_Service_AdExchangeBuyer_PerformanceReportList extends Google_Collec
 class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collection
 {
   protected $collection_key = 'verticals';
+  protected $internal_gapi_mappings = array(
+  );
   public $billingId;
   public $configId;
   public $configName;
@@ -1928,6 +1961,8 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
 
 class Google_Service_AdExchangeBuyer_PretargetingConfigDimensions extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $height;
   public $width;
 
@@ -1954,6 +1989,8 @@ class Google_Service_AdExchangeBuyer_PretargetingConfigDimensions extends Google
 
 class Google_Service_AdExchangeBuyer_PretargetingConfigExcludedPlacements extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $token;
   public $type;
 
@@ -1981,6 +2018,8 @@ class Google_Service_AdExchangeBuyer_PretargetingConfigExcludedPlacements extend
 class Google_Service_AdExchangeBuyer_PretargetingConfigList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_AdExchangeBuyer_PretargetingConfig';
   protected $itemsDataType = 'array';
   public $kind;
@@ -2008,6 +2047,8 @@ class Google_Service_AdExchangeBuyer_PretargetingConfigList extends Google_Colle
 
 class Google_Service_AdExchangeBuyer_PretargetingConfigPlacements extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $token;
   public $type;
 
