@@ -196,6 +196,13 @@ class Google_Service_Oauth2_UserinfoV2Me_Resource extends Google_Service_Resourc
 
 class Google_Service_Oauth2_Tokeninfo extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+        "accessType" => "access_type",
+        "expiresIn" => "expires_in",
+        "issuedTo" => "issued_to",
+        "userId" => "user_id",
+        "verifiedEmail" => "verified_email",
+  );
   public $accessType;
   public $audience;
   public $email;
@@ -288,6 +295,11 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
 
 class Google_Service_Oauth2_Userinfoplus extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+        "familyName" => "family_name",
+        "givenName" => "given_name",
+        "verifiedEmail" => "verified_email",
+  );
   public $email;
   public $familyName;
   public $gender;
