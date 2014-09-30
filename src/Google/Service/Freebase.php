@@ -287,6 +287,8 @@ class Google_Service_Freebase extends Google_Service
 
 class Google_Service_Freebase_ReconcileCandidate extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $confidence;
   public $lang;
   public $mid;
@@ -347,6 +349,8 @@ class Google_Service_Freebase_ReconcileCandidate extends Google_Model
 
 class Google_Service_Freebase_ReconcileCandidateNotable extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $name;
 
@@ -374,6 +378,8 @@ class Google_Service_Freebase_ReconcileCandidateNotable extends Google_Model
 class Google_Service_Freebase_ReconcileGet extends Google_Collection
 {
   protected $collection_key = 'warning';
+  protected $internal_gapi_mappings = array(
+  );
   protected $candidateType = 'Google_Service_Freebase_ReconcileCandidate';
   protected $candidateDataType = 'array';
   protected $costsType = 'Google_Service_Freebase_ReconcileGetCosts';
@@ -426,6 +432,8 @@ class Google_Service_Freebase_ReconcileGet extends Google_Collection
 
 class Google_Service_Freebase_ReconcileGetCosts extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $hits;
   public $ms;
 
@@ -452,6 +460,8 @@ class Google_Service_Freebase_ReconcileGetCosts extends Google_Model
 
 class Google_Service_Freebase_ReconcileGetWarning extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $location;
   public $message;
   public $reason;
