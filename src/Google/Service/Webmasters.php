@@ -541,6 +541,8 @@ class Google_Service_Webmasters_Urlcrawlerrorssamples_Resource extends Google_Se
 class Google_Service_Webmasters_SitemapsListResponse extends Google_Collection
 {
   protected $collection_key = 'sitemap';
+  protected $internal_gapi_mappings = array(
+  );
   protected $sitemapType = 'Google_Service_Webmasters_WmxSitemap';
   protected $sitemapDataType = 'array';
 
@@ -558,6 +560,8 @@ class Google_Service_Webmasters_SitemapsListResponse extends Google_Collection
 class Google_Service_Webmasters_SitesListResponse extends Google_Collection
 {
   protected $collection_key = 'siteEntry';
+  protected $internal_gapi_mappings = array(
+  );
   protected $siteEntryType = 'Google_Service_Webmasters_WmxSite';
   protected $siteEntryDataType = 'array';
 
@@ -574,6 +578,8 @@ class Google_Service_Webmasters_SitesListResponse extends Google_Collection
 
 class Google_Service_Webmasters_UrlCrawlErrorCount extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $count;
   public $timestamp;
 
@@ -601,6 +607,8 @@ class Google_Service_Webmasters_UrlCrawlErrorCount extends Google_Model
 class Google_Service_Webmasters_UrlCrawlErrorCountsPerType extends Google_Collection
 {
   protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
   public $category;
   protected $entriesType = 'Google_Service_Webmasters_UrlCrawlErrorCount';
   protected $entriesDataType = 'array';
@@ -640,6 +648,8 @@ class Google_Service_Webmasters_UrlCrawlErrorCountsPerType extends Google_Collec
 class Google_Service_Webmasters_UrlCrawlErrorsCountsQueryResponse extends Google_Collection
 {
   protected $collection_key = 'countPerTypes';
+  protected $internal_gapi_mappings = array(
+  );
   protected $countPerTypesType = 'Google_Service_Webmasters_UrlCrawlErrorCountsPerType';
   protected $countPerTypesDataType = 'array';
 
@@ -656,6 +666,10 @@ class Google_Service_Webmasters_UrlCrawlErrorsCountsQueryResponse extends Google
 
 class Google_Service_Webmasters_UrlCrawlErrorsSample extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+        "firstDetected" => "first_detected",
+        "lastCrawled" => "last_crawled",
+  );
   public $firstDetected;
   public $lastCrawled;
   public $pageUrl;
@@ -717,6 +731,8 @@ class Google_Service_Webmasters_UrlCrawlErrorsSample extends Google_Model
 class Google_Service_Webmasters_UrlCrawlErrorsSamplesListResponse extends Google_Collection
 {
   protected $collection_key = 'urlCrawlErrorSample';
+  protected $internal_gapi_mappings = array(
+  );
   protected $urlCrawlErrorSampleType = 'Google_Service_Webmasters_UrlCrawlErrorsSample';
   protected $urlCrawlErrorSampleDataType = 'array';
 
@@ -734,6 +750,8 @@ class Google_Service_Webmasters_UrlCrawlErrorsSamplesListResponse extends Google
 class Google_Service_Webmasters_UrlSampleDetails extends Google_Collection
 {
   protected $collection_key = 'linkedFromUrls';
+  protected $internal_gapi_mappings = array(
+  );
   public $containingSitemaps;
   public $linkedFromUrls;
 
@@ -760,6 +778,8 @@ class Google_Service_Webmasters_UrlSampleDetails extends Google_Collection
 
 class Google_Service_Webmasters_WmxSite extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $permissionLevel;
   public $siteUrl;
 
@@ -787,6 +807,8 @@ class Google_Service_Webmasters_WmxSite extends Google_Model
 class Google_Service_Webmasters_WmxSitemap extends Google_Collection
 {
   protected $collection_key = 'contents';
+  protected $internal_gapi_mappings = array(
+  );
   protected $contentsType = 'Google_Service_Webmasters_WmxSitemapContent';
   protected $contentsDataType = 'array';
   public $errors;
@@ -891,6 +913,8 @@ class Google_Service_Webmasters_WmxSitemap extends Google_Collection
 
 class Google_Service_Webmasters_WmxSitemapContent extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $indexed;
   public $submitted;
   public $type;
