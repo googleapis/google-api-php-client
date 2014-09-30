@@ -852,6 +852,8 @@ class Google_Service_AdExchangeSeller_AccountsUrlchannels_Resource extends Googl
 
 class Google_Service_AdExchangeSeller_Account extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $kind;
   public $name;
@@ -890,6 +892,8 @@ class Google_Service_AdExchangeSeller_Account extends Google_Model
 class Google_Service_AdExchangeSeller_Accounts extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_AdExchangeSeller_Account';
   protected $itemsDataType = 'array';
@@ -939,6 +943,8 @@ class Google_Service_AdExchangeSeller_Accounts extends Google_Collection
 
 class Google_Service_AdExchangeSeller_AdClient extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $arcOptIn;
   public $id;
   public $kind;
@@ -999,6 +1005,8 @@ class Google_Service_AdExchangeSeller_AdClient extends Google_Model
 class Google_Service_AdExchangeSeller_AdClients extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_AdExchangeSeller_AdClient';
   protected $itemsDataType = 'array';
@@ -1048,6 +1056,8 @@ class Google_Service_AdExchangeSeller_AdClients extends Google_Collection
 
 class Google_Service_AdExchangeSeller_Alert extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $kind;
   public $message;
@@ -1108,6 +1118,8 @@ class Google_Service_AdExchangeSeller_Alert extends Google_Model
 class Google_Service_AdExchangeSeller_Alerts extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_AdExchangeSeller_Alert';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1135,6 +1147,8 @@ class Google_Service_AdExchangeSeller_Alerts extends Google_Collection
 
 class Google_Service_AdExchangeSeller_CustomChannel extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $code;
   public $id;
   public $kind;
@@ -1195,6 +1209,8 @@ class Google_Service_AdExchangeSeller_CustomChannel extends Google_Model
 
 class Google_Service_AdExchangeSeller_CustomChannelTargetingInfo extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $adsAppearOn;
   public $description;
   public $location;
@@ -1244,6 +1260,8 @@ class Google_Service_AdExchangeSeller_CustomChannelTargetingInfo extends Google_
 class Google_Service_AdExchangeSeller_CustomChannels extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_AdExchangeSeller_CustomChannel';
   protected $itemsDataType = 'array';
@@ -1294,6 +1312,8 @@ class Google_Service_AdExchangeSeller_CustomChannels extends Google_Collection
 class Google_Service_AdExchangeSeller_Metadata extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_AdExchangeSeller_ReportingMetadataEntry';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1321,6 +1341,8 @@ class Google_Service_AdExchangeSeller_Metadata extends Google_Collection
 
 class Google_Service_AdExchangeSeller_PreferredDeal extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $advertiserName;
   public $buyerNetworkName;
   public $currencyCode;
@@ -1414,6 +1436,8 @@ class Google_Service_AdExchangeSeller_PreferredDeal extends Google_Model
 class Google_Service_AdExchangeSeller_PreferredDeals extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_AdExchangeSeller_PreferredDeal';
   protected $itemsDataType = 'array';
   public $kind;
@@ -1442,6 +1466,8 @@ class Google_Service_AdExchangeSeller_PreferredDeals extends Google_Collection
 class Google_Service_AdExchangeSeller_Report extends Google_Collection
 {
   protected $collection_key = 'warnings';
+  protected $internal_gapi_mappings = array(
+  );
   public $averages;
   protected $headersType = 'Google_Service_AdExchangeSeller_ReportHeaders';
   protected $headersDataType = 'array';
@@ -1524,6 +1550,8 @@ class Google_Service_AdExchangeSeller_Report extends Google_Collection
 
 class Google_Service_AdExchangeSeller_ReportHeaders extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $currency;
   public $name;
   public $type;
@@ -1562,6 +1590,8 @@ class Google_Service_AdExchangeSeller_ReportHeaders extends Google_Model
 class Google_Service_AdExchangeSeller_ReportingMetadataEntry extends Google_Collection
 {
   protected $collection_key = 'supportedProducts';
+  protected $internal_gapi_mappings = array(
+  );
   public $compatibleDimensions;
   public $compatibleMetrics;
   public $id;
@@ -1643,6 +1673,8 @@ class Google_Service_AdExchangeSeller_ReportingMetadataEntry extends Google_Coll
 
 class Google_Service_AdExchangeSeller_SavedReport extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $kind;
   public $name;
@@ -1681,6 +1713,8 @@ class Google_Service_AdExchangeSeller_SavedReport extends Google_Model
 class Google_Service_AdExchangeSeller_SavedReports extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_AdExchangeSeller_SavedReport';
   protected $itemsDataType = 'array';
@@ -1730,6 +1764,8 @@ class Google_Service_AdExchangeSeller_SavedReports extends Google_Collection
 
 class Google_Service_AdExchangeSeller_UrlChannel extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $kind;
   public $urlPattern;
@@ -1768,6 +1804,8 @@ class Google_Service_AdExchangeSeller_UrlChannel extends Google_Model
 class Google_Service_AdExchangeSeller_UrlChannels extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_AdExchangeSeller_UrlChannel';
   protected $itemsDataType = 'array';
