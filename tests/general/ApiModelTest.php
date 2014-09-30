@@ -19,6 +19,7 @@
  */
 
 require_once 'BaseTest.php';
+require_once 'Google/Service/AdExchangeBuyer.php';
 require_once 'Google/Service/Calendar.php';
 
 class ApiModelTest extends BaseTest
@@ -75,6 +76,22 @@ class ApiModelTest extends BaseTest
     $this->assertEquals($dateString, $simpleEvent->start->date);
     $this->assertEquals($dateString, $simpleEvent->end->date);
     $this->assertEquals($summary, $simpleEvent->summary);
+  }
+
+  public function testOddMappingNames() {
+    $creative = new Google_Service_AdExchangeBuyer_Creative();
+    $creative->setAccountId('12345');
+    $creative->setBuyerCreativeId('12345');
+    $creative->setAdvertiserName('Hi');
+    $creative->setHTMLSnippet("<p>Foo!</p>");
+    $creative->setClickThroughUrl(array('http://somedomain.com'));
+    $creative->setWidth(100);
+    $creative->setHeight(100);
+    $data = json_decode(json_encode($creative->toSimpleObject()), true);
+    $this->assertEquals($data['HTMLSnippet'], "<p>Foo!</p>");
+    $this->assertEquals($data['width'], 100);
+    $this->assertEquals($data['height'], 100);
+    $this->assertEquals($data['accountId'], "12345");
   }
 
   public function testJsonStructure()
