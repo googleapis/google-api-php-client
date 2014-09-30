@@ -104,6 +104,8 @@ class Google_Service_GroupsMigration_Archive_Resource extends Google_Service_Res
 
 class Google_Service_GroupsMigration_Groups extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   public $responseCode;
 
