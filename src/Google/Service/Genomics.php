@@ -1252,6 +1252,8 @@ class Google_Service_Genomics_Variantsets_Resource extends Google_Service_Resour
 
 class Google_Service_Genomics_Beacon extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $exists;
 
   public function setExists($exists)
@@ -1268,6 +1270,8 @@ class Google_Service_Genomics_Beacon extends Google_Model
 class Google_Service_Genomics_Call extends Google_Collection
 {
   protected $collection_key = 'genotypeLikelihood';
+  protected $internal_gapi_mappings = array(
+  );
   public $callSetId;
   public $callSetName;
   public $genotype;
@@ -1338,12 +1342,15 @@ class Google_Service_Genomics_Call extends Google_Collection
 
 class Google_Service_Genomics_CallInfo extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Genomics_CallSet extends Google_Collection
 {
   protected $collection_key = 'variantSetIds';
+  protected $internal_gapi_mappings = array(
+  );
   public $created;
   public $id;
   public $info;
@@ -1414,11 +1421,14 @@ class Google_Service_Genomics_CallSet extends Google_Collection
 
 class Google_Service_Genomics_CallSetInfo extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Genomics_CoverageBucket extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $meanCoverage;
   protected $rangeType = 'Google_Service_Genomics_GenomicRange';
   protected $rangeDataType = '';
@@ -1446,6 +1456,8 @@ class Google_Service_Genomics_CoverageBucket extends Google_Model
 
 class Google_Service_Genomics_Dataset extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $isPublic;
   public $name;
@@ -1495,6 +1507,8 @@ class Google_Service_Genomics_Dataset extends Google_Model
 class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collection
 {
   protected $collection_key = 'sourceUris';
+  protected $internal_gapi_mappings = array(
+  );
   public $align;
   public $callVariants;
   public $gcsOutputPath;
@@ -1620,6 +1634,8 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
 
 class Google_Service_Genomics_ExperimentalCreateJobResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $jobId;
 
   public function setJobId($jobId)
@@ -1636,6 +1652,8 @@ class Google_Service_Genomics_ExperimentalCreateJobResponse extends Google_Model
 class Google_Service_Genomics_ExportReadsetsRequest extends Google_Collection
 {
   protected $collection_key = 'referenceNames';
+  protected $internal_gapi_mappings = array(
+  );
   public $exportUri;
   public $projectId;
   public $readsetIds;
@@ -1684,6 +1702,8 @@ class Google_Service_Genomics_ExportReadsetsRequest extends Google_Collection
 
 class Google_Service_Genomics_ExportReadsetsResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $jobId;
 
   public function setJobId($jobId)
@@ -1700,6 +1720,8 @@ class Google_Service_Genomics_ExportReadsetsResponse extends Google_Model
 class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
 {
   protected $collection_key = 'callSetIds';
+  protected $internal_gapi_mappings = array(
+  );
   public $bigqueryDataset;
   public $bigqueryTable;
   public $callSetIds;
@@ -1770,6 +1792,8 @@ class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
 
 class Google_Service_Genomics_ExportVariantsResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $jobId;
 
   public function setJobId($jobId)
@@ -1785,6 +1809,8 @@ class Google_Service_Genomics_ExportVariantsResponse extends Google_Model
 
 class Google_Service_Genomics_GenomicRange extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $sequenceEnd;
   public $sequenceName;
   public $sequenceStart;
@@ -1822,6 +1848,8 @@ class Google_Service_Genomics_GenomicRange extends Google_Model
 
 class Google_Service_Genomics_Header extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $sortingOrder;
   public $version;
 
@@ -1849,6 +1877,8 @@ class Google_Service_Genomics_Header extends Google_Model
 class Google_Service_Genomics_HeaderSection extends Google_Collection
 {
   protected $collection_key = 'refSequences';
+  protected $internal_gapi_mappings = array(
+  );
   public $comments;
   public $fileUri;
   public $filename;
@@ -1935,6 +1965,8 @@ class Google_Service_Genomics_HeaderSection extends Google_Collection
 class Google_Service_Genomics_ImportReadsetsRequest extends Google_Collection
 {
   protected $collection_key = 'sourceUris';
+  protected $internal_gapi_mappings = array(
+  );
   public $datasetId;
   public $sourceUris;
 
@@ -1961,6 +1993,8 @@ class Google_Service_Genomics_ImportReadsetsRequest extends Google_Collection
 
 class Google_Service_Genomics_ImportReadsetsResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $jobId;
 
   public function setJobId($jobId)
@@ -1977,6 +2011,8 @@ class Google_Service_Genomics_ImportReadsetsResponse extends Google_Model
 class Google_Service_Genomics_ImportVariantsRequest extends Google_Collection
 {
   protected $collection_key = 'sourceUris';
+  protected $internal_gapi_mappings = array(
+  );
   public $format;
   public $sourceUris;
   public $variantSetId;
@@ -2014,6 +2050,8 @@ class Google_Service_Genomics_ImportVariantsRequest extends Google_Collection
 
 class Google_Service_Genomics_ImportVariantsResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $jobId;
 
   public function setJobId($jobId)
@@ -2030,6 +2068,8 @@ class Google_Service_Genomics_ImportVariantsResponse extends Google_Model
 class Google_Service_Genomics_Job extends Google_Collection
 {
   protected $collection_key = 'warnings';
+  protected $internal_gapi_mappings = array(
+  );
   public $created;
   public $description;
   public $errors;
@@ -2135,6 +2175,8 @@ class Google_Service_Genomics_Job extends Google_Collection
 class Google_Service_Genomics_JobRequest extends Google_Collection
 {
   protected $collection_key = 'source';
+  protected $internal_gapi_mappings = array(
+  );
   public $destination;
   public $source;
   public $type;
@@ -2173,6 +2215,8 @@ class Google_Service_Genomics_JobRequest extends Google_Collection
 class Google_Service_Genomics_ListCoverageBucketsResponse extends Google_Collection
 {
   protected $collection_key = 'coverageBuckets';
+  protected $internal_gapi_mappings = array(
+  );
   public $bucketWidth;
   protected $coverageBucketsType = 'Google_Service_Genomics_CoverageBucket';
   protected $coverageBucketsDataType = 'array';
@@ -2212,6 +2256,8 @@ class Google_Service_Genomics_ListCoverageBucketsResponse extends Google_Collect
 class Google_Service_Genomics_ListDatasetsResponse extends Google_Collection
 {
   protected $collection_key = 'datasets';
+  protected $internal_gapi_mappings = array(
+  );
   protected $datasetsType = 'Google_Service_Genomics_Dataset';
   protected $datasetsDataType = 'array';
   public $nextPageToken;
@@ -2239,6 +2285,8 @@ class Google_Service_Genomics_ListDatasetsResponse extends Google_Collection
 
 class Google_Service_Genomics_Metadata extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $description;
   public $id;
   public $info;
@@ -2320,11 +2368,14 @@ class Google_Service_Genomics_Metadata extends Google_Model
 
 class Google_Service_Genomics_MetadataInfo extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Genomics_Program extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $commandLine;
   public $id;
   public $name;
@@ -2384,6 +2435,8 @@ class Google_Service_Genomics_Program extends Google_Model
 
 class Google_Service_Genomics_Read extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $alignedBases;
   public $baseQuality;
   public $cigar;
@@ -2553,6 +2606,8 @@ class Google_Service_Genomics_Read extends Google_Model
 
 class Google_Service_Genomics_ReadGroup extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $date;
   public $description;
   public $flowOrder;
@@ -2689,12 +2744,15 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
 
 class Google_Service_Genomics_ReadTags extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Genomics_Readset extends Google_Collection
 {
   protected $collection_key = 'fileData';
+  protected $internal_gapi_mappings = array(
+  );
   public $datasetId;
   protected $fileDataType = 'Google_Service_Genomics_HeaderSection';
   protected $fileDataDataType = 'array';
@@ -2744,6 +2802,8 @@ class Google_Service_Genomics_Readset extends Google_Collection
 
 class Google_Service_Genomics_ReferenceBound extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $referenceName;
   public $upperBound;
 
@@ -2770,6 +2830,8 @@ class Google_Service_Genomics_ReferenceBound extends Google_Model
 
 class Google_Service_Genomics_ReferenceSequence extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $assemblyId;
   public $length;
   public $md5Checksum;
@@ -2841,6 +2903,8 @@ class Google_Service_Genomics_ReferenceSequence extends Google_Model
 class Google_Service_Genomics_SearchCallSetsRequest extends Google_Collection
 {
   protected $collection_key = 'variantSetIds';
+  protected $internal_gapi_mappings = array(
+  );
   public $name;
   public $pageSize;
   public $pageToken;
@@ -2890,6 +2954,8 @@ class Google_Service_Genomics_SearchCallSetsRequest extends Google_Collection
 class Google_Service_Genomics_SearchCallSetsResponse extends Google_Collection
 {
   protected $collection_key = 'callSets';
+  protected $internal_gapi_mappings = array(
+  );
   protected $callSetsType = 'Google_Service_Genomics_CallSet';
   protected $callSetsDataType = 'array';
   public $nextPageToken;
@@ -2918,6 +2984,8 @@ class Google_Service_Genomics_SearchCallSetsResponse extends Google_Collection
 class Google_Service_Genomics_SearchJobsRequest extends Google_Collection
 {
   protected $collection_key = 'status';
+  protected $internal_gapi_mappings = array(
+  );
   public $createdAfter;
   public $createdBefore;
   public $maxResults;
@@ -2989,6 +3057,8 @@ class Google_Service_Genomics_SearchJobsRequest extends Google_Collection
 class Google_Service_Genomics_SearchJobsResponse extends Google_Collection
 {
   protected $collection_key = 'jobs';
+  protected $internal_gapi_mappings = array(
+  );
   protected $jobsType = 'Google_Service_Genomics_Job';
   protected $jobsDataType = 'array';
   public $nextPageToken;
@@ -3017,6 +3087,8 @@ class Google_Service_Genomics_SearchJobsResponse extends Google_Collection
 class Google_Service_Genomics_SearchReadsRequest extends Google_Collection
 {
   protected $collection_key = 'readsetIds';
+  protected $internal_gapi_mappings = array(
+  );
   public $maxResults;
   public $pageToken;
   public $readsetIds;
@@ -3088,6 +3160,8 @@ class Google_Service_Genomics_SearchReadsRequest extends Google_Collection
 class Google_Service_Genomics_SearchReadsResponse extends Google_Collection
 {
   protected $collection_key = 'reads';
+  protected $internal_gapi_mappings = array(
+  );
   public $nextPageToken;
   protected $readsType = 'Google_Service_Genomics_Read';
   protected $readsDataType = 'array';
@@ -3116,6 +3190,8 @@ class Google_Service_Genomics_SearchReadsResponse extends Google_Collection
 class Google_Service_Genomics_SearchReadsetsRequest extends Google_Collection
 {
   protected $collection_key = 'datasetIds';
+  protected $internal_gapi_mappings = array(
+  );
   public $datasetIds;
   public $maxResults;
   public $name;
@@ -3165,6 +3241,8 @@ class Google_Service_Genomics_SearchReadsetsRequest extends Google_Collection
 class Google_Service_Genomics_SearchReadsetsResponse extends Google_Collection
 {
   protected $collection_key = 'readsets';
+  protected $internal_gapi_mappings = array(
+  );
   public $nextPageToken;
   protected $readsetsType = 'Google_Service_Genomics_Readset';
   protected $readsetsDataType = 'array';
@@ -3193,6 +3271,8 @@ class Google_Service_Genomics_SearchReadsetsResponse extends Google_Collection
 class Google_Service_Genomics_SearchVariantSetsRequest extends Google_Collection
 {
   protected $collection_key = 'datasetIds';
+  protected $internal_gapi_mappings = array(
+  );
   public $datasetIds;
   public $pageSize;
   public $pageToken;
@@ -3231,6 +3311,8 @@ class Google_Service_Genomics_SearchVariantSetsRequest extends Google_Collection
 class Google_Service_Genomics_SearchVariantSetsResponse extends Google_Collection
 {
   protected $collection_key = 'variantSets';
+  protected $internal_gapi_mappings = array(
+  );
   public $nextPageToken;
   protected $variantSetsType = 'Google_Service_Genomics_VariantSet';
   protected $variantSetsDataType = 'array';
@@ -3259,6 +3341,8 @@ class Google_Service_Genomics_SearchVariantSetsResponse extends Google_Collectio
 class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
 {
   protected $collection_key = 'variantSetIds';
+  protected $internal_gapi_mappings = array(
+  );
   public $callSetIds;
   public $end;
   public $maxCalls;
@@ -3363,6 +3447,8 @@ class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
 class Google_Service_Genomics_SearchVariantsResponse extends Google_Collection
 {
   protected $collection_key = 'variants';
+  protected $internal_gapi_mappings = array(
+  );
   public $nextPageToken;
   protected $variantsType = 'Google_Service_Genomics_Variant';
   protected $variantsDataType = 'array';
@@ -3391,6 +3477,8 @@ class Google_Service_Genomics_SearchVariantsResponse extends Google_Collection
 class Google_Service_Genomics_Variant extends Google_Collection
 {
   protected $collection_key = 'names';
+  protected $internal_gapi_mappings = array(
+  );
   public $alternateBases;
   protected $callsType = 'Google_Service_Genomics_Call';
   protected $callsDataType = 'array';
@@ -3539,12 +3627,15 @@ class Google_Service_Genomics_Variant extends Google_Collection
 
 class Google_Service_Genomics_VariantInfo extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Genomics_VariantSet extends Google_Collection
 {
   protected $collection_key = 'referenceBounds';
+  protected $internal_gapi_mappings = array(
+  );
   public $datasetId;
   public $id;
   protected $metadataType = 'Google_Service_Genomics_Metadata';
