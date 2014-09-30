@@ -1901,6 +1901,8 @@ class Google_Service_Calendar_Settings_Resource extends Google_Service_Resource
 class Google_Service_Calendar_Acl extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Calendar_AclRule';
   protected $itemsDataType = 'array';
@@ -1961,6 +1963,8 @@ class Google_Service_Calendar_Acl extends Google_Collection
 
 class Google_Service_Calendar_AclRule extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   public $id;
   public $kind;
@@ -2021,6 +2025,8 @@ class Google_Service_Calendar_AclRule extends Google_Model
 
 class Google_Service_Calendar_AclRuleScope extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $type;
   public $value;
 
@@ -2047,6 +2053,8 @@ class Google_Service_Calendar_AclRuleScope extends Google_Model
 
 class Google_Service_Calendar_Calendar extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $description;
   public $etag;
   public $id;
@@ -2129,6 +2137,8 @@ class Google_Service_Calendar_Calendar extends Google_Model
 class Google_Service_Calendar_CalendarList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Calendar_CalendarListEntry';
   protected $itemsDataType = 'array';
@@ -2190,6 +2200,8 @@ class Google_Service_Calendar_CalendarList extends Google_Collection
 class Google_Service_Calendar_CalendarListEntry extends Google_Collection
 {
   protected $collection_key = 'defaultReminders';
+  protected $internal_gapi_mappings = array(
+  );
   public $accessRole;
   public $backgroundColor;
   public $colorId;
@@ -2395,6 +2407,8 @@ class Google_Service_Calendar_CalendarListEntry extends Google_Collection
 class Google_Service_Calendar_CalendarListEntryNotificationSettings extends Google_Collection
 {
   protected $collection_key = 'notifications';
+  protected $internal_gapi_mappings = array(
+  );
   protected $notificationsType = 'Google_Service_Calendar_CalendarNotification';
   protected $notificationsDataType = 'array';
 
@@ -2411,6 +2425,8 @@ class Google_Service_Calendar_CalendarListEntryNotificationSettings extends Goog
 
 class Google_Service_Calendar_CalendarNotification extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $method;
   public $type;
 
@@ -2437,6 +2453,8 @@ class Google_Service_Calendar_CalendarNotification extends Google_Model
 
 class Google_Service_Calendar_Channel extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $address;
   public $expiration;
   public $id;
@@ -2551,11 +2569,14 @@ class Google_Service_Calendar_Channel extends Google_Model
 
 class Google_Service_Calendar_ChannelParams extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Calendar_ColorDefinition extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $background;
   public $foreground;
 
@@ -2582,6 +2603,8 @@ class Google_Service_Calendar_ColorDefinition extends Google_Model
 
 class Google_Service_Calendar_Colors extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $calendarType = 'Google_Service_Calendar_ColorDefinition';
   protected $calendarDataType = 'map';
   protected $eventType = 'Google_Service_Calendar_ColorDefinition';
@@ -2632,16 +2655,20 @@ class Google_Service_Calendar_Colors extends Google_Model
 
 class Google_Service_Calendar_ColorsCalendar extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Calendar_ColorsEvent extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Calendar_Error extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $domain;
   public $reason;
 
@@ -2669,6 +2696,8 @@ class Google_Service_Calendar_Error extends Google_Model
 class Google_Service_Calendar_Event extends Google_Collection
 {
   protected $collection_key = 'recurrence';
+  protected $internal_gapi_mappings = array(
+  );
   public $anyoneCanAddSelf;
   protected $attendeesType = 'Google_Service_Calendar_EventAttendee';
   protected $attendeesDataType = 'array';
@@ -3079,6 +3108,8 @@ class Google_Service_Calendar_Event extends Google_Collection
 
 class Google_Service_Calendar_EventAttendee extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $additionalGuests;
   public $comment;
   public $displayName;
@@ -3193,6 +3224,8 @@ class Google_Service_Calendar_EventAttendee extends Google_Model
 
 class Google_Service_Calendar_EventCreator extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $displayName;
   public $email;
   public $id;
@@ -3241,6 +3274,8 @@ class Google_Service_Calendar_EventCreator extends Google_Model
 
 class Google_Service_Calendar_EventDateTime extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $date;
   public $dateTime;
   public $timeZone;
@@ -3278,6 +3313,8 @@ class Google_Service_Calendar_EventDateTime extends Google_Model
 
 class Google_Service_Calendar_EventExtendedProperties extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $private;
   public $shared;
 
@@ -3304,16 +3341,20 @@ class Google_Service_Calendar_EventExtendedProperties extends Google_Model
 
 class Google_Service_Calendar_EventExtendedPropertiesPrivate extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Calendar_EventExtendedPropertiesShared extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Calendar_EventGadget extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $display;
   public $height;
   public $iconLink;
@@ -3406,11 +3447,14 @@ class Google_Service_Calendar_EventGadget extends Google_Model
 
 class Google_Service_Calendar_EventGadgetPreferences extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Calendar_EventOrganizer extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $displayName;
   public $email;
   public $id;
@@ -3459,6 +3503,8 @@ class Google_Service_Calendar_EventOrganizer extends Google_Model
 
 class Google_Service_Calendar_EventReminder extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $method;
   public $minutes;
 
@@ -3486,6 +3532,8 @@ class Google_Service_Calendar_EventReminder extends Google_Model
 class Google_Service_Calendar_EventReminders extends Google_Collection
 {
   protected $collection_key = 'overrides';
+  protected $internal_gapi_mappings = array(
+  );
   protected $overridesType = 'Google_Service_Calendar_EventReminder';
   protected $overridesDataType = 'array';
   public $useDefault;
@@ -3513,6 +3561,8 @@ class Google_Service_Calendar_EventReminders extends Google_Collection
 
 class Google_Service_Calendar_EventSource extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $title;
   public $url;
 
@@ -3540,6 +3590,8 @@ class Google_Service_Calendar_EventSource extends Google_Model
 class Google_Service_Calendar_Events extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $accessRole;
   protected $defaultRemindersType = 'Google_Service_Calendar_EventReminder';
   protected $defaultRemindersDataType = 'array';
@@ -3668,6 +3720,8 @@ class Google_Service_Calendar_Events extends Google_Collection
 class Google_Service_Calendar_FreeBusyCalendar extends Google_Collection
 {
   protected $collection_key = 'errors';
+  protected $internal_gapi_mappings = array(
+  );
   protected $busyType = 'Google_Service_Calendar_TimePeriod';
   protected $busyDataType = 'array';
   protected $errorsType = 'Google_Service_Calendar_Error';
@@ -3697,6 +3751,8 @@ class Google_Service_Calendar_FreeBusyCalendar extends Google_Collection
 class Google_Service_Calendar_FreeBusyGroup extends Google_Collection
 {
   protected $collection_key = 'errors';
+  protected $internal_gapi_mappings = array(
+  );
   public $calendars;
   protected $errorsType = 'Google_Service_Calendar_Error';
   protected $errorsDataType = 'array';
@@ -3725,6 +3781,8 @@ class Google_Service_Calendar_FreeBusyGroup extends Google_Collection
 class Google_Service_Calendar_FreeBusyRequest extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $calendarExpansionMax;
   public $groupExpansionMax;
   protected $itemsType = 'Google_Service_Calendar_FreeBusyRequestItem';
@@ -3796,6 +3854,8 @@ class Google_Service_Calendar_FreeBusyRequest extends Google_Collection
 
 class Google_Service_Calendar_FreeBusyRequestItem extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
 
   public function setId($id)
@@ -3811,6 +3871,8 @@ class Google_Service_Calendar_FreeBusyRequestItem extends Google_Model
 
 class Google_Service_Calendar_FreeBusyResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $calendarsType = 'Google_Service_Calendar_FreeBusyCalendar';
   protected $calendarsDataType = 'map';
   protected $groupsType = 'Google_Service_Calendar_FreeBusyGroup';
@@ -3872,16 +3934,20 @@ class Google_Service_Calendar_FreeBusyResponse extends Google_Model
 
 class Google_Service_Calendar_FreeBusyResponseCalendars extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Calendar_FreeBusyResponseGroups extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Calendar_Setting extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   public $id;
   public $kind;
@@ -3931,6 +3997,8 @@ class Google_Service_Calendar_Setting extends Google_Model
 class Google_Service_Calendar_Settings extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Calendar_Setting';
   protected $itemsDataType = 'array';
@@ -3991,6 +4059,8 @@ class Google_Service_Calendar_Settings extends Google_Collection
 
 class Google_Service_Calendar_TimePeriod extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $end;
   public $start;
 
