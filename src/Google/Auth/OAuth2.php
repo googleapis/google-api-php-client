@@ -149,13 +149,14 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
         'client_id' => $this->client->getClassConfig($this, 'client_id'),
         'scope' => $scope,
         'access_type' => $this->client->getClassConfig($this, 'access_type'),
-        'approval_prompt' => $this->client->getClassConfig($this, 'approval_prompt'),
     );
 
-    $login_hint = $this->client->getClassConfig($this, 'login_hint');
-    if ($login_hint != '') {
-      $params['login_hint'] = $login_hint;
-    }
+    $params = $this->maybeAddParam($params, 'approval_prompt');
+    $params = $this->maybeAddParam($params, 'login_hint');
+    $params = $this->maybeAddParam($params, 'hd');
+    $params = $this->maybeAddParam($params, 'openid.realm');
+    $params = $this->maybeAddParam($params, 'prompt');
+    $params = $this->maybeAddParam($params, 'include_granted_scopes');
 
     // If the list of scopes contains plus.login, add request_visible_actions
     // to auth URL.
@@ -603,5 +604,17 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
 
     // All good.
     return new Google_Auth_LoginTicket($envelope, $payload);
+  }
+
+  /**
+   * Add a parameter to the auth params if not empty string.
+   */
+  private function maybeAddParam($params, $name)
+  {
+    $param = $this->client->getClassConfig($this, $name);
+    if ($param != '') {
+      $params[$name] = $param;
+    }
+    return $params;
   }
 }
