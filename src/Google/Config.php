@@ -30,7 +30,7 @@ class Google_Config
   /**
    * Create a new Google_Config. Can accept an ini file location with the
    * local configuration. For example:
-   *     application_name: "My App";
+   *     application_name="My App"
    *
    * @param [$ini_file_location] - optional - The location of the ini file to load
    */
