@@ -342,8 +342,10 @@ class Google_Config
    */
   public function setIncludeGrantedScopes($include)
   {
-    $this->setAuthConfig('include_granted_scopes',
-        $include ? "true" : "false");
+    $this->setAuthConfig(
+        'include_granted_scopes',
+        $include ? "true" : "false"
+    );
   }
 
   /**
