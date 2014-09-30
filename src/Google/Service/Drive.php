@@ -2538,6 +2538,8 @@ class Google_Service_Drive_Revisions_Resource extends Google_Service_Resource
 class Google_Service_Drive_About extends Google_Collection
 {
   protected $collection_key = 'quotaBytesByService';
+  protected $internal_gapi_mappings = array(
+  );
   protected $additionalRoleInfoType = 'Google_Service_Drive_AboutAdditionalRoleInfo';
   protected $additionalRoleInfoDataType = 'array';
   public $domainSharingPolicy;
@@ -2803,6 +2805,8 @@ class Google_Service_Drive_About extends Google_Collection
 class Google_Service_Drive_AboutAdditionalRoleInfo extends Google_Collection
 {
   protected $collection_key = 'roleSets';
+  protected $internal_gapi_mappings = array(
+  );
   protected $roleSetsType = 'Google_Service_Drive_AboutAdditionalRoleInfoRoleSets';
   protected $roleSetsDataType = 'array';
   public $type;
@@ -2831,6 +2835,8 @@ class Google_Service_Drive_AboutAdditionalRoleInfo extends Google_Collection
 class Google_Service_Drive_AboutAdditionalRoleInfoRoleSets extends Google_Collection
 {
   protected $collection_key = 'additionalRoles';
+  protected $internal_gapi_mappings = array(
+  );
   public $additionalRoles;
   public $primaryRole;
 
@@ -2858,6 +2864,8 @@ class Google_Service_Drive_AboutAdditionalRoleInfoRoleSets extends Google_Collec
 class Google_Service_Drive_AboutExportFormats extends Google_Collection
 {
   protected $collection_key = 'targets';
+  protected $internal_gapi_mappings = array(
+  );
   public $source;
   public $targets;
 
@@ -2884,6 +2892,8 @@ class Google_Service_Drive_AboutExportFormats extends Google_Collection
 
 class Google_Service_Drive_AboutFeatures extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $featureName;
   public $featureRate;
 
@@ -2911,6 +2921,8 @@ class Google_Service_Drive_AboutFeatures extends Google_Model
 class Google_Service_Drive_AboutImportFormats extends Google_Collection
 {
   protected $collection_key = 'targets';
+  protected $internal_gapi_mappings = array(
+  );
   public $source;
   public $targets;
 
@@ -2937,6 +2949,8 @@ class Google_Service_Drive_AboutImportFormats extends Google_Collection
 
 class Google_Service_Drive_AboutMaxUploadSizes extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $size;
   public $type;
 
@@ -2963,6 +2977,8 @@ class Google_Service_Drive_AboutMaxUploadSizes extends Google_Model
 
 class Google_Service_Drive_AboutQuotaBytesByService extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $bytesUsed;
   public $serviceName;
 
@@ -2990,6 +3006,8 @@ class Google_Service_Drive_AboutQuotaBytesByService extends Google_Model
 class Google_Service_Drive_App extends Google_Collection
 {
   protected $collection_key = 'secondaryMimeTypes';
+  protected $internal_gapi_mappings = array(
+  );
   public $authorized;
   public $createInFolderTemplate;
   public $createUrl;
@@ -3259,6 +3277,8 @@ class Google_Service_Drive_App extends Google_Collection
 
 class Google_Service_Drive_AppIcons extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $category;
   public $iconUrl;
   public $size;
@@ -3297,6 +3317,8 @@ class Google_Service_Drive_AppIcons extends Google_Model
 class Google_Service_Drive_AppList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $defaultAppIds;
   public $etag;
   protected $itemsType = 'Google_Service_Drive_App';
@@ -3357,6 +3379,8 @@ class Google_Service_Drive_AppList extends Google_Collection
 
 class Google_Service_Drive_Change extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $deleted;
   protected $fileType = 'Google_Service_Drive_DriveFile';
   protected $fileDataType = '';
@@ -3440,6 +3464,8 @@ class Google_Service_Drive_Change extends Google_Model
 class Google_Service_Drive_ChangeList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Drive_Change';
   protected $itemsDataType = 'array';
@@ -3522,6 +3548,8 @@ class Google_Service_Drive_ChangeList extends Google_Collection
 
 class Google_Service_Drive_Channel extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $address;
   public $expiration;
   public $id;
@@ -3636,12 +3664,15 @@ class Google_Service_Drive_Channel extends Google_Model
 
 class Google_Service_Drive_ChannelParams extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Drive_ChildList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Drive_ChildReference';
   protected $itemsDataType = 'array';
@@ -3713,6 +3744,8 @@ class Google_Service_Drive_ChildList extends Google_Collection
 
 class Google_Service_Drive_ChildReference extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $childLink;
   public $id;
   public $kind;
@@ -3762,6 +3795,8 @@ class Google_Service_Drive_ChildReference extends Google_Model
 class Google_Service_Drive_Comment extends Google_Collection
 {
   protected $collection_key = 'replies';
+  protected $internal_gapi_mappings = array(
+  );
   public $anchor;
   protected $authorType = 'Google_Service_Drive_User';
   protected $authorDataType = '';
@@ -3934,6 +3969,8 @@ class Google_Service_Drive_Comment extends Google_Collection
 
 class Google_Service_Drive_CommentContext extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $type;
   public $value;
 
@@ -3961,6 +3998,8 @@ class Google_Service_Drive_CommentContext extends Google_Model
 class Google_Service_Drive_CommentList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_Drive_Comment';
   protected $itemsDataType = 'array';
   public $kind;
@@ -4021,6 +4060,8 @@ class Google_Service_Drive_CommentList extends Google_Collection
 
 class Google_Service_Drive_CommentReply extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $authorType = 'Google_Service_Drive_User';
   protected $authorDataType = '';
   public $content;
@@ -4126,6 +4167,8 @@ class Google_Service_Drive_CommentReply extends Google_Model
 class Google_Service_Drive_CommentReplyList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_Drive_CommentReply';
   protected $itemsDataType = 'array';
   public $kind;
@@ -4187,6 +4230,8 @@ class Google_Service_Drive_CommentReplyList extends Google_Collection
 class Google_Service_Drive_DriveFile extends Google_Collection
 {
   protected $collection_key = 'properties';
+  protected $internal_gapi_mappings = array(
+  );
   public $alternateLink;
   public $appDataContents;
   public $copyable;
@@ -4753,11 +4798,14 @@ class Google_Service_Drive_DriveFile extends Google_Collection
 
 class Google_Service_Drive_DriveFileExportLinks extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $aperture;
   public $cameraMake;
   public $cameraModel;
@@ -4994,6 +5042,8 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
 
 class Google_Service_Drive_DriveFileImageMediaMetadataLocation extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $altitude;
   public $latitude;
   public $longitude;
@@ -5031,6 +5081,8 @@ class Google_Service_Drive_DriveFileImageMediaMetadataLocation extends Google_Mo
 
 class Google_Service_Drive_DriveFileIndexableText extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $text;
 
   public function setText($text)
@@ -5046,6 +5098,8 @@ class Google_Service_Drive_DriveFileIndexableText extends Google_Model
 
 class Google_Service_Drive_DriveFileLabels extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $hidden;
   public $restricted;
   public $starred;
@@ -5105,11 +5159,14 @@ class Google_Service_Drive_DriveFileLabels extends Google_Model
 
 class Google_Service_Drive_DriveFileOpenWithLinks extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Drive_DriveFileThumbnail extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $image;
   public $mimeType;
 
@@ -5136,6 +5193,8 @@ class Google_Service_Drive_DriveFileThumbnail extends Google_Model
 
 class Google_Service_Drive_DriveFileVideoMediaMetadata extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $durationMillis;
   public $height;
   public $width;
@@ -5174,6 +5233,8 @@ class Google_Service_Drive_DriveFileVideoMediaMetadata extends Google_Model
 class Google_Service_Drive_FileList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Drive_DriveFile';
   protected $itemsDataType = 'array';
@@ -5246,6 +5307,8 @@ class Google_Service_Drive_FileList extends Google_Collection
 class Google_Service_Drive_ParentList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Drive_ParentReference';
   protected $itemsDataType = 'array';
@@ -5295,6 +5358,8 @@ class Google_Service_Drive_ParentList extends Google_Collection
 
 class Google_Service_Drive_ParentReference extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $isRoot;
   public $kind;
@@ -5355,6 +5420,8 @@ class Google_Service_Drive_ParentReference extends Google_Model
 class Google_Service_Drive_Permission extends Google_Collection
 {
   protected $collection_key = 'additionalRoles';
+  protected $internal_gapi_mappings = array(
+  );
   public $additionalRoles;
   public $authKey;
   public $domain;
@@ -5513,6 +5580,8 @@ class Google_Service_Drive_Permission extends Google_Collection
 
 class Google_Service_Drive_PermissionId extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $kind;
 
@@ -5540,6 +5609,8 @@ class Google_Service_Drive_PermissionId extends Google_Model
 class Google_Service_Drive_PermissionList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Drive_Permission';
   protected $itemsDataType = 'array';
@@ -5589,6 +5660,8 @@ class Google_Service_Drive_PermissionList extends Google_Collection
 
 class Google_Service_Drive_Property extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   public $key;
   public $kind;
@@ -5660,6 +5733,8 @@ class Google_Service_Drive_Property extends Google_Model
 class Google_Service_Drive_PropertyList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Drive_Property';
   protected $itemsDataType = 'array';
@@ -5709,6 +5784,8 @@ class Google_Service_Drive_PropertyList extends Google_Collection
 
 class Google_Service_Drive_Revision extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $downloadUrl;
   public $etag;
   public $exportLinks;
@@ -5912,12 +5989,15 @@ class Google_Service_Drive_Revision extends Google_Model
 
 class Google_Service_Drive_RevisionExportLinks extends Google_Model
 {
-
+  protected $internal_gapi_mappings = array(
+  );
 }
 
 class Google_Service_Drive_RevisionList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Drive_Revision';
   protected $itemsDataType = 'array';
@@ -5967,6 +6047,8 @@ class Google_Service_Drive_RevisionList extends Google_Collection
 
 class Google_Service_Drive_User extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $displayName;
   public $emailAddress;
   public $isAuthenticatedUser;
@@ -6038,6 +6120,8 @@ class Google_Service_Drive_User extends Google_Model
 
 class Google_Service_Drive_UserPicture extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $url;
 
   public function setUrl($url)
