@@ -366,6 +366,8 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
 
 class Google_Service_Licensing_LicenseAssignment extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $etags;
   public $kind;
   public $productId;
@@ -436,6 +438,8 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
 
 class Google_Service_Licensing_LicenseAssignmentInsert extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $userId;
 
   public function setUserId($userId)
@@ -452,6 +456,8 @@ class Google_Service_Licensing_LicenseAssignmentInsert extends Google_Model
 class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_Licensing_LicenseAssignment';
   protected $itemsDataType = 'array';
