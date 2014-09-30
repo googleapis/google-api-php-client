@@ -472,6 +472,8 @@ class Google_Service_Autoscaler_ZoneOperations_Resource extends Google_Service_R
 
 class Google_Service_Autoscaler_Autoscaler extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $autoscalingPolicyType = 'Google_Service_Autoscaler_AutoscalingPolicy';
   protected $autoscalingPolicyDataType = '';
   public $creationTimestamp;
@@ -566,6 +568,8 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
 class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_Autoscaler_Autoscaler';
   protected $itemsDataType = 'array';
   public $kind;
@@ -605,6 +609,8 @@ class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
 class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
 {
   protected $collection_key = 'customMetricUtilizations';
+  protected $internal_gapi_mappings = array(
+  );
   public $coolDownPeriodSec;
   protected $cpuUtilizationType = 'Google_Service_Autoscaler_AutoscalingPolicyCpuUtilization';
   protected $cpuUtilizationDataType = '';
@@ -678,6 +684,8 @@ class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
 
 class Google_Service_Autoscaler_AutoscalingPolicyCpuUtilization extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $utilizationTarget;
 
   public function setUtilizationTarget($utilizationTarget)
@@ -693,6 +701,8 @@ class Google_Service_Autoscaler_AutoscalingPolicyCpuUtilization extends Google_M
 
 class Google_Service_Autoscaler_AutoscalingPolicyCustomMetricUtilization extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $metric;
   public $utilizationTarget;
   public $utilizationTargetType;
@@ -730,6 +740,8 @@ class Google_Service_Autoscaler_AutoscalingPolicyCustomMetricUtilization extends
 
 class Google_Service_Autoscaler_AutoscalingPolicyLoadBalancingUtilization extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $utilizationTarget;
 
   public function setUtilizationTarget($utilizationTarget)
@@ -746,6 +758,8 @@ class Google_Service_Autoscaler_AutoscalingPolicyLoadBalancingUtilization extend
 class Google_Service_Autoscaler_Operation extends Google_Collection
 {
   protected $collection_key = 'warnings';
+  protected $internal_gapi_mappings = array(
+  );
   public $clientOperationId;
   public $creationTimestamp;
   public $endTime;
@@ -995,6 +1009,8 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
 class Google_Service_Autoscaler_OperationError extends Google_Collection
 {
   protected $collection_key = 'errors';
+  protected $internal_gapi_mappings = array(
+  );
   protected $errorsType = 'Google_Service_Autoscaler_OperationErrorErrors';
   protected $errorsDataType = 'array';
 
@@ -1011,6 +1027,8 @@ class Google_Service_Autoscaler_OperationError extends Google_Collection
 
 class Google_Service_Autoscaler_OperationErrorErrors extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $code;
   public $location;
   public $message;
@@ -1049,6 +1067,8 @@ class Google_Service_Autoscaler_OperationErrorErrors extends Google_Model
 class Google_Service_Autoscaler_OperationList extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   protected $itemsType = 'Google_Service_Autoscaler_Operation';
   protected $itemsDataType = 'array';
@@ -1110,6 +1130,8 @@ class Google_Service_Autoscaler_OperationList extends Google_Collection
 class Google_Service_Autoscaler_OperationWarnings extends Google_Collection
 {
   protected $collection_key = 'data';
+  protected $internal_gapi_mappings = array(
+  );
   public $code;
   protected $dataType = 'Google_Service_Autoscaler_OperationWarningsData';
   protected $dataDataType = 'array';
@@ -1148,6 +1170,8 @@ class Google_Service_Autoscaler_OperationWarnings extends Google_Collection
 
 class Google_Service_Autoscaler_OperationWarningsData extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $key;
   public $value;
 
