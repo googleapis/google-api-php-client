@@ -236,6 +236,13 @@ class IoTest extends BaseTest
     $this->assertEquals(3, sizeof($headers));
     $this->assertEquals(null, json_decode($body, true));
 
+    // Test no content.
+    $rawerHeaders = "HTTP/1.1 204 No Content\r\n"
+      . "Date: Fri, 19 Sep 2014 15:52:14 GMT";
+    list($headers, $body) = $io->parseHttpResponse($rawerHeaders, 0);
+    $this->assertEquals(1, sizeof($headers));
+    $this->assertEquals(null, json_decode($body, true));
+
     // Test transforms from proxies.
     $connection_established_headers = array(
       "HTTP/1.0 200 Connection established\r\n\r\n",
