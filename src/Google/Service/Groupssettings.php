@@ -156,6 +156,8 @@ class Google_Service_Groupssettings_Groups_Resource extends Google_Service_Resou
 
 class Google_Service_Groupssettings_Groups extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $allowExternalMembers;
   public $allowGoogleCommunication;
   public $allowWebPosting;
