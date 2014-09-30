@@ -271,7 +271,9 @@ abstract class Google_IO_Abstract
       $responseBody = substr($respData, $headerSize);
       $responseHeaders = substr($respData, 0, $headerSize);
     } else {
-      list($responseHeaders, $responseBody) = explode("\r\n\r\n", $respData, 2);
+      $respArray = explode("\r\n\r\n", $respData, 2);
+    	$responseHeaders = $respArray[0];
+    	$responseBody = (isset($respArray[1])) ? $respArray[1] : '';
     }
 
     $responseHeaders = $this->getHttpResponseHeaders($responseHeaders);
