@@ -293,6 +293,8 @@ class Google_Service_DoubleClickBidManager_Reports_Resource extends Google_Servi
 class Google_Service_DoubleClickBidManager_DownloadLineItemsRequest extends Google_Collection
 {
   protected $collection_key = 'filterIds';
+  protected $internal_gapi_mappings = array(
+  );
   public $filterIds;
   public $filterType;
   public $format;
@@ -330,6 +332,8 @@ class Google_Service_DoubleClickBidManager_DownloadLineItemsRequest extends Goog
 
 class Google_Service_DoubleClickBidManager_DownloadLineItemsResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $lineItems;
 
   public function setLineItems($lineItems)
@@ -345,6 +349,8 @@ class Google_Service_DoubleClickBidManager_DownloadLineItemsResponse extends Goo
 
 class Google_Service_DoubleClickBidManager_FilterPair extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $type;
   public $value;
 
@@ -372,6 +378,8 @@ class Google_Service_DoubleClickBidManager_FilterPair extends Google_Model
 class Google_Service_DoubleClickBidManager_ListQueriesResponse extends Google_Collection
 {
   protected $collection_key = 'queries';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   protected $queriesType = 'Google_Service_DoubleClickBidManager_Query';
   protected $queriesDataType = 'array';
@@ -400,6 +408,8 @@ class Google_Service_DoubleClickBidManager_ListQueriesResponse extends Google_Co
 class Google_Service_DoubleClickBidManager_ListReportsResponse extends Google_Collection
 {
   protected $collection_key = 'reports';
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   protected $reportsType = 'Google_Service_DoubleClickBidManager_Report';
   protected $reportsDataType = 'array';
@@ -428,6 +438,8 @@ class Google_Service_DoubleClickBidManager_ListReportsResponse extends Google_Co
 class Google_Service_DoubleClickBidManager_Parameters extends Google_Collection
 {
   protected $collection_key = 'metrics';
+  protected $internal_gapi_mappings = array(
+  );
   protected $filtersType = 'Google_Service_DoubleClickBidManager_FilterPair';
   protected $filtersDataType = 'array';
   public $groupBys;
@@ -488,6 +500,8 @@ class Google_Service_DoubleClickBidManager_Parameters extends Google_Collection
 
 class Google_Service_DoubleClickBidManager_Query extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $kind;
   protected $metadataType = 'Google_Service_DoubleClickBidManager_QueryMetadata';
   protected $metadataDataType = '';
@@ -584,6 +598,8 @@ class Google_Service_DoubleClickBidManager_Query extends Google_Model
 class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collection
 {
   protected $collection_key = 'shareEmailAddress';
+  protected $internal_gapi_mappings = array(
+  );
   public $dataRange;
   public $format;
   public $googleCloudStoragePathForLatestReport;
@@ -698,6 +714,8 @@ class Google_Service_DoubleClickBidManager_QueryMetadata extends Google_Collecti
 
 class Google_Service_DoubleClickBidManager_QuerySchedule extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $endTimeMs;
   public $frequency;
   public $nextRunMinuteOfDay;
@@ -746,6 +764,8 @@ class Google_Service_DoubleClickBidManager_QuerySchedule extends Google_Model
 
 class Google_Service_DoubleClickBidManager_Report extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $keyType = 'Google_Service_DoubleClickBidManager_ReportKey';
   protected $keyDataType = '';
   protected $metadataType = 'Google_Service_DoubleClickBidManager_ReportMetadata';
@@ -786,6 +806,8 @@ class Google_Service_DoubleClickBidManager_Report extends Google_Model
 
 class Google_Service_DoubleClickBidManager_ReportFailure extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $errorCode;
 
   public function setErrorCode($errorCode)
@@ -801,6 +823,8 @@ class Google_Service_DoubleClickBidManager_ReportFailure extends Google_Model
 
 class Google_Service_DoubleClickBidManager_ReportKey extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $queryId;
   public $reportId;
 
@@ -827,6 +851,8 @@ class Google_Service_DoubleClickBidManager_ReportKey extends Google_Model
 
 class Google_Service_DoubleClickBidManager_ReportMetadata extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $googleCloudStoragePath;
   public $reportDataEndTimeMs;
   public $reportDataStartTimeMs;
@@ -876,6 +902,8 @@ class Google_Service_DoubleClickBidManager_ReportMetadata extends Google_Model
 
 class Google_Service_DoubleClickBidManager_ReportStatus extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $failureType = 'Google_Service_DoubleClickBidManager_ReportFailure';
   protected $failureDataType = '';
   public $finishTimeMs;
@@ -926,6 +954,8 @@ class Google_Service_DoubleClickBidManager_ReportStatus extends Google_Model
 class Google_Service_DoubleClickBidManager_RowStatus extends Google_Collection
 {
   protected $collection_key = 'errors';
+  protected $internal_gapi_mappings = array(
+  );
   public $changed;
   public $entityId;
   public $entityName;
@@ -996,6 +1026,8 @@ class Google_Service_DoubleClickBidManager_RowStatus extends Google_Collection
 
 class Google_Service_DoubleClickBidManager_RunQueryRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $dataRange;
   public $reportDataEndTimeMs;
   public $reportDataStartTimeMs;
@@ -1044,6 +1076,8 @@ class Google_Service_DoubleClickBidManager_RunQueryRequest extends Google_Model
 
 class Google_Service_DoubleClickBidManager_UploadLineItemsRequest extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $dryRun;
   public $format;
   public $lineItems;
@@ -1081,6 +1115,8 @@ class Google_Service_DoubleClickBidManager_UploadLineItemsRequest extends Google
 
 class Google_Service_DoubleClickBidManager_UploadLineItemsResponse extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $uploadStatusType = 'Google_Service_DoubleClickBidManager_UploadStatus';
   protected $uploadStatusDataType = '';
 
@@ -1098,6 +1134,8 @@ class Google_Service_DoubleClickBidManager_UploadLineItemsResponse extends Googl
 class Google_Service_DoubleClickBidManager_UploadStatus extends Google_Collection
 {
   protected $collection_key = 'rowStatus';
+  protected $internal_gapi_mappings = array(
+  );
   public $errors;
   protected $rowStatusType = 'Google_Service_DoubleClickBidManager_RowStatus';
   protected $rowStatusDataType = 'array';
