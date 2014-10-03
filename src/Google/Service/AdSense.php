@@ -2175,6 +2175,8 @@ class Google_Service_AdSense_Urlchannels_Resource extends Google_Service_Resourc
 class Google_Service_AdSense_Account extends Google_Collection
 {
   protected $collection_key = 'subAccounts';
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $kind;
   public $name;
@@ -2247,6 +2249,8 @@ class Google_Service_AdSense_Account extends Google_Collection
 class Google_Service_AdSense_Accounts extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_Account';
   protected $itemsDataType = 'array';
@@ -2296,6 +2300,8 @@ class Google_Service_AdSense_Accounts extends Google_Collection
 
 class Google_Service_AdSense_AdClient extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $arcOptIn;
   public $arcReviewMode;
   public $id;
@@ -2367,6 +2373,8 @@ class Google_Service_AdSense_AdClient extends Google_Model
 class Google_Service_AdSense_AdClients extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_AdClient';
   protected $itemsDataType = 'array';
@@ -2416,6 +2424,8 @@ class Google_Service_AdSense_AdClients extends Google_Collection
 
 class Google_Service_AdSense_AdCode extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $adCode;
   public $kind;
 
@@ -2442,6 +2452,8 @@ class Google_Service_AdSense_AdCode extends Google_Model
 
 class Google_Service_AdSense_AdStyle extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $colorsType = 'Google_Service_AdSense_AdStyleColors';
   protected $colorsDataType = '';
   public $corners;
@@ -2492,6 +2504,8 @@ class Google_Service_AdSense_AdStyle extends Google_Model
 
 class Google_Service_AdSense_AdStyleColors extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $background;
   public $border;
   public $text;
@@ -2551,6 +2565,8 @@ class Google_Service_AdSense_AdStyleColors extends Google_Model
 
 class Google_Service_AdSense_AdStyleFont extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $family;
   public $size;
 
@@ -2577,6 +2593,8 @@ class Google_Service_AdSense_AdStyleFont extends Google_Model
 
 class Google_Service_AdSense_AdUnit extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $code;
   protected $contentAdsSettingsType = 'Google_Service_AdSense_AdUnitContentAdsSettings';
   protected $contentAdsSettingsDataType = '';
@@ -2695,6 +2713,8 @@ class Google_Service_AdSense_AdUnit extends Google_Model
 
 class Google_Service_AdSense_AdUnitContentAdsSettings extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $backupOptionType = 'Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption';
   protected $backupOptionDataType = '';
   public $size;
@@ -2733,6 +2753,8 @@ class Google_Service_AdSense_AdUnitContentAdsSettings extends Google_Model
 
 class Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $color;
   public $type;
   public $url;
@@ -2770,6 +2792,8 @@ class Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption extends Google
 
 class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $adPosition;
   public $frequency;
   public $minimumWordCount;
@@ -2818,6 +2842,8 @@ class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
 
 class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $markupLanguage;
   public $scriptingLanguage;
   public $size;
@@ -2867,6 +2893,8 @@ class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
 class Google_Service_AdSense_AdUnits extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_AdUnit';
   protected $itemsDataType = 'array';
@@ -2917,6 +2945,8 @@ class Google_Service_AdSense_AdUnits extends Google_Collection
 class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Collection
 {
   protected $collection_key = 'warnings';
+  protected $internal_gapi_mappings = array(
+  );
   public $averages;
   public $endDate;
   protected $headersType = 'Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders';
@@ -3021,6 +3051,8 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
 
 class Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $currency;
   public $name;
   public $type;
@@ -3058,6 +3090,8 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders extends Googl
 
 class Google_Service_AdSense_Alert extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $isDismissible;
   public $kind;
@@ -3129,6 +3163,8 @@ class Google_Service_AdSense_Alert extends Google_Model
 class Google_Service_AdSense_Alerts extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_AdSense_Alert';
   protected $itemsDataType = 'array';
   public $kind;
@@ -3156,6 +3192,8 @@ class Google_Service_AdSense_Alerts extends Google_Collection
 
 class Google_Service_AdSense_CustomChannel extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $code;
   public $id;
   public $kind;
@@ -3216,6 +3254,8 @@ class Google_Service_AdSense_CustomChannel extends Google_Model
 
 class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $adsAppearOn;
   public $description;
   public $location;
@@ -3265,6 +3305,8 @@ class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
 class Google_Service_AdSense_CustomChannels extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_CustomChannel';
   protected $itemsDataType = 'array';
@@ -3315,6 +3357,8 @@ class Google_Service_AdSense_CustomChannels extends Google_Collection
 class Google_Service_AdSense_Metadata extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_AdSense_ReportingMetadataEntry';
   protected $itemsDataType = 'array';
   public $kind;
@@ -3342,6 +3386,8 @@ class Google_Service_AdSense_Metadata extends Google_Collection
 
 class Google_Service_AdSense_Payment extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $kind;
   public $paymentAmount;
@@ -3402,6 +3448,8 @@ class Google_Service_AdSense_Payment extends Google_Model
 class Google_Service_AdSense_Payments extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   protected $itemsType = 'Google_Service_AdSense_Payment';
   protected $itemsDataType = 'array';
   public $kind;
@@ -3430,6 +3478,8 @@ class Google_Service_AdSense_Payments extends Google_Collection
 class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
 {
   protected $collection_key = 'supportedProducts';
+  protected $internal_gapi_mappings = array(
+  );
   public $compatibleDimensions;
   public $compatibleMetrics;
   public $id;
@@ -3511,6 +3561,8 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
 
 class Google_Service_AdSense_SavedAdStyle extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   protected $adStyleType = 'Google_Service_AdSense_AdStyle';
   protected $adStyleDataType = '';
   public $id;
@@ -3561,6 +3613,8 @@ class Google_Service_AdSense_SavedAdStyle extends Google_Model
 class Google_Service_AdSense_SavedAdStyles extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_SavedAdStyle';
   protected $itemsDataType = 'array';
@@ -3610,6 +3664,8 @@ class Google_Service_AdSense_SavedAdStyles extends Google_Collection
 
 class Google_Service_AdSense_SavedReport extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $kind;
   public $name;
@@ -3648,6 +3704,8 @@ class Google_Service_AdSense_SavedReport extends Google_Model
 class Google_Service_AdSense_SavedReports extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_SavedReport';
   protected $itemsDataType = 'array';
@@ -3697,6 +3755,8 @@ class Google_Service_AdSense_SavedReports extends Google_Collection
 
 class Google_Service_AdSense_UrlChannel extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
   public $id;
   public $kind;
   public $urlPattern;
@@ -3735,6 +3795,8 @@ class Google_Service_AdSense_UrlChannel extends Google_Model
 class Google_Service_AdSense_UrlChannels extends Google_Collection
 {
   protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
   public $etag;
   protected $itemsType = 'Google_Service_AdSense_UrlChannel';
   protected $itemsDataType = 'array';
