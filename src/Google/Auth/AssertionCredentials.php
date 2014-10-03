@@ -15,9 +15,7 @@
  * limitations under the License.
  */
 
-require_once "Google/Auth/OAuth2.php";
-require_once "Google/Signer/P12.php";
-require_once "Google/Utils.php";
+require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
 
 /**
  * Credentials object used for OAuth 2.0 Signed JWT assertion grants.

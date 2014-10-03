@@ -19,8 +19,7 @@
  */
 
 require_once 'BaseTest.php';
-require_once 'Google/Http/CacheParser.php';
-require_once 'Google/Http/Request.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class ApiCacheParserTest extends BaseTest {
   public function testIsResponseCacheable() {

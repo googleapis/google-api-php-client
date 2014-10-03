@@ -19,9 +19,7 @@
  */
 
 require_once 'BaseTest.php';
-require_once 'Google/Service/Plus.php';
-require_once 'Google/Utils.php';
-require_once 'Google/Service/Resource.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class TestModel extends Google_Model {
   public function mapTypes($array) {

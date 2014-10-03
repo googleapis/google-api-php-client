@@ -19,8 +19,7 @@
  */
 
 require_once 'BaseTest.php';
-require_once 'Google/Service/AdExchangeBuyer.php';
-require_once 'Google/Service/Calendar.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class ApiModelTest extends BaseTest
 {

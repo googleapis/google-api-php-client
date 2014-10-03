@@ -19,10 +19,7 @@
  */
 
 require_once 'BaseTest.php';
-require_once 'Google/Auth/Exception.php';
-require_once 'Google/Auth/Simple.php';
-require_once 'Google/Client.php';
-require_once 'Google/Service/Drive.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class ApiClientTest extends BaseTest {
   public function testClient() {

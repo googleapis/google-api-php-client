@@ -15,8 +15,7 @@
  * limitations under the License.
  */
 
-require_once "Google/Auth/Abstract.php";
-require_once "Google/Http/Request.php";
+require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
 
 /**
  * Simple API access implementation. Can either be used to make requests

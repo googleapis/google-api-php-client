@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-require_once 'Google/Service/Tasks.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class TasksTest extends BaseTest {
   /** @var Google_TasksService */

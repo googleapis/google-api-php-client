@@ -19,10 +19,7 @@
  */
 
 require_once 'BaseTest.php';
-require_once 'Google/Cache/File.php';
-require_once 'Google/Cache/Memcache.php';
-require_once 'Google/Cache/Apc.php';
-require_once 'Google/Cache/Null.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class CacheTest extends BaseTest {
 

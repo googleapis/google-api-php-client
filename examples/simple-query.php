@@ -25,9 +25,7 @@ echo pageHeader("Simple API Access");
   should use our quota, which is higher than the
   anonymous quota (which is limited per IP).
  ************************************************/
-set_include_path("../src/" . PATH_SEPARATOR . get_include_path());
-require_once 'Google/Client.php';
-require_once 'Google/Service/Books.php';
+require_once realpath(dirname(__FILE__) . '/../autoload.php');
 
 /************************************************
   We create the client and set the simple API

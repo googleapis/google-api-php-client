@@ -1,6 +1,6 @@
 <?php
 
-require_once "Google/Model.php";
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 /**
  * Extension to the regular Google_Model that automatically

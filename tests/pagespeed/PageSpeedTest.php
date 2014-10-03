@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-require_once 'Google/Service/Pagespeedonline.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class PageSpeedTest extends BaseTest {
   public $service;
