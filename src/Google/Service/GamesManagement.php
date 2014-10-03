@@ -78,6 +78,10 @@ class Google_Service_GamesManagement extends Google_Service
               'path' => 'achievements/reset',
               'httpMethod' => 'POST',
               'parameters' => array(),
+            ),'resetAllForAllPlayers' => array(
+              'path' => 'achievements/resetAllForAllPlayers',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),'resetForAllPlayers' => array(
               'path' => 'achievements/{achievementId}/resetForAllPlayers',
               'httpMethod' => 'POST',
@@ -88,6 +92,10 @@ class Google_Service_GamesManagement extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'resetMultipleForAllPlayers' => array(
+              'path' => 'achievements/resetMultipleForAllPlayers',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),
           )
         )
@@ -318,8 +326,22 @@ class Google_Service_GamesManagement_Achievements_Resource extends Google_Servic
     return $this->call('resetAll', array($params), "Google_Service_GamesManagement_AchievementResetAllResponse");
   }
   /**
-   * Resets the achievement with the given ID for the all players. This method is
-   * only available to user accounts for your developer console. Only draft
+   * Resets all draft achievements for all players. This method is only available
+   * to user accounts for your developer console.
+   * (achievements.resetAllForAllPlayers)
+   *
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_GamesManagement_AchievementResetAllResponse
+   */
+  public function resetAllForAllPlayers($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('resetAllForAllPlayers', array($params), "Google_Service_GamesManagement_AchievementResetAllResponse");
+  }
+  /**
+   * Resets the achievement with the given ID for all players. This method is only
+   * available to user accounts for your developer console. Only draft
    * achievements can be reset. (achievements.resetForAllPlayers)
    *
    * @param string $achievementId
@@ -331,6 +353,20 @@ class Google_Service_GamesManagement_Achievements_Resource extends Google_Servic
     $params = array('achievementId' => $achievementId);
     $params = array_merge($params, $optParams);
     return $this->call('resetForAllPlayers', array($params));
+  }
+  /**
+   * Resets the achievement with the given IDs for all players. This method is
+   * only available to user accounts for your developer console. Only draft
+   * achievements may be reset. (achievements.resetMultipleForAllPlayers)
+   *
+   * @param Google_AchievementResetMultipleForAllRequest $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function resetMultipleForAllPlayers(Google_Service_GamesManagement_AchievementResetMultipleForAllRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('resetMultipleForAllPlayers', array($params));
   }
 }
 
@@ -629,6 +665,36 @@ class Google_Service_GamesManagement_AchievementResetAllResponse extends Google_
   public function getResults()
   {
     return $this->results;
+  }
+}
+
+class Google_Service_GamesManagement_AchievementResetMultipleForAllRequest extends Google_Collection
+{
+  protected $collection_key = 'achievement_ids';
+  protected $internal_gapi_mappings = array(
+        "achievementIds" => "achievement_ids",
+  );
+  public $achievementIds;
+  public $kind;
+
+  public function setAchievementIds($achievementIds)
+  {
+    $this->achievementIds = $achievementIds;
+  }
+
+  public function getAchievementIds()
+  {
+    return $this->achievementIds;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
   }
 }
 
