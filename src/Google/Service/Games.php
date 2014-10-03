@@ -2922,6 +2922,7 @@ class Google_Service_Games_Application extends Google_Collection
   public $lastUpdatedTimestamp;
   public $leaderboardCount;
   public $name;
+  public $themeColor;
 
   public function setAchievementCount($achievementCount)
   {
@@ -3041,6 +3042,16 @@ class Google_Service_Games_Application extends Google_Collection
   public function getName()
   {
     return $this->name;
+  }
+
+  public function setThemeColor($themeColor)
+  {
+    $this->themeColor = $themeColor;
+  }
+
+  public function getThemeColor()
+  {
+    return $this->themeColor;
   }
 }
 
