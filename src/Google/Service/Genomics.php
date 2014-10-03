@@ -1125,9 +1125,14 @@ class Google_Service_Genomics_Variants_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Genomics_Variant");
   }
   /**
-   * Creates variant data by asynchronously importing the provided information. If
-   * the destination variant set already contains data, new variants will be
-   * merged according to the behavior of mergeVariants. (variants.import)
+   * Creates variant data by asynchronously importing the provided information.
+   * The variants for import will be merged with any existing data and each other
+   * according to the behavior of mergeVariants. In particular, this means for
+   * merged VCF variants that have conflicting INFO fields, some data will be
+   * arbitrarily discarded. As a special case, for single-sample VCF files, QUAL
+   * and FILTER fields will be moved to the call level; these are sometimes
+   * interpreted in a call-specific context. Imported VCF headers are appended to
+   * the metadata already in a VariantSet. (variants.import)
    *
    * @param Google_ImportVariantsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -1222,10 +1227,10 @@ class Google_Service_Genomics_Variantsets_Resource extends Google_Service_Resour
    *
    * @param string $variantSetId
    * The destination variant set.
-   * @param Google_Variant $postBody
+   * @param Google_MergeVariantsRequest $postBody
    * @param array $optParams Optional parameters.
    */
-  public function mergeVariants($variantSetId, Google_Service_Genomics_Variant $postBody, $optParams = array())
+  public function mergeVariants($variantSetId, Google_Service_Genomics_MergeVariantsRequest $postBody, $optParams = array())
   {
     $params = array('variantSetId' => $variantSetId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
@@ -2280,6 +2285,25 @@ class Google_Service_Genomics_ListDatasetsResponse extends Google_Collection
   public function getNextPageToken()
   {
     return $this->nextPageToken;
+  }
+}
+
+class Google_Service_Genomics_MergeVariantsRequest extends Google_Collection
+{
+  protected $collection_key = 'variants';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $variantsType = 'Google_Service_Genomics_Variant';
+  protected $variantsDataType = 'array';
+
+  public function setVariants($variants)
+  {
+    $this->variants = $variants;
+  }
+
+  public function getVariants()
+  {
+    return $this->variants;
   }
 }
 
