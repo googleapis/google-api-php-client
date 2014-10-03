@@ -53,6 +53,7 @@ class Google_Service_Compute extends Google_Service
   public $globalOperations;
   public $httpHealthChecks;
   public $images;
+  public $instanceTemplates;
   public $instances;
   public $licenses;
   public $machineTypes;
@@ -1174,6 +1175,78 @@ class Google_Service_Compute extends Google_Service
               ),
             ),'list' => array(
               'path' => '{project}/global/images',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->instanceTemplates = new Google_Service_Compute_InstanceTemplates_Resource(
+        $this,
+        $this->serviceName,
+        'instanceTemplates',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/global/instanceTemplates/{instanceTemplate}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceTemplate' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => '{project}/global/instanceTemplates/{instanceTemplate}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceTemplate' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => '{project}/global/instanceTemplates',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{project}/global/instanceTemplates',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'project' => array(
@@ -3932,6 +4005,91 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
     $params = array('project' => $project);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Compute_ImageList");
+  }
+}
+
+/**
+ * The "instanceTemplates" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $instanceTemplates = $computeService->instanceTemplates;
+ *  </code>
+ */
+class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Deletes the specified instance template resource. (instanceTemplates.delete)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param string $instanceTemplate
+   * Name of the instance template resource to delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function delete($project, $instanceTemplate, $optParams = array())
+  {
+    $params = array('project' => $project, 'instanceTemplate' => $instanceTemplate);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Compute_Operation");
+  }
+  /**
+   * Returns the specified instance template resource. (instanceTemplates.get)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param string $instanceTemplate
+   * Name of the instance template resource to return.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_InstanceTemplate
+   */
+  public function get($project, $instanceTemplate, $optParams = array())
+  {
+    $params = array('project' => $project, 'instanceTemplate' => $instanceTemplate);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_InstanceTemplate");
+  }
+  /**
+   * Creates an instance template resource in the specified project using the data
+   * included in the request. (instanceTemplates.insert)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param Google_InstanceTemplate $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function insert($project, Google_Service_Compute_InstanceTemplate $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Compute_Operation");
+  }
+  /**
+   * Retrieves the list of instance template resources contained within the
+   * specified project. (instanceTemplates.listInstanceTemplates)
+   *
+   * @param string $project
+   * Name of the project scoping this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter
+   * Optional. Filter expression for filtering listed resources.
+   * @opt_param string pageToken
+   * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
+    * previous list request.
+   * @opt_param string maxResults
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 500.
+   * @return Google_Service_Compute_InstanceTemplateList
+   */
+  public function listInstanceTemplates($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Compute_InstanceTemplateList");
   }
 }
 
@@ -8739,6 +8897,118 @@ class Google_Service_Compute_InstanceList extends Google_Collection
   }
 }
 
+class Google_Service_Compute_InstanceProperties extends Google_Collection
+{
+  protected $collection_key = 'serviceAccounts';
+  protected $internal_gapi_mappings = array(
+  );
+  public $canIpForward;
+  public $description;
+  protected $disksType = 'Google_Service_Compute_AttachedDisk';
+  protected $disksDataType = 'array';
+  public $machineType;
+  protected $metadataType = 'Google_Service_Compute_Metadata';
+  protected $metadataDataType = '';
+  protected $networkInterfacesType = 'Google_Service_Compute_NetworkInterface';
+  protected $networkInterfacesDataType = 'array';
+  protected $schedulingType = 'Google_Service_Compute_Scheduling';
+  protected $schedulingDataType = '';
+  protected $serviceAccountsType = 'Google_Service_Compute_ServiceAccount';
+  protected $serviceAccountsDataType = 'array';
+  protected $tagsType = 'Google_Service_Compute_Tags';
+  protected $tagsDataType = '';
+
+  public function setCanIpForward($canIpForward)
+  {
+    $this->canIpForward = $canIpForward;
+  }
+
+  public function getCanIpForward()
+  {
+    return $this->canIpForward;
+  }
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  public function setDisks($disks)
+  {
+    $this->disks = $disks;
+  }
+
+  public function getDisks()
+  {
+    return $this->disks;
+  }
+
+  public function setMachineType($machineType)
+  {
+    $this->machineType = $machineType;
+  }
+
+  public function getMachineType()
+  {
+    return $this->machineType;
+  }
+
+  public function setMetadata(Google_Service_Compute_Metadata $metadata)
+  {
+    $this->metadata = $metadata;
+  }
+
+  public function getMetadata()
+  {
+    return $this->metadata;
+  }
+
+  public function setNetworkInterfaces($networkInterfaces)
+  {
+    $this->networkInterfaces = $networkInterfaces;
+  }
+
+  public function getNetworkInterfaces()
+  {
+    return $this->networkInterfaces;
+  }
+
+  public function setScheduling(Google_Service_Compute_Scheduling $scheduling)
+  {
+    $this->scheduling = $scheduling;
+  }
+
+  public function getScheduling()
+  {
+    return $this->scheduling;
+  }
+
+  public function setServiceAccounts($serviceAccounts)
+  {
+    $this->serviceAccounts = $serviceAccounts;
+  }
+
+  public function getServiceAccounts()
+  {
+    return $this->serviceAccounts;
+  }
+
+  public function setTags(Google_Service_Compute_Tags $tags)
+  {
+    $this->tags = $tags;
+  }
+
+  public function getTags()
+  {
+    return $this->tags;
+  }
+}
+
 class Google_Service_Compute_InstanceReference extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -8753,6 +9023,153 @@ class Google_Service_Compute_InstanceReference extends Google_Model
   public function getInstance()
   {
     return $this->instance;
+  }
+}
+
+class Google_Service_Compute_InstanceTemplate extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $creationTimestamp;
+  public $description;
+  public $id;
+  public $kind;
+  public $name;
+  protected $propertiesType = 'Google_Service_Compute_InstanceProperties';
+  protected $propertiesDataType = '';
+  public $selfLink;
+
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  public function setProperties(Google_Service_Compute_InstanceProperties $properties)
+  {
+    $this->properties = $properties;
+  }
+
+  public function getProperties()
+  {
+    return $this->properties;
+  }
+
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_InstanceTemplateList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_InstanceTemplate';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
   }
 }
 
