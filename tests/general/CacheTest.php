@@ -84,7 +84,7 @@ class CacheTest extends BaseTest {
       $this->markTestSkipped('Test requires APC enabled for CLI');
     }
     $client = $this->getClient();
-    $cache = new Google_Cache_APC($client);
+    $cache = new Google_Cache_Apc($client);
 
     $this->getSetDelete($cache);
   }
