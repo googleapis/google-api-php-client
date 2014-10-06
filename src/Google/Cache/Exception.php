@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-require_once "Google/Exception.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Exception.php";
 
 class Google_Cache_Exception extends Google_Exception
 {

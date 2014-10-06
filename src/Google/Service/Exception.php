@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Google/Exception.php';
+require_once dirname(dirname(dirname(__FILE__))) . '/Google/Exception.php';
 
 class Google_Service_Exception extends Google_Exception
 {

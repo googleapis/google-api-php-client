@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-require_once "Google/Auth/OAuth2.php";
-require_once "Google/Signer/P12.php";
-require_once "Google/Utils.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Auth/OAuth2.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Signer/P12.php";
+require_once dirname(dirname(dirname(__FILE__))) . "/Google/Utils.php";
 
 /**
  * Credentials object used for OAuth 2.0 Signed JWT assertion grants.
