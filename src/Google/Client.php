@@ -26,7 +26,7 @@ require_once realpath(dirname(__FILE__) . '/../../autoload.php');
  */
 class Google_Client
 {
-  const LIBVER = "1.0.6-beta";
+  const LIBVER = "1.1.0-beta";
   const USER_AGENT_SUFFIX = "google-api-php-client/";
   /**
    * @var Google_Auth_Abstract $auth
