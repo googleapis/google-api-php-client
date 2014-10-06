@@ -15,9 +15,7 @@
  * limitations under the License.
  */
 
-require_once 'Google/Client.php';
-require_once 'Google/Http/Request.php';
-require_once 'Google/Http/REST.php';
+require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
 
 /**
  * @author Chirag Shah <chirags@google.com>

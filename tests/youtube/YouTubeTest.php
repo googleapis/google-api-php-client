@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-require_once 'Google/Service/YouTube.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class YouTubeTests extends PHPUnit_Framework_TestSuite
 {

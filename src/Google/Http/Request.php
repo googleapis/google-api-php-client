@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-require_once 'Google/Utils.php';
+require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
 
 /**
  * HTTP Request to be executed by IO classes. Upon execution, the

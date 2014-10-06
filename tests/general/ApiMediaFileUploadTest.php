@@ -19,7 +19,7 @@
  */
 
 require_once 'BaseTest.php';
-require_once 'Google/Http/MediaFileUpload.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class ApiMediaFileUploadTest extends BaseTest
 {

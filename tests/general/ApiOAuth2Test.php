@@ -19,8 +19,7 @@
  */
 
 require_once "BaseTest.php";
-require_once "Google/Auth/OAuth2.php";
-require_once "Google/Http/Request.php";
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class ApiOAuth2Test extends BaseTest {
 

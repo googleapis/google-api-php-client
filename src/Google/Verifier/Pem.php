@@ -15,8 +15,7 @@
  * limitations under the License.
  */
  
-require_once 'Google/Auth/Exception.php';
-require_once 'Google/Verifier/Abstract.php';
+require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
 
 /**
  * Verifies signatures using PEM encoded certificates.

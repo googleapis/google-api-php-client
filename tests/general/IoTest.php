@@ -19,9 +19,7 @@
  */
 
 require_once 'BaseTest.php';
-require_once 'Google/Http/Request.php';
-require_once 'Google/IO/Curl.php';
-require_once 'Google/IO/Stream.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class IoTest extends BaseTest
 {

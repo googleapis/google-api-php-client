@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-require_once 'Google/Service/Plus.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class AllPlusTests extends PHPUnit_Framework_TestSuite {
   public static function suite() {

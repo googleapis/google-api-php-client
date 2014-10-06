@@ -15,8 +15,7 @@
  * limitations under the License.
  */
 
-require_once 'Google/Client.php';
-require_once 'Google/Service/Urlshortener.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class UrlShortenerTests extends BaseTest {
   /** @var Google_UrlshortenerService */

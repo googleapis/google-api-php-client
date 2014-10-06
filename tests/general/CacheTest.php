@@ -19,10 +19,7 @@
  */
 
 require_once 'BaseTest.php';
-require_once 'Google/Cache/File.php';
-require_once 'Google/Cache/Memcache.php';
-require_once 'Google/Cache/Apc.php';
-require_once 'Google/Cache/Null.php';
+require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
 class CacheTest extends BaseTest {
 
@@ -87,7 +84,7 @@ class CacheTest extends BaseTest {
       $this->markTestSkipped('Test requires APC enabled for CLI');
     }
     $client = $this->getClient();
-    $cache = new Google_Cache_APC($client);
+    $cache = new Google_Cache_Apc($client);
 
     $this->getSetDelete($cache);
   }
