@@ -213,8 +213,11 @@ class IoTest extends BaseTest
 
   public function responseChecker($io)
   {
-    $curlVer = curl_version();
-    $hasQuirk = $curlVer['version_number'] < Google_IO_Curl::NO_QUIRK_VERSION;
+    $hasQuirk = false;
+    if (function_exists('curl_version')) {
+      $curlVer = curl_version();
+      $hasQuirk = $curlVer['version_number'] < Google_IO_Curl::NO_QUIRK_VERSION;
+    }
 
     $rawHeaders = "HTTP/1.1 200 OK\r\n"
         . "Expires: Sun, 22 Jan 2012 09:00:56 GMT\r\n"
