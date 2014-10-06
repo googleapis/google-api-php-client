@@ -994,6 +994,7 @@ class Google_Service_Doubleclicksearch_ReportApiColumnSpec extends Google_Model
   );
   public $columnName;
   public $customDimensionName;
+  public $customMetricName;
   public $endDate;
   public $groupByColumn;
   public $headerText;
@@ -1019,6 +1020,16 @@ class Google_Service_Doubleclicksearch_ReportApiColumnSpec extends Google_Model
   public function getCustomDimensionName()
   {
     return $this->customDimensionName;
+  }
+
+  public function setCustomMetricName($customMetricName)
+  {
+    $this->customMetricName = $customMetricName;
+  }
+
+  public function getCustomMetricName()
+  {
+    return $this->customMetricName;
   }
 
   public function setEndDate($endDate)
