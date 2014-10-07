@@ -58,7 +58,7 @@ When we started working on the 1.0.0 branch we knew there were several fundament
 
 The _Service classes are generally automatically generated from the API discovery documents: https://developers.google.com/discovery/. Sometimes new features are added to APIs with unusual names, which can cause some unexpected or non-standard style naming in the PHP classes. 
 
-### How do I deal with non-JSON response types ###
+### How do I deal with non-JSON response types? ###
 
 Some servives return XML or similar by default, rather than JSON, which is what the library supports. You can request a JSON response by adding an 'alt' argument to optional params that is normally the last argument to a method call:
 
