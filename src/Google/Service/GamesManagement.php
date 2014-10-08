@@ -331,13 +331,12 @@ class Google_Service_GamesManagement_Achievements_Resource extends Google_Servic
    * (achievements.resetAllForAllPlayers)
    *
    * @param array $optParams Optional parameters.
-   * @return Google_Service_GamesManagement_AchievementResetAllResponse
    */
   public function resetAllForAllPlayers($optParams = array())
   {
     $params = array();
     $params = array_merge($params, $optParams);
-    return $this->call('resetAllForAllPlayers', array($params), "Google_Service_GamesManagement_AchievementResetAllResponse");
+    return $this->call('resetAllForAllPlayers', array($params));
   }
   /**
    * Resets the achievement with the given ID for all players. This method is only
