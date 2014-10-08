@@ -111,16 +111,17 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       return $this->getAccessToken();
     } else {
       $decodedResponse = json_decode($response->getResponseBody(), true);
+      $errorString = '';
       if ($decodedResponse != null && $decodedResponse['error']) {
-        $decodedResponse = $decodedResponse['error'];
+        $errorString = $decodedResponse['error'];
         if (isset($decodedResponse['error_description'])) {
-          $decodedResponse .= ": " . $decodedResponse['error_description'];
+          $errorString .= ": " . $decodedResponse['error_description'];
         }
       }
       throw new Google_Auth_Exception(
           sprintf(
               "Error fetching OAuth2 access token, message: '%s'",
-              $decodedResponse
+              $errorString
           ),
           $response->getResponseHttpCode()
       );
