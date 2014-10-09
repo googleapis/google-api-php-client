@@ -495,10 +495,30 @@ class Google_Service_Genomics extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'patch' => array(
+              'path' => 'variantsets/{variantSetId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'variantSetId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'search' => array(
               'path' => 'variantsets/search',
               'httpMethod' => 'POST',
               'parameters' => array(),
+            ),'update' => array(
+              'path' => 'variantsets/{variantSetId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'variantSetId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )
@@ -1237,6 +1257,23 @@ class Google_Service_Genomics_Variantsets_Resource extends Google_Service_Resour
     return $this->call('mergeVariants', array($params));
   }
   /**
+   * Updates a variant set's metadata. All other modifications are silently
+   * ignored. Returns the modified variant set. This method supports patch
+   * semantics. (variantsets.patch)
+   *
+   * @param string $variantSetId
+   * The ID of the variant to be updated.
+   * @param Google_VariantSet $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Genomics_VariantSet
+   */
+  public function patch($variantSetId, Google_Service_Genomics_VariantSet $postBody, $optParams = array())
+  {
+    $params = array('variantSetId' => $variantSetId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_Genomics_VariantSet");
+  }
+  /**
    * Returns a list of all variant sets matching search criteria.
    * (variantsets.search)
    *
@@ -1249,6 +1286,22 @@ class Google_Service_Genomics_Variantsets_Resource extends Google_Service_Resour
     $params = array('postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('search', array($params), "Google_Service_Genomics_SearchVariantSetsResponse");
+  }
+  /**
+   * Updates a variant set's metadata. All other modifications are silently
+   * ignored. Returns the modified variant set. (variantsets.update)
+   *
+   * @param string $variantSetId
+   * The ID of the variant to be updated.
+   * @param Google_VariantSet $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Genomics_VariantSet
+   */
+  public function update($variantSetId, Google_Service_Genomics_VariantSet $postBody, $optParams = array())
+  {
+    $params = array('variantSetId' => $variantSetId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_Genomics_VariantSet");
   }
 }
 
@@ -1517,13 +1570,8 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
   public $align;
   public $callVariants;
   public $gcsOutputPath;
-  public $libraryName;
   public $pairedSourceUris;
-  public $platformName;
-  public $platformUnit;
   public $projectId;
-  public $readGroupId;
-  public $sampleName;
   public $sourceUris;
 
   public function setAlign($align)
@@ -1556,16 +1604,6 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
     return $this->gcsOutputPath;
   }
 
-  public function setLibraryName($libraryName)
-  {
-    $this->libraryName = $libraryName;
-  }
-
-  public function getLibraryName()
-  {
-    return $this->libraryName;
-  }
-
   public function setPairedSourceUris($pairedSourceUris)
   {
     $this->pairedSourceUris = $pairedSourceUris;
@@ -1576,26 +1614,6 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
     return $this->pairedSourceUris;
   }
 
-  public function setPlatformName($platformName)
-  {
-    $this->platformName = $platformName;
-  }
-
-  public function getPlatformName()
-  {
-    return $this->platformName;
-  }
-
-  public function setPlatformUnit($platformUnit)
-  {
-    $this->platformUnit = $platformUnit;
-  }
-
-  public function getPlatformUnit()
-  {
-    return $this->platformUnit;
-  }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -1604,26 +1622,6 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
   public function getProjectId()
   {
     return $this->projectId;
-  }
-
-  public function setReadGroupId($readGroupId)
-  {
-    $this->readGroupId = $readGroupId;
-  }
-
-  public function getReadGroupId()
-  {
-    return $this->readGroupId;
-  }
-
-  public function setSampleName($sampleName)
-  {
-    $this->sampleName = $sampleName;
-  }
-
-  public function getSampleName()
-  {
-    return $this->sampleName;
   }
 
   public function setSourceUris($sourceUris)
