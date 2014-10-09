@@ -31,6 +31,8 @@
  */
 class Google_Service_Storage extends Google_Service
 {
+  /** View and manage your data across Google Cloud Platform services. */
+  const CLOUD_PLATFORM = "https://www.googleapis.com/auth/cloud-platform";
   /** Manage your data and permissions in Google Cloud Storage. */
   const DEVSTORAGE_FULL_CONTROL = "https://www.googleapis.com/auth/devstorage.full_control";
   /** View your data in Google Cloud Storage. */
@@ -1620,7 +1622,7 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
     return $this->call('delete', array($params));
   }
   /**
-   * Retrieves objects or their metadata. (objects.get)
+   * Retrieves an object or its metadata. (objects.get)
    *
    * @param string $bucket
    * Name of the bucket in which the object resides.
