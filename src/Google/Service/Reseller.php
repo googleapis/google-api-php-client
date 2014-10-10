@@ -107,7 +107,22 @@ class Google_Service_Reseller extends Google_Service
         'subscriptions',
         array(
           'methods' => array(
-            'changePlan' => array(
+            'activate' => array(
+              'path' => 'customers/{customerId}/subscriptions/{subscriptionId}/activate',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'changePlan' => array(
               'path' => 'customers/{customerId}/subscriptions/{subscriptionId}/changePlan',
               'httpMethod' => 'POST',
               'parameters' => array(
@@ -241,6 +256,21 @@ class Google_Service_Reseller extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'suspend' => array(
+              'path' => 'customers/{customerId}/subscriptions/{subscriptionId}/suspend',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'subscriptionId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )
@@ -337,6 +367,23 @@ class Google_Service_Reseller_Customers_Resource extends Google_Service_Resource
 class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Resource
 {
 
+  /**
+   * Activates a subscription previously suspended by the reseller
+   * (subscriptions.activate)
+   *
+   * @param string $customerId
+   * Id of the Customer
+   * @param string $subscriptionId
+   * Id of the subscription, which is unique for a customer
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Reseller_Subscription
+   */
+  public function activate($customerId, $subscriptionId, $optParams = array())
+  {
+    $params = array('customerId' => $customerId, 'subscriptionId' => $subscriptionId);
+    $params = array_merge($params, $optParams);
+    return $this->call('activate', array($params), "Google_Service_Reseller_Subscription");
+  }
   /**
    * Changes the plan of a subscription (subscriptions.changePlan)
    *
@@ -481,6 +528,22 @@ class Google_Service_Reseller_Subscriptions_Resource extends Google_Service_Reso
     $params = array('customerId' => $customerId, 'subscriptionId' => $subscriptionId);
     $params = array_merge($params, $optParams);
     return $this->call('startPaidService', array($params), "Google_Service_Reseller_Subscription");
+  }
+  /**
+   * Suspends an active subscription (subscriptions.suspend)
+   *
+   * @param string $customerId
+   * Id of the Customer
+   * @param string $subscriptionId
+   * Id of the subscription, which is unique for a customer
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Reseller_Subscription
+   */
+  public function suspend($customerId, $subscriptionId, $optParams = array())
+  {
+    $params = array('customerId' => $customerId, 'subscriptionId' => $subscriptionId);
+    $params = array_merge($params, $optParams);
+    return $this->call('suspend', array($params), "Google_Service_Reseller_Subscription");
   }
 }
 
@@ -771,6 +834,7 @@ class Google_Service_Reseller_Seats extends Google_Model
   protected $internal_gapi_mappings = array(
   );
   public $kind;
+  public $licensedNumberOfSeats;
   public $maximumNumberOfSeats;
   public $numberOfSeats;
 
@@ -782,6 +846,16 @@ class Google_Service_Reseller_Seats extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+
+  public function setLicensedNumberOfSeats($licensedNumberOfSeats)
+  {
+    $this->licensedNumberOfSeats = $licensedNumberOfSeats;
+  }
+
+  public function getLicensedNumberOfSeats()
+  {
+    return $this->licensedNumberOfSeats;
   }
 
   public function setMaximumNumberOfSeats($maximumNumberOfSeats)
