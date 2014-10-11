@@ -263,14 +263,6 @@ class Google_Service_ShoppingContent extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
               ),
             ),'patch' => array(
               'path' => '{merchantId}/datafeeds/{datafeedId}',
@@ -339,14 +331,6 @@ class Google_Service_ShoppingContent extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
                 ),
               ),
             ),
@@ -788,13 +772,8 @@ class Google_Service_ShoppingContent_Datafeeds_Resource extends Google_Service_R
    * (datafeeds.listDatafeeds)
    *
    * @param string $merchantId
-   * The ID of the managing account.
-   * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * The token returned by the previous request.
-   * @opt_param string maxResults
-   * The maximum number of products to return in the response, used for paging.
+   * @param array $optParams Optional parameters.
    * @return Google_Service_ShoppingContent_DatafeedsListResponse
    */
   public function listDatafeeds($merchantId, $optParams = array())
@@ -886,13 +865,8 @@ class Google_Service_ShoppingContent_Datafeedstatuses_Resource extends Google_Se
    * (datafeedstatuses.listDatafeedstatuses)
    *
    * @param string $merchantId
-   * The ID of the managing account.
-   * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * The token returned by the previous request.
-   * @opt_param string maxResults
-   * The maximum number of products to return in the response, used for paging.
+   * @param array $optParams Optional parameters.
    * @return Google_Service_ShoppingContent_DatafeedstatusesListResponse
    */
   public function listDatafeedstatuses($merchantId, $optParams = array())
@@ -2453,7 +2427,6 @@ class Google_Service_ShoppingContent_DatafeedsListResponse extends Google_Collec
   protected $internal_gapi_mappings = array(
   );
   public $kind;
-  public $nextPageToken;
   protected $resourcesType = 'Google_Service_ShoppingContent_Datafeed';
   protected $resourcesDataType = 'array';
 
@@ -2465,16 +2438,6 @@ class Google_Service_ShoppingContent_DatafeedsListResponse extends Google_Collec
   public function getKind()
   {
     return $this->kind;
-  }
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
   }
 
   public function setResources($resources)
@@ -2634,7 +2597,6 @@ class Google_Service_ShoppingContent_DatafeedstatusesListResponse extends Google
   protected $internal_gapi_mappings = array(
   );
   public $kind;
-  public $nextPageToken;
   protected $resourcesType = 'Google_Service_ShoppingContent_DatafeedStatus';
   protected $resourcesDataType = 'array';
 
@@ -2646,16 +2608,6 @@ class Google_Service_ShoppingContent_DatafeedstatusesListResponse extends Google
   public function getKind()
   {
     return $this->kind;
-  }
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
   }
 
   public function setResources($resources)
