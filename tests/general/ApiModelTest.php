@@ -80,6 +80,16 @@ class ApiModelTest extends BaseTest
     $this->assertNull($event2->getStart());
   }
 
+  public function testVariantTypes() {
+    $feature = new Google_Service_MapsEngine_Feature();
+    $geometry = new Google_Service_MapsEngine_GeoJsonPoint();
+    $geometry->setCoordinates(array(1, 0));
+    $feature->setGeometry($geometry);
+    $data = json_decode(json_encode($feature->toSimpleObject()), true);
+    $this->assertEquals('Point', $data['geometry']['type']);
+    $this->assertEquals(1, $data['geometry']['coordinates'][0]);
+  }
+
   public function testOddMappingNames()
   {
     $creative = new Google_Service_AdExchangeBuyer_Creative();
