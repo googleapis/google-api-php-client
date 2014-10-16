@@ -407,7 +407,9 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
 
   /**
    * Retrieve and cache a certificates file.
-   * @param $url location
+   *
+   * @param $url string location
+   * @throws Google_Auth_Exception
    * @return array certificates
    */
   public function retrieveCertsFromLocation($url)
@@ -470,12 +472,13 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
   /**
    * Verifies the id token, returns the verified token contents.
    *
-   * @param $jwt the token
+   * @param $jwt string the token
    * @param $certs array of certificates
-   * @param $required_audience the expected consumer of the token
+   * @param $required_audience string the expected consumer of the token
    * @param [$issuer] the expected issues, defaults to Google
    * @param [$max_expiry] the max lifetime of a token, defaults to MAX_TOKEN_LIFETIME_SECS
-   * @return token information if valid, false if not
+   * @throws Google_Auth_Exception
+   * @return mixed token information if valid, false if not
    */
   public function verifySignedJwtWithCerts(
       $jwt,
