@@ -404,11 +404,10 @@ class Google_Client
   /**
    * Fetches a fresh OAuth 2.0 access token with the given refresh token.
    * @param string $refreshToken
-   * @return void
    */
   public function refreshToken($refreshToken)
   {
-    return $this->getAuth()->refreshToken($refreshToken);
+    $this->getAuth()->refreshToken($refreshToken);
   }
 
   /**
@@ -623,7 +622,7 @@ class Google_Client
     if (!is_string($class)) {
       $class = get_class($class);
     }
-    return $this->config->setClassConfig($class, $config, $value);
+    $this->config->setClassConfig($class, $config, $value);
 
   }
 
