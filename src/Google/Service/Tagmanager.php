@@ -24,7 +24,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="none" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/tag-manager/api/v1/" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -89,20 +89,6 @@ class Google_Service_Tagmanager extends Google_Service
               'path' => 'accounts',
               'httpMethod' => 'GET',
               'parameters' => array(),
-            ),'patch' => array(
-              'path' => 'accounts/{accountId}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'fingerprint' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
             ),'update' => array(
               'path' => 'accounts/{accountId}',
               'httpMethod' => 'PUT',
@@ -175,25 +161,6 @@ class Google_Service_Tagmanager extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-              ),
-            ),'patch' => array(
-              'path' => 'accounts/{accountId}/containers/{containerId}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'containerId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'fingerprint' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'update' => array(
@@ -293,30 +260,6 @@ class Google_Service_Tagmanager extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-              ),
-            ),'patch' => array(
-              'path' => 'accounts/{accountId}/containers/{containerId}/macros/{macroId}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'containerId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'macroId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'fingerprint' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'update' => array(
@@ -423,30 +366,6 @@ class Google_Service_Tagmanager extends Google_Service
                   'required' => true,
                 ),
               ),
-            ),'patch' => array(
-              'path' => 'accounts/{accountId}/containers/{containerId}/rules/{ruleId}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'containerId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'ruleId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'fingerprint' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
             ),'update' => array(
               'path' => 'accounts/{accountId}/containers/{containerId}/rules/{ruleId}',
               'httpMethod' => 'PUT',
@@ -549,30 +468,6 @@ class Google_Service_Tagmanager extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-              ),
-            ),'patch' => array(
-              'path' => 'accounts/{accountId}/containers/{containerId}/tags/{tagId}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'containerId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'tagId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'fingerprint' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'update' => array(
@@ -679,30 +574,6 @@ class Google_Service_Tagmanager extends Google_Service
                   'required' => true,
                 ),
               ),
-            ),'patch' => array(
-              'path' => 'accounts/{accountId}/containers/{containerId}/triggers/{triggerId}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'containerId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'triggerId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'fingerprint' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
             ),'update' => array(
               'path' => 'accounts/{accountId}/containers/{containerId}/triggers/{triggerId}',
               'httpMethod' => 'PUT',
@@ -805,30 +676,6 @@ class Google_Service_Tagmanager extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-              ),
-            ),'patch' => array(
-              'path' => 'accounts/{accountId}/containers/{containerId}/variables/{variableId}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'containerId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'variableId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'fingerprint' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'update' => array(
@@ -937,30 +784,6 @@ class Google_Service_Tagmanager extends Google_Service
                 'headers' => array(
                   'location' => 'query',
                   'type' => 'boolean',
-                ),
-              ),
-            ),'patch' => array(
-              'path' => 'accounts/{accountId}/containers/{containerId}/versions/{containerVersionId}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'containerId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'containerVersionId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'fingerprint' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'publish' => array(
@@ -1111,21 +934,6 @@ class Google_Service_Tagmanager extends Google_Service
                   'required' => true,
                 ),
               ),
-            ),'patch' => array(
-              'path' => 'accounts/{accountId}/permissions/{permissionId}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'accountId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'permissionId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
             ),'update' => array(
               'path' => 'accounts/{accountId}/permissions/{permissionId}',
               'httpMethod' => 'PUT',
@@ -1185,24 +993,6 @@ class Google_Service_Tagmanager_Accounts_Resource extends Google_Service_Resourc
     $params = array();
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Tagmanager_ListAccountsResponse");
-  }
-  /**
-   * Updates a GTM Account. This method supports patch semantics. (accounts.patch)
-   *
-   * @param string $accountId
-   * The GTM Account ID.
-   * @param Google_Account $postBody
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string fingerprint
-   * When provided, this fingerprint must match the fingerprint of the account in storage.
-   * @return Google_Service_Tagmanager_Account
-   */
-  public function patch($accountId, Google_Service_Tagmanager_Account $postBody, $optParams = array())
-  {
-    $params = array('accountId' => $accountId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('patch', array($params), "Google_Service_Tagmanager_Account");
   }
   /**
    * Updates a GTM Account. (accounts.update)
@@ -1295,26 +1085,6 @@ class Google_Service_Tagmanager_AccountsContainers_Resource extends Google_Servi
     $params = array('accountId' => $accountId);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Tagmanager_ListContainersResponse");
-  }
-  /**
-   * Updates a Container. This method supports patch semantics. (containers.patch)
-   *
-   * @param string $accountId
-   * The GTM Account ID.
-   * @param string $containerId
-   * The GTM Container ID.
-   * @param Google_Container $postBody
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string fingerprint
-   * When provided, this fingerprint must match the fingerprint of the container in storage.
-   * @return Google_Service_Tagmanager_Container
-   */
-  public function patch($accountId, $containerId, Google_Service_Tagmanager_Container $postBody, $optParams = array())
-  {
-    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('patch', array($params), "Google_Service_Tagmanager_Container");
   }
   /**
    * Updates a Container. (containers.update)
@@ -1416,28 +1186,6 @@ class Google_Service_Tagmanager_AccountsContainersMacros_Resource extends Google
     $params = array('accountId' => $accountId, 'containerId' => $containerId);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Tagmanager_ListMacrosResponse");
-  }
-  /**
-   * Updates a GTM Macro. This method supports patch semantics. (macros.patch)
-   *
-   * @param string $accountId
-   * The GTM Account ID.
-   * @param string $containerId
-   * The GTM Container ID.
-   * @param string $macroId
-   * The GTM Macro ID.
-   * @param Google_Macro $postBody
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string fingerprint
-   * When provided, this fingerprint must match the fingerprint of the macro in storage.
-   * @return Google_Service_Tagmanager_Macro
-   */
-  public function patch($accountId, $containerId, $macroId, Google_Service_Tagmanager_Macro $postBody, $optParams = array())
-  {
-    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'macroId' => $macroId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('patch', array($params), "Google_Service_Tagmanager_Macro");
   }
   /**
    * Updates a GTM Macro. (macros.update)
@@ -1542,28 +1290,6 @@ class Google_Service_Tagmanager_AccountsContainersRules_Resource extends Google_
     return $this->call('list', array($params), "Google_Service_Tagmanager_ListRulesResponse");
   }
   /**
-   * Updates a GTM Rule. This method supports patch semantics. (rules.patch)
-   *
-   * @param string $accountId
-   * The GTM Account ID.
-   * @param string $containerId
-   * The GTM Container ID.
-   * @param string $ruleId
-   * The GTM Rule ID.
-   * @param Google_Rule $postBody
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string fingerprint
-   * When provided, this fingerprint must match the fingerprint of the rule in storage.
-   * @return Google_Service_Tagmanager_Rule
-   */
-  public function patch($accountId, $containerId, $ruleId, Google_Service_Tagmanager_Rule $postBody, $optParams = array())
-  {
-    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'ruleId' => $ruleId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('patch', array($params), "Google_Service_Tagmanager_Rule");
-  }
-  /**
    * Updates a GTM Rule. (rules.update)
    *
    * @param string $accountId
@@ -1664,28 +1390,6 @@ class Google_Service_Tagmanager_AccountsContainersTags_Resource extends Google_S
     $params = array('accountId' => $accountId, 'containerId' => $containerId);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Tagmanager_ListTagsResponse");
-  }
-  /**
-   * Updates a GTM Tag. This method supports patch semantics. (tags.patch)
-   *
-   * @param string $accountId
-   * The GTM Account ID.
-   * @param string $containerId
-   * The GTM Container ID.
-   * @param string $tagId
-   * The GTM Tag ID.
-   * @param Google_Tag $postBody
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string fingerprint
-   * When provided, this fingerprint must match the fingerprint of the tag in storage.
-   * @return Google_Service_Tagmanager_Tag
-   */
-  public function patch($accountId, $containerId, $tagId, Google_Service_Tagmanager_Tag $postBody, $optParams = array())
-  {
-    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'tagId' => $tagId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('patch', array($params), "Google_Service_Tagmanager_Tag");
   }
   /**
    * Updates a GTM Tag. (tags.update)
@@ -1791,28 +1495,6 @@ class Google_Service_Tagmanager_AccountsContainersTriggers_Resource extends Goog
     return $this->call('list', array($params), "Google_Service_Tagmanager_ListTriggersResponse");
   }
   /**
-   * Updates a GTM Trigger. This method supports patch semantics. (triggers.patch)
-   *
-   * @param string $accountId
-   * The GTM Account ID.
-   * @param string $containerId
-   * The GTM Container ID.
-   * @param string $triggerId
-   * The GTM Trigger ID.
-   * @param Google_Trigger $postBody
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string fingerprint
-   * When provided, this fingerprint must match the fingerprint of the trigger in storage.
-   * @return Google_Service_Tagmanager_Trigger
-   */
-  public function patch($accountId, $containerId, $triggerId, Google_Service_Tagmanager_Trigger $postBody, $optParams = array())
-  {
-    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'triggerId' => $triggerId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('patch', array($params), "Google_Service_Tagmanager_Trigger");
-  }
-  /**
    * Updates a GTM Trigger. (triggers.update)
    *
    * @param string $accountId
@@ -1914,29 +1596,6 @@ class Google_Service_Tagmanager_AccountsContainersVariables_Resource extends Goo
     $params = array('accountId' => $accountId, 'containerId' => $containerId);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Tagmanager_ListVariablesResponse");
-  }
-  /**
-   * Updates a GTM Variable. This method supports patch semantics.
-   * (variables.patch)
-   *
-   * @param string $accountId
-   * The GTM Account ID.
-   * @param string $containerId
-   * The GTM Container ID.
-   * @param string $variableId
-   * The GTM Variable ID.
-   * @param Google_Variable $postBody
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string fingerprint
-   * When provided, this fingerprint must match the fingerprint of the variable in storage.
-   * @return Google_Service_Tagmanager_Variable
-   */
-  public function patch($accountId, $containerId, $variableId, Google_Service_Tagmanager_Variable $postBody, $optParams = array())
-  {
-    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'variableId' => $variableId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('patch', array($params), "Google_Service_Tagmanager_Variable");
   }
   /**
    * Updates a GTM Variable. (variables.update)
@@ -2043,29 +1702,6 @@ class Google_Service_Tagmanager_AccountsContainersVersions_Resource extends Goog
     $params = array('accountId' => $accountId, 'containerId' => $containerId);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Tagmanager_ListContainerVersionsResponse");
-  }
-  /**
-   * Updates a Container Version. This method supports patch semantics.
-   * (versions.patch)
-   *
-   * @param string $accountId
-   * The GTM Account ID.
-   * @param string $containerId
-   * The GTM Container ID.
-   * @param string $containerVersionId
-   * The GTM Container Version ID.
-   * @param Google_ContainerVersion $postBody
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string fingerprint
-   * When provided, this fingerprint must match the fingerprint of the container version in storage.
-   * @return Google_Service_Tagmanager_ContainerVersion
-   */
-  public function patch($accountId, $containerId, $containerVersionId, Google_Service_Tagmanager_ContainerVersion $postBody, $optParams = array())
-  {
-    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'containerVersionId' => $containerVersionId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('patch', array($params), "Google_Service_Tagmanager_ContainerVersion");
   }
   /**
    * Publishes a Container Version. (versions.publish)
@@ -2223,24 +1859,6 @@ class Google_Service_Tagmanager_AccountsPermissions_Resource extends Google_Serv
     $params = array('accountId' => $accountId);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Tagmanager_ListAccountUsersResponse");
-  }
-  /**
-   * Updates a user's Account & Container Permissions. This method supports patch
-   * semantics. (permissions.patch)
-   *
-   * @param string $accountId
-   * The GTM Account ID.
-   * @param string $permissionId
-   * The GTM User ID.
-   * @param Google_UserAccess $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Tagmanager_UserAccess
-   */
-  public function patch($accountId, $permissionId, Google_Service_Tagmanager_UserAccess $postBody, $optParams = array())
-  {
-    $params = array('accountId' => $accountId, 'permissionId' => $permissionId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('patch', array($params), "Google_Service_Tagmanager_UserAccess");
   }
   /**
    * Updates a user's Account & Container Permissions. (permissions.update)
