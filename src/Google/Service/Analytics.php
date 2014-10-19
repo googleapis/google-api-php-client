@@ -2051,7 +2051,8 @@ class Google_Service_Analytics_ManagementAccountSummaries_Resource extends Googl
    * @param array $optParams Optional parameters.
    *
    * @opt_param int max-results
-   * The maximum number of filters to include in this response.
+   * The maximum number of account summaries to include in this response, where the largest
+    * acceptable value is 1000.
    * @opt_param int start-index
    * An index of the first entity to retrieve. Use this parameter as a pagination mechanism along
     * with the max-results parameter.
@@ -8182,6 +8183,7 @@ class Google_Service_Analytics_Profile extends Google_Model
   public $currency;
   public $defaultPage;
   public $eCommerceTracking;
+  public $enhancedECommerceTracking;
   public $excludeQueryParameters;
   public $id;
   public $internalWebPropertyId;
@@ -8260,6 +8262,16 @@ class Google_Service_Analytics_Profile extends Google_Model
   public function getECommerceTracking()
   {
     return $this->eCommerceTracking;
+  }
+
+  public function setEnhancedECommerceTracking($enhancedECommerceTracking)
+  {
+    $this->enhancedECommerceTracking = $enhancedECommerceTracking;
+  }
+
+  public function getEnhancedECommerceTracking()
+  {
+    return $this->enhancedECommerceTracking;
   }
 
   public function setExcludeQueryParameters($excludeQueryParameters)
