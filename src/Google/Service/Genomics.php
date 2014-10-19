@@ -722,7 +722,7 @@ class Google_Service_Genomics_Datasets_Resource extends Google_Service_Resource
    * The maximum number of results returned by this request.
    * @opt_param string projectId
    * Only return datasets which belong to this Google Developers Console project. Only accepts
-    * project numbers.
+    * project numbers. Returns all public projects if no project number is specified.
    * @return Google_Service_Genomics_ListDatasetsResponse
    */
   public function listDatasets($optParams = array())
