@@ -140,10 +140,9 @@ class ApiOAuth2Test extends BaseTest {
         . "&client_id=clientId1"
         . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
         . "&access_type=offline"
-        . "&approval_prompt=force"
+        . "&prompt=select_account"
         . "&hd=example.com"
         . "&openid.realm=example.com"
-        . "&prompt=select_account"
         . "&include_granted_scopes=true";
     $this->assertEquals($expected, $authUrl);
   }
