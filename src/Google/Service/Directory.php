@@ -2977,6 +2977,8 @@ class Google_Service_Directory_ChromeOsDevice extends Google_Collection
   protected $collection_key = 'recentUsers';
   protected $internal_gapi_mappings = array(
   );
+  protected $activeTimeRangesType = 'Google_Service_Directory_ChromeOsDeviceActiveTimeRanges';
+  protected $activeTimeRangesDataType = 'array';
   public $annotatedLocation;
   public $annotatedUser;
   public $bootMode;
@@ -3001,6 +3003,16 @@ class Google_Service_Directory_ChromeOsDevice extends Google_Collection
   public $status;
   public $supportEndDate;
   public $willAutoRenew;
+
+  public function setActiveTimeRanges($activeTimeRanges)
+  {
+    $this->activeTimeRanges = $activeTimeRanges;
+  }
+
+  public function getActiveTimeRanges()
+  {
+    return $this->activeTimeRanges;
+  }
 
   public function setAnnotatedLocation($annotatedLocation)
   {
@@ -3230,6 +3242,34 @@ class Google_Service_Directory_ChromeOsDevice extends Google_Collection
   public function getWillAutoRenew()
   {
     return $this->willAutoRenew;
+  }
+}
+
+class Google_Service_Directory_ChromeOsDeviceActiveTimeRanges extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $activeTime;
+  public $date;
+
+  public function setActiveTime($activeTime)
+  {
+    $this->activeTime = $activeTime;
+  }
+
+  public function getActiveTime()
+  {
+    return $this->activeTime;
+  }
+
+  public function setDate($date)
+  {
+    $this->date = $date;
+  }
+
+  public function getDate()
+  {
+    return $this->date;
   }
 }
 

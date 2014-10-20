@@ -40,6 +40,7 @@ class Google_Service_Gmail extends Google_Service
   /** View your emails messages and settings. */
   const GMAIL_READONLY = "https://www.googleapis.com/auth/gmail.readonly";
 
+  public $users;
   public $users_drafts;
   public $users_history;
   public $users_labels;
@@ -60,6 +61,26 @@ class Google_Service_Gmail extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'gmail';
 
+    $this->users = new Google_Service_Gmail_Users_Resource(
+        $this,
+        $this->serviceName,
+        'users',
+        array(
+          'methods' => array(
+            'getProfile' => array(
+              'path' => '{userId}/profile',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->users_drafts = new Google_Service_Gmail_UsersDrafts_Resource(
         $this,
         $this->serviceName,
@@ -607,6 +628,20 @@ class Google_Service_Gmail extends Google_Service
 class Google_Service_Gmail_Users_Resource extends Google_Service_Resource
 {
 
+  /**
+   * Gets the current user's Gmail profile. (users.getProfile)
+   *
+   * @param string $userId
+   * The user's email address. The special value me can be used to indicate the authenticated user.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Gmail_Profile
+   */
+  public function getProfile($userId, $optParams = array())
+  {
+    $params = array('userId' => $userId);
+    $params = array_merge($params, $optParams);
+    return $this->call('getProfile', array($params), "Google_Service_Gmail_Profile");
+  }
 }
 
 /**
@@ -1851,6 +1886,56 @@ class Google_Service_Gmail_ModifyThreadRequest extends Google_Collection
   public function getRemoveLabelIds()
   {
     return $this->removeLabelIds;
+  }
+}
+
+class Google_Service_Gmail_Profile extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $emailAddress;
+  public $historyId;
+  public $messagesTotal;
+  public $threadsTotal;
+
+  public function setEmailAddress($emailAddress)
+  {
+    $this->emailAddress = $emailAddress;
+  }
+
+  public function getEmailAddress()
+  {
+    return $this->emailAddress;
+  }
+
+  public function setHistoryId($historyId)
+  {
+    $this->historyId = $historyId;
+  }
+
+  public function getHistoryId()
+  {
+    return $this->historyId;
+  }
+
+  public function setMessagesTotal($messagesTotal)
+  {
+    $this->messagesTotal = $messagesTotal;
+  }
+
+  public function getMessagesTotal()
+  {
+    return $this->messagesTotal;
+  }
+
+  public function setThreadsTotal($threadsTotal)
+  {
+    $this->threadsTotal = $threadsTotal;
+  }
+
+  public function getThreadsTotal()
+  {
+    return $this->threadsTotal;
   }
 }
 

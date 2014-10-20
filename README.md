@@ -60,7 +60,7 @@ The _Service classes are generally automatically generated from the API discover
 
 ### How do I deal with non-JSON response types? ###
 
-Some servives return XML or similar by default, rather than JSON, which is what the library supports. You can request a JSON response by adding an 'alt' argument to optional params that is normally the last argument to a method call:
+Some services return XML or similar by default, rather than JSON, which is what the library supports. You can request a JSON response by adding an 'alt' argument to optional params that is normally the last argument to a method call:
 
 ```
 $opt_params = array(

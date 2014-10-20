@@ -1006,6 +1006,34 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptor extends Google_Model
   }
 }
 
+class Google_Service_CloudMonitoring_TimeseriesDescriptorLabel extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $key;
+  public $value;
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+
+  public function getKey()
+  {
+    return $this->key;
+  }
+
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
 class Google_Service_CloudMonitoring_TimeseriesDescriptorLabels extends Google_Model
 {
   protected $internal_gapi_mappings = array(
