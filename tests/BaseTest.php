@@ -22,18 +22,18 @@ class BaseTest extends PHPUnit_Framework_TestCase {
   private $token;
   private $memcacheHost;
   private $memcachePort;
-  
+
   public function __construct()
   {
     parent::__construct();
-    // Fill in a token JSON here and you can test the oauth token 
+    // Fill in a token JSON here and you can test the oauth token
     // requiring functions.
     // $this->token = '';
 
     $this->memcacheHost = getenv('MEMCACHE_HOST') ? getenv('MEMCACHE_HOST') : null;
     $this->memcachePort = getenv('MEMCACHE_PORT') ? getenv('MEMCACHE_PORT') : null;
   }
-  
+
   public function getClient() {
       $client = new Google_Client();
       $client->setDeveloperKey(self::KEY);
@@ -46,21 +46,12 @@ class BaseTest extends PHPUnit_Framework_TestCase {
       }
       return $client;
   }
-  
+
   public function testClientConstructor()
   {
     $this->assertInstanceOf('Google_Client', $this->getClient());
   }
-  
-  public function testIncludes() {
-    $prefix = dirname(dirname(__FILE__)) . '/src/';
-    $path = dirname(dirname(__FILE__)) . '/src/Google/Service';
-    foreach(glob($path . "/*.php") as $file) {
-      // Munge prefix so we don't double require.
-      $this->assertEquals(1, require_once(str_replace($prefix, '', $file)));
-    }
-  }
-  
+
   public function checkToken()
   {
     if (!strlen($this->token)) {

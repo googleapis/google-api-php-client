@@ -1,3 +1,4 @@
 <?php
-set_include_path(dirname(dirname(__FILE__)) . "/src"
- . PATH_SEPARATOR . get_include_path());
+if (file_exists($file = dirname(__FILE__) . '/../vendor/autoload.php')) {
+    require_once $file;
+}
