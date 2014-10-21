@@ -6082,6 +6082,7 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   public $index;
   protected $initializeParamsType = 'Google_Service_Compute_AttachedDiskInitializeParams';
   protected $initializeParamsDataType = '';
+  public $interface;
   public $kind;
   public $licenses;
   public $mode;
@@ -6136,6 +6137,16 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   public function getInitializeParams()
   {
     return $this->initializeParams;
+  }
+
+  public function setInterface($interface)
+  {
+    $this->interface = $interface;
+  }
+
+  public function getInterface()
+  {
+    return $this->interface;
   }
 
   public function setKind($kind)
