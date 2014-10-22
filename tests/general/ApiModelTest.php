@@ -81,6 +81,7 @@ class ApiModelTest extends BaseTest
   }
 
   public function testVariantTypes() {
+    $this->markTestSkipped('Pending variant support in templates.');
     $feature = new Google_Service_MapsEngine_Feature();
     $geometry = new Google_Service_MapsEngine_GeoJsonPoint();
     $geometry->setCoordinates(array(1, 0));
