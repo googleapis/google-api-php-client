@@ -86,7 +86,8 @@ class Google_Service_Freebase extends Google_Service
                   'type' => 'integer',
                 ),
               ),
-            ),'search' => array(
+            ),
+            'search' => array(
               'path' => 'search',
               'httpMethod' => 'GET',
               'parameters' => array(
@@ -191,6 +192,49 @@ class Google_Service_Freebase extends Google_Service
                 ),
               ),
             ),
+            'mqlread' => array(
+              'path' => 'mqlread',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'query' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'cursor' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'as_of_time' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'lang' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'indent' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'callback' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'cost' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'dateline' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'html_escape' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
+            ),
           )
         )
     );
@@ -277,7 +321,37 @@ class Google_Service_Freebase extends Google_Service
   {
     $params = array();
     $params = array_merge($params, $optParams);
-    return $this->call('search', array($params));
+    return $this->base_methods->call('search', array($params));
+  }
+  /**
+   * MQL Read Freebase open data. (mqlread)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string query
+   * Query term to search for.
+   * @opt_param int cursor
+   * The cursor value to use for the next page of results.
+   * @opt_param string as_of_time
+   * A mql as_of_time value to use with mql_output queries.
+   * @opt_param string lang
+   * The code of the language to run the query with. Default is 'en'.
+   * @opt_param bool indent
+   * Whether to indent the json results or not.
+   * @opt_param string callback
+   * JS method name for JSONP callbacks.
+   * @opt_param string cost
+   * Toggles whether or not to show the costs. Default is false
+   * @opt_param string dateline
+   * The dateline that you get in a mqlwrite response to ensure consistent results
+   * @opt_param string html_escape
+   * Whether or not to escape entities. Default is true
+   */
+  public function mqlread($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->base_methods->call('mqlread', array($params));
   }
 }
 
