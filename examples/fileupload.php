@@ -118,16 +118,20 @@ if (
 ?>
 <div class="box">
   <div class="request">
-    <?php if (isset($authUrl)): ?>
-      <a class='login' href='<?php echo $authUrl; ?>'>Connect Me!</a>
-    <?php endif; ?>
+<?php 
+if (isset($authUrl)) {
+  echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
+}
+?>
   </div>
 
-  <?php if (isset($result) && $result): ?>
     <div class="shortened">
-      <?php var_dump($result); ?>
+<?php 
+if (isset($result) && $result) {
+  var_dump($result);
+}
+?>
     </div>
-  <?php endif ?>
 </div>
 <?php
 echo pageFooter(__FILE__);

@@ -80,7 +80,8 @@ class ApiModelTest extends BaseTest
     $this->assertNull($event2->getStart());
   }
 
-  public function testVariantTypes() {
+  public function testVariantTypes()
+  {
     $this->markTestSkipped('Pending variant support in templates.');
     $feature = new Google_Service_MapsEngine_Feature();
     $geometry = new Google_Service_MapsEngine_GeoJsonPoint();
@@ -165,7 +166,9 @@ class ApiModelTest extends BaseTest
               {"id": 3},
               {"id": 4}
            ]
-         }', true);
+         }',
+        true
+    );
     $collection = new Google_Service_Calendar_Events($data);
     $this->assertEquals(4, count($collection));
     $count = 0;

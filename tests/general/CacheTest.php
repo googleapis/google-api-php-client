@@ -21,9 +21,10 @@
 require_once 'BaseTest.php';
 require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
-class CacheTest extends BaseTest {
-
-  public function testFile() {
+class CacheTest extends BaseTest
+{
+  public function testFile()
+  {
     $dir = sys_get_temp_dir() . '/google-api-php-client/tests';
     $client = $this->getClient();
     $client->setClassConfig(
@@ -62,7 +63,8 @@ class CacheTest extends BaseTest {
     $this->assertEquals($cache->get('foo'), false);
   }
 
-  public function testMemcache() {
+  public function testMemcache()
+  {
     if (!function_exists('memcache_connect')) {
       $this->markTestSkipped('Test requires memcache');
     }
@@ -76,7 +78,8 @@ class CacheTest extends BaseTest {
     $this->getSetDelete($cache);
   }
 
-  public function testAPC() {
+  public function testAPC()
+  {
     if (!function_exists('apc_add')) {
       $this->markTestSkipped('Test requires APC');
     }
@@ -89,7 +92,8 @@ class CacheTest extends BaseTest {
     $this->getSetDelete($cache);
   }
 
-  public function getSetDelete($cache) {
+  public function getSetDelete($cache)
+  {
     $cache->set('foo', 'bar');
     $cache->delete('foo');
     $this->assertEquals(false, $cache->get('foo'));

@@ -17,7 +17,7 @@ body {
   font-family: Arial,sans-serif;
   margin: auto;
   white-space: nowrap;
-	padding: 10px;
+  padding: 10px;
 }
 
 .box {
@@ -84,7 +84,7 @@ header h1.logo {
 }
 
 .shortened {
-	overflow: scroll;
+  overflow: scroll;
 }
 
 .url {
@@ -101,13 +101,13 @@ header h1.logo {
 }
 
 pre.code {
-	padding: 10px;
+  padding: 10px;
   border: .5em solid #E3E9FF;
-	margin: 10px;
-	height: 400px;
-	overflow: scroll;
+  margin: 10px;
+  height: 400px;
+  overflow: scroll;
 }
 
 .warn {
-	color: red;
+  color: red;
 }

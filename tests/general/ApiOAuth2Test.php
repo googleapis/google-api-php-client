@@ -21,7 +21,8 @@
 require_once "BaseTest.php";
 require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
-class ApiOAuth2Test extends BaseTest {
+class ApiOAuth2Test extends BaseTest
+{
 
   public function testSign()
   {
@@ -42,11 +43,15 @@ class ApiOAuth2Test extends BaseTest {
     $this->assertEquals('http://localhost?key=devKey', $req->getUrl());
 
     // test accessToken
-    $oauth->setAccessToken(json_encode(array(
-        'access_token' => 'ACCESS_TOKEN',
-        'created' => time(),
-        'expires_in' => '3600'
-    )));
+    $oauth->setAccessToken(
+        json_encode(
+            array(
+              'access_token' => 'ACCESS_TOKEN',
+              'created' => time(),
+              'expires_in' => '3600'
+            )
+        )
+    );
 
     $req = $oauth->sign($req);
     $auth = $req->getRequestHeader('authorization');
@@ -68,32 +73,44 @@ class ApiOAuth2Test extends BaseTest {
     $io = $this->getMock("Google_IO_Stream", array(), array($client));
     $io->expects($this->any())
         ->method('makeRequest')
-        ->will($this->returnCallback(function($request) use (&$token, $response) {
-          $elements = array();
-          parse_str($request->getPostBody(), $elements);
-          $token = isset($elements['token']) ? $elements['token'] : null;
-          return $response;
-        }));
+        ->will(
+            $this->returnCallback(
+                function ($request) use (&$token, $response) {
+                  $elements = array();
+                  parse_str($request->getPostBody(), $elements);
+                  $token = isset($elements['token']) ? $elements['token'] : null;
+                  return $response;
+                }
+            )
+        );
     $client->setIo($io);
 
     // Test with access token.
     $oauth  = new Google_Auth_OAuth2($client);
-    $oauth->setAccessToken(json_encode(array(
-        'access_token' => $accessToken,
-        'created' => time(),
-        'expires_in' => '3600'
-    )));
+    $oauth->setAccessToken(
+        json_encode(
+            array(
+              'access_token' => $accessToken,
+              'created' => time(),
+              'expires_in' => '3600'
+            )
+        )
+    );
     $this->assertTrue($oauth->revokeToken());
     $this->assertEquals($accessToken, $token);
 
     // Test with refresh token.
     $oauth  = new Google_Auth_OAuth2($client);
-    $oauth->setAccessToken(json_encode(array(
-        'access_token' => $accessToken,
-        'refresh_token' => $refreshToken,
-        'created' => time(),
-        'expires_in' => '3600'
-    )));
+    $oauth->setAccessToken(
+        json_encode(
+            array(
+              'access_token' => $accessToken,
+              'refresh_token' => $refreshToken,
+              'created' => time(),
+              'expires_in' => '3600'
+            )
+        )
+    );
     $this->assertTrue($oauth->revokeToken());
     $this->assertEquals($refreshToken, $token);
 
@@ -167,8 +184,8 @@ class ApiOAuth2Test extends BaseTest {
     $oauth = new Google_Auth_OAuth2($client);
     $ticket = $oauth->verifyIdToken($token->id_token, $data->aud);
     $this->assertInstanceOf(
-      "Google_Auth_LoginTicket",
-      $ticket
+        "Google_Auth_LoginTicket",
+        $ticket
     );
     $this->assertTrue(strlen($ticket->getUserId()) > 0);
 
@@ -180,8 +197,8 @@ class ApiOAuth2Test extends BaseTest {
     $data = json_decode(Google_Utils::urlSafeB64Decode($segments[1]));
     $oauth = new Google_Auth_OAuth2($client);
     $this->assertInstanceOf(
-      "Google_Auth_LoginTicket",
-      $oauth->verifyIdToken($token->id_token, $data->aud)
+        "Google_Auth_LoginTicket",
+        $oauth->verifyIdToken($token->id_token, $data->aud)
     );
   }
 
@@ -200,11 +217,13 @@ class ApiOAuth2Test extends BaseTest {
   public function testRefreshTokenSetsValues()
   {
     $client = new Google_Client();
-    $response_data = json_encode(array(
-      'access_token' => "ACCESS_TOKEN",
-      'id_token' => "ID_TOKEN",
-      'expires_in' => "12345",
-    ));
+    $response_data = json_encode(
+        array(
+          'access_token' => "ACCESS_TOKEN",
+          'id_token' => "ID_TOKEN",
+          'expires_in' => "12345",
+        )
+    );
     $response = $this->getMock("Google_Http_Request", array(), array(''));
     $response->expects($this->any())
             ->method('getResponseHttpCode')
@@ -215,14 +234,22 @@ class ApiOAuth2Test extends BaseTest {
     $io = $this->getMock("Google_IO_Stream", array(), array($client));
     $io->expects($this->any())
         ->method('makeRequest')
-        ->will($this->returnCallback(function($request) use (&$token, $response) {
-          $elements = $request->getPostBody();
-          PHPUnit_Framework_TestCase::assertEquals($elements['grant_type'],
-              "refresh_token");
-          PHPUnit_Framework_TestCase::assertEquals($elements['refresh_token'],
-              "REFRESH_TOKEN");
-          return $response;
-        }));
+        ->will(
+            $this->returnCallback(
+                function ($request) use (&$token, $response) {
+                  $elements = $request->getPostBody();
+                  PHPUnit_Framework_TestCase::assertEquals(
+                      $elements['grant_type'],
+                      "refresh_token"
+                  );
+                  PHPUnit_Framework_TestCase::assertEquals(
+                      $elements['refresh_token'],
+                      "REFRESH_TOKEN"
+                  );
+                  return $response;
+                }
+            )
+        );
     $client->setIo($io);
     $oauth = new Google_Auth_OAuth2($client);
     $oauth->refreshToken("REFRESH_TOKEN");
