@@ -33,7 +33,7 @@ class Google_Model implements ArrayAccess
    * Polymorphic - accepts a variable number of arguments dependent
    * on the type of the model subclass.
    */
-  public final function __construct()
+  final public function __construct()
   {
     if (func_num_args() == 1 && is_array(func_get_arg(0))) {
       // Initialize the model with the array's contents.
@@ -113,7 +113,8 @@ class Google_Model implements ArrayAccess
    * avoids the need for subclasses to have to implement the variadics handling in their
    * constructors.
    */
-  protected function gapiInit() {
+  protected function gapiInit()
+  {
     return;
   }
 

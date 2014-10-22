@@ -37,7 +37,7 @@ require_once realpath(dirname(__FILE__) . '/../autoload.php');
   account as well, or the call will fail.
  ************************************************/
 $client_id = '<YOUR_CLIENT_ID>'; //Client ID
-$service_account_name = ''; //Email Address 
+$service_account_name = ''; //Email Address
 $key_file_location = ''; //key.p12
 
 echo pageHeader("Service Account Access");
@@ -69,7 +69,7 @@ $cred = new Google_Auth_AssertionCredentials(
     $key
 );
 $client->setAssertionCredentials($cred);
-if($client->getAuth()->isAccessTokenExpired()) {
+if ($client->getAuth()->isAccessTokenExpired()) {
   $client->getAuth()->refreshTokenWithAssertion($cred);
 }
 $_SESSION['service_token'] = $client->getAccessToken();

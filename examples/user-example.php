@@ -107,22 +107,28 @@ if (
 ?>
 <div class="box">
   <div class="request">
-    <?php if (isset($authUrl)): ?>
-      <a class='login' href='<?php echo $authUrl; ?>'>Connect Me!</a>
-    <?php else: ?>
-      <form id="url" method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <input name="url" class="url" type="text">
-        <input type="submit" value="Shorten">
-      </form>
-      <a class='logout' href='?logout'>Logout</a>
-    <?php endif ?>
+<?php 
+if (isset($authUrl)) {
+  echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
+} else {
+  echo <<<END
+    <form id="url" method="GET" action="{$_SERVER['PHP_SELF']}">
+      <input name="url" class="url" type="text">
+      <input type="submit" value="Shorten">
+    </form>
+    <a class='logout' href='?logout'>Logout</a>
+END;
+}
+?>
   </div>
 
-  <?php if (isset($short)): ?>
-    <div class="shortened">
-      <?php var_dump($short); ?>
-    </div>
-  <?php endif ?>
+  <div class="shortened">
+<?php
+if (isset($short)) {
+  var_dump($short);
+}
+?>
+  </div>
 </div>
 <?php
 echo pageFooter(__FILE__);
