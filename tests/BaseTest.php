@@ -17,7 +17,8 @@
 require_once 'bootstrap.php';
 require_once 'Google/Client.php';
 
-class BaseTest extends PHPUnit_Framework_TestCase {
+class BaseTest extends PHPUnit_Framework_TestCase
+{
   const KEY = "";
   private $token;
   private $memcacheHost;
@@ -26,7 +27,7 @@ class BaseTest extends PHPUnit_Framework_TestCase {
   public function __construct()
   {
     parent::__construct();
-    // Fill in a token JSON here and you can test the oauth token 
+    // Fill in a token JSON here and you can test the oauth token
     // requiring functions.
     // $this->token = '';
 
@@ -34,17 +35,18 @@ class BaseTest extends PHPUnit_Framework_TestCase {
     $this->memcachePort = getenv('MEMCACHE_PORT') ? getenv('MEMCACHE_PORT') : null;
   }
   
-  public function getClient() {
-      $client = new Google_Client();
-      $client->setDeveloperKey(self::KEY);
-      if (strlen($this->token)) {
-          $client->setAccessToken($this->token);
-      }
-      if (strlen($this->memcacheHost)) {
-        $client->setClassConfig('Google_Cache_Memcache', 'host', $this->memcacheHost);
-        $client->setClassConfig('Google_Cache_Memcache', 'port', $this->memcachePort);
-      }
-      return $client;
+  public function getClient()
+  {
+    $client = new Google_Client();
+    $client->setDeveloperKey(self::KEY);
+    if (strlen($this->token)) {
+      $client->setAccessToken($this->token);
+    }
+    if (strlen($this->memcacheHost)) {
+      $client->setClassConfig('Google_Cache_Memcache', 'host', $this->memcacheHost);
+      $client->setClassConfig('Google_Cache_Memcache', 'port', $this->memcachePort);
+    }
+    return $client;
   }
   
   public function testClientConstructor()
@@ -52,10 +54,11 @@ class BaseTest extends PHPUnit_Framework_TestCase {
     $this->assertInstanceOf('Google_Client', $this->getClient());
   }
   
-  public function testIncludes() {
+  public function testIncludes()
+  {
     $prefix = dirname(dirname(__FILE__)) . '/src/';
     $path = dirname(dirname(__FILE__)) . '/src/Google/Service';
-    foreach(glob($path . "/*.php") as $file) {
+    foreach (glob($path . "/*.php") as $file) {
       // Munge prefix so we don't double require.
       $this->assertEquals(1, require_once(str_replace($prefix, '', $file)));
     }
@@ -69,5 +72,4 @@ class BaseTest extends PHPUnit_Framework_TestCase {
     }
     return true;
   }
-
 }

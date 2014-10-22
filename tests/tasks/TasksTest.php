@@ -17,16 +17,19 @@
 
 require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
-class TasksTest extends BaseTest {
+class TasksTest extends BaseTest
+{
   /** @var Google_TasksService */
   public $taskService;
 
-  public function __construct() {
+  public function __construct()
+  {
     parent::__construct();
     $this->taskService = new Google_Service_Tasks($this->getClient());
   }
   
-  public function testInsertTask() {
+  public function testInsertTask()
+  {
     if (!$this->checkToken()) {
       return;
     }
@@ -38,7 +41,8 @@ class TasksTest extends BaseTest {
   /**
    * @depends testInsertTask
    */
-  public function testGetTask() {
+  public function testGetTask()
+  {
     $tasks = $this->taskService->tasks;
     $list = $this->createTaskList('List: ' . __METHOD__);
     $task = $this->createTask('Task: '. __METHOD__, $list['id']);
@@ -50,7 +54,8 @@ class TasksTest extends BaseTest {
   /**
    * @depends testInsertTask
    */
-  public function testListTask() {
+  public function testListTask()
+  {
     $tasks = $this->taskService->tasks;
     $list = $this->createTaskList('List: ' . __METHOD__);
 
@@ -65,20 +70,23 @@ class TasksTest extends BaseTest {
     }
   }
 
-  private function createTaskList($name) {
+  private function createTaskList($name)
+  {
     $list = new Google_Service_Tasks_TaskList();
     $list->title = $name;
     return $this->taskService->tasklists->insert($list);
   }
 
-  private function createTask($title, $listId) {
+  private function createTask($title, $listId)
+  {
     $tasks = $this->taskService->tasks;
     $task = new Google_Service_Tasks_Task();
     $task->title = $title;
     return $tasks->insert($listId, $task);
   }
 
-  private function assertIsTask($task) {
+  private function assertIsTask($task)
+  {
     $this->assertArrayHasKey('title', $task);
     $this->assertArrayHasKey('kind', $task);
     $this->assertArrayHasKey('id', $task);

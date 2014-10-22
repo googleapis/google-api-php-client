@@ -21,36 +21,45 @@
 require_once 'BaseTest.php';
 require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
-class TestModel extends Google_Model {
-  public function mapTypes($array) {
+class TestModel extends Google_Model
+{
+  public function mapTypes($array)
+  {
     return parent::mapTypes($array);
   }
 
-  public function isAssociativeArray($array) {
+  public function isAssociativeArray($array)
+  {
     return parent::isAssociativeArray($array);
   }
 }
 
-class ServiceTest extends BaseTest {
-  public function testModel() {
+class ServiceTest extends BaseTest
+{
+  public function testModel()
+  {
     $model = new TestModel();
 
-    $model->mapTypes(array(
-      'name' => 'asdf',
-      'gender' => 'z',
-    ));
+    $model->mapTypes(
+        array(
+          'name' => 'asdf',
+          'gender' => 'z',
+        )
+    );
     $this->assertEquals('asdf', $model->name);
     $this->assertEquals('z', $model->gender);
-    $model->mapTypes(array(
-      '__infoType' => 'Google_Model',
-      '__infoDataType' => 'map',
-      'info' => array (
-        'location' => 'mars',
-        'timezone' => 'mst',
-      ),
-      'name' => 'asdf',
-      'gender' => 'z',
-    ));
+    $model->mapTypes(
+        array(
+          '__infoType' => 'Google_Model',
+          '__infoDataType' => 'map',
+          'info' => array (
+            'location' => 'mars',
+            'timezone' => 'mst',
+          ),
+          'name' => 'asdf',
+          'gender' => 'z',
+        )
+    );
     $this->assertEquals('asdf', $model->name);
     $this->assertEquals('z', $model->gender);
 
@@ -65,7 +74,8 @@ class ServiceTest extends BaseTest {
     $this->assertEquals(true, $model->isAssociativeArray(array("a", "b" => 2)));
   }
 
-  public function testStrLen() {
+  public function testStrLen()
+  {
     $this->assertEquals(0, Google_Utils::getStrLen(null));
     $this->assertEquals(0, Google_Utils::getStrLen(false));
     $this->assertEquals(0, Google_Utils::getStrLen(""));

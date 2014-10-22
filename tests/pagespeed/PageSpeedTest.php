@@ -17,14 +17,17 @@
 
 require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
-class PageSpeedTest extends BaseTest {
+class PageSpeedTest extends BaseTest
+{
   public $service;
-  public function __construct() {
+  public function __construct()
+  {
     parent::__construct();
     $this->service = new Google_Service_Pagespeedonline($this->getClient());
   }
 
-  public function testPageSpeed() {
+  public function testPageSpeed()
+  {
     $this->checkToken();
     $psapi = $this->service->pagespeedapi;
     $result = $psapi->runpagespeed('http://code.google.com');

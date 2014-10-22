@@ -17,8 +17,10 @@
 
 require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
-class AllPlusTests extends PHPUnit_Framework_TestSuite {
-  public static function suite() {
+class AllPlusTests extends PHPUnit_Framework_TestSuite
+{
+  public static function suite()
+  {
     $suite = new PHPUnit_Framework_TestSuite();
     $suite->setName('Google Plus API tests');
     $suite->addTestSuite('PlusTest');
@@ -26,15 +28,18 @@ class AllPlusTests extends PHPUnit_Framework_TestSuite {
   }
 }
 
-class PlusTest extends BaseTest {
+class PlusTest extends BaseTest
+{
   /** @var Google_PlusService */
   public $plus;
-  public function __construct() {
+  public function __construct()
+  {
     parent::__construct();
     $this->plus = new Google_Service_Plus($this->getClient());
   }
 
-  public function testGetPerson() {
+  public function testGetPerson()
+  {
     $this->checkToken();
     $person = $this->plus->people->get("118051310819094153327");
     $this->assertArrayHasKey('kind', $person);
@@ -43,7 +48,8 @@ class PlusTest extends BaseTest {
     $this->assertArrayHasKey('id', $person);
   }
 
-  public function testListActivities() {
+  public function testListActivities()
+  {
     $this->checkToken();
     $activities = $this->plus->activities
         ->listActivities("118051310819094153327", "public");
@@ -51,10 +57,10 @@ class PlusTest extends BaseTest {
     $this->assertArrayHasKey('kind', $activities);
     $this->assertGreaterThan(0, count($activities));
     
-    // Test a variety of access methods. 
+    // Test a variety of access methods.
     $this->assertItem($activities['items'][0]);
     $this->assertItem($activities[0]);
-    foreach($activities as $item) {
+    foreach ($activities as $item) {
       $this->assertItem($item);
       break;
     }
@@ -63,7 +69,8 @@ class PlusTest extends BaseTest {
     $this->assertGreaterThan(0, strlen($activities[0]->actor->displayName));
   }
   
-  public function assertItem($item) {
+  public function assertItem($item)
+  {
     // assertArrayHasKey uses array_key_exists, which is not great:
     // it doesn't understand SPL ArrayAccess
     $this->assertTrue(isset($item['actor']));

@@ -21,7 +21,8 @@
 require_once 'BaseTest.php';
 require_once realpath(dirname(__FILE__) . '/../../autoload.php');
 
-class ApiBatchRequestTest extends BaseTest {
+class ApiBatchRequestTest extends BaseTest
+{
   public $plus;
 
   public function testBatchRequestWithAuth()
@@ -73,7 +74,9 @@ class ApiBatchRequestTest extends BaseTest {
 
     $result = $batch->execute();
     $this->assertTrue(isset($result['response-key2']));
-    $this->assertInstanceOf('Google_Service_Exception',
-                            $result['response-key1']);
+    $this->assertInstanceOf(
+        'Google_Service_Exception',
+        $result['response-key1']
+    );
   }
 }
