@@ -14,11 +14,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-require_once realpath(dirname(__FILE__) . '/../autoload.php');
+require_once 'bootstrap.php';
+require_once 'Google/Client.php';
 
 class BaseTest extends PHPUnit_Framework_TestCase {
-  const KEY = "<YOUR_API_KEY>";
+  const KEY = "";
   private $token;
   private $memcacheHost;
   private $memcachePort;
