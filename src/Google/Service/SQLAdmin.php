@@ -536,7 +536,8 @@ class Google_Service_SQLAdmin_BackupRuns_Resource extends Google_Service_Resourc
    * Identifier for the backup configuration. This gets generated automatically when a backup
     * configuration is created.
    * @param string $dueTime
-   * The time when this run is due to start in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
+   * The start time of the four-hour backup window. The backup can occur any time in the window. The
+    * time is in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_BackupRun
    */
@@ -808,7 +809,8 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
    * The identifier of the backup configuration. This gets generated automatically when a backup
     * configuration is created.
    * @param string $dueTime
-   * The time when this run is due to start in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
+   * The start time of the four-hour backup window. The backup can occur any time in the window. The
+    * time is in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesRestoreBackupResponse
    */
@@ -1363,6 +1365,7 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   public $instanceType;
   protected $ipAddressesType = 'Google_Service_SQLAdmin_IpMapping';
   protected $ipAddressesDataType = 'array';
+  public $ipv6Address;
   public $kind;
   public $masterInstanceName;
   public $maxDiskSize;
@@ -1433,6 +1436,16 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   public function getIpAddresses()
   {
     return $this->ipAddresses;
+  }
+
+  public function setIpv6Address($ipv6Address)
+  {
+    $this->ipv6Address = $ipv6Address;
+  }
+
+  public function getIpv6Address()
+  {
+    return $this->ipv6Address;
   }
 
   public function setKind($kind)
@@ -2301,6 +2314,7 @@ class Google_Service_SQLAdmin_IpConfiguration extends Google_Collection
   );
   public $authorizedNetworks;
   public $enabled;
+  public $kind;
   public $requireSsl;
 
   public function setAuthorizedNetworks($authorizedNetworks)
@@ -2321,6 +2335,16 @@ class Google_Service_SQLAdmin_IpConfiguration extends Google_Collection
   public function getEnabled()
   {
     return $this->enabled;
+  }
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
   }
 
   public function setRequireSsl($requireSsl)
