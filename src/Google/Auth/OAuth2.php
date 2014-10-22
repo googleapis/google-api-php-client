@@ -144,11 +144,15 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
         'access_type' => $this->client->getClassConfig($this, 'access_type'),
     );
 
-    $params = $this->maybeAddParam($params, 'approval_prompt');
+    // Prefer prompt to approval prompt.
+    if ($this->client->getClassConfig($this, 'prompt')) {
+      $params = $this->maybeAddParam($params, 'prompt');
+    } else {
+      $params = $this->maybeAddParam($params, 'approval_prompt');
+    }
     $params = $this->maybeAddParam($params, 'login_hint');
     $params = $this->maybeAddParam($params, 'hd');
     $params = $this->maybeAddParam($params, 'openid.realm');
-    $params = $this->maybeAddParam($params, 'prompt');
     $params = $this->maybeAddParam($params, 'include_granted_scopes');
 
     // If the list of scopes contains plus.login, add request_visible_actions
