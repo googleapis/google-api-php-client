@@ -107,9 +107,9 @@ class Google_Config
    * Set configuration specific to a given class.
    * $config->setClassConfig('Google_Cache_File',
    *   array('directory' => '/tmp/cache'));
-   * @param $class The class name for the configuration
+   * @param $class string The class name for the configuration
    * @param $config string key or an array of configuration values
-   * @param $value optional - if $config is a key, the value
+   * @param $value string optional - if $config is a key, the value
    */
   public function setClassConfig($class, $config, $value = null)
   {
@@ -156,7 +156,7 @@ class Google_Config
   /**
    * Set the auth class.
    *
-   * @param $class the class name to set
+   * @param $class string the class name to set
    */
   public function setAuthClass($class)
   {
@@ -172,7 +172,7 @@ class Google_Config
   /**
    * Set the IO class.
    *
-   * @param $class the class name to set
+   * @param $class string the class name to set
    */
   public function setIoClass($class)
   {
@@ -188,7 +188,7 @@ class Google_Config
   /**
    * Set the cache class.
    *
-   * @param $class the class name to set
+   * @param $class string the class name to set
    */
   public function setCacheClass($class)
   {
@@ -203,6 +203,7 @@ class Google_Config
 
   /**
    * Return the configured IO class.
+   *
    * @return string
    */
   public function getIoClass()
@@ -229,7 +230,7 @@ class Google_Config
 
   /**
    * Set the client ID for the auth class.
-   * @param $key string - the API console client ID
+   * @param $clientId string - the API console client ID
    */
   public function setClientId($clientId)
   {
@@ -238,7 +239,7 @@ class Google_Config
 
   /**
    * Set the client secret for the auth class.
-   * @param $key string - the API console client secret
+   * @param $secret string - the API console client secret
    */
   public function setClientSecret($secret)
   {
@@ -248,7 +249,8 @@ class Google_Config
   /**
    * Set the redirect uri for the auth class. Note that if using the
    * Javascript based sign in flow, this should be the string 'postmessage'.
-   * @param $key string - the URI that users should be redirected to
+   *
+   * @param $uri string - the URI that users should be redirected to
    */
   public function setRedirectUri($uri)
   {
