@@ -31,19 +31,19 @@
  */
 class Google_Service_Tagmanager extends Google_Service
 {
-  /** Google Tag Manager. */
+  /** Delete your Google Tag Manager containers. */
   const TAGMANAGER_DELETE_CONTAINERS = "https://www.googleapis.com/auth/tagmanager.delete.containers";
-  /** Google Tag Manager. */
+  /** Manage your Google Tag Manager containers. */
   const TAGMANAGER_EDIT_CONTAINERS = "https://www.googleapis.com/auth/tagmanager.edit.containers";
-  /** Google Tag Manager. */
+  /** Manage your Google Tag Manager container versions. */
   const TAGMANAGER_EDIT_CONTAINERVERSIONS = "https://www.googleapis.com/auth/tagmanager.edit.containerversions";
-  /** Google Tag Manager. */
+  /** Manage your Google Tag Manager accounts. */
   const TAGMANAGER_MANAGE_ACCOUNTS = "https://www.googleapis.com/auth/tagmanager.manage.accounts";
-  /** Google Tag Manager. */
+  /** Manage user permissions of your Google Tag Manager data. */
   const TAGMANAGER_MANAGE_USERS = "https://www.googleapis.com/auth/tagmanager.manage.users";
-  /** Google Tag Manager. */
+  /** Publish your Google Tag Manager containers. */
   const TAGMANAGER_PUBLISH = "https://www.googleapis.com/auth/tagmanager.publish";
-  /** Google Tag Manager. */
+  /** View your Google Tag Manager containers. */
   const TAGMANAGER_READONLY = "https://www.googleapis.com/auth/tagmanager.readonly";
 
   public $accounts;
