@@ -118,7 +118,6 @@ class Google_Service_GroupsMigration_Groups extends Google_Model
   {
     return $this->kind;
   }
-
   public function setResponseCode($responseCode)
   {
     $this->responseCode = $responseCode;
@@ -128,4 +127,5 @@ class Google_Service_GroupsMigration_Groups extends Google_Model
   {
     return $this->responseCode;
   }
+
 }
