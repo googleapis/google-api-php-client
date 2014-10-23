@@ -252,6 +252,7 @@ class Google_Service_Datastore_AllocateIdsRequest extends Google_Collection
   {
     return $this->keys;
   }
+
 }
 
 class Google_Service_Datastore_AllocateIdsResponse extends Google_Collection
@@ -273,7 +274,6 @@ class Google_Service_Datastore_AllocateIdsResponse extends Google_Collection
   {
     return $this->header;
   }
-
   public function setKeys($keys)
   {
     $this->keys = $keys;
@@ -283,6 +283,7 @@ class Google_Service_Datastore_AllocateIdsResponse extends Google_Collection
   {
     return $this->keys;
   }
+
 }
 
 class Google_Service_Datastore_BeginTransactionRequest extends Google_Model
@@ -300,6 +301,7 @@ class Google_Service_Datastore_BeginTransactionRequest extends Google_Model
   {
     return $this->isolationLevel;
   }
+
 }
 
 class Google_Service_Datastore_BeginTransactionResponse extends Google_Model
@@ -319,7 +321,6 @@ class Google_Service_Datastore_BeginTransactionResponse extends Google_Model
   {
     return $this->header;
   }
-
   public function setTransaction($transaction)
   {
     $this->transaction = $transaction;
@@ -329,6 +330,7 @@ class Google_Service_Datastore_BeginTransactionResponse extends Google_Model
   {
     return $this->transaction;
   }
+
 }
 
 class Google_Service_Datastore_CommitRequest extends Google_Model
@@ -350,7 +352,6 @@ class Google_Service_Datastore_CommitRequest extends Google_Model
   {
     return $this->ignoreReadOnly;
   }
-
   public function setMode($mode)
   {
     $this->mode = $mode;
@@ -360,7 +361,6 @@ class Google_Service_Datastore_CommitRequest extends Google_Model
   {
     return $this->mode;
   }
-
   public function setMutation(Google_Service_Datastore_Mutation $mutation)
   {
     $this->mutation = $mutation;
@@ -370,7 +370,6 @@ class Google_Service_Datastore_CommitRequest extends Google_Model
   {
     return $this->mutation;
   }
-
   public function setTransaction($transaction)
   {
     $this->transaction = $transaction;
@@ -380,6 +379,7 @@ class Google_Service_Datastore_CommitRequest extends Google_Model
   {
     return $this->transaction;
   }
+
 }
 
 class Google_Service_Datastore_CommitResponse extends Google_Model
@@ -400,7 +400,6 @@ class Google_Service_Datastore_CommitResponse extends Google_Model
   {
     return $this->header;
   }
-
   public function setMutationResult(Google_Service_Datastore_MutationResult $mutationResult)
   {
     $this->mutationResult = $mutationResult;
@@ -410,6 +409,7 @@ class Google_Service_Datastore_CommitResponse extends Google_Model
   {
     return $this->mutationResult;
   }
+
 }
 
 class Google_Service_Datastore_CompositeFilter extends Google_Collection
@@ -430,7 +430,6 @@ class Google_Service_Datastore_CompositeFilter extends Google_Collection
   {
     return $this->filters;
   }
-
   public function setOperator($operator)
   {
     $this->operator = $operator;
@@ -440,6 +439,7 @@ class Google_Service_Datastore_CompositeFilter extends Google_Collection
   {
     return $this->operator;
   }
+
 }
 
 class Google_Service_Datastore_Entity extends Google_Model
@@ -460,7 +460,6 @@ class Google_Service_Datastore_Entity extends Google_Model
   {
     return $this->key;
   }
-
   public function setProperties($properties)
   {
     $this->properties = $properties;
@@ -470,12 +469,15 @@ class Google_Service_Datastore_Entity extends Google_Model
   {
     return $this->properties;
   }
+
 }
 
 class Google_Service_Datastore_EntityProperties extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Datastore_EntityResult extends Google_Model
@@ -494,6 +496,7 @@ class Google_Service_Datastore_EntityResult extends Google_Model
   {
     return $this->entity;
   }
+
 }
 
 class Google_Service_Datastore_Filter extends Google_Model
@@ -514,7 +517,6 @@ class Google_Service_Datastore_Filter extends Google_Model
   {
     return $this->compositeFilter;
   }
-
   public function setPropertyFilter(Google_Service_Datastore_PropertyFilter $propertyFilter)
   {
     $this->propertyFilter = $propertyFilter;
@@ -524,6 +526,7 @@ class Google_Service_Datastore_Filter extends Google_Model
   {
     return $this->propertyFilter;
   }
+
 }
 
 class Google_Service_Datastore_GqlQuery extends Google_Collection
@@ -547,7 +550,6 @@ class Google_Service_Datastore_GqlQuery extends Google_Collection
   {
     return $this->allowLiteral;
   }
-
   public function setNameArgs($nameArgs)
   {
     $this->nameArgs = $nameArgs;
@@ -557,7 +559,6 @@ class Google_Service_Datastore_GqlQuery extends Google_Collection
   {
     return $this->nameArgs;
   }
-
   public function setNumberArgs($numberArgs)
   {
     $this->numberArgs = $numberArgs;
@@ -567,7 +568,6 @@ class Google_Service_Datastore_GqlQuery extends Google_Collection
   {
     return $this->numberArgs;
   }
-
   public function setQueryString($queryString)
   {
     $this->queryString = $queryString;
@@ -577,6 +577,7 @@ class Google_Service_Datastore_GqlQuery extends Google_Collection
   {
     return $this->queryString;
   }
+
 }
 
 class Google_Service_Datastore_GqlQueryArg extends Google_Model
@@ -597,7 +598,6 @@ class Google_Service_Datastore_GqlQueryArg extends Google_Model
   {
     return $this->cursor;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -607,7 +607,6 @@ class Google_Service_Datastore_GqlQueryArg extends Google_Model
   {
     return $this->name;
   }
-
   public function setValue(Google_Service_Datastore_Value $value)
   {
     $this->value = $value;
@@ -617,6 +616,7 @@ class Google_Service_Datastore_GqlQueryArg extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Datastore_Key extends Google_Collection
@@ -638,7 +638,6 @@ class Google_Service_Datastore_Key extends Google_Collection
   {
     return $this->partitionId;
   }
-
   public function setPath($path)
   {
     $this->path = $path;
@@ -648,6 +647,7 @@ class Google_Service_Datastore_Key extends Google_Collection
   {
     return $this->path;
   }
+
 }
 
 class Google_Service_Datastore_KeyPathElement extends Google_Model
@@ -667,7 +667,6 @@ class Google_Service_Datastore_KeyPathElement extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -677,7 +676,6 @@ class Google_Service_Datastore_KeyPathElement extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -687,6 +685,7 @@ class Google_Service_Datastore_KeyPathElement extends Google_Model
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_Datastore_KindExpression extends Google_Model
@@ -704,6 +703,7 @@ class Google_Service_Datastore_KindExpression extends Google_Model
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_Datastore_LookupRequest extends Google_Collection
@@ -725,7 +725,6 @@ class Google_Service_Datastore_LookupRequest extends Google_Collection
   {
     return $this->keys;
   }
-
   public function setReadOptions(Google_Service_Datastore_ReadOptions $readOptions)
   {
     $this->readOptions = $readOptions;
@@ -735,6 +734,7 @@ class Google_Service_Datastore_LookupRequest extends Google_Collection
   {
     return $this->readOptions;
   }
+
 }
 
 class Google_Service_Datastore_LookupResponse extends Google_Collection
@@ -760,7 +760,6 @@ class Google_Service_Datastore_LookupResponse extends Google_Collection
   {
     return $this->deferred;
   }
-
   public function setFound($found)
   {
     $this->found = $found;
@@ -770,7 +769,6 @@ class Google_Service_Datastore_LookupResponse extends Google_Collection
   {
     return $this->found;
   }
-
   public function setHeader(Google_Service_Datastore_ResponseHeader $header)
   {
     $this->header = $header;
@@ -780,7 +778,6 @@ class Google_Service_Datastore_LookupResponse extends Google_Collection
   {
     return $this->header;
   }
-
   public function setMissing($missing)
   {
     $this->missing = $missing;
@@ -790,6 +787,7 @@ class Google_Service_Datastore_LookupResponse extends Google_Collection
   {
     return $this->missing;
   }
+
 }
 
 class Google_Service_Datastore_Mutation extends Google_Collection
@@ -818,7 +816,6 @@ class Google_Service_Datastore_Mutation extends Google_Collection
   {
     return $this->delete;
   }
-
   public function setForce($force)
   {
     $this->force = $force;
@@ -828,7 +825,6 @@ class Google_Service_Datastore_Mutation extends Google_Collection
   {
     return $this->force;
   }
-
   public function setInsert($insert)
   {
     $this->insert = $insert;
@@ -838,7 +834,6 @@ class Google_Service_Datastore_Mutation extends Google_Collection
   {
     return $this->insert;
   }
-
   public function setInsertAutoId($insertAutoId)
   {
     $this->insertAutoId = $insertAutoId;
@@ -848,7 +843,6 @@ class Google_Service_Datastore_Mutation extends Google_Collection
   {
     return $this->insertAutoId;
   }
-
   public function setUpdate($update)
   {
     $this->update = $update;
@@ -858,7 +852,6 @@ class Google_Service_Datastore_Mutation extends Google_Collection
   {
     return $this->update;
   }
-
   public function setUpsert($upsert)
   {
     $this->upsert = $upsert;
@@ -868,6 +861,7 @@ class Google_Service_Datastore_Mutation extends Google_Collection
   {
     return $this->upsert;
   }
+
 }
 
 class Google_Service_Datastore_MutationResult extends Google_Collection
@@ -888,7 +882,6 @@ class Google_Service_Datastore_MutationResult extends Google_Collection
   {
     return $this->indexUpdates;
   }
-
   public function setInsertAutoIdKeys($insertAutoIdKeys)
   {
     $this->insertAutoIdKeys = $insertAutoIdKeys;
@@ -898,6 +891,7 @@ class Google_Service_Datastore_MutationResult extends Google_Collection
   {
     return $this->insertAutoIdKeys;
   }
+
 }
 
 class Google_Service_Datastore_PartitionId extends Google_Model
@@ -916,7 +910,6 @@ class Google_Service_Datastore_PartitionId extends Google_Model
   {
     return $this->datasetId;
   }
-
   public function setNamespace($namespace)
   {
     $this->namespace = $namespace;
@@ -926,6 +919,7 @@ class Google_Service_Datastore_PartitionId extends Google_Model
   {
     return $this->namespace;
   }
+
 }
 
 class Google_Service_Datastore_Property extends Google_Collection
@@ -958,7 +952,6 @@ class Google_Service_Datastore_Property extends Google_Collection
   {
     return $this->blobKeyValue;
   }
-
   public function setBlobValue($blobValue)
   {
     $this->blobValue = $blobValue;
@@ -968,7 +961,6 @@ class Google_Service_Datastore_Property extends Google_Collection
   {
     return $this->blobValue;
   }
-
   public function setBooleanValue($booleanValue)
   {
     $this->booleanValue = $booleanValue;
@@ -978,7 +970,6 @@ class Google_Service_Datastore_Property extends Google_Collection
   {
     return $this->booleanValue;
   }
-
   public function setDateTimeValue($dateTimeValue)
   {
     $this->dateTimeValue = $dateTimeValue;
@@ -988,7 +979,6 @@ class Google_Service_Datastore_Property extends Google_Collection
   {
     return $this->dateTimeValue;
   }
-
   public function setDoubleValue($doubleValue)
   {
     $this->doubleValue = $doubleValue;
@@ -998,7 +988,6 @@ class Google_Service_Datastore_Property extends Google_Collection
   {
     return $this->doubleValue;
   }
-
   public function setEntityValue(Google_Service_Datastore_Entity $entityValue)
   {
     $this->entityValue = $entityValue;
@@ -1008,7 +997,6 @@ class Google_Service_Datastore_Property extends Google_Collection
   {
     return $this->entityValue;
   }
-
   public function setIndexed($indexed)
   {
     $this->indexed = $indexed;
@@ -1018,7 +1006,6 @@ class Google_Service_Datastore_Property extends Google_Collection
   {
     return $this->indexed;
   }
-
   public function setIntegerValue($integerValue)
   {
     $this->integerValue = $integerValue;
@@ -1028,7 +1015,6 @@ class Google_Service_Datastore_Property extends Google_Collection
   {
     return $this->integerValue;
   }
-
   public function setKeyValue(Google_Service_Datastore_Key $keyValue)
   {
     $this->keyValue = $keyValue;
@@ -1038,7 +1024,6 @@ class Google_Service_Datastore_Property extends Google_Collection
   {
     return $this->keyValue;
   }
-
   public function setListValue($listValue)
   {
     $this->listValue = $listValue;
@@ -1048,7 +1033,6 @@ class Google_Service_Datastore_Property extends Google_Collection
   {
     return $this->listValue;
   }
-
   public function setMeaning($meaning)
   {
     $this->meaning = $meaning;
@@ -1058,7 +1042,6 @@ class Google_Service_Datastore_Property extends Google_Collection
   {
     return $this->meaning;
   }
-
   public function setStringValue($stringValue)
   {
     $this->stringValue = $stringValue;
@@ -1068,6 +1051,7 @@ class Google_Service_Datastore_Property extends Google_Collection
   {
     return $this->stringValue;
   }
+
 }
 
 class Google_Service_Datastore_PropertyExpression extends Google_Model
@@ -1087,7 +1071,6 @@ class Google_Service_Datastore_PropertyExpression extends Google_Model
   {
     return $this->aggregationFunction;
   }
-
   public function setProperty(Google_Service_Datastore_PropertyReference $property)
   {
     $this->property = $property;
@@ -1097,6 +1080,7 @@ class Google_Service_Datastore_PropertyExpression extends Google_Model
   {
     return $this->property;
   }
+
 }
 
 class Google_Service_Datastore_PropertyFilter extends Google_Model
@@ -1118,7 +1102,6 @@ class Google_Service_Datastore_PropertyFilter extends Google_Model
   {
     return $this->operator;
   }
-
   public function setProperty(Google_Service_Datastore_PropertyReference $property)
   {
     $this->property = $property;
@@ -1128,7 +1111,6 @@ class Google_Service_Datastore_PropertyFilter extends Google_Model
   {
     return $this->property;
   }
-
   public function setValue(Google_Service_Datastore_Value $value)
   {
     $this->value = $value;
@@ -1138,6 +1120,7 @@ class Google_Service_Datastore_PropertyFilter extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Datastore_PropertyOrder extends Google_Model
@@ -1157,7 +1140,6 @@ class Google_Service_Datastore_PropertyOrder extends Google_Model
   {
     return $this->direction;
   }
-
   public function setProperty(Google_Service_Datastore_PropertyReference $property)
   {
     $this->property = $property;
@@ -1167,6 +1149,7 @@ class Google_Service_Datastore_PropertyOrder extends Google_Model
   {
     return $this->property;
   }
+
 }
 
 class Google_Service_Datastore_PropertyReference extends Google_Model
@@ -1184,6 +1167,7 @@ class Google_Service_Datastore_PropertyReference extends Google_Model
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_Datastore_Query extends Google_Collection
@@ -1215,7 +1199,6 @@ class Google_Service_Datastore_Query extends Google_Collection
   {
     return $this->endCursor;
   }
-
   public function setFilter(Google_Service_Datastore_Filter $filter)
   {
     $this->filter = $filter;
@@ -1225,7 +1208,6 @@ class Google_Service_Datastore_Query extends Google_Collection
   {
     return $this->filter;
   }
-
   public function setGroupBy($groupBy)
   {
     $this->groupBy = $groupBy;
@@ -1235,7 +1217,6 @@ class Google_Service_Datastore_Query extends Google_Collection
   {
     return $this->groupBy;
   }
-
   public function setKinds($kinds)
   {
     $this->kinds = $kinds;
@@ -1245,7 +1226,6 @@ class Google_Service_Datastore_Query extends Google_Collection
   {
     return $this->kinds;
   }
-
   public function setLimit($limit)
   {
     $this->limit = $limit;
@@ -1255,7 +1235,6 @@ class Google_Service_Datastore_Query extends Google_Collection
   {
     return $this->limit;
   }
-
   public function setOffset($offset)
   {
     $this->offset = $offset;
@@ -1265,7 +1244,6 @@ class Google_Service_Datastore_Query extends Google_Collection
   {
     return $this->offset;
   }
-
   public function setOrder($order)
   {
     $this->order = $order;
@@ -1275,7 +1253,6 @@ class Google_Service_Datastore_Query extends Google_Collection
   {
     return $this->order;
   }
-
   public function setProjection($projection)
   {
     $this->projection = $projection;
@@ -1285,7 +1262,6 @@ class Google_Service_Datastore_Query extends Google_Collection
   {
     return $this->projection;
   }
-
   public function setStartCursor($startCursor)
   {
     $this->startCursor = $startCursor;
@@ -1295,6 +1271,7 @@ class Google_Service_Datastore_Query extends Google_Collection
   {
     return $this->startCursor;
   }
+
 }
 
 class Google_Service_Datastore_QueryResultBatch extends Google_Collection
@@ -1318,7 +1295,6 @@ class Google_Service_Datastore_QueryResultBatch extends Google_Collection
   {
     return $this->endCursor;
   }
-
   public function setEntityResultType($entityResultType)
   {
     $this->entityResultType = $entityResultType;
@@ -1328,7 +1304,6 @@ class Google_Service_Datastore_QueryResultBatch extends Google_Collection
   {
     return $this->entityResultType;
   }
-
   public function setEntityResults($entityResults)
   {
     $this->entityResults = $entityResults;
@@ -1338,7 +1313,6 @@ class Google_Service_Datastore_QueryResultBatch extends Google_Collection
   {
     return $this->entityResults;
   }
-
   public function setMoreResults($moreResults)
   {
     $this->moreResults = $moreResults;
@@ -1348,7 +1322,6 @@ class Google_Service_Datastore_QueryResultBatch extends Google_Collection
   {
     return $this->moreResults;
   }
-
   public function setSkippedResults($skippedResults)
   {
     $this->skippedResults = $skippedResults;
@@ -1358,6 +1331,7 @@ class Google_Service_Datastore_QueryResultBatch extends Google_Collection
   {
     return $this->skippedResults;
   }
+
 }
 
 class Google_Service_Datastore_ReadOptions extends Google_Model
@@ -1376,7 +1350,6 @@ class Google_Service_Datastore_ReadOptions extends Google_Model
   {
     return $this->readConsistency;
   }
-
   public function setTransaction($transaction)
   {
     $this->transaction = $transaction;
@@ -1386,6 +1359,7 @@ class Google_Service_Datastore_ReadOptions extends Google_Model
   {
     return $this->transaction;
   }
+
 }
 
 class Google_Service_Datastore_ResponseHeader extends Google_Model
@@ -1403,6 +1377,7 @@ class Google_Service_Datastore_ResponseHeader extends Google_Model
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_Datastore_RollbackRequest extends Google_Model
@@ -1420,6 +1395,7 @@ class Google_Service_Datastore_RollbackRequest extends Google_Model
   {
     return $this->transaction;
   }
+
 }
 
 class Google_Service_Datastore_RollbackResponse extends Google_Model
@@ -1438,6 +1414,7 @@ class Google_Service_Datastore_RollbackResponse extends Google_Model
   {
     return $this->header;
   }
+
 }
 
 class Google_Service_Datastore_RunQueryRequest extends Google_Model
@@ -1462,7 +1439,6 @@ class Google_Service_Datastore_RunQueryRequest extends Google_Model
   {
     return $this->gqlQuery;
   }
-
   public function setPartitionId(Google_Service_Datastore_PartitionId $partitionId)
   {
     $this->partitionId = $partitionId;
@@ -1472,7 +1448,6 @@ class Google_Service_Datastore_RunQueryRequest extends Google_Model
   {
     return $this->partitionId;
   }
-
   public function setQuery(Google_Service_Datastore_Query $query)
   {
     $this->query = $query;
@@ -1482,7 +1457,6 @@ class Google_Service_Datastore_RunQueryRequest extends Google_Model
   {
     return $this->query;
   }
-
   public function setReadOptions(Google_Service_Datastore_ReadOptions $readOptions)
   {
     $this->readOptions = $readOptions;
@@ -1492,6 +1466,7 @@ class Google_Service_Datastore_RunQueryRequest extends Google_Model
   {
     return $this->readOptions;
   }
+
 }
 
 class Google_Service_Datastore_RunQueryResponse extends Google_Model
@@ -1512,7 +1487,6 @@ class Google_Service_Datastore_RunQueryResponse extends Google_Model
   {
     return $this->batch;
   }
-
   public function setHeader(Google_Service_Datastore_ResponseHeader $header)
   {
     $this->header = $header;
@@ -1522,6 +1496,7 @@ class Google_Service_Datastore_RunQueryResponse extends Google_Model
   {
     return $this->header;
   }
+
 }
 
 class Google_Service_Datastore_Value extends Google_Collection
@@ -1554,7 +1529,6 @@ class Google_Service_Datastore_Value extends Google_Collection
   {
     return $this->blobKeyValue;
   }
-
   public function setBlobValue($blobValue)
   {
     $this->blobValue = $blobValue;
@@ -1564,7 +1538,6 @@ class Google_Service_Datastore_Value extends Google_Collection
   {
     return $this->blobValue;
   }
-
   public function setBooleanValue($booleanValue)
   {
     $this->booleanValue = $booleanValue;
@@ -1574,7 +1547,6 @@ class Google_Service_Datastore_Value extends Google_Collection
   {
     return $this->booleanValue;
   }
-
   public function setDateTimeValue($dateTimeValue)
   {
     $this->dateTimeValue = $dateTimeValue;
@@ -1584,7 +1556,6 @@ class Google_Service_Datastore_Value extends Google_Collection
   {
     return $this->dateTimeValue;
   }
-
   public function setDoubleValue($doubleValue)
   {
     $this->doubleValue = $doubleValue;
@@ -1594,7 +1565,6 @@ class Google_Service_Datastore_Value extends Google_Collection
   {
     return $this->doubleValue;
   }
-
   public function setEntityValue(Google_Service_Datastore_Entity $entityValue)
   {
     $this->entityValue = $entityValue;
@@ -1604,7 +1574,6 @@ class Google_Service_Datastore_Value extends Google_Collection
   {
     return $this->entityValue;
   }
-
   public function setIndexed($indexed)
   {
     $this->indexed = $indexed;
@@ -1614,7 +1583,6 @@ class Google_Service_Datastore_Value extends Google_Collection
   {
     return $this->indexed;
   }
-
   public function setIntegerValue($integerValue)
   {
     $this->integerValue = $integerValue;
@@ -1624,7 +1592,6 @@ class Google_Service_Datastore_Value extends Google_Collection
   {
     return $this->integerValue;
   }
-
   public function setKeyValue(Google_Service_Datastore_Key $keyValue)
   {
     $this->keyValue = $keyValue;
@@ -1634,7 +1601,6 @@ class Google_Service_Datastore_Value extends Google_Collection
   {
     return $this->keyValue;
   }
-
   public function setListValue($listValue)
   {
     $this->listValue = $listValue;
@@ -1644,7 +1610,6 @@ class Google_Service_Datastore_Value extends Google_Collection
   {
     return $this->listValue;
   }
-
   public function setMeaning($meaning)
   {
     $this->meaning = $meaning;
@@ -1654,7 +1619,6 @@ class Google_Service_Datastore_Value extends Google_Collection
   {
     return $this->meaning;
   }
-
   public function setStringValue($stringValue)
   {
     $this->stringValue = $stringValue;
@@ -1664,4 +1628,5 @@ class Google_Service_Datastore_Value extends Google_Collection
   {
     return $this->stringValue;
   }
+
 }
