@@ -613,7 +613,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->completed;
   }
-
   public function setDeleted($deleted)
   {
     $this->deleted = $deleted;
@@ -623,7 +622,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->deleted;
   }
-
   public function setDue($due)
   {
     $this->due = $due;
@@ -633,7 +631,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->due;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -643,7 +640,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setHidden($hidden)
   {
     $this->hidden = $hidden;
@@ -653,7 +649,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->hidden;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -663,7 +658,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -673,7 +667,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLinks($links)
   {
     $this->links = $links;
@@ -683,7 +676,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->links;
   }
-
   public function setNotes($notes)
   {
     $this->notes = $notes;
@@ -693,7 +685,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->notes;
   }
-
   public function setParent($parent)
   {
     $this->parent = $parent;
@@ -703,7 +694,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->parent;
   }
-
   public function setPosition($position)
   {
     $this->position = $position;
@@ -713,7 +703,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->position;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -723,7 +712,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -733,7 +721,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->status;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -743,7 +730,6 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->title;
   }
-
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -753,6 +739,7 @@ class Google_Service_Tasks_Task extends Google_Collection
   {
     return $this->updated;
   }
+
 }
 
 class Google_Service_Tasks_TaskLinks extends Google_Model
@@ -772,7 +759,6 @@ class Google_Service_Tasks_TaskLinks extends Google_Model
   {
     return $this->description;
   }
-
   public function setLink($link)
   {
     $this->link = $link;
@@ -782,7 +768,6 @@ class Google_Service_Tasks_TaskLinks extends Google_Model
   {
     return $this->link;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -792,6 +777,7 @@ class Google_Service_Tasks_TaskLinks extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Tasks_TaskList extends Google_Model
@@ -814,7 +800,6 @@ class Google_Service_Tasks_TaskList extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -824,7 +809,6 @@ class Google_Service_Tasks_TaskList extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -834,7 +818,6 @@ class Google_Service_Tasks_TaskList extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -844,7 +827,6 @@ class Google_Service_Tasks_TaskList extends Google_Model
   {
     return $this->selfLink;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -854,7 +836,6 @@ class Google_Service_Tasks_TaskList extends Google_Model
   {
     return $this->title;
   }
-
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -864,6 +845,7 @@ class Google_Service_Tasks_TaskList extends Google_Model
   {
     return $this->updated;
   }
+
 }
 
 class Google_Service_Tasks_TaskLists extends Google_Collection
@@ -886,7 +868,6 @@ class Google_Service_Tasks_TaskLists extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -896,7 +877,6 @@ class Google_Service_Tasks_TaskLists extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -906,7 +886,6 @@ class Google_Service_Tasks_TaskLists extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -916,6 +895,7 @@ class Google_Service_Tasks_TaskLists extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Tasks_Tasks extends Google_Collection
@@ -938,7 +918,6 @@ class Google_Service_Tasks_Tasks extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -948,7 +927,6 @@ class Google_Service_Tasks_Tasks extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -958,7 +936,6 @@ class Google_Service_Tasks_Tasks extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -968,4 +945,5 @@ class Google_Service_Tasks_Tasks extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
