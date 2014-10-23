@@ -532,6 +532,15 @@ class Google_Service_Gmail extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'metadataHeaders' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'format' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'list' => array(
               'path' => '{userId}/threads',
@@ -1156,6 +1165,11 @@ class Google_Service_Gmail_UsersThreads_Resource extends Google_Service_Resource
    * @param string $id
    * The ID of the thread to retrieve.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string metadataHeaders
+   * When given and format is METADATA, only include headers specified.
+   * @opt_param string format
+   * The format to return the messages in.
    * @return Google_Service_Gmail_Thread
    */
   public function get($userId, $id, $optParams = array())
@@ -1262,7 +1276,6 @@ class Google_Service_Gmail_Draft extends Google_Model
   {
     return $this->id;
   }
-
   public function setMessage(Google_Service_Gmail_Message $message)
   {
     $this->message = $message;
@@ -1272,6 +1285,7 @@ class Google_Service_Gmail_Draft extends Google_Model
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Gmail_History extends Google_Collection
@@ -1292,7 +1306,6 @@ class Google_Service_Gmail_History extends Google_Collection
   {
     return $this->id;
   }
-
   public function setMessages($messages)
   {
     $this->messages = $messages;
@@ -1302,6 +1315,7 @@ class Google_Service_Gmail_History extends Google_Collection
   {
     return $this->messages;
   }
+
 }
 
 class Google_Service_Gmail_Label extends Google_Model
@@ -1327,7 +1341,6 @@ class Google_Service_Gmail_Label extends Google_Model
   {
     return $this->id;
   }
-
   public function setLabelListVisibility($labelListVisibility)
   {
     $this->labelListVisibility = $labelListVisibility;
@@ -1337,7 +1350,6 @@ class Google_Service_Gmail_Label extends Google_Model
   {
     return $this->labelListVisibility;
   }
-
   public function setMessageListVisibility($messageListVisibility)
   {
     $this->messageListVisibility = $messageListVisibility;
@@ -1347,7 +1359,6 @@ class Google_Service_Gmail_Label extends Google_Model
   {
     return $this->messageListVisibility;
   }
-
   public function setMessagesTotal($messagesTotal)
   {
     $this->messagesTotal = $messagesTotal;
@@ -1357,7 +1368,6 @@ class Google_Service_Gmail_Label extends Google_Model
   {
     return $this->messagesTotal;
   }
-
   public function setMessagesUnread($messagesUnread)
   {
     $this->messagesUnread = $messagesUnread;
@@ -1367,7 +1377,6 @@ class Google_Service_Gmail_Label extends Google_Model
   {
     return $this->messagesUnread;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -1377,7 +1386,6 @@ class Google_Service_Gmail_Label extends Google_Model
   {
     return $this->name;
   }
-
   public function setThreadsTotal($threadsTotal)
   {
     $this->threadsTotal = $threadsTotal;
@@ -1387,7 +1395,6 @@ class Google_Service_Gmail_Label extends Google_Model
   {
     return $this->threadsTotal;
   }
-
   public function setThreadsUnread($threadsUnread)
   {
     $this->threadsUnread = $threadsUnread;
@@ -1397,7 +1404,6 @@ class Google_Service_Gmail_Label extends Google_Model
   {
     return $this->threadsUnread;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -1407,6 +1413,7 @@ class Google_Service_Gmail_Label extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Gmail_ListDraftsResponse extends Google_Collection
@@ -1428,7 +1435,6 @@ class Google_Service_Gmail_ListDraftsResponse extends Google_Collection
   {
     return $this->drafts;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1438,7 +1444,6 @@ class Google_Service_Gmail_ListDraftsResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setResultSizeEstimate($resultSizeEstimate)
   {
     $this->resultSizeEstimate = $resultSizeEstimate;
@@ -1448,6 +1453,7 @@ class Google_Service_Gmail_ListDraftsResponse extends Google_Collection
   {
     return $this->resultSizeEstimate;
   }
+
 }
 
 class Google_Service_Gmail_ListHistoryResponse extends Google_Collection
@@ -1469,7 +1475,6 @@ class Google_Service_Gmail_ListHistoryResponse extends Google_Collection
   {
     return $this->history;
   }
-
   public function setHistoryId($historyId)
   {
     $this->historyId = $historyId;
@@ -1479,7 +1484,6 @@ class Google_Service_Gmail_ListHistoryResponse extends Google_Collection
   {
     return $this->historyId;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1489,6 +1493,7 @@ class Google_Service_Gmail_ListHistoryResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Gmail_ListLabelsResponse extends Google_Collection
@@ -1508,6 +1513,7 @@ class Google_Service_Gmail_ListLabelsResponse extends Google_Collection
   {
     return $this->labels;
   }
+
 }
 
 class Google_Service_Gmail_ListMessagesResponse extends Google_Collection
@@ -1529,7 +1535,6 @@ class Google_Service_Gmail_ListMessagesResponse extends Google_Collection
   {
     return $this->messages;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1539,7 +1544,6 @@ class Google_Service_Gmail_ListMessagesResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setResultSizeEstimate($resultSizeEstimate)
   {
     $this->resultSizeEstimate = $resultSizeEstimate;
@@ -1549,6 +1553,7 @@ class Google_Service_Gmail_ListMessagesResponse extends Google_Collection
   {
     return $this->resultSizeEstimate;
   }
+
 }
 
 class Google_Service_Gmail_ListThreadsResponse extends Google_Collection
@@ -1570,7 +1575,6 @@ class Google_Service_Gmail_ListThreadsResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setResultSizeEstimate($resultSizeEstimate)
   {
     $this->resultSizeEstimate = $resultSizeEstimate;
@@ -1580,7 +1584,6 @@ class Google_Service_Gmail_ListThreadsResponse extends Google_Collection
   {
     return $this->resultSizeEstimate;
   }
-
   public function setThreads($threads)
   {
     $this->threads = $threads;
@@ -1590,6 +1593,7 @@ class Google_Service_Gmail_ListThreadsResponse extends Google_Collection
   {
     return $this->threads;
   }
+
 }
 
 class Google_Service_Gmail_Message extends Google_Collection
@@ -1616,7 +1620,6 @@ class Google_Service_Gmail_Message extends Google_Collection
   {
     return $this->historyId;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -1626,7 +1629,6 @@ class Google_Service_Gmail_Message extends Google_Collection
   {
     return $this->id;
   }
-
   public function setLabelIds($labelIds)
   {
     $this->labelIds = $labelIds;
@@ -1636,7 +1638,6 @@ class Google_Service_Gmail_Message extends Google_Collection
   {
     return $this->labelIds;
   }
-
   public function setPayload(Google_Service_Gmail_MessagePart $payload)
   {
     $this->payload = $payload;
@@ -1646,7 +1647,6 @@ class Google_Service_Gmail_Message extends Google_Collection
   {
     return $this->payload;
   }
-
   public function setRaw($raw)
   {
     $this->raw = $raw;
@@ -1656,7 +1656,6 @@ class Google_Service_Gmail_Message extends Google_Collection
   {
     return $this->raw;
   }
-
   public function setSizeEstimate($sizeEstimate)
   {
     $this->sizeEstimate = $sizeEstimate;
@@ -1666,7 +1665,6 @@ class Google_Service_Gmail_Message extends Google_Collection
   {
     return $this->sizeEstimate;
   }
-
   public function setSnippet($snippet)
   {
     $this->snippet = $snippet;
@@ -1676,7 +1674,6 @@ class Google_Service_Gmail_Message extends Google_Collection
   {
     return $this->snippet;
   }
-
   public function setThreadId($threadId)
   {
     $this->threadId = $threadId;
@@ -1686,6 +1683,7 @@ class Google_Service_Gmail_Message extends Google_Collection
   {
     return $this->threadId;
   }
+
 }
 
 class Google_Service_Gmail_MessagePart extends Google_Collection
@@ -1712,7 +1710,6 @@ class Google_Service_Gmail_MessagePart extends Google_Collection
   {
     return $this->body;
   }
-
   public function setFilename($filename)
   {
     $this->filename = $filename;
@@ -1722,7 +1719,6 @@ class Google_Service_Gmail_MessagePart extends Google_Collection
   {
     return $this->filename;
   }
-
   public function setHeaders($headers)
   {
     $this->headers = $headers;
@@ -1732,7 +1728,6 @@ class Google_Service_Gmail_MessagePart extends Google_Collection
   {
     return $this->headers;
   }
-
   public function setMimeType($mimeType)
   {
     $this->mimeType = $mimeType;
@@ -1742,7 +1737,6 @@ class Google_Service_Gmail_MessagePart extends Google_Collection
   {
     return $this->mimeType;
   }
-
   public function setPartId($partId)
   {
     $this->partId = $partId;
@@ -1752,7 +1746,6 @@ class Google_Service_Gmail_MessagePart extends Google_Collection
   {
     return $this->partId;
   }
-
   public function setParts($parts)
   {
     $this->parts = $parts;
@@ -1762,6 +1755,7 @@ class Google_Service_Gmail_MessagePart extends Google_Collection
   {
     return $this->parts;
   }
+
 }
 
 class Google_Service_Gmail_MessagePartBody extends Google_Model
@@ -1781,7 +1775,6 @@ class Google_Service_Gmail_MessagePartBody extends Google_Model
   {
     return $this->attachmentId;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -1791,7 +1784,6 @@ class Google_Service_Gmail_MessagePartBody extends Google_Model
   {
     return $this->data;
   }
-
   public function setSize($size)
   {
     $this->size = $size;
@@ -1801,6 +1793,7 @@ class Google_Service_Gmail_MessagePartBody extends Google_Model
   {
     return $this->size;
   }
+
 }
 
 class Google_Service_Gmail_MessagePartHeader extends Google_Model
@@ -1819,7 +1812,6 @@ class Google_Service_Gmail_MessagePartHeader extends Google_Model
   {
     return $this->name;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -1829,6 +1821,7 @@ class Google_Service_Gmail_MessagePartHeader extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Gmail_ModifyMessageRequest extends Google_Collection
@@ -1848,7 +1841,6 @@ class Google_Service_Gmail_ModifyMessageRequest extends Google_Collection
   {
     return $this->addLabelIds;
   }
-
   public function setRemoveLabelIds($removeLabelIds)
   {
     $this->removeLabelIds = $removeLabelIds;
@@ -1858,6 +1850,7 @@ class Google_Service_Gmail_ModifyMessageRequest extends Google_Collection
   {
     return $this->removeLabelIds;
   }
+
 }
 
 class Google_Service_Gmail_ModifyThreadRequest extends Google_Collection
@@ -1877,7 +1870,6 @@ class Google_Service_Gmail_ModifyThreadRequest extends Google_Collection
   {
     return $this->addLabelIds;
   }
-
   public function setRemoveLabelIds($removeLabelIds)
   {
     $this->removeLabelIds = $removeLabelIds;
@@ -1887,6 +1879,7 @@ class Google_Service_Gmail_ModifyThreadRequest extends Google_Collection
   {
     return $this->removeLabelIds;
   }
+
 }
 
 class Google_Service_Gmail_Profile extends Google_Model
@@ -1907,7 +1900,6 @@ class Google_Service_Gmail_Profile extends Google_Model
   {
     return $this->emailAddress;
   }
-
   public function setHistoryId($historyId)
   {
     $this->historyId = $historyId;
@@ -1917,7 +1909,6 @@ class Google_Service_Gmail_Profile extends Google_Model
   {
     return $this->historyId;
   }
-
   public function setMessagesTotal($messagesTotal)
   {
     $this->messagesTotal = $messagesTotal;
@@ -1927,7 +1918,6 @@ class Google_Service_Gmail_Profile extends Google_Model
   {
     return $this->messagesTotal;
   }
-
   public function setThreadsTotal($threadsTotal)
   {
     $this->threadsTotal = $threadsTotal;
@@ -1937,6 +1927,7 @@ class Google_Service_Gmail_Profile extends Google_Model
   {
     return $this->threadsTotal;
   }
+
 }
 
 class Google_Service_Gmail_Thread extends Google_Collection
@@ -1959,7 +1950,6 @@ class Google_Service_Gmail_Thread extends Google_Collection
   {
     return $this->historyId;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -1969,7 +1959,6 @@ class Google_Service_Gmail_Thread extends Google_Collection
   {
     return $this->id;
   }
-
   public function setMessages($messages)
   {
     $this->messages = $messages;
@@ -1979,7 +1968,6 @@ class Google_Service_Gmail_Thread extends Google_Collection
   {
     return $this->messages;
   }
-
   public function setSnippet($snippet)
   {
     $this->snippet = $snippet;
@@ -1989,4 +1977,5 @@ class Google_Service_Gmail_Thread extends Google_Collection
   {
     return $this->snippet;
   }
+
 }
