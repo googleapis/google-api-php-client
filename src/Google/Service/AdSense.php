@@ -2194,7 +2194,6 @@ class Google_Service_AdSense_Account extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2204,7 +2203,6 @@ class Google_Service_AdSense_Account extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2214,7 +2212,6 @@ class Google_Service_AdSense_Account extends Google_Collection
   {
     return $this->name;
   }
-
   public function setPremium($premium)
   {
     $this->premium = $premium;
@@ -2224,7 +2221,6 @@ class Google_Service_AdSense_Account extends Google_Collection
   {
     return $this->premium;
   }
-
   public function setSubAccounts($subAccounts)
   {
     $this->subAccounts = $subAccounts;
@@ -2234,7 +2230,6 @@ class Google_Service_AdSense_Account extends Google_Collection
   {
     return $this->subAccounts;
   }
-
   public function setTimezone($timezone)
   {
     $this->timezone = $timezone;
@@ -2244,6 +2239,7 @@ class Google_Service_AdSense_Account extends Google_Collection
   {
     return $this->timezone;
   }
+
 }
 
 class Google_Service_AdSense_Accounts extends Google_Collection
@@ -2266,7 +2262,6 @@ class Google_Service_AdSense_Accounts extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -2276,7 +2271,6 @@ class Google_Service_AdSense_Accounts extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2286,7 +2280,6 @@ class Google_Service_AdSense_Accounts extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2296,6 +2289,7 @@ class Google_Service_AdSense_Accounts extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_AdSense_AdClient extends Google_Model
@@ -2318,7 +2312,6 @@ class Google_Service_AdSense_AdClient extends Google_Model
   {
     return $this->arcOptIn;
   }
-
   public function setArcReviewMode($arcReviewMode)
   {
     $this->arcReviewMode = $arcReviewMode;
@@ -2328,7 +2321,6 @@ class Google_Service_AdSense_AdClient extends Google_Model
   {
     return $this->arcReviewMode;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -2338,7 +2330,6 @@ class Google_Service_AdSense_AdClient extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2348,7 +2339,6 @@ class Google_Service_AdSense_AdClient extends Google_Model
   {
     return $this->kind;
   }
-
   public function setProductCode($productCode)
   {
     $this->productCode = $productCode;
@@ -2358,7 +2348,6 @@ class Google_Service_AdSense_AdClient extends Google_Model
   {
     return $this->productCode;
   }
-
   public function setSupportsReporting($supportsReporting)
   {
     $this->supportsReporting = $supportsReporting;
@@ -2368,6 +2357,7 @@ class Google_Service_AdSense_AdClient extends Google_Model
   {
     return $this->supportsReporting;
   }
+
 }
 
 class Google_Service_AdSense_AdClients extends Google_Collection
@@ -2390,7 +2380,6 @@ class Google_Service_AdSense_AdClients extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -2400,7 +2389,6 @@ class Google_Service_AdSense_AdClients extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2410,7 +2398,6 @@ class Google_Service_AdSense_AdClients extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2420,6 +2407,7 @@ class Google_Service_AdSense_AdClients extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_AdSense_AdCode extends Google_Model
@@ -2438,7 +2426,6 @@ class Google_Service_AdSense_AdCode extends Google_Model
   {
     return $this->adCode;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2448,6 +2435,7 @@ class Google_Service_AdSense_AdCode extends Google_Model
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_AdSense_AdStyle extends Google_Model
@@ -2470,7 +2458,6 @@ class Google_Service_AdSense_AdStyle extends Google_Model
   {
     return $this->colors;
   }
-
   public function setCorners($corners)
   {
     $this->corners = $corners;
@@ -2480,7 +2467,6 @@ class Google_Service_AdSense_AdStyle extends Google_Model
   {
     return $this->corners;
   }
-
   public function setFont(Google_Service_AdSense_AdStyleFont $font)
   {
     $this->font = $font;
@@ -2490,7 +2476,6 @@ class Google_Service_AdSense_AdStyle extends Google_Model
   {
     return $this->font;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2500,6 +2485,7 @@ class Google_Service_AdSense_AdStyle extends Google_Model
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_AdSense_AdStyleColors extends Google_Model
@@ -2521,7 +2507,6 @@ class Google_Service_AdSense_AdStyleColors extends Google_Model
   {
     return $this->background;
   }
-
   public function setBorder($border)
   {
     $this->border = $border;
@@ -2531,7 +2516,6 @@ class Google_Service_AdSense_AdStyleColors extends Google_Model
   {
     return $this->border;
   }
-
   public function setText($text)
   {
     $this->text = $text;
@@ -2541,7 +2525,6 @@ class Google_Service_AdSense_AdStyleColors extends Google_Model
   {
     return $this->text;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -2551,7 +2534,6 @@ class Google_Service_AdSense_AdStyleColors extends Google_Model
   {
     return $this->title;
   }
-
   public function setUrl($url)
   {
     $this->url = $url;
@@ -2561,6 +2543,7 @@ class Google_Service_AdSense_AdStyleColors extends Google_Model
   {
     return $this->url;
   }
+
 }
 
 class Google_Service_AdSense_AdStyleFont extends Google_Model
@@ -2579,7 +2562,6 @@ class Google_Service_AdSense_AdStyleFont extends Google_Model
   {
     return $this->family;
   }
-
   public function setSize($size)
   {
     $this->size = $size;
@@ -2589,6 +2571,7 @@ class Google_Service_AdSense_AdStyleFont extends Google_Model
   {
     return $this->size;
   }
+
 }
 
 class Google_Service_AdSense_AdUnit extends Google_Model
@@ -2619,7 +2602,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     return $this->code;
   }
-
   public function setContentAdsSettings(Google_Service_AdSense_AdUnitContentAdsSettings $contentAdsSettings)
   {
     $this->contentAdsSettings = $contentAdsSettings;
@@ -2629,7 +2611,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     return $this->contentAdsSettings;
   }
-
   public function setCustomStyle(Google_Service_AdSense_AdStyle $customStyle)
   {
     $this->customStyle = $customStyle;
@@ -2639,7 +2620,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     return $this->customStyle;
   }
-
   public function setFeedAdsSettings(Google_Service_AdSense_AdUnitFeedAdsSettings $feedAdsSettings)
   {
     $this->feedAdsSettings = $feedAdsSettings;
@@ -2649,7 +2629,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     return $this->feedAdsSettings;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -2659,7 +2638,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2669,7 +2647,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     return $this->kind;
   }
-
   public function setMobileContentAdsSettings(Google_Service_AdSense_AdUnitMobileContentAdsSettings $mobileContentAdsSettings)
   {
     $this->mobileContentAdsSettings = $mobileContentAdsSettings;
@@ -2679,7 +2656,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     return $this->mobileContentAdsSettings;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2689,7 +2665,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     return $this->name;
   }
-
   public function setSavedStyleId($savedStyleId)
   {
     $this->savedStyleId = $savedStyleId;
@@ -2699,7 +2674,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     return $this->savedStyleId;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -2709,6 +2683,7 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     return $this->status;
   }
+
 }
 
 class Google_Service_AdSense_AdUnitContentAdsSettings extends Google_Model
@@ -2729,7 +2704,6 @@ class Google_Service_AdSense_AdUnitContentAdsSettings extends Google_Model
   {
     return $this->backupOption;
   }
-
   public function setSize($size)
   {
     $this->size = $size;
@@ -2739,7 +2713,6 @@ class Google_Service_AdSense_AdUnitContentAdsSettings extends Google_Model
   {
     return $this->size;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -2749,6 +2722,7 @@ class Google_Service_AdSense_AdUnitContentAdsSettings extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption extends Google_Model
@@ -2768,7 +2742,6 @@ class Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption extends Google
   {
     return $this->color;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -2778,7 +2751,6 @@ class Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption extends Google
   {
     return $this->type;
   }
-
   public function setUrl($url)
   {
     $this->url = $url;
@@ -2788,6 +2760,7 @@ class Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption extends Google
   {
     return $this->url;
   }
+
 }
 
 class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
@@ -2808,7 +2781,6 @@ class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
   {
     return $this->adPosition;
   }
-
   public function setFrequency($frequency)
   {
     $this->frequency = $frequency;
@@ -2818,7 +2790,6 @@ class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
   {
     return $this->frequency;
   }
-
   public function setMinimumWordCount($minimumWordCount)
   {
     $this->minimumWordCount = $minimumWordCount;
@@ -2828,7 +2799,6 @@ class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
   {
     return $this->minimumWordCount;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -2838,6 +2808,7 @@ class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
@@ -2858,7 +2829,6 @@ class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
   {
     return $this->markupLanguage;
   }
-
   public function setScriptingLanguage($scriptingLanguage)
   {
     $this->scriptingLanguage = $scriptingLanguage;
@@ -2868,7 +2838,6 @@ class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
   {
     return $this->scriptingLanguage;
   }
-
   public function setSize($size)
   {
     $this->size = $size;
@@ -2878,7 +2847,6 @@ class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
   {
     return $this->size;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -2888,6 +2856,7 @@ class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_AdSense_AdUnits extends Google_Collection
@@ -2910,7 +2879,6 @@ class Google_Service_AdSense_AdUnits extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -2920,7 +2888,6 @@ class Google_Service_AdSense_AdUnits extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2930,7 +2897,6 @@ class Google_Service_AdSense_AdUnits extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2940,6 +2906,7 @@ class Google_Service_AdSense_AdUnits extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Collection
@@ -2967,7 +2934,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     return $this->averages;
   }
-
   public function setEndDate($endDate)
   {
     $this->endDate = $endDate;
@@ -2977,7 +2943,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     return $this->endDate;
   }
-
   public function setHeaders($headers)
   {
     $this->headers = $headers;
@@ -2987,7 +2952,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     return $this->headers;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2997,7 +2961,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     return $this->kind;
   }
-
   public function setRows($rows)
   {
     $this->rows = $rows;
@@ -3007,7 +2970,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     return $this->rows;
   }
-
   public function setStartDate($startDate)
   {
     $this->startDate = $startDate;
@@ -3017,7 +2979,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     return $this->startDate;
   }
-
   public function setTotalMatchedRows($totalMatchedRows)
   {
     $this->totalMatchedRows = $totalMatchedRows;
@@ -3027,7 +2988,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     return $this->totalMatchedRows;
   }
-
   public function setTotals($totals)
   {
     $this->totals = $totals;
@@ -3037,7 +2997,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     return $this->totals;
   }
-
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -3047,6 +3006,7 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     return $this->warnings;
   }
+
 }
 
 class Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders extends Google_Model
@@ -3066,7 +3026,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders extends Googl
   {
     return $this->currency;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3076,7 +3035,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders extends Googl
   {
     return $this->name;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -3086,6 +3044,7 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders extends Googl
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_AdSense_Alert extends Google_Model
@@ -3108,7 +3067,6 @@ class Google_Service_AdSense_Alert extends Google_Model
   {
     return $this->id;
   }
-
   public function setIsDismissible($isDismissible)
   {
     $this->isDismissible = $isDismissible;
@@ -3118,7 +3076,6 @@ class Google_Service_AdSense_Alert extends Google_Model
   {
     return $this->isDismissible;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3128,7 +3085,6 @@ class Google_Service_AdSense_Alert extends Google_Model
   {
     return $this->kind;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -3138,7 +3094,6 @@ class Google_Service_AdSense_Alert extends Google_Model
   {
     return $this->message;
   }
-
   public function setSeverity($severity)
   {
     $this->severity = $severity;
@@ -3148,7 +3103,6 @@ class Google_Service_AdSense_Alert extends Google_Model
   {
     return $this->severity;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -3158,6 +3112,7 @@ class Google_Service_AdSense_Alert extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_AdSense_Alerts extends Google_Collection
@@ -3178,7 +3133,6 @@ class Google_Service_AdSense_Alerts extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3188,6 +3142,7 @@ class Google_Service_AdSense_Alerts extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_AdSense_CustomChannel extends Google_Model
@@ -3210,7 +3165,6 @@ class Google_Service_AdSense_CustomChannel extends Google_Model
   {
     return $this->code;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3220,7 +3174,6 @@ class Google_Service_AdSense_CustomChannel extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3230,7 +3183,6 @@ class Google_Service_AdSense_CustomChannel extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3240,7 +3192,6 @@ class Google_Service_AdSense_CustomChannel extends Google_Model
   {
     return $this->name;
   }
-
   public function setTargetingInfo(Google_Service_AdSense_CustomChannelTargetingInfo $targetingInfo)
   {
     $this->targetingInfo = $targetingInfo;
@@ -3250,6 +3201,7 @@ class Google_Service_AdSense_CustomChannel extends Google_Model
   {
     return $this->targetingInfo;
   }
+
 }
 
 class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
@@ -3270,7 +3222,6 @@ class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
   {
     return $this->adsAppearOn;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -3280,7 +3231,6 @@ class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
   {
     return $this->description;
   }
-
   public function setLocation($location)
   {
     $this->location = $location;
@@ -3290,7 +3240,6 @@ class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
   {
     return $this->location;
   }
-
   public function setSiteLanguage($siteLanguage)
   {
     $this->siteLanguage = $siteLanguage;
@@ -3300,6 +3249,7 @@ class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
   {
     return $this->siteLanguage;
   }
+
 }
 
 class Google_Service_AdSense_CustomChannels extends Google_Collection
@@ -3322,7 +3272,6 @@ class Google_Service_AdSense_CustomChannels extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -3332,7 +3281,6 @@ class Google_Service_AdSense_CustomChannels extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3342,7 +3290,6 @@ class Google_Service_AdSense_CustomChannels extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3352,6 +3299,7 @@ class Google_Service_AdSense_CustomChannels extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_AdSense_Metadata extends Google_Collection
@@ -3372,7 +3320,6 @@ class Google_Service_AdSense_Metadata extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3382,6 +3329,7 @@ class Google_Service_AdSense_Metadata extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_AdSense_Payment extends Google_Model
@@ -3403,7 +3351,6 @@ class Google_Service_AdSense_Payment extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3413,7 +3360,6 @@ class Google_Service_AdSense_Payment extends Google_Model
   {
     return $this->kind;
   }
-
   public function setPaymentAmount($paymentAmount)
   {
     $this->paymentAmount = $paymentAmount;
@@ -3423,7 +3369,6 @@ class Google_Service_AdSense_Payment extends Google_Model
   {
     return $this->paymentAmount;
   }
-
   public function setPaymentAmountCurrencyCode($paymentAmountCurrencyCode)
   {
     $this->paymentAmountCurrencyCode = $paymentAmountCurrencyCode;
@@ -3433,7 +3378,6 @@ class Google_Service_AdSense_Payment extends Google_Model
   {
     return $this->paymentAmountCurrencyCode;
   }
-
   public function setPaymentDate($paymentDate)
   {
     $this->paymentDate = $paymentDate;
@@ -3443,6 +3387,7 @@ class Google_Service_AdSense_Payment extends Google_Model
   {
     return $this->paymentDate;
   }
+
 }
 
 class Google_Service_AdSense_Payments extends Google_Collection
@@ -3463,7 +3408,6 @@ class Google_Service_AdSense_Payments extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3473,6 +3417,7 @@ class Google_Service_AdSense_Payments extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
@@ -3497,7 +3442,6 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     return $this->compatibleDimensions;
   }
-
   public function setCompatibleMetrics($compatibleMetrics)
   {
     $this->compatibleMetrics = $compatibleMetrics;
@@ -3507,7 +3451,6 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     return $this->compatibleMetrics;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3517,7 +3460,6 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3527,7 +3469,6 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setRequiredDimensions($requiredDimensions)
   {
     $this->requiredDimensions = $requiredDimensions;
@@ -3537,7 +3478,6 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     return $this->requiredDimensions;
   }
-
   public function setRequiredMetrics($requiredMetrics)
   {
     $this->requiredMetrics = $requiredMetrics;
@@ -3547,7 +3487,6 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     return $this->requiredMetrics;
   }
-
   public function setSupportedProducts($supportedProducts)
   {
     $this->supportedProducts = $supportedProducts;
@@ -3557,6 +3496,7 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     return $this->supportedProducts;
   }
+
 }
 
 class Google_Service_AdSense_SavedAdStyle extends Google_Model
@@ -3578,7 +3518,6 @@ class Google_Service_AdSense_SavedAdStyle extends Google_Model
   {
     return $this->adStyle;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3588,7 +3527,6 @@ class Google_Service_AdSense_SavedAdStyle extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3598,7 +3536,6 @@ class Google_Service_AdSense_SavedAdStyle extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3608,6 +3545,7 @@ class Google_Service_AdSense_SavedAdStyle extends Google_Model
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_AdSense_SavedAdStyles extends Google_Collection
@@ -3630,7 +3568,6 @@ class Google_Service_AdSense_SavedAdStyles extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -3640,7 +3577,6 @@ class Google_Service_AdSense_SavedAdStyles extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3650,7 +3586,6 @@ class Google_Service_AdSense_SavedAdStyles extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3660,6 +3595,7 @@ class Google_Service_AdSense_SavedAdStyles extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_AdSense_SavedReport extends Google_Model
@@ -3679,7 +3615,6 @@ class Google_Service_AdSense_SavedReport extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3689,7 +3624,6 @@ class Google_Service_AdSense_SavedReport extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3699,6 +3633,7 @@ class Google_Service_AdSense_SavedReport extends Google_Model
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_AdSense_SavedReports extends Google_Collection
@@ -3721,7 +3656,6 @@ class Google_Service_AdSense_SavedReports extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -3731,7 +3665,6 @@ class Google_Service_AdSense_SavedReports extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3741,7 +3674,6 @@ class Google_Service_AdSense_SavedReports extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3751,6 +3683,7 @@ class Google_Service_AdSense_SavedReports extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_AdSense_UrlChannel extends Google_Model
@@ -3770,7 +3703,6 @@ class Google_Service_AdSense_UrlChannel extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3780,7 +3712,6 @@ class Google_Service_AdSense_UrlChannel extends Google_Model
   {
     return $this->kind;
   }
-
   public function setUrlPattern($urlPattern)
   {
     $this->urlPattern = $urlPattern;
@@ -3790,6 +3721,7 @@ class Google_Service_AdSense_UrlChannel extends Google_Model
   {
     return $this->urlPattern;
   }
+
 }
 
 class Google_Service_AdSense_UrlChannels extends Google_Collection
@@ -3812,7 +3744,6 @@ class Google_Service_AdSense_UrlChannels extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -3822,7 +3753,6 @@ class Google_Service_AdSense_UrlChannels extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3832,7 +3762,6 @@ class Google_Service_AdSense_UrlChannels extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3842,4 +3771,5 @@ class Google_Service_AdSense_UrlChannels extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
