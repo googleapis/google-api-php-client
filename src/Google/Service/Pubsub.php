@@ -427,7 +427,6 @@ class Google_Service_Pubsub_AcknowledgeRequest extends Google_Collection
   {
     return $this->ackId;
   }
-
   public function setSubscription($subscription)
   {
     $this->subscription = $subscription;
@@ -437,6 +436,7 @@ class Google_Service_Pubsub_AcknowledgeRequest extends Google_Collection
   {
     return $this->subscription;
   }
+
 }
 
 class Google_Service_Pubsub_Label extends Google_Model
@@ -456,7 +456,6 @@ class Google_Service_Pubsub_Label extends Google_Model
   {
     return $this->key;
   }
-
   public function setNumValue($numValue)
   {
     $this->numValue = $numValue;
@@ -466,7 +465,6 @@ class Google_Service_Pubsub_Label extends Google_Model
   {
     return $this->numValue;
   }
-
   public function setStrValue($strValue)
   {
     $this->strValue = $strValue;
@@ -476,6 +474,7 @@ class Google_Service_Pubsub_Label extends Google_Model
   {
     return $this->strValue;
   }
+
 }
 
 class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
@@ -496,7 +495,6 @@ class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSubscription($subscription)
   {
     $this->subscription = $subscription;
@@ -506,6 +504,7 @@ class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
   {
     return $this->subscription;
   }
+
 }
 
 class Google_Service_Pubsub_ListTopicsResponse extends Google_Collection
@@ -526,7 +525,6 @@ class Google_Service_Pubsub_ListTopicsResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setTopic($topic)
   {
     $this->topic = $topic;
@@ -536,6 +534,7 @@ class Google_Service_Pubsub_ListTopicsResponse extends Google_Collection
   {
     return $this->topic;
   }
+
 }
 
 class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Model
@@ -555,7 +554,6 @@ class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Model
   {
     return $this->ackDeadlineSeconds;
   }
-
   public function setAckId($ackId)
   {
     $this->ackId = $ackId;
@@ -565,7 +563,6 @@ class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Model
   {
     return $this->ackId;
   }
-
   public function setSubscription($subscription)
   {
     $this->subscription = $subscription;
@@ -575,6 +572,7 @@ class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Model
   {
     return $this->subscription;
   }
+
 }
 
 class Google_Service_Pubsub_ModifyPushConfigRequest extends Google_Model
@@ -594,7 +592,6 @@ class Google_Service_Pubsub_ModifyPushConfigRequest extends Google_Model
   {
     return $this->pushConfig;
   }
-
   public function setSubscription($subscription)
   {
     $this->subscription = $subscription;
@@ -604,6 +601,7 @@ class Google_Service_Pubsub_ModifyPushConfigRequest extends Google_Model
   {
     return $this->subscription;
   }
+
 }
 
 class Google_Service_Pubsub_PublishRequest extends Google_Model
@@ -623,7 +621,6 @@ class Google_Service_Pubsub_PublishRequest extends Google_Model
   {
     return $this->message;
   }
-
   public function setTopic($topic)
   {
     $this->topic = $topic;
@@ -633,6 +630,7 @@ class Google_Service_Pubsub_PublishRequest extends Google_Model
   {
     return $this->topic;
   }
+
 }
 
 class Google_Service_Pubsub_PubsubEvent extends Google_Model
@@ -654,7 +652,6 @@ class Google_Service_Pubsub_PubsubEvent extends Google_Model
   {
     return $this->deleted;
   }
-
   public function setMessage(Google_Service_Pubsub_PubsubMessage $message)
   {
     $this->message = $message;
@@ -664,7 +661,6 @@ class Google_Service_Pubsub_PubsubEvent extends Google_Model
   {
     return $this->message;
   }
-
   public function setSubscription($subscription)
   {
     $this->subscription = $subscription;
@@ -674,7 +670,6 @@ class Google_Service_Pubsub_PubsubEvent extends Google_Model
   {
     return $this->subscription;
   }
-
   public function setTruncated($truncated)
   {
     $this->truncated = $truncated;
@@ -684,6 +679,7 @@ class Google_Service_Pubsub_PubsubEvent extends Google_Model
   {
     return $this->truncated;
   }
+
 }
 
 class Google_Service_Pubsub_PubsubMessage extends Google_Collection
@@ -704,7 +700,6 @@ class Google_Service_Pubsub_PubsubMessage extends Google_Collection
   {
     return $this->data;
   }
-
   public function setLabel($label)
   {
     $this->label = $label;
@@ -714,6 +709,7 @@ class Google_Service_Pubsub_PubsubMessage extends Google_Collection
   {
     return $this->label;
   }
+
 }
 
 class Google_Service_Pubsub_PullRequest extends Google_Model
@@ -732,7 +728,6 @@ class Google_Service_Pubsub_PullRequest extends Google_Model
   {
     return $this->returnImmediately;
   }
-
   public function setSubscription($subscription)
   {
     $this->subscription = $subscription;
@@ -742,6 +737,7 @@ class Google_Service_Pubsub_PullRequest extends Google_Model
   {
     return $this->subscription;
   }
+
 }
 
 class Google_Service_Pubsub_PullResponse extends Google_Model
@@ -761,7 +757,6 @@ class Google_Service_Pubsub_PullResponse extends Google_Model
   {
     return $this->ackId;
   }
-
   public function setPubsubEvent(Google_Service_Pubsub_PubsubEvent $pubsubEvent)
   {
     $this->pubsubEvent = $pubsubEvent;
@@ -771,6 +766,7 @@ class Google_Service_Pubsub_PullResponse extends Google_Model
   {
     return $this->pubsubEvent;
   }
+
 }
 
 class Google_Service_Pubsub_PushConfig extends Google_Model
@@ -788,6 +784,7 @@ class Google_Service_Pubsub_PushConfig extends Google_Model
   {
     return $this->pushEndpoint;
   }
+
 }
 
 class Google_Service_Pubsub_Subscription extends Google_Model
@@ -809,7 +806,6 @@ class Google_Service_Pubsub_Subscription extends Google_Model
   {
     return $this->ackDeadlineSeconds;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -819,7 +815,6 @@ class Google_Service_Pubsub_Subscription extends Google_Model
   {
     return $this->name;
   }
-
   public function setPushConfig(Google_Service_Pubsub_PushConfig $pushConfig)
   {
     $this->pushConfig = $pushConfig;
@@ -829,7 +824,6 @@ class Google_Service_Pubsub_Subscription extends Google_Model
   {
     return $this->pushConfig;
   }
-
   public function setTopic($topic)
   {
     $this->topic = $topic;
@@ -839,6 +833,7 @@ class Google_Service_Pubsub_Subscription extends Google_Model
   {
     return $this->topic;
   }
+
 }
 
 class Google_Service_Pubsub_Topic extends Google_Model
@@ -856,4 +851,5 @@ class Google_Service_Pubsub_Topic extends Google_Model
   {
     return $this->name;
   }
+
 }
