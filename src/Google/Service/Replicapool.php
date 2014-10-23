@@ -16,15 +16,15 @@
  */
 
 /**
- * Service definition for Replicapool (v1beta1).
+ * Service definition for Replicapool (v1beta2).
  *
  * <p>
- * The Replica Pool API allows users to declaratively provision and manage groups of Google Compute Engine instances based on a common template.
+ * The Google Compute Engine Instance Group Manager API provides groups of homogenous Compute Engine Instances.
  * </p>
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/compute/docs/replica-pool/" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/compute/docs/instance-groups/manager/v1beta2" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -33,17 +33,13 @@ class Google_Service_Replicapool extends Google_Service
 {
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM = "https://www.googleapis.com/auth/cloud-platform";
-  /** View and manage your Google Cloud Platform management resources and deployment status information. */
-  const NDEV_CLOUDMAN = "https://www.googleapis.com/auth/ndev.cloudman";
-  /** View your Google Cloud Platform management resources and deployment status information. */
-  const NDEV_CLOUDMAN_READONLY = "https://www.googleapis.com/auth/ndev.cloudman.readonly";
-  /** View and manage replica pools. */
-  const REPLICAPOOL = "https://www.googleapis.com/auth/replicapool";
-  /** View replica pools. */
-  const REPLICAPOOL_READONLY = "https://www.googleapis.com/auth/replicapool.readonly";
+  /** View and manage your Google Compute Engine resources. */
+  const COMPUTE = "https://www.googleapis.com/auth/compute";
+  /** View your Google Compute Engine resources. */
+  const COMPUTE_READONLY = "https://www.googleapis.com/auth/compute.readonly";
 
-  public $pools;
-  public $replicas;
+  public $instanceGroupManagers;
+  public $zoneOperations;
   
 
   /**
@@ -54,21 +50,21 @@ class Google_Service_Replicapool extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->servicePath = 'replicapool/v1beta1/projects/';
-    $this->version = 'v1beta1';
+    $this->servicePath = 'replicapool/v1beta2/projects/';
+    $this->version = 'v1beta2';
     $this->serviceName = 'replicapool';
 
-    $this->pools = new Google_Service_Replicapool_Pools_Resource(
+    $this->instanceGroupManagers = new Google_Service_Replicapool_InstanceGroupManagers_Resource(
         $this,
         $this->serviceName,
-        'pools',
+        'instanceGroupManagers',
         array(
           'methods' => array(
-            'delete' => array(
-              'path' => '{projectName}/zones/{zone}/pools/{poolName}',
+            'abandonInstances' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/abandonInstances',
               'httpMethod' => 'POST',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -78,17 +74,57 @@ class Google_Service_Replicapool extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'poolName' => array(
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'deleteInstances' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/deleteInstances',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'get' => array(
-              'path' => '{projectName}/zones/{zone}/pools/{poolName}',
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -98,17 +134,17 @@ class Google_Service_Replicapool extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'poolName' => array(
+                'instanceGroupManager' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'insert' => array(
-              'path' => '{projectName}/zones/{zone}/pools',
+              'path' => '{project}/zones/{zone}/instanceGroupManagers',
               'httpMethod' => 'POST',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -116,14 +152,19 @@ class Google_Service_Replicapool extends Google_Service
                 'zone' => array(
                   'location' => 'path',
                   'type' => 'string',
+                  'required' => true,
+                ),
+                'size' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                   'required' => true,
                 ),
               ),
             ),'list' => array(
-              'path' => '{projectName}/zones/{zone}/pools',
+              'path' => '{project}/zones/{zone}/instanceGroupManagers',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -132,6 +173,10 @@ class Google_Service_Replicapool extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -140,13 +185,33 @@ class Google_Service_Replicapool extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+              ),
+            ),'recreateInstances' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/recreateInstances',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),'resize' => array(
-              'path' => '{projectName}/zones/{zone}/pools/{poolName}/resize',
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resize',
               'httpMethod' => 'POST',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -156,21 +221,22 @@ class Google_Service_Replicapool extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'poolName' => array(
+                'instanceGroupManager' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
-                'numReplicas' => array(
+                'size' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                  'required' => true,
                 ),
               ),
-            ),'updatetemplate' => array(
-              'path' => '{projectName}/zones/{zone}/pools/{poolName}/updateTemplate',
+            ),'setInstanceTemplate' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate',
               'httpMethod' => 'POST',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -180,7 +246,27 @@ class Google_Service_Replicapool extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'poolName' => array(
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'setTargetPools' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setTargetPools',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -190,42 +276,17 @@ class Google_Service_Replicapool extends Google_Service
           )
         )
     );
-    $this->replicas = new Google_Service_Replicapool_Replicas_Resource(
+    $this->zoneOperations = new Google_Service_Replicapool_ZoneOperations_Resource(
         $this,
         $this->serviceName,
-        'replicas',
+        'zoneOperations',
         array(
           'methods' => array(
-            'delete' => array(
-              'path' => '{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'projectName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'zone' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'poolName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'replicaName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'get' => array(
-              'path' => '{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}',
+            'get' => array(
+              'path' => '{project}/zones/{zone}/operations/{operation}',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -235,22 +296,17 @@ class Google_Service_Replicapool extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'poolName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'replicaName' => array(
+                'operation' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'list' => array(
-              'path' => '{projectName}/zones/{zone}/pools/{poolName}/replicas',
+              'path' => '{project}/zones/{zone}/operations',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'projectName' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -260,10 +316,9 @@ class Google_Service_Replicapool extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'poolName' => array(
-                  'location' => 'path',
+                'filter' => array(
+                  'location' => 'query',
                   'type' => 'string',
-                  'required' => true,
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -274,31 +329,6 @@ class Google_Service_Replicapool extends Google_Service
                   'type' => 'integer',
                 ),
               ),
-            ),'restart' => array(
-              'path' => '{projectName}/zones/{zone}/pools/{poolName}/replicas/{replicaName}/restart',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'projectName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'zone' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'poolName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'replicaName' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
             ),
           )
         )
@@ -308,771 +338,312 @@ class Google_Service_Replicapool extends Google_Service
 
 
 /**
- * The "pools" collection of methods.
+ * The "instanceGroupManagers" collection of methods.
  * Typical usage is:
  *  <code>
  *   $replicapoolService = new Google_Service_Replicapool(...);
- *   $pools = $replicapoolService->pools;
+ *   $instanceGroupManagers = $replicapoolService->instanceGroupManagers;
  *  </code>
  */
-class Google_Service_Replicapool_Pools_Resource extends Google_Service_Resource
+class Google_Service_Replicapool_InstanceGroupManagers_Resource extends Google_Service_Resource
 {
 
   /**
-   * Deletes a replica pool. (pools.delete)
+   * Removes the specified instances from the managed instance group, and from any
+   * target pools of which they were members, without deleting the instances.
+   * (instanceGroupManagers.abandonInstances)
    *
-   * @param string $projectName
-   * The project ID for this replica pool.
+   * @param string $project
+   * The Google Developers Console project name.
    * @param string $zone
-   * The zone for this replica pool.
-   * @param string $poolName
-   * The name of the replica pool for this request.
-   * @param Google_PoolsDeleteRequest $postBody
+   * The name of the zone in which the instance group manager resides.
+   * @param string $instanceGroupManager
+   * The name of the instance group manager.
+   * @param Google_InstanceGroupManagersAbandonInstancesRequest $postBody
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Replicapool_Operation
    */
-  public function delete($projectName, $zone, $poolName, Google_Service_Replicapool_PoolsDeleteRequest $postBody, $optParams = array())
+  public function abandonInstances($project, $zone, $instanceGroupManager, Google_Service_Replicapool_InstanceGroupManagersAbandonInstancesRequest $postBody, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'poolName' => $poolName, 'postBody' => $postBody);
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('delete', array($params));
+    return $this->call('abandonInstances', array($params), "Google_Service_Replicapool_Operation");
   }
   /**
-   * Gets information about a single replica pool. (pools.get)
+   * Deletes the instance group manager and all instances contained within. If
+   * you'd like to delete the manager without deleting the instances, you must
+   * first abandon the instances to remove them from the group.
+   * (instanceGroupManagers.delete)
    *
-   * @param string $projectName
-   * The project ID for this replica pool.
+   * @param string $project
+   * The Google Developers Console project name.
    * @param string $zone
-   * The zone for this replica pool.
-   * @param string $poolName
-   * The name of the replica pool for this request.
+   * The name of the zone in which the instance group manager resides.
+   * @param string $instanceGroupManager
+   * Name of the Instance Group Manager resource to delete.
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Replicapool_Pool
+   * @return Google_Service_Replicapool_Operation
    */
-  public function get($projectName, $zone, $poolName, $optParams = array())
+  public function delete($project, $zone, $instanceGroupManager, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'poolName' => $poolName);
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager);
     $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Replicapool_Pool");
+    return $this->call('delete', array($params), "Google_Service_Replicapool_Operation");
   }
   /**
-   * Inserts a new replica pool. (pools.insert)
+   * Deletes the specified instances. The instances are removed from the instance
+   * group and any target pools of which they are a member, then deleted. The
+   * targetSize of the instance group manager is reduced by the number of
+   * instances deleted. (instanceGroupManagers.deleteInstances)
    *
-   * @param string $projectName
-   * The project ID for this replica pool.
+   * @param string $project
+   * The Google Developers Console project name.
    * @param string $zone
-   * The zone for this replica pool.
-   * @param Google_Pool $postBody
+   * The name of the zone in which the instance group manager resides.
+   * @param string $instanceGroupManager
+   * The name of the instance group manager.
+   * @param Google_InstanceGroupManagersDeleteInstancesRequest $postBody
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Replicapool_Pool
+   * @return Google_Service_Replicapool_Operation
    */
-  public function insert($projectName, $zone, Google_Service_Replicapool_Pool $postBody, $optParams = array())
+  public function deleteInstances($project, $zone, $instanceGroupManager, Google_Service_Replicapool_InstanceGroupManagersDeleteInstancesRequest $postBody, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'postBody' => $postBody);
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('insert', array($params), "Google_Service_Replicapool_Pool");
+    return $this->call('deleteInstances', array($params), "Google_Service_Replicapool_Operation");
   }
   /**
-   * List all replica pools. (pools.listPools)
+   * Returns the specified Instance Group Manager resource.
+   * (instanceGroupManagers.get)
    *
-   * @param string $projectName
-   * The project ID for this request.
+   * @param string $project
+   * The Google Developers Console project name.
    * @param string $zone
-   * The zone for this replica pool.
+   * The name of the zone in which the instance group manager resides.
+   * @param string $instanceGroupManager
+   * Name of the instance resource to return.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Replicapool_InstanceGroupManager
+   */
+  public function get($project, $zone, $instanceGroupManager, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Replicapool_InstanceGroupManager");
+  }
+  /**
+   * Creates an instance group manager, as well as the instance group and the
+   * specified number of instances. (instanceGroupManagers.insert)
+   *
+   * @param string $project
+   * The Google Developers Console project name.
+   * @param string $zone
+   * The name of the zone in which the instance group manager resides.
+   * @param int $size
+   * Number of instances that should exist.
+   * @param Google_InstanceGroupManager $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Replicapool_Operation
+   */
+  public function insert($project, $zone, $size, Google_Service_Replicapool_InstanceGroupManager $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'size' => $size, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Replicapool_Operation");
+  }
+  /**
+   * Retrieves the list of Instance Group Manager resources contained within the
+   * specified zone. (instanceGroupManagers.listInstanceGroupManagers)
+   *
+   * @param string $project
+   * The Google Developers Console project name.
+   * @param string $zone
+   * The name of the zone in which the instance group manager resides.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string filter
+   * Optional. Filter expression for filtering listed resources.
    * @opt_param string pageToken
-   * Set this to the nextPageToken value returned by a previous list request to obtain the next page
-    * of results from the previous list request.
-   * @opt_param int maxResults
-   * Maximum count of results to be returned. Acceptable values are 0 to 100, inclusive. (Default:
-    * 50)
-   * @return Google_Service_Replicapool_PoolsListResponse
+   * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
+    * previous list request.
+   * @opt_param string maxResults
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 500.
+   * @return Google_Service_Replicapool_InstanceGroupManagerList
    */
-  public function listPools($projectName, $zone, $optParams = array())
+  public function listInstanceGroupManagers($project, $zone, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone);
+    $params = array('project' => $project, 'zone' => $zone);
     $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Replicapool_PoolsListResponse");
+    return $this->call('list', array($params), "Google_Service_Replicapool_InstanceGroupManagerList");
   }
   /**
-   * Resize a pool. This is an asynchronous operation, and multiple overlapping
-   * resize requests can be made. Replica Pools will use the information from the
-   * last resize request. (pools.resize)
+   * Recreates the specified instances. The instances are deleted, then recreated
+   * using the instance group manager's current instance template.
+   * (instanceGroupManagers.recreateInstances)
    *
-   * @param string $projectName
-   * The project ID for this replica pool.
+   * @param string $project
+   * The Google Developers Console project name.
    * @param string $zone
-   * The zone for this replica pool.
-   * @param string $poolName
-   * The name of the replica pool for this request.
+   * The name of the zone in which the instance group manager resides.
+   * @param string $instanceGroupManager
+   * The name of the instance group manager.
+   * @param Google_InstanceGroupManagersRecreateInstancesRequest $postBody
    * @param array $optParams Optional parameters.
-   *
-   * @opt_param int numReplicas
-   * The desired number of replicas to resize to. If this number is larger than the existing number
-    * of replicas, new replicas will be added. If the number is smaller, then existing replicas will
-    * be deleted.
-   * @return Google_Service_Replicapool_Pool
+   * @return Google_Service_Replicapool_Operation
    */
-  public function resize($projectName, $zone, $poolName, $optParams = array())
+  public function recreateInstances($project, $zone, $instanceGroupManager, Google_Service_Replicapool_InstanceGroupManagersRecreateInstancesRequest $postBody, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'poolName' => $poolName);
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('resize', array($params), "Google_Service_Replicapool_Pool");
+    return $this->call('recreateInstances', array($params), "Google_Service_Replicapool_Operation");
   }
   /**
-   * Update the template used by the pool. (pools.updatetemplate)
+   * Resizes the managed instance group up or down. If resized up, new instances
+   * are created using the current instance template. If resized down, instances
+   * are removed in the order outlined in Resizing a managed instance group.
+   * (instanceGroupManagers.resize)
    *
-   * @param string $projectName
-   * The project ID for this replica pool.
+   * @param string $project
+   * The Google Developers Console project name.
    * @param string $zone
-   * The zone for this replica pool.
-   * @param string $poolName
-   * The name of the replica pool for this request.
-   * @param Google_Template $postBody
+   * The name of the zone in which the instance group manager resides.
+   * @param string $instanceGroupManager
+   * The name of the instance group manager.
+   * @param int $size
+   * Number of instances that should exist in this Instance Group Manager.
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Replicapool_Operation
    */
-  public function updatetemplate($projectName, $zone, $poolName, Google_Service_Replicapool_Template $postBody, $optParams = array())
+  public function resize($project, $zone, $instanceGroupManager, $size, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'poolName' => $poolName, 'postBody' => $postBody);
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'size' => $size);
     $params = array_merge($params, $optParams);
-    return $this->call('updatetemplate', array($params));
+    return $this->call('resize', array($params), "Google_Service_Replicapool_Operation");
+  }
+  /**
+   * Sets the instance template to use when creating new instances in this group.
+   * Existing instances are not affected.
+   * (instanceGroupManagers.setInstanceTemplate)
+   *
+   * @param string $project
+   * The Google Developers Console project name.
+   * @param string $zone
+   * The name of the zone in which the instance group manager resides.
+   * @param string $instanceGroupManager
+   * The name of the instance group manager.
+   * @param Google_InstanceGroupManagersSetInstanceTemplateRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Replicapool_Operation
+   */
+  public function setInstanceTemplate($project, $zone, $instanceGroupManager, Google_Service_Replicapool_InstanceGroupManagersSetInstanceTemplateRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setInstanceTemplate', array($params), "Google_Service_Replicapool_Operation");
+  }
+  /**
+   * Modifies the target pools to which all new instances in this group are
+   * assigned. Existing instances in the group are not affected.
+   * (instanceGroupManagers.setTargetPools)
+   *
+   * @param string $project
+   * The Google Developers Console project name.
+   * @param string $zone
+   * The name of the zone in which the instance group manager resides.
+   * @param string $instanceGroupManager
+   * The name of the instance group manager.
+   * @param Google_InstanceGroupManagersSetTargetPoolsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Replicapool_Operation
+   */
+  public function setTargetPools($project, $zone, $instanceGroupManager, Google_Service_Replicapool_InstanceGroupManagersSetTargetPoolsRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setTargetPools', array($params), "Google_Service_Replicapool_Operation");
   }
 }
 
 /**
- * The "replicas" collection of methods.
+ * The "zoneOperations" collection of methods.
  * Typical usage is:
  *  <code>
  *   $replicapoolService = new Google_Service_Replicapool(...);
- *   $replicas = $replicapoolService->replicas;
+ *   $zoneOperations = $replicapoolService->zoneOperations;
  *  </code>
  */
-class Google_Service_Replicapool_Replicas_Resource extends Google_Service_Resource
+class Google_Service_Replicapool_ZoneOperations_Resource extends Google_Service_Resource
 {
 
   /**
-   * Deletes a replica from the pool. (replicas.delete)
+   * Retrieves the specified zone-specific operation resource.
+   * (zoneOperations.get)
    *
-   * @param string $projectName
-   * The project ID for this request.
+   * @param string $project
+   * Name of the project scoping this request.
    * @param string $zone
-   * The zone where the replica lives.
-   * @param string $poolName
-   * The replica pool name for this request.
-   * @param string $replicaName
-   * The name of the replica for this request.
-   * @param Google_ReplicasDeleteRequest $postBody
+   * Name of the zone scoping this request.
+   * @param string $operation
+   * Name of the operation resource to return.
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Replicapool_Replica
+   * @return Google_Service_Replicapool_Operation
    */
-  public function delete($projectName, $zone, $poolName, $replicaName, Google_Service_Replicapool_ReplicasDeleteRequest $postBody, $optParams = array())
+  public function get($project, $zone, $operation, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'poolName' => $poolName, 'replicaName' => $replicaName, 'postBody' => $postBody);
+    $params = array('project' => $project, 'zone' => $zone, 'operation' => $operation);
     $params = array_merge($params, $optParams);
-    return $this->call('delete', array($params), "Google_Service_Replicapool_Replica");
+    return $this->call('get', array($params), "Google_Service_Replicapool_Operation");
   }
   /**
-   * Gets information about a specific replica. (replicas.get)
+   * Retrieves the list of operation resources contained within the specified
+   * zone. (zoneOperations.listZoneOperations)
    *
-   * @param string $projectName
-   * The project ID for this request.
+   * @param string $project
+   * Name of the project scoping this request.
    * @param string $zone
-   * The zone where the replica lives.
-   * @param string $poolName
-   * The replica pool name for this request.
-   * @param string $replicaName
-   * The name of the replica for this request.
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Replicapool_Replica
-   */
-  public function get($projectName, $zone, $poolName, $replicaName, $optParams = array())
-  {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'poolName' => $poolName, 'replicaName' => $replicaName);
-    $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Replicapool_Replica");
-  }
-  /**
-   * Lists all replicas in a pool. (replicas.listReplicas)
-   *
-   * @param string $projectName
-   * The project ID for this request.
-   * @param string $zone
-   * The zone where the replica pool lives.
-   * @param string $poolName
-   * The replica pool name for this request.
+   * Name of the zone scoping this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string filter
+   * Optional. Filter expression for filtering listed resources.
    * @opt_param string pageToken
-   * Set this to the nextPageToken value returned by a previous list request to obtain the next page
-    * of results from the previous list request.
-   * @opt_param int maxResults
-   * Maximum count of results to be returned. Acceptable values are 0 to 100, inclusive. (Default:
-    * 50)
-   * @return Google_Service_Replicapool_ReplicasListResponse
+   * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
+    * previous list request.
+   * @opt_param string maxResults
+   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
+    * 500.
+   * @return Google_Service_Replicapool_OperationList
    */
-  public function listReplicas($projectName, $zone, $poolName, $optParams = array())
+  public function listZoneOperations($project, $zone, $optParams = array())
   {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'poolName' => $poolName);
+    $params = array('project' => $project, 'zone' => $zone);
     $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Replicapool_ReplicasListResponse");
-  }
-  /**
-   * Restarts a replica in a pool. (replicas.restart)
-   *
-   * @param string $projectName
-   * The project ID for this request.
-   * @param string $zone
-   * The zone where the replica lives.
-   * @param string $poolName
-   * The replica pool name for this request.
-   * @param string $replicaName
-   * The name of the replica for this request.
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Replicapool_Replica
-   */
-  public function restart($projectName, $zone, $poolName, $replicaName, $optParams = array())
-  {
-    $params = array('projectName' => $projectName, 'zone' => $zone, 'poolName' => $poolName, 'replicaName' => $replicaName);
-    $params = array_merge($params, $optParams);
-    return $this->call('restart', array($params), "Google_Service_Replicapool_Replica");
+    return $this->call('list', array($params), "Google_Service_Replicapool_OperationList");
   }
 }
 
 
 
 
-class Google_Service_Replicapool_AccessConfig extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $name;
-  public $natIp;
-  public $type;
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-
-  public function getName()
-  {
-    return $this->name;
-  }
-
-  public function setNatIp($natIp)
-  {
-    $this->natIp = $natIp;
-  }
-
-  public function getNatIp()
-  {
-    return $this->natIp;
-  }
-
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
-
-  public function getType()
-  {
-    return $this->type;
-  }
-}
-
-class Google_Service_Replicapool_Action extends Google_Collection
-{
-  protected $collection_key = 'envVariables';
-  protected $internal_gapi_mappings = array(
-  );
-  public $commands;
-  protected $envVariablesType = 'Google_Service_Replicapool_EnvVariable';
-  protected $envVariablesDataType = 'array';
-  public $timeoutMilliSeconds;
-
-  public function setCommands($commands)
-  {
-    $this->commands = $commands;
-  }
-
-  public function getCommands()
-  {
-    return $this->commands;
-  }
-
-  public function setEnvVariables($envVariables)
-  {
-    $this->envVariables = $envVariables;
-  }
-
-  public function getEnvVariables()
-  {
-    return $this->envVariables;
-  }
-
-  public function setTimeoutMilliSeconds($timeoutMilliSeconds)
-  {
-    $this->timeoutMilliSeconds = $timeoutMilliSeconds;
-  }
-
-  public function getTimeoutMilliSeconds()
-  {
-    return $this->timeoutMilliSeconds;
-  }
-}
-
-class Google_Service_Replicapool_DiskAttachment extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $deviceName;
-  public $index;
-
-  public function setDeviceName($deviceName)
-  {
-    $this->deviceName = $deviceName;
-  }
-
-  public function getDeviceName()
-  {
-    return $this->deviceName;
-  }
-
-  public function setIndex($index)
-  {
-    $this->index = $index;
-  }
-
-  public function getIndex()
-  {
-    return $this->index;
-  }
-}
-
-class Google_Service_Replicapool_EnvVariable extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $hidden;
-  public $name;
-  public $value;
-
-  public function setHidden($hidden)
-  {
-    $this->hidden = $hidden;
-  }
-
-  public function getHidden()
-  {
-    return $this->hidden;
-  }
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-
-  public function getName()
-  {
-    return $this->name;
-  }
-
-  public function setValue($value)
-  {
-    $this->value = $value;
-  }
-
-  public function getValue()
-  {
-    return $this->value;
-  }
-}
-
-class Google_Service_Replicapool_ExistingDisk extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  protected $attachmentType = 'Google_Service_Replicapool_DiskAttachment';
-  protected $attachmentDataType = '';
-  public $source;
-
-  public function setAttachment(Google_Service_Replicapool_DiskAttachment $attachment)
-  {
-    $this->attachment = $attachment;
-  }
-
-  public function getAttachment()
-  {
-    return $this->attachment;
-  }
-
-  public function setSource($source)
-  {
-    $this->source = $source;
-  }
-
-  public function getSource()
-  {
-    return $this->source;
-  }
-}
-
-class Google_Service_Replicapool_HealthCheck extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $checkIntervalSec;
-  public $description;
-  public $healthyThreshold;
-  public $host;
-  public $name;
-  public $path;
-  public $port;
-  public $timeoutSec;
-  public $unhealthyThreshold;
-
-  public function setCheckIntervalSec($checkIntervalSec)
-  {
-    $this->checkIntervalSec = $checkIntervalSec;
-  }
-
-  public function getCheckIntervalSec()
-  {
-    return $this->checkIntervalSec;
-  }
-
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-
-  public function getDescription()
-  {
-    return $this->description;
-  }
-
-  public function setHealthyThreshold($healthyThreshold)
-  {
-    $this->healthyThreshold = $healthyThreshold;
-  }
-
-  public function getHealthyThreshold()
-  {
-    return $this->healthyThreshold;
-  }
-
-  public function setHost($host)
-  {
-    $this->host = $host;
-  }
-
-  public function getHost()
-  {
-    return $this->host;
-  }
-
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-
-  public function getName()
-  {
-    return $this->name;
-  }
-
-  public function setPath($path)
-  {
-    $this->path = $path;
-  }
-
-  public function getPath()
-  {
-    return $this->path;
-  }
-
-  public function setPort($port)
-  {
-    $this->port = $port;
-  }
-
-  public function getPort()
-  {
-    return $this->port;
-  }
-
-  public function setTimeoutSec($timeoutSec)
-  {
-    $this->timeoutSec = $timeoutSec;
-  }
-
-  public function getTimeoutSec()
-  {
-    return $this->timeoutSec;
-  }
-
-  public function setUnhealthyThreshold($unhealthyThreshold)
-  {
-    $this->unhealthyThreshold = $unhealthyThreshold;
-  }
-
-  public function getUnhealthyThreshold()
-  {
-    return $this->unhealthyThreshold;
-  }
-}
-
-class Google_Service_Replicapool_Label extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $key;
-  public $value;
-
-  public function setKey($key)
-  {
-    $this->key = $key;
-  }
-
-  public function getKey()
-  {
-    return $this->key;
-  }
-
-  public function setValue($value)
-  {
-    $this->value = $value;
-  }
-
-  public function getValue()
-  {
-    return $this->value;
-  }
-}
-
-class Google_Service_Replicapool_Metadata extends Google_Collection
-{
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  public $fingerPrint;
-  protected $itemsType = 'Google_Service_Replicapool_MetadataItem';
-  protected $itemsDataType = 'array';
-
-  public function setFingerPrint($fingerPrint)
-  {
-    $this->fingerPrint = $fingerPrint;
-  }
-
-  public function getFingerPrint()
-  {
-    return $this->fingerPrint;
-  }
-
-  public function setItems($items)
-  {
-    $this->items = $items;
-  }
-
-  public function getItems()
-  {
-    return $this->items;
-  }
-}
-
-class Google_Service_Replicapool_MetadataItem extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $key;
-  public $value;
-
-  public function setKey($key)
-  {
-    $this->key = $key;
-  }
-
-  public function getKey()
-  {
-    return $this->key;
-  }
-
-  public function setValue($value)
-  {
-    $this->value = $value;
-  }
-
-  public function getValue()
-  {
-    return $this->value;
-  }
-}
-
-class Google_Service_Replicapool_NetworkInterface extends Google_Collection
-{
-  protected $collection_key = 'accessConfigs';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $accessConfigsType = 'Google_Service_Replicapool_AccessConfig';
-  protected $accessConfigsDataType = 'array';
-  public $network;
-  public $networkIp;
-
-  public function setAccessConfigs($accessConfigs)
-  {
-    $this->accessConfigs = $accessConfigs;
-  }
-
-  public function getAccessConfigs()
-  {
-    return $this->accessConfigs;
-  }
-
-  public function setNetwork($network)
-  {
-    $this->network = $network;
-  }
-
-  public function getNetwork()
-  {
-    return $this->network;
-  }
-
-  public function setNetworkIp($networkIp)
-  {
-    $this->networkIp = $networkIp;
-  }
-
-  public function getNetworkIp()
-  {
-    return $this->networkIp;
-  }
-}
-
-class Google_Service_Replicapool_NewDisk extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  protected $attachmentType = 'Google_Service_Replicapool_DiskAttachment';
-  protected $attachmentDataType = '';
-  public $autoDelete;
-  public $boot;
-  protected $initializeParamsType = 'Google_Service_Replicapool_NewDiskInitializeParams';
-  protected $initializeParamsDataType = '';
-
-  public function setAttachment(Google_Service_Replicapool_DiskAttachment $attachment)
-  {
-    $this->attachment = $attachment;
-  }
-
-  public function getAttachment()
-  {
-    return $this->attachment;
-  }
-
-  public function setAutoDelete($autoDelete)
-  {
-    $this->autoDelete = $autoDelete;
-  }
-
-  public function getAutoDelete()
-  {
-    return $this->autoDelete;
-  }
-
-  public function setBoot($boot)
-  {
-    $this->boot = $boot;
-  }
-
-  public function getBoot()
-  {
-    return $this->boot;
-  }
-
-  public function setInitializeParams(Google_Service_Replicapool_NewDiskInitializeParams $initializeParams)
-  {
-    $this->initializeParams = $initializeParams;
-  }
-
-  public function getInitializeParams()
-  {
-    return $this->initializeParams;
-  }
-}
-
-class Google_Service_Replicapool_NewDiskInitializeParams extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $diskSizeGb;
-  public $diskType;
-  public $sourceImage;
-
-  public function setDiskSizeGb($diskSizeGb)
-  {
-    $this->diskSizeGb = $diskSizeGb;
-  }
-
-  public function getDiskSizeGb()
-  {
-    return $this->diskSizeGb;
-  }
-
-  public function setDiskType($diskType)
-  {
-    $this->diskType = $diskType;
-  }
-
-  public function getDiskType()
-  {
-    return $this->diskType;
-  }
-
-  public function setSourceImage($sourceImage)
-  {
-    $this->sourceImage = $sourceImage;
-  }
-
-  public function getSourceImage()
-  {
-    return $this->sourceImage;
-  }
-}
-
-class Google_Service_Replicapool_Pool extends Google_Collection
+class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
 {
   protected $collection_key = 'targetPools';
   protected $internal_gapi_mappings = array(
   );
-  public $autoRestart;
   public $baseInstanceName;
-  public $currentNumReplicas;
+  public $creationTimestamp;
+  public $currentSize;
   public $description;
-  protected $healthChecksType = 'Google_Service_Replicapool_HealthCheck';
-  protected $healthChecksDataType = 'array';
-  public $initialNumReplicas;
-  protected $labelsType = 'Google_Service_Replicapool_Label';
-  protected $labelsDataType = 'array';
+  public $fingerprint;
+  public $group;
+  public $id;
+  public $instanceTemplate;
+  public $kind;
   public $name;
-  public $numReplicas;
-  public $resourceViews;
   public $selfLink;
-  public $targetPool;
   public $targetPools;
-  protected $templateType = 'Google_Service_Replicapool_Template';
-  protected $templateDataType = '';
-  public $type;
-
-  public function setAutoRestart($autoRestart)
-  {
-    $this->autoRestart = $autoRestart;
-  }
-
-  public function getAutoRestart()
-  {
-    return $this->autoRestart;
-  }
+  public $targetSize;
 
   public function setBaseInstanceName($baseInstanceName)
   {
@@ -1083,17 +654,24 @@ class Google_Service_Replicapool_Pool extends Google_Collection
   {
     return $this->baseInstanceName;
   }
-
-  public function setCurrentNumReplicas($currentNumReplicas)
+  public function setCreationTimestamp($creationTimestamp)
   {
-    $this->currentNumReplicas = $currentNumReplicas;
+    $this->creationTimestamp = $creationTimestamp;
   }
 
-  public function getCurrentNumReplicas()
+  public function getCreationTimestamp()
   {
-    return $this->currentNumReplicas;
+    return $this->creationTimestamp;
+  }
+  public function setCurrentSize($currentSize)
+  {
+    $this->currentSize = $currentSize;
   }
 
+  public function getCurrentSize()
+  {
+    return $this->currentSize;
+  }
   public function setDescription($description)
   {
     $this->description = $description;
@@ -1103,37 +681,51 @@ class Google_Service_Replicapool_Pool extends Google_Collection
   {
     return $this->description;
   }
-
-  public function setHealthChecks($healthChecks)
+  public function setFingerprint($fingerprint)
   {
-    $this->healthChecks = $healthChecks;
+    $this->fingerprint = $fingerprint;
   }
 
-  public function getHealthChecks()
+  public function getFingerprint()
   {
-    return $this->healthChecks;
+    return $this->fingerprint;
+  }
+  public function setGroup($group)
+  {
+    $this->group = $group;
   }
 
-  public function setInitialNumReplicas($initialNumReplicas)
+  public function getGroup()
   {
-    $this->initialNumReplicas = $initialNumReplicas;
+    return $this->group;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
   }
 
-  public function getInitialNumReplicas()
+  public function getId()
   {
-    return $this->initialNumReplicas;
+    return $this->id;
+  }
+  public function setInstanceTemplate($instanceTemplate)
+  {
+    $this->instanceTemplate = $instanceTemplate;
   }
 
-  public function setLabels($labels)
+  public function getInstanceTemplate()
   {
-    $this->labels = $labels;
+    return $this->instanceTemplate;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
   }
 
-  public function getLabels()
+  public function getKind()
   {
-    return $this->labels;
+    return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -1143,27 +735,84 @@ class Google_Service_Replicapool_Pool extends Google_Collection
   {
     return $this->name;
   }
-
-  public function setNumReplicas($numReplicas)
+  public function setSelfLink($selfLink)
   {
-    $this->numReplicas = $numReplicas;
+    $this->selfLink = $selfLink;
   }
 
-  public function getNumReplicas()
+  public function getSelfLink()
   {
-    return $this->numReplicas;
+    return $this->selfLink;
+  }
+  public function setTargetPools($targetPools)
+  {
+    $this->targetPools = $targetPools;
   }
 
-  public function setResourceViews($resourceViews)
+  public function getTargetPools()
   {
-    $this->resourceViews = $resourceViews;
+    return $this->targetPools;
+  }
+  public function setTargetSize($targetSize)
+  {
+    $this->targetSize = $targetSize;
   }
 
-  public function getResourceViews()
+  public function getTargetSize()
   {
-    return $this->resourceViews;
+    return $this->targetSize;
   }
 
+}
+
+class Google_Service_Replicapool_InstanceGroupManagerList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Replicapool_InstanceGroupManager';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -1174,16 +823,100 @@ class Google_Service_Replicapool_Pool extends Google_Collection
     return $this->selfLink;
   }
 
-  public function setTargetPool($targetPool)
+}
+
+class Google_Service_Replicapool_InstanceGroupManagersAbandonInstancesRequest extends Google_Collection
+{
+  protected $collection_key = 'instances';
+  protected $internal_gapi_mappings = array(
+  );
+  public $instances;
+
+  public function setInstances($instances)
   {
-    $this->targetPool = $targetPool;
+    $this->instances = $instances;
   }
 
-  public function getTargetPool()
+  public function getInstances()
   {
-    return $this->targetPool;
+    return $this->instances;
   }
 
+}
+
+class Google_Service_Replicapool_InstanceGroupManagersDeleteInstancesRequest extends Google_Collection
+{
+  protected $collection_key = 'instances';
+  protected $internal_gapi_mappings = array(
+  );
+  public $instances;
+
+  public function setInstances($instances)
+  {
+    $this->instances = $instances;
+  }
+
+  public function getInstances()
+  {
+    return $this->instances;
+  }
+
+}
+
+class Google_Service_Replicapool_InstanceGroupManagersRecreateInstancesRequest extends Google_Collection
+{
+  protected $collection_key = 'instances';
+  protected $internal_gapi_mappings = array(
+  );
+  public $instances;
+
+  public function setInstances($instances)
+  {
+    $this->instances = $instances;
+  }
+
+  public function getInstances()
+  {
+    return $this->instances;
+  }
+
+}
+
+class Google_Service_Replicapool_InstanceGroupManagersSetInstanceTemplateRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $instanceTemplate;
+
+  public function setInstanceTemplate($instanceTemplate)
+  {
+    $this->instanceTemplate = $instanceTemplate;
+  }
+
+  public function getInstanceTemplate()
+  {
+    return $this->instanceTemplate;
+  }
+
+}
+
+class Google_Service_Replicapool_InstanceGroupManagersSetTargetPoolsRequest extends Google_Collection
+{
+  protected $collection_key = 'targetPools';
+  protected $internal_gapi_mappings = array(
+  );
+  public $fingerprint;
+  public $targetPools;
+
+  public function setFingerprint($fingerprint)
+  {
+    $this->fingerprint = $fingerprint;
+  }
+
+  public function getFingerprint()
+  {
+    return $this->fingerprint;
+  }
   public function setTargetPools($targetPools)
   {
     $this->targetPools = $targetPools;
@@ -1194,84 +927,119 @@ class Google_Service_Replicapool_Pool extends Google_Collection
     return $this->targetPools;
   }
 
-  public function setTemplate(Google_Service_Replicapool_Template $template)
-  {
-    $this->template = $template;
-  }
-
-  public function getTemplate()
-  {
-    return $this->template;
-  }
-
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
-
-  public function getType()
-  {
-    return $this->type;
-  }
 }
 
-class Google_Service_Replicapool_PoolsDeleteRequest extends Google_Collection
+class Google_Service_Replicapool_Operation extends Google_Collection
 {
-  protected $collection_key = 'abandonInstances';
+  protected $collection_key = 'warnings';
   protected $internal_gapi_mappings = array(
   );
-  public $abandonInstances;
-
-  public function setAbandonInstances($abandonInstances)
-  {
-    $this->abandonInstances = $abandonInstances;
-  }
-
-  public function getAbandonInstances()
-  {
-    return $this->abandonInstances;
-  }
-}
-
-class Google_Service_Replicapool_PoolsListResponse extends Google_Collection
-{
-  protected $collection_key = 'resources';
-  protected $internal_gapi_mappings = array(
-  );
-  public $nextPageToken;
-  protected $resourcesType = 'Google_Service_Replicapool_Pool';
-  protected $resourcesDataType = 'array';
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
-
-  public function setResources($resources)
-  {
-    $this->resources = $resources;
-  }
-
-  public function getResources()
-  {
-    return $this->resources;
-  }
-}
-
-class Google_Service_Replicapool_Replica extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
+  public $clientOperationId;
+  public $creationTimestamp;
+  public $endTime;
+  protected $errorType = 'Google_Service_Replicapool_OperationError';
+  protected $errorDataType = '';
+  public $httpErrorMessage;
+  public $httpErrorStatusCode;
+  public $id;
+  public $insertTime;
+  public $kind;
   public $name;
+  public $operationType;
+  public $progress;
+  public $region;
   public $selfLink;
-  protected $statusType = 'Google_Service_Replicapool_ReplicaStatus';
-  protected $statusDataType = '';
+  public $startTime;
+  public $status;
+  public $statusMessage;
+  public $targetId;
+  public $targetLink;
+  public $user;
+  protected $warningsType = 'Google_Service_Replicapool_OperationWarnings';
+  protected $warningsDataType = 'array';
+  public $zone;
 
+  public function setClientOperationId($clientOperationId)
+  {
+    $this->clientOperationId = $clientOperationId;
+  }
+
+  public function getClientOperationId()
+  {
+    return $this->clientOperationId;
+  }
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+  public function setEndTime($endTime)
+  {
+    $this->endTime = $endTime;
+  }
+
+  public function getEndTime()
+  {
+    return $this->endTime;
+  }
+  public function setError(Google_Service_Replicapool_OperationError $error)
+  {
+    $this->error = $error;
+  }
+
+  public function getError()
+  {
+    return $this->error;
+  }
+  public function setHttpErrorMessage($httpErrorMessage)
+  {
+    $this->httpErrorMessage = $httpErrorMessage;
+  }
+
+  public function getHttpErrorMessage()
+  {
+    return $this->httpErrorMessage;
+  }
+  public function setHttpErrorStatusCode($httpErrorStatusCode)
+  {
+    $this->httpErrorStatusCode = $httpErrorStatusCode;
+  }
+
+  public function getHttpErrorStatusCode()
+  {
+    return $this->httpErrorStatusCode;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setInsertTime($insertTime)
+  {
+    $this->insertTime = $insertTime;
+  }
+
+  public function getInsertTime()
+  {
+    return $this->insertTime;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
   public function setName($name)
   {
     $this->name = $name;
@@ -1281,7 +1049,223 @@ class Google_Service_Replicapool_Replica extends Google_Model
   {
     return $this->name;
   }
+  public function setOperationType($operationType)
+  {
+    $this->operationType = $operationType;
+  }
 
+  public function getOperationType()
+  {
+    return $this->operationType;
+  }
+  public function setProgress($progress)
+  {
+    $this->progress = $progress;
+  }
+
+  public function getProgress()
+  {
+    return $this->progress;
+  }
+  public function setRegion($region)
+  {
+    $this->region = $region;
+  }
+
+  public function getRegion()
+  {
+    return $this->region;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+  public function setStartTime($startTime)
+  {
+    $this->startTime = $startTime;
+  }
+
+  public function getStartTime()
+  {
+    return $this->startTime;
+  }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+
+  public function getStatus()
+  {
+    return $this->status;
+  }
+  public function setStatusMessage($statusMessage)
+  {
+    $this->statusMessage = $statusMessage;
+  }
+
+  public function getStatusMessage()
+  {
+    return $this->statusMessage;
+  }
+  public function setTargetId($targetId)
+  {
+    $this->targetId = $targetId;
+  }
+
+  public function getTargetId()
+  {
+    return $this->targetId;
+  }
+  public function setTargetLink($targetLink)
+  {
+    $this->targetLink = $targetLink;
+  }
+
+  public function getTargetLink()
+  {
+    return $this->targetLink;
+  }
+  public function setUser($user)
+  {
+    $this->user = $user;
+  }
+
+  public function getUser()
+  {
+    return $this->user;
+  }
+  public function setWarnings($warnings)
+  {
+    $this->warnings = $warnings;
+  }
+
+  public function getWarnings()
+  {
+    return $this->warnings;
+  }
+  public function setZone($zone)
+  {
+    $this->zone = $zone;
+  }
+
+  public function getZone()
+  {
+    return $this->zone;
+  }
+
+}
+
+class Google_Service_Replicapool_OperationError extends Google_Collection
+{
+  protected $collection_key = 'errors';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $errorsType = 'Google_Service_Replicapool_OperationErrorErrors';
+  protected $errorsDataType = 'array';
+
+  public function setErrors($errors)
+  {
+    $this->errors = $errors;
+  }
+
+  public function getErrors()
+  {
+    return $this->errors;
+  }
+
+}
+
+class Google_Service_Replicapool_OperationErrorErrors extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  public $location;
+  public $message;
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setLocation($location)
+  {
+    $this->location = $location;
+  }
+
+  public function getLocation()
+  {
+    return $this->location;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+
+  public function getMessage()
+  {
+    return $this->message;
+  }
+
+}
+
+class Google_Service_Replicapool_OperationList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Replicapool_Operation';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -1292,367 +1276,72 @@ class Google_Service_Replicapool_Replica extends Google_Model
     return $this->selfLink;
   }
 
-  public function setStatus(Google_Service_Replicapool_ReplicaStatus $status)
-  {
-    $this->status = $status;
-  }
-
-  public function getStatus()
-  {
-    return $this->status;
-  }
 }
 
-class Google_Service_Replicapool_ReplicaStatus extends Google_Model
+class Google_Service_Replicapool_OperationWarnings extends Google_Collection
+{
+  protected $collection_key = 'data';
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  protected $dataType = 'Google_Service_Replicapool_OperationWarningsData';
+  protected $dataDataType = 'array';
+  public $message;
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setData($data)
+  {
+    $this->data = $data;
+  }
+
+  public function getData()
+  {
+    return $this->data;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+
+  public function getMessage()
+  {
+    return $this->message;
+  }
+
+}
+
+class Google_Service_Replicapool_OperationWarningsData extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
-  public $details;
-  public $state;
-  public $templateVersion;
-  public $vmLink;
-  public $vmStartTime;
+  public $key;
+  public $value;
 
-  public function setDetails($details)
+  public function setKey($key)
   {
-    $this->details = $details;
+    $this->key = $key;
   }
 
-  public function getDetails()
+  public function getKey()
   {
-    return $this->details;
+    return $this->key;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
   }
 
-  public function setState($state)
+  public function getValue()
   {
-    $this->state = $state;
+    return $this->value;
   }
 
-  public function getState()
-  {
-    return $this->state;
-  }
-
-  public function setTemplateVersion($templateVersion)
-  {
-    $this->templateVersion = $templateVersion;
-  }
-
-  public function getTemplateVersion()
-  {
-    return $this->templateVersion;
-  }
-
-  public function setVmLink($vmLink)
-  {
-    $this->vmLink = $vmLink;
-  }
-
-  public function getVmLink()
-  {
-    return $this->vmLink;
-  }
-
-  public function setVmStartTime($vmStartTime)
-  {
-    $this->vmStartTime = $vmStartTime;
-  }
-
-  public function getVmStartTime()
-  {
-    return $this->vmStartTime;
-  }
-}
-
-class Google_Service_Replicapool_ReplicasDeleteRequest extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $abandonInstance;
-
-  public function setAbandonInstance($abandonInstance)
-  {
-    $this->abandonInstance = $abandonInstance;
-  }
-
-  public function getAbandonInstance()
-  {
-    return $this->abandonInstance;
-  }
-}
-
-class Google_Service_Replicapool_ReplicasListResponse extends Google_Collection
-{
-  protected $collection_key = 'resources';
-  protected $internal_gapi_mappings = array(
-  );
-  public $nextPageToken;
-  protected $resourcesType = 'Google_Service_Replicapool_Replica';
-  protected $resourcesDataType = 'array';
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
-
-  public function setResources($resources)
-  {
-    $this->resources = $resources;
-  }
-
-  public function getResources()
-  {
-    return $this->resources;
-  }
-}
-
-class Google_Service_Replicapool_ServiceAccount extends Google_Collection
-{
-  protected $collection_key = 'scopes';
-  protected $internal_gapi_mappings = array(
-  );
-  public $email;
-  public $scopes;
-
-  public function setEmail($email)
-  {
-    $this->email = $email;
-  }
-
-  public function getEmail()
-  {
-    return $this->email;
-  }
-
-  public function setScopes($scopes)
-  {
-    $this->scopes = $scopes;
-  }
-
-  public function getScopes()
-  {
-    return $this->scopes;
-  }
-}
-
-class Google_Service_Replicapool_Tag extends Google_Collection
-{
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
-  );
-  public $fingerPrint;
-  public $items;
-
-  public function setFingerPrint($fingerPrint)
-  {
-    $this->fingerPrint = $fingerPrint;
-  }
-
-  public function getFingerPrint()
-  {
-    return $this->fingerPrint;
-  }
-
-  public function setItems($items)
-  {
-    $this->items = $items;
-  }
-
-  public function getItems()
-  {
-    return $this->items;
-  }
-}
-
-class Google_Service_Replicapool_Template extends Google_Collection
-{
-  protected $collection_key = 'healthChecks';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $actionType = 'Google_Service_Replicapool_Action';
-  protected $actionDataType = '';
-  protected $healthChecksType = 'Google_Service_Replicapool_HealthCheck';
-  protected $healthChecksDataType = 'array';
-  public $version;
-  protected $vmParamsType = 'Google_Service_Replicapool_VmParams';
-  protected $vmParamsDataType = '';
-
-  public function setAction(Google_Service_Replicapool_Action $action)
-  {
-    $this->action = $action;
-  }
-
-  public function getAction()
-  {
-    return $this->action;
-  }
-
-  public function setHealthChecks($healthChecks)
-  {
-    $this->healthChecks = $healthChecks;
-  }
-
-  public function getHealthChecks()
-  {
-    return $this->healthChecks;
-  }
-
-  public function setVersion($version)
-  {
-    $this->version = $version;
-  }
-
-  public function getVersion()
-  {
-    return $this->version;
-  }
-
-  public function setVmParams(Google_Service_Replicapool_VmParams $vmParams)
-  {
-    $this->vmParams = $vmParams;
-  }
-
-  public function getVmParams()
-  {
-    return $this->vmParams;
-  }
-}
-
-class Google_Service_Replicapool_VmParams extends Google_Collection
-{
-  protected $collection_key = 'serviceAccounts';
-  protected $internal_gapi_mappings = array(
-  );
-  public $baseInstanceName;
-  public $canIpForward;
-  public $description;
-  protected $disksToAttachType = 'Google_Service_Replicapool_ExistingDisk';
-  protected $disksToAttachDataType = 'array';
-  protected $disksToCreateType = 'Google_Service_Replicapool_NewDisk';
-  protected $disksToCreateDataType = 'array';
-  public $machineType;
-  protected $metadataType = 'Google_Service_Replicapool_Metadata';
-  protected $metadataDataType = '';
-  protected $networkInterfacesType = 'Google_Service_Replicapool_NetworkInterface';
-  protected $networkInterfacesDataType = 'array';
-  public $onHostMaintenance;
-  protected $serviceAccountsType = 'Google_Service_Replicapool_ServiceAccount';
-  protected $serviceAccountsDataType = 'array';
-  protected $tagsType = 'Google_Service_Replicapool_Tag';
-  protected $tagsDataType = '';
-
-  public function setBaseInstanceName($baseInstanceName)
-  {
-    $this->baseInstanceName = $baseInstanceName;
-  }
-
-  public function getBaseInstanceName()
-  {
-    return $this->baseInstanceName;
-  }
-
-  public function setCanIpForward($canIpForward)
-  {
-    $this->canIpForward = $canIpForward;
-  }
-
-  public function getCanIpForward()
-  {
-    return $this->canIpForward;
-  }
-
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-
-  public function getDescription()
-  {
-    return $this->description;
-  }
-
-  public function setDisksToAttach($disksToAttach)
-  {
-    $this->disksToAttach = $disksToAttach;
-  }
-
-  public function getDisksToAttach()
-  {
-    return $this->disksToAttach;
-  }
-
-  public function setDisksToCreate($disksToCreate)
-  {
-    $this->disksToCreate = $disksToCreate;
-  }
-
-  public function getDisksToCreate()
-  {
-    return $this->disksToCreate;
-  }
-
-  public function setMachineType($machineType)
-  {
-    $this->machineType = $machineType;
-  }
-
-  public function getMachineType()
-  {
-    return $this->machineType;
-  }
-
-  public function setMetadata(Google_Service_Replicapool_Metadata $metadata)
-  {
-    $this->metadata = $metadata;
-  }
-
-  public function getMetadata()
-  {
-    return $this->metadata;
-  }
-
-  public function setNetworkInterfaces($networkInterfaces)
-  {
-    $this->networkInterfaces = $networkInterfaces;
-  }
-
-  public function getNetworkInterfaces()
-  {
-    return $this->networkInterfaces;
-  }
-
-  public function setOnHostMaintenance($onHostMaintenance)
-  {
-    $this->onHostMaintenance = $onHostMaintenance;
-  }
-
-  public function getOnHostMaintenance()
-  {
-    return $this->onHostMaintenance;
-  }
-
-  public function setServiceAccounts($serviceAccounts)
-  {
-    $this->serviceAccounts = $serviceAccounts;
-  }
-
-  public function getServiceAccounts()
-  {
-    return $this->serviceAccounts;
-  }
-
-  public function setTags(Google_Service_Replicapool_Tag $tags)
-  {
-    $this->tags = $tags;
-  }
-
-  public function getTags()
-  {
-    return $this->tags;
-  }
 }
