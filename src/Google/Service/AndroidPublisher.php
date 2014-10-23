@@ -2287,7 +2287,6 @@ class Google_Service_AndroidPublisher_Apk extends Google_Model
   {
     return $this->binary;
   }
-
   public function setVersionCode($versionCode)
   {
     $this->versionCode = $versionCode;
@@ -2297,6 +2296,7 @@ class Google_Service_AndroidPublisher_Apk extends Google_Model
   {
     return $this->versionCode;
   }
+
 }
 
 class Google_Service_AndroidPublisher_ApkBinary extends Google_Model
@@ -2314,6 +2314,7 @@ class Google_Service_AndroidPublisher_ApkBinary extends Google_Model
   {
     return $this->sha1;
   }
+
 }
 
 class Google_Service_AndroidPublisher_ApkListing extends Google_Model
@@ -2332,7 +2333,6 @@ class Google_Service_AndroidPublisher_ApkListing extends Google_Model
   {
     return $this->language;
   }
-
   public function setRecentChanges($recentChanges)
   {
     $this->recentChanges = $recentChanges;
@@ -2342,6 +2342,7 @@ class Google_Service_AndroidPublisher_ApkListing extends Google_Model
   {
     return $this->recentChanges;
   }
+
 }
 
 class Google_Service_AndroidPublisher_ApkListingsListResponse extends Google_Collection
@@ -2362,7 +2363,6 @@ class Google_Service_AndroidPublisher_ApkListingsListResponse extends Google_Col
   {
     return $this->kind;
   }
-
   public function setListings($listings)
   {
     $this->listings = $listings;
@@ -2372,6 +2372,7 @@ class Google_Service_AndroidPublisher_ApkListingsListResponse extends Google_Col
   {
     return $this->listings;
   }
+
 }
 
 class Google_Service_AndroidPublisher_ApksListResponse extends Google_Collection
@@ -2392,7 +2393,6 @@ class Google_Service_AndroidPublisher_ApksListResponse extends Google_Collection
   {
     return $this->apks;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2402,6 +2402,7 @@ class Google_Service_AndroidPublisher_ApksListResponse extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_AndroidPublisher_AppDetails extends Google_Model
@@ -2422,7 +2423,6 @@ class Google_Service_AndroidPublisher_AppDetails extends Google_Model
   {
     return $this->contactEmail;
   }
-
   public function setContactPhone($contactPhone)
   {
     $this->contactPhone = $contactPhone;
@@ -2432,7 +2432,6 @@ class Google_Service_AndroidPublisher_AppDetails extends Google_Model
   {
     return $this->contactPhone;
   }
-
   public function setContactWebsite($contactWebsite)
   {
     $this->contactWebsite = $contactWebsite;
@@ -2442,7 +2441,6 @@ class Google_Service_AndroidPublisher_AppDetails extends Google_Model
   {
     return $this->contactWebsite;
   }
-
   public function setDefaultLanguage($defaultLanguage)
   {
     $this->defaultLanguage = $defaultLanguage;
@@ -2452,6 +2450,7 @@ class Google_Service_AndroidPublisher_AppDetails extends Google_Model
   {
     return $this->defaultLanguage;
   }
+
 }
 
 class Google_Service_AndroidPublisher_AppEdit extends Google_Model
@@ -2470,7 +2469,6 @@ class Google_Service_AndroidPublisher_AppEdit extends Google_Model
   {
     return $this->expiryTimeSeconds;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -2480,6 +2478,7 @@ class Google_Service_AndroidPublisher_AppEdit extends Google_Model
   {
     return $this->id;
   }
+
 }
 
 class Google_Service_AndroidPublisher_ExpansionFile extends Google_Model
@@ -2498,7 +2497,6 @@ class Google_Service_AndroidPublisher_ExpansionFile extends Google_Model
   {
     return $this->fileSize;
   }
-
   public function setReferencesVersion($referencesVersion)
   {
     $this->referencesVersion = $referencesVersion;
@@ -2508,6 +2506,7 @@ class Google_Service_AndroidPublisher_ExpansionFile extends Google_Model
   {
     return $this->referencesVersion;
   }
+
 }
 
 class Google_Service_AndroidPublisher_ExpansionFilesUploadResponse extends Google_Model
@@ -2526,6 +2525,7 @@ class Google_Service_AndroidPublisher_ExpansionFilesUploadResponse extends Googl
   {
     return $this->expansionFile;
   }
+
 }
 
 class Google_Service_AndroidPublisher_Image extends Google_Model
@@ -2545,7 +2545,6 @@ class Google_Service_AndroidPublisher_Image extends Google_Model
   {
     return $this->id;
   }
-
   public function setSha1($sha1)
   {
     $this->sha1 = $sha1;
@@ -2555,7 +2554,6 @@ class Google_Service_AndroidPublisher_Image extends Google_Model
   {
     return $this->sha1;
   }
-
   public function setUrl($url)
   {
     $this->url = $url;
@@ -2565,6 +2563,7 @@ class Google_Service_AndroidPublisher_Image extends Google_Model
   {
     return $this->url;
   }
+
 }
 
 class Google_Service_AndroidPublisher_ImagesDeleteAllResponse extends Google_Collection
@@ -2584,6 +2583,7 @@ class Google_Service_AndroidPublisher_ImagesDeleteAllResponse extends Google_Col
   {
     return $this->deleted;
   }
+
 }
 
 class Google_Service_AndroidPublisher_ImagesListResponse extends Google_Collection
@@ -2603,6 +2603,7 @@ class Google_Service_AndroidPublisher_ImagesListResponse extends Google_Collecti
   {
     return $this->images;
   }
+
 }
 
 class Google_Service_AndroidPublisher_ImagesUploadResponse extends Google_Model
@@ -2621,6 +2622,7 @@ class Google_Service_AndroidPublisher_ImagesUploadResponse extends Google_Model
   {
     return $this->image;
   }
+
 }
 
 class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
@@ -2652,7 +2654,6 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   {
     return $this->defaultLanguage;
   }
-
   public function setDefaultPrice(Google_Service_AndroidPublisher_Price $defaultPrice)
   {
     $this->defaultPrice = $defaultPrice;
@@ -2662,7 +2663,6 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   {
     return $this->defaultPrice;
   }
-
   public function setListings($listings)
   {
     $this->listings = $listings;
@@ -2672,7 +2672,6 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   {
     return $this->listings;
   }
-
   public function setPackageName($packageName)
   {
     $this->packageName = $packageName;
@@ -2682,7 +2681,6 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   {
     return $this->packageName;
   }
-
   public function setPrices($prices)
   {
     $this->prices = $prices;
@@ -2692,7 +2690,6 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   {
     return $this->prices;
   }
-
   public function setPurchaseType($purchaseType)
   {
     $this->purchaseType = $purchaseType;
@@ -2702,7 +2699,6 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   {
     return $this->purchaseType;
   }
-
   public function setSeason(Google_Service_AndroidPublisher_Season $season)
   {
     $this->season = $season;
@@ -2712,7 +2708,6 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   {
     return $this->season;
   }
-
   public function setSku($sku)
   {
     $this->sku = $sku;
@@ -2722,7 +2717,6 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   {
     return $this->sku;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -2732,7 +2726,6 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   {
     return $this->status;
   }
-
   public function setSubscriptionPeriod($subscriptionPeriod)
   {
     $this->subscriptionPeriod = $subscriptionPeriod;
@@ -2742,7 +2735,6 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   {
     return $this->subscriptionPeriod;
   }
-
   public function setTrialPeriod($trialPeriod)
   {
     $this->trialPeriod = $trialPeriod;
@@ -2752,6 +2744,7 @@ class Google_Service_AndroidPublisher_InAppProduct extends Google_Model
   {
     return $this->trialPeriod;
   }
+
 }
 
 class Google_Service_AndroidPublisher_InAppProductListing extends Google_Model
@@ -2770,7 +2763,6 @@ class Google_Service_AndroidPublisher_InAppProductListing extends Google_Model
   {
     return $this->description;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -2780,18 +2772,23 @@ class Google_Service_AndroidPublisher_InAppProductListing extends Google_Model
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_AndroidPublisher_InAppProductListings extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_AndroidPublisher_InAppProductPrices extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_AndroidPublisher_InappproductsBatchRequest extends Google_Collection
@@ -2811,6 +2808,7 @@ class Google_Service_AndroidPublisher_InappproductsBatchRequest extends Google_C
   {
     return $this->entrys;
   }
+
 }
 
 class Google_Service_AndroidPublisher_InappproductsBatchRequestEntry extends Google_Model
@@ -2833,7 +2831,6 @@ class Google_Service_AndroidPublisher_InappproductsBatchRequestEntry extends Goo
   {
     return $this->batchId;
   }
-
   public function setInappproductsinsertrequest(Google_Service_AndroidPublisher_InappproductsInsertRequest $inappproductsinsertrequest)
   {
     $this->inappproductsinsertrequest = $inappproductsinsertrequest;
@@ -2843,7 +2840,6 @@ class Google_Service_AndroidPublisher_InappproductsBatchRequestEntry extends Goo
   {
     return $this->inappproductsinsertrequest;
   }
-
   public function setInappproductsupdaterequest(Google_Service_AndroidPublisher_InappproductsUpdateRequest $inappproductsupdaterequest)
   {
     $this->inappproductsupdaterequest = $inappproductsupdaterequest;
@@ -2853,7 +2849,6 @@ class Google_Service_AndroidPublisher_InappproductsBatchRequestEntry extends Goo
   {
     return $this->inappproductsupdaterequest;
   }
-
   public function setMethodName($methodName)
   {
     $this->methodName = $methodName;
@@ -2863,6 +2858,7 @@ class Google_Service_AndroidPublisher_InappproductsBatchRequestEntry extends Goo
   {
     return $this->methodName;
   }
+
 }
 
 class Google_Service_AndroidPublisher_InappproductsBatchResponse extends Google_Collection
@@ -2883,7 +2879,6 @@ class Google_Service_AndroidPublisher_InappproductsBatchResponse extends Google_
   {
     return $this->entrys;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2893,6 +2888,7 @@ class Google_Service_AndroidPublisher_InappproductsBatchResponse extends Google_
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_AndroidPublisher_InappproductsBatchResponseEntry extends Google_Model
@@ -2914,7 +2910,6 @@ class Google_Service_AndroidPublisher_InappproductsBatchResponseEntry extends Go
   {
     return $this->batchId;
   }
-
   public function setInappproductsinsertresponse(Google_Service_AndroidPublisher_InappproductsInsertResponse $inappproductsinsertresponse)
   {
     $this->inappproductsinsertresponse = $inappproductsinsertresponse;
@@ -2924,7 +2919,6 @@ class Google_Service_AndroidPublisher_InappproductsBatchResponseEntry extends Go
   {
     return $this->inappproductsinsertresponse;
   }
-
   public function setInappproductsupdateresponse(Google_Service_AndroidPublisher_InappproductsUpdateResponse $inappproductsupdateresponse)
   {
     $this->inappproductsupdateresponse = $inappproductsupdateresponse;
@@ -2934,6 +2928,7 @@ class Google_Service_AndroidPublisher_InappproductsBatchResponseEntry extends Go
   {
     return $this->inappproductsupdateresponse;
   }
+
 }
 
 class Google_Service_AndroidPublisher_InappproductsInsertRequest extends Google_Model
@@ -2952,6 +2947,7 @@ class Google_Service_AndroidPublisher_InappproductsInsertRequest extends Google_
   {
     return $this->inappproduct;
   }
+
 }
 
 class Google_Service_AndroidPublisher_InappproductsInsertResponse extends Google_Model
@@ -2970,6 +2966,7 @@ class Google_Service_AndroidPublisher_InappproductsInsertResponse extends Google
   {
     return $this->inappproduct;
   }
+
 }
 
 class Google_Service_AndroidPublisher_InappproductsListResponse extends Google_Collection
@@ -2994,7 +2991,6 @@ class Google_Service_AndroidPublisher_InappproductsListResponse extends Google_C
   {
     return $this->inappproduct;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3004,7 +3000,6 @@ class Google_Service_AndroidPublisher_InappproductsListResponse extends Google_C
   {
     return $this->kind;
   }
-
   public function setPageInfo(Google_Service_AndroidPublisher_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -3014,7 +3009,6 @@ class Google_Service_AndroidPublisher_InappproductsListResponse extends Google_C
   {
     return $this->pageInfo;
   }
-
   public function setTokenPagination(Google_Service_AndroidPublisher_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -3024,6 +3018,7 @@ class Google_Service_AndroidPublisher_InappproductsListResponse extends Google_C
   {
     return $this->tokenPagination;
   }
+
 }
 
 class Google_Service_AndroidPublisher_InappproductsUpdateRequest extends Google_Model
@@ -3042,6 +3037,7 @@ class Google_Service_AndroidPublisher_InappproductsUpdateRequest extends Google_
   {
     return $this->inappproduct;
   }
+
 }
 
 class Google_Service_AndroidPublisher_InappproductsUpdateResponse extends Google_Model
@@ -3060,6 +3056,7 @@ class Google_Service_AndroidPublisher_InappproductsUpdateResponse extends Google
   {
     return $this->inappproduct;
   }
+
 }
 
 class Google_Service_AndroidPublisher_Listing extends Google_Model
@@ -3081,7 +3078,6 @@ class Google_Service_AndroidPublisher_Listing extends Google_Model
   {
     return $this->fullDescription;
   }
-
   public function setLanguage($language)
   {
     $this->language = $language;
@@ -3091,7 +3087,6 @@ class Google_Service_AndroidPublisher_Listing extends Google_Model
   {
     return $this->language;
   }
-
   public function setShortDescription($shortDescription)
   {
     $this->shortDescription = $shortDescription;
@@ -3101,7 +3096,6 @@ class Google_Service_AndroidPublisher_Listing extends Google_Model
   {
     return $this->shortDescription;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -3111,7 +3105,6 @@ class Google_Service_AndroidPublisher_Listing extends Google_Model
   {
     return $this->title;
   }
-
   public function setVideo($video)
   {
     $this->video = $video;
@@ -3121,6 +3114,7 @@ class Google_Service_AndroidPublisher_Listing extends Google_Model
   {
     return $this->video;
   }
+
 }
 
 class Google_Service_AndroidPublisher_ListingsListResponse extends Google_Collection
@@ -3141,7 +3135,6 @@ class Google_Service_AndroidPublisher_ListingsListResponse extends Google_Collec
   {
     return $this->kind;
   }
-
   public function setListings($listings)
   {
     $this->listings = $listings;
@@ -3151,6 +3144,7 @@ class Google_Service_AndroidPublisher_ListingsListResponse extends Google_Collec
   {
     return $this->listings;
   }
+
 }
 
 class Google_Service_AndroidPublisher_MonthDay extends Google_Model
@@ -3169,7 +3163,6 @@ class Google_Service_AndroidPublisher_MonthDay extends Google_Model
   {
     return $this->day;
   }
-
   public function setMonth($month)
   {
     $this->month = $month;
@@ -3179,6 +3172,7 @@ class Google_Service_AndroidPublisher_MonthDay extends Google_Model
   {
     return $this->month;
   }
+
 }
 
 class Google_Service_AndroidPublisher_PageInfo extends Google_Model
@@ -3198,7 +3192,6 @@ class Google_Service_AndroidPublisher_PageInfo extends Google_Model
   {
     return $this->resultPerPage;
   }
-
   public function setStartIndex($startIndex)
   {
     $this->startIndex = $startIndex;
@@ -3208,7 +3201,6 @@ class Google_Service_AndroidPublisher_PageInfo extends Google_Model
   {
     return $this->startIndex;
   }
-
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -3218,6 +3210,7 @@ class Google_Service_AndroidPublisher_PageInfo extends Google_Model
   {
     return $this->totalResults;
   }
+
 }
 
 class Google_Service_AndroidPublisher_Price extends Google_Model
@@ -3236,7 +3229,6 @@ class Google_Service_AndroidPublisher_Price extends Google_Model
   {
     return $this->currency;
   }
-
   public function setPriceMicros($priceMicros)
   {
     $this->priceMicros = $priceMicros;
@@ -3246,6 +3238,7 @@ class Google_Service_AndroidPublisher_Price extends Google_Model
   {
     return $this->priceMicros;
   }
+
 }
 
 class Google_Service_AndroidPublisher_ProductPurchase extends Google_Model
@@ -3267,7 +3260,6 @@ class Google_Service_AndroidPublisher_ProductPurchase extends Google_Model
   {
     return $this->consumptionState;
   }
-
   public function setDeveloperPayload($developerPayload)
   {
     $this->developerPayload = $developerPayload;
@@ -3277,7 +3269,6 @@ class Google_Service_AndroidPublisher_ProductPurchase extends Google_Model
   {
     return $this->developerPayload;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3287,7 +3278,6 @@ class Google_Service_AndroidPublisher_ProductPurchase extends Google_Model
   {
     return $this->kind;
   }
-
   public function setPurchaseState($purchaseState)
   {
     $this->purchaseState = $purchaseState;
@@ -3297,7 +3287,6 @@ class Google_Service_AndroidPublisher_ProductPurchase extends Google_Model
   {
     return $this->purchaseState;
   }
-
   public function setPurchaseTimeMillis($purchaseTimeMillis)
   {
     $this->purchaseTimeMillis = $purchaseTimeMillis;
@@ -3307,6 +3296,7 @@ class Google_Service_AndroidPublisher_ProductPurchase extends Google_Model
   {
     return $this->purchaseTimeMillis;
   }
+
 }
 
 class Google_Service_AndroidPublisher_Season extends Google_Model
@@ -3327,7 +3317,6 @@ class Google_Service_AndroidPublisher_Season extends Google_Model
   {
     return $this->end;
   }
-
   public function setStart(Google_Service_AndroidPublisher_MonthDay $start)
   {
     $this->start = $start;
@@ -3337,6 +3326,7 @@ class Google_Service_AndroidPublisher_Season extends Google_Model
   {
     return $this->start;
   }
+
 }
 
 class Google_Service_AndroidPublisher_SubscriptionDeferralInfo extends Google_Model
@@ -3355,7 +3345,6 @@ class Google_Service_AndroidPublisher_SubscriptionDeferralInfo extends Google_Mo
   {
     return $this->desiredExpiryTimeMillis;
   }
-
   public function setExpectedExpiryTimeMillis($expectedExpiryTimeMillis)
   {
     $this->expectedExpiryTimeMillis = $expectedExpiryTimeMillis;
@@ -3365,6 +3354,7 @@ class Google_Service_AndroidPublisher_SubscriptionDeferralInfo extends Google_Mo
   {
     return $this->expectedExpiryTimeMillis;
   }
+
 }
 
 class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
@@ -3385,7 +3375,6 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   {
     return $this->autoRenewing;
   }
-
   public function setExpiryTimeMillis($expiryTimeMillis)
   {
     $this->expiryTimeMillis = $expiryTimeMillis;
@@ -3395,7 +3384,6 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   {
     return $this->expiryTimeMillis;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3405,7 +3393,6 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   {
     return $this->kind;
   }
-
   public function setStartTimeMillis($startTimeMillis)
   {
     $this->startTimeMillis = $startTimeMillis;
@@ -3415,6 +3402,7 @@ class Google_Service_AndroidPublisher_SubscriptionPurchase extends Google_Model
   {
     return $this->startTimeMillis;
   }
+
 }
 
 class Google_Service_AndroidPublisher_SubscriptionPurchasesDeferRequest extends Google_Model
@@ -3433,6 +3421,7 @@ class Google_Service_AndroidPublisher_SubscriptionPurchasesDeferRequest extends 
   {
     return $this->deferralInfo;
   }
+
 }
 
 class Google_Service_AndroidPublisher_SubscriptionPurchasesDeferResponse extends Google_Model
@@ -3450,6 +3439,7 @@ class Google_Service_AndroidPublisher_SubscriptionPurchasesDeferResponse extends
   {
     return $this->newExpiryTimeMillis;
   }
+
 }
 
 class Google_Service_AndroidPublisher_Testers extends Google_Collection
@@ -3469,7 +3459,6 @@ class Google_Service_AndroidPublisher_Testers extends Google_Collection
   {
     return $this->googleGroups;
   }
-
   public function setGooglePlusCommunities($googlePlusCommunities)
   {
     $this->googlePlusCommunities = $googlePlusCommunities;
@@ -3479,6 +3468,7 @@ class Google_Service_AndroidPublisher_Testers extends Google_Collection
   {
     return $this->googlePlusCommunities;
   }
+
 }
 
 class Google_Service_AndroidPublisher_TokenPagination extends Google_Model
@@ -3497,7 +3487,6 @@ class Google_Service_AndroidPublisher_TokenPagination extends Google_Model
   {
     return $this->nextPageToken;
   }
-
   public function setPreviousPageToken($previousPageToken)
   {
     $this->previousPageToken = $previousPageToken;
@@ -3507,6 +3496,7 @@ class Google_Service_AndroidPublisher_TokenPagination extends Google_Model
   {
     return $this->previousPageToken;
   }
+
 }
 
 class Google_Service_AndroidPublisher_Track extends Google_Collection
@@ -3527,7 +3517,6 @@ class Google_Service_AndroidPublisher_Track extends Google_Collection
   {
     return $this->track;
   }
-
   public function setUserFraction($userFraction)
   {
     $this->userFraction = $userFraction;
@@ -3537,7 +3526,6 @@ class Google_Service_AndroidPublisher_Track extends Google_Collection
   {
     return $this->userFraction;
   }
-
   public function setVersionCodes($versionCodes)
   {
     $this->versionCodes = $versionCodes;
@@ -3547,6 +3535,7 @@ class Google_Service_AndroidPublisher_Track extends Google_Collection
   {
     return $this->versionCodes;
   }
+
 }
 
 class Google_Service_AndroidPublisher_TracksListResponse extends Google_Collection
@@ -3567,7 +3556,6 @@ class Google_Service_AndroidPublisher_TracksListResponse extends Google_Collecti
   {
     return $this->kind;
   }
-
   public function setTracks($tracks)
   {
     $this->tracks = $tracks;
@@ -3577,4 +3565,5 @@ class Google_Service_AndroidPublisher_TracksListResponse extends Google_Collecti
   {
     return $this->tracks;
   }
+
 }
