@@ -174,7 +174,6 @@ class Google_Service_Appsactivity_Activity extends Google_Collection
   {
     return $this->combinedEvent;
   }
-
   public function setSingleEvents($singleEvents)
   {
     $this->singleEvents = $singleEvents;
@@ -184,6 +183,7 @@ class Google_Service_Appsactivity_Activity extends Google_Collection
   {
     return $this->singleEvents;
   }
+
 }
 
 class Google_Service_Appsactivity_Event extends Google_Collection
@@ -215,7 +215,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     return $this->additionalEventTypes;
   }
-
   public function setEventTimeMillis($eventTimeMillis)
   {
     $this->eventTimeMillis = $eventTimeMillis;
@@ -225,7 +224,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     return $this->eventTimeMillis;
   }
-
   public function setFromUserDeletion($fromUserDeletion)
   {
     $this->fromUserDeletion = $fromUserDeletion;
@@ -235,7 +233,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     return $this->fromUserDeletion;
   }
-
   public function setMove(Google_Service_Appsactivity_Move $move)
   {
     $this->move = $move;
@@ -245,7 +242,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     return $this->move;
   }
-
   public function setPermissionChanges($permissionChanges)
   {
     $this->permissionChanges = $permissionChanges;
@@ -255,7 +251,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     return $this->permissionChanges;
   }
-
   public function setPrimaryEventType($primaryEventType)
   {
     $this->primaryEventType = $primaryEventType;
@@ -265,7 +260,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     return $this->primaryEventType;
   }
-
   public function setRename(Google_Service_Appsactivity_Rename $rename)
   {
     $this->rename = $rename;
@@ -275,7 +269,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     return $this->rename;
   }
-
   public function setTarget(Google_Service_Appsactivity_Target $target)
   {
     $this->target = $target;
@@ -285,7 +278,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     return $this->target;
   }
-
   public function setUser(Google_Service_Appsactivity_User $user)
   {
     $this->user = $user;
@@ -295,6 +287,7 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     return $this->user;
   }
+
 }
 
 class Google_Service_Appsactivity_ListActivitiesResponse extends Google_Collection
@@ -315,7 +308,6 @@ class Google_Service_Appsactivity_ListActivitiesResponse extends Google_Collecti
   {
     return $this->activities;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -325,6 +317,7 @@ class Google_Service_Appsactivity_ListActivitiesResponse extends Google_Collecti
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Appsactivity_Move extends Google_Collection
@@ -346,7 +339,6 @@ class Google_Service_Appsactivity_Move extends Google_Collection
   {
     return $this->addedParents;
   }
-
   public function setRemovedParents($removedParents)
   {
     $this->removedParents = $removedParents;
@@ -356,6 +348,7 @@ class Google_Service_Appsactivity_Move extends Google_Collection
   {
     return $this->removedParents;
   }
+
 }
 
 class Google_Service_Appsactivity_Parent extends Google_Model
@@ -375,7 +368,6 @@ class Google_Service_Appsactivity_Parent extends Google_Model
   {
     return $this->id;
   }
-
   public function setIsRoot($isRoot)
   {
     $this->isRoot = $isRoot;
@@ -385,7 +377,6 @@ class Google_Service_Appsactivity_Parent extends Google_Model
   {
     return $this->isRoot;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -395,6 +386,7 @@ class Google_Service_Appsactivity_Parent extends Google_Model
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_Appsactivity_Permission extends Google_Model
@@ -418,7 +410,6 @@ class Google_Service_Appsactivity_Permission extends Google_Model
   {
     return $this->name;
   }
-
   public function setPermissionId($permissionId)
   {
     $this->permissionId = $permissionId;
@@ -428,7 +419,6 @@ class Google_Service_Appsactivity_Permission extends Google_Model
   {
     return $this->permissionId;
   }
-
   public function setRole($role)
   {
     $this->role = $role;
@@ -438,7 +428,6 @@ class Google_Service_Appsactivity_Permission extends Google_Model
   {
     return $this->role;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -448,7 +437,6 @@ class Google_Service_Appsactivity_Permission extends Google_Model
   {
     return $this->type;
   }
-
   public function setUser(Google_Service_Appsactivity_User $user)
   {
     $this->user = $user;
@@ -458,7 +446,6 @@ class Google_Service_Appsactivity_Permission extends Google_Model
   {
     return $this->user;
   }
-
   public function setWithLink($withLink)
   {
     $this->withLink = $withLink;
@@ -468,6 +455,7 @@ class Google_Service_Appsactivity_Permission extends Google_Model
   {
     return $this->withLink;
   }
+
 }
 
 class Google_Service_Appsactivity_PermissionChange extends Google_Collection
@@ -489,7 +477,6 @@ class Google_Service_Appsactivity_PermissionChange extends Google_Collection
   {
     return $this->addedPermissions;
   }
-
   public function setRemovedPermissions($removedPermissions)
   {
     $this->removedPermissions = $removedPermissions;
@@ -499,6 +486,7 @@ class Google_Service_Appsactivity_PermissionChange extends Google_Collection
   {
     return $this->removedPermissions;
   }
+
 }
 
 class Google_Service_Appsactivity_Photo extends Google_Model
@@ -516,6 +504,7 @@ class Google_Service_Appsactivity_Photo extends Google_Model
   {
     return $this->url;
   }
+
 }
 
 class Google_Service_Appsactivity_Rename extends Google_Model
@@ -534,7 +523,6 @@ class Google_Service_Appsactivity_Rename extends Google_Model
   {
     return $this->newTitle;
   }
-
   public function setOldTitle($oldTitle)
   {
     $this->oldTitle = $oldTitle;
@@ -544,6 +532,7 @@ class Google_Service_Appsactivity_Rename extends Google_Model
   {
     return $this->oldTitle;
   }
+
 }
 
 class Google_Service_Appsactivity_Target extends Google_Model
@@ -563,7 +552,6 @@ class Google_Service_Appsactivity_Target extends Google_Model
   {
     return $this->id;
   }
-
   public function setMimeType($mimeType)
   {
     $this->mimeType = $mimeType;
@@ -573,7 +561,6 @@ class Google_Service_Appsactivity_Target extends Google_Model
   {
     return $this->mimeType;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -583,6 +570,7 @@ class Google_Service_Appsactivity_Target extends Google_Model
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_Appsactivity_User extends Google_Model
@@ -602,7 +590,6 @@ class Google_Service_Appsactivity_User extends Google_Model
   {
     return $this->name;
   }
-
   public function setPhoto(Google_Service_Appsactivity_Photo $photo)
   {
     $this->photo = $photo;
@@ -612,4 +599,5 @@ class Google_Service_Appsactivity_User extends Google_Model
   {
     return $this->photo;
   }
+
 }
