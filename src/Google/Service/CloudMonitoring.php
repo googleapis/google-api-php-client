@@ -391,6 +391,7 @@ class Google_Service_CloudMonitoring_ListMetricDescriptorsRequest extends Google
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_CloudMonitoring_ListMetricDescriptorsResponse extends Google_Collection
@@ -412,7 +413,6 @@ class Google_Service_CloudMonitoring_ListMetricDescriptorsResponse extends Googl
   {
     return $this->kind;
   }
-
   public function setMetrics($metrics)
   {
     $this->metrics = $metrics;
@@ -422,7 +422,6 @@ class Google_Service_CloudMonitoring_ListMetricDescriptorsResponse extends Googl
   {
     return $this->metrics;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -432,6 +431,7 @@ class Google_Service_CloudMonitoring_ListMetricDescriptorsResponse extends Googl
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsRequest extends Google_Model
@@ -449,6 +449,7 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsRequest extends Go
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends Google_Collection
@@ -472,7 +473,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends G
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -482,7 +482,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends G
   {
     return $this->nextPageToken;
   }
-
   public function setOldest($oldest)
   {
     $this->oldest = $oldest;
@@ -492,7 +491,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends G
   {
     return $this->oldest;
   }
-
   public function setTimeseries($timeseries)
   {
     $this->timeseries = $timeseries;
@@ -502,7 +500,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends G
   {
     return $this->timeseries;
   }
-
   public function setYoungest($youngest)
   {
     $this->youngest = $youngest;
@@ -512,6 +509,7 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends G
   {
     return $this->youngest;
   }
+
 }
 
 class Google_Service_CloudMonitoring_ListTimeseriesRequest extends Google_Model
@@ -529,6 +527,7 @@ class Google_Service_CloudMonitoring_ListTimeseriesRequest extends Google_Model
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Collection
@@ -552,7 +551,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Colle
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -562,7 +560,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Colle
   {
     return $this->nextPageToken;
   }
-
   public function setOldest($oldest)
   {
     $this->oldest = $oldest;
@@ -572,7 +569,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Colle
   {
     return $this->oldest;
   }
-
   public function setTimeseries($timeseries)
   {
     $this->timeseries = $timeseries;
@@ -582,7 +578,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Colle
   {
     return $this->timeseries;
   }
-
   public function setYoungest($youngest)
   {
     $this->youngest = $youngest;
@@ -592,6 +587,7 @@ class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Colle
   {
     return $this->youngest;
   }
+
 }
 
 class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
@@ -616,7 +612,6 @@ class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
   {
     return $this->description;
   }
-
   public function setLabels($labels)
   {
     $this->labels = $labels;
@@ -626,7 +621,6 @@ class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
   {
     return $this->labels;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -636,7 +630,6 @@ class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
   {
     return $this->name;
   }
-
   public function setProject($project)
   {
     $this->project = $project;
@@ -646,7 +639,6 @@ class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
   {
     return $this->project;
   }
-
   public function setTypeDescriptor(Google_Service_CloudMonitoring_MetricDescriptorTypeDescriptor $typeDescriptor)
   {
     $this->typeDescriptor = $typeDescriptor;
@@ -656,6 +648,7 @@ class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
   {
     return $this->typeDescriptor;
   }
+
 }
 
 class Google_Service_CloudMonitoring_MetricDescriptorLabelDescriptor extends Google_Model
@@ -674,7 +667,6 @@ class Google_Service_CloudMonitoring_MetricDescriptorLabelDescriptor extends Goo
   {
     return $this->description;
   }
-
   public function setKey($key)
   {
     $this->key = $key;
@@ -684,6 +676,7 @@ class Google_Service_CloudMonitoring_MetricDescriptorLabelDescriptor extends Goo
   {
     return $this->key;
   }
+
 }
 
 class Google_Service_CloudMonitoring_MetricDescriptorTypeDescriptor extends Google_Model
@@ -702,7 +695,6 @@ class Google_Service_CloudMonitoring_MetricDescriptorTypeDescriptor extends Goog
   {
     return $this->metricType;
   }
-
   public function setValueType($valueType)
   {
     $this->valueType = $valueType;
@@ -712,6 +704,7 @@ class Google_Service_CloudMonitoring_MetricDescriptorTypeDescriptor extends Goog
   {
     return $this->valueType;
   }
+
 }
 
 class Google_Service_CloudMonitoring_Point extends Google_Model
@@ -736,7 +729,6 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     return $this->boolValue;
   }
-
   public function setDistributionValue(Google_Service_CloudMonitoring_PointDistribution $distributionValue)
   {
     $this->distributionValue = $distributionValue;
@@ -746,7 +738,6 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     return $this->distributionValue;
   }
-
   public function setDoubleValue($doubleValue)
   {
     $this->doubleValue = $doubleValue;
@@ -756,7 +747,6 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     return $this->doubleValue;
   }
-
   public function setEnd($end)
   {
     $this->end = $end;
@@ -766,7 +756,6 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     return $this->end;
   }
-
   public function setInt64Value($int64Value)
   {
     $this->int64Value = $int64Value;
@@ -776,7 +765,6 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     return $this->int64Value;
   }
-
   public function setStart($start)
   {
     $this->start = $start;
@@ -786,7 +774,6 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     return $this->start;
   }
-
   public function setStringValue($stringValue)
   {
     $this->stringValue = $stringValue;
@@ -796,6 +783,7 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     return $this->stringValue;
   }
+
 }
 
 class Google_Service_CloudMonitoring_PointDistribution extends Google_Collection
@@ -819,7 +807,6 @@ class Google_Service_CloudMonitoring_PointDistribution extends Google_Collection
   {
     return $this->buckets;
   }
-
   public function setOverflowBucket(Google_Service_CloudMonitoring_PointDistributionOverflowBucket $overflowBucket)
   {
     $this->overflowBucket = $overflowBucket;
@@ -829,7 +816,6 @@ class Google_Service_CloudMonitoring_PointDistribution extends Google_Collection
   {
     return $this->overflowBucket;
   }
-
   public function setUnderflowBucket(Google_Service_CloudMonitoring_PointDistributionUnderflowBucket $underflowBucket)
   {
     $this->underflowBucket = $underflowBucket;
@@ -839,6 +825,7 @@ class Google_Service_CloudMonitoring_PointDistribution extends Google_Collection
   {
     return $this->underflowBucket;
   }
+
 }
 
 class Google_Service_CloudMonitoring_PointDistributionBucket extends Google_Model
@@ -858,7 +845,6 @@ class Google_Service_CloudMonitoring_PointDistributionBucket extends Google_Mode
   {
     return $this->count;
   }
-
   public function setLowerBound($lowerBound)
   {
     $this->lowerBound = $lowerBound;
@@ -868,7 +854,6 @@ class Google_Service_CloudMonitoring_PointDistributionBucket extends Google_Mode
   {
     return $this->lowerBound;
   }
-
   public function setUpperBound($upperBound)
   {
     $this->upperBound = $upperBound;
@@ -878,6 +863,7 @@ class Google_Service_CloudMonitoring_PointDistributionBucket extends Google_Mode
   {
     return $this->upperBound;
   }
+
 }
 
 class Google_Service_CloudMonitoring_PointDistributionOverflowBucket extends Google_Model
@@ -896,7 +882,6 @@ class Google_Service_CloudMonitoring_PointDistributionOverflowBucket extends Goo
   {
     return $this->count;
   }
-
   public function setLowerBound($lowerBound)
   {
     $this->lowerBound = $lowerBound;
@@ -906,6 +891,7 @@ class Google_Service_CloudMonitoring_PointDistributionOverflowBucket extends Goo
   {
     return $this->lowerBound;
   }
+
 }
 
 class Google_Service_CloudMonitoring_PointDistributionUnderflowBucket extends Google_Model
@@ -924,7 +910,6 @@ class Google_Service_CloudMonitoring_PointDistributionUnderflowBucket extends Go
   {
     return $this->count;
   }
-
   public function setUpperBound($upperBound)
   {
     $this->upperBound = $upperBound;
@@ -934,6 +919,7 @@ class Google_Service_CloudMonitoring_PointDistributionUnderflowBucket extends Go
   {
     return $this->upperBound;
   }
+
 }
 
 class Google_Service_CloudMonitoring_Timeseries extends Google_Collection
@@ -955,7 +941,6 @@ class Google_Service_CloudMonitoring_Timeseries extends Google_Collection
   {
     return $this->points;
   }
-
   public function setTimeseriesDesc(Google_Service_CloudMonitoring_TimeseriesDescriptor $timeseriesDesc)
   {
     $this->timeseriesDesc = $timeseriesDesc;
@@ -965,6 +950,7 @@ class Google_Service_CloudMonitoring_Timeseries extends Google_Collection
   {
     return $this->timeseriesDesc;
   }
+
 }
 
 class Google_Service_CloudMonitoring_TimeseriesDescriptor extends Google_Model
@@ -984,7 +970,6 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptor extends Google_Model
   {
     return $this->labels;
   }
-
   public function setMetric($metric)
   {
     $this->metric = $metric;
@@ -994,7 +979,6 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptor extends Google_Model
   {
     return $this->metric;
   }
-
   public function setProject($project)
   {
     $this->project = $project;
@@ -1004,6 +988,7 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptor extends Google_Model
   {
     return $this->project;
   }
+
 }
 
 class Google_Service_CloudMonitoring_TimeseriesDescriptorLabel extends Google_Model
@@ -1022,7 +1007,6 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptorLabel extends Google_Mo
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -1032,10 +1016,13 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptorLabel extends Google_Mo
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_CloudMonitoring_TimeseriesDescriptorLabels extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
