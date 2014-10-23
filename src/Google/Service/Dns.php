@@ -516,7 +516,6 @@ class Google_Service_Dns_Change extends Google_Collection
   {
     return $this->additions;
   }
-
   public function setDeletions($deletions)
   {
     $this->deletions = $deletions;
@@ -526,7 +525,6 @@ class Google_Service_Dns_Change extends Google_Collection
   {
     return $this->deletions;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -536,7 +534,6 @@ class Google_Service_Dns_Change extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -546,7 +543,6 @@ class Google_Service_Dns_Change extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
@@ -556,7 +552,6 @@ class Google_Service_Dns_Change extends Google_Collection
   {
     return $this->startTime;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -566,6 +561,7 @@ class Google_Service_Dns_Change extends Google_Collection
   {
     return $this->status;
   }
+
 }
 
 class Google_Service_Dns_ChangesListResponse extends Google_Collection
@@ -587,7 +583,6 @@ class Google_Service_Dns_ChangesListResponse extends Google_Collection
   {
     return $this->changes;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -597,7 +592,6 @@ class Google_Service_Dns_ChangesListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -607,6 +601,7 @@ class Google_Service_Dns_ChangesListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Dns_ManagedZone extends Google_Collection
@@ -631,7 +626,6 @@ class Google_Service_Dns_ManagedZone extends Google_Collection
   {
     return $this->creationTime;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -641,7 +635,6 @@ class Google_Service_Dns_ManagedZone extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDnsName($dnsName)
   {
     $this->dnsName = $dnsName;
@@ -651,7 +644,6 @@ class Google_Service_Dns_ManagedZone extends Google_Collection
   {
     return $this->dnsName;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -661,7 +653,6 @@ class Google_Service_Dns_ManagedZone extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -671,7 +662,6 @@ class Google_Service_Dns_ManagedZone extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -681,7 +671,6 @@ class Google_Service_Dns_ManagedZone extends Google_Collection
   {
     return $this->name;
   }
-
   public function setNameServers($nameServers)
   {
     $this->nameServers = $nameServers;
@@ -691,6 +680,7 @@ class Google_Service_Dns_ManagedZone extends Google_Collection
   {
     return $this->nameServers;
   }
+
 }
 
 class Google_Service_Dns_ManagedZonesListResponse extends Google_Collection
@@ -712,7 +702,6 @@ class Google_Service_Dns_ManagedZonesListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setManagedZones($managedZones)
   {
     $this->managedZones = $managedZones;
@@ -722,7 +711,6 @@ class Google_Service_Dns_ManagedZonesListResponse extends Google_Collection
   {
     return $this->managedZones;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -732,6 +720,7 @@ class Google_Service_Dns_ManagedZonesListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Dns_Project extends Google_Model
@@ -753,7 +742,6 @@ class Google_Service_Dns_Project extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -763,7 +751,6 @@ class Google_Service_Dns_Project extends Google_Model
   {
     return $this->kind;
   }
-
   public function setNumber($number)
   {
     $this->number = $number;
@@ -773,7 +760,6 @@ class Google_Service_Dns_Project extends Google_Model
   {
     return $this->number;
   }
-
   public function setQuota(Google_Service_Dns_Quota $quota)
   {
     $this->quota = $quota;
@@ -783,6 +769,7 @@ class Google_Service_Dns_Project extends Google_Model
   {
     return $this->quota;
   }
+
 }
 
 class Google_Service_Dns_Quota extends Google_Model
@@ -806,7 +793,6 @@ class Google_Service_Dns_Quota extends Google_Model
   {
     return $this->kind;
   }
-
   public function setManagedZones($managedZones)
   {
     $this->managedZones = $managedZones;
@@ -816,7 +802,6 @@ class Google_Service_Dns_Quota extends Google_Model
   {
     return $this->managedZones;
   }
-
   public function setResourceRecordsPerRrset($resourceRecordsPerRrset)
   {
     $this->resourceRecordsPerRrset = $resourceRecordsPerRrset;
@@ -826,7 +811,6 @@ class Google_Service_Dns_Quota extends Google_Model
   {
     return $this->resourceRecordsPerRrset;
   }
-
   public function setRrsetAdditionsPerChange($rrsetAdditionsPerChange)
   {
     $this->rrsetAdditionsPerChange = $rrsetAdditionsPerChange;
@@ -836,7 +820,6 @@ class Google_Service_Dns_Quota extends Google_Model
   {
     return $this->rrsetAdditionsPerChange;
   }
-
   public function setRrsetDeletionsPerChange($rrsetDeletionsPerChange)
   {
     $this->rrsetDeletionsPerChange = $rrsetDeletionsPerChange;
@@ -846,7 +829,6 @@ class Google_Service_Dns_Quota extends Google_Model
   {
     return $this->rrsetDeletionsPerChange;
   }
-
   public function setRrsetsPerManagedZone($rrsetsPerManagedZone)
   {
     $this->rrsetsPerManagedZone = $rrsetsPerManagedZone;
@@ -856,7 +838,6 @@ class Google_Service_Dns_Quota extends Google_Model
   {
     return $this->rrsetsPerManagedZone;
   }
-
   public function setTotalRrdataSizePerChange($totalRrdataSizePerChange)
   {
     $this->totalRrdataSizePerChange = $totalRrdataSizePerChange;
@@ -866,6 +847,7 @@ class Google_Service_Dns_Quota extends Google_Model
   {
     return $this->totalRrdataSizePerChange;
   }
+
 }
 
 class Google_Service_Dns_ResourceRecordSet extends Google_Collection
@@ -888,7 +870,6 @@ class Google_Service_Dns_ResourceRecordSet extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -898,7 +879,6 @@ class Google_Service_Dns_ResourceRecordSet extends Google_Collection
   {
     return $this->name;
   }
-
   public function setRrdatas($rrdatas)
   {
     $this->rrdatas = $rrdatas;
@@ -908,7 +888,6 @@ class Google_Service_Dns_ResourceRecordSet extends Google_Collection
   {
     return $this->rrdatas;
   }
-
   public function setTtl($ttl)
   {
     $this->ttl = $ttl;
@@ -918,7 +897,6 @@ class Google_Service_Dns_ResourceRecordSet extends Google_Collection
   {
     return $this->ttl;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -928,6 +906,7 @@ class Google_Service_Dns_ResourceRecordSet extends Google_Collection
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Dns_ResourceRecordSetsListResponse extends Google_Collection
@@ -949,7 +928,6 @@ class Google_Service_Dns_ResourceRecordSetsListResponse extends Google_Collectio
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -959,7 +937,6 @@ class Google_Service_Dns_ResourceRecordSetsListResponse extends Google_Collectio
   {
     return $this->nextPageToken;
   }
-
   public function setRrsets($rrsets)
   {
     $this->rrsets = $rrsets;
@@ -969,4 +946,5 @@ class Google_Service_Dns_ResourceRecordSetsListResponse extends Google_Collectio
   {
     return $this->rrsets;
   }
+
 }
