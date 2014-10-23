@@ -3348,7 +3348,6 @@ class Google_Service_YouTube_AccessPolicy extends Google_Collection
   {
     return $this->allowed;
   }
-
   public function setException($exception)
   {
     $this->exception = $exception;
@@ -3358,6 +3357,7 @@ class Google_Service_YouTube_AccessPolicy extends Google_Collection
   {
     return $this->exception;
   }
+
 }
 
 class Google_Service_YouTube_Activity extends Google_Model
@@ -3381,7 +3381,6 @@ class Google_Service_YouTube_Activity extends Google_Model
   {
     return $this->contentDetails;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -3391,7 +3390,6 @@ class Google_Service_YouTube_Activity extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3401,7 +3399,6 @@ class Google_Service_YouTube_Activity extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3411,7 +3408,6 @@ class Google_Service_YouTube_Activity extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSnippet(Google_Service_YouTube_ActivitySnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -3421,6 +3417,7 @@ class Google_Service_YouTube_Activity extends Google_Model
   {
     return $this->snippet;
   }
+
 }
 
 class Google_Service_YouTube_ActivityContentDetails extends Google_Model
@@ -3459,7 +3456,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     return $this->bulletin;
   }
-
   public function setChannelItem(Google_Service_YouTube_ActivityContentDetailsChannelItem $channelItem)
   {
     $this->channelItem = $channelItem;
@@ -3469,7 +3465,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     return $this->channelItem;
   }
-
   public function setComment(Google_Service_YouTube_ActivityContentDetailsComment $comment)
   {
     $this->comment = $comment;
@@ -3479,7 +3474,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     return $this->comment;
   }
-
   public function setFavorite(Google_Service_YouTube_ActivityContentDetailsFavorite $favorite)
   {
     $this->favorite = $favorite;
@@ -3489,7 +3483,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     return $this->favorite;
   }
-
   public function setLike(Google_Service_YouTube_ActivityContentDetailsLike $like)
   {
     $this->like = $like;
@@ -3499,7 +3492,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     return $this->like;
   }
-
   public function setPlaylistItem(Google_Service_YouTube_ActivityContentDetailsPlaylistItem $playlistItem)
   {
     $this->playlistItem = $playlistItem;
@@ -3509,7 +3501,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     return $this->playlistItem;
   }
-
   public function setPromotedItem(Google_Service_YouTube_ActivityContentDetailsPromotedItem $promotedItem)
   {
     $this->promotedItem = $promotedItem;
@@ -3519,7 +3510,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     return $this->promotedItem;
   }
-
   public function setRecommendation(Google_Service_YouTube_ActivityContentDetailsRecommendation $recommendation)
   {
     $this->recommendation = $recommendation;
@@ -3529,7 +3519,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     return $this->recommendation;
   }
-
   public function setSocial(Google_Service_YouTube_ActivityContentDetailsSocial $social)
   {
     $this->social = $social;
@@ -3539,7 +3528,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     return $this->social;
   }
-
   public function setSubscription(Google_Service_YouTube_ActivityContentDetailsSubscription $subscription)
   {
     $this->subscription = $subscription;
@@ -3549,7 +3537,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     return $this->subscription;
   }
-
   public function setUpload(Google_Service_YouTube_ActivityContentDetailsUpload $upload)
   {
     $this->upload = $upload;
@@ -3559,6 +3546,7 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     return $this->upload;
   }
+
 }
 
 class Google_Service_YouTube_ActivityContentDetailsBulletin extends Google_Model
@@ -3577,6 +3565,7 @@ class Google_Service_YouTube_ActivityContentDetailsBulletin extends Google_Model
   {
     return $this->resourceId;
   }
+
 }
 
 class Google_Service_YouTube_ActivityContentDetailsChannelItem extends Google_Model
@@ -3595,6 +3584,7 @@ class Google_Service_YouTube_ActivityContentDetailsChannelItem extends Google_Mo
   {
     return $this->resourceId;
   }
+
 }
 
 class Google_Service_YouTube_ActivityContentDetailsComment extends Google_Model
@@ -3613,6 +3603,7 @@ class Google_Service_YouTube_ActivityContentDetailsComment extends Google_Model
   {
     return $this->resourceId;
   }
+
 }
 
 class Google_Service_YouTube_ActivityContentDetailsFavorite extends Google_Model
@@ -3631,6 +3622,7 @@ class Google_Service_YouTube_ActivityContentDetailsFavorite extends Google_Model
   {
     return $this->resourceId;
   }
+
 }
 
 class Google_Service_YouTube_ActivityContentDetailsLike extends Google_Model
@@ -3649,6 +3641,7 @@ class Google_Service_YouTube_ActivityContentDetailsLike extends Google_Model
   {
     return $this->resourceId;
   }
+
 }
 
 class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_Model
@@ -3669,7 +3662,6 @@ class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_M
   {
     return $this->playlistId;
   }
-
   public function setPlaylistItemId($playlistItemId)
   {
     $this->playlistItemId = $playlistItemId;
@@ -3679,7 +3671,6 @@ class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_M
   {
     return $this->playlistItemId;
   }
-
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
@@ -3689,6 +3680,7 @@ class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_M
   {
     return $this->resourceId;
   }
+
 }
 
 class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_Collection
@@ -3716,7 +3708,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     return $this->adTag;
   }
-
   public function setClickTrackingUrl($clickTrackingUrl)
   {
     $this->clickTrackingUrl = $clickTrackingUrl;
@@ -3726,7 +3717,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     return $this->clickTrackingUrl;
   }
-
   public function setCreativeViewUrl($creativeViewUrl)
   {
     $this->creativeViewUrl = $creativeViewUrl;
@@ -3736,7 +3726,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     return $this->creativeViewUrl;
   }
-
   public function setCtaType($ctaType)
   {
     $this->ctaType = $ctaType;
@@ -3746,7 +3735,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     return $this->ctaType;
   }
-
   public function setCustomCtaButtonText($customCtaButtonText)
   {
     $this->customCtaButtonText = $customCtaButtonText;
@@ -3756,7 +3744,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     return $this->customCtaButtonText;
   }
-
   public function setDescriptionText($descriptionText)
   {
     $this->descriptionText = $descriptionText;
@@ -3766,7 +3753,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     return $this->descriptionText;
   }
-
   public function setDestinationUrl($destinationUrl)
   {
     $this->destinationUrl = $destinationUrl;
@@ -3776,7 +3762,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     return $this->destinationUrl;
   }
-
   public function setForecastingUrl($forecastingUrl)
   {
     $this->forecastingUrl = $forecastingUrl;
@@ -3786,7 +3771,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     return $this->forecastingUrl;
   }
-
   public function setImpressionUrl($impressionUrl)
   {
     $this->impressionUrl = $impressionUrl;
@@ -3796,7 +3780,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     return $this->impressionUrl;
   }
-
   public function setVideoId($videoId)
   {
     $this->videoId = $videoId;
@@ -3806,6 +3789,7 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     return $this->videoId;
   }
+
 }
 
 class Google_Service_YouTube_ActivityContentDetailsRecommendation extends Google_Model
@@ -3827,7 +3811,6 @@ class Google_Service_YouTube_ActivityContentDetailsRecommendation extends Google
   {
     return $this->reason;
   }
-
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
@@ -3837,7 +3820,6 @@ class Google_Service_YouTube_ActivityContentDetailsRecommendation extends Google
   {
     return $this->resourceId;
   }
-
   public function setSeedResourceId(Google_Service_YouTube_ResourceId $seedResourceId)
   {
     $this->seedResourceId = $seedResourceId;
@@ -3847,6 +3829,7 @@ class Google_Service_YouTube_ActivityContentDetailsRecommendation extends Google
   {
     return $this->seedResourceId;
   }
+
 }
 
 class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
@@ -3869,7 +3852,6 @@ class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
   {
     return $this->author;
   }
-
   public function setImageUrl($imageUrl)
   {
     $this->imageUrl = $imageUrl;
@@ -3879,7 +3861,6 @@ class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
   {
     return $this->imageUrl;
   }
-
   public function setReferenceUrl($referenceUrl)
   {
     $this->referenceUrl = $referenceUrl;
@@ -3889,7 +3870,6 @@ class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
   {
     return $this->referenceUrl;
   }
-
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
@@ -3899,7 +3879,6 @@ class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
   {
     return $this->resourceId;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -3909,6 +3888,7 @@ class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_YouTube_ActivityContentDetailsSubscription extends Google_Model
@@ -3927,6 +3907,7 @@ class Google_Service_YouTube_ActivityContentDetailsSubscription extends Google_M
   {
     return $this->resourceId;
   }
+
 }
 
 class Google_Service_YouTube_ActivityContentDetailsUpload extends Google_Model
@@ -3944,6 +3925,7 @@ class Google_Service_YouTube_ActivityContentDetailsUpload extends Google_Model
   {
     return $this->videoId;
   }
+
 }
 
 class Google_Service_YouTube_ActivityListResponse extends Google_Collection
@@ -3973,7 +3955,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -3983,7 +3964,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -3993,7 +3973,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4003,7 +3982,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -4013,7 +3991,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -4023,7 +4000,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -4033,7 +4009,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     return $this->prevPageToken;
   }
-
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -4043,7 +4018,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -4053,6 +4027,7 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_ActivitySnippet extends Google_Model
@@ -4078,7 +4053,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     return $this->channelId;
   }
-
   public function setChannelTitle($channelTitle)
   {
     $this->channelTitle = $channelTitle;
@@ -4088,7 +4062,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     return $this->channelTitle;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -4098,7 +4071,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     return $this->description;
   }
-
   public function setGroupId($groupId)
   {
     $this->groupId = $groupId;
@@ -4108,7 +4080,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     return $this->groupId;
   }
-
   public function setPublishedAt($publishedAt)
   {
     $this->publishedAt = $publishedAt;
@@ -4118,7 +4089,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     return $this->publishedAt;
   }
-
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -4128,7 +4098,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -4138,7 +4107,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     return $this->title;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -4148,6 +4116,7 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_YouTube_CdnSettings extends Google_Model
@@ -4168,7 +4137,6 @@ class Google_Service_YouTube_CdnSettings extends Google_Model
   {
     return $this->format;
   }
-
   public function setIngestionInfo(Google_Service_YouTube_IngestionInfo $ingestionInfo)
   {
     $this->ingestionInfo = $ingestionInfo;
@@ -4178,7 +4146,6 @@ class Google_Service_YouTube_CdnSettings extends Google_Model
   {
     return $this->ingestionInfo;
   }
-
   public function setIngestionType($ingestionType)
   {
     $this->ingestionType = $ingestionType;
@@ -4188,6 +4155,7 @@ class Google_Service_YouTube_CdnSettings extends Google_Model
   {
     return $this->ingestionType;
   }
+
 }
 
 class Google_Service_YouTube_Channel extends Google_Model
@@ -4227,7 +4195,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->auditDetails;
   }
-
   public function setBrandingSettings(Google_Service_YouTube_ChannelBrandingSettings $brandingSettings)
   {
     $this->brandingSettings = $brandingSettings;
@@ -4237,7 +4204,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->brandingSettings;
   }
-
   public function setContentDetails(Google_Service_YouTube_ChannelContentDetails $contentDetails)
   {
     $this->contentDetails = $contentDetails;
@@ -4247,7 +4213,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->contentDetails;
   }
-
   public function setContentOwnerDetails(Google_Service_YouTube_ChannelContentOwnerDetails $contentOwnerDetails)
   {
     $this->contentOwnerDetails = $contentOwnerDetails;
@@ -4257,7 +4222,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->contentOwnerDetails;
   }
-
   public function setConversionPings(Google_Service_YouTube_ChannelConversionPings $conversionPings)
   {
     $this->conversionPings = $conversionPings;
@@ -4267,7 +4231,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->conversionPings;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -4277,7 +4240,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -4287,7 +4249,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->id;
   }
-
   public function setInvideoPromotion(Google_Service_YouTube_InvideoPromotion $invideoPromotion)
   {
     $this->invideoPromotion = $invideoPromotion;
@@ -4297,7 +4258,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->invideoPromotion;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4307,7 +4267,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSnippet(Google_Service_YouTube_ChannelSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -4317,7 +4276,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->snippet;
   }
-
   public function setStatistics(Google_Service_YouTube_ChannelStatistics $statistics)
   {
     $this->statistics = $statistics;
@@ -4327,7 +4285,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->statistics;
   }
-
   public function setStatus(Google_Service_YouTube_ChannelStatus $status)
   {
     $this->status = $status;
@@ -4337,7 +4294,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->status;
   }
-
   public function setTopicDetails(Google_Service_YouTube_ChannelTopicDetails $topicDetails)
   {
     $this->topicDetails = $topicDetails;
@@ -4347,6 +4303,7 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     return $this->topicDetails;
   }
+
 }
 
 class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
@@ -4367,7 +4324,6 @@ class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
   {
     return $this->communityGuidelinesGoodStanding;
   }
-
   public function setContentIdClaimsGoodStanding($contentIdClaimsGoodStanding)
   {
     $this->contentIdClaimsGoodStanding = $contentIdClaimsGoodStanding;
@@ -4377,7 +4333,6 @@ class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
   {
     return $this->contentIdClaimsGoodStanding;
   }
-
   public function setCopyrightStrikesGoodStanding($copyrightStrikesGoodStanding)
   {
     $this->copyrightStrikesGoodStanding = $copyrightStrikesGoodStanding;
@@ -4387,7 +4342,6 @@ class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
   {
     return $this->copyrightStrikesGoodStanding;
   }
-
   public function setOverallGoodStanding($overallGoodStanding)
   {
     $this->overallGoodStanding = $overallGoodStanding;
@@ -4397,6 +4351,7 @@ class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
   {
     return $this->overallGoodStanding;
   }
+
 }
 
 class Google_Service_YouTube_ChannelBannerResource extends Google_Model
@@ -4416,7 +4371,6 @@ class Google_Service_YouTube_ChannelBannerResource extends Google_Model
   {
     return $this->etag;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4426,7 +4380,6 @@ class Google_Service_YouTube_ChannelBannerResource extends Google_Model
   {
     return $this->kind;
   }
-
   public function setUrl($url)
   {
     $this->url = $url;
@@ -4436,6 +4389,7 @@ class Google_Service_YouTube_ChannelBannerResource extends Google_Model
   {
     return $this->url;
   }
+
 }
 
 class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
@@ -4461,7 +4415,6 @@ class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
   {
     return $this->channel;
   }
-
   public function setHints($hints)
   {
     $this->hints = $hints;
@@ -4471,7 +4424,6 @@ class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
   {
     return $this->hints;
   }
-
   public function setImage(Google_Service_YouTube_ImageSettings $image)
   {
     $this->image = $image;
@@ -4481,7 +4433,6 @@ class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
   {
     return $this->image;
   }
-
   public function setWatch(Google_Service_YouTube_WatchSettings $watch)
   {
     $this->watch = $watch;
@@ -4491,6 +4442,7 @@ class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
   {
     return $this->watch;
   }
+
 }
 
 class Google_Service_YouTube_ChannelContentDetails extends Google_Model
@@ -4510,7 +4462,6 @@ class Google_Service_YouTube_ChannelContentDetails extends Google_Model
   {
     return $this->googlePlusUserId;
   }
-
   public function setRelatedPlaylists(Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists $relatedPlaylists)
   {
     $this->relatedPlaylists = $relatedPlaylists;
@@ -4520,6 +4471,7 @@ class Google_Service_YouTube_ChannelContentDetails extends Google_Model
   {
     return $this->relatedPlaylists;
   }
+
 }
 
 class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Google_Model
@@ -4541,7 +4493,6 @@ class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Googl
   {
     return $this->favorites;
   }
-
   public function setLikes($likes)
   {
     $this->likes = $likes;
@@ -4551,7 +4502,6 @@ class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Googl
   {
     return $this->likes;
   }
-
   public function setUploads($uploads)
   {
     $this->uploads = $uploads;
@@ -4561,7 +4511,6 @@ class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Googl
   {
     return $this->uploads;
   }
-
   public function setWatchHistory($watchHistory)
   {
     $this->watchHistory = $watchHistory;
@@ -4571,7 +4520,6 @@ class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Googl
   {
     return $this->watchHistory;
   }
-
   public function setWatchLater($watchLater)
   {
     $this->watchLater = $watchLater;
@@ -4581,6 +4529,7 @@ class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Googl
   {
     return $this->watchLater;
   }
+
 }
 
 class Google_Service_YouTube_ChannelContentOwnerDetails extends Google_Model
@@ -4599,7 +4548,6 @@ class Google_Service_YouTube_ChannelContentOwnerDetails extends Google_Model
   {
     return $this->contentOwner;
   }
-
   public function setTimeLinked($timeLinked)
   {
     $this->timeLinked = $timeLinked;
@@ -4609,6 +4557,7 @@ class Google_Service_YouTube_ChannelContentOwnerDetails extends Google_Model
   {
     return $this->timeLinked;
   }
+
 }
 
 class Google_Service_YouTube_ChannelConversionPing extends Google_Model
@@ -4627,7 +4576,6 @@ class Google_Service_YouTube_ChannelConversionPing extends Google_Model
   {
     return $this->context;
   }
-
   public function setConversionUrl($conversionUrl)
   {
     $this->conversionUrl = $conversionUrl;
@@ -4637,6 +4585,7 @@ class Google_Service_YouTube_ChannelConversionPing extends Google_Model
   {
     return $this->conversionUrl;
   }
+
 }
 
 class Google_Service_YouTube_ChannelConversionPings extends Google_Collection
@@ -4656,6 +4605,7 @@ class Google_Service_YouTube_ChannelConversionPings extends Google_Collection
   {
     return $this->pings;
   }
+
 }
 
 class Google_Service_YouTube_ChannelListResponse extends Google_Collection
@@ -4685,7 +4635,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -4695,7 +4644,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -4705,7 +4653,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4715,7 +4662,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -4725,7 +4671,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -4735,7 +4680,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -4745,7 +4689,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     return $this->prevPageToken;
   }
-
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -4755,7 +4698,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -4765,6 +4707,7 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_ChannelSection extends Google_Model
@@ -4788,7 +4731,6 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   {
     return $this->contentDetails;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -4798,7 +4740,6 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -4808,7 +4749,6 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4818,7 +4758,6 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSnippet(Google_Service_YouTube_ChannelSectionSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -4828,6 +4767,7 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   {
     return $this->snippet;
   }
+
 }
 
 class Google_Service_YouTube_ChannelSectionContentDetails extends Google_Collection
@@ -4847,7 +4787,6 @@ class Google_Service_YouTube_ChannelSectionContentDetails extends Google_Collect
   {
     return $this->channels;
   }
-
   public function setPlaylists($playlists)
   {
     $this->playlists = $playlists;
@@ -4857,6 +4796,7 @@ class Google_Service_YouTube_ChannelSectionContentDetails extends Google_Collect
   {
     return $this->playlists;
   }
+
 }
 
 class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collection
@@ -4880,7 +4820,6 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -4890,7 +4829,6 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -4900,7 +4838,6 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4910,7 +4847,6 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
   {
     return $this->kind;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -4920,6 +4856,7 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
@@ -4941,7 +4878,6 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
   {
     return $this->channelId;
   }
-
   public function setPosition($position)
   {
     $this->position = $position;
@@ -4951,7 +4887,6 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
   {
     return $this->position;
   }
-
   public function setStyle($style)
   {
     $this->style = $style;
@@ -4961,7 +4896,6 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
   {
     return $this->style;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -4971,7 +4905,6 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
   {
     return $this->title;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -4981,6 +4914,7 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_YouTube_ChannelSettings extends Google_Collection
@@ -5010,7 +4944,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     return $this->defaultTab;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -5020,7 +4953,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     return $this->description;
   }
-
   public function setFeaturedChannelsTitle($featuredChannelsTitle)
   {
     $this->featuredChannelsTitle = $featuredChannelsTitle;
@@ -5030,7 +4962,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     return $this->featuredChannelsTitle;
   }
-
   public function setFeaturedChannelsUrls($featuredChannelsUrls)
   {
     $this->featuredChannelsUrls = $featuredChannelsUrls;
@@ -5040,7 +4971,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     return $this->featuredChannelsUrls;
   }
-
   public function setKeywords($keywords)
   {
     $this->keywords = $keywords;
@@ -5050,7 +4980,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     return $this->keywords;
   }
-
   public function setModerateComments($moderateComments)
   {
     $this->moderateComments = $moderateComments;
@@ -5060,7 +4989,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     return $this->moderateComments;
   }
-
   public function setProfileColor($profileColor)
   {
     $this->profileColor = $profileColor;
@@ -5070,7 +4998,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     return $this->profileColor;
   }
-
   public function setShowBrowseView($showBrowseView)
   {
     $this->showBrowseView = $showBrowseView;
@@ -5080,7 +5007,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     return $this->showBrowseView;
   }
-
   public function setShowRelatedChannels($showRelatedChannels)
   {
     $this->showRelatedChannels = $showRelatedChannels;
@@ -5090,7 +5016,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     return $this->showRelatedChannels;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -5100,7 +5025,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     return $this->title;
   }
-
   public function setTrackingAnalyticsAccountId($trackingAnalyticsAccountId)
   {
     $this->trackingAnalyticsAccountId = $trackingAnalyticsAccountId;
@@ -5110,7 +5034,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     return $this->trackingAnalyticsAccountId;
   }
-
   public function setUnsubscribedTrailer($unsubscribedTrailer)
   {
     $this->unsubscribedTrailer = $unsubscribedTrailer;
@@ -5120,6 +5043,7 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     return $this->unsubscribedTrailer;
   }
+
 }
 
 class Google_Service_YouTube_ChannelSnippet extends Google_Model
@@ -5141,7 +5065,6 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   {
     return $this->description;
   }
-
   public function setPublishedAt($publishedAt)
   {
     $this->publishedAt = $publishedAt;
@@ -5151,7 +5074,6 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   {
     return $this->publishedAt;
   }
-
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -5161,7 +5083,6 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -5171,6 +5092,7 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_YouTube_ChannelStatistics extends Google_Model
@@ -5192,7 +5114,6 @@ class Google_Service_YouTube_ChannelStatistics extends Google_Model
   {
     return $this->commentCount;
   }
-
   public function setHiddenSubscriberCount($hiddenSubscriberCount)
   {
     $this->hiddenSubscriberCount = $hiddenSubscriberCount;
@@ -5202,7 +5123,6 @@ class Google_Service_YouTube_ChannelStatistics extends Google_Model
   {
     return $this->hiddenSubscriberCount;
   }
-
   public function setSubscriberCount($subscriberCount)
   {
     $this->subscriberCount = $subscriberCount;
@@ -5212,7 +5132,6 @@ class Google_Service_YouTube_ChannelStatistics extends Google_Model
   {
     return $this->subscriberCount;
   }
-
   public function setVideoCount($videoCount)
   {
     $this->videoCount = $videoCount;
@@ -5222,7 +5141,6 @@ class Google_Service_YouTube_ChannelStatistics extends Google_Model
   {
     return $this->videoCount;
   }
-
   public function setViewCount($viewCount)
   {
     $this->viewCount = $viewCount;
@@ -5232,6 +5150,7 @@ class Google_Service_YouTube_ChannelStatistics extends Google_Model
   {
     return $this->viewCount;
   }
+
 }
 
 class Google_Service_YouTube_ChannelStatus extends Google_Model
@@ -5251,7 +5170,6 @@ class Google_Service_YouTube_ChannelStatus extends Google_Model
   {
     return $this->isLinked;
   }
-
   public function setLongUploadsStatus($longUploadsStatus)
   {
     $this->longUploadsStatus = $longUploadsStatus;
@@ -5261,7 +5179,6 @@ class Google_Service_YouTube_ChannelStatus extends Google_Model
   {
     return $this->longUploadsStatus;
   }
-
   public function setPrivacyStatus($privacyStatus)
   {
     $this->privacyStatus = $privacyStatus;
@@ -5271,6 +5188,7 @@ class Google_Service_YouTube_ChannelStatus extends Google_Model
   {
     return $this->privacyStatus;
   }
+
 }
 
 class Google_Service_YouTube_ChannelTopicDetails extends Google_Collection
@@ -5289,6 +5207,7 @@ class Google_Service_YouTube_ChannelTopicDetails extends Google_Collection
   {
     return $this->topicIds;
   }
+
 }
 
 class Google_Service_YouTube_ContentRating extends Google_Model
@@ -5368,7 +5287,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->acbRating;
   }
-
   public function setAgcomRating($agcomRating)
   {
     $this->agcomRating = $agcomRating;
@@ -5378,7 +5296,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->agcomRating;
   }
-
   public function setAnatelRating($anatelRating)
   {
     $this->anatelRating = $anatelRating;
@@ -5388,7 +5305,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->anatelRating;
   }
-
   public function setBbfcRating($bbfcRating)
   {
     $this->bbfcRating = $bbfcRating;
@@ -5398,7 +5314,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->bbfcRating;
   }
-
   public function setBfvcRating($bfvcRating)
   {
     $this->bfvcRating = $bfvcRating;
@@ -5408,7 +5323,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->bfvcRating;
   }
-
   public function setBmukkRating($bmukkRating)
   {
     $this->bmukkRating = $bmukkRating;
@@ -5418,7 +5332,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->bmukkRating;
   }
-
   public function setCatvRating($catvRating)
   {
     $this->catvRating = $catvRating;
@@ -5428,7 +5341,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->catvRating;
   }
-
   public function setCatvfrRating($catvfrRating)
   {
     $this->catvfrRating = $catvfrRating;
@@ -5438,7 +5350,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->catvfrRating;
   }
-
   public function setCbfcRating($cbfcRating)
   {
     $this->cbfcRating = $cbfcRating;
@@ -5448,7 +5359,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->cbfcRating;
   }
-
   public function setCccRating($cccRating)
   {
     $this->cccRating = $cccRating;
@@ -5458,7 +5368,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->cccRating;
   }
-
   public function setCceRating($cceRating)
   {
     $this->cceRating = $cceRating;
@@ -5468,7 +5377,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->cceRating;
   }
-
   public function setChfilmRating($chfilmRating)
   {
     $this->chfilmRating = $chfilmRating;
@@ -5478,7 +5386,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->chfilmRating;
   }
-
   public function setChvrsRating($chvrsRating)
   {
     $this->chvrsRating = $chvrsRating;
@@ -5488,7 +5395,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->chvrsRating;
   }
-
   public function setCicfRating($cicfRating)
   {
     $this->cicfRating = $cicfRating;
@@ -5498,7 +5404,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->cicfRating;
   }
-
   public function setCnaRating($cnaRating)
   {
     $this->cnaRating = $cnaRating;
@@ -5508,7 +5413,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->cnaRating;
   }
-
   public function setCsaRating($csaRating)
   {
     $this->csaRating = $csaRating;
@@ -5518,7 +5422,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->csaRating;
   }
-
   public function setCscfRating($cscfRating)
   {
     $this->cscfRating = $cscfRating;
@@ -5528,7 +5431,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->cscfRating;
   }
-
   public function setCzfilmRating($czfilmRating)
   {
     $this->czfilmRating = $czfilmRating;
@@ -5538,7 +5440,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->czfilmRating;
   }
-
   public function setDjctqRating($djctqRating)
   {
     $this->djctqRating = $djctqRating;
@@ -5548,7 +5449,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->djctqRating;
   }
-
   public function setEefilmRating($eefilmRating)
   {
     $this->eefilmRating = $eefilmRating;
@@ -5558,7 +5458,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->eefilmRating;
   }
-
   public function setEgfilmRating($egfilmRating)
   {
     $this->egfilmRating = $egfilmRating;
@@ -5568,7 +5467,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->egfilmRating;
   }
-
   public function setEirinRating($eirinRating)
   {
     $this->eirinRating = $eirinRating;
@@ -5578,7 +5476,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->eirinRating;
   }
-
   public function setFcbmRating($fcbmRating)
   {
     $this->fcbmRating = $fcbmRating;
@@ -5588,7 +5485,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->fcbmRating;
   }
-
   public function setFcoRating($fcoRating)
   {
     $this->fcoRating = $fcoRating;
@@ -5598,7 +5494,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->fcoRating;
   }
-
   public function setFmocRating($fmocRating)
   {
     $this->fmocRating = $fmocRating;
@@ -5608,7 +5503,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->fmocRating;
   }
-
   public function setFpbRating($fpbRating)
   {
     $this->fpbRating = $fpbRating;
@@ -5618,7 +5512,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->fpbRating;
   }
-
   public function setFskRating($fskRating)
   {
     $this->fskRating = $fskRating;
@@ -5628,7 +5521,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->fskRating;
   }
-
   public function setGrfilmRating($grfilmRating)
   {
     $this->grfilmRating = $grfilmRating;
@@ -5638,7 +5530,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->grfilmRating;
   }
-
   public function setIcaaRating($icaaRating)
   {
     $this->icaaRating = $icaaRating;
@@ -5648,7 +5539,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->icaaRating;
   }
-
   public function setIfcoRating($ifcoRating)
   {
     $this->ifcoRating = $ifcoRating;
@@ -5658,7 +5548,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->ifcoRating;
   }
-
   public function setIlfilmRating($ilfilmRating)
   {
     $this->ilfilmRating = $ilfilmRating;
@@ -5668,7 +5557,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->ilfilmRating;
   }
-
   public function setIncaaRating($incaaRating)
   {
     $this->incaaRating = $incaaRating;
@@ -5678,7 +5566,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->incaaRating;
   }
-
   public function setKfcbRating($kfcbRating)
   {
     $this->kfcbRating = $kfcbRating;
@@ -5688,7 +5575,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->kfcbRating;
   }
-
   public function setKijkwijzerRating($kijkwijzerRating)
   {
     $this->kijkwijzerRating = $kijkwijzerRating;
@@ -5698,7 +5584,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->kijkwijzerRating;
   }
-
   public function setKmrbRating($kmrbRating)
   {
     $this->kmrbRating = $kmrbRating;
@@ -5708,7 +5593,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->kmrbRating;
   }
-
   public function setLsfRating($lsfRating)
   {
     $this->lsfRating = $lsfRating;
@@ -5718,7 +5602,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->lsfRating;
   }
-
   public function setMccaaRating($mccaaRating)
   {
     $this->mccaaRating = $mccaaRating;
@@ -5728,7 +5611,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->mccaaRating;
   }
-
   public function setMccypRating($mccypRating)
   {
     $this->mccypRating = $mccypRating;
@@ -5738,7 +5620,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->mccypRating;
   }
-
   public function setMdaRating($mdaRating)
   {
     $this->mdaRating = $mdaRating;
@@ -5748,7 +5629,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->mdaRating;
   }
-
   public function setMedietilsynetRating($medietilsynetRating)
   {
     $this->medietilsynetRating = $medietilsynetRating;
@@ -5758,7 +5638,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->medietilsynetRating;
   }
-
   public function setMekuRating($mekuRating)
   {
     $this->mekuRating = $mekuRating;
@@ -5768,7 +5647,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->mekuRating;
   }
-
   public function setMibacRating($mibacRating)
   {
     $this->mibacRating = $mibacRating;
@@ -5778,7 +5656,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->mibacRating;
   }
-
   public function setMocRating($mocRating)
   {
     $this->mocRating = $mocRating;
@@ -5788,7 +5665,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->mocRating;
   }
-
   public function setMoctwRating($moctwRating)
   {
     $this->moctwRating = $moctwRating;
@@ -5798,7 +5674,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->moctwRating;
   }
-
   public function setMpaaRating($mpaaRating)
   {
     $this->mpaaRating = $mpaaRating;
@@ -5808,7 +5683,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->mpaaRating;
   }
-
   public function setMtrcbRating($mtrcbRating)
   {
     $this->mtrcbRating = $mtrcbRating;
@@ -5818,7 +5692,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->mtrcbRating;
   }
-
   public function setNbcRating($nbcRating)
   {
     $this->nbcRating = $nbcRating;
@@ -5828,7 +5701,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->nbcRating;
   }
-
   public function setNbcplRating($nbcplRating)
   {
     $this->nbcplRating = $nbcplRating;
@@ -5838,7 +5710,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->nbcplRating;
   }
-
   public function setNfrcRating($nfrcRating)
   {
     $this->nfrcRating = $nfrcRating;
@@ -5848,7 +5719,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->nfrcRating;
   }
-
   public function setNfvcbRating($nfvcbRating)
   {
     $this->nfvcbRating = $nfvcbRating;
@@ -5858,7 +5728,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->nfvcbRating;
   }
-
   public function setNkclvRating($nkclvRating)
   {
     $this->nkclvRating = $nkclvRating;
@@ -5868,7 +5737,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->nkclvRating;
   }
-
   public function setOflcRating($oflcRating)
   {
     $this->oflcRating = $oflcRating;
@@ -5878,7 +5746,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->oflcRating;
   }
-
   public function setPefilmRating($pefilmRating)
   {
     $this->pefilmRating = $pefilmRating;
@@ -5888,7 +5755,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->pefilmRating;
   }
-
   public function setRcnofRating($rcnofRating)
   {
     $this->rcnofRating = $rcnofRating;
@@ -5898,7 +5764,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->rcnofRating;
   }
-
   public function setResorteviolenciaRating($resorteviolenciaRating)
   {
     $this->resorteviolenciaRating = $resorteviolenciaRating;
@@ -5908,7 +5773,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->resorteviolenciaRating;
   }
-
   public function setRtcRating($rtcRating)
   {
     $this->rtcRating = $rtcRating;
@@ -5918,7 +5782,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->rtcRating;
   }
-
   public function setRteRating($rteRating)
   {
     $this->rteRating = $rteRating;
@@ -5928,7 +5791,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->rteRating;
   }
-
   public function setRussiaRating($russiaRating)
   {
     $this->russiaRating = $russiaRating;
@@ -5938,7 +5800,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->russiaRating;
   }
-
   public function setSkfilmRating($skfilmRating)
   {
     $this->skfilmRating = $skfilmRating;
@@ -5948,7 +5809,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->skfilmRating;
   }
-
   public function setSmaisRating($smaisRating)
   {
     $this->smaisRating = $smaisRating;
@@ -5958,7 +5818,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->smaisRating;
   }
-
   public function setSmsaRating($smsaRating)
   {
     $this->smsaRating = $smsaRating;
@@ -5968,7 +5827,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->smsaRating;
   }
-
   public function setTvpgRating($tvpgRating)
   {
     $this->tvpgRating = $tvpgRating;
@@ -5978,7 +5836,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->tvpgRating;
   }
-
   public function setYtRating($ytRating)
   {
     $this->ytRating = $ytRating;
@@ -5988,6 +5845,7 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     return $this->ytRating;
   }
+
 }
 
 class Google_Service_YouTube_GeoPoint extends Google_Model
@@ -6007,7 +5865,6 @@ class Google_Service_YouTube_GeoPoint extends Google_Model
   {
     return $this->altitude;
   }
-
   public function setLatitude($latitude)
   {
     $this->latitude = $latitude;
@@ -6017,7 +5874,6 @@ class Google_Service_YouTube_GeoPoint extends Google_Model
   {
     return $this->latitude;
   }
-
   public function setLongitude($longitude)
   {
     $this->longitude = $longitude;
@@ -6027,6 +5883,7 @@ class Google_Service_YouTube_GeoPoint extends Google_Model
   {
     return $this->longitude;
   }
+
 }
 
 class Google_Service_YouTube_GuideCategory extends Google_Model
@@ -6048,7 +5905,6 @@ class Google_Service_YouTube_GuideCategory extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -6058,7 +5914,6 @@ class Google_Service_YouTube_GuideCategory extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6068,7 +5923,6 @@ class Google_Service_YouTube_GuideCategory extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSnippet(Google_Service_YouTube_GuideCategorySnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -6078,6 +5932,7 @@ class Google_Service_YouTube_GuideCategory extends Google_Model
   {
     return $this->snippet;
   }
+
 }
 
 class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
@@ -6107,7 +5962,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -6117,7 +5971,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -6127,7 +5980,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6137,7 +5989,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -6147,7 +5998,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -6157,7 +6007,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -6167,7 +6016,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     return $this->prevPageToken;
   }
-
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -6177,7 +6025,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -6187,6 +6034,7 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_GuideCategorySnippet extends Google_Model
@@ -6205,7 +6053,6 @@ class Google_Service_YouTube_GuideCategorySnippet extends Google_Model
   {
     return $this->channelId;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -6215,6 +6062,7 @@ class Google_Service_YouTube_GuideCategorySnippet extends Google_Model
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_YouTube_I18nLanguage extends Google_Model
@@ -6236,7 +6084,6 @@ class Google_Service_YouTube_I18nLanguage extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -6246,7 +6093,6 @@ class Google_Service_YouTube_I18nLanguage extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6256,7 +6102,6 @@ class Google_Service_YouTube_I18nLanguage extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSnippet(Google_Service_YouTube_I18nLanguageSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -6266,6 +6111,7 @@ class Google_Service_YouTube_I18nLanguage extends Google_Model
   {
     return $this->snippet;
   }
+
 }
 
 class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
@@ -6289,7 +6135,6 @@ class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -6299,7 +6144,6 @@ class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -6309,7 +6153,6 @@ class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6319,7 +6162,6 @@ class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -6329,6 +6171,7 @@ class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_I18nLanguageSnippet extends Google_Model
@@ -6347,7 +6190,6 @@ class Google_Service_YouTube_I18nLanguageSnippet extends Google_Model
   {
     return $this->hl;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -6357,6 +6199,7 @@ class Google_Service_YouTube_I18nLanguageSnippet extends Google_Model
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_YouTube_I18nRegion extends Google_Model
@@ -6378,7 +6221,6 @@ class Google_Service_YouTube_I18nRegion extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -6388,7 +6230,6 @@ class Google_Service_YouTube_I18nRegion extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6398,7 +6239,6 @@ class Google_Service_YouTube_I18nRegion extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSnippet(Google_Service_YouTube_I18nRegionSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -6408,6 +6248,7 @@ class Google_Service_YouTube_I18nRegion extends Google_Model
   {
     return $this->snippet;
   }
+
 }
 
 class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
@@ -6431,7 +6272,6 @@ class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -6441,7 +6281,6 @@ class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -6451,7 +6290,6 @@ class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6461,7 +6299,6 @@ class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -6471,6 +6308,7 @@ class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_I18nRegionSnippet extends Google_Model
@@ -6489,7 +6327,6 @@ class Google_Service_YouTube_I18nRegionSnippet extends Google_Model
   {
     return $this->gl;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -6499,6 +6336,7 @@ class Google_Service_YouTube_I18nRegionSnippet extends Google_Model
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_YouTube_ImageSettings extends Google_Model
@@ -6542,7 +6380,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->backgroundImageUrl;
   }
-
   public function setBannerExternalUrl($bannerExternalUrl)
   {
     $this->bannerExternalUrl = $bannerExternalUrl;
@@ -6552,7 +6389,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerExternalUrl;
   }
-
   public function setBannerImageUrl($bannerImageUrl)
   {
     $this->bannerImageUrl = $bannerImageUrl;
@@ -6562,7 +6398,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerImageUrl;
   }
-
   public function setBannerMobileExtraHdImageUrl($bannerMobileExtraHdImageUrl)
   {
     $this->bannerMobileExtraHdImageUrl = $bannerMobileExtraHdImageUrl;
@@ -6572,7 +6407,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerMobileExtraHdImageUrl;
   }
-
   public function setBannerMobileHdImageUrl($bannerMobileHdImageUrl)
   {
     $this->bannerMobileHdImageUrl = $bannerMobileHdImageUrl;
@@ -6582,7 +6416,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerMobileHdImageUrl;
   }
-
   public function setBannerMobileImageUrl($bannerMobileImageUrl)
   {
     $this->bannerMobileImageUrl = $bannerMobileImageUrl;
@@ -6592,7 +6425,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerMobileImageUrl;
   }
-
   public function setBannerMobileLowImageUrl($bannerMobileLowImageUrl)
   {
     $this->bannerMobileLowImageUrl = $bannerMobileLowImageUrl;
@@ -6602,7 +6434,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerMobileLowImageUrl;
   }
-
   public function setBannerMobileMediumHdImageUrl($bannerMobileMediumHdImageUrl)
   {
     $this->bannerMobileMediumHdImageUrl = $bannerMobileMediumHdImageUrl;
@@ -6612,7 +6443,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerMobileMediumHdImageUrl;
   }
-
   public function setBannerTabletExtraHdImageUrl($bannerTabletExtraHdImageUrl)
   {
     $this->bannerTabletExtraHdImageUrl = $bannerTabletExtraHdImageUrl;
@@ -6622,7 +6452,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerTabletExtraHdImageUrl;
   }
-
   public function setBannerTabletHdImageUrl($bannerTabletHdImageUrl)
   {
     $this->bannerTabletHdImageUrl = $bannerTabletHdImageUrl;
@@ -6632,7 +6461,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerTabletHdImageUrl;
   }
-
   public function setBannerTabletImageUrl($bannerTabletImageUrl)
   {
     $this->bannerTabletImageUrl = $bannerTabletImageUrl;
@@ -6642,7 +6470,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerTabletImageUrl;
   }
-
   public function setBannerTabletLowImageUrl($bannerTabletLowImageUrl)
   {
     $this->bannerTabletLowImageUrl = $bannerTabletLowImageUrl;
@@ -6652,7 +6479,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerTabletLowImageUrl;
   }
-
   public function setBannerTvHighImageUrl($bannerTvHighImageUrl)
   {
     $this->bannerTvHighImageUrl = $bannerTvHighImageUrl;
@@ -6662,7 +6488,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerTvHighImageUrl;
   }
-
   public function setBannerTvImageUrl($bannerTvImageUrl)
   {
     $this->bannerTvImageUrl = $bannerTvImageUrl;
@@ -6672,7 +6497,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerTvImageUrl;
   }
-
   public function setBannerTvLowImageUrl($bannerTvLowImageUrl)
   {
     $this->bannerTvLowImageUrl = $bannerTvLowImageUrl;
@@ -6682,7 +6506,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerTvLowImageUrl;
   }
-
   public function setBannerTvMediumImageUrl($bannerTvMediumImageUrl)
   {
     $this->bannerTvMediumImageUrl = $bannerTvMediumImageUrl;
@@ -6692,7 +6515,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->bannerTvMediumImageUrl;
   }
-
   public function setLargeBrandedBannerImageImapScript(Google_Service_YouTube_LocalizedProperty $largeBrandedBannerImageImapScript)
   {
     $this->largeBrandedBannerImageImapScript = $largeBrandedBannerImageImapScript;
@@ -6702,7 +6524,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->largeBrandedBannerImageImapScript;
   }
-
   public function setLargeBrandedBannerImageUrl(Google_Service_YouTube_LocalizedProperty $largeBrandedBannerImageUrl)
   {
     $this->largeBrandedBannerImageUrl = $largeBrandedBannerImageUrl;
@@ -6712,7 +6533,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->largeBrandedBannerImageUrl;
   }
-
   public function setSmallBrandedBannerImageImapScript(Google_Service_YouTube_LocalizedProperty $smallBrandedBannerImageImapScript)
   {
     $this->smallBrandedBannerImageImapScript = $smallBrandedBannerImageImapScript;
@@ -6722,7 +6542,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->smallBrandedBannerImageImapScript;
   }
-
   public function setSmallBrandedBannerImageUrl(Google_Service_YouTube_LocalizedProperty $smallBrandedBannerImageUrl)
   {
     $this->smallBrandedBannerImageUrl = $smallBrandedBannerImageUrl;
@@ -6732,7 +6551,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->smallBrandedBannerImageUrl;
   }
-
   public function setTrackingImageUrl($trackingImageUrl)
   {
     $this->trackingImageUrl = $trackingImageUrl;
@@ -6742,7 +6560,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->trackingImageUrl;
   }
-
   public function setWatchIconImageUrl($watchIconImageUrl)
   {
     $this->watchIconImageUrl = $watchIconImageUrl;
@@ -6752,6 +6569,7 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     return $this->watchIconImageUrl;
   }
+
 }
 
 class Google_Service_YouTube_IngestionInfo extends Google_Model
@@ -6771,7 +6589,6 @@ class Google_Service_YouTube_IngestionInfo extends Google_Model
   {
     return $this->backupIngestionAddress;
   }
-
   public function setIngestionAddress($ingestionAddress)
   {
     $this->ingestionAddress = $ingestionAddress;
@@ -6781,7 +6598,6 @@ class Google_Service_YouTube_IngestionInfo extends Google_Model
   {
     return $this->ingestionAddress;
   }
-
   public function setStreamName($streamName)
   {
     $this->streamName = $streamName;
@@ -6791,6 +6607,7 @@ class Google_Service_YouTube_IngestionInfo extends Google_Model
   {
     return $this->streamName;
   }
+
 }
 
 class Google_Service_YouTube_InvideoBranding extends Google_Model
@@ -6814,7 +6631,6 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
   {
     return $this->imageBytes;
   }
-
   public function setImageUrl($imageUrl)
   {
     $this->imageUrl = $imageUrl;
@@ -6824,7 +6640,6 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
   {
     return $this->imageUrl;
   }
-
   public function setPosition(Google_Service_YouTube_InvideoPosition $position)
   {
     $this->position = $position;
@@ -6834,7 +6649,6 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
   {
     return $this->position;
   }
-
   public function setTargetChannelId($targetChannelId)
   {
     $this->targetChannelId = $targetChannelId;
@@ -6844,7 +6658,6 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
   {
     return $this->targetChannelId;
   }
-
   public function setTiming(Google_Service_YouTube_InvideoTiming $timing)
   {
     $this->timing = $timing;
@@ -6854,6 +6667,7 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
   {
     return $this->timing;
   }
+
 }
 
 class Google_Service_YouTube_InvideoPosition extends Google_Model
@@ -6872,7 +6686,6 @@ class Google_Service_YouTube_InvideoPosition extends Google_Model
   {
     return $this->cornerPosition;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -6882,6 +6695,7 @@ class Google_Service_YouTube_InvideoPosition extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_YouTube_InvideoPromotion extends Google_Collection
@@ -6906,7 +6720,6 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
   {
     return $this->defaultTiming;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -6916,7 +6729,6 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
   {
     return $this->items;
   }
-
   public function setPosition(Google_Service_YouTube_InvideoPosition $position)
   {
     $this->position = $position;
@@ -6926,7 +6738,6 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
   {
     return $this->position;
   }
-
   public function setUseSmartTiming($useSmartTiming)
   {
     $this->useSmartTiming = $useSmartTiming;
@@ -6936,6 +6747,7 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
   {
     return $this->useSmartTiming;
   }
+
 }
 
 class Google_Service_YouTube_InvideoTiming extends Google_Model
@@ -6955,7 +6767,6 @@ class Google_Service_YouTube_InvideoTiming extends Google_Model
   {
     return $this->durationMs;
   }
-
   public function setOffsetMs($offsetMs)
   {
     $this->offsetMs = $offsetMs;
@@ -6965,7 +6776,6 @@ class Google_Service_YouTube_InvideoTiming extends Google_Model
   {
     return $this->offsetMs;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -6975,6 +6785,7 @@ class Google_Service_YouTube_InvideoTiming extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_YouTube_LiveBroadcast extends Google_Model
@@ -7000,7 +6811,6 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     return $this->contentDetails;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -7010,7 +6820,6 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -7020,7 +6829,6 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7030,7 +6838,6 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSnippet(Google_Service_YouTube_LiveBroadcastSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -7040,7 +6847,6 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     return $this->snippet;
   }
-
   public function setStatus(Google_Service_YouTube_LiveBroadcastStatus $status)
   {
     $this->status = $status;
@@ -7050,6 +6856,7 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     return $this->status;
   }
+
 }
 
 class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
@@ -7075,7 +6882,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     return $this->boundStreamId;
   }
-
   public function setEnableClosedCaptions($enableClosedCaptions)
   {
     $this->enableClosedCaptions = $enableClosedCaptions;
@@ -7085,7 +6891,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     return $this->enableClosedCaptions;
   }
-
   public function setEnableContentEncryption($enableContentEncryption)
   {
     $this->enableContentEncryption = $enableContentEncryption;
@@ -7095,7 +6900,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     return $this->enableContentEncryption;
   }
-
   public function setEnableDvr($enableDvr)
   {
     $this->enableDvr = $enableDvr;
@@ -7105,7 +6909,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     return $this->enableDvr;
   }
-
   public function setEnableEmbed($enableEmbed)
   {
     $this->enableEmbed = $enableEmbed;
@@ -7115,7 +6918,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     return $this->enableEmbed;
   }
-
   public function setMonitorStream(Google_Service_YouTube_MonitorStreamInfo $monitorStream)
   {
     $this->monitorStream = $monitorStream;
@@ -7125,7 +6927,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     return $this->monitorStream;
   }
-
   public function setRecordFromStart($recordFromStart)
   {
     $this->recordFromStart = $recordFromStart;
@@ -7135,7 +6936,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     return $this->recordFromStart;
   }
-
   public function setStartWithSlate($startWithSlate)
   {
     $this->startWithSlate = $startWithSlate;
@@ -7145,6 +6945,7 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     return $this->startWithSlate;
   }
+
 }
 
 class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
@@ -7174,7 +6975,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -7184,7 +6984,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -7194,7 +6993,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7204,7 +7002,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -7214,7 +7011,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -7224,7 +7020,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -7234,7 +7029,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     return $this->prevPageToken;
   }
-
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -7244,7 +7038,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -7254,6 +7047,7 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
@@ -7280,7 +7074,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     return $this->actualEndTime;
   }
-
   public function setActualStartTime($actualStartTime)
   {
     $this->actualStartTime = $actualStartTime;
@@ -7290,7 +7083,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     return $this->actualStartTime;
   }
-
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
@@ -7300,7 +7092,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     return $this->channelId;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -7310,7 +7101,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     return $this->description;
   }
-
   public function setPublishedAt($publishedAt)
   {
     $this->publishedAt = $publishedAt;
@@ -7320,7 +7110,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     return $this->publishedAt;
   }
-
   public function setScheduledEndTime($scheduledEndTime)
   {
     $this->scheduledEndTime = $scheduledEndTime;
@@ -7330,7 +7119,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     return $this->scheduledEndTime;
   }
-
   public function setScheduledStartTime($scheduledStartTime)
   {
     $this->scheduledStartTime = $scheduledStartTime;
@@ -7340,7 +7128,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     return $this->scheduledStartTime;
   }
-
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -7350,7 +7137,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -7360,6 +7146,7 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
@@ -7380,7 +7167,6 @@ class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
   {
     return $this->lifeCycleStatus;
   }
-
   public function setLiveBroadcastPriority($liveBroadcastPriority)
   {
     $this->liveBroadcastPriority = $liveBroadcastPriority;
@@ -7390,7 +7176,6 @@ class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
   {
     return $this->liveBroadcastPriority;
   }
-
   public function setPrivacyStatus($privacyStatus)
   {
     $this->privacyStatus = $privacyStatus;
@@ -7400,7 +7185,6 @@ class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
   {
     return $this->privacyStatus;
   }
-
   public function setRecordingStatus($recordingStatus)
   {
     $this->recordingStatus = $recordingStatus;
@@ -7410,6 +7194,7 @@ class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
   {
     return $this->recordingStatus;
   }
+
 }
 
 class Google_Service_YouTube_LiveStream extends Google_Model
@@ -7437,7 +7222,6 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     return $this->cdn;
   }
-
   public function setContentDetails(Google_Service_YouTube_LiveStreamContentDetails $contentDetails)
   {
     $this->contentDetails = $contentDetails;
@@ -7447,7 +7231,6 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     return $this->contentDetails;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -7457,7 +7240,6 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -7467,7 +7249,6 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7477,7 +7258,6 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSnippet(Google_Service_YouTube_LiveStreamSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -7487,7 +7267,6 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     return $this->snippet;
   }
-
   public function setStatus(Google_Service_YouTube_LiveStreamStatus $status)
   {
     $this->status = $status;
@@ -7497,6 +7276,7 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     return $this->status;
   }
+
 }
 
 class Google_Service_YouTube_LiveStreamContentDetails extends Google_Model
@@ -7515,7 +7295,6 @@ class Google_Service_YouTube_LiveStreamContentDetails extends Google_Model
   {
     return $this->closedCaptionsIngestionUrl;
   }
-
   public function setIsReusable($isReusable)
   {
     $this->isReusable = $isReusable;
@@ -7525,6 +7304,7 @@ class Google_Service_YouTube_LiveStreamContentDetails extends Google_Model
   {
     return $this->isReusable;
   }
+
 }
 
 class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
@@ -7554,7 +7334,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -7564,7 +7343,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -7574,7 +7352,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7584,7 +7361,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -7594,7 +7370,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -7604,7 +7379,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -7614,7 +7388,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     return $this->prevPageToken;
   }
-
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -7624,7 +7397,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -7634,6 +7406,7 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
@@ -7654,7 +7427,6 @@ class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
   {
     return $this->channelId;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -7664,7 +7436,6 @@ class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
   {
     return $this->description;
   }
-
   public function setPublishedAt($publishedAt)
   {
     $this->publishedAt = $publishedAt;
@@ -7674,7 +7445,6 @@ class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
   {
     return $this->publishedAt;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -7684,6 +7454,7 @@ class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_YouTube_LiveStreamStatus extends Google_Model
@@ -7701,6 +7472,7 @@ class Google_Service_YouTube_LiveStreamStatus extends Google_Model
   {
     return $this->streamStatus;
   }
+
 }
 
 class Google_Service_YouTube_LocalizedProperty extends Google_Collection
@@ -7721,7 +7493,6 @@ class Google_Service_YouTube_LocalizedProperty extends Google_Collection
   {
     return $this->default;
   }
-
   public function setLocalized($localized)
   {
     $this->localized = $localized;
@@ -7731,6 +7502,7 @@ class Google_Service_YouTube_LocalizedProperty extends Google_Collection
   {
     return $this->localized;
   }
+
 }
 
 class Google_Service_YouTube_LocalizedString extends Google_Model
@@ -7749,7 +7521,6 @@ class Google_Service_YouTube_LocalizedString extends Google_Model
   {
     return $this->language;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -7759,6 +7530,7 @@ class Google_Service_YouTube_LocalizedString extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_YouTube_MonitorStreamInfo extends Google_Model
@@ -7778,7 +7550,6 @@ class Google_Service_YouTube_MonitorStreamInfo extends Google_Model
   {
     return $this->broadcastStreamDelayMs;
   }
-
   public function setEmbedHtml($embedHtml)
   {
     $this->embedHtml = $embedHtml;
@@ -7788,7 +7559,6 @@ class Google_Service_YouTube_MonitorStreamInfo extends Google_Model
   {
     return $this->embedHtml;
   }
-
   public function setEnableMonitorStream($enableMonitorStream)
   {
     $this->enableMonitorStream = $enableMonitorStream;
@@ -7798,6 +7568,7 @@ class Google_Service_YouTube_MonitorStreamInfo extends Google_Model
   {
     return $this->enableMonitorStream;
   }
+
 }
 
 class Google_Service_YouTube_PageInfo extends Google_Model
@@ -7816,7 +7587,6 @@ class Google_Service_YouTube_PageInfo extends Google_Model
   {
     return $this->resultsPerPage;
   }
-
   public function setTotalResults($totalResults)
   {
     $this->totalResults = $totalResults;
@@ -7826,6 +7596,7 @@ class Google_Service_YouTube_PageInfo extends Google_Model
   {
     return $this->totalResults;
   }
+
 }
 
 class Google_Service_YouTube_Playlist extends Google_Model
@@ -7853,7 +7624,6 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     return $this->contentDetails;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -7863,7 +7633,6 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -7873,7 +7642,6 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7883,7 +7651,6 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     return $this->kind;
   }
-
   public function setPlayer(Google_Service_YouTube_PlaylistPlayer $player)
   {
     $this->player = $player;
@@ -7893,7 +7660,6 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     return $this->player;
   }
-
   public function setSnippet(Google_Service_YouTube_PlaylistSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -7903,7 +7669,6 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     return $this->snippet;
   }
-
   public function setStatus(Google_Service_YouTube_PlaylistStatus $status)
   {
     $this->status = $status;
@@ -7913,6 +7678,7 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     return $this->status;
   }
+
 }
 
 class Google_Service_YouTube_PlaylistContentDetails extends Google_Model
@@ -7930,6 +7696,7 @@ class Google_Service_YouTube_PlaylistContentDetails extends Google_Model
   {
     return $this->itemCount;
   }
+
 }
 
 class Google_Service_YouTube_PlaylistItem extends Google_Model
@@ -7955,7 +7722,6 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   {
     return $this->contentDetails;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -7965,7 +7731,6 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -7975,7 +7740,6 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7985,7 +7749,6 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSnippet(Google_Service_YouTube_PlaylistItemSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -7995,7 +7758,6 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   {
     return $this->snippet;
   }
-
   public function setStatus(Google_Service_YouTube_PlaylistItemStatus $status)
   {
     $this->status = $status;
@@ -8005,6 +7767,7 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   {
     return $this->status;
   }
+
 }
 
 class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
@@ -8025,7 +7788,6 @@ class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
   {
     return $this->endAt;
   }
-
   public function setNote($note)
   {
     $this->note = $note;
@@ -8035,7 +7797,6 @@ class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
   {
     return $this->note;
   }
-
   public function setStartAt($startAt)
   {
     $this->startAt = $startAt;
@@ -8045,7 +7806,6 @@ class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
   {
     return $this->startAt;
   }
-
   public function setVideoId($videoId)
   {
     $this->videoId = $videoId;
@@ -8055,6 +7815,7 @@ class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
   {
     return $this->videoId;
   }
+
 }
 
 class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
@@ -8084,7 +7845,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -8094,7 +7854,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -8104,7 +7863,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8114,7 +7872,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -8124,7 +7881,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -8134,7 +7890,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -8144,7 +7899,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     return $this->prevPageToken;
   }
-
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -8154,7 +7908,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -8164,6 +7917,7 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
@@ -8191,7 +7945,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     return $this->channelId;
   }
-
   public function setChannelTitle($channelTitle)
   {
     $this->channelTitle = $channelTitle;
@@ -8201,7 +7954,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     return $this->channelTitle;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -8211,7 +7963,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     return $this->description;
   }
-
   public function setPlaylistId($playlistId)
   {
     $this->playlistId = $playlistId;
@@ -8221,7 +7972,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     return $this->playlistId;
   }
-
   public function setPosition($position)
   {
     $this->position = $position;
@@ -8231,7 +7981,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     return $this->position;
   }
-
   public function setPublishedAt($publishedAt)
   {
     $this->publishedAt = $publishedAt;
@@ -8241,7 +7990,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     return $this->publishedAt;
   }
-
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
@@ -8251,7 +7999,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     return $this->resourceId;
   }
-
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -8261,7 +8008,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -8271,6 +8017,7 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_YouTube_PlaylistItemStatus extends Google_Model
@@ -8288,6 +8035,7 @@ class Google_Service_YouTube_PlaylistItemStatus extends Google_Model
   {
     return $this->privacyStatus;
   }
+
 }
 
 class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
@@ -8317,7 +8065,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -8327,7 +8074,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -8337,7 +8083,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8347,7 +8092,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -8357,7 +8101,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -8367,7 +8110,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -8377,7 +8119,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     return $this->prevPageToken;
   }
-
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -8387,7 +8128,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -8397,6 +8137,7 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_PlaylistPlayer extends Google_Model
@@ -8414,6 +8155,7 @@ class Google_Service_YouTube_PlaylistPlayer extends Google_Model
   {
     return $this->embedHtml;
   }
+
 }
 
 class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
@@ -8439,7 +8181,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     return $this->channelId;
   }
-
   public function setChannelTitle($channelTitle)
   {
     $this->channelTitle = $channelTitle;
@@ -8449,7 +8190,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     return $this->channelTitle;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -8459,7 +8199,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     return $this->description;
   }
-
   public function setPublishedAt($publishedAt)
   {
     $this->publishedAt = $publishedAt;
@@ -8469,7 +8208,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     return $this->publishedAt;
   }
-
   public function setTags($tags)
   {
     $this->tags = $tags;
@@ -8479,7 +8217,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     return $this->tags;
   }
-
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -8489,7 +8226,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     return $this->thumbnails;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -8499,6 +8235,7 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_YouTube_PlaylistStatus extends Google_Model
@@ -8516,6 +8253,7 @@ class Google_Service_YouTube_PlaylistStatus extends Google_Model
   {
     return $this->privacyStatus;
   }
+
 }
 
 class Google_Service_YouTube_PromotedItem extends Google_Model
@@ -8538,7 +8276,6 @@ class Google_Service_YouTube_PromotedItem extends Google_Model
   {
     return $this->customMessage;
   }
-
   public function setId(Google_Service_YouTube_PromotedItemId $id)
   {
     $this->id = $id;
@@ -8548,7 +8285,6 @@ class Google_Service_YouTube_PromotedItem extends Google_Model
   {
     return $this->id;
   }
-
   public function setPromotedByContentOwner($promotedByContentOwner)
   {
     $this->promotedByContentOwner = $promotedByContentOwner;
@@ -8558,7 +8294,6 @@ class Google_Service_YouTube_PromotedItem extends Google_Model
   {
     return $this->promotedByContentOwner;
   }
-
   public function setTiming(Google_Service_YouTube_InvideoTiming $timing)
   {
     $this->timing = $timing;
@@ -8568,6 +8303,7 @@ class Google_Service_YouTube_PromotedItem extends Google_Model
   {
     return $this->timing;
   }
+
 }
 
 class Google_Service_YouTube_PromotedItemId extends Google_Model
@@ -8588,7 +8324,6 @@ class Google_Service_YouTube_PromotedItemId extends Google_Model
   {
     return $this->recentlyUploadedBy;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -8598,7 +8333,6 @@ class Google_Service_YouTube_PromotedItemId extends Google_Model
   {
     return $this->type;
   }
-
   public function setVideoId($videoId)
   {
     $this->videoId = $videoId;
@@ -8608,7 +8342,6 @@ class Google_Service_YouTube_PromotedItemId extends Google_Model
   {
     return $this->videoId;
   }
-
   public function setWebsiteUrl($websiteUrl)
   {
     $this->websiteUrl = $websiteUrl;
@@ -8618,6 +8351,7 @@ class Google_Service_YouTube_PromotedItemId extends Google_Model
   {
     return $this->websiteUrl;
   }
+
 }
 
 class Google_Service_YouTube_PropertyValue extends Google_Model
@@ -8636,7 +8370,6 @@ class Google_Service_YouTube_PropertyValue extends Google_Model
   {
     return $this->property;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -8646,6 +8379,7 @@ class Google_Service_YouTube_PropertyValue extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_YouTube_ResourceId extends Google_Model
@@ -8666,7 +8400,6 @@ class Google_Service_YouTube_ResourceId extends Google_Model
   {
     return $this->channelId;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8676,7 +8409,6 @@ class Google_Service_YouTube_ResourceId extends Google_Model
   {
     return $this->kind;
   }
-
   public function setPlaylistId($playlistId)
   {
     $this->playlistId = $playlistId;
@@ -8686,7 +8418,6 @@ class Google_Service_YouTube_ResourceId extends Google_Model
   {
     return $this->playlistId;
   }
-
   public function setVideoId($videoId)
   {
     $this->videoId = $videoId;
@@ -8696,6 +8427,7 @@ class Google_Service_YouTube_ResourceId extends Google_Model
   {
     return $this->videoId;
   }
+
 }
 
 class Google_Service_YouTube_SearchListResponse extends Google_Collection
@@ -8725,7 +8457,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -8735,7 +8466,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -8745,7 +8475,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8755,7 +8484,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -8765,7 +8493,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -8775,7 +8502,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -8785,7 +8511,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     return $this->prevPageToken;
   }
-
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -8795,7 +8520,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -8805,6 +8529,7 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_SearchResult extends Google_Model
@@ -8827,7 +8552,6 @@ class Google_Service_YouTube_SearchResult extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId(Google_Service_YouTube_ResourceId $id)
   {
     $this->id = $id;
@@ -8837,7 +8561,6 @@ class Google_Service_YouTube_SearchResult extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8847,7 +8570,6 @@ class Google_Service_YouTube_SearchResult extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSnippet(Google_Service_YouTube_SearchResultSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -8857,6 +8579,7 @@ class Google_Service_YouTube_SearchResult extends Google_Model
   {
     return $this->snippet;
   }
+
 }
 
 class Google_Service_YouTube_SearchResultSnippet extends Google_Model
@@ -8881,7 +8604,6 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     return $this->channelId;
   }
-
   public function setChannelTitle($channelTitle)
   {
     $this->channelTitle = $channelTitle;
@@ -8891,7 +8613,6 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     return $this->channelTitle;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -8901,7 +8622,6 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     return $this->description;
   }
-
   public function setLiveBroadcastContent($liveBroadcastContent)
   {
     $this->liveBroadcastContent = $liveBroadcastContent;
@@ -8911,7 +8631,6 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     return $this->liveBroadcastContent;
   }
-
   public function setPublishedAt($publishedAt)
   {
     $this->publishedAt = $publishedAt;
@@ -8921,7 +8640,6 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     return $this->publishedAt;
   }
-
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -8931,7 +8649,6 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -8941,6 +8658,7 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_YouTube_Subscription extends Google_Model
@@ -8966,7 +8684,6 @@ class Google_Service_YouTube_Subscription extends Google_Model
   {
     return $this->contentDetails;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -8976,7 +8693,6 @@ class Google_Service_YouTube_Subscription extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -8986,7 +8702,6 @@ class Google_Service_YouTube_Subscription extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8996,7 +8711,6 @@ class Google_Service_YouTube_Subscription extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSnippet(Google_Service_YouTube_SubscriptionSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -9006,7 +8720,6 @@ class Google_Service_YouTube_Subscription extends Google_Model
   {
     return $this->snippet;
   }
-
   public function setSubscriberSnippet(Google_Service_YouTube_SubscriptionSubscriberSnippet $subscriberSnippet)
   {
     $this->subscriberSnippet = $subscriberSnippet;
@@ -9016,6 +8729,7 @@ class Google_Service_YouTube_Subscription extends Google_Model
   {
     return $this->subscriberSnippet;
   }
+
 }
 
 class Google_Service_YouTube_SubscriptionContentDetails extends Google_Model
@@ -9035,7 +8749,6 @@ class Google_Service_YouTube_SubscriptionContentDetails extends Google_Model
   {
     return $this->activityType;
   }
-
   public function setNewItemCount($newItemCount)
   {
     $this->newItemCount = $newItemCount;
@@ -9045,7 +8758,6 @@ class Google_Service_YouTube_SubscriptionContentDetails extends Google_Model
   {
     return $this->newItemCount;
   }
-
   public function setTotalItemCount($totalItemCount)
   {
     $this->totalItemCount = $totalItemCount;
@@ -9055,6 +8767,7 @@ class Google_Service_YouTube_SubscriptionContentDetails extends Google_Model
   {
     return $this->totalItemCount;
   }
+
 }
 
 class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
@@ -9084,7 +8797,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -9094,7 +8806,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -9104,7 +8815,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9114,7 +8824,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -9124,7 +8833,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -9134,7 +8842,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -9144,7 +8851,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     return $this->prevPageToken;
   }
-
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -9154,7 +8860,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -9164,6 +8869,7 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
@@ -9189,7 +8895,6 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     return $this->channelId;
   }
-
   public function setChannelTitle($channelTitle)
   {
     $this->channelTitle = $channelTitle;
@@ -9199,7 +8904,6 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     return $this->channelTitle;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -9209,7 +8913,6 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     return $this->description;
   }
-
   public function setPublishedAt($publishedAt)
   {
     $this->publishedAt = $publishedAt;
@@ -9219,7 +8922,6 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     return $this->publishedAt;
   }
-
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
@@ -9229,7 +8931,6 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     return $this->resourceId;
   }
-
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -9239,7 +8940,6 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -9249,6 +8949,7 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
@@ -9270,7 +8971,6 @@ class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
   {
     return $this->channelId;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -9280,7 +8980,6 @@ class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
   {
     return $this->description;
   }
-
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -9290,7 +8989,6 @@ class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
   {
     return $this->thumbnails;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -9300,6 +8998,7 @@ class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_YouTube_Thumbnail extends Google_Model
@@ -9319,7 +9018,6 @@ class Google_Service_YouTube_Thumbnail extends Google_Model
   {
     return $this->height;
   }
-
   public function setUrl($url)
   {
     $this->url = $url;
@@ -9329,7 +9027,6 @@ class Google_Service_YouTube_Thumbnail extends Google_Model
   {
     return $this->url;
   }
-
   public function setWidth($width)
   {
     $this->width = $width;
@@ -9339,6 +9036,7 @@ class Google_Service_YouTube_Thumbnail extends Google_Model
   {
     return $this->width;
   }
+
 }
 
 class Google_Service_YouTube_ThumbnailDetails extends Google_Model
@@ -9365,7 +9063,6 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
   {
     return $this->default;
   }
-
   public function setHigh(Google_Service_YouTube_Thumbnail $high)
   {
     $this->high = $high;
@@ -9375,7 +9072,6 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
   {
     return $this->high;
   }
-
   public function setMaxres(Google_Service_YouTube_Thumbnail $maxres)
   {
     $this->maxres = $maxres;
@@ -9385,7 +9081,6 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
   {
     return $this->maxres;
   }
-
   public function setMedium(Google_Service_YouTube_Thumbnail $medium)
   {
     $this->medium = $medium;
@@ -9395,7 +9090,6 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
   {
     return $this->medium;
   }
-
   public function setStandard(Google_Service_YouTube_Thumbnail $standard)
   {
     $this->standard = $standard;
@@ -9405,6 +9099,7 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
   {
     return $this->standard;
   }
+
 }
 
 class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
@@ -9428,7 +9123,6 @@ class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -9438,7 +9132,6 @@ class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -9448,7 +9141,6 @@ class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9458,7 +9150,6 @@ class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -9468,12 +9159,15 @@ class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_TokenPagination extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_YouTube_Video extends Google_Model
@@ -9523,7 +9217,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->ageGating;
   }
-
   public function setContentDetails(Google_Service_YouTube_VideoContentDetails $contentDetails)
   {
     $this->contentDetails = $contentDetails;
@@ -9533,7 +9226,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->contentDetails;
   }
-
   public function setConversionPings(Google_Service_YouTube_VideoConversionPings $conversionPings)
   {
     $this->conversionPings = $conversionPings;
@@ -9543,7 +9235,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->conversionPings;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -9553,7 +9244,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->etag;
   }
-
   public function setFileDetails(Google_Service_YouTube_VideoFileDetails $fileDetails)
   {
     $this->fileDetails = $fileDetails;
@@ -9563,7 +9253,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->fileDetails;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -9573,7 +9262,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9583,7 +9271,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->kind;
   }
-
   public function setLiveStreamingDetails(Google_Service_YouTube_VideoLiveStreamingDetails $liveStreamingDetails)
   {
     $this->liveStreamingDetails = $liveStreamingDetails;
@@ -9593,7 +9280,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->liveStreamingDetails;
   }
-
   public function setMonetizationDetails(Google_Service_YouTube_VideoMonetizationDetails $monetizationDetails)
   {
     $this->monetizationDetails = $monetizationDetails;
@@ -9603,7 +9289,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->monetizationDetails;
   }
-
   public function setPlayer(Google_Service_YouTube_VideoPlayer $player)
   {
     $this->player = $player;
@@ -9613,7 +9298,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->player;
   }
-
   public function setProcessingDetails(Google_Service_YouTube_VideoProcessingDetails $processingDetails)
   {
     $this->processingDetails = $processingDetails;
@@ -9623,7 +9307,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->processingDetails;
   }
-
   public function setProjectDetails(Google_Service_YouTube_VideoProjectDetails $projectDetails)
   {
     $this->projectDetails = $projectDetails;
@@ -9633,7 +9316,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->projectDetails;
   }
-
   public function setRecordingDetails(Google_Service_YouTube_VideoRecordingDetails $recordingDetails)
   {
     $this->recordingDetails = $recordingDetails;
@@ -9643,7 +9325,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->recordingDetails;
   }
-
   public function setSnippet(Google_Service_YouTube_VideoSnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -9653,7 +9334,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->snippet;
   }
-
   public function setStatistics(Google_Service_YouTube_VideoStatistics $statistics)
   {
     $this->statistics = $statistics;
@@ -9663,7 +9343,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->statistics;
   }
-
   public function setStatus(Google_Service_YouTube_VideoStatus $status)
   {
     $this->status = $status;
@@ -9673,7 +9352,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->status;
   }
-
   public function setSuggestions(Google_Service_YouTube_VideoSuggestions $suggestions)
   {
     $this->suggestions = $suggestions;
@@ -9683,7 +9361,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->suggestions;
   }
-
   public function setTopicDetails(Google_Service_YouTube_VideoTopicDetails $topicDetails)
   {
     $this->topicDetails = $topicDetails;
@@ -9693,6 +9370,7 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     return $this->topicDetails;
   }
+
 }
 
 class Google_Service_YouTube_VideoAgeGating extends Google_Model
@@ -9712,7 +9390,6 @@ class Google_Service_YouTube_VideoAgeGating extends Google_Model
   {
     return $this->alcoholContent;
   }
-
   public function setRestricted($restricted)
   {
     $this->restricted = $restricted;
@@ -9722,7 +9399,6 @@ class Google_Service_YouTube_VideoAgeGating extends Google_Model
   {
     return $this->restricted;
   }
-
   public function setVideoGameRating($videoGameRating)
   {
     $this->videoGameRating = $videoGameRating;
@@ -9732,6 +9408,7 @@ class Google_Service_YouTube_VideoAgeGating extends Google_Model
   {
     return $this->videoGameRating;
   }
+
 }
 
 class Google_Service_YouTube_VideoCategory extends Google_Model
@@ -9753,7 +9430,6 @@ class Google_Service_YouTube_VideoCategory extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -9763,7 +9439,6 @@ class Google_Service_YouTube_VideoCategory extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9773,7 +9448,6 @@ class Google_Service_YouTube_VideoCategory extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSnippet(Google_Service_YouTube_VideoCategorySnippet $snippet)
   {
     $this->snippet = $snippet;
@@ -9783,6 +9457,7 @@ class Google_Service_YouTube_VideoCategory extends Google_Model
   {
     return $this->snippet;
   }
+
 }
 
 class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
@@ -9812,7 +9487,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -9822,7 +9496,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -9832,7 +9505,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9842,7 +9514,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -9852,7 +9523,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -9862,7 +9532,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -9872,7 +9541,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     return $this->prevPageToken;
   }
-
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -9882,7 +9550,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -9892,6 +9559,7 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_VideoCategorySnippet extends Google_Model
@@ -9911,7 +9579,6 @@ class Google_Service_YouTube_VideoCategorySnippet extends Google_Model
   {
     return $this->assignable;
   }
-
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
@@ -9921,7 +9588,6 @@ class Google_Service_YouTube_VideoCategorySnippet extends Google_Model
   {
     return $this->channelId;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -9931,6 +9597,7 @@ class Google_Service_YouTube_VideoCategorySnippet extends Google_Model
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_YouTube_VideoContentDetails extends Google_Model
@@ -9958,7 +9625,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     return $this->caption;
   }
-
   public function setContentRating(Google_Service_YouTube_ContentRating $contentRating)
   {
     $this->contentRating = $contentRating;
@@ -9968,7 +9634,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     return $this->contentRating;
   }
-
   public function setCountryRestriction(Google_Service_YouTube_AccessPolicy $countryRestriction)
   {
     $this->countryRestriction = $countryRestriction;
@@ -9978,7 +9643,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     return $this->countryRestriction;
   }
-
   public function setDefinition($definition)
   {
     $this->definition = $definition;
@@ -9988,7 +9652,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     return $this->definition;
   }
-
   public function setDimension($dimension)
   {
     $this->dimension = $dimension;
@@ -9998,7 +9661,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     return $this->dimension;
   }
-
   public function setDuration($duration)
   {
     $this->duration = $duration;
@@ -10008,7 +9670,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     return $this->duration;
   }
-
   public function setLicensedContent($licensedContent)
   {
     $this->licensedContent = $licensedContent;
@@ -10018,7 +9679,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     return $this->licensedContent;
   }
-
   public function setRegionRestriction(Google_Service_YouTube_VideoContentDetailsRegionRestriction $regionRestriction)
   {
     $this->regionRestriction = $regionRestriction;
@@ -10028,6 +9688,7 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     return $this->regionRestriction;
   }
+
 }
 
 class Google_Service_YouTube_VideoContentDetailsRegionRestriction extends Google_Collection
@@ -10047,7 +9708,6 @@ class Google_Service_YouTube_VideoContentDetailsRegionRestriction extends Google
   {
     return $this->allowed;
   }
-
   public function setBlocked($blocked)
   {
     $this->blocked = $blocked;
@@ -10057,6 +9717,7 @@ class Google_Service_YouTube_VideoContentDetailsRegionRestriction extends Google
   {
     return $this->blocked;
   }
+
 }
 
 class Google_Service_YouTube_VideoConversionPing extends Google_Model
@@ -10075,7 +9736,6 @@ class Google_Service_YouTube_VideoConversionPing extends Google_Model
   {
     return $this->context;
   }
-
   public function setConversionUrl($conversionUrl)
   {
     $this->conversionUrl = $conversionUrl;
@@ -10085,6 +9745,7 @@ class Google_Service_YouTube_VideoConversionPing extends Google_Model
   {
     return $this->conversionUrl;
   }
+
 }
 
 class Google_Service_YouTube_VideoConversionPings extends Google_Collection
@@ -10104,6 +9765,7 @@ class Google_Service_YouTube_VideoConversionPings extends Google_Collection
   {
     return $this->pings;
   }
+
 }
 
 class Google_Service_YouTube_VideoFileDetails extends Google_Collection
@@ -10134,7 +9796,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     return $this->audioStreams;
   }
-
   public function setBitrateBps($bitrateBps)
   {
     $this->bitrateBps = $bitrateBps;
@@ -10144,7 +9805,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     return $this->bitrateBps;
   }
-
   public function setContainer($container)
   {
     $this->container = $container;
@@ -10154,7 +9814,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     return $this->container;
   }
-
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
@@ -10164,7 +9823,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     return $this->creationTime;
   }
-
   public function setDurationMs($durationMs)
   {
     $this->durationMs = $durationMs;
@@ -10174,7 +9832,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     return $this->durationMs;
   }
-
   public function setFileName($fileName)
   {
     $this->fileName = $fileName;
@@ -10184,7 +9841,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     return $this->fileName;
   }
-
   public function setFileSize($fileSize)
   {
     $this->fileSize = $fileSize;
@@ -10194,7 +9850,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     return $this->fileSize;
   }
-
   public function setFileType($fileType)
   {
     $this->fileType = $fileType;
@@ -10204,7 +9859,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     return $this->fileType;
   }
-
   public function setRecordingLocation(Google_Service_YouTube_GeoPoint $recordingLocation)
   {
     $this->recordingLocation = $recordingLocation;
@@ -10214,7 +9868,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     return $this->recordingLocation;
   }
-
   public function setVideoStreams($videoStreams)
   {
     $this->videoStreams = $videoStreams;
@@ -10224,6 +9877,7 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     return $this->videoStreams;
   }
+
 }
 
 class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
@@ -10244,7 +9898,6 @@ class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
   {
     return $this->bitrateBps;
   }
-
   public function setChannelCount($channelCount)
   {
     $this->channelCount = $channelCount;
@@ -10254,7 +9907,6 @@ class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
   {
     return $this->channelCount;
   }
-
   public function setCodec($codec)
   {
     $this->codec = $codec;
@@ -10264,7 +9916,6 @@ class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
   {
     return $this->codec;
   }
-
   public function setVendor($vendor)
   {
     $this->vendor = $vendor;
@@ -10274,6 +9925,7 @@ class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
   {
     return $this->vendor;
   }
+
 }
 
 class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
@@ -10298,7 +9950,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     return $this->aspectRatio;
   }
-
   public function setBitrateBps($bitrateBps)
   {
     $this->bitrateBps = $bitrateBps;
@@ -10308,7 +9959,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     return $this->bitrateBps;
   }
-
   public function setCodec($codec)
   {
     $this->codec = $codec;
@@ -10318,7 +9968,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     return $this->codec;
   }
-
   public function setFrameRateFps($frameRateFps)
   {
     $this->frameRateFps = $frameRateFps;
@@ -10328,7 +9977,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     return $this->frameRateFps;
   }
-
   public function setHeightPixels($heightPixels)
   {
     $this->heightPixels = $heightPixels;
@@ -10338,7 +9986,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     return $this->heightPixels;
   }
-
   public function setRotation($rotation)
   {
     $this->rotation = $rotation;
@@ -10348,7 +9995,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     return $this->rotation;
   }
-
   public function setVendor($vendor)
   {
     $this->vendor = $vendor;
@@ -10358,7 +10004,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     return $this->vendor;
   }
-
   public function setWidthPixels($widthPixels)
   {
     $this->widthPixels = $widthPixels;
@@ -10368,6 +10013,7 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     return $this->widthPixels;
   }
+
 }
 
 class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
@@ -10389,7 +10035,6 @@ class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -10399,7 +10044,6 @@ class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -10409,6 +10053,7 @@ class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_YouTube_VideoListResponse extends Google_Collection
@@ -10438,7 +10083,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setEventId($eventId)
   {
     $this->eventId = $eventId;
@@ -10448,7 +10092,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     return $this->eventId;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -10458,7 +10101,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -10468,7 +10110,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -10478,7 +10119,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
   {
     $this->pageInfo = $pageInfo;
@@ -10488,7 +10128,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     return $this->pageInfo;
   }
-
   public function setPrevPageToken($prevPageToken)
   {
     $this->prevPageToken = $prevPageToken;
@@ -10498,7 +10137,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     return $this->prevPageToken;
   }
-
   public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -10508,7 +10146,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
-
   public function setVisitorId($visitorId)
   {
     $this->visitorId = $visitorId;
@@ -10518,6 +10155,7 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     return $this->visitorId;
   }
+
 }
 
 class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
@@ -10539,7 +10177,6 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
   {
     return $this->actualEndTime;
   }
-
   public function setActualStartTime($actualStartTime)
   {
     $this->actualStartTime = $actualStartTime;
@@ -10549,7 +10186,6 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
   {
     return $this->actualStartTime;
   }
-
   public function setConcurrentViewers($concurrentViewers)
   {
     $this->concurrentViewers = $concurrentViewers;
@@ -10559,7 +10195,6 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
   {
     return $this->concurrentViewers;
   }
-
   public function setScheduledEndTime($scheduledEndTime)
   {
     $this->scheduledEndTime = $scheduledEndTime;
@@ -10569,7 +10204,6 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
   {
     return $this->scheduledEndTime;
   }
-
   public function setScheduledStartTime($scheduledStartTime)
   {
     $this->scheduledStartTime = $scheduledStartTime;
@@ -10579,6 +10213,7 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
   {
     return $this->scheduledStartTime;
   }
+
 }
 
 class Google_Service_YouTube_VideoMonetizationDetails extends Google_Model
@@ -10597,6 +10232,7 @@ class Google_Service_YouTube_VideoMonetizationDetails extends Google_Model
   {
     return $this->access;
   }
+
 }
 
 class Google_Service_YouTube_VideoPlayer extends Google_Model
@@ -10614,6 +10250,7 @@ class Google_Service_YouTube_VideoPlayer extends Google_Model
   {
     return $this->embedHtml;
   }
+
 }
 
 class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
@@ -10639,7 +10276,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     return $this->editorSuggestionsAvailability;
   }
-
   public function setFileDetailsAvailability($fileDetailsAvailability)
   {
     $this->fileDetailsAvailability = $fileDetailsAvailability;
@@ -10649,7 +10285,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     return $this->fileDetailsAvailability;
   }
-
   public function setProcessingFailureReason($processingFailureReason)
   {
     $this->processingFailureReason = $processingFailureReason;
@@ -10659,7 +10294,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     return $this->processingFailureReason;
   }
-
   public function setProcessingIssuesAvailability($processingIssuesAvailability)
   {
     $this->processingIssuesAvailability = $processingIssuesAvailability;
@@ -10669,7 +10303,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     return $this->processingIssuesAvailability;
   }
-
   public function setProcessingProgress(Google_Service_YouTube_VideoProcessingDetailsProcessingProgress $processingProgress)
   {
     $this->processingProgress = $processingProgress;
@@ -10679,7 +10312,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     return $this->processingProgress;
   }
-
   public function setProcessingStatus($processingStatus)
   {
     $this->processingStatus = $processingStatus;
@@ -10689,7 +10321,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     return $this->processingStatus;
   }
-
   public function setTagSuggestionsAvailability($tagSuggestionsAvailability)
   {
     $this->tagSuggestionsAvailability = $tagSuggestionsAvailability;
@@ -10699,7 +10330,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     return $this->tagSuggestionsAvailability;
   }
-
   public function setThumbnailsAvailability($thumbnailsAvailability)
   {
     $this->thumbnailsAvailability = $thumbnailsAvailability;
@@ -10709,6 +10339,7 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     return $this->thumbnailsAvailability;
   }
+
 }
 
 class Google_Service_YouTube_VideoProcessingDetailsProcessingProgress extends Google_Model
@@ -10728,7 +10359,6 @@ class Google_Service_YouTube_VideoProcessingDetailsProcessingProgress extends Go
   {
     return $this->partsProcessed;
   }
-
   public function setPartsTotal($partsTotal)
   {
     $this->partsTotal = $partsTotal;
@@ -10738,7 +10368,6 @@ class Google_Service_YouTube_VideoProcessingDetailsProcessingProgress extends Go
   {
     return $this->partsTotal;
   }
-
   public function setTimeLeftMs($timeLeftMs)
   {
     $this->timeLeftMs = $timeLeftMs;
@@ -10748,6 +10377,7 @@ class Google_Service_YouTube_VideoProcessingDetailsProcessingProgress extends Go
   {
     return $this->timeLeftMs;
   }
+
 }
 
 class Google_Service_YouTube_VideoProjectDetails extends Google_Collection
@@ -10766,6 +10396,7 @@ class Google_Service_YouTube_VideoProjectDetails extends Google_Collection
   {
     return $this->tags;
   }
+
 }
 
 class Google_Service_YouTube_VideoRating extends Google_Model
@@ -10784,7 +10415,6 @@ class Google_Service_YouTube_VideoRating extends Google_Model
   {
     return $this->rating;
   }
-
   public function setVideoId($videoId)
   {
     $this->videoId = $videoId;
@@ -10794,6 +10424,7 @@ class Google_Service_YouTube_VideoRating extends Google_Model
   {
     return $this->videoId;
   }
+
 }
 
 class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
@@ -10814,7 +10445,6 @@ class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
   {
     return $this->location;
   }
-
   public function setLocationDescription($locationDescription)
   {
     $this->locationDescription = $locationDescription;
@@ -10824,7 +10454,6 @@ class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
   {
     return $this->locationDescription;
   }
-
   public function setRecordingDate($recordingDate)
   {
     $this->recordingDate = $recordingDate;
@@ -10834,6 +10463,7 @@ class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
   {
     return $this->recordingDate;
   }
+
 }
 
 class Google_Service_YouTube_VideoSnippet extends Google_Collection
@@ -10861,7 +10491,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     return $this->categoryId;
   }
-
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
@@ -10871,7 +10500,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     return $this->channelId;
   }
-
   public function setChannelTitle($channelTitle)
   {
     $this->channelTitle = $channelTitle;
@@ -10881,7 +10509,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     return $this->channelTitle;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -10891,7 +10518,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     return $this->description;
   }
-
   public function setLiveBroadcastContent($liveBroadcastContent)
   {
     $this->liveBroadcastContent = $liveBroadcastContent;
@@ -10901,7 +10527,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     return $this->liveBroadcastContent;
   }
-
   public function setPublishedAt($publishedAt)
   {
     $this->publishedAt = $publishedAt;
@@ -10911,7 +10536,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     return $this->publishedAt;
   }
-
   public function setTags($tags)
   {
     $this->tags = $tags;
@@ -10921,7 +10545,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     return $this->tags;
   }
-
   public function setThumbnails(Google_Service_YouTube_ThumbnailDetails $thumbnails)
   {
     $this->thumbnails = $thumbnails;
@@ -10931,7 +10554,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     return $this->thumbnails;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -10941,6 +10563,7 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_YouTube_VideoStatistics extends Google_Model
@@ -10962,7 +10585,6 @@ class Google_Service_YouTube_VideoStatistics extends Google_Model
   {
     return $this->commentCount;
   }
-
   public function setDislikeCount($dislikeCount)
   {
     $this->dislikeCount = $dislikeCount;
@@ -10972,7 +10594,6 @@ class Google_Service_YouTube_VideoStatistics extends Google_Model
   {
     return $this->dislikeCount;
   }
-
   public function setFavoriteCount($favoriteCount)
   {
     $this->favoriteCount = $favoriteCount;
@@ -10982,7 +10603,6 @@ class Google_Service_YouTube_VideoStatistics extends Google_Model
   {
     return $this->favoriteCount;
   }
-
   public function setLikeCount($likeCount)
   {
     $this->likeCount = $likeCount;
@@ -10992,7 +10612,6 @@ class Google_Service_YouTube_VideoStatistics extends Google_Model
   {
     return $this->likeCount;
   }
-
   public function setViewCount($viewCount)
   {
     $this->viewCount = $viewCount;
@@ -11002,6 +10621,7 @@ class Google_Service_YouTube_VideoStatistics extends Google_Model
   {
     return $this->viewCount;
   }
+
 }
 
 class Google_Service_YouTube_VideoStatus extends Google_Model
@@ -11026,7 +10646,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     return $this->embeddable;
   }
-
   public function setFailureReason($failureReason)
   {
     $this->failureReason = $failureReason;
@@ -11036,7 +10655,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     return $this->failureReason;
   }
-
   public function setLicense($license)
   {
     $this->license = $license;
@@ -11046,7 +10664,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     return $this->license;
   }
-
   public function setPrivacyStatus($privacyStatus)
   {
     $this->privacyStatus = $privacyStatus;
@@ -11056,7 +10673,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     return $this->privacyStatus;
   }
-
   public function setPublicStatsViewable($publicStatsViewable)
   {
     $this->publicStatsViewable = $publicStatsViewable;
@@ -11066,7 +10682,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     return $this->publicStatsViewable;
   }
-
   public function setPublishAt($publishAt)
   {
     $this->publishAt = $publishAt;
@@ -11076,7 +10691,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     return $this->publishAt;
   }
-
   public function setRejectionReason($rejectionReason)
   {
     $this->rejectionReason = $rejectionReason;
@@ -11086,7 +10700,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     return $this->rejectionReason;
   }
-
   public function setUploadStatus($uploadStatus)
   {
     $this->uploadStatus = $uploadStatus;
@@ -11096,6 +10709,7 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     return $this->uploadStatus;
   }
+
 }
 
 class Google_Service_YouTube_VideoSuggestions extends Google_Collection
@@ -11119,7 +10733,6 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
   {
     return $this->editorSuggestions;
   }
-
   public function setProcessingErrors($processingErrors)
   {
     $this->processingErrors = $processingErrors;
@@ -11129,7 +10742,6 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
   {
     return $this->processingErrors;
   }
-
   public function setProcessingHints($processingHints)
   {
     $this->processingHints = $processingHints;
@@ -11139,7 +10751,6 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
   {
     return $this->processingHints;
   }
-
   public function setProcessingWarnings($processingWarnings)
   {
     $this->processingWarnings = $processingWarnings;
@@ -11149,7 +10760,6 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
   {
     return $this->processingWarnings;
   }
-
   public function setTagSuggestions($tagSuggestions)
   {
     $this->tagSuggestions = $tagSuggestions;
@@ -11159,6 +10769,7 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
   {
     return $this->tagSuggestions;
   }
+
 }
 
 class Google_Service_YouTube_VideoSuggestionsTagSuggestion extends Google_Collection
@@ -11178,7 +10789,6 @@ class Google_Service_YouTube_VideoSuggestionsTagSuggestion extends Google_Collec
   {
     return $this->categoryRestricts;
   }
-
   public function setTag($tag)
   {
     $this->tag = $tag;
@@ -11188,6 +10798,7 @@ class Google_Service_YouTube_VideoSuggestionsTagSuggestion extends Google_Collec
   {
     return $this->tag;
   }
+
 }
 
 class Google_Service_YouTube_VideoTopicDetails extends Google_Collection
@@ -11207,7 +10818,6 @@ class Google_Service_YouTube_VideoTopicDetails extends Google_Collection
   {
     return $this->relevantTopicIds;
   }
-
   public function setTopicIds($topicIds)
   {
     $this->topicIds = $topicIds;
@@ -11217,6 +10827,7 @@ class Google_Service_YouTube_VideoTopicDetails extends Google_Collection
   {
     return $this->topicIds;
   }
+
 }
 
 class Google_Service_YouTube_WatchSettings extends Google_Model
@@ -11236,7 +10847,6 @@ class Google_Service_YouTube_WatchSettings extends Google_Model
   {
     return $this->backgroundColor;
   }
-
   public function setFeaturedPlaylistId($featuredPlaylistId)
   {
     $this->featuredPlaylistId = $featuredPlaylistId;
@@ -11246,7 +10856,6 @@ class Google_Service_YouTube_WatchSettings extends Google_Model
   {
     return $this->featuredPlaylistId;
   }
-
   public function setTextColor($textColor)
   {
     $this->textColor = $textColor;
@@ -11256,4 +10865,5 @@ class Google_Service_YouTube_WatchSettings extends Google_Model
   {
     return $this->textColor;
   }
+
 }
