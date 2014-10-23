@@ -277,7 +277,7 @@ class Google_Service_Freebase extends Google_Service
   {
     $params = array();
     $params = array_merge($params, $optParams);
-    return $this->call('search', array($params));
+    return $this->base_methods->call('search', array($params));
   }
 }
 
@@ -305,7 +305,6 @@ class Google_Service_Freebase_ReconcileCandidate extends Google_Model
   {
     return $this->confidence;
   }
-
   public function setLang($lang)
   {
     $this->lang = $lang;
@@ -315,7 +314,6 @@ class Google_Service_Freebase_ReconcileCandidate extends Google_Model
   {
     return $this->lang;
   }
-
   public function setMid($mid)
   {
     $this->mid = $mid;
@@ -325,7 +323,6 @@ class Google_Service_Freebase_ReconcileCandidate extends Google_Model
   {
     return $this->mid;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -335,7 +332,6 @@ class Google_Service_Freebase_ReconcileCandidate extends Google_Model
   {
     return $this->name;
   }
-
   public function setNotable(Google_Service_Freebase_ReconcileCandidateNotable $notable)
   {
     $this->notable = $notable;
@@ -345,6 +341,7 @@ class Google_Service_Freebase_ReconcileCandidate extends Google_Model
   {
     return $this->notable;
   }
+
 }
 
 class Google_Service_Freebase_ReconcileCandidateNotable extends Google_Model
@@ -363,7 +360,6 @@ class Google_Service_Freebase_ReconcileCandidateNotable extends Google_Model
   {
     return $this->id;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -373,6 +369,7 @@ class Google_Service_Freebase_ReconcileCandidateNotable extends Google_Model
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_Freebase_ReconcileGet extends Google_Collection
@@ -398,7 +395,6 @@ class Google_Service_Freebase_ReconcileGet extends Google_Collection
   {
     return $this->candidate;
   }
-
   public function setCosts(Google_Service_Freebase_ReconcileGetCosts $costs)
   {
     $this->costs = $costs;
@@ -408,7 +404,6 @@ class Google_Service_Freebase_ReconcileGet extends Google_Collection
   {
     return $this->costs;
   }
-
   public function setMatch(Google_Service_Freebase_ReconcileCandidate $match)
   {
     $this->match = $match;
@@ -418,7 +413,6 @@ class Google_Service_Freebase_ReconcileGet extends Google_Collection
   {
     return $this->match;
   }
-
   public function setWarning($warning)
   {
     $this->warning = $warning;
@@ -428,6 +422,7 @@ class Google_Service_Freebase_ReconcileGet extends Google_Collection
   {
     return $this->warning;
   }
+
 }
 
 class Google_Service_Freebase_ReconcileGetCosts extends Google_Model
@@ -446,7 +441,6 @@ class Google_Service_Freebase_ReconcileGetCosts extends Google_Model
   {
     return $this->hits;
   }
-
   public function setMs($ms)
   {
     $this->ms = $ms;
@@ -456,6 +450,7 @@ class Google_Service_Freebase_ReconcileGetCosts extends Google_Model
   {
     return $this->ms;
   }
+
 }
 
 class Google_Service_Freebase_ReconcileGetWarning extends Google_Model
@@ -475,7 +470,6 @@ class Google_Service_Freebase_ReconcileGetWarning extends Google_Model
   {
     return $this->location;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -485,7 +479,6 @@ class Google_Service_Freebase_ReconcileGetWarning extends Google_Model
   {
     return $this->message;
   }
-
   public function setReason($reason)
   {
     $this->reason = $reason;
@@ -495,4 +488,5 @@ class Google_Service_Freebase_ReconcileGetWarning extends Google_Model
   {
     return $this->reason;
   }
+
 }
