@@ -301,7 +301,6 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionList extends Google_C
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -311,6 +310,7 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionList extends Google_C
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplate extends Google_Collection
@@ -334,7 +334,6 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplate extends Goog
   {
     return $this->defaultOutput;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -344,7 +343,6 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplate extends Goog
   {
     return $this->id;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -354,7 +352,6 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplate extends Goog
   {
     return $this->name;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -364,7 +361,6 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplate extends Goog
   {
     return $this->status;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -374,6 +370,7 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplate extends Goog
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplateDefaultOutput extends Google_Model
@@ -392,7 +389,6 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplateDefaultOutput
   {
     return $this->format;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -402,6 +398,7 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplateDefaultOutput
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_YouTubeAnalytics_BatchReportList extends Google_Collection
@@ -422,7 +419,6 @@ class Google_Service_YouTubeAnalytics_BatchReportList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -432,6 +428,7 @@ class Google_Service_YouTubeAnalytics_BatchReportList extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_YouTubeAnalytics_BatchReportTemplate extends Google_Collection
@@ -457,7 +454,6 @@ class Google_Service_YouTubeAnalytics_BatchReportTemplate extends Google_Collect
   {
     return $this->id;
   }
-
   public function setOutputs($outputs)
   {
     $this->outputs = $outputs;
@@ -467,7 +463,6 @@ class Google_Service_YouTubeAnalytics_BatchReportTemplate extends Google_Collect
   {
     return $this->outputs;
   }
-
   public function setReportId($reportId)
   {
     $this->reportId = $reportId;
@@ -477,7 +472,6 @@ class Google_Service_YouTubeAnalytics_BatchReportTemplate extends Google_Collect
   {
     return $this->reportId;
   }
-
   public function setTimeSpan(Google_Service_YouTubeAnalytics_BatchReportTemplateTimeSpan $timeSpan)
   {
     $this->timeSpan = $timeSpan;
@@ -487,7 +481,6 @@ class Google_Service_YouTubeAnalytics_BatchReportTemplate extends Google_Collect
   {
     return $this->timeSpan;
   }
-
   public function setTimeUpdated($timeUpdated)
   {
     $this->timeUpdated = $timeUpdated;
@@ -497,6 +490,7 @@ class Google_Service_YouTubeAnalytics_BatchReportTemplate extends Google_Collect
   {
     return $this->timeUpdated;
   }
+
 }
 
 class Google_Service_YouTubeAnalytics_BatchReportTemplateOutputs extends Google_Model
@@ -516,7 +510,6 @@ class Google_Service_YouTubeAnalytics_BatchReportTemplateOutputs extends Google_
   {
     return $this->downloadUrl;
   }
-
   public function setFormat($format)
   {
     $this->format = $format;
@@ -526,7 +519,6 @@ class Google_Service_YouTubeAnalytics_BatchReportTemplateOutputs extends Google_
   {
     return $this->format;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -536,6 +528,7 @@ class Google_Service_YouTubeAnalytics_BatchReportTemplateOutputs extends Google_
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_YouTubeAnalytics_BatchReportTemplateTimeSpan extends Google_Model
@@ -554,7 +547,6 @@ class Google_Service_YouTubeAnalytics_BatchReportTemplateTimeSpan extends Google
   {
     return $this->endTime;
   }
-
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
@@ -564,6 +556,7 @@ class Google_Service_YouTubeAnalytics_BatchReportTemplateTimeSpan extends Google
   {
     return $this->startTime;
   }
+
 }
 
 class Google_Service_YouTubeAnalytics_ResultTable extends Google_Collection
@@ -585,7 +578,6 @@ class Google_Service_YouTubeAnalytics_ResultTable extends Google_Collection
   {
     return $this->columnHeaders;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -595,7 +587,6 @@ class Google_Service_YouTubeAnalytics_ResultTable extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setRows($rows)
   {
     $this->rows = $rows;
@@ -605,6 +596,7 @@ class Google_Service_YouTubeAnalytics_ResultTable extends Google_Collection
   {
     return $this->rows;
   }
+
 }
 
 class Google_Service_YouTubeAnalytics_ResultTableColumnHeaders extends Google_Model
@@ -624,7 +616,6 @@ class Google_Service_YouTubeAnalytics_ResultTableColumnHeaders extends Google_Mo
   {
     return $this->columnType;
   }
-
   public function setDataType($dataType)
   {
     $this->dataType = $dataType;
@@ -634,7 +625,6 @@ class Google_Service_YouTubeAnalytics_ResultTableColumnHeaders extends Google_Mo
   {
     return $this->dataType;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -644,4 +634,5 @@ class Google_Service_YouTubeAnalytics_ResultTableColumnHeaders extends Google_Mo
   {
     return $this->name;
   }
+
 }
