@@ -208,7 +208,6 @@ class Google_Service_Spectrum_AntennaCharacteristics extends Google_Model
   {
     return $this->height;
   }
-
   public function setHeightType($heightType)
   {
     $this->heightType = $heightType;
@@ -218,7 +217,6 @@ class Google_Service_Spectrum_AntennaCharacteristics extends Google_Model
   {
     return $this->heightType;
   }
-
   public function setHeightUncertainty($heightUncertainty)
   {
     $this->heightUncertainty = $heightUncertainty;
@@ -228,6 +226,7 @@ class Google_Service_Spectrum_AntennaCharacteristics extends Google_Model
   {
     return $this->heightUncertainty;
   }
+
 }
 
 class Google_Service_Spectrum_DatabaseSpec extends Google_Model
@@ -246,7 +245,6 @@ class Google_Service_Spectrum_DatabaseSpec extends Google_Model
   {
     return $this->name;
   }
-
   public function setUri($uri)
   {
     $this->uri = $uri;
@@ -256,6 +254,7 @@ class Google_Service_Spectrum_DatabaseSpec extends Google_Model
   {
     return $this->uri;
   }
+
 }
 
 class Google_Service_Spectrum_DbUpdateSpec extends Google_Collection
@@ -275,6 +274,7 @@ class Google_Service_Spectrum_DbUpdateSpec extends Google_Collection
   {
     return $this->databases;
   }
+
 }
 
 class Google_Service_Spectrum_DeviceCapabilities extends Google_Collection
@@ -294,6 +294,7 @@ class Google_Service_Spectrum_DeviceCapabilities extends Google_Collection
   {
     return $this->frequencyRanges;
   }
+
 }
 
 class Google_Service_Spectrum_DeviceDescriptor extends Google_Collection
@@ -321,7 +322,6 @@ class Google_Service_Spectrum_DeviceDescriptor extends Google_Collection
   {
     return $this->etsiEnDeviceCategory;
   }
-
   public function setEtsiEnDeviceEmissionsClass($etsiEnDeviceEmissionsClass)
   {
     $this->etsiEnDeviceEmissionsClass = $etsiEnDeviceEmissionsClass;
@@ -331,7 +331,6 @@ class Google_Service_Spectrum_DeviceDescriptor extends Google_Collection
   {
     return $this->etsiEnDeviceEmissionsClass;
   }
-
   public function setEtsiEnDeviceType($etsiEnDeviceType)
   {
     $this->etsiEnDeviceType = $etsiEnDeviceType;
@@ -341,7 +340,6 @@ class Google_Service_Spectrum_DeviceDescriptor extends Google_Collection
   {
     return $this->etsiEnDeviceType;
   }
-
   public function setEtsiEnTechnologyId($etsiEnTechnologyId)
   {
     $this->etsiEnTechnologyId = $etsiEnTechnologyId;
@@ -351,7 +349,6 @@ class Google_Service_Spectrum_DeviceDescriptor extends Google_Collection
   {
     return $this->etsiEnTechnologyId;
   }
-
   public function setFccId($fccId)
   {
     $this->fccId = $fccId;
@@ -361,7 +358,6 @@ class Google_Service_Spectrum_DeviceDescriptor extends Google_Collection
   {
     return $this->fccId;
   }
-
   public function setFccTvbdDeviceType($fccTvbdDeviceType)
   {
     $this->fccTvbdDeviceType = $fccTvbdDeviceType;
@@ -371,7 +367,6 @@ class Google_Service_Spectrum_DeviceDescriptor extends Google_Collection
   {
     return $this->fccTvbdDeviceType;
   }
-
   public function setManufacturerId($manufacturerId)
   {
     $this->manufacturerId = $manufacturerId;
@@ -381,7 +376,6 @@ class Google_Service_Spectrum_DeviceDescriptor extends Google_Collection
   {
     return $this->manufacturerId;
   }
-
   public function setModelId($modelId)
   {
     $this->modelId = $modelId;
@@ -391,7 +385,6 @@ class Google_Service_Spectrum_DeviceDescriptor extends Google_Collection
   {
     return $this->modelId;
   }
-
   public function setRulesetIds($rulesetIds)
   {
     $this->rulesetIds = $rulesetIds;
@@ -401,7 +394,6 @@ class Google_Service_Spectrum_DeviceDescriptor extends Google_Collection
   {
     return $this->rulesetIds;
   }
-
   public function setSerialNumber($serialNumber)
   {
     $this->serialNumber = $serialNumber;
@@ -411,6 +403,7 @@ class Google_Service_Spectrum_DeviceDescriptor extends Google_Collection
   {
     return $this->serialNumber;
   }
+
 }
 
 class Google_Service_Spectrum_DeviceOwner extends Google_Model
@@ -431,7 +424,6 @@ class Google_Service_Spectrum_DeviceOwner extends Google_Model
   {
     return $this->operator;
   }
-
   public function setOwner(Google_Service_Spectrum_Vcard $owner)
   {
     $this->owner = $owner;
@@ -441,6 +433,7 @@ class Google_Service_Spectrum_DeviceOwner extends Google_Model
   {
     return $this->owner;
   }
+
 }
 
 class Google_Service_Spectrum_DeviceValidity extends Google_Model
@@ -461,7 +454,6 @@ class Google_Service_Spectrum_DeviceValidity extends Google_Model
   {
     return $this->deviceDesc;
   }
-
   public function setIsValid($isValid)
   {
     $this->isValid = $isValid;
@@ -471,7 +463,6 @@ class Google_Service_Spectrum_DeviceValidity extends Google_Model
   {
     return $this->isValid;
   }
-
   public function setReason($reason)
   {
     $this->reason = $reason;
@@ -481,6 +472,7 @@ class Google_Service_Spectrum_DeviceValidity extends Google_Model
   {
     return $this->reason;
   }
+
 }
 
 class Google_Service_Spectrum_EventTime extends Google_Model
@@ -499,7 +491,6 @@ class Google_Service_Spectrum_EventTime extends Google_Model
   {
     return $this->startTime;
   }
-
   public function setStopTime($stopTime)
   {
     $this->stopTime = $stopTime;
@@ -509,6 +500,7 @@ class Google_Service_Spectrum_EventTime extends Google_Model
   {
     return $this->stopTime;
   }
+
 }
 
 class Google_Service_Spectrum_FrequencyRange extends Google_Model
@@ -529,7 +521,6 @@ class Google_Service_Spectrum_FrequencyRange extends Google_Model
   {
     return $this->channelId;
   }
-
   public function setMaxPowerDBm($maxPowerDBm)
   {
     $this->maxPowerDBm = $maxPowerDBm;
@@ -539,7 +530,6 @@ class Google_Service_Spectrum_FrequencyRange extends Google_Model
   {
     return $this->maxPowerDBm;
   }
-
   public function setStartHz($startHz)
   {
     $this->startHz = $startHz;
@@ -549,7 +539,6 @@ class Google_Service_Spectrum_FrequencyRange extends Google_Model
   {
     return $this->startHz;
   }
-
   public function setStopHz($stopHz)
   {
     $this->stopHz = $stopHz;
@@ -559,6 +548,7 @@ class Google_Service_Spectrum_FrequencyRange extends Google_Model
   {
     return $this->stopHz;
   }
+
 }
 
 class Google_Service_Spectrum_GeoLocation extends Google_Model
@@ -580,7 +570,6 @@ class Google_Service_Spectrum_GeoLocation extends Google_Model
   {
     return $this->confidence;
   }
-
   public function setPoint(Google_Service_Spectrum_GeoLocationEllipse $point)
   {
     $this->point = $point;
@@ -590,7 +579,6 @@ class Google_Service_Spectrum_GeoLocation extends Google_Model
   {
     return $this->point;
   }
-
   public function setRegion(Google_Service_Spectrum_GeoLocationPolygon $region)
   {
     $this->region = $region;
@@ -600,6 +588,7 @@ class Google_Service_Spectrum_GeoLocation extends Google_Model
   {
     return $this->region;
   }
+
 }
 
 class Google_Service_Spectrum_GeoLocationEllipse extends Google_Model
@@ -621,7 +610,6 @@ class Google_Service_Spectrum_GeoLocationEllipse extends Google_Model
   {
     return $this->center;
   }
-
   public function setOrientation($orientation)
   {
     $this->orientation = $orientation;
@@ -631,7 +619,6 @@ class Google_Service_Spectrum_GeoLocationEllipse extends Google_Model
   {
     return $this->orientation;
   }
-
   public function setSemiMajorAxis($semiMajorAxis)
   {
     $this->semiMajorAxis = $semiMajorAxis;
@@ -641,7 +628,6 @@ class Google_Service_Spectrum_GeoLocationEllipse extends Google_Model
   {
     return $this->semiMajorAxis;
   }
-
   public function setSemiMinorAxis($semiMinorAxis)
   {
     $this->semiMinorAxis = $semiMinorAxis;
@@ -651,6 +637,7 @@ class Google_Service_Spectrum_GeoLocationEllipse extends Google_Model
   {
     return $this->semiMinorAxis;
   }
+
 }
 
 class Google_Service_Spectrum_GeoLocationPoint extends Google_Model
@@ -669,7 +656,6 @@ class Google_Service_Spectrum_GeoLocationPoint extends Google_Model
   {
     return $this->latitude;
   }
-
   public function setLongitude($longitude)
   {
     $this->longitude = $longitude;
@@ -679,6 +665,7 @@ class Google_Service_Spectrum_GeoLocationPoint extends Google_Model
   {
     return $this->longitude;
   }
+
 }
 
 class Google_Service_Spectrum_GeoLocationPolygon extends Google_Collection
@@ -698,6 +685,7 @@ class Google_Service_Spectrum_GeoLocationPolygon extends Google_Collection
   {
     return $this->exterior;
   }
+
 }
 
 class Google_Service_Spectrum_GeoSpectrumSchedule extends Google_Collection
@@ -719,7 +707,6 @@ class Google_Service_Spectrum_GeoSpectrumSchedule extends Google_Collection
   {
     return $this->location;
   }
-
   public function setSpectrumSchedules($spectrumSchedules)
   {
     $this->spectrumSchedules = $spectrumSchedules;
@@ -729,6 +716,7 @@ class Google_Service_Spectrum_GeoSpectrumSchedule extends Google_Collection
   {
     return $this->spectrumSchedules;
   }
+
 }
 
 class Google_Service_Spectrum_PawsGetSpectrumBatchRequest extends Google_Collection
@@ -761,7 +749,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchRequest extends Google_Collect
   {
     return $this->antenna;
   }
-
   public function setCapabilities(Google_Service_Spectrum_DeviceCapabilities $capabilities)
   {
     $this->capabilities = $capabilities;
@@ -771,7 +758,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchRequest extends Google_Collect
   {
     return $this->capabilities;
   }
-
   public function setDeviceDesc(Google_Service_Spectrum_DeviceDescriptor $deviceDesc)
   {
     $this->deviceDesc = $deviceDesc;
@@ -781,7 +767,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchRequest extends Google_Collect
   {
     return $this->deviceDesc;
   }
-
   public function setLocations($locations)
   {
     $this->locations = $locations;
@@ -791,7 +776,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchRequest extends Google_Collect
   {
     return $this->locations;
   }
-
   public function setMasterDeviceDesc(Google_Service_Spectrum_DeviceDescriptor $masterDeviceDesc)
   {
     $this->masterDeviceDesc = $masterDeviceDesc;
@@ -801,7 +785,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchRequest extends Google_Collect
   {
     return $this->masterDeviceDesc;
   }
-
   public function setOwner(Google_Service_Spectrum_DeviceOwner $owner)
   {
     $this->owner = $owner;
@@ -811,7 +794,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchRequest extends Google_Collect
   {
     return $this->owner;
   }
-
   public function setRequestType($requestType)
   {
     $this->requestType = $requestType;
@@ -821,7 +803,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchRequest extends Google_Collect
   {
     return $this->requestType;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -831,7 +812,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchRequest extends Google_Collect
   {
     return $this->type;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -841,6 +821,7 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchRequest extends Google_Collect
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collection
@@ -873,7 +854,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collec
   {
     return $this->databaseChange;
   }
-
   public function setDeviceDesc(Google_Service_Spectrum_DeviceDescriptor $deviceDesc)
   {
     $this->deviceDesc = $deviceDesc;
@@ -883,7 +863,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collec
   {
     return $this->deviceDesc;
   }
-
   public function setGeoSpectrumSchedules($geoSpectrumSchedules)
   {
     $this->geoSpectrumSchedules = $geoSpectrumSchedules;
@@ -893,7 +872,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collec
   {
     return $this->geoSpectrumSchedules;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -903,7 +881,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collec
   {
     return $this->kind;
   }
-
   public function setMaxContiguousBwHz($maxContiguousBwHz)
   {
     $this->maxContiguousBwHz = $maxContiguousBwHz;
@@ -913,7 +890,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collec
   {
     return $this->maxContiguousBwHz;
   }
-
   public function setMaxTotalBwHz($maxTotalBwHz)
   {
     $this->maxTotalBwHz = $maxTotalBwHz;
@@ -923,7 +899,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collec
   {
     return $this->maxTotalBwHz;
   }
-
   public function setNeedsSpectrumReport($needsSpectrumReport)
   {
     $this->needsSpectrumReport = $needsSpectrumReport;
@@ -933,7 +908,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collec
   {
     return $this->needsSpectrumReport;
   }
-
   public function setRulesetInfo(Google_Service_Spectrum_RulesetInfo $rulesetInfo)
   {
     $this->rulesetInfo = $rulesetInfo;
@@ -943,7 +917,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collec
   {
     return $this->rulesetInfo;
   }
-
   public function setTimestamp($timestamp)
   {
     $this->timestamp = $timestamp;
@@ -953,7 +926,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collec
   {
     return $this->timestamp;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -963,7 +935,6 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collec
   {
     return $this->type;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -973,6 +944,7 @@ class Google_Service_Spectrum_PawsGetSpectrumBatchResponse extends Google_Collec
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Spectrum_PawsGetSpectrumRequest extends Google_Model
@@ -1004,7 +976,6 @@ class Google_Service_Spectrum_PawsGetSpectrumRequest extends Google_Model
   {
     return $this->antenna;
   }
-
   public function setCapabilities(Google_Service_Spectrum_DeviceCapabilities $capabilities)
   {
     $this->capabilities = $capabilities;
@@ -1014,7 +985,6 @@ class Google_Service_Spectrum_PawsGetSpectrumRequest extends Google_Model
   {
     return $this->capabilities;
   }
-
   public function setDeviceDesc(Google_Service_Spectrum_DeviceDescriptor $deviceDesc)
   {
     $this->deviceDesc = $deviceDesc;
@@ -1024,7 +994,6 @@ class Google_Service_Spectrum_PawsGetSpectrumRequest extends Google_Model
   {
     return $this->deviceDesc;
   }
-
   public function setLocation(Google_Service_Spectrum_GeoLocation $location)
   {
     $this->location = $location;
@@ -1034,7 +1003,6 @@ class Google_Service_Spectrum_PawsGetSpectrumRequest extends Google_Model
   {
     return $this->location;
   }
-
   public function setMasterDeviceDesc(Google_Service_Spectrum_DeviceDescriptor $masterDeviceDesc)
   {
     $this->masterDeviceDesc = $masterDeviceDesc;
@@ -1044,7 +1012,6 @@ class Google_Service_Spectrum_PawsGetSpectrumRequest extends Google_Model
   {
     return $this->masterDeviceDesc;
   }
-
   public function setOwner(Google_Service_Spectrum_DeviceOwner $owner)
   {
     $this->owner = $owner;
@@ -1054,7 +1021,6 @@ class Google_Service_Spectrum_PawsGetSpectrumRequest extends Google_Model
   {
     return $this->owner;
   }
-
   public function setRequestType($requestType)
   {
     $this->requestType = $requestType;
@@ -1064,7 +1030,6 @@ class Google_Service_Spectrum_PawsGetSpectrumRequest extends Google_Model
   {
     return $this->requestType;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -1074,7 +1039,6 @@ class Google_Service_Spectrum_PawsGetSpectrumRequest extends Google_Model
   {
     return $this->type;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -1084,6 +1048,7 @@ class Google_Service_Spectrum_PawsGetSpectrumRequest extends Google_Model
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
@@ -1116,7 +1081,6 @@ class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
   {
     return $this->databaseChange;
   }
-
   public function setDeviceDesc(Google_Service_Spectrum_DeviceDescriptor $deviceDesc)
   {
     $this->deviceDesc = $deviceDesc;
@@ -1126,7 +1090,6 @@ class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
   {
     return $this->deviceDesc;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1136,7 +1099,6 @@ class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setMaxContiguousBwHz($maxContiguousBwHz)
   {
     $this->maxContiguousBwHz = $maxContiguousBwHz;
@@ -1146,7 +1108,6 @@ class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
   {
     return $this->maxContiguousBwHz;
   }
-
   public function setMaxTotalBwHz($maxTotalBwHz)
   {
     $this->maxTotalBwHz = $maxTotalBwHz;
@@ -1156,7 +1117,6 @@ class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
   {
     return $this->maxTotalBwHz;
   }
-
   public function setNeedsSpectrumReport($needsSpectrumReport)
   {
     $this->needsSpectrumReport = $needsSpectrumReport;
@@ -1166,7 +1126,6 @@ class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
   {
     return $this->needsSpectrumReport;
   }
-
   public function setRulesetInfo(Google_Service_Spectrum_RulesetInfo $rulesetInfo)
   {
     $this->rulesetInfo = $rulesetInfo;
@@ -1176,7 +1135,6 @@ class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
   {
     return $this->rulesetInfo;
   }
-
   public function setSpectrumSchedules($spectrumSchedules)
   {
     $this->spectrumSchedules = $spectrumSchedules;
@@ -1186,7 +1144,6 @@ class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
   {
     return $this->spectrumSchedules;
   }
-
   public function setTimestamp($timestamp)
   {
     $this->timestamp = $timestamp;
@@ -1196,7 +1153,6 @@ class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
   {
     return $this->timestamp;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -1206,7 +1162,6 @@ class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
   {
     return $this->type;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -1216,6 +1171,7 @@ class Google_Service_Spectrum_PawsGetSpectrumResponse extends Google_Collection
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Spectrum_PawsInitRequest extends Google_Model
@@ -1238,7 +1194,6 @@ class Google_Service_Spectrum_PawsInitRequest extends Google_Model
   {
     return $this->deviceDesc;
   }
-
   public function setLocation(Google_Service_Spectrum_GeoLocation $location)
   {
     $this->location = $location;
@@ -1248,7 +1203,6 @@ class Google_Service_Spectrum_PawsInitRequest extends Google_Model
   {
     return $this->location;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -1258,7 +1212,6 @@ class Google_Service_Spectrum_PawsInitRequest extends Google_Model
   {
     return $this->type;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -1268,6 +1221,7 @@ class Google_Service_Spectrum_PawsInitRequest extends Google_Model
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Spectrum_PawsInitResponse extends Google_Model
@@ -1291,7 +1245,6 @@ class Google_Service_Spectrum_PawsInitResponse extends Google_Model
   {
     return $this->databaseChange;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1301,7 +1254,6 @@ class Google_Service_Spectrum_PawsInitResponse extends Google_Model
   {
     return $this->kind;
   }
-
   public function setRulesetInfo(Google_Service_Spectrum_RulesetInfo $rulesetInfo)
   {
     $this->rulesetInfo = $rulesetInfo;
@@ -1311,7 +1263,6 @@ class Google_Service_Spectrum_PawsInitResponse extends Google_Model
   {
     return $this->rulesetInfo;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -1321,7 +1272,6 @@ class Google_Service_Spectrum_PawsInitResponse extends Google_Model
   {
     return $this->type;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -1331,6 +1281,7 @@ class Google_Service_Spectrum_PawsInitResponse extends Google_Model
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Spectrum_PawsNotifySpectrumUseRequest extends Google_Collection
@@ -1356,7 +1307,6 @@ class Google_Service_Spectrum_PawsNotifySpectrumUseRequest extends Google_Collec
   {
     return $this->deviceDesc;
   }
-
   public function setLocation(Google_Service_Spectrum_GeoLocation $location)
   {
     $this->location = $location;
@@ -1366,7 +1316,6 @@ class Google_Service_Spectrum_PawsNotifySpectrumUseRequest extends Google_Collec
   {
     return $this->location;
   }
-
   public function setSpectra($spectra)
   {
     $this->spectra = $spectra;
@@ -1376,7 +1325,6 @@ class Google_Service_Spectrum_PawsNotifySpectrumUseRequest extends Google_Collec
   {
     return $this->spectra;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -1386,7 +1334,6 @@ class Google_Service_Spectrum_PawsNotifySpectrumUseRequest extends Google_Collec
   {
     return $this->type;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -1396,6 +1343,7 @@ class Google_Service_Spectrum_PawsNotifySpectrumUseRequest extends Google_Collec
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Spectrum_PawsNotifySpectrumUseResponse extends Google_Model
@@ -1415,7 +1363,6 @@ class Google_Service_Spectrum_PawsNotifySpectrumUseResponse extends Google_Model
   {
     return $this->kind;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -1425,7 +1372,6 @@ class Google_Service_Spectrum_PawsNotifySpectrumUseResponse extends Google_Model
   {
     return $this->type;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -1435,6 +1381,7 @@ class Google_Service_Spectrum_PawsNotifySpectrumUseResponse extends Google_Model
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Spectrum_PawsRegisterRequest extends Google_Model
@@ -1461,7 +1408,6 @@ class Google_Service_Spectrum_PawsRegisterRequest extends Google_Model
   {
     return $this->antenna;
   }
-
   public function setDeviceDesc(Google_Service_Spectrum_DeviceDescriptor $deviceDesc)
   {
     $this->deviceDesc = $deviceDesc;
@@ -1471,7 +1417,6 @@ class Google_Service_Spectrum_PawsRegisterRequest extends Google_Model
   {
     return $this->deviceDesc;
   }
-
   public function setDeviceOwner(Google_Service_Spectrum_DeviceOwner $deviceOwner)
   {
     $this->deviceOwner = $deviceOwner;
@@ -1481,7 +1426,6 @@ class Google_Service_Spectrum_PawsRegisterRequest extends Google_Model
   {
     return $this->deviceOwner;
   }
-
   public function setLocation(Google_Service_Spectrum_GeoLocation $location)
   {
     $this->location = $location;
@@ -1491,7 +1435,6 @@ class Google_Service_Spectrum_PawsRegisterRequest extends Google_Model
   {
     return $this->location;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -1501,7 +1444,6 @@ class Google_Service_Spectrum_PawsRegisterRequest extends Google_Model
   {
     return $this->type;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -1511,6 +1453,7 @@ class Google_Service_Spectrum_PawsRegisterRequest extends Google_Model
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Spectrum_PawsRegisterResponse extends Google_Model
@@ -1532,7 +1475,6 @@ class Google_Service_Spectrum_PawsRegisterResponse extends Google_Model
   {
     return $this->databaseChange;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1542,7 +1484,6 @@ class Google_Service_Spectrum_PawsRegisterResponse extends Google_Model
   {
     return $this->kind;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -1552,7 +1493,6 @@ class Google_Service_Spectrum_PawsRegisterResponse extends Google_Model
   {
     return $this->type;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -1562,6 +1502,7 @@ class Google_Service_Spectrum_PawsRegisterResponse extends Google_Model
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Spectrum_PawsVerifyDeviceRequest extends Google_Collection
@@ -1583,7 +1524,6 @@ class Google_Service_Spectrum_PawsVerifyDeviceRequest extends Google_Collection
   {
     return $this->deviceDescs;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -1593,7 +1533,6 @@ class Google_Service_Spectrum_PawsVerifyDeviceRequest extends Google_Collection
   {
     return $this->type;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -1603,6 +1542,7 @@ class Google_Service_Spectrum_PawsVerifyDeviceRequest extends Google_Collection
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Spectrum_PawsVerifyDeviceResponse extends Google_Collection
@@ -1627,7 +1567,6 @@ class Google_Service_Spectrum_PawsVerifyDeviceResponse extends Google_Collection
   {
     return $this->databaseChange;
   }
-
   public function setDeviceValidities($deviceValidities)
   {
     $this->deviceValidities = $deviceValidities;
@@ -1637,7 +1576,6 @@ class Google_Service_Spectrum_PawsVerifyDeviceResponse extends Google_Collection
   {
     return $this->deviceValidities;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1647,7 +1585,6 @@ class Google_Service_Spectrum_PawsVerifyDeviceResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -1657,7 +1594,6 @@ class Google_Service_Spectrum_PawsVerifyDeviceResponse extends Google_Collection
   {
     return $this->type;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -1667,6 +1603,7 @@ class Google_Service_Spectrum_PawsVerifyDeviceResponse extends Google_Collection
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Spectrum_RulesetInfo extends Google_Collection
@@ -1688,7 +1625,6 @@ class Google_Service_Spectrum_RulesetInfo extends Google_Collection
   {
     return $this->authority;
   }
-
   public function setMaxLocationChange($maxLocationChange)
   {
     $this->maxLocationChange = $maxLocationChange;
@@ -1698,7 +1634,6 @@ class Google_Service_Spectrum_RulesetInfo extends Google_Collection
   {
     return $this->maxLocationChange;
   }
-
   public function setMaxPollingSecs($maxPollingSecs)
   {
     $this->maxPollingSecs = $maxPollingSecs;
@@ -1708,7 +1643,6 @@ class Google_Service_Spectrum_RulesetInfo extends Google_Collection
   {
     return $this->maxPollingSecs;
   }
-
   public function setRulesetIds($rulesetIds)
   {
     $this->rulesetIds = $rulesetIds;
@@ -1718,6 +1652,7 @@ class Google_Service_Spectrum_RulesetInfo extends Google_Collection
   {
     return $this->rulesetIds;
   }
+
 }
 
 class Google_Service_Spectrum_SpectrumMessage extends Google_Collection
@@ -1738,7 +1673,6 @@ class Google_Service_Spectrum_SpectrumMessage extends Google_Collection
   {
     return $this->bandwidth;
   }
-
   public function setFrequencyRanges($frequencyRanges)
   {
     $this->frequencyRanges = $frequencyRanges;
@@ -1748,6 +1682,7 @@ class Google_Service_Spectrum_SpectrumMessage extends Google_Collection
   {
     return $this->frequencyRanges;
   }
+
 }
 
 class Google_Service_Spectrum_SpectrumSchedule extends Google_Collection
@@ -1769,7 +1704,6 @@ class Google_Service_Spectrum_SpectrumSchedule extends Google_Collection
   {
     return $this->eventTime;
   }
-
   public function setSpectra($spectra)
   {
     $this->spectra = $spectra;
@@ -1779,6 +1713,7 @@ class Google_Service_Spectrum_SpectrumSchedule extends Google_Collection
   {
     return $this->spectra;
   }
+
 }
 
 class Google_Service_Spectrum_Vcard extends Google_Model
@@ -1804,7 +1739,6 @@ class Google_Service_Spectrum_Vcard extends Google_Model
   {
     return $this->adr;
   }
-
   public function setEmail(Google_Service_Spectrum_VcardTypedText $email)
   {
     $this->email = $email;
@@ -1814,7 +1748,6 @@ class Google_Service_Spectrum_Vcard extends Google_Model
   {
     return $this->email;
   }
-
   public function setFn($fn)
   {
     $this->fn = $fn;
@@ -1824,7 +1757,6 @@ class Google_Service_Spectrum_Vcard extends Google_Model
   {
     return $this->fn;
   }
-
   public function setOrg(Google_Service_Spectrum_VcardTypedText $org)
   {
     $this->org = $org;
@@ -1834,7 +1766,6 @@ class Google_Service_Spectrum_Vcard extends Google_Model
   {
     return $this->org;
   }
-
   public function setTel(Google_Service_Spectrum_VcardTelephone $tel)
   {
     $this->tel = $tel;
@@ -1844,6 +1775,7 @@ class Google_Service_Spectrum_Vcard extends Google_Model
   {
     return $this->tel;
   }
+
 }
 
 class Google_Service_Spectrum_VcardAddress extends Google_Model
@@ -1866,7 +1798,6 @@ class Google_Service_Spectrum_VcardAddress extends Google_Model
   {
     return $this->code;
   }
-
   public function setCountry($country)
   {
     $this->country = $country;
@@ -1876,7 +1807,6 @@ class Google_Service_Spectrum_VcardAddress extends Google_Model
   {
     return $this->country;
   }
-
   public function setLocality($locality)
   {
     $this->locality = $locality;
@@ -1886,7 +1816,6 @@ class Google_Service_Spectrum_VcardAddress extends Google_Model
   {
     return $this->locality;
   }
-
   public function setPobox($pobox)
   {
     $this->pobox = $pobox;
@@ -1896,7 +1825,6 @@ class Google_Service_Spectrum_VcardAddress extends Google_Model
   {
     return $this->pobox;
   }
-
   public function setRegion($region)
   {
     $this->region = $region;
@@ -1906,7 +1834,6 @@ class Google_Service_Spectrum_VcardAddress extends Google_Model
   {
     return $this->region;
   }
-
   public function setStreet($street)
   {
     $this->street = $street;
@@ -1916,6 +1843,7 @@ class Google_Service_Spectrum_VcardAddress extends Google_Model
   {
     return $this->street;
   }
+
 }
 
 class Google_Service_Spectrum_VcardTelephone extends Google_Model
@@ -1933,6 +1861,7 @@ class Google_Service_Spectrum_VcardTelephone extends Google_Model
   {
     return $this->uri;
   }
+
 }
 
 class Google_Service_Spectrum_VcardTypedText extends Google_Model
@@ -1950,4 +1879,5 @@ class Google_Service_Spectrum_VcardTypedText extends Google_Model
   {
     return $this->text;
   }
+
 }
