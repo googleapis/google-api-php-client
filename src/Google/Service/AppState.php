@@ -242,7 +242,6 @@ class Google_Service_AppState_GetResponse extends Google_Model
   {
     return $this->currentStateVersion;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -252,7 +251,6 @@ class Google_Service_AppState_GetResponse extends Google_Model
   {
     return $this->data;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -262,7 +260,6 @@ class Google_Service_AppState_GetResponse extends Google_Model
   {
     return $this->kind;
   }
-
   public function setStateKey($stateKey)
   {
     $this->stateKey = $stateKey;
@@ -272,6 +269,7 @@ class Google_Service_AppState_GetResponse extends Google_Model
   {
     return $this->stateKey;
   }
+
 }
 
 class Google_Service_AppState_ListResponse extends Google_Collection
@@ -293,7 +291,6 @@ class Google_Service_AppState_ListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -303,7 +300,6 @@ class Google_Service_AppState_ListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setMaximumKeyCount($maximumKeyCount)
   {
     $this->maximumKeyCount = $maximumKeyCount;
@@ -313,6 +309,7 @@ class Google_Service_AppState_ListResponse extends Google_Collection
   {
     return $this->maximumKeyCount;
   }
+
 }
 
 class Google_Service_AppState_UpdateRequest extends Google_Model
@@ -331,7 +328,6 @@ class Google_Service_AppState_UpdateRequest extends Google_Model
   {
     return $this->data;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -341,6 +337,7 @@ class Google_Service_AppState_UpdateRequest extends Google_Model
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_AppState_WriteResult extends Google_Model
@@ -360,7 +357,6 @@ class Google_Service_AppState_WriteResult extends Google_Model
   {
     return $this->currentStateVersion;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -370,7 +366,6 @@ class Google_Service_AppState_WriteResult extends Google_Model
   {
     return $this->kind;
   }
-
   public function setStateKey($stateKey)
   {
     $this->stateKey = $stateKey;
@@ -380,4 +375,5 @@ class Google_Service_AppState_WriteResult extends Google_Model
   {
     return $this->stateKey;
   }
+
 }
