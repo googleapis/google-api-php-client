@@ -127,7 +127,6 @@ class Google_Service_Admin_MailItem extends Google_Collection
   {
     return $this->isDeleted;
   }
-
   public function setIsDraft($isDraft)
   {
     $this->isDraft = $isDraft;
@@ -137,7 +136,6 @@ class Google_Service_Admin_MailItem extends Google_Collection
   {
     return $this->isDraft;
   }
-
   public function setIsInbox($isInbox)
   {
     $this->isInbox = $isInbox;
@@ -147,7 +145,6 @@ class Google_Service_Admin_MailItem extends Google_Collection
   {
     return $this->isInbox;
   }
-
   public function setIsSent($isSent)
   {
     $this->isSent = $isSent;
@@ -157,7 +154,6 @@ class Google_Service_Admin_MailItem extends Google_Collection
   {
     return $this->isSent;
   }
-
   public function setIsStarred($isStarred)
   {
     $this->isStarred = $isStarred;
@@ -167,7 +163,6 @@ class Google_Service_Admin_MailItem extends Google_Collection
   {
     return $this->isStarred;
   }
-
   public function setIsTrash($isTrash)
   {
     $this->isTrash = $isTrash;
@@ -177,7 +172,6 @@ class Google_Service_Admin_MailItem extends Google_Collection
   {
     return $this->isTrash;
   }
-
   public function setIsUnread($isUnread)
   {
     $this->isUnread = $isUnread;
@@ -187,7 +181,6 @@ class Google_Service_Admin_MailItem extends Google_Collection
   {
     return $this->isUnread;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -197,7 +190,6 @@ class Google_Service_Admin_MailItem extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLabels($labels)
   {
     $this->labels = $labels;
@@ -207,4 +199,5 @@ class Google_Service_Admin_MailItem extends Google_Collection
   {
     return $this->labels;
   }
+
 }
