@@ -611,7 +611,6 @@ class Google_Service_Resourceviews_Label extends Google_Model
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -621,6 +620,7 @@ class Google_Service_Resourceviews_Label extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Resourceviews_ListResourceResponseItem extends Google_Model
@@ -639,7 +639,6 @@ class Google_Service_Resourceviews_ListResourceResponseItem extends Google_Model
   {
     return $this->endpoints;
   }
-
   public function setResource($resource)
   {
     $this->resource = $resource;
@@ -649,12 +648,15 @@ class Google_Service_Resourceviews_ListResourceResponseItem extends Google_Model
   {
     return $this->resource;
   }
+
 }
 
 class Google_Service_Resourceviews_ListResourceResponseItemEndpoints extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Resourceviews_Operation extends Google_Collection
@@ -696,7 +698,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->clientOperationId;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -706,7 +707,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setEndTime($endTime)
   {
     $this->endTime = $endTime;
@@ -716,7 +716,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->endTime;
   }
-
   public function setError(Google_Service_Resourceviews_OperationError $error)
   {
     $this->error = $error;
@@ -726,7 +725,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->error;
   }
-
   public function setHttpErrorMessage($httpErrorMessage)
   {
     $this->httpErrorMessage = $httpErrorMessage;
@@ -736,7 +734,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->httpErrorMessage;
   }
-
   public function setHttpErrorStatusCode($httpErrorStatusCode)
   {
     $this->httpErrorStatusCode = $httpErrorStatusCode;
@@ -746,7 +743,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->httpErrorStatusCode;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -756,7 +752,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->id;
   }
-
   public function setInsertTime($insertTime)
   {
     $this->insertTime = $insertTime;
@@ -766,7 +761,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->insertTime;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -776,7 +770,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -786,7 +779,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->name;
   }
-
   public function setOperationType($operationType)
   {
     $this->operationType = $operationType;
@@ -796,7 +788,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->operationType;
   }
-
   public function setProgress($progress)
   {
     $this->progress = $progress;
@@ -806,7 +797,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->progress;
   }
-
   public function setRegion($region)
   {
     $this->region = $region;
@@ -816,7 +806,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->region;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -826,7 +815,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
@@ -836,7 +824,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->startTime;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -846,7 +833,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->status;
   }
-
   public function setStatusMessage($statusMessage)
   {
     $this->statusMessage = $statusMessage;
@@ -856,7 +842,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->statusMessage;
   }
-
   public function setTargetId($targetId)
   {
     $this->targetId = $targetId;
@@ -866,7 +851,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->targetId;
   }
-
   public function setTargetLink($targetLink)
   {
     $this->targetLink = $targetLink;
@@ -876,7 +860,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->targetLink;
   }
-
   public function setUser($user)
   {
     $this->user = $user;
@@ -886,7 +869,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->user;
   }
-
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -896,7 +878,6 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->warnings;
   }
-
   public function setZone($zone)
   {
     $this->zone = $zone;
@@ -906,6 +887,7 @@ class Google_Service_Resourceviews_Operation extends Google_Collection
   {
     return $this->zone;
   }
+
 }
 
 class Google_Service_Resourceviews_OperationError extends Google_Collection
@@ -925,6 +907,7 @@ class Google_Service_Resourceviews_OperationError extends Google_Collection
   {
     return $this->errors;
   }
+
 }
 
 class Google_Service_Resourceviews_OperationErrorErrors extends Google_Model
@@ -944,7 +927,6 @@ class Google_Service_Resourceviews_OperationErrorErrors extends Google_Model
   {
     return $this->code;
   }
-
   public function setLocation($location)
   {
     $this->location = $location;
@@ -954,7 +936,6 @@ class Google_Service_Resourceviews_OperationErrorErrors extends Google_Model
   {
     return $this->location;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -964,6 +945,7 @@ class Google_Service_Resourceviews_OperationErrorErrors extends Google_Model
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Resourceviews_OperationList extends Google_Collection
@@ -987,7 +969,6 @@ class Google_Service_Resourceviews_OperationList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -997,7 +978,6 @@ class Google_Service_Resourceviews_OperationList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1007,7 +987,6 @@ class Google_Service_Resourceviews_OperationList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1017,7 +996,6 @@ class Google_Service_Resourceviews_OperationList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -1027,6 +1005,7 @@ class Google_Service_Resourceviews_OperationList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Resourceviews_OperationWarnings extends Google_Collection
@@ -1048,7 +1027,6 @@ class Google_Service_Resourceviews_OperationWarnings extends Google_Collection
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -1058,7 +1036,6 @@ class Google_Service_Resourceviews_OperationWarnings extends Google_Collection
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -1068,6 +1045,7 @@ class Google_Service_Resourceviews_OperationWarnings extends Google_Collection
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Resourceviews_OperationWarningsData extends Google_Model
@@ -1086,7 +1064,6 @@ class Google_Service_Resourceviews_OperationWarningsData extends Google_Model
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -1096,6 +1073,7 @@ class Google_Service_Resourceviews_OperationWarningsData extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Resourceviews_ResourceView extends Google_Collection
@@ -1127,7 +1105,6 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -1137,7 +1114,6 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->description;
   }
-
   public function setEndpoints($endpoints)
   {
     $this->endpoints = $endpoints;
@@ -1147,7 +1123,6 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->endpoints;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -1157,7 +1132,6 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->fingerprint;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -1167,7 +1141,6 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1177,7 +1150,6 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLabels($labels)
   {
     $this->labels = $labels;
@@ -1187,7 +1159,6 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->labels;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -1197,7 +1168,6 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->name;
   }
-
   public function setNetwork($network)
   {
     $this->network = $network;
@@ -1207,7 +1177,6 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->network;
   }
-
   public function setResources($resources)
   {
     $this->resources = $resources;
@@ -1217,7 +1186,6 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->resources;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -1227,7 +1195,6 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setSize($size)
   {
     $this->size = $size;
@@ -1237,6 +1204,7 @@ class Google_Service_Resourceviews_ResourceView extends Google_Collection
   {
     return $this->size;
   }
+
 }
 
 class Google_Service_Resourceviews_ServiceEndpoint extends Google_Model
@@ -1255,7 +1223,6 @@ class Google_Service_Resourceviews_ServiceEndpoint extends Google_Model
   {
     return $this->name;
   }
-
   public function setPort($port)
   {
     $this->port = $port;
@@ -1265,6 +1232,7 @@ class Google_Service_Resourceviews_ServiceEndpoint extends Google_Model
   {
     return $this->port;
   }
+
 }
 
 class Google_Service_Resourceviews_ZoneViewsAddResourcesRequest extends Google_Collection
@@ -1283,6 +1251,7 @@ class Google_Service_Resourceviews_ZoneViewsAddResourcesRequest extends Google_C
   {
     return $this->resources;
   }
+
 }
 
 class Google_Service_Resourceviews_ZoneViewsGetServiceResponse extends Google_Collection
@@ -1303,7 +1272,6 @@ class Google_Service_Resourceviews_ZoneViewsGetServiceResponse extends Google_Co
   {
     return $this->endpoints;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -1313,6 +1281,7 @@ class Google_Service_Resourceviews_ZoneViewsGetServiceResponse extends Google_Co
   {
     return $this->fingerprint;
   }
+
 }
 
 class Google_Service_Resourceviews_ZoneViewsList extends Google_Collection
@@ -1335,7 +1304,6 @@ class Google_Service_Resourceviews_ZoneViewsList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1345,7 +1313,6 @@ class Google_Service_Resourceviews_ZoneViewsList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1355,7 +1322,6 @@ class Google_Service_Resourceviews_ZoneViewsList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -1365,6 +1331,7 @@ class Google_Service_Resourceviews_ZoneViewsList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Resourceviews_ZoneViewsListResourcesResponse extends Google_Collection
@@ -1386,7 +1353,6 @@ class Google_Service_Resourceviews_ZoneViewsListResourcesResponse extends Google
   {
     return $this->items;
   }
-
   public function setNetwork($network)
   {
     $this->network = $network;
@@ -1396,7 +1362,6 @@ class Google_Service_Resourceviews_ZoneViewsListResourcesResponse extends Google
   {
     return $this->network;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1406,6 +1371,7 @@ class Google_Service_Resourceviews_ZoneViewsListResourcesResponse extends Google
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Resourceviews_ZoneViewsRemoveResourcesRequest extends Google_Collection
@@ -1424,6 +1390,7 @@ class Google_Service_Resourceviews_ZoneViewsRemoveResourcesRequest extends Googl
   {
     return $this->resources;
   }
+
 }
 
 class Google_Service_Resourceviews_ZoneViewsSetServiceRequest extends Google_Collection
@@ -1445,7 +1412,6 @@ class Google_Service_Resourceviews_ZoneViewsSetServiceRequest extends Google_Col
   {
     return $this->endpoints;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -1455,7 +1421,6 @@ class Google_Service_Resourceviews_ZoneViewsSetServiceRequest extends Google_Col
   {
     return $this->fingerprint;
   }
-
   public function setResourceName($resourceName)
   {
     $this->resourceName = $resourceName;
@@ -1465,4 +1430,5 @@ class Google_Service_Resourceviews_ZoneViewsSetServiceRequest extends Google_Col
   {
     return $this->resourceName;
   }
+
 }
