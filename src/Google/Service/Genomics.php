@@ -1323,6 +1323,7 @@ class Google_Service_Genomics_Beacon extends Google_Model
   {
     return $this->exists;
   }
+
 }
 
 class Google_Service_Genomics_Call extends Google_Collection
@@ -1346,7 +1347,6 @@ class Google_Service_Genomics_Call extends Google_Collection
   {
     return $this->callSetId;
   }
-
   public function setCallSetName($callSetName)
   {
     $this->callSetName = $callSetName;
@@ -1356,7 +1356,6 @@ class Google_Service_Genomics_Call extends Google_Collection
   {
     return $this->callSetName;
   }
-
   public function setGenotype($genotype)
   {
     $this->genotype = $genotype;
@@ -1366,7 +1365,6 @@ class Google_Service_Genomics_Call extends Google_Collection
   {
     return $this->genotype;
   }
-
   public function setGenotypeLikelihood($genotypeLikelihood)
   {
     $this->genotypeLikelihood = $genotypeLikelihood;
@@ -1376,7 +1374,6 @@ class Google_Service_Genomics_Call extends Google_Collection
   {
     return $this->genotypeLikelihood;
   }
-
   public function setInfo($info)
   {
     $this->info = $info;
@@ -1386,7 +1383,6 @@ class Google_Service_Genomics_Call extends Google_Collection
   {
     return $this->info;
   }
-
   public function setPhaseset($phaseset)
   {
     $this->phaseset = $phaseset;
@@ -1396,12 +1392,15 @@ class Google_Service_Genomics_Call extends Google_Collection
   {
     return $this->phaseset;
   }
+
 }
 
 class Google_Service_Genomics_CallInfo extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Genomics_CallSet extends Google_Collection
@@ -1425,7 +1424,6 @@ class Google_Service_Genomics_CallSet extends Google_Collection
   {
     return $this->created;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -1435,7 +1433,6 @@ class Google_Service_Genomics_CallSet extends Google_Collection
   {
     return $this->id;
   }
-
   public function setInfo($info)
   {
     $this->info = $info;
@@ -1445,7 +1442,6 @@ class Google_Service_Genomics_CallSet extends Google_Collection
   {
     return $this->info;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -1455,7 +1451,6 @@ class Google_Service_Genomics_CallSet extends Google_Collection
   {
     return $this->name;
   }
-
   public function setSampleId($sampleId)
   {
     $this->sampleId = $sampleId;
@@ -1465,7 +1460,6 @@ class Google_Service_Genomics_CallSet extends Google_Collection
   {
     return $this->sampleId;
   }
-
   public function setVariantSetIds($variantSetIds)
   {
     $this->variantSetIds = $variantSetIds;
@@ -1475,12 +1469,15 @@ class Google_Service_Genomics_CallSet extends Google_Collection
   {
     return $this->variantSetIds;
   }
+
 }
 
 class Google_Service_Genomics_CallSetInfo extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Genomics_CoverageBucket extends Google_Model
@@ -1500,7 +1497,6 @@ class Google_Service_Genomics_CoverageBucket extends Google_Model
   {
     return $this->meanCoverage;
   }
-
   public function setRange(Google_Service_Genomics_GenomicRange $range)
   {
     $this->range = $range;
@@ -1510,6 +1506,7 @@ class Google_Service_Genomics_CoverageBucket extends Google_Model
   {
     return $this->range;
   }
+
 }
 
 class Google_Service_Genomics_Dataset extends Google_Model
@@ -1530,7 +1527,6 @@ class Google_Service_Genomics_Dataset extends Google_Model
   {
     return $this->id;
   }
-
   public function setIsPublic($isPublic)
   {
     $this->isPublic = $isPublic;
@@ -1540,7 +1536,6 @@ class Google_Service_Genomics_Dataset extends Google_Model
   {
     return $this->isPublic;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -1550,7 +1545,6 @@ class Google_Service_Genomics_Dataset extends Google_Model
   {
     return $this->name;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -1560,6 +1554,7 @@ class Google_Service_Genomics_Dataset extends Google_Model
   {
     return $this->projectId;
   }
+
 }
 
 class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collection
@@ -1583,7 +1578,6 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
   {
     return $this->align;
   }
-
   public function setCallVariants($callVariants)
   {
     $this->callVariants = $callVariants;
@@ -1593,7 +1587,6 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
   {
     return $this->callVariants;
   }
-
   public function setGcsOutputPath($gcsOutputPath)
   {
     $this->gcsOutputPath = $gcsOutputPath;
@@ -1603,7 +1596,6 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
   {
     return $this->gcsOutputPath;
   }
-
   public function setPairedSourceUris($pairedSourceUris)
   {
     $this->pairedSourceUris = $pairedSourceUris;
@@ -1613,7 +1605,6 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
   {
     return $this->pairedSourceUris;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -1623,7 +1614,6 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
   {
     return $this->projectId;
   }
-
   public function setSourceUris($sourceUris)
   {
     $this->sourceUris = $sourceUris;
@@ -1633,6 +1623,7 @@ class Google_Service_Genomics_ExperimentalCreateJobRequest extends Google_Collec
   {
     return $this->sourceUris;
   }
+
 }
 
 class Google_Service_Genomics_ExperimentalCreateJobResponse extends Google_Model
@@ -1650,6 +1641,7 @@ class Google_Service_Genomics_ExperimentalCreateJobResponse extends Google_Model
   {
     return $this->jobId;
   }
+
 }
 
 class Google_Service_Genomics_ExportReadsetsRequest extends Google_Collection
@@ -1671,7 +1663,6 @@ class Google_Service_Genomics_ExportReadsetsRequest extends Google_Collection
   {
     return $this->exportUri;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -1681,7 +1672,6 @@ class Google_Service_Genomics_ExportReadsetsRequest extends Google_Collection
   {
     return $this->projectId;
   }
-
   public function setReadsetIds($readsetIds)
   {
     $this->readsetIds = $readsetIds;
@@ -1691,7 +1681,6 @@ class Google_Service_Genomics_ExportReadsetsRequest extends Google_Collection
   {
     return $this->readsetIds;
   }
-
   public function setReferenceNames($referenceNames)
   {
     $this->referenceNames = $referenceNames;
@@ -1701,6 +1690,7 @@ class Google_Service_Genomics_ExportReadsetsRequest extends Google_Collection
   {
     return $this->referenceNames;
   }
+
 }
 
 class Google_Service_Genomics_ExportReadsetsResponse extends Google_Model
@@ -1718,6 +1708,7 @@ class Google_Service_Genomics_ExportReadsetsResponse extends Google_Model
   {
     return $this->jobId;
   }
+
 }
 
 class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
@@ -1741,7 +1732,6 @@ class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
   {
     return $this->bigqueryDataset;
   }
-
   public function setBigqueryTable($bigqueryTable)
   {
     $this->bigqueryTable = $bigqueryTable;
@@ -1751,7 +1741,6 @@ class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
   {
     return $this->bigqueryTable;
   }
-
   public function setCallSetIds($callSetIds)
   {
     $this->callSetIds = $callSetIds;
@@ -1761,7 +1750,6 @@ class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
   {
     return $this->callSetIds;
   }
-
   public function setFormat($format)
   {
     $this->format = $format;
@@ -1771,7 +1759,6 @@ class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
   {
     return $this->format;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -1781,7 +1768,6 @@ class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
   {
     return $this->projectId;
   }
-
   public function setVariantSetId($variantSetId)
   {
     $this->variantSetId = $variantSetId;
@@ -1791,6 +1777,7 @@ class Google_Service_Genomics_ExportVariantsRequest extends Google_Collection
   {
     return $this->variantSetId;
   }
+
 }
 
 class Google_Service_Genomics_ExportVariantsResponse extends Google_Model
@@ -1808,6 +1795,7 @@ class Google_Service_Genomics_ExportVariantsResponse extends Google_Model
   {
     return $this->jobId;
   }
+
 }
 
 class Google_Service_Genomics_GenomicRange extends Google_Model
@@ -1827,7 +1815,6 @@ class Google_Service_Genomics_GenomicRange extends Google_Model
   {
     return $this->sequenceEnd;
   }
-
   public function setSequenceName($sequenceName)
   {
     $this->sequenceName = $sequenceName;
@@ -1837,7 +1824,6 @@ class Google_Service_Genomics_GenomicRange extends Google_Model
   {
     return $this->sequenceName;
   }
-
   public function setSequenceStart($sequenceStart)
   {
     $this->sequenceStart = $sequenceStart;
@@ -1847,6 +1833,7 @@ class Google_Service_Genomics_GenomicRange extends Google_Model
   {
     return $this->sequenceStart;
   }
+
 }
 
 class Google_Service_Genomics_Header extends Google_Model
@@ -1865,7 +1852,6 @@ class Google_Service_Genomics_Header extends Google_Model
   {
     return $this->sortingOrder;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -1875,6 +1861,7 @@ class Google_Service_Genomics_Header extends Google_Model
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Genomics_HeaderSection extends Google_Collection
@@ -1903,7 +1890,6 @@ class Google_Service_Genomics_HeaderSection extends Google_Collection
   {
     return $this->comments;
   }
-
   public function setFileUri($fileUri)
   {
     $this->fileUri = $fileUri;
@@ -1913,7 +1899,6 @@ class Google_Service_Genomics_HeaderSection extends Google_Collection
   {
     return $this->fileUri;
   }
-
   public function setFilename($filename)
   {
     $this->filename = $filename;
@@ -1923,7 +1908,6 @@ class Google_Service_Genomics_HeaderSection extends Google_Collection
   {
     return $this->filename;
   }
-
   public function setHeaders($headers)
   {
     $this->headers = $headers;
@@ -1933,7 +1917,6 @@ class Google_Service_Genomics_HeaderSection extends Google_Collection
   {
     return $this->headers;
   }
-
   public function setPrograms($programs)
   {
     $this->programs = $programs;
@@ -1943,7 +1926,6 @@ class Google_Service_Genomics_HeaderSection extends Google_Collection
   {
     return $this->programs;
   }
-
   public function setReadGroups($readGroups)
   {
     $this->readGroups = $readGroups;
@@ -1953,7 +1935,6 @@ class Google_Service_Genomics_HeaderSection extends Google_Collection
   {
     return $this->readGroups;
   }
-
   public function setRefSequences($refSequences)
   {
     $this->refSequences = $refSequences;
@@ -1963,6 +1944,7 @@ class Google_Service_Genomics_HeaderSection extends Google_Collection
   {
     return $this->refSequences;
   }
+
 }
 
 class Google_Service_Genomics_ImportReadsetsRequest extends Google_Collection
@@ -1982,7 +1964,6 @@ class Google_Service_Genomics_ImportReadsetsRequest extends Google_Collection
   {
     return $this->datasetId;
   }
-
   public function setSourceUris($sourceUris)
   {
     $this->sourceUris = $sourceUris;
@@ -1992,6 +1973,7 @@ class Google_Service_Genomics_ImportReadsetsRequest extends Google_Collection
   {
     return $this->sourceUris;
   }
+
 }
 
 class Google_Service_Genomics_ImportReadsetsResponse extends Google_Model
@@ -2009,6 +1991,7 @@ class Google_Service_Genomics_ImportReadsetsResponse extends Google_Model
   {
     return $this->jobId;
   }
+
 }
 
 class Google_Service_Genomics_ImportVariantsRequest extends Google_Collection
@@ -2029,7 +2012,6 @@ class Google_Service_Genomics_ImportVariantsRequest extends Google_Collection
   {
     return $this->format;
   }
-
   public function setSourceUris($sourceUris)
   {
     $this->sourceUris = $sourceUris;
@@ -2039,7 +2021,6 @@ class Google_Service_Genomics_ImportVariantsRequest extends Google_Collection
   {
     return $this->sourceUris;
   }
-
   public function setVariantSetId($variantSetId)
   {
     $this->variantSetId = $variantSetId;
@@ -2049,6 +2030,7 @@ class Google_Service_Genomics_ImportVariantsRequest extends Google_Collection
   {
     return $this->variantSetId;
   }
+
 }
 
 class Google_Service_Genomics_ImportVariantsResponse extends Google_Model
@@ -2066,6 +2048,7 @@ class Google_Service_Genomics_ImportVariantsResponse extends Google_Model
   {
     return $this->jobId;
   }
+
 }
 
 class Google_Service_Genomics_Job extends Google_Collection
@@ -2093,7 +2076,6 @@ class Google_Service_Genomics_Job extends Google_Collection
   {
     return $this->created;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -2103,7 +2085,6 @@ class Google_Service_Genomics_Job extends Google_Collection
   {
     return $this->description;
   }
-
   public function setErrors($errors)
   {
     $this->errors = $errors;
@@ -2113,7 +2094,6 @@ class Google_Service_Genomics_Job extends Google_Collection
   {
     return $this->errors;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -2123,7 +2103,6 @@ class Google_Service_Genomics_Job extends Google_Collection
   {
     return $this->id;
   }
-
   public function setImportedIds($importedIds)
   {
     $this->importedIds = $importedIds;
@@ -2133,7 +2112,6 @@ class Google_Service_Genomics_Job extends Google_Collection
   {
     return $this->importedIds;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -2143,7 +2121,6 @@ class Google_Service_Genomics_Job extends Google_Collection
   {
     return $this->projectId;
   }
-
   public function setRequest(Google_Service_Genomics_JobRequest $request)
   {
     $this->request = $request;
@@ -2153,7 +2130,6 @@ class Google_Service_Genomics_Job extends Google_Collection
   {
     return $this->request;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -2163,7 +2139,6 @@ class Google_Service_Genomics_Job extends Google_Collection
   {
     return $this->status;
   }
-
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -2173,6 +2148,7 @@ class Google_Service_Genomics_Job extends Google_Collection
   {
     return $this->warnings;
   }
+
 }
 
 class Google_Service_Genomics_JobRequest extends Google_Collection
@@ -2193,7 +2169,6 @@ class Google_Service_Genomics_JobRequest extends Google_Collection
   {
     return $this->destination;
   }
-
   public function setSource($source)
   {
     $this->source = $source;
@@ -2203,7 +2178,6 @@ class Google_Service_Genomics_JobRequest extends Google_Collection
   {
     return $this->source;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -2213,6 +2187,7 @@ class Google_Service_Genomics_JobRequest extends Google_Collection
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Genomics_ListCoverageBucketsResponse extends Google_Collection
@@ -2234,7 +2209,6 @@ class Google_Service_Genomics_ListCoverageBucketsResponse extends Google_Collect
   {
     return $this->bucketWidth;
   }
-
   public function setCoverageBuckets($coverageBuckets)
   {
     $this->coverageBuckets = $coverageBuckets;
@@ -2244,7 +2218,6 @@ class Google_Service_Genomics_ListCoverageBucketsResponse extends Google_Collect
   {
     return $this->coverageBuckets;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2254,6 +2227,7 @@ class Google_Service_Genomics_ListCoverageBucketsResponse extends Google_Collect
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Genomics_ListDatasetsResponse extends Google_Collection
@@ -2274,7 +2248,6 @@ class Google_Service_Genomics_ListDatasetsResponse extends Google_Collection
   {
     return $this->datasets;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2284,6 +2257,7 @@ class Google_Service_Genomics_ListDatasetsResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Genomics_MergeVariantsRequest extends Google_Collection
@@ -2303,6 +2277,7 @@ class Google_Service_Genomics_MergeVariantsRequest extends Google_Collection
   {
     return $this->variants;
   }
+
 }
 
 class Google_Service_Genomics_Metadata extends Google_Model
@@ -2326,7 +2301,6 @@ class Google_Service_Genomics_Metadata extends Google_Model
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -2336,7 +2310,6 @@ class Google_Service_Genomics_Metadata extends Google_Model
   {
     return $this->id;
   }
-
   public function setInfo($info)
   {
     $this->info = $info;
@@ -2346,7 +2319,6 @@ class Google_Service_Genomics_Metadata extends Google_Model
   {
     return $this->info;
   }
-
   public function setKey($key)
   {
     $this->key = $key;
@@ -2356,7 +2328,6 @@ class Google_Service_Genomics_Metadata extends Google_Model
   {
     return $this->key;
   }
-
   public function setNumber($number)
   {
     $this->number = $number;
@@ -2366,7 +2337,6 @@ class Google_Service_Genomics_Metadata extends Google_Model
   {
     return $this->number;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -2376,7 +2346,6 @@ class Google_Service_Genomics_Metadata extends Google_Model
   {
     return $this->type;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -2386,12 +2355,15 @@ class Google_Service_Genomics_Metadata extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Genomics_MetadataInfo extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Genomics_Program extends Google_Model
@@ -2413,7 +2385,6 @@ class Google_Service_Genomics_Program extends Google_Model
   {
     return $this->commandLine;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -2423,7 +2394,6 @@ class Google_Service_Genomics_Program extends Google_Model
   {
     return $this->id;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2433,7 +2403,6 @@ class Google_Service_Genomics_Program extends Google_Model
   {
     return $this->name;
   }
-
   public function setPrevProgramId($prevProgramId)
   {
     $this->prevProgramId = $prevProgramId;
@@ -2443,7 +2412,6 @@ class Google_Service_Genomics_Program extends Google_Model
   {
     return $this->prevProgramId;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -2453,6 +2421,7 @@ class Google_Service_Genomics_Program extends Google_Model
   {
     return $this->version;
   }
+
 }
 
 class Google_Service_Genomics_Read extends Google_Model
@@ -2484,7 +2453,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->alignedBases;
   }
-
   public function setBaseQuality($baseQuality)
   {
     $this->baseQuality = $baseQuality;
@@ -2494,7 +2462,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->baseQuality;
   }
-
   public function setCigar($cigar)
   {
     $this->cigar = $cigar;
@@ -2504,7 +2471,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->cigar;
   }
-
   public function setFlags($flags)
   {
     $this->flags = $flags;
@@ -2514,7 +2480,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->flags;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -2524,7 +2489,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->id;
   }
-
   public function setMappingQuality($mappingQuality)
   {
     $this->mappingQuality = $mappingQuality;
@@ -2534,7 +2498,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->mappingQuality;
   }
-
   public function setMatePosition($matePosition)
   {
     $this->matePosition = $matePosition;
@@ -2544,7 +2507,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->matePosition;
   }
-
   public function setMateReferenceSequenceName($mateReferenceSequenceName)
   {
     $this->mateReferenceSequenceName = $mateReferenceSequenceName;
@@ -2554,7 +2516,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->mateReferenceSequenceName;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2564,7 +2525,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->name;
   }
-
   public function setOriginalBases($originalBases)
   {
     $this->originalBases = $originalBases;
@@ -2574,7 +2534,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->originalBases;
   }
-
   public function setPosition($position)
   {
     $this->position = $position;
@@ -2584,7 +2543,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->position;
   }
-
   public function setReadsetId($readsetId)
   {
     $this->readsetId = $readsetId;
@@ -2594,7 +2552,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->readsetId;
   }
-
   public function setReferenceSequenceName($referenceSequenceName)
   {
     $this->referenceSequenceName = $referenceSequenceName;
@@ -2604,7 +2561,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->referenceSequenceName;
   }
-
   public function setTags($tags)
   {
     $this->tags = $tags;
@@ -2614,7 +2570,6 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->tags;
   }
-
   public function setTemplateLength($templateLength)
   {
     $this->templateLength = $templateLength;
@@ -2624,6 +2579,7 @@ class Google_Service_Genomics_Read extends Google_Model
   {
     return $this->templateLength;
   }
+
 }
 
 class Google_Service_Genomics_ReadGroup extends Google_Model
@@ -2652,7 +2608,6 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->date;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -2662,7 +2617,6 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->description;
   }
-
   public function setFlowOrder($flowOrder)
   {
     $this->flowOrder = $flowOrder;
@@ -2672,7 +2626,6 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->flowOrder;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -2682,7 +2635,6 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->id;
   }
-
   public function setKeySequence($keySequence)
   {
     $this->keySequence = $keySequence;
@@ -2692,7 +2644,6 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->keySequence;
   }
-
   public function setLibrary($library)
   {
     $this->library = $library;
@@ -2702,7 +2653,6 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->library;
   }
-
   public function setPlatformUnit($platformUnit)
   {
     $this->platformUnit = $platformUnit;
@@ -2712,7 +2662,6 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->platformUnit;
   }
-
   public function setPredictedInsertSize($predictedInsertSize)
   {
     $this->predictedInsertSize = $predictedInsertSize;
@@ -2722,7 +2671,6 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->predictedInsertSize;
   }
-
   public function setProcessingProgram($processingProgram)
   {
     $this->processingProgram = $processingProgram;
@@ -2732,7 +2680,6 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->processingProgram;
   }
-
   public function setSample($sample)
   {
     $this->sample = $sample;
@@ -2742,7 +2689,6 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->sample;
   }
-
   public function setSequencingCenterName($sequencingCenterName)
   {
     $this->sequencingCenterName = $sequencingCenterName;
@@ -2752,7 +2698,6 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->sequencingCenterName;
   }
-
   public function setSequencingTechnology($sequencingTechnology)
   {
     $this->sequencingTechnology = $sequencingTechnology;
@@ -2762,12 +2707,15 @@ class Google_Service_Genomics_ReadGroup extends Google_Model
   {
     return $this->sequencingTechnology;
   }
+
 }
 
 class Google_Service_Genomics_ReadTags extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Genomics_Readset extends Google_Collection
@@ -2790,7 +2738,6 @@ class Google_Service_Genomics_Readset extends Google_Collection
   {
     return $this->datasetId;
   }
-
   public function setFileData($fileData)
   {
     $this->fileData = $fileData;
@@ -2800,7 +2747,6 @@ class Google_Service_Genomics_Readset extends Google_Collection
   {
     return $this->fileData;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -2810,7 +2756,6 @@ class Google_Service_Genomics_Readset extends Google_Collection
   {
     return $this->id;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2820,6 +2765,7 @@ class Google_Service_Genomics_Readset extends Google_Collection
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_Genomics_ReferenceBound extends Google_Model
@@ -2838,7 +2784,6 @@ class Google_Service_Genomics_ReferenceBound extends Google_Model
   {
     return $this->referenceName;
   }
-
   public function setUpperBound($upperBound)
   {
     $this->upperBound = $upperBound;
@@ -2848,6 +2793,7 @@ class Google_Service_Genomics_ReferenceBound extends Google_Model
   {
     return $this->upperBound;
   }
+
 }
 
 class Google_Service_Genomics_ReferenceSequence extends Google_Model
@@ -2870,7 +2816,6 @@ class Google_Service_Genomics_ReferenceSequence extends Google_Model
   {
     return $this->assemblyId;
   }
-
   public function setLength($length)
   {
     $this->length = $length;
@@ -2880,7 +2825,6 @@ class Google_Service_Genomics_ReferenceSequence extends Google_Model
   {
     return $this->length;
   }
-
   public function setMd5Checksum($md5Checksum)
   {
     $this->md5Checksum = $md5Checksum;
@@ -2890,7 +2834,6 @@ class Google_Service_Genomics_ReferenceSequence extends Google_Model
   {
     return $this->md5Checksum;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2900,7 +2843,6 @@ class Google_Service_Genomics_ReferenceSequence extends Google_Model
   {
     return $this->name;
   }
-
   public function setSpecies($species)
   {
     $this->species = $species;
@@ -2910,7 +2852,6 @@ class Google_Service_Genomics_ReferenceSequence extends Google_Model
   {
     return $this->species;
   }
-
   public function setUri($uri)
   {
     $this->uri = $uri;
@@ -2920,6 +2861,7 @@ class Google_Service_Genomics_ReferenceSequence extends Google_Model
   {
     return $this->uri;
   }
+
 }
 
 class Google_Service_Genomics_SearchCallSetsRequest extends Google_Collection
@@ -2941,7 +2883,6 @@ class Google_Service_Genomics_SearchCallSetsRequest extends Google_Collection
   {
     return $this->name;
   }
-
   public function setPageSize($pageSize)
   {
     $this->pageSize = $pageSize;
@@ -2951,7 +2892,6 @@ class Google_Service_Genomics_SearchCallSetsRequest extends Google_Collection
   {
     return $this->pageSize;
   }
-
   public function setPageToken($pageToken)
   {
     $this->pageToken = $pageToken;
@@ -2961,7 +2901,6 @@ class Google_Service_Genomics_SearchCallSetsRequest extends Google_Collection
   {
     return $this->pageToken;
   }
-
   public function setVariantSetIds($variantSetIds)
   {
     $this->variantSetIds = $variantSetIds;
@@ -2971,6 +2910,7 @@ class Google_Service_Genomics_SearchCallSetsRequest extends Google_Collection
   {
     return $this->variantSetIds;
   }
+
 }
 
 class Google_Service_Genomics_SearchCallSetsResponse extends Google_Collection
@@ -2991,7 +2931,6 @@ class Google_Service_Genomics_SearchCallSetsResponse extends Google_Collection
   {
     return $this->callSets;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3001,6 +2940,7 @@ class Google_Service_Genomics_SearchCallSetsResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Genomics_SearchJobsRequest extends Google_Collection
@@ -3024,7 +2964,6 @@ class Google_Service_Genomics_SearchJobsRequest extends Google_Collection
   {
     return $this->createdAfter;
   }
-
   public function setCreatedBefore($createdBefore)
   {
     $this->createdBefore = $createdBefore;
@@ -3034,7 +2973,6 @@ class Google_Service_Genomics_SearchJobsRequest extends Google_Collection
   {
     return $this->createdBefore;
   }
-
   public function setMaxResults($maxResults)
   {
     $this->maxResults = $maxResults;
@@ -3044,7 +2982,6 @@ class Google_Service_Genomics_SearchJobsRequest extends Google_Collection
   {
     return $this->maxResults;
   }
-
   public function setPageToken($pageToken)
   {
     $this->pageToken = $pageToken;
@@ -3054,7 +2991,6 @@ class Google_Service_Genomics_SearchJobsRequest extends Google_Collection
   {
     return $this->pageToken;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -3064,7 +3000,6 @@ class Google_Service_Genomics_SearchJobsRequest extends Google_Collection
   {
     return $this->projectId;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -3074,6 +3009,7 @@ class Google_Service_Genomics_SearchJobsRequest extends Google_Collection
   {
     return $this->status;
   }
+
 }
 
 class Google_Service_Genomics_SearchJobsResponse extends Google_Collection
@@ -3094,7 +3030,6 @@ class Google_Service_Genomics_SearchJobsResponse extends Google_Collection
   {
     return $this->jobs;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3104,6 +3039,7 @@ class Google_Service_Genomics_SearchJobsResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Genomics_SearchReadsRequest extends Google_Collection
@@ -3127,7 +3063,6 @@ class Google_Service_Genomics_SearchReadsRequest extends Google_Collection
   {
     return $this->maxResults;
   }
-
   public function setPageToken($pageToken)
   {
     $this->pageToken = $pageToken;
@@ -3137,7 +3072,6 @@ class Google_Service_Genomics_SearchReadsRequest extends Google_Collection
   {
     return $this->pageToken;
   }
-
   public function setReadsetIds($readsetIds)
   {
     $this->readsetIds = $readsetIds;
@@ -3147,7 +3081,6 @@ class Google_Service_Genomics_SearchReadsRequest extends Google_Collection
   {
     return $this->readsetIds;
   }
-
   public function setSequenceEnd($sequenceEnd)
   {
     $this->sequenceEnd = $sequenceEnd;
@@ -3157,7 +3090,6 @@ class Google_Service_Genomics_SearchReadsRequest extends Google_Collection
   {
     return $this->sequenceEnd;
   }
-
   public function setSequenceName($sequenceName)
   {
     $this->sequenceName = $sequenceName;
@@ -3167,7 +3099,6 @@ class Google_Service_Genomics_SearchReadsRequest extends Google_Collection
   {
     return $this->sequenceName;
   }
-
   public function setSequenceStart($sequenceStart)
   {
     $this->sequenceStart = $sequenceStart;
@@ -3177,6 +3108,7 @@ class Google_Service_Genomics_SearchReadsRequest extends Google_Collection
   {
     return $this->sequenceStart;
   }
+
 }
 
 class Google_Service_Genomics_SearchReadsResponse extends Google_Collection
@@ -3197,7 +3129,6 @@ class Google_Service_Genomics_SearchReadsResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setReads($reads)
   {
     $this->reads = $reads;
@@ -3207,6 +3138,7 @@ class Google_Service_Genomics_SearchReadsResponse extends Google_Collection
   {
     return $this->reads;
   }
+
 }
 
 class Google_Service_Genomics_SearchReadsetsRequest extends Google_Collection
@@ -3228,7 +3160,6 @@ class Google_Service_Genomics_SearchReadsetsRequest extends Google_Collection
   {
     return $this->datasetIds;
   }
-
   public function setMaxResults($maxResults)
   {
     $this->maxResults = $maxResults;
@@ -3238,7 +3169,6 @@ class Google_Service_Genomics_SearchReadsetsRequest extends Google_Collection
   {
     return $this->maxResults;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3248,7 +3178,6 @@ class Google_Service_Genomics_SearchReadsetsRequest extends Google_Collection
   {
     return $this->name;
   }
-
   public function setPageToken($pageToken)
   {
     $this->pageToken = $pageToken;
@@ -3258,6 +3187,7 @@ class Google_Service_Genomics_SearchReadsetsRequest extends Google_Collection
   {
     return $this->pageToken;
   }
+
 }
 
 class Google_Service_Genomics_SearchReadsetsResponse extends Google_Collection
@@ -3278,7 +3208,6 @@ class Google_Service_Genomics_SearchReadsetsResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setReadsets($readsets)
   {
     $this->readsets = $readsets;
@@ -3288,6 +3217,7 @@ class Google_Service_Genomics_SearchReadsetsResponse extends Google_Collection
   {
     return $this->readsets;
   }
+
 }
 
 class Google_Service_Genomics_SearchVariantSetsRequest extends Google_Collection
@@ -3308,7 +3238,6 @@ class Google_Service_Genomics_SearchVariantSetsRequest extends Google_Collection
   {
     return $this->datasetIds;
   }
-
   public function setPageSize($pageSize)
   {
     $this->pageSize = $pageSize;
@@ -3318,7 +3247,6 @@ class Google_Service_Genomics_SearchVariantSetsRequest extends Google_Collection
   {
     return $this->pageSize;
   }
-
   public function setPageToken($pageToken)
   {
     $this->pageToken = $pageToken;
@@ -3328,6 +3256,7 @@ class Google_Service_Genomics_SearchVariantSetsRequest extends Google_Collection
   {
     return $this->pageToken;
   }
+
 }
 
 class Google_Service_Genomics_SearchVariantSetsResponse extends Google_Collection
@@ -3348,7 +3277,6 @@ class Google_Service_Genomics_SearchVariantSetsResponse extends Google_Collectio
   {
     return $this->nextPageToken;
   }
-
   public function setVariantSets($variantSets)
   {
     $this->variantSets = $variantSets;
@@ -3358,6 +3286,7 @@ class Google_Service_Genomics_SearchVariantSetsResponse extends Google_Collectio
   {
     return $this->variantSets;
   }
+
 }
 
 class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
@@ -3384,7 +3313,6 @@ class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
   {
     return $this->callSetIds;
   }
-
   public function setEnd($end)
   {
     $this->end = $end;
@@ -3394,7 +3322,6 @@ class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
   {
     return $this->end;
   }
-
   public function setMaxCalls($maxCalls)
   {
     $this->maxCalls = $maxCalls;
@@ -3404,7 +3331,6 @@ class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
   {
     return $this->maxCalls;
   }
-
   public function setPageSize($pageSize)
   {
     $this->pageSize = $pageSize;
@@ -3414,7 +3340,6 @@ class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
   {
     return $this->pageSize;
   }
-
   public function setPageToken($pageToken)
   {
     $this->pageToken = $pageToken;
@@ -3424,7 +3349,6 @@ class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
   {
     return $this->pageToken;
   }
-
   public function setReferenceName($referenceName)
   {
     $this->referenceName = $referenceName;
@@ -3434,7 +3358,6 @@ class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
   {
     return $this->referenceName;
   }
-
   public function setStart($start)
   {
     $this->start = $start;
@@ -3444,7 +3367,6 @@ class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
   {
     return $this->start;
   }
-
   public function setVariantName($variantName)
   {
     $this->variantName = $variantName;
@@ -3454,7 +3376,6 @@ class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
   {
     return $this->variantName;
   }
-
   public function setVariantSetIds($variantSetIds)
   {
     $this->variantSetIds = $variantSetIds;
@@ -3464,6 +3385,7 @@ class Google_Service_Genomics_SearchVariantsRequest extends Google_Collection
   {
     return $this->variantSetIds;
   }
+
 }
 
 class Google_Service_Genomics_SearchVariantsResponse extends Google_Collection
@@ -3484,7 +3406,6 @@ class Google_Service_Genomics_SearchVariantsResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setVariants($variants)
   {
     $this->variants = $variants;
@@ -3494,6 +3415,7 @@ class Google_Service_Genomics_SearchVariantsResponse extends Google_Collection
   {
     return $this->variants;
   }
+
 }
 
 class Google_Service_Genomics_Variant extends Google_Collection
@@ -3525,7 +3447,6 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->alternateBases;
   }
-
   public function setCalls($calls)
   {
     $this->calls = $calls;
@@ -3535,7 +3456,6 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->calls;
   }
-
   public function setCreated($created)
   {
     $this->created = $created;
@@ -3545,7 +3465,6 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->created;
   }
-
   public function setEnd($end)
   {
     $this->end = $end;
@@ -3555,7 +3474,6 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->end;
   }
-
   public function setFilter($filter)
   {
     $this->filter = $filter;
@@ -3565,7 +3483,6 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->filter;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3575,7 +3492,6 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->id;
   }
-
   public function setInfo($info)
   {
     $this->info = $info;
@@ -3585,7 +3501,6 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->info;
   }
-
   public function setNames($names)
   {
     $this->names = $names;
@@ -3595,7 +3510,6 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->names;
   }
-
   public function setQuality($quality)
   {
     $this->quality = $quality;
@@ -3605,7 +3519,6 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->quality;
   }
-
   public function setReferenceBases($referenceBases)
   {
     $this->referenceBases = $referenceBases;
@@ -3615,7 +3528,6 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->referenceBases;
   }
-
   public function setReferenceName($referenceName)
   {
     $this->referenceName = $referenceName;
@@ -3625,7 +3537,6 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->referenceName;
   }
-
   public function setStart($start)
   {
     $this->start = $start;
@@ -3635,7 +3546,6 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->start;
   }
-
   public function setVariantSetId($variantSetId)
   {
     $this->variantSetId = $variantSetId;
@@ -3645,12 +3555,15 @@ class Google_Service_Genomics_Variant extends Google_Collection
   {
     return $this->variantSetId;
   }
+
 }
 
 class Google_Service_Genomics_VariantInfo extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Genomics_VariantSet extends Google_Collection
@@ -3674,7 +3587,6 @@ class Google_Service_Genomics_VariantSet extends Google_Collection
   {
     return $this->datasetId;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3684,7 +3596,6 @@ class Google_Service_Genomics_VariantSet extends Google_Collection
   {
     return $this->id;
   }
-
   public function setMetadata($metadata)
   {
     $this->metadata = $metadata;
@@ -3694,7 +3605,6 @@ class Google_Service_Genomics_VariantSet extends Google_Collection
   {
     return $this->metadata;
   }
-
   public function setReferenceBounds($referenceBounds)
   {
     $this->referenceBounds = $referenceBounds;
@@ -3704,4 +3614,5 @@ class Google_Service_Genomics_VariantSet extends Google_Collection
   {
     return $this->referenceBounds;
   }
+
 }
