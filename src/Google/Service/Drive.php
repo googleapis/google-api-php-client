@@ -470,6 +470,10 @@ class Google_Service_Drive extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'acknowledgeAbuse' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'updateViewedDate' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -695,6 +699,10 @@ class Google_Service_Drive extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'acknowledgeAbuse' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
                 'updateViewedDate' => array(
                   'location' => 'query',
@@ -1716,6 +1724,8 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * The ID for the file in question.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool acknowledgeAbuse
+   * Whether the user is acknowledging the risk of downloading known malware or other abusive files.
    * @opt_param bool updateViewedDate
    * Whether to update the view date after successfully retrieving the file.
    * @opt_param string projection
@@ -1917,6 +1927,8 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @param Google_Channel $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool acknowledgeAbuse
+   * Whether the user is acknowledging the risk of downloading known malware or other abusive files.
    * @opt_param bool updateViewedDate
    * Whether to update the view date after successfully retrieving the file.
    * @opt_param string projection
@@ -2580,7 +2592,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->additionalRoleInfo;
   }
-
   public function setDomainSharingPolicy($domainSharingPolicy)
   {
     $this->domainSharingPolicy = $domainSharingPolicy;
@@ -2590,7 +2601,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->domainSharingPolicy;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -2600,7 +2610,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setExportFormats($exportFormats)
   {
     $this->exportFormats = $exportFormats;
@@ -2610,7 +2619,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->exportFormats;
   }
-
   public function setFeatures($features)
   {
     $this->features = $features;
@@ -2620,7 +2628,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->features;
   }
-
   public function setImportFormats($importFormats)
   {
     $this->importFormats = $importFormats;
@@ -2630,7 +2637,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->importFormats;
   }
-
   public function setIsCurrentAppInstalled($isCurrentAppInstalled)
   {
     $this->isCurrentAppInstalled = $isCurrentAppInstalled;
@@ -2640,7 +2646,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->isCurrentAppInstalled;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2650,7 +2655,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLanguageCode($languageCode)
   {
     $this->languageCode = $languageCode;
@@ -2660,7 +2664,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->languageCode;
   }
-
   public function setLargestChangeId($largestChangeId)
   {
     $this->largestChangeId = $largestChangeId;
@@ -2670,7 +2673,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->largestChangeId;
   }
-
   public function setMaxUploadSizes($maxUploadSizes)
   {
     $this->maxUploadSizes = $maxUploadSizes;
@@ -2680,7 +2682,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->maxUploadSizes;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2690,7 +2691,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->name;
   }
-
   public function setPermissionId($permissionId)
   {
     $this->permissionId = $permissionId;
@@ -2700,7 +2700,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->permissionId;
   }
-
   public function setQuotaBytesByService($quotaBytesByService)
   {
     $this->quotaBytesByService = $quotaBytesByService;
@@ -2710,7 +2709,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->quotaBytesByService;
   }
-
   public function setQuotaBytesTotal($quotaBytesTotal)
   {
     $this->quotaBytesTotal = $quotaBytesTotal;
@@ -2720,7 +2718,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->quotaBytesTotal;
   }
-
   public function setQuotaBytesUsed($quotaBytesUsed)
   {
     $this->quotaBytesUsed = $quotaBytesUsed;
@@ -2730,7 +2727,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->quotaBytesUsed;
   }
-
   public function setQuotaBytesUsedAggregate($quotaBytesUsedAggregate)
   {
     $this->quotaBytesUsedAggregate = $quotaBytesUsedAggregate;
@@ -2740,7 +2736,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->quotaBytesUsedAggregate;
   }
-
   public function setQuotaBytesUsedInTrash($quotaBytesUsedInTrash)
   {
     $this->quotaBytesUsedInTrash = $quotaBytesUsedInTrash;
@@ -2750,7 +2745,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->quotaBytesUsedInTrash;
   }
-
   public function setQuotaType($quotaType)
   {
     $this->quotaType = $quotaType;
@@ -2760,7 +2754,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->quotaType;
   }
-
   public function setRemainingChangeIds($remainingChangeIds)
   {
     $this->remainingChangeIds = $remainingChangeIds;
@@ -2770,7 +2763,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->remainingChangeIds;
   }
-
   public function setRootFolderId($rootFolderId)
   {
     $this->rootFolderId = $rootFolderId;
@@ -2780,7 +2772,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->rootFolderId;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -2790,7 +2781,6 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setUser(Google_Service_Drive_User $user)
   {
     $this->user = $user;
@@ -2800,6 +2790,7 @@ class Google_Service_Drive_About extends Google_Collection
   {
     return $this->user;
   }
+
 }
 
 class Google_Service_Drive_AboutAdditionalRoleInfo extends Google_Collection
@@ -2820,7 +2811,6 @@ class Google_Service_Drive_AboutAdditionalRoleInfo extends Google_Collection
   {
     return $this->roleSets;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -2830,6 +2820,7 @@ class Google_Service_Drive_AboutAdditionalRoleInfo extends Google_Collection
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Drive_AboutAdditionalRoleInfoRoleSets extends Google_Collection
@@ -2849,7 +2840,6 @@ class Google_Service_Drive_AboutAdditionalRoleInfoRoleSets extends Google_Collec
   {
     return $this->additionalRoles;
   }
-
   public function setPrimaryRole($primaryRole)
   {
     $this->primaryRole = $primaryRole;
@@ -2859,6 +2849,7 @@ class Google_Service_Drive_AboutAdditionalRoleInfoRoleSets extends Google_Collec
   {
     return $this->primaryRole;
   }
+
 }
 
 class Google_Service_Drive_AboutExportFormats extends Google_Collection
@@ -2878,7 +2869,6 @@ class Google_Service_Drive_AboutExportFormats extends Google_Collection
   {
     return $this->source;
   }
-
   public function setTargets($targets)
   {
     $this->targets = $targets;
@@ -2888,6 +2878,7 @@ class Google_Service_Drive_AboutExportFormats extends Google_Collection
   {
     return $this->targets;
   }
+
 }
 
 class Google_Service_Drive_AboutFeatures extends Google_Model
@@ -2906,7 +2897,6 @@ class Google_Service_Drive_AboutFeatures extends Google_Model
   {
     return $this->featureName;
   }
-
   public function setFeatureRate($featureRate)
   {
     $this->featureRate = $featureRate;
@@ -2916,6 +2906,7 @@ class Google_Service_Drive_AboutFeatures extends Google_Model
   {
     return $this->featureRate;
   }
+
 }
 
 class Google_Service_Drive_AboutImportFormats extends Google_Collection
@@ -2935,7 +2926,6 @@ class Google_Service_Drive_AboutImportFormats extends Google_Collection
   {
     return $this->source;
   }
-
   public function setTargets($targets)
   {
     $this->targets = $targets;
@@ -2945,6 +2935,7 @@ class Google_Service_Drive_AboutImportFormats extends Google_Collection
   {
     return $this->targets;
   }
+
 }
 
 class Google_Service_Drive_AboutMaxUploadSizes extends Google_Model
@@ -2963,7 +2954,6 @@ class Google_Service_Drive_AboutMaxUploadSizes extends Google_Model
   {
     return $this->size;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -2973,6 +2963,7 @@ class Google_Service_Drive_AboutMaxUploadSizes extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Drive_AboutQuotaBytesByService extends Google_Model
@@ -2991,7 +2982,6 @@ class Google_Service_Drive_AboutQuotaBytesByService extends Google_Model
   {
     return $this->bytesUsed;
   }
-
   public function setServiceName($serviceName)
   {
     $this->serviceName = $serviceName;
@@ -3001,6 +2991,7 @@ class Google_Service_Drive_AboutQuotaBytesByService extends Google_Model
   {
     return $this->serviceName;
   }
+
 }
 
 class Google_Service_Drive_App extends Google_Collection
@@ -3043,7 +3034,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->authorized;
   }
-
   public function setCreateInFolderTemplate($createInFolderTemplate)
   {
     $this->createInFolderTemplate = $createInFolderTemplate;
@@ -3053,7 +3043,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->createInFolderTemplate;
   }
-
   public function setCreateUrl($createUrl)
   {
     $this->createUrl = $createUrl;
@@ -3063,7 +3052,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->createUrl;
   }
-
   public function setHasDriveWideScope($hasDriveWideScope)
   {
     $this->hasDriveWideScope = $hasDriveWideScope;
@@ -3073,7 +3061,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->hasDriveWideScope;
   }
-
   public function setIcons($icons)
   {
     $this->icons = $icons;
@@ -3083,7 +3070,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->icons;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3093,7 +3079,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->id;
   }
-
   public function setInstalled($installed)
   {
     $this->installed = $installed;
@@ -3103,7 +3088,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->installed;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3113,7 +3097,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLongDescription($longDescription)
   {
     $this->longDescription = $longDescription;
@@ -3123,7 +3106,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->longDescription;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3133,7 +3115,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->name;
   }
-
   public function setObjectType($objectType)
   {
     $this->objectType = $objectType;
@@ -3143,7 +3124,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->objectType;
   }
-
   public function setOpenUrlTemplate($openUrlTemplate)
   {
     $this->openUrlTemplate = $openUrlTemplate;
@@ -3153,7 +3133,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->openUrlTemplate;
   }
-
   public function setPrimaryFileExtensions($primaryFileExtensions)
   {
     $this->primaryFileExtensions = $primaryFileExtensions;
@@ -3163,7 +3142,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->primaryFileExtensions;
   }
-
   public function setPrimaryMimeTypes($primaryMimeTypes)
   {
     $this->primaryMimeTypes = $primaryMimeTypes;
@@ -3173,7 +3151,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->primaryMimeTypes;
   }
-
   public function setProductId($productId)
   {
     $this->productId = $productId;
@@ -3183,7 +3160,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->productId;
   }
-
   public function setProductUrl($productUrl)
   {
     $this->productUrl = $productUrl;
@@ -3193,7 +3169,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->productUrl;
   }
-
   public function setSecondaryFileExtensions($secondaryFileExtensions)
   {
     $this->secondaryFileExtensions = $secondaryFileExtensions;
@@ -3203,7 +3178,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->secondaryFileExtensions;
   }
-
   public function setSecondaryMimeTypes($secondaryMimeTypes)
   {
     $this->secondaryMimeTypes = $secondaryMimeTypes;
@@ -3213,7 +3187,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->secondaryMimeTypes;
   }
-
   public function setShortDescription($shortDescription)
   {
     $this->shortDescription = $shortDescription;
@@ -3223,7 +3196,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->shortDescription;
   }
-
   public function setSupportsCreate($supportsCreate)
   {
     $this->supportsCreate = $supportsCreate;
@@ -3233,7 +3205,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->supportsCreate;
   }
-
   public function setSupportsImport($supportsImport)
   {
     $this->supportsImport = $supportsImport;
@@ -3243,7 +3214,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->supportsImport;
   }
-
   public function setSupportsMultiOpen($supportsMultiOpen)
   {
     $this->supportsMultiOpen = $supportsMultiOpen;
@@ -3253,7 +3223,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->supportsMultiOpen;
   }
-
   public function setSupportsOfflineCreate($supportsOfflineCreate)
   {
     $this->supportsOfflineCreate = $supportsOfflineCreate;
@@ -3263,7 +3232,6 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->supportsOfflineCreate;
   }
-
   public function setUseByDefault($useByDefault)
   {
     $this->useByDefault = $useByDefault;
@@ -3273,6 +3241,7 @@ class Google_Service_Drive_App extends Google_Collection
   {
     return $this->useByDefault;
   }
+
 }
 
 class Google_Service_Drive_AppIcons extends Google_Model
@@ -3292,7 +3261,6 @@ class Google_Service_Drive_AppIcons extends Google_Model
   {
     return $this->category;
   }
-
   public function setIconUrl($iconUrl)
   {
     $this->iconUrl = $iconUrl;
@@ -3302,7 +3270,6 @@ class Google_Service_Drive_AppIcons extends Google_Model
   {
     return $this->iconUrl;
   }
-
   public function setSize($size)
   {
     $this->size = $size;
@@ -3312,6 +3279,7 @@ class Google_Service_Drive_AppIcons extends Google_Model
   {
     return $this->size;
   }
+
 }
 
 class Google_Service_Drive_AppList extends Google_Collection
@@ -3335,7 +3303,6 @@ class Google_Service_Drive_AppList extends Google_Collection
   {
     return $this->defaultAppIds;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -3345,7 +3312,6 @@ class Google_Service_Drive_AppList extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -3355,7 +3321,6 @@ class Google_Service_Drive_AppList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3365,7 +3330,6 @@ class Google_Service_Drive_AppList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3375,6 +3339,7 @@ class Google_Service_Drive_AppList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_Change extends Google_Model
@@ -3399,7 +3364,6 @@ class Google_Service_Drive_Change extends Google_Model
   {
     return $this->deleted;
   }
-
   public function setFile(Google_Service_Drive_DriveFile $file)
   {
     $this->file = $file;
@@ -3409,7 +3373,6 @@ class Google_Service_Drive_Change extends Google_Model
   {
     return $this->file;
   }
-
   public function setFileId($fileId)
   {
     $this->fileId = $fileId;
@@ -3419,7 +3382,6 @@ class Google_Service_Drive_Change extends Google_Model
   {
     return $this->fileId;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3429,7 +3391,6 @@ class Google_Service_Drive_Change extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3439,7 +3400,6 @@ class Google_Service_Drive_Change extends Google_Model
   {
     return $this->kind;
   }
-
   public function setModificationDate($modificationDate)
   {
     $this->modificationDate = $modificationDate;
@@ -3449,7 +3409,6 @@ class Google_Service_Drive_Change extends Google_Model
   {
     return $this->modificationDate;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3459,6 +3418,7 @@ class Google_Service_Drive_Change extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_ChangeList extends Google_Collection
@@ -3484,7 +3444,6 @@ class Google_Service_Drive_ChangeList extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -3494,7 +3453,6 @@ class Google_Service_Drive_ChangeList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3504,7 +3462,6 @@ class Google_Service_Drive_ChangeList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLargestChangeId($largestChangeId)
   {
     $this->largestChangeId = $largestChangeId;
@@ -3514,7 +3471,6 @@ class Google_Service_Drive_ChangeList extends Google_Collection
   {
     return $this->largestChangeId;
   }
-
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -3524,7 +3480,6 @@ class Google_Service_Drive_ChangeList extends Google_Collection
   {
     return $this->nextLink;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3534,7 +3489,6 @@ class Google_Service_Drive_ChangeList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3544,6 +3498,7 @@ class Google_Service_Drive_ChangeList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_Channel extends Google_Model
@@ -3570,7 +3525,6 @@ class Google_Service_Drive_Channel extends Google_Model
   {
     return $this->address;
   }
-
   public function setExpiration($expiration)
   {
     $this->expiration = $expiration;
@@ -3580,7 +3534,6 @@ class Google_Service_Drive_Channel extends Google_Model
   {
     return $this->expiration;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3590,7 +3543,6 @@ class Google_Service_Drive_Channel extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3600,7 +3552,6 @@ class Google_Service_Drive_Channel extends Google_Model
   {
     return $this->kind;
   }
-
   public function setParams($params)
   {
     $this->params = $params;
@@ -3610,7 +3561,6 @@ class Google_Service_Drive_Channel extends Google_Model
   {
     return $this->params;
   }
-
   public function setPayload($payload)
   {
     $this->payload = $payload;
@@ -3620,7 +3570,6 @@ class Google_Service_Drive_Channel extends Google_Model
   {
     return $this->payload;
   }
-
   public function setResourceId($resourceId)
   {
     $this->resourceId = $resourceId;
@@ -3630,7 +3579,6 @@ class Google_Service_Drive_Channel extends Google_Model
   {
     return $this->resourceId;
   }
-
   public function setResourceUri($resourceUri)
   {
     $this->resourceUri = $resourceUri;
@@ -3640,7 +3588,6 @@ class Google_Service_Drive_Channel extends Google_Model
   {
     return $this->resourceUri;
   }
-
   public function setToken($token)
   {
     $this->token = $token;
@@ -3650,7 +3597,6 @@ class Google_Service_Drive_Channel extends Google_Model
   {
     return $this->token;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -3660,12 +3606,15 @@ class Google_Service_Drive_Channel extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Drive_ChannelParams extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Drive_ChildList extends Google_Collection
@@ -3690,7 +3639,6 @@ class Google_Service_Drive_ChildList extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -3700,7 +3648,6 @@ class Google_Service_Drive_ChildList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3710,7 +3657,6 @@ class Google_Service_Drive_ChildList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -3720,7 +3666,6 @@ class Google_Service_Drive_ChildList extends Google_Collection
   {
     return $this->nextLink;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3730,7 +3675,6 @@ class Google_Service_Drive_ChildList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3740,6 +3684,7 @@ class Google_Service_Drive_ChildList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_ChildReference extends Google_Model
@@ -3760,7 +3705,6 @@ class Google_Service_Drive_ChildReference extends Google_Model
   {
     return $this->childLink;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3770,7 +3714,6 @@ class Google_Service_Drive_ChildReference extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3780,7 +3723,6 @@ class Google_Service_Drive_ChildReference extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3790,6 +3732,7 @@ class Google_Service_Drive_ChildReference extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_Comment extends Google_Collection
@@ -3825,7 +3768,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->anchor;
   }
-
   public function setAuthor(Google_Service_Drive_User $author)
   {
     $this->author = $author;
@@ -3835,7 +3777,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->author;
   }
-
   public function setCommentId($commentId)
   {
     $this->commentId = $commentId;
@@ -3845,7 +3786,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->commentId;
   }
-
   public function setContent($content)
   {
     $this->content = $content;
@@ -3855,7 +3795,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->content;
   }
-
   public function setContext(Google_Service_Drive_CommentContext $context)
   {
     $this->context = $context;
@@ -3865,7 +3804,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->context;
   }
-
   public function setCreatedDate($createdDate)
   {
     $this->createdDate = $createdDate;
@@ -3875,7 +3813,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->createdDate;
   }
-
   public function setDeleted($deleted)
   {
     $this->deleted = $deleted;
@@ -3885,7 +3822,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->deleted;
   }
-
   public function setFileId($fileId)
   {
     $this->fileId = $fileId;
@@ -3895,7 +3831,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->fileId;
   }
-
   public function setFileTitle($fileTitle)
   {
     $this->fileTitle = $fileTitle;
@@ -3905,7 +3840,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->fileTitle;
   }
-
   public function setHtmlContent($htmlContent)
   {
     $this->htmlContent = $htmlContent;
@@ -3915,7 +3849,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->htmlContent;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3925,7 +3858,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setModifiedDate($modifiedDate)
   {
     $this->modifiedDate = $modifiedDate;
@@ -3935,7 +3867,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->modifiedDate;
   }
-
   public function setReplies($replies)
   {
     $this->replies = $replies;
@@ -3945,7 +3876,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->replies;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3955,7 +3885,6 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -3965,6 +3894,7 @@ class Google_Service_Drive_Comment extends Google_Collection
   {
     return $this->status;
   }
+
 }
 
 class Google_Service_Drive_CommentContext extends Google_Model
@@ -3983,7 +3913,6 @@ class Google_Service_Drive_CommentContext extends Google_Model
   {
     return $this->type;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -3993,6 +3922,7 @@ class Google_Service_Drive_CommentContext extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Drive_CommentList extends Google_Collection
@@ -4016,7 +3946,6 @@ class Google_Service_Drive_CommentList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4026,7 +3955,6 @@ class Google_Service_Drive_CommentList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -4036,7 +3964,6 @@ class Google_Service_Drive_CommentList extends Google_Collection
   {
     return $this->nextLink;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -4046,7 +3973,6 @@ class Google_Service_Drive_CommentList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -4056,6 +3982,7 @@ class Google_Service_Drive_CommentList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_CommentReply extends Google_Model
@@ -4082,7 +4009,6 @@ class Google_Service_Drive_CommentReply extends Google_Model
   {
     return $this->author;
   }
-
   public function setContent($content)
   {
     $this->content = $content;
@@ -4092,7 +4018,6 @@ class Google_Service_Drive_CommentReply extends Google_Model
   {
     return $this->content;
   }
-
   public function setCreatedDate($createdDate)
   {
     $this->createdDate = $createdDate;
@@ -4102,7 +4027,6 @@ class Google_Service_Drive_CommentReply extends Google_Model
   {
     return $this->createdDate;
   }
-
   public function setDeleted($deleted)
   {
     $this->deleted = $deleted;
@@ -4112,7 +4036,6 @@ class Google_Service_Drive_CommentReply extends Google_Model
   {
     return $this->deleted;
   }
-
   public function setHtmlContent($htmlContent)
   {
     $this->htmlContent = $htmlContent;
@@ -4122,7 +4045,6 @@ class Google_Service_Drive_CommentReply extends Google_Model
   {
     return $this->htmlContent;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4132,7 +4054,6 @@ class Google_Service_Drive_CommentReply extends Google_Model
   {
     return $this->kind;
   }
-
   public function setModifiedDate($modifiedDate)
   {
     $this->modifiedDate = $modifiedDate;
@@ -4142,7 +4063,6 @@ class Google_Service_Drive_CommentReply extends Google_Model
   {
     return $this->modifiedDate;
   }
-
   public function setReplyId($replyId)
   {
     $this->replyId = $replyId;
@@ -4152,7 +4072,6 @@ class Google_Service_Drive_CommentReply extends Google_Model
   {
     return $this->replyId;
   }
-
   public function setVerb($verb)
   {
     $this->verb = $verb;
@@ -4162,6 +4081,7 @@ class Google_Service_Drive_CommentReply extends Google_Model
   {
     return $this->verb;
   }
+
 }
 
 class Google_Service_Drive_CommentReplyList extends Google_Collection
@@ -4185,7 +4105,6 @@ class Google_Service_Drive_CommentReplyList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4195,7 +4114,6 @@ class Google_Service_Drive_CommentReplyList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -4205,7 +4123,6 @@ class Google_Service_Drive_CommentReplyList extends Google_Collection
   {
     return $this->nextLink;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -4215,7 +4132,6 @@ class Google_Service_Drive_CommentReplyList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -4225,6 +4141,7 @@ class Google_Service_Drive_CommentReplyList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_DriveFile extends Google_Collection
@@ -4304,7 +4221,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->alternateLink;
   }
-
   public function setAppDataContents($appDataContents)
   {
     $this->appDataContents = $appDataContents;
@@ -4314,7 +4230,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->appDataContents;
   }
-
   public function setCopyable($copyable)
   {
     $this->copyable = $copyable;
@@ -4324,7 +4239,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->copyable;
   }
-
   public function setCreatedDate($createdDate)
   {
     $this->createdDate = $createdDate;
@@ -4334,7 +4248,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->createdDate;
   }
-
   public function setDefaultOpenWithLink($defaultOpenWithLink)
   {
     $this->defaultOpenWithLink = $defaultOpenWithLink;
@@ -4344,7 +4257,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->defaultOpenWithLink;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -4354,7 +4266,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDownloadUrl($downloadUrl)
   {
     $this->downloadUrl = $downloadUrl;
@@ -4364,7 +4275,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->downloadUrl;
   }
-
   public function setEditable($editable)
   {
     $this->editable = $editable;
@@ -4374,7 +4284,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->editable;
   }
-
   public function setEmbedLink($embedLink)
   {
     $this->embedLink = $embedLink;
@@ -4384,7 +4293,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->embedLink;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -4394,7 +4302,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setExplicitlyTrashed($explicitlyTrashed)
   {
     $this->explicitlyTrashed = $explicitlyTrashed;
@@ -4404,7 +4311,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->explicitlyTrashed;
   }
-
   public function setExportLinks($exportLinks)
   {
     $this->exportLinks = $exportLinks;
@@ -4414,7 +4320,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->exportLinks;
   }
-
   public function setFileExtension($fileExtension)
   {
     $this->fileExtension = $fileExtension;
@@ -4424,7 +4329,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->fileExtension;
   }
-
   public function setFileSize($fileSize)
   {
     $this->fileSize = $fileSize;
@@ -4434,7 +4338,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->fileSize;
   }
-
   public function setHeadRevisionId($headRevisionId)
   {
     $this->headRevisionId = $headRevisionId;
@@ -4444,7 +4347,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->headRevisionId;
   }
-
   public function setIconLink($iconLink)
   {
     $this->iconLink = $iconLink;
@@ -4454,7 +4356,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->iconLink;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -4464,7 +4365,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->id;
   }
-
   public function setImageMediaMetadata(Google_Service_Drive_DriveFileImageMediaMetadata $imageMediaMetadata)
   {
     $this->imageMediaMetadata = $imageMediaMetadata;
@@ -4474,7 +4374,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->imageMediaMetadata;
   }
-
   public function setIndexableText(Google_Service_Drive_DriveFileIndexableText $indexableText)
   {
     $this->indexableText = $indexableText;
@@ -4484,7 +4383,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->indexableText;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4494,7 +4392,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLabels(Google_Service_Drive_DriveFileLabels $labels)
   {
     $this->labels = $labels;
@@ -4504,7 +4401,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->labels;
   }
-
   public function setLastModifyingUser(Google_Service_Drive_User $lastModifyingUser)
   {
     $this->lastModifyingUser = $lastModifyingUser;
@@ -4514,7 +4410,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->lastModifyingUser;
   }
-
   public function setLastModifyingUserName($lastModifyingUserName)
   {
     $this->lastModifyingUserName = $lastModifyingUserName;
@@ -4524,7 +4419,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->lastModifyingUserName;
   }
-
   public function setLastViewedByMeDate($lastViewedByMeDate)
   {
     $this->lastViewedByMeDate = $lastViewedByMeDate;
@@ -4534,7 +4428,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->lastViewedByMeDate;
   }
-
   public function setMarkedViewedByMeDate($markedViewedByMeDate)
   {
     $this->markedViewedByMeDate = $markedViewedByMeDate;
@@ -4544,7 +4437,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->markedViewedByMeDate;
   }
-
   public function setMd5Checksum($md5Checksum)
   {
     $this->md5Checksum = $md5Checksum;
@@ -4554,7 +4446,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->md5Checksum;
   }
-
   public function setMimeType($mimeType)
   {
     $this->mimeType = $mimeType;
@@ -4564,7 +4455,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->mimeType;
   }
-
   public function setModifiedByMeDate($modifiedByMeDate)
   {
     $this->modifiedByMeDate = $modifiedByMeDate;
@@ -4574,7 +4464,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->modifiedByMeDate;
   }
-
   public function setModifiedDate($modifiedDate)
   {
     $this->modifiedDate = $modifiedDate;
@@ -4584,7 +4473,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->modifiedDate;
   }
-
   public function setOpenWithLinks($openWithLinks)
   {
     $this->openWithLinks = $openWithLinks;
@@ -4594,7 +4482,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->openWithLinks;
   }
-
   public function setOriginalFilename($originalFilename)
   {
     $this->originalFilename = $originalFilename;
@@ -4604,7 +4491,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->originalFilename;
   }
-
   public function setOwnerNames($ownerNames)
   {
     $this->ownerNames = $ownerNames;
@@ -4614,7 +4500,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->ownerNames;
   }
-
   public function setOwners($owners)
   {
     $this->owners = $owners;
@@ -4624,7 +4509,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->owners;
   }
-
   public function setParents($parents)
   {
     $this->parents = $parents;
@@ -4634,7 +4518,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->parents;
   }
-
   public function setPermissions($permissions)
   {
     $this->permissions = $permissions;
@@ -4644,7 +4527,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->permissions;
   }
-
   public function setProperties($properties)
   {
     $this->properties = $properties;
@@ -4654,7 +4536,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->properties;
   }
-
   public function setQuotaBytesUsed($quotaBytesUsed)
   {
     $this->quotaBytesUsed = $quotaBytesUsed;
@@ -4664,7 +4545,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->quotaBytesUsed;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -4674,7 +4554,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setShared($shared)
   {
     $this->shared = $shared;
@@ -4684,7 +4563,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->shared;
   }
-
   public function setSharedWithMeDate($sharedWithMeDate)
   {
     $this->sharedWithMeDate = $sharedWithMeDate;
@@ -4694,7 +4572,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->sharedWithMeDate;
   }
-
   public function setSharingUser(Google_Service_Drive_User $sharingUser)
   {
     $this->sharingUser = $sharingUser;
@@ -4704,7 +4581,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->sharingUser;
   }
-
   public function setThumbnail(Google_Service_Drive_DriveFileThumbnail $thumbnail)
   {
     $this->thumbnail = $thumbnail;
@@ -4714,7 +4590,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->thumbnail;
   }
-
   public function setThumbnailLink($thumbnailLink)
   {
     $this->thumbnailLink = $thumbnailLink;
@@ -4724,7 +4599,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->thumbnailLink;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -4734,7 +4608,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->title;
   }
-
   public function setUserPermission(Google_Service_Drive_Permission $userPermission)
   {
     $this->userPermission = $userPermission;
@@ -4744,7 +4617,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->userPermission;
   }
-
   public function setVersion($version)
   {
     $this->version = $version;
@@ -4754,7 +4626,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->version;
   }
-
   public function setVideoMediaMetadata(Google_Service_Drive_DriveFileVideoMediaMetadata $videoMediaMetadata)
   {
     $this->videoMediaMetadata = $videoMediaMetadata;
@@ -4764,7 +4635,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->videoMediaMetadata;
   }
-
   public function setWebContentLink($webContentLink)
   {
     $this->webContentLink = $webContentLink;
@@ -4774,7 +4644,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->webContentLink;
   }
-
   public function setWebViewLink($webViewLink)
   {
     $this->webViewLink = $webViewLink;
@@ -4784,7 +4653,6 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->webViewLink;
   }
-
   public function setWritersCanShare($writersCanShare)
   {
     $this->writersCanShare = $writersCanShare;
@@ -4794,12 +4662,15 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->writersCanShare;
   }
+
 }
 
 class Google_Service_Drive_DriveFileExportLinks extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
@@ -4838,7 +4709,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->aperture;
   }
-
   public function setCameraMake($cameraMake)
   {
     $this->cameraMake = $cameraMake;
@@ -4848,7 +4718,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->cameraMake;
   }
-
   public function setCameraModel($cameraModel)
   {
     $this->cameraModel = $cameraModel;
@@ -4858,7 +4727,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->cameraModel;
   }
-
   public function setColorSpace($colorSpace)
   {
     $this->colorSpace = $colorSpace;
@@ -4868,7 +4736,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->colorSpace;
   }
-
   public function setDate($date)
   {
     $this->date = $date;
@@ -4878,7 +4745,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->date;
   }
-
   public function setExposureBias($exposureBias)
   {
     $this->exposureBias = $exposureBias;
@@ -4888,7 +4754,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->exposureBias;
   }
-
   public function setExposureMode($exposureMode)
   {
     $this->exposureMode = $exposureMode;
@@ -4898,7 +4763,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->exposureMode;
   }
-
   public function setExposureTime($exposureTime)
   {
     $this->exposureTime = $exposureTime;
@@ -4908,7 +4772,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->exposureTime;
   }
-
   public function setFlashUsed($flashUsed)
   {
     $this->flashUsed = $flashUsed;
@@ -4918,7 +4781,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->flashUsed;
   }
-
   public function setFocalLength($focalLength)
   {
     $this->focalLength = $focalLength;
@@ -4928,7 +4790,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->focalLength;
   }
-
   public function setHeight($height)
   {
     $this->height = $height;
@@ -4938,7 +4799,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->height;
   }
-
   public function setIsoSpeed($isoSpeed)
   {
     $this->isoSpeed = $isoSpeed;
@@ -4948,7 +4808,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->isoSpeed;
   }
-
   public function setLens($lens)
   {
     $this->lens = $lens;
@@ -4958,7 +4817,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->lens;
   }
-
   public function setLocation(Google_Service_Drive_DriveFileImageMediaMetadataLocation $location)
   {
     $this->location = $location;
@@ -4968,7 +4826,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->location;
   }
-
   public function setMaxApertureValue($maxApertureValue)
   {
     $this->maxApertureValue = $maxApertureValue;
@@ -4978,7 +4835,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->maxApertureValue;
   }
-
   public function setMeteringMode($meteringMode)
   {
     $this->meteringMode = $meteringMode;
@@ -4988,7 +4844,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->meteringMode;
   }
-
   public function setRotation($rotation)
   {
     $this->rotation = $rotation;
@@ -4998,7 +4853,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->rotation;
   }
-
   public function setSensor($sensor)
   {
     $this->sensor = $sensor;
@@ -5008,7 +4862,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->sensor;
   }
-
   public function setSubjectDistance($subjectDistance)
   {
     $this->subjectDistance = $subjectDistance;
@@ -5018,7 +4871,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->subjectDistance;
   }
-
   public function setWhiteBalance($whiteBalance)
   {
     $this->whiteBalance = $whiteBalance;
@@ -5028,7 +4880,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->whiteBalance;
   }
-
   public function setWidth($width)
   {
     $this->width = $width;
@@ -5038,6 +4889,7 @@ class Google_Service_Drive_DriveFileImageMediaMetadata extends Google_Model
   {
     return $this->width;
   }
+
 }
 
 class Google_Service_Drive_DriveFileImageMediaMetadataLocation extends Google_Model
@@ -5057,7 +4909,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadataLocation extends Google_Mo
   {
     return $this->altitude;
   }
-
   public function setLatitude($latitude)
   {
     $this->latitude = $latitude;
@@ -5067,7 +4918,6 @@ class Google_Service_Drive_DriveFileImageMediaMetadataLocation extends Google_Mo
   {
     return $this->latitude;
   }
-
   public function setLongitude($longitude)
   {
     $this->longitude = $longitude;
@@ -5077,6 +4927,7 @@ class Google_Service_Drive_DriveFileImageMediaMetadataLocation extends Google_Mo
   {
     return $this->longitude;
   }
+
 }
 
 class Google_Service_Drive_DriveFileIndexableText extends Google_Model
@@ -5094,6 +4945,7 @@ class Google_Service_Drive_DriveFileIndexableText extends Google_Model
   {
     return $this->text;
   }
+
 }
 
 class Google_Service_Drive_DriveFileLabels extends Google_Model
@@ -5115,7 +4967,6 @@ class Google_Service_Drive_DriveFileLabels extends Google_Model
   {
     return $this->hidden;
   }
-
   public function setRestricted($restricted)
   {
     $this->restricted = $restricted;
@@ -5125,7 +4976,6 @@ class Google_Service_Drive_DriveFileLabels extends Google_Model
   {
     return $this->restricted;
   }
-
   public function setStarred($starred)
   {
     $this->starred = $starred;
@@ -5135,7 +4985,6 @@ class Google_Service_Drive_DriveFileLabels extends Google_Model
   {
     return $this->starred;
   }
-
   public function setTrashed($trashed)
   {
     $this->trashed = $trashed;
@@ -5145,7 +4994,6 @@ class Google_Service_Drive_DriveFileLabels extends Google_Model
   {
     return $this->trashed;
   }
-
   public function setViewed($viewed)
   {
     $this->viewed = $viewed;
@@ -5155,12 +5003,15 @@ class Google_Service_Drive_DriveFileLabels extends Google_Model
   {
     return $this->viewed;
   }
+
 }
 
 class Google_Service_Drive_DriveFileOpenWithLinks extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Drive_DriveFileThumbnail extends Google_Model
@@ -5179,7 +5030,6 @@ class Google_Service_Drive_DriveFileThumbnail extends Google_Model
   {
     return $this->image;
   }
-
   public function setMimeType($mimeType)
   {
     $this->mimeType = $mimeType;
@@ -5189,6 +5039,7 @@ class Google_Service_Drive_DriveFileThumbnail extends Google_Model
   {
     return $this->mimeType;
   }
+
 }
 
 class Google_Service_Drive_DriveFileVideoMediaMetadata extends Google_Model
@@ -5208,7 +5059,6 @@ class Google_Service_Drive_DriveFileVideoMediaMetadata extends Google_Model
   {
     return $this->durationMillis;
   }
-
   public function setHeight($height)
   {
     $this->height = $height;
@@ -5218,7 +5068,6 @@ class Google_Service_Drive_DriveFileVideoMediaMetadata extends Google_Model
   {
     return $this->height;
   }
-
   public function setWidth($width)
   {
     $this->width = $width;
@@ -5228,6 +5077,7 @@ class Google_Service_Drive_DriveFileVideoMediaMetadata extends Google_Model
   {
     return $this->width;
   }
+
 }
 
 class Google_Service_Drive_FileList extends Google_Collection
@@ -5252,7 +5102,6 @@ class Google_Service_Drive_FileList extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -5262,7 +5111,6 @@ class Google_Service_Drive_FileList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5272,7 +5120,6 @@ class Google_Service_Drive_FileList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextLink($nextLink)
   {
     $this->nextLink = $nextLink;
@@ -5282,7 +5129,6 @@ class Google_Service_Drive_FileList extends Google_Collection
   {
     return $this->nextLink;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -5292,7 +5138,6 @@ class Google_Service_Drive_FileList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5302,6 +5147,7 @@ class Google_Service_Drive_FileList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_ParentList extends Google_Collection
@@ -5324,7 +5170,6 @@ class Google_Service_Drive_ParentList extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -5334,7 +5179,6 @@ class Google_Service_Drive_ParentList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5344,7 +5188,6 @@ class Google_Service_Drive_ParentList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5354,6 +5197,7 @@ class Google_Service_Drive_ParentList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_ParentReference extends Google_Model
@@ -5375,7 +5219,6 @@ class Google_Service_Drive_ParentReference extends Google_Model
   {
     return $this->id;
   }
-
   public function setIsRoot($isRoot)
   {
     $this->isRoot = $isRoot;
@@ -5385,7 +5228,6 @@ class Google_Service_Drive_ParentReference extends Google_Model
   {
     return $this->isRoot;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5395,7 +5237,6 @@ class Google_Service_Drive_ParentReference extends Google_Model
   {
     return $this->kind;
   }
-
   public function setParentLink($parentLink)
   {
     $this->parentLink = $parentLink;
@@ -5405,7 +5246,6 @@ class Google_Service_Drive_ParentReference extends Google_Model
   {
     return $this->parentLink;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5415,6 +5255,7 @@ class Google_Service_Drive_ParentReference extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_Permission extends Google_Collection
@@ -5446,7 +5287,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->additionalRoles;
   }
-
   public function setAuthKey($authKey)
   {
     $this->authKey = $authKey;
@@ -5456,7 +5296,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->authKey;
   }
-
   public function setDomain($domain)
   {
     $this->domain = $domain;
@@ -5466,7 +5305,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->domain;
   }
-
   public function setEmailAddress($emailAddress)
   {
     $this->emailAddress = $emailAddress;
@@ -5476,7 +5314,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->emailAddress;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -5486,7 +5323,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -5496,7 +5332,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5506,7 +5341,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -5516,7 +5350,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->name;
   }
-
   public function setPhotoLink($photoLink)
   {
     $this->photoLink = $photoLink;
@@ -5526,7 +5359,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->photoLink;
   }
-
   public function setRole($role)
   {
     $this->role = $role;
@@ -5536,7 +5368,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->role;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5546,7 +5377,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -5556,7 +5386,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->type;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -5566,7 +5395,6 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->value;
   }
-
   public function setWithLink($withLink)
   {
     $this->withLink = $withLink;
@@ -5576,6 +5404,7 @@ class Google_Service_Drive_Permission extends Google_Collection
   {
     return $this->withLink;
   }
+
 }
 
 class Google_Service_Drive_PermissionId extends Google_Model
@@ -5594,7 +5423,6 @@ class Google_Service_Drive_PermissionId extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5604,6 +5432,7 @@ class Google_Service_Drive_PermissionId extends Google_Model
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_Drive_PermissionList extends Google_Collection
@@ -5626,7 +5455,6 @@ class Google_Service_Drive_PermissionList extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -5636,7 +5464,6 @@ class Google_Service_Drive_PermissionList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5646,7 +5473,6 @@ class Google_Service_Drive_PermissionList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5656,6 +5482,7 @@ class Google_Service_Drive_PermissionList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_Property extends Google_Model
@@ -5678,7 +5505,6 @@ class Google_Service_Drive_Property extends Google_Model
   {
     return $this->etag;
   }
-
   public function setKey($key)
   {
     $this->key = $key;
@@ -5688,7 +5514,6 @@ class Google_Service_Drive_Property extends Google_Model
   {
     return $this->key;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5698,7 +5523,6 @@ class Google_Service_Drive_Property extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5708,7 +5532,6 @@ class Google_Service_Drive_Property extends Google_Model
   {
     return $this->selfLink;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -5718,7 +5541,6 @@ class Google_Service_Drive_Property extends Google_Model
   {
     return $this->value;
   }
-
   public function setVisibility($visibility)
   {
     $this->visibility = $visibility;
@@ -5728,6 +5550,7 @@ class Google_Service_Drive_Property extends Google_Model
   {
     return $this->visibility;
   }
+
 }
 
 class Google_Service_Drive_PropertyList extends Google_Collection
@@ -5750,7 +5573,6 @@ class Google_Service_Drive_PropertyList extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -5760,7 +5582,6 @@ class Google_Service_Drive_PropertyList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5770,7 +5591,6 @@ class Google_Service_Drive_PropertyList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5780,6 +5600,7 @@ class Google_Service_Drive_PropertyList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_Revision extends Google_Model
@@ -5815,7 +5636,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->downloadUrl;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -5825,7 +5645,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->etag;
   }
-
   public function setExportLinks($exportLinks)
   {
     $this->exportLinks = $exportLinks;
@@ -5835,7 +5654,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->exportLinks;
   }
-
   public function setFileSize($fileSize)
   {
     $this->fileSize = $fileSize;
@@ -5845,7 +5663,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->fileSize;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -5855,7 +5672,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5865,7 +5681,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->kind;
   }
-
   public function setLastModifyingUser(Google_Service_Drive_User $lastModifyingUser)
   {
     $this->lastModifyingUser = $lastModifyingUser;
@@ -5875,7 +5690,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->lastModifyingUser;
   }
-
   public function setLastModifyingUserName($lastModifyingUserName)
   {
     $this->lastModifyingUserName = $lastModifyingUserName;
@@ -5885,7 +5699,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->lastModifyingUserName;
   }
-
   public function setMd5Checksum($md5Checksum)
   {
     $this->md5Checksum = $md5Checksum;
@@ -5895,7 +5708,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->md5Checksum;
   }
-
   public function setMimeType($mimeType)
   {
     $this->mimeType = $mimeType;
@@ -5905,7 +5717,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->mimeType;
   }
-
   public function setModifiedDate($modifiedDate)
   {
     $this->modifiedDate = $modifiedDate;
@@ -5915,7 +5726,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->modifiedDate;
   }
-
   public function setOriginalFilename($originalFilename)
   {
     $this->originalFilename = $originalFilename;
@@ -5925,7 +5735,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->originalFilename;
   }
-
   public function setPinned($pinned)
   {
     $this->pinned = $pinned;
@@ -5935,7 +5744,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->pinned;
   }
-
   public function setPublishAuto($publishAuto)
   {
     $this->publishAuto = $publishAuto;
@@ -5945,7 +5753,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->publishAuto;
   }
-
   public function setPublished($published)
   {
     $this->published = $published;
@@ -5955,7 +5762,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->published;
   }
-
   public function setPublishedLink($publishedLink)
   {
     $this->publishedLink = $publishedLink;
@@ -5965,7 +5771,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->publishedLink;
   }
-
   public function setPublishedOutsideDomain($publishedOutsideDomain)
   {
     $this->publishedOutsideDomain = $publishedOutsideDomain;
@@ -5975,7 +5780,6 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->publishedOutsideDomain;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5985,12 +5789,15 @@ class Google_Service_Drive_Revision extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_RevisionExportLinks extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Drive_RevisionList extends Google_Collection
@@ -6013,7 +5820,6 @@ class Google_Service_Drive_RevisionList extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -6023,7 +5829,6 @@ class Google_Service_Drive_RevisionList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6033,7 +5838,6 @@ class Google_Service_Drive_RevisionList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -6043,6 +5847,7 @@ class Google_Service_Drive_RevisionList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Drive_User extends Google_Model
@@ -6066,7 +5871,6 @@ class Google_Service_Drive_User extends Google_Model
   {
     return $this->displayName;
   }
-
   public function setEmailAddress($emailAddress)
   {
     $this->emailAddress = $emailAddress;
@@ -6076,7 +5880,6 @@ class Google_Service_Drive_User extends Google_Model
   {
     return $this->emailAddress;
   }
-
   public function setIsAuthenticatedUser($isAuthenticatedUser)
   {
     $this->isAuthenticatedUser = $isAuthenticatedUser;
@@ -6086,7 +5889,6 @@ class Google_Service_Drive_User extends Google_Model
   {
     return $this->isAuthenticatedUser;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6096,7 +5898,6 @@ class Google_Service_Drive_User extends Google_Model
   {
     return $this->kind;
   }
-
   public function setPermissionId($permissionId)
   {
     $this->permissionId = $permissionId;
@@ -6106,7 +5907,6 @@ class Google_Service_Drive_User extends Google_Model
   {
     return $this->permissionId;
   }
-
   public function setPicture(Google_Service_Drive_UserPicture $picture)
   {
     $this->picture = $picture;
@@ -6116,6 +5916,7 @@ class Google_Service_Drive_User extends Google_Model
   {
     return $this->picture;
   }
+
 }
 
 class Google_Service_Drive_UserPicture extends Google_Model
@@ -6133,4 +5934,5 @@ class Google_Service_Drive_UserPicture extends Google_Model
   {
     return $this->url;
   }
+
 }
