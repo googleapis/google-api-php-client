@@ -246,6 +246,7 @@ class Google_Service_Translate_DetectionsListResponse extends Google_Collection
   {
     return $this->detections;
   }
+
 }
 
 class Google_Service_Translate_DetectionsResourceItems extends Google_Model
@@ -265,7 +266,6 @@ class Google_Service_Translate_DetectionsResourceItems extends Google_Model
   {
     return $this->confidence;
   }
-
   public function setIsReliable($isReliable)
   {
     $this->isReliable = $isReliable;
@@ -275,7 +275,6 @@ class Google_Service_Translate_DetectionsResourceItems extends Google_Model
   {
     return $this->isReliable;
   }
-
   public function setLanguage($language)
   {
     $this->language = $language;
@@ -285,6 +284,7 @@ class Google_Service_Translate_DetectionsResourceItems extends Google_Model
   {
     return $this->language;
   }
+
 }
 
 class Google_Service_Translate_LanguagesListResponse extends Google_Collection
@@ -304,6 +304,7 @@ class Google_Service_Translate_LanguagesListResponse extends Google_Collection
   {
     return $this->languages;
   }
+
 }
 
 class Google_Service_Translate_LanguagesResource extends Google_Model
@@ -322,7 +323,6 @@ class Google_Service_Translate_LanguagesResource extends Google_Model
   {
     return $this->language;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -332,6 +332,7 @@ class Google_Service_Translate_LanguagesResource extends Google_Model
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_Translate_TranslationsListResponse extends Google_Collection
@@ -351,6 +352,7 @@ class Google_Service_Translate_TranslationsListResponse extends Google_Collectio
   {
     return $this->translations;
   }
+
 }
 
 class Google_Service_Translate_TranslationsResource extends Google_Model
@@ -369,7 +371,6 @@ class Google_Service_Translate_TranslationsResource extends Google_Model
   {
     return $this->detectedSourceLanguage;
   }
-
   public function setTranslatedText($translatedText)
   {
     $this->translatedText = $translatedText;
@@ -379,4 +380,5 @@ class Google_Service_Translate_TranslationsResource extends Google_Model
   {
     return $this->translatedText;
   }
+
 }
