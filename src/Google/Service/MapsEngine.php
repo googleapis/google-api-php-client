@@ -3351,7 +3351,6 @@ class Google_Service_MapsEngine_AcquisitionTime extends Google_Model
   {
     return $this->end;
   }
-
   public function setPrecision($precision)
   {
     $this->precision = $precision;
@@ -3361,7 +3360,6 @@ class Google_Service_MapsEngine_AcquisitionTime extends Google_Model
   {
     return $this->precision;
   }
-
   public function setStart($start)
   {
     $this->start = $start;
@@ -3371,6 +3369,7 @@ class Google_Service_MapsEngine_AcquisitionTime extends Google_Model
   {
     return $this->start;
   }
+
 }
 
 class Google_Service_MapsEngine_Asset extends Google_Collection
@@ -3402,7 +3401,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->bbox;
   }
-
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
@@ -3412,7 +3410,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->creationTime;
   }
-
   public function setCreatorEmail($creatorEmail)
   {
     $this->creatorEmail = $creatorEmail;
@@ -3422,7 +3419,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->creatorEmail;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -3432,7 +3428,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->description;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -3442,7 +3437,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3452,7 +3446,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->id;
   }
-
   public function setLastModifiedTime($lastModifiedTime)
   {
     $this->lastModifiedTime = $lastModifiedTime;
@@ -3462,7 +3455,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->lastModifiedTime;
   }
-
   public function setLastModifierEmail($lastModifierEmail)
   {
     $this->lastModifierEmail = $lastModifierEmail;
@@ -3472,7 +3464,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->lastModifierEmail;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3482,7 +3473,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->name;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -3492,7 +3482,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->projectId;
   }
-
   public function setResource($resource)
   {
     $this->resource = $resource;
@@ -3502,7 +3491,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->resource;
   }
-
   public function setTags($tags)
   {
     $this->tags = $tags;
@@ -3512,7 +3500,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->tags;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -3522,7 +3509,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->type;
   }
-
   public function setWritersCanEditPermissions($writersCanEditPermissions)
   {
     $this->writersCanEditPermissions = $writersCanEditPermissions;
@@ -3532,6 +3518,7 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     return $this->writersCanEditPermissions;
   }
+
 }
 
 class Google_Service_MapsEngine_AssetsListResponse extends Google_Collection
@@ -3552,7 +3539,6 @@ class Google_Service_MapsEngine_AssetsListResponse extends Google_Collection
   {
     return $this->assets;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3562,6 +3548,7 @@ class Google_Service_MapsEngine_AssetsListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_MapsEngine_Border extends Google_Model
@@ -3581,7 +3568,6 @@ class Google_Service_MapsEngine_Border extends Google_Model
   {
     return $this->color;
   }
-
   public function setOpacity($opacity)
   {
     $this->opacity = $opacity;
@@ -3591,7 +3577,6 @@ class Google_Service_MapsEngine_Border extends Google_Model
   {
     return $this->opacity;
   }
-
   public function setWidth($width)
   {
     $this->width = $width;
@@ -3601,6 +3586,7 @@ class Google_Service_MapsEngine_Border extends Google_Model
   {
     return $this->width;
   }
+
 }
 
 class Google_Service_MapsEngine_Color extends Google_Model
@@ -3619,7 +3605,6 @@ class Google_Service_MapsEngine_Color extends Google_Model
   {
     return $this->color;
   }
-
   public function setOpacity($opacity)
   {
     $this->opacity = $opacity;
@@ -3629,6 +3614,7 @@ class Google_Service_MapsEngine_Color extends Google_Model
   {
     return $this->opacity;
   }
+
 }
 
 class Google_Service_MapsEngine_Datasource extends Google_Model
@@ -3646,6 +3632,7 @@ class Google_Service_MapsEngine_Datasource extends Google_Model
   {
     return $this->id;
   }
+
 }
 
 class Google_Service_MapsEngine_DisplayRule extends Google_Collection
@@ -3674,7 +3661,6 @@ class Google_Service_MapsEngine_DisplayRule extends Google_Collection
   {
     return $this->filters;
   }
-
   public function setLineOptions(Google_Service_MapsEngine_LineStyle $lineOptions)
   {
     $this->lineOptions = $lineOptions;
@@ -3684,7 +3670,6 @@ class Google_Service_MapsEngine_DisplayRule extends Google_Collection
   {
     return $this->lineOptions;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3694,7 +3679,6 @@ class Google_Service_MapsEngine_DisplayRule extends Google_Collection
   {
     return $this->name;
   }
-
   public function setPointOptions(Google_Service_MapsEngine_PointStyle $pointOptions)
   {
     $this->pointOptions = $pointOptions;
@@ -3704,7 +3688,6 @@ class Google_Service_MapsEngine_DisplayRule extends Google_Collection
   {
     return $this->pointOptions;
   }
-
   public function setPolygonOptions(Google_Service_MapsEngine_PolygonStyle $polygonOptions)
   {
     $this->polygonOptions = $polygonOptions;
@@ -3714,7 +3697,6 @@ class Google_Service_MapsEngine_DisplayRule extends Google_Collection
   {
     return $this->polygonOptions;
   }
-
   public function setZoomLevels(Google_Service_MapsEngine_ZoomLevels $zoomLevels)
   {
     $this->zoomLevels = $zoomLevels;
@@ -3724,6 +3706,7 @@ class Google_Service_MapsEngine_DisplayRule extends Google_Collection
   {
     return $this->zoomLevels;
   }
+
 }
 
 class Google_Service_MapsEngine_Feature extends Google_Model
@@ -3744,7 +3727,6 @@ class Google_Service_MapsEngine_Feature extends Google_Model
   {
     return $this->geometry;
   }
-
   public function setProperties($properties)
   {
     $this->properties = $properties;
@@ -3754,7 +3736,6 @@ class Google_Service_MapsEngine_Feature extends Google_Model
   {
     return $this->properties;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -3764,6 +3745,7 @@ class Google_Service_MapsEngine_Feature extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_MapsEngine_FeatureInfo extends Google_Model
@@ -3781,6 +3763,7 @@ class Google_Service_MapsEngine_FeatureInfo extends Google_Model
   {
     return $this->content;
   }
+
 }
 
 class Google_Service_MapsEngine_FeaturesBatchDeleteRequest extends Google_Collection
@@ -3801,7 +3784,6 @@ class Google_Service_MapsEngine_FeaturesBatchDeleteRequest extends Google_Collec
   {
     return $this->gxIds;
   }
-
   public function setPrimaryKeys($primaryKeys)
   {
     $this->primaryKeys = $primaryKeys;
@@ -3811,6 +3793,7 @@ class Google_Service_MapsEngine_FeaturesBatchDeleteRequest extends Google_Collec
   {
     return $this->primaryKeys;
   }
+
 }
 
 class Google_Service_MapsEngine_FeaturesBatchInsertRequest extends Google_Collection
@@ -3831,7 +3814,6 @@ class Google_Service_MapsEngine_FeaturesBatchInsertRequest extends Google_Collec
   {
     return $this->features;
   }
-
   public function setNormalizeGeometries($normalizeGeometries)
   {
     $this->normalizeGeometries = $normalizeGeometries;
@@ -3841,6 +3823,7 @@ class Google_Service_MapsEngine_FeaturesBatchInsertRequest extends Google_Collec
   {
     return $this->normalizeGeometries;
   }
+
 }
 
 class Google_Service_MapsEngine_FeaturesBatchPatchRequest extends Google_Collection
@@ -3861,7 +3844,6 @@ class Google_Service_MapsEngine_FeaturesBatchPatchRequest extends Google_Collect
   {
     return $this->features;
   }
-
   public function setNormalizeGeometries($normalizeGeometries)
   {
     $this->normalizeGeometries = $normalizeGeometries;
@@ -3871,6 +3853,7 @@ class Google_Service_MapsEngine_FeaturesBatchPatchRequest extends Google_Collect
   {
     return $this->normalizeGeometries;
   }
+
 }
 
 class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
@@ -3895,7 +3878,6 @@ class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
   {
     return $this->allowedQueriesPerSecond;
   }
-
   public function setFeatures($features)
   {
     $this->features = $features;
@@ -3905,7 +3887,6 @@ class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
   {
     return $this->features;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3915,7 +3896,6 @@ class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSchema(Google_Service_MapsEngine_Schema $schema)
   {
     $this->schema = $schema;
@@ -3925,7 +3905,6 @@ class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
   {
     return $this->schema;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -3935,6 +3914,7 @@ class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_MapsEngine_Filter extends Google_Model
@@ -3954,7 +3934,6 @@ class Google_Service_MapsEngine_Filter extends Google_Model
   {
     return $this->column;
   }
-
   public function setOperator($operator)
   {
     $this->operator = $operator;
@@ -3964,7 +3943,6 @@ class Google_Service_MapsEngine_Filter extends Google_Model
   {
     return $this->operator;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -3974,6 +3952,7 @@ class Google_Service_MapsEngine_Filter extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_MapsEngine_GeoJsonGeometry extends Google_Model
@@ -3991,16 +3970,19 @@ class Google_Service_MapsEngine_GeoJsonGeometry extends Google_Model
   {
     return $this->type;
   }
+
 }
 
-class Google_Service_MapsEngine_GeoJsonGeometryCollection extends Google_Collection
+class Google_Service_MapsEngine_GeoJsonGeometryCollection extends Google_Service_MapsEngine_GeoJsonGeometry
 {
   protected $collection_key = 'geometries';
   protected $internal_gapi_mappings = array(
   );
   protected $geometriesType = 'Google_Service_MapsEngine_GeoJsonGeometry';
   protected $geometriesDataType = 'array';
-
+  protected function gapiInit() {
+    $this->type = 'GeometryCollection';
+  }
   public function setGeometries($geometries)
   {
     $this->geometries = $geometries;
@@ -4010,15 +3992,18 @@ class Google_Service_MapsEngine_GeoJsonGeometryCollection extends Google_Collect
   {
     return $this->geometries;
   }
+
 }
 
-class Google_Service_MapsEngine_GeoJsonLineString extends Google_Collection
+class Google_Service_MapsEngine_GeoJsonLineString extends Google_Service_MapsEngine_GeoJsonGeometry
 {
   protected $collection_key = 'coordinates';
   protected $internal_gapi_mappings = array(
   );
   public $coordinates;
-
+  protected function gapiInit() {
+    $this->type = 'LineString';
+  }
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
@@ -4028,15 +4013,18 @@ class Google_Service_MapsEngine_GeoJsonLineString extends Google_Collection
   {
     return $this->coordinates;
   }
+
 }
 
-class Google_Service_MapsEngine_GeoJsonMultiLineString extends Google_Collection
+class Google_Service_MapsEngine_GeoJsonMultiLineString extends Google_Service_MapsEngine_GeoJsonGeometry
 {
   protected $collection_key = 'coordinates';
   protected $internal_gapi_mappings = array(
   );
   public $coordinates;
-
+  protected function gapiInit() {
+    $this->type = 'MultiLineString';
+  }
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
@@ -4046,15 +4034,18 @@ class Google_Service_MapsEngine_GeoJsonMultiLineString extends Google_Collection
   {
     return $this->coordinates;
   }
+
 }
 
-class Google_Service_MapsEngine_GeoJsonMultiPoint extends Google_Collection
+class Google_Service_MapsEngine_GeoJsonMultiPoint extends Google_Service_MapsEngine_GeoJsonGeometry
 {
   protected $collection_key = 'coordinates';
   protected $internal_gapi_mappings = array(
   );
   public $coordinates;
-
+  protected function gapiInit() {
+    $this->type = 'MultiPoint';
+  }
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
@@ -4064,15 +4055,18 @@ class Google_Service_MapsEngine_GeoJsonMultiPoint extends Google_Collection
   {
     return $this->coordinates;
   }
+
 }
 
-class Google_Service_MapsEngine_GeoJsonMultiPolygon extends Google_Collection
+class Google_Service_MapsEngine_GeoJsonMultiPolygon extends Google_Service_MapsEngine_GeoJsonGeometry
 {
   protected $collection_key = 'coordinates';
   protected $internal_gapi_mappings = array(
   );
   public $coordinates;
-
+  protected function gapiInit() {
+    $this->type = 'MultiPolygon';
+  }
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
@@ -4082,15 +4076,18 @@ class Google_Service_MapsEngine_GeoJsonMultiPolygon extends Google_Collection
   {
     return $this->coordinates;
   }
+
 }
 
-class Google_Service_MapsEngine_GeoJsonPoint extends Google_Collection
+class Google_Service_MapsEngine_GeoJsonPoint extends Google_Service_MapsEngine_GeoJsonGeometry
 {
   protected $collection_key = 'coordinates';
   protected $internal_gapi_mappings = array(
   );
   public $coordinates;
-
+  protected function gapiInit() {
+    $this->type = 'Point';
+  }
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
@@ -4100,15 +4097,18 @@ class Google_Service_MapsEngine_GeoJsonPoint extends Google_Collection
   {
     return $this->coordinates;
   }
+
 }
 
-class Google_Service_MapsEngine_GeoJsonPolygon extends Google_Collection
+class Google_Service_MapsEngine_GeoJsonPolygon extends Google_Service_MapsEngine_GeoJsonGeometry
 {
   protected $collection_key = 'coordinates';
   protected $internal_gapi_mappings = array(
   );
   public $coordinates;
-
+  protected function gapiInit() {
+    $this->type = 'Polygon';
+  }
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
@@ -4118,12 +4118,15 @@ class Google_Service_MapsEngine_GeoJsonPolygon extends Google_Collection
   {
     return $this->coordinates;
   }
+
 }
 
 class Google_Service_MapsEngine_GeoJsonProperties extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_MapsEngine_Icon extends Google_Model
@@ -4143,7 +4146,6 @@ class Google_Service_MapsEngine_Icon extends Google_Model
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -4153,7 +4155,6 @@ class Google_Service_MapsEngine_Icon extends Google_Model
   {
     return $this->id;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -4163,6 +4164,7 @@ class Google_Service_MapsEngine_Icon extends Google_Model
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_MapsEngine_IconStyle extends Google_Model
@@ -4185,7 +4187,6 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
   {
     return $this->id;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -4195,7 +4196,6 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
   {
     return $this->name;
   }
-
   public function setScaledShape(Google_Service_MapsEngine_ScaledShape $scaledShape)
   {
     $this->scaledShape = $scaledShape;
@@ -4205,7 +4205,6 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
   {
     return $this->scaledShape;
   }
-
   public function setScalingFunction(Google_Service_MapsEngine_ScalingFunction $scalingFunction)
   {
     $this->scalingFunction = $scalingFunction;
@@ -4215,6 +4214,7 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
   {
     return $this->scalingFunction;
   }
+
 }
 
 class Google_Service_MapsEngine_IconsListResponse extends Google_Collection
@@ -4235,7 +4235,6 @@ class Google_Service_MapsEngine_IconsListResponse extends Google_Collection
   {
     return $this->icons;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -4245,6 +4244,7 @@ class Google_Service_MapsEngine_IconsListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_MapsEngine_LabelStyle extends Google_Model
@@ -4269,7 +4269,6 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     return $this->color;
   }
-
   public function setColumn($column)
   {
     $this->column = $column;
@@ -4279,7 +4278,6 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     return $this->column;
   }
-
   public function setFontStyle($fontStyle)
   {
     $this->fontStyle = $fontStyle;
@@ -4289,7 +4287,6 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     return $this->fontStyle;
   }
-
   public function setFontWeight($fontWeight)
   {
     $this->fontWeight = $fontWeight;
@@ -4299,7 +4296,6 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     return $this->fontWeight;
   }
-
   public function setOpacity($opacity)
   {
     $this->opacity = $opacity;
@@ -4309,7 +4305,6 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     return $this->opacity;
   }
-
   public function setOutline(Google_Service_MapsEngine_Color $outline)
   {
     $this->outline = $outline;
@@ -4319,7 +4314,6 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     return $this->outline;
   }
-
   public function setSize($size)
   {
     $this->size = $size;
@@ -4329,6 +4323,7 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     return $this->size;
   }
+
 }
 
 class Google_Service_MapsEngine_Layer extends Google_Collection
@@ -4368,7 +4363,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->bbox;
   }
-
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
@@ -4378,7 +4372,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->creationTime;
   }
-
   public function setCreatorEmail($creatorEmail)
   {
     $this->creatorEmail = $creatorEmail;
@@ -4388,7 +4381,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->creatorEmail;
   }
-
   public function setDatasourceType($datasourceType)
   {
     $this->datasourceType = $datasourceType;
@@ -4398,7 +4390,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->datasourceType;
   }
-
   public function setDatasources(Google_Service_MapsEngine_Datasource $datasources)
   {
     $this->datasources = $datasources;
@@ -4408,7 +4399,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->datasources;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -4418,7 +4408,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDraftAccessList($draftAccessList)
   {
     $this->draftAccessList = $draftAccessList;
@@ -4428,7 +4417,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->draftAccessList;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -4438,7 +4426,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -4448,7 +4435,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->id;
   }
-
   public function setLastModifiedTime($lastModifiedTime)
   {
     $this->lastModifiedTime = $lastModifiedTime;
@@ -4458,7 +4444,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->lastModifiedTime;
   }
-
   public function setLastModifierEmail($lastModifierEmail)
   {
     $this->lastModifierEmail = $lastModifierEmail;
@@ -4468,7 +4453,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->lastModifierEmail;
   }
-
   public function setLayerType($layerType)
   {
     $this->layerType = $layerType;
@@ -4478,7 +4462,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->layerType;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -4488,7 +4471,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->name;
   }
-
   public function setProcessingStatus($processingStatus)
   {
     $this->processingStatus = $processingStatus;
@@ -4498,7 +4480,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->processingStatus;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -4508,7 +4489,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->projectId;
   }
-
   public function setPublishedAccessList($publishedAccessList)
   {
     $this->publishedAccessList = $publishedAccessList;
@@ -4518,7 +4498,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->publishedAccessList;
   }
-
   public function setPublishingStatus($publishingStatus)
   {
     $this->publishingStatus = $publishingStatus;
@@ -4528,7 +4507,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->publishingStatus;
   }
-
   public function setStyle(Google_Service_MapsEngine_VectorStyle $style)
   {
     $this->style = $style;
@@ -4538,7 +4516,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->style;
   }
-
   public function setTags($tags)
   {
     $this->tags = $tags;
@@ -4548,7 +4525,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->tags;
   }
-
   public function setWritersCanEditPermissions($writersCanEditPermissions)
   {
     $this->writersCanEditPermissions = $writersCanEditPermissions;
@@ -4558,6 +4534,7 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     return $this->writersCanEditPermissions;
   }
+
 }
 
 class Google_Service_MapsEngine_LayersListResponse extends Google_Collection
@@ -4578,7 +4555,6 @@ class Google_Service_MapsEngine_LayersListResponse extends Google_Collection
   {
     return $this->layers;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -4588,6 +4564,7 @@ class Google_Service_MapsEngine_LayersListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_MapsEngine_LineStyle extends Google_Collection
@@ -4612,7 +4589,6 @@ class Google_Service_MapsEngine_LineStyle extends Google_Collection
   {
     return $this->border;
   }
-
   public function setDash($dash)
   {
     $this->dash = $dash;
@@ -4622,7 +4598,6 @@ class Google_Service_MapsEngine_LineStyle extends Google_Collection
   {
     return $this->dash;
   }
-
   public function setLabel(Google_Service_MapsEngine_LabelStyle $label)
   {
     $this->label = $label;
@@ -4632,7 +4607,6 @@ class Google_Service_MapsEngine_LineStyle extends Google_Collection
   {
     return $this->label;
   }
-
   public function setStroke(Google_Service_MapsEngine_LineStyleStroke $stroke)
   {
     $this->stroke = $stroke;
@@ -4642,6 +4616,7 @@ class Google_Service_MapsEngine_LineStyle extends Google_Collection
   {
     return $this->stroke;
   }
+
 }
 
 class Google_Service_MapsEngine_LineStyleStroke extends Google_Model
@@ -4661,7 +4636,6 @@ class Google_Service_MapsEngine_LineStyleStroke extends Google_Model
   {
     return $this->color;
   }
-
   public function setOpacity($opacity)
   {
     $this->opacity = $opacity;
@@ -4671,7 +4645,6 @@ class Google_Service_MapsEngine_LineStyleStroke extends Google_Model
   {
     return $this->opacity;
   }
-
   public function setWidth($width)
   {
     $this->width = $width;
@@ -4681,6 +4654,7 @@ class Google_Service_MapsEngine_LineStyleStroke extends Google_Model
   {
     return $this->width;
   }
+
 }
 
 class Google_Service_MapsEngine_Map extends Google_Collection
@@ -4718,7 +4692,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->bbox;
   }
-
   public function setContents(Google_Service_MapsEngine_MapItem $contents)
   {
     $this->contents = $contents;
@@ -4728,7 +4701,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->contents;
   }
-
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
@@ -4738,7 +4710,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->creationTime;
   }
-
   public function setCreatorEmail($creatorEmail)
   {
     $this->creatorEmail = $creatorEmail;
@@ -4748,7 +4719,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->creatorEmail;
   }
-
   public function setDefaultViewport($defaultViewport)
   {
     $this->defaultViewport = $defaultViewport;
@@ -4758,7 +4728,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->defaultViewport;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -4768,7 +4737,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDraftAccessList($draftAccessList)
   {
     $this->draftAccessList = $draftAccessList;
@@ -4778,7 +4746,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->draftAccessList;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -4788,7 +4755,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -4798,7 +4764,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->id;
   }
-
   public function setLastModifiedTime($lastModifiedTime)
   {
     $this->lastModifiedTime = $lastModifiedTime;
@@ -4808,7 +4773,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->lastModifiedTime;
   }
-
   public function setLastModifierEmail($lastModifierEmail)
   {
     $this->lastModifierEmail = $lastModifierEmail;
@@ -4818,7 +4782,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->lastModifierEmail;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -4828,7 +4791,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->name;
   }
-
   public function setProcessingStatus($processingStatus)
   {
     $this->processingStatus = $processingStatus;
@@ -4838,7 +4800,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->processingStatus;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -4848,7 +4809,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->projectId;
   }
-
   public function setPublishedAccessList($publishedAccessList)
   {
     $this->publishedAccessList = $publishedAccessList;
@@ -4858,7 +4818,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->publishedAccessList;
   }
-
   public function setPublishingStatus($publishingStatus)
   {
     $this->publishingStatus = $publishingStatus;
@@ -4868,7 +4827,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->publishingStatus;
   }
-
   public function setTags($tags)
   {
     $this->tags = $tags;
@@ -4878,7 +4836,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->tags;
   }
-
   public function setVersions($versions)
   {
     $this->versions = $versions;
@@ -4888,7 +4845,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->versions;
   }
-
   public function setWritersCanEditPermissions($writersCanEditPermissions)
   {
     $this->writersCanEditPermissions = $writersCanEditPermissions;
@@ -4898,9 +4854,10 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     return $this->writersCanEditPermissions;
   }
+
 }
 
-class Google_Service_MapsEngine_MapFolder extends Google_Collection
+class Google_Service_MapsEngine_MapFolder extends Google_Service_MapsEngine_MapItem
 {
   protected $collection_key = 'defaultViewport';
   protected $internal_gapi_mappings = array(
@@ -4912,7 +4869,9 @@ class Google_Service_MapsEngine_MapFolder extends Google_Collection
   public $key;
   public $name;
   public $visibility;
-
+  protected function gapiInit() {
+    $this->type = 'folder';
+  }
   public function setContents($contents)
   {
     $this->contents = $contents;
@@ -4922,7 +4881,6 @@ class Google_Service_MapsEngine_MapFolder extends Google_Collection
   {
     return $this->contents;
   }
-
   public function setDefaultViewport($defaultViewport)
   {
     $this->defaultViewport = $defaultViewport;
@@ -4932,7 +4890,6 @@ class Google_Service_MapsEngine_MapFolder extends Google_Collection
   {
     return $this->defaultViewport;
   }
-
   public function setExpandable($expandable)
   {
     $this->expandable = $expandable;
@@ -4942,7 +4899,6 @@ class Google_Service_MapsEngine_MapFolder extends Google_Collection
   {
     return $this->expandable;
   }
-
   public function setKey($key)
   {
     $this->key = $key;
@@ -4952,7 +4908,6 @@ class Google_Service_MapsEngine_MapFolder extends Google_Collection
   {
     return $this->key;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -4962,7 +4917,6 @@ class Google_Service_MapsEngine_MapFolder extends Google_Collection
   {
     return $this->name;
   }
-
   public function setVisibility($visibility)
   {
     $this->visibility = $visibility;
@@ -4972,6 +4926,7 @@ class Google_Service_MapsEngine_MapFolder extends Google_Collection
   {
     return $this->visibility;
   }
+
 }
 
 class Google_Service_MapsEngine_MapItem extends Google_Model
@@ -4989,9 +4944,10 @@ class Google_Service_MapsEngine_MapItem extends Google_Model
   {
     return $this->type;
   }
+
 }
 
-class Google_Service_MapsEngine_MapKmlLink extends Google_Collection
+class Google_Service_MapsEngine_MapKmlLink extends Google_Service_MapsEngine_MapItem
 {
   protected $collection_key = 'defaultViewport';
   protected $internal_gapi_mappings = array(
@@ -5000,7 +4956,9 @@ class Google_Service_MapsEngine_MapKmlLink extends Google_Collection
   public $kmlUrl;
   public $name;
   public $visibility;
-
+  protected function gapiInit() {
+    $this->type = 'kmlLink';
+  }
   public function setDefaultViewport($defaultViewport)
   {
     $this->defaultViewport = $defaultViewport;
@@ -5010,7 +4968,6 @@ class Google_Service_MapsEngine_MapKmlLink extends Google_Collection
   {
     return $this->defaultViewport;
   }
-
   public function setKmlUrl($kmlUrl)
   {
     $this->kmlUrl = $kmlUrl;
@@ -5020,7 +4977,6 @@ class Google_Service_MapsEngine_MapKmlLink extends Google_Collection
   {
     return $this->kmlUrl;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -5030,7 +4986,6 @@ class Google_Service_MapsEngine_MapKmlLink extends Google_Collection
   {
     return $this->name;
   }
-
   public function setVisibility($visibility)
   {
     $this->visibility = $visibility;
@@ -5040,9 +4995,10 @@ class Google_Service_MapsEngine_MapKmlLink extends Google_Collection
   {
     return $this->visibility;
   }
+
 }
 
-class Google_Service_MapsEngine_MapLayer extends Google_Collection
+class Google_Service_MapsEngine_MapLayer extends Google_Service_MapsEngine_MapItem
 {
   protected $collection_key = 'defaultViewport';
   protected $internal_gapi_mappings = array(
@@ -5052,7 +5008,9 @@ class Google_Service_MapsEngine_MapLayer extends Google_Collection
   public $key;
   public $name;
   public $visibility;
-
+  protected function gapiInit() {
+    $this->type = 'layer';
+  }
   public function setDefaultViewport($defaultViewport)
   {
     $this->defaultViewport = $defaultViewport;
@@ -5062,7 +5020,6 @@ class Google_Service_MapsEngine_MapLayer extends Google_Collection
   {
     return $this->defaultViewport;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -5072,7 +5029,6 @@ class Google_Service_MapsEngine_MapLayer extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKey($key)
   {
     $this->key = $key;
@@ -5082,7 +5038,6 @@ class Google_Service_MapsEngine_MapLayer extends Google_Collection
   {
     return $this->key;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -5092,7 +5047,6 @@ class Google_Service_MapsEngine_MapLayer extends Google_Collection
   {
     return $this->name;
   }
-
   public function setVisibility($visibility)
   {
     $this->visibility = $visibility;
@@ -5102,6 +5056,7 @@ class Google_Service_MapsEngine_MapLayer extends Google_Collection
   {
     return $this->visibility;
   }
+
 }
 
 class Google_Service_MapsEngine_MapsListResponse extends Google_Collection
@@ -5122,7 +5077,6 @@ class Google_Service_MapsEngine_MapsListResponse extends Google_Collection
   {
     return $this->maps;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -5132,6 +5086,7 @@ class Google_Service_MapsEngine_MapsListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_MapsEngine_MapsengineFile extends Google_Model
@@ -5151,7 +5106,6 @@ class Google_Service_MapsEngine_MapsengineFile extends Google_Model
   {
     return $this->filename;
   }
-
   public function setSize($size)
   {
     $this->size = $size;
@@ -5161,7 +5115,6 @@ class Google_Service_MapsEngine_MapsengineFile extends Google_Model
   {
     return $this->size;
   }
-
   public function setUploadStatus($uploadStatus)
   {
     $this->uploadStatus = $uploadStatus;
@@ -5171,6 +5124,7 @@ class Google_Service_MapsEngine_MapsengineFile extends Google_Model
   {
     return $this->uploadStatus;
   }
+
 }
 
 class Google_Service_MapsEngine_Parent extends Google_Model
@@ -5188,6 +5142,7 @@ class Google_Service_MapsEngine_Parent extends Google_Model
   {
     return $this->id;
   }
+
 }
 
 class Google_Service_MapsEngine_ParentsListResponse extends Google_Collection
@@ -5208,7 +5163,6 @@ class Google_Service_MapsEngine_ParentsListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setParents($parents)
   {
     $this->parents = $parents;
@@ -5218,6 +5172,7 @@ class Google_Service_MapsEngine_ParentsListResponse extends Google_Collection
   {
     return $this->parents;
   }
+
 }
 
 class Google_Service_MapsEngine_Permission extends Google_Model
@@ -5238,7 +5193,6 @@ class Google_Service_MapsEngine_Permission extends Google_Model
   {
     return $this->discoverable;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -5248,7 +5202,6 @@ class Google_Service_MapsEngine_Permission extends Google_Model
   {
     return $this->id;
   }
-
   public function setRole($role)
   {
     $this->role = $role;
@@ -5258,7 +5211,6 @@ class Google_Service_MapsEngine_Permission extends Google_Model
   {
     return $this->role;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -5268,6 +5220,7 @@ class Google_Service_MapsEngine_Permission extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_MapsEngine_PermissionsBatchDeleteRequest extends Google_Collection
@@ -5286,12 +5239,15 @@ class Google_Service_MapsEngine_PermissionsBatchDeleteRequest extends Google_Col
   {
     return $this->ids;
   }
+
 }
 
 class Google_Service_MapsEngine_PermissionsBatchDeleteResponse extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_MapsEngine_PermissionsBatchUpdateRequest extends Google_Collection
@@ -5311,12 +5267,15 @@ class Google_Service_MapsEngine_PermissionsBatchUpdateRequest extends Google_Col
   {
     return $this->permissions;
   }
+
 }
 
 class Google_Service_MapsEngine_PermissionsBatchUpdateResponse extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_MapsEngine_PermissionsListResponse extends Google_Collection
@@ -5336,6 +5295,7 @@ class Google_Service_MapsEngine_PermissionsListResponse extends Google_Collectio
   {
     return $this->permissions;
   }
+
 }
 
 class Google_Service_MapsEngine_PointStyle extends Google_Model
@@ -5356,7 +5316,6 @@ class Google_Service_MapsEngine_PointStyle extends Google_Model
   {
     return $this->icon;
   }
-
   public function setLabel(Google_Service_MapsEngine_LabelStyle $label)
   {
     $this->label = $label;
@@ -5366,6 +5325,7 @@ class Google_Service_MapsEngine_PointStyle extends Google_Model
   {
     return $this->label;
   }
+
 }
 
 class Google_Service_MapsEngine_PolygonStyle extends Google_Model
@@ -5388,7 +5348,6 @@ class Google_Service_MapsEngine_PolygonStyle extends Google_Model
   {
     return $this->fill;
   }
-
   public function setLabel(Google_Service_MapsEngine_LabelStyle $label)
   {
     $this->label = $label;
@@ -5398,7 +5357,6 @@ class Google_Service_MapsEngine_PolygonStyle extends Google_Model
   {
     return $this->label;
   }
-
   public function setStroke(Google_Service_MapsEngine_Border $stroke)
   {
     $this->stroke = $stroke;
@@ -5408,12 +5366,15 @@ class Google_Service_MapsEngine_PolygonStyle extends Google_Model
   {
     return $this->stroke;
   }
+
 }
 
 class Google_Service_MapsEngine_ProcessResponse extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_MapsEngine_Project extends Google_Model
@@ -5432,7 +5393,6 @@ class Google_Service_MapsEngine_Project extends Google_Model
   {
     return $this->id;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -5442,6 +5402,7 @@ class Google_Service_MapsEngine_Project extends Google_Model
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_MapsEngine_ProjectsListResponse extends Google_Collection
@@ -5461,12 +5422,15 @@ class Google_Service_MapsEngine_ProjectsListResponse extends Google_Collection
   {
     return $this->projects;
   }
+
 }
 
 class Google_Service_MapsEngine_PublishResponse extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_MapsEngine_PublishedLayer extends Google_Model
@@ -5488,7 +5452,6 @@ class Google_Service_MapsEngine_PublishedLayer extends Google_Model
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -5498,7 +5461,6 @@ class Google_Service_MapsEngine_PublishedLayer extends Google_Model
   {
     return $this->id;
   }
-
   public function setLayerType($layerType)
   {
     $this->layerType = $layerType;
@@ -5508,7 +5470,6 @@ class Google_Service_MapsEngine_PublishedLayer extends Google_Model
   {
     return $this->layerType;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -5518,7 +5479,6 @@ class Google_Service_MapsEngine_PublishedLayer extends Google_Model
   {
     return $this->name;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -5528,6 +5488,7 @@ class Google_Service_MapsEngine_PublishedLayer extends Google_Model
   {
     return $this->projectId;
   }
+
 }
 
 class Google_Service_MapsEngine_PublishedLayersListResponse extends Google_Collection
@@ -5548,7 +5509,6 @@ class Google_Service_MapsEngine_PublishedLayersListResponse extends Google_Colle
   {
     return $this->layers;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -5558,6 +5518,7 @@ class Google_Service_MapsEngine_PublishedLayersListResponse extends Google_Colle
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_MapsEngine_PublishedMap extends Google_Model
@@ -5581,7 +5542,6 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   {
     return $this->contents;
   }
-
   public function setDefaultViewport($defaultViewport)
   {
     $this->defaultViewport = $defaultViewport;
@@ -5591,7 +5551,6 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   {
     return $this->defaultViewport;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -5601,7 +5560,6 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -5611,7 +5569,6 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   {
     return $this->id;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -5621,7 +5578,6 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   {
     return $this->name;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -5631,6 +5587,7 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   {
     return $this->projectId;
   }
+
 }
 
 class Google_Service_MapsEngine_PublishedMapsListResponse extends Google_Collection
@@ -5651,7 +5608,6 @@ class Google_Service_MapsEngine_PublishedMapsListResponse extends Google_Collect
   {
     return $this->maps;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -5661,6 +5617,7 @@ class Google_Service_MapsEngine_PublishedMapsListResponse extends Google_Collect
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_MapsEngine_Raster extends Google_Collection
@@ -5699,7 +5656,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->acquisitionTime;
   }
-
   public function setAttribution($attribution)
   {
     $this->attribution = $attribution;
@@ -5709,7 +5665,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->attribution;
   }
-
   public function setBbox($bbox)
   {
     $this->bbox = $bbox;
@@ -5719,7 +5674,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->bbox;
   }
-
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
@@ -5729,7 +5683,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->creationTime;
   }
-
   public function setCreatorEmail($creatorEmail)
   {
     $this->creatorEmail = $creatorEmail;
@@ -5739,7 +5692,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->creatorEmail;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -5749,7 +5701,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDraftAccessList($draftAccessList)
   {
     $this->draftAccessList = $draftAccessList;
@@ -5759,7 +5710,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->draftAccessList;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -5769,7 +5719,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setFiles($files)
   {
     $this->files = $files;
@@ -5779,7 +5728,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->files;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -5789,7 +5737,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->id;
   }
-
   public function setLastModifiedTime($lastModifiedTime)
   {
     $this->lastModifiedTime = $lastModifiedTime;
@@ -5799,7 +5746,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->lastModifiedTime;
   }
-
   public function setLastModifierEmail($lastModifierEmail)
   {
     $this->lastModifierEmail = $lastModifierEmail;
@@ -5809,7 +5755,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->lastModifierEmail;
   }
-
   public function setMaskType($maskType)
   {
     $this->maskType = $maskType;
@@ -5819,7 +5764,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->maskType;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -5829,7 +5773,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->name;
   }
-
   public function setProcessingStatus($processingStatus)
   {
     $this->processingStatus = $processingStatus;
@@ -5839,7 +5782,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->processingStatus;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -5849,7 +5791,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->projectId;
   }
-
   public function setRasterType($rasterType)
   {
     $this->rasterType = $rasterType;
@@ -5859,7 +5800,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->rasterType;
   }
-
   public function setTags($tags)
   {
     $this->tags = $tags;
@@ -5869,7 +5809,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->tags;
   }
-
   public function setWritersCanEditPermissions($writersCanEditPermissions)
   {
     $this->writersCanEditPermissions = $writersCanEditPermissions;
@@ -5879,6 +5818,7 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     return $this->writersCanEditPermissions;
   }
+
 }
 
 class Google_Service_MapsEngine_RasterCollection extends Google_Collection
@@ -5913,7 +5853,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->attribution;
   }
-
   public function setBbox($bbox)
   {
     $this->bbox = $bbox;
@@ -5923,7 +5862,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->bbox;
   }
-
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
@@ -5933,7 +5871,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->creationTime;
   }
-
   public function setCreatorEmail($creatorEmail)
   {
     $this->creatorEmail = $creatorEmail;
@@ -5943,7 +5880,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->creatorEmail;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -5953,7 +5889,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDraftAccessList($draftAccessList)
   {
     $this->draftAccessList = $draftAccessList;
@@ -5963,7 +5898,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->draftAccessList;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -5973,7 +5907,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -5983,7 +5916,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->id;
   }
-
   public function setLastModifiedTime($lastModifiedTime)
   {
     $this->lastModifiedTime = $lastModifiedTime;
@@ -5993,7 +5925,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->lastModifiedTime;
   }
-
   public function setLastModifierEmail($lastModifierEmail)
   {
     $this->lastModifierEmail = $lastModifierEmail;
@@ -6003,7 +5934,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->lastModifierEmail;
   }
-
   public function setMosaic($mosaic)
   {
     $this->mosaic = $mosaic;
@@ -6013,7 +5943,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->mosaic;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -6023,7 +5952,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->name;
   }
-
   public function setProcessingStatus($processingStatus)
   {
     $this->processingStatus = $processingStatus;
@@ -6033,7 +5961,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->processingStatus;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -6043,7 +5970,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->projectId;
   }
-
   public function setRasterType($rasterType)
   {
     $this->rasterType = $rasterType;
@@ -6053,7 +5979,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->rasterType;
   }
-
   public function setTags($tags)
   {
     $this->tags = $tags;
@@ -6063,7 +5988,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->tags;
   }
-
   public function setWritersCanEditPermissions($writersCanEditPermissions)
   {
     $this->writersCanEditPermissions = $writersCanEditPermissions;
@@ -6073,6 +5997,7 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     return $this->writersCanEditPermissions;
   }
+
 }
 
 class Google_Service_MapsEngine_RasterCollectionsListResponse extends Google_Collection
@@ -6093,7 +6018,6 @@ class Google_Service_MapsEngine_RasterCollectionsListResponse extends Google_Col
   {
     return $this->nextPageToken;
   }
-
   public function setRasterCollections($rasterCollections)
   {
     $this->rasterCollections = $rasterCollections;
@@ -6103,6 +6027,7 @@ class Google_Service_MapsEngine_RasterCollectionsListResponse extends Google_Col
   {
     return $this->rasterCollections;
   }
+
 }
 
 class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collection
@@ -6129,7 +6054,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     return $this->bbox;
   }
-
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
@@ -6139,7 +6063,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     return $this->creationTime;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -6149,7 +6072,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -6159,7 +6081,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     return $this->id;
   }
-
   public function setLastModifiedTime($lastModifiedTime)
   {
     $this->lastModifiedTime = $lastModifiedTime;
@@ -6169,7 +6090,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     return $this->lastModifiedTime;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -6179,7 +6099,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     return $this->name;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -6189,7 +6108,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     return $this->projectId;
   }
-
   public function setRasterType($rasterType)
   {
     $this->rasterType = $rasterType;
@@ -6199,7 +6117,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     return $this->rasterType;
   }
-
   public function setTags($tags)
   {
     $this->tags = $tags;
@@ -6209,6 +6126,7 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     return $this->tags;
   }
+
 }
 
 class Google_Service_MapsEngine_RasterCollectionsRasterBatchDeleteRequest extends Google_Collection
@@ -6227,12 +6145,15 @@ class Google_Service_MapsEngine_RasterCollectionsRasterBatchDeleteRequest extend
   {
     return $this->ids;
   }
+
 }
 
 class Google_Service_MapsEngine_RasterCollectionsRastersBatchDeleteResponse extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_MapsEngine_RasterCollectionsRastersBatchInsertRequest extends Google_Collection
@@ -6251,12 +6172,15 @@ class Google_Service_MapsEngine_RasterCollectionsRastersBatchInsertRequest exten
   {
     return $this->ids;
   }
+
 }
 
 class Google_Service_MapsEngine_RasterCollectionsRastersBatchInsertResponse extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_MapsEngine_RasterCollectionsRastersListResponse extends Google_Collection
@@ -6277,7 +6201,6 @@ class Google_Service_MapsEngine_RasterCollectionsRastersListResponse extends Goo
   {
     return $this->nextPageToken;
   }
-
   public function setRasters($rasters)
   {
     $this->rasters = $rasters;
@@ -6287,6 +6210,7 @@ class Google_Service_MapsEngine_RasterCollectionsRastersListResponse extends Goo
   {
     return $this->rasters;
   }
+
 }
 
 class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
@@ -6307,7 +6231,6 @@ class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setRasters($rasters)
   {
     $this->rasters = $rasters;
@@ -6317,6 +6240,7 @@ class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
   {
     return $this->rasters;
   }
+
 }
 
 class Google_Service_MapsEngine_ScaledShape extends Google_Model
@@ -6338,7 +6262,6 @@ class Google_Service_MapsEngine_ScaledShape extends Google_Model
   {
     return $this->border;
   }
-
   public function setFill(Google_Service_MapsEngine_Color $fill)
   {
     $this->fill = $fill;
@@ -6348,7 +6271,6 @@ class Google_Service_MapsEngine_ScaledShape extends Google_Model
   {
     return $this->fill;
   }
-
   public function setShape($shape)
   {
     $this->shape = $shape;
@@ -6358,6 +6280,7 @@ class Google_Service_MapsEngine_ScaledShape extends Google_Model
   {
     return $this->shape;
   }
+
 }
 
 class Google_Service_MapsEngine_ScalingFunction extends Google_Model
@@ -6380,7 +6303,6 @@ class Google_Service_MapsEngine_ScalingFunction extends Google_Model
   {
     return $this->column;
   }
-
   public function setScalingType($scalingType)
   {
     $this->scalingType = $scalingType;
@@ -6390,7 +6312,6 @@ class Google_Service_MapsEngine_ScalingFunction extends Google_Model
   {
     return $this->scalingType;
   }
-
   public function setSizeRange(Google_Service_MapsEngine_SizeRange $sizeRange)
   {
     $this->sizeRange = $sizeRange;
@@ -6400,7 +6321,6 @@ class Google_Service_MapsEngine_ScalingFunction extends Google_Model
   {
     return $this->sizeRange;
   }
-
   public function setValueRange(Google_Service_MapsEngine_ValueRange $valueRange)
   {
     $this->valueRange = $valueRange;
@@ -6410,6 +6330,7 @@ class Google_Service_MapsEngine_ScalingFunction extends Google_Model
   {
     return $this->valueRange;
   }
+
 }
 
 class Google_Service_MapsEngine_Schema extends Google_Collection
@@ -6431,7 +6352,6 @@ class Google_Service_MapsEngine_Schema extends Google_Collection
   {
     return $this->columns;
   }
-
   public function setPrimaryGeometry($primaryGeometry)
   {
     $this->primaryGeometry = $primaryGeometry;
@@ -6441,7 +6361,6 @@ class Google_Service_MapsEngine_Schema extends Google_Collection
   {
     return $this->primaryGeometry;
   }
-
   public function setPrimaryKey($primaryKey)
   {
     $this->primaryKey = $primaryKey;
@@ -6451,6 +6370,7 @@ class Google_Service_MapsEngine_Schema extends Google_Collection
   {
     return $this->primaryKey;
   }
+
 }
 
 class Google_Service_MapsEngine_SizeRange extends Google_Model
@@ -6469,7 +6389,6 @@ class Google_Service_MapsEngine_SizeRange extends Google_Model
   {
     return $this->max;
   }
-
   public function setMin($min)
   {
     $this->min = $min;
@@ -6479,6 +6398,7 @@ class Google_Service_MapsEngine_SizeRange extends Google_Model
   {
     return $this->min;
   }
+
 }
 
 class Google_Service_MapsEngine_Table extends Google_Collection
@@ -6516,7 +6436,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->bbox;
   }
-
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
@@ -6526,7 +6445,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->creationTime;
   }
-
   public function setCreatorEmail($creatorEmail)
   {
     $this->creatorEmail = $creatorEmail;
@@ -6536,7 +6454,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->creatorEmail;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -6546,7 +6463,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDraftAccessList($draftAccessList)
   {
     $this->draftAccessList = $draftAccessList;
@@ -6556,7 +6472,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->draftAccessList;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -6566,7 +6481,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setFiles($files)
   {
     $this->files = $files;
@@ -6576,7 +6490,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->files;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -6586,7 +6499,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->id;
   }
-
   public function setLastModifiedTime($lastModifiedTime)
   {
     $this->lastModifiedTime = $lastModifiedTime;
@@ -6596,7 +6508,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->lastModifiedTime;
   }
-
   public function setLastModifierEmail($lastModifierEmail)
   {
     $this->lastModifierEmail = $lastModifierEmail;
@@ -6606,7 +6517,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->lastModifierEmail;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -6616,7 +6526,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->name;
   }
-
   public function setProcessingStatus($processingStatus)
   {
     $this->processingStatus = $processingStatus;
@@ -6626,7 +6535,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->processingStatus;
   }
-
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
@@ -6636,7 +6544,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->projectId;
   }
-
   public function setPublishedAccessList($publishedAccessList)
   {
     $this->publishedAccessList = $publishedAccessList;
@@ -6646,7 +6553,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->publishedAccessList;
   }
-
   public function setSchema(Google_Service_MapsEngine_Schema $schema)
   {
     $this->schema = $schema;
@@ -6656,7 +6562,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->schema;
   }
-
   public function setSourceEncoding($sourceEncoding)
   {
     $this->sourceEncoding = $sourceEncoding;
@@ -6666,7 +6571,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->sourceEncoding;
   }
-
   public function setTags($tags)
   {
     $this->tags = $tags;
@@ -6676,7 +6580,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->tags;
   }
-
   public function setWritersCanEditPermissions($writersCanEditPermissions)
   {
     $this->writersCanEditPermissions = $writersCanEditPermissions;
@@ -6686,6 +6589,7 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     return $this->writersCanEditPermissions;
   }
+
 }
 
 class Google_Service_MapsEngine_TableColumn extends Google_Model
@@ -6704,7 +6608,6 @@ class Google_Service_MapsEngine_TableColumn extends Google_Model
   {
     return $this->name;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -6714,6 +6617,7 @@ class Google_Service_MapsEngine_TableColumn extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_MapsEngine_TablesListResponse extends Google_Collection
@@ -6734,7 +6638,6 @@ class Google_Service_MapsEngine_TablesListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setTables($tables)
   {
     $this->tables = $tables;
@@ -6744,6 +6647,7 @@ class Google_Service_MapsEngine_TablesListResponse extends Google_Collection
   {
     return $this->tables;
   }
+
 }
 
 class Google_Service_MapsEngine_ValueRange extends Google_Model
@@ -6762,7 +6666,6 @@ class Google_Service_MapsEngine_ValueRange extends Google_Model
   {
     return $this->max;
   }
-
   public function setMin($min)
   {
     $this->min = $min;
@@ -6772,6 +6675,7 @@ class Google_Service_MapsEngine_ValueRange extends Google_Model
   {
     return $this->min;
   }
+
 }
 
 class Google_Service_MapsEngine_VectorStyle extends Google_Collection
@@ -6794,7 +6698,6 @@ class Google_Service_MapsEngine_VectorStyle extends Google_Collection
   {
     return $this->displayRules;
   }
-
   public function setFeatureInfo(Google_Service_MapsEngine_FeatureInfo $featureInfo)
   {
     $this->featureInfo = $featureInfo;
@@ -6804,7 +6707,6 @@ class Google_Service_MapsEngine_VectorStyle extends Google_Collection
   {
     return $this->featureInfo;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -6814,6 +6716,7 @@ class Google_Service_MapsEngine_VectorStyle extends Google_Collection
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_MapsEngine_ZoomLevels extends Google_Model
@@ -6832,7 +6735,6 @@ class Google_Service_MapsEngine_ZoomLevels extends Google_Model
   {
     return $this->max;
   }
-
   public function setMin($min)
   {
     $this->min = $min;
@@ -6842,4 +6744,5 @@ class Google_Service_MapsEngine_ZoomLevels extends Google_Model
   {
     return $this->min;
   }
+
 }
