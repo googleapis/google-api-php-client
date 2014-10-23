@@ -5691,7 +5691,6 @@ class Google_Service_Compute_AccessConfig extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -5701,7 +5700,6 @@ class Google_Service_Compute_AccessConfig extends Google_Model
   {
     return $this->name;
   }
-
   public function setNatIP($natIP)
   {
     $this->natIP = $natIP;
@@ -5711,7 +5709,6 @@ class Google_Service_Compute_AccessConfig extends Google_Model
   {
     return $this->natIP;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -5721,6 +5718,7 @@ class Google_Service_Compute_AccessConfig extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Compute_Address extends Google_Collection
@@ -5748,7 +5746,6 @@ class Google_Service_Compute_Address extends Google_Collection
   {
     return $this->address;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -5758,7 +5755,6 @@ class Google_Service_Compute_Address extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -5768,7 +5764,6 @@ class Google_Service_Compute_Address extends Google_Collection
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -5778,7 +5773,6 @@ class Google_Service_Compute_Address extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5788,7 +5782,6 @@ class Google_Service_Compute_Address extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -5798,7 +5791,6 @@ class Google_Service_Compute_Address extends Google_Collection
   {
     return $this->name;
   }
-
   public function setRegion($region)
   {
     $this->region = $region;
@@ -5808,7 +5800,6 @@ class Google_Service_Compute_Address extends Google_Collection
   {
     return $this->region;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5818,7 +5809,6 @@ class Google_Service_Compute_Address extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -5828,7 +5818,6 @@ class Google_Service_Compute_Address extends Google_Collection
   {
     return $this->status;
   }
-
   public function setUsers($users)
   {
     $this->users = $users;
@@ -5838,6 +5827,7 @@ class Google_Service_Compute_Address extends Google_Collection
   {
     return $this->users;
   }
+
 }
 
 class Google_Service_Compute_AddressAggregatedList extends Google_Model
@@ -5860,7 +5850,6 @@ class Google_Service_Compute_AddressAggregatedList extends Google_Model
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -5870,7 +5859,6 @@ class Google_Service_Compute_AddressAggregatedList extends Google_Model
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5880,7 +5868,6 @@ class Google_Service_Compute_AddressAggregatedList extends Google_Model
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -5890,7 +5877,6 @@ class Google_Service_Compute_AddressAggregatedList extends Google_Model
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5900,12 +5886,15 @@ class Google_Service_Compute_AddressAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_AddressAggregatedListItems extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Compute_AddressList extends Google_Collection
@@ -5929,7 +5918,6 @@ class Google_Service_Compute_AddressList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -5939,7 +5927,6 @@ class Google_Service_Compute_AddressList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -5949,7 +5936,6 @@ class Google_Service_Compute_AddressList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -5959,7 +5945,6 @@ class Google_Service_Compute_AddressList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -5969,6 +5954,7 @@ class Google_Service_Compute_AddressList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_AddressesScopedList extends Google_Collection
@@ -5990,7 +5976,6 @@ class Google_Service_Compute_AddressesScopedList extends Google_Collection
   {
     return $this->addresses;
   }
-
   public function setWarning(Google_Service_Compute_AddressesScopedListWarning $warning)
   {
     $this->warning = $warning;
@@ -6000,6 +5985,7 @@ class Google_Service_Compute_AddressesScopedList extends Google_Collection
   {
     return $this->warning;
   }
+
 }
 
 class Google_Service_Compute_AddressesScopedListWarning extends Google_Collection
@@ -6021,7 +6007,6 @@ class Google_Service_Compute_AddressesScopedListWarning extends Google_Collectio
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -6031,7 +6016,6 @@ class Google_Service_Compute_AddressesScopedListWarning extends Google_Collectio
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -6041,6 +6025,7 @@ class Google_Service_Compute_AddressesScopedListWarning extends Google_Collectio
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Compute_AddressesScopedListWarningData extends Google_Model
@@ -6059,7 +6044,6 @@ class Google_Service_Compute_AddressesScopedListWarningData extends Google_Model
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -6069,6 +6053,7 @@ class Google_Service_Compute_AddressesScopedListWarningData extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Compute_AttachedDisk extends Google_Collection
@@ -6098,7 +6083,6 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   {
     return $this->autoDelete;
   }
-
   public function setBoot($boot)
   {
     $this->boot = $boot;
@@ -6108,7 +6092,6 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   {
     return $this->boot;
   }
-
   public function setDeviceName($deviceName)
   {
     $this->deviceName = $deviceName;
@@ -6118,7 +6101,6 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   {
     return $this->deviceName;
   }
-
   public function setIndex($index)
   {
     $this->index = $index;
@@ -6128,7 +6110,6 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   {
     return $this->index;
   }
-
   public function setInitializeParams(Google_Service_Compute_AttachedDiskInitializeParams $initializeParams)
   {
     $this->initializeParams = $initializeParams;
@@ -6138,7 +6119,6 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   {
     return $this->initializeParams;
   }
-
   public function setInterface($interface)
   {
     $this->interface = $interface;
@@ -6148,7 +6128,6 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   {
     return $this->interface;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6158,7 +6137,6 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLicenses($licenses)
   {
     $this->licenses = $licenses;
@@ -6168,7 +6146,6 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   {
     return $this->licenses;
   }
-
   public function setMode($mode)
   {
     $this->mode = $mode;
@@ -6178,7 +6155,6 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   {
     return $this->mode;
   }
-
   public function setSource($source)
   {
     $this->source = $source;
@@ -6188,7 +6164,6 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   {
     return $this->source;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -6198,6 +6173,7 @@ class Google_Service_Compute_AttachedDisk extends Google_Collection
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Compute_AttachedDiskInitializeParams extends Google_Model
@@ -6218,7 +6194,6 @@ class Google_Service_Compute_AttachedDiskInitializeParams extends Google_Model
   {
     return $this->diskName;
   }
-
   public function setDiskSizeGb($diskSizeGb)
   {
     $this->diskSizeGb = $diskSizeGb;
@@ -6228,7 +6203,6 @@ class Google_Service_Compute_AttachedDiskInitializeParams extends Google_Model
   {
     return $this->diskSizeGb;
   }
-
   public function setDiskType($diskType)
   {
     $this->diskType = $diskType;
@@ -6238,7 +6212,6 @@ class Google_Service_Compute_AttachedDiskInitializeParams extends Google_Model
   {
     return $this->diskType;
   }
-
   public function setSourceImage($sourceImage)
   {
     $this->sourceImage = $sourceImage;
@@ -6248,6 +6221,7 @@ class Google_Service_Compute_AttachedDiskInitializeParams extends Google_Model
   {
     return $this->sourceImage;
   }
+
 }
 
 class Google_Service_Compute_Backend extends Google_Model
@@ -6271,7 +6245,6 @@ class Google_Service_Compute_Backend extends Google_Model
   {
     return $this->balancingMode;
   }
-
   public function setCapacityScaler($capacityScaler)
   {
     $this->capacityScaler = $capacityScaler;
@@ -6281,7 +6254,6 @@ class Google_Service_Compute_Backend extends Google_Model
   {
     return $this->capacityScaler;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -6291,7 +6263,6 @@ class Google_Service_Compute_Backend extends Google_Model
   {
     return $this->description;
   }
-
   public function setGroup($group)
   {
     $this->group = $group;
@@ -6301,7 +6272,6 @@ class Google_Service_Compute_Backend extends Google_Model
   {
     return $this->group;
   }
-
   public function setMaxRate($maxRate)
   {
     $this->maxRate = $maxRate;
@@ -6311,7 +6281,6 @@ class Google_Service_Compute_Backend extends Google_Model
   {
     return $this->maxRate;
   }
-
   public function setMaxRatePerInstance($maxRatePerInstance)
   {
     $this->maxRatePerInstance = $maxRatePerInstance;
@@ -6321,7 +6290,6 @@ class Google_Service_Compute_Backend extends Google_Model
   {
     return $this->maxRatePerInstance;
   }
-
   public function setMaxUtilization($maxUtilization)
   {
     $this->maxUtilization = $maxUtilization;
@@ -6331,6 +6299,7 @@ class Google_Service_Compute_Backend extends Google_Model
   {
     return $this->maxUtilization;
   }
+
 }
 
 class Google_Service_Compute_BackendService extends Google_Collection
@@ -6362,7 +6331,6 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->backends;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -6372,7 +6340,6 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -6382,7 +6349,6 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->description;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -6392,7 +6358,6 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->fingerprint;
   }
-
   public function setHealthChecks($healthChecks)
   {
     $this->healthChecks = $healthChecks;
@@ -6402,7 +6367,6 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->healthChecks;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -6412,7 +6376,6 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6422,7 +6385,6 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -6432,7 +6394,6 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->name;
   }
-
   public function setPort($port)
   {
     $this->port = $port;
@@ -6442,7 +6403,6 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->port;
   }
-
   public function setPortName($portName)
   {
     $this->portName = $portName;
@@ -6452,7 +6412,6 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->portName;
   }
-
   public function setProtocol($protocol)
   {
     $this->protocol = $protocol;
@@ -6462,7 +6421,6 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->protocol;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -6472,7 +6430,6 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setTimeoutSec($timeoutSec)
   {
     $this->timeoutSec = $timeoutSec;
@@ -6482,6 +6439,7 @@ class Google_Service_Compute_BackendService extends Google_Collection
   {
     return $this->timeoutSec;
   }
+
 }
 
 class Google_Service_Compute_BackendServiceGroupHealth extends Google_Collection
@@ -6502,7 +6460,6 @@ class Google_Service_Compute_BackendServiceGroupHealth extends Google_Collection
   {
     return $this->healthStatus;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6512,6 +6469,7 @@ class Google_Service_Compute_BackendServiceGroupHealth extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_Compute_BackendServiceList extends Google_Collection
@@ -6535,7 +6493,6 @@ class Google_Service_Compute_BackendServiceList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -6545,7 +6502,6 @@ class Google_Service_Compute_BackendServiceList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6555,7 +6511,6 @@ class Google_Service_Compute_BackendServiceList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -6565,7 +6520,6 @@ class Google_Service_Compute_BackendServiceList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -6575,6 +6529,7 @@ class Google_Service_Compute_BackendServiceList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_DeprecationStatus extends Google_Model
@@ -6596,7 +6551,6 @@ class Google_Service_Compute_DeprecationStatus extends Google_Model
   {
     return $this->deleted;
   }
-
   public function setDeprecated($deprecated)
   {
     $this->deprecated = $deprecated;
@@ -6606,7 +6560,6 @@ class Google_Service_Compute_DeprecationStatus extends Google_Model
   {
     return $this->deprecated;
   }
-
   public function setObsolete($obsolete)
   {
     $this->obsolete = $obsolete;
@@ -6616,7 +6569,6 @@ class Google_Service_Compute_DeprecationStatus extends Google_Model
   {
     return $this->obsolete;
   }
-
   public function setReplacement($replacement)
   {
     $this->replacement = $replacement;
@@ -6626,7 +6578,6 @@ class Google_Service_Compute_DeprecationStatus extends Google_Model
   {
     return $this->replacement;
   }
-
   public function setState($state)
   {
     $this->state = $state;
@@ -6636,6 +6587,7 @@ class Google_Service_Compute_DeprecationStatus extends Google_Model
   {
     return $this->state;
   }
+
 }
 
 class Google_Service_Compute_Disk extends Google_Collection
@@ -6669,7 +6621,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -6679,7 +6630,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -6689,7 +6639,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6699,7 +6648,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLicenses($licenses)
   {
     $this->licenses = $licenses;
@@ -6709,7 +6657,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->licenses;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -6719,7 +6666,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->name;
   }
-
   public function setOptions($options)
   {
     $this->options = $options;
@@ -6729,7 +6675,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->options;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -6739,7 +6684,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setSizeGb($sizeGb)
   {
     $this->sizeGb = $sizeGb;
@@ -6749,7 +6693,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->sizeGb;
   }
-
   public function setSourceImage($sourceImage)
   {
     $this->sourceImage = $sourceImage;
@@ -6759,7 +6702,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->sourceImage;
   }
-
   public function setSourceImageId($sourceImageId)
   {
     $this->sourceImageId = $sourceImageId;
@@ -6769,7 +6711,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->sourceImageId;
   }
-
   public function setSourceSnapshot($sourceSnapshot)
   {
     $this->sourceSnapshot = $sourceSnapshot;
@@ -6779,7 +6720,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->sourceSnapshot;
   }
-
   public function setSourceSnapshotId($sourceSnapshotId)
   {
     $this->sourceSnapshotId = $sourceSnapshotId;
@@ -6789,7 +6729,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->sourceSnapshotId;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -6799,7 +6738,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->status;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -6809,7 +6747,6 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->type;
   }
-
   public function setZone($zone)
   {
     $this->zone = $zone;
@@ -6819,6 +6756,7 @@ class Google_Service_Compute_Disk extends Google_Collection
   {
     return $this->zone;
   }
+
 }
 
 class Google_Service_Compute_DiskAggregatedList extends Google_Model
@@ -6841,7 +6779,6 @@ class Google_Service_Compute_DiskAggregatedList extends Google_Model
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -6851,7 +6788,6 @@ class Google_Service_Compute_DiskAggregatedList extends Google_Model
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6861,7 +6797,6 @@ class Google_Service_Compute_DiskAggregatedList extends Google_Model
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -6871,7 +6806,6 @@ class Google_Service_Compute_DiskAggregatedList extends Google_Model
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -6881,12 +6815,15 @@ class Google_Service_Compute_DiskAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_DiskAggregatedListItems extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Compute_DiskList extends Google_Collection
@@ -6910,7 +6847,6 @@ class Google_Service_Compute_DiskList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -6920,7 +6856,6 @@ class Google_Service_Compute_DiskList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6930,7 +6865,6 @@ class Google_Service_Compute_DiskList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -6940,7 +6874,6 @@ class Google_Service_Compute_DiskList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -6950,6 +6883,7 @@ class Google_Service_Compute_DiskList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_DiskType extends Google_Model
@@ -6977,7 +6911,6 @@ class Google_Service_Compute_DiskType extends Google_Model
   {
     return $this->creationTimestamp;
   }
-
   public function setDefaultDiskSizeGb($defaultDiskSizeGb)
   {
     $this->defaultDiskSizeGb = $defaultDiskSizeGb;
@@ -6987,7 +6920,6 @@ class Google_Service_Compute_DiskType extends Google_Model
   {
     return $this->defaultDiskSizeGb;
   }
-
   public function setDeprecated(Google_Service_Compute_DeprecationStatus $deprecated)
   {
     $this->deprecated = $deprecated;
@@ -6997,7 +6929,6 @@ class Google_Service_Compute_DiskType extends Google_Model
   {
     return $this->deprecated;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -7007,7 +6938,6 @@ class Google_Service_Compute_DiskType extends Google_Model
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -7017,7 +6947,6 @@ class Google_Service_Compute_DiskType extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7027,7 +6956,6 @@ class Google_Service_Compute_DiskType extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -7037,7 +6965,6 @@ class Google_Service_Compute_DiskType extends Google_Model
   {
     return $this->name;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -7047,7 +6974,6 @@ class Google_Service_Compute_DiskType extends Google_Model
   {
     return $this->selfLink;
   }
-
   public function setValidDiskSize($validDiskSize)
   {
     $this->validDiskSize = $validDiskSize;
@@ -7057,7 +6983,6 @@ class Google_Service_Compute_DiskType extends Google_Model
   {
     return $this->validDiskSize;
   }
-
   public function setZone($zone)
   {
     $this->zone = $zone;
@@ -7067,6 +6992,7 @@ class Google_Service_Compute_DiskType extends Google_Model
   {
     return $this->zone;
   }
+
 }
 
 class Google_Service_Compute_DiskTypeAggregatedList extends Google_Model
@@ -7089,7 +7015,6 @@ class Google_Service_Compute_DiskTypeAggregatedList extends Google_Model
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -7099,7 +7024,6 @@ class Google_Service_Compute_DiskTypeAggregatedList extends Google_Model
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7109,7 +7033,6 @@ class Google_Service_Compute_DiskTypeAggregatedList extends Google_Model
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -7119,7 +7042,6 @@ class Google_Service_Compute_DiskTypeAggregatedList extends Google_Model
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -7129,12 +7051,15 @@ class Google_Service_Compute_DiskTypeAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_DiskTypeAggregatedListItems extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Compute_DiskTypeList extends Google_Collection
@@ -7158,7 +7083,6 @@ class Google_Service_Compute_DiskTypeList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -7168,7 +7092,6 @@ class Google_Service_Compute_DiskTypeList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7178,7 +7101,6 @@ class Google_Service_Compute_DiskTypeList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -7188,7 +7110,6 @@ class Google_Service_Compute_DiskTypeList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -7198,6 +7119,7 @@ class Google_Service_Compute_DiskTypeList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_DiskTypesScopedList extends Google_Collection
@@ -7219,7 +7141,6 @@ class Google_Service_Compute_DiskTypesScopedList extends Google_Collection
   {
     return $this->diskTypes;
   }
-
   public function setWarning(Google_Service_Compute_DiskTypesScopedListWarning $warning)
   {
     $this->warning = $warning;
@@ -7229,6 +7150,7 @@ class Google_Service_Compute_DiskTypesScopedList extends Google_Collection
   {
     return $this->warning;
   }
+
 }
 
 class Google_Service_Compute_DiskTypesScopedListWarning extends Google_Collection
@@ -7250,7 +7172,6 @@ class Google_Service_Compute_DiskTypesScopedListWarning extends Google_Collectio
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -7260,7 +7181,6 @@ class Google_Service_Compute_DiskTypesScopedListWarning extends Google_Collectio
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -7270,6 +7190,7 @@ class Google_Service_Compute_DiskTypesScopedListWarning extends Google_Collectio
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Compute_DiskTypesScopedListWarningData extends Google_Model
@@ -7288,7 +7209,6 @@ class Google_Service_Compute_DiskTypesScopedListWarningData extends Google_Model
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -7298,6 +7218,7 @@ class Google_Service_Compute_DiskTypesScopedListWarningData extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Compute_DisksScopedList extends Google_Collection
@@ -7319,7 +7240,6 @@ class Google_Service_Compute_DisksScopedList extends Google_Collection
   {
     return $this->disks;
   }
-
   public function setWarning(Google_Service_Compute_DisksScopedListWarning $warning)
   {
     $this->warning = $warning;
@@ -7329,6 +7249,7 @@ class Google_Service_Compute_DisksScopedList extends Google_Collection
   {
     return $this->warning;
   }
+
 }
 
 class Google_Service_Compute_DisksScopedListWarning extends Google_Collection
@@ -7350,7 +7271,6 @@ class Google_Service_Compute_DisksScopedListWarning extends Google_Collection
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -7360,7 +7280,6 @@ class Google_Service_Compute_DisksScopedListWarning extends Google_Collection
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -7370,6 +7289,7 @@ class Google_Service_Compute_DisksScopedListWarning extends Google_Collection
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Compute_DisksScopedListWarningData extends Google_Model
@@ -7388,7 +7308,6 @@ class Google_Service_Compute_DisksScopedListWarningData extends Google_Model
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -7398,6 +7317,7 @@ class Google_Service_Compute_DisksScopedListWarningData extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Compute_Firewall extends Google_Collection
@@ -7427,7 +7347,6 @@ class Google_Service_Compute_Firewall extends Google_Collection
   {
     return $this->allowed;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -7437,7 +7356,6 @@ class Google_Service_Compute_Firewall extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -7447,7 +7365,6 @@ class Google_Service_Compute_Firewall extends Google_Collection
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -7457,7 +7374,6 @@ class Google_Service_Compute_Firewall extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7467,7 +7383,6 @@ class Google_Service_Compute_Firewall extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -7477,7 +7392,6 @@ class Google_Service_Compute_Firewall extends Google_Collection
   {
     return $this->name;
   }
-
   public function setNetwork($network)
   {
     $this->network = $network;
@@ -7487,7 +7401,6 @@ class Google_Service_Compute_Firewall extends Google_Collection
   {
     return $this->network;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -7497,7 +7410,6 @@ class Google_Service_Compute_Firewall extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setSourceRanges($sourceRanges)
   {
     $this->sourceRanges = $sourceRanges;
@@ -7507,7 +7419,6 @@ class Google_Service_Compute_Firewall extends Google_Collection
   {
     return $this->sourceRanges;
   }
-
   public function setSourceTags($sourceTags)
   {
     $this->sourceTags = $sourceTags;
@@ -7517,7 +7428,6 @@ class Google_Service_Compute_Firewall extends Google_Collection
   {
     return $this->sourceTags;
   }
-
   public function setTargetTags($targetTags)
   {
     $this->targetTags = $targetTags;
@@ -7527,6 +7437,7 @@ class Google_Service_Compute_Firewall extends Google_Collection
   {
     return $this->targetTags;
   }
+
 }
 
 class Google_Service_Compute_FirewallAllowed extends Google_Collection
@@ -7547,7 +7458,6 @@ class Google_Service_Compute_FirewallAllowed extends Google_Collection
   {
     return $this->iPProtocol;
   }
-
   public function setPorts($ports)
   {
     $this->ports = $ports;
@@ -7557,6 +7467,7 @@ class Google_Service_Compute_FirewallAllowed extends Google_Collection
   {
     return $this->ports;
   }
+
 }
 
 class Google_Service_Compute_FirewallList extends Google_Collection
@@ -7580,7 +7491,6 @@ class Google_Service_Compute_FirewallList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -7590,7 +7500,6 @@ class Google_Service_Compute_FirewallList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7600,7 +7509,6 @@ class Google_Service_Compute_FirewallList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -7610,7 +7518,6 @@ class Google_Service_Compute_FirewallList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -7620,6 +7527,7 @@ class Google_Service_Compute_FirewallList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_ForwardingRule extends Google_Model
@@ -7649,7 +7557,6 @@ class Google_Service_Compute_ForwardingRule extends Google_Model
   {
     return $this->iPAddress;
   }
-
   public function setIPProtocol($iPProtocol)
   {
     $this->iPProtocol = $iPProtocol;
@@ -7659,7 +7566,6 @@ class Google_Service_Compute_ForwardingRule extends Google_Model
   {
     return $this->iPProtocol;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -7669,7 +7575,6 @@ class Google_Service_Compute_ForwardingRule extends Google_Model
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -7679,7 +7584,6 @@ class Google_Service_Compute_ForwardingRule extends Google_Model
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -7689,7 +7593,6 @@ class Google_Service_Compute_ForwardingRule extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7699,7 +7602,6 @@ class Google_Service_Compute_ForwardingRule extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -7709,7 +7611,6 @@ class Google_Service_Compute_ForwardingRule extends Google_Model
   {
     return $this->name;
   }
-
   public function setPortRange($portRange)
   {
     $this->portRange = $portRange;
@@ -7719,7 +7620,6 @@ class Google_Service_Compute_ForwardingRule extends Google_Model
   {
     return $this->portRange;
   }
-
   public function setRegion($region)
   {
     $this->region = $region;
@@ -7729,7 +7629,6 @@ class Google_Service_Compute_ForwardingRule extends Google_Model
   {
     return $this->region;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -7739,7 +7638,6 @@ class Google_Service_Compute_ForwardingRule extends Google_Model
   {
     return $this->selfLink;
   }
-
   public function setTarget($target)
   {
     $this->target = $target;
@@ -7749,6 +7647,7 @@ class Google_Service_Compute_ForwardingRule extends Google_Model
   {
     return $this->target;
   }
+
 }
 
 class Google_Service_Compute_ForwardingRuleAggregatedList extends Google_Model
@@ -7771,7 +7670,6 @@ class Google_Service_Compute_ForwardingRuleAggregatedList extends Google_Model
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -7781,7 +7679,6 @@ class Google_Service_Compute_ForwardingRuleAggregatedList extends Google_Model
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7791,7 +7688,6 @@ class Google_Service_Compute_ForwardingRuleAggregatedList extends Google_Model
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -7801,7 +7697,6 @@ class Google_Service_Compute_ForwardingRuleAggregatedList extends Google_Model
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -7811,12 +7706,15 @@ class Google_Service_Compute_ForwardingRuleAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_ForwardingRuleAggregatedListItems extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Compute_ForwardingRuleList extends Google_Collection
@@ -7840,7 +7738,6 @@ class Google_Service_Compute_ForwardingRuleList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -7850,7 +7747,6 @@ class Google_Service_Compute_ForwardingRuleList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -7860,7 +7756,6 @@ class Google_Service_Compute_ForwardingRuleList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -7870,7 +7765,6 @@ class Google_Service_Compute_ForwardingRuleList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -7880,6 +7774,7 @@ class Google_Service_Compute_ForwardingRuleList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_ForwardingRulesScopedList extends Google_Collection
@@ -7901,7 +7796,6 @@ class Google_Service_Compute_ForwardingRulesScopedList extends Google_Collection
   {
     return $this->forwardingRules;
   }
-
   public function setWarning(Google_Service_Compute_ForwardingRulesScopedListWarning $warning)
   {
     $this->warning = $warning;
@@ -7911,6 +7805,7 @@ class Google_Service_Compute_ForwardingRulesScopedList extends Google_Collection
   {
     return $this->warning;
   }
+
 }
 
 class Google_Service_Compute_ForwardingRulesScopedListWarning extends Google_Collection
@@ -7932,7 +7827,6 @@ class Google_Service_Compute_ForwardingRulesScopedListWarning extends Google_Col
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -7942,7 +7836,6 @@ class Google_Service_Compute_ForwardingRulesScopedListWarning extends Google_Col
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -7952,6 +7845,7 @@ class Google_Service_Compute_ForwardingRulesScopedListWarning extends Google_Col
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Compute_ForwardingRulesScopedListWarningData extends Google_Model
@@ -7970,7 +7864,6 @@ class Google_Service_Compute_ForwardingRulesScopedListWarningData extends Google
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -7980,6 +7873,7 @@ class Google_Service_Compute_ForwardingRulesScopedListWarningData extends Google
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Compute_HealthCheckReference extends Google_Model
@@ -7997,6 +7891,7 @@ class Google_Service_Compute_HealthCheckReference extends Google_Model
   {
     return $this->healthCheck;
   }
+
 }
 
 class Google_Service_Compute_HealthStatus extends Google_Model
@@ -8017,7 +7912,6 @@ class Google_Service_Compute_HealthStatus extends Google_Model
   {
     return $this->healthState;
   }
-
   public function setInstance($instance)
   {
     $this->instance = $instance;
@@ -8027,7 +7921,6 @@ class Google_Service_Compute_HealthStatus extends Google_Model
   {
     return $this->instance;
   }
-
   public function setIpAddress($ipAddress)
   {
     $this->ipAddress = $ipAddress;
@@ -8037,7 +7930,6 @@ class Google_Service_Compute_HealthStatus extends Google_Model
   {
     return $this->ipAddress;
   }
-
   public function setPort($port)
   {
     $this->port = $port;
@@ -8047,6 +7939,7 @@ class Google_Service_Compute_HealthStatus extends Google_Model
   {
     return $this->port;
   }
+
 }
 
 class Google_Service_Compute_HostRule extends Google_Collection
@@ -8067,7 +7960,6 @@ class Google_Service_Compute_HostRule extends Google_Collection
   {
     return $this->description;
   }
-
   public function setHosts($hosts)
   {
     $this->hosts = $hosts;
@@ -8077,7 +7969,6 @@ class Google_Service_Compute_HostRule extends Google_Collection
   {
     return $this->hosts;
   }
-
   public function setPathMatcher($pathMatcher)
   {
     $this->pathMatcher = $pathMatcher;
@@ -8087,6 +7978,7 @@ class Google_Service_Compute_HostRule extends Google_Collection
   {
     return $this->pathMatcher;
   }
+
 }
 
 class Google_Service_Compute_HttpHealthCheck extends Google_Model
@@ -8116,7 +8008,6 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->checkIntervalSec;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -8126,7 +8017,6 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -8136,7 +8026,6 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->description;
   }
-
   public function setHealthyThreshold($healthyThreshold)
   {
     $this->healthyThreshold = $healthyThreshold;
@@ -8146,7 +8035,6 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->healthyThreshold;
   }
-
   public function setHost($host)
   {
     $this->host = $host;
@@ -8156,7 +8044,6 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->host;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -8166,7 +8053,6 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8176,7 +8062,6 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -8186,7 +8071,6 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->name;
   }
-
   public function setPort($port)
   {
     $this->port = $port;
@@ -8196,7 +8080,6 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->port;
   }
-
   public function setRequestPath($requestPath)
   {
     $this->requestPath = $requestPath;
@@ -8206,7 +8089,6 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->requestPath;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -8216,7 +8098,6 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->selfLink;
   }
-
   public function setTimeoutSec($timeoutSec)
   {
     $this->timeoutSec = $timeoutSec;
@@ -8226,7 +8107,6 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->timeoutSec;
   }
-
   public function setUnhealthyThreshold($unhealthyThreshold)
   {
     $this->unhealthyThreshold = $unhealthyThreshold;
@@ -8236,6 +8116,7 @@ class Google_Service_Compute_HttpHealthCheck extends Google_Model
   {
     return $this->unhealthyThreshold;
   }
+
 }
 
 class Google_Service_Compute_HttpHealthCheckList extends Google_Collection
@@ -8259,7 +8140,6 @@ class Google_Service_Compute_HttpHealthCheckList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -8269,7 +8149,6 @@ class Google_Service_Compute_HttpHealthCheckList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8279,7 +8158,6 @@ class Google_Service_Compute_HttpHealthCheckList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -8289,7 +8167,6 @@ class Google_Service_Compute_HttpHealthCheckList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -8299,6 +8176,7 @@ class Google_Service_Compute_HttpHealthCheckList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_Image extends Google_Collection
@@ -8333,7 +8211,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->archiveSizeBytes;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -8343,7 +8220,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDeprecated(Google_Service_Compute_DeprecationStatus $deprecated)
   {
     $this->deprecated = $deprecated;
@@ -8353,7 +8229,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->deprecated;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -8363,7 +8238,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDiskSizeGb($diskSizeGb)
   {
     $this->diskSizeGb = $diskSizeGb;
@@ -8373,7 +8247,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->diskSizeGb;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -8383,7 +8256,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8393,7 +8265,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLicenses($licenses)
   {
     $this->licenses = $licenses;
@@ -8403,7 +8274,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->licenses;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -8413,7 +8283,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->name;
   }
-
   public function setRawDisk(Google_Service_Compute_ImageRawDisk $rawDisk)
   {
     $this->rawDisk = $rawDisk;
@@ -8423,7 +8292,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->rawDisk;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -8433,7 +8301,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setSourceDisk($sourceDisk)
   {
     $this->sourceDisk = $sourceDisk;
@@ -8443,7 +8310,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->sourceDisk;
   }
-
   public function setSourceDiskId($sourceDiskId)
   {
     $this->sourceDiskId = $sourceDiskId;
@@ -8453,7 +8319,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->sourceDiskId;
   }
-
   public function setSourceType($sourceType)
   {
     $this->sourceType = $sourceType;
@@ -8463,7 +8328,6 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->sourceType;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -8473,6 +8337,7 @@ class Google_Service_Compute_Image extends Google_Collection
   {
     return $this->status;
   }
+
 }
 
 class Google_Service_Compute_ImageList extends Google_Collection
@@ -8496,7 +8361,6 @@ class Google_Service_Compute_ImageList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -8506,7 +8370,6 @@ class Google_Service_Compute_ImageList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8516,7 +8379,6 @@ class Google_Service_Compute_ImageList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -8526,7 +8388,6 @@ class Google_Service_Compute_ImageList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -8536,6 +8397,7 @@ class Google_Service_Compute_ImageList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_ImageRawDisk extends Google_Model
@@ -8555,7 +8417,6 @@ class Google_Service_Compute_ImageRawDisk extends Google_Model
   {
     return $this->containerType;
   }
-
   public function setSha1Checksum($sha1Checksum)
   {
     $this->sha1Checksum = $sha1Checksum;
@@ -8565,7 +8426,6 @@ class Google_Service_Compute_ImageRawDisk extends Google_Model
   {
     return $this->sha1Checksum;
   }
-
   public function setSource($source)
   {
     $this->source = $source;
@@ -8575,6 +8435,7 @@ class Google_Service_Compute_ImageRawDisk extends Google_Model
   {
     return $this->source;
   }
+
 }
 
 class Google_Service_Compute_Instance extends Google_Collection
@@ -8615,7 +8476,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->canIpForward;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -8625,7 +8485,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -8635,7 +8494,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDisks($disks)
   {
     $this->disks = $disks;
@@ -8645,7 +8503,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->disks;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -8655,7 +8512,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8665,7 +8521,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setMachineType($machineType)
   {
     $this->machineType = $machineType;
@@ -8675,7 +8530,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->machineType;
   }
-
   public function setMetadata(Google_Service_Compute_Metadata $metadata)
   {
     $this->metadata = $metadata;
@@ -8685,7 +8539,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->metadata;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -8695,7 +8548,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->name;
   }
-
   public function setNetworkInterfaces($networkInterfaces)
   {
     $this->networkInterfaces = $networkInterfaces;
@@ -8705,7 +8557,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->networkInterfaces;
   }
-
   public function setScheduling(Google_Service_Compute_Scheduling $scheduling)
   {
     $this->scheduling = $scheduling;
@@ -8715,7 +8566,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->scheduling;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -8725,7 +8575,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setServiceAccounts($serviceAccounts)
   {
     $this->serviceAccounts = $serviceAccounts;
@@ -8735,7 +8584,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->serviceAccounts;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -8745,7 +8593,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->status;
   }
-
   public function setStatusMessage($statusMessage)
   {
     $this->statusMessage = $statusMessage;
@@ -8755,7 +8602,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->statusMessage;
   }
-
   public function setTags(Google_Service_Compute_Tags $tags)
   {
     $this->tags = $tags;
@@ -8765,7 +8611,6 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->tags;
   }
-
   public function setZone($zone)
   {
     $this->zone = $zone;
@@ -8775,6 +8620,7 @@ class Google_Service_Compute_Instance extends Google_Collection
   {
     return $this->zone;
   }
+
 }
 
 class Google_Service_Compute_InstanceAggregatedList extends Google_Model
@@ -8797,7 +8643,6 @@ class Google_Service_Compute_InstanceAggregatedList extends Google_Model
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -8807,7 +8652,6 @@ class Google_Service_Compute_InstanceAggregatedList extends Google_Model
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8817,7 +8661,6 @@ class Google_Service_Compute_InstanceAggregatedList extends Google_Model
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -8827,7 +8670,6 @@ class Google_Service_Compute_InstanceAggregatedList extends Google_Model
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -8837,12 +8679,15 @@ class Google_Service_Compute_InstanceAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_InstanceAggregatedListItems extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Compute_InstanceList extends Google_Collection
@@ -8866,7 +8711,6 @@ class Google_Service_Compute_InstanceList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -8876,7 +8720,6 @@ class Google_Service_Compute_InstanceList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -8886,7 +8729,6 @@ class Google_Service_Compute_InstanceList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -8896,7 +8738,6 @@ class Google_Service_Compute_InstanceList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -8906,6 +8747,7 @@ class Google_Service_Compute_InstanceList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_InstanceProperties extends Google_Collection
@@ -8938,7 +8780,6 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   {
     return $this->canIpForward;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -8948,7 +8789,6 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDisks($disks)
   {
     $this->disks = $disks;
@@ -8958,7 +8798,6 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   {
     return $this->disks;
   }
-
   public function setMachineType($machineType)
   {
     $this->machineType = $machineType;
@@ -8968,7 +8807,6 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   {
     return $this->machineType;
   }
-
   public function setMetadata(Google_Service_Compute_Metadata $metadata)
   {
     $this->metadata = $metadata;
@@ -8978,7 +8816,6 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   {
     return $this->metadata;
   }
-
   public function setNetworkInterfaces($networkInterfaces)
   {
     $this->networkInterfaces = $networkInterfaces;
@@ -8988,7 +8825,6 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   {
     return $this->networkInterfaces;
   }
-
   public function setScheduling(Google_Service_Compute_Scheduling $scheduling)
   {
     $this->scheduling = $scheduling;
@@ -8998,7 +8834,6 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   {
     return $this->scheduling;
   }
-
   public function setServiceAccounts($serviceAccounts)
   {
     $this->serviceAccounts = $serviceAccounts;
@@ -9008,7 +8843,6 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   {
     return $this->serviceAccounts;
   }
-
   public function setTags(Google_Service_Compute_Tags $tags)
   {
     $this->tags = $tags;
@@ -9018,6 +8852,7 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   {
     return $this->tags;
   }
+
 }
 
 class Google_Service_Compute_InstanceReference extends Google_Model
@@ -9035,6 +8870,7 @@ class Google_Service_Compute_InstanceReference extends Google_Model
   {
     return $this->instance;
   }
+
 }
 
 class Google_Service_Compute_InstanceTemplate extends Google_Model
@@ -9059,7 +8895,6 @@ class Google_Service_Compute_InstanceTemplate extends Google_Model
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -9069,7 +8904,6 @@ class Google_Service_Compute_InstanceTemplate extends Google_Model
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -9079,7 +8913,6 @@ class Google_Service_Compute_InstanceTemplate extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9089,7 +8922,6 @@ class Google_Service_Compute_InstanceTemplate extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -9099,7 +8931,6 @@ class Google_Service_Compute_InstanceTemplate extends Google_Model
   {
     return $this->name;
   }
-
   public function setProperties(Google_Service_Compute_InstanceProperties $properties)
   {
     $this->properties = $properties;
@@ -9109,7 +8940,6 @@ class Google_Service_Compute_InstanceTemplate extends Google_Model
   {
     return $this->properties;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -9119,6 +8949,7 @@ class Google_Service_Compute_InstanceTemplate extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_InstanceTemplateList extends Google_Collection
@@ -9142,7 +8973,6 @@ class Google_Service_Compute_InstanceTemplateList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -9152,7 +8982,6 @@ class Google_Service_Compute_InstanceTemplateList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9162,7 +8991,6 @@ class Google_Service_Compute_InstanceTemplateList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -9172,7 +9000,6 @@ class Google_Service_Compute_InstanceTemplateList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -9182,6 +9009,7 @@ class Google_Service_Compute_InstanceTemplateList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_InstancesScopedList extends Google_Collection
@@ -9203,7 +9031,6 @@ class Google_Service_Compute_InstancesScopedList extends Google_Collection
   {
     return $this->instances;
   }
-
   public function setWarning(Google_Service_Compute_InstancesScopedListWarning $warning)
   {
     $this->warning = $warning;
@@ -9213,6 +9040,7 @@ class Google_Service_Compute_InstancesScopedList extends Google_Collection
   {
     return $this->warning;
   }
+
 }
 
 class Google_Service_Compute_InstancesScopedListWarning extends Google_Collection
@@ -9234,7 +9062,6 @@ class Google_Service_Compute_InstancesScopedListWarning extends Google_Collectio
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -9244,7 +9071,6 @@ class Google_Service_Compute_InstancesScopedListWarning extends Google_Collectio
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -9254,6 +9080,7 @@ class Google_Service_Compute_InstancesScopedListWarning extends Google_Collectio
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Compute_InstancesScopedListWarningData extends Google_Model
@@ -9272,7 +9099,6 @@ class Google_Service_Compute_InstancesScopedListWarningData extends Google_Model
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -9282,6 +9108,7 @@ class Google_Service_Compute_InstancesScopedListWarningData extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Compute_License extends Google_Model
@@ -9302,7 +9129,6 @@ class Google_Service_Compute_License extends Google_Model
   {
     return $this->chargesUseFee;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9312,7 +9138,6 @@ class Google_Service_Compute_License extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -9322,7 +9147,6 @@ class Google_Service_Compute_License extends Google_Model
   {
     return $this->name;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -9332,6 +9156,7 @@ class Google_Service_Compute_License extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_MachineType extends Google_Collection
@@ -9365,7 +9190,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDeprecated(Google_Service_Compute_DeprecationStatus $deprecated)
   {
     $this->deprecated = $deprecated;
@@ -9375,7 +9199,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->deprecated;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -9385,7 +9208,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->description;
   }
-
   public function setGuestCpus($guestCpus)
   {
     $this->guestCpus = $guestCpus;
@@ -9395,7 +9217,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->guestCpus;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -9405,7 +9226,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->id;
   }
-
   public function setImageSpaceGb($imageSpaceGb)
   {
     $this->imageSpaceGb = $imageSpaceGb;
@@ -9415,7 +9235,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->imageSpaceGb;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9425,7 +9244,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setMaximumPersistentDisks($maximumPersistentDisks)
   {
     $this->maximumPersistentDisks = $maximumPersistentDisks;
@@ -9435,7 +9253,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->maximumPersistentDisks;
   }
-
   public function setMaximumPersistentDisksSizeGb($maximumPersistentDisksSizeGb)
   {
     $this->maximumPersistentDisksSizeGb = $maximumPersistentDisksSizeGb;
@@ -9445,7 +9262,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->maximumPersistentDisksSizeGb;
   }
-
   public function setMemoryMb($memoryMb)
   {
     $this->memoryMb = $memoryMb;
@@ -9455,7 +9271,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->memoryMb;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -9465,7 +9280,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->name;
   }
-
   public function setScratchDisks($scratchDisks)
   {
     $this->scratchDisks = $scratchDisks;
@@ -9475,7 +9289,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->scratchDisks;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -9485,7 +9298,6 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setZone($zone)
   {
     $this->zone = $zone;
@@ -9495,6 +9307,7 @@ class Google_Service_Compute_MachineType extends Google_Collection
   {
     return $this->zone;
   }
+
 }
 
 class Google_Service_Compute_MachineTypeAggregatedList extends Google_Model
@@ -9517,7 +9330,6 @@ class Google_Service_Compute_MachineTypeAggregatedList extends Google_Model
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -9527,7 +9339,6 @@ class Google_Service_Compute_MachineTypeAggregatedList extends Google_Model
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9537,7 +9348,6 @@ class Google_Service_Compute_MachineTypeAggregatedList extends Google_Model
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -9547,7 +9357,6 @@ class Google_Service_Compute_MachineTypeAggregatedList extends Google_Model
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -9557,12 +9366,15 @@ class Google_Service_Compute_MachineTypeAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_MachineTypeAggregatedListItems extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Compute_MachineTypeList extends Google_Collection
@@ -9586,7 +9398,6 @@ class Google_Service_Compute_MachineTypeList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -9596,7 +9407,6 @@ class Google_Service_Compute_MachineTypeList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9606,7 +9416,6 @@ class Google_Service_Compute_MachineTypeList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -9616,7 +9425,6 @@ class Google_Service_Compute_MachineTypeList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -9626,6 +9434,7 @@ class Google_Service_Compute_MachineTypeList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_MachineTypeScratchDisks extends Google_Model
@@ -9643,6 +9452,7 @@ class Google_Service_Compute_MachineTypeScratchDisks extends Google_Model
   {
     return $this->diskGb;
   }
+
 }
 
 class Google_Service_Compute_MachineTypesScopedList extends Google_Collection
@@ -9664,7 +9474,6 @@ class Google_Service_Compute_MachineTypesScopedList extends Google_Collection
   {
     return $this->machineTypes;
   }
-
   public function setWarning(Google_Service_Compute_MachineTypesScopedListWarning $warning)
   {
     $this->warning = $warning;
@@ -9674,6 +9483,7 @@ class Google_Service_Compute_MachineTypesScopedList extends Google_Collection
   {
     return $this->warning;
   }
+
 }
 
 class Google_Service_Compute_MachineTypesScopedListWarning extends Google_Collection
@@ -9695,7 +9505,6 @@ class Google_Service_Compute_MachineTypesScopedListWarning extends Google_Collec
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -9705,7 +9514,6 @@ class Google_Service_Compute_MachineTypesScopedListWarning extends Google_Collec
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -9715,6 +9523,7 @@ class Google_Service_Compute_MachineTypesScopedListWarning extends Google_Collec
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Compute_MachineTypesScopedListWarningData extends Google_Model
@@ -9733,7 +9542,6 @@ class Google_Service_Compute_MachineTypesScopedListWarningData extends Google_Mo
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -9743,6 +9551,7 @@ class Google_Service_Compute_MachineTypesScopedListWarningData extends Google_Mo
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Compute_Metadata extends Google_Collection
@@ -9764,7 +9573,6 @@ class Google_Service_Compute_Metadata extends Google_Collection
   {
     return $this->fingerprint;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -9774,7 +9582,6 @@ class Google_Service_Compute_Metadata extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9784,6 +9591,7 @@ class Google_Service_Compute_Metadata extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_Compute_MetadataItems extends Google_Model
@@ -9802,7 +9610,6 @@ class Google_Service_Compute_MetadataItems extends Google_Model
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -9812,6 +9619,7 @@ class Google_Service_Compute_MetadataItems extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Compute_Network extends Google_Model
@@ -9837,7 +9645,6 @@ class Google_Service_Compute_Network extends Google_Model
   {
     return $this->iPv4Range;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -9847,7 +9654,6 @@ class Google_Service_Compute_Network extends Google_Model
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -9857,7 +9663,6 @@ class Google_Service_Compute_Network extends Google_Model
   {
     return $this->description;
   }
-
   public function setGatewayIPv4($gatewayIPv4)
   {
     $this->gatewayIPv4 = $gatewayIPv4;
@@ -9867,7 +9672,6 @@ class Google_Service_Compute_Network extends Google_Model
   {
     return $this->gatewayIPv4;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -9877,7 +9681,6 @@ class Google_Service_Compute_Network extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -9887,7 +9690,6 @@ class Google_Service_Compute_Network extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -9897,7 +9699,6 @@ class Google_Service_Compute_Network extends Google_Model
   {
     return $this->name;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -9907,6 +9708,7 @@ class Google_Service_Compute_Network extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_NetworkInterface extends Google_Collection
@@ -9929,7 +9731,6 @@ class Google_Service_Compute_NetworkInterface extends Google_Collection
   {
     return $this->accessConfigs;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -9939,7 +9740,6 @@ class Google_Service_Compute_NetworkInterface extends Google_Collection
   {
     return $this->name;
   }
-
   public function setNetwork($network)
   {
     $this->network = $network;
@@ -9949,7 +9749,6 @@ class Google_Service_Compute_NetworkInterface extends Google_Collection
   {
     return $this->network;
   }
-
   public function setNetworkIP($networkIP)
   {
     $this->networkIP = $networkIP;
@@ -9959,6 +9758,7 @@ class Google_Service_Compute_NetworkInterface extends Google_Collection
   {
     return $this->networkIP;
   }
+
 }
 
 class Google_Service_Compute_NetworkList extends Google_Collection
@@ -9982,7 +9782,6 @@ class Google_Service_Compute_NetworkList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -9992,7 +9791,6 @@ class Google_Service_Compute_NetworkList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -10002,7 +9800,6 @@ class Google_Service_Compute_NetworkList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -10012,7 +9809,6 @@ class Google_Service_Compute_NetworkList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -10022,6 +9818,7 @@ class Google_Service_Compute_NetworkList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_Operation extends Google_Collection
@@ -10063,7 +9860,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->clientOperationId;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -10073,7 +9869,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setEndTime($endTime)
   {
     $this->endTime = $endTime;
@@ -10083,7 +9878,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->endTime;
   }
-
   public function setError(Google_Service_Compute_OperationError $error)
   {
     $this->error = $error;
@@ -10093,7 +9887,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->error;
   }
-
   public function setHttpErrorMessage($httpErrorMessage)
   {
     $this->httpErrorMessage = $httpErrorMessage;
@@ -10103,7 +9896,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->httpErrorMessage;
   }
-
   public function setHttpErrorStatusCode($httpErrorStatusCode)
   {
     $this->httpErrorStatusCode = $httpErrorStatusCode;
@@ -10113,7 +9905,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->httpErrorStatusCode;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -10123,7 +9914,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->id;
   }
-
   public function setInsertTime($insertTime)
   {
     $this->insertTime = $insertTime;
@@ -10133,7 +9923,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->insertTime;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -10143,7 +9932,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -10153,7 +9941,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->name;
   }
-
   public function setOperationType($operationType)
   {
     $this->operationType = $operationType;
@@ -10163,7 +9950,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->operationType;
   }
-
   public function setProgress($progress)
   {
     $this->progress = $progress;
@@ -10173,7 +9959,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->progress;
   }
-
   public function setRegion($region)
   {
     $this->region = $region;
@@ -10183,7 +9968,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->region;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -10193,7 +9977,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
@@ -10203,7 +9986,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->startTime;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -10213,7 +9995,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->status;
   }
-
   public function setStatusMessage($statusMessage)
   {
     $this->statusMessage = $statusMessage;
@@ -10223,7 +10004,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->statusMessage;
   }
-
   public function setTargetId($targetId)
   {
     $this->targetId = $targetId;
@@ -10233,7 +10013,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->targetId;
   }
-
   public function setTargetLink($targetLink)
   {
     $this->targetLink = $targetLink;
@@ -10243,7 +10022,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->targetLink;
   }
-
   public function setUser($user)
   {
     $this->user = $user;
@@ -10253,7 +10031,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->user;
   }
-
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -10263,7 +10040,6 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->warnings;
   }
-
   public function setZone($zone)
   {
     $this->zone = $zone;
@@ -10273,6 +10049,7 @@ class Google_Service_Compute_Operation extends Google_Collection
   {
     return $this->zone;
   }
+
 }
 
 class Google_Service_Compute_OperationAggregatedList extends Google_Model
@@ -10295,7 +10072,6 @@ class Google_Service_Compute_OperationAggregatedList extends Google_Model
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -10305,7 +10081,6 @@ class Google_Service_Compute_OperationAggregatedList extends Google_Model
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -10315,7 +10090,6 @@ class Google_Service_Compute_OperationAggregatedList extends Google_Model
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -10325,7 +10099,6 @@ class Google_Service_Compute_OperationAggregatedList extends Google_Model
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -10335,12 +10108,15 @@ class Google_Service_Compute_OperationAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_OperationAggregatedListItems extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Compute_OperationError extends Google_Collection
@@ -10360,6 +10136,7 @@ class Google_Service_Compute_OperationError extends Google_Collection
   {
     return $this->errors;
   }
+
 }
 
 class Google_Service_Compute_OperationErrorErrors extends Google_Model
@@ -10379,7 +10156,6 @@ class Google_Service_Compute_OperationErrorErrors extends Google_Model
   {
     return $this->code;
   }
-
   public function setLocation($location)
   {
     $this->location = $location;
@@ -10389,7 +10165,6 @@ class Google_Service_Compute_OperationErrorErrors extends Google_Model
   {
     return $this->location;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -10399,6 +10174,7 @@ class Google_Service_Compute_OperationErrorErrors extends Google_Model
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Compute_OperationList extends Google_Collection
@@ -10422,7 +10198,6 @@ class Google_Service_Compute_OperationList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -10432,7 +10207,6 @@ class Google_Service_Compute_OperationList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -10442,7 +10216,6 @@ class Google_Service_Compute_OperationList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -10452,7 +10225,6 @@ class Google_Service_Compute_OperationList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -10462,6 +10234,7 @@ class Google_Service_Compute_OperationList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_OperationWarnings extends Google_Collection
@@ -10483,7 +10256,6 @@ class Google_Service_Compute_OperationWarnings extends Google_Collection
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -10493,7 +10265,6 @@ class Google_Service_Compute_OperationWarnings extends Google_Collection
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -10503,6 +10274,7 @@ class Google_Service_Compute_OperationWarnings extends Google_Collection
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Compute_OperationWarningsData extends Google_Model
@@ -10521,7 +10293,6 @@ class Google_Service_Compute_OperationWarningsData extends Google_Model
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -10531,6 +10302,7 @@ class Google_Service_Compute_OperationWarningsData extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Compute_OperationsScopedList extends Google_Collection
@@ -10552,7 +10324,6 @@ class Google_Service_Compute_OperationsScopedList extends Google_Collection
   {
     return $this->operations;
   }
-
   public function setWarning(Google_Service_Compute_OperationsScopedListWarning $warning)
   {
     $this->warning = $warning;
@@ -10562,6 +10333,7 @@ class Google_Service_Compute_OperationsScopedList extends Google_Collection
   {
     return $this->warning;
   }
+
 }
 
 class Google_Service_Compute_OperationsScopedListWarning extends Google_Collection
@@ -10583,7 +10355,6 @@ class Google_Service_Compute_OperationsScopedListWarning extends Google_Collecti
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -10593,7 +10364,6 @@ class Google_Service_Compute_OperationsScopedListWarning extends Google_Collecti
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -10603,6 +10373,7 @@ class Google_Service_Compute_OperationsScopedListWarning extends Google_Collecti
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Compute_OperationsScopedListWarningData extends Google_Model
@@ -10621,7 +10392,6 @@ class Google_Service_Compute_OperationsScopedListWarningData extends Google_Mode
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -10631,6 +10401,7 @@ class Google_Service_Compute_OperationsScopedListWarningData extends Google_Mode
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Compute_PathMatcher extends Google_Collection
@@ -10653,7 +10424,6 @@ class Google_Service_Compute_PathMatcher extends Google_Collection
   {
     return $this->defaultService;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -10663,7 +10433,6 @@ class Google_Service_Compute_PathMatcher extends Google_Collection
   {
     return $this->description;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -10673,7 +10442,6 @@ class Google_Service_Compute_PathMatcher extends Google_Collection
   {
     return $this->name;
   }
-
   public function setPathRules($pathRules)
   {
     $this->pathRules = $pathRules;
@@ -10683,6 +10451,7 @@ class Google_Service_Compute_PathMatcher extends Google_Collection
   {
     return $this->pathRules;
   }
+
 }
 
 class Google_Service_Compute_PathRule extends Google_Collection
@@ -10702,7 +10471,6 @@ class Google_Service_Compute_PathRule extends Google_Collection
   {
     return $this->paths;
   }
-
   public function setService($service)
   {
     $this->service = $service;
@@ -10712,6 +10480,7 @@ class Google_Service_Compute_PathRule extends Google_Collection
   {
     return $this->service;
   }
+
 }
 
 class Google_Service_Compute_Project extends Google_Collection
@@ -10741,7 +10510,6 @@ class Google_Service_Compute_Project extends Google_Collection
   {
     return $this->commonInstanceMetadata;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -10751,7 +10519,6 @@ class Google_Service_Compute_Project extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -10761,7 +10528,6 @@ class Google_Service_Compute_Project extends Google_Collection
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -10771,7 +10537,6 @@ class Google_Service_Compute_Project extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -10781,7 +10546,6 @@ class Google_Service_Compute_Project extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -10791,7 +10555,6 @@ class Google_Service_Compute_Project extends Google_Collection
   {
     return $this->name;
   }
-
   public function setQuotas($quotas)
   {
     $this->quotas = $quotas;
@@ -10801,7 +10564,6 @@ class Google_Service_Compute_Project extends Google_Collection
   {
     return $this->quotas;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -10811,7 +10573,6 @@ class Google_Service_Compute_Project extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setUsageExportLocation(Google_Service_Compute_UsageExportLocation $usageExportLocation)
   {
     $this->usageExportLocation = $usageExportLocation;
@@ -10821,6 +10582,7 @@ class Google_Service_Compute_Project extends Google_Collection
   {
     return $this->usageExportLocation;
   }
+
 }
 
 class Google_Service_Compute_Quota extends Google_Model
@@ -10840,7 +10602,6 @@ class Google_Service_Compute_Quota extends Google_Model
   {
     return $this->limit;
   }
-
   public function setMetric($metric)
   {
     $this->metric = $metric;
@@ -10850,7 +10611,6 @@ class Google_Service_Compute_Quota extends Google_Model
   {
     return $this->metric;
   }
-
   public function setUsage($usage)
   {
     $this->usage = $usage;
@@ -10860,6 +10620,7 @@ class Google_Service_Compute_Quota extends Google_Model
   {
     return $this->usage;
   }
+
 }
 
 class Google_Service_Compute_Region extends Google_Collection
@@ -10889,7 +10650,6 @@ class Google_Service_Compute_Region extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDeprecated(Google_Service_Compute_DeprecationStatus $deprecated)
   {
     $this->deprecated = $deprecated;
@@ -10899,7 +10659,6 @@ class Google_Service_Compute_Region extends Google_Collection
   {
     return $this->deprecated;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -10909,7 +10668,6 @@ class Google_Service_Compute_Region extends Google_Collection
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -10919,7 +10677,6 @@ class Google_Service_Compute_Region extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -10929,7 +10686,6 @@ class Google_Service_Compute_Region extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -10939,7 +10695,6 @@ class Google_Service_Compute_Region extends Google_Collection
   {
     return $this->name;
   }
-
   public function setQuotas($quotas)
   {
     $this->quotas = $quotas;
@@ -10949,7 +10704,6 @@ class Google_Service_Compute_Region extends Google_Collection
   {
     return $this->quotas;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -10959,7 +10713,6 @@ class Google_Service_Compute_Region extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -10969,7 +10722,6 @@ class Google_Service_Compute_Region extends Google_Collection
   {
     return $this->status;
   }
-
   public function setZones($zones)
   {
     $this->zones = $zones;
@@ -10979,6 +10731,7 @@ class Google_Service_Compute_Region extends Google_Collection
   {
     return $this->zones;
   }
+
 }
 
 class Google_Service_Compute_RegionList extends Google_Collection
@@ -11002,7 +10755,6 @@ class Google_Service_Compute_RegionList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -11012,7 +10764,6 @@ class Google_Service_Compute_RegionList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -11022,7 +10773,6 @@ class Google_Service_Compute_RegionList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -11032,7 +10782,6 @@ class Google_Service_Compute_RegionList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -11042,6 +10791,7 @@ class Google_Service_Compute_RegionList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_ResourceGroupReference extends Google_Model
@@ -11059,6 +10809,7 @@ class Google_Service_Compute_ResourceGroupReference extends Google_Model
   {
     return $this->group;
   }
+
 }
 
 class Google_Service_Compute_Route extends Google_Collection
@@ -11092,7 +10843,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -11102,7 +10852,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDestRange($destRange)
   {
     $this->destRange = $destRange;
@@ -11112,7 +10861,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->destRange;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -11122,7 +10870,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -11132,7 +10879,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -11142,7 +10888,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->name;
   }
-
   public function setNetwork($network)
   {
     $this->network = $network;
@@ -11152,7 +10897,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->network;
   }
-
   public function setNextHopGateway($nextHopGateway)
   {
     $this->nextHopGateway = $nextHopGateway;
@@ -11162,7 +10906,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->nextHopGateway;
   }
-
   public function setNextHopInstance($nextHopInstance)
   {
     $this->nextHopInstance = $nextHopInstance;
@@ -11172,7 +10915,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->nextHopInstance;
   }
-
   public function setNextHopIp($nextHopIp)
   {
     $this->nextHopIp = $nextHopIp;
@@ -11182,7 +10924,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->nextHopIp;
   }
-
   public function setNextHopNetwork($nextHopNetwork)
   {
     $this->nextHopNetwork = $nextHopNetwork;
@@ -11192,7 +10933,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->nextHopNetwork;
   }
-
   public function setPriority($priority)
   {
     $this->priority = $priority;
@@ -11202,7 +10942,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->priority;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -11212,7 +10951,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setTags($tags)
   {
     $this->tags = $tags;
@@ -11222,7 +10960,6 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->tags;
   }
-
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -11232,6 +10969,7 @@ class Google_Service_Compute_Route extends Google_Collection
   {
     return $this->warnings;
   }
+
 }
 
 class Google_Service_Compute_RouteList extends Google_Collection
@@ -11255,7 +10993,6 @@ class Google_Service_Compute_RouteList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -11265,7 +11002,6 @@ class Google_Service_Compute_RouteList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -11275,7 +11011,6 @@ class Google_Service_Compute_RouteList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -11285,7 +11020,6 @@ class Google_Service_Compute_RouteList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -11295,6 +11029,7 @@ class Google_Service_Compute_RouteList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_RouteWarnings extends Google_Collection
@@ -11316,7 +11051,6 @@ class Google_Service_Compute_RouteWarnings extends Google_Collection
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -11326,7 +11060,6 @@ class Google_Service_Compute_RouteWarnings extends Google_Collection
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -11336,6 +11069,7 @@ class Google_Service_Compute_RouteWarnings extends Google_Collection
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Compute_RouteWarningsData extends Google_Model
@@ -11354,7 +11088,6 @@ class Google_Service_Compute_RouteWarningsData extends Google_Model
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -11364,6 +11097,7 @@ class Google_Service_Compute_RouteWarningsData extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Compute_Scheduling extends Google_Model
@@ -11382,7 +11116,6 @@ class Google_Service_Compute_Scheduling extends Google_Model
   {
     return $this->automaticRestart;
   }
-
   public function setOnHostMaintenance($onHostMaintenance)
   {
     $this->onHostMaintenance = $onHostMaintenance;
@@ -11392,6 +11125,7 @@ class Google_Service_Compute_Scheduling extends Google_Model
   {
     return $this->onHostMaintenance;
   }
+
 }
 
 class Google_Service_Compute_SerialPortOutput extends Google_Model
@@ -11411,7 +11145,6 @@ class Google_Service_Compute_SerialPortOutput extends Google_Model
   {
     return $this->contents;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -11421,7 +11154,6 @@ class Google_Service_Compute_SerialPortOutput extends Google_Model
   {
     return $this->kind;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -11431,6 +11163,7 @@ class Google_Service_Compute_SerialPortOutput extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_ServiceAccount extends Google_Collection
@@ -11450,7 +11183,6 @@ class Google_Service_Compute_ServiceAccount extends Google_Collection
   {
     return $this->email;
   }
-
   public function setScopes($scopes)
   {
     $this->scopes = $scopes;
@@ -11460,6 +11192,7 @@ class Google_Service_Compute_ServiceAccount extends Google_Collection
   {
     return $this->scopes;
   }
+
 }
 
 class Google_Service_Compute_Snapshot extends Google_Collection
@@ -11490,7 +11223,6 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -11500,7 +11232,6 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDiskSizeGb($diskSizeGb)
   {
     $this->diskSizeGb = $diskSizeGb;
@@ -11510,7 +11241,6 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->diskSizeGb;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -11520,7 +11250,6 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -11530,7 +11259,6 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLicenses($licenses)
   {
     $this->licenses = $licenses;
@@ -11540,7 +11268,6 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->licenses;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -11550,7 +11277,6 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->name;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -11560,7 +11286,6 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setSourceDisk($sourceDisk)
   {
     $this->sourceDisk = $sourceDisk;
@@ -11570,7 +11295,6 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->sourceDisk;
   }
-
   public function setSourceDiskId($sourceDiskId)
   {
     $this->sourceDiskId = $sourceDiskId;
@@ -11580,7 +11304,6 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->sourceDiskId;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -11590,7 +11313,6 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->status;
   }
-
   public function setStorageBytes($storageBytes)
   {
     $this->storageBytes = $storageBytes;
@@ -11600,7 +11322,6 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->storageBytes;
   }
-
   public function setStorageBytesStatus($storageBytesStatus)
   {
     $this->storageBytesStatus = $storageBytesStatus;
@@ -11610,6 +11331,7 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->storageBytesStatus;
   }
+
 }
 
 class Google_Service_Compute_SnapshotList extends Google_Collection
@@ -11633,7 +11355,6 @@ class Google_Service_Compute_SnapshotList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -11643,7 +11364,6 @@ class Google_Service_Compute_SnapshotList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -11653,7 +11373,6 @@ class Google_Service_Compute_SnapshotList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -11663,7 +11382,6 @@ class Google_Service_Compute_SnapshotList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -11673,6 +11391,7 @@ class Google_Service_Compute_SnapshotList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_Tags extends Google_Collection
@@ -11692,7 +11411,6 @@ class Google_Service_Compute_Tags extends Google_Collection
   {
     return $this->fingerprint;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -11702,6 +11420,7 @@ class Google_Service_Compute_Tags extends Google_Collection
   {
     return $this->items;
   }
+
 }
 
 class Google_Service_Compute_TargetHttpProxy extends Google_Model
@@ -11725,7 +11444,6 @@ class Google_Service_Compute_TargetHttpProxy extends Google_Model
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -11735,7 +11453,6 @@ class Google_Service_Compute_TargetHttpProxy extends Google_Model
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -11745,7 +11462,6 @@ class Google_Service_Compute_TargetHttpProxy extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -11755,7 +11471,6 @@ class Google_Service_Compute_TargetHttpProxy extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -11765,7 +11480,6 @@ class Google_Service_Compute_TargetHttpProxy extends Google_Model
   {
     return $this->name;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -11775,7 +11489,6 @@ class Google_Service_Compute_TargetHttpProxy extends Google_Model
   {
     return $this->selfLink;
   }
-
   public function setUrlMap($urlMap)
   {
     $this->urlMap = $urlMap;
@@ -11785,6 +11498,7 @@ class Google_Service_Compute_TargetHttpProxy extends Google_Model
   {
     return $this->urlMap;
   }
+
 }
 
 class Google_Service_Compute_TargetHttpProxyList extends Google_Collection
@@ -11808,7 +11522,6 @@ class Google_Service_Compute_TargetHttpProxyList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -11818,7 +11531,6 @@ class Google_Service_Compute_TargetHttpProxyList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -11828,7 +11540,6 @@ class Google_Service_Compute_TargetHttpProxyList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -11838,7 +11549,6 @@ class Google_Service_Compute_TargetHttpProxyList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -11848,6 +11558,7 @@ class Google_Service_Compute_TargetHttpProxyList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_TargetInstance extends Google_Model
@@ -11873,7 +11584,6 @@ class Google_Service_Compute_TargetInstance extends Google_Model
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -11883,7 +11593,6 @@ class Google_Service_Compute_TargetInstance extends Google_Model
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -11893,7 +11602,6 @@ class Google_Service_Compute_TargetInstance extends Google_Model
   {
     return $this->id;
   }
-
   public function setInstance($instance)
   {
     $this->instance = $instance;
@@ -11903,7 +11611,6 @@ class Google_Service_Compute_TargetInstance extends Google_Model
   {
     return $this->instance;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -11913,7 +11620,6 @@ class Google_Service_Compute_TargetInstance extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -11923,7 +11629,6 @@ class Google_Service_Compute_TargetInstance extends Google_Model
   {
     return $this->name;
   }
-
   public function setNatPolicy($natPolicy)
   {
     $this->natPolicy = $natPolicy;
@@ -11933,7 +11638,6 @@ class Google_Service_Compute_TargetInstance extends Google_Model
   {
     return $this->natPolicy;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -11943,7 +11647,6 @@ class Google_Service_Compute_TargetInstance extends Google_Model
   {
     return $this->selfLink;
   }
-
   public function setZone($zone)
   {
     $this->zone = $zone;
@@ -11953,6 +11656,7 @@ class Google_Service_Compute_TargetInstance extends Google_Model
   {
     return $this->zone;
   }
+
 }
 
 class Google_Service_Compute_TargetInstanceAggregatedList extends Google_Model
@@ -11975,7 +11679,6 @@ class Google_Service_Compute_TargetInstanceAggregatedList extends Google_Model
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -11985,7 +11688,6 @@ class Google_Service_Compute_TargetInstanceAggregatedList extends Google_Model
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -11995,7 +11697,6 @@ class Google_Service_Compute_TargetInstanceAggregatedList extends Google_Model
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -12005,7 +11706,6 @@ class Google_Service_Compute_TargetInstanceAggregatedList extends Google_Model
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -12015,12 +11715,15 @@ class Google_Service_Compute_TargetInstanceAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_TargetInstanceAggregatedListItems extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Compute_TargetInstanceList extends Google_Collection
@@ -12044,7 +11747,6 @@ class Google_Service_Compute_TargetInstanceList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -12054,7 +11756,6 @@ class Google_Service_Compute_TargetInstanceList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -12064,7 +11765,6 @@ class Google_Service_Compute_TargetInstanceList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -12074,7 +11774,6 @@ class Google_Service_Compute_TargetInstanceList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -12084,6 +11783,7 @@ class Google_Service_Compute_TargetInstanceList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_TargetInstancesScopedList extends Google_Collection
@@ -12105,7 +11805,6 @@ class Google_Service_Compute_TargetInstancesScopedList extends Google_Collection
   {
     return $this->targetInstances;
   }
-
   public function setWarning(Google_Service_Compute_TargetInstancesScopedListWarning $warning)
   {
     $this->warning = $warning;
@@ -12115,6 +11814,7 @@ class Google_Service_Compute_TargetInstancesScopedList extends Google_Collection
   {
     return $this->warning;
   }
+
 }
 
 class Google_Service_Compute_TargetInstancesScopedListWarning extends Google_Collection
@@ -12136,7 +11836,6 @@ class Google_Service_Compute_TargetInstancesScopedListWarning extends Google_Col
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -12146,7 +11845,6 @@ class Google_Service_Compute_TargetInstancesScopedListWarning extends Google_Col
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -12156,6 +11854,7 @@ class Google_Service_Compute_TargetInstancesScopedListWarning extends Google_Col
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Compute_TargetInstancesScopedListWarningData extends Google_Model
@@ -12174,7 +11873,6 @@ class Google_Service_Compute_TargetInstancesScopedListWarningData extends Google
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -12184,6 +11882,7 @@ class Google_Service_Compute_TargetInstancesScopedListWarningData extends Google
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Compute_TargetPool extends Google_Collection
@@ -12213,7 +11912,6 @@ class Google_Service_Compute_TargetPool extends Google_Collection
   {
     return $this->backupPool;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -12223,7 +11921,6 @@ class Google_Service_Compute_TargetPool extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -12233,7 +11930,6 @@ class Google_Service_Compute_TargetPool extends Google_Collection
   {
     return $this->description;
   }
-
   public function setFailoverRatio($failoverRatio)
   {
     $this->failoverRatio = $failoverRatio;
@@ -12243,7 +11939,6 @@ class Google_Service_Compute_TargetPool extends Google_Collection
   {
     return $this->failoverRatio;
   }
-
   public function setHealthChecks($healthChecks)
   {
     $this->healthChecks = $healthChecks;
@@ -12253,7 +11948,6 @@ class Google_Service_Compute_TargetPool extends Google_Collection
   {
     return $this->healthChecks;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -12263,7 +11957,6 @@ class Google_Service_Compute_TargetPool extends Google_Collection
   {
     return $this->id;
   }
-
   public function setInstances($instances)
   {
     $this->instances = $instances;
@@ -12273,7 +11966,6 @@ class Google_Service_Compute_TargetPool extends Google_Collection
   {
     return $this->instances;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -12283,7 +11975,6 @@ class Google_Service_Compute_TargetPool extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -12293,7 +11984,6 @@ class Google_Service_Compute_TargetPool extends Google_Collection
   {
     return $this->name;
   }
-
   public function setRegion($region)
   {
     $this->region = $region;
@@ -12303,7 +11993,6 @@ class Google_Service_Compute_TargetPool extends Google_Collection
   {
     return $this->region;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -12313,7 +12002,6 @@ class Google_Service_Compute_TargetPool extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setSessionAffinity($sessionAffinity)
   {
     $this->sessionAffinity = $sessionAffinity;
@@ -12323,6 +12011,7 @@ class Google_Service_Compute_TargetPool extends Google_Collection
   {
     return $this->sessionAffinity;
   }
+
 }
 
 class Google_Service_Compute_TargetPoolAggregatedList extends Google_Model
@@ -12345,7 +12034,6 @@ class Google_Service_Compute_TargetPoolAggregatedList extends Google_Model
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -12355,7 +12043,6 @@ class Google_Service_Compute_TargetPoolAggregatedList extends Google_Model
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -12365,7 +12052,6 @@ class Google_Service_Compute_TargetPoolAggregatedList extends Google_Model
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -12375,7 +12061,6 @@ class Google_Service_Compute_TargetPoolAggregatedList extends Google_Model
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -12385,12 +12070,15 @@ class Google_Service_Compute_TargetPoolAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_TargetPoolAggregatedListItems extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Compute_TargetPoolInstanceHealth extends Google_Collection
@@ -12411,7 +12099,6 @@ class Google_Service_Compute_TargetPoolInstanceHealth extends Google_Collection
   {
     return $this->healthStatus;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -12421,6 +12108,7 @@ class Google_Service_Compute_TargetPoolInstanceHealth extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_Compute_TargetPoolList extends Google_Collection
@@ -12444,7 +12132,6 @@ class Google_Service_Compute_TargetPoolList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -12454,7 +12141,6 @@ class Google_Service_Compute_TargetPoolList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -12464,7 +12150,6 @@ class Google_Service_Compute_TargetPoolList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -12474,7 +12159,6 @@ class Google_Service_Compute_TargetPoolList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -12484,6 +12168,7 @@ class Google_Service_Compute_TargetPoolList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_TargetPoolsAddHealthCheckRequest extends Google_Collection
@@ -12503,6 +12188,7 @@ class Google_Service_Compute_TargetPoolsAddHealthCheckRequest extends Google_Col
   {
     return $this->healthChecks;
   }
+
 }
 
 class Google_Service_Compute_TargetPoolsAddInstanceRequest extends Google_Collection
@@ -12522,6 +12208,7 @@ class Google_Service_Compute_TargetPoolsAddInstanceRequest extends Google_Collec
   {
     return $this->instances;
   }
+
 }
 
 class Google_Service_Compute_TargetPoolsRemoveHealthCheckRequest extends Google_Collection
@@ -12541,6 +12228,7 @@ class Google_Service_Compute_TargetPoolsRemoveHealthCheckRequest extends Google_
   {
     return $this->healthChecks;
   }
+
 }
 
 class Google_Service_Compute_TargetPoolsRemoveInstanceRequest extends Google_Collection
@@ -12560,6 +12248,7 @@ class Google_Service_Compute_TargetPoolsRemoveInstanceRequest extends Google_Col
   {
     return $this->instances;
   }
+
 }
 
 class Google_Service_Compute_TargetPoolsScopedList extends Google_Collection
@@ -12581,7 +12270,6 @@ class Google_Service_Compute_TargetPoolsScopedList extends Google_Collection
   {
     return $this->targetPools;
   }
-
   public function setWarning(Google_Service_Compute_TargetPoolsScopedListWarning $warning)
   {
     $this->warning = $warning;
@@ -12591,6 +12279,7 @@ class Google_Service_Compute_TargetPoolsScopedList extends Google_Collection
   {
     return $this->warning;
   }
+
 }
 
 class Google_Service_Compute_TargetPoolsScopedListWarning extends Google_Collection
@@ -12612,7 +12301,6 @@ class Google_Service_Compute_TargetPoolsScopedListWarning extends Google_Collect
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -12622,7 +12310,6 @@ class Google_Service_Compute_TargetPoolsScopedListWarning extends Google_Collect
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -12632,6 +12319,7 @@ class Google_Service_Compute_TargetPoolsScopedListWarning extends Google_Collect
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Compute_TargetPoolsScopedListWarningData extends Google_Model
@@ -12650,7 +12338,6 @@ class Google_Service_Compute_TargetPoolsScopedListWarningData extends Google_Mod
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -12660,6 +12347,7 @@ class Google_Service_Compute_TargetPoolsScopedListWarningData extends Google_Mod
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Compute_TargetReference extends Google_Model
@@ -12677,6 +12365,7 @@ class Google_Service_Compute_TargetReference extends Google_Model
   {
     return $this->target;
   }
+
 }
 
 class Google_Service_Compute_TestFailure extends Google_Model
@@ -12697,7 +12386,6 @@ class Google_Service_Compute_TestFailure extends Google_Model
   {
     return $this->actualService;
   }
-
   public function setExpectedService($expectedService)
   {
     $this->expectedService = $expectedService;
@@ -12707,7 +12395,6 @@ class Google_Service_Compute_TestFailure extends Google_Model
   {
     return $this->expectedService;
   }
-
   public function setHost($host)
   {
     $this->host = $host;
@@ -12717,7 +12404,6 @@ class Google_Service_Compute_TestFailure extends Google_Model
   {
     return $this->host;
   }
-
   public function setPath($path)
   {
     $this->path = $path;
@@ -12727,6 +12413,7 @@ class Google_Service_Compute_TestFailure extends Google_Model
   {
     return $this->path;
   }
+
 }
 
 class Google_Service_Compute_UrlMap extends Google_Collection
@@ -12758,7 +12445,6 @@ class Google_Service_Compute_UrlMap extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDefaultService($defaultService)
   {
     $this->defaultService = $defaultService;
@@ -12768,7 +12454,6 @@ class Google_Service_Compute_UrlMap extends Google_Collection
   {
     return $this->defaultService;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -12778,7 +12463,6 @@ class Google_Service_Compute_UrlMap extends Google_Collection
   {
     return $this->description;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -12788,7 +12472,6 @@ class Google_Service_Compute_UrlMap extends Google_Collection
   {
     return $this->fingerprint;
   }
-
   public function setHostRules($hostRules)
   {
     $this->hostRules = $hostRules;
@@ -12798,7 +12481,6 @@ class Google_Service_Compute_UrlMap extends Google_Collection
   {
     return $this->hostRules;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -12808,7 +12490,6 @@ class Google_Service_Compute_UrlMap extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -12818,7 +12499,6 @@ class Google_Service_Compute_UrlMap extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -12828,7 +12508,6 @@ class Google_Service_Compute_UrlMap extends Google_Collection
   {
     return $this->name;
   }
-
   public function setPathMatchers($pathMatchers)
   {
     $this->pathMatchers = $pathMatchers;
@@ -12838,7 +12517,6 @@ class Google_Service_Compute_UrlMap extends Google_Collection
   {
     return $this->pathMatchers;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -12848,7 +12526,6 @@ class Google_Service_Compute_UrlMap extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setTests($tests)
   {
     $this->tests = $tests;
@@ -12858,6 +12535,7 @@ class Google_Service_Compute_UrlMap extends Google_Collection
   {
     return $this->tests;
   }
+
 }
 
 class Google_Service_Compute_UrlMapList extends Google_Collection
@@ -12881,7 +12559,6 @@ class Google_Service_Compute_UrlMapList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -12891,7 +12568,6 @@ class Google_Service_Compute_UrlMapList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -12901,7 +12577,6 @@ class Google_Service_Compute_UrlMapList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -12911,7 +12586,6 @@ class Google_Service_Compute_UrlMapList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -12921,6 +12595,7 @@ class Google_Service_Compute_UrlMapList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_UrlMapReference extends Google_Model
@@ -12938,6 +12613,7 @@ class Google_Service_Compute_UrlMapReference extends Google_Model
   {
     return $this->urlMap;
   }
+
 }
 
 class Google_Service_Compute_UrlMapTest extends Google_Model
@@ -12958,7 +12634,6 @@ class Google_Service_Compute_UrlMapTest extends Google_Model
   {
     return $this->description;
   }
-
   public function setHost($host)
   {
     $this->host = $host;
@@ -12968,7 +12643,6 @@ class Google_Service_Compute_UrlMapTest extends Google_Model
   {
     return $this->host;
   }
-
   public function setPath($path)
   {
     $this->path = $path;
@@ -12978,7 +12652,6 @@ class Google_Service_Compute_UrlMapTest extends Google_Model
   {
     return $this->path;
   }
-
   public function setService($service)
   {
     $this->service = $service;
@@ -12988,6 +12661,7 @@ class Google_Service_Compute_UrlMapTest extends Google_Model
   {
     return $this->service;
   }
+
 }
 
 class Google_Service_Compute_UrlMapValidationResult extends Google_Collection
@@ -13010,7 +12684,6 @@ class Google_Service_Compute_UrlMapValidationResult extends Google_Collection
   {
     return $this->loadErrors;
   }
-
   public function setLoadSucceeded($loadSucceeded)
   {
     $this->loadSucceeded = $loadSucceeded;
@@ -13020,7 +12693,6 @@ class Google_Service_Compute_UrlMapValidationResult extends Google_Collection
   {
     return $this->loadSucceeded;
   }
-
   public function setTestFailures($testFailures)
   {
     $this->testFailures = $testFailures;
@@ -13030,7 +12702,6 @@ class Google_Service_Compute_UrlMapValidationResult extends Google_Collection
   {
     return $this->testFailures;
   }
-
   public function setTestPassed($testPassed)
   {
     $this->testPassed = $testPassed;
@@ -13040,6 +12711,7 @@ class Google_Service_Compute_UrlMapValidationResult extends Google_Collection
   {
     return $this->testPassed;
   }
+
 }
 
 class Google_Service_Compute_UrlMapsValidateRequest extends Google_Model
@@ -13058,6 +12730,7 @@ class Google_Service_Compute_UrlMapsValidateRequest extends Google_Model
   {
     return $this->resource;
   }
+
 }
 
 class Google_Service_Compute_UrlMapsValidateResponse extends Google_Model
@@ -13076,6 +12749,7 @@ class Google_Service_Compute_UrlMapsValidateResponse extends Google_Model
   {
     return $this->result;
   }
+
 }
 
 class Google_Service_Compute_UsageExportLocation extends Google_Model
@@ -13094,7 +12768,6 @@ class Google_Service_Compute_UsageExportLocation extends Google_Model
   {
     return $this->bucketName;
   }
-
   public function setReportNamePrefix($reportNamePrefix)
   {
     $this->reportNamePrefix = $reportNamePrefix;
@@ -13104,6 +12777,7 @@ class Google_Service_Compute_UsageExportLocation extends Google_Model
   {
     return $this->reportNamePrefix;
   }
+
 }
 
 class Google_Service_Compute_Zone extends Google_Collection
@@ -13133,7 +12807,6 @@ class Google_Service_Compute_Zone extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setDeprecated(Google_Service_Compute_DeprecationStatus $deprecated)
   {
     $this->deprecated = $deprecated;
@@ -13143,7 +12816,6 @@ class Google_Service_Compute_Zone extends Google_Collection
   {
     return $this->deprecated;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -13153,7 +12825,6 @@ class Google_Service_Compute_Zone extends Google_Collection
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -13163,7 +12834,6 @@ class Google_Service_Compute_Zone extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -13173,7 +12843,6 @@ class Google_Service_Compute_Zone extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setMaintenanceWindows($maintenanceWindows)
   {
     $this->maintenanceWindows = $maintenanceWindows;
@@ -13183,7 +12852,6 @@ class Google_Service_Compute_Zone extends Google_Collection
   {
     return $this->maintenanceWindows;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -13193,7 +12861,6 @@ class Google_Service_Compute_Zone extends Google_Collection
   {
     return $this->name;
   }
-
   public function setRegion($region)
   {
     $this->region = $region;
@@ -13203,7 +12870,6 @@ class Google_Service_Compute_Zone extends Google_Collection
   {
     return $this->region;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -13213,7 +12879,6 @@ class Google_Service_Compute_Zone extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -13223,6 +12888,7 @@ class Google_Service_Compute_Zone extends Google_Collection
   {
     return $this->status;
   }
+
 }
 
 class Google_Service_Compute_ZoneList extends Google_Collection
@@ -13246,7 +12912,6 @@ class Google_Service_Compute_ZoneList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -13256,7 +12921,6 @@ class Google_Service_Compute_ZoneList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -13266,7 +12930,6 @@ class Google_Service_Compute_ZoneList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -13276,7 +12939,6 @@ class Google_Service_Compute_ZoneList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -13286,6 +12948,7 @@ class Google_Service_Compute_ZoneList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Compute_ZoneMaintenanceWindows extends Google_Model
@@ -13306,7 +12969,6 @@ class Google_Service_Compute_ZoneMaintenanceWindows extends Google_Model
   {
     return $this->beginTime;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -13316,7 +12978,6 @@ class Google_Service_Compute_ZoneMaintenanceWindows extends Google_Model
   {
     return $this->description;
   }
-
   public function setEndTime($endTime)
   {
     $this->endTime = $endTime;
@@ -13326,7 +12987,6 @@ class Google_Service_Compute_ZoneMaintenanceWindows extends Google_Model
   {
     return $this->endTime;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -13336,4 +12996,5 @@ class Google_Service_Compute_ZoneMaintenanceWindows extends Google_Model
   {
     return $this->name;
   }
+
 }
