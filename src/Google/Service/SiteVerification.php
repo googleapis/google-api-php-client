@@ -256,7 +256,6 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequest
   {
     return $this->site;
   }
-
   public function setVerificationMethod($verificationMethod)
   {
     $this->verificationMethod = $verificationMethod;
@@ -266,6 +265,7 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequest
   {
     return $this->verificationMethod;
   }
+
 }
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequestSite extends Google_Model
@@ -284,7 +284,6 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequest
   {
     return $this->identifier;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -294,6 +293,7 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRequest
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenResponse extends Google_Model
@@ -312,7 +312,6 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRespons
   {
     return $this->method;
   }
-
   public function setToken($token)
   {
     $this->token = $token;
@@ -322,6 +321,7 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceGettokenRespons
   {
     return $this->token;
   }
+
 }
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceListResponse extends Google_Collection
@@ -341,6 +341,7 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceListResponse ex
   {
     return $this->items;
   }
+
 }
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceResource extends Google_Collection
@@ -362,7 +363,6 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceResource extend
   {
     return $this->id;
   }
-
   public function setOwners($owners)
   {
     $this->owners = $owners;
@@ -372,7 +372,6 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceResource extend
   {
     return $this->owners;
   }
-
   public function setSite(Google_Service_SiteVerification_SiteVerificationWebResourceResourceSite $site)
   {
     $this->site = $site;
@@ -382,6 +381,7 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceResource extend
   {
     return $this->site;
   }
+
 }
 
 class Google_Service_SiteVerification_SiteVerificationWebResourceResourceSite extends Google_Model
@@ -400,7 +400,6 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceResourceSite ex
   {
     return $this->identifier;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -410,4 +409,5 @@ class Google_Service_SiteVerification_SiteVerificationWebResourceResourceSite ex
   {
     return $this->type;
   }
+
 }
