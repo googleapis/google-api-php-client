@@ -493,7 +493,6 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
   {
     return $this->autoscalingPolicy;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -503,7 +502,6 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
   {
     return $this->creationTimestamp;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -513,7 +511,6 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
   {
     return $this->description;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -523,7 +520,6 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -533,7 +529,6 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -543,7 +538,6 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
   {
     return $this->name;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -553,7 +547,6 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
   {
     return $this->selfLink;
   }
-
   public function setTarget($target)
   {
     $this->target = $target;
@@ -563,6 +556,7 @@ class Google_Service_Autoscaler_Autoscaler extends Google_Model
   {
     return $this->target;
   }
+
 }
 
 class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
@@ -584,7 +578,6 @@ class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -594,7 +587,6 @@ class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -604,6 +596,7 @@ class Google_Service_Autoscaler_AutoscalerListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
@@ -630,7 +623,6 @@ class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
   {
     return $this->coolDownPeriodSec;
   }
-
   public function setCpuUtilization(Google_Service_Autoscaler_AutoscalingPolicyCpuUtilization $cpuUtilization)
   {
     $this->cpuUtilization = $cpuUtilization;
@@ -640,7 +632,6 @@ class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
   {
     return $this->cpuUtilization;
   }
-
   public function setCustomMetricUtilizations($customMetricUtilizations)
   {
     $this->customMetricUtilizations = $customMetricUtilizations;
@@ -650,7 +641,6 @@ class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
   {
     return $this->customMetricUtilizations;
   }
-
   public function setLoadBalancingUtilization(Google_Service_Autoscaler_AutoscalingPolicyLoadBalancingUtilization $loadBalancingUtilization)
   {
     $this->loadBalancingUtilization = $loadBalancingUtilization;
@@ -660,7 +650,6 @@ class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
   {
     return $this->loadBalancingUtilization;
   }
-
   public function setMaxNumReplicas($maxNumReplicas)
   {
     $this->maxNumReplicas = $maxNumReplicas;
@@ -670,7 +659,6 @@ class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
   {
     return $this->maxNumReplicas;
   }
-
   public function setMinNumReplicas($minNumReplicas)
   {
     $this->minNumReplicas = $minNumReplicas;
@@ -680,6 +668,7 @@ class Google_Service_Autoscaler_AutoscalingPolicy extends Google_Collection
   {
     return $this->minNumReplicas;
   }
+
 }
 
 class Google_Service_Autoscaler_AutoscalingPolicyCpuUtilization extends Google_Model
@@ -697,6 +686,7 @@ class Google_Service_Autoscaler_AutoscalingPolicyCpuUtilization extends Google_M
   {
     return $this->utilizationTarget;
   }
+
 }
 
 class Google_Service_Autoscaler_AutoscalingPolicyCustomMetricUtilization extends Google_Model
@@ -716,7 +706,6 @@ class Google_Service_Autoscaler_AutoscalingPolicyCustomMetricUtilization extends
   {
     return $this->metric;
   }
-
   public function setUtilizationTarget($utilizationTarget)
   {
     $this->utilizationTarget = $utilizationTarget;
@@ -726,7 +715,6 @@ class Google_Service_Autoscaler_AutoscalingPolicyCustomMetricUtilization extends
   {
     return $this->utilizationTarget;
   }
-
   public function setUtilizationTargetType($utilizationTargetType)
   {
     $this->utilizationTargetType = $utilizationTargetType;
@@ -736,6 +724,7 @@ class Google_Service_Autoscaler_AutoscalingPolicyCustomMetricUtilization extends
   {
     return $this->utilizationTargetType;
   }
+
 }
 
 class Google_Service_Autoscaler_AutoscalingPolicyLoadBalancingUtilization extends Google_Model
@@ -753,6 +742,7 @@ class Google_Service_Autoscaler_AutoscalingPolicyLoadBalancingUtilization extend
   {
     return $this->utilizationTarget;
   }
+
 }
 
 class Google_Service_Autoscaler_Operation extends Google_Collection
@@ -794,7 +784,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->clientOperationId;
   }
-
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -804,7 +793,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->creationTimestamp;
   }
-
   public function setEndTime($endTime)
   {
     $this->endTime = $endTime;
@@ -814,7 +802,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->endTime;
   }
-
   public function setError(Google_Service_Autoscaler_OperationError $error)
   {
     $this->error = $error;
@@ -824,7 +811,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->error;
   }
-
   public function setHttpErrorMessage($httpErrorMessage)
   {
     $this->httpErrorMessage = $httpErrorMessage;
@@ -834,7 +820,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->httpErrorMessage;
   }
-
   public function setHttpErrorStatusCode($httpErrorStatusCode)
   {
     $this->httpErrorStatusCode = $httpErrorStatusCode;
@@ -844,7 +829,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->httpErrorStatusCode;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -854,7 +838,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->id;
   }
-
   public function setInsertTime($insertTime)
   {
     $this->insertTime = $insertTime;
@@ -864,7 +847,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->insertTime;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -874,7 +856,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -884,7 +865,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->name;
   }
-
   public function setOperationType($operationType)
   {
     $this->operationType = $operationType;
@@ -894,7 +874,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->operationType;
   }
-
   public function setProgress($progress)
   {
     $this->progress = $progress;
@@ -904,7 +883,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->progress;
   }
-
   public function setRegion($region)
   {
     $this->region = $region;
@@ -914,7 +892,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->region;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -924,7 +901,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
@@ -934,7 +910,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->startTime;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -944,7 +919,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->status;
   }
-
   public function setStatusMessage($statusMessage)
   {
     $this->statusMessage = $statusMessage;
@@ -954,7 +928,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->statusMessage;
   }
-
   public function setTargetId($targetId)
   {
     $this->targetId = $targetId;
@@ -964,7 +937,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->targetId;
   }
-
   public function setTargetLink($targetLink)
   {
     $this->targetLink = $targetLink;
@@ -974,7 +946,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->targetLink;
   }
-
   public function setUser($user)
   {
     $this->user = $user;
@@ -984,7 +955,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->user;
   }
-
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -994,7 +964,6 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->warnings;
   }
-
   public function setZone($zone)
   {
     $this->zone = $zone;
@@ -1004,6 +973,7 @@ class Google_Service_Autoscaler_Operation extends Google_Collection
   {
     return $this->zone;
   }
+
 }
 
 class Google_Service_Autoscaler_OperationError extends Google_Collection
@@ -1023,6 +993,7 @@ class Google_Service_Autoscaler_OperationError extends Google_Collection
   {
     return $this->errors;
   }
+
 }
 
 class Google_Service_Autoscaler_OperationErrorErrors extends Google_Model
@@ -1042,7 +1013,6 @@ class Google_Service_Autoscaler_OperationErrorErrors extends Google_Model
   {
     return $this->code;
   }
-
   public function setLocation($location)
   {
     $this->location = $location;
@@ -1052,7 +1022,6 @@ class Google_Service_Autoscaler_OperationErrorErrors extends Google_Model
   {
     return $this->location;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -1062,6 +1031,7 @@ class Google_Service_Autoscaler_OperationErrorErrors extends Google_Model
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Autoscaler_OperationList extends Google_Collection
@@ -1085,7 +1055,6 @@ class Google_Service_Autoscaler_OperationList extends Google_Collection
   {
     return $this->id;
   }
-
   public function setItems($items)
   {
     $this->items = $items;
@@ -1095,7 +1064,6 @@ class Google_Service_Autoscaler_OperationList extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1105,7 +1073,6 @@ class Google_Service_Autoscaler_OperationList extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1115,7 +1082,6 @@ class Google_Service_Autoscaler_OperationList extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -1125,6 +1091,7 @@ class Google_Service_Autoscaler_OperationList extends Google_Collection
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Autoscaler_OperationWarnings extends Google_Collection
@@ -1146,7 +1113,6 @@ class Google_Service_Autoscaler_OperationWarnings extends Google_Collection
   {
     return $this->code;
   }
-
   public function setData($data)
   {
     $this->data = $data;
@@ -1156,7 +1122,6 @@ class Google_Service_Autoscaler_OperationWarnings extends Google_Collection
   {
     return $this->data;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -1166,6 +1131,7 @@ class Google_Service_Autoscaler_OperationWarnings extends Google_Collection
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_Autoscaler_OperationWarningsData extends Google_Model
@@ -1184,7 +1150,6 @@ class Google_Service_Autoscaler_OperationWarningsData extends Google_Model
   {
     return $this->key;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -1194,4 +1159,5 @@ class Google_Service_Autoscaler_OperationWarningsData extends Google_Model
   {
     return $this->value;
   }
+
 }
