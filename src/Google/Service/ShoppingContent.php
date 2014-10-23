@@ -1145,7 +1145,6 @@ class Google_Service_ShoppingContent_Account extends Google_Collection
   {
     return $this->adultContent;
   }
-
   public function setAdwordsLinks($adwordsLinks)
   {
     $this->adwordsLinks = $adwordsLinks;
@@ -1155,7 +1154,6 @@ class Google_Service_ShoppingContent_Account extends Google_Collection
   {
     return $this->adwordsLinks;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -1165,7 +1163,6 @@ class Google_Service_ShoppingContent_Account extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1175,7 +1172,6 @@ class Google_Service_ShoppingContent_Account extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -1185,7 +1181,6 @@ class Google_Service_ShoppingContent_Account extends Google_Collection
   {
     return $this->name;
   }
-
   public function setReviewsUrl($reviewsUrl)
   {
     $this->reviewsUrl = $reviewsUrl;
@@ -1195,7 +1190,6 @@ class Google_Service_ShoppingContent_Account extends Google_Collection
   {
     return $this->reviewsUrl;
   }
-
   public function setSellerId($sellerId)
   {
     $this->sellerId = $sellerId;
@@ -1205,7 +1199,6 @@ class Google_Service_ShoppingContent_Account extends Google_Collection
   {
     return $this->sellerId;
   }
-
   public function setUsers($users)
   {
     $this->users = $users;
@@ -1215,7 +1208,6 @@ class Google_Service_ShoppingContent_Account extends Google_Collection
   {
     return $this->users;
   }
-
   public function setWebsiteUrl($websiteUrl)
   {
     $this->websiteUrl = $websiteUrl;
@@ -1225,6 +1217,7 @@ class Google_Service_ShoppingContent_Account extends Google_Collection
   {
     return $this->websiteUrl;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountAdwordsLink extends Google_Model
@@ -1243,7 +1236,6 @@ class Google_Service_ShoppingContent_AccountAdwordsLink extends Google_Model
   {
     return $this->adwordsId;
   }
-
   public function setStatus($status)
   {
     $this->status = $status;
@@ -1253,6 +1245,7 @@ class Google_Service_ShoppingContent_AccountAdwordsLink extends Google_Model
   {
     return $this->status;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountStatus extends Google_Collection
@@ -1274,7 +1267,6 @@ class Google_Service_ShoppingContent_AccountStatus extends Google_Collection
   {
     return $this->accountId;
   }
-
   public function setDataQualityIssues($dataQualityIssues)
   {
     $this->dataQualityIssues = $dataQualityIssues;
@@ -1284,7 +1276,6 @@ class Google_Service_ShoppingContent_AccountStatus extends Google_Collection
   {
     return $this->dataQualityIssues;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1294,6 +1285,7 @@ class Google_Service_ShoppingContent_AccountStatus extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountStatusDataQualityIssue extends Google_Collection
@@ -1320,7 +1312,6 @@ class Google_Service_ShoppingContent_AccountStatusDataQualityIssue extends Googl
   {
     return $this->country;
   }
-
   public function setDisplayedValue($displayedValue)
   {
     $this->displayedValue = $displayedValue;
@@ -1330,7 +1321,6 @@ class Google_Service_ShoppingContent_AccountStatusDataQualityIssue extends Googl
   {
     return $this->displayedValue;
   }
-
   public function setExampleItems($exampleItems)
   {
     $this->exampleItems = $exampleItems;
@@ -1340,7 +1330,6 @@ class Google_Service_ShoppingContent_AccountStatusDataQualityIssue extends Googl
   {
     return $this->exampleItems;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -1350,7 +1339,6 @@ class Google_Service_ShoppingContent_AccountStatusDataQualityIssue extends Googl
   {
     return $this->id;
   }
-
   public function setLastChecked($lastChecked)
   {
     $this->lastChecked = $lastChecked;
@@ -1360,7 +1348,6 @@ class Google_Service_ShoppingContent_AccountStatusDataQualityIssue extends Googl
   {
     return $this->lastChecked;
   }
-
   public function setNumItems($numItems)
   {
     $this->numItems = $numItems;
@@ -1370,7 +1357,6 @@ class Google_Service_ShoppingContent_AccountStatusDataQualityIssue extends Googl
   {
     return $this->numItems;
   }
-
   public function setSeverity($severity)
   {
     $this->severity = $severity;
@@ -1380,7 +1366,6 @@ class Google_Service_ShoppingContent_AccountStatusDataQualityIssue extends Googl
   {
     return $this->severity;
   }
-
   public function setSubmittedValue($submittedValue)
   {
     $this->submittedValue = $submittedValue;
@@ -1390,6 +1375,7 @@ class Google_Service_ShoppingContent_AccountStatusDataQualityIssue extends Googl
   {
     return $this->submittedValue;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountStatusExampleItem extends Google_Model
@@ -1411,7 +1397,6 @@ class Google_Service_ShoppingContent_AccountStatusExampleItem extends Google_Mod
   {
     return $this->itemId;
   }
-
   public function setLink($link)
   {
     $this->link = $link;
@@ -1421,7 +1406,6 @@ class Google_Service_ShoppingContent_AccountStatusExampleItem extends Google_Mod
   {
     return $this->link;
   }
-
   public function setSubmittedValue($submittedValue)
   {
     $this->submittedValue = $submittedValue;
@@ -1431,7 +1415,6 @@ class Google_Service_ShoppingContent_AccountStatusExampleItem extends Google_Mod
   {
     return $this->submittedValue;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -1441,7 +1424,6 @@ class Google_Service_ShoppingContent_AccountStatusExampleItem extends Google_Mod
   {
     return $this->title;
   }
-
   public function setValueOnLandingPage($valueOnLandingPage)
   {
     $this->valueOnLandingPage = $valueOnLandingPage;
@@ -1451,6 +1433,7 @@ class Google_Service_ShoppingContent_AccountStatusExampleItem extends Google_Mod
   {
     return $this->valueOnLandingPage;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountUser extends Google_Model
@@ -1469,7 +1452,6 @@ class Google_Service_ShoppingContent_AccountUser extends Google_Model
   {
     return $this->admin;
   }
-
   public function setEmailAddress($emailAddress)
   {
     $this->emailAddress = $emailAddress;
@@ -1479,6 +1461,7 @@ class Google_Service_ShoppingContent_AccountUser extends Google_Model
   {
     return $this->emailAddress;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountsCustomBatchRequest extends Google_Collection
@@ -1498,6 +1481,7 @@ class Google_Service_ShoppingContent_AccountsCustomBatchRequest extends Google_C
   {
     return $this->entries;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry extends Google_Model
@@ -1520,7 +1504,6 @@ class Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry extends Goo
   {
     return $this->account;
   }
-
   public function setAccountId($accountId)
   {
     $this->accountId = $accountId;
@@ -1530,7 +1513,6 @@ class Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry extends Goo
   {
     return $this->accountId;
   }
-
   public function setBatchId($batchId)
   {
     $this->batchId = $batchId;
@@ -1540,7 +1522,6 @@ class Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry extends Goo
   {
     return $this->batchId;
   }
-
   public function setMerchantId($merchantId)
   {
     $this->merchantId = $merchantId;
@@ -1550,7 +1531,6 @@ class Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry extends Goo
   {
     return $this->merchantId;
   }
-
   public function setMethod($method)
   {
     $this->method = $method;
@@ -1560,6 +1540,7 @@ class Google_Service_ShoppingContent_AccountsCustomBatchRequestEntry extends Goo
   {
     return $this->method;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountsCustomBatchResponse extends Google_Collection
@@ -1580,7 +1561,6 @@ class Google_Service_ShoppingContent_AccountsCustomBatchResponse extends Google_
   {
     return $this->entries;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1590,6 +1570,7 @@ class Google_Service_ShoppingContent_AccountsCustomBatchResponse extends Google_
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountsCustomBatchResponseEntry extends Google_Model
@@ -1612,7 +1593,6 @@ class Google_Service_ShoppingContent_AccountsCustomBatchResponseEntry extends Go
   {
     return $this->account;
   }
-
   public function setBatchId($batchId)
   {
     $this->batchId = $batchId;
@@ -1622,7 +1602,6 @@ class Google_Service_ShoppingContent_AccountsCustomBatchResponseEntry extends Go
   {
     return $this->batchId;
   }
-
   public function setErrors(Google_Service_ShoppingContent_Errors $errors)
   {
     $this->errors = $errors;
@@ -1632,7 +1611,6 @@ class Google_Service_ShoppingContent_AccountsCustomBatchResponseEntry extends Go
   {
     return $this->errors;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1642,6 +1620,7 @@ class Google_Service_ShoppingContent_AccountsCustomBatchResponseEntry extends Go
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountsListResponse extends Google_Collection
@@ -1663,7 +1642,6 @@ class Google_Service_ShoppingContent_AccountsListResponse extends Google_Collect
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1673,7 +1651,6 @@ class Google_Service_ShoppingContent_AccountsListResponse extends Google_Collect
   {
     return $this->nextPageToken;
   }
-
   public function setResources($resources)
   {
     $this->resources = $resources;
@@ -1683,6 +1660,7 @@ class Google_Service_ShoppingContent_AccountsListResponse extends Google_Collect
   {
     return $this->resources;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequest extends Google_Collection
@@ -1702,6 +1680,7 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequest extends G
   {
     return $this->entries;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequestEntry extends Google_Model
@@ -1722,7 +1701,6 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequestEntry exte
   {
     return $this->accountId;
   }
-
   public function setBatchId($batchId)
   {
     $this->batchId = $batchId;
@@ -1732,7 +1710,6 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequestEntry exte
   {
     return $this->batchId;
   }
-
   public function setMerchantId($merchantId)
   {
     $this->merchantId = $merchantId;
@@ -1742,7 +1719,6 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequestEntry exte
   {
     return $this->merchantId;
   }
-
   public function setMethod($method)
   {
     $this->method = $method;
@@ -1752,6 +1728,7 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequestEntry exte
   {
     return $this->method;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponse extends Google_Collection
@@ -1772,7 +1749,6 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponse extends 
   {
     return $this->entries;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1782,6 +1758,7 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponse extends 
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponseEntry extends Google_Model
@@ -1803,7 +1780,6 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponseEntry ext
   {
     return $this->accountStatus;
   }
-
   public function setBatchId($batchId)
   {
     $this->batchId = $batchId;
@@ -1813,7 +1789,6 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponseEntry ext
   {
     return $this->batchId;
   }
-
   public function setErrors(Google_Service_ShoppingContent_Errors $errors)
   {
     $this->errors = $errors;
@@ -1823,6 +1798,7 @@ class Google_Service_ShoppingContent_AccountstatusesCustomBatchResponseEntry ext
   {
     return $this->errors;
   }
+
 }
 
 class Google_Service_ShoppingContent_AccountstatusesListResponse extends Google_Collection
@@ -1844,7 +1820,6 @@ class Google_Service_ShoppingContent_AccountstatusesListResponse extends Google_
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1854,7 +1829,6 @@ class Google_Service_ShoppingContent_AccountstatusesListResponse extends Google_
   {
     return $this->nextPageToken;
   }
-
   public function setResources($resources)
   {
     $this->resources = $resources;
@@ -1864,6 +1838,7 @@ class Google_Service_ShoppingContent_AccountstatusesListResponse extends Google_
   {
     return $this->resources;
   }
+
 }
 
 class Google_Service_ShoppingContent_Datafeed extends Google_Collection
@@ -1894,7 +1869,6 @@ class Google_Service_ShoppingContent_Datafeed extends Google_Collection
   {
     return $this->attributeLanguage;
   }
-
   public function setContentLanguage($contentLanguage)
   {
     $this->contentLanguage = $contentLanguage;
@@ -1904,7 +1878,6 @@ class Google_Service_ShoppingContent_Datafeed extends Google_Collection
   {
     return $this->contentLanguage;
   }
-
   public function setContentType($contentType)
   {
     $this->contentType = $contentType;
@@ -1914,7 +1887,6 @@ class Google_Service_ShoppingContent_Datafeed extends Google_Collection
   {
     return $this->contentType;
   }
-
   public function setFetchSchedule(Google_Service_ShoppingContent_DatafeedFetchSchedule $fetchSchedule)
   {
     $this->fetchSchedule = $fetchSchedule;
@@ -1924,7 +1896,6 @@ class Google_Service_ShoppingContent_Datafeed extends Google_Collection
   {
     return $this->fetchSchedule;
   }
-
   public function setFileName($fileName)
   {
     $this->fileName = $fileName;
@@ -1934,7 +1905,6 @@ class Google_Service_ShoppingContent_Datafeed extends Google_Collection
   {
     return $this->fileName;
   }
-
   public function setFormat(Google_Service_ShoppingContent_DatafeedFormat $format)
   {
     $this->format = $format;
@@ -1944,7 +1914,6 @@ class Google_Service_ShoppingContent_Datafeed extends Google_Collection
   {
     return $this->format;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -1954,7 +1923,6 @@ class Google_Service_ShoppingContent_Datafeed extends Google_Collection
   {
     return $this->id;
   }
-
   public function setIntendedDestinations($intendedDestinations)
   {
     $this->intendedDestinations = $intendedDestinations;
@@ -1964,7 +1932,6 @@ class Google_Service_ShoppingContent_Datafeed extends Google_Collection
   {
     return $this->intendedDestinations;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1974,7 +1941,6 @@ class Google_Service_ShoppingContent_Datafeed extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -1984,7 +1950,6 @@ class Google_Service_ShoppingContent_Datafeed extends Google_Collection
   {
     return $this->name;
   }
-
   public function setTargetCountry($targetCountry)
   {
     $this->targetCountry = $targetCountry;
@@ -1994,6 +1959,7 @@ class Google_Service_ShoppingContent_Datafeed extends Google_Collection
   {
     return $this->targetCountry;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedFetchSchedule extends Google_Model
@@ -2017,7 +1983,6 @@ class Google_Service_ShoppingContent_DatafeedFetchSchedule extends Google_Model
   {
     return $this->dayOfMonth;
   }
-
   public function setFetchUrl($fetchUrl)
   {
     $this->fetchUrl = $fetchUrl;
@@ -2027,7 +1992,6 @@ class Google_Service_ShoppingContent_DatafeedFetchSchedule extends Google_Model
   {
     return $this->fetchUrl;
   }
-
   public function setHour($hour)
   {
     $this->hour = $hour;
@@ -2037,7 +2001,6 @@ class Google_Service_ShoppingContent_DatafeedFetchSchedule extends Google_Model
   {
     return $this->hour;
   }
-
   public function setPassword($password)
   {
     $this->password = $password;
@@ -2047,7 +2010,6 @@ class Google_Service_ShoppingContent_DatafeedFetchSchedule extends Google_Model
   {
     return $this->password;
   }
-
   public function setTimeZone($timeZone)
   {
     $this->timeZone = $timeZone;
@@ -2057,7 +2019,6 @@ class Google_Service_ShoppingContent_DatafeedFetchSchedule extends Google_Model
   {
     return $this->timeZone;
   }
-
   public function setUsername($username)
   {
     $this->username = $username;
@@ -2067,7 +2028,6 @@ class Google_Service_ShoppingContent_DatafeedFetchSchedule extends Google_Model
   {
     return $this->username;
   }
-
   public function setWeekday($weekday)
   {
     $this->weekday = $weekday;
@@ -2077,6 +2037,7 @@ class Google_Service_ShoppingContent_DatafeedFetchSchedule extends Google_Model
   {
     return $this->weekday;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedFormat extends Google_Model
@@ -2096,7 +2057,6 @@ class Google_Service_ShoppingContent_DatafeedFormat extends Google_Model
   {
     return $this->columnDelimiter;
   }
-
   public function setFileEncoding($fileEncoding)
   {
     $this->fileEncoding = $fileEncoding;
@@ -2106,7 +2066,6 @@ class Google_Service_ShoppingContent_DatafeedFormat extends Google_Model
   {
     return $this->fileEncoding;
   }
-
   public function setQuotingMode($quotingMode)
   {
     $this->quotingMode = $quotingMode;
@@ -2116,6 +2075,7 @@ class Google_Service_ShoppingContent_DatafeedFormat extends Google_Model
   {
     return $this->quotingMode;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
@@ -2142,7 +2102,6 @@ class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
   {
     return $this->datafeedId;
   }
-
   public function setErrors($errors)
   {
     $this->errors = $errors;
@@ -2152,7 +2111,6 @@ class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
   {
     return $this->errors;
   }
-
   public function setItemsTotal($itemsTotal)
   {
     $this->itemsTotal = $itemsTotal;
@@ -2162,7 +2120,6 @@ class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
   {
     return $this->itemsTotal;
   }
-
   public function setItemsValid($itemsValid)
   {
     $this->itemsValid = $itemsValid;
@@ -2172,7 +2129,6 @@ class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
   {
     return $this->itemsValid;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2182,7 +2138,6 @@ class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setProcessingStatus($processingStatus)
   {
     $this->processingStatus = $processingStatus;
@@ -2192,7 +2147,6 @@ class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
   {
     return $this->processingStatus;
   }
-
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -2202,6 +2156,7 @@ class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
   {
     return $this->warnings;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedStatusError extends Google_Collection
@@ -2224,7 +2179,6 @@ class Google_Service_ShoppingContent_DatafeedStatusError extends Google_Collecti
   {
     return $this->code;
   }
-
   public function setCount($count)
   {
     $this->count = $count;
@@ -2234,7 +2188,6 @@ class Google_Service_ShoppingContent_DatafeedStatusError extends Google_Collecti
   {
     return $this->count;
   }
-
   public function setExamples($examples)
   {
     $this->examples = $examples;
@@ -2244,7 +2197,6 @@ class Google_Service_ShoppingContent_DatafeedStatusError extends Google_Collecti
   {
     return $this->examples;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -2254,6 +2206,7 @@ class Google_Service_ShoppingContent_DatafeedStatusError extends Google_Collecti
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedStatusExample extends Google_Model
@@ -2273,7 +2226,6 @@ class Google_Service_ShoppingContent_DatafeedStatusExample extends Google_Model
   {
     return $this->itemId;
   }
-
   public function setLineNumber($lineNumber)
   {
     $this->lineNumber = $lineNumber;
@@ -2283,7 +2235,6 @@ class Google_Service_ShoppingContent_DatafeedStatusExample extends Google_Model
   {
     return $this->lineNumber;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -2293,6 +2244,7 @@ class Google_Service_ShoppingContent_DatafeedStatusExample extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedsCustomBatchRequest extends Google_Collection
@@ -2312,6 +2264,7 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchRequest extends Google_
   {
     return $this->entries;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedsCustomBatchRequestEntry extends Google_Model
@@ -2334,7 +2287,6 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchRequestEntry extends Go
   {
     return $this->batchId;
   }
-
   public function setDatafeed(Google_Service_ShoppingContent_Datafeed $datafeed)
   {
     $this->datafeed = $datafeed;
@@ -2344,7 +2296,6 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchRequestEntry extends Go
   {
     return $this->datafeed;
   }
-
   public function setDatafeedId($datafeedId)
   {
     $this->datafeedId = $datafeedId;
@@ -2354,7 +2305,6 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchRequestEntry extends Go
   {
     return $this->datafeedId;
   }
-
   public function setMerchantId($merchantId)
   {
     $this->merchantId = $merchantId;
@@ -2364,7 +2314,6 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchRequestEntry extends Go
   {
     return $this->merchantId;
   }
-
   public function setMethod($method)
   {
     $this->method = $method;
@@ -2374,6 +2323,7 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchRequestEntry extends Go
   {
     return $this->method;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedsCustomBatchResponse extends Google_Collection
@@ -2394,7 +2344,6 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchResponse extends Google
   {
     return $this->entries;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2404,6 +2353,7 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchResponse extends Google
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedsCustomBatchResponseEntry extends Google_Model
@@ -2425,7 +2375,6 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchResponseEntry extends G
   {
     return $this->batchId;
   }
-
   public function setDatafeed(Google_Service_ShoppingContent_Datafeed $datafeed)
   {
     $this->datafeed = $datafeed;
@@ -2435,7 +2384,6 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchResponseEntry extends G
   {
     return $this->datafeed;
   }
-
   public function setErrors(Google_Service_ShoppingContent_Errors $errors)
   {
     $this->errors = $errors;
@@ -2445,6 +2393,7 @@ class Google_Service_ShoppingContent_DatafeedsCustomBatchResponseEntry extends G
   {
     return $this->errors;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedsListResponse extends Google_Collection
@@ -2466,7 +2415,6 @@ class Google_Service_ShoppingContent_DatafeedsListResponse extends Google_Collec
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2476,7 +2424,6 @@ class Google_Service_ShoppingContent_DatafeedsListResponse extends Google_Collec
   {
     return $this->nextPageToken;
   }
-
   public function setResources($resources)
   {
     $this->resources = $resources;
@@ -2486,6 +2433,7 @@ class Google_Service_ShoppingContent_DatafeedsListResponse extends Google_Collec
   {
     return $this->resources;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequest extends Google_Collection
@@ -2505,6 +2453,7 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequest extends 
   {
     return $this->entries;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequestEntry extends Google_Model
@@ -2525,7 +2474,6 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequestEntry ext
   {
     return $this->batchId;
   }
-
   public function setDatafeedId($datafeedId)
   {
     $this->datafeedId = $datafeedId;
@@ -2535,7 +2483,6 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequestEntry ext
   {
     return $this->datafeedId;
   }
-
   public function setMerchantId($merchantId)
   {
     $this->merchantId = $merchantId;
@@ -2545,7 +2492,6 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequestEntry ext
   {
     return $this->merchantId;
   }
-
   public function setMethod($method)
   {
     $this->method = $method;
@@ -2555,6 +2501,7 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchRequestEntry ext
   {
     return $this->method;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponse extends Google_Collection
@@ -2575,7 +2522,6 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponse extends
   {
     return $this->entries;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2585,6 +2531,7 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponse extends
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponseEntry extends Google_Model
@@ -2606,7 +2553,6 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponseEntry ex
   {
     return $this->batchId;
   }
-
   public function setDatafeedStatus(Google_Service_ShoppingContent_DatafeedStatus $datafeedStatus)
   {
     $this->datafeedStatus = $datafeedStatus;
@@ -2616,7 +2562,6 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponseEntry ex
   {
     return $this->datafeedStatus;
   }
-
   public function setErrors(Google_Service_ShoppingContent_Errors $errors)
   {
     $this->errors = $errors;
@@ -2626,6 +2571,7 @@ class Google_Service_ShoppingContent_DatafeedstatusesCustomBatchResponseEntry ex
   {
     return $this->errors;
   }
+
 }
 
 class Google_Service_ShoppingContent_DatafeedstatusesListResponse extends Google_Collection
@@ -2647,7 +2593,6 @@ class Google_Service_ShoppingContent_DatafeedstatusesListResponse extends Google
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2657,7 +2602,6 @@ class Google_Service_ShoppingContent_DatafeedstatusesListResponse extends Google
   {
     return $this->nextPageToken;
   }
-
   public function setResources($resources)
   {
     $this->resources = $resources;
@@ -2667,6 +2611,7 @@ class Google_Service_ShoppingContent_DatafeedstatusesListResponse extends Google
   {
     return $this->resources;
   }
+
 }
 
 class Google_Service_ShoppingContent_Error extends Google_Model
@@ -2686,7 +2631,6 @@ class Google_Service_ShoppingContent_Error extends Google_Model
   {
     return $this->domain;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -2696,7 +2640,6 @@ class Google_Service_ShoppingContent_Error extends Google_Model
   {
     return $this->message;
   }
-
   public function setReason($reason)
   {
     $this->reason = $reason;
@@ -2706,6 +2649,7 @@ class Google_Service_ShoppingContent_Error extends Google_Model
   {
     return $this->reason;
   }
+
 }
 
 class Google_Service_ShoppingContent_Errors extends Google_Collection
@@ -2727,7 +2671,6 @@ class Google_Service_ShoppingContent_Errors extends Google_Collection
   {
     return $this->code;
   }
-
   public function setErrors($errors)
   {
     $this->errors = $errors;
@@ -2737,7 +2680,6 @@ class Google_Service_ShoppingContent_Errors extends Google_Collection
   {
     return $this->errors;
   }
-
   public function setMessage($message)
   {
     $this->message = $message;
@@ -2747,6 +2689,7 @@ class Google_Service_ShoppingContent_Errors extends Google_Collection
   {
     return $this->message;
   }
+
 }
 
 class Google_Service_ShoppingContent_Inventory extends Google_Model
@@ -2771,7 +2714,6 @@ class Google_Service_ShoppingContent_Inventory extends Google_Model
   {
     return $this->availability;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2781,7 +2723,6 @@ class Google_Service_ShoppingContent_Inventory extends Google_Model
   {
     return $this->kind;
   }
-
   public function setPrice(Google_Service_ShoppingContent_Price $price)
   {
     $this->price = $price;
@@ -2791,7 +2732,6 @@ class Google_Service_ShoppingContent_Inventory extends Google_Model
   {
     return $this->price;
   }
-
   public function setQuantity($quantity)
   {
     $this->quantity = $quantity;
@@ -2801,7 +2741,6 @@ class Google_Service_ShoppingContent_Inventory extends Google_Model
   {
     return $this->quantity;
   }
-
   public function setSalePrice(Google_Service_ShoppingContent_Price $salePrice)
   {
     $this->salePrice = $salePrice;
@@ -2811,7 +2750,6 @@ class Google_Service_ShoppingContent_Inventory extends Google_Model
   {
     return $this->salePrice;
   }
-
   public function setSalePriceEffectiveDate($salePriceEffectiveDate)
   {
     $this->salePriceEffectiveDate = $salePriceEffectiveDate;
@@ -2821,6 +2759,7 @@ class Google_Service_ShoppingContent_Inventory extends Google_Model
   {
     return $this->salePriceEffectiveDate;
   }
+
 }
 
 class Google_Service_ShoppingContent_InventoryCustomBatchRequest extends Google_Collection
@@ -2840,6 +2779,7 @@ class Google_Service_ShoppingContent_InventoryCustomBatchRequest extends Google_
   {
     return $this->entries;
   }
+
 }
 
 class Google_Service_ShoppingContent_InventoryCustomBatchRequestEntry extends Google_Model
@@ -2862,7 +2802,6 @@ class Google_Service_ShoppingContent_InventoryCustomBatchRequestEntry extends Go
   {
     return $this->batchId;
   }
-
   public function setInventory(Google_Service_ShoppingContent_Inventory $inventory)
   {
     $this->inventory = $inventory;
@@ -2872,7 +2811,6 @@ class Google_Service_ShoppingContent_InventoryCustomBatchRequestEntry extends Go
   {
     return $this->inventory;
   }
-
   public function setMerchantId($merchantId)
   {
     $this->merchantId = $merchantId;
@@ -2882,7 +2820,6 @@ class Google_Service_ShoppingContent_InventoryCustomBatchRequestEntry extends Go
   {
     return $this->merchantId;
   }
-
   public function setProductId($productId)
   {
     $this->productId = $productId;
@@ -2892,7 +2829,6 @@ class Google_Service_ShoppingContent_InventoryCustomBatchRequestEntry extends Go
   {
     return $this->productId;
   }
-
   public function setStoreCode($storeCode)
   {
     $this->storeCode = $storeCode;
@@ -2902,6 +2838,7 @@ class Google_Service_ShoppingContent_InventoryCustomBatchRequestEntry extends Go
   {
     return $this->storeCode;
   }
+
 }
 
 class Google_Service_ShoppingContent_InventoryCustomBatchResponse extends Google_Collection
@@ -2922,7 +2859,6 @@ class Google_Service_ShoppingContent_InventoryCustomBatchResponse extends Google
   {
     return $this->entries;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2932,6 +2868,7 @@ class Google_Service_ShoppingContent_InventoryCustomBatchResponse extends Google
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_ShoppingContent_InventoryCustomBatchResponseEntry extends Google_Model
@@ -2952,7 +2889,6 @@ class Google_Service_ShoppingContent_InventoryCustomBatchResponseEntry extends G
   {
     return $this->batchId;
   }
-
   public function setErrors(Google_Service_ShoppingContent_Errors $errors)
   {
     $this->errors = $errors;
@@ -2962,7 +2898,6 @@ class Google_Service_ShoppingContent_InventoryCustomBatchResponseEntry extends G
   {
     return $this->errors;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2972,6 +2907,7 @@ class Google_Service_ShoppingContent_InventoryCustomBatchResponseEntry extends G
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_ShoppingContent_InventorySetRequest extends Google_Model
@@ -2995,7 +2931,6 @@ class Google_Service_ShoppingContent_InventorySetRequest extends Google_Model
   {
     return $this->availability;
   }
-
   public function setPrice(Google_Service_ShoppingContent_Price $price)
   {
     $this->price = $price;
@@ -3005,7 +2940,6 @@ class Google_Service_ShoppingContent_InventorySetRequest extends Google_Model
   {
     return $this->price;
   }
-
   public function setQuantity($quantity)
   {
     $this->quantity = $quantity;
@@ -3015,7 +2949,6 @@ class Google_Service_ShoppingContent_InventorySetRequest extends Google_Model
   {
     return $this->quantity;
   }
-
   public function setSalePrice(Google_Service_ShoppingContent_Price $salePrice)
   {
     $this->salePrice = $salePrice;
@@ -3025,7 +2958,6 @@ class Google_Service_ShoppingContent_InventorySetRequest extends Google_Model
   {
     return $this->salePrice;
   }
-
   public function setSalePriceEffectiveDate($salePriceEffectiveDate)
   {
     $this->salePriceEffectiveDate = $salePriceEffectiveDate;
@@ -3035,6 +2967,7 @@ class Google_Service_ShoppingContent_InventorySetRequest extends Google_Model
   {
     return $this->salePriceEffectiveDate;
   }
+
 }
 
 class Google_Service_ShoppingContent_InventorySetResponse extends Google_Model
@@ -3052,6 +2985,7 @@ class Google_Service_ShoppingContent_InventorySetResponse extends Google_Model
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_ShoppingContent_LoyaltyPoints extends Google_Model
@@ -3071,7 +3005,6 @@ class Google_Service_ShoppingContent_LoyaltyPoints extends Google_Model
   {
     return $this->name;
   }
-
   public function setPointsValue($pointsValue)
   {
     $this->pointsValue = $pointsValue;
@@ -3081,7 +3014,6 @@ class Google_Service_ShoppingContent_LoyaltyPoints extends Google_Model
   {
     return $this->pointsValue;
   }
-
   public function setRatio($ratio)
   {
     $this->ratio = $ratio;
@@ -3091,6 +3023,7 @@ class Google_Service_ShoppingContent_LoyaltyPoints extends Google_Model
   {
     return $this->ratio;
   }
+
 }
 
 class Google_Service_ShoppingContent_Price extends Google_Model
@@ -3109,7 +3042,6 @@ class Google_Service_ShoppingContent_Price extends Google_Model
   {
     return $this->currency;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -3119,6 +3051,7 @@ class Google_Service_ShoppingContent_Price extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_ShoppingContent_Product extends Google_Collection
@@ -3209,7 +3142,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->additionalImageLinks;
   }
-
   public function setAdult($adult)
   {
     $this->adult = $adult;
@@ -3219,7 +3151,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->adult;
   }
-
   public function setAdwordsGrouping($adwordsGrouping)
   {
     $this->adwordsGrouping = $adwordsGrouping;
@@ -3229,7 +3160,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->adwordsGrouping;
   }
-
   public function setAdwordsLabels($adwordsLabels)
   {
     $this->adwordsLabels = $adwordsLabels;
@@ -3239,7 +3169,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->adwordsLabels;
   }
-
   public function setAdwordsRedirect($adwordsRedirect)
   {
     $this->adwordsRedirect = $adwordsRedirect;
@@ -3249,7 +3178,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->adwordsRedirect;
   }
-
   public function setAgeGroup($ageGroup)
   {
     $this->ageGroup = $ageGroup;
@@ -3259,7 +3187,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->ageGroup;
   }
-
   public function setAvailability($availability)
   {
     $this->availability = $availability;
@@ -3269,7 +3196,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->availability;
   }
-
   public function setAvailabilityDate($availabilityDate)
   {
     $this->availabilityDate = $availabilityDate;
@@ -3279,7 +3205,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->availabilityDate;
   }
-
   public function setBrand($brand)
   {
     $this->brand = $brand;
@@ -3289,7 +3214,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->brand;
   }
-
   public function setChannel($channel)
   {
     $this->channel = $channel;
@@ -3299,7 +3223,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->channel;
   }
-
   public function setColor($color)
   {
     $this->color = $color;
@@ -3309,7 +3232,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->color;
   }
-
   public function setCondition($condition)
   {
     $this->condition = $condition;
@@ -3319,7 +3241,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->condition;
   }
-
   public function setContentLanguage($contentLanguage)
   {
     $this->contentLanguage = $contentLanguage;
@@ -3329,7 +3250,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->contentLanguage;
   }
-
   public function setCustomAttributes($customAttributes)
   {
     $this->customAttributes = $customAttributes;
@@ -3339,7 +3259,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->customAttributes;
   }
-
   public function setCustomGroups($customGroups)
   {
     $this->customGroups = $customGroups;
@@ -3349,7 +3268,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->customGroups;
   }
-
   public function setCustomLabel0($customLabel0)
   {
     $this->customLabel0 = $customLabel0;
@@ -3359,7 +3277,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->customLabel0;
   }
-
   public function setCustomLabel1($customLabel1)
   {
     $this->customLabel1 = $customLabel1;
@@ -3369,7 +3286,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->customLabel1;
   }
-
   public function setCustomLabel2($customLabel2)
   {
     $this->customLabel2 = $customLabel2;
@@ -3379,7 +3295,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->customLabel2;
   }
-
   public function setCustomLabel3($customLabel3)
   {
     $this->customLabel3 = $customLabel3;
@@ -3389,7 +3304,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->customLabel3;
   }
-
   public function setCustomLabel4($customLabel4)
   {
     $this->customLabel4 = $customLabel4;
@@ -3399,7 +3313,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->customLabel4;
   }
-
   public function setDescription($description)
   {
     $this->description = $description;
@@ -3409,7 +3322,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->description;
   }
-
   public function setDestinations($destinations)
   {
     $this->destinations = $destinations;
@@ -3419,7 +3331,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->destinations;
   }
-
   public function setEnergyEfficiencyClass($energyEfficiencyClass)
   {
     $this->energyEfficiencyClass = $energyEfficiencyClass;
@@ -3429,7 +3340,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->energyEfficiencyClass;
   }
-
   public function setExpirationDate($expirationDate)
   {
     $this->expirationDate = $expirationDate;
@@ -3439,7 +3349,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->expirationDate;
   }
-
   public function setGender($gender)
   {
     $this->gender = $gender;
@@ -3449,7 +3358,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->gender;
   }
-
   public function setGoogleProductCategory($googleProductCategory)
   {
     $this->googleProductCategory = $googleProductCategory;
@@ -3459,7 +3367,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->googleProductCategory;
   }
-
   public function setGtin($gtin)
   {
     $this->gtin = $gtin;
@@ -3469,7 +3376,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->gtin;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3479,7 +3385,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->id;
   }
-
   public function setIdentifierExists($identifierExists)
   {
     $this->identifierExists = $identifierExists;
@@ -3489,7 +3394,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->identifierExists;
   }
-
   public function setImageLink($imageLink)
   {
     $this->imageLink = $imageLink;
@@ -3499,7 +3403,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->imageLink;
   }
-
   public function setInstallment(Google_Service_ShoppingContent_ProductInstallment $installment)
   {
     $this->installment = $installment;
@@ -3509,7 +3412,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->installment;
   }
-
   public function setIsBundle($isBundle)
   {
     $this->isBundle = $isBundle;
@@ -3519,7 +3421,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->isBundle;
   }
-
   public function setItemGroupId($itemGroupId)
   {
     $this->itemGroupId = $itemGroupId;
@@ -3529,7 +3430,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->itemGroupId;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3539,7 +3439,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLink($link)
   {
     $this->link = $link;
@@ -3549,7 +3448,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->link;
   }
-
   public function setLoyaltyPoints(Google_Service_ShoppingContent_LoyaltyPoints $loyaltyPoints)
   {
     $this->loyaltyPoints = $loyaltyPoints;
@@ -3559,7 +3457,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->loyaltyPoints;
   }
-
   public function setMaterial($material)
   {
     $this->material = $material;
@@ -3569,7 +3466,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->material;
   }
-
   public function setMobileLink($mobileLink)
   {
     $this->mobileLink = $mobileLink;
@@ -3579,7 +3475,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->mobileLink;
   }
-
   public function setMpn($mpn)
   {
     $this->mpn = $mpn;
@@ -3589,7 +3484,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->mpn;
   }
-
   public function setMultipack($multipack)
   {
     $this->multipack = $multipack;
@@ -3599,7 +3493,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->multipack;
   }
-
   public function setOfferId($offerId)
   {
     $this->offerId = $offerId;
@@ -3609,7 +3502,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->offerId;
   }
-
   public function setOnlineOnly($onlineOnly)
   {
     $this->onlineOnly = $onlineOnly;
@@ -3619,7 +3511,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->onlineOnly;
   }
-
   public function setPattern($pattern)
   {
     $this->pattern = $pattern;
@@ -3629,7 +3520,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->pattern;
   }
-
   public function setPrice(Google_Service_ShoppingContent_Price $price)
   {
     $this->price = $price;
@@ -3639,7 +3529,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->price;
   }
-
   public function setProductType($productType)
   {
     $this->productType = $productType;
@@ -3649,7 +3538,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->productType;
   }
-
   public function setSalePrice(Google_Service_ShoppingContent_Price $salePrice)
   {
     $this->salePrice = $salePrice;
@@ -3659,7 +3547,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->salePrice;
   }
-
   public function setSalePriceEffectiveDate($salePriceEffectiveDate)
   {
     $this->salePriceEffectiveDate = $salePriceEffectiveDate;
@@ -3669,7 +3556,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->salePriceEffectiveDate;
   }
-
   public function setShipping($shipping)
   {
     $this->shipping = $shipping;
@@ -3679,7 +3565,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->shipping;
   }
-
   public function setShippingLabel($shippingLabel)
   {
     $this->shippingLabel = $shippingLabel;
@@ -3689,7 +3574,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->shippingLabel;
   }
-
   public function setShippingWeight(Google_Service_ShoppingContent_ProductShippingWeight $shippingWeight)
   {
     $this->shippingWeight = $shippingWeight;
@@ -3699,7 +3583,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->shippingWeight;
   }
-
   public function setSizeSystem($sizeSystem)
   {
     $this->sizeSystem = $sizeSystem;
@@ -3709,7 +3592,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->sizeSystem;
   }
-
   public function setSizeType($sizeType)
   {
     $this->sizeType = $sizeType;
@@ -3719,7 +3601,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->sizeType;
   }
-
   public function setSizes($sizes)
   {
     $this->sizes = $sizes;
@@ -3729,7 +3610,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->sizes;
   }
-
   public function setTargetCountry($targetCountry)
   {
     $this->targetCountry = $targetCountry;
@@ -3739,7 +3619,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->targetCountry;
   }
-
   public function setTaxes($taxes)
   {
     $this->taxes = $taxes;
@@ -3749,7 +3628,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->taxes;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -3759,7 +3637,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->title;
   }
-
   public function setUnitPricingBaseMeasure(Google_Service_ShoppingContent_ProductUnitPricingBaseMeasure $unitPricingBaseMeasure)
   {
     $this->unitPricingBaseMeasure = $unitPricingBaseMeasure;
@@ -3769,7 +3646,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->unitPricingBaseMeasure;
   }
-
   public function setUnitPricingMeasure(Google_Service_ShoppingContent_ProductUnitPricingMeasure $unitPricingMeasure)
   {
     $this->unitPricingMeasure = $unitPricingMeasure;
@@ -3779,7 +3655,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->unitPricingMeasure;
   }
-
   public function setValidatedDestinations($validatedDestinations)
   {
     $this->validatedDestinations = $validatedDestinations;
@@ -3789,7 +3664,6 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->validatedDestinations;
   }
-
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -3799,6 +3673,7 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->warnings;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductCustomAttribute extends Google_Model
@@ -3819,7 +3694,6 @@ class Google_Service_ShoppingContent_ProductCustomAttribute extends Google_Model
   {
     return $this->name;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -3829,7 +3703,6 @@ class Google_Service_ShoppingContent_ProductCustomAttribute extends Google_Model
   {
     return $this->type;
   }
-
   public function setUnit($unit)
   {
     $this->unit = $unit;
@@ -3839,7 +3712,6 @@ class Google_Service_ShoppingContent_ProductCustomAttribute extends Google_Model
   {
     return $this->unit;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -3849,6 +3721,7 @@ class Google_Service_ShoppingContent_ProductCustomAttribute extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductCustomGroup extends Google_Collection
@@ -3869,7 +3742,6 @@ class Google_Service_ShoppingContent_ProductCustomGroup extends Google_Collectio
   {
     return $this->attributes;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3879,6 +3751,7 @@ class Google_Service_ShoppingContent_ProductCustomGroup extends Google_Collectio
   {
     return $this->name;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductDestination extends Google_Model
@@ -3897,7 +3770,6 @@ class Google_Service_ShoppingContent_ProductDestination extends Google_Model
   {
     return $this->destinationName;
   }
-
   public function setIntention($intention)
   {
     $this->intention = $intention;
@@ -3907,6 +3779,7 @@ class Google_Service_ShoppingContent_ProductDestination extends Google_Model
   {
     return $this->intention;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductInstallment extends Google_Model
@@ -3926,7 +3799,6 @@ class Google_Service_ShoppingContent_ProductInstallment extends Google_Model
   {
     return $this->amount;
   }
-
   public function setMonths($months)
   {
     $this->months = $months;
@@ -3936,6 +3808,7 @@ class Google_Service_ShoppingContent_ProductInstallment extends Google_Model
   {
     return $this->months;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductShipping extends Google_Model
@@ -3960,7 +3833,6 @@ class Google_Service_ShoppingContent_ProductShipping extends Google_Model
   {
     return $this->country;
   }
-
   public function setLocationGroupName($locationGroupName)
   {
     $this->locationGroupName = $locationGroupName;
@@ -3970,7 +3842,6 @@ class Google_Service_ShoppingContent_ProductShipping extends Google_Model
   {
     return $this->locationGroupName;
   }
-
   public function setLocationId($locationId)
   {
     $this->locationId = $locationId;
@@ -3980,7 +3851,6 @@ class Google_Service_ShoppingContent_ProductShipping extends Google_Model
   {
     return $this->locationId;
   }
-
   public function setPostalCode($postalCode)
   {
     $this->postalCode = $postalCode;
@@ -3990,7 +3860,6 @@ class Google_Service_ShoppingContent_ProductShipping extends Google_Model
   {
     return $this->postalCode;
   }
-
   public function setPrice(Google_Service_ShoppingContent_Price $price)
   {
     $this->price = $price;
@@ -4000,7 +3869,6 @@ class Google_Service_ShoppingContent_ProductShipping extends Google_Model
   {
     return $this->price;
   }
-
   public function setRegion($region)
   {
     $this->region = $region;
@@ -4010,7 +3878,6 @@ class Google_Service_ShoppingContent_ProductShipping extends Google_Model
   {
     return $this->region;
   }
-
   public function setService($service)
   {
     $this->service = $service;
@@ -4020,6 +3887,7 @@ class Google_Service_ShoppingContent_ProductShipping extends Google_Model
   {
     return $this->service;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductShippingWeight extends Google_Model
@@ -4038,7 +3906,6 @@ class Google_Service_ShoppingContent_ProductShippingWeight extends Google_Model
   {
     return $this->unit;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -4048,6 +3915,7 @@ class Google_Service_ShoppingContent_ProductShippingWeight extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
@@ -4073,7 +3941,6 @@ class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
   {
     return $this->dataQualityIssues;
   }
-
   public function setDestinationStatuses($destinationStatuses)
   {
     $this->destinationStatuses = $destinationStatuses;
@@ -4083,7 +3950,6 @@ class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
   {
     return $this->destinationStatuses;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4093,7 +3959,6 @@ class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLink($link)
   {
     $this->link = $link;
@@ -4103,7 +3968,6 @@ class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
   {
     return $this->link;
   }
-
   public function setProductId($productId)
   {
     $this->productId = $productId;
@@ -4113,7 +3977,6 @@ class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
   {
     return $this->productId;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -4123,6 +3986,7 @@ class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductStatusDataQualityIssue extends Google_Model
@@ -4146,7 +4010,6 @@ class Google_Service_ShoppingContent_ProductStatusDataQualityIssue extends Googl
   {
     return $this->detail;
   }
-
   public function setFetchStatus($fetchStatus)
   {
     $this->fetchStatus = $fetchStatus;
@@ -4156,7 +4019,6 @@ class Google_Service_ShoppingContent_ProductStatusDataQualityIssue extends Googl
   {
     return $this->fetchStatus;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -4166,7 +4028,6 @@ class Google_Service_ShoppingContent_ProductStatusDataQualityIssue extends Googl
   {
     return $this->id;
   }
-
   public function setLocation($location)
   {
     $this->location = $location;
@@ -4176,7 +4037,6 @@ class Google_Service_ShoppingContent_ProductStatusDataQualityIssue extends Googl
   {
     return $this->location;
   }
-
   public function setTimestamp($timestamp)
   {
     $this->timestamp = $timestamp;
@@ -4186,7 +4046,6 @@ class Google_Service_ShoppingContent_ProductStatusDataQualityIssue extends Googl
   {
     return $this->timestamp;
   }
-
   public function setValueOnLandingPage($valueOnLandingPage)
   {
     $this->valueOnLandingPage = $valueOnLandingPage;
@@ -4196,7 +4055,6 @@ class Google_Service_ShoppingContent_ProductStatusDataQualityIssue extends Googl
   {
     return $this->valueOnLandingPage;
   }
-
   public function setValueProvided($valueProvided)
   {
     $this->valueProvided = $valueProvided;
@@ -4206,6 +4064,7 @@ class Google_Service_ShoppingContent_ProductStatusDataQualityIssue extends Googl
   {
     return $this->valueProvided;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductStatusDestinationStatus extends Google_Model
@@ -4225,7 +4084,6 @@ class Google_Service_ShoppingContent_ProductStatusDestinationStatus extends Goog
   {
     return $this->approvalStatus;
   }
-
   public function setDestination($destination)
   {
     $this->destination = $destination;
@@ -4235,7 +4093,6 @@ class Google_Service_ShoppingContent_ProductStatusDestinationStatus extends Goog
   {
     return $this->destination;
   }
-
   public function setIntention($intention)
   {
     $this->intention = $intention;
@@ -4245,6 +4102,7 @@ class Google_Service_ShoppingContent_ProductStatusDestinationStatus extends Goog
   {
     return $this->intention;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductTax extends Google_Model
@@ -4267,7 +4125,6 @@ class Google_Service_ShoppingContent_ProductTax extends Google_Model
   {
     return $this->country;
   }
-
   public function setLocationId($locationId)
   {
     $this->locationId = $locationId;
@@ -4277,7 +4134,6 @@ class Google_Service_ShoppingContent_ProductTax extends Google_Model
   {
     return $this->locationId;
   }
-
   public function setPostalCode($postalCode)
   {
     $this->postalCode = $postalCode;
@@ -4287,7 +4143,6 @@ class Google_Service_ShoppingContent_ProductTax extends Google_Model
   {
     return $this->postalCode;
   }
-
   public function setRate($rate)
   {
     $this->rate = $rate;
@@ -4297,7 +4152,6 @@ class Google_Service_ShoppingContent_ProductTax extends Google_Model
   {
     return $this->rate;
   }
-
   public function setRegion($region)
   {
     $this->region = $region;
@@ -4307,7 +4161,6 @@ class Google_Service_ShoppingContent_ProductTax extends Google_Model
   {
     return $this->region;
   }
-
   public function setTaxShip($taxShip)
   {
     $this->taxShip = $taxShip;
@@ -4317,6 +4170,7 @@ class Google_Service_ShoppingContent_ProductTax extends Google_Model
   {
     return $this->taxShip;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductUnitPricingBaseMeasure extends Google_Model
@@ -4335,7 +4189,6 @@ class Google_Service_ShoppingContent_ProductUnitPricingBaseMeasure extends Googl
   {
     return $this->unit;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -4345,6 +4198,7 @@ class Google_Service_ShoppingContent_ProductUnitPricingBaseMeasure extends Googl
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductUnitPricingMeasure extends Google_Model
@@ -4363,7 +4217,6 @@ class Google_Service_ShoppingContent_ProductUnitPricingMeasure extends Google_Mo
   {
     return $this->unit;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -4373,6 +4226,7 @@ class Google_Service_ShoppingContent_ProductUnitPricingMeasure extends Google_Mo
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductsCustomBatchRequest extends Google_Collection
@@ -4392,6 +4246,7 @@ class Google_Service_ShoppingContent_ProductsCustomBatchRequest extends Google_C
   {
     return $this->entries;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductsCustomBatchRequestEntry extends Google_Model
@@ -4414,7 +4269,6 @@ class Google_Service_ShoppingContent_ProductsCustomBatchRequestEntry extends Goo
   {
     return $this->batchId;
   }
-
   public function setMerchantId($merchantId)
   {
     $this->merchantId = $merchantId;
@@ -4424,7 +4278,6 @@ class Google_Service_ShoppingContent_ProductsCustomBatchRequestEntry extends Goo
   {
     return $this->merchantId;
   }
-
   public function setMethod($method)
   {
     $this->method = $method;
@@ -4434,7 +4287,6 @@ class Google_Service_ShoppingContent_ProductsCustomBatchRequestEntry extends Goo
   {
     return $this->method;
   }
-
   public function setProduct(Google_Service_ShoppingContent_Product $product)
   {
     $this->product = $product;
@@ -4444,7 +4296,6 @@ class Google_Service_ShoppingContent_ProductsCustomBatchRequestEntry extends Goo
   {
     return $this->product;
   }
-
   public function setProductId($productId)
   {
     $this->productId = $productId;
@@ -4454,6 +4305,7 @@ class Google_Service_ShoppingContent_ProductsCustomBatchRequestEntry extends Goo
   {
     return $this->productId;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductsCustomBatchResponse extends Google_Collection
@@ -4474,7 +4326,6 @@ class Google_Service_ShoppingContent_ProductsCustomBatchResponse extends Google_
   {
     return $this->entries;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4484,6 +4335,7 @@ class Google_Service_ShoppingContent_ProductsCustomBatchResponse extends Google_
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductsCustomBatchResponseEntry extends Google_Model
@@ -4506,7 +4358,6 @@ class Google_Service_ShoppingContent_ProductsCustomBatchResponseEntry extends Go
   {
     return $this->batchId;
   }
-
   public function setErrors(Google_Service_ShoppingContent_Errors $errors)
   {
     $this->errors = $errors;
@@ -4516,7 +4367,6 @@ class Google_Service_ShoppingContent_ProductsCustomBatchResponseEntry extends Go
   {
     return $this->errors;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4526,7 +4376,6 @@ class Google_Service_ShoppingContent_ProductsCustomBatchResponseEntry extends Go
   {
     return $this->kind;
   }
-
   public function setProduct(Google_Service_ShoppingContent_Product $product)
   {
     $this->product = $product;
@@ -4536,6 +4385,7 @@ class Google_Service_ShoppingContent_ProductsCustomBatchResponseEntry extends Go
   {
     return $this->product;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductsListResponse extends Google_Collection
@@ -4557,7 +4407,6 @@ class Google_Service_ShoppingContent_ProductsListResponse extends Google_Collect
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -4567,7 +4416,6 @@ class Google_Service_ShoppingContent_ProductsListResponse extends Google_Collect
   {
     return $this->nextPageToken;
   }
-
   public function setResources($resources)
   {
     $this->resources = $resources;
@@ -4577,6 +4425,7 @@ class Google_Service_ShoppingContent_ProductsListResponse extends Google_Collect
   {
     return $this->resources;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequest extends Google_Collection
@@ -4596,6 +4445,7 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequest extends G
   {
     return $this->entries;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequestEntry extends Google_Model
@@ -4616,7 +4466,6 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequestEntry exte
   {
     return $this->batchId;
   }
-
   public function setMerchantId($merchantId)
   {
     $this->merchantId = $merchantId;
@@ -4626,7 +4475,6 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequestEntry exte
   {
     return $this->merchantId;
   }
-
   public function setMethod($method)
   {
     $this->method = $method;
@@ -4636,7 +4484,6 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequestEntry exte
   {
     return $this->method;
   }
-
   public function setProductId($productId)
   {
     $this->productId = $productId;
@@ -4646,6 +4493,7 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchRequestEntry exte
   {
     return $this->productId;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponse extends Google_Collection
@@ -4666,7 +4514,6 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponse extends 
   {
     return $this->entries;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4676,6 +4523,7 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponse extends 
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponseEntry extends Google_Model
@@ -4698,7 +4546,6 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponseEntry ext
   {
     return $this->batchId;
   }
-
   public function setErrors(Google_Service_ShoppingContent_Errors $errors)
   {
     $this->errors = $errors;
@@ -4708,7 +4555,6 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponseEntry ext
   {
     return $this->errors;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4718,7 +4564,6 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponseEntry ext
   {
     return $this->kind;
   }
-
   public function setProductStatus(Google_Service_ShoppingContent_ProductStatus $productStatus)
   {
     $this->productStatus = $productStatus;
@@ -4728,6 +4573,7 @@ class Google_Service_ShoppingContent_ProductstatusesCustomBatchResponseEntry ext
   {
     return $this->productStatus;
   }
+
 }
 
 class Google_Service_ShoppingContent_ProductstatusesListResponse extends Google_Collection
@@ -4749,7 +4595,6 @@ class Google_Service_ShoppingContent_ProductstatusesListResponse extends Google_
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -4759,7 +4604,6 @@ class Google_Service_ShoppingContent_ProductstatusesListResponse extends Google_
   {
     return $this->nextPageToken;
   }
-
   public function setResources($resources)
   {
     $this->resources = $resources;
@@ -4769,4 +4613,5 @@ class Google_Service_ShoppingContent_ProductstatusesListResponse extends Google_
   {
     return $this->resources;
   }
+
 }
