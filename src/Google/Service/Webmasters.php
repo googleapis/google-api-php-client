@@ -555,6 +555,7 @@ class Google_Service_Webmasters_SitemapsListResponse extends Google_Collection
   {
     return $this->sitemap;
   }
+
 }
 
 class Google_Service_Webmasters_SitesListResponse extends Google_Collection
@@ -574,6 +575,7 @@ class Google_Service_Webmasters_SitesListResponse extends Google_Collection
   {
     return $this->siteEntry;
   }
+
 }
 
 class Google_Service_Webmasters_UrlCrawlErrorCount extends Google_Model
@@ -592,7 +594,6 @@ class Google_Service_Webmasters_UrlCrawlErrorCount extends Google_Model
   {
     return $this->count;
   }
-
   public function setTimestamp($timestamp)
   {
     $this->timestamp = $timestamp;
@@ -602,6 +603,7 @@ class Google_Service_Webmasters_UrlCrawlErrorCount extends Google_Model
   {
     return $this->timestamp;
   }
+
 }
 
 class Google_Service_Webmasters_UrlCrawlErrorCountsPerType extends Google_Collection
@@ -623,7 +625,6 @@ class Google_Service_Webmasters_UrlCrawlErrorCountsPerType extends Google_Collec
   {
     return $this->category;
   }
-
   public function setEntries($entries)
   {
     $this->entries = $entries;
@@ -633,7 +634,6 @@ class Google_Service_Webmasters_UrlCrawlErrorCountsPerType extends Google_Collec
   {
     return $this->entries;
   }
-
   public function setPlatform($platform)
   {
     $this->platform = $platform;
@@ -643,6 +643,7 @@ class Google_Service_Webmasters_UrlCrawlErrorCountsPerType extends Google_Collec
   {
     return $this->platform;
   }
+
 }
 
 class Google_Service_Webmasters_UrlCrawlErrorsCountsQueryResponse extends Google_Collection
@@ -662,6 +663,7 @@ class Google_Service_Webmasters_UrlCrawlErrorsCountsQueryResponse extends Google
   {
     return $this->countPerTypes;
   }
+
 }
 
 class Google_Service_Webmasters_UrlCrawlErrorsSample extends Google_Model
@@ -686,7 +688,6 @@ class Google_Service_Webmasters_UrlCrawlErrorsSample extends Google_Model
   {
     return $this->firstDetected;
   }
-
   public function setLastCrawled($lastCrawled)
   {
     $this->lastCrawled = $lastCrawled;
@@ -696,7 +697,6 @@ class Google_Service_Webmasters_UrlCrawlErrorsSample extends Google_Model
   {
     return $this->lastCrawled;
   }
-
   public function setPageUrl($pageUrl)
   {
     $this->pageUrl = $pageUrl;
@@ -706,7 +706,6 @@ class Google_Service_Webmasters_UrlCrawlErrorsSample extends Google_Model
   {
     return $this->pageUrl;
   }
-
   public function setResponseCode($responseCode)
   {
     $this->responseCode = $responseCode;
@@ -716,7 +715,6 @@ class Google_Service_Webmasters_UrlCrawlErrorsSample extends Google_Model
   {
     return $this->responseCode;
   }
-
   public function setUrlDetails(Google_Service_Webmasters_UrlSampleDetails $urlDetails)
   {
     $this->urlDetails = $urlDetails;
@@ -726,6 +724,7 @@ class Google_Service_Webmasters_UrlCrawlErrorsSample extends Google_Model
   {
     return $this->urlDetails;
   }
+
 }
 
 class Google_Service_Webmasters_UrlCrawlErrorsSamplesListResponse extends Google_Collection
@@ -745,6 +744,7 @@ class Google_Service_Webmasters_UrlCrawlErrorsSamplesListResponse extends Google
   {
     return $this->urlCrawlErrorSample;
   }
+
 }
 
 class Google_Service_Webmasters_UrlSampleDetails extends Google_Collection
@@ -764,7 +764,6 @@ class Google_Service_Webmasters_UrlSampleDetails extends Google_Collection
   {
     return $this->containingSitemaps;
   }
-
   public function setLinkedFromUrls($linkedFromUrls)
   {
     $this->linkedFromUrls = $linkedFromUrls;
@@ -774,6 +773,7 @@ class Google_Service_Webmasters_UrlSampleDetails extends Google_Collection
   {
     return $this->linkedFromUrls;
   }
+
 }
 
 class Google_Service_Webmasters_WmxSite extends Google_Model
@@ -792,7 +792,6 @@ class Google_Service_Webmasters_WmxSite extends Google_Model
   {
     return $this->permissionLevel;
   }
-
   public function setSiteUrl($siteUrl)
   {
     $this->siteUrl = $siteUrl;
@@ -802,6 +801,7 @@ class Google_Service_Webmasters_WmxSite extends Google_Model
   {
     return $this->siteUrl;
   }
+
 }
 
 class Google_Service_Webmasters_WmxSitemap extends Google_Collection
@@ -829,7 +829,6 @@ class Google_Service_Webmasters_WmxSitemap extends Google_Collection
   {
     return $this->contents;
   }
-
   public function setErrors($errors)
   {
     $this->errors = $errors;
@@ -839,7 +838,6 @@ class Google_Service_Webmasters_WmxSitemap extends Google_Collection
   {
     return $this->errors;
   }
-
   public function setIsPending($isPending)
   {
     $this->isPending = $isPending;
@@ -849,7 +847,6 @@ class Google_Service_Webmasters_WmxSitemap extends Google_Collection
   {
     return $this->isPending;
   }
-
   public function setIsSitemapsIndex($isSitemapsIndex)
   {
     $this->isSitemapsIndex = $isSitemapsIndex;
@@ -859,7 +856,6 @@ class Google_Service_Webmasters_WmxSitemap extends Google_Collection
   {
     return $this->isSitemapsIndex;
   }
-
   public function setLastDownloaded($lastDownloaded)
   {
     $this->lastDownloaded = $lastDownloaded;
@@ -869,7 +865,6 @@ class Google_Service_Webmasters_WmxSitemap extends Google_Collection
   {
     return $this->lastDownloaded;
   }
-
   public function setLastSubmitted($lastSubmitted)
   {
     $this->lastSubmitted = $lastSubmitted;
@@ -879,7 +874,6 @@ class Google_Service_Webmasters_WmxSitemap extends Google_Collection
   {
     return $this->lastSubmitted;
   }
-
   public function setPath($path)
   {
     $this->path = $path;
@@ -889,7 +883,6 @@ class Google_Service_Webmasters_WmxSitemap extends Google_Collection
   {
     return $this->path;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -899,7 +892,6 @@ class Google_Service_Webmasters_WmxSitemap extends Google_Collection
   {
     return $this->type;
   }
-
   public function setWarnings($warnings)
   {
     $this->warnings = $warnings;
@@ -909,6 +901,7 @@ class Google_Service_Webmasters_WmxSitemap extends Google_Collection
   {
     return $this->warnings;
   }
+
 }
 
 class Google_Service_Webmasters_WmxSitemapContent extends Google_Model
@@ -928,7 +921,6 @@ class Google_Service_Webmasters_WmxSitemapContent extends Google_Model
   {
     return $this->indexed;
   }
-
   public function setSubmitted($submitted)
   {
     $this->submitted = $submitted;
@@ -938,7 +930,6 @@ class Google_Service_Webmasters_WmxSitemapContent extends Google_Model
   {
     return $this->submitted;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -948,4 +939,5 @@ class Google_Service_Webmasters_WmxSitemapContent extends Google_Model
   {
     return $this->type;
   }
+
 }
