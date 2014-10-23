@@ -792,7 +792,6 @@ class Google_Service_Coordinate_CustomField extends Google_Model
   {
     return $this->customFieldId;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -802,7 +801,6 @@ class Google_Service_Coordinate_CustomField extends Google_Model
   {
     return $this->kind;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -812,6 +810,7 @@ class Google_Service_Coordinate_CustomField extends Google_Model
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Coordinate_CustomFieldDef extends Google_Model
@@ -834,7 +833,6 @@ class Google_Service_Coordinate_CustomFieldDef extends Google_Model
   {
     return $this->enabled;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -844,7 +842,6 @@ class Google_Service_Coordinate_CustomFieldDef extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -854,7 +851,6 @@ class Google_Service_Coordinate_CustomFieldDef extends Google_Model
   {
     return $this->kind;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -864,7 +860,6 @@ class Google_Service_Coordinate_CustomFieldDef extends Google_Model
   {
     return $this->name;
   }
-
   public function setRequiredForCheckout($requiredForCheckout)
   {
     $this->requiredForCheckout = $requiredForCheckout;
@@ -874,7 +869,6 @@ class Google_Service_Coordinate_CustomFieldDef extends Google_Model
   {
     return $this->requiredForCheckout;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -884,6 +878,7 @@ class Google_Service_Coordinate_CustomFieldDef extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Coordinate_CustomFieldDefListResponse extends Google_Collection
@@ -904,7 +899,6 @@ class Google_Service_Coordinate_CustomFieldDefListResponse extends Google_Collec
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -914,6 +908,7 @@ class Google_Service_Coordinate_CustomFieldDefListResponse extends Google_Collec
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_Coordinate_CustomFields extends Google_Collection
@@ -934,7 +929,6 @@ class Google_Service_Coordinate_CustomFields extends Google_Collection
   {
     return $this->customField;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -944,6 +938,7 @@ class Google_Service_Coordinate_CustomFields extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_Coordinate_Job extends Google_Collection
@@ -967,7 +962,6 @@ class Google_Service_Coordinate_Job extends Google_Collection
   {
     return $this->id;
   }
-
   public function setJobChange($jobChange)
   {
     $this->jobChange = $jobChange;
@@ -977,7 +971,6 @@ class Google_Service_Coordinate_Job extends Google_Collection
   {
     return $this->jobChange;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -987,7 +980,6 @@ class Google_Service_Coordinate_Job extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setState(Google_Service_Coordinate_JobState $state)
   {
     $this->state = $state;
@@ -997,6 +989,7 @@ class Google_Service_Coordinate_Job extends Google_Collection
   {
     return $this->state;
   }
+
 }
 
 class Google_Service_Coordinate_JobChange extends Google_Model
@@ -1017,7 +1010,6 @@ class Google_Service_Coordinate_JobChange extends Google_Model
   {
     return $this->kind;
   }
-
   public function setState(Google_Service_Coordinate_JobState $state)
   {
     $this->state = $state;
@@ -1027,7 +1019,6 @@ class Google_Service_Coordinate_JobChange extends Google_Model
   {
     return $this->state;
   }
-
   public function setTimestamp($timestamp)
   {
     $this->timestamp = $timestamp;
@@ -1037,6 +1028,7 @@ class Google_Service_Coordinate_JobChange extends Google_Model
   {
     return $this->timestamp;
   }
+
 }
 
 class Google_Service_Coordinate_JobListResponse extends Google_Collection
@@ -1058,7 +1050,6 @@ class Google_Service_Coordinate_JobListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1068,7 +1059,6 @@ class Google_Service_Coordinate_JobListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1078,6 +1068,7 @@ class Google_Service_Coordinate_JobListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Coordinate_JobState extends Google_Collection
@@ -1106,7 +1097,6 @@ class Google_Service_Coordinate_JobState extends Google_Collection
   {
     return $this->assignee;
   }
-
   public function setCustomFields(Google_Service_Coordinate_CustomFields $customFields)
   {
     $this->customFields = $customFields;
@@ -1116,7 +1106,6 @@ class Google_Service_Coordinate_JobState extends Google_Collection
   {
     return $this->customFields;
   }
-
   public function setCustomerName($customerName)
   {
     $this->customerName = $customerName;
@@ -1126,7 +1115,6 @@ class Google_Service_Coordinate_JobState extends Google_Collection
   {
     return $this->customerName;
   }
-
   public function setCustomerPhoneNumber($customerPhoneNumber)
   {
     $this->customerPhoneNumber = $customerPhoneNumber;
@@ -1136,7 +1124,6 @@ class Google_Service_Coordinate_JobState extends Google_Collection
   {
     return $this->customerPhoneNumber;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1146,7 +1133,6 @@ class Google_Service_Coordinate_JobState extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLocation(Google_Service_Coordinate_Location $location)
   {
     $this->location = $location;
@@ -1156,7 +1142,6 @@ class Google_Service_Coordinate_JobState extends Google_Collection
   {
     return $this->location;
   }
-
   public function setNote($note)
   {
     $this->note = $note;
@@ -1166,7 +1151,6 @@ class Google_Service_Coordinate_JobState extends Google_Collection
   {
     return $this->note;
   }
-
   public function setProgress($progress)
   {
     $this->progress = $progress;
@@ -1176,7 +1160,6 @@ class Google_Service_Coordinate_JobState extends Google_Collection
   {
     return $this->progress;
   }
-
   public function setTitle($title)
   {
     $this->title = $title;
@@ -1186,6 +1169,7 @@ class Google_Service_Coordinate_JobState extends Google_Collection
   {
     return $this->title;
   }
+
 }
 
 class Google_Service_Coordinate_Location extends Google_Collection
@@ -1207,7 +1191,6 @@ class Google_Service_Coordinate_Location extends Google_Collection
   {
     return $this->addressLine;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1217,7 +1200,6 @@ class Google_Service_Coordinate_Location extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLat($lat)
   {
     $this->lat = $lat;
@@ -1227,7 +1209,6 @@ class Google_Service_Coordinate_Location extends Google_Collection
   {
     return $this->lat;
   }
-
   public function setLng($lng)
   {
     $this->lng = $lng;
@@ -1237,6 +1218,7 @@ class Google_Service_Coordinate_Location extends Google_Collection
   {
     return $this->lng;
   }
+
 }
 
 class Google_Service_Coordinate_LocationListResponse extends Google_Collection
@@ -1260,7 +1242,6 @@ class Google_Service_Coordinate_LocationListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1270,7 +1251,6 @@ class Google_Service_Coordinate_LocationListResponse extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1280,7 +1260,6 @@ class Google_Service_Coordinate_LocationListResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setTokenPagination(Google_Service_Coordinate_TokenPagination $tokenPagination)
   {
     $this->tokenPagination = $tokenPagination;
@@ -1290,6 +1269,7 @@ class Google_Service_Coordinate_LocationListResponse extends Google_Collection
   {
     return $this->tokenPagination;
   }
+
 }
 
 class Google_Service_Coordinate_LocationRecord extends Google_Model
@@ -1311,7 +1291,6 @@ class Google_Service_Coordinate_LocationRecord extends Google_Model
   {
     return $this->collectionTime;
   }
-
   public function setConfidenceRadius($confidenceRadius)
   {
     $this->confidenceRadius = $confidenceRadius;
@@ -1321,7 +1300,6 @@ class Google_Service_Coordinate_LocationRecord extends Google_Model
   {
     return $this->confidenceRadius;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1331,7 +1309,6 @@ class Google_Service_Coordinate_LocationRecord extends Google_Model
   {
     return $this->kind;
   }
-
   public function setLatitude($latitude)
   {
     $this->latitude = $latitude;
@@ -1341,7 +1318,6 @@ class Google_Service_Coordinate_LocationRecord extends Google_Model
   {
     return $this->latitude;
   }
-
   public function setLongitude($longitude)
   {
     $this->longitude = $longitude;
@@ -1351,6 +1327,7 @@ class Google_Service_Coordinate_LocationRecord extends Google_Model
   {
     return $this->longitude;
   }
+
 }
 
 class Google_Service_Coordinate_Schedule extends Google_Model
@@ -1372,7 +1349,6 @@ class Google_Service_Coordinate_Schedule extends Google_Model
   {
     return $this->allDay;
   }
-
   public function setDuration($duration)
   {
     $this->duration = $duration;
@@ -1382,7 +1358,6 @@ class Google_Service_Coordinate_Schedule extends Google_Model
   {
     return $this->duration;
   }
-
   public function setEndTime($endTime)
   {
     $this->endTime = $endTime;
@@ -1392,7 +1367,6 @@ class Google_Service_Coordinate_Schedule extends Google_Model
   {
     return $this->endTime;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1402,7 +1376,6 @@ class Google_Service_Coordinate_Schedule extends Google_Model
   {
     return $this->kind;
   }
-
   public function setStartTime($startTime)
   {
     $this->startTime = $startTime;
@@ -1412,6 +1385,7 @@ class Google_Service_Coordinate_Schedule extends Google_Model
   {
     return $this->startTime;
   }
+
 }
 
 class Google_Service_Coordinate_TokenPagination extends Google_Model
@@ -1431,7 +1405,6 @@ class Google_Service_Coordinate_TokenPagination extends Google_Model
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -1441,7 +1414,6 @@ class Google_Service_Coordinate_TokenPagination extends Google_Model
   {
     return $this->nextPageToken;
   }
-
   public function setPreviousPageToken($previousPageToken)
   {
     $this->previousPageToken = $previousPageToken;
@@ -1451,6 +1423,7 @@ class Google_Service_Coordinate_TokenPagination extends Google_Model
   {
     return $this->previousPageToken;
   }
+
 }
 
 class Google_Service_Coordinate_Worker extends Google_Model
@@ -1469,7 +1442,6 @@ class Google_Service_Coordinate_Worker extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1479,6 +1451,7 @@ class Google_Service_Coordinate_Worker extends Google_Model
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_Coordinate_WorkerListResponse extends Google_Collection
@@ -1499,7 +1472,6 @@ class Google_Service_Coordinate_WorkerListResponse extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1509,4 +1481,5 @@ class Google_Service_Coordinate_WorkerListResponse extends Google_Collection
   {
     return $this->kind;
   }
+
 }
