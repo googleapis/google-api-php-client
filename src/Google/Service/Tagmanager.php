@@ -1900,7 +1900,6 @@ class Google_Service_Tagmanager_Account extends Google_Model
   {
     return $this->accountId;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -1910,7 +1909,6 @@ class Google_Service_Tagmanager_Account extends Google_Model
   {
     return $this->fingerprint;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -1920,7 +1918,6 @@ class Google_Service_Tagmanager_Account extends Google_Model
   {
     return $this->name;
   }
-
   public function setShareData($shareData)
   {
     $this->shareData = $shareData;
@@ -1930,6 +1927,7 @@ class Google_Service_Tagmanager_Account extends Google_Model
   {
     return $this->shareData;
   }
+
 }
 
 class Google_Service_Tagmanager_AccountAccess extends Google_Collection
@@ -1948,6 +1946,7 @@ class Google_Service_Tagmanager_AccountAccess extends Google_Collection
   {
     return $this->permission;
   }
+
 }
 
 class Google_Service_Tagmanager_Condition extends Google_Collection
@@ -1968,7 +1967,6 @@ class Google_Service_Tagmanager_Condition extends Google_Collection
   {
     return $this->parameter;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -1978,6 +1976,7 @@ class Google_Service_Tagmanager_Condition extends Google_Collection
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Tagmanager_Container extends Google_Collection
@@ -2005,7 +2004,6 @@ class Google_Service_Tagmanager_Container extends Google_Collection
   {
     return $this->accountId;
   }
-
   public function setContainerId($containerId)
   {
     $this->containerId = $containerId;
@@ -2015,7 +2013,6 @@ class Google_Service_Tagmanager_Container extends Google_Collection
   {
     return $this->containerId;
   }
-
   public function setDomainName($domainName)
   {
     $this->domainName = $domainName;
@@ -2025,7 +2022,6 @@ class Google_Service_Tagmanager_Container extends Google_Collection
   {
     return $this->domainName;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -2035,7 +2031,6 @@ class Google_Service_Tagmanager_Container extends Google_Collection
   {
     return $this->fingerprint;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2045,7 +2040,6 @@ class Google_Service_Tagmanager_Container extends Google_Collection
   {
     return $this->name;
   }
-
   public function setNotes($notes)
   {
     $this->notes = $notes;
@@ -2055,7 +2049,6 @@ class Google_Service_Tagmanager_Container extends Google_Collection
   {
     return $this->notes;
   }
-
   public function setPublicId($publicId)
   {
     $this->publicId = $publicId;
@@ -2065,7 +2058,6 @@ class Google_Service_Tagmanager_Container extends Google_Collection
   {
     return $this->publicId;
   }
-
   public function setTimeZoneCountryId($timeZoneCountryId)
   {
     $this->timeZoneCountryId = $timeZoneCountryId;
@@ -2075,7 +2067,6 @@ class Google_Service_Tagmanager_Container extends Google_Collection
   {
     return $this->timeZoneCountryId;
   }
-
   public function setTimeZoneId($timeZoneId)
   {
     $this->timeZoneId = $timeZoneId;
@@ -2085,7 +2076,6 @@ class Google_Service_Tagmanager_Container extends Google_Collection
   {
     return $this->timeZoneId;
   }
-
   public function setUsageContext($usageContext)
   {
     $this->usageContext = $usageContext;
@@ -2095,6 +2085,7 @@ class Google_Service_Tagmanager_Container extends Google_Collection
   {
     return $this->usageContext;
   }
+
 }
 
 class Google_Service_Tagmanager_ContainerAccess extends Google_Collection
@@ -2114,7 +2105,6 @@ class Google_Service_Tagmanager_ContainerAccess extends Google_Collection
   {
     return $this->containerId;
   }
-
   public function setPermission($permission)
   {
     $this->permission = $permission;
@@ -2124,6 +2114,7 @@ class Google_Service_Tagmanager_ContainerAccess extends Google_Collection
   {
     return $this->permission;
   }
+
 }
 
 class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
@@ -2158,7 +2149,6 @@ class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
   {
     return $this->accountId;
   }
-
   public function setContainer(Google_Service_Tagmanager_Container $container)
   {
     $this->container = $container;
@@ -2168,7 +2158,6 @@ class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
   {
     return $this->container;
   }
-
   public function setContainerId($containerId)
   {
     $this->containerId = $containerId;
@@ -2178,7 +2167,6 @@ class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
   {
     return $this->containerId;
   }
-
   public function setContainerVersionId($containerVersionId)
   {
     $this->containerVersionId = $containerVersionId;
@@ -2188,7 +2176,6 @@ class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
   {
     return $this->containerVersionId;
   }
-
   public function setDeleted($deleted)
   {
     $this->deleted = $deleted;
@@ -2198,7 +2185,6 @@ class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
   {
     return $this->deleted;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -2208,7 +2194,6 @@ class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
   {
     return $this->fingerprint;
   }
-
   public function setMacro($macro)
   {
     $this->macro = $macro;
@@ -2218,7 +2203,6 @@ class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
   {
     return $this->macro;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2228,7 +2212,6 @@ class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
   {
     return $this->name;
   }
-
   public function setNotes($notes)
   {
     $this->notes = $notes;
@@ -2238,7 +2221,6 @@ class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
   {
     return $this->notes;
   }
-
   public function setRule($rule)
   {
     $this->rule = $rule;
@@ -2248,7 +2230,6 @@ class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
   {
     return $this->rule;
   }
-
   public function setTag($tag)
   {
     $this->tag = $tag;
@@ -2258,7 +2239,6 @@ class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
   {
     return $this->tag;
   }
-
   public function setTrigger($trigger)
   {
     $this->trigger = $trigger;
@@ -2268,6 +2248,7 @@ class Google_Service_Tagmanager_ContainerVersion extends Google_Collection
   {
     return $this->trigger;
   }
+
 }
 
 class Google_Service_Tagmanager_ContainerVersionHeader extends Google_Model
@@ -2293,7 +2274,6 @@ class Google_Service_Tagmanager_ContainerVersionHeader extends Google_Model
   {
     return $this->accountId;
   }
-
   public function setContainerId($containerId)
   {
     $this->containerId = $containerId;
@@ -2303,7 +2283,6 @@ class Google_Service_Tagmanager_ContainerVersionHeader extends Google_Model
   {
     return $this->containerId;
   }
-
   public function setContainerVersionId($containerVersionId)
   {
     $this->containerVersionId = $containerVersionId;
@@ -2313,7 +2292,6 @@ class Google_Service_Tagmanager_ContainerVersionHeader extends Google_Model
   {
     return $this->containerVersionId;
   }
-
   public function setDeleted($deleted)
   {
     $this->deleted = $deleted;
@@ -2323,7 +2301,6 @@ class Google_Service_Tagmanager_ContainerVersionHeader extends Google_Model
   {
     return $this->deleted;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2333,7 +2310,6 @@ class Google_Service_Tagmanager_ContainerVersionHeader extends Google_Model
   {
     return $this->name;
   }
-
   public function setNumMacros($numMacros)
   {
     $this->numMacros = $numMacros;
@@ -2343,7 +2319,6 @@ class Google_Service_Tagmanager_ContainerVersionHeader extends Google_Model
   {
     return $this->numMacros;
   }
-
   public function setNumRules($numRules)
   {
     $this->numRules = $numRules;
@@ -2353,7 +2328,6 @@ class Google_Service_Tagmanager_ContainerVersionHeader extends Google_Model
   {
     return $this->numRules;
   }
-
   public function setNumTags($numTags)
   {
     $this->numTags = $numTags;
@@ -2363,7 +2337,6 @@ class Google_Service_Tagmanager_ContainerVersionHeader extends Google_Model
   {
     return $this->numTags;
   }
-
   public function setNumTriggers($numTriggers)
   {
     $this->numTriggers = $numTriggers;
@@ -2373,6 +2346,7 @@ class Google_Service_Tagmanager_ContainerVersionHeader extends Google_Model
   {
     return $this->numTriggers;
   }
+
 }
 
 class Google_Service_Tagmanager_CreateContainerVersionRequestVersionOptions extends Google_Model
@@ -2392,7 +2366,6 @@ class Google_Service_Tagmanager_CreateContainerVersionRequestVersionOptions exte
   {
     return $this->name;
   }
-
   public function setNotes($notes)
   {
     $this->notes = $notes;
@@ -2402,7 +2375,6 @@ class Google_Service_Tagmanager_CreateContainerVersionRequestVersionOptions exte
   {
     return $this->notes;
   }
-
   public function setQuickPreview($quickPreview)
   {
     $this->quickPreview = $quickPreview;
@@ -2412,6 +2384,7 @@ class Google_Service_Tagmanager_CreateContainerVersionRequestVersionOptions exte
   {
     return $this->quickPreview;
   }
+
 }
 
 class Google_Service_Tagmanager_CreateContainerVersionResponse extends Google_Model
@@ -2431,7 +2404,6 @@ class Google_Service_Tagmanager_CreateContainerVersionResponse extends Google_Mo
   {
     return $this->compilerError;
   }
-
   public function setContainerVersion(Google_Service_Tagmanager_ContainerVersion $containerVersion)
   {
     $this->containerVersion = $containerVersion;
@@ -2441,6 +2413,7 @@ class Google_Service_Tagmanager_CreateContainerVersionResponse extends Google_Mo
   {
     return $this->containerVersion;
   }
+
 }
 
 class Google_Service_Tagmanager_ListAccountUsersResponse extends Google_Collection
@@ -2460,6 +2433,7 @@ class Google_Service_Tagmanager_ListAccountUsersResponse extends Google_Collecti
   {
     return $this->userAccess;
   }
+
 }
 
 class Google_Service_Tagmanager_ListAccountsResponse extends Google_Collection
@@ -2479,6 +2453,7 @@ class Google_Service_Tagmanager_ListAccountsResponse extends Google_Collection
   {
     return $this->accounts;
   }
+
 }
 
 class Google_Service_Tagmanager_ListContainerVersionsResponse extends Google_Collection
@@ -2500,7 +2475,6 @@ class Google_Service_Tagmanager_ListContainerVersionsResponse extends Google_Col
   {
     return $this->containerVersion;
   }
-
   public function setContainerVersionHeader($containerVersionHeader)
   {
     $this->containerVersionHeader = $containerVersionHeader;
@@ -2510,6 +2484,7 @@ class Google_Service_Tagmanager_ListContainerVersionsResponse extends Google_Col
   {
     return $this->containerVersionHeader;
   }
+
 }
 
 class Google_Service_Tagmanager_ListContainersResponse extends Google_Collection
@@ -2529,6 +2504,7 @@ class Google_Service_Tagmanager_ListContainersResponse extends Google_Collection
   {
     return $this->containers;
   }
+
 }
 
 class Google_Service_Tagmanager_ListMacrosResponse extends Google_Collection
@@ -2548,6 +2524,7 @@ class Google_Service_Tagmanager_ListMacrosResponse extends Google_Collection
   {
     return $this->macros;
   }
+
 }
 
 class Google_Service_Tagmanager_ListRulesResponse extends Google_Collection
@@ -2567,6 +2544,7 @@ class Google_Service_Tagmanager_ListRulesResponse extends Google_Collection
   {
     return $this->rules;
   }
+
 }
 
 class Google_Service_Tagmanager_ListTagsResponse extends Google_Collection
@@ -2586,6 +2564,7 @@ class Google_Service_Tagmanager_ListTagsResponse extends Google_Collection
   {
     return $this->tags;
   }
+
 }
 
 class Google_Service_Tagmanager_ListTriggersResponse extends Google_Collection
@@ -2605,6 +2584,7 @@ class Google_Service_Tagmanager_ListTriggersResponse extends Google_Collection
   {
     return $this->triggers;
   }
+
 }
 
 class Google_Service_Tagmanager_ListVariablesResponse extends Google_Collection
@@ -2624,6 +2604,7 @@ class Google_Service_Tagmanager_ListVariablesResponse extends Google_Collection
   {
     return $this->variables;
   }
+
 }
 
 class Google_Service_Tagmanager_Macro extends Google_Collection
@@ -2654,7 +2635,6 @@ class Google_Service_Tagmanager_Macro extends Google_Collection
   {
     return $this->accountId;
   }
-
   public function setContainerId($containerId)
   {
     $this->containerId = $containerId;
@@ -2664,7 +2644,6 @@ class Google_Service_Tagmanager_Macro extends Google_Collection
   {
     return $this->containerId;
   }
-
   public function setDisablingRuleId($disablingRuleId)
   {
     $this->disablingRuleId = $disablingRuleId;
@@ -2674,7 +2653,6 @@ class Google_Service_Tagmanager_Macro extends Google_Collection
   {
     return $this->disablingRuleId;
   }
-
   public function setEnablingRuleId($enablingRuleId)
   {
     $this->enablingRuleId = $enablingRuleId;
@@ -2684,7 +2662,6 @@ class Google_Service_Tagmanager_Macro extends Google_Collection
   {
     return $this->enablingRuleId;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -2694,7 +2671,6 @@ class Google_Service_Tagmanager_Macro extends Google_Collection
   {
     return $this->fingerprint;
   }
-
   public function setMacroId($macroId)
   {
     $this->macroId = $macroId;
@@ -2704,7 +2680,6 @@ class Google_Service_Tagmanager_Macro extends Google_Collection
   {
     return $this->macroId;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2714,7 +2689,6 @@ class Google_Service_Tagmanager_Macro extends Google_Collection
   {
     return $this->name;
   }
-
   public function setNotes($notes)
   {
     $this->notes = $notes;
@@ -2724,7 +2698,6 @@ class Google_Service_Tagmanager_Macro extends Google_Collection
   {
     return $this->notes;
   }
-
   public function setParameter($parameter)
   {
     $this->parameter = $parameter;
@@ -2734,7 +2707,6 @@ class Google_Service_Tagmanager_Macro extends Google_Collection
   {
     return $this->parameter;
   }
-
   public function setScheduleEndMs($scheduleEndMs)
   {
     $this->scheduleEndMs = $scheduleEndMs;
@@ -2744,7 +2716,6 @@ class Google_Service_Tagmanager_Macro extends Google_Collection
   {
     return $this->scheduleEndMs;
   }
-
   public function setScheduleStartMs($scheduleStartMs)
   {
     $this->scheduleStartMs = $scheduleStartMs;
@@ -2754,7 +2725,6 @@ class Google_Service_Tagmanager_Macro extends Google_Collection
   {
     return $this->scheduleStartMs;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -2764,6 +2734,7 @@ class Google_Service_Tagmanager_Macro extends Google_Collection
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Tagmanager_Parameter extends Google_Collection
@@ -2788,7 +2759,6 @@ class Google_Service_Tagmanager_Parameter extends Google_Collection
   {
     return $this->key;
   }
-
   public function setList($list)
   {
     $this->list = $list;
@@ -2798,7 +2768,6 @@ class Google_Service_Tagmanager_Parameter extends Google_Collection
   {
     return $this->list;
   }
-
   public function setMap($map)
   {
     $this->map = $map;
@@ -2808,7 +2777,6 @@ class Google_Service_Tagmanager_Parameter extends Google_Collection
   {
     return $this->map;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -2818,7 +2786,6 @@ class Google_Service_Tagmanager_Parameter extends Google_Collection
   {
     return $this->type;
   }
-
   public function setValue($value)
   {
     $this->value = $value;
@@ -2828,6 +2795,7 @@ class Google_Service_Tagmanager_Parameter extends Google_Collection
   {
     return $this->value;
   }
+
 }
 
 class Google_Service_Tagmanager_PublishContainerVersionResponse extends Google_Model
@@ -2847,7 +2815,6 @@ class Google_Service_Tagmanager_PublishContainerVersionResponse extends Google_M
   {
     return $this->compilerError;
   }
-
   public function setContainerVersion(Google_Service_Tagmanager_ContainerVersion $containerVersion)
   {
     $this->containerVersion = $containerVersion;
@@ -2857,6 +2824,7 @@ class Google_Service_Tagmanager_PublishContainerVersionResponse extends Google_M
   {
     return $this->containerVersion;
   }
+
 }
 
 class Google_Service_Tagmanager_Rule extends Google_Collection
@@ -2882,7 +2850,6 @@ class Google_Service_Tagmanager_Rule extends Google_Collection
   {
     return $this->accountId;
   }
-
   public function setCondition($condition)
   {
     $this->condition = $condition;
@@ -2892,7 +2859,6 @@ class Google_Service_Tagmanager_Rule extends Google_Collection
   {
     return $this->condition;
   }
-
   public function setContainerId($containerId)
   {
     $this->containerId = $containerId;
@@ -2902,7 +2868,6 @@ class Google_Service_Tagmanager_Rule extends Google_Collection
   {
     return $this->containerId;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -2912,7 +2877,6 @@ class Google_Service_Tagmanager_Rule extends Google_Collection
   {
     return $this->fingerprint;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2922,7 +2886,6 @@ class Google_Service_Tagmanager_Rule extends Google_Collection
   {
     return $this->name;
   }
-
   public function setNotes($notes)
   {
     $this->notes = $notes;
@@ -2932,7 +2895,6 @@ class Google_Service_Tagmanager_Rule extends Google_Collection
   {
     return $this->notes;
   }
-
   public function setRuleId($ruleId)
   {
     $this->ruleId = $ruleId;
@@ -2942,6 +2904,7 @@ class Google_Service_Tagmanager_Rule extends Google_Collection
   {
     return $this->ruleId;
   }
+
 }
 
 class Google_Service_Tagmanager_Tag extends Google_Collection
@@ -2979,7 +2942,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->accountId;
   }
-
   public function setBlockingRuleId($blockingRuleId)
   {
     $this->blockingRuleId = $blockingRuleId;
@@ -2989,7 +2951,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->blockingRuleId;
   }
-
   public function setBlockingTriggerId($blockingTriggerId)
   {
     $this->blockingTriggerId = $blockingTriggerId;
@@ -2999,7 +2960,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->blockingTriggerId;
   }
-
   public function setContainerId($containerId)
   {
     $this->containerId = $containerId;
@@ -3009,7 +2969,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->containerId;
   }
-
   public function setDependencies(Google_Service_Tagmanager_Parameter $dependencies)
   {
     $this->dependencies = $dependencies;
@@ -3019,7 +2978,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->dependencies;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -3029,7 +2987,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->fingerprint;
   }
-
   public function setFiringRuleId($firingRuleId)
   {
     $this->firingRuleId = $firingRuleId;
@@ -3039,7 +2996,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->firingRuleId;
   }
-
   public function setFiringTriggerId($firingTriggerId)
   {
     $this->firingTriggerId = $firingTriggerId;
@@ -3049,7 +3005,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->firingTriggerId;
   }
-
   public function setLiveOnly($liveOnly)
   {
     $this->liveOnly = $liveOnly;
@@ -3059,7 +3014,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->liveOnly;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3069,7 +3023,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->name;
   }
-
   public function setNotes($notes)
   {
     $this->notes = $notes;
@@ -3079,7 +3032,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->notes;
   }
-
   public function setParameter($parameter)
   {
     $this->parameter = $parameter;
@@ -3089,7 +3041,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->parameter;
   }
-
   public function setPriority(Google_Service_Tagmanager_Parameter $priority)
   {
     $this->priority = $priority;
@@ -3099,7 +3050,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->priority;
   }
-
   public function setScheduleEndMs($scheduleEndMs)
   {
     $this->scheduleEndMs = $scheduleEndMs;
@@ -3109,7 +3059,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->scheduleEndMs;
   }
-
   public function setScheduleStartMs($scheduleStartMs)
   {
     $this->scheduleStartMs = $scheduleStartMs;
@@ -3119,7 +3068,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->scheduleStartMs;
   }
-
   public function setTagId($tagId)
   {
     $this->tagId = $tagId;
@@ -3129,7 +3077,6 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->tagId;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -3139,6 +3086,7 @@ class Google_Service_Tagmanager_Tag extends Google_Collection
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Tagmanager_Trigger extends Google_Collection
@@ -3186,7 +3134,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->accountId;
   }
-
   public function setAutoEventFilter($autoEventFilter)
   {
     $this->autoEventFilter = $autoEventFilter;
@@ -3196,7 +3143,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->autoEventFilter;
   }
-
   public function setCheckValidation(Google_Service_Tagmanager_Parameter $checkValidation)
   {
     $this->checkValidation = $checkValidation;
@@ -3206,7 +3152,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->checkValidation;
   }
-
   public function setContainerId($containerId)
   {
     $this->containerId = $containerId;
@@ -3216,7 +3161,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->containerId;
   }
-
   public function setCustomEventFilter($customEventFilter)
   {
     $this->customEventFilter = $customEventFilter;
@@ -3226,7 +3170,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->customEventFilter;
   }
-
   public function setEnableAllVideos(Google_Service_Tagmanager_Parameter $enableAllVideos)
   {
     $this->enableAllVideos = $enableAllVideos;
@@ -3236,7 +3179,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->enableAllVideos;
   }
-
   public function setEventName(Google_Service_Tagmanager_Parameter $eventName)
   {
     $this->eventName = $eventName;
@@ -3246,7 +3188,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->eventName;
   }
-
   public function setFilter($filter)
   {
     $this->filter = $filter;
@@ -3256,7 +3197,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->filter;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -3266,7 +3206,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->fingerprint;
   }
-
   public function setInterval(Google_Service_Tagmanager_Parameter $interval)
   {
     $this->interval = $interval;
@@ -3276,7 +3215,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->interval;
   }
-
   public function setLimit(Google_Service_Tagmanager_Parameter $limit)
   {
     $this->limit = $limit;
@@ -3286,7 +3224,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->limit;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3296,7 +3233,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->name;
   }
-
   public function setTriggerId($triggerId)
   {
     $this->triggerId = $triggerId;
@@ -3306,7 +3242,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->triggerId;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -3316,7 +3251,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->type;
   }
-
   public function setUniqueTriggerId(Google_Service_Tagmanager_Parameter $uniqueTriggerId)
   {
     $this->uniqueTriggerId = $uniqueTriggerId;
@@ -3326,7 +3260,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->uniqueTriggerId;
   }
-
   public function setVideoPercentageList(Google_Service_Tagmanager_Parameter $videoPercentageList)
   {
     $this->videoPercentageList = $videoPercentageList;
@@ -3336,7 +3269,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->videoPercentageList;
   }
-
   public function setWaitForTags(Google_Service_Tagmanager_Parameter $waitForTags)
   {
     $this->waitForTags = $waitForTags;
@@ -3346,7 +3278,6 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->waitForTags;
   }
-
   public function setWaitForTagsTimeout(Google_Service_Tagmanager_Parameter $waitForTagsTimeout)
   {
     $this->waitForTagsTimeout = $waitForTagsTimeout;
@@ -3356,6 +3287,7 @@ class Google_Service_Tagmanager_Trigger extends Google_Collection
   {
     return $this->waitForTagsTimeout;
   }
+
 }
 
 class Google_Service_Tagmanager_UserAccess extends Google_Collection
@@ -3380,7 +3312,6 @@ class Google_Service_Tagmanager_UserAccess extends Google_Collection
   {
     return $this->accountAccess;
   }
-
   public function setAccountId($accountId)
   {
     $this->accountId = $accountId;
@@ -3390,7 +3321,6 @@ class Google_Service_Tagmanager_UserAccess extends Google_Collection
   {
     return $this->accountId;
   }
-
   public function setContainerAccess($containerAccess)
   {
     $this->containerAccess = $containerAccess;
@@ -3400,7 +3330,6 @@ class Google_Service_Tagmanager_UserAccess extends Google_Collection
   {
     return $this->containerAccess;
   }
-
   public function setEmailAddress($emailAddress)
   {
     $this->emailAddress = $emailAddress;
@@ -3410,7 +3339,6 @@ class Google_Service_Tagmanager_UserAccess extends Google_Collection
   {
     return $this->emailAddress;
   }
-
   public function setPermissionId($permissionId)
   {
     $this->permissionId = $permissionId;
@@ -3420,6 +3348,7 @@ class Google_Service_Tagmanager_UserAccess extends Google_Collection
   {
     return $this->permissionId;
   }
+
 }
 
 class Google_Service_Tagmanager_Variable extends Google_Collection
@@ -3450,7 +3379,6 @@ class Google_Service_Tagmanager_Variable extends Google_Collection
   {
     return $this->accountId;
   }
-
   public function setContainerId($containerId)
   {
     $this->containerId = $containerId;
@@ -3460,7 +3388,6 @@ class Google_Service_Tagmanager_Variable extends Google_Collection
   {
     return $this->containerId;
   }
-
   public function setDisablingTriggerId($disablingTriggerId)
   {
     $this->disablingTriggerId = $disablingTriggerId;
@@ -3470,7 +3397,6 @@ class Google_Service_Tagmanager_Variable extends Google_Collection
   {
     return $this->disablingTriggerId;
   }
-
   public function setEnablingTriggerId($enablingTriggerId)
   {
     $this->enablingTriggerId = $enablingTriggerId;
@@ -3480,7 +3406,6 @@ class Google_Service_Tagmanager_Variable extends Google_Collection
   {
     return $this->enablingTriggerId;
   }
-
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
@@ -3490,7 +3415,6 @@ class Google_Service_Tagmanager_Variable extends Google_Collection
   {
     return $this->fingerprint;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3500,7 +3424,6 @@ class Google_Service_Tagmanager_Variable extends Google_Collection
   {
     return $this->name;
   }
-
   public function setNotes($notes)
   {
     $this->notes = $notes;
@@ -3510,7 +3433,6 @@ class Google_Service_Tagmanager_Variable extends Google_Collection
   {
     return $this->notes;
   }
-
   public function setParameter($parameter)
   {
     $this->parameter = $parameter;
@@ -3520,7 +3442,6 @@ class Google_Service_Tagmanager_Variable extends Google_Collection
   {
     return $this->parameter;
   }
-
   public function setScheduleEndMs($scheduleEndMs)
   {
     $this->scheduleEndMs = $scheduleEndMs;
@@ -3530,7 +3451,6 @@ class Google_Service_Tagmanager_Variable extends Google_Collection
   {
     return $this->scheduleEndMs;
   }
-
   public function setScheduleStartMs($scheduleStartMs)
   {
     $this->scheduleStartMs = $scheduleStartMs;
@@ -3540,7 +3460,6 @@ class Google_Service_Tagmanager_Variable extends Google_Collection
   {
     return $this->scheduleStartMs;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -3550,7 +3469,6 @@ class Google_Service_Tagmanager_Variable extends Google_Collection
   {
     return $this->type;
   }
-
   public function setVariableId($variableId)
   {
     $this->variableId = $variableId;
@@ -3560,4 +3478,5 @@ class Google_Service_Tagmanager_Variable extends Google_Collection
   {
     return $this->variableId;
   }
+
 }
