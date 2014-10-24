@@ -1880,7 +1880,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->acl;
   }
-
   public function setCors($cors)
   {
     $this->cors = $cors;
@@ -1890,7 +1889,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->cors;
   }
-
   public function setDefaultObjectAcl($defaultObjectAcl)
   {
     $this->defaultObjectAcl = $defaultObjectAcl;
@@ -1900,7 +1898,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->defaultObjectAcl;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -1910,7 +1907,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -1920,7 +1916,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -1930,7 +1925,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setLifecycle(Google_Service_Storage_BucketLifecycle $lifecycle)
   {
     $this->lifecycle = $lifecycle;
@@ -1940,7 +1934,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->lifecycle;
   }
-
   public function setLocation($location)
   {
     $this->location = $location;
@@ -1950,7 +1943,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->location;
   }
-
   public function setLogging(Google_Service_Storage_BucketLogging $logging)
   {
     $this->logging = $logging;
@@ -1960,7 +1952,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->logging;
   }
-
   public function setMetageneration($metageneration)
   {
     $this->metageneration = $metageneration;
@@ -1970,7 +1961,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->metageneration;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -1980,7 +1970,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->name;
   }
-
   public function setOwner(Google_Service_Storage_BucketOwner $owner)
   {
     $this->owner = $owner;
@@ -1990,7 +1979,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->owner;
   }
-
   public function setProjectNumber($projectNumber)
   {
     $this->projectNumber = $projectNumber;
@@ -2000,7 +1988,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->projectNumber;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -2010,7 +1997,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setStorageClass($storageClass)
   {
     $this->storageClass = $storageClass;
@@ -2020,7 +2006,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->storageClass;
   }
-
   public function setTimeCreated($timeCreated)
   {
     $this->timeCreated = $timeCreated;
@@ -2030,7 +2015,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->timeCreated;
   }
-
   public function setVersioning(Google_Service_Storage_BucketVersioning $versioning)
   {
     $this->versioning = $versioning;
@@ -2040,7 +2024,6 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->versioning;
   }
-
   public function setWebsite(Google_Service_Storage_BucketWebsite $website)
   {
     $this->website = $website;
@@ -2050,6 +2033,7 @@ class Google_Service_Storage_Bucket extends Google_Collection
   {
     return $this->website;
   }
+
 }
 
 class Google_Service_Storage_BucketAccessControl extends Google_Model
@@ -2078,7 +2062,6 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   {
     return $this->bucket;
   }
-
   public function setDomain($domain)
   {
     $this->domain = $domain;
@@ -2088,7 +2071,6 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   {
     return $this->domain;
   }
-
   public function setEmail($email)
   {
     $this->email = $email;
@@ -2098,7 +2080,6 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   {
     return $this->email;
   }
-
   public function setEntity($entity)
   {
     $this->entity = $entity;
@@ -2108,7 +2089,6 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   {
     return $this->entity;
   }
-
   public function setEntityId($entityId)
   {
     $this->entityId = $entityId;
@@ -2118,7 +2098,6 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   {
     return $this->entityId;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -2128,7 +2107,6 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   {
     return $this->etag;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -2138,7 +2116,6 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2148,7 +2125,6 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   {
     return $this->kind;
   }
-
   public function setProjectTeam(Google_Service_Storage_BucketAccessControlProjectTeam $projectTeam)
   {
     $this->projectTeam = $projectTeam;
@@ -2158,7 +2134,6 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   {
     return $this->projectTeam;
   }
-
   public function setRole($role)
   {
     $this->role = $role;
@@ -2168,7 +2143,6 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   {
     return $this->role;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -2178,6 +2152,7 @@ class Google_Service_Storage_BucketAccessControl extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Storage_BucketAccessControlProjectTeam extends Google_Model
@@ -2196,7 +2171,6 @@ class Google_Service_Storage_BucketAccessControlProjectTeam extends Google_Model
   {
     return $this->projectNumber;
   }
-
   public function setTeam($team)
   {
     $this->team = $team;
@@ -2206,6 +2180,7 @@ class Google_Service_Storage_BucketAccessControlProjectTeam extends Google_Model
   {
     return $this->team;
   }
+
 }
 
 class Google_Service_Storage_BucketAccessControls extends Google_Collection
@@ -2226,7 +2201,6 @@ class Google_Service_Storage_BucketAccessControls extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2236,6 +2210,7 @@ class Google_Service_Storage_BucketAccessControls extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_Storage_BucketCors extends Google_Collection
@@ -2257,7 +2232,6 @@ class Google_Service_Storage_BucketCors extends Google_Collection
   {
     return $this->maxAgeSeconds;
   }
-
   public function setMethod($method)
   {
     $this->method = $method;
@@ -2267,7 +2241,6 @@ class Google_Service_Storage_BucketCors extends Google_Collection
   {
     return $this->method;
   }
-
   public function setOrigin($origin)
   {
     $this->origin = $origin;
@@ -2277,7 +2250,6 @@ class Google_Service_Storage_BucketCors extends Google_Collection
   {
     return $this->origin;
   }
-
   public function setResponseHeader($responseHeader)
   {
     $this->responseHeader = $responseHeader;
@@ -2287,6 +2259,7 @@ class Google_Service_Storage_BucketCors extends Google_Collection
   {
     return $this->responseHeader;
   }
+
 }
 
 class Google_Service_Storage_BucketLifecycle extends Google_Collection
@@ -2306,6 +2279,7 @@ class Google_Service_Storage_BucketLifecycle extends Google_Collection
   {
     return $this->rule;
   }
+
 }
 
 class Google_Service_Storage_BucketLifecycleRule extends Google_Model
@@ -2326,7 +2300,6 @@ class Google_Service_Storage_BucketLifecycleRule extends Google_Model
   {
     return $this->action;
   }
-
   public function setCondition(Google_Service_Storage_BucketLifecycleRuleCondition $condition)
   {
     $this->condition = $condition;
@@ -2336,6 +2309,7 @@ class Google_Service_Storage_BucketLifecycleRule extends Google_Model
   {
     return $this->condition;
   }
+
 }
 
 class Google_Service_Storage_BucketLifecycleRuleAction extends Google_Model
@@ -2353,6 +2327,7 @@ class Google_Service_Storage_BucketLifecycleRuleAction extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Storage_BucketLifecycleRuleCondition extends Google_Model
@@ -2373,7 +2348,6 @@ class Google_Service_Storage_BucketLifecycleRuleCondition extends Google_Model
   {
     return $this->age;
   }
-
   public function setCreatedBefore($createdBefore)
   {
     $this->createdBefore = $createdBefore;
@@ -2383,7 +2357,6 @@ class Google_Service_Storage_BucketLifecycleRuleCondition extends Google_Model
   {
     return $this->createdBefore;
   }
-
   public function setIsLive($isLive)
   {
     $this->isLive = $isLive;
@@ -2393,7 +2366,6 @@ class Google_Service_Storage_BucketLifecycleRuleCondition extends Google_Model
   {
     return $this->isLive;
   }
-
   public function setNumNewerVersions($numNewerVersions)
   {
     $this->numNewerVersions = $numNewerVersions;
@@ -2403,6 +2375,7 @@ class Google_Service_Storage_BucketLifecycleRuleCondition extends Google_Model
   {
     return $this->numNewerVersions;
   }
+
 }
 
 class Google_Service_Storage_BucketLogging extends Google_Model
@@ -2421,7 +2394,6 @@ class Google_Service_Storage_BucketLogging extends Google_Model
   {
     return $this->logBucket;
   }
-
   public function setLogObjectPrefix($logObjectPrefix)
   {
     $this->logObjectPrefix = $logObjectPrefix;
@@ -2431,6 +2403,7 @@ class Google_Service_Storage_BucketLogging extends Google_Model
   {
     return $this->logObjectPrefix;
   }
+
 }
 
 class Google_Service_Storage_BucketOwner extends Google_Model
@@ -2449,7 +2422,6 @@ class Google_Service_Storage_BucketOwner extends Google_Model
   {
     return $this->entity;
   }
-
   public function setEntityId($entityId)
   {
     $this->entityId = $entityId;
@@ -2459,6 +2431,7 @@ class Google_Service_Storage_BucketOwner extends Google_Model
   {
     return $this->entityId;
   }
+
 }
 
 class Google_Service_Storage_BucketVersioning extends Google_Model
@@ -2476,6 +2449,7 @@ class Google_Service_Storage_BucketVersioning extends Google_Model
   {
     return $this->enabled;
   }
+
 }
 
 class Google_Service_Storage_BucketWebsite extends Google_Model
@@ -2494,7 +2468,6 @@ class Google_Service_Storage_BucketWebsite extends Google_Model
   {
     return $this->mainPageSuffix;
   }
-
   public function setNotFoundPage($notFoundPage)
   {
     $this->notFoundPage = $notFoundPage;
@@ -2504,6 +2477,7 @@ class Google_Service_Storage_BucketWebsite extends Google_Model
   {
     return $this->notFoundPage;
   }
+
 }
 
 class Google_Service_Storage_Buckets extends Google_Collection
@@ -2525,7 +2499,6 @@ class Google_Service_Storage_Buckets extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2535,7 +2508,6 @@ class Google_Service_Storage_Buckets extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -2545,6 +2517,7 @@ class Google_Service_Storage_Buckets extends Google_Collection
   {
     return $this->nextPageToken;
   }
+
 }
 
 class Google_Service_Storage_Channel extends Google_Model
@@ -2571,7 +2544,6 @@ class Google_Service_Storage_Channel extends Google_Model
   {
     return $this->address;
   }
-
   public function setExpiration($expiration)
   {
     $this->expiration = $expiration;
@@ -2581,7 +2553,6 @@ class Google_Service_Storage_Channel extends Google_Model
   {
     return $this->expiration;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -2591,7 +2562,6 @@ class Google_Service_Storage_Channel extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2601,7 +2571,6 @@ class Google_Service_Storage_Channel extends Google_Model
   {
     return $this->kind;
   }
-
   public function setParams($params)
   {
     $this->params = $params;
@@ -2611,7 +2580,6 @@ class Google_Service_Storage_Channel extends Google_Model
   {
     return $this->params;
   }
-
   public function setPayload($payload)
   {
     $this->payload = $payload;
@@ -2621,7 +2589,6 @@ class Google_Service_Storage_Channel extends Google_Model
   {
     return $this->payload;
   }
-
   public function setResourceId($resourceId)
   {
     $this->resourceId = $resourceId;
@@ -2631,7 +2598,6 @@ class Google_Service_Storage_Channel extends Google_Model
   {
     return $this->resourceId;
   }
-
   public function setResourceUri($resourceUri)
   {
     $this->resourceUri = $resourceUri;
@@ -2641,7 +2607,6 @@ class Google_Service_Storage_Channel extends Google_Model
   {
     return $this->resourceUri;
   }
-
   public function setToken($token)
   {
     $this->token = $token;
@@ -2651,7 +2616,6 @@ class Google_Service_Storage_Channel extends Google_Model
   {
     return $this->token;
   }
-
   public function setType($type)
   {
     $this->type = $type;
@@ -2661,12 +2625,15 @@ class Google_Service_Storage_Channel extends Google_Model
   {
     return $this->type;
   }
+
 }
 
 class Google_Service_Storage_ChannelParams extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Storage_ComposeRequest extends Google_Collection
@@ -2689,7 +2656,6 @@ class Google_Service_Storage_ComposeRequest extends Google_Collection
   {
     return $this->destination;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2699,7 +2665,6 @@ class Google_Service_Storage_ComposeRequest extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setSourceObjects($sourceObjects)
   {
     $this->sourceObjects = $sourceObjects;
@@ -2709,6 +2674,7 @@ class Google_Service_Storage_ComposeRequest extends Google_Collection
   {
     return $this->sourceObjects;
   }
+
 }
 
 class Google_Service_Storage_ComposeRequestSourceObjects extends Google_Model
@@ -2729,7 +2695,6 @@ class Google_Service_Storage_ComposeRequestSourceObjects extends Google_Model
   {
     return $this->generation;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -2739,7 +2704,6 @@ class Google_Service_Storage_ComposeRequestSourceObjects extends Google_Model
   {
     return $this->name;
   }
-
   public function setObjectPreconditions(Google_Service_Storage_ComposeRequestSourceObjectsObjectPreconditions $objectPreconditions)
   {
     $this->objectPreconditions = $objectPreconditions;
@@ -2749,6 +2713,7 @@ class Google_Service_Storage_ComposeRequestSourceObjects extends Google_Model
   {
     return $this->objectPreconditions;
   }
+
 }
 
 class Google_Service_Storage_ComposeRequestSourceObjectsObjectPreconditions extends Google_Model
@@ -2766,6 +2731,7 @@ class Google_Service_Storage_ComposeRequestSourceObjectsObjectPreconditions exte
   {
     return $this->ifGenerationMatch;
   }
+
 }
 
 class Google_Service_Storage_ObjectAccessControl extends Google_Model
@@ -2796,7 +2762,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->bucket;
   }
-
   public function setDomain($domain)
   {
     $this->domain = $domain;
@@ -2806,7 +2771,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->domain;
   }
-
   public function setEmail($email)
   {
     $this->email = $email;
@@ -2816,7 +2780,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->email;
   }
-
   public function setEntity($entity)
   {
     $this->entity = $entity;
@@ -2826,7 +2789,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->entity;
   }
-
   public function setEntityId($entityId)
   {
     $this->entityId = $entityId;
@@ -2836,7 +2798,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->entityId;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -2846,7 +2807,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->etag;
   }
-
   public function setGeneration($generation)
   {
     $this->generation = $generation;
@@ -2856,7 +2816,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->generation;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -2866,7 +2825,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2876,7 +2834,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->kind;
   }
-
   public function setObject($object)
   {
     $this->object = $object;
@@ -2886,7 +2843,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->object;
   }
-
   public function setProjectTeam(Google_Service_Storage_ObjectAccessControlProjectTeam $projectTeam)
   {
     $this->projectTeam = $projectTeam;
@@ -2896,7 +2852,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->projectTeam;
   }
-
   public function setRole($role)
   {
     $this->role = $role;
@@ -2906,7 +2861,6 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->role;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -2916,6 +2870,7 @@ class Google_Service_Storage_ObjectAccessControl extends Google_Model
   {
     return $this->selfLink;
   }
+
 }
 
 class Google_Service_Storage_ObjectAccessControlProjectTeam extends Google_Model
@@ -2934,7 +2889,6 @@ class Google_Service_Storage_ObjectAccessControlProjectTeam extends Google_Model
   {
     return $this->projectNumber;
   }
-
   public function setTeam($team)
   {
     $this->team = $team;
@@ -2944,6 +2898,7 @@ class Google_Service_Storage_ObjectAccessControlProjectTeam extends Google_Model
   {
     return $this->team;
   }
+
 }
 
 class Google_Service_Storage_ObjectAccessControls extends Google_Collection
@@ -2963,7 +2918,6 @@ class Google_Service_Storage_ObjectAccessControls extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2973,6 +2927,7 @@ class Google_Service_Storage_ObjectAccessControls extends Google_Collection
   {
     return $this->kind;
   }
+
 }
 
 class Google_Service_Storage_Objects extends Google_Collection
@@ -2995,7 +2950,6 @@ class Google_Service_Storage_Objects extends Google_Collection
   {
     return $this->items;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3005,7 +2959,6 @@ class Google_Service_Storage_Objects extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -3015,7 +2968,6 @@ class Google_Service_Storage_Objects extends Google_Collection
   {
     return $this->nextPageToken;
   }
-
   public function setPrefixes($prefixes)
   {
     $this->prefixes = $prefixes;
@@ -3025,6 +2977,7 @@ class Google_Service_Storage_Objects extends Google_Collection
   {
     return $this->prefixes;
   }
+
 }
 
 class Google_Service_Storage_StorageObject extends Google_Collection
@@ -3068,7 +3021,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->acl;
   }
-
   public function setBucket($bucket)
   {
     $this->bucket = $bucket;
@@ -3078,7 +3030,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->bucket;
   }
-
   public function setCacheControl($cacheControl)
   {
     $this->cacheControl = $cacheControl;
@@ -3088,7 +3039,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->cacheControl;
   }
-
   public function setComponentCount($componentCount)
   {
     $this->componentCount = $componentCount;
@@ -3098,7 +3048,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->componentCount;
   }
-
   public function setContentDisposition($contentDisposition)
   {
     $this->contentDisposition = $contentDisposition;
@@ -3108,7 +3057,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->contentDisposition;
   }
-
   public function setContentEncoding($contentEncoding)
   {
     $this->contentEncoding = $contentEncoding;
@@ -3118,7 +3066,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->contentEncoding;
   }
-
   public function setContentLanguage($contentLanguage)
   {
     $this->contentLanguage = $contentLanguage;
@@ -3128,7 +3075,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->contentLanguage;
   }
-
   public function setContentType($contentType)
   {
     $this->contentType = $contentType;
@@ -3138,7 +3084,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->contentType;
   }
-
   public function setCrc32c($crc32c)
   {
     $this->crc32c = $crc32c;
@@ -3148,7 +3093,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->crc32c;
   }
-
   public function setEtag($etag)
   {
     $this->etag = $etag;
@@ -3158,7 +3102,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->etag;
   }
-
   public function setGeneration($generation)
   {
     $this->generation = $generation;
@@ -3168,7 +3111,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->generation;
   }
-
   public function setId($id)
   {
     $this->id = $id;
@@ -3178,7 +3120,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->id;
   }
-
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3188,7 +3129,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->kind;
   }
-
   public function setMd5Hash($md5Hash)
   {
     $this->md5Hash = $md5Hash;
@@ -3198,7 +3138,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->md5Hash;
   }
-
   public function setMediaLink($mediaLink)
   {
     $this->mediaLink = $mediaLink;
@@ -3208,7 +3147,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->mediaLink;
   }
-
   public function setMetadata($metadata)
   {
     $this->metadata = $metadata;
@@ -3218,7 +3156,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->metadata;
   }
-
   public function setMetageneration($metageneration)
   {
     $this->metageneration = $metageneration;
@@ -3228,7 +3165,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->metageneration;
   }
-
   public function setName($name)
   {
     $this->name = $name;
@@ -3238,7 +3174,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->name;
   }
-
   public function setOwner(Google_Service_Storage_StorageObjectOwner $owner)
   {
     $this->owner = $owner;
@@ -3248,7 +3183,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->owner;
   }
-
   public function setSelfLink($selfLink)
   {
     $this->selfLink = $selfLink;
@@ -3258,7 +3192,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->selfLink;
   }
-
   public function setSize($size)
   {
     $this->size = $size;
@@ -3268,7 +3201,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->size;
   }
-
   public function setStorageClass($storageClass)
   {
     $this->storageClass = $storageClass;
@@ -3278,7 +3210,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->storageClass;
   }
-
   public function setTimeDeleted($timeDeleted)
   {
     $this->timeDeleted = $timeDeleted;
@@ -3288,7 +3219,6 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->timeDeleted;
   }
-
   public function setUpdated($updated)
   {
     $this->updated = $updated;
@@ -3298,12 +3228,15 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   {
     return $this->updated;
   }
+
 }
 
 class Google_Service_Storage_StorageObjectMetadata extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+
+
 }
 
 class Google_Service_Storage_StorageObjectOwner extends Google_Model
@@ -3322,7 +3255,6 @@ class Google_Service_Storage_StorageObjectOwner extends Google_Model
   {
     return $this->entity;
   }
-
   public function setEntityId($entityId)
   {
     $this->entityId = $entityId;
@@ -3332,4 +3264,5 @@ class Google_Service_Storage_StorageObjectOwner extends Google_Model
   {
     return $this->entityId;
   }
+
 }
