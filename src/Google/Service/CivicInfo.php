@@ -1581,6 +1581,8 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   );
   protected $contestsType = 'Google_Service_CivicInfo_Contest';
   protected $contestsDataType = 'array';
+  protected $dropOffLocationsType = 'Google_Service_CivicInfo_PollingLocation';
+  protected $dropOffLocationsDataType = 'array';
   protected $earlyVoteSitesType = 'Google_Service_CivicInfo_PollingLocation';
   protected $earlyVoteSitesDataType = 'array';
   protected $electionType = 'Google_Service_CivicInfo_Election';
@@ -1604,6 +1606,15 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   public function getContests()
   {
     return $this->contests;
+  }
+  public function setDropOffLocations($dropOffLocations)
+  {
+    $this->dropOffLocations = $dropOffLocations;
+  }
+
+  public function getDropOffLocations()
+  {
+    return $this->dropOffLocations;
   }
   public function setEarlyVoteSites($earlyVoteSites)
   {
