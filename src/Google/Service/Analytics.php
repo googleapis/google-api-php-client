@@ -6431,7 +6431,7 @@ class Google_Service_Analytics_GaData extends Google_Collection
   protected $profileInfoDataType = '';
   protected $queryType = 'Google_Service_Analytics_GaDataQuery';
   protected $queryDataType = '';
-  public $rows;
+  public $rows = array();
   public $sampleSize;
   public $sampleSpace;
   public $selfLink;
