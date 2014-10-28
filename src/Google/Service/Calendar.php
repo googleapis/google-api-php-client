@@ -3039,6 +3039,24 @@ class Google_Service_Calendar_Event extends Google_Collection
 
 }
 
+class Google_Service_Calendar_EventAttachment extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $title;
+
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+
+  public function getTitle()
+  {
+    return $this->title;
+  }
+
+}
+
 class Google_Service_Calendar_EventAttendee extends Google_Model
 {
   protected $internal_gapi_mappings = array(
