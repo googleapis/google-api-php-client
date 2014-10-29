@@ -38,6 +38,7 @@ class Google_Service_Autoscaler extends Google_Service
 
   public $autoscalers;
   public $zoneOperations;
+  public $zones;
   
 
   /**
@@ -240,6 +241,38 @@ class Google_Service_Autoscaler extends Google_Service
                   'required' => true,
                 ),
                 'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->zones = new Google_Service_Autoscaler_Zones_Resource(
+        $this,
+        $this->serviceName,
+        'zones',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => '{project}/zones',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -464,6 +497,40 @@ class Google_Service_Autoscaler_ZoneOperations_Resource extends Google_Service_R
     $params = array('project' => $project, 'zone' => $zone);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Autoscaler_OperationList");
+  }
+}
+
+/**
+ * The "zones" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $autoscalerService = new Google_Service_Autoscaler(...);
+ *   $zones = $autoscalerService->zones;
+ *  </code>
+ */
+class Google_Service_Autoscaler_Zones_Resource extends Google_Service_Resource
+{
+
+  /**
+   * (zones.listZones)
+   *
+   * @param string $project
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter
+   *
+   * @opt_param string pageToken
+   *
+   * @opt_param string maxResults
+   *
+   * @return Google_Service_Autoscaler_ZoneList
+   */
+  public function listZones($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Autoscaler_ZoneList");
   }
 }
 
@@ -741,6 +808,64 @@ class Google_Service_Autoscaler_AutoscalingPolicyLoadBalancingUtilization extend
   public function getUtilizationTarget()
   {
     return $this->utilizationTarget;
+  }
+
+}
+
+class Google_Service_Autoscaler_DeprecationStatus extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $deleted;
+  public $deprecated;
+  public $obsolete;
+  public $replacement;
+  public $state;
+
+  public function setDeleted($deleted)
+  {
+    $this->deleted = $deleted;
+  }
+
+  public function getDeleted()
+  {
+    return $this->deleted;
+  }
+  public function setDeprecated($deprecated)
+  {
+    $this->deprecated = $deprecated;
+  }
+
+  public function getDeprecated()
+  {
+    return $this->deprecated;
+  }
+  public function setObsolete($obsolete)
+  {
+    $this->obsolete = $obsolete;
+  }
+
+  public function getObsolete()
+  {
+    return $this->obsolete;
+  }
+  public function setReplacement($replacement)
+  {
+    $this->replacement = $replacement;
+  }
+
+  public function getReplacement()
+  {
+    return $this->replacement;
+  }
+  public function setState($state)
+  {
+    $this->state = $state;
+  }
+
+  public function getState()
+  {
+    return $this->state;
   }
 
 }
@@ -1158,6 +1283,225 @@ class Google_Service_Autoscaler_OperationWarningsData extends Google_Model
   public function getValue()
   {
     return $this->value;
+  }
+
+}
+
+class Google_Service_Autoscaler_Zone extends Google_Collection
+{
+  protected $collection_key = 'maintenanceWindows';
+  protected $internal_gapi_mappings = array(
+  );
+  public $creationTimestamp;
+  protected $deprecatedType = 'Google_Service_Autoscaler_DeprecationStatus';
+  protected $deprecatedDataType = '';
+  public $description;
+  public $id;
+  public $kind;
+  protected $maintenanceWindowsType = 'Google_Service_Autoscaler_ZoneMaintenanceWindows';
+  protected $maintenanceWindowsDataType = 'array';
+  public $name;
+  public $region;
+  public $selfLink;
+  public $status;
+
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+  public function setDeprecated(Google_Service_Autoscaler_DeprecationStatus $deprecated)
+  {
+    $this->deprecated = $deprecated;
+  }
+
+  public function getDeprecated()
+  {
+    return $this->deprecated;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setMaintenanceWindows($maintenanceWindows)
+  {
+    $this->maintenanceWindows = $maintenanceWindows;
+  }
+
+  public function getMaintenanceWindows()
+  {
+    return $this->maintenanceWindows;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setRegion($region)
+  {
+    $this->region = $region;
+  }
+
+  public function getRegion()
+  {
+    return $this->region;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+
+  public function getStatus()
+  {
+    return $this->status;
+  }
+
+}
+
+class Google_Service_Autoscaler_ZoneList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Autoscaler_Zone';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+
+}
+
+class Google_Service_Autoscaler_ZoneMaintenanceWindows extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $beginTime;
+  public $description;
+  public $endTime;
+  public $name;
+
+  public function setBeginTime($beginTime)
+  {
+    $this->beginTime = $beginTime;
+  }
+
+  public function getBeginTime()
+  {
+    return $this->beginTime;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setEndTime($endTime)
+  {
+    $this->endTime = $endTime;
+  }
+
+  public function getEndTime()
+  {
+    return $this->endTime;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  public function getName()
+  {
+    return $this->name;
   }
 
 }
