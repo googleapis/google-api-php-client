@@ -209,7 +209,11 @@ class Google_Service_Pubsub_Subscriptions_Resource extends Google_Service_Resour
   /**
    * Creates a subscription on a given topic for a given subscriber. If the
    * subscription already exists, returns ALREADY_EXISTS. If the corresponding
-   * topic doesn't exist, returns NOT_FOUND. (subscriptions.create)
+   * topic doesn't exist, returns NOT_FOUND.
+   *
+   * If the name is not provided in the request, the server will assign a random
+   * name for this subscription on the same project as the topic.
+   * (subscriptions.create)
    *
    * @param Google_Subscription $postBody
    * @param array $optParams Optional parameters.
