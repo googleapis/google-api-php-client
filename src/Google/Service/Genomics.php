@@ -259,7 +259,15 @@ class Google_Service_Genomics extends Google_Service
         'readgroupsets',
         array(
           'methods' => array(
-            'delete' => array(
+            'align' => array(
+              'path' => 'readgroupsets/align',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'call' => array(
+              'path' => 'readgroupsets/call',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'delete' => array(
               'path' => 'readgroupsets/{readGroupSetId}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
@@ -621,7 +629,7 @@ class Google_Service_Genomics_Callsets_Resource extends Google_Service_Resource
    * Deletes a call set. (callsets.delete)
    *
    * @param string $callSetId
-   * The ID of the callset to be deleted.
+   * The ID of the call set to be deleted.
    * @param array $optParams Optional parameters.
    */
   public function delete($callSetId, $optParams = array())
@@ -634,7 +642,7 @@ class Google_Service_Genomics_Callsets_Resource extends Google_Service_Resource
    * Gets a call set by ID. (callsets.get)
    *
    * @param string $callSetId
-   * The ID of the callset.
+   * The ID of the call set.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Genomics_CallSet
    */
@@ -648,7 +656,7 @@ class Google_Service_Genomics_Callsets_Resource extends Google_Service_Resource
    * Updates a call set. This method supports patch semantics. (callsets.patch)
    *
    * @param string $callSetId
-   * The ID of the callset to be updated.
+   * The ID of the call set to be updated.
    * @param Google_CallSet $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Genomics_CallSet
@@ -660,7 +668,9 @@ class Google_Service_Genomics_Callsets_Resource extends Google_Service_Resource
     return $this->call('patch', array($params), "Google_Service_Genomics_CallSet");
   }
   /**
-   * Gets a list of call sets matching the criteria. (callsets.search)
+   * Gets a list of call sets matching the criteria.
+   *
+   * Implements GlobalAllianceApi.searchCallSets. (callsets.search)
    *
    * @param Google_SearchCallSetsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -676,7 +686,7 @@ class Google_Service_Genomics_Callsets_Resource extends Google_Service_Resource
    * Updates a call set. (callsets.update)
    *
    * @param string $callSetId
-   * The ID of the callset to be updated.
+   * The ID of the call set to be updated.
    * @param Google_CallSet $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Genomics_CallSet
@@ -749,7 +759,8 @@ class Google_Service_Genomics_Datasets_Resource extends Google_Service_Resource
    * The continuation token, which is used to page through large result sets. To get the next page of
     * results, set this parameter to the value of nextPageToken from the previous response.
    * @opt_param string projectNumber
-   * Only return datasets which belong to this Google Developers Console project.
+   * Only return datasets which belong to this Google Developers Console project. Only accepts
+    * project numbers. Returns all public projects if no project number is specified.
    * @opt_param int pageSize
    * The maximum number of results returned by this request.
    * @return Google_Service_Genomics_ListDatasetsResponse
@@ -914,7 +925,36 @@ class Google_Service_Genomics_Readgroupsets_Resource extends Google_Service_Reso
 {
 
   /**
-   * Deletes a ReadGroupSet. (readgroupsets.delete)
+   * Aligns read data from existing read group sets or files from Google Cloud
+   * Storage. See  Alignment for more details. (readgroupsets.align)
+   *
+   * @param Google_AlignReadGroupSetsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Genomics_AlignReadGroupSetsResponse
+   */
+  public function align(Google_Service_Genomics_AlignReadGroupSetsRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('align', array($params), "Google_Service_Genomics_AlignReadGroupSetsResponse");
+  }
+  /**
+   * Calls variants on read data from existing read group sets or files from
+   * Google Cloud Storage. See  Variant Calling for more details.
+   * (readgroupsets.call)
+   *
+   * @param Google_CallReadGroupSetsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Genomics_CallReadGroupSetsResponse
+   */
+  public function call(Google_Service_Genomics_CallReadGroupSetsRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('call', array($params), "Google_Service_Genomics_CallReadGroupSetsResponse");
+  }
+  /**
+   * Deletes a read group set. (readgroupsets.delete)
    *
    * @param string $readGroupSetId
    * The ID of the read group set to be deleted. The caller must have WRITE permissions to the
@@ -928,11 +968,12 @@ class Google_Service_Genomics_Readgroupsets_Resource extends Google_Service_Reso
     return $this->call('delete', array($params));
   }
   /**
-   * Exports ReadGroupSets to a BAM file in Google Cloud Storage. Note that
-   * currently there may be some differences between exported BAM files and the
-   * original BAM file at the time of import. In particular, comments in the input
-   * file header will not be preserved, and some custom tags will be converted to
-   * strings. (readgroupsets.export)
+   * Exports read group sets to a BAM file in Google Cloud Storage.
+   *
+   * Note that currently there may be some differences between exported BAM files
+   * and the original BAM file at the time of import. In particular, comments in
+   * the input file header will not be preserved, and some custom tags will be
+   * converted to strings. (readgroupsets.export)
    *
    * @param Google_ExportReadGroupSetsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -945,7 +986,7 @@ class Google_Service_Genomics_Readgroupsets_Resource extends Google_Service_Reso
     return $this->call('export', array($params), "Google_Service_Genomics_ExportReadGroupSetsResponse");
   }
   /**
-   * Gets a ReadGroupSet by ID. (readgroupsets.get)
+   * Gets a read group set by ID. (readgroupsets.get)
    *
    * @param string $readGroupSetId
    * The ID of the read group set.
@@ -959,7 +1000,8 @@ class Google_Service_Genomics_Readgroupsets_Resource extends Google_Service_Reso
     return $this->call('get', array($params), "Google_Service_Genomics_ReadGroupSet");
   }
   /**
-   * Creates ReadGroupSets by asynchronously importing the provided information.
+   * Creates read group sets by asynchronously importing the provided information.
+   *
    * Note that currently comments in the input file header are not imported and
    * some custom tags will be converted to strings, rather than preserving tag
    * types. The caller must have WRITE permissions to the dataset.
@@ -976,7 +1018,7 @@ class Google_Service_Genomics_Readgroupsets_Resource extends Google_Service_Reso
     return $this->call('import', array($params), "Google_Service_Genomics_ImportReadGroupSetsResponse");
   }
   /**
-   * Updates a ReadGroupSet. This method supports patch semantics.
+   * Updates a read group set. This method supports patch semantics.
    * (readgroupsets.patch)
    *
    * @param string $readGroupSetId
@@ -993,7 +1035,9 @@ class Google_Service_Genomics_Readgroupsets_Resource extends Google_Service_Reso
     return $this->call('patch', array($params), "Google_Service_Genomics_ReadGroupSet");
   }
   /**
-   * Gets a list of ReadGroupSets matching the criteria. (readgroupsets.search)
+   * Searches for read group sets matching the criteria.
+   *
+   * Implements GlobalAllianceApi.searchReadGroupSets. (readgroupsets.search)
    *
    * @param Google_SearchReadGroupSetsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -1006,7 +1050,7 @@ class Google_Service_Genomics_Readgroupsets_Resource extends Google_Service_Reso
     return $this->call('search', array($params), "Google_Service_Genomics_SearchReadGroupSetsResponse");
   }
   /**
-   * Updates a ReadGroupSet. (readgroupsets.update)
+   * Updates a read group set. (readgroupsets.update)
    *
    * @param string $readGroupSetId
    * The ID of the read group set to be updated. The caller must have WRITE permissions to the
@@ -1035,13 +1079,14 @@ class Google_Service_Genomics_ReadgroupsetsCoveragebuckets_Resource extends Goog
 {
 
   /**
-   * Lists fixed width coverage buckets for a ReadGroupSet, each of which
+   * Lists fixed width coverage buckets for a read group set, each of which
    * correspond to a range of a reference sequence. Each bucket summarizes
-   * coverage information across its corresponding genomic range. Coverage is
-   * defined as the number of reads which are aligned to a given base in the
-   * reference sequence. Coverage buckets are available at various bucket widths,
-   * enabling various coverage "zoom levels". The caller must have READ
-   * permissions for the target ReadGroupSet.
+   * coverage information across its corresponding genomic range.
+   *
+   * Coverage is defined as the number of reads which are aligned to a given base
+   * in the reference sequence. Coverage buckets are available at several
+   * precomputed bucket widths, enabling retrieval of various coverage 'zoom
+   * levels'. The caller must have READ permissions for the target read group set.
    * (coveragebuckets.listReadgroupsetsCoveragebuckets)
    *
    * @param string $readGroupSetId
@@ -1058,7 +1103,7 @@ class Google_Service_Genomics_ReadgroupsetsCoveragebuckets_Resource extends Goog
    * The end position of the range on the reference, 0-based exclusive. If specified, referenceName
     * must also be specified.
    * @opt_param string range.referenceName
-   * The reference sequence name, for example "chr1", "1", or "chrX".
+   * The reference sequence name, for example chr1, 1, or chrX.
    * @opt_param string pageToken
    * The continuation token, which is used to page through large result sets. To get the next page of
     * results, set this parameter to the value of nextPageToken from the previous response.
@@ -1090,16 +1135,20 @@ class Google_Service_Genomics_Reads_Resource extends Google_Service_Resource
 {
 
   /**
-   * Gets a list of reads for one or more ReadGroupSets. Reads search operates
+   * Gets a list of reads for one or more read group sets. Reads search operates
    * over a genomic coordinate space of reference sequence & position defined over
-   * the reference sequences to which the requested ReadGroupSets are aligned. If
-   * a target positional range is specified, search returns all reads whose
+   * the reference sequences to which the requested read group sets are aligned.
+   *
+   * If a target positional range is specified, search returns all reads whose
    * alignment to the reference genome overlap the range. A query which specifies
-   * only ReadGroupSet IDs yields all reads in those ReadGroupSets, including
-   * unmapped reads. All reads returned (including reads on subsequent pages) are
-   * ordered by genomic coordinate (reference sequence & position). Reads with
-   * equivalent genomic coordinates are returned in a deterministic order.
-   * (reads.search)
+   * only read group set IDs yields all reads in those read group sets, including
+   * unmapped reads.
+   *
+   * All reads returned (including reads on subsequent pages) are ordered by
+   * genomic coordinate (reference sequence & position). Reads with equivalent
+   * genomic coordinates are returned in a deterministic order.
+   *
+   * Implements GlobalAllianceApi.searchReads. (reads.search)
    *
    * @param Google_SearchReadsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -1127,8 +1176,7 @@ class Google_Service_Genomics_References_Resource extends Google_Service_Resourc
   /**
    * Gets a reference.
    *
-   * Implements GAReferenceMethods::getReference
-   * (https://github.com/ga4gh/schemas). (references.get)
+   * Implements GlobalAllianceApi.getReference. (references.get)
    *
    * @param string $referenceId
    * The ID of the reference.
@@ -1144,8 +1192,7 @@ class Google_Service_Genomics_References_Resource extends Google_Service_Resourc
   /**
    * Searches for references which match the given criteria.
    *
-   * Implements GAReferenceMethods::searchReferences
-   * (https://github.com/ga4gh/schemas). (references.search)
+   * Implements GlobalAllianceApi.searchReferences. (references.search)
    *
    * @param Google_SearchReferencesRequest $postBody
    * @param array $optParams Optional parameters.
@@ -1173,8 +1220,7 @@ class Google_Service_Genomics_ReferencesBases_Resource extends Google_Service_Re
   /**
    * Lists the bases in a reference, optionally restricted to a range.
    *
-   * Implements GAReferenceMethods::getReferenceBases
-   * (https://github.com/ga4gh/schemas). (bases.listReferencesBases)
+   * Implements GlobalAllianceApi.getReferenceBases. (bases.listReferencesBases)
    *
    * @param string $referenceId
    * The ID of the reference.
@@ -1184,8 +1230,7 @@ class Google_Service_Genomics_ReferencesBases_Resource extends Google_Service_Re
    * The continuation token, which is used to page through large result sets. To get the next page of
     * results, set this parameter to the value of nextPageToken from the previous response.
    * @opt_param string end
-   * The end position (0-based, exclusive) of this query. Defaults to the length length of this
-    * reference.
+   * The end position (0-based, exclusive) of this query. Defaults to the length of this reference.
    * @opt_param int pageSize
    * Specifies the maximum number of bases to return in a single page.
    * @opt_param string start
@@ -1214,8 +1259,7 @@ class Google_Service_Genomics_Referencesets_Resource extends Google_Service_Reso
   /**
    * Gets a reference set.
    *
-   * Implements GAReferenceMethods::getReferenceSet
-   * (https://github.com/ga4gh/schemas). (referencesets.get)
+   * Implements GlobalAllianceApi.getReferenceSet. (referencesets.get)
    *
    * @param string $referenceSetId
    * The ID of the reference set.
@@ -1231,8 +1275,7 @@ class Google_Service_Genomics_Referencesets_Resource extends Google_Service_Reso
   /**
    * Searches for reference sets which match the given criteria.
    *
-   * Implements GAReferenceMethods::searchReferenceSets
-   * (https://github.com/ga4gh/schemas). (referencesets.search)
+   * Implements GlobalAllianceApi.searchReferenceSets. (referencesets.search)
    *
    * @param Google_SearchReferenceSetsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -1298,7 +1341,9 @@ class Google_Service_Genomics_Variants_Resource extends Google_Service_Resource
     return $this->call('get', array($params), "Google_Service_Genomics_Variant");
   }
   /**
-   * Gets a list of variants matching the criteria. (variants.search)
+   * Gets a list of variants matching the criteria.
+   *
+   * Implements GlobalAllianceApi.searchVariants. (variants.search)
    *
    * @param Google_SearchVariantsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -1386,6 +1431,7 @@ class Google_Service_Genomics_Variantsets_Resource extends Google_Service_Resour
   }
   /**
    * Creates variant data by asynchronously importing the provided information.
+   *
    * The variants for import will be merged with any existing data and each other
    * according to the behavior of mergeVariants. In particular, this means for
    * merged VCF variants that have conflicting INFO fields, some data will be
@@ -1429,8 +1475,7 @@ class Google_Service_Genomics_Variantsets_Resource extends Google_Service_Resour
   }
   /**
    * Updates a variant set's metadata. All other modifications are silently
-   * ignored. Returns the modified variant set. This method supports patch
-   * semantics. (variantsets.patch)
+   * ignored. This method supports patch semantics. (variantsets.patch)
    *
    * @param string $variantSetId
    * The ID of the variant to be updated.
@@ -1446,7 +1491,8 @@ class Google_Service_Genomics_Variantsets_Resource extends Google_Service_Resour
   }
   /**
    * Returns a list of all variant sets matching search criteria.
-   * (variantsets.search)
+   *
+   * Implements GlobalAllianceApi.searchVariantSets. (variantsets.search)
    *
    * @param Google_SearchVariantSetsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -1460,7 +1506,7 @@ class Google_Service_Genomics_Variantsets_Resource extends Google_Service_Resour
   }
   /**
    * Updates a variant set's metadata. All other modifications are silently
-   * ignored. Returns the modified variant set. (variantsets.update)
+   * ignored. (variantsets.update)
    *
    * @param string $variantSetId
    * The ID of the variant to be updated.
@@ -1478,6 +1524,85 @@ class Google_Service_Genomics_Variantsets_Resource extends Google_Service_Resour
 
 
 
+
+class Google_Service_Genomics_AlignReadGroupSetsRequest extends Google_Collection
+{
+  protected $collection_key = 'readGroupSetIds';
+  protected $internal_gapi_mappings = array(
+  );
+  public $bamSourceUris;
+  public $datasetId;
+  protected $interleavedFastqSourceType = 'Google_Service_Genomics_InterleavedFastqSource';
+  protected $interleavedFastqSourceDataType = '';
+  protected $pairedFastqSourceType = 'Google_Service_Genomics_PairedFastqSource';
+  protected $pairedFastqSourceDataType = '';
+  public $readGroupSetIds;
+
+  public function setBamSourceUris($bamSourceUris)
+  {
+    $this->bamSourceUris = $bamSourceUris;
+  }
+
+  public function getBamSourceUris()
+  {
+    return $this->bamSourceUris;
+  }
+  public function setDatasetId($datasetId)
+  {
+    $this->datasetId = $datasetId;
+  }
+
+  public function getDatasetId()
+  {
+    return $this->datasetId;
+  }
+  public function setInterleavedFastqSource(Google_Service_Genomics_InterleavedFastqSource $interleavedFastqSource)
+  {
+    $this->interleavedFastqSource = $interleavedFastqSource;
+  }
+
+  public function getInterleavedFastqSource()
+  {
+    return $this->interleavedFastqSource;
+  }
+  public function setPairedFastqSource(Google_Service_Genomics_PairedFastqSource $pairedFastqSource)
+  {
+    $this->pairedFastqSource = $pairedFastqSource;
+  }
+
+  public function getPairedFastqSource()
+  {
+    return $this->pairedFastqSource;
+  }
+  public function setReadGroupSetIds($readGroupSetIds)
+  {
+    $this->readGroupSetIds = $readGroupSetIds;
+  }
+
+  public function getReadGroupSetIds()
+  {
+    return $this->readGroupSetIds;
+  }
+
+}
+
+class Google_Service_Genomics_AlignReadGroupSetsResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $jobId;
+
+  public function setJobId($jobId)
+  {
+    $this->jobId = $jobId;
+  }
+
+  public function getJobId()
+  {
+    return $this->jobId;
+  }
+
+}
 
 class Google_Service_Genomics_Call extends Google_Collection
 {
@@ -1553,6 +1678,63 @@ class Google_Service_Genomics_CallInfo extends Google_Model
   protected $internal_gapi_mappings = array(
   );
 
+
+}
+
+class Google_Service_Genomics_CallReadGroupSetsRequest extends Google_Collection
+{
+  protected $collection_key = 'sourceUris';
+  protected $internal_gapi_mappings = array(
+  );
+  public $datasetId;
+  public $readGroupSetIds;
+  public $sourceUris;
+
+  public function setDatasetId($datasetId)
+  {
+    $this->datasetId = $datasetId;
+  }
+
+  public function getDatasetId()
+  {
+    return $this->datasetId;
+  }
+  public function setReadGroupSetIds($readGroupSetIds)
+  {
+    $this->readGroupSetIds = $readGroupSetIds;
+  }
+
+  public function getReadGroupSetIds()
+  {
+    return $this->readGroupSetIds;
+  }
+  public function setSourceUris($sourceUris)
+  {
+    $this->sourceUris = $sourceUris;
+  }
+
+  public function getSourceUris()
+  {
+    return $this->sourceUris;
+  }
+
+}
+
+class Google_Service_Genomics_CallReadGroupSetsResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $jobId;
+
+  public function setJobId($jobId)
+  {
+    $this->jobId = $jobId;
+  }
+
+  public function getJobId()
+  {
+    return $this->jobId;
+  }
 
 }
 
@@ -1979,6 +2161,64 @@ class Google_Service_Genomics_ExportVariantSetResponse extends Google_Model
 
 }
 
+class Google_Service_Genomics_FastqMetadata extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $libraryName;
+  public $platformName;
+  public $platformUnit;
+  public $readGroupName;
+  public $sampleName;
+
+  public function setLibraryName($libraryName)
+  {
+    $this->libraryName = $libraryName;
+  }
+
+  public function getLibraryName()
+  {
+    return $this->libraryName;
+  }
+  public function setPlatformName($platformName)
+  {
+    $this->platformName = $platformName;
+  }
+
+  public function getPlatformName()
+  {
+    return $this->platformName;
+  }
+  public function setPlatformUnit($platformUnit)
+  {
+    $this->platformUnit = $platformUnit;
+  }
+
+  public function getPlatformUnit()
+  {
+    return $this->platformUnit;
+  }
+  public function setReadGroupName($readGroupName)
+  {
+    $this->readGroupName = $readGroupName;
+  }
+
+  public function getReadGroupName()
+  {
+    return $this->readGroupName;
+  }
+  public function setSampleName($sampleName)
+  {
+    $this->sampleName = $sampleName;
+  }
+
+  public function getSampleName()
+  {
+    return $this->sampleName;
+  }
+
+}
+
 class Google_Service_Genomics_ImportReadGroupSetsRequest extends Google_Collection
 {
   protected $collection_key = 'sourceUris';
@@ -2079,6 +2319,36 @@ class Google_Service_Genomics_ImportVariantsResponse extends Google_Model
   public function getJobId()
   {
     return $this->jobId;
+  }
+
+}
+
+class Google_Service_Genomics_InterleavedFastqSource extends Google_Collection
+{
+  protected $collection_key = 'sourceUris';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $metadataType = 'Google_Service_Genomics_FastqMetadata';
+  protected $metadataDataType = '';
+  public $sourceUris;
+
+  public function setMetadata(Google_Service_Genomics_FastqMetadata $metadata)
+  {
+    $this->metadata = $metadata;
+  }
+
+  public function getMetadata()
+  {
+    return $this->metadata;
+  }
+  public function setSourceUris($sourceUris)
+  {
+    $this->sourceUris = $sourceUris;
+  }
+
+  public function getSourceUris()
+  {
+    return $this->sourceUris;
   }
 
 }
@@ -2477,6 +2747,46 @@ class Google_Service_Genomics_MetadataInfo extends Google_Model
 
 }
 
+class Google_Service_Genomics_PairedFastqSource extends Google_Collection
+{
+  protected $collection_key = 'secondSourceUris';
+  protected $internal_gapi_mappings = array(
+  );
+  public $firstSourceUris;
+  protected $metadataType = 'Google_Service_Genomics_FastqMetadata';
+  protected $metadataDataType = '';
+  public $secondSourceUris;
+
+  public function setFirstSourceUris($firstSourceUris)
+  {
+    $this->firstSourceUris = $firstSourceUris;
+  }
+
+  public function getFirstSourceUris()
+  {
+    return $this->firstSourceUris;
+  }
+  public function setMetadata(Google_Service_Genomics_FastqMetadata $metadata)
+  {
+    $this->metadata = $metadata;
+  }
+
+  public function getMetadata()
+  {
+    return $this->metadata;
+  }
+  public function setSecondSourceUris($secondSourceUris)
+  {
+    $this->secondSourceUris = $secondSourceUris;
+  }
+
+  public function getSecondSourceUris()
+  {
+    return $this->secondSourceUris;
+  }
+
+}
+
 class Google_Service_Genomics_Position extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -2749,6 +3059,7 @@ class Google_Service_Genomics_ReadGroup extends Google_Collection
   public $predictedInsertSize;
   protected $programsType = 'Google_Service_Genomics_ReadGroupProgram';
   protected $programsDataType = 'array';
+  public $referenceSetId;
   public $sampleId;
 
   public function setDatasetId($datasetId)
@@ -2822,6 +3133,15 @@ class Google_Service_Genomics_ReadGroup extends Google_Collection
   public function getPrograms()
   {
     return $this->programs;
+  }
+  public function setReferenceSetId($referenceSetId)
+  {
+    $this->referenceSetId = $referenceSetId;
+  }
+
+  public function getReferenceSetId()
+  {
+    return $this->referenceSetId;
   }
   public function setSampleId($sampleId)
   {
