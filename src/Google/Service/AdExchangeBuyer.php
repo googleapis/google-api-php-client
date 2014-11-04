@@ -714,7 +714,9 @@ class Google_Service_AdExchangeBuyer_Account extends Google_Collection
   public $cookieMatchingUrl;
   public $id;
   public $kind;
+  public $maximumActiveCreatives;
   public $maximumTotalQps;
+  public $numberActiveCreatives;
 
   public function setBidderLocation($bidderLocation)
   {
@@ -761,6 +763,15 @@ class Google_Service_AdExchangeBuyer_Account extends Google_Collection
   {
     return $this->kind;
   }
+  public function setMaximumActiveCreatives($maximumActiveCreatives)
+  {
+    $this->maximumActiveCreatives = $maximumActiveCreatives;
+  }
+
+  public function getMaximumActiveCreatives()
+  {
+    return $this->maximumActiveCreatives;
+  }
   public function setMaximumTotalQps($maximumTotalQps)
   {
     $this->maximumTotalQps = $maximumTotalQps;
@@ -769,6 +780,15 @@ class Google_Service_AdExchangeBuyer_Account extends Google_Collection
   public function getMaximumTotalQps()
   {
     return $this->maximumTotalQps;
+  }
+  public function setNumberActiveCreatives($numberActiveCreatives)
+  {
+    $this->numberActiveCreatives = $numberActiveCreatives;
+  }
+
+  public function getNumberActiveCreatives()
+  {
+    return $this->numberActiveCreatives;
   }
 
 }
