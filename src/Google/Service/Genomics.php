@@ -926,7 +926,8 @@ class Google_Service_Genomics_Readgroupsets_Resource extends Google_Service_Reso
 
   /**
    * Aligns read data from existing read group sets or files from Google Cloud
-   * Storage. See  Alignment for more details. (readgroupsets.align)
+   * Storage. See the  alignment and variant calling documentation for more
+   * details. (readgroupsets.align)
    *
    * @param Google_AlignReadGroupSetsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -940,8 +941,8 @@ class Google_Service_Genomics_Readgroupsets_Resource extends Google_Service_Reso
   }
   /**
    * Calls variants on read data from existing read group sets or files from
-   * Google Cloud Storage. See  Variant Calling for more details.
-   * (readgroupsets.call)
+   * Google Cloud Storage. See the  alignment and variant calling documentation
+   * for more details. (readgroupsets.call)
    *
    * @param Google_CallReadGroupSetsRequest $postBody
    * @param array $optParams Optional parameters.
