@@ -60,7 +60,7 @@ class Google_Service_Replicapoolupdater extends Google_Service
         array(
           'methods' => array(
             'cancel' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{updateHandle}/cancel',
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/cancel',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'project' => array(
@@ -78,14 +78,14 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'updateHandle' => array(
+                'update' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'get' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{updateHandle}',
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'project' => array(
@@ -103,7 +103,7 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'updateHandle' => array(
+                'update' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -158,7 +158,7 @@ class Google_Service_Replicapoolupdater extends Google_Service
                 ),
               ),
             ),'pause' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{updateHandle}/pause',
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/pause',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'project' => array(
@@ -176,14 +176,14 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'updateHandle' => array(
+                'update' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'rollback' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{updateHandle}/rollback',
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/rollback',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'project' => array(
@@ -201,14 +201,14 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'updateHandle' => array(
+                'update' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'rollforward' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{updateHandle}/rollforward',
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/rollforward',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'project' => array(
@@ -226,7 +226,7 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'updateHandle' => array(
+                'update' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -261,13 +261,13 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * Zone for the instance group manager.
    * @param string $instanceGroupManager
    * Name of the instance group manager for this request.
-   * @param string $updateHandle
+   * @param string $update
    * Unique (in the context of a group) handle of an update.
    * @param array $optParams Optional parameters.
    */
-  public function cancel($project, $zone, $instanceGroupManager, $updateHandle, $optParams = array())
+  public function cancel($project, $zone, $instanceGroupManager, $update, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'updateHandle' => $updateHandle);
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
     $params = array_merge($params, $optParams);
     return $this->call('cancel', array($params));
   }
@@ -281,14 +281,14 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * Zone for the instance group manager.
    * @param string $instanceGroupManager
    * Name of the instance group manager for this request.
-   * @param string $updateHandle
+   * @param string $update
    * Unique (in the context of a group) handle of an update.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapoolupdater_Update
    */
-  public function get($project, $zone, $instanceGroupManager, $updateHandle, $optParams = array())
+  public function get($project, $zone, $instanceGroupManager, $update, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'updateHandle' => $updateHandle);
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Replicapoolupdater_Update");
   }
@@ -350,13 +350,13 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * Zone for the instance group manager.
    * @param string $instanceGroupManager
    * Name of the instance group manager for this request.
-   * @param string $updateHandle
+   * @param string $update
    * Unique (in the context of a group) handle of an update.
    * @param array $optParams Optional parameters.
    */
-  public function pause($project, $zone, $instanceGroupManager, $updateHandle, $optParams = array())
+  public function pause($project, $zone, $instanceGroupManager, $update, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'updateHandle' => $updateHandle);
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
     $params = array_merge($params, $optParams);
     return $this->call('pause', array($params));
   }
@@ -371,13 +371,13 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * Zone for the instance group manager.
    * @param string $instanceGroupManager
    * Name of the instance group manager for this request.
-   * @param string $updateHandle
+   * @param string $update
    * Unique (in the context of a group) handle of an update.
    * @param array $optParams Optional parameters.
    */
-  public function rollback($project, $zone, $instanceGroupManager, $updateHandle, $optParams = array())
+  public function rollback($project, $zone, $instanceGroupManager, $update, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'updateHandle' => $updateHandle);
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
     $params = array_merge($params, $optParams);
     return $this->call('rollback', array($params));
   }
@@ -392,13 +392,13 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * Zone for the instance group manager.
    * @param string $instanceGroupManager
    * Name of the instance group manager for this request.
-   * @param string $updateHandle
+   * @param string $update
    * Unique (in the context of a group) handle of an update.
    * @param array $optParams Optional parameters.
    */
-  public function rollforward($project, $zone, $instanceGroupManager, $updateHandle, $optParams = array())
+  public function rollforward($project, $zone, $instanceGroupManager, $update, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'updateHandle' => $updateHandle);
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
     $params = array_merge($params, $optParams);
     return $this->call('rollforward', array($params));
   }
@@ -411,16 +411,16 @@ class Google_Service_Replicapoolupdater_InsertResponse extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
-  public $updateHandle;
+  public $update;
 
-  public function setUpdateHandle($updateHandle)
+  public function setUpdate($update)
   {
-    $this->updateHandle = $updateHandle;
+    $this->update = $update;
   }
 
-  public function getUpdateHandle()
+  public function getUpdate()
   {
-    return $this->updateHandle;
+    return $this->update;
   }
 
 }
