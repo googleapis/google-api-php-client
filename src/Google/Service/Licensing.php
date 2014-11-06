@@ -19,8 +19,7 @@
  * Service definition for Licensing (v1).
  *
  * <p>
- * Licensing API to view and manage license for your domain.
- * </p>
+ * Licensing API to view and manage license for your domain.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -222,12 +221,9 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
   /**
    * Revoke License. (licenseAssignments.delete)
    *
-   * @param string $productId
-   * Name for product
-   * @param string $skuId
-   * Name for sku
-   * @param string $userId
-   * email id or unique Id of the user
+   * @param string $productId Name for product
+   * @param string $skuId Name for sku
+   * @param string $userId email id or unique Id of the user
    * @param array $optParams Optional parameters.
    */
   public function delete($productId, $skuId, $userId, $optParams = array())
@@ -236,16 +232,14 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Get license assignment of a particular product and sku for a user
    * (licenseAssignments.get)
    *
-   * @param string $productId
-   * Name for product
-   * @param string $skuId
-   * Name for sku
-   * @param string $userId
-   * email id or unique Id of the user
+   * @param string $productId Name for product
+   * @param string $skuId Name for sku
+   * @param string $userId email id or unique Id of the user
    * @param array $optParams Optional parameters.
    * @return Google_Service_Licensing_LicenseAssignment
    */
@@ -255,13 +249,12 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Licensing_LicenseAssignment");
   }
+
   /**
    * Assign License. (licenseAssignments.insert)
    *
-   * @param string $productId
-   * Name for product
-   * @param string $skuId
-   * Name for sku
+   * @param string $productId Name for product
+   * @param string $skuId Name for sku
    * @param Google_LicenseAssignmentInsert $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Licensing_LicenseAssignment
@@ -272,21 +265,20 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Licensing_LicenseAssignment");
   }
+
   /**
    * List license assignments for given product of the customer.
    * (licenseAssignments.listForProduct)
    *
-   * @param string $productId
-   * Name for product
-   * @param string $customerId
-   * CustomerId represents the customer for whom licenseassignments are queried
+   * @param string $productId Name for product
+   * @param string $customerId CustomerId represents the customer for whom
+   * licenseassignments are queried
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Token to fetch the next page.Optional. By default server will return first page
-   * @opt_param string maxResults
-   * Maximum number of campaigns to return at one time. Must be positive. Optional. Default value is
-    * 100.
+   * @opt_param string pageToken Token to fetch the next page.Optional. By default
+   * server will return first page
+   * @opt_param string maxResults Maximum number of campaigns to return at one
+   * time. Must be positive. Optional. Default value is 100.
    * @return Google_Service_Licensing_LicenseAssignmentList
    */
   public function listForProduct($productId, $customerId, $optParams = array())
@@ -295,23 +287,21 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('listForProduct', array($params), "Google_Service_Licensing_LicenseAssignmentList");
   }
+
   /**
    * List license assignments for given product and sku of the customer.
    * (licenseAssignments.listForProductAndSku)
    *
-   * @param string $productId
-   * Name for product
-   * @param string $skuId
-   * Name for sku
-   * @param string $customerId
-   * CustomerId represents the customer for whom licenseassignments are queried
+   * @param string $productId Name for product
+   * @param string $skuId Name for sku
+   * @param string $customerId CustomerId represents the customer for whom
+   * licenseassignments are queried
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Token to fetch the next page.Optional. By default server will return first page
-   * @opt_param string maxResults
-   * Maximum number of campaigns to return at one time. Must be positive. Optional. Default value is
-    * 100.
+   * @opt_param string pageToken Token to fetch the next page.Optional. By default
+   * server will return first page
+   * @opt_param string maxResults Maximum number of campaigns to return at one
+   * time. Must be positive. Optional. Default value is 100.
    * @return Google_Service_Licensing_LicenseAssignmentList
    */
   public function listForProductAndSku($productId, $skuId, $customerId, $optParams = array())
@@ -320,16 +310,14 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('listForProductAndSku', array($params), "Google_Service_Licensing_LicenseAssignmentList");
   }
+
   /**
    * Assign License. This method supports patch semantics.
    * (licenseAssignments.patch)
    *
-   * @param string $productId
-   * Name for product
-   * @param string $skuId
-   * Name for sku for which license would be revoked
-   * @param string $userId
-   * email id or unique Id of the user
+   * @param string $productId Name for product
+   * @param string $skuId Name for sku for which license would be revoked
+   * @param string $userId email id or unique Id of the user
    * @param Google_LicenseAssignment $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Licensing_LicenseAssignment
@@ -340,15 +328,13 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_Licensing_LicenseAssignment");
   }
+
   /**
    * Assign License. (licenseAssignments.update)
    *
-   * @param string $productId
-   * Name for product
-   * @param string $skuId
-   * Name for sku for which license would be revoked
-   * @param string $userId
-   * email id or unique Id of the user
+   * @param string $productId Name for product
+   * @param string $skuId Name for sku for which license would be revoked
+   * @param string $userId email id or unique Id of the user
    * @param Google_LicenseAssignment $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Licensing_LicenseAssignment
@@ -375,11 +361,11 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   public $skuId;
   public $userId;
 
+
   public function setEtags($etags)
   {
     $this->etags = $etags;
   }
-
   public function getEtags()
   {
     return $this->etags;
@@ -388,7 +374,6 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -397,7 +382,6 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   {
     $this->productId = $productId;
   }
-
   public function getProductId()
   {
     return $this->productId;
@@ -406,7 +390,6 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   {
     $this->selfLink = $selfLink;
   }
-
   public function getSelfLink()
   {
     return $this->selfLink;
@@ -415,7 +398,6 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   {
     $this->skuId = $skuId;
   }
-
   public function getSkuId()
   {
     return $this->skuId;
@@ -424,12 +406,10 @@ class Google_Service_Licensing_LicenseAssignment extends Google_Model
   {
     $this->userId = $userId;
   }
-
   public function getUserId()
   {
     return $this->userId;
   }
-
 }
 
 class Google_Service_Licensing_LicenseAssignmentInsert extends Google_Model
@@ -438,16 +418,15 @@ class Google_Service_Licensing_LicenseAssignmentInsert extends Google_Model
   );
   public $userId;
 
+
   public function setUserId($userId)
   {
     $this->userId = $userId;
   }
-
   public function getUserId()
   {
     return $this->userId;
   }
-
 }
 
 class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
@@ -461,11 +440,11 @@ class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -474,7 +453,6 @@ class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -483,7 +461,6 @@ class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -492,10 +469,8 @@ class Google_Service_Licensing_LicenseAssignmentList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
