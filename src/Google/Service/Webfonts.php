@@ -19,8 +19,7 @@
  * Service definition for Webfonts (v1).
  *
  * <p>
- * The Google Fonts Developer API.
- * </p>
+ * The Google Fonts Developer API.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -88,8 +87,7 @@ class Google_Service_Webfonts_Webfonts_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string sort
-   * Enables sorting of the list
+   * @opt_param string sort Enables sorting of the list
    * @return Google_Service_Webfonts_WebfontList
    */
   public function listWebfonts($optParams = array())
@@ -117,11 +115,11 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   public $variants;
   public $version;
 
+
   public function setCategory($category)
   {
     $this->category = $category;
   }
-
   public function getCategory()
   {
     return $this->category;
@@ -130,7 +128,6 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     $this->family = $family;
   }
-
   public function getFamily()
   {
     return $this->family;
@@ -139,7 +136,6 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     $this->files = $files;
   }
-
   public function getFiles()
   {
     return $this->files;
@@ -148,7 +144,6 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -157,7 +152,6 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     $this->lastModified = $lastModified;
   }
-
   public function getLastModified()
   {
     return $this->lastModified;
@@ -166,7 +160,6 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     $this->subsets = $subsets;
   }
-
   public function getSubsets()
   {
     return $this->subsets;
@@ -175,7 +168,6 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     $this->variants = $variants;
   }
-
   public function getVariants()
   {
     return $this->variants;
@@ -184,20 +176,14 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     $this->version = $version;
   }
-
   public function getVersion()
   {
     return $this->version;
   }
-
 }
 
 class Google_Service_Webfonts_WebfontFiles extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_Webfonts_WebfontList extends Google_Collection
@@ -209,11 +195,11 @@ class Google_Service_Webfonts_WebfontList extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -222,10 +208,8 @@ class Google_Service_Webfonts_WebfontList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
