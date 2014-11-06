@@ -19,8 +19,8 @@
  * Service definition for Replicapool (v1beta2).
  *
  * <p>
- * The Google Compute Engine Instance Group Manager API provides groups of homogenous Compute Engine Instances.
- * </p>
+ * The Google Compute Engine Instance Group Manager API provides groups of
+ * homogenous Compute Engine Instances.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,11 +32,14 @@
 class Google_Service_Replicapool extends Google_Service
 {
   /** View and manage your data across Google Cloud Platform services. */
-  const CLOUD_PLATFORM = "https://www.googleapis.com/auth/cloud-platform";
+  const CLOUD_PLATFORM =
+      "https://www.googleapis.com/auth/cloud-platform";
   /** View and manage your Google Compute Engine resources. */
-  const COMPUTE = "https://www.googleapis.com/auth/compute";
+  const COMPUTE =
+      "https://www.googleapis.com/auth/compute";
   /** View your Google Compute Engine resources. */
-  const COMPUTE_READONLY = "https://www.googleapis.com/auth/compute.readonly";
+  const COMPUTE_READONLY =
+      "https://www.googleapis.com/auth/compute.readonly";
 
   public $instanceGroupManagers;
   public $zoneOperations;
@@ -353,12 +356,10 @@ class Google_Service_Replicapool_InstanceGroupManagers_Resource extends Google_S
    * target pools of which they were members, without deleting the instances.
    * (instanceGroupManagers.abandonInstances)
    *
-   * @param string $project
-   * The Google Developers Console project name.
-   * @param string $zone
-   * The name of the zone in which the instance group manager resides.
-   * @param string $instanceGroupManager
-   * The name of the instance group manager.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the instance group manager
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param Google_InstanceGroupManagersAbandonInstancesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapool_Operation
@@ -369,18 +370,18 @@ class Google_Service_Replicapool_InstanceGroupManagers_Resource extends Google_S
     $params = array_merge($params, $optParams);
     return $this->call('abandonInstances', array($params), "Google_Service_Replicapool_Operation");
   }
+
   /**
    * Deletes the instance group manager and all instances contained within. If
    * you'd like to delete the manager without deleting the instances, you must
    * first abandon the instances to remove them from the group.
    * (instanceGroupManagers.delete)
    *
-   * @param string $project
-   * The Google Developers Console project name.
-   * @param string $zone
-   * The name of the zone in which the instance group manager resides.
-   * @param string $instanceGroupManager
-   * Name of the Instance Group Manager resource to delete.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the instance group manager
+   * resides.
+   * @param string $instanceGroupManager Name of the Instance Group Manager
+   * resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapool_Operation
    */
@@ -390,18 +391,17 @@ class Google_Service_Replicapool_InstanceGroupManagers_Resource extends Google_S
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params), "Google_Service_Replicapool_Operation");
   }
+
   /**
    * Deletes the specified instances. The instances are removed from the instance
    * group and any target pools of which they are a member, then deleted. The
    * targetSize of the instance group manager is reduced by the number of
    * instances deleted. (instanceGroupManagers.deleteInstances)
    *
-   * @param string $project
-   * The Google Developers Console project name.
-   * @param string $zone
-   * The name of the zone in which the instance group manager resides.
-   * @param string $instanceGroupManager
-   * The name of the instance group manager.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the instance group manager
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param Google_InstanceGroupManagersDeleteInstancesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapool_Operation
@@ -412,16 +412,15 @@ class Google_Service_Replicapool_InstanceGroupManagers_Resource extends Google_S
     $params = array_merge($params, $optParams);
     return $this->call('deleteInstances', array($params), "Google_Service_Replicapool_Operation");
   }
+
   /**
    * Returns the specified Instance Group Manager resource.
    * (instanceGroupManagers.get)
    *
-   * @param string $project
-   * The Google Developers Console project name.
-   * @param string $zone
-   * The name of the zone in which the instance group manager resides.
-   * @param string $instanceGroupManager
-   * Name of the instance resource to return.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the instance group manager
+   * resides.
+   * @param string $instanceGroupManager Name of the instance resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapool_InstanceGroupManager
    */
@@ -431,16 +430,15 @@ class Google_Service_Replicapool_InstanceGroupManagers_Resource extends Google_S
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Replicapool_InstanceGroupManager");
   }
+
   /**
    * Creates an instance group manager, as well as the instance group and the
    * specified number of instances. (instanceGroupManagers.insert)
    *
-   * @param string $project
-   * The Google Developers Console project name.
-   * @param string $zone
-   * The name of the zone in which the instance group manager resides.
-   * @param int $size
-   * Number of instances that should exist.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the instance group manager
+   * resides.
+   * @param int $size Number of instances that should exist.
    * @param Google_InstanceGroupManager $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapool_Operation
@@ -451,24 +449,22 @@ class Google_Service_Replicapool_InstanceGroupManagers_Resource extends Google_S
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Replicapool_Operation");
   }
+
   /**
    * Retrieves the list of Instance Group Manager resources contained within the
    * specified zone. (instanceGroupManagers.listInstanceGroupManagers)
    *
-   * @param string $project
-   * The Google Developers Console project name.
-   * @param string $zone
-   * The name of the zone in which the instance group manager resides.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the instance group manager
+   * resides.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter
-   * Optional. Filter expression for filtering listed resources.
-   * @opt_param string pageToken
-   * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
-    * previous list request.
-   * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 500.
+   * @opt_param string filter Optional. Filter expression for filtering listed
+   * resources.
+   * @opt_param string pageToken Optional. Tag returned by a previous list request
+   * truncated by maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Optional. Maximum count of results to be
+   * returned. Maximum value is 500 and default value is 500.
    * @return Google_Service_Replicapool_InstanceGroupManagerList
    */
   public function listInstanceGroupManagers($project, $zone, $optParams = array())
@@ -477,17 +473,16 @@ class Google_Service_Replicapool_InstanceGroupManagers_Resource extends Google_S
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Replicapool_InstanceGroupManagerList");
   }
+
   /**
    * Recreates the specified instances. The instances are deleted, then recreated
    * using the instance group manager's current instance template.
    * (instanceGroupManagers.recreateInstances)
    *
-   * @param string $project
-   * The Google Developers Console project name.
-   * @param string $zone
-   * The name of the zone in which the instance group manager resides.
-   * @param string $instanceGroupManager
-   * The name of the instance group manager.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the instance group manager
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param Google_InstanceGroupManagersRecreateInstancesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapool_Operation
@@ -498,20 +493,19 @@ class Google_Service_Replicapool_InstanceGroupManagers_Resource extends Google_S
     $params = array_merge($params, $optParams);
     return $this->call('recreateInstances', array($params), "Google_Service_Replicapool_Operation");
   }
+
   /**
    * Resizes the managed instance group up or down. If resized up, new instances
    * are created using the current instance template. If resized down, instances
    * are removed in the order outlined in Resizing a managed instance group.
    * (instanceGroupManagers.resize)
    *
-   * @param string $project
-   * The Google Developers Console project name.
-   * @param string $zone
-   * The name of the zone in which the instance group manager resides.
-   * @param string $instanceGroupManager
-   * The name of the instance group manager.
-   * @param int $size
-   * Number of instances that should exist in this Instance Group Manager.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the instance group manager
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
+   * @param int $size Number of instances that should exist in this Instance Group
+   * Manager.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapool_Operation
    */
@@ -521,17 +515,16 @@ class Google_Service_Replicapool_InstanceGroupManagers_Resource extends Google_S
     $params = array_merge($params, $optParams);
     return $this->call('resize', array($params), "Google_Service_Replicapool_Operation");
   }
+
   /**
    * Sets the instance template to use when creating new instances in this group.
    * Existing instances are not affected.
    * (instanceGroupManagers.setInstanceTemplate)
    *
-   * @param string $project
-   * The Google Developers Console project name.
-   * @param string $zone
-   * The name of the zone in which the instance group manager resides.
-   * @param string $instanceGroupManager
-   * The name of the instance group manager.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the instance group manager
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param Google_InstanceGroupManagersSetInstanceTemplateRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapool_Operation
@@ -542,17 +535,16 @@ class Google_Service_Replicapool_InstanceGroupManagers_Resource extends Google_S
     $params = array_merge($params, $optParams);
     return $this->call('setInstanceTemplate', array($params), "Google_Service_Replicapool_Operation");
   }
+
   /**
    * Modifies the target pools to which all new instances in this group are
    * assigned. Existing instances in the group are not affected.
    * (instanceGroupManagers.setTargetPools)
    *
-   * @param string $project
-   * The Google Developers Console project name.
-   * @param string $zone
-   * The name of the zone in which the instance group manager resides.
-   * @param string $instanceGroupManager
-   * The name of the instance group manager.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the instance group manager
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param Google_InstanceGroupManagersSetTargetPoolsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapool_Operation
@@ -580,12 +572,9 @@ class Google_Service_Replicapool_ZoneOperations_Resource extends Google_Service_
    * Retrieves the specified zone-specific operation resource.
    * (zoneOperations.get)
    *
-   * @param string $project
-   * Name of the project scoping this request.
-   * @param string $zone
-   * Name of the zone scoping this request.
-   * @param string $operation
-   * Name of the operation resource to return.
+   * @param string $project Name of the project scoping this request.
+   * @param string $zone Name of the zone scoping this request.
+   * @param string $operation Name of the operation resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapool_Operation
    */
@@ -595,24 +584,21 @@ class Google_Service_Replicapool_ZoneOperations_Resource extends Google_Service_
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Replicapool_Operation");
   }
+
   /**
    * Retrieves the list of operation resources contained within the specified
    * zone. (zoneOperations.listZoneOperations)
    *
-   * @param string $project
-   * Name of the project scoping this request.
-   * @param string $zone
-   * Name of the zone scoping this request.
+   * @param string $project Name of the project scoping this request.
+   * @param string $zone Name of the zone scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter
-   * Optional. Filter expression for filtering listed resources.
-   * @opt_param string pageToken
-   * Optional. Tag returned by a previous list request truncated by maxResults. Used to continue a
-    * previous list request.
-   * @opt_param string maxResults
-   * Optional. Maximum count of results to be returned. Maximum value is 500 and default value is
-    * 500.
+   * @opt_param string filter Optional. Filter expression for filtering listed
+   * resources.
+   * @opt_param string pageToken Optional. Tag returned by a previous list request
+   * truncated by maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Optional. Maximum count of results to be
+   * returned. Maximum value is 500 and default value is 500.
    * @return Google_Service_Replicapool_OperationList
    */
   public function listZoneOperations($project, $zone, $optParams = array())
@@ -645,11 +631,11 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   public $targetPools;
   public $targetSize;
 
+
   public function setBaseInstanceName($baseInstanceName)
   {
     $this->baseInstanceName = $baseInstanceName;
   }
-
   public function getBaseInstanceName()
   {
     return $this->baseInstanceName;
@@ -658,7 +644,6 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   {
     $this->creationTimestamp = $creationTimestamp;
   }
-
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
@@ -667,7 +652,6 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   {
     $this->currentSize = $currentSize;
   }
-
   public function getCurrentSize()
   {
     return $this->currentSize;
@@ -676,7 +660,6 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -685,7 +668,6 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   {
     $this->fingerprint = $fingerprint;
   }
-
   public function getFingerprint()
   {
     return $this->fingerprint;
@@ -694,7 +676,6 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   {
     $this->group = $group;
   }
-
   public function getGroup()
   {
     return $this->group;
@@ -703,7 +684,6 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -712,7 +692,6 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   {
     $this->instanceTemplate = $instanceTemplate;
   }
-
   public function getInstanceTemplate()
   {
     return $this->instanceTemplate;
@@ -721,7 +700,6 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -730,7 +708,6 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -739,7 +716,6 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   {
     $this->selfLink = $selfLink;
   }
-
   public function getSelfLink()
   {
     return $this->selfLink;
@@ -748,7 +724,6 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   {
     $this->targetPools = $targetPools;
   }
-
   public function getTargetPools()
   {
     return $this->targetPools;
@@ -757,12 +732,10 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   {
     $this->targetSize = $targetSize;
   }
-
   public function getTargetSize()
   {
     return $this->targetSize;
   }
-
 }
 
 class Google_Service_Replicapool_InstanceGroupManagerList extends Google_Collection
@@ -777,11 +750,11 @@ class Google_Service_Replicapool_InstanceGroupManagerList extends Google_Collect
   public $nextPageToken;
   public $selfLink;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -790,7 +763,6 @@ class Google_Service_Replicapool_InstanceGroupManagerList extends Google_Collect
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -799,7 +771,6 @@ class Google_Service_Replicapool_InstanceGroupManagerList extends Google_Collect
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -808,7 +779,6 @@ class Google_Service_Replicapool_InstanceGroupManagerList extends Google_Collect
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -817,12 +787,10 @@ class Google_Service_Replicapool_InstanceGroupManagerList extends Google_Collect
   {
     $this->selfLink = $selfLink;
   }
-
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-
 }
 
 class Google_Service_Replicapool_InstanceGroupManagersAbandonInstancesRequest extends Google_Collection
@@ -832,16 +800,15 @@ class Google_Service_Replicapool_InstanceGroupManagersAbandonInstancesRequest ex
   );
   public $instances;
 
+
   public function setInstances($instances)
   {
     $this->instances = $instances;
   }
-
   public function getInstances()
   {
     return $this->instances;
   }
-
 }
 
 class Google_Service_Replicapool_InstanceGroupManagersDeleteInstancesRequest extends Google_Collection
@@ -851,16 +818,15 @@ class Google_Service_Replicapool_InstanceGroupManagersDeleteInstancesRequest ext
   );
   public $instances;
 
+
   public function setInstances($instances)
   {
     $this->instances = $instances;
   }
-
   public function getInstances()
   {
     return $this->instances;
   }
-
 }
 
 class Google_Service_Replicapool_InstanceGroupManagersRecreateInstancesRequest extends Google_Collection
@@ -870,16 +836,15 @@ class Google_Service_Replicapool_InstanceGroupManagersRecreateInstancesRequest e
   );
   public $instances;
 
+
   public function setInstances($instances)
   {
     $this->instances = $instances;
   }
-
   public function getInstances()
   {
     return $this->instances;
   }
-
 }
 
 class Google_Service_Replicapool_InstanceGroupManagersSetInstanceTemplateRequest extends Google_Model
@@ -888,16 +853,15 @@ class Google_Service_Replicapool_InstanceGroupManagersSetInstanceTemplateRequest
   );
   public $instanceTemplate;
 
+
   public function setInstanceTemplate($instanceTemplate)
   {
     $this->instanceTemplate = $instanceTemplate;
   }
-
   public function getInstanceTemplate()
   {
     return $this->instanceTemplate;
   }
-
 }
 
 class Google_Service_Replicapool_InstanceGroupManagersSetTargetPoolsRequest extends Google_Collection
@@ -908,11 +872,11 @@ class Google_Service_Replicapool_InstanceGroupManagersSetTargetPoolsRequest exte
   public $fingerprint;
   public $targetPools;
 
+
   public function setFingerprint($fingerprint)
   {
     $this->fingerprint = $fingerprint;
   }
-
   public function getFingerprint()
   {
     return $this->fingerprint;
@@ -921,12 +885,10 @@ class Google_Service_Replicapool_InstanceGroupManagersSetTargetPoolsRequest exte
   {
     $this->targetPools = $targetPools;
   }
-
   public function getTargetPools()
   {
     return $this->targetPools;
   }
-
 }
 
 class Google_Service_Replicapool_Operation extends Google_Collection
@@ -959,11 +921,11 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   protected $warningsDataType = 'array';
   public $zone;
 
+
   public function setClientOperationId($clientOperationId)
   {
     $this->clientOperationId = $clientOperationId;
   }
-
   public function getClientOperationId()
   {
     return $this->clientOperationId;
@@ -972,7 +934,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->creationTimestamp = $creationTimestamp;
   }
-
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
@@ -981,7 +942,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->endTime = $endTime;
   }
-
   public function getEndTime()
   {
     return $this->endTime;
@@ -990,7 +950,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->error = $error;
   }
-
   public function getError()
   {
     return $this->error;
@@ -999,7 +958,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->httpErrorMessage = $httpErrorMessage;
   }
-
   public function getHttpErrorMessage()
   {
     return $this->httpErrorMessage;
@@ -1008,7 +966,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->httpErrorStatusCode = $httpErrorStatusCode;
   }
-
   public function getHttpErrorStatusCode()
   {
     return $this->httpErrorStatusCode;
@@ -1017,7 +974,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1026,7 +982,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->insertTime = $insertTime;
   }
-
   public function getInsertTime()
   {
     return $this->insertTime;
@@ -1035,7 +990,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1044,7 +998,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -1053,7 +1006,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->operationType = $operationType;
   }
-
   public function getOperationType()
   {
     return $this->operationType;
@@ -1062,7 +1014,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->progress = $progress;
   }
-
   public function getProgress()
   {
     return $this->progress;
@@ -1071,7 +1022,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->region = $region;
   }
-
   public function getRegion()
   {
     return $this->region;
@@ -1080,7 +1030,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->selfLink = $selfLink;
   }
-
   public function getSelfLink()
   {
     return $this->selfLink;
@@ -1089,7 +1038,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->startTime = $startTime;
   }
-
   public function getStartTime()
   {
     return $this->startTime;
@@ -1098,7 +1046,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
@@ -1107,7 +1054,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->statusMessage = $statusMessage;
   }
-
   public function getStatusMessage()
   {
     return $this->statusMessage;
@@ -1116,7 +1062,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->targetId = $targetId;
   }
-
   public function getTargetId()
   {
     return $this->targetId;
@@ -1125,7 +1070,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->targetLink = $targetLink;
   }
-
   public function getTargetLink()
   {
     return $this->targetLink;
@@ -1134,7 +1078,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->user = $user;
   }
-
   public function getUser()
   {
     return $this->user;
@@ -1143,7 +1086,6 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->warnings = $warnings;
   }
-
   public function getWarnings()
   {
     return $this->warnings;
@@ -1152,12 +1094,10 @@ class Google_Service_Replicapool_Operation extends Google_Collection
   {
     $this->zone = $zone;
   }
-
   public function getZone()
   {
     return $this->zone;
   }
-
 }
 
 class Google_Service_Replicapool_OperationError extends Google_Collection
@@ -1168,16 +1108,15 @@ class Google_Service_Replicapool_OperationError extends Google_Collection
   protected $errorsType = 'Google_Service_Replicapool_OperationErrorErrors';
   protected $errorsDataType = 'array';
 
+
   public function setErrors($errors)
   {
     $this->errors = $errors;
   }
-
   public function getErrors()
   {
     return $this->errors;
   }
-
 }
 
 class Google_Service_Replicapool_OperationErrorErrors extends Google_Model
@@ -1188,11 +1127,11 @@ class Google_Service_Replicapool_OperationErrorErrors extends Google_Model
   public $location;
   public $message;
 
+
   public function setCode($code)
   {
     $this->code = $code;
   }
-
   public function getCode()
   {
     return $this->code;
@@ -1201,7 +1140,6 @@ class Google_Service_Replicapool_OperationErrorErrors extends Google_Model
   {
     $this->location = $location;
   }
-
   public function getLocation()
   {
     return $this->location;
@@ -1210,12 +1148,10 @@ class Google_Service_Replicapool_OperationErrorErrors extends Google_Model
   {
     $this->message = $message;
   }
-
   public function getMessage()
   {
     return $this->message;
   }
-
 }
 
 class Google_Service_Replicapool_OperationList extends Google_Collection
@@ -1230,11 +1166,11 @@ class Google_Service_Replicapool_OperationList extends Google_Collection
   public $nextPageToken;
   public $selfLink;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1243,7 +1179,6 @@ class Google_Service_Replicapool_OperationList extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -1252,7 +1187,6 @@ class Google_Service_Replicapool_OperationList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1261,7 +1195,6 @@ class Google_Service_Replicapool_OperationList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -1270,12 +1203,10 @@ class Google_Service_Replicapool_OperationList extends Google_Collection
   {
     $this->selfLink = $selfLink;
   }
-
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-
 }
 
 class Google_Service_Replicapool_OperationWarnings extends Google_Collection
@@ -1288,11 +1219,11 @@ class Google_Service_Replicapool_OperationWarnings extends Google_Collection
   protected $dataDataType = 'array';
   public $message;
 
+
   public function setCode($code)
   {
     $this->code = $code;
   }
-
   public function getCode()
   {
     return $this->code;
@@ -1301,7 +1232,6 @@ class Google_Service_Replicapool_OperationWarnings extends Google_Collection
   {
     $this->data = $data;
   }
-
   public function getData()
   {
     return $this->data;
@@ -1310,12 +1240,10 @@ class Google_Service_Replicapool_OperationWarnings extends Google_Collection
   {
     $this->message = $message;
   }
-
   public function getMessage()
   {
     return $this->message;
   }
-
 }
 
 class Google_Service_Replicapool_OperationWarningsData extends Google_Model
@@ -1325,11 +1253,11 @@ class Google_Service_Replicapool_OperationWarningsData extends Google_Model
   public $key;
   public $value;
 
+
   public function setKey($key)
   {
     $this->key = $key;
   }
-
   public function getKey()
   {
     return $this->key;
@@ -1338,10 +1266,8 @@ class Google_Service_Replicapool_OperationWarningsData extends Google_Model
   {
     $this->value = $value;
   }
-
   public function getValue()
   {
     return $this->value;
   }
-
 }
