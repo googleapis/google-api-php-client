@@ -19,8 +19,8 @@
  * Service definition for Manager (v1beta2).
  *
  * <p>
- * The Deployment Manager API allows users to declaratively configure, deploy and run complex solutions on the Google Cloud Platform.
- * </p>
+ * The Deployment Manager API allows users to declaratively configure, deploy
+ * and run complex solutions on the Google Cloud Platform.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,17 +32,23 @@
 class Google_Service_Manager extends Google_Service
 {
   /** View and manage your applications deployed on Google App Engine. */
-  const APPENGINE_ADMIN = "https://www.googleapis.com/auth/appengine.admin";
+  const APPENGINE_ADMIN =
+      "https://www.googleapis.com/auth/appengine.admin";
   /** View and manage your data across Google Cloud Platform services. */
-  const CLOUD_PLATFORM = "https://www.googleapis.com/auth/cloud-platform";
+  const CLOUD_PLATFORM =
+      "https://www.googleapis.com/auth/cloud-platform";
   /** View and manage your Google Compute Engine resources. */
-  const COMPUTE = "https://www.googleapis.com/auth/compute";
+  const COMPUTE =
+      "https://www.googleapis.com/auth/compute";
   /** Manage your data in Google Cloud Storage. */
-  const DEVSTORAGE_READ_WRITE = "https://www.googleapis.com/auth/devstorage.read_write";
+  const DEVSTORAGE_READ_WRITE =
+      "https://www.googleapis.com/auth/devstorage.read_write";
   /** View and manage your Google Cloud Platform management resources and deployment status information. */
-  const NDEV_CLOUDMAN = "https://www.googleapis.com/auth/ndev.cloudman";
+  const NDEV_CLOUDMAN =
+      "https://www.googleapis.com/auth/ndev.cloudman";
   /** View your Google Cloud Platform management resources and deployment status information. */
-  const NDEV_CLOUDMAN_READONLY = "https://www.googleapis.com/auth/ndev.cloudman.readonly";
+  const NDEV_CLOUDMAN_READONLY =
+      "https://www.googleapis.com/auth/ndev.cloudman.readonly";
 
   public $deployments;
   public $templates;
@@ -235,11 +241,8 @@ class Google_Service_Manager_Deployments_Resource extends Google_Service_Resourc
    * (deployments.delete)
    *
    * @param string $projectId
-   *
    * @param string $region
-   *
    * @param string $deploymentName
-   *
    * @param array $optParams Optional parameters.
    */
   public function delete($projectId, $region, $deploymentName, $optParams = array())
@@ -248,15 +251,13 @@ class Google_Service_Manager_Deployments_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * (deployments.get)
    *
    * @param string $projectId
-   *
    * @param string $region
-   *
    * @param string $deploymentName
-   *
    * @param array $optParams Optional parameters.
    * @return Google_Service_Manager_Deployment
    */
@@ -266,13 +267,12 @@ class Google_Service_Manager_Deployments_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Manager_Deployment");
   }
+
   /**
    * (deployments.insert)
    *
    * @param string $projectId
-   *
    * @param string $region
-   *
    * @param Google_Deployment $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Manager_Deployment
@@ -283,21 +283,19 @@ class Google_Service_Manager_Deployments_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Manager_Deployment");
   }
+
   /**
    * (deployments.listDeployments)
    *
    * @param string $projectId
-   *
    * @param string $region
-   *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Specifies a nextPageToken returned by a previous list request. This token can be used to request
-    * the next page of results from a previous list request.
-   * @opt_param int maxResults
-   * Maximum count of results to be returned. Acceptable values are 0 to 100, inclusive. (Default:
-    * 50)
+   * @opt_param string pageToken Specifies a nextPageToken returned by a previous
+   * list request. This token can be used to request the next page of results from
+   * a previous list request.
+   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
+   * values are 0 to 100, inclusive. (Default: 50)
    * @return Google_Service_Manager_DeploymentsListResponse
    */
   public function listDeployments($projectId, $region, $optParams = array())
@@ -323,9 +321,7 @@ class Google_Service_Manager_Templates_Resource extends Google_Service_Resource
    * (templates.delete)
    *
    * @param string $projectId
-   *
    * @param string $templateName
-   *
    * @param array $optParams Optional parameters.
    */
   public function delete($projectId, $templateName, $optParams = array())
@@ -334,13 +330,12 @@ class Google_Service_Manager_Templates_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * (templates.get)
    *
    * @param string $projectId
-   *
    * @param string $templateName
-   *
    * @param array $optParams Optional parameters.
    * @return Google_Service_Manager_Template
    */
@@ -350,11 +345,11 @@ class Google_Service_Manager_Templates_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Manager_Template");
   }
+
   /**
    * (templates.insert)
    *
    * @param string $projectId
-   *
    * @param Google_Template $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Manager_Template
@@ -365,19 +360,18 @@ class Google_Service_Manager_Templates_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Manager_Template");
   }
+
   /**
    * (templates.listTemplates)
    *
    * @param string $projectId
-   *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Specifies a nextPageToken returned by a previous list request. This token can be used to request
-    * the next page of results from a previous list request.
-   * @opt_param int maxResults
-   * Maximum count of results to be returned. Acceptable values are 0 to 100, inclusive. (Default:
-    * 50)
+   * @opt_param string pageToken Specifies a nextPageToken returned by a previous
+   * list request. This token can be used to request the next page of results from
+   * a previous list request.
+   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
+   * values are 0 to 100, inclusive. (Default: 50)
    * @return Google_Service_Manager_TemplatesListResponse
    */
   public function listTemplates($projectId, $optParams = array())
@@ -399,11 +393,11 @@ class Google_Service_Manager_AccessConfig extends Google_Model
   public $natIp;
   public $type;
 
+
   public function setName($name)
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -412,7 +406,6 @@ class Google_Service_Manager_AccessConfig extends Google_Model
   {
     $this->natIp = $natIp;
   }
-
   public function getNatIp()
   {
     return $this->natIp;
@@ -421,12 +414,10 @@ class Google_Service_Manager_AccessConfig extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_Manager_Action extends Google_Collection
@@ -437,11 +428,11 @@ class Google_Service_Manager_Action extends Google_Collection
   public $commands;
   public $timeoutMs;
 
+
   public function setCommands($commands)
   {
     $this->commands = $commands;
   }
-
   public function getCommands()
   {
     return $this->commands;
@@ -450,12 +441,10 @@ class Google_Service_Manager_Action extends Google_Collection
   {
     $this->timeoutMs = $timeoutMs;
   }
-
   public function getTimeoutMs()
   {
     return $this->timeoutMs;
   }
-
 }
 
 class Google_Service_Manager_AllowedRule extends Google_Collection
@@ -467,11 +456,11 @@ class Google_Service_Manager_AllowedRule extends Google_Collection
   public $iPProtocol;
   public $ports;
 
+
   public function setIPProtocol($iPProtocol)
   {
     $this->iPProtocol = $iPProtocol;
   }
-
   public function getIPProtocol()
   {
     return $this->iPProtocol;
@@ -480,12 +469,10 @@ class Google_Service_Manager_AllowedRule extends Google_Collection
   {
     $this->ports = $ports;
   }
-
   public function getPorts()
   {
     return $this->ports;
   }
-
 }
 
 class Google_Service_Manager_AutoscalingModule extends Google_Model
@@ -500,11 +487,11 @@ class Google_Service_Manager_AutoscalingModule extends Google_Model
   public $targetModule;
   public $targetUtilization;
 
+
   public function setCoolDownPeriodSec($coolDownPeriodSec)
   {
     $this->coolDownPeriodSec = $coolDownPeriodSec;
   }
-
   public function getCoolDownPeriodSec()
   {
     return $this->coolDownPeriodSec;
@@ -513,7 +500,6 @@ class Google_Service_Manager_AutoscalingModule extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -522,7 +508,6 @@ class Google_Service_Manager_AutoscalingModule extends Google_Model
   {
     $this->maxNumReplicas = $maxNumReplicas;
   }
-
   public function getMaxNumReplicas()
   {
     return $this->maxNumReplicas;
@@ -531,7 +516,6 @@ class Google_Service_Manager_AutoscalingModule extends Google_Model
   {
     $this->minNumReplicas = $minNumReplicas;
   }
-
   public function getMinNumReplicas()
   {
     return $this->minNumReplicas;
@@ -540,7 +524,6 @@ class Google_Service_Manager_AutoscalingModule extends Google_Model
   {
     $this->signalType = $signalType;
   }
-
   public function getSignalType()
   {
     return $this->signalType;
@@ -549,7 +532,6 @@ class Google_Service_Manager_AutoscalingModule extends Google_Model
   {
     $this->targetModule = $targetModule;
   }
-
   public function getTargetModule()
   {
     return $this->targetModule;
@@ -558,12 +540,10 @@ class Google_Service_Manager_AutoscalingModule extends Google_Model
   {
     $this->targetUtilization = $targetUtilization;
   }
-
   public function getTargetUtilization()
   {
     return $this->targetUtilization;
   }
-
 }
 
 class Google_Service_Manager_AutoscalingModuleStatus extends Google_Model
@@ -572,16 +552,15 @@ class Google_Service_Manager_AutoscalingModuleStatus extends Google_Model
   );
   public $autoscalingConfigUrl;
 
+
   public function setAutoscalingConfigUrl($autoscalingConfigUrl)
   {
     $this->autoscalingConfigUrl = $autoscalingConfigUrl;
   }
-
   public function getAutoscalingConfigUrl()
   {
     return $this->autoscalingConfigUrl;
   }
-
 }
 
 class Google_Service_Manager_DeployState extends Google_Model
@@ -591,11 +570,11 @@ class Google_Service_Manager_DeployState extends Google_Model
   public $details;
   public $status;
 
+
   public function setDetails($details)
   {
     $this->details = $details;
   }
-
   public function getDetails()
   {
     return $this->details;
@@ -604,12 +583,10 @@ class Google_Service_Manager_DeployState extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
   }
-
 }
 
 class Google_Service_Manager_Deployment extends Google_Collection
@@ -628,11 +605,11 @@ class Google_Service_Manager_Deployment extends Google_Collection
   protected $stateDataType = '';
   public $templateName;
 
+
   public function setCreationDate($creationDate)
   {
     $this->creationDate = $creationDate;
   }
-
   public function getCreationDate()
   {
     return $this->creationDate;
@@ -641,7 +618,6 @@ class Google_Service_Manager_Deployment extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -650,7 +626,6 @@ class Google_Service_Manager_Deployment extends Google_Collection
   {
     $this->modules = $modules;
   }
-
   public function getModules()
   {
     return $this->modules;
@@ -659,7 +634,6 @@ class Google_Service_Manager_Deployment extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -668,7 +642,6 @@ class Google_Service_Manager_Deployment extends Google_Collection
   {
     $this->overrides = $overrides;
   }
-
   public function getOverrides()
   {
     return $this->overrides;
@@ -677,7 +650,6 @@ class Google_Service_Manager_Deployment extends Google_Collection
   {
     $this->state = $state;
   }
-
   public function getState()
   {
     return $this->state;
@@ -686,20 +658,14 @@ class Google_Service_Manager_Deployment extends Google_Collection
   {
     $this->templateName = $templateName;
   }
-
   public function getTemplateName()
   {
     return $this->templateName;
   }
-
 }
 
 class Google_Service_Manager_DeploymentModules extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_Manager_DeploymentsListResponse extends Google_Collection
@@ -711,11 +677,11 @@ class Google_Service_Manager_DeploymentsListResponse extends Google_Collection
   protected $resourcesType = 'Google_Service_Manager_Deployment';
   protected $resourcesDataType = 'array';
 
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -724,12 +690,10 @@ class Google_Service_Manager_DeploymentsListResponse extends Google_Collection
   {
     $this->resources = $resources;
   }
-
   public function getResources()
   {
     return $this->resources;
   }
-
 }
 
 class Google_Service_Manager_DiskAttachment extends Google_Model
@@ -739,11 +703,11 @@ class Google_Service_Manager_DiskAttachment extends Google_Model
   public $deviceName;
   public $index;
 
+
   public function setDeviceName($deviceName)
   {
     $this->deviceName = $deviceName;
   }
-
   public function getDeviceName()
   {
     return $this->deviceName;
@@ -752,12 +716,10 @@ class Google_Service_Manager_DiskAttachment extends Google_Model
   {
     $this->index = $index;
   }
-
   public function getIndex()
   {
     return $this->index;
   }
-
 }
 
 class Google_Service_Manager_EnvVariable extends Google_Model
@@ -767,11 +729,11 @@ class Google_Service_Manager_EnvVariable extends Google_Model
   public $hidden;
   public $value;
 
+
   public function setHidden($hidden)
   {
     $this->hidden = $hidden;
   }
-
   public function getHidden()
   {
     return $this->hidden;
@@ -780,12 +742,10 @@ class Google_Service_Manager_EnvVariable extends Google_Model
   {
     $this->value = $value;
   }
-
   public function getValue()
   {
     return $this->value;
   }
-
 }
 
 class Google_Service_Manager_ExistingDisk extends Google_Model
@@ -796,11 +756,11 @@ class Google_Service_Manager_ExistingDisk extends Google_Model
   protected $attachmentDataType = '';
   public $source;
 
+
   public function setAttachment(Google_Service_Manager_DiskAttachment $attachment)
   {
     $this->attachment = $attachment;
   }
-
   public function getAttachment()
   {
     return $this->attachment;
@@ -809,12 +769,10 @@ class Google_Service_Manager_ExistingDisk extends Google_Model
   {
     $this->source = $source;
   }
-
   public function getSource()
   {
     return $this->source;
   }
-
 }
 
 class Google_Service_Manager_FirewallModule extends Google_Collection
@@ -830,11 +788,11 @@ class Google_Service_Manager_FirewallModule extends Google_Collection
   public $sourceTags;
   public $targetTags;
 
+
   public function setAllowed($allowed)
   {
     $this->allowed = $allowed;
   }
-
   public function getAllowed()
   {
     return $this->allowed;
@@ -843,7 +801,6 @@ class Google_Service_Manager_FirewallModule extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -852,7 +809,6 @@ class Google_Service_Manager_FirewallModule extends Google_Collection
   {
     $this->network = $network;
   }
-
   public function getNetwork()
   {
     return $this->network;
@@ -861,7 +817,6 @@ class Google_Service_Manager_FirewallModule extends Google_Collection
   {
     $this->sourceRanges = $sourceRanges;
   }
-
   public function getSourceRanges()
   {
     return $this->sourceRanges;
@@ -870,7 +825,6 @@ class Google_Service_Manager_FirewallModule extends Google_Collection
   {
     $this->sourceTags = $sourceTags;
   }
-
   public function getSourceTags()
   {
     return $this->sourceTags;
@@ -879,12 +833,10 @@ class Google_Service_Manager_FirewallModule extends Google_Collection
   {
     $this->targetTags = $targetTags;
   }
-
   public function getTargetTags()
   {
     return $this->targetTags;
   }
-
 }
 
 class Google_Service_Manager_FirewallModuleStatus extends Google_Model
@@ -893,16 +845,15 @@ class Google_Service_Manager_FirewallModuleStatus extends Google_Model
   );
   public $firewallUrl;
 
+
   public function setFirewallUrl($firewallUrl)
   {
     $this->firewallUrl = $firewallUrl;
   }
-
   public function getFirewallUrl()
   {
     return $this->firewallUrl;
   }
-
 }
 
 class Google_Service_Manager_HealthCheckModule extends Google_Model
@@ -918,11 +869,11 @@ class Google_Service_Manager_HealthCheckModule extends Google_Model
   public $timeoutSec;
   public $unhealthyThreshold;
 
+
   public function setCheckIntervalSec($checkIntervalSec)
   {
     $this->checkIntervalSec = $checkIntervalSec;
   }
-
   public function getCheckIntervalSec()
   {
     return $this->checkIntervalSec;
@@ -931,7 +882,6 @@ class Google_Service_Manager_HealthCheckModule extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -940,7 +890,6 @@ class Google_Service_Manager_HealthCheckModule extends Google_Model
   {
     $this->healthyThreshold = $healthyThreshold;
   }
-
   public function getHealthyThreshold()
   {
     return $this->healthyThreshold;
@@ -949,7 +898,6 @@ class Google_Service_Manager_HealthCheckModule extends Google_Model
   {
     $this->host = $host;
   }
-
   public function getHost()
   {
     return $this->host;
@@ -958,7 +906,6 @@ class Google_Service_Manager_HealthCheckModule extends Google_Model
   {
     $this->path = $path;
   }
-
   public function getPath()
   {
     return $this->path;
@@ -967,7 +914,6 @@ class Google_Service_Manager_HealthCheckModule extends Google_Model
   {
     $this->port = $port;
   }
-
   public function getPort()
   {
     return $this->port;
@@ -976,7 +922,6 @@ class Google_Service_Manager_HealthCheckModule extends Google_Model
   {
     $this->timeoutSec = $timeoutSec;
   }
-
   public function getTimeoutSec()
   {
     return $this->timeoutSec;
@@ -985,12 +930,10 @@ class Google_Service_Manager_HealthCheckModule extends Google_Model
   {
     $this->unhealthyThreshold = $unhealthyThreshold;
   }
-
   public function getUnhealthyThreshold()
   {
     return $this->unhealthyThreshold;
   }
-
 }
 
 class Google_Service_Manager_HealthCheckModuleStatus extends Google_Model
@@ -999,16 +942,15 @@ class Google_Service_Manager_HealthCheckModuleStatus extends Google_Model
   );
   public $healthCheckUrl;
 
+
   public function setHealthCheckUrl($healthCheckUrl)
   {
     $this->healthCheckUrl = $healthCheckUrl;
   }
-
   public function getHealthCheckUrl()
   {
     return $this->healthCheckUrl;
   }
-
 }
 
 class Google_Service_Manager_LbModule extends Google_Collection
@@ -1024,11 +966,11 @@ class Google_Service_Manager_LbModule extends Google_Collection
   public $sessionAffinity;
   public $targetModules;
 
+
   public function setDescription($description)
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -1037,7 +979,6 @@ class Google_Service_Manager_LbModule extends Google_Collection
   {
     $this->healthChecks = $healthChecks;
   }
-
   public function getHealthChecks()
   {
     return $this->healthChecks;
@@ -1046,7 +987,6 @@ class Google_Service_Manager_LbModule extends Google_Collection
   {
     $this->ipAddress = $ipAddress;
   }
-
   public function getIpAddress()
   {
     return $this->ipAddress;
@@ -1055,7 +995,6 @@ class Google_Service_Manager_LbModule extends Google_Collection
   {
     $this->ipProtocol = $ipProtocol;
   }
-
   public function getIpProtocol()
   {
     return $this->ipProtocol;
@@ -1064,7 +1003,6 @@ class Google_Service_Manager_LbModule extends Google_Collection
   {
     $this->portRange = $portRange;
   }
-
   public function getPortRange()
   {
     return $this->portRange;
@@ -1073,7 +1011,6 @@ class Google_Service_Manager_LbModule extends Google_Collection
   {
     $this->sessionAffinity = $sessionAffinity;
   }
-
   public function getSessionAffinity()
   {
     return $this->sessionAffinity;
@@ -1082,12 +1019,10 @@ class Google_Service_Manager_LbModule extends Google_Collection
   {
     $this->targetModules = $targetModules;
   }
-
   public function getTargetModules()
   {
     return $this->targetModules;
   }
-
 }
 
 class Google_Service_Manager_LbModuleStatus extends Google_Model
@@ -1097,11 +1032,11 @@ class Google_Service_Manager_LbModuleStatus extends Google_Model
   public $forwardingRuleUrl;
   public $targetPoolUrl;
 
+
   public function setForwardingRuleUrl($forwardingRuleUrl)
   {
     $this->forwardingRuleUrl = $forwardingRuleUrl;
   }
-
   public function getForwardingRuleUrl()
   {
     return $this->forwardingRuleUrl;
@@ -1110,12 +1045,10 @@ class Google_Service_Manager_LbModuleStatus extends Google_Model
   {
     $this->targetPoolUrl = $targetPoolUrl;
   }
-
   public function getTargetPoolUrl()
   {
     return $this->targetPoolUrl;
   }
-
 }
 
 class Google_Service_Manager_Metadata extends Google_Collection
@@ -1127,11 +1060,11 @@ class Google_Service_Manager_Metadata extends Google_Collection
   protected $itemsType = 'Google_Service_Manager_MetadataItem';
   protected $itemsDataType = 'array';
 
+
   public function setFingerPrint($fingerPrint)
   {
     $this->fingerPrint = $fingerPrint;
   }
-
   public function getFingerPrint()
   {
     return $this->fingerPrint;
@@ -1140,12 +1073,10 @@ class Google_Service_Manager_Metadata extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
   }
-
 }
 
 class Google_Service_Manager_MetadataItem extends Google_Model
@@ -1155,11 +1086,11 @@ class Google_Service_Manager_MetadataItem extends Google_Model
   public $key;
   public $value;
 
+
   public function setKey($key)
   {
     $this->key = $key;
   }
-
   public function getKey()
   {
     return $this->key;
@@ -1168,12 +1099,10 @@ class Google_Service_Manager_MetadataItem extends Google_Model
   {
     $this->value = $value;
   }
-
   public function getValue()
   {
     return $this->value;
   }
-
 }
 
 class Google_Service_Manager_Module extends Google_Model
@@ -1194,11 +1123,11 @@ class Google_Service_Manager_Module extends Google_Model
   protected $replicaPoolModuleDataType = '';
   public $type;
 
+
   public function setAutoscalingModule(Google_Service_Manager_AutoscalingModule $autoscalingModule)
   {
     $this->autoscalingModule = $autoscalingModule;
   }
-
   public function getAutoscalingModule()
   {
     return $this->autoscalingModule;
@@ -1207,7 +1136,6 @@ class Google_Service_Manager_Module extends Google_Model
   {
     $this->firewallModule = $firewallModule;
   }
-
   public function getFirewallModule()
   {
     return $this->firewallModule;
@@ -1216,7 +1144,6 @@ class Google_Service_Manager_Module extends Google_Model
   {
     $this->healthCheckModule = $healthCheckModule;
   }
-
   public function getHealthCheckModule()
   {
     return $this->healthCheckModule;
@@ -1225,7 +1152,6 @@ class Google_Service_Manager_Module extends Google_Model
   {
     $this->lbModule = $lbModule;
   }
-
   public function getLbModule()
   {
     return $this->lbModule;
@@ -1234,7 +1160,6 @@ class Google_Service_Manager_Module extends Google_Model
   {
     $this->networkModule = $networkModule;
   }
-
   public function getNetworkModule()
   {
     return $this->networkModule;
@@ -1243,7 +1168,6 @@ class Google_Service_Manager_Module extends Google_Model
   {
     $this->replicaPoolModule = $replicaPoolModule;
   }
-
   public function getReplicaPoolModule()
   {
     return $this->replicaPoolModule;
@@ -1252,12 +1176,10 @@ class Google_Service_Manager_Module extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_Manager_ModuleStatus extends Google_Model
@@ -1280,11 +1202,11 @@ class Google_Service_Manager_ModuleStatus extends Google_Model
   protected $stateDataType = '';
   public $type;
 
+
   public function setAutoscalingModuleStatus(Google_Service_Manager_AutoscalingModuleStatus $autoscalingModuleStatus)
   {
     $this->autoscalingModuleStatus = $autoscalingModuleStatus;
   }
-
   public function getAutoscalingModuleStatus()
   {
     return $this->autoscalingModuleStatus;
@@ -1293,7 +1215,6 @@ class Google_Service_Manager_ModuleStatus extends Google_Model
   {
     $this->firewallModuleStatus = $firewallModuleStatus;
   }
-
   public function getFirewallModuleStatus()
   {
     return $this->firewallModuleStatus;
@@ -1302,7 +1223,6 @@ class Google_Service_Manager_ModuleStatus extends Google_Model
   {
     $this->healthCheckModuleStatus = $healthCheckModuleStatus;
   }
-
   public function getHealthCheckModuleStatus()
   {
     return $this->healthCheckModuleStatus;
@@ -1311,7 +1231,6 @@ class Google_Service_Manager_ModuleStatus extends Google_Model
   {
     $this->lbModuleStatus = $lbModuleStatus;
   }
-
   public function getLbModuleStatus()
   {
     return $this->lbModuleStatus;
@@ -1320,7 +1239,6 @@ class Google_Service_Manager_ModuleStatus extends Google_Model
   {
     $this->networkModuleStatus = $networkModuleStatus;
   }
-
   public function getNetworkModuleStatus()
   {
     return $this->networkModuleStatus;
@@ -1329,7 +1247,6 @@ class Google_Service_Manager_ModuleStatus extends Google_Model
   {
     $this->replicaPoolModuleStatus = $replicaPoolModuleStatus;
   }
-
   public function getReplicaPoolModuleStatus()
   {
     return $this->replicaPoolModuleStatus;
@@ -1338,7 +1255,6 @@ class Google_Service_Manager_ModuleStatus extends Google_Model
   {
     $this->state = $state;
   }
-
   public function getState()
   {
     return $this->state;
@@ -1347,12 +1263,10 @@ class Google_Service_Manager_ModuleStatus extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_Manager_NetworkInterface extends Google_Collection
@@ -1366,11 +1280,11 @@ class Google_Service_Manager_NetworkInterface extends Google_Collection
   public $network;
   public $networkIp;
 
+
   public function setAccessConfigs($accessConfigs)
   {
     $this->accessConfigs = $accessConfigs;
   }
-
   public function getAccessConfigs()
   {
     return $this->accessConfigs;
@@ -1379,7 +1293,6 @@ class Google_Service_Manager_NetworkInterface extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -1388,7 +1301,6 @@ class Google_Service_Manager_NetworkInterface extends Google_Collection
   {
     $this->network = $network;
   }
-
   public function getNetwork()
   {
     return $this->network;
@@ -1397,12 +1309,10 @@ class Google_Service_Manager_NetworkInterface extends Google_Collection
   {
     $this->networkIp = $networkIp;
   }
-
   public function getNetworkIp()
   {
     return $this->networkIp;
   }
-
 }
 
 class Google_Service_Manager_NetworkModule extends Google_Model
@@ -1414,11 +1324,11 @@ class Google_Service_Manager_NetworkModule extends Google_Model
   public $description;
   public $gatewayIPv4;
 
+
   public function setIPv4Range($iPv4Range)
   {
     $this->iPv4Range = $iPv4Range;
   }
-
   public function getIPv4Range()
   {
     return $this->iPv4Range;
@@ -1427,7 +1337,6 @@ class Google_Service_Manager_NetworkModule extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -1436,12 +1345,10 @@ class Google_Service_Manager_NetworkModule extends Google_Model
   {
     $this->gatewayIPv4 = $gatewayIPv4;
   }
-
   public function getGatewayIPv4()
   {
     return $this->gatewayIPv4;
   }
-
 }
 
 class Google_Service_Manager_NetworkModuleStatus extends Google_Model
@@ -1450,16 +1357,15 @@ class Google_Service_Manager_NetworkModuleStatus extends Google_Model
   );
   public $networkUrl;
 
+
   public function setNetworkUrl($networkUrl)
   {
     $this->networkUrl = $networkUrl;
   }
-
   public function getNetworkUrl()
   {
     return $this->networkUrl;
   }
-
 }
 
 class Google_Service_Manager_NewDisk extends Google_Model
@@ -1473,11 +1379,11 @@ class Google_Service_Manager_NewDisk extends Google_Model
   protected $initializeParamsType = 'Google_Service_Manager_NewDiskInitializeParams';
   protected $initializeParamsDataType = '';
 
+
   public function setAttachment(Google_Service_Manager_DiskAttachment $attachment)
   {
     $this->attachment = $attachment;
   }
-
   public function getAttachment()
   {
     return $this->attachment;
@@ -1486,7 +1392,6 @@ class Google_Service_Manager_NewDisk extends Google_Model
   {
     $this->autoDelete = $autoDelete;
   }
-
   public function getAutoDelete()
   {
     return $this->autoDelete;
@@ -1495,7 +1400,6 @@ class Google_Service_Manager_NewDisk extends Google_Model
   {
     $this->boot = $boot;
   }
-
   public function getBoot()
   {
     return $this->boot;
@@ -1504,12 +1408,10 @@ class Google_Service_Manager_NewDisk extends Google_Model
   {
     $this->initializeParams = $initializeParams;
   }
-
   public function getInitializeParams()
   {
     return $this->initializeParams;
   }
-
 }
 
 class Google_Service_Manager_NewDiskInitializeParams extends Google_Model
@@ -1520,11 +1422,11 @@ class Google_Service_Manager_NewDiskInitializeParams extends Google_Model
   public $diskType;
   public $sourceImage;
 
+
   public function setDiskSizeGb($diskSizeGb)
   {
     $this->diskSizeGb = $diskSizeGb;
   }
-
   public function getDiskSizeGb()
   {
     return $this->diskSizeGb;
@@ -1533,7 +1435,6 @@ class Google_Service_Manager_NewDiskInitializeParams extends Google_Model
   {
     $this->diskType = $diskType;
   }
-
   public function getDiskType()
   {
     return $this->diskType;
@@ -1542,12 +1443,10 @@ class Google_Service_Manager_NewDiskInitializeParams extends Google_Model
   {
     $this->sourceImage = $sourceImage;
   }
-
   public function getSourceImage()
   {
     return $this->sourceImage;
   }
-
 }
 
 class Google_Service_Manager_ParamOverride extends Google_Model
@@ -1557,11 +1456,11 @@ class Google_Service_Manager_ParamOverride extends Google_Model
   public $path;
   public $value;
 
+
   public function setPath($path)
   {
     $this->path = $path;
   }
-
   public function getPath()
   {
     return $this->path;
@@ -1570,12 +1469,10 @@ class Google_Service_Manager_ParamOverride extends Google_Model
   {
     $this->value = $value;
   }
-
   public function getValue()
   {
     return $this->value;
   }
-
 }
 
 class Google_Service_Manager_ReplicaPoolModule extends Google_Collection
@@ -1591,11 +1488,11 @@ class Google_Service_Manager_ReplicaPoolModule extends Google_Collection
   protected $replicaPoolParamsDataType = '';
   public $resourceView;
 
+
   public function setEnvVariables($envVariables)
   {
     $this->envVariables = $envVariables;
   }
-
   public function getEnvVariables()
   {
     return $this->envVariables;
@@ -1604,7 +1501,6 @@ class Google_Service_Manager_ReplicaPoolModule extends Google_Collection
   {
     $this->healthChecks = $healthChecks;
   }
-
   public function getHealthChecks()
   {
     return $this->healthChecks;
@@ -1613,7 +1509,6 @@ class Google_Service_Manager_ReplicaPoolModule extends Google_Collection
   {
     $this->numReplicas = $numReplicas;
   }
-
   public function getNumReplicas()
   {
     return $this->numReplicas;
@@ -1622,7 +1517,6 @@ class Google_Service_Manager_ReplicaPoolModule extends Google_Collection
   {
     $this->replicaPoolParams = $replicaPoolParams;
   }
-
   public function getReplicaPoolParams()
   {
     return $this->replicaPoolParams;
@@ -1631,20 +1525,14 @@ class Google_Service_Manager_ReplicaPoolModule extends Google_Collection
   {
     $this->resourceView = $resourceView;
   }
-
   public function getResourceView()
   {
     return $this->resourceView;
   }
-
 }
 
 class Google_Service_Manager_ReplicaPoolModuleEnvVariables extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_Manager_ReplicaPoolModuleStatus extends Google_Model
@@ -1654,11 +1542,11 @@ class Google_Service_Manager_ReplicaPoolModuleStatus extends Google_Model
   public $replicaPoolUrl;
   public $resourceViewUrl;
 
+
   public function setReplicaPoolUrl($replicaPoolUrl)
   {
     $this->replicaPoolUrl = $replicaPoolUrl;
   }
-
   public function getReplicaPoolUrl()
   {
     return $this->replicaPoolUrl;
@@ -1667,12 +1555,10 @@ class Google_Service_Manager_ReplicaPoolModuleStatus extends Google_Model
   {
     $this->resourceViewUrl = $resourceViewUrl;
   }
-
   public function getResourceViewUrl()
   {
     return $this->resourceViewUrl;
   }
-
 }
 
 class Google_Service_Manager_ReplicaPoolParams extends Google_Model
@@ -1682,16 +1568,15 @@ class Google_Service_Manager_ReplicaPoolParams extends Google_Model
   protected $v1beta1Type = 'Google_Service_Manager_ReplicaPoolParamsV1Beta1';
   protected $v1beta1DataType = '';
 
+
   public function setV1beta1(Google_Service_Manager_ReplicaPoolParamsV1Beta1 $v1beta1)
   {
     $this->v1beta1 = $v1beta1;
   }
-
   public function getV1beta1()
   {
     return $this->v1beta1;
   }
-
 }
 
 class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
@@ -1720,11 +1605,11 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   protected $tagsDataType = '';
   public $zone;
 
+
   public function setAutoRestart($autoRestart)
   {
     $this->autoRestart = $autoRestart;
   }
-
   public function getAutoRestart()
   {
     return $this->autoRestart;
@@ -1733,7 +1618,6 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->baseInstanceName = $baseInstanceName;
   }
-
   public function getBaseInstanceName()
   {
     return $this->baseInstanceName;
@@ -1742,7 +1626,6 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->canIpForward = $canIpForward;
   }
-
   public function getCanIpForward()
   {
     return $this->canIpForward;
@@ -1751,7 +1634,6 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -1760,7 +1642,6 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->disksToAttach = $disksToAttach;
   }
-
   public function getDisksToAttach()
   {
     return $this->disksToAttach;
@@ -1769,7 +1650,6 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->disksToCreate = $disksToCreate;
   }
-
   public function getDisksToCreate()
   {
     return $this->disksToCreate;
@@ -1778,7 +1658,6 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->initAction = $initAction;
   }
-
   public function getInitAction()
   {
     return $this->initAction;
@@ -1787,7 +1666,6 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->machineType = $machineType;
   }
-
   public function getMachineType()
   {
     return $this->machineType;
@@ -1796,7 +1674,6 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->metadata = $metadata;
   }
-
   public function getMetadata()
   {
     return $this->metadata;
@@ -1805,7 +1682,6 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->networkInterfaces = $networkInterfaces;
   }
-
   public function getNetworkInterfaces()
   {
     return $this->networkInterfaces;
@@ -1814,7 +1690,6 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->onHostMaintenance = $onHostMaintenance;
   }
-
   public function getOnHostMaintenance()
   {
     return $this->onHostMaintenance;
@@ -1823,7 +1698,6 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->serviceAccounts = $serviceAccounts;
   }
-
   public function getServiceAccounts()
   {
     return $this->serviceAccounts;
@@ -1832,7 +1706,6 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->tags = $tags;
   }
-
   public function getTags()
   {
     return $this->tags;
@@ -1841,12 +1714,10 @@ class Google_Service_Manager_ReplicaPoolParamsV1Beta1 extends Google_Collection
   {
     $this->zone = $zone;
   }
-
   public function getZone()
   {
     return $this->zone;
   }
-
 }
 
 class Google_Service_Manager_ServiceAccount extends Google_Collection
@@ -1857,11 +1728,11 @@ class Google_Service_Manager_ServiceAccount extends Google_Collection
   public $email;
   public $scopes;
 
+
   public function setEmail($email)
   {
     $this->email = $email;
   }
-
   public function getEmail()
   {
     return $this->email;
@@ -1870,12 +1741,10 @@ class Google_Service_Manager_ServiceAccount extends Google_Collection
   {
     $this->scopes = $scopes;
   }
-
   public function getScopes()
   {
     return $this->scopes;
   }
-
 }
 
 class Google_Service_Manager_Tag extends Google_Collection
@@ -1886,11 +1755,11 @@ class Google_Service_Manager_Tag extends Google_Collection
   public $fingerPrint;
   public $items;
 
+
   public function setFingerPrint($fingerPrint)
   {
     $this->fingerPrint = $fingerPrint;
   }
-
   public function getFingerPrint()
   {
     return $this->fingerPrint;
@@ -1899,12 +1768,10 @@ class Google_Service_Manager_Tag extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
   }
-
 }
 
 class Google_Service_Manager_Template extends Google_Model
@@ -1918,11 +1785,11 @@ class Google_Service_Manager_Template extends Google_Model
   protected $modulesDataType = 'map';
   public $name;
 
+
   public function setActions($actions)
   {
     $this->actions = $actions;
   }
-
   public function getActions()
   {
     return $this->actions;
@@ -1931,7 +1798,6 @@ class Google_Service_Manager_Template extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -1940,7 +1806,6 @@ class Google_Service_Manager_Template extends Google_Model
   {
     $this->modules = $modules;
   }
-
   public function getModules()
   {
     return $this->modules;
@@ -1949,28 +1814,18 @@ class Google_Service_Manager_Template extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_Manager_TemplateActions extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_Manager_TemplateModules extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_Manager_TemplatesListResponse extends Google_Collection
@@ -1982,11 +1837,11 @@ class Google_Service_Manager_TemplatesListResponse extends Google_Collection
   protected $resourcesType = 'Google_Service_Manager_Template';
   protected $resourcesDataType = 'array';
 
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -1995,10 +1850,8 @@ class Google_Service_Manager_TemplatesListResponse extends Google_Collection
   {
     $this->resources = $resources;
   }
-
   public function getResources()
   {
     return $this->resources;
   }
-
 }
