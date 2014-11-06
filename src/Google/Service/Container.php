@@ -19,8 +19,8 @@
  * Service definition for Container (v1beta1).
  *
  * <p>
- * The Google Container Engine API is used for building and managing container based applications, powered by the open source Kubernetes technology.
- * </p>
+ * The Google Container Engine API is used for building and managing container
+ * based applications, powered by the open source Kubernetes technology.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,7 +32,8 @@
 class Google_Service_Container extends Google_Service
 {
   /** View and manage your data across Google Cloud Platform services. */
-  const CLOUD_PLATFORM = "https://www.googleapis.com/auth/cloud-platform";
+  const CLOUD_PLATFORM =
+      "https://www.googleapis.com/auth/cloud-platform";
 
   public $projects_clusters;
   public $projects_operations;
@@ -231,7 +232,6 @@ class Google_Service_Container extends Google_Service
  */
 class Google_Service_Container_Projects_Resource extends Google_Service_Resource
 {
-
 }
 
 /**
@@ -249,8 +249,8 @@ class Google_Service_Container_ProjectsClusters_Resource extends Google_Service_
    * Lists all clusters owned by a project across all zones.
    * (clusters.listProjectsClusters)
    *
-   * @param string $projectId
-   * The Google Developers Console project ID or  project number.
+   * @param string $projectId The Google Developers Console project ID or  project
+   * number.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Container_ListAggregatedClustersResponse
    */
@@ -276,8 +276,8 @@ class Google_Service_Container_ProjectsOperations_Resource extends Google_Servic
    * Lists all operations in a project, across all zones.
    * (operations.listProjectsOperations)
    *
-   * @param string $projectId
-   * The Google Developers Console project ID or  project number.
+   * @param string $projectId The Google Developers Console project ID or  project
+   * number.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Container_ListAggregatedOperationsResponse
    */
@@ -298,7 +298,6 @@ class Google_Service_Container_ProjectsOperations_Resource extends Google_Servic
  */
 class Google_Service_Container_ProjectsZones_Resource extends Google_Service_Resource
 {
-
 }
 
 /**
@@ -326,10 +325,10 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
    * Finally, a route named k8s-iproute-10-xx-0-0 is created to track that the
    * cluster's 10.xx.0.0/16 CIDR has been assigned. (clusters.create)
    *
-   * @param string $projectId
-   * The Google Developers Console project ID or  project number.
-   * @param string $zoneId
-   * The name of the Google Compute Engine zone in which the cluster resides.
+   * @param string $projectId The Google Developers Console project ID or  project
+   * number.
+   * @param string $zoneId The name of the Google Compute Engine zone in which the
+   * cluster resides.
    * @param Google_CreateClusterRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Container_Operation
@@ -340,18 +339,18 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
     $params = array_merge($params, $optParams);
     return $this->call('create', array($params), "Google_Service_Container_Operation");
   }
+
   /**
    * Deletes the cluster, including the Kubernetes master and all worker nodes.
    *
    * Firewalls and routes that were configured at cluster creation are also
    * deleted. (clusters.delete)
    *
-   * @param string $projectId
-   * The Google Developers Console project ID or  project number.
-   * @param string $zoneId
-   * The name of the Google Compute Engine zone in which the cluster resides.
-   * @param string $clusterId
-   * The name of the cluster to delete.
+   * @param string $projectId The Google Developers Console project ID or  project
+   * number.
+   * @param string $zoneId The name of the Google Compute Engine zone in which the
+   * cluster resides.
+   * @param string $clusterId The name of the cluster to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Container_Operation
    */
@@ -361,15 +360,15 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params), "Google_Service_Container_Operation");
   }
+
   /**
    * Gets a specific cluster. (clusters.get)
    *
-   * @param string $projectId
-   * The Google Developers Console project ID or  project number.
-   * @param string $zoneId
-   * The name of the Google Compute Engine zone in which the cluster resides.
-   * @param string $clusterId
-   * The name of the cluster to retrieve.
+   * @param string $projectId The Google Developers Console project ID or  project
+   * number.
+   * @param string $zoneId The name of the Google Compute Engine zone in which the
+   * cluster resides.
+   * @param string $clusterId The name of the cluster to retrieve.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Container_Cluster
    */
@@ -379,14 +378,15 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Container_Cluster");
   }
+
   /**
    * Lists all clusters owned by a project in the specified zone.
    * (clusters.listProjectsZonesClusters)
    *
-   * @param string $projectId
-   * The Google Developers Console project ID or  project number.
-   * @param string $zoneId
-   * The name of the Google Compute Engine zone in which the cluster resides.
+   * @param string $projectId The Google Developers Console project ID or  project
+   * number.
+   * @param string $zoneId The name of the Google Compute Engine zone in which the
+   * cluster resides.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Container_ListClustersResponse
    */
@@ -411,13 +411,12 @@ class Google_Service_Container_ProjectsZonesOperations_Resource extends Google_S
   /**
    * Gets the specified operation. (operations.get)
    *
-   * @param string $projectId
-   * The Google Developers Console project ID or  project number.
-   * @param string $zoneId
-   * The name of the Google Compute Engine zone in which the operation resides. This is always the
-    * same zone as the cluster with which the operation is associated.
-   * @param string $operationId
-   * The server-assigned name of the operation.
+   * @param string $projectId The Google Developers Console project ID or  project
+   * number.
+   * @param string $zoneId The name of the Google Compute Engine zone in which the
+   * operation resides. This is always the same zone as the cluster with which the
+   * operation is associated.
+   * @param string $operationId The server-assigned name of the operation.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Container_Operation
    */
@@ -427,14 +426,15 @@ class Google_Service_Container_ProjectsZonesOperations_Resource extends Google_S
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Container_Operation");
   }
+
   /**
    * Lists all operations in a project in a specific zone.
    * (operations.listProjectsZonesOperations)
    *
-   * @param string $projectId
-   * The Google Developers Console project ID or  project number.
-   * @param string $zoneId
-   * The name of the Google Compute Engine zone to return operations for.
+   * @param string $projectId The Google Developers Console project ID or  project
+   * number.
+   * @param string $zoneId The name of the Google Compute Engine zone to return
+   * operations for.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Container_ListOperationsResponse
    */
@@ -470,11 +470,11 @@ class Google_Service_Container_Cluster extends Google_Model
   public $statusMessage;
   public $zone;
 
+
   public function setClusterApiVersion($clusterApiVersion)
   {
     $this->clusterApiVersion = $clusterApiVersion;
   }
-
   public function getClusterApiVersion()
   {
     return $this->clusterApiVersion;
@@ -483,7 +483,6 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->containerIpv4Cidr = $containerIpv4Cidr;
   }
-
   public function getContainerIpv4Cidr()
   {
     return $this->containerIpv4Cidr;
@@ -492,7 +491,6 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->creationTimestamp = $creationTimestamp;
   }
-
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
@@ -501,7 +499,6 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -510,7 +507,6 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->endpoint = $endpoint;
   }
-
   public function getEndpoint()
   {
     return $this->endpoint;
@@ -519,7 +515,6 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->masterAuth = $masterAuth;
   }
-
   public function getMasterAuth()
   {
     return $this->masterAuth;
@@ -528,7 +523,6 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -537,7 +531,6 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->nodeConfig = $nodeConfig;
   }
-
   public function getNodeConfig()
   {
     return $this->nodeConfig;
@@ -546,7 +539,6 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->nodeRoutingPrefixSize = $nodeRoutingPrefixSize;
   }
-
   public function getNodeRoutingPrefixSize()
   {
     return $this->nodeRoutingPrefixSize;
@@ -555,7 +547,6 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->numNodes = $numNodes;
   }
-
   public function getNumNodes()
   {
     return $this->numNodes;
@@ -564,7 +555,6 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->servicesIpv4Cidr = $servicesIpv4Cidr;
   }
-
   public function getServicesIpv4Cidr()
   {
     return $this->servicesIpv4Cidr;
@@ -573,7 +563,6 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
@@ -582,7 +571,6 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->statusMessage = $statusMessage;
   }
-
   public function getStatusMessage()
   {
     return $this->statusMessage;
@@ -591,12 +579,10 @@ class Google_Service_Container_Cluster extends Google_Model
   {
     $this->zone = $zone;
   }
-
   public function getZone()
   {
     return $this->zone;
   }
-
 }
 
 class Google_Service_Container_CreateClusterRequest extends Google_Model
@@ -606,16 +592,15 @@ class Google_Service_Container_CreateClusterRequest extends Google_Model
   protected $clusterType = 'Google_Service_Container_Cluster';
   protected $clusterDataType = '';
 
+
   public function setCluster(Google_Service_Container_Cluster $cluster)
   {
     $this->cluster = $cluster;
   }
-
   public function getCluster()
   {
     return $this->cluster;
   }
-
 }
 
 class Google_Service_Container_ListAggregatedClustersResponse extends Google_Collection
@@ -626,16 +611,15 @@ class Google_Service_Container_ListAggregatedClustersResponse extends Google_Col
   protected $clustersType = 'Google_Service_Container_Cluster';
   protected $clustersDataType = 'array';
 
+
   public function setClusters($clusters)
   {
     $this->clusters = $clusters;
   }
-
   public function getClusters()
   {
     return $this->clusters;
   }
-
 }
 
 class Google_Service_Container_ListAggregatedOperationsResponse extends Google_Collection
@@ -646,16 +630,15 @@ class Google_Service_Container_ListAggregatedOperationsResponse extends Google_C
   protected $operationsType = 'Google_Service_Container_Operation';
   protected $operationsDataType = 'array';
 
+
   public function setOperations($operations)
   {
     $this->operations = $operations;
   }
-
   public function getOperations()
   {
     return $this->operations;
   }
-
 }
 
 class Google_Service_Container_ListClustersResponse extends Google_Collection
@@ -666,16 +649,15 @@ class Google_Service_Container_ListClustersResponse extends Google_Collection
   protected $clustersType = 'Google_Service_Container_Cluster';
   protected $clustersDataType = 'array';
 
+
   public function setClusters($clusters)
   {
     $this->clusters = $clusters;
   }
-
   public function getClusters()
   {
     return $this->clusters;
   }
-
 }
 
 class Google_Service_Container_ListOperationsResponse extends Google_Collection
@@ -686,16 +668,15 @@ class Google_Service_Container_ListOperationsResponse extends Google_Collection
   protected $operationsType = 'Google_Service_Container_Operation';
   protected $operationsDataType = 'array';
 
+
   public function setOperations($operations)
   {
     $this->operations = $operations;
   }
-
   public function getOperations()
   {
     return $this->operations;
   }
-
 }
 
 class Google_Service_Container_MasterAuth extends Google_Model
@@ -705,11 +686,11 @@ class Google_Service_Container_MasterAuth extends Google_Model
   public $password;
   public $user;
 
+
   public function setPassword($password)
   {
     $this->password = $password;
   }
-
   public function getPassword()
   {
     return $this->password;
@@ -718,12 +699,10 @@ class Google_Service_Container_MasterAuth extends Google_Model
   {
     $this->user = $user;
   }
-
   public function getUser()
   {
     return $this->user;
   }
-
 }
 
 class Google_Service_Container_NodeConfig extends Google_Model
@@ -733,11 +712,11 @@ class Google_Service_Container_NodeConfig extends Google_Model
   public $machineType;
   public $sourceImage;
 
+
   public function setMachineType($machineType)
   {
     $this->machineType = $machineType;
   }
-
   public function getMachineType()
   {
     return $this->machineType;
@@ -746,12 +725,10 @@ class Google_Service_Container_NodeConfig extends Google_Model
   {
     $this->sourceImage = $sourceImage;
   }
-
   public function getSourceImage()
   {
     return $this->sourceImage;
   }
-
 }
 
 class Google_Service_Container_Operation extends Google_Model
@@ -765,11 +742,11 @@ class Google_Service_Container_Operation extends Google_Model
   public $target;
   public $zone;
 
+
   public function setErrorMessage($errorMessage)
   {
     $this->errorMessage = $errorMessage;
   }
-
   public function getErrorMessage()
   {
     return $this->errorMessage;
@@ -778,7 +755,6 @@ class Google_Service_Container_Operation extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -787,7 +763,6 @@ class Google_Service_Container_Operation extends Google_Model
   {
     $this->operationType = $operationType;
   }
-
   public function getOperationType()
   {
     return $this->operationType;
@@ -796,7 +771,6 @@ class Google_Service_Container_Operation extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
@@ -805,7 +779,6 @@ class Google_Service_Container_Operation extends Google_Model
   {
     $this->target = $target;
   }
-
   public function getTarget()
   {
     return $this->target;
@@ -814,10 +787,8 @@ class Google_Service_Container_Operation extends Google_Model
   {
     $this->zone = $zone;
   }
-
   public function getZone()
   {
     return $this->zone;
   }
-
 }
