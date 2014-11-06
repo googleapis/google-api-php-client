@@ -19,8 +19,7 @@
  * Service definition for YouTube (v3).
  *
  * <p>
- * Programmatic access to YouTube features.
- * </p>
+ * Programmatic access to YouTube features.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,15 +31,20 @@
 class Google_Service_YouTube extends Google_Service
 {
   /** Manage your YouTube account. */
-  const YOUTUBE = "https://www.googleapis.com/auth/youtube";
+  const YOUTUBE =
+      "https://www.googleapis.com/auth/youtube";
   /** View your YouTube account. */
-  const YOUTUBE_READONLY = "https://www.googleapis.com/auth/youtube.readonly";
+  const YOUTUBE_READONLY =
+      "https://www.googleapis.com/auth/youtube.readonly";
   /** Manage your YouTube videos. */
-  const YOUTUBE_UPLOAD = "https://www.googleapis.com/auth/youtube.upload";
+  const YOUTUBE_UPLOAD =
+      "https://www.googleapis.com/auth/youtube.upload";
   /** View and manage your assets and associated content on YouTube. */
-  const YOUTUBEPARTNER = "https://www.googleapis.com/auth/youtubepartner";
+  const YOUTUBEPARTNER =
+      "https://www.googleapis.com/auth/youtubepartner";
   /** View private information of your YouTube channel relevant during the audit process with a YouTube partner. */
-  const YOUTUBEPARTNER_CHANNEL_AUDIT = "https://www.googleapis.com/auth/youtubepartner-channel-audit";
+  const YOUTUBEPARTNER_CHANNEL_AUDIT =
+      "https://www.googleapis.com/auth/youtubepartner-channel-audit";
 
   public $activities;
   public $channelBanners;
@@ -1319,11 +1323,12 @@ class Google_Service_YouTube_Activities_Resource extends Google_Service_Resource
    * playlistItems.insert() method to mark a video as a favorite.
    * (activities.insert)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * names that you can include in the parameter value are snippet and contentDetails.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are snippet and
+   * contentDetails.
    * @param Google_Activity $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_YouTube_Activity
@@ -1334,6 +1339,7 @@ class Google_Service_YouTube_Activities_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_YouTube_Activity");
   }
+
   /**
    * Returns a list of channel activity events that match the request criteria.
    * For example, you can retrieve events associated with a particular channel,
@@ -1341,47 +1347,50 @@ class Google_Service_YouTube_Activities_Resource extends Google_Service_Resource
    * YouTube home page feed, which is customized for each user.
    * (activities.listActivities)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more activity resource properties
-    * that the API response will include. The part names that you can include in the parameter value
-    * are id, snippet, and contentDetails.
-  If the parameter identifies a property that contains child
-    * properties, the child properties will be included in the response. For example, in a activity
-    * resource, the snippet property contains other properties that identify the type of activity, a
-    * display title for the activity, and so forth. If you set part=snippet, the API response will
-    * also contain all of those nested properties.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more activity resource properties that the API response will include.
+   * The part names that you can include in the parameter value are id, snippet,
+   * and contentDetails.
+   *
+   * If the parameter identifies a property that contains child properties, the
+   * child properties will be included in the response. For example, in a activity
+   * resource, the snippet property contains other properties that identify the
+   * type of activity, a display title for the activity, and so forth. If you set
+   * part=snippet, the API response will also contain all of those nested
+   * properties.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string regionCode
-   * The regionCode parameter instructs the API to return results for the specified country. The
-    * parameter value is an ISO 3166-1 alpha-2 country code. YouTube uses this value when the
-    * authorized user's previous activity on YouTube does not provide enough information to generate
-    * the activity feed.
-   * @opt_param string publishedBefore
-   * The publishedBefore parameter specifies the date and time before which an activity must have
-    * occurred for that activity to be included in the API response. If the parameter value specifies
-    * a day, but not a time, then any activities that occurred that day will be excluded from the
-    * result set. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
-   * @opt_param string channelId
-   * The channelId parameter specifies a unique YouTube channel ID. The API will then return a list
-    * of that channel's activities.
-   * @opt_param bool mine
-   * Set this parameter's value to true to retrieve a feed of the authenticated user's activities.
-   * @opt_param string maxResults
-   * The maxResults parameter specifies the maximum number of items that should be returned in the
-    * result set.
-   * @opt_param string pageToken
-   * The pageToken parameter identifies a specific page in the result set that should be returned. In
-    * an API response, the nextPageToken and prevPageToken properties identify other pages that could
-    * be retrieved.
-   * @opt_param bool home
-   * Set this parameter's value to true to retrieve the activity feed that displays on the YouTube
-    * home page for the currently authenticated user.
-   * @opt_param string publishedAfter
-   * The publishedAfter parameter specifies the earliest date and time that an activity could have
-    * occurred for that activity to be included in the API response. If the parameter value specifies
-    * a day, but not a time, then any activities that occurred that day will be included in the result
-    * set. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.
+   * @opt_param string regionCode The regionCode parameter instructs the API to
+   * return results for the specified country. The parameter value is an ISO
+   * 3166-1 alpha-2 country code. YouTube uses this value when the authorized
+   * user's previous activity on YouTube does not provide enough information to
+   * generate the activity feed.
+   * @opt_param string publishedBefore The publishedBefore parameter specifies the
+   * date and time before which an activity must have occurred for that activity
+   * to be included in the API response. If the parameter value specifies a day,
+   * but not a time, then any activities that occurred that day will be excluded
+   * from the result set. The value is specified in ISO 8601 (YYYY-MM-
+   * DDThh:mm:ss.sZ) format.
+   * @opt_param string channelId The channelId parameter specifies a unique
+   * YouTube channel ID. The API will then return a list of that channel's
+   * activities.
+   * @opt_param bool mine Set this parameter's value to true to retrieve a feed of
+   * the authenticated user's activities.
+   * @opt_param string maxResults The maxResults parameter specifies the maximum
+   * number of items that should be returned in the result set.
+   * @opt_param string pageToken The pageToken parameter identifies a specific
+   * page in the result set that should be returned. In an API response, the
+   * nextPageToken and prevPageToken properties identify other pages that could be
+   * retrieved.
+   * @opt_param bool home Set this parameter's value to true to retrieve the
+   * activity feed that displays on the YouTube home page for the currently
+   * authenticated user.
+   * @opt_param string publishedAfter The publishedAfter parameter specifies the
+   * earliest date and time that an activity could have occurred for that activity
+   * to be included in the API response. If the parameter value specifies a day,
+   * but not a time, then any activities that occurred that day will be included
+   * in the result set. The value is specified in ISO 8601 (YYYY-MM-
+   * DDThh:mm:ss.sZ) format.
    * @return Google_Service_YouTube_ActivityListResponse
    */
   public function listActivities($part, $optParams = array())
@@ -1417,16 +1426,18 @@ class Google_Service_YouTube_ChannelBanners_Resource extends Google_Service_Reso
    * @param Google_ChannelBannerResource $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    * @return Google_Service_YouTube_ChannelBannerResource
    */
   public function insert(Google_Service_YouTube_ChannelBannerResource $postBody, $optParams = array())
@@ -1451,9 +1462,9 @@ class Google_Service_YouTube_ChannelSections_Resource extends Google_Service_Res
   /**
    * Deletes a channelSection. (channelSections.delete)
    *
-   * @param string $id
-   * The id parameter specifies the YouTube channelSection ID for the resource that is being deleted.
-    * In a channelSection resource, the id property specifies the YouTube channelSection ID.
+   * @param string $id The id parameter specifies the YouTube channelSection ID
+   * for the resource that is being deleted. In a channelSection resource, the id
+   * property specifies the YouTube channelSection ID.
    * @param array $optParams Optional parameters.
    */
   public function delete($id, $optParams = array())
@@ -1462,43 +1473,51 @@ class Google_Service_YouTube_ChannelSections_Resource extends Google_Service_Res
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Adds a channelSection for the authenticated user's channel.
    * (channelSections.insert)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * names that you can include in the parameter value are snippet and contentDetails.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are snippet and
+   * contentDetails.
    * @param Google_ChannelSection $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    * @return Google_Service_YouTube_ChannelSection
    */
   public function insert($part, Google_Service_YouTube_ChannelSection $postBody, $optParams = array())
@@ -1507,41 +1526,43 @@ class Google_Service_YouTube_ChannelSections_Resource extends Google_Service_Res
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_YouTube_ChannelSection");
   }
+
   /**
    * Returns channelSection resources that match the API request criteria.
    * (channelSections.listChannelSections)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more channelSection resource
-    * properties that the API response will include. The part names that you can include in the
-    * parameter value are id, snippet, and contentDetails.
-  If the parameter identifies a property
-    * that contains child properties, the child properties will be included in the response. For
-    * example, in a channelSection resource, the snippet property contains other properties, such as a
-    * display title for the channelSection. If you set part=snippet, the API response will also
-    * contain all of those nested properties.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more channelSection resource properties that the API response will
+   * include. The part names that you can include in the parameter value are id,
+   * snippet, and contentDetails.
+   *
+   * If the parameter identifies a property that contains child properties, the
+   * child properties will be included in the response. For example, in a
+   * channelSection resource, the snippet property contains other properties, such
+   * as a display title for the channelSection. If you set part=snippet, the API
+   * response will also contain all of those nested properties.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
-   * @opt_param string channelId
-   * The channelId parameter specifies a YouTube channel ID. The API will only return that channel's
-    * channelSections.
-   * @opt_param string id
-   * The id parameter specifies a comma-separated list of the YouTube channelSection ID(s) for the
-    * resource(s) that are being retrieved. In a channelSection resource, the id property specifies
-    * the YouTube channelSection ID.
-   * @opt_param bool mine
-   * Set this parameter's value to true to retrieve a feed of the authenticated user's
-    * channelSections.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param string channelId The channelId parameter specifies a YouTube
+   * channel ID. The API will only return that channel's channelSections.
+   * @opt_param string id The id parameter specifies a comma-separated list of the
+   * YouTube channelSection ID(s) for the resource(s) that are being retrieved. In
+   * a channelSection resource, the id property specifies the YouTube
+   * channelSection ID.
+   * @opt_param bool mine Set this parameter's value to true to retrieve a feed of
+   * the authenticated user's channelSections.
    * @return Google_Service_YouTube_ChannelSectionListResponse
    */
   public function listChannelSections($part, $optParams = array())
@@ -1550,14 +1571,16 @@ class Google_Service_YouTube_ChannelSections_Resource extends Google_Service_Res
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_YouTube_ChannelSectionListResponse");
   }
+
   /**
    * Update a channelSection. (channelSections.update)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * names that you can include in the parameter value are snippet and contentDetails.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are snippet and
+   * contentDetails.
    * @param Google_ChannelSection $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_YouTube_ChannelSection
@@ -1585,52 +1608,49 @@ class Google_Service_YouTube_Channels_Resource extends Google_Service_Resource
    * Returns a collection of zero or more channel resources that match the request
    * criteria. (channels.listChannels)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more channel resource properties
-    * that the API response will include. The part names that you can include in the parameter value
-    * are id, snippet, contentDetails, statistics, topicDetails, and invideoPromotion.
-  If the
-    * parameter identifies a property that contains child properties, the child properties will be
-    * included in the response. For example, in a channel resource, the contentDetails property
-    * contains other properties, such as the uploads properties. As such, if you set
-    * part=contentDetails, the API response will also contain all of those nested properties.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more channel resource properties that the API response will include.
+   * The part names that you can include in the parameter value are id, snippet,
+   * contentDetails, statistics, topicDetails, and invideoPromotion.
+   *
+   * If the parameter identifies a property that contains child properties, the
+   * child properties will be included in the response. For example, in a channel
+   * resource, the contentDetails property contains other properties, such as the
+   * uploads properties. As such, if you set part=contentDetails, the API response
+   * will also contain all of those nested properties.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool managedByMe
-   * Set this parameter's value to true to instruct the API to only return channels managed by the
-    * content owner that the onBehalfOfContentOwner parameter specifies. The user must be
-    * authenticated as a CMS account linked to the specified content owner and onBehalfOfContentOwner
-    * must be provided.
-   * @opt_param string onBehalfOfContentOwner
-   * The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf
-    * of the content owner specified in the parameter value. This parameter is intended for YouTube
-    * content partners that own and manage many different YouTube channels. It allows content owners
-    * to authenticate once and get access to all their video and channel data, without having to
-    * provide authentication credentials for each individual channel. The actual CMS account that the
-    * user authenticates with needs to be linked to the specified YouTube content owner.
-   * @opt_param string forUsername
-   * The forUsername parameter specifies a YouTube username, thereby requesting the channel
-    * associated with that username.
-   * @opt_param bool mine
-   * Set this parameter's value to true to instruct the API to only return channels owned by the
-    * authenticated user.
-   * @opt_param string maxResults
-   * The maxResults parameter specifies the maximum number of items that should be returned in the
-    * result set.
-   * @opt_param string id
-   * The id parameter specifies a comma-separated list of the YouTube channel ID(s) for the
-    * resource(s) that are being retrieved. In a channel resource, the id property specifies the
-    * channel's YouTube channel ID.
-   * @opt_param string pageToken
-   * The pageToken parameter identifies a specific page in the result set that should be returned. In
-    * an API response, the nextPageToken and prevPageToken properties identify other pages that could
-    * be retrieved.
-   * @opt_param bool mySubscribers
-   * Set this parameter's value to true to retrieve a list of channels that subscribed to the
-    * authenticated user's channel.
-   * @opt_param string categoryId
-   * The categoryId parameter specifies a YouTube guide category, thereby requesting YouTube channels
-    * associated with that category.
+   * @opt_param bool managedByMe Set this parameter's value to true to instruct
+   * the API to only return channels managed by the content owner that the
+   * onBehalfOfContentOwner parameter specifies. The user must be authenticated as
+   * a CMS account linked to the specified content owner and
+   * onBehalfOfContentOwner must be provided.
+   * @opt_param string onBehalfOfContentOwner The onBehalfOfContentOwner parameter
+   * indicates that the authenticated user is acting on behalf of the content
+   * owner specified in the parameter value. This parameter is intended for
+   * YouTube content partners that own and manage many different YouTube channels.
+   * It allows content owners to authenticate once and get access to all their
+   * video and channel data, without having to provide authentication credentials
+   * for each individual channel. The actual CMS account that the user
+   * authenticates with needs to be linked to the specified YouTube content owner.
+   * @opt_param string forUsername The forUsername parameter specifies a YouTube
+   * username, thereby requesting the channel associated with that username.
+   * @opt_param bool mine Set this parameter's value to true to instruct the API
+   * to only return channels owned by the authenticated user.
+   * @opt_param string maxResults The maxResults parameter specifies the maximum
+   * number of items that should be returned in the result set.
+   * @opt_param string id The id parameter specifies a comma-separated list of the
+   * YouTube channel ID(s) for the resource(s) that are being retrieved. In a
+   * channel resource, the id property specifies the channel's YouTube channel ID.
+   * @opt_param string pageToken The pageToken parameter identifies a specific
+   * page in the result set that should be returned. In an API response, the
+   * nextPageToken and prevPageToken properties identify other pages that could be
+   * retrieved.
+   * @opt_param bool mySubscribers Set this parameter's value to true to retrieve
+   * a list of channels that subscribed to the authenticated user's channel.
+   * @opt_param string categoryId The categoryId parameter specifies a YouTube
+   * guide category, thereby requesting YouTube channels associated with that
+   * category.
    * @return Google_Service_YouTube_ChannelListResponse
    */
   public function listChannels($part, $optParams = array())
@@ -1639,27 +1659,31 @@ class Google_Service_YouTube_Channels_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_YouTube_ChannelListResponse");
   }
+
   /**
    * Updates a channel's metadata. (channels.update)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * names that you can include in the parameter value are id and invideoPromotion.
-  Note that this
-    * method will override the existing values for all of the mutable properties that are contained in
-    * any parts that the parameter value specifies.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are id and
+   * invideoPromotion.
+   *
+   * Note that this method will override the existing values for all of the
+   * mutable properties that are contained in any parts that the parameter value
+   * specifies.
    * @param Google_Channel $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf
-    * of the content owner specified in the parameter value. This parameter is intended for YouTube
-    * content partners that own and manage many different YouTube channels. It allows content owners
-    * to authenticate once and get access to all their video and channel data, without having to
-    * provide authentication credentials for each individual channel. The actual CMS account that the
-    * user authenticates with needs to be linked to the specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwner The onBehalfOfContentOwner parameter
+   * indicates that the authenticated user is acting on behalf of the content
+   * owner specified in the parameter value. This parameter is intended for
+   * YouTube content partners that own and manage many different YouTube channels.
+   * It allows content owners to authenticate once and get access to all their
+   * video and channel data, without having to provide authentication credentials
+   * for each individual channel. The actual CMS account that the user
+   * authenticates with needs to be linked to the specified YouTube content owner.
    * @return Google_Service_YouTube_Channel
    */
   public function update($part, Google_Service_YouTube_Channel $postBody, $optParams = array())
@@ -1685,26 +1709,27 @@ class Google_Service_YouTube_GuideCategories_Resource extends Google_Service_Res
    * Returns a list of categories that can be associated with YouTube channels.
    * (guideCategories.listGuideCategories)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more guideCategory resource
-    * properties that the API response will include. The part names that you can include in the
-    * parameter value are id and snippet.
-  If the parameter identifies a property that contains child
-    * properties, the child properties will be included in the response. For example, in a
-    * guideCategory resource, the snippet property contains other properties, such as the category's
-    * title. If you set part=snippet, the API response will also contain all of those nested
-    * properties.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more guideCategory resource properties that the API response will
+   * include. The part names that you can include in the parameter value are id
+   * and snippet.
+   *
+   * If the parameter identifies a property that contains child properties, the
+   * child properties will be included in the response. For example, in a
+   * guideCategory resource, the snippet property contains other properties, such
+   * as the category's title. If you set part=snippet, the API response will also
+   * contain all of those nested properties.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string regionCode
-   * The regionCode parameter instructs the API to return the list of guide categories available in
-    * the specified country. The parameter value is an ISO 3166-1 alpha-2 country code.
-   * @opt_param string id
-   * The id parameter specifies a comma-separated list of the YouTube channel category ID(s) for the
-    * resource(s) that are being retrieved. In a guideCategory resource, the id property specifies the
-    * YouTube channel category ID.
-   * @opt_param string hl
-   * The hl parameter specifies the language that will be used for text values in the API response.
+   * @opt_param string regionCode The regionCode parameter instructs the API to
+   * return the list of guide categories available in the specified country. The
+   * parameter value is an ISO 3166-1 alpha-2 country code.
+   * @opt_param string id The id parameter specifies a comma-separated list of the
+   * YouTube channel category ID(s) for the resource(s) that are being retrieved.
+   * In a guideCategory resource, the id property specifies the YouTube channel
+   * category ID.
+   * @opt_param string hl The hl parameter specifies the language that will be
+   * used for text values in the API response.
    * @return Google_Service_YouTube_GuideCategoryListResponse
    */
   public function listGuideCategories($part, $optParams = array())
@@ -1729,14 +1754,14 @@ class Google_Service_YouTube_I18nLanguages_Resource extends Google_Service_Resou
   /**
    * Returns a list of supported languages. (i18nLanguages.listI18nLanguages)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more i18nLanguage resource
-    * properties that the API response will include. The part names that you can include in the
-    * parameter value are id and snippet.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more i18nLanguage resource properties that the API response will
+   * include. The part names that you can include in the parameter value are id
+   * and snippet.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string hl
-   * The hl parameter specifies the language that should be used for text values in the API response.
+   * @opt_param string hl The hl parameter specifies the language that should be
+   * used for text values in the API response.
    * @return Google_Service_YouTube_I18nLanguageListResponse
    */
   public function listI18nLanguages($part, $optParams = array())
@@ -1761,14 +1786,14 @@ class Google_Service_YouTube_I18nRegions_Resource extends Google_Service_Resourc
   /**
    * Returns a list of supported regions. (i18nRegions.listI18nRegions)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more i18nRegion resource
-    * properties that the API response will include. The part names that you can include in the
-    * parameter value are id and snippet.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more i18nRegion resource properties that the API response will
+   * include. The part names that you can include in the parameter value are id
+   * and snippet.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string hl
-   * The hl parameter specifies the language that should be used for text values in the API response.
+   * @opt_param string hl The hl parameter specifies the language that should be
+   * used for text values in the API response.
    * @return Google_Service_YouTube_I18nRegionListResponse
    */
   public function listI18nRegions($part, $optParams = array())
@@ -1795,43 +1820,49 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
    * a broadcast and a stream. A broadcast can only be bound to one video stream.
    * (liveBroadcasts.bind)
    *
-   * @param string $id
-   * The id parameter specifies the unique ID of the broadcast that is being bound to a video stream.
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more liveBroadcast resource
-    * properties that the API response will include. The part names that you can include in the
-    * parameter value are id, snippet, contentDetails, and status.
+   * @param string $id The id parameter specifies the unique ID of the broadcast
+   * that is being bound to a video stream.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more liveBroadcast resource properties that the API response will
+   * include. The part names that you can include in the parameter value are id,
+   * snippet, contentDetails, and status.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
-   * @opt_param string streamId
-   * The streamId parameter specifies the unique ID of the video stream that is being bound to a
-    * broadcast. If this parameter is omitted, the API will remove any existing binding between the
-    * broadcast and a video stream.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param string streamId The streamId parameter specifies the unique ID of
+   * the video stream that is being bound to a broadcast. If this parameter is
+   * omitted, the API will remove any existing binding between the broadcast and a
+   * video stream.
    * @return Google_Service_YouTube_LiveBroadcast
    */
   public function bind($id, $part, $optParams = array())
@@ -1840,60 +1871,68 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
     $params = array_merge($params, $optParams);
     return $this->call('bind', array($params), "Google_Service_YouTube_LiveBroadcast");
   }
+
   /**
    * Controls the settings for a slate that can be displayed in the broadcast
    * stream. (liveBroadcasts.control)
    *
-   * @param string $id
-   * The id parameter specifies the YouTube live broadcast ID that uniquely identifies the broadcast
-    * in which the slate is being updated.
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more liveBroadcast resource
-    * properties that the API response will include. The part names that you can include in the
-    * parameter value are id, snippet, contentDetails, and status.
+   * @param string $id The id parameter specifies the YouTube live broadcast ID
+   * that uniquely identifies the broadcast in which the slate is being updated.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more liveBroadcast resource properties that the API response will
+   * include. The part names that you can include in the parameter value are id,
+   * snippet, contentDetails, and status.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
-   * @opt_param bool displaySlate
-   * The displaySlate parameter specifies whether the slate is being enabled or disabled.
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string offsetTimeMs
-   * The offsetTimeMs parameter specifies a positive time offset when the specified slate change will
-    * occur. The value is measured in milliseconds from the beginning of the broadcast's monitor
-    * stream, which is the time that the testing phase for the broadcast began. Even though it is
-    * specified in milliseconds, the value is actually an approximation, and YouTube completes the
-    * requested action as closely as possible to that time.
-  If you do not specify a value for this
-    * parameter, then YouTube performs the action as soon as possible. See the Getting started guide
-    * for more details.
-  Important: You should only specify a value for this parameter if your
-    * broadcast stream is delayed.
-   * @opt_param string walltime
-   * The walltime parameter specifies the wall clock time at which the specified slate change will
-    * occur. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sssZ) format.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param bool displaySlate The displaySlate parameter specifies whether the
+   * slate is being enabled or disabled.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string offsetTimeMs The offsetTimeMs parameter specifies a
+   * positive time offset when the specified slate change will occur. The value is
+   * measured in milliseconds from the beginning of the broadcast's monitor
+   * stream, which is the time that the testing phase for the broadcast began.
+   * Even though it is specified in milliseconds, the value is actually an
+   * approximation, and YouTube completes the requested action as closely as
+   * possible to that time.
+   *
+   * If you do not specify a value for this parameter, then YouTube performs the
+   * action as soon as possible. See the Getting started guide for more details.
+   *
+   * Important: You should only specify a value for this parameter if your
+   * broadcast stream is delayed.
+   * @opt_param string walltime The walltime parameter specifies the wall clock
+   * time at which the specified slate change will occur. The value is specified
+   * in ISO 8601 (YYYY-MM-DDThh:mm:ss.sssZ) format.
    * @return Google_Service_YouTube_LiveBroadcast
    */
   public function control($id, $part, $optParams = array())
@@ -1902,38 +1941,45 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
     $params = array_merge($params, $optParams);
     return $this->call('control', array($params), "Google_Service_YouTube_LiveBroadcast");
   }
+
   /**
    * Deletes a broadcast. (liveBroadcasts.delete)
    *
-   * @param string $id
-   * The id parameter specifies the YouTube live broadcast ID for the resource that is being deleted.
+   * @param string $id The id parameter specifies the YouTube live broadcast ID
+   * for the resource that is being deleted.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    */
   public function delete($id, $optParams = array())
   {
@@ -1941,43 +1987,50 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Creates a broadcast. (liveBroadcasts.insert)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * properties that you can include in the parameter value are id, snippet, contentDetails, and
-    * status.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part properties that you can include in the parameter value are id,
+   * snippet, contentDetails, and status.
    * @param Google_LiveBroadcast $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    * @return Google_Service_YouTube_LiveBroadcast
    */
   public function insert($part, Google_Service_YouTube_LiveBroadcast $postBody, $optParams = array())
@@ -1986,58 +2039,62 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_YouTube_LiveBroadcast");
   }
+
   /**
    * Returns a list of YouTube broadcasts that match the API request parameters.
    * (liveBroadcasts.listLiveBroadcasts)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more liveBroadcast resource
-    * properties that the API response will include. The part names that you can include in the
-    * parameter value are id, snippet, contentDetails, and status.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more liveBroadcast resource properties that the API response will
+   * include. The part names that you can include in the parameter value are id,
+   * snippet, contentDetails, and status.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string broadcastStatus
-   * The broadcastStatus parameter filters the API response to only include broadcasts with the
-    * specified status.
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param bool mine
-   * The mine parameter can be used to instruct the API to only return broadcasts owned by the
-    * authenticated user. Set the parameter value to true to only retrieve your own broadcasts.
-   * @opt_param string maxResults
-   * The maxResults parameter specifies the maximum number of items that should be returned in the
-    * result set.
-   * @opt_param string pageToken
-   * The pageToken parameter identifies a specific page in the result set that should be returned. In
-    * an API response, the nextPageToken and prevPageToken properties identify other pages that could
-    * be retrieved.
-   * @opt_param string id
-   * The id parameter specifies a comma-separated list of YouTube broadcast IDs that identify the
-    * broadcasts being retrieved. In a liveBroadcast resource, the id property specifies the
-    * broadcast's ID.
+   * @opt_param string broadcastStatus The broadcastStatus parameter filters the
+   * API response to only include broadcasts with the specified status.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param bool mine The mine parameter can be used to instruct the API to
+   * only return broadcasts owned by the authenticated user. Set the parameter
+   * value to true to only retrieve your own broadcasts.
+   * @opt_param string maxResults The maxResults parameter specifies the maximum
+   * number of items that should be returned in the result set.
+   * @opt_param string pageToken The pageToken parameter identifies a specific
+   * page in the result set that should be returned. In an API response, the
+   * nextPageToken and prevPageToken properties identify other pages that could be
+   * retrieved.
+   * @opt_param string id The id parameter specifies a comma-separated list of
+   * YouTube broadcast IDs that identify the broadcasts being retrieved. In a
+   * liveBroadcast resource, the id property specifies the broadcast's ID.
    * @return Google_Service_YouTube_LiveBroadcastListResponse
    */
   public function listLiveBroadcasts($part, $optParams = array())
@@ -2046,6 +2103,7 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_YouTube_LiveBroadcastListResponse");
   }
+
   /**
    * Changes the status of a YouTube live broadcast and initiates any processes
    * associated with the new status. For example, when you transition a
@@ -2054,44 +2112,49 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
    * that the value of the status.streamStatus property for the stream bound to
    * your broadcast is active. (liveBroadcasts.transition)
    *
-   * @param string $broadcastStatus
-   * The broadcastStatus parameter identifies the state to which the broadcast is changing. Note that
-    * to transition a broadcast to either the testing or live state, the status.streamStatus must be
-    * active for the stream that the broadcast is bound to.
-   * @param string $id
-   * The id parameter specifies the unique ID of the broadcast that is transitioning to another
-    * status.
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more liveBroadcast resource
-    * properties that the API response will include. The part names that you can include in the
-    * parameter value are id, snippet, contentDetails, and status.
+   * @param string $broadcastStatus The broadcastStatus parameter identifies the
+   * state to which the broadcast is changing. Note that to transition a broadcast
+   * to either the testing or live state, the status.streamStatus must be active
+   * for the stream that the broadcast is bound to.
+   * @param string $id The id parameter specifies the unique ID of the broadcast
+   * that is transitioning to another status.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more liveBroadcast resource properties that the API response will
+   * include. The part names that you can include in the parameter value are id,
+   * snippet, contentDetails, and status.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    * @return Google_Service_YouTube_LiveBroadcast
    */
   public function transition($broadcastStatus, $id, $part, $optParams = array())
@@ -2100,52 +2163,62 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
     $params = array_merge($params, $optParams);
     return $this->call('transition', array($params), "Google_Service_YouTube_LiveBroadcast");
   }
+
   /**
    * Updates a broadcast. For example, you could modify the broadcast settings
    * defined in the liveBroadcast resource's contentDetails object.
    * (liveBroadcasts.update)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * properties that you can include in the parameter value are id, snippet, contentDetails, and
-    * status.
-  Note that this method will override the existing values for all of the mutable
-    * properties that are contained in any parts that the parameter value specifies. For example, a
-    * broadcast's privacy status is defined in the status part. As such, if your request is updating a
-    * private or unlisted broadcast, and the request's part parameter value includes the status part,
-    * the broadcast's privacy setting will be updated to whatever value the request body specifies. If
-    * the request body does not specify a value, the existing privacy setting will be removed and the
-    * broadcast will revert to the default privacy setting.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part properties that you can include in the parameter value are id,
+   * snippet, contentDetails, and status.
+   *
+   * Note that this method will override the existing values for all of the
+   * mutable properties that are contained in any parts that the parameter value
+   * specifies. For example, a broadcast's privacy status is defined in the status
+   * part. As such, if your request is updating a private or unlisted broadcast,
+   * and the request's part parameter value includes the status part, the
+   * broadcast's privacy setting will be updated to whatever value the request
+   * body specifies. If the request body does not specify a value, the existing
+   * privacy setting will be removed and the broadcast will revert to the default
+   * privacy setting.
    * @param Google_LiveBroadcast $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    * @return Google_Service_YouTube_LiveBroadcast
    */
   public function update($part, Google_Service_YouTube_LiveBroadcast $postBody, $optParams = array())
@@ -2170,35 +2243,41 @@ class Google_Service_YouTube_LiveStreams_Resource extends Google_Service_Resourc
   /**
    * Deletes a video stream. (liveStreams.delete)
    *
-   * @param string $id
-   * The id parameter specifies the YouTube live stream ID for the resource that is being deleted.
+   * @param string $id The id parameter specifies the YouTube live stream ID for
+   * the resource that is being deleted.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    */
   public function delete($id, $optParams = array())
   {
@@ -2206,43 +2285,51 @@ class Google_Service_YouTube_LiveStreams_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Creates a video stream. The stream enables you to send your video to YouTube,
    * which can then broadcast the video to your audience. (liveStreams.insert)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * properties that you can include in the parameter value are id, snippet, cdn, and status.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part properties that you can include in the parameter value are id,
+   * snippet, cdn, and status.
    * @param Google_LiveStream $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    * @return Google_Service_YouTube_LiveStream
    */
   public function insert($part, Google_Service_YouTube_LiveStream $postBody, $optParams = array())
@@ -2251,54 +2338,61 @@ class Google_Service_YouTube_LiveStreams_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_YouTube_LiveStream");
   }
+
   /**
    * Returns a list of video streams that match the API request parameters.
    * (liveStreams.listLiveStreams)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more liveStream resource
-    * properties that the API response will include. The part names that you can include in the
-    * parameter value are id, snippet, cdn, and status.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more liveStream resource properties that the API response will
+   * include. The part names that you can include in the parameter value are id,
+   * snippet, cdn, and status.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param bool mine
-   * The mine parameter can be used to instruct the API to only return streams owned by the
-    * authenticated user. Set the parameter value to true to only retrieve your own streams.
-   * @opt_param string maxResults
-   * The maxResults parameter specifies the maximum number of items that should be returned in the
-    * result set. Acceptable values are 0 to 50, inclusive. The default value is 5.
-   * @opt_param string pageToken
-   * The pageToken parameter identifies a specific page in the result set that should be returned. In
-    * an API response, the nextPageToken and prevPageToken properties identify other pages that could
-    * be retrieved.
-   * @opt_param string id
-   * The id parameter specifies a comma-separated list of YouTube stream IDs that identify the
-    * streams being retrieved. In a liveStream resource, the id property specifies the stream's ID.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param bool mine The mine parameter can be used to instruct the API to
+   * only return streams owned by the authenticated user. Set the parameter value
+   * to true to only retrieve your own streams.
+   * @opt_param string maxResults The maxResults parameter specifies the maximum
+   * number of items that should be returned in the result set. Acceptable values
+   * are 0 to 50, inclusive. The default value is 5.
+   * @opt_param string pageToken The pageToken parameter identifies a specific
+   * page in the result set that should be returned. In an API response, the
+   * nextPageToken and prevPageToken properties identify other pages that could be
+   * retrieved.
+   * @opt_param string id The id parameter specifies a comma-separated list of
+   * YouTube stream IDs that identify the streams being retrieved. In a liveStream
+   * resource, the id property specifies the stream's ID.
    * @return Google_Service_YouTube_LiveStreamListResponse
    */
   public function listLiveStreams($part, $optParams = array())
@@ -2307,48 +2401,57 @@ class Google_Service_YouTube_LiveStreams_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_YouTube_LiveStreamListResponse");
   }
+
   /**
    * Updates a video stream. If the properties that you want to change cannot be
    * updated, then you need to create a new stream with the proper settings.
    * (liveStreams.update)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * properties that you can include in the parameter value are id, snippet, cdn, and status.
-  Note
-    * that this method will override the existing values for all of the mutable properties that are
-    * contained in any parts that the parameter value specifies. If the request body does not specify
-    * a value for a mutable property, the existing value for that property will be removed.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part properties that you can include in the parameter value are id,
+   * snippet, cdn, and status.
+   *
+   * Note that this method will override the existing values for all of the
+   * mutable properties that are contained in any parts that the parameter value
+   * specifies. If the request body does not specify a value for a mutable
+   * property, the existing value for that property will be removed.
    * @param Google_LiveStream $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    * @return Google_Service_YouTube_LiveStream
    */
   public function update($part, Google_Service_YouTube_LiveStream $postBody, $optParams = array())
@@ -2373,9 +2476,9 @@ class Google_Service_YouTube_PlaylistItems_Resource extends Google_Service_Resou
   /**
    * Deletes a playlist item. (playlistItems.delete)
    *
-   * @param string $id
-   * The id parameter specifies the YouTube playlist item ID for the playlist item that is being
-    * deleted. In a playlistItem resource, the id property specifies the playlist item's ID.
+   * @param string $id The id parameter specifies the YouTube playlist item ID for
+   * the playlist item that is being deleted. In a playlistItem resource, the id
+   * property specifies the playlist item's ID.
    * @param array $optParams Optional parameters.
    */
   public function delete($id, $optParams = array())
@@ -2384,27 +2487,31 @@ class Google_Service_YouTube_PlaylistItems_Resource extends Google_Service_Resou
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Adds a resource to a playlist. (playlistItems.insert)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * names that you can include in the parameter value are snippet, contentDetails, and status.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are snippet,
+   * contentDetails, and status.
    * @param Google_PlaylistItem $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    * @return Google_Service_YouTube_PlaylistItem
    */
   public function insert($part, Google_Service_YouTube_PlaylistItem $postBody, $optParams = array())
@@ -2413,49 +2520,53 @@ class Google_Service_YouTube_PlaylistItems_Resource extends Google_Service_Resou
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_YouTube_PlaylistItem");
   }
+
   /**
    * Returns a collection of playlist items that match the API request parameters.
    * You can retrieve all of the playlist items in a specified playlist or
    * retrieve one or more playlist items by their unique IDs.
    * (playlistItems.listPlaylistItems)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more playlistItem resource
-    * properties that the API response will include. The part names that you can include in the
-    * parameter value are id, snippet, contentDetails, and status.
-  If the parameter identifies a
-    * property that contains child properties, the child properties will be included in the response.
-    * For example, in a playlistItem resource, the snippet property contains numerous fields,
-    * including the title, description, position, and resourceId properties. As such, if you set
-    * part=snippet, the API response will contain all of those properties.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more playlistItem resource properties that the API response will
+   * include. The part names that you can include in the parameter value are id,
+   * snippet, contentDetails, and status.
+   *
+   * If the parameter identifies a property that contains child properties, the
+   * child properties will be included in the response. For example, in a
+   * playlistItem resource, the snippet property contains numerous fields,
+   * including the title, description, position, and resourceId properties. As
+   * such, if you set part=snippet, the API response will contain all of those
+   * properties.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
-   * @opt_param string playlistId
-   * The playlistId parameter specifies the unique ID of the playlist for which you want to retrieve
-    * playlist items. Note that even though this is an optional parameter, every request to retrieve
-    * playlist items must specify a value for either the id parameter or the playlistId parameter.
-   * @opt_param string videoId
-   * The videoId parameter specifies that the request should return only the playlist items that
-    * contain the specified video.
-   * @opt_param string maxResults
-   * The maxResults parameter specifies the maximum number of items that should be returned in the
-    * result set.
-   * @opt_param string pageToken
-   * The pageToken parameter identifies a specific page in the result set that should be returned. In
-    * an API response, the nextPageToken and prevPageToken properties identify other pages that could
-    * be retrieved.
-   * @opt_param string id
-   * The id parameter specifies a comma-separated list of one or more unique playlist item IDs.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param string playlistId The playlistId parameter specifies the unique ID
+   * of the playlist for which you want to retrieve playlist items. Note that even
+   * though this is an optional parameter, every request to retrieve playlist
+   * items must specify a value for either the id parameter or the playlistId
+   * parameter.
+   * @opt_param string videoId The videoId parameter specifies that the request
+   * should return only the playlist items that contain the specified video.
+   * @opt_param string maxResults The maxResults parameter specifies the maximum
+   * number of items that should be returned in the result set.
+   * @opt_param string pageToken The pageToken parameter identifies a specific
+   * page in the result set that should be returned. In an API response, the
+   * nextPageToken and prevPageToken properties identify other pages that could be
+   * retrieved.
+   * @opt_param string id The id parameter specifies a comma-separated list of one
+   * or more unique playlist item IDs.
    * @return Google_Service_YouTube_PlaylistItemListResponse
    */
   public function listPlaylistItems($part, $optParams = array())
@@ -2464,24 +2575,28 @@ class Google_Service_YouTube_PlaylistItems_Resource extends Google_Service_Resou
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_YouTube_PlaylistItemListResponse");
   }
+
   /**
    * Modifies a playlist item. For example, you could update the item's position
    * in the playlist. (playlistItems.update)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * names that you can include in the parameter value are snippet, contentDetails, and status.
-  Note
-    * that this method will override the existing values for all of the mutable properties that are
-    * contained in any parts that the parameter value specifies. For example, a playlist item can
-    * specify a start time and end time, which identify the times portion of the video that should
-    * play when users watch the video in the playlist. If your request is updating a playlist item
-    * that sets these values, and the request's part parameter value includes the contentDetails part,
-    * the playlist item's start and end times will be updated to whatever value the request body
-    * specifies. If the request body does not specify values, the existing start and end times will be
-    * removed and replaced with the default settings.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are snippet,
+   * contentDetails, and status.
+   *
+   * Note that this method will override the existing values for all of the
+   * mutable properties that are contained in any parts that the parameter value
+   * specifies. For example, a playlist item can specify a start time and end
+   * time, which identify the times portion of the video that should play when
+   * users watch the video in the playlist. If your request is updating a playlist
+   * item that sets these values, and the request's part parameter value includes
+   * the contentDetails part, the playlist item's start and end times will be
+   * updated to whatever value the request body specifies. If the request body
+   * does not specify values, the existing start and end times will be removed and
+   * replaced with the default settings.
    * @param Google_PlaylistItem $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_YouTube_PlaylistItem
@@ -2508,21 +2623,23 @@ class Google_Service_YouTube_Playlists_Resource extends Google_Service_Resource
   /**
    * Deletes a playlist. (playlists.delete)
    *
-   * @param string $id
-   * The id parameter specifies the YouTube playlist ID for the playlist that is being deleted. In a
-    * playlist resource, the id property specifies the playlist's ID.
+   * @param string $id The id parameter specifies the YouTube playlist ID for the
+   * playlist that is being deleted. In a playlist resource, the id property
+   * specifies the playlist's ID.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    */
   public function delete($id, $optParams = array())
   {
@@ -2530,42 +2647,50 @@ class Google_Service_YouTube_Playlists_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Creates a playlist. (playlists.insert)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * names that you can include in the parameter value are snippet and status.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are snippet and
+   * status.
    * @param Google_Playlist $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    * @return Google_Service_YouTube_Playlist
    */
   public function insert($part, Google_Service_YouTube_Playlist $postBody, $optParams = array())
@@ -2574,64 +2699,70 @@ class Google_Service_YouTube_Playlists_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_YouTube_Playlist");
   }
+
   /**
    * Returns a collection of playlists that match the API request parameters. For
    * example, you can retrieve all playlists that the authenticated user owns, or
    * you can retrieve one or more playlists by their unique IDs.
    * (playlists.listPlaylists)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more playlist resource properties
-    * that the API response will include. The part names that you can include in the parameter value
-    * are id, snippet, status, and contentDetails.
-  If the parameter identifies a property that
-    * contains child properties, the child properties will be included in the response. For example,
-    * in a playlist resource, the snippet property contains properties like author, title,
-    * description, tags, and timeCreated. As such, if you set part=snippet, the API response will
-    * contain all of those properties.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more playlist resource properties that the API response will include.
+   * The part names that you can include in the parameter value are id, snippet,
+   * status, and contentDetails.
+   *
+   * If the parameter identifies a property that contains child properties, the
+   * child properties will be included in the response. For example, in a playlist
+   * resource, the snippet property contains properties like author, title,
+   * description, tags, and timeCreated. As such, if you set part=snippet, the API
+   * response will contain all of those properties.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string channelId
-   * This value indicates that the API should only return the specified channel's playlists.
-   * @opt_param bool mine
-   * Set this parameter's value to true to instruct the API to only return playlists owned by the
-    * authenticated user.
-   * @opt_param string maxResults
-   * The maxResults parameter specifies the maximum number of items that should be returned in the
-    * result set.
-   * @opt_param string pageToken
-   * The pageToken parameter identifies a specific page in the result set that should be returned. In
-    * an API response, the nextPageToken and prevPageToken properties identify other pages that could
-    * be retrieved.
-   * @opt_param string id
-   * The id parameter specifies a comma-separated list of the YouTube playlist ID(s) for the
-    * resource(s) that are being retrieved. In a playlist resource, the id property specifies the
-    * playlist's YouTube playlist ID.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string channelId This value indicates that the API should only
+   * return the specified channel's playlists.
+   * @opt_param bool mine Set this parameter's value to true to instruct the API
+   * to only return playlists owned by the authenticated user.
+   * @opt_param string maxResults The maxResults parameter specifies the maximum
+   * number of items that should be returned in the result set.
+   * @opt_param string pageToken The pageToken parameter identifies a specific
+   * page in the result set that should be returned. In an API response, the
+   * nextPageToken and prevPageToken properties identify other pages that could be
+   * retrieved.
+   * @opt_param string id The id parameter specifies a comma-separated list of the
+   * YouTube playlist ID(s) for the resource(s) that are being retrieved. In a
+   * playlist resource, the id property specifies the playlist's YouTube playlist
+   * ID.
    * @return Google_Service_YouTube_PlaylistListResponse
    */
   public function listPlaylists($part, $optParams = array())
@@ -2640,36 +2771,41 @@ class Google_Service_YouTube_Playlists_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_YouTube_PlaylistListResponse");
   }
+
   /**
    * Modifies a playlist. For example, you could change a playlist's title,
    * description, or privacy status. (playlists.update)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * names that you can include in the parameter value are snippet and status.
-  Note that this method
-    * will override the existing values for all of the mutable properties that are contained in any
-    * parts that the parameter value specifies. For example, a playlist's privacy setting is contained
-    * in the status part. As such, if your request is updating a private playlist, and the request's
-    * part parameter value includes the status part, the playlist's privacy setting will be updated to
-    * whatever value the request body specifies. If the request body does not specify a value, the
-    * existing privacy setting will be removed and the playlist will revert to the default privacy
-    * setting.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are snippet and
+   * status.
+   *
+   * Note that this method will override the existing values for all of the
+   * mutable properties that are contained in any parts that the parameter value
+   * specifies. For example, a playlist's privacy setting is contained in the
+   * status part. As such, if your request is updating a private playlist, and the
+   * request's part parameter value includes the status part, the playlist's
+   * privacy setting will be updated to whatever value the request body specifies.
+   * If the request body does not specify a value, the existing privacy setting
+   * will be removed and the playlist will revert to the default privacy setting.
    * @param Google_Playlist $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    * @return Google_Service_YouTube_Playlist
    */
   public function update($part, Google_Service_YouTube_Playlist $postBody, $optParams = array())
@@ -2697,115 +2833,113 @@ class Google_Service_YouTube_Search_Resource extends Google_Service_Resource
    * matching video, channel, and playlist resources, but you can also configure
    * queries to only retrieve a specific type of resource. (search.listSearch)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more search resource properties
-    * that the API response will include. The part names that you can include in the parameter value
-    * are id and snippet.
-  If the parameter identifies a property that contains child properties, the
-    * child properties will be included in the response. For example, in a search result, the snippet
-    * property contains other properties that identify the result's title, description, and so forth.
-    * If you set part=snippet, the API response will also contain all of those nested properties.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more search resource properties that the API response will include.
+   * The part names that you can include in the parameter value are id and
+   * snippet.
+   *
+   * If the parameter identifies a property that contains child properties, the
+   * child properties will be included in the response. For example, in a search
+   * result, the snippet property contains other properties that identify the
+   * result's title, description, and so forth. If you set part=snippet, the API
+   * response will also contain all of those nested properties.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string eventType
-   * The eventType parameter restricts a search to broadcast events.
-   * @opt_param string channelId
-   * The channelId parameter indicates that the API response should only contain resources created by
-    * the channel
-   * @opt_param string videoSyndicated
-   * The videoSyndicated parameter lets you to restrict a search to only videos that can be played
-    * outside youtube.com.
-   * @opt_param string channelType
-   * The channelType parameter lets you restrict a search to a particular type of channel.
-   * @opt_param string videoCaption
-   * The videoCaption parameter indicates whether the API should filter video search results based on
-    * whether they have captions.
-   * @opt_param string publishedAfter
-   * The publishedAfter parameter indicates that the API response should only contain resources
-    * created after the specified time. The value is an RFC 3339 formatted date-time value
-    * (1970-01-01T00:00:00Z).
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
-   * @opt_param string pageToken
-   * The pageToken parameter identifies a specific page in the result set that should be returned. In
-    * an API response, the nextPageToken and prevPageToken properties identify other pages that could
-    * be retrieved.
-   * @opt_param bool forContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The forContentOwner
-    * parameter restricts the search to only retrieve resources owned by the content owner specified
-    * by the onBehalfOfContentOwner parameter. The user must be authenticated using a CMS account
-    * linked to the specified content owner and onBehalfOfContentOwner must be provided.
-   * @opt_param string regionCode
-   * The regionCode parameter instructs the API to return search results for the specified country.
-    * The parameter value is an ISO 3166-1 alpha-2 country code.
-   * @opt_param string location
-   * The location parameter restricts a search to videos that have a geographical location specified
-    * in their metadata. The value is a string that specifies geographic latitude/longitude
-    * coordinates e.g. (37.42307,-122.08427)
-   * @opt_param string locationRadius
-   * The locationRadius, in conjunction with the location parameter, defines a geographic area. If
-    * the geographic coordinates associated with a video fall within that area, then the video may be
-    * included in search results. This parameter value must be a floating point number followed by a
-    * measurement unit. Valid measurement units are m, km, ft, and mi. For example, valid parameter
-    * values include 1500m, 5km, 10000ft, and 0.75mi. The API does not support locationRadius
-    * parameter values larger than 1000 kilometers.
-   * @opt_param string videoType
-   * The videoType parameter lets you restrict a search to a particular type of videos.
-   * @opt_param string type
-   * The type parameter restricts a search query to only retrieve a particular type of resource. The
-    * value is a comma-separated list of resource types.
-   * @opt_param string topicId
-   * The topicId parameter indicates that the API response should only contain resources associated
-    * with the specified topic. The value identifies a Freebase topic ID.
-   * @opt_param string publishedBefore
-   * The publishedBefore parameter indicates that the API response should only contain resources
-    * created before the specified time. The value is an RFC 3339 formatted date-time value
-    * (1970-01-01T00:00:00Z).
-   * @opt_param string videoDimension
-   * The videoDimension parameter lets you restrict a search to only retrieve 2D or 3D videos.
-   * @opt_param string videoLicense
-   * The videoLicense parameter filters search results to only include videos with a particular
-    * license. YouTube lets video uploaders choose to attach either the Creative Commons license or
-    * the standard YouTube license to each of their videos.
-   * @opt_param string maxResults
-   * The maxResults parameter specifies the maximum number of items that should be returned in the
-    * result set.
-   * @opt_param string relatedToVideoId
-   * The relatedToVideoId parameter retrieves a list of videos that are related to the video that the
-    * parameter value identifies. The parameter value must be set to a YouTube video ID and, if you
-    * are using this parameter, the type parameter must be set to video.
-   * @opt_param string videoDefinition
-   * The videoDefinition parameter lets you restrict a search to only include either high definition
-    * (HD) or standard definition (SD) videos. HD videos are available for playback in at least 720p,
-    * though higher resolutions, like 1080p, might also be available.
-   * @opt_param string videoDuration
-   * The videoDuration parameter filters video search results based on their duration.
-   * @opt_param bool forMine
-   * The forMine parameter restricts the search to only retrieve videos owned by the authenticated
-    * user. If you set this parameter to true, then the type parameter's value must also be set to
-    * video.
-   * @opt_param string q
-   * The q parameter specifies the query term to search for.
-   * @opt_param string safeSearch
-   * The safeSearch parameter indicates whether the search results should include restricted content
-    * as well as standard content.
-   * @opt_param string videoEmbeddable
-   * The videoEmbeddable parameter lets you to restrict a search to only videos that can be embedded
-    * into a webpage.
-   * @opt_param string videoCategoryId
-   * The videoCategoryId parameter filters video search results based on their category.
-   * @opt_param string order
-   * The order parameter specifies the method that will be used to order resources in the API
-    * response.
+   * @opt_param string eventType The eventType parameter restricts a search to
+   * broadcast events.
+   * @opt_param string channelId The channelId parameter indicates that the API
+   * response should only contain resources created by the channel
+   * @opt_param string videoSyndicated The videoSyndicated parameter lets you to
+   * restrict a search to only videos that can be played outside youtube.com.
+   * @opt_param string channelType The channelType parameter lets you restrict a
+   * search to a particular type of channel.
+   * @opt_param string videoCaption The videoCaption parameter indicates whether
+   * the API should filter video search results based on whether they have
+   * captions.
+   * @opt_param string publishedAfter The publishedAfter parameter indicates that
+   * the API response should only contain resources created after the specified
+   * time. The value is an RFC 3339 formatted date-time value
+   * (1970-01-01T00:00:00Z).
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param string pageToken The pageToken parameter identifies a specific
+   * page in the result set that should be returned. In an API response, the
+   * nextPageToken and prevPageToken properties identify other pages that could be
+   * retrieved.
+   * @opt_param bool forContentOwner Note: This parameter is intended exclusively
+   * for YouTube content partners.
+   *
+   * The forContentOwner parameter restricts the search to only retrieve resources
+   * owned by the content owner specified by the onBehalfOfContentOwner parameter.
+   * The user must be authenticated using a CMS account linked to the specified
+   * content owner and onBehalfOfContentOwner must be provided.
+   * @opt_param string regionCode The regionCode parameter instructs the API to
+   * return search results for the specified country. The parameter value is an
+   * ISO 3166-1 alpha-2 country code.
+   * @opt_param string location The location parameter restricts a search to
+   * videos that have a geographical location specified in their metadata. The
+   * value is a string that specifies geographic latitude/longitude coordinates
+   * e.g. (37.42307,-122.08427)
+   * @opt_param string locationRadius The locationRadius, in conjunction with the
+   * location parameter, defines a geographic area. If the geographic coordinates
+   * associated with a video fall within that area, then the video may be included
+   * in search results. This parameter value must be a floating point number
+   * followed by a measurement unit. Valid measurement units are m, km, ft, and
+   * mi. For example, valid parameter values include 1500m, 5km, 10000ft, and
+   * 0.75mi. The API does not support locationRadius parameter values larger than
+   * 1000 kilometers.
+   * @opt_param string videoType The videoType parameter lets you restrict a
+   * search to a particular type of videos.
+   * @opt_param string type The type parameter restricts a search query to only
+   * retrieve a particular type of resource. The value is a comma-separated list
+   * of resource types.
+   * @opt_param string topicId The topicId parameter indicates that the API
+   * response should only contain resources associated with the specified topic.
+   * The value identifies a Freebase topic ID.
+   * @opt_param string publishedBefore The publishedBefore parameter indicates
+   * that the API response should only contain resources created before the
+   * specified time. The value is an RFC 3339 formatted date-time value
+   * (1970-01-01T00:00:00Z).
+   * @opt_param string videoDimension The videoDimension parameter lets you
+   * restrict a search to only retrieve 2D or 3D videos.
+   * @opt_param string videoLicense The videoLicense parameter filters search
+   * results to only include videos with a particular license. YouTube lets video
+   * uploaders choose to attach either the Creative Commons license or the
+   * standard YouTube license to each of their videos.
+   * @opt_param string maxResults The maxResults parameter specifies the maximum
+   * number of items that should be returned in the result set.
+   * @opt_param string relatedToVideoId The relatedToVideoId parameter retrieves a
+   * list of videos that are related to the video that the parameter value
+   * identifies. The parameter value must be set to a YouTube video ID and, if you
+   * are using this parameter, the type parameter must be set to video.
+   * @opt_param string videoDefinition The videoDefinition parameter lets you
+   * restrict a search to only include either high definition (HD) or standard
+   * definition (SD) videos. HD videos are available for playback in at least
+   * 720p, though higher resolutions, like 1080p, might also be available.
+   * @opt_param string videoDuration The videoDuration parameter filters video
+   * search results based on their duration.
+   * @opt_param bool forMine The forMine parameter restricts the search to only
+   * retrieve videos owned by the authenticated user. If you set this parameter to
+   * true, then the type parameter's value must also be set to video.
+   * @opt_param string q The q parameter specifies the query term to search for.
+   * @opt_param string safeSearch The safeSearch parameter indicates whether the
+   * search results should include restricted content as well as standard content.
+   * @opt_param string videoEmbeddable The videoEmbeddable parameter lets you to
+   * restrict a search to only videos that can be embedded into a webpage.
+   * @opt_param string videoCategoryId The videoCategoryId parameter filters video
+   * search results based on their category.
+   * @opt_param string order The order parameter specifies the method that will be
+   * used to order resources in the API response.
    * @return Google_Service_YouTube_SearchListResponse
    */
   public function listSearch($part, $optParams = array())
@@ -2830,9 +2964,9 @@ class Google_Service_YouTube_Subscriptions_Resource extends Google_Service_Resou
   /**
    * Deletes a subscription. (subscriptions.delete)
    *
-   * @param string $id
-   * The id parameter specifies the YouTube subscription ID for the resource that is being deleted.
-    * In a subscription resource, the id property specifies the YouTube subscription ID.
+   * @param string $id The id parameter specifies the YouTube subscription ID for
+   * the resource that is being deleted. In a subscription resource, the id
+   * property specifies the YouTube subscription ID.
    * @param array $optParams Optional parameters.
    */
   public function delete($id, $optParams = array())
@@ -2841,15 +2975,17 @@ class Google_Service_YouTube_Subscriptions_Resource extends Google_Service_Resou
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Adds a subscription for the authenticated user's channel.
    * (subscriptions.insert)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * names that you can include in the parameter value are snippet and contentDetails.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are snippet and
+   * contentDetails.
    * @param Google_Subscription $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_YouTube_Subscription
@@ -2860,71 +2996,74 @@ class Google_Service_YouTube_Subscriptions_Resource extends Google_Service_Resou
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_YouTube_Subscription");
   }
+
   /**
    * Returns subscription resources that match the API request criteria.
    * (subscriptions.listSubscriptions)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more subscription resource
-    * properties that the API response will include. The part names that you can include in the
-    * parameter value are id, snippet, and contentDetails.
-  If the parameter identifies a property
-    * that contains child properties, the child properties will be included in the response. For
-    * example, in a subscription resource, the snippet property contains other properties, such as a
-    * display title for the subscription. If you set part=snippet, the API response will also contain
-    * all of those nested properties.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more subscription resource properties that the API response will
+   * include. The part names that you can include in the parameter value are id,
+   * snippet, and contentDetails.
+   *
+   * If the parameter identifies a property that contains child properties, the
+   * child properties will be included in the response. For example, in a
+   * subscription resource, the snippet property contains other properties, such
+   * as a display title for the subscription. If you set part=snippet, the API
+   * response will also contain all of those nested properties.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param string channelId
-   * The channelId parameter specifies a YouTube channel ID. The API will only return that channel's
-    * subscriptions.
-   * @opt_param bool mine
-   * Set this parameter's value to true to retrieve a feed of the authenticated user's subscriptions.
-   * @opt_param string maxResults
-   * The maxResults parameter specifies the maximum number of items that should be returned in the
-    * result set.
-   * @opt_param string forChannelId
-   * The forChannelId parameter specifies a comma-separated list of channel IDs. The API response
-    * will then only contain subscriptions matching those channels.
-   * @opt_param string pageToken
-   * The pageToken parameter identifies a specific page in the result set that should be returned. In
-    * an API response, the nextPageToken and prevPageToken properties identify other pages that could
-    * be retrieved.
-   * @opt_param bool mySubscribers
-   * Set this parameter's value to true to retrieve a feed of the subscribers of the authenticated
-    * user.
-   * @opt_param string order
-   * The order parameter specifies the method that will be used to sort resources in the API
-    * response.
-   * @opt_param string id
-   * The id parameter specifies a comma-separated list of the YouTube subscription ID(s) for the
-    * resource(s) that are being retrieved. In a subscription resource, the id property specifies the
-    * YouTube subscription ID.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string channelId The channelId parameter specifies a YouTube
+   * channel ID. The API will only return that channel's subscriptions.
+   * @opt_param bool mine Set this parameter's value to true to retrieve a feed of
+   * the authenticated user's subscriptions.
+   * @opt_param string maxResults The maxResults parameter specifies the maximum
+   * number of items that should be returned in the result set.
+   * @opt_param string forChannelId The forChannelId parameter specifies a comma-
+   * separated list of channel IDs. The API response will then only contain
+   * subscriptions matching those channels.
+   * @opt_param string pageToken The pageToken parameter identifies a specific
+   * page in the result set that should be returned. In an API response, the
+   * nextPageToken and prevPageToken properties identify other pages that could be
+   * retrieved.
+   * @opt_param bool mySubscribers Set this parameter's value to true to retrieve
+   * a feed of the subscribers of the authenticated user.
+   * @opt_param string order The order parameter specifies the method that will be
+   * used to sort resources in the API response.
+   * @opt_param string id The id parameter specifies a comma-separated list of the
+   * YouTube subscription ID(s) for the resource(s) that are being retrieved. In a
+   * subscription resource, the id property specifies the YouTube subscription ID.
    * @return Google_Service_YouTube_SubscriptionListResponse
    */
   public function listSubscriptions($part, $optParams = array())
@@ -2950,18 +3089,18 @@ class Google_Service_YouTube_Thumbnails_Resource extends Google_Service_Resource
    * Uploads a custom video thumbnail to YouTube and sets it for a video.
    * (thumbnails.set)
    *
-   * @param string $videoId
-   * The videoId parameter specifies a YouTube video ID for which the custom video thumbnail is being
-    * provided.
+   * @param string $videoId The videoId parameter specifies a YouTube video ID for
+   * which the custom video thumbnail is being provided.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf
-    * of the content owner specified in the parameter value. This parameter is intended for YouTube
-    * content partners that own and manage many different YouTube channels. It allows content owners
-    * to authenticate once and get access to all their video and channel data, without having to
-    * provide authentication credentials for each individual channel. The actual CMS account that the
-    * user authenticates with needs to be linked to the specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwner The onBehalfOfContentOwner parameter
+   * indicates that the authenticated user is acting on behalf of the content
+   * owner specified in the parameter value. This parameter is intended for
+   * YouTube content partners that own and manage many different YouTube channels.
+   * It allows content owners to authenticate once and get access to all their
+   * video and channel data, without having to provide authentication credentials
+   * for each individual channel. The actual CMS account that the user
+   * authenticates with needs to be linked to the specified YouTube content owner.
    * @return Google_Service_YouTube_ThumbnailSetResponse
    */
   public function set($videoId, $optParams = array())
@@ -2987,19 +3126,18 @@ class Google_Service_YouTube_VideoCategories_Resource extends Google_Service_Res
    * Returns a list of categories that can be associated with YouTube videos.
    * (videoCategories.listVideoCategories)
    *
-   * @param string $part
-   * The part parameter specifies the videoCategory resource parts that the API response will
-    * include. Supported values are id and snippet.
+   * @param string $part The part parameter specifies the videoCategory resource
+   * parts that the API response will include. Supported values are id and
+   * snippet.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string regionCode
-   * The regionCode parameter instructs the API to return the list of video categories available in
-    * the specified country. The parameter value is an ISO 3166-1 alpha-2 country code.
-   * @opt_param string id
-   * The id parameter specifies a comma-separated list of video category IDs for the resources that
-    * you are retrieving.
-   * @opt_param string hl
-   * The hl parameter specifies the language that should be used for text values in the API response.
+   * @opt_param string regionCode The regionCode parameter instructs the API to
+   * return the list of video categories available in the specified country. The
+   * parameter value is an ISO 3166-1 alpha-2 country code.
+   * @opt_param string id The id parameter specifies a comma-separated list of
+   * video category IDs for the resources that you are retrieving.
+   * @opt_param string hl The hl parameter specifies the language that should be
+   * used for text values in the API response.
    * @return Google_Service_YouTube_VideoCategoryListResponse
    */
   public function listVideoCategories($part, $optParams = array())
@@ -3024,21 +3162,23 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
   /**
    * Deletes a YouTube video. (videos.delete)
    *
-   * @param string $id
-   * The id parameter specifies the YouTube video ID for the resource that is being deleted. In a
-    * video resource, the id property specifies the video's ID.
+   * @param string $id The id parameter specifies the YouTube video ID for the
+   * resource that is being deleted. In a video resource, the id property
+   * specifies the video's ID.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The actual CMS account that the user authenticates with must be linked to
-    * the specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The actual CMS
+   * account that the user authenticates with must be linked to the specified
+   * YouTube content owner.
    */
   public function delete($id, $optParams = array())
   {
@@ -3046,26 +3186,28 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Retrieves the ratings that the authorized user gave to a list of specified
    * videos. (videos.getRating)
    *
-   * @param string $id
-   * The id parameter specifies a comma-separated list of the YouTube video ID(s) for the resource(s)
-    * for which you are retrieving rating data. In a video resource, the id property specifies the
-    * video's ID.
+   * @param string $id The id parameter specifies a comma-separated list of the
+   * YouTube video ID(s) for the resource(s) for which you are retrieving rating
+   * data. In a video resource, the id property specifies the video's ID.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    * @return Google_Service_YouTube_VideoGetRatingResponse
    */
   public function getRating($id, $optParams = array())
@@ -3074,58 +3216,65 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('getRating', array($params), "Google_Service_YouTube_VideoGetRatingResponse");
   }
+
   /**
    * Uploads a video to YouTube and optionally sets the video's metadata.
    * (videos.insert)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * names that you can include in the parameter value are snippet, contentDetails, fileDetails,
-    * liveStreamingDetails, player, processingDetails, recordingDetails, statistics, status,
-    * suggestions, and topicDetails. However, not all of those parts contain properties that can be
-    * set when setting or updating a video's metadata. For example, the statistics object encapsulates
-    * statistics that YouTube calculates for a video and does not contain values that you can set or
-    * modify. If the parameter value specifies a part that does not contain mutable values, that part
-    * will still be included in the API response.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are snippet,
+   * contentDetails, fileDetails, liveStreamingDetails, player, processingDetails,
+   * recordingDetails, statistics, status, suggestions, and topicDetails. However,
+   * not all of those parts contain properties that can be set when setting or
+   * updating a video's metadata. For example, the statistics object encapsulates
+   * statistics that YouTube calculates for a video and does not contain values
+   * that you can set or modify. If the parameter value specifies a part that does
+   * not contain mutable values, that part will still be included in the API
+   * response.
    * @param Google_Video $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
-   * @opt_param bool stabilize
-   * The stabilize parameter indicates whether YouTube should adjust the video to remove shaky camera
-    * motions.
-   * @opt_param string onBehalfOfContentOwnerChannel
-   * This parameter can only be used in a properly authorized request. Note: This parameter is
-    * intended exclusively for YouTube content partners.
-  The onBehalfOfContentOwnerChannel parameter
-    * specifies the YouTube channel ID of the channel to which a video is being added. This parameter
-    * is required when a request specifies a value for the onBehalfOfContentOwner parameter, and it
-    * can only be used in conjunction with that parameter. In addition, the request must be authorized
-    * using a CMS account that is linked to the content owner that the onBehalfOfContentOwner
-    * parameter specifies. Finally, the channel that the onBehalfOfContentOwnerChannel parameter value
-    * specifies must be linked to the content owner that the onBehalfOfContentOwner parameter
-    * specifies.
-  This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and perform actions on
-    * behalf of the channel specified in the parameter value, without having to provide authentication
-    * credentials for each separate channel.
-   * @opt_param bool notifySubscribers
-   * The notifySubscribers parameter indicates whether YouTube should send notification to
-    * subscribers about the inserted video.
-   * @opt_param bool autoLevels
-   * The autoLevels parameter indicates whether YouTube should automatically enhance the video's
-    * lighting and color.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param bool stabilize The stabilize parameter indicates whether YouTube
+   * should adjust the video to remove shaky camera motions.
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param bool notifySubscribers The notifySubscribers parameter indicates
+   * whether YouTube should send notification to subscribers about the inserted
+   * video.
+   * @opt_param bool autoLevels The autoLevels parameter indicates whether YouTube
+   * should automatically enhance the video's lighting and color.
    * @return Google_Service_YouTube_Video
    */
   public function insert($part, Google_Service_YouTube_Video $postBody, $optParams = array())
@@ -3134,61 +3283,67 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_YouTube_Video");
   }
+
   /**
    * Returns a list of videos that match the API request parameters.
    * (videos.listVideos)
    *
-   * @param string $part
-   * The part parameter specifies a comma-separated list of one or more video resource properties
-    * that the API response will include. The part names that you can include in the parameter value
-    * are id, snippet, contentDetails, fileDetails, liveStreamingDetails, player, processingDetails,
-    * recordingDetails, statistics, status, suggestions, and topicDetails.
-  If the parameter
-    * identifies a property that contains child properties, the child properties will be included in
-    * the response. For example, in a video resource, the snippet property contains the channelId,
-    * title, description, tags, and categoryId properties. As such, if you set part=snippet, the API
-    * response will contain all of those properties.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more video resource properties that the API response will include. The
+   * part names that you can include in the parameter value are id, snippet,
+   * contentDetails, fileDetails, liveStreamingDetails, player, processingDetails,
+   * recordingDetails, statistics, status, suggestions, and topicDetails.
+   *
+   * If the parameter identifies a property that contains child properties, the
+   * child properties will be included in the response. For example, in a video
+   * resource, the snippet property contains the channelId, title, description,
+   * tags, and categoryId properties. As such, if you set part=snippet, the API
+   * response will contain all of those properties.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
-   * @opt_param string regionCode
-   * The regionCode parameter instructs the API to select a video chart available in the specified
-    * region. This parameter can only be used in conjunction with the chart parameter. The parameter
-    * value is an ISO 3166-1 alpha-2 country code.
-   * @opt_param string locale
-   * DEPRECATED
-   * @opt_param string videoCategoryId
-   * The videoCategoryId parameter identifies the video category for which the chart should be
-    * retrieved. This parameter can only be used in conjunction with the chart parameter. By default,
-    * charts are not restricted to a particular category.
-   * @opt_param string chart
-   * The chart parameter identifies the chart that you want to retrieve.
-   * @opt_param string maxResults
-   * The maxResults parameter specifies the maximum number of items that should be returned in the
-    * result set.
-  Note: This parameter is supported for use in conjunction with the myRating
-    * parameter, but it is not supported for use in conjunction with the id parameter.
-   * @opt_param string pageToken
-   * The pageToken parameter identifies a specific page in the result set that should be returned. In
-    * an API response, the nextPageToken and prevPageToken properties identify other pages that could
-    * be retrieved.
-  Note: This parameter is supported for use in conjunction with the myRating
-    * parameter, but it is not supported for use in conjunction with the id parameter.
-   * @opt_param string myRating
-   * Set this parameter's value to like or dislike to instruct the API to only return videos liked or
-    * disliked by the authenticated user.
-   * @opt_param string id
-   * The id parameter specifies a comma-separated list of the YouTube video ID(s) for the resource(s)
-    * that are being retrieved. In a video resource, the id property specifies the video's ID.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param string regionCode The regionCode parameter instructs the API to
+   * select a video chart available in the specified region. This parameter can
+   * only be used in conjunction with the chart parameter. The parameter value is
+   * an ISO 3166-1 alpha-2 country code.
+   * @opt_param string locale DEPRECATED
+   * @opt_param string videoCategoryId The videoCategoryId parameter identifies
+   * the video category for which the chart should be retrieved. This parameter
+   * can only be used in conjunction with the chart parameter. By default, charts
+   * are not restricted to a particular category.
+   * @opt_param string chart The chart parameter identifies the chart that you
+   * want to retrieve.
+   * @opt_param string maxResults The maxResults parameter specifies the maximum
+   * number of items that should be returned in the result set.
+   *
+   * Note: This parameter is supported for use in conjunction with the myRating
+   * parameter, but it is not supported for use in conjunction with the id
+   * parameter.
+   * @opt_param string pageToken The pageToken parameter identifies a specific
+   * page in the result set that should be returned. In an API response, the
+   * nextPageToken and prevPageToken properties identify other pages that could be
+   * retrieved.
+   *
+   * Note: This parameter is supported for use in conjunction with the myRating
+   * parameter, but it is not supported for use in conjunction with the id
+   * parameter.
+   * @opt_param string myRating Set this parameter's value to like or dislike to
+   * instruct the API to only return videos liked or disliked by the authenticated
+   * user.
+   * @opt_param string id The id parameter specifies a comma-separated list of the
+   * YouTube video ID(s) for the resource(s) that are being retrieved. In a video
+   * resource, the id property specifies the video's ID.
    * @return Google_Service_YouTube_VideoListResponse
    */
   public function listVideos($part, $optParams = array())
@@ -3197,27 +3352,28 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_YouTube_VideoListResponse");
   }
+
   /**
    * Add a like or dislike rating to a video or remove a rating from a video.
    * (videos.rate)
    *
-   * @param string $id
-   * The id parameter specifies the YouTube video ID of the video that is being rated or having its
-    * rating removed.
-   * @param string $rating
-   * Specifies the rating to record.
+   * @param string $id The id parameter specifies the YouTube video ID of the
+   * video that is being rated or having its rating removed.
+   * @param string $rating Specifies the rating to record.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The CMS account that the user authenticates with must be linked to the
-    * specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    */
   public function rate($id, $rating, $optParams = array())
   {
@@ -3225,41 +3381,48 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('rate', array($params));
   }
+
   /**
    * Updates a video's metadata. (videos.update)
    *
-   * @param string $part
-   * The part parameter serves two purposes in this operation. It identifies the properties that the
-    * write operation will set as well as the properties that the API response will include.
-  The part
-    * names that you can include in the parameter value are snippet, contentDetails, fileDetails,
-    * liveStreamingDetails, player, processingDetails, recordingDetails, statistics, status,
-    * suggestions, and topicDetails.
-  Note that this method will override the existing values for all
-    * of the mutable properties that are contained in any parts that the parameter value specifies.
-    * For example, a video's privacy setting is contained in the status part. As such, if your request
-    * is updating a private video, and the request's part parameter value includes the status part,
-    * the video's privacy setting will be updated to whatever value the request body specifies. If the
-    * request body does not specify a value, the existing privacy setting will be removed and the
-    * video will revert to the default privacy setting.
-  In addition, not all of those parts contain
-    * properties that can be set when setting or updating a video's metadata. For example, the
-    * statistics object encapsulates statistics that YouTube calculates for a video and does not
-    * contain values that you can set or modify. If the parameter value specifies a part that does not
-    * contain mutable values, that part will still be included in the API response.
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are snippet,
+   * contentDetails, fileDetails, liveStreamingDetails, player, processingDetails,
+   * recordingDetails, statistics, status, suggestions, and topicDetails.
+   *
+   * Note that this method will override the existing values for all of the
+   * mutable properties that are contained in any parts that the parameter value
+   * specifies. For example, a video's privacy setting is contained in the status
+   * part. As such, if your request is updating a private video, and the request's
+   * part parameter value includes the status part, the video's privacy setting
+   * will be updated to whatever value the request body specifies. If the request
+   * body does not specify a value, the existing privacy setting will be removed
+   * and the video will revert to the default privacy setting.
+   *
+   * In addition, not all of those parts contain properties that can be set when
+   * setting or updating a video's metadata. For example, the statistics object
+   * encapsulates statistics that YouTube calculates for a video and does not
+   * contain values that you can set or modify. If the parameter value specifies a
+   * part that does not contain mutable values, that part will still be included
+   * in the API response.
    * @param Google_Video $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * Note: This parameter is intended exclusively for YouTube content partners.
-  The
-    * onBehalfOfContentOwner parameter indicates that the request's authorization credentials identify
-    * a YouTube CMS user who is acting on behalf of the content owner specified in the parameter
-    * value. This parameter is intended for YouTube content partners that own and manage many
-    * different YouTube channels. It allows content owners to authenticate once and get access to all
-    * their video and channel data, without having to provide authentication credentials for each
-    * individual channel. The actual CMS account that the user authenticates with must be linked to
-    * the specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The actual CMS
+   * account that the user authenticates with must be linked to the specified
+   * YouTube content owner.
    * @return Google_Service_YouTube_Video
    */
   public function update($part, Google_Service_YouTube_Video $postBody, $optParams = array())
@@ -3285,19 +3448,19 @@ class Google_Service_YouTube_Watermarks_Resource extends Google_Service_Resource
    * Uploads a watermark image to YouTube and sets it for a channel.
    * (watermarks.set)
    *
-   * @param string $channelId
-   * The channelId parameter specifies a YouTube channel ID for which the watermark is being
-    * provided.
+   * @param string $channelId The channelId parameter specifies a YouTube channel
+   * ID for which the watermark is being provided.
    * @param Google_InvideoBranding $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf
-    * of the content owner specified in the parameter value. This parameter is intended for YouTube
-    * content partners that own and manage many different YouTube channels. It allows content owners
-    * to authenticate once and get access to all their video and channel data, without having to
-    * provide authentication credentials for each individual channel. The actual CMS account that the
-    * user authenticates with needs to be linked to the specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwner The onBehalfOfContentOwner parameter
+   * indicates that the authenticated user is acting on behalf of the content
+   * owner specified in the parameter value. This parameter is intended for
+   * YouTube content partners that own and manage many different YouTube channels.
+   * It allows content owners to authenticate once and get access to all their
+   * video and channel data, without having to provide authentication credentials
+   * for each individual channel. The actual CMS account that the user
+   * authenticates with needs to be linked to the specified YouTube content owner.
    */
   public function set($channelId, Google_Service_YouTube_InvideoBranding $postBody, $optParams = array())
   {
@@ -3305,20 +3468,22 @@ class Google_Service_YouTube_Watermarks_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('set', array($params));
   }
+
   /**
    * Deletes a watermark. (watermarks.unsetWatermarks)
    *
-   * @param string $channelId
-   * The channelId parameter specifies a YouTube channel ID for which the watermark is being unset.
+   * @param string $channelId The channelId parameter specifies a YouTube channel
+   * ID for which the watermark is being unset.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string onBehalfOfContentOwner
-   * The onBehalfOfContentOwner parameter indicates that the authenticated user is acting on behalf
-    * of the content owner specified in the parameter value. This parameter is intended for YouTube
-    * content partners that own and manage many different YouTube channels. It allows content owners
-    * to authenticate once and get access to all their video and channel data, without having to
-    * provide authentication credentials for each individual channel. The actual CMS account that the
-    * user authenticates with needs to be linked to the specified YouTube content owner.
+   * @opt_param string onBehalfOfContentOwner The onBehalfOfContentOwner parameter
+   * indicates that the authenticated user is acting on behalf of the content
+   * owner specified in the parameter value. This parameter is intended for
+   * YouTube content partners that own and manage many different YouTube channels.
+   * It allows content owners to authenticate once and get access to all their
+   * video and channel data, without having to provide authentication credentials
+   * for each individual channel. The actual CMS account that the user
+   * authenticates with needs to be linked to the specified YouTube content owner.
    */
   public function unsetWatermarks($channelId, $optParams = array())
   {
@@ -3339,11 +3504,11 @@ class Google_Service_YouTube_AccessPolicy extends Google_Collection
   public $allowed;
   public $exception;
 
+
   public function setAllowed($allowed)
   {
     $this->allowed = $allowed;
   }
-
   public function getAllowed()
   {
     return $this->allowed;
@@ -3352,12 +3517,10 @@ class Google_Service_YouTube_AccessPolicy extends Google_Collection
   {
     $this->exception = $exception;
   }
-
   public function getException()
   {
     return $this->exception;
   }
-
 }
 
 class Google_Service_YouTube_Activity extends Google_Model
@@ -3372,11 +3535,11 @@ class Google_Service_YouTube_Activity extends Google_Model
   protected $snippetType = 'Google_Service_YouTube_ActivitySnippet';
   protected $snippetDataType = '';
 
+
   public function setContentDetails(Google_Service_YouTube_ActivityContentDetails $contentDetails)
   {
     $this->contentDetails = $contentDetails;
   }
-
   public function getContentDetails()
   {
     return $this->contentDetails;
@@ -3385,7 +3548,6 @@ class Google_Service_YouTube_Activity extends Google_Model
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -3394,7 +3556,6 @@ class Google_Service_YouTube_Activity extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -3403,7 +3564,6 @@ class Google_Service_YouTube_Activity extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3412,12 +3572,10 @@ class Google_Service_YouTube_Activity extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
   }
-
 }
 
 class Google_Service_YouTube_ActivityContentDetails extends Google_Model
@@ -3447,11 +3605,11 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   protected $uploadType = 'Google_Service_YouTube_ActivityContentDetailsUpload';
   protected $uploadDataType = '';
 
+
   public function setBulletin(Google_Service_YouTube_ActivityContentDetailsBulletin $bulletin)
   {
     $this->bulletin = $bulletin;
   }
-
   public function getBulletin()
   {
     return $this->bulletin;
@@ -3460,7 +3618,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     $this->channelItem = $channelItem;
   }
-
   public function getChannelItem()
   {
     return $this->channelItem;
@@ -3469,7 +3626,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     $this->comment = $comment;
   }
-
   public function getComment()
   {
     return $this->comment;
@@ -3478,7 +3634,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     $this->favorite = $favorite;
   }
-
   public function getFavorite()
   {
     return $this->favorite;
@@ -3487,7 +3642,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     $this->like = $like;
   }
-
   public function getLike()
   {
     return $this->like;
@@ -3496,7 +3650,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     $this->playlistItem = $playlistItem;
   }
-
   public function getPlaylistItem()
   {
     return $this->playlistItem;
@@ -3505,7 +3658,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     $this->promotedItem = $promotedItem;
   }
-
   public function getPromotedItem()
   {
     return $this->promotedItem;
@@ -3514,7 +3666,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     $this->recommendation = $recommendation;
   }
-
   public function getRecommendation()
   {
     return $this->recommendation;
@@ -3523,7 +3674,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     $this->social = $social;
   }
-
   public function getSocial()
   {
     return $this->social;
@@ -3532,7 +3682,6 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     $this->subscription = $subscription;
   }
-
   public function getSubscription()
   {
     return $this->subscription;
@@ -3541,12 +3690,10 @@ class Google_Service_YouTube_ActivityContentDetails extends Google_Model
   {
     $this->upload = $upload;
   }
-
   public function getUpload()
   {
     return $this->upload;
   }
-
 }
 
 class Google_Service_YouTube_ActivityContentDetailsBulletin extends Google_Model
@@ -3556,16 +3703,15 @@ class Google_Service_YouTube_ActivityContentDetailsBulletin extends Google_Model
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
+
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
   }
-
   public function getResourceId()
   {
     return $this->resourceId;
   }
-
 }
 
 class Google_Service_YouTube_ActivityContentDetailsChannelItem extends Google_Model
@@ -3575,16 +3721,15 @@ class Google_Service_YouTube_ActivityContentDetailsChannelItem extends Google_Mo
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
+
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
   }
-
   public function getResourceId()
   {
     return $this->resourceId;
   }
-
 }
 
 class Google_Service_YouTube_ActivityContentDetailsComment extends Google_Model
@@ -3594,16 +3739,15 @@ class Google_Service_YouTube_ActivityContentDetailsComment extends Google_Model
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
+
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
   }
-
   public function getResourceId()
   {
     return $this->resourceId;
   }
-
 }
 
 class Google_Service_YouTube_ActivityContentDetailsFavorite extends Google_Model
@@ -3613,16 +3757,15 @@ class Google_Service_YouTube_ActivityContentDetailsFavorite extends Google_Model
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
+
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
   }
-
   public function getResourceId()
   {
     return $this->resourceId;
   }
-
 }
 
 class Google_Service_YouTube_ActivityContentDetailsLike extends Google_Model
@@ -3632,16 +3775,15 @@ class Google_Service_YouTube_ActivityContentDetailsLike extends Google_Model
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
+
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
   }
-
   public function getResourceId()
   {
     return $this->resourceId;
   }
-
 }
 
 class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_Model
@@ -3653,11 +3795,11 @@ class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_M
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
+
   public function setPlaylistId($playlistId)
   {
     $this->playlistId = $playlistId;
   }
-
   public function getPlaylistId()
   {
     return $this->playlistId;
@@ -3666,7 +3808,6 @@ class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_M
   {
     $this->playlistItemId = $playlistItemId;
   }
-
   public function getPlaylistItemId()
   {
     return $this->playlistItemId;
@@ -3675,12 +3816,10 @@ class Google_Service_YouTube_ActivityContentDetailsPlaylistItem extends Google_M
   {
     $this->resourceId = $resourceId;
   }
-
   public function getResourceId()
   {
     return $this->resourceId;
   }
-
 }
 
 class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_Collection
@@ -3699,11 +3838,11 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   public $impressionUrl;
   public $videoId;
 
+
   public function setAdTag($adTag)
   {
     $this->adTag = $adTag;
   }
-
   public function getAdTag()
   {
     return $this->adTag;
@@ -3712,7 +3851,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     $this->clickTrackingUrl = $clickTrackingUrl;
   }
-
   public function getClickTrackingUrl()
   {
     return $this->clickTrackingUrl;
@@ -3721,7 +3859,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     $this->creativeViewUrl = $creativeViewUrl;
   }
-
   public function getCreativeViewUrl()
   {
     return $this->creativeViewUrl;
@@ -3730,7 +3867,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     $this->ctaType = $ctaType;
   }
-
   public function getCtaType()
   {
     return $this->ctaType;
@@ -3739,7 +3875,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     $this->customCtaButtonText = $customCtaButtonText;
   }
-
   public function getCustomCtaButtonText()
   {
     return $this->customCtaButtonText;
@@ -3748,7 +3883,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     $this->descriptionText = $descriptionText;
   }
-
   public function getDescriptionText()
   {
     return $this->descriptionText;
@@ -3757,7 +3891,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     $this->destinationUrl = $destinationUrl;
   }
-
   public function getDestinationUrl()
   {
     return $this->destinationUrl;
@@ -3766,7 +3899,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     $this->forecastingUrl = $forecastingUrl;
   }
-
   public function getForecastingUrl()
   {
     return $this->forecastingUrl;
@@ -3775,7 +3907,6 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     $this->impressionUrl = $impressionUrl;
   }
-
   public function getImpressionUrl()
   {
     return $this->impressionUrl;
@@ -3784,12 +3915,10 @@ class Google_Service_YouTube_ActivityContentDetailsPromotedItem extends Google_C
   {
     $this->videoId = $videoId;
   }
-
   public function getVideoId()
   {
     return $this->videoId;
   }
-
 }
 
 class Google_Service_YouTube_ActivityContentDetailsRecommendation extends Google_Model
@@ -3802,11 +3931,11 @@ class Google_Service_YouTube_ActivityContentDetailsRecommendation extends Google
   protected $seedResourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $seedResourceIdDataType = '';
 
+
   public function setReason($reason)
   {
     $this->reason = $reason;
   }
-
   public function getReason()
   {
     return $this->reason;
@@ -3815,7 +3944,6 @@ class Google_Service_YouTube_ActivityContentDetailsRecommendation extends Google
   {
     $this->resourceId = $resourceId;
   }
-
   public function getResourceId()
   {
     return $this->resourceId;
@@ -3824,12 +3952,10 @@ class Google_Service_YouTube_ActivityContentDetailsRecommendation extends Google
   {
     $this->seedResourceId = $seedResourceId;
   }
-
   public function getSeedResourceId()
   {
     return $this->seedResourceId;
   }
-
 }
 
 class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
@@ -3843,11 +3969,11 @@ class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
   protected $resourceIdDataType = '';
   public $type;
 
+
   public function setAuthor($author)
   {
     $this->author = $author;
   }
-
   public function getAuthor()
   {
     return $this->author;
@@ -3856,7 +3982,6 @@ class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
   {
     $this->imageUrl = $imageUrl;
   }
-
   public function getImageUrl()
   {
     return $this->imageUrl;
@@ -3865,7 +3990,6 @@ class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
   {
     $this->referenceUrl = $referenceUrl;
   }
-
   public function getReferenceUrl()
   {
     return $this->referenceUrl;
@@ -3874,7 +3998,6 @@ class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
   {
     $this->resourceId = $resourceId;
   }
-
   public function getResourceId()
   {
     return $this->resourceId;
@@ -3883,12 +4006,10 @@ class Google_Service_YouTube_ActivityContentDetailsSocial extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_YouTube_ActivityContentDetailsSubscription extends Google_Model
@@ -3898,16 +4019,15 @@ class Google_Service_YouTube_ActivityContentDetailsSubscription extends Google_M
   protected $resourceIdType = 'Google_Service_YouTube_ResourceId';
   protected $resourceIdDataType = '';
 
+
   public function setResourceId(Google_Service_YouTube_ResourceId $resourceId)
   {
     $this->resourceId = $resourceId;
   }
-
   public function getResourceId()
   {
     return $this->resourceId;
   }
-
 }
 
 class Google_Service_YouTube_ActivityContentDetailsUpload extends Google_Model
@@ -3916,16 +4036,15 @@ class Google_Service_YouTube_ActivityContentDetailsUpload extends Google_Model
   );
   public $videoId;
 
+
   public function setVideoId($videoId)
   {
     $this->videoId = $videoId;
   }
-
   public function getVideoId()
   {
     return $this->videoId;
   }
-
 }
 
 class Google_Service_YouTube_ActivityListResponse extends Google_Collection
@@ -3946,11 +4065,11 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   protected $tokenPaginationDataType = '';
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -3959,7 +4078,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -3968,7 +4086,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -3977,7 +4094,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3986,7 +4102,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -3995,7 +4110,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     $this->pageInfo = $pageInfo;
   }
-
   public function getPageInfo()
   {
     return $this->pageInfo;
@@ -4004,7 +4118,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     $this->prevPageToken = $prevPageToken;
   }
-
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
@@ -4013,7 +4126,6 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     $this->tokenPagination = $tokenPagination;
   }
-
   public function getTokenPagination()
   {
     return $this->tokenPagination;
@@ -4022,12 +4134,10 @@ class Google_Service_YouTube_ActivityListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_ActivitySnippet extends Google_Model
@@ -4044,11 +4154,11 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   public $title;
   public $type;
 
+
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -4057,7 +4167,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     $this->channelTitle = $channelTitle;
   }
-
   public function getChannelTitle()
   {
     return $this->channelTitle;
@@ -4066,7 +4175,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -4075,7 +4183,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     $this->groupId = $groupId;
   }
-
   public function getGroupId()
   {
     return $this->groupId;
@@ -4084,7 +4191,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     $this->publishedAt = $publishedAt;
   }
-
   public function getPublishedAt()
   {
     return $this->publishedAt;
@@ -4093,7 +4199,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     $this->thumbnails = $thumbnails;
   }
-
   public function getThumbnails()
   {
     return $this->thumbnails;
@@ -4102,7 +4207,6 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
@@ -4111,12 +4215,10 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_YouTube_CdnSettings extends Google_Model
@@ -4128,11 +4230,11 @@ class Google_Service_YouTube_CdnSettings extends Google_Model
   protected $ingestionInfoDataType = '';
   public $ingestionType;
 
+
   public function setFormat($format)
   {
     $this->format = $format;
   }
-
   public function getFormat()
   {
     return $this->format;
@@ -4141,7 +4243,6 @@ class Google_Service_YouTube_CdnSettings extends Google_Model
   {
     $this->ingestionInfo = $ingestionInfo;
   }
-
   public function getIngestionInfo()
   {
     return $this->ingestionInfo;
@@ -4150,12 +4251,10 @@ class Google_Service_YouTube_CdnSettings extends Google_Model
   {
     $this->ingestionType = $ingestionType;
   }
-
   public function getIngestionType()
   {
     return $this->ingestionType;
   }
-
 }
 
 class Google_Service_YouTube_Channel extends Google_Model
@@ -4186,11 +4285,11 @@ class Google_Service_YouTube_Channel extends Google_Model
   protected $topicDetailsType = 'Google_Service_YouTube_ChannelTopicDetails';
   protected $topicDetailsDataType = '';
 
+
   public function setAuditDetails(Google_Service_YouTube_ChannelAuditDetails $auditDetails)
   {
     $this->auditDetails = $auditDetails;
   }
-
   public function getAuditDetails()
   {
     return $this->auditDetails;
@@ -4199,7 +4298,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     $this->brandingSettings = $brandingSettings;
   }
-
   public function getBrandingSettings()
   {
     return $this->brandingSettings;
@@ -4208,7 +4306,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     $this->contentDetails = $contentDetails;
   }
-
   public function getContentDetails()
   {
     return $this->contentDetails;
@@ -4217,7 +4314,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     $this->contentOwnerDetails = $contentOwnerDetails;
   }
-
   public function getContentOwnerDetails()
   {
     return $this->contentOwnerDetails;
@@ -4226,7 +4322,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     $this->conversionPings = $conversionPings;
   }
-
   public function getConversionPings()
   {
     return $this->conversionPings;
@@ -4235,7 +4330,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -4244,7 +4338,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -4253,7 +4346,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     $this->invideoPromotion = $invideoPromotion;
   }
-
   public function getInvideoPromotion()
   {
     return $this->invideoPromotion;
@@ -4262,7 +4354,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -4271,7 +4362,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
@@ -4280,7 +4370,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     $this->statistics = $statistics;
   }
-
   public function getStatistics()
   {
     return $this->statistics;
@@ -4289,7 +4378,6 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
@@ -4298,12 +4386,10 @@ class Google_Service_YouTube_Channel extends Google_Model
   {
     $this->topicDetails = $topicDetails;
   }
-
   public function getTopicDetails()
   {
     return $this->topicDetails;
   }
-
 }
 
 class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
@@ -4315,11 +4401,11 @@ class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
   public $copyrightStrikesGoodStanding;
   public $overallGoodStanding;
 
+
   public function setCommunityGuidelinesGoodStanding($communityGuidelinesGoodStanding)
   {
     $this->communityGuidelinesGoodStanding = $communityGuidelinesGoodStanding;
   }
-
   public function getCommunityGuidelinesGoodStanding()
   {
     return $this->communityGuidelinesGoodStanding;
@@ -4328,7 +4414,6 @@ class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
   {
     $this->contentIdClaimsGoodStanding = $contentIdClaimsGoodStanding;
   }
-
   public function getContentIdClaimsGoodStanding()
   {
     return $this->contentIdClaimsGoodStanding;
@@ -4337,7 +4422,6 @@ class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
   {
     $this->copyrightStrikesGoodStanding = $copyrightStrikesGoodStanding;
   }
-
   public function getCopyrightStrikesGoodStanding()
   {
     return $this->copyrightStrikesGoodStanding;
@@ -4346,12 +4430,10 @@ class Google_Service_YouTube_ChannelAuditDetails extends Google_Model
   {
     $this->overallGoodStanding = $overallGoodStanding;
   }
-
   public function getOverallGoodStanding()
   {
     return $this->overallGoodStanding;
   }
-
 }
 
 class Google_Service_YouTube_ChannelBannerResource extends Google_Model
@@ -4362,11 +4444,11 @@ class Google_Service_YouTube_ChannelBannerResource extends Google_Model
   public $kind;
   public $url;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -4375,7 +4457,6 @@ class Google_Service_YouTube_ChannelBannerResource extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -4384,12 +4465,10 @@ class Google_Service_YouTube_ChannelBannerResource extends Google_Model
   {
     $this->url = $url;
   }
-
   public function getUrl()
   {
     return $this->url;
   }
-
 }
 
 class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
@@ -4406,11 +4485,11 @@ class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
   protected $watchType = 'Google_Service_YouTube_WatchSettings';
   protected $watchDataType = '';
 
+
   public function setChannel(Google_Service_YouTube_ChannelSettings $channel)
   {
     $this->channel = $channel;
   }
-
   public function getChannel()
   {
     return $this->channel;
@@ -4419,7 +4498,6 @@ class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
   {
     $this->hints = $hints;
   }
-
   public function getHints()
   {
     return $this->hints;
@@ -4428,7 +4506,6 @@ class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
   {
     $this->image = $image;
   }
-
   public function getImage()
   {
     return $this->image;
@@ -4437,12 +4514,10 @@ class Google_Service_YouTube_ChannelBrandingSettings extends Google_Collection
   {
     $this->watch = $watch;
   }
-
   public function getWatch()
   {
     return $this->watch;
   }
-
 }
 
 class Google_Service_YouTube_ChannelContentDetails extends Google_Model
@@ -4453,11 +4528,11 @@ class Google_Service_YouTube_ChannelContentDetails extends Google_Model
   protected $relatedPlaylistsType = 'Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists';
   protected $relatedPlaylistsDataType = '';
 
+
   public function setGooglePlusUserId($googlePlusUserId)
   {
     $this->googlePlusUserId = $googlePlusUserId;
   }
-
   public function getGooglePlusUserId()
   {
     return $this->googlePlusUserId;
@@ -4466,12 +4541,10 @@ class Google_Service_YouTube_ChannelContentDetails extends Google_Model
   {
     $this->relatedPlaylists = $relatedPlaylists;
   }
-
   public function getRelatedPlaylists()
   {
     return $this->relatedPlaylists;
   }
-
 }
 
 class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Google_Model
@@ -4484,11 +4557,11 @@ class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Googl
   public $watchHistory;
   public $watchLater;
 
+
   public function setFavorites($favorites)
   {
     $this->favorites = $favorites;
   }
-
   public function getFavorites()
   {
     return $this->favorites;
@@ -4497,7 +4570,6 @@ class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Googl
   {
     $this->likes = $likes;
   }
-
   public function getLikes()
   {
     return $this->likes;
@@ -4506,7 +4578,6 @@ class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Googl
   {
     $this->uploads = $uploads;
   }
-
   public function getUploads()
   {
     return $this->uploads;
@@ -4515,7 +4586,6 @@ class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Googl
   {
     $this->watchHistory = $watchHistory;
   }
-
   public function getWatchHistory()
   {
     return $this->watchHistory;
@@ -4524,12 +4594,10 @@ class Google_Service_YouTube_ChannelContentDetailsRelatedPlaylists extends Googl
   {
     $this->watchLater = $watchLater;
   }
-
   public function getWatchLater()
   {
     return $this->watchLater;
   }
-
 }
 
 class Google_Service_YouTube_ChannelContentOwnerDetails extends Google_Model
@@ -4539,11 +4607,11 @@ class Google_Service_YouTube_ChannelContentOwnerDetails extends Google_Model
   public $contentOwner;
   public $timeLinked;
 
+
   public function setContentOwner($contentOwner)
   {
     $this->contentOwner = $contentOwner;
   }
-
   public function getContentOwner()
   {
     return $this->contentOwner;
@@ -4552,12 +4620,10 @@ class Google_Service_YouTube_ChannelContentOwnerDetails extends Google_Model
   {
     $this->timeLinked = $timeLinked;
   }
-
   public function getTimeLinked()
   {
     return $this->timeLinked;
   }
-
 }
 
 class Google_Service_YouTube_ChannelConversionPing extends Google_Model
@@ -4567,11 +4633,11 @@ class Google_Service_YouTube_ChannelConversionPing extends Google_Model
   public $context;
   public $conversionUrl;
 
+
   public function setContext($context)
   {
     $this->context = $context;
   }
-
   public function getContext()
   {
     return $this->context;
@@ -4580,12 +4646,10 @@ class Google_Service_YouTube_ChannelConversionPing extends Google_Model
   {
     $this->conversionUrl = $conversionUrl;
   }
-
   public function getConversionUrl()
   {
     return $this->conversionUrl;
   }
-
 }
 
 class Google_Service_YouTube_ChannelConversionPings extends Google_Collection
@@ -4596,16 +4660,15 @@ class Google_Service_YouTube_ChannelConversionPings extends Google_Collection
   protected $pingsType = 'Google_Service_YouTube_ChannelConversionPing';
   protected $pingsDataType = 'array';
 
+
   public function setPings($pings)
   {
     $this->pings = $pings;
   }
-
   public function getPings()
   {
     return $this->pings;
   }
-
 }
 
 class Google_Service_YouTube_ChannelListResponse extends Google_Collection
@@ -4626,11 +4689,11 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   protected $tokenPaginationDataType = '';
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -4639,7 +4702,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -4648,7 +4710,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -4657,7 +4718,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -4666,7 +4726,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -4675,7 +4734,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     $this->pageInfo = $pageInfo;
   }
-
   public function getPageInfo()
   {
     return $this->pageInfo;
@@ -4684,7 +4742,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     $this->prevPageToken = $prevPageToken;
   }
-
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
@@ -4693,7 +4750,6 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     $this->tokenPagination = $tokenPagination;
   }
-
   public function getTokenPagination()
   {
     return $this->tokenPagination;
@@ -4702,12 +4758,10 @@ class Google_Service_YouTube_ChannelListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_ChannelSection extends Google_Model
@@ -4722,11 +4776,11 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   protected $snippetType = 'Google_Service_YouTube_ChannelSectionSnippet';
   protected $snippetDataType = '';
 
+
   public function setContentDetails(Google_Service_YouTube_ChannelSectionContentDetails $contentDetails)
   {
     $this->contentDetails = $contentDetails;
   }
-
   public function getContentDetails()
   {
     return $this->contentDetails;
@@ -4735,7 +4789,6 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -4744,7 +4797,6 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -4753,7 +4805,6 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -4762,12 +4813,10 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
   }
-
 }
 
 class Google_Service_YouTube_ChannelSectionContentDetails extends Google_Collection
@@ -4778,11 +4827,11 @@ class Google_Service_YouTube_ChannelSectionContentDetails extends Google_Collect
   public $channels;
   public $playlists;
 
+
   public function setChannels($channels)
   {
     $this->channels = $channels;
   }
-
   public function getChannels()
   {
     return $this->channels;
@@ -4791,12 +4840,10 @@ class Google_Service_YouTube_ChannelSectionContentDetails extends Google_Collect
   {
     $this->playlists = $playlists;
   }
-
   public function getPlaylists()
   {
     return $this->playlists;
   }
-
 }
 
 class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collection
@@ -4811,11 +4858,11 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
   public $kind;
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -4824,7 +4871,6 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -4833,7 +4879,6 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -4842,7 +4887,6 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -4851,12 +4895,10 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
@@ -4869,11 +4911,11 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
   public $title;
   public $type;
 
+
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -4882,7 +4924,6 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
   {
     $this->position = $position;
   }
-
   public function getPosition()
   {
     return $this->position;
@@ -4891,7 +4932,6 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
   {
     $this->style = $style;
   }
-
   public function getStyle()
   {
     return $this->style;
@@ -4900,7 +4940,6 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
@@ -4909,12 +4948,10 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_YouTube_ChannelSettings extends Google_Collection
@@ -4935,11 +4972,11 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   public $trackingAnalyticsAccountId;
   public $unsubscribedTrailer;
 
+
   public function setDefaultTab($defaultTab)
   {
     $this->defaultTab = $defaultTab;
   }
-
   public function getDefaultTab()
   {
     return $this->defaultTab;
@@ -4948,7 +4985,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -4957,7 +4993,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     $this->featuredChannelsTitle = $featuredChannelsTitle;
   }
-
   public function getFeaturedChannelsTitle()
   {
     return $this->featuredChannelsTitle;
@@ -4966,7 +5001,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     $this->featuredChannelsUrls = $featuredChannelsUrls;
   }
-
   public function getFeaturedChannelsUrls()
   {
     return $this->featuredChannelsUrls;
@@ -4975,7 +5009,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     $this->keywords = $keywords;
   }
-
   public function getKeywords()
   {
     return $this->keywords;
@@ -4984,7 +5017,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     $this->moderateComments = $moderateComments;
   }
-
   public function getModerateComments()
   {
     return $this->moderateComments;
@@ -4993,7 +5025,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     $this->profileColor = $profileColor;
   }
-
   public function getProfileColor()
   {
     return $this->profileColor;
@@ -5002,7 +5033,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     $this->showBrowseView = $showBrowseView;
   }
-
   public function getShowBrowseView()
   {
     return $this->showBrowseView;
@@ -5011,7 +5041,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     $this->showRelatedChannels = $showRelatedChannels;
   }
-
   public function getShowRelatedChannels()
   {
     return $this->showRelatedChannels;
@@ -5020,7 +5049,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
@@ -5029,7 +5057,6 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     $this->trackingAnalyticsAccountId = $trackingAnalyticsAccountId;
   }
-
   public function getTrackingAnalyticsAccountId()
   {
     return $this->trackingAnalyticsAccountId;
@@ -5038,12 +5065,10 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   {
     $this->unsubscribedTrailer = $unsubscribedTrailer;
   }
-
   public function getUnsubscribedTrailer()
   {
     return $this->unsubscribedTrailer;
   }
-
 }
 
 class Google_Service_YouTube_ChannelSnippet extends Google_Model
@@ -5056,11 +5081,11 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   protected $thumbnailsDataType = '';
   public $title;
 
+
   public function setDescription($description)
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -5069,7 +5094,6 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   {
     $this->publishedAt = $publishedAt;
   }
-
   public function getPublishedAt()
   {
     return $this->publishedAt;
@@ -5078,7 +5102,6 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   {
     $this->thumbnails = $thumbnails;
   }
-
   public function getThumbnails()
   {
     return $this->thumbnails;
@@ -5087,12 +5110,10 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_YouTube_ChannelStatistics extends Google_Model
@@ -5105,11 +5126,11 @@ class Google_Service_YouTube_ChannelStatistics extends Google_Model
   public $videoCount;
   public $viewCount;
 
+
   public function setCommentCount($commentCount)
   {
     $this->commentCount = $commentCount;
   }
-
   public function getCommentCount()
   {
     return $this->commentCount;
@@ -5118,7 +5139,6 @@ class Google_Service_YouTube_ChannelStatistics extends Google_Model
   {
     $this->hiddenSubscriberCount = $hiddenSubscriberCount;
   }
-
   public function getHiddenSubscriberCount()
   {
     return $this->hiddenSubscriberCount;
@@ -5127,7 +5147,6 @@ class Google_Service_YouTube_ChannelStatistics extends Google_Model
   {
     $this->subscriberCount = $subscriberCount;
   }
-
   public function getSubscriberCount()
   {
     return $this->subscriberCount;
@@ -5136,7 +5155,6 @@ class Google_Service_YouTube_ChannelStatistics extends Google_Model
   {
     $this->videoCount = $videoCount;
   }
-
   public function getVideoCount()
   {
     return $this->videoCount;
@@ -5145,12 +5163,10 @@ class Google_Service_YouTube_ChannelStatistics extends Google_Model
   {
     $this->viewCount = $viewCount;
   }
-
   public function getViewCount()
   {
     return $this->viewCount;
   }
-
 }
 
 class Google_Service_YouTube_ChannelStatus extends Google_Model
@@ -5161,11 +5177,11 @@ class Google_Service_YouTube_ChannelStatus extends Google_Model
   public $longUploadsStatus;
   public $privacyStatus;
 
+
   public function setIsLinked($isLinked)
   {
     $this->isLinked = $isLinked;
   }
-
   public function getIsLinked()
   {
     return $this->isLinked;
@@ -5174,7 +5190,6 @@ class Google_Service_YouTube_ChannelStatus extends Google_Model
   {
     $this->longUploadsStatus = $longUploadsStatus;
   }
-
   public function getLongUploadsStatus()
   {
     return $this->longUploadsStatus;
@@ -5183,12 +5198,10 @@ class Google_Service_YouTube_ChannelStatus extends Google_Model
   {
     $this->privacyStatus = $privacyStatus;
   }
-
   public function getPrivacyStatus()
   {
     return $this->privacyStatus;
   }
-
 }
 
 class Google_Service_YouTube_ChannelTopicDetails extends Google_Collection
@@ -5198,16 +5211,15 @@ class Google_Service_YouTube_ChannelTopicDetails extends Google_Collection
   );
   public $topicIds;
 
+
   public function setTopicIds($topicIds)
   {
     $this->topicIds = $topicIds;
   }
-
   public function getTopicIds()
   {
     return $this->topicIds;
   }
-
 }
 
 class Google_Service_YouTube_ContentRating extends Google_Model
@@ -5278,11 +5290,11 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   public $tvpgRating;
   public $ytRating;
 
+
   public function setAcbRating($acbRating)
   {
     $this->acbRating = $acbRating;
   }
-
   public function getAcbRating()
   {
     return $this->acbRating;
@@ -5291,7 +5303,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->agcomRating = $agcomRating;
   }
-
   public function getAgcomRating()
   {
     return $this->agcomRating;
@@ -5300,7 +5311,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->anatelRating = $anatelRating;
   }
-
   public function getAnatelRating()
   {
     return $this->anatelRating;
@@ -5309,7 +5319,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->bbfcRating = $bbfcRating;
   }
-
   public function getBbfcRating()
   {
     return $this->bbfcRating;
@@ -5318,7 +5327,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->bfvcRating = $bfvcRating;
   }
-
   public function getBfvcRating()
   {
     return $this->bfvcRating;
@@ -5327,7 +5335,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->bmukkRating = $bmukkRating;
   }
-
   public function getBmukkRating()
   {
     return $this->bmukkRating;
@@ -5336,7 +5343,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->catvRating = $catvRating;
   }
-
   public function getCatvRating()
   {
     return $this->catvRating;
@@ -5345,7 +5351,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->catvfrRating = $catvfrRating;
   }
-
   public function getCatvfrRating()
   {
     return $this->catvfrRating;
@@ -5354,7 +5359,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->cbfcRating = $cbfcRating;
   }
-
   public function getCbfcRating()
   {
     return $this->cbfcRating;
@@ -5363,7 +5367,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->cccRating = $cccRating;
   }
-
   public function getCccRating()
   {
     return $this->cccRating;
@@ -5372,7 +5375,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->cceRating = $cceRating;
   }
-
   public function getCceRating()
   {
     return $this->cceRating;
@@ -5381,7 +5383,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->chfilmRating = $chfilmRating;
   }
-
   public function getChfilmRating()
   {
     return $this->chfilmRating;
@@ -5390,7 +5391,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->chvrsRating = $chvrsRating;
   }
-
   public function getChvrsRating()
   {
     return $this->chvrsRating;
@@ -5399,7 +5399,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->cicfRating = $cicfRating;
   }
-
   public function getCicfRating()
   {
     return $this->cicfRating;
@@ -5408,7 +5407,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->cnaRating = $cnaRating;
   }
-
   public function getCnaRating()
   {
     return $this->cnaRating;
@@ -5417,7 +5415,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->csaRating = $csaRating;
   }
-
   public function getCsaRating()
   {
     return $this->csaRating;
@@ -5426,7 +5423,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->cscfRating = $cscfRating;
   }
-
   public function getCscfRating()
   {
     return $this->cscfRating;
@@ -5435,7 +5431,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->czfilmRating = $czfilmRating;
   }
-
   public function getCzfilmRating()
   {
     return $this->czfilmRating;
@@ -5444,7 +5439,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->djctqRating = $djctqRating;
   }
-
   public function getDjctqRating()
   {
     return $this->djctqRating;
@@ -5453,7 +5447,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->eefilmRating = $eefilmRating;
   }
-
   public function getEefilmRating()
   {
     return $this->eefilmRating;
@@ -5462,7 +5455,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->egfilmRating = $egfilmRating;
   }
-
   public function getEgfilmRating()
   {
     return $this->egfilmRating;
@@ -5471,7 +5463,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->eirinRating = $eirinRating;
   }
-
   public function getEirinRating()
   {
     return $this->eirinRating;
@@ -5480,7 +5471,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->fcbmRating = $fcbmRating;
   }
-
   public function getFcbmRating()
   {
     return $this->fcbmRating;
@@ -5489,7 +5479,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->fcoRating = $fcoRating;
   }
-
   public function getFcoRating()
   {
     return $this->fcoRating;
@@ -5498,7 +5487,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->fmocRating = $fmocRating;
   }
-
   public function getFmocRating()
   {
     return $this->fmocRating;
@@ -5507,7 +5495,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->fpbRating = $fpbRating;
   }
-
   public function getFpbRating()
   {
     return $this->fpbRating;
@@ -5516,7 +5503,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->fskRating = $fskRating;
   }
-
   public function getFskRating()
   {
     return $this->fskRating;
@@ -5525,7 +5511,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->grfilmRating = $grfilmRating;
   }
-
   public function getGrfilmRating()
   {
     return $this->grfilmRating;
@@ -5534,7 +5519,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->icaaRating = $icaaRating;
   }
-
   public function getIcaaRating()
   {
     return $this->icaaRating;
@@ -5543,7 +5527,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->ifcoRating = $ifcoRating;
   }
-
   public function getIfcoRating()
   {
     return $this->ifcoRating;
@@ -5552,7 +5535,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->ilfilmRating = $ilfilmRating;
   }
-
   public function getIlfilmRating()
   {
     return $this->ilfilmRating;
@@ -5561,7 +5543,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->incaaRating = $incaaRating;
   }
-
   public function getIncaaRating()
   {
     return $this->incaaRating;
@@ -5570,7 +5551,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->kfcbRating = $kfcbRating;
   }
-
   public function getKfcbRating()
   {
     return $this->kfcbRating;
@@ -5579,7 +5559,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->kijkwijzerRating = $kijkwijzerRating;
   }
-
   public function getKijkwijzerRating()
   {
     return $this->kijkwijzerRating;
@@ -5588,7 +5567,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->kmrbRating = $kmrbRating;
   }
-
   public function getKmrbRating()
   {
     return $this->kmrbRating;
@@ -5597,7 +5575,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->lsfRating = $lsfRating;
   }
-
   public function getLsfRating()
   {
     return $this->lsfRating;
@@ -5606,7 +5583,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->mccaaRating = $mccaaRating;
   }
-
   public function getMccaaRating()
   {
     return $this->mccaaRating;
@@ -5615,7 +5591,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->mccypRating = $mccypRating;
   }
-
   public function getMccypRating()
   {
     return $this->mccypRating;
@@ -5624,7 +5599,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->mdaRating = $mdaRating;
   }
-
   public function getMdaRating()
   {
     return $this->mdaRating;
@@ -5633,7 +5607,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->medietilsynetRating = $medietilsynetRating;
   }
-
   public function getMedietilsynetRating()
   {
     return $this->medietilsynetRating;
@@ -5642,7 +5615,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->mekuRating = $mekuRating;
   }
-
   public function getMekuRating()
   {
     return $this->mekuRating;
@@ -5651,7 +5623,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->mibacRating = $mibacRating;
   }
-
   public function getMibacRating()
   {
     return $this->mibacRating;
@@ -5660,7 +5631,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->mocRating = $mocRating;
   }
-
   public function getMocRating()
   {
     return $this->mocRating;
@@ -5669,7 +5639,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->moctwRating = $moctwRating;
   }
-
   public function getMoctwRating()
   {
     return $this->moctwRating;
@@ -5678,7 +5647,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->mpaaRating = $mpaaRating;
   }
-
   public function getMpaaRating()
   {
     return $this->mpaaRating;
@@ -5687,7 +5655,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->mtrcbRating = $mtrcbRating;
   }
-
   public function getMtrcbRating()
   {
     return $this->mtrcbRating;
@@ -5696,7 +5663,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->nbcRating = $nbcRating;
   }
-
   public function getNbcRating()
   {
     return $this->nbcRating;
@@ -5705,7 +5671,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->nbcplRating = $nbcplRating;
   }
-
   public function getNbcplRating()
   {
     return $this->nbcplRating;
@@ -5714,7 +5679,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->nfrcRating = $nfrcRating;
   }
-
   public function getNfrcRating()
   {
     return $this->nfrcRating;
@@ -5723,7 +5687,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->nfvcbRating = $nfvcbRating;
   }
-
   public function getNfvcbRating()
   {
     return $this->nfvcbRating;
@@ -5732,7 +5695,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->nkclvRating = $nkclvRating;
   }
-
   public function getNkclvRating()
   {
     return $this->nkclvRating;
@@ -5741,7 +5703,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->oflcRating = $oflcRating;
   }
-
   public function getOflcRating()
   {
     return $this->oflcRating;
@@ -5750,7 +5711,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->pefilmRating = $pefilmRating;
   }
-
   public function getPefilmRating()
   {
     return $this->pefilmRating;
@@ -5759,7 +5719,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->rcnofRating = $rcnofRating;
   }
-
   public function getRcnofRating()
   {
     return $this->rcnofRating;
@@ -5768,7 +5727,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->resorteviolenciaRating = $resorteviolenciaRating;
   }
-
   public function getResorteviolenciaRating()
   {
     return $this->resorteviolenciaRating;
@@ -5777,7 +5735,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->rtcRating = $rtcRating;
   }
-
   public function getRtcRating()
   {
     return $this->rtcRating;
@@ -5786,7 +5743,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->rteRating = $rteRating;
   }
-
   public function getRteRating()
   {
     return $this->rteRating;
@@ -5795,7 +5751,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->russiaRating = $russiaRating;
   }
-
   public function getRussiaRating()
   {
     return $this->russiaRating;
@@ -5804,7 +5759,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->skfilmRating = $skfilmRating;
   }
-
   public function getSkfilmRating()
   {
     return $this->skfilmRating;
@@ -5813,7 +5767,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->smaisRating = $smaisRating;
   }
-
   public function getSmaisRating()
   {
     return $this->smaisRating;
@@ -5822,7 +5775,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->smsaRating = $smsaRating;
   }
-
   public function getSmsaRating()
   {
     return $this->smsaRating;
@@ -5831,7 +5783,6 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->tvpgRating = $tvpgRating;
   }
-
   public function getTvpgRating()
   {
     return $this->tvpgRating;
@@ -5840,12 +5791,10 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   {
     $this->ytRating = $ytRating;
   }
-
   public function getYtRating()
   {
     return $this->ytRating;
   }
-
 }
 
 class Google_Service_YouTube_GeoPoint extends Google_Model
@@ -5856,11 +5805,11 @@ class Google_Service_YouTube_GeoPoint extends Google_Model
   public $latitude;
   public $longitude;
 
+
   public function setAltitude($altitude)
   {
     $this->altitude = $altitude;
   }
-
   public function getAltitude()
   {
     return $this->altitude;
@@ -5869,7 +5818,6 @@ class Google_Service_YouTube_GeoPoint extends Google_Model
   {
     $this->latitude = $latitude;
   }
-
   public function getLatitude()
   {
     return $this->latitude;
@@ -5878,12 +5826,10 @@ class Google_Service_YouTube_GeoPoint extends Google_Model
   {
     $this->longitude = $longitude;
   }
-
   public function getLongitude()
   {
     return $this->longitude;
   }
-
 }
 
 class Google_Service_YouTube_GuideCategory extends Google_Model
@@ -5896,11 +5842,11 @@ class Google_Service_YouTube_GuideCategory extends Google_Model
   protected $snippetType = 'Google_Service_YouTube_GuideCategorySnippet';
   protected $snippetDataType = '';
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -5909,7 +5855,6 @@ class Google_Service_YouTube_GuideCategory extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -5918,7 +5863,6 @@ class Google_Service_YouTube_GuideCategory extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -5927,12 +5871,10 @@ class Google_Service_YouTube_GuideCategory extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
   }
-
 }
 
 class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
@@ -5953,11 +5895,11 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   protected $tokenPaginationDataType = '';
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -5966,7 +5908,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -5975,7 +5916,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -5984,7 +5924,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -5993,7 +5932,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -6002,7 +5940,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     $this->pageInfo = $pageInfo;
   }
-
   public function getPageInfo()
   {
     return $this->pageInfo;
@@ -6011,7 +5948,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     $this->prevPageToken = $prevPageToken;
   }
-
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
@@ -6020,7 +5956,6 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     $this->tokenPagination = $tokenPagination;
   }
-
   public function getTokenPagination()
   {
     return $this->tokenPagination;
@@ -6029,12 +5964,10 @@ class Google_Service_YouTube_GuideCategoryListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_GuideCategorySnippet extends Google_Model
@@ -6044,11 +5977,11 @@ class Google_Service_YouTube_GuideCategorySnippet extends Google_Model
   public $channelId;
   public $title;
 
+
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -6057,12 +5990,10 @@ class Google_Service_YouTube_GuideCategorySnippet extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_YouTube_I18nLanguage extends Google_Model
@@ -6075,11 +6006,11 @@ class Google_Service_YouTube_I18nLanguage extends Google_Model
   protected $snippetType = 'Google_Service_YouTube_I18nLanguageSnippet';
   protected $snippetDataType = '';
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -6088,7 +6019,6 @@ class Google_Service_YouTube_I18nLanguage extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -6097,7 +6027,6 @@ class Google_Service_YouTube_I18nLanguage extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -6106,12 +6035,10 @@ class Google_Service_YouTube_I18nLanguage extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
   }
-
 }
 
 class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
@@ -6126,11 +6053,11 @@ class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
   public $kind;
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -6139,7 +6066,6 @@ class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -6148,7 +6074,6 @@ class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -6157,7 +6082,6 @@ class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -6166,12 +6090,10 @@ class Google_Service_YouTube_I18nLanguageListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_I18nLanguageSnippet extends Google_Model
@@ -6181,11 +6103,11 @@ class Google_Service_YouTube_I18nLanguageSnippet extends Google_Model
   public $hl;
   public $name;
 
+
   public function setHl($hl)
   {
     $this->hl = $hl;
   }
-
   public function getHl()
   {
     return $this->hl;
@@ -6194,12 +6116,10 @@ class Google_Service_YouTube_I18nLanguageSnippet extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_YouTube_I18nRegion extends Google_Model
@@ -6212,11 +6132,11 @@ class Google_Service_YouTube_I18nRegion extends Google_Model
   protected $snippetType = 'Google_Service_YouTube_I18nRegionSnippet';
   protected $snippetDataType = '';
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -6225,7 +6145,6 @@ class Google_Service_YouTube_I18nRegion extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -6234,7 +6153,6 @@ class Google_Service_YouTube_I18nRegion extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -6243,12 +6161,10 @@ class Google_Service_YouTube_I18nRegion extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
   }
-
 }
 
 class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
@@ -6263,11 +6179,11 @@ class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
   public $kind;
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -6276,7 +6192,6 @@ class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -6285,7 +6200,6 @@ class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -6294,7 +6208,6 @@ class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -6303,12 +6216,10 @@ class Google_Service_YouTube_I18nRegionListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_I18nRegionSnippet extends Google_Model
@@ -6318,11 +6229,11 @@ class Google_Service_YouTube_I18nRegionSnippet extends Google_Model
   public $gl;
   public $name;
 
+
   public function setGl($gl)
   {
     $this->gl = $gl;
   }
-
   public function getGl()
   {
     return $this->gl;
@@ -6331,12 +6242,10 @@ class Google_Service_YouTube_I18nRegionSnippet extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_YouTube_ImageSettings extends Google_Model
@@ -6371,11 +6280,11 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   public $trackingImageUrl;
   public $watchIconImageUrl;
 
+
   public function setBackgroundImageUrl(Google_Service_YouTube_LocalizedProperty $backgroundImageUrl)
   {
     $this->backgroundImageUrl = $backgroundImageUrl;
   }
-
   public function getBackgroundImageUrl()
   {
     return $this->backgroundImageUrl;
@@ -6384,7 +6293,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerExternalUrl = $bannerExternalUrl;
   }
-
   public function getBannerExternalUrl()
   {
     return $this->bannerExternalUrl;
@@ -6393,7 +6301,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerImageUrl = $bannerImageUrl;
   }
-
   public function getBannerImageUrl()
   {
     return $this->bannerImageUrl;
@@ -6402,7 +6309,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerMobileExtraHdImageUrl = $bannerMobileExtraHdImageUrl;
   }
-
   public function getBannerMobileExtraHdImageUrl()
   {
     return $this->bannerMobileExtraHdImageUrl;
@@ -6411,7 +6317,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerMobileHdImageUrl = $bannerMobileHdImageUrl;
   }
-
   public function getBannerMobileHdImageUrl()
   {
     return $this->bannerMobileHdImageUrl;
@@ -6420,7 +6325,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerMobileImageUrl = $bannerMobileImageUrl;
   }
-
   public function getBannerMobileImageUrl()
   {
     return $this->bannerMobileImageUrl;
@@ -6429,7 +6333,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerMobileLowImageUrl = $bannerMobileLowImageUrl;
   }
-
   public function getBannerMobileLowImageUrl()
   {
     return $this->bannerMobileLowImageUrl;
@@ -6438,7 +6341,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerMobileMediumHdImageUrl = $bannerMobileMediumHdImageUrl;
   }
-
   public function getBannerMobileMediumHdImageUrl()
   {
     return $this->bannerMobileMediumHdImageUrl;
@@ -6447,7 +6349,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerTabletExtraHdImageUrl = $bannerTabletExtraHdImageUrl;
   }
-
   public function getBannerTabletExtraHdImageUrl()
   {
     return $this->bannerTabletExtraHdImageUrl;
@@ -6456,7 +6357,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerTabletHdImageUrl = $bannerTabletHdImageUrl;
   }
-
   public function getBannerTabletHdImageUrl()
   {
     return $this->bannerTabletHdImageUrl;
@@ -6465,7 +6365,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerTabletImageUrl = $bannerTabletImageUrl;
   }
-
   public function getBannerTabletImageUrl()
   {
     return $this->bannerTabletImageUrl;
@@ -6474,7 +6373,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerTabletLowImageUrl = $bannerTabletLowImageUrl;
   }
-
   public function getBannerTabletLowImageUrl()
   {
     return $this->bannerTabletLowImageUrl;
@@ -6483,7 +6381,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerTvHighImageUrl = $bannerTvHighImageUrl;
   }
-
   public function getBannerTvHighImageUrl()
   {
     return $this->bannerTvHighImageUrl;
@@ -6492,7 +6389,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerTvImageUrl = $bannerTvImageUrl;
   }
-
   public function getBannerTvImageUrl()
   {
     return $this->bannerTvImageUrl;
@@ -6501,7 +6397,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerTvLowImageUrl = $bannerTvLowImageUrl;
   }
-
   public function getBannerTvLowImageUrl()
   {
     return $this->bannerTvLowImageUrl;
@@ -6510,7 +6405,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->bannerTvMediumImageUrl = $bannerTvMediumImageUrl;
   }
-
   public function getBannerTvMediumImageUrl()
   {
     return $this->bannerTvMediumImageUrl;
@@ -6519,7 +6413,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->largeBrandedBannerImageImapScript = $largeBrandedBannerImageImapScript;
   }
-
   public function getLargeBrandedBannerImageImapScript()
   {
     return $this->largeBrandedBannerImageImapScript;
@@ -6528,7 +6421,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->largeBrandedBannerImageUrl = $largeBrandedBannerImageUrl;
   }
-
   public function getLargeBrandedBannerImageUrl()
   {
     return $this->largeBrandedBannerImageUrl;
@@ -6537,7 +6429,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->smallBrandedBannerImageImapScript = $smallBrandedBannerImageImapScript;
   }
-
   public function getSmallBrandedBannerImageImapScript()
   {
     return $this->smallBrandedBannerImageImapScript;
@@ -6546,7 +6437,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->smallBrandedBannerImageUrl = $smallBrandedBannerImageUrl;
   }
-
   public function getSmallBrandedBannerImageUrl()
   {
     return $this->smallBrandedBannerImageUrl;
@@ -6555,7 +6445,6 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->trackingImageUrl = $trackingImageUrl;
   }
-
   public function getTrackingImageUrl()
   {
     return $this->trackingImageUrl;
@@ -6564,12 +6453,10 @@ class Google_Service_YouTube_ImageSettings extends Google_Model
   {
     $this->watchIconImageUrl = $watchIconImageUrl;
   }
-
   public function getWatchIconImageUrl()
   {
     return $this->watchIconImageUrl;
   }
-
 }
 
 class Google_Service_YouTube_IngestionInfo extends Google_Model
@@ -6580,11 +6467,11 @@ class Google_Service_YouTube_IngestionInfo extends Google_Model
   public $ingestionAddress;
   public $streamName;
 
+
   public function setBackupIngestionAddress($backupIngestionAddress)
   {
     $this->backupIngestionAddress = $backupIngestionAddress;
   }
-
   public function getBackupIngestionAddress()
   {
     return $this->backupIngestionAddress;
@@ -6593,7 +6480,6 @@ class Google_Service_YouTube_IngestionInfo extends Google_Model
   {
     $this->ingestionAddress = $ingestionAddress;
   }
-
   public function getIngestionAddress()
   {
     return $this->ingestionAddress;
@@ -6602,12 +6488,10 @@ class Google_Service_YouTube_IngestionInfo extends Google_Model
   {
     $this->streamName = $streamName;
   }
-
   public function getStreamName()
   {
     return $this->streamName;
   }
-
 }
 
 class Google_Service_YouTube_InvideoBranding extends Google_Model
@@ -6622,11 +6506,11 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
   protected $timingType = 'Google_Service_YouTube_InvideoTiming';
   protected $timingDataType = '';
 
+
   public function setImageBytes($imageBytes)
   {
     $this->imageBytes = $imageBytes;
   }
-
   public function getImageBytes()
   {
     return $this->imageBytes;
@@ -6635,7 +6519,6 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
   {
     $this->imageUrl = $imageUrl;
   }
-
   public function getImageUrl()
   {
     return $this->imageUrl;
@@ -6644,7 +6527,6 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
   {
     $this->position = $position;
   }
-
   public function getPosition()
   {
     return $this->position;
@@ -6653,7 +6535,6 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
   {
     $this->targetChannelId = $targetChannelId;
   }
-
   public function getTargetChannelId()
   {
     return $this->targetChannelId;
@@ -6662,12 +6543,10 @@ class Google_Service_YouTube_InvideoBranding extends Google_Model
   {
     $this->timing = $timing;
   }
-
   public function getTiming()
   {
     return $this->timing;
   }
-
 }
 
 class Google_Service_YouTube_InvideoPosition extends Google_Model
@@ -6677,11 +6556,11 @@ class Google_Service_YouTube_InvideoPosition extends Google_Model
   public $cornerPosition;
   public $type;
 
+
   public function setCornerPosition($cornerPosition)
   {
     $this->cornerPosition = $cornerPosition;
   }
-
   public function getCornerPosition()
   {
     return $this->cornerPosition;
@@ -6690,12 +6569,10 @@ class Google_Service_YouTube_InvideoPosition extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_YouTube_InvideoPromotion extends Google_Collection
@@ -6711,11 +6588,11 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
   protected $positionDataType = '';
   public $useSmartTiming;
 
+
   public function setDefaultTiming(Google_Service_YouTube_InvideoTiming $defaultTiming)
   {
     $this->defaultTiming = $defaultTiming;
   }
-
   public function getDefaultTiming()
   {
     return $this->defaultTiming;
@@ -6724,7 +6601,6 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -6733,7 +6609,6 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
   {
     $this->position = $position;
   }
-
   public function getPosition()
   {
     return $this->position;
@@ -6742,12 +6617,10 @@ class Google_Service_YouTube_InvideoPromotion extends Google_Collection
   {
     $this->useSmartTiming = $useSmartTiming;
   }
-
   public function getUseSmartTiming()
   {
     return $this->useSmartTiming;
   }
-
 }
 
 class Google_Service_YouTube_InvideoTiming extends Google_Model
@@ -6758,11 +6631,11 @@ class Google_Service_YouTube_InvideoTiming extends Google_Model
   public $offsetMs;
   public $type;
 
+
   public function setDurationMs($durationMs)
   {
     $this->durationMs = $durationMs;
   }
-
   public function getDurationMs()
   {
     return $this->durationMs;
@@ -6771,7 +6644,6 @@ class Google_Service_YouTube_InvideoTiming extends Google_Model
   {
     $this->offsetMs = $offsetMs;
   }
-
   public function getOffsetMs()
   {
     return $this->offsetMs;
@@ -6780,12 +6652,10 @@ class Google_Service_YouTube_InvideoTiming extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_YouTube_LiveBroadcast extends Google_Model
@@ -6802,11 +6672,11 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   protected $statusType = 'Google_Service_YouTube_LiveBroadcastStatus';
   protected $statusDataType = '';
 
+
   public function setContentDetails(Google_Service_YouTube_LiveBroadcastContentDetails $contentDetails)
   {
     $this->contentDetails = $contentDetails;
   }
-
   public function getContentDetails()
   {
     return $this->contentDetails;
@@ -6815,7 +6685,6 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -6824,7 +6693,6 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -6833,7 +6701,6 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -6842,7 +6709,6 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
@@ -6851,12 +6717,10 @@ class Google_Service_YouTube_LiveBroadcast extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
   }
-
 }
 
 class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
@@ -6873,11 +6737,11 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   public $recordFromStart;
   public $startWithSlate;
 
+
   public function setBoundStreamId($boundStreamId)
   {
     $this->boundStreamId = $boundStreamId;
   }
-
   public function getBoundStreamId()
   {
     return $this->boundStreamId;
@@ -6886,7 +6750,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     $this->enableClosedCaptions = $enableClosedCaptions;
   }
-
   public function getEnableClosedCaptions()
   {
     return $this->enableClosedCaptions;
@@ -6895,7 +6758,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     $this->enableContentEncryption = $enableContentEncryption;
   }
-
   public function getEnableContentEncryption()
   {
     return $this->enableContentEncryption;
@@ -6904,7 +6766,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     $this->enableDvr = $enableDvr;
   }
-
   public function getEnableDvr()
   {
     return $this->enableDvr;
@@ -6913,7 +6774,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     $this->enableEmbed = $enableEmbed;
   }
-
   public function getEnableEmbed()
   {
     return $this->enableEmbed;
@@ -6922,7 +6782,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     $this->monitorStream = $monitorStream;
   }
-
   public function getMonitorStream()
   {
     return $this->monitorStream;
@@ -6931,7 +6790,6 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     $this->recordFromStart = $recordFromStart;
   }
-
   public function getRecordFromStart()
   {
     return $this->recordFromStart;
@@ -6940,12 +6798,10 @@ class Google_Service_YouTube_LiveBroadcastContentDetails extends Google_Model
   {
     $this->startWithSlate = $startWithSlate;
   }
-
   public function getStartWithSlate()
   {
     return $this->startWithSlate;
   }
-
 }
 
 class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
@@ -6966,11 +6822,11 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   protected $tokenPaginationDataType = '';
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -6979,7 +6835,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -6988,7 +6843,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -6997,7 +6851,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -7006,7 +6859,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -7015,7 +6867,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     $this->pageInfo = $pageInfo;
   }
-
   public function getPageInfo()
   {
     return $this->pageInfo;
@@ -7024,7 +6875,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     $this->prevPageToken = $prevPageToken;
   }
-
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
@@ -7033,7 +6883,6 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     $this->tokenPagination = $tokenPagination;
   }
-
   public function getTokenPagination()
   {
     return $this->tokenPagination;
@@ -7042,12 +6891,10 @@ class Google_Service_YouTube_LiveBroadcastListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
@@ -7065,11 +6912,11 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   protected $thumbnailsDataType = '';
   public $title;
 
+
   public function setActualEndTime($actualEndTime)
   {
     $this->actualEndTime = $actualEndTime;
   }
-
   public function getActualEndTime()
   {
     return $this->actualEndTime;
@@ -7078,7 +6925,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     $this->actualStartTime = $actualStartTime;
   }
-
   public function getActualStartTime()
   {
     return $this->actualStartTime;
@@ -7087,7 +6933,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -7096,7 +6941,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -7105,7 +6949,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     $this->publishedAt = $publishedAt;
   }
-
   public function getPublishedAt()
   {
     return $this->publishedAt;
@@ -7114,7 +6957,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     $this->scheduledEndTime = $scheduledEndTime;
   }
-
   public function getScheduledEndTime()
   {
     return $this->scheduledEndTime;
@@ -7123,7 +6965,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     $this->scheduledStartTime = $scheduledStartTime;
   }
-
   public function getScheduledStartTime()
   {
     return $this->scheduledStartTime;
@@ -7132,7 +6973,6 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     $this->thumbnails = $thumbnails;
   }
-
   public function getThumbnails()
   {
     return $this->thumbnails;
@@ -7141,12 +6981,10 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
@@ -7158,11 +6996,11 @@ class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
   public $privacyStatus;
   public $recordingStatus;
 
+
   public function setLifeCycleStatus($lifeCycleStatus)
   {
     $this->lifeCycleStatus = $lifeCycleStatus;
   }
-
   public function getLifeCycleStatus()
   {
     return $this->lifeCycleStatus;
@@ -7171,7 +7009,6 @@ class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
   {
     $this->liveBroadcastPriority = $liveBroadcastPriority;
   }
-
   public function getLiveBroadcastPriority()
   {
     return $this->liveBroadcastPriority;
@@ -7180,7 +7017,6 @@ class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
   {
     $this->privacyStatus = $privacyStatus;
   }
-
   public function getPrivacyStatus()
   {
     return $this->privacyStatus;
@@ -7189,12 +7025,10 @@ class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
   {
     $this->recordingStatus = $recordingStatus;
   }
-
   public function getRecordingStatus()
   {
     return $this->recordingStatus;
   }
-
 }
 
 class Google_Service_YouTube_LiveStream extends Google_Model
@@ -7213,11 +7047,11 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   protected $statusType = 'Google_Service_YouTube_LiveStreamStatus';
   protected $statusDataType = '';
 
+
   public function setCdn(Google_Service_YouTube_CdnSettings $cdn)
   {
     $this->cdn = $cdn;
   }
-
   public function getCdn()
   {
     return $this->cdn;
@@ -7226,7 +7060,6 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     $this->contentDetails = $contentDetails;
   }
-
   public function getContentDetails()
   {
     return $this->contentDetails;
@@ -7235,7 +7068,6 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -7244,7 +7076,6 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -7253,7 +7084,6 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -7262,7 +7092,6 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
@@ -7271,12 +7100,10 @@ class Google_Service_YouTube_LiveStream extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
   }
-
 }
 
 class Google_Service_YouTube_LiveStreamContentDetails extends Google_Model
@@ -7286,11 +7113,11 @@ class Google_Service_YouTube_LiveStreamContentDetails extends Google_Model
   public $closedCaptionsIngestionUrl;
   public $isReusable;
 
+
   public function setClosedCaptionsIngestionUrl($closedCaptionsIngestionUrl)
   {
     $this->closedCaptionsIngestionUrl = $closedCaptionsIngestionUrl;
   }
-
   public function getClosedCaptionsIngestionUrl()
   {
     return $this->closedCaptionsIngestionUrl;
@@ -7299,12 +7126,10 @@ class Google_Service_YouTube_LiveStreamContentDetails extends Google_Model
   {
     $this->isReusable = $isReusable;
   }
-
   public function getIsReusable()
   {
     return $this->isReusable;
   }
-
 }
 
 class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
@@ -7325,11 +7150,11 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   protected $tokenPaginationDataType = '';
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -7338,7 +7163,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -7347,7 +7171,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -7356,7 +7179,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -7365,7 +7187,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -7374,7 +7195,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     $this->pageInfo = $pageInfo;
   }
-
   public function getPageInfo()
   {
     return $this->pageInfo;
@@ -7383,7 +7203,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     $this->prevPageToken = $prevPageToken;
   }
-
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
@@ -7392,7 +7211,6 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     $this->tokenPagination = $tokenPagination;
   }
-
   public function getTokenPagination()
   {
     return $this->tokenPagination;
@@ -7401,12 +7219,10 @@ class Google_Service_YouTube_LiveStreamListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
@@ -7418,11 +7234,11 @@ class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
   public $publishedAt;
   public $title;
 
+
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -7431,7 +7247,6 @@ class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -7440,7 +7255,6 @@ class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
   {
     $this->publishedAt = $publishedAt;
   }
-
   public function getPublishedAt()
   {
     return $this->publishedAt;
@@ -7449,12 +7263,10 @@ class Google_Service_YouTube_LiveStreamSnippet extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_YouTube_LiveStreamStatus extends Google_Model
@@ -7463,16 +7275,15 @@ class Google_Service_YouTube_LiveStreamStatus extends Google_Model
   );
   public $streamStatus;
 
+
   public function setStreamStatus($streamStatus)
   {
     $this->streamStatus = $streamStatus;
   }
-
   public function getStreamStatus()
   {
     return $this->streamStatus;
   }
-
 }
 
 class Google_Service_YouTube_LocalizedProperty extends Google_Collection
@@ -7484,11 +7295,11 @@ class Google_Service_YouTube_LocalizedProperty extends Google_Collection
   protected $localizedType = 'Google_Service_YouTube_LocalizedString';
   protected $localizedDataType = 'array';
 
+
   public function setDefault($default)
   {
     $this->default = $default;
   }
-
   public function getDefault()
   {
     return $this->default;
@@ -7497,12 +7308,10 @@ class Google_Service_YouTube_LocalizedProperty extends Google_Collection
   {
     $this->localized = $localized;
   }
-
   public function getLocalized()
   {
     return $this->localized;
   }
-
 }
 
 class Google_Service_YouTube_LocalizedString extends Google_Model
@@ -7512,11 +7321,11 @@ class Google_Service_YouTube_LocalizedString extends Google_Model
   public $language;
   public $value;
 
+
   public function setLanguage($language)
   {
     $this->language = $language;
   }
-
   public function getLanguage()
   {
     return $this->language;
@@ -7525,12 +7334,10 @@ class Google_Service_YouTube_LocalizedString extends Google_Model
   {
     $this->value = $value;
   }
-
   public function getValue()
   {
     return $this->value;
   }
-
 }
 
 class Google_Service_YouTube_MonitorStreamInfo extends Google_Model
@@ -7541,11 +7348,11 @@ class Google_Service_YouTube_MonitorStreamInfo extends Google_Model
   public $embedHtml;
   public $enableMonitorStream;
 
+
   public function setBroadcastStreamDelayMs($broadcastStreamDelayMs)
   {
     $this->broadcastStreamDelayMs = $broadcastStreamDelayMs;
   }
-
   public function getBroadcastStreamDelayMs()
   {
     return $this->broadcastStreamDelayMs;
@@ -7554,7 +7361,6 @@ class Google_Service_YouTube_MonitorStreamInfo extends Google_Model
   {
     $this->embedHtml = $embedHtml;
   }
-
   public function getEmbedHtml()
   {
     return $this->embedHtml;
@@ -7563,12 +7369,10 @@ class Google_Service_YouTube_MonitorStreamInfo extends Google_Model
   {
     $this->enableMonitorStream = $enableMonitorStream;
   }
-
   public function getEnableMonitorStream()
   {
     return $this->enableMonitorStream;
   }
-
 }
 
 class Google_Service_YouTube_PageInfo extends Google_Model
@@ -7578,11 +7382,11 @@ class Google_Service_YouTube_PageInfo extends Google_Model
   public $resultsPerPage;
   public $totalResults;
 
+
   public function setResultsPerPage($resultsPerPage)
   {
     $this->resultsPerPage = $resultsPerPage;
   }
-
   public function getResultsPerPage()
   {
     return $this->resultsPerPage;
@@ -7591,12 +7395,10 @@ class Google_Service_YouTube_PageInfo extends Google_Model
   {
     $this->totalResults = $totalResults;
   }
-
   public function getTotalResults()
   {
     return $this->totalResults;
   }
-
 }
 
 class Google_Service_YouTube_Playlist extends Google_Model
@@ -7615,11 +7417,11 @@ class Google_Service_YouTube_Playlist extends Google_Model
   protected $statusType = 'Google_Service_YouTube_PlaylistStatus';
   protected $statusDataType = '';
 
+
   public function setContentDetails(Google_Service_YouTube_PlaylistContentDetails $contentDetails)
   {
     $this->contentDetails = $contentDetails;
   }
-
   public function getContentDetails()
   {
     return $this->contentDetails;
@@ -7628,7 +7430,6 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -7637,7 +7438,6 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -7646,7 +7446,6 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -7655,7 +7454,6 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     $this->player = $player;
   }
-
   public function getPlayer()
   {
     return $this->player;
@@ -7664,7 +7462,6 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
@@ -7673,12 +7470,10 @@ class Google_Service_YouTube_Playlist extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
   }
-
 }
 
 class Google_Service_YouTube_PlaylistContentDetails extends Google_Model
@@ -7687,16 +7482,15 @@ class Google_Service_YouTube_PlaylistContentDetails extends Google_Model
   );
   public $itemCount;
 
+
   public function setItemCount($itemCount)
   {
     $this->itemCount = $itemCount;
   }
-
   public function getItemCount()
   {
     return $this->itemCount;
   }
-
 }
 
 class Google_Service_YouTube_PlaylistItem extends Google_Model
@@ -7713,11 +7507,11 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   protected $statusType = 'Google_Service_YouTube_PlaylistItemStatus';
   protected $statusDataType = '';
 
+
   public function setContentDetails(Google_Service_YouTube_PlaylistItemContentDetails $contentDetails)
   {
     $this->contentDetails = $contentDetails;
   }
-
   public function getContentDetails()
   {
     return $this->contentDetails;
@@ -7726,7 +7520,6 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -7735,7 +7528,6 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -7744,7 +7536,6 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -7753,7 +7544,6 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
@@ -7762,12 +7552,10 @@ class Google_Service_YouTube_PlaylistItem extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
   }
-
 }
 
 class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
@@ -7779,11 +7567,11 @@ class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
   public $startAt;
   public $videoId;
 
+
   public function setEndAt($endAt)
   {
     $this->endAt = $endAt;
   }
-
   public function getEndAt()
   {
     return $this->endAt;
@@ -7792,7 +7580,6 @@ class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
   {
     $this->note = $note;
   }
-
   public function getNote()
   {
     return $this->note;
@@ -7801,7 +7588,6 @@ class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
   {
     $this->startAt = $startAt;
   }
-
   public function getStartAt()
   {
     return $this->startAt;
@@ -7810,12 +7596,10 @@ class Google_Service_YouTube_PlaylistItemContentDetails extends Google_Model
   {
     $this->videoId = $videoId;
   }
-
   public function getVideoId()
   {
     return $this->videoId;
   }
-
 }
 
 class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
@@ -7836,11 +7620,11 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   protected $tokenPaginationDataType = '';
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -7849,7 +7633,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -7858,7 +7641,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -7867,7 +7649,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -7876,7 +7657,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -7885,7 +7665,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     $this->pageInfo = $pageInfo;
   }
-
   public function getPageInfo()
   {
     return $this->pageInfo;
@@ -7894,7 +7673,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     $this->prevPageToken = $prevPageToken;
   }
-
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
@@ -7903,7 +7681,6 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     $this->tokenPagination = $tokenPagination;
   }
-
   public function getTokenPagination()
   {
     return $this->tokenPagination;
@@ -7912,12 +7689,10 @@ class Google_Service_YouTube_PlaylistItemListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
@@ -7936,11 +7711,11 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   protected $thumbnailsDataType = '';
   public $title;
 
+
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -7949,7 +7724,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     $this->channelTitle = $channelTitle;
   }
-
   public function getChannelTitle()
   {
     return $this->channelTitle;
@@ -7958,7 +7732,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -7967,7 +7740,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     $this->playlistId = $playlistId;
   }
-
   public function getPlaylistId()
   {
     return $this->playlistId;
@@ -7976,7 +7748,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     $this->position = $position;
   }
-
   public function getPosition()
   {
     return $this->position;
@@ -7985,7 +7756,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     $this->publishedAt = $publishedAt;
   }
-
   public function getPublishedAt()
   {
     return $this->publishedAt;
@@ -7994,7 +7764,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     $this->resourceId = $resourceId;
   }
-
   public function getResourceId()
   {
     return $this->resourceId;
@@ -8003,7 +7772,6 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     $this->thumbnails = $thumbnails;
   }
-
   public function getThumbnails()
   {
     return $this->thumbnails;
@@ -8012,12 +7780,10 @@ class Google_Service_YouTube_PlaylistItemSnippet extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_YouTube_PlaylistItemStatus extends Google_Model
@@ -8026,16 +7792,15 @@ class Google_Service_YouTube_PlaylistItemStatus extends Google_Model
   );
   public $privacyStatus;
 
+
   public function setPrivacyStatus($privacyStatus)
   {
     $this->privacyStatus = $privacyStatus;
   }
-
   public function getPrivacyStatus()
   {
     return $this->privacyStatus;
   }
-
 }
 
 class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
@@ -8056,11 +7821,11 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   protected $tokenPaginationDataType = '';
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -8069,7 +7834,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -8078,7 +7842,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -8087,7 +7850,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -8096,7 +7858,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -8105,7 +7866,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     $this->pageInfo = $pageInfo;
   }
-
   public function getPageInfo()
   {
     return $this->pageInfo;
@@ -8114,7 +7874,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     $this->prevPageToken = $prevPageToken;
   }
-
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
@@ -8123,7 +7882,6 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     $this->tokenPagination = $tokenPagination;
   }
-
   public function getTokenPagination()
   {
     return $this->tokenPagination;
@@ -8132,12 +7890,10 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_PlaylistPlayer extends Google_Model
@@ -8146,16 +7902,15 @@ class Google_Service_YouTube_PlaylistPlayer extends Google_Model
   );
   public $embedHtml;
 
+
   public function setEmbedHtml($embedHtml)
   {
     $this->embedHtml = $embedHtml;
   }
-
   public function getEmbedHtml()
   {
     return $this->embedHtml;
   }
-
 }
 
 class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
@@ -8172,11 +7927,11 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   protected $thumbnailsDataType = '';
   public $title;
 
+
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -8185,7 +7940,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     $this->channelTitle = $channelTitle;
   }
-
   public function getChannelTitle()
   {
     return $this->channelTitle;
@@ -8194,7 +7948,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -8203,7 +7956,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     $this->publishedAt = $publishedAt;
   }
-
   public function getPublishedAt()
   {
     return $this->publishedAt;
@@ -8212,7 +7964,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     $this->tags = $tags;
   }
-
   public function getTags()
   {
     return $this->tags;
@@ -8221,7 +7972,6 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     $this->thumbnails = $thumbnails;
   }
-
   public function getThumbnails()
   {
     return $this->thumbnails;
@@ -8230,12 +7980,10 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_YouTube_PlaylistStatus extends Google_Model
@@ -8244,16 +7992,15 @@ class Google_Service_YouTube_PlaylistStatus extends Google_Model
   );
   public $privacyStatus;
 
+
   public function setPrivacyStatus($privacyStatus)
   {
     $this->privacyStatus = $privacyStatus;
   }
-
   public function getPrivacyStatus()
   {
     return $this->privacyStatus;
   }
-
 }
 
 class Google_Service_YouTube_PromotedItem extends Google_Model
@@ -8267,11 +8014,11 @@ class Google_Service_YouTube_PromotedItem extends Google_Model
   protected $timingType = 'Google_Service_YouTube_InvideoTiming';
   protected $timingDataType = '';
 
+
   public function setCustomMessage($customMessage)
   {
     $this->customMessage = $customMessage;
   }
-
   public function getCustomMessage()
   {
     return $this->customMessage;
@@ -8280,7 +8027,6 @@ class Google_Service_YouTube_PromotedItem extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -8289,7 +8035,6 @@ class Google_Service_YouTube_PromotedItem extends Google_Model
   {
     $this->promotedByContentOwner = $promotedByContentOwner;
   }
-
   public function getPromotedByContentOwner()
   {
     return $this->promotedByContentOwner;
@@ -8298,12 +8043,10 @@ class Google_Service_YouTube_PromotedItem extends Google_Model
   {
     $this->timing = $timing;
   }
-
   public function getTiming()
   {
     return $this->timing;
   }
-
 }
 
 class Google_Service_YouTube_PromotedItemId extends Google_Model
@@ -8315,11 +8058,11 @@ class Google_Service_YouTube_PromotedItemId extends Google_Model
   public $videoId;
   public $websiteUrl;
 
+
   public function setRecentlyUploadedBy($recentlyUploadedBy)
   {
     $this->recentlyUploadedBy = $recentlyUploadedBy;
   }
-
   public function getRecentlyUploadedBy()
   {
     return $this->recentlyUploadedBy;
@@ -8328,7 +8071,6 @@ class Google_Service_YouTube_PromotedItemId extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
@@ -8337,7 +8079,6 @@ class Google_Service_YouTube_PromotedItemId extends Google_Model
   {
     $this->videoId = $videoId;
   }
-
   public function getVideoId()
   {
     return $this->videoId;
@@ -8346,12 +8087,10 @@ class Google_Service_YouTube_PromotedItemId extends Google_Model
   {
     $this->websiteUrl = $websiteUrl;
   }
-
   public function getWebsiteUrl()
   {
     return $this->websiteUrl;
   }
-
 }
 
 class Google_Service_YouTube_PropertyValue extends Google_Model
@@ -8361,11 +8100,11 @@ class Google_Service_YouTube_PropertyValue extends Google_Model
   public $property;
   public $value;
 
+
   public function setProperty($property)
   {
     $this->property = $property;
   }
-
   public function getProperty()
   {
     return $this->property;
@@ -8374,12 +8113,10 @@ class Google_Service_YouTube_PropertyValue extends Google_Model
   {
     $this->value = $value;
   }
-
   public function getValue()
   {
     return $this->value;
   }
-
 }
 
 class Google_Service_YouTube_ResourceId extends Google_Model
@@ -8391,11 +8128,11 @@ class Google_Service_YouTube_ResourceId extends Google_Model
   public $playlistId;
   public $videoId;
 
+
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -8404,7 +8141,6 @@ class Google_Service_YouTube_ResourceId extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -8413,7 +8149,6 @@ class Google_Service_YouTube_ResourceId extends Google_Model
   {
     $this->playlistId = $playlistId;
   }
-
   public function getPlaylistId()
   {
     return $this->playlistId;
@@ -8422,12 +8157,10 @@ class Google_Service_YouTube_ResourceId extends Google_Model
   {
     $this->videoId = $videoId;
   }
-
   public function getVideoId()
   {
     return $this->videoId;
   }
-
 }
 
 class Google_Service_YouTube_SearchListResponse extends Google_Collection
@@ -8448,11 +8181,11 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   protected $tokenPaginationDataType = '';
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -8461,7 +8194,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -8470,7 +8202,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -8479,7 +8210,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -8488,7 +8218,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -8497,7 +8226,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     $this->pageInfo = $pageInfo;
   }
-
   public function getPageInfo()
   {
     return $this->pageInfo;
@@ -8506,7 +8234,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     $this->prevPageToken = $prevPageToken;
   }
-
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
@@ -8515,7 +8242,6 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     $this->tokenPagination = $tokenPagination;
   }
-
   public function getTokenPagination()
   {
     return $this->tokenPagination;
@@ -8524,12 +8250,10 @@ class Google_Service_YouTube_SearchListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_SearchResult extends Google_Model
@@ -8543,11 +8267,11 @@ class Google_Service_YouTube_SearchResult extends Google_Model
   protected $snippetType = 'Google_Service_YouTube_SearchResultSnippet';
   protected $snippetDataType = '';
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -8556,7 +8280,6 @@ class Google_Service_YouTube_SearchResult extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -8565,7 +8288,6 @@ class Google_Service_YouTube_SearchResult extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -8574,12 +8296,10 @@ class Google_Service_YouTube_SearchResult extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
   }
-
 }
 
 class Google_Service_YouTube_SearchResultSnippet extends Google_Model
@@ -8595,11 +8315,11 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   protected $thumbnailsDataType = '';
   public $title;
 
+
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -8608,7 +8328,6 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     $this->channelTitle = $channelTitle;
   }
-
   public function getChannelTitle()
   {
     return $this->channelTitle;
@@ -8617,7 +8336,6 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -8626,7 +8344,6 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     $this->liveBroadcastContent = $liveBroadcastContent;
   }
-
   public function getLiveBroadcastContent()
   {
     return $this->liveBroadcastContent;
@@ -8635,7 +8352,6 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     $this->publishedAt = $publishedAt;
   }
-
   public function getPublishedAt()
   {
     return $this->publishedAt;
@@ -8644,7 +8360,6 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     $this->thumbnails = $thumbnails;
   }
-
   public function getThumbnails()
   {
     return $this->thumbnails;
@@ -8653,12 +8368,10 @@ class Google_Service_YouTube_SearchResultSnippet extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_YouTube_Subscription extends Google_Model
@@ -8675,11 +8388,11 @@ class Google_Service_YouTube_Subscription extends Google_Model
   protected $subscriberSnippetType = 'Google_Service_YouTube_SubscriptionSubscriberSnippet';
   protected $subscriberSnippetDataType = '';
 
+
   public function setContentDetails(Google_Service_YouTube_SubscriptionContentDetails $contentDetails)
   {
     $this->contentDetails = $contentDetails;
   }
-
   public function getContentDetails()
   {
     return $this->contentDetails;
@@ -8688,7 +8401,6 @@ class Google_Service_YouTube_Subscription extends Google_Model
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -8697,7 +8409,6 @@ class Google_Service_YouTube_Subscription extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -8706,7 +8417,6 @@ class Google_Service_YouTube_Subscription extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -8715,7 +8425,6 @@ class Google_Service_YouTube_Subscription extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
@@ -8724,12 +8433,10 @@ class Google_Service_YouTube_Subscription extends Google_Model
   {
     $this->subscriberSnippet = $subscriberSnippet;
   }
-
   public function getSubscriberSnippet()
   {
     return $this->subscriberSnippet;
   }
-
 }
 
 class Google_Service_YouTube_SubscriptionContentDetails extends Google_Model
@@ -8740,11 +8447,11 @@ class Google_Service_YouTube_SubscriptionContentDetails extends Google_Model
   public $newItemCount;
   public $totalItemCount;
 
+
   public function setActivityType($activityType)
   {
     $this->activityType = $activityType;
   }
-
   public function getActivityType()
   {
     return $this->activityType;
@@ -8753,7 +8460,6 @@ class Google_Service_YouTube_SubscriptionContentDetails extends Google_Model
   {
     $this->newItemCount = $newItemCount;
   }
-
   public function getNewItemCount()
   {
     return $this->newItemCount;
@@ -8762,12 +8468,10 @@ class Google_Service_YouTube_SubscriptionContentDetails extends Google_Model
   {
     $this->totalItemCount = $totalItemCount;
   }
-
   public function getTotalItemCount()
   {
     return $this->totalItemCount;
   }
-
 }
 
 class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
@@ -8788,11 +8492,11 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   protected $tokenPaginationDataType = '';
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -8801,7 +8505,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -8810,7 +8513,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -8819,7 +8521,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -8828,7 +8529,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -8837,7 +8537,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     $this->pageInfo = $pageInfo;
   }
-
   public function getPageInfo()
   {
     return $this->pageInfo;
@@ -8846,7 +8545,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     $this->prevPageToken = $prevPageToken;
   }
-
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
@@ -8855,7 +8553,6 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     $this->tokenPagination = $tokenPagination;
   }
-
   public function getTokenPagination()
   {
     return $this->tokenPagination;
@@ -8864,12 +8561,10 @@ class Google_Service_YouTube_SubscriptionListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
@@ -8886,11 +8581,11 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   protected $thumbnailsDataType = '';
   public $title;
 
+
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -8899,7 +8594,6 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     $this->channelTitle = $channelTitle;
   }
-
   public function getChannelTitle()
   {
     return $this->channelTitle;
@@ -8908,7 +8602,6 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -8917,7 +8610,6 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     $this->publishedAt = $publishedAt;
   }
-
   public function getPublishedAt()
   {
     return $this->publishedAt;
@@ -8926,7 +8618,6 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     $this->resourceId = $resourceId;
   }
-
   public function getResourceId()
   {
     return $this->resourceId;
@@ -8935,7 +8626,6 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     $this->thumbnails = $thumbnails;
   }
-
   public function getThumbnails()
   {
     return $this->thumbnails;
@@ -8944,12 +8634,10 @@ class Google_Service_YouTube_SubscriptionSnippet extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
@@ -8962,11 +8650,11 @@ class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
   protected $thumbnailsDataType = '';
   public $title;
 
+
   public function setChannelId($channelId)
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -8975,7 +8663,6 @@ class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -8984,7 +8671,6 @@ class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
   {
     $this->thumbnails = $thumbnails;
   }
-
   public function getThumbnails()
   {
     return $this->thumbnails;
@@ -8993,12 +8679,10 @@ class Google_Service_YouTube_SubscriptionSubscriberSnippet extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_YouTube_Thumbnail extends Google_Model
@@ -9009,11 +8693,11 @@ class Google_Service_YouTube_Thumbnail extends Google_Model
   public $url;
   public $width;
 
+
   public function setHeight($height)
   {
     $this->height = $height;
   }
-
   public function getHeight()
   {
     return $this->height;
@@ -9022,7 +8706,6 @@ class Google_Service_YouTube_Thumbnail extends Google_Model
   {
     $this->url = $url;
   }
-
   public function getUrl()
   {
     return $this->url;
@@ -9031,12 +8714,10 @@ class Google_Service_YouTube_Thumbnail extends Google_Model
   {
     $this->width = $width;
   }
-
   public function getWidth()
   {
     return $this->width;
   }
-
 }
 
 class Google_Service_YouTube_ThumbnailDetails extends Google_Model
@@ -9054,11 +8735,11 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
   protected $standardType = 'Google_Service_YouTube_Thumbnail';
   protected $standardDataType = '';
 
+
   public function setDefault(Google_Service_YouTube_Thumbnail $default)
   {
     $this->default = $default;
   }
-
   public function getDefault()
   {
     return $this->default;
@@ -9067,7 +8748,6 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
   {
     $this->high = $high;
   }
-
   public function getHigh()
   {
     return $this->high;
@@ -9076,7 +8756,6 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
   {
     $this->maxres = $maxres;
   }
-
   public function getMaxres()
   {
     return $this->maxres;
@@ -9085,7 +8764,6 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
   {
     $this->medium = $medium;
   }
-
   public function getMedium()
   {
     return $this->medium;
@@ -9094,12 +8772,10 @@ class Google_Service_YouTube_ThumbnailDetails extends Google_Model
   {
     $this->standard = $standard;
   }
-
   public function getStandard()
   {
     return $this->standard;
   }
-
 }
 
 class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
@@ -9114,11 +8790,11 @@ class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
   public $kind;
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -9127,7 +8803,6 @@ class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -9136,7 +8811,6 @@ class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -9145,7 +8819,6 @@ class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -9154,20 +8827,14 @@ class Google_Service_YouTube_ThumbnailSetResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_TokenPagination extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_YouTube_Video extends Google_Model
@@ -9208,11 +8875,11 @@ class Google_Service_YouTube_Video extends Google_Model
   protected $topicDetailsType = 'Google_Service_YouTube_VideoTopicDetails';
   protected $topicDetailsDataType = '';
 
+
   public function setAgeGating(Google_Service_YouTube_VideoAgeGating $ageGating)
   {
     $this->ageGating = $ageGating;
   }
-
   public function getAgeGating()
   {
     return $this->ageGating;
@@ -9221,7 +8888,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->contentDetails = $contentDetails;
   }
-
   public function getContentDetails()
   {
     return $this->contentDetails;
@@ -9230,7 +8896,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->conversionPings = $conversionPings;
   }
-
   public function getConversionPings()
   {
     return $this->conversionPings;
@@ -9239,7 +8904,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -9248,7 +8912,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->fileDetails = $fileDetails;
   }
-
   public function getFileDetails()
   {
     return $this->fileDetails;
@@ -9257,7 +8920,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -9266,7 +8928,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -9275,7 +8936,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->liveStreamingDetails = $liveStreamingDetails;
   }
-
   public function getLiveStreamingDetails()
   {
     return $this->liveStreamingDetails;
@@ -9284,7 +8944,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->monetizationDetails = $monetizationDetails;
   }
-
   public function getMonetizationDetails()
   {
     return $this->monetizationDetails;
@@ -9293,7 +8952,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->player = $player;
   }
-
   public function getPlayer()
   {
     return $this->player;
@@ -9302,7 +8960,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->processingDetails = $processingDetails;
   }
-
   public function getProcessingDetails()
   {
     return $this->processingDetails;
@@ -9311,7 +8968,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->projectDetails = $projectDetails;
   }
-
   public function getProjectDetails()
   {
     return $this->projectDetails;
@@ -9320,7 +8976,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->recordingDetails = $recordingDetails;
   }
-
   public function getRecordingDetails()
   {
     return $this->recordingDetails;
@@ -9329,7 +8984,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
@@ -9338,7 +8992,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->statistics = $statistics;
   }
-
   public function getStatistics()
   {
     return $this->statistics;
@@ -9347,7 +9000,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
@@ -9356,7 +9008,6 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->suggestions = $suggestions;
   }
-
   public function getSuggestions()
   {
     return $this->suggestions;
@@ -9365,12 +9016,10 @@ class Google_Service_YouTube_Video extends Google_Model
   {
     $this->topicDetails = $topicDetails;
   }
-
   public function getTopicDetails()
   {
     return $this->topicDetails;
   }
-
 }
 
 class Google_Service_YouTube_VideoAgeGating extends Google_Model
@@ -9381,11 +9030,11 @@ class Google_Service_YouTube_VideoAgeGating extends Google_Model
   public $restricted;
   public $videoGameRating;
 
+
   public function setAlcoholContent($alcoholContent)
   {
     $this->alcoholContent = $alcoholContent;
   }
-
   public function getAlcoholContent()
   {
     return $this->alcoholContent;
@@ -9394,7 +9043,6 @@ class Google_Service_YouTube_VideoAgeGating extends Google_Model
   {
     $this->restricted = $restricted;
   }
-
   public function getRestricted()
   {
     return $this->restricted;
@@ -9403,12 +9051,10 @@ class Google_Service_YouTube_VideoAgeGating extends Google_Model
   {
     $this->videoGameRating = $videoGameRating;
   }
-
   public function getVideoGameRating()
   {
     return $this->videoGameRating;
   }
-
 }
 
 class Google_Service_YouTube_VideoCategory extends Google_Model
@@ -9421,11 +9067,11 @@ class Google_Service_YouTube_VideoCategory extends Google_Model
   protected $snippetType = 'Google_Service_YouTube_VideoCategorySnippet';
   protected $snippetDataType = '';
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -9434,7 +9080,6 @@ class Google_Service_YouTube_VideoCategory extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -9443,7 +9088,6 @@ class Google_Service_YouTube_VideoCategory extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -9452,12 +9096,10 @@ class Google_Service_YouTube_VideoCategory extends Google_Model
   {
     $this->snippet = $snippet;
   }
-
   public function getSnippet()
   {
     return $this->snippet;
   }
-
 }
 
 class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
@@ -9478,11 +9120,11 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   protected $tokenPaginationDataType = '';
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -9491,7 +9133,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -9500,7 +9141,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -9509,7 +9149,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -9518,7 +9157,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -9527,7 +9165,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     $this->pageInfo = $pageInfo;
   }
-
   public function getPageInfo()
   {
     return $this->pageInfo;
@@ -9536,7 +9173,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     $this->prevPageToken = $prevPageToken;
   }
-
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
@@ -9545,7 +9181,6 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     $this->tokenPagination = $tokenPagination;
   }
-
   public function getTokenPagination()
   {
     return $this->tokenPagination;
@@ -9554,12 +9189,10 @@ class Google_Service_YouTube_VideoCategoryListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_VideoCategorySnippet extends Google_Model
@@ -9570,11 +9203,11 @@ class Google_Service_YouTube_VideoCategorySnippet extends Google_Model
   public $channelId;
   public $title;
 
+
   public function setAssignable($assignable)
   {
     $this->assignable = $assignable;
   }
-
   public function getAssignable()
   {
     return $this->assignable;
@@ -9583,7 +9216,6 @@ class Google_Service_YouTube_VideoCategorySnippet extends Google_Model
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -9592,12 +9224,10 @@ class Google_Service_YouTube_VideoCategorySnippet extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_YouTube_VideoContentDetails extends Google_Model
@@ -9616,11 +9246,11 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   protected $regionRestrictionType = 'Google_Service_YouTube_VideoContentDetailsRegionRestriction';
   protected $regionRestrictionDataType = '';
 
+
   public function setCaption($caption)
   {
     $this->caption = $caption;
   }
-
   public function getCaption()
   {
     return $this->caption;
@@ -9629,7 +9259,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     $this->contentRating = $contentRating;
   }
-
   public function getContentRating()
   {
     return $this->contentRating;
@@ -9638,7 +9267,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     $this->countryRestriction = $countryRestriction;
   }
-
   public function getCountryRestriction()
   {
     return $this->countryRestriction;
@@ -9647,7 +9275,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     $this->definition = $definition;
   }
-
   public function getDefinition()
   {
     return $this->definition;
@@ -9656,7 +9283,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     $this->dimension = $dimension;
   }
-
   public function getDimension()
   {
     return $this->dimension;
@@ -9665,7 +9291,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     $this->duration = $duration;
   }
-
   public function getDuration()
   {
     return $this->duration;
@@ -9674,7 +9299,6 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     $this->licensedContent = $licensedContent;
   }
-
   public function getLicensedContent()
   {
     return $this->licensedContent;
@@ -9683,12 +9307,10 @@ class Google_Service_YouTube_VideoContentDetails extends Google_Model
   {
     $this->regionRestriction = $regionRestriction;
   }
-
   public function getRegionRestriction()
   {
     return $this->regionRestriction;
   }
-
 }
 
 class Google_Service_YouTube_VideoContentDetailsRegionRestriction extends Google_Collection
@@ -9699,11 +9321,11 @@ class Google_Service_YouTube_VideoContentDetailsRegionRestriction extends Google
   public $allowed;
   public $blocked;
 
+
   public function setAllowed($allowed)
   {
     $this->allowed = $allowed;
   }
-
   public function getAllowed()
   {
     return $this->allowed;
@@ -9712,12 +9334,10 @@ class Google_Service_YouTube_VideoContentDetailsRegionRestriction extends Google
   {
     $this->blocked = $blocked;
   }
-
   public function getBlocked()
   {
     return $this->blocked;
   }
-
 }
 
 class Google_Service_YouTube_VideoConversionPing extends Google_Model
@@ -9727,11 +9347,11 @@ class Google_Service_YouTube_VideoConversionPing extends Google_Model
   public $context;
   public $conversionUrl;
 
+
   public function setContext($context)
   {
     $this->context = $context;
   }
-
   public function getContext()
   {
     return $this->context;
@@ -9740,12 +9360,10 @@ class Google_Service_YouTube_VideoConversionPing extends Google_Model
   {
     $this->conversionUrl = $conversionUrl;
   }
-
   public function getConversionUrl()
   {
     return $this->conversionUrl;
   }
-
 }
 
 class Google_Service_YouTube_VideoConversionPings extends Google_Collection
@@ -9756,16 +9374,15 @@ class Google_Service_YouTube_VideoConversionPings extends Google_Collection
   protected $pingsType = 'Google_Service_YouTube_VideoConversionPing';
   protected $pingsDataType = 'array';
 
+
   public function setPings($pings)
   {
     $this->pings = $pings;
   }
-
   public function getPings()
   {
     return $this->pings;
   }
-
 }
 
 class Google_Service_YouTube_VideoFileDetails extends Google_Collection
@@ -9787,11 +9404,11 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   protected $videoStreamsType = 'Google_Service_YouTube_VideoFileDetailsVideoStream';
   protected $videoStreamsDataType = 'array';
 
+
   public function setAudioStreams($audioStreams)
   {
     $this->audioStreams = $audioStreams;
   }
-
   public function getAudioStreams()
   {
     return $this->audioStreams;
@@ -9800,7 +9417,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     $this->bitrateBps = $bitrateBps;
   }
-
   public function getBitrateBps()
   {
     return $this->bitrateBps;
@@ -9809,7 +9425,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     $this->container = $container;
   }
-
   public function getContainer()
   {
     return $this->container;
@@ -9818,7 +9433,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     $this->creationTime = $creationTime;
   }
-
   public function getCreationTime()
   {
     return $this->creationTime;
@@ -9827,7 +9441,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     $this->durationMs = $durationMs;
   }
-
   public function getDurationMs()
   {
     return $this->durationMs;
@@ -9836,7 +9449,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     $this->fileName = $fileName;
   }
-
   public function getFileName()
   {
     return $this->fileName;
@@ -9845,7 +9457,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     $this->fileSize = $fileSize;
   }
-
   public function getFileSize()
   {
     return $this->fileSize;
@@ -9854,7 +9465,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     $this->fileType = $fileType;
   }
-
   public function getFileType()
   {
     return $this->fileType;
@@ -9863,7 +9473,6 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     $this->recordingLocation = $recordingLocation;
   }
-
   public function getRecordingLocation()
   {
     return $this->recordingLocation;
@@ -9872,12 +9481,10 @@ class Google_Service_YouTube_VideoFileDetails extends Google_Collection
   {
     $this->videoStreams = $videoStreams;
   }
-
   public function getVideoStreams()
   {
     return $this->videoStreams;
   }
-
 }
 
 class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
@@ -9889,11 +9496,11 @@ class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
   public $codec;
   public $vendor;
 
+
   public function setBitrateBps($bitrateBps)
   {
     $this->bitrateBps = $bitrateBps;
   }
-
   public function getBitrateBps()
   {
     return $this->bitrateBps;
@@ -9902,7 +9509,6 @@ class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
   {
     $this->channelCount = $channelCount;
   }
-
   public function getChannelCount()
   {
     return $this->channelCount;
@@ -9911,7 +9517,6 @@ class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
   {
     $this->codec = $codec;
   }
-
   public function getCodec()
   {
     return $this->codec;
@@ -9920,12 +9525,10 @@ class Google_Service_YouTube_VideoFileDetailsAudioStream extends Google_Model
   {
     $this->vendor = $vendor;
   }
-
   public function getVendor()
   {
     return $this->vendor;
   }
-
 }
 
 class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
@@ -9941,11 +9544,11 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   public $vendor;
   public $widthPixels;
 
+
   public function setAspectRatio($aspectRatio)
   {
     $this->aspectRatio = $aspectRatio;
   }
-
   public function getAspectRatio()
   {
     return $this->aspectRatio;
@@ -9954,7 +9557,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     $this->bitrateBps = $bitrateBps;
   }
-
   public function getBitrateBps()
   {
     return $this->bitrateBps;
@@ -9963,7 +9565,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     $this->codec = $codec;
   }
-
   public function getCodec()
   {
     return $this->codec;
@@ -9972,7 +9573,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     $this->frameRateFps = $frameRateFps;
   }
-
   public function getFrameRateFps()
   {
     return $this->frameRateFps;
@@ -9981,7 +9581,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     $this->heightPixels = $heightPixels;
   }
-
   public function getHeightPixels()
   {
     return $this->heightPixels;
@@ -9990,7 +9589,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     $this->rotation = $rotation;
   }
-
   public function getRotation()
   {
     return $this->rotation;
@@ -9999,7 +9597,6 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     $this->vendor = $vendor;
   }
-
   public function getVendor()
   {
     return $this->vendor;
@@ -10008,12 +9605,10 @@ class Google_Service_YouTube_VideoFileDetailsVideoStream extends Google_Model
   {
     $this->widthPixels = $widthPixels;
   }
-
   public function getWidthPixels()
   {
     return $this->widthPixels;
   }
-
 }
 
 class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
@@ -10026,11 +9621,11 @@ class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -10039,7 +9634,6 @@ class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -10048,12 +9642,10 @@ class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_YouTube_VideoListResponse extends Google_Collection
@@ -10074,11 +9666,11 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   protected $tokenPaginationDataType = '';
   public $visitorId;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -10087,7 +9679,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     $this->eventId = $eventId;
   }
-
   public function getEventId()
   {
     return $this->eventId;
@@ -10096,7 +9687,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -10105,7 +9695,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -10114,7 +9703,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -10123,7 +9711,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     $this->pageInfo = $pageInfo;
   }
-
   public function getPageInfo()
   {
     return $this->pageInfo;
@@ -10132,7 +9719,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     $this->prevPageToken = $prevPageToken;
   }
-
   public function getPrevPageToken()
   {
     return $this->prevPageToken;
@@ -10141,7 +9727,6 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     $this->tokenPagination = $tokenPagination;
   }
-
   public function getTokenPagination()
   {
     return $this->tokenPagination;
@@ -10150,12 +9735,10 @@ class Google_Service_YouTube_VideoListResponse extends Google_Collection
   {
     $this->visitorId = $visitorId;
   }
-
   public function getVisitorId()
   {
     return $this->visitorId;
   }
-
 }
 
 class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
@@ -10168,11 +9751,11 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
   public $scheduledEndTime;
   public $scheduledStartTime;
 
+
   public function setActualEndTime($actualEndTime)
   {
     $this->actualEndTime = $actualEndTime;
   }
-
   public function getActualEndTime()
   {
     return $this->actualEndTime;
@@ -10181,7 +9764,6 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
   {
     $this->actualStartTime = $actualStartTime;
   }
-
   public function getActualStartTime()
   {
     return $this->actualStartTime;
@@ -10190,7 +9772,6 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
   {
     $this->concurrentViewers = $concurrentViewers;
   }
-
   public function getConcurrentViewers()
   {
     return $this->concurrentViewers;
@@ -10199,7 +9780,6 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
   {
     $this->scheduledEndTime = $scheduledEndTime;
   }
-
   public function getScheduledEndTime()
   {
     return $this->scheduledEndTime;
@@ -10208,12 +9788,10 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
   {
     $this->scheduledStartTime = $scheduledStartTime;
   }
-
   public function getScheduledStartTime()
   {
     return $this->scheduledStartTime;
   }
-
 }
 
 class Google_Service_YouTube_VideoMonetizationDetails extends Google_Model
@@ -10223,16 +9801,15 @@ class Google_Service_YouTube_VideoMonetizationDetails extends Google_Model
   protected $accessType = 'Google_Service_YouTube_AccessPolicy';
   protected $accessDataType = '';
 
+
   public function setAccess(Google_Service_YouTube_AccessPolicy $access)
   {
     $this->access = $access;
   }
-
   public function getAccess()
   {
     return $this->access;
   }
-
 }
 
 class Google_Service_YouTube_VideoPlayer extends Google_Model
@@ -10241,16 +9818,15 @@ class Google_Service_YouTube_VideoPlayer extends Google_Model
   );
   public $embedHtml;
 
+
   public function setEmbedHtml($embedHtml)
   {
     $this->embedHtml = $embedHtml;
   }
-
   public function getEmbedHtml()
   {
     return $this->embedHtml;
   }
-
 }
 
 class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
@@ -10267,11 +9843,11 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   public $tagSuggestionsAvailability;
   public $thumbnailsAvailability;
 
+
   public function setEditorSuggestionsAvailability($editorSuggestionsAvailability)
   {
     $this->editorSuggestionsAvailability = $editorSuggestionsAvailability;
   }
-
   public function getEditorSuggestionsAvailability()
   {
     return $this->editorSuggestionsAvailability;
@@ -10280,7 +9856,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     $this->fileDetailsAvailability = $fileDetailsAvailability;
   }
-
   public function getFileDetailsAvailability()
   {
     return $this->fileDetailsAvailability;
@@ -10289,7 +9864,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     $this->processingFailureReason = $processingFailureReason;
   }
-
   public function getProcessingFailureReason()
   {
     return $this->processingFailureReason;
@@ -10298,7 +9872,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     $this->processingIssuesAvailability = $processingIssuesAvailability;
   }
-
   public function getProcessingIssuesAvailability()
   {
     return $this->processingIssuesAvailability;
@@ -10307,7 +9880,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     $this->processingProgress = $processingProgress;
   }
-
   public function getProcessingProgress()
   {
     return $this->processingProgress;
@@ -10316,7 +9888,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     $this->processingStatus = $processingStatus;
   }
-
   public function getProcessingStatus()
   {
     return $this->processingStatus;
@@ -10325,7 +9896,6 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     $this->tagSuggestionsAvailability = $tagSuggestionsAvailability;
   }
-
   public function getTagSuggestionsAvailability()
   {
     return $this->tagSuggestionsAvailability;
@@ -10334,12 +9904,10 @@ class Google_Service_YouTube_VideoProcessingDetails extends Google_Model
   {
     $this->thumbnailsAvailability = $thumbnailsAvailability;
   }
-
   public function getThumbnailsAvailability()
   {
     return $this->thumbnailsAvailability;
   }
-
 }
 
 class Google_Service_YouTube_VideoProcessingDetailsProcessingProgress extends Google_Model
@@ -10350,11 +9918,11 @@ class Google_Service_YouTube_VideoProcessingDetailsProcessingProgress extends Go
   public $partsTotal;
   public $timeLeftMs;
 
+
   public function setPartsProcessed($partsProcessed)
   {
     $this->partsProcessed = $partsProcessed;
   }
-
   public function getPartsProcessed()
   {
     return $this->partsProcessed;
@@ -10363,7 +9931,6 @@ class Google_Service_YouTube_VideoProcessingDetailsProcessingProgress extends Go
   {
     $this->partsTotal = $partsTotal;
   }
-
   public function getPartsTotal()
   {
     return $this->partsTotal;
@@ -10372,12 +9939,10 @@ class Google_Service_YouTube_VideoProcessingDetailsProcessingProgress extends Go
   {
     $this->timeLeftMs = $timeLeftMs;
   }
-
   public function getTimeLeftMs()
   {
     return $this->timeLeftMs;
   }
-
 }
 
 class Google_Service_YouTube_VideoProjectDetails extends Google_Collection
@@ -10387,16 +9952,15 @@ class Google_Service_YouTube_VideoProjectDetails extends Google_Collection
   );
   public $tags;
 
+
   public function setTags($tags)
   {
     $this->tags = $tags;
   }
-
   public function getTags()
   {
     return $this->tags;
   }
-
 }
 
 class Google_Service_YouTube_VideoRating extends Google_Model
@@ -10406,11 +9970,11 @@ class Google_Service_YouTube_VideoRating extends Google_Model
   public $rating;
   public $videoId;
 
+
   public function setRating($rating)
   {
     $this->rating = $rating;
   }
-
   public function getRating()
   {
     return $this->rating;
@@ -10419,12 +9983,10 @@ class Google_Service_YouTube_VideoRating extends Google_Model
   {
     $this->videoId = $videoId;
   }
-
   public function getVideoId()
   {
     return $this->videoId;
   }
-
 }
 
 class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
@@ -10436,11 +9998,11 @@ class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
   public $locationDescription;
   public $recordingDate;
 
+
   public function setLocation(Google_Service_YouTube_GeoPoint $location)
   {
     $this->location = $location;
   }
-
   public function getLocation()
   {
     return $this->location;
@@ -10449,7 +10011,6 @@ class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
   {
     $this->locationDescription = $locationDescription;
   }
-
   public function getLocationDescription()
   {
     return $this->locationDescription;
@@ -10458,12 +10019,10 @@ class Google_Service_YouTube_VideoRecordingDetails extends Google_Model
   {
     $this->recordingDate = $recordingDate;
   }
-
   public function getRecordingDate()
   {
     return $this->recordingDate;
   }
-
 }
 
 class Google_Service_YouTube_VideoSnippet extends Google_Collection
@@ -10482,11 +10041,11 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   protected $thumbnailsDataType = '';
   public $title;
 
+
   public function setCategoryId($categoryId)
   {
     $this->categoryId = $categoryId;
   }
-
   public function getCategoryId()
   {
     return $this->categoryId;
@@ -10495,7 +10054,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     $this->channelId = $channelId;
   }
-
   public function getChannelId()
   {
     return $this->channelId;
@@ -10504,7 +10062,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     $this->channelTitle = $channelTitle;
   }
-
   public function getChannelTitle()
   {
     return $this->channelTitle;
@@ -10513,7 +10070,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -10522,7 +10078,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     $this->liveBroadcastContent = $liveBroadcastContent;
   }
-
   public function getLiveBroadcastContent()
   {
     return $this->liveBroadcastContent;
@@ -10531,7 +10086,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     $this->publishedAt = $publishedAt;
   }
-
   public function getPublishedAt()
   {
     return $this->publishedAt;
@@ -10540,7 +10094,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     $this->tags = $tags;
   }
-
   public function getTags()
   {
     return $this->tags;
@@ -10549,7 +10102,6 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     $this->thumbnails = $thumbnails;
   }
-
   public function getThumbnails()
   {
     return $this->thumbnails;
@@ -10558,12 +10110,10 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_YouTube_VideoStatistics extends Google_Model
@@ -10576,11 +10126,11 @@ class Google_Service_YouTube_VideoStatistics extends Google_Model
   public $likeCount;
   public $viewCount;
 
+
   public function setCommentCount($commentCount)
   {
     $this->commentCount = $commentCount;
   }
-
   public function getCommentCount()
   {
     return $this->commentCount;
@@ -10589,7 +10139,6 @@ class Google_Service_YouTube_VideoStatistics extends Google_Model
   {
     $this->dislikeCount = $dislikeCount;
   }
-
   public function getDislikeCount()
   {
     return $this->dislikeCount;
@@ -10598,7 +10147,6 @@ class Google_Service_YouTube_VideoStatistics extends Google_Model
   {
     $this->favoriteCount = $favoriteCount;
   }
-
   public function getFavoriteCount()
   {
     return $this->favoriteCount;
@@ -10607,7 +10155,6 @@ class Google_Service_YouTube_VideoStatistics extends Google_Model
   {
     $this->likeCount = $likeCount;
   }
-
   public function getLikeCount()
   {
     return $this->likeCount;
@@ -10616,12 +10163,10 @@ class Google_Service_YouTube_VideoStatistics extends Google_Model
   {
     $this->viewCount = $viewCount;
   }
-
   public function getViewCount()
   {
     return $this->viewCount;
   }
-
 }
 
 class Google_Service_YouTube_VideoStatus extends Google_Model
@@ -10637,11 +10182,11 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   public $rejectionReason;
   public $uploadStatus;
 
+
   public function setEmbeddable($embeddable)
   {
     $this->embeddable = $embeddable;
   }
-
   public function getEmbeddable()
   {
     return $this->embeddable;
@@ -10650,7 +10195,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     $this->failureReason = $failureReason;
   }
-
   public function getFailureReason()
   {
     return $this->failureReason;
@@ -10659,7 +10203,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     $this->license = $license;
   }
-
   public function getLicense()
   {
     return $this->license;
@@ -10668,7 +10211,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     $this->privacyStatus = $privacyStatus;
   }
-
   public function getPrivacyStatus()
   {
     return $this->privacyStatus;
@@ -10677,7 +10219,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     $this->publicStatsViewable = $publicStatsViewable;
   }
-
   public function getPublicStatsViewable()
   {
     return $this->publicStatsViewable;
@@ -10686,7 +10227,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     $this->publishAt = $publishAt;
   }
-
   public function getPublishAt()
   {
     return $this->publishAt;
@@ -10695,7 +10235,6 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     $this->rejectionReason = $rejectionReason;
   }
-
   public function getRejectionReason()
   {
     return $this->rejectionReason;
@@ -10704,12 +10243,10 @@ class Google_Service_YouTube_VideoStatus extends Google_Model
   {
     $this->uploadStatus = $uploadStatus;
   }
-
   public function getUploadStatus()
   {
     return $this->uploadStatus;
   }
-
 }
 
 class Google_Service_YouTube_VideoSuggestions extends Google_Collection
@@ -10724,11 +10261,11 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
   protected $tagSuggestionsType = 'Google_Service_YouTube_VideoSuggestionsTagSuggestion';
   protected $tagSuggestionsDataType = 'array';
 
+
   public function setEditorSuggestions($editorSuggestions)
   {
     $this->editorSuggestions = $editorSuggestions;
   }
-
   public function getEditorSuggestions()
   {
     return $this->editorSuggestions;
@@ -10737,7 +10274,6 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
   {
     $this->processingErrors = $processingErrors;
   }
-
   public function getProcessingErrors()
   {
     return $this->processingErrors;
@@ -10746,7 +10282,6 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
   {
     $this->processingHints = $processingHints;
   }
-
   public function getProcessingHints()
   {
     return $this->processingHints;
@@ -10755,7 +10290,6 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
   {
     $this->processingWarnings = $processingWarnings;
   }
-
   public function getProcessingWarnings()
   {
     return $this->processingWarnings;
@@ -10764,12 +10298,10 @@ class Google_Service_YouTube_VideoSuggestions extends Google_Collection
   {
     $this->tagSuggestions = $tagSuggestions;
   }
-
   public function getTagSuggestions()
   {
     return $this->tagSuggestions;
   }
-
 }
 
 class Google_Service_YouTube_VideoSuggestionsTagSuggestion extends Google_Collection
@@ -10780,11 +10312,11 @@ class Google_Service_YouTube_VideoSuggestionsTagSuggestion extends Google_Collec
   public $categoryRestricts;
   public $tag;
 
+
   public function setCategoryRestricts($categoryRestricts)
   {
     $this->categoryRestricts = $categoryRestricts;
   }
-
   public function getCategoryRestricts()
   {
     return $this->categoryRestricts;
@@ -10793,12 +10325,10 @@ class Google_Service_YouTube_VideoSuggestionsTagSuggestion extends Google_Collec
   {
     $this->tag = $tag;
   }
-
   public function getTag()
   {
     return $this->tag;
   }
-
 }
 
 class Google_Service_YouTube_VideoTopicDetails extends Google_Collection
@@ -10809,11 +10339,11 @@ class Google_Service_YouTube_VideoTopicDetails extends Google_Collection
   public $relevantTopicIds;
   public $topicIds;
 
+
   public function setRelevantTopicIds($relevantTopicIds)
   {
     $this->relevantTopicIds = $relevantTopicIds;
   }
-
   public function getRelevantTopicIds()
   {
     return $this->relevantTopicIds;
@@ -10822,12 +10352,10 @@ class Google_Service_YouTube_VideoTopicDetails extends Google_Collection
   {
     $this->topicIds = $topicIds;
   }
-
   public function getTopicIds()
   {
     return $this->topicIds;
   }
-
 }
 
 class Google_Service_YouTube_WatchSettings extends Google_Model
@@ -10838,11 +10366,11 @@ class Google_Service_YouTube_WatchSettings extends Google_Model
   public $featuredPlaylistId;
   public $textColor;
 
+
   public function setBackgroundColor($backgroundColor)
   {
     $this->backgroundColor = $backgroundColor;
   }
-
   public function getBackgroundColor()
   {
     return $this->backgroundColor;
@@ -10851,7 +10379,6 @@ class Google_Service_YouTube_WatchSettings extends Google_Model
   {
     $this->featuredPlaylistId = $featuredPlaylistId;
   }
-
   public function getFeaturedPlaylistId()
   {
     return $this->featuredPlaylistId;
@@ -10860,10 +10387,8 @@ class Google_Service_YouTube_WatchSettings extends Google_Model
   {
     $this->textColor = $textColor;
   }
-
   public function getTextColor()
   {
     return $this->textColor;
   }
-
 }
