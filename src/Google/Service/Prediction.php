@@ -19,8 +19,8 @@
  * Service definition for Prediction (v1.6).
  *
  * <p>
- * Lets you access a cloud hosted machine learning service that makes it easy to build smart apps
- * </p>
+ * Lets you access a cloud hosted machine learning service that makes it easy to
+ * build smart apps</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,13 +32,17 @@
 class Google_Service_Prediction extends Google_Service
 {
   /** Manage your data and permissions in Google Cloud Storage. */
-  const DEVSTORAGE_FULL_CONTROL = "https://www.googleapis.com/auth/devstorage.full_control";
+  const DEVSTORAGE_FULL_CONTROL =
+      "https://www.googleapis.com/auth/devstorage.full_control";
   /** View your data in Google Cloud Storage. */
-  const DEVSTORAGE_READ_ONLY = "https://www.googleapis.com/auth/devstorage.read_only";
+  const DEVSTORAGE_READ_ONLY =
+      "https://www.googleapis.com/auth/devstorage.read_only";
   /** Manage your data in Google Cloud Storage. */
-  const DEVSTORAGE_READ_WRITE = "https://www.googleapis.com/auth/devstorage.read_write";
+  const DEVSTORAGE_READ_WRITE =
+      "https://www.googleapis.com/auth/devstorage.read_write";
   /** Manage your data in the Google Prediction API. */
-  const PREDICTION = "https://www.googleapis.com/auth/prediction";
+  const PREDICTION =
+      "https://www.googleapis.com/auth/prediction";
 
   public $hostedmodels;
   public $trainedmodels;
@@ -213,10 +217,8 @@ class Google_Service_Prediction_Hostedmodels_Resource extends Google_Service_Res
    * Submit input and request an output against a hosted model.
    * (hostedmodels.predict)
    *
-   * @param string $project
-   * The project associated with the model.
-   * @param string $hostedModelName
-   * The name of a hosted model.
+   * @param string $project The project associated with the model.
+   * @param string $hostedModelName The name of a hosted model.
    * @param Google_Input $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Prediction_Output
@@ -244,10 +246,8 @@ class Google_Service_Prediction_Trainedmodels_Resource extends Google_Service_Re
    * Get analysis of the model and the data the model was trained on.
    * (trainedmodels.analyze)
    *
-   * @param string $project
-   * The project associated with the model.
-   * @param string $id
-   * The unique name for the predictive model.
+   * @param string $project The project associated with the model.
+   * @param string $id The unique name for the predictive model.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Prediction_Analyze
    */
@@ -257,13 +257,12 @@ class Google_Service_Prediction_Trainedmodels_Resource extends Google_Service_Re
     $params = array_merge($params, $optParams);
     return $this->call('analyze', array($params), "Google_Service_Prediction_Analyze");
   }
+
   /**
    * Delete a trained model. (trainedmodels.delete)
    *
-   * @param string $project
-   * The project associated with the model.
-   * @param string $id
-   * The unique name for the predictive model.
+   * @param string $project The project associated with the model.
+   * @param string $id The unique name for the predictive model.
    * @param array $optParams Optional parameters.
    */
   public function delete($project, $id, $optParams = array())
@@ -272,13 +271,12 @@ class Google_Service_Prediction_Trainedmodels_Resource extends Google_Service_Re
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Check training status of your model. (trainedmodels.get)
    *
-   * @param string $project
-   * The project associated with the model.
-   * @param string $id
-   * The unique name for the predictive model.
+   * @param string $project The project associated with the model.
+   * @param string $id The unique name for the predictive model.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Prediction_Insert2
    */
@@ -288,11 +286,11 @@ class Google_Service_Prediction_Trainedmodels_Resource extends Google_Service_Re
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Prediction_Insert2");
   }
+
   /**
    * Train a Prediction API model. (trainedmodels.insert)
    *
-   * @param string $project
-   * The project associated with the model.
+   * @param string $project The project associated with the model.
    * @param Google_Insert $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Prediction_Insert2
@@ -303,17 +301,15 @@ class Google_Service_Prediction_Trainedmodels_Resource extends Google_Service_Re
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Prediction_Insert2");
   }
+
   /**
    * List available models. (trainedmodels.listTrainedmodels)
    *
-   * @param string $project
-   * The project associated with the model.
+   * @param string $project The project associated with the model.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Pagination token.
-   * @opt_param string maxResults
-   * Maximum number of results to return.
+   * @opt_param string pageToken Pagination token.
+   * @opt_param string maxResults Maximum number of results to return.
    * @return Google_Service_Prediction_PredictionList
    */
   public function listTrainedmodels($project, $optParams = array())
@@ -322,13 +318,12 @@ class Google_Service_Prediction_Trainedmodels_Resource extends Google_Service_Re
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Prediction_PredictionList");
   }
+
   /**
    * Submit model id and request a prediction. (trainedmodels.predict)
    *
-   * @param string $project
-   * The project associated with the model.
-   * @param string $id
-   * The unique name for the predictive model.
+   * @param string $project The project associated with the model.
+   * @param string $id The unique name for the predictive model.
    * @param Google_Input $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Prediction_Output
@@ -339,13 +334,12 @@ class Google_Service_Prediction_Trainedmodels_Resource extends Google_Service_Re
     $params = array_merge($params, $optParams);
     return $this->call('predict', array($params), "Google_Service_Prediction_Output");
   }
+
   /**
    * Add new data to a trained model. (trainedmodels.update)
    *
-   * @param string $project
-   * The project associated with the model.
-   * @param string $id
-   * The unique name for the predictive model.
+   * @param string $project The project associated with the model.
+   * @param string $id The unique name for the predictive model.
    * @param Google_Update $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Prediction_Insert2
@@ -375,11 +369,11 @@ class Google_Service_Prediction_Analyze extends Google_Collection
   protected $modelDescriptionDataType = '';
   public $selfLink;
 
+
   public function setDataDescription(Google_Service_Prediction_AnalyzeDataDescription $dataDescription)
   {
     $this->dataDescription = $dataDescription;
   }
-
   public function getDataDescription()
   {
     return $this->dataDescription;
@@ -388,7 +382,6 @@ class Google_Service_Prediction_Analyze extends Google_Collection
   {
     $this->errors = $errors;
   }
-
   public function getErrors()
   {
     return $this->errors;
@@ -397,7 +390,6 @@ class Google_Service_Prediction_Analyze extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -406,7 +398,6 @@ class Google_Service_Prediction_Analyze extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -415,7 +406,6 @@ class Google_Service_Prediction_Analyze extends Google_Collection
   {
     $this->modelDescription = $modelDescription;
   }
-
   public function getModelDescription()
   {
     return $this->modelDescription;
@@ -424,12 +414,10 @@ class Google_Service_Prediction_Analyze extends Google_Collection
   {
     $this->selfLink = $selfLink;
   }
-
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-
 }
 
 class Google_Service_Prediction_AnalyzeDataDescription extends Google_Collection
@@ -442,11 +430,11 @@ class Google_Service_Prediction_AnalyzeDataDescription extends Google_Collection
   protected $outputFeatureType = 'Google_Service_Prediction_AnalyzeDataDescriptionOutputFeature';
   protected $outputFeatureDataType = '';
 
+
   public function setFeatures($features)
   {
     $this->features = $features;
   }
-
   public function getFeatures()
   {
     return $this->features;
@@ -455,12 +443,10 @@ class Google_Service_Prediction_AnalyzeDataDescription extends Google_Collection
   {
     $this->outputFeature = $outputFeature;
   }
-
   public function getOutputFeature()
   {
     return $this->outputFeature;
   }
-
 }
 
 class Google_Service_Prediction_AnalyzeDataDescriptionFeatures extends Google_Model
@@ -475,11 +461,11 @@ class Google_Service_Prediction_AnalyzeDataDescriptionFeatures extends Google_Mo
   protected $textType = 'Google_Service_Prediction_AnalyzeDataDescriptionFeaturesText';
   protected $textDataType = '';
 
+
   public function setCategorical(Google_Service_Prediction_AnalyzeDataDescriptionFeaturesCategorical $categorical)
   {
     $this->categorical = $categorical;
   }
-
   public function getCategorical()
   {
     return $this->categorical;
@@ -488,7 +474,6 @@ class Google_Service_Prediction_AnalyzeDataDescriptionFeatures extends Google_Mo
   {
     $this->index = $index;
   }
-
   public function getIndex()
   {
     return $this->index;
@@ -497,7 +482,6 @@ class Google_Service_Prediction_AnalyzeDataDescriptionFeatures extends Google_Mo
   {
     $this->numeric = $numeric;
   }
-
   public function getNumeric()
   {
     return $this->numeric;
@@ -506,12 +490,10 @@ class Google_Service_Prediction_AnalyzeDataDescriptionFeatures extends Google_Mo
   {
     $this->text = $text;
   }
-
   public function getText()
   {
     return $this->text;
   }
-
 }
 
 class Google_Service_Prediction_AnalyzeDataDescriptionFeaturesCategorical extends Google_Collection
@@ -523,11 +505,11 @@ class Google_Service_Prediction_AnalyzeDataDescriptionFeaturesCategorical extend
   protected $valuesType = 'Google_Service_Prediction_AnalyzeDataDescriptionFeaturesCategoricalValues';
   protected $valuesDataType = 'array';
 
+
   public function setCount($count)
   {
     $this->count = $count;
   }
-
   public function getCount()
   {
     return $this->count;
@@ -536,12 +518,10 @@ class Google_Service_Prediction_AnalyzeDataDescriptionFeaturesCategorical extend
   {
     $this->values = $values;
   }
-
   public function getValues()
   {
     return $this->values;
   }
-
 }
 
 class Google_Service_Prediction_AnalyzeDataDescriptionFeaturesCategoricalValues extends Google_Model
@@ -551,11 +531,11 @@ class Google_Service_Prediction_AnalyzeDataDescriptionFeaturesCategoricalValues 
   public $count;
   public $value;
 
+
   public function setCount($count)
   {
     $this->count = $count;
   }
-
   public function getCount()
   {
     return $this->count;
@@ -564,12 +544,10 @@ class Google_Service_Prediction_AnalyzeDataDescriptionFeaturesCategoricalValues 
   {
     $this->value = $value;
   }
-
   public function getValue()
   {
     return $this->value;
   }
-
 }
 
 class Google_Service_Prediction_AnalyzeDataDescriptionFeaturesNumeric extends Google_Model
@@ -580,11 +558,11 @@ class Google_Service_Prediction_AnalyzeDataDescriptionFeaturesNumeric extends Go
   public $mean;
   public $variance;
 
+
   public function setCount($count)
   {
     $this->count = $count;
   }
-
   public function getCount()
   {
     return $this->count;
@@ -593,7 +571,6 @@ class Google_Service_Prediction_AnalyzeDataDescriptionFeaturesNumeric extends Go
   {
     $this->mean = $mean;
   }
-
   public function getMean()
   {
     return $this->mean;
@@ -602,12 +579,10 @@ class Google_Service_Prediction_AnalyzeDataDescriptionFeaturesNumeric extends Go
   {
     $this->variance = $variance;
   }
-
   public function getVariance()
   {
     return $this->variance;
   }
-
 }
 
 class Google_Service_Prediction_AnalyzeDataDescriptionFeaturesText extends Google_Model
@@ -616,16 +591,15 @@ class Google_Service_Prediction_AnalyzeDataDescriptionFeaturesText extends Googl
   );
   public $count;
 
+
   public function setCount($count)
   {
     $this->count = $count;
   }
-
   public function getCount()
   {
     return $this->count;
   }
-
 }
 
 class Google_Service_Prediction_AnalyzeDataDescriptionOutputFeature extends Google_Collection
@@ -638,11 +612,11 @@ class Google_Service_Prediction_AnalyzeDataDescriptionOutputFeature extends Goog
   protected $textType = 'Google_Service_Prediction_AnalyzeDataDescriptionOutputFeatureText';
   protected $textDataType = 'array';
 
+
   public function setNumeric(Google_Service_Prediction_AnalyzeDataDescriptionOutputFeatureNumeric $numeric)
   {
     $this->numeric = $numeric;
   }
-
   public function getNumeric()
   {
     return $this->numeric;
@@ -651,12 +625,10 @@ class Google_Service_Prediction_AnalyzeDataDescriptionOutputFeature extends Goog
   {
     $this->text = $text;
   }
-
   public function getText()
   {
     return $this->text;
   }
-
 }
 
 class Google_Service_Prediction_AnalyzeDataDescriptionOutputFeatureNumeric extends Google_Model
@@ -667,11 +639,11 @@ class Google_Service_Prediction_AnalyzeDataDescriptionOutputFeatureNumeric exten
   public $mean;
   public $variance;
 
+
   public function setCount($count)
   {
     $this->count = $count;
   }
-
   public function getCount()
   {
     return $this->count;
@@ -680,7 +652,6 @@ class Google_Service_Prediction_AnalyzeDataDescriptionOutputFeatureNumeric exten
   {
     $this->mean = $mean;
   }
-
   public function getMean()
   {
     return $this->mean;
@@ -689,12 +660,10 @@ class Google_Service_Prediction_AnalyzeDataDescriptionOutputFeatureNumeric exten
   {
     $this->variance = $variance;
   }
-
   public function getVariance()
   {
     return $this->variance;
   }
-
 }
 
 class Google_Service_Prediction_AnalyzeDataDescriptionOutputFeatureText extends Google_Model
@@ -704,11 +673,11 @@ class Google_Service_Prediction_AnalyzeDataDescriptionOutputFeatureText extends 
   public $count;
   public $value;
 
+
   public function setCount($count)
   {
     $this->count = $count;
   }
-
   public function getCount()
   {
     return $this->count;
@@ -717,20 +686,14 @@ class Google_Service_Prediction_AnalyzeDataDescriptionOutputFeatureText extends 
   {
     $this->value = $value;
   }
-
   public function getValue()
   {
     return $this->value;
   }
-
 }
 
 class Google_Service_Prediction_AnalyzeErrors extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_Prediction_AnalyzeModelDescription extends Google_Model
@@ -742,11 +705,11 @@ class Google_Service_Prediction_AnalyzeModelDescription extends Google_Model
   protected $modelinfoType = 'Google_Service_Prediction_Insert2';
   protected $modelinfoDataType = '';
 
+
   public function setConfusionMatrix($confusionMatrix)
   {
     $this->confusionMatrix = $confusionMatrix;
   }
-
   public function getConfusionMatrix()
   {
     return $this->confusionMatrix;
@@ -755,7 +718,6 @@ class Google_Service_Prediction_AnalyzeModelDescription extends Google_Model
   {
     $this->confusionMatrixRowTotals = $confusionMatrixRowTotals;
   }
-
   public function getConfusionMatrixRowTotals()
   {
     return $this->confusionMatrixRowTotals;
@@ -764,36 +726,22 @@ class Google_Service_Prediction_AnalyzeModelDescription extends Google_Model
   {
     $this->modelinfo = $modelinfo;
   }
-
   public function getModelinfo()
   {
     return $this->modelinfo;
   }
-
 }
 
 class Google_Service_Prediction_AnalyzeModelDescriptionConfusionMatrix extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_Prediction_AnalyzeModelDescriptionConfusionMatrixElement extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_Prediction_AnalyzeModelDescriptionConfusionMatrixRowTotals extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_Prediction_Input extends Google_Model
@@ -803,16 +751,15 @@ class Google_Service_Prediction_Input extends Google_Model
   protected $inputType = 'Google_Service_Prediction_InputInput';
   protected $inputDataType = '';
 
+
   public function setInput(Google_Service_Prediction_InputInput $input)
   {
     $this->input = $input;
   }
-
   public function getInput()
   {
     return $this->input;
   }
-
 }
 
 class Google_Service_Prediction_InputInput extends Google_Collection
@@ -822,16 +769,15 @@ class Google_Service_Prediction_InputInput extends Google_Collection
   );
   public $csvInstance;
 
+
   public function setCsvInstance($csvInstance)
   {
     $this->csvInstance = $csvInstance;
   }
-
   public function getCsvInstance()
   {
     return $this->csvInstance;
   }
-
 }
 
 class Google_Service_Prediction_Insert extends Google_Collection
@@ -849,11 +795,11 @@ class Google_Service_Prediction_Insert extends Google_Collection
   protected $trainingInstancesDataType = 'array';
   public $utility;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -862,7 +808,6 @@ class Google_Service_Prediction_Insert extends Google_Collection
   {
     $this->modelType = $modelType;
   }
-
   public function getModelType()
   {
     return $this->modelType;
@@ -871,7 +816,6 @@ class Google_Service_Prediction_Insert extends Google_Collection
   {
     $this->sourceModel = $sourceModel;
   }
-
   public function getSourceModel()
   {
     return $this->sourceModel;
@@ -880,7 +824,6 @@ class Google_Service_Prediction_Insert extends Google_Collection
   {
     $this->storageDataLocation = $storageDataLocation;
   }
-
   public function getStorageDataLocation()
   {
     return $this->storageDataLocation;
@@ -889,7 +832,6 @@ class Google_Service_Prediction_Insert extends Google_Collection
   {
     $this->storagePMMLLocation = $storagePMMLLocation;
   }
-
   public function getStoragePMMLLocation()
   {
     return $this->storagePMMLLocation;
@@ -898,7 +840,6 @@ class Google_Service_Prediction_Insert extends Google_Collection
   {
     $this->storagePMMLModelLocation = $storagePMMLModelLocation;
   }
-
   public function getStoragePMMLModelLocation()
   {
     return $this->storagePMMLModelLocation;
@@ -907,7 +848,6 @@ class Google_Service_Prediction_Insert extends Google_Collection
   {
     $this->trainingInstances = $trainingInstances;
   }
-
   public function getTrainingInstances()
   {
     return $this->trainingInstances;
@@ -916,12 +856,10 @@ class Google_Service_Prediction_Insert extends Google_Collection
   {
     $this->utility = $utility;
   }
-
   public function getUtility()
   {
     return $this->utility;
   }
-
 }
 
 class Google_Service_Prediction_Insert2 extends Google_Model
@@ -941,11 +879,11 @@ class Google_Service_Prediction_Insert2 extends Google_Model
   public $trainingComplete;
   public $trainingStatus;
 
+
   public function setCreated($created)
   {
     $this->created = $created;
   }
-
   public function getCreated()
   {
     return $this->created;
@@ -954,7 +892,6 @@ class Google_Service_Prediction_Insert2 extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -963,7 +900,6 @@ class Google_Service_Prediction_Insert2 extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -972,7 +908,6 @@ class Google_Service_Prediction_Insert2 extends Google_Model
   {
     $this->modelInfo = $modelInfo;
   }
-
   public function getModelInfo()
   {
     return $this->modelInfo;
@@ -981,7 +916,6 @@ class Google_Service_Prediction_Insert2 extends Google_Model
   {
     $this->modelType = $modelType;
   }
-
   public function getModelType()
   {
     return $this->modelType;
@@ -990,7 +924,6 @@ class Google_Service_Prediction_Insert2 extends Google_Model
   {
     $this->selfLink = $selfLink;
   }
-
   public function getSelfLink()
   {
     return $this->selfLink;
@@ -999,7 +932,6 @@ class Google_Service_Prediction_Insert2 extends Google_Model
   {
     $this->storageDataLocation = $storageDataLocation;
   }
-
   public function getStorageDataLocation()
   {
     return $this->storageDataLocation;
@@ -1008,7 +940,6 @@ class Google_Service_Prediction_Insert2 extends Google_Model
   {
     $this->storagePMMLLocation = $storagePMMLLocation;
   }
-
   public function getStoragePMMLLocation()
   {
     return $this->storagePMMLLocation;
@@ -1017,7 +948,6 @@ class Google_Service_Prediction_Insert2 extends Google_Model
   {
     $this->storagePMMLModelLocation = $storagePMMLModelLocation;
   }
-
   public function getStoragePMMLModelLocation()
   {
     return $this->storagePMMLModelLocation;
@@ -1026,7 +956,6 @@ class Google_Service_Prediction_Insert2 extends Google_Model
   {
     $this->trainingComplete = $trainingComplete;
   }
-
   public function getTrainingComplete()
   {
     return $this->trainingComplete;
@@ -1035,12 +964,10 @@ class Google_Service_Prediction_Insert2 extends Google_Model
   {
     $this->trainingStatus = $trainingStatus;
   }
-
   public function getTrainingStatus()
   {
     return $this->trainingStatus;
   }
-
 }
 
 class Google_Service_Prediction_Insert2ModelInfo extends Google_Model
@@ -1054,11 +981,11 @@ class Google_Service_Prediction_Insert2ModelInfo extends Google_Model
   public $numberInstances;
   public $numberLabels;
 
+
   public function setClassWeightedAccuracy($classWeightedAccuracy)
   {
     $this->classWeightedAccuracy = $classWeightedAccuracy;
   }
-
   public function getClassWeightedAccuracy()
   {
     return $this->classWeightedAccuracy;
@@ -1067,7 +994,6 @@ class Google_Service_Prediction_Insert2ModelInfo extends Google_Model
   {
     $this->classificationAccuracy = $classificationAccuracy;
   }
-
   public function getClassificationAccuracy()
   {
     return $this->classificationAccuracy;
@@ -1076,7 +1002,6 @@ class Google_Service_Prediction_Insert2ModelInfo extends Google_Model
   {
     $this->meanSquaredError = $meanSquaredError;
   }
-
   public function getMeanSquaredError()
   {
     return $this->meanSquaredError;
@@ -1085,7 +1010,6 @@ class Google_Service_Prediction_Insert2ModelInfo extends Google_Model
   {
     $this->modelType = $modelType;
   }
-
   public function getModelType()
   {
     return $this->modelType;
@@ -1094,7 +1018,6 @@ class Google_Service_Prediction_Insert2ModelInfo extends Google_Model
   {
     $this->numberInstances = $numberInstances;
   }
-
   public function getNumberInstances()
   {
     return $this->numberInstances;
@@ -1103,12 +1026,10 @@ class Google_Service_Prediction_Insert2ModelInfo extends Google_Model
   {
     $this->numberLabels = $numberLabels;
   }
-
   public function getNumberLabels()
   {
     return $this->numberLabels;
   }
-
 }
 
 class Google_Service_Prediction_InsertTrainingInstances extends Google_Collection
@@ -1119,11 +1040,11 @@ class Google_Service_Prediction_InsertTrainingInstances extends Google_Collectio
   public $csvInstance;
   public $output;
 
+
   public function setCsvInstance($csvInstance)
   {
     $this->csvInstance = $csvInstance;
   }
-
   public function getCsvInstance()
   {
     return $this->csvInstance;
@@ -1132,20 +1053,14 @@ class Google_Service_Prediction_InsertTrainingInstances extends Google_Collectio
   {
     $this->output = $output;
   }
-
   public function getOutput()
   {
     return $this->output;
   }
-
 }
 
 class Google_Service_Prediction_InsertUtility extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_Prediction_Output extends Google_Collection
@@ -1161,11 +1076,11 @@ class Google_Service_Prediction_Output extends Google_Collection
   public $outputValue;
   public $selfLink;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1174,7 +1089,6 @@ class Google_Service_Prediction_Output extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1183,7 +1097,6 @@ class Google_Service_Prediction_Output extends Google_Collection
   {
     $this->outputLabel = $outputLabel;
   }
-
   public function getOutputLabel()
   {
     return $this->outputLabel;
@@ -1192,7 +1105,6 @@ class Google_Service_Prediction_Output extends Google_Collection
   {
     $this->outputMulti = $outputMulti;
   }
-
   public function getOutputMulti()
   {
     return $this->outputMulti;
@@ -1201,7 +1113,6 @@ class Google_Service_Prediction_Output extends Google_Collection
   {
     $this->outputValue = $outputValue;
   }
-
   public function getOutputValue()
   {
     return $this->outputValue;
@@ -1210,12 +1121,10 @@ class Google_Service_Prediction_Output extends Google_Collection
   {
     $this->selfLink = $selfLink;
   }
-
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-
 }
 
 class Google_Service_Prediction_OutputOutputMulti extends Google_Model
@@ -1225,11 +1134,11 @@ class Google_Service_Prediction_OutputOutputMulti extends Google_Model
   public $label;
   public $score;
 
+
   public function setLabel($label)
   {
     $this->label = $label;
   }
-
   public function getLabel()
   {
     return $this->label;
@@ -1238,12 +1147,10 @@ class Google_Service_Prediction_OutputOutputMulti extends Google_Model
   {
     $this->score = $score;
   }
-
   public function getScore()
   {
     return $this->score;
   }
-
 }
 
 class Google_Service_Prediction_PredictionList extends Google_Collection
@@ -1257,11 +1164,11 @@ class Google_Service_Prediction_PredictionList extends Google_Collection
   public $nextPageToken;
   public $selfLink;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -1270,7 +1177,6 @@ class Google_Service_Prediction_PredictionList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1279,7 +1185,6 @@ class Google_Service_Prediction_PredictionList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -1288,12 +1193,10 @@ class Google_Service_Prediction_PredictionList extends Google_Collection
   {
     $this->selfLink = $selfLink;
   }
-
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-
 }
 
 class Google_Service_Prediction_Update extends Google_Collection
@@ -1304,11 +1207,11 @@ class Google_Service_Prediction_Update extends Google_Collection
   public $csvInstance;
   public $output;
 
+
   public function setCsvInstance($csvInstance)
   {
     $this->csvInstance = $csvInstance;
   }
-
   public function getCsvInstance()
   {
     return $this->csvInstance;
@@ -1317,10 +1220,8 @@ class Google_Service_Prediction_Update extends Google_Collection
   {
     $this->output = $output;
   }
-
   public function getOutput()
   {
     return $this->output;
   }
-
 }
