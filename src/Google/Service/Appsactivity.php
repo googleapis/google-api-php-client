@@ -19,8 +19,7 @@
  * Service definition for Appsactivity (v1).
  *
  * <p>
- * Provides a historical view of activity.
- * </p>
+ * Provides a historical view of activity.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,13 +31,17 @@
 class Google_Service_Appsactivity extends Google_Service
 {
   /** View the activity history of your Google Apps. */
-  const ACTIVITY = "https://www.googleapis.com/auth/activity";
+  const ACTIVITY =
+      "https://www.googleapis.com/auth/activity";
   /** View and manage the files and documents in your Google Drive. */
-  const DRIVE = "https://www.googleapis.com/auth/drive";
+  const DRIVE =
+      "https://www.googleapis.com/auth/drive";
   /** View metadata for files and documents in your Google Drive. */
-  const DRIVE_METADATA_READONLY = "https://www.googleapis.com/auth/drive.metadata.readonly";
+  const DRIVE_METADATA_READONLY =
+      "https://www.googleapis.com/auth/drive.metadata.readonly";
   /** View the files and documents in your Google Drive. */
-  const DRIVE_READONLY = "https://www.googleapis.com/auth/drive.readonly";
+  const DRIVE_READONLY =
+      "https://www.googleapis.com/auth/drive.readonly";
 
   public $activities;
   
@@ -123,25 +126,19 @@ class Google_Service_Appsactivity_Activities_Resource extends Google_Service_Res
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string drive.ancestorId
-   * Identifies the Drive folder containing the items for which to return activities.
-   * @opt_param int pageSize
-   * The maximum number of events to return on a page. The response includes a continuation token if
-    * there are more events.
-   * @opt_param string pageToken
-   * A token to retrieve a specific page of results.
-   * @opt_param string userId
-   * Indicates the user to return activity for. Use the special value me to indicate the currently
-    * authenticated user.
-   * @opt_param string groupingStrategy
-   * Indicates the strategy to use when grouping singleEvents items in the associated combinedEvent
-    * object.
-   * @opt_param string drive.fileId
-   * Identifies the Drive item to return activities for.
-   * @opt_param string source
-   * The Google service from which to return activities. Possible values of source are:
-  -
-    * drive.google.com
+   * @opt_param string drive.ancestorId Identifies the Drive folder containing the
+   * items for which to return activities.
+   * @opt_param int pageSize The maximum number of events to return on a page. The
+   * response includes a continuation token if there are more events.
+   * @opt_param string pageToken A token to retrieve a specific page of results.
+   * @opt_param string userId Indicates the user to return activity for. Use the
+   * special value me to indicate the currently authenticated user.
+   * @opt_param string groupingStrategy Indicates the strategy to use when
+   * grouping singleEvents items in the associated combinedEvent object.
+   * @opt_param string drive.fileId Identifies the Drive item to return activities
+   * for.
+   * @opt_param string source The Google service from which to return activities.
+   * Possible values of source are: - drive.google.com
    * @return Google_Service_Appsactivity_ListActivitiesResponse
    */
   public function listActivities($optParams = array())
@@ -165,11 +162,11 @@ class Google_Service_Appsactivity_Activity extends Google_Collection
   protected $singleEventsType = 'Google_Service_Appsactivity_Event';
   protected $singleEventsDataType = 'array';
 
+
   public function setCombinedEvent(Google_Service_Appsactivity_Event $combinedEvent)
   {
     $this->combinedEvent = $combinedEvent;
   }
-
   public function getCombinedEvent()
   {
     return $this->combinedEvent;
@@ -178,12 +175,10 @@ class Google_Service_Appsactivity_Activity extends Google_Collection
   {
     $this->singleEvents = $singleEvents;
   }
-
   public function getSingleEvents()
   {
     return $this->singleEvents;
   }
-
 }
 
 class Google_Service_Appsactivity_Event extends Google_Collection
@@ -206,11 +201,11 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   protected $userType = 'Google_Service_Appsactivity_User';
   protected $userDataType = '';
 
+
   public function setAdditionalEventTypes($additionalEventTypes)
   {
     $this->additionalEventTypes = $additionalEventTypes;
   }
-
   public function getAdditionalEventTypes()
   {
     return $this->additionalEventTypes;
@@ -219,7 +214,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     $this->eventTimeMillis = $eventTimeMillis;
   }
-
   public function getEventTimeMillis()
   {
     return $this->eventTimeMillis;
@@ -228,7 +222,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     $this->fromUserDeletion = $fromUserDeletion;
   }
-
   public function getFromUserDeletion()
   {
     return $this->fromUserDeletion;
@@ -237,7 +230,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     $this->move = $move;
   }
-
   public function getMove()
   {
     return $this->move;
@@ -246,7 +238,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     $this->permissionChanges = $permissionChanges;
   }
-
   public function getPermissionChanges()
   {
     return $this->permissionChanges;
@@ -255,7 +246,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     $this->primaryEventType = $primaryEventType;
   }
-
   public function getPrimaryEventType()
   {
     return $this->primaryEventType;
@@ -264,7 +254,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     $this->rename = $rename;
   }
-
   public function getRename()
   {
     return $this->rename;
@@ -273,7 +262,6 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     $this->target = $target;
   }
-
   public function getTarget()
   {
     return $this->target;
@@ -282,12 +270,10 @@ class Google_Service_Appsactivity_Event extends Google_Collection
   {
     $this->user = $user;
   }
-
   public function getUser()
   {
     return $this->user;
   }
-
 }
 
 class Google_Service_Appsactivity_ListActivitiesResponse extends Google_Collection
@@ -299,11 +285,11 @@ class Google_Service_Appsactivity_ListActivitiesResponse extends Google_Collecti
   protected $activitiesDataType = 'array';
   public $nextPageToken;
 
+
   public function setActivities($activities)
   {
     $this->activities = $activities;
   }
-
   public function getActivities()
   {
     return $this->activities;
@@ -312,12 +298,10 @@ class Google_Service_Appsactivity_ListActivitiesResponse extends Google_Collecti
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_Appsactivity_Move extends Google_Collection
@@ -330,11 +314,11 @@ class Google_Service_Appsactivity_Move extends Google_Collection
   protected $removedParentsType = 'Google_Service_Appsactivity_Parent';
   protected $removedParentsDataType = 'array';
 
+
   public function setAddedParents($addedParents)
   {
     $this->addedParents = $addedParents;
   }
-
   public function getAddedParents()
   {
     return $this->addedParents;
@@ -343,12 +327,10 @@ class Google_Service_Appsactivity_Move extends Google_Collection
   {
     $this->removedParents = $removedParents;
   }
-
   public function getRemovedParents()
   {
     return $this->removedParents;
   }
-
 }
 
 class Google_Service_Appsactivity_Parent extends Google_Model
@@ -359,11 +341,11 @@ class Google_Service_Appsactivity_Parent extends Google_Model
   public $isRoot;
   public $title;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -372,7 +354,6 @@ class Google_Service_Appsactivity_Parent extends Google_Model
   {
     $this->isRoot = $isRoot;
   }
-
   public function getIsRoot()
   {
     return $this->isRoot;
@@ -381,12 +362,10 @@ class Google_Service_Appsactivity_Parent extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_Appsactivity_Permission extends Google_Model
@@ -401,11 +380,11 @@ class Google_Service_Appsactivity_Permission extends Google_Model
   protected $userDataType = '';
   public $withLink;
 
+
   public function setName($name)
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -414,7 +393,6 @@ class Google_Service_Appsactivity_Permission extends Google_Model
   {
     $this->permissionId = $permissionId;
   }
-
   public function getPermissionId()
   {
     return $this->permissionId;
@@ -423,7 +401,6 @@ class Google_Service_Appsactivity_Permission extends Google_Model
   {
     $this->role = $role;
   }
-
   public function getRole()
   {
     return $this->role;
@@ -432,7 +409,6 @@ class Google_Service_Appsactivity_Permission extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
@@ -441,7 +417,6 @@ class Google_Service_Appsactivity_Permission extends Google_Model
   {
     $this->user = $user;
   }
-
   public function getUser()
   {
     return $this->user;
@@ -450,12 +425,10 @@ class Google_Service_Appsactivity_Permission extends Google_Model
   {
     $this->withLink = $withLink;
   }
-
   public function getWithLink()
   {
     return $this->withLink;
   }
-
 }
 
 class Google_Service_Appsactivity_PermissionChange extends Google_Collection
@@ -468,11 +441,11 @@ class Google_Service_Appsactivity_PermissionChange extends Google_Collection
   protected $removedPermissionsType = 'Google_Service_Appsactivity_Permission';
   protected $removedPermissionsDataType = 'array';
 
+
   public function setAddedPermissions($addedPermissions)
   {
     $this->addedPermissions = $addedPermissions;
   }
-
   public function getAddedPermissions()
   {
     return $this->addedPermissions;
@@ -481,12 +454,10 @@ class Google_Service_Appsactivity_PermissionChange extends Google_Collection
   {
     $this->removedPermissions = $removedPermissions;
   }
-
   public function getRemovedPermissions()
   {
     return $this->removedPermissions;
   }
-
 }
 
 class Google_Service_Appsactivity_Photo extends Google_Model
@@ -495,16 +466,15 @@ class Google_Service_Appsactivity_Photo extends Google_Model
   );
   public $url;
 
+
   public function setUrl($url)
   {
     $this->url = $url;
   }
-
   public function getUrl()
   {
     return $this->url;
   }
-
 }
 
 class Google_Service_Appsactivity_Rename extends Google_Model
@@ -514,11 +484,11 @@ class Google_Service_Appsactivity_Rename extends Google_Model
   public $newTitle;
   public $oldTitle;
 
+
   public function setNewTitle($newTitle)
   {
     $this->newTitle = $newTitle;
   }
-
   public function getNewTitle()
   {
     return $this->newTitle;
@@ -527,12 +497,10 @@ class Google_Service_Appsactivity_Rename extends Google_Model
   {
     $this->oldTitle = $oldTitle;
   }
-
   public function getOldTitle()
   {
     return $this->oldTitle;
   }
-
 }
 
 class Google_Service_Appsactivity_Target extends Google_Model
@@ -543,11 +511,11 @@ class Google_Service_Appsactivity_Target extends Google_Model
   public $mimeType;
   public $name;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -556,7 +524,6 @@ class Google_Service_Appsactivity_Target extends Google_Model
   {
     $this->mimeType = $mimeType;
   }
-
   public function getMimeType()
   {
     return $this->mimeType;
@@ -565,12 +532,10 @@ class Google_Service_Appsactivity_Target extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_Appsactivity_User extends Google_Model
@@ -581,11 +546,11 @@ class Google_Service_Appsactivity_User extends Google_Model
   protected $photoType = 'Google_Service_Appsactivity_Photo';
   protected $photoDataType = '';
 
+
   public function setName($name)
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -594,10 +559,8 @@ class Google_Service_Appsactivity_User extends Google_Model
   {
     $this->photo = $photo;
   }
-
   public function getPhoto()
   {
     return $this->photo;
   }
-
 }
