@@ -19,8 +19,7 @@
  * Service definition for AppState (v1).
  *
  * <p>
- * The Google App State API.
- * </p>
+ * The Google App State API.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,7 +31,8 @@
 class Google_Service_AppState extends Google_Service
 {
   /** View and manage your data for this application. */
-  const APPSTATE = "https://www.googleapis.com/auth/appstate";
+  const APPSTATE =
+      "https://www.googleapis.com/auth/appstate";
 
   public $states;
   
@@ -136,12 +136,11 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
    * version matches the currently stored version. This method results in a
    * conflict error on version mismatch. (states.clear)
    *
-   * @param int $stateKey
-   * The key for the data to be retrieved.
+   * @param int $stateKey The key for the data to be retrieved.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string currentDataVersion
-   * The version of the data to be cleared. Version strings are returned by the server.
+   * @opt_param string currentDataVersion The version of the data to be cleared.
+   * Version strings are returned by the server.
    * @return Google_Service_AppState_WriteResult
    */
   public function clear($stateKey, $optParams = array())
@@ -150,6 +149,7 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('clear', array($params), "Google_Service_AppState_WriteResult");
   }
+
   /**
    * Deletes a key and the data associated with it. The key is removed and no
    * longer counts against the key quota. Note that since this method is not safe
@@ -157,8 +157,7 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
    * development and testing purposes. Invoking this method in shipping code can
    * result in data loss and data corruption. (states.delete)
    *
-   * @param int $stateKey
-   * The key for the data to be retrieved.
+   * @param int $stateKey The key for the data to be retrieved.
    * @param array $optParams Optional parameters.
    */
   public function delete($stateKey, $optParams = array())
@@ -167,12 +166,12 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Retrieves the data corresponding to the passed key. If the key does not exist
    * on the server, an HTTP 404 will be returned. (states.get)
    *
-   * @param int $stateKey
-   * The key for the data to be retrieved.
+   * @param int $stateKey The key for the data to be retrieved.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AppState_GetResponse
    */
@@ -182,13 +181,14 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AppState_GetResponse");
   }
+
   /**
    * Lists all the states keys, and optionally the state data. (states.listStates)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool includeData
-   * Whether to include the full data in addition to the version number
+   * @opt_param bool includeData Whether to include the full data in addition to
+   * the version number
    * @return Google_Service_AppState_ListResponse
    */
   public function listStates($optParams = array())
@@ -197,20 +197,21 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_AppState_ListResponse");
   }
+
   /**
    * Update the data associated with the input key if and only if the passed
    * version matches the currently stored version. This method is safe in the face
    * of concurrent writes. Maximum per-key size is 128KB. (states.update)
    *
-   * @param int $stateKey
-   * The key for the data to be retrieved.
+   * @param int $stateKey The key for the data to be retrieved.
    * @param Google_UpdateRequest $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string currentStateVersion
-   * The version of the app state your application is attempting to update. If this does not match
-    * the current version, this method will return a conflict error. If there is no data stored on the
-    * server for this key, the update will succeed irrespective of the value of this parameter.
+   * @opt_param string currentStateVersion The version of the app state your
+   * application is attempting to update. If this does not match the current
+   * version, this method will return a conflict error. If there is no data stored
+   * on the server for this key, the update will succeed irrespective of the value
+   * of this parameter.
    * @return Google_Service_AppState_WriteResult
    */
   public function update($stateKey, Google_Service_AppState_UpdateRequest $postBody, $optParams = array())
@@ -233,11 +234,11 @@ class Google_Service_AppState_GetResponse extends Google_Model
   public $kind;
   public $stateKey;
 
+
   public function setCurrentStateVersion($currentStateVersion)
   {
     $this->currentStateVersion = $currentStateVersion;
   }
-
   public function getCurrentStateVersion()
   {
     return $this->currentStateVersion;
@@ -246,7 +247,6 @@ class Google_Service_AppState_GetResponse extends Google_Model
   {
     $this->data = $data;
   }
-
   public function getData()
   {
     return $this->data;
@@ -255,7 +255,6 @@ class Google_Service_AppState_GetResponse extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -264,12 +263,10 @@ class Google_Service_AppState_GetResponse extends Google_Model
   {
     $this->stateKey = $stateKey;
   }
-
   public function getStateKey()
   {
     return $this->stateKey;
   }
-
 }
 
 class Google_Service_AppState_ListResponse extends Google_Collection
@@ -282,11 +279,11 @@ class Google_Service_AppState_ListResponse extends Google_Collection
   public $kind;
   public $maximumKeyCount;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -295,7 +292,6 @@ class Google_Service_AppState_ListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -304,12 +300,10 @@ class Google_Service_AppState_ListResponse extends Google_Collection
   {
     $this->maximumKeyCount = $maximumKeyCount;
   }
-
   public function getMaximumKeyCount()
   {
     return $this->maximumKeyCount;
   }
-
 }
 
 class Google_Service_AppState_UpdateRequest extends Google_Model
@@ -319,11 +313,11 @@ class Google_Service_AppState_UpdateRequest extends Google_Model
   public $data;
   public $kind;
 
+
   public function setData($data)
   {
     $this->data = $data;
   }
-
   public function getData()
   {
     return $this->data;
@@ -332,12 +326,10 @@ class Google_Service_AppState_UpdateRequest extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_AppState_WriteResult extends Google_Model
@@ -348,11 +340,11 @@ class Google_Service_AppState_WriteResult extends Google_Model
   public $kind;
   public $stateKey;
 
+
   public function setCurrentStateVersion($currentStateVersion)
   {
     $this->currentStateVersion = $currentStateVersion;
   }
-
   public function getCurrentStateVersion()
   {
     return $this->currentStateVersion;
@@ -361,7 +353,6 @@ class Google_Service_AppState_WriteResult extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -370,10 +361,8 @@ class Google_Service_AppState_WriteResult extends Google_Model
   {
     $this->stateKey = $stateKey;
   }
-
   public function getStateKey()
   {
     return $this->stateKey;
   }
-
 }
