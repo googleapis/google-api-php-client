@@ -19,8 +19,8 @@
  * Service definition for MapsEngine (v1).
  *
  * <p>
- * The Google Maps Engine API allows developers to store and query geospatial vector and raster data.
- * </p>
+ * The Google Maps Engine API allows developers to store and query geospatial
+ * vector and raster data.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,9 +32,11 @@
 class Google_Service_MapsEngine extends Google_Service
 {
   /** View and manage your Google Maps Engine data. */
-  const MAPSENGINE = "https://www.googleapis.com/auth/mapsengine";
+  const MAPSENGINE =
+      "https://www.googleapis.com/auth/mapsengine";
   /** View your Google Maps Engine data. */
-  const MAPSENGINE_READONLY = "https://www.googleapis.com/auth/mapsengine.readonly";
+  const MAPSENGINE_READONLY =
+      "https://www.googleapis.com/auth/mapsengine.readonly";
 
   public $assets;
   public $assets_parents;
@@ -1527,8 +1529,7 @@ class Google_Service_MapsEngine_Assets_Resource extends Google_Service_Resource
   /**
    * Return metadata for a particular asset. (assets.get)
    *
-   * @param string $id
-   * The ID of the asset.
+   * @param string $id The ID of the asset.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_Asset
    */
@@ -1538,49 +1539,47 @@ class Google_Service_MapsEngine_Assets_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_MapsEngine_Asset");
   }
+
   /**
    * Return all assets readable by the current user. (assets.listAssets)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string modifiedAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or after this time.
-   * @opt_param string createdAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or after this time.
-   * @opt_param string tags
-   * A comma separated list of tags. Returned assets will contain all the tags from the list.
-   * @opt_param string projectId
-   * The ID of a Maps Engine project, used to filter the response. To list all available projects
-    * with their IDs, send a Projects: list request. You can also find your project ID as the value of
-    * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
-   * @opt_param string search
-   * An unstructured search string used to filter the set of results based on asset metadata.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 100.
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string creatorEmail
-   * An email address representing a user. Returned assets that have been created by the user
-    * associated with the provided email address.
-   * @opt_param string bbox
-   * A bounding box, expressed as "west,south,east,north". If set, only assets which intersect this
-    * bounding box will be returned.
-   * @opt_param string modifiedBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or before this time.
-   * @opt_param string createdBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or before this time.
-   * @opt_param string role
-   * The role parameter indicates that the response should only contain assets where the current user
-    * has the specified level of access.
-   * @opt_param string type
-   * A comma separated list of asset types. Returned assets will have one of the types from the
-    * provided list. Supported values are 'map', 'layer', 'rasterCollection' and 'table'.
+   * @opt_param string modifiedAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or after
+   * this time.
+   * @opt_param string createdAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or after
+   * this time.
+   * @opt_param string tags A comma separated list of tags. Returned assets will
+   * contain all the tags from the list.
+   * @opt_param string projectId The ID of a Maps Engine project, used to filter
+   * the response. To list all available projects with their IDs, send a Projects:
+   * list request. You can also find your project ID as the value of the
+   * DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @opt_param string search An unstructured search string used to filter the set
+   * of results based on asset metadata.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 100.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string creatorEmail An email address representing a user. Returned
+   * assets that have been created by the user associated with the provided email
+   * address.
+   * @opt_param string bbox A bounding box, expressed as "west,south,east,north".
+   * If set, only assets which intersect this bounding box will be returned.
+   * @opt_param string modifiedBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or before
+   * this time.
+   * @opt_param string createdBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or before
+   * this time.
+   * @opt_param string role The role parameter indicates that the response should
+   * only contain assets where the current user has the specified level of access.
+   * @opt_param string type A comma separated list of asset types. Returned assets
+   * will have one of the types from the provided list. Supported values are
+   * 'map', 'layer', 'rasterCollection' and 'table'.
    * @return Google_Service_MapsEngine_AssetsListResponse
    */
   public function listAssets($optParams = array())
@@ -1605,16 +1604,14 @@ class Google_Service_MapsEngine_AssetsParents_Resource extends Google_Service_Re
   /**
    * Return all parent ids of the specified asset. (parents.listAssetsParents)
    *
-   * @param string $id
-   * The ID of the asset whose parents will be listed.
+   * @param string $id The ID of the asset whose parents will be listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 50.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 50.
    * @return Google_Service_MapsEngine_ParentsListResponse
    */
   public function listAssetsParents($id, $optParams = array())
@@ -1639,8 +1636,7 @@ class Google_Service_MapsEngine_AssetsPermissions_Resource extends Google_Servic
    * Return all of the permissions for the specified asset.
    * (permissions.listAssetsPermissions)
    *
-   * @param string $id
-   * The ID of the asset whose permissions will be listed.
+   * @param string $id The ID of the asset whose permissions will be listed.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsListResponse
    */
@@ -1666,8 +1662,7 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
   /**
    * Cancel processing on a layer asset. (layers.cancelProcessing)
    *
-   * @param string $id
-   * The ID of the layer.
+   * @param string $id The ID of the layer.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_ProcessResponse
    */
@@ -1677,14 +1672,14 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('cancelProcessing', array($params), "Google_Service_MapsEngine_ProcessResponse");
   }
+
   /**
    * Create a layer asset. (layers.create)
    *
    * @param Google_Layer $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool process
-   * Whether to queue the created layer for processing.
+   * @opt_param bool process Whether to queue the created layer for processing.
    * @return Google_Service_MapsEngine_Layer
    */
   public function create(Google_Service_MapsEngine_Layer $postBody, $optParams = array())
@@ -1693,13 +1688,14 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('create', array($params), "Google_Service_MapsEngine_Layer");
   }
+
   /**
    * Delete a layer. (layers.delete)
    *
-   * @param string $id
-   * The ID of the layer. Only the layer creator or project owner are permitted to delete. If the
-    * layer is published, or included in a map, the request will fail. Unpublish the layer, and remove
-    * it from all maps prior to deleting.
+   * @param string $id The ID of the layer. Only the layer creator or project
+   * owner are permitted to delete. If the layer is published, or included in a
+   * map, the request will fail. Unpublish the layer, and remove it from all maps
+   * prior to deleting.
    * @param array $optParams Optional parameters.
    */
   public function delete($id, $optParams = array())
@@ -1708,17 +1704,17 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Return metadata for a particular layer. (layers.get)
    *
-   * @param string $id
-   * The ID of the layer.
+   * @param string $id The ID of the layer.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string version
-   * Deprecated: The version parameter indicates which version of the layer should be returned. When
-    * version is set to published, the published version of the layer will be returned. Please use the
-    * layers.getPublished endpoint instead.
+   * @opt_param string version Deprecated: The version parameter indicates which
+   * version of the layer should be returned. When version is set to published,
+   * the published version of the layer will be returned. Please use the
+   * layers.getPublished endpoint instead.
    * @return Google_Service_MapsEngine_Layer
    */
   public function get($id, $optParams = array())
@@ -1727,11 +1723,11 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_MapsEngine_Layer");
   }
+
   /**
    * Return the published metadata for a particular layer. (layers.getPublished)
    *
-   * @param string $id
-   * The ID of the layer.
+   * @param string $id The ID of the layer.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PublishedLayer
    */
@@ -1741,48 +1737,45 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('getPublished', array($params), "Google_Service_MapsEngine_PublishedLayer");
   }
+
   /**
    * Return all layers readable by the current user. (layers.listLayers)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string modifiedAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or after this time.
-   * @opt_param string createdAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or after this time.
+   * @opt_param string modifiedAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or after
+   * this time.
+   * @opt_param string createdAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or after
+   * this time.
    * @opt_param string processingStatus
-   *
-   * @opt_param string projectId
-   * The ID of a Maps Engine project, used to filter the response. To list all available projects
-    * with their IDs, send a Projects: list request. You can also find your project ID as the value of
-    * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
-   * @opt_param string tags
-   * A comma separated list of tags. Returned assets will contain all the tags from the list.
-   * @opt_param string search
-   * An unstructured search string used to filter the set of results based on asset metadata.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 100.
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string creatorEmail
-   * An email address representing a user. Returned assets that have been created by the user
-    * associated with the provided email address.
-   * @opt_param string bbox
-   * A bounding box, expressed as "west,south,east,north". If set, only assets which intersect this
-    * bounding box will be returned.
-   * @opt_param string modifiedBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or before this time.
-   * @opt_param string createdBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or before this time.
-   * @opt_param string role
-   * The role parameter indicates that the response should only contain assets where the current user
-    * has the specified level of access.
+   * @opt_param string projectId The ID of a Maps Engine project, used to filter
+   * the response. To list all available projects with their IDs, send a Projects:
+   * list request. You can also find your project ID as the value of the
+   * DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @opt_param string tags A comma separated list of tags. Returned assets will
+   * contain all the tags from the list.
+   * @opt_param string search An unstructured search string used to filter the set
+   * of results based on asset metadata.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 100.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string creatorEmail An email address representing a user. Returned
+   * assets that have been created by the user associated with the provided email
+   * address.
+   * @opt_param string bbox A bounding box, expressed as "west,south,east,north".
+   * If set, only assets which intersect this bounding box will be returned.
+   * @opt_param string modifiedBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or before
+   * this time.
+   * @opt_param string createdBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or before
+   * this time.
+   * @opt_param string role The role parameter indicates that the response should
+   * only contain assets where the current user has the specified level of access.
    * @return Google_Service_MapsEngine_LayersListResponse
    */
   public function listLayers($optParams = array())
@@ -1791,22 +1784,22 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_LayersListResponse");
   }
+
   /**
    * Return all published layers readable by the current user.
    * (layers.listPublished)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 100.
-   * @opt_param string projectId
-   * The ID of a Maps Engine project, used to filter the response. To list all available projects
-    * with their IDs, send a Projects: list request. You can also find your project ID as the value of
-    * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 100.
+   * @opt_param string projectId The ID of a Maps Engine project, used to filter
+   * the response. To list all available projects with their IDs, send a Projects:
+   * list request. You can also find your project ID as the value of the
+   * DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
    * @return Google_Service_MapsEngine_PublishedLayersListResponse
    */
   public function listPublished($optParams = array())
@@ -1815,11 +1808,11 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('listPublished', array($params), "Google_Service_MapsEngine_PublishedLayersListResponse");
   }
+
   /**
    * Mutate a layer asset. (layers.patch)
    *
-   * @param string $id
-   * The ID of the layer.
+   * @param string $id The ID of the layer.
    * @param Google_Layer $postBody
    * @param array $optParams Optional parameters.
    */
@@ -1829,11 +1822,11 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params));
   }
+
   /**
    * Process a layer asset. (layers.process)
    *
-   * @param string $id
-   * The ID of the layer.
+   * @param string $id The ID of the layer.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_ProcessResponse
    */
@@ -1843,16 +1836,16 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('process', array($params), "Google_Service_MapsEngine_ProcessResponse");
   }
+
   /**
    * Publish a layer asset. (layers.publish)
    *
-   * @param string $id
-   * The ID of the layer.
+   * @param string $id The ID of the layer.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool force
-   * If set to true, the API will allow publication of the layer even if it's out of date. If not
-    * true, you'll need to reprocess any out-of-date layer before publishing.
+   * @opt_param bool force If set to true, the API will allow publication of the
+   * layer even if it's out of date. If not true, you'll need to reprocess any
+   * out-of-date layer before publishing.
    * @return Google_Service_MapsEngine_PublishResponse
    */
   public function publish($id, $optParams = array())
@@ -1861,11 +1854,11 @@ class Google_Service_MapsEngine_Layers_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('publish', array($params), "Google_Service_MapsEngine_PublishResponse");
   }
+
   /**
    * Unpublish a layer asset. (layers.unpublish)
    *
-   * @param string $id
-   * The ID of the layer.
+   * @param string $id The ID of the layer.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PublishResponse
    */
@@ -1891,16 +1884,14 @@ class Google_Service_MapsEngine_LayersParents_Resource extends Google_Service_Re
   /**
    * Return all parent ids of the specified layer. (parents.listLayersParents)
    *
-   * @param string $id
-   * The ID of the layer whose parents will be listed.
+   * @param string $id The ID of the layer whose parents will be listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 50.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 50.
    * @return Google_Service_MapsEngine_ParentsListResponse
    */
   public function listLayersParents($id, $optParams = array())
@@ -1925,8 +1916,7 @@ class Google_Service_MapsEngine_LayersPermissions_Resource extends Google_Servic
    * Remove permission entries from an already existing asset.
    * (permissions.batchDelete)
    *
-   * @param string $id
-   * The ID of the asset from which permissions will be removed.
+   * @param string $id The ID of the asset from which permissions will be removed.
    * @param Google_PermissionsBatchDeleteRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsBatchDeleteResponse
@@ -1937,14 +1927,14 @@ class Google_Service_MapsEngine_LayersPermissions_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('batchDelete', array($params), "Google_Service_MapsEngine_PermissionsBatchDeleteResponse");
   }
+
   /**
    * Add or update permission entries to an already existing asset.
    *
    * An asset can hold up to 20 different permission entries. Each batchInsert
    * request is atomic. (permissions.batchUpdate)
    *
-   * @param string $id
-   * The ID of the asset to which permissions will be added.
+   * @param string $id The ID of the asset to which permissions will be added.
    * @param Google_PermissionsBatchUpdateRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsBatchUpdateResponse
@@ -1955,12 +1945,12 @@ class Google_Service_MapsEngine_LayersPermissions_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('batchUpdate', array($params), "Google_Service_MapsEngine_PermissionsBatchUpdateResponse");
   }
+
   /**
    * Return all of the permissions for the specified asset.
    * (permissions.listLayersPermissions)
    *
-   * @param string $id
-   * The ID of the asset whose permissions will be listed.
+   * @param string $id The ID of the asset whose permissions will be listed.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsListResponse
    */
@@ -1996,12 +1986,13 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('create', array($params), "Google_Service_MapsEngine_Map");
   }
+
   /**
    * Delete a map. (maps.delete)
    *
-   * @param string $id
-   * The ID of the map. Only the map creator or project owner are permitted to delete. If the map is
-    * published the request will fail. Unpublish the map prior to deleting.
+   * @param string $id The ID of the map. Only the map creator or project owner
+   * are permitted to delete. If the map is published the request will fail.
+   * Unpublish the map prior to deleting.
    * @param array $optParams Optional parameters.
    */
   public function delete($id, $optParams = array())
@@ -2010,17 +2001,17 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Return metadata for a particular map. (maps.get)
    *
-   * @param string $id
-   * The ID of the map.
+   * @param string $id The ID of the map.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string version
-   * Deprecated: The version parameter indicates which version of the map should be returned. When
-    * version is set to published, the published version of the map will be returned. Please use the
-    * maps.getPublished endpoint instead.
+   * @opt_param string version Deprecated: The version parameter indicates which
+   * version of the map should be returned. When version is set to published, the
+   * published version of the map will be returned. Please use the
+   * maps.getPublished endpoint instead.
    * @return Google_Service_MapsEngine_Map
    */
   public function get($id, $optParams = array())
@@ -2029,11 +2020,11 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_MapsEngine_Map");
   }
+
   /**
    * Return the published metadata for a particular map. (maps.getPublished)
    *
-   * @param string $id
-   * The ID of the map.
+   * @param string $id The ID of the map.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PublishedMap
    */
@@ -2043,48 +2034,45 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('getPublished', array($params), "Google_Service_MapsEngine_PublishedMap");
   }
+
   /**
    * Return all maps readable by the current user. (maps.listMaps)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string modifiedAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or after this time.
-   * @opt_param string createdAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or after this time.
+   * @opt_param string modifiedAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or after
+   * this time.
+   * @opt_param string createdAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or after
+   * this time.
    * @opt_param string processingStatus
-   *
-   * @opt_param string projectId
-   * The ID of a Maps Engine project, used to filter the response. To list all available projects
-    * with their IDs, send a Projects: list request. You can also find your project ID as the value of
-    * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
-   * @opt_param string tags
-   * A comma separated list of tags. Returned assets will contain all the tags from the list.
-   * @opt_param string search
-   * An unstructured search string used to filter the set of results based on asset metadata.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 100.
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string creatorEmail
-   * An email address representing a user. Returned assets that have been created by the user
-    * associated with the provided email address.
-   * @opt_param string bbox
-   * A bounding box, expressed as "west,south,east,north". If set, only assets which intersect this
-    * bounding box will be returned.
-   * @opt_param string modifiedBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or before this time.
-   * @opt_param string createdBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or before this time.
-   * @opt_param string role
-   * The role parameter indicates that the response should only contain assets where the current user
-    * has the specified level of access.
+   * @opt_param string projectId The ID of a Maps Engine project, used to filter
+   * the response. To list all available projects with their IDs, send a Projects:
+   * list request. You can also find your project ID as the value of the
+   * DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @opt_param string tags A comma separated list of tags. Returned assets will
+   * contain all the tags from the list.
+   * @opt_param string search An unstructured search string used to filter the set
+   * of results based on asset metadata.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 100.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string creatorEmail An email address representing a user. Returned
+   * assets that have been created by the user associated with the provided email
+   * address.
+   * @opt_param string bbox A bounding box, expressed as "west,south,east,north".
+   * If set, only assets which intersect this bounding box will be returned.
+   * @opt_param string modifiedBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or before
+   * this time.
+   * @opt_param string createdBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or before
+   * this time.
+   * @opt_param string role The role parameter indicates that the response should
+   * only contain assets where the current user has the specified level of access.
    * @return Google_Service_MapsEngine_MapsListResponse
    */
   public function listMaps($optParams = array())
@@ -2093,21 +2081,21 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_MapsListResponse");
   }
+
   /**
    * Return all published maps readable by the current user. (maps.listPublished)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 100.
-   * @opt_param string projectId
-   * The ID of a Maps Engine project, used to filter the response. To list all available projects
-    * with their IDs, send a Projects: list request. You can also find your project ID as the value of
-    * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 100.
+   * @opt_param string projectId The ID of a Maps Engine project, used to filter
+   * the response. To list all available projects with their IDs, send a Projects:
+   * list request. You can also find your project ID as the value of the
+   * DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
    * @return Google_Service_MapsEngine_PublishedMapsListResponse
    */
   public function listPublished($optParams = array())
@@ -2116,11 +2104,11 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('listPublished', array($params), "Google_Service_MapsEngine_PublishedMapsListResponse");
   }
+
   /**
    * Mutate a map asset. (maps.patch)
    *
-   * @param string $id
-   * The ID of the map.
+   * @param string $id The ID of the map.
    * @param Google_Map $postBody
    * @param array $optParams Optional parameters.
    */
@@ -2130,16 +2118,16 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params));
   }
+
   /**
    * Publish a map asset. (maps.publish)
    *
-   * @param string $id
-   * The ID of the map.
+   * @param string $id The ID of the map.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool force
-   * If set to true, the API will allow publication of the map even if it's out of date. If false,
-    * the map must have a processingStatus of complete before publishing.
+   * @opt_param bool force If set to true, the API will allow publication of the
+   * map even if it's out of date. If false, the map must have a processingStatus
+   * of complete before publishing.
    * @return Google_Service_MapsEngine_PublishResponse
    */
   public function publish($id, $optParams = array())
@@ -2148,11 +2136,11 @@ class Google_Service_MapsEngine_Maps_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('publish', array($params), "Google_Service_MapsEngine_PublishResponse");
   }
+
   /**
    * Unpublish a map asset. (maps.unpublish)
    *
-   * @param string $id
-   * The ID of the map.
+   * @param string $id The ID of the map.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PublishResponse
    */
@@ -2179,8 +2167,7 @@ class Google_Service_MapsEngine_MapsPermissions_Resource extends Google_Service_
    * Remove permission entries from an already existing asset.
    * (permissions.batchDelete)
    *
-   * @param string $id
-   * The ID of the asset from which permissions will be removed.
+   * @param string $id The ID of the asset from which permissions will be removed.
    * @param Google_PermissionsBatchDeleteRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsBatchDeleteResponse
@@ -2191,14 +2178,14 @@ class Google_Service_MapsEngine_MapsPermissions_Resource extends Google_Service_
     $params = array_merge($params, $optParams);
     return $this->call('batchDelete', array($params), "Google_Service_MapsEngine_PermissionsBatchDeleteResponse");
   }
+
   /**
    * Add or update permission entries to an already existing asset.
    *
    * An asset can hold up to 20 different permission entries. Each batchInsert
    * request is atomic. (permissions.batchUpdate)
    *
-   * @param string $id
-   * The ID of the asset to which permissions will be added.
+   * @param string $id The ID of the asset to which permissions will be added.
    * @param Google_PermissionsBatchUpdateRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsBatchUpdateResponse
@@ -2209,12 +2196,12 @@ class Google_Service_MapsEngine_MapsPermissions_Resource extends Google_Service_
     $params = array_merge($params, $optParams);
     return $this->call('batchUpdate', array($params), "Google_Service_MapsEngine_PermissionsBatchUpdateResponse");
   }
+
   /**
    * Return all of the permissions for the specified asset.
    * (permissions.listMapsPermissions)
    *
-   * @param string $id
-   * The ID of the asset whose permissions will be listed.
+   * @param string $id The ID of the asset whose permissions will be listed.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsListResponse
    */
@@ -2265,8 +2252,7 @@ class Google_Service_MapsEngine_ProjectsIcons_Resource extends Google_Service_Re
   /**
    * Create an icon. (icons.create)
    *
-   * @param string $projectId
-   * The ID of the project.
+   * @param string $projectId The ID of the project.
    * @param Google_Icon $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_Icon
@@ -2277,13 +2263,12 @@ class Google_Service_MapsEngine_ProjectsIcons_Resource extends Google_Service_Re
     $params = array_merge($params, $optParams);
     return $this->call('create', array($params), "Google_Service_MapsEngine_Icon");
   }
+
   /**
    * Return an icon or its associated metadata (icons.get)
    *
-   * @param string $projectId
-   * The ID of the project.
-   * @param string $id
-   * The ID of the icon.
+   * @param string $projectId The ID of the project.
+   * @param string $id The ID of the icon.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_Icon
    */
@@ -2293,19 +2278,18 @@ class Google_Service_MapsEngine_ProjectsIcons_Resource extends Google_Service_Re
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_MapsEngine_Icon");
   }
+
   /**
    * Return all icons in the current project (icons.listProjectsIcons)
    *
-   * @param string $projectId
-   * The ID of the project.
+   * @param string $projectId The ID of the project.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 50.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 50.
    * @return Google_Service_MapsEngine_IconsListResponse
    */
   public function listProjectsIcons($projectId, $optParams = array())
@@ -2331,8 +2315,7 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
    * Cancel processing on a raster collection asset.
    * (rasterCollections.cancelProcessing)
    *
-   * @param string $id
-   * The ID of the raster collection.
+   * @param string $id The ID of the raster collection.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_ProcessResponse
    */
@@ -2342,6 +2325,7 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('cancelProcessing', array($params), "Google_Service_MapsEngine_ProcessResponse");
   }
+
   /**
    * Create a raster collection asset. (rasterCollections.create)
    *
@@ -2355,13 +2339,14 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('create', array($params), "Google_Service_MapsEngine_RasterCollection");
   }
+
   /**
    * Delete a raster collection. (rasterCollections.delete)
    *
-   * @param string $id
-   * The ID of the raster collection. Only the raster collection creator or project owner are
-    * permitted to delete. If the rastor collection is included in a layer, the request will fail.
-    * Remove the raster collection from all layers prior to deleting.
+   * @param string $id The ID of the raster collection. Only the raster collection
+   * creator or project owner are permitted to delete. If the rastor collection is
+   * included in a layer, the request will fail. Remove the raster collection from
+   * all layers prior to deleting.
    * @param array $optParams Optional parameters.
    */
   public function delete($id, $optParams = array())
@@ -2370,11 +2355,11 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Return metadata for a particular raster collection. (rasterCollections.get)
    *
-   * @param string $id
-   * The ID of the raster collection.
+   * @param string $id The ID of the raster collection.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_RasterCollection
    */
@@ -2384,49 +2369,46 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_MapsEngine_RasterCollection");
   }
+
   /**
    * Return all raster collections readable by the current user.
    * (rasterCollections.listRasterCollections)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string modifiedAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or after this time.
-   * @opt_param string createdAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or after this time.
+   * @opt_param string modifiedAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or after
+   * this time.
+   * @opt_param string createdAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or after
+   * this time.
    * @opt_param string processingStatus
-   *
-   * @opt_param string projectId
-   * The ID of a Maps Engine project, used to filter the response. To list all available projects
-    * with their IDs, send a Projects: list request. You can also find your project ID as the value of
-    * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
-   * @opt_param string tags
-   * A comma separated list of tags. Returned assets will contain all the tags from the list.
-   * @opt_param string search
-   * An unstructured search string used to filter the set of results based on asset metadata.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 100.
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string creatorEmail
-   * An email address representing a user. Returned assets that have been created by the user
-    * associated with the provided email address.
-   * @opt_param string bbox
-   * A bounding box, expressed as "west,south,east,north". If set, only assets which intersect this
-    * bounding box will be returned.
-   * @opt_param string modifiedBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or before this time.
-   * @opt_param string createdBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or before this time.
-   * @opt_param string role
-   * The role parameter indicates that the response should only contain assets where the current user
-    * has the specified level of access.
+   * @opt_param string projectId The ID of a Maps Engine project, used to filter
+   * the response. To list all available projects with their IDs, send a Projects:
+   * list request. You can also find your project ID as the value of the
+   * DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @opt_param string tags A comma separated list of tags. Returned assets will
+   * contain all the tags from the list.
+   * @opt_param string search An unstructured search string used to filter the set
+   * of results based on asset metadata.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 100.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string creatorEmail An email address representing a user. Returned
+   * assets that have been created by the user associated with the provided email
+   * address.
+   * @opt_param string bbox A bounding box, expressed as "west,south,east,north".
+   * If set, only assets which intersect this bounding box will be returned.
+   * @opt_param string modifiedBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or before
+   * this time.
+   * @opt_param string createdBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or before
+   * this time.
+   * @opt_param string role The role parameter indicates that the response should
+   * only contain assets where the current user has the specified level of access.
    * @return Google_Service_MapsEngine_RasterCollectionsListResponse
    */
   public function listRasterCollections($optParams = array())
@@ -2435,11 +2417,11 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_RasterCollectionsListResponse");
   }
+
   /**
    * Mutate a raster collection asset. (rasterCollections.patch)
    *
-   * @param string $id
-   * The ID of the raster collection.
+   * @param string $id The ID of the raster collection.
    * @param Google_RasterCollection $postBody
    * @param array $optParams Optional parameters.
    */
@@ -2449,11 +2431,11 @@ class Google_Service_MapsEngine_RasterCollections_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params));
   }
+
   /**
    * Process a raster collection asset. (rasterCollections.process)
    *
-   * @param string $id
-   * The ID of the raster collection.
+   * @param string $id The ID of the raster collection.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_ProcessResponse
    */
@@ -2480,16 +2462,15 @@ class Google_Service_MapsEngine_RasterCollectionsParents_Resource extends Google
    * Return all parent ids of the specified raster collection.
    * (parents.listRasterCollectionsParents)
    *
-   * @param string $id
-   * The ID of the raster collection whose parents will be listed.
+   * @param string $id The ID of the raster collection whose parents will be
+   * listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 50.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 50.
    * @return Google_Service_MapsEngine_ParentsListResponse
    */
   public function listRasterCollectionsParents($id, $optParams = array())
@@ -2514,8 +2495,7 @@ class Google_Service_MapsEngine_RasterCollectionsPermissions_Resource extends Go
    * Remove permission entries from an already existing asset.
    * (permissions.batchDelete)
    *
-   * @param string $id
-   * The ID of the asset from which permissions will be removed.
+   * @param string $id The ID of the asset from which permissions will be removed.
    * @param Google_PermissionsBatchDeleteRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsBatchDeleteResponse
@@ -2526,14 +2506,14 @@ class Google_Service_MapsEngine_RasterCollectionsPermissions_Resource extends Go
     $params = array_merge($params, $optParams);
     return $this->call('batchDelete', array($params), "Google_Service_MapsEngine_PermissionsBatchDeleteResponse");
   }
+
   /**
    * Add or update permission entries to an already existing asset.
    *
    * An asset can hold up to 20 different permission entries. Each batchInsert
    * request is atomic. (permissions.batchUpdate)
    *
-   * @param string $id
-   * The ID of the asset to which permissions will be added.
+   * @param string $id The ID of the asset to which permissions will be added.
    * @param Google_PermissionsBatchUpdateRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsBatchUpdateResponse
@@ -2544,12 +2524,12 @@ class Google_Service_MapsEngine_RasterCollectionsPermissions_Resource extends Go
     $params = array_merge($params, $optParams);
     return $this->call('batchUpdate', array($params), "Google_Service_MapsEngine_PermissionsBatchUpdateResponse");
   }
+
   /**
    * Return all of the permissions for the specified asset.
    * (permissions.listRasterCollectionsPermissions)
    *
-   * @param string $id
-   * The ID of the asset whose permissions will be listed.
+   * @param string $id The ID of the asset whose permissions will be listed.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsListResponse
    */
@@ -2577,8 +2557,8 @@ class Google_Service_MapsEngine_RasterCollectionsRasters_Resource extends Google
    * Up to 50 rasters can be included in a single batchDelete request. Each
    * batchDelete request is atomic. (rasters.batchDelete)
    *
-   * @param string $id
-   * The ID of the raster collection to which these rasters belong.
+   * @param string $id The ID of the raster collection to which these rasters
+   * belong.
    * @param Google_RasterCollectionsRasterBatchDeleteRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_RasterCollectionsRastersBatchDeleteResponse
@@ -2589,6 +2569,7 @@ class Google_Service_MapsEngine_RasterCollectionsRasters_Resource extends Google
     $params = array_merge($params, $optParams);
     return $this->call('batchDelete', array($params), "Google_Service_MapsEngine_RasterCollectionsRastersBatchDeleteResponse");
   }
+
   /**
    * Add rasters to an existing raster collection. Rasters must be successfully
    * processed in order to be added to a raster collection.
@@ -2596,8 +2577,8 @@ class Google_Service_MapsEngine_RasterCollectionsRasters_Resource extends Google
    * Up to 50 rasters can be included in a single batchInsert request. Each
    * batchInsert request is atomic. (rasters.batchInsert)
    *
-   * @param string $id
-   * The ID of the raster collection to which these rasters belong.
+   * @param string $id The ID of the raster collection to which these rasters
+   * belong.
    * @param Google_RasterCollectionsRastersBatchInsertRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_RasterCollectionsRastersBatchInsertResponse
@@ -2608,45 +2589,43 @@ class Google_Service_MapsEngine_RasterCollectionsRasters_Resource extends Google
     $params = array_merge($params, $optParams);
     return $this->call('batchInsert', array($params), "Google_Service_MapsEngine_RasterCollectionsRastersBatchInsertResponse");
   }
+
   /**
    * Return all rasters within a raster collection.
    * (rasters.listRasterCollectionsRasters)
    *
-   * @param string $id
-   * The ID of the raster collection to which these rasters belong.
+   * @param string $id The ID of the raster collection to which these rasters
+   * belong.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string modifiedAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or after this time.
-   * @opt_param string createdAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or after this time.
-   * @opt_param string tags
-   * A comma separated list of tags. Returned assets will contain all the tags from the list.
-   * @opt_param string search
-   * An unstructured search string used to filter the set of results based on asset metadata.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 100.
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string creatorEmail
-   * An email address representing a user. Returned assets that have been created by the user
-    * associated with the provided email address.
-   * @opt_param string bbox
-   * A bounding box, expressed as "west,south,east,north". If set, only assets which intersect this
-    * bounding box will be returned.
-   * @opt_param string modifiedBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or before this time.
-   * @opt_param string createdBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or before this time.
-   * @opt_param string role
-   * The role parameter indicates that the response should only contain assets where the current user
-    * has the specified level of access.
+   * @opt_param string modifiedAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or after
+   * this time.
+   * @opt_param string createdAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or after
+   * this time.
+   * @opt_param string tags A comma separated list of tags. Returned assets will
+   * contain all the tags from the list.
+   * @opt_param string search An unstructured search string used to filter the set
+   * of results based on asset metadata.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 100.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string creatorEmail An email address representing a user. Returned
+   * assets that have been created by the user associated with the provided email
+   * address.
+   * @opt_param string bbox A bounding box, expressed as "west,south,east,north".
+   * If set, only assets which intersect this bounding box will be returned.
+   * @opt_param string modifiedBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or before
+   * this time.
+   * @opt_param string createdBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or before
+   * this time.
+   * @opt_param string role The role parameter indicates that the response should
+   * only contain assets where the current user has the specified level of access.
    * @return Google_Service_MapsEngine_RasterCollectionsRastersListResponse
    */
   public function listRasterCollectionsRasters($id, $optParams = array())
@@ -2671,10 +2650,9 @@ class Google_Service_MapsEngine_Rasters_Resource extends Google_Service_Resource
   /**
    * Delete a raster. (rasters.delete)
    *
-   * @param string $id
-   * The ID of the raster. Only the raster creator or project owner are permitted to delete. If the
-    * raster is included in a layer or mosaic, the request will fail. Remove it from all parents prior
-    * to deleting.
+   * @param string $id The ID of the raster. Only the raster creator or project
+   * owner are permitted to delete. If the raster is included in a layer or
+   * mosaic, the request will fail. Remove it from all parents prior to deleting.
    * @param array $optParams Optional parameters.
    */
   public function delete($id, $optParams = array())
@@ -2683,11 +2661,11 @@ class Google_Service_MapsEngine_Rasters_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Return metadata for a single raster. (rasters.get)
    *
-   * @param string $id
-   * The ID of the raster.
+   * @param string $id The ID of the raster.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_Raster
    */
@@ -2697,48 +2675,45 @@ class Google_Service_MapsEngine_Rasters_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_MapsEngine_Raster");
   }
+
   /**
    * Return all rasters readable by the current user. (rasters.listRasters)
    *
-   * @param string $projectId
-   * The ID of a Maps Engine project, used to filter the response. To list all available projects
-    * with their IDs, send a Projects: list request. You can also find your project ID as the value of
-    * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @param string $projectId The ID of a Maps Engine project, used to filter the
+   * response. To list all available projects with their IDs, send a Projects:
+   * list request. You can also find your project ID as the value of the
+   * DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string modifiedAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or after this time.
-   * @opt_param string createdAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or after this time.
+   * @opt_param string modifiedAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or after
+   * this time.
+   * @opt_param string createdAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or after
+   * this time.
    * @opt_param string processingStatus
-   *
-   * @opt_param string tags
-   * A comma separated list of tags. Returned assets will contain all the tags from the list.
-   * @opt_param string search
-   * An unstructured search string used to filter the set of results based on asset metadata.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 100.
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string creatorEmail
-   * An email address representing a user. Returned assets that have been created by the user
-    * associated with the provided email address.
-   * @opt_param string bbox
-   * A bounding box, expressed as "west,south,east,north". If set, only assets which intersect this
-    * bounding box will be returned.
-   * @opt_param string modifiedBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or before this time.
-   * @opt_param string createdBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or before this time.
-   * @opt_param string role
-   * The role parameter indicates that the response should only contain assets where the current user
-    * has the specified level of access.
+   * @opt_param string tags A comma separated list of tags. Returned assets will
+   * contain all the tags from the list.
+   * @opt_param string search An unstructured search string used to filter the set
+   * of results based on asset metadata.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 100.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string creatorEmail An email address representing a user. Returned
+   * assets that have been created by the user associated with the provided email
+   * address.
+   * @opt_param string bbox A bounding box, expressed as "west,south,east,north".
+   * If set, only assets which intersect this bounding box will be returned.
+   * @opt_param string modifiedBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or before
+   * this time.
+   * @opt_param string createdBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or before
+   * this time.
+   * @opt_param string role The role parameter indicates that the response should
+   * only contain assets where the current user has the specified level of access.
    * @return Google_Service_MapsEngine_RastersListResponse
    */
   public function listRasters($projectId, $optParams = array())
@@ -2747,11 +2722,11 @@ class Google_Service_MapsEngine_Rasters_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_RastersListResponse");
   }
+
   /**
    * Mutate a raster asset. (rasters.patch)
    *
-   * @param string $id
-   * The ID of the raster.
+   * @param string $id The ID of the raster.
    * @param Google_Raster $postBody
    * @param array $optParams Optional parameters.
    */
@@ -2761,11 +2736,11 @@ class Google_Service_MapsEngine_Rasters_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params));
   }
+
   /**
    * Process a raster asset. (rasters.process)
    *
-   * @param string $id
-   * The ID of the raster.
+   * @param string $id The ID of the raster.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_ProcessResponse
    */
@@ -2775,6 +2750,7 @@ class Google_Service_MapsEngine_Rasters_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('process', array($params), "Google_Service_MapsEngine_ProcessResponse");
   }
+
   /**
    * Create a skeleton raster asset for upload. (rasters.upload)
    *
@@ -2804,10 +2780,8 @@ class Google_Service_MapsEngine_RastersFiles_Resource extends Google_Service_Res
   /**
    * Upload a file to a raster asset. (files.insert)
    *
-   * @param string $id
-   * The ID of the raster asset.
-   * @param string $filename
-   * The file name of this uploaded file.
+   * @param string $id The ID of the raster asset.
+   * @param string $filename The file name of this uploaded file.
    * @param array $optParams Optional parameters.
    */
   public function insert($id, $filename, $optParams = array())
@@ -2831,16 +2805,14 @@ class Google_Service_MapsEngine_RastersParents_Resource extends Google_Service_R
   /**
    * Return all parent ids of the specified rasters. (parents.listRastersParents)
    *
-   * @param string $id
-   * The ID of the rasters whose parents will be listed.
+   * @param string $id The ID of the rasters whose parents will be listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 50.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 50.
    * @return Google_Service_MapsEngine_ParentsListResponse
    */
   public function listRastersParents($id, $optParams = array())
@@ -2865,8 +2837,7 @@ class Google_Service_MapsEngine_RastersPermissions_Resource extends Google_Servi
    * Remove permission entries from an already existing asset.
    * (permissions.batchDelete)
    *
-   * @param string $id
-   * The ID of the asset from which permissions will be removed.
+   * @param string $id The ID of the asset from which permissions will be removed.
    * @param Google_PermissionsBatchDeleteRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsBatchDeleteResponse
@@ -2877,14 +2848,14 @@ class Google_Service_MapsEngine_RastersPermissions_Resource extends Google_Servi
     $params = array_merge($params, $optParams);
     return $this->call('batchDelete', array($params), "Google_Service_MapsEngine_PermissionsBatchDeleteResponse");
   }
+
   /**
    * Add or update permission entries to an already existing asset.
    *
    * An asset can hold up to 20 different permission entries. Each batchInsert
    * request is atomic. (permissions.batchUpdate)
    *
-   * @param string $id
-   * The ID of the asset to which permissions will be added.
+   * @param string $id The ID of the asset to which permissions will be added.
    * @param Google_PermissionsBatchUpdateRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsBatchUpdateResponse
@@ -2895,12 +2866,12 @@ class Google_Service_MapsEngine_RastersPermissions_Resource extends Google_Servi
     $params = array_merge($params, $optParams);
     return $this->call('batchUpdate', array($params), "Google_Service_MapsEngine_PermissionsBatchUpdateResponse");
   }
+
   /**
    * Return all of the permissions for the specified asset.
    * (permissions.listRastersPermissions)
    *
-   * @param string $id
-   * The ID of the asset whose permissions will be listed.
+   * @param string $id The ID of the asset whose permissions will be listed.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsListResponse
    */
@@ -2936,13 +2907,13 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('create', array($params), "Google_Service_MapsEngine_Table");
   }
+
   /**
    * Delete a table. (tables.delete)
    *
-   * @param string $id
-   * The ID of the table. Only the table creator or project owner are permitted to delete. If the
-    * table is included in a layer, the request will fail. Remove it from all layers prior to
-    * deleting.
+   * @param string $id The ID of the table. Only the table creator or project
+   * owner are permitted to delete. If the table is included in a layer, the
+   * request will fail. Remove it from all layers prior to deleting.
    * @param array $optParams Optional parameters.
    */
   public function delete($id, $optParams = array())
@@ -2951,15 +2922,14 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Return metadata for a particular table, including the schema. (tables.get)
    *
-   * @param string $id
-   * The ID of the table.
+   * @param string $id The ID of the table.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string version
-   *
    * @return Google_Service_MapsEngine_Table
    */
   public function get($id, $optParams = array())
@@ -2968,48 +2938,45 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_MapsEngine_Table");
   }
+
   /**
    * Return all tables readable by the current user. (tables.listTables)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string modifiedAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or after this time.
-   * @opt_param string createdAfter
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or after this time.
+   * @opt_param string modifiedAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or after
+   * this time.
+   * @opt_param string createdAfter An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or after
+   * this time.
    * @opt_param string processingStatus
-   *
-   * @opt_param string projectId
-   * The ID of a Maps Engine project, used to filter the response. To list all available projects
-    * with their IDs, send a Projects: list request. You can also find your project ID as the value of
-    * the DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
-   * @opt_param string tags
-   * A comma separated list of tags. Returned assets will contain all the tags from the list.
-   * @opt_param string search
-   * An unstructured search string used to filter the set of results based on asset metadata.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 100.
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string creatorEmail
-   * An email address representing a user. Returned assets that have been created by the user
-    * associated with the provided email address.
-   * @opt_param string bbox
-   * A bounding box, expressed as "west,south,east,north". If set, only assets which intersect this
-    * bounding box will be returned.
-   * @opt_param string modifiedBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been modified at or before this time.
-   * @opt_param string createdBefore
-   * An RFC 3339 formatted date-time value (e.g. 1970-01-01T00:00:00Z). Returned assets will have
-    * been created at or before this time.
-   * @opt_param string role
-   * The role parameter indicates that the response should only contain assets where the current user
-    * has the specified level of access.
+   * @opt_param string projectId The ID of a Maps Engine project, used to filter
+   * the response. To list all available projects with their IDs, send a Projects:
+   * list request. You can also find your project ID as the value of the
+   * DashboardPlace:cid URL parameter when signed in to mapsengine.google.com.
+   * @opt_param string tags A comma separated list of tags. Returned assets will
+   * contain all the tags from the list.
+   * @opt_param string search An unstructured search string used to filter the set
+   * of results based on asset metadata.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 100.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string creatorEmail An email address representing a user. Returned
+   * assets that have been created by the user associated with the provided email
+   * address.
+   * @opt_param string bbox A bounding box, expressed as "west,south,east,north".
+   * If set, only assets which intersect this bounding box will be returned.
+   * @opt_param string modifiedBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been modified at or before
+   * this time.
+   * @opt_param string createdBefore An RFC 3339 formatted date-time value (e.g.
+   * 1970-01-01T00:00:00Z). Returned assets will have been created at or before
+   * this time.
+   * @opt_param string role The role parameter indicates that the response should
+   * only contain assets where the current user has the specified level of access.
    * @return Google_Service_MapsEngine_TablesListResponse
    */
   public function listTables($optParams = array())
@@ -3018,11 +2985,11 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_MapsEngine_TablesListResponse");
   }
+
   /**
    * Mutate a table asset. (tables.patch)
    *
-   * @param string $id
-   * The ID of the table.
+   * @param string $id The ID of the table.
    * @param Google_Table $postBody
    * @param array $optParams Optional parameters.
    */
@@ -3032,11 +2999,11 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params));
   }
+
   /**
    * Process a table asset. (tables.process)
    *
-   * @param string $id
-   * The ID of the table.
+   * @param string $id The ID of the table.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_ProcessResponse
    */
@@ -3046,6 +3013,7 @@ class Google_Service_MapsEngine_Tables_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('process', array($params), "Google_Service_MapsEngine_ProcessResponse");
   }
+
   /**
    * Create a placeholder table asset to which table files can be uploaded. Once
    * the placeholder has been created, files are uploaded to the
@@ -3079,8 +3047,8 @@ class Google_Service_MapsEngine_TablesFeatures_Resource extends Google_Service_R
   /**
    * Delete all features matching the given IDs. (features.batchDelete)
    *
-   * @param string $id
-   * The ID of the table that contains the features to be deleted.
+   * @param string $id The ID of the table that contains the features to be
+   * deleted.
    * @param Google_FeaturesBatchDeleteRequest $postBody
    * @param array $optParams Optional parameters.
    */
@@ -3090,6 +3058,7 @@ class Google_Service_MapsEngine_TablesFeatures_Resource extends Google_Service_R
     $params = array_merge($params, $optParams);
     return $this->call('batchDelete', array($params));
   }
+
   /**
    * Append features to an existing table.
    *
@@ -3103,8 +3072,7 @@ class Google_Service_MapsEngine_TablesFeatures_Resource extends Google_Service_R
    * For more information about inserting features, read Creating features in the
    * Google Maps Engine developer's guide. (features.batchInsert)
    *
-   * @param string $id
-   * The ID of the table to append the features to.
+   * @param string $id The ID of the table to append the features to.
    * @param Google_FeaturesBatchInsertRequest $postBody
    * @param array $optParams Optional parameters.
    */
@@ -3114,6 +3082,7 @@ class Google_Service_MapsEngine_TablesFeatures_Resource extends Google_Service_R
     $params = array_merge($params, $optParams);
     return $this->call('batchInsert', array($params));
   }
+
   /**
    * Update the supplied features.
    *
@@ -3134,8 +3103,7 @@ class Google_Service_MapsEngine_TablesFeatures_Resource extends Google_Service_R
    * property. For more information about updating features, read Updating
    * features in the Google Maps Engine developer's guide. (features.batchPatch)
    *
-   * @param string $id
-   * The ID of the table containing the features to be patched.
+   * @param string $id The ID of the table containing the features to be patched.
    * @param Google_FeaturesBatchPatchRequest $postBody
    * @param array $optParams Optional parameters.
    */
@@ -3145,20 +3113,19 @@ class Google_Service_MapsEngine_TablesFeatures_Resource extends Google_Service_R
     $params = array_merge($params, $optParams);
     return $this->call('batchPatch', array($params));
   }
+
   /**
    * Return a single feature, given its ID. (features.get)
    *
-   * @param string $tableId
-   * The ID of the table.
-   * @param string $id
-   * The ID of the feature to get.
+   * @param string $tableId The ID of the table.
+   * @param string $id The ID of the feature to get.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string version
-   * The table version to access. See Accessing Public Data for information.
-   * @opt_param string select
-   * A SQL-like projection clause used to specify returned properties. If this parameter is not
-    * included, all properties are returned.
+   * @opt_param string version The table version to access. See Accessing Public
+   * Data for information.
+   * @opt_param string select A SQL-like projection clause used to specify
+   * returned properties. If this parameter is not included, all properties are
+   * returned.
    * @return Google_Service_MapsEngine_Feature
    */
   public function get($tableId, $id, $optParams = array())
@@ -3167,36 +3134,33 @@ class Google_Service_MapsEngine_TablesFeatures_Resource extends Google_Service_R
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_MapsEngine_Feature");
   }
+
   /**
    * Return all features readable by the current user.
    * (features.listTablesFeatures)
    *
-   * @param string $id
-   * The ID of the table to which these features belong.
+   * @param string $id The ID of the table to which these features belong.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string orderBy
-   * An SQL-like order by clause used to sort results. If this parameter is not included, the order
-    * of features is undefined.
-   * @opt_param string intersects
-   * A geometry literal that specifies the spatial restriction of the query.
-   * @opt_param string maxResults
-   * The maximum number of items to include in the response, used for paging. The maximum supported
-    * value is 1000.
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string version
-   * The table version to access. See Accessing Public Data for information.
-   * @opt_param string limit
-   * The total number of features to return from the query, irrespective of the number of pages.
-   * @opt_param string include
-   * A comma separated list of optional data to include. Optional data available: schema.
-   * @opt_param string where
-   * An SQL-like predicate used to filter results.
-   * @opt_param string select
-   * A SQL-like projection clause used to specify returned properties. If this parameter is not
-    * included, all properties are returned.
+   * @opt_param string orderBy An SQL-like order by clause used to sort results.
+   * If this parameter is not included, the order of features is undefined.
+   * @opt_param string intersects A geometry literal that specifies the spatial
+   * restriction of the query.
+   * @opt_param string maxResults The maximum number of items to include in the
+   * response, used for paging. The maximum supported value is 1000.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string version The table version to access. See Accessing Public
+   * Data for information.
+   * @opt_param string limit The total number of features to return from the
+   * query, irrespective of the number of pages.
+   * @opt_param string include A comma separated list of optional data to include.
+   * Optional data available: schema.
+   * @opt_param string where An SQL-like predicate used to filter results.
+   * @opt_param string select A SQL-like projection clause used to specify
+   * returned properties. If this parameter is not included, all properties are
+   * returned.
    * @return Google_Service_MapsEngine_FeaturesListResponse
    */
   public function listTablesFeatures($id, $optParams = array())
@@ -3223,10 +3187,8 @@ class Google_Service_MapsEngine_TablesFiles_Resource extends Google_Service_Reso
    * the Supported data formats and limits article of the Google Maps Engine help
    * center. (files.insert)
    *
-   * @param string $id
-   * The ID of the table asset.
-   * @param string $filename
-   * The file name of this uploaded file.
+   * @param string $id The ID of the table asset.
+   * @param string $filename The file name of this uploaded file.
    * @param array $optParams Optional parameters.
    */
   public function insert($id, $filename, $optParams = array())
@@ -3250,16 +3212,14 @@ class Google_Service_MapsEngine_TablesParents_Resource extends Google_Service_Re
   /**
    * Return all parent ids of the specified table. (parents.listTablesParents)
    *
-   * @param string $id
-   * The ID of the table whose parents will be listed.
+   * @param string $id The ID of the table whose parents will be listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * The continuation token, used to page through large result sets. To get the next page of results,
-    * set this parameter to the value of nextPageToken from the previous response.
-   * @opt_param string maxResults
-   * The maximum number of items to include in a single response page. The maximum supported value is
-    * 50.
+   * @opt_param string pageToken The continuation token, used to page through
+   * large result sets. To get the next page of results, set this parameter to the
+   * value of nextPageToken from the previous response.
+   * @opt_param string maxResults The maximum number of items to include in a
+   * single response page. The maximum supported value is 50.
    * @return Google_Service_MapsEngine_ParentsListResponse
    */
   public function listTablesParents($id, $optParams = array())
@@ -3284,8 +3244,7 @@ class Google_Service_MapsEngine_TablesPermissions_Resource extends Google_Servic
    * Remove permission entries from an already existing asset.
    * (permissions.batchDelete)
    *
-   * @param string $id
-   * The ID of the asset from which permissions will be removed.
+   * @param string $id The ID of the asset from which permissions will be removed.
    * @param Google_PermissionsBatchDeleteRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsBatchDeleteResponse
@@ -3296,14 +3255,14 @@ class Google_Service_MapsEngine_TablesPermissions_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('batchDelete', array($params), "Google_Service_MapsEngine_PermissionsBatchDeleteResponse");
   }
+
   /**
    * Add or update permission entries to an already existing asset.
    *
    * An asset can hold up to 20 different permission entries. Each batchInsert
    * request is atomic. (permissions.batchUpdate)
    *
-   * @param string $id
-   * The ID of the asset to which permissions will be added.
+   * @param string $id The ID of the asset to which permissions will be added.
    * @param Google_PermissionsBatchUpdateRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsBatchUpdateResponse
@@ -3314,12 +3273,12 @@ class Google_Service_MapsEngine_TablesPermissions_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('batchUpdate', array($params), "Google_Service_MapsEngine_PermissionsBatchUpdateResponse");
   }
+
   /**
    * Return all of the permissions for the specified asset.
    * (permissions.listTablesPermissions)
    *
-   * @param string $id
-   * The ID of the asset whose permissions will be listed.
+   * @param string $id The ID of the asset whose permissions will be listed.
    * @param array $optParams Optional parameters.
    * @return Google_Service_MapsEngine_PermissionsListResponse
    */
@@ -3342,11 +3301,11 @@ class Google_Service_MapsEngine_AcquisitionTime extends Google_Model
   public $precision;
   public $start;
 
+
   public function setEnd($end)
   {
     $this->end = $end;
   }
-
   public function getEnd()
   {
     return $this->end;
@@ -3355,7 +3314,6 @@ class Google_Service_MapsEngine_AcquisitionTime extends Google_Model
   {
     $this->precision = $precision;
   }
-
   public function getPrecision()
   {
     return $this->precision;
@@ -3364,12 +3322,10 @@ class Google_Service_MapsEngine_AcquisitionTime extends Google_Model
   {
     $this->start = $start;
   }
-
   public function getStart()
   {
     return $this->start;
   }
-
 }
 
 class Google_Service_MapsEngine_Asset extends Google_Collection
@@ -3392,11 +3348,11 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   public $type;
   public $writersCanEditPermissions;
 
+
   public function setBbox($bbox)
   {
     $this->bbox = $bbox;
   }
-
   public function getBbox()
   {
     return $this->bbox;
@@ -3405,7 +3361,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->creationTime = $creationTime;
   }
-
   public function getCreationTime()
   {
     return $this->creationTime;
@@ -3414,7 +3369,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->creatorEmail = $creatorEmail;
   }
-
   public function getCreatorEmail()
   {
     return $this->creatorEmail;
@@ -3423,7 +3377,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -3432,7 +3385,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -3441,7 +3393,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -3450,7 +3401,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->lastModifiedTime = $lastModifiedTime;
   }
-
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
@@ -3459,7 +3409,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->lastModifierEmail = $lastModifierEmail;
   }
-
   public function getLastModifierEmail()
   {
     return $this->lastModifierEmail;
@@ -3468,7 +3417,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -3477,7 +3425,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
@@ -3486,7 +3433,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->resource = $resource;
   }
-
   public function getResource()
   {
     return $this->resource;
@@ -3495,7 +3441,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->tags = $tags;
   }
-
   public function getTags()
   {
     return $this->tags;
@@ -3504,7 +3449,6 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
@@ -3513,12 +3457,10 @@ class Google_Service_MapsEngine_Asset extends Google_Collection
   {
     $this->writersCanEditPermissions = $writersCanEditPermissions;
   }
-
   public function getWritersCanEditPermissions()
   {
     return $this->writersCanEditPermissions;
   }
-
 }
 
 class Google_Service_MapsEngine_AssetsListResponse extends Google_Collection
@@ -3530,11 +3472,11 @@ class Google_Service_MapsEngine_AssetsListResponse extends Google_Collection
   protected $assetsDataType = 'array';
   public $nextPageToken;
 
+
   public function setAssets($assets)
   {
     $this->assets = $assets;
   }
-
   public function getAssets()
   {
     return $this->assets;
@@ -3543,12 +3485,10 @@ class Google_Service_MapsEngine_AssetsListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_MapsEngine_Border extends Google_Model
@@ -3559,11 +3499,11 @@ class Google_Service_MapsEngine_Border extends Google_Model
   public $opacity;
   public $width;
 
+
   public function setColor($color)
   {
     $this->color = $color;
   }
-
   public function getColor()
   {
     return $this->color;
@@ -3572,7 +3512,6 @@ class Google_Service_MapsEngine_Border extends Google_Model
   {
     $this->opacity = $opacity;
   }
-
   public function getOpacity()
   {
     return $this->opacity;
@@ -3581,12 +3520,10 @@ class Google_Service_MapsEngine_Border extends Google_Model
   {
     $this->width = $width;
   }
-
   public function getWidth()
   {
     return $this->width;
   }
-
 }
 
 class Google_Service_MapsEngine_Color extends Google_Model
@@ -3596,11 +3533,11 @@ class Google_Service_MapsEngine_Color extends Google_Model
   public $color;
   public $opacity;
 
+
   public function setColor($color)
   {
     $this->color = $color;
   }
-
   public function getColor()
   {
     return $this->color;
@@ -3609,12 +3546,10 @@ class Google_Service_MapsEngine_Color extends Google_Model
   {
     $this->opacity = $opacity;
   }
-
   public function getOpacity()
   {
     return $this->opacity;
   }
-
 }
 
 class Google_Service_MapsEngine_Datasource extends Google_Model
@@ -3623,16 +3558,15 @@ class Google_Service_MapsEngine_Datasource extends Google_Model
   );
   public $id;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
   }
-
 }
 
 class Google_Service_MapsEngine_DisplayRule extends Google_Collection
@@ -3652,11 +3586,11 @@ class Google_Service_MapsEngine_DisplayRule extends Google_Collection
   protected $zoomLevelsType = 'Google_Service_MapsEngine_ZoomLevels';
   protected $zoomLevelsDataType = '';
 
+
   public function setFilters($filters)
   {
     $this->filters = $filters;
   }
-
   public function getFilters()
   {
     return $this->filters;
@@ -3665,7 +3599,6 @@ class Google_Service_MapsEngine_DisplayRule extends Google_Collection
   {
     $this->lineOptions = $lineOptions;
   }
-
   public function getLineOptions()
   {
     return $this->lineOptions;
@@ -3674,7 +3607,6 @@ class Google_Service_MapsEngine_DisplayRule extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -3683,7 +3615,6 @@ class Google_Service_MapsEngine_DisplayRule extends Google_Collection
   {
     $this->pointOptions = $pointOptions;
   }
-
   public function getPointOptions()
   {
     return $this->pointOptions;
@@ -3692,7 +3623,6 @@ class Google_Service_MapsEngine_DisplayRule extends Google_Collection
   {
     $this->polygonOptions = $polygonOptions;
   }
-
   public function getPolygonOptions()
   {
     return $this->polygonOptions;
@@ -3701,12 +3631,10 @@ class Google_Service_MapsEngine_DisplayRule extends Google_Collection
   {
     $this->zoomLevels = $zoomLevels;
   }
-
   public function getZoomLevels()
   {
     return $this->zoomLevels;
   }
-
 }
 
 class Google_Service_MapsEngine_Feature extends Google_Model
@@ -3718,11 +3646,11 @@ class Google_Service_MapsEngine_Feature extends Google_Model
   public $properties;
   public $type;
 
+
   public function setGeometry(Google_Service_MapsEngine_GeoJsonGeometry $geometry)
   {
     $this->geometry = $geometry;
   }
-
   public function getGeometry()
   {
     return $this->geometry;
@@ -3731,7 +3659,6 @@ class Google_Service_MapsEngine_Feature extends Google_Model
   {
     $this->properties = $properties;
   }
-
   public function getProperties()
   {
     return $this->properties;
@@ -3740,12 +3667,10 @@ class Google_Service_MapsEngine_Feature extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_MapsEngine_FeatureInfo extends Google_Model
@@ -3754,16 +3679,15 @@ class Google_Service_MapsEngine_FeatureInfo extends Google_Model
   );
   public $content;
 
+
   public function setContent($content)
   {
     $this->content = $content;
   }
-
   public function getContent()
   {
     return $this->content;
   }
-
 }
 
 class Google_Service_MapsEngine_FeaturesBatchDeleteRequest extends Google_Collection
@@ -3775,11 +3699,11 @@ class Google_Service_MapsEngine_FeaturesBatchDeleteRequest extends Google_Collec
   public $gxIds;
   public $primaryKeys;
 
+
   public function setGxIds($gxIds)
   {
     $this->gxIds = $gxIds;
   }
-
   public function getGxIds()
   {
     return $this->gxIds;
@@ -3788,12 +3712,10 @@ class Google_Service_MapsEngine_FeaturesBatchDeleteRequest extends Google_Collec
   {
     $this->primaryKeys = $primaryKeys;
   }
-
   public function getPrimaryKeys()
   {
     return $this->primaryKeys;
   }
-
 }
 
 class Google_Service_MapsEngine_FeaturesBatchInsertRequest extends Google_Collection
@@ -3805,11 +3727,11 @@ class Google_Service_MapsEngine_FeaturesBatchInsertRequest extends Google_Collec
   protected $featuresDataType = 'array';
   public $normalizeGeometries;
 
+
   public function setFeatures($features)
   {
     $this->features = $features;
   }
-
   public function getFeatures()
   {
     return $this->features;
@@ -3818,12 +3740,10 @@ class Google_Service_MapsEngine_FeaturesBatchInsertRequest extends Google_Collec
   {
     $this->normalizeGeometries = $normalizeGeometries;
   }
-
   public function getNormalizeGeometries()
   {
     return $this->normalizeGeometries;
   }
-
 }
 
 class Google_Service_MapsEngine_FeaturesBatchPatchRequest extends Google_Collection
@@ -3835,11 +3755,11 @@ class Google_Service_MapsEngine_FeaturesBatchPatchRequest extends Google_Collect
   protected $featuresDataType = 'array';
   public $normalizeGeometries;
 
+
   public function setFeatures($features)
   {
     $this->features = $features;
   }
-
   public function getFeatures()
   {
     return $this->features;
@@ -3848,12 +3768,10 @@ class Google_Service_MapsEngine_FeaturesBatchPatchRequest extends Google_Collect
   {
     $this->normalizeGeometries = $normalizeGeometries;
   }
-
   public function getNormalizeGeometries()
   {
     return $this->normalizeGeometries;
   }
-
 }
 
 class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
@@ -3869,11 +3787,11 @@ class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
   protected $schemaDataType = '';
   public $type;
 
+
   public function setAllowedQueriesPerSecond($allowedQueriesPerSecond)
   {
     $this->allowedQueriesPerSecond = $allowedQueriesPerSecond;
   }
-
   public function getAllowedQueriesPerSecond()
   {
     return $this->allowedQueriesPerSecond;
@@ -3882,7 +3800,6 @@ class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
   {
     $this->features = $features;
   }
-
   public function getFeatures()
   {
     return $this->features;
@@ -3891,7 +3808,6 @@ class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -3900,7 +3816,6 @@ class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
   {
     $this->schema = $schema;
   }
-
   public function getSchema()
   {
     return $this->schema;
@@ -3909,12 +3824,10 @@ class Google_Service_MapsEngine_FeaturesListResponse extends Google_Collection
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_MapsEngine_Filter extends Google_Model
@@ -3925,11 +3838,11 @@ class Google_Service_MapsEngine_Filter extends Google_Model
   public $operator;
   public $value;
 
+
   public function setColumn($column)
   {
     $this->column = $column;
   }
-
   public function getColumn()
   {
     return $this->column;
@@ -3938,7 +3851,6 @@ class Google_Service_MapsEngine_Filter extends Google_Model
   {
     $this->operator = $operator;
   }
-
   public function getOperator()
   {
     return $this->operator;
@@ -3947,12 +3859,10 @@ class Google_Service_MapsEngine_Filter extends Google_Model
   {
     $this->value = $value;
   }
-
   public function getValue()
   {
     return $this->value;
   }
-
 }
 
 class Google_Service_MapsEngine_GeoJsonGeometry extends Google_Model
@@ -3961,16 +3871,15 @@ class Google_Service_MapsEngine_GeoJsonGeometry extends Google_Model
   );
   public $type;
 
+
   public function setType($type)
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_MapsEngine_GeoJsonGeometryCollection extends Google_Service_MapsEngine_GeoJsonGeometry
@@ -3980,19 +3889,19 @@ class Google_Service_MapsEngine_GeoJsonGeometryCollection extends Google_Service
   );
   protected $geometriesType = 'Google_Service_MapsEngine_GeoJsonGeometry';
   protected $geometriesDataType = 'array';
-  protected function gapiInit() {
+  protected function gapiInit()
+  {
     $this->type = 'GeometryCollection';
   }
+
   public function setGeometries($geometries)
   {
     $this->geometries = $geometries;
   }
-
   public function getGeometries()
   {
     return $this->geometries;
   }
-
 }
 
 class Google_Service_MapsEngine_GeoJsonLineString extends Google_Service_MapsEngine_GeoJsonGeometry
@@ -4001,19 +3910,19 @@ class Google_Service_MapsEngine_GeoJsonLineString extends Google_Service_MapsEng
   protected $internal_gapi_mappings = array(
   );
   public $coordinates;
-  protected function gapiInit() {
+  protected function gapiInit()
+  {
     $this->type = 'LineString';
   }
+
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
   }
-
   public function getCoordinates()
   {
     return $this->coordinates;
   }
-
 }
 
 class Google_Service_MapsEngine_GeoJsonMultiLineString extends Google_Service_MapsEngine_GeoJsonGeometry
@@ -4022,19 +3931,19 @@ class Google_Service_MapsEngine_GeoJsonMultiLineString extends Google_Service_Ma
   protected $internal_gapi_mappings = array(
   );
   public $coordinates;
-  protected function gapiInit() {
+  protected function gapiInit()
+  {
     $this->type = 'MultiLineString';
   }
+
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
   }
-
   public function getCoordinates()
   {
     return $this->coordinates;
   }
-
 }
 
 class Google_Service_MapsEngine_GeoJsonMultiPoint extends Google_Service_MapsEngine_GeoJsonGeometry
@@ -4043,19 +3952,19 @@ class Google_Service_MapsEngine_GeoJsonMultiPoint extends Google_Service_MapsEng
   protected $internal_gapi_mappings = array(
   );
   public $coordinates;
-  protected function gapiInit() {
+  protected function gapiInit()
+  {
     $this->type = 'MultiPoint';
   }
+
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
   }
-
   public function getCoordinates()
   {
     return $this->coordinates;
   }
-
 }
 
 class Google_Service_MapsEngine_GeoJsonMultiPolygon extends Google_Service_MapsEngine_GeoJsonGeometry
@@ -4064,19 +3973,19 @@ class Google_Service_MapsEngine_GeoJsonMultiPolygon extends Google_Service_MapsE
   protected $internal_gapi_mappings = array(
   );
   public $coordinates;
-  protected function gapiInit() {
+  protected function gapiInit()
+  {
     $this->type = 'MultiPolygon';
   }
+
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
   }
-
   public function getCoordinates()
   {
     return $this->coordinates;
   }
-
 }
 
 class Google_Service_MapsEngine_GeoJsonPoint extends Google_Service_MapsEngine_GeoJsonGeometry
@@ -4085,19 +3994,19 @@ class Google_Service_MapsEngine_GeoJsonPoint extends Google_Service_MapsEngine_G
   protected $internal_gapi_mappings = array(
   );
   public $coordinates;
-  protected function gapiInit() {
+  protected function gapiInit()
+  {
     $this->type = 'Point';
   }
+
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
   }
-
   public function getCoordinates()
   {
     return $this->coordinates;
   }
-
 }
 
 class Google_Service_MapsEngine_GeoJsonPolygon extends Google_Service_MapsEngine_GeoJsonGeometry
@@ -4106,27 +4015,23 @@ class Google_Service_MapsEngine_GeoJsonPolygon extends Google_Service_MapsEngine
   protected $internal_gapi_mappings = array(
   );
   public $coordinates;
-  protected function gapiInit() {
+  protected function gapiInit()
+  {
     $this->type = 'Polygon';
   }
+
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
   }
-
   public function getCoordinates()
   {
     return $this->coordinates;
   }
-
 }
 
 class Google_Service_MapsEngine_GeoJsonProperties extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_MapsEngine_Icon extends Google_Model
@@ -4137,11 +4042,11 @@ class Google_Service_MapsEngine_Icon extends Google_Model
   public $id;
   public $name;
 
+
   public function setDescription($description)
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -4150,7 +4055,6 @@ class Google_Service_MapsEngine_Icon extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -4159,12 +4063,10 @@ class Google_Service_MapsEngine_Icon extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_MapsEngine_IconStyle extends Google_Model
@@ -4178,11 +4080,11 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
   protected $scalingFunctionType = 'Google_Service_MapsEngine_ScalingFunction';
   protected $scalingFunctionDataType = '';
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -4191,7 +4093,6 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -4200,7 +4101,6 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
   {
     $this->scaledShape = $scaledShape;
   }
-
   public function getScaledShape()
   {
     return $this->scaledShape;
@@ -4209,12 +4109,10 @@ class Google_Service_MapsEngine_IconStyle extends Google_Model
   {
     $this->scalingFunction = $scalingFunction;
   }
-
   public function getScalingFunction()
   {
     return $this->scalingFunction;
   }
-
 }
 
 class Google_Service_MapsEngine_IconsListResponse extends Google_Collection
@@ -4226,11 +4124,11 @@ class Google_Service_MapsEngine_IconsListResponse extends Google_Collection
   protected $iconsDataType = 'array';
   public $nextPageToken;
 
+
   public function setIcons($icons)
   {
     $this->icons = $icons;
   }
-
   public function getIcons()
   {
     return $this->icons;
@@ -4239,12 +4137,10 @@ class Google_Service_MapsEngine_IconsListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_MapsEngine_LabelStyle extends Google_Model
@@ -4260,11 +4156,11 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   protected $outlineDataType = '';
   public $size;
 
+
   public function setColor($color)
   {
     $this->color = $color;
   }
-
   public function getColor()
   {
     return $this->color;
@@ -4273,7 +4169,6 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     $this->column = $column;
   }
-
   public function getColumn()
   {
     return $this->column;
@@ -4282,7 +4177,6 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     $this->fontStyle = $fontStyle;
   }
-
   public function getFontStyle()
   {
     return $this->fontStyle;
@@ -4291,7 +4185,6 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     $this->fontWeight = $fontWeight;
   }
-
   public function getFontWeight()
   {
     return $this->fontWeight;
@@ -4300,7 +4193,6 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     $this->opacity = $opacity;
   }
-
   public function getOpacity()
   {
     return $this->opacity;
@@ -4309,7 +4201,6 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     $this->outline = $outline;
   }
-
   public function getOutline()
   {
     return $this->outline;
@@ -4318,12 +4209,10 @@ class Google_Service_MapsEngine_LabelStyle extends Google_Model
   {
     $this->size = $size;
   }
-
   public function getSize()
   {
     return $this->size;
   }
-
 }
 
 class Google_Service_MapsEngine_Layer extends Google_Collection
@@ -4354,11 +4243,11 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   public $tags;
   public $writersCanEditPermissions;
 
+
   public function setBbox($bbox)
   {
     $this->bbox = $bbox;
   }
-
   public function getBbox()
   {
     return $this->bbox;
@@ -4367,7 +4256,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->creationTime = $creationTime;
   }
-
   public function getCreationTime()
   {
     return $this->creationTime;
@@ -4376,7 +4264,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->creatorEmail = $creatorEmail;
   }
-
   public function getCreatorEmail()
   {
     return $this->creatorEmail;
@@ -4385,7 +4272,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->datasourceType = $datasourceType;
   }
-
   public function getDatasourceType()
   {
     return $this->datasourceType;
@@ -4394,7 +4280,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->datasources = $datasources;
   }
-
   public function getDatasources()
   {
     return $this->datasources;
@@ -4403,7 +4288,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -4412,7 +4296,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->draftAccessList = $draftAccessList;
   }
-
   public function getDraftAccessList()
   {
     return $this->draftAccessList;
@@ -4421,7 +4304,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -4430,7 +4312,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -4439,7 +4320,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->lastModifiedTime = $lastModifiedTime;
   }
-
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
@@ -4448,7 +4328,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->lastModifierEmail = $lastModifierEmail;
   }
-
   public function getLastModifierEmail()
   {
     return $this->lastModifierEmail;
@@ -4457,7 +4336,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->layerType = $layerType;
   }
-
   public function getLayerType()
   {
     return $this->layerType;
@@ -4466,7 +4344,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -4475,7 +4352,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->processingStatus = $processingStatus;
   }
-
   public function getProcessingStatus()
   {
     return $this->processingStatus;
@@ -4484,7 +4360,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
@@ -4493,7 +4368,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->publishedAccessList = $publishedAccessList;
   }
-
   public function getPublishedAccessList()
   {
     return $this->publishedAccessList;
@@ -4502,7 +4376,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->publishingStatus = $publishingStatus;
   }
-
   public function getPublishingStatus()
   {
     return $this->publishingStatus;
@@ -4511,7 +4384,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->style = $style;
   }
-
   public function getStyle()
   {
     return $this->style;
@@ -4520,7 +4392,6 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->tags = $tags;
   }
-
   public function getTags()
   {
     return $this->tags;
@@ -4529,12 +4400,10 @@ class Google_Service_MapsEngine_Layer extends Google_Collection
   {
     $this->writersCanEditPermissions = $writersCanEditPermissions;
   }
-
   public function getWritersCanEditPermissions()
   {
     return $this->writersCanEditPermissions;
   }
-
 }
 
 class Google_Service_MapsEngine_LayersListResponse extends Google_Collection
@@ -4546,11 +4415,11 @@ class Google_Service_MapsEngine_LayersListResponse extends Google_Collection
   protected $layersDataType = 'array';
   public $nextPageToken;
 
+
   public function setLayers($layers)
   {
     $this->layers = $layers;
   }
-
   public function getLayers()
   {
     return $this->layers;
@@ -4559,12 +4428,10 @@ class Google_Service_MapsEngine_LayersListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_MapsEngine_LineStyle extends Google_Collection
@@ -4580,11 +4447,11 @@ class Google_Service_MapsEngine_LineStyle extends Google_Collection
   protected $strokeType = 'Google_Service_MapsEngine_LineStyleStroke';
   protected $strokeDataType = '';
 
+
   public function setBorder(Google_Service_MapsEngine_Border $border)
   {
     $this->border = $border;
   }
-
   public function getBorder()
   {
     return $this->border;
@@ -4593,7 +4460,6 @@ class Google_Service_MapsEngine_LineStyle extends Google_Collection
   {
     $this->dash = $dash;
   }
-
   public function getDash()
   {
     return $this->dash;
@@ -4602,7 +4468,6 @@ class Google_Service_MapsEngine_LineStyle extends Google_Collection
   {
     $this->label = $label;
   }
-
   public function getLabel()
   {
     return $this->label;
@@ -4611,12 +4476,10 @@ class Google_Service_MapsEngine_LineStyle extends Google_Collection
   {
     $this->stroke = $stroke;
   }
-
   public function getStroke()
   {
     return $this->stroke;
   }
-
 }
 
 class Google_Service_MapsEngine_LineStyleStroke extends Google_Model
@@ -4627,11 +4490,11 @@ class Google_Service_MapsEngine_LineStyleStroke extends Google_Model
   public $opacity;
   public $width;
 
+
   public function setColor($color)
   {
     $this->color = $color;
   }
-
   public function getColor()
   {
     return $this->color;
@@ -4640,7 +4503,6 @@ class Google_Service_MapsEngine_LineStyleStroke extends Google_Model
   {
     $this->opacity = $opacity;
   }
-
   public function getOpacity()
   {
     return $this->opacity;
@@ -4649,12 +4511,10 @@ class Google_Service_MapsEngine_LineStyleStroke extends Google_Model
   {
     $this->width = $width;
   }
-
   public function getWidth()
   {
     return $this->width;
   }
-
 }
 
 class Google_Service_MapsEngine_Map extends Google_Collection
@@ -4683,11 +4543,11 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   public $versions;
   public $writersCanEditPermissions;
 
+
   public function setBbox($bbox)
   {
     $this->bbox = $bbox;
   }
-
   public function getBbox()
   {
     return $this->bbox;
@@ -4696,7 +4556,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->contents = $contents;
   }
-
   public function getContents()
   {
     return $this->contents;
@@ -4705,7 +4564,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->creationTime = $creationTime;
   }
-
   public function getCreationTime()
   {
     return $this->creationTime;
@@ -4714,7 +4572,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->creatorEmail = $creatorEmail;
   }
-
   public function getCreatorEmail()
   {
     return $this->creatorEmail;
@@ -4723,7 +4580,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->defaultViewport = $defaultViewport;
   }
-
   public function getDefaultViewport()
   {
     return $this->defaultViewport;
@@ -4732,7 +4588,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -4741,7 +4596,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->draftAccessList = $draftAccessList;
   }
-
   public function getDraftAccessList()
   {
     return $this->draftAccessList;
@@ -4750,7 +4604,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -4759,7 +4612,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -4768,7 +4620,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->lastModifiedTime = $lastModifiedTime;
   }
-
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
@@ -4777,7 +4628,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->lastModifierEmail = $lastModifierEmail;
   }
-
   public function getLastModifierEmail()
   {
     return $this->lastModifierEmail;
@@ -4786,7 +4636,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -4795,7 +4644,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->processingStatus = $processingStatus;
   }
-
   public function getProcessingStatus()
   {
     return $this->processingStatus;
@@ -4804,7 +4652,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
@@ -4813,7 +4660,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->publishedAccessList = $publishedAccessList;
   }
-
   public function getPublishedAccessList()
   {
     return $this->publishedAccessList;
@@ -4822,7 +4668,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->publishingStatus = $publishingStatus;
   }
-
   public function getPublishingStatus()
   {
     return $this->publishingStatus;
@@ -4831,7 +4676,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->tags = $tags;
   }
-
   public function getTags()
   {
     return $this->tags;
@@ -4840,7 +4684,6 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->versions = $versions;
   }
-
   public function getVersions()
   {
     return $this->versions;
@@ -4849,12 +4692,10 @@ class Google_Service_MapsEngine_Map extends Google_Collection
   {
     $this->writersCanEditPermissions = $writersCanEditPermissions;
   }
-
   public function getWritersCanEditPermissions()
   {
     return $this->writersCanEditPermissions;
   }
-
 }
 
 class Google_Service_MapsEngine_MapFolder extends Google_Service_MapsEngine_MapItem
@@ -4869,14 +4710,15 @@ class Google_Service_MapsEngine_MapFolder extends Google_Service_MapsEngine_MapI
   public $key;
   public $name;
   public $visibility;
-  protected function gapiInit() {
+  protected function gapiInit()
+  {
     $this->type = 'folder';
   }
+
   public function setContents($contents)
   {
     $this->contents = $contents;
   }
-
   public function getContents()
   {
     return $this->contents;
@@ -4885,7 +4727,6 @@ class Google_Service_MapsEngine_MapFolder extends Google_Service_MapsEngine_MapI
   {
     $this->defaultViewport = $defaultViewport;
   }
-
   public function getDefaultViewport()
   {
     return $this->defaultViewport;
@@ -4894,7 +4735,6 @@ class Google_Service_MapsEngine_MapFolder extends Google_Service_MapsEngine_MapI
   {
     $this->expandable = $expandable;
   }
-
   public function getExpandable()
   {
     return $this->expandable;
@@ -4903,7 +4743,6 @@ class Google_Service_MapsEngine_MapFolder extends Google_Service_MapsEngine_MapI
   {
     $this->key = $key;
   }
-
   public function getKey()
   {
     return $this->key;
@@ -4912,7 +4751,6 @@ class Google_Service_MapsEngine_MapFolder extends Google_Service_MapsEngine_MapI
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -4921,12 +4759,10 @@ class Google_Service_MapsEngine_MapFolder extends Google_Service_MapsEngine_MapI
   {
     $this->visibility = $visibility;
   }
-
   public function getVisibility()
   {
     return $this->visibility;
   }
-
 }
 
 class Google_Service_MapsEngine_MapItem extends Google_Model
@@ -4935,16 +4771,15 @@ class Google_Service_MapsEngine_MapItem extends Google_Model
   );
   public $type;
 
+
   public function setType($type)
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_MapsEngine_MapKmlLink extends Google_Service_MapsEngine_MapItem
@@ -4956,14 +4791,15 @@ class Google_Service_MapsEngine_MapKmlLink extends Google_Service_MapsEngine_Map
   public $kmlUrl;
   public $name;
   public $visibility;
-  protected function gapiInit() {
+  protected function gapiInit()
+  {
     $this->type = 'kmlLink';
   }
+
   public function setDefaultViewport($defaultViewport)
   {
     $this->defaultViewport = $defaultViewport;
   }
-
   public function getDefaultViewport()
   {
     return $this->defaultViewport;
@@ -4972,7 +4808,6 @@ class Google_Service_MapsEngine_MapKmlLink extends Google_Service_MapsEngine_Map
   {
     $this->kmlUrl = $kmlUrl;
   }
-
   public function getKmlUrl()
   {
     return $this->kmlUrl;
@@ -4981,7 +4816,6 @@ class Google_Service_MapsEngine_MapKmlLink extends Google_Service_MapsEngine_Map
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -4990,12 +4824,10 @@ class Google_Service_MapsEngine_MapKmlLink extends Google_Service_MapsEngine_Map
   {
     $this->visibility = $visibility;
   }
-
   public function getVisibility()
   {
     return $this->visibility;
   }
-
 }
 
 class Google_Service_MapsEngine_MapLayer extends Google_Service_MapsEngine_MapItem
@@ -5008,14 +4840,15 @@ class Google_Service_MapsEngine_MapLayer extends Google_Service_MapsEngine_MapIt
   public $key;
   public $name;
   public $visibility;
-  protected function gapiInit() {
+  protected function gapiInit()
+  {
     $this->type = 'layer';
   }
+
   public function setDefaultViewport($defaultViewport)
   {
     $this->defaultViewport = $defaultViewport;
   }
-
   public function getDefaultViewport()
   {
     return $this->defaultViewport;
@@ -5024,7 +4857,6 @@ class Google_Service_MapsEngine_MapLayer extends Google_Service_MapsEngine_MapIt
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -5033,7 +4865,6 @@ class Google_Service_MapsEngine_MapLayer extends Google_Service_MapsEngine_MapIt
   {
     $this->key = $key;
   }
-
   public function getKey()
   {
     return $this->key;
@@ -5042,7 +4873,6 @@ class Google_Service_MapsEngine_MapLayer extends Google_Service_MapsEngine_MapIt
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -5051,12 +4881,10 @@ class Google_Service_MapsEngine_MapLayer extends Google_Service_MapsEngine_MapIt
   {
     $this->visibility = $visibility;
   }
-
   public function getVisibility()
   {
     return $this->visibility;
   }
-
 }
 
 class Google_Service_MapsEngine_MapsListResponse extends Google_Collection
@@ -5068,11 +4896,11 @@ class Google_Service_MapsEngine_MapsListResponse extends Google_Collection
   protected $mapsDataType = 'array';
   public $nextPageToken;
 
+
   public function setMaps($maps)
   {
     $this->maps = $maps;
   }
-
   public function getMaps()
   {
     return $this->maps;
@@ -5081,12 +4909,10 @@ class Google_Service_MapsEngine_MapsListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_MapsEngine_MapsengineFile extends Google_Model
@@ -5097,11 +4923,11 @@ class Google_Service_MapsEngine_MapsengineFile extends Google_Model
   public $size;
   public $uploadStatus;
 
+
   public function setFilename($filename)
   {
     $this->filename = $filename;
   }
-
   public function getFilename()
   {
     return $this->filename;
@@ -5110,7 +4936,6 @@ class Google_Service_MapsEngine_MapsengineFile extends Google_Model
   {
     $this->size = $size;
   }
-
   public function getSize()
   {
     return $this->size;
@@ -5119,12 +4944,10 @@ class Google_Service_MapsEngine_MapsengineFile extends Google_Model
   {
     $this->uploadStatus = $uploadStatus;
   }
-
   public function getUploadStatus()
   {
     return $this->uploadStatus;
   }
-
 }
 
 class Google_Service_MapsEngine_Parent extends Google_Model
@@ -5133,16 +4956,15 @@ class Google_Service_MapsEngine_Parent extends Google_Model
   );
   public $id;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
   }
-
 }
 
 class Google_Service_MapsEngine_ParentsListResponse extends Google_Collection
@@ -5154,11 +4976,11 @@ class Google_Service_MapsEngine_ParentsListResponse extends Google_Collection
   protected $parentsType = 'Google_Service_MapsEngine_Parent';
   protected $parentsDataType = 'array';
 
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -5167,12 +4989,10 @@ class Google_Service_MapsEngine_ParentsListResponse extends Google_Collection
   {
     $this->parents = $parents;
   }
-
   public function getParents()
   {
     return $this->parents;
   }
-
 }
 
 class Google_Service_MapsEngine_Permission extends Google_Model
@@ -5184,11 +5004,11 @@ class Google_Service_MapsEngine_Permission extends Google_Model
   public $role;
   public $type;
 
+
   public function setDiscoverable($discoverable)
   {
     $this->discoverable = $discoverable;
   }
-
   public function getDiscoverable()
   {
     return $this->discoverable;
@@ -5197,7 +5017,6 @@ class Google_Service_MapsEngine_Permission extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -5206,7 +5025,6 @@ class Google_Service_MapsEngine_Permission extends Google_Model
   {
     $this->role = $role;
   }
-
   public function getRole()
   {
     return $this->role;
@@ -5215,12 +5033,10 @@ class Google_Service_MapsEngine_Permission extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_MapsEngine_PermissionsBatchDeleteRequest extends Google_Collection
@@ -5230,24 +5046,19 @@ class Google_Service_MapsEngine_PermissionsBatchDeleteRequest extends Google_Col
   );
   public $ids;
 
+
   public function setIds($ids)
   {
     $this->ids = $ids;
   }
-
   public function getIds()
   {
     return $this->ids;
   }
-
 }
 
 class Google_Service_MapsEngine_PermissionsBatchDeleteResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_MapsEngine_PermissionsBatchUpdateRequest extends Google_Collection
@@ -5258,24 +5069,19 @@ class Google_Service_MapsEngine_PermissionsBatchUpdateRequest extends Google_Col
   protected $permissionsType = 'Google_Service_MapsEngine_Permission';
   protected $permissionsDataType = 'array';
 
+
   public function setPermissions($permissions)
   {
     $this->permissions = $permissions;
   }
-
   public function getPermissions()
   {
     return $this->permissions;
   }
-
 }
 
 class Google_Service_MapsEngine_PermissionsBatchUpdateResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_MapsEngine_PermissionsListResponse extends Google_Collection
@@ -5286,16 +5092,15 @@ class Google_Service_MapsEngine_PermissionsListResponse extends Google_Collectio
   protected $permissionsType = 'Google_Service_MapsEngine_Permission';
   protected $permissionsDataType = 'array';
 
+
   public function setPermissions($permissions)
   {
     $this->permissions = $permissions;
   }
-
   public function getPermissions()
   {
     return $this->permissions;
   }
-
 }
 
 class Google_Service_MapsEngine_PointStyle extends Google_Model
@@ -5307,11 +5112,11 @@ class Google_Service_MapsEngine_PointStyle extends Google_Model
   protected $labelType = 'Google_Service_MapsEngine_LabelStyle';
   protected $labelDataType = '';
 
+
   public function setIcon(Google_Service_MapsEngine_IconStyle $icon)
   {
     $this->icon = $icon;
   }
-
   public function getIcon()
   {
     return $this->icon;
@@ -5320,12 +5125,10 @@ class Google_Service_MapsEngine_PointStyle extends Google_Model
   {
     $this->label = $label;
   }
-
   public function getLabel()
   {
     return $this->label;
   }
-
 }
 
 class Google_Service_MapsEngine_PolygonStyle extends Google_Model
@@ -5339,11 +5142,11 @@ class Google_Service_MapsEngine_PolygonStyle extends Google_Model
   protected $strokeType = 'Google_Service_MapsEngine_Border';
   protected $strokeDataType = '';
 
+
   public function setFill(Google_Service_MapsEngine_Color $fill)
   {
     $this->fill = $fill;
   }
-
   public function getFill()
   {
     return $this->fill;
@@ -5352,7 +5155,6 @@ class Google_Service_MapsEngine_PolygonStyle extends Google_Model
   {
     $this->label = $label;
   }
-
   public function getLabel()
   {
     return $this->label;
@@ -5361,20 +5163,14 @@ class Google_Service_MapsEngine_PolygonStyle extends Google_Model
   {
     $this->stroke = $stroke;
   }
-
   public function getStroke()
   {
     return $this->stroke;
   }
-
 }
 
 class Google_Service_MapsEngine_ProcessResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_MapsEngine_Project extends Google_Model
@@ -5384,11 +5180,11 @@ class Google_Service_MapsEngine_Project extends Google_Model
   public $id;
   public $name;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -5397,12 +5193,10 @@ class Google_Service_MapsEngine_Project extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_MapsEngine_ProjectsListResponse extends Google_Collection
@@ -5413,24 +5207,19 @@ class Google_Service_MapsEngine_ProjectsListResponse extends Google_Collection
   protected $projectsType = 'Google_Service_MapsEngine_Project';
   protected $projectsDataType = 'array';
 
+
   public function setProjects($projects)
   {
     $this->projects = $projects;
   }
-
   public function getProjects()
   {
     return $this->projects;
   }
-
 }
 
 class Google_Service_MapsEngine_PublishResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_MapsEngine_PublishedLayer extends Google_Model
@@ -5443,11 +5232,11 @@ class Google_Service_MapsEngine_PublishedLayer extends Google_Model
   public $name;
   public $projectId;
 
+
   public function setDescription($description)
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -5456,7 +5245,6 @@ class Google_Service_MapsEngine_PublishedLayer extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -5465,7 +5253,6 @@ class Google_Service_MapsEngine_PublishedLayer extends Google_Model
   {
     $this->layerType = $layerType;
   }
-
   public function getLayerType()
   {
     return $this->layerType;
@@ -5474,7 +5261,6 @@ class Google_Service_MapsEngine_PublishedLayer extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -5483,12 +5269,10 @@ class Google_Service_MapsEngine_PublishedLayer extends Google_Model
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
   }
-
 }
 
 class Google_Service_MapsEngine_PublishedLayersListResponse extends Google_Collection
@@ -5500,11 +5284,11 @@ class Google_Service_MapsEngine_PublishedLayersListResponse extends Google_Colle
   protected $layersDataType = 'array';
   public $nextPageToken;
 
+
   public function setLayers($layers)
   {
     $this->layers = $layers;
   }
-
   public function getLayers()
   {
     return $this->layers;
@@ -5513,12 +5297,10 @@ class Google_Service_MapsEngine_PublishedLayersListResponse extends Google_Colle
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_MapsEngine_PublishedMap extends Google_Model
@@ -5533,11 +5315,11 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   public $name;
   public $projectId;
 
+
   public function setContents(Google_Service_MapsEngine_MapItem $contents)
   {
     $this->contents = $contents;
   }
-
   public function getContents()
   {
     return $this->contents;
@@ -5546,7 +5328,6 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   {
     $this->defaultViewport = $defaultViewport;
   }
-
   public function getDefaultViewport()
   {
     return $this->defaultViewport;
@@ -5555,7 +5336,6 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -5564,7 +5344,6 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -5573,7 +5352,6 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -5582,12 +5360,10 @@ class Google_Service_MapsEngine_PublishedMap extends Google_Model
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
   }
-
 }
 
 class Google_Service_MapsEngine_PublishedMapsListResponse extends Google_Collection
@@ -5599,11 +5375,11 @@ class Google_Service_MapsEngine_PublishedMapsListResponse extends Google_Collect
   protected $mapsDataType = 'array';
   public $nextPageToken;
 
+
   public function setMaps($maps)
   {
     $this->maps = $maps;
   }
-
   public function getMaps()
   {
     return $this->maps;
@@ -5612,12 +5388,10 @@ class Google_Service_MapsEngine_PublishedMapsListResponse extends Google_Collect
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_MapsEngine_Raster extends Google_Collection
@@ -5647,11 +5421,11 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   public $tags;
   public $writersCanEditPermissions;
 
+
   public function setAcquisitionTime(Google_Service_MapsEngine_AcquisitionTime $acquisitionTime)
   {
     $this->acquisitionTime = $acquisitionTime;
   }
-
   public function getAcquisitionTime()
   {
     return $this->acquisitionTime;
@@ -5660,7 +5434,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->attribution = $attribution;
   }
-
   public function getAttribution()
   {
     return $this->attribution;
@@ -5669,7 +5442,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->bbox = $bbox;
   }
-
   public function getBbox()
   {
     return $this->bbox;
@@ -5678,7 +5450,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->creationTime = $creationTime;
   }
-
   public function getCreationTime()
   {
     return $this->creationTime;
@@ -5687,7 +5458,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->creatorEmail = $creatorEmail;
   }
-
   public function getCreatorEmail()
   {
     return $this->creatorEmail;
@@ -5696,7 +5466,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -5705,7 +5474,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->draftAccessList = $draftAccessList;
   }
-
   public function getDraftAccessList()
   {
     return $this->draftAccessList;
@@ -5714,7 +5482,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -5723,7 +5490,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->files = $files;
   }
-
   public function getFiles()
   {
     return $this->files;
@@ -5732,7 +5498,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -5741,7 +5506,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->lastModifiedTime = $lastModifiedTime;
   }
-
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
@@ -5750,7 +5514,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->lastModifierEmail = $lastModifierEmail;
   }
-
   public function getLastModifierEmail()
   {
     return $this->lastModifierEmail;
@@ -5759,7 +5522,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->maskType = $maskType;
   }
-
   public function getMaskType()
   {
     return $this->maskType;
@@ -5768,7 +5530,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -5777,7 +5538,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->processingStatus = $processingStatus;
   }
-
   public function getProcessingStatus()
   {
     return $this->processingStatus;
@@ -5786,7 +5546,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
@@ -5795,7 +5554,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->rasterType = $rasterType;
   }
-
   public function getRasterType()
   {
     return $this->rasterType;
@@ -5804,7 +5562,6 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->tags = $tags;
   }
-
   public function getTags()
   {
     return $this->tags;
@@ -5813,12 +5570,10 @@ class Google_Service_MapsEngine_Raster extends Google_Collection
   {
     $this->writersCanEditPermissions = $writersCanEditPermissions;
   }
-
   public function getWritersCanEditPermissions()
   {
     return $this->writersCanEditPermissions;
   }
-
 }
 
 class Google_Service_MapsEngine_RasterCollection extends Google_Collection
@@ -5844,11 +5599,11 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   public $tags;
   public $writersCanEditPermissions;
 
+
   public function setAttribution($attribution)
   {
     $this->attribution = $attribution;
   }
-
   public function getAttribution()
   {
     return $this->attribution;
@@ -5857,7 +5612,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->bbox = $bbox;
   }
-
   public function getBbox()
   {
     return $this->bbox;
@@ -5866,7 +5620,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->creationTime = $creationTime;
   }
-
   public function getCreationTime()
   {
     return $this->creationTime;
@@ -5875,7 +5628,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->creatorEmail = $creatorEmail;
   }
-
   public function getCreatorEmail()
   {
     return $this->creatorEmail;
@@ -5884,7 +5636,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -5893,7 +5644,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->draftAccessList = $draftAccessList;
   }
-
   public function getDraftAccessList()
   {
     return $this->draftAccessList;
@@ -5902,7 +5652,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -5911,7 +5660,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -5920,7 +5668,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->lastModifiedTime = $lastModifiedTime;
   }
-
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
@@ -5929,7 +5676,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->lastModifierEmail = $lastModifierEmail;
   }
-
   public function getLastModifierEmail()
   {
     return $this->lastModifierEmail;
@@ -5938,7 +5684,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->mosaic = $mosaic;
   }
-
   public function getMosaic()
   {
     return $this->mosaic;
@@ -5947,7 +5692,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -5956,7 +5700,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->processingStatus = $processingStatus;
   }
-
   public function getProcessingStatus()
   {
     return $this->processingStatus;
@@ -5965,7 +5708,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
@@ -5974,7 +5716,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->rasterType = $rasterType;
   }
-
   public function getRasterType()
   {
     return $this->rasterType;
@@ -5983,7 +5724,6 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->tags = $tags;
   }
-
   public function getTags()
   {
     return $this->tags;
@@ -5992,12 +5732,10 @@ class Google_Service_MapsEngine_RasterCollection extends Google_Collection
   {
     $this->writersCanEditPermissions = $writersCanEditPermissions;
   }
-
   public function getWritersCanEditPermissions()
   {
     return $this->writersCanEditPermissions;
   }
-
 }
 
 class Google_Service_MapsEngine_RasterCollectionsListResponse extends Google_Collection
@@ -6009,11 +5747,11 @@ class Google_Service_MapsEngine_RasterCollectionsListResponse extends Google_Col
   protected $rasterCollectionsType = 'Google_Service_MapsEngine_RasterCollection';
   protected $rasterCollectionsDataType = 'array';
 
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -6022,12 +5760,10 @@ class Google_Service_MapsEngine_RasterCollectionsListResponse extends Google_Col
   {
     $this->rasterCollections = $rasterCollections;
   }
-
   public function getRasterCollections()
   {
     return $this->rasterCollections;
   }
-
 }
 
 class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collection
@@ -6045,11 +5781,11 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   public $rasterType;
   public $tags;
 
+
   public function setBbox($bbox)
   {
     $this->bbox = $bbox;
   }
-
   public function getBbox()
   {
     return $this->bbox;
@@ -6058,7 +5794,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     $this->creationTime = $creationTime;
   }
-
   public function getCreationTime()
   {
     return $this->creationTime;
@@ -6067,7 +5802,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -6076,7 +5810,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -6085,7 +5818,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     $this->lastModifiedTime = $lastModifiedTime;
   }
-
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
@@ -6094,7 +5826,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -6103,7 +5834,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
@@ -6112,7 +5842,6 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     $this->rasterType = $rasterType;
   }
-
   public function getRasterType()
   {
     return $this->rasterType;
@@ -6121,12 +5850,10 @@ class Google_Service_MapsEngine_RasterCollectionsRaster extends Google_Collectio
   {
     $this->tags = $tags;
   }
-
   public function getTags()
   {
     return $this->tags;
   }
-
 }
 
 class Google_Service_MapsEngine_RasterCollectionsRasterBatchDeleteRequest extends Google_Collection
@@ -6136,24 +5863,19 @@ class Google_Service_MapsEngine_RasterCollectionsRasterBatchDeleteRequest extend
   );
   public $ids;
 
+
   public function setIds($ids)
   {
     $this->ids = $ids;
   }
-
   public function getIds()
   {
     return $this->ids;
   }
-
 }
 
 class Google_Service_MapsEngine_RasterCollectionsRastersBatchDeleteResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_MapsEngine_RasterCollectionsRastersBatchInsertRequest extends Google_Collection
@@ -6163,24 +5885,19 @@ class Google_Service_MapsEngine_RasterCollectionsRastersBatchInsertRequest exten
   );
   public $ids;
 
+
   public function setIds($ids)
   {
     $this->ids = $ids;
   }
-
   public function getIds()
   {
     return $this->ids;
   }
-
 }
 
 class Google_Service_MapsEngine_RasterCollectionsRastersBatchInsertResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_MapsEngine_RasterCollectionsRastersListResponse extends Google_Collection
@@ -6192,11 +5909,11 @@ class Google_Service_MapsEngine_RasterCollectionsRastersListResponse extends Goo
   protected $rastersType = 'Google_Service_MapsEngine_RasterCollectionsRaster';
   protected $rastersDataType = 'array';
 
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -6205,12 +5922,10 @@ class Google_Service_MapsEngine_RasterCollectionsRastersListResponse extends Goo
   {
     $this->rasters = $rasters;
   }
-
   public function getRasters()
   {
     return $this->rasters;
   }
-
 }
 
 class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
@@ -6222,11 +5937,11 @@ class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
   protected $rastersType = 'Google_Service_MapsEngine_Raster';
   protected $rastersDataType = 'array';
 
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -6235,12 +5950,10 @@ class Google_Service_MapsEngine_RastersListResponse extends Google_Collection
   {
     $this->rasters = $rasters;
   }
-
   public function getRasters()
   {
     return $this->rasters;
   }
-
 }
 
 class Google_Service_MapsEngine_ScaledShape extends Google_Model
@@ -6253,11 +5966,11 @@ class Google_Service_MapsEngine_ScaledShape extends Google_Model
   protected $fillDataType = '';
   public $shape;
 
+
   public function setBorder(Google_Service_MapsEngine_Border $border)
   {
     $this->border = $border;
   }
-
   public function getBorder()
   {
     return $this->border;
@@ -6266,7 +5979,6 @@ class Google_Service_MapsEngine_ScaledShape extends Google_Model
   {
     $this->fill = $fill;
   }
-
   public function getFill()
   {
     return $this->fill;
@@ -6275,12 +5987,10 @@ class Google_Service_MapsEngine_ScaledShape extends Google_Model
   {
     $this->shape = $shape;
   }
-
   public function getShape()
   {
     return $this->shape;
   }
-
 }
 
 class Google_Service_MapsEngine_ScalingFunction extends Google_Model
@@ -6294,11 +6004,11 @@ class Google_Service_MapsEngine_ScalingFunction extends Google_Model
   protected $valueRangeType = 'Google_Service_MapsEngine_ValueRange';
   protected $valueRangeDataType = '';
 
+
   public function setColumn($column)
   {
     $this->column = $column;
   }
-
   public function getColumn()
   {
     return $this->column;
@@ -6307,7 +6017,6 @@ class Google_Service_MapsEngine_ScalingFunction extends Google_Model
   {
     $this->scalingType = $scalingType;
   }
-
   public function getScalingType()
   {
     return $this->scalingType;
@@ -6316,7 +6025,6 @@ class Google_Service_MapsEngine_ScalingFunction extends Google_Model
   {
     $this->sizeRange = $sizeRange;
   }
-
   public function getSizeRange()
   {
     return $this->sizeRange;
@@ -6325,12 +6033,10 @@ class Google_Service_MapsEngine_ScalingFunction extends Google_Model
   {
     $this->valueRange = $valueRange;
   }
-
   public function getValueRange()
   {
     return $this->valueRange;
   }
-
 }
 
 class Google_Service_MapsEngine_Schema extends Google_Collection
@@ -6343,11 +6049,11 @@ class Google_Service_MapsEngine_Schema extends Google_Collection
   public $primaryGeometry;
   public $primaryKey;
 
+
   public function setColumns($columns)
   {
     $this->columns = $columns;
   }
-
   public function getColumns()
   {
     return $this->columns;
@@ -6356,7 +6062,6 @@ class Google_Service_MapsEngine_Schema extends Google_Collection
   {
     $this->primaryGeometry = $primaryGeometry;
   }
-
   public function getPrimaryGeometry()
   {
     return $this->primaryGeometry;
@@ -6365,12 +6070,10 @@ class Google_Service_MapsEngine_Schema extends Google_Collection
   {
     $this->primaryKey = $primaryKey;
   }
-
   public function getPrimaryKey()
   {
     return $this->primaryKey;
   }
-
 }
 
 class Google_Service_MapsEngine_SizeRange extends Google_Model
@@ -6380,11 +6083,11 @@ class Google_Service_MapsEngine_SizeRange extends Google_Model
   public $max;
   public $min;
 
+
   public function setMax($max)
   {
     $this->max = $max;
   }
-
   public function getMax()
   {
     return $this->max;
@@ -6393,12 +6096,10 @@ class Google_Service_MapsEngine_SizeRange extends Google_Model
   {
     $this->min = $min;
   }
-
   public function getMin()
   {
     return $this->min;
   }
-
 }
 
 class Google_Service_MapsEngine_Table extends Google_Collection
@@ -6427,11 +6128,11 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   public $tags;
   public $writersCanEditPermissions;
 
+
   public function setBbox($bbox)
   {
     $this->bbox = $bbox;
   }
-
   public function getBbox()
   {
     return $this->bbox;
@@ -6440,7 +6141,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->creationTime = $creationTime;
   }
-
   public function getCreationTime()
   {
     return $this->creationTime;
@@ -6449,7 +6149,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->creatorEmail = $creatorEmail;
   }
-
   public function getCreatorEmail()
   {
     return $this->creatorEmail;
@@ -6458,7 +6157,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -6467,7 +6165,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->draftAccessList = $draftAccessList;
   }
-
   public function getDraftAccessList()
   {
     return $this->draftAccessList;
@@ -6476,7 +6173,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -6485,7 +6181,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->files = $files;
   }
-
   public function getFiles()
   {
     return $this->files;
@@ -6494,7 +6189,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -6503,7 +6197,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->lastModifiedTime = $lastModifiedTime;
   }
-
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
@@ -6512,7 +6205,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->lastModifierEmail = $lastModifierEmail;
   }
-
   public function getLastModifierEmail()
   {
     return $this->lastModifierEmail;
@@ -6521,7 +6213,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -6530,7 +6221,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->processingStatus = $processingStatus;
   }
-
   public function getProcessingStatus()
   {
     return $this->processingStatus;
@@ -6539,7 +6229,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
@@ -6548,7 +6237,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->publishedAccessList = $publishedAccessList;
   }
-
   public function getPublishedAccessList()
   {
     return $this->publishedAccessList;
@@ -6557,7 +6245,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->schema = $schema;
   }
-
   public function getSchema()
   {
     return $this->schema;
@@ -6566,7 +6253,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->sourceEncoding = $sourceEncoding;
   }
-
   public function getSourceEncoding()
   {
     return $this->sourceEncoding;
@@ -6575,7 +6261,6 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->tags = $tags;
   }
-
   public function getTags()
   {
     return $this->tags;
@@ -6584,12 +6269,10 @@ class Google_Service_MapsEngine_Table extends Google_Collection
   {
     $this->writersCanEditPermissions = $writersCanEditPermissions;
   }
-
   public function getWritersCanEditPermissions()
   {
     return $this->writersCanEditPermissions;
   }
-
 }
 
 class Google_Service_MapsEngine_TableColumn extends Google_Model
@@ -6599,11 +6282,11 @@ class Google_Service_MapsEngine_TableColumn extends Google_Model
   public $name;
   public $type;
 
+
   public function setName($name)
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -6612,12 +6295,10 @@ class Google_Service_MapsEngine_TableColumn extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_MapsEngine_TablesListResponse extends Google_Collection
@@ -6629,11 +6310,11 @@ class Google_Service_MapsEngine_TablesListResponse extends Google_Collection
   protected $tablesType = 'Google_Service_MapsEngine_Table';
   protected $tablesDataType = 'array';
 
+
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -6642,12 +6323,10 @@ class Google_Service_MapsEngine_TablesListResponse extends Google_Collection
   {
     $this->tables = $tables;
   }
-
   public function getTables()
   {
     return $this->tables;
   }
-
 }
 
 class Google_Service_MapsEngine_ValueRange extends Google_Model
@@ -6657,11 +6336,11 @@ class Google_Service_MapsEngine_ValueRange extends Google_Model
   public $max;
   public $min;
 
+
   public function setMax($max)
   {
     $this->max = $max;
   }
-
   public function getMax()
   {
     return $this->max;
@@ -6670,12 +6349,10 @@ class Google_Service_MapsEngine_ValueRange extends Google_Model
   {
     $this->min = $min;
   }
-
   public function getMin()
   {
     return $this->min;
   }
-
 }
 
 class Google_Service_MapsEngine_VectorStyle extends Google_Collection
@@ -6689,11 +6366,11 @@ class Google_Service_MapsEngine_VectorStyle extends Google_Collection
   protected $featureInfoDataType = '';
   public $type;
 
+
   public function setDisplayRules($displayRules)
   {
     $this->displayRules = $displayRules;
   }
-
   public function getDisplayRules()
   {
     return $this->displayRules;
@@ -6702,7 +6379,6 @@ class Google_Service_MapsEngine_VectorStyle extends Google_Collection
   {
     $this->featureInfo = $featureInfo;
   }
-
   public function getFeatureInfo()
   {
     return $this->featureInfo;
@@ -6711,12 +6387,10 @@ class Google_Service_MapsEngine_VectorStyle extends Google_Collection
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_MapsEngine_ZoomLevels extends Google_Model
@@ -6726,11 +6400,11 @@ class Google_Service_MapsEngine_ZoomLevels extends Google_Model
   public $max;
   public $min;
 
+
   public function setMax($max)
   {
     $this->max = $max;
   }
-
   public function getMax()
   {
     return $this->max;
@@ -6739,10 +6413,8 @@ class Google_Service_MapsEngine_ZoomLevels extends Google_Model
   {
     $this->min = $min;
   }
-
   public function getMin()
   {
     return $this->min;
   }
-
 }
