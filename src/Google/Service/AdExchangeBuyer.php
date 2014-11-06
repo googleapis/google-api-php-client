@@ -19,8 +19,8 @@
  * Service definition for AdExchangeBuyer (v1.3).
  *
  * <p>
- * Accesses your bidding-account information, submits creatives for validation, finds available direct deals, and retrieves performance reports.
- * </p>
+ * Accesses your bidding-account information, submits creatives for validation,
+ * finds available direct deals, and retrieves performance reports.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,7 +32,8 @@
 class Google_Service_AdExchangeBuyer extends Google_Service
 {
   /** Manage your Ad Exchange buyer account configuration. */
-  const ADEXCHANGE_BUYER = "https://www.googleapis.com/auth/adexchange.buyer";
+  const ADEXCHANGE_BUYER =
+      "https://www.googleapis.com/auth/adexchange.buyer";
 
   public $accounts;
   public $billingInfo;
@@ -348,8 +349,7 @@ class Google_Service_AdExchangeBuyer_Accounts_Resource extends Google_Service_Re
   /**
    * Gets one account by ID. (accounts.get)
    *
-   * @param int $id
-   * The account id
+   * @param int $id The account id
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdExchangeBuyer_Account
    */
@@ -359,6 +359,7 @@ class Google_Service_AdExchangeBuyer_Accounts_Resource extends Google_Service_Re
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdExchangeBuyer_Account");
   }
+
   /**
    * Retrieves the authenticated user's list of accounts. (accounts.listAccounts)
    *
@@ -371,12 +372,12 @@ class Google_Service_AdExchangeBuyer_Accounts_Resource extends Google_Service_Re
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_AdExchangeBuyer_AccountsList");
   }
+
   /**
    * Updates an existing account. This method supports patch semantics.
    * (accounts.patch)
    *
-   * @param int $id
-   * The account id
+   * @param int $id The account id
    * @param Google_Account $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdExchangeBuyer_Account
@@ -387,11 +388,11 @@ class Google_Service_AdExchangeBuyer_Accounts_Resource extends Google_Service_Re
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_AdExchangeBuyer_Account");
   }
+
   /**
    * Updates an existing account. (accounts.update)
    *
-   * @param int $id
-   * The account id
+   * @param int $id The account id
    * @param Google_Account $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdExchangeBuyer_Account
@@ -419,8 +420,7 @@ class Google_Service_AdExchangeBuyer_BillingInfo_Resource extends Google_Service
    * Returns the billing information for one account specified by account ID.
    * (billingInfo.get)
    *
-   * @param int $accountId
-   * The account id.
+   * @param int $accountId The account id.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdExchangeBuyer_BillingInfo
    */
@@ -430,6 +430,7 @@ class Google_Service_AdExchangeBuyer_BillingInfo_Resource extends Google_Service
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdExchangeBuyer_BillingInfo");
   }
+
   /**
    * Retrieves a list of billing information for all accounts of the authenticated
    * user. (billingInfo.listBillingInfo)
@@ -460,10 +461,8 @@ class Google_Service_AdExchangeBuyer_Creatives_Resource extends Google_Service_R
    * Gets the status for a single creative. A creative will be available 30-40
    * minutes after submission. (creatives.get)
    *
-   * @param int $accountId
-   * The id for the account that will serve this creative.
-   * @param string $buyerCreativeId
-   * The buyer-specific id for this creative.
+   * @param int $accountId The id for the account that will serve this creative.
+   * @param string $buyerCreativeId The buyer-specific id for this creative.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdExchangeBuyer_Creative
    */
@@ -473,6 +472,7 @@ class Google_Service_AdExchangeBuyer_Creatives_Resource extends Google_Service_R
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdExchangeBuyer_Creative");
   }
+
   /**
    * Submit a new creative. (creatives.insert)
    *
@@ -486,23 +486,24 @@ class Google_Service_AdExchangeBuyer_Creatives_Resource extends Google_Service_R
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_AdExchangeBuyer_Creative");
   }
+
   /**
    * Retrieves a list of the authenticated user's active creatives. A creative
    * will be available 30-40 minutes after submission. (creatives.listCreatives)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string statusFilter
-   * When specified, only creatives having the given status are returned.
-   * @opt_param string pageToken
-   * A continuation token, used to page through ad clients. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response. Optional.
-   * @opt_param string maxResults
-   * Maximum number of entries returned on one result page. If not set, the default is 100. Optional.
-   * @opt_param string buyerCreativeId
-   * When specified, only creatives for the given buyer creative ids are returned.
-   * @opt_param int accountId
-   * When specified, only creatives for the given account ids are returned.
+   * @opt_param string statusFilter When specified, only creatives having the
+   * given status are returned.
+   * @opt_param string pageToken A continuation token, used to page through ad
+   * clients. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response. Optional.
+   * @opt_param string maxResults Maximum number of entries returned on one result
+   * page. If not set, the default is 100. Optional.
+   * @opt_param string buyerCreativeId When specified, only creatives for the
+   * given buyer creative ids are returned.
+   * @opt_param int accountId When specified, only creatives for the given account
+   * ids are returned.
    * @return Google_Service_AdExchangeBuyer_CreativesList
    */
   public function listCreatives($optParams = array())
@@ -527,8 +528,7 @@ class Google_Service_AdExchangeBuyer_DirectDeals_Resource extends Google_Service
   /**
    * Gets one direct deal by ID. (directDeals.get)
    *
-   * @param string $id
-   * The direct deal id
+   * @param string $id The direct deal id
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdExchangeBuyer_DirectDeal
    */
@@ -538,6 +538,7 @@ class Google_Service_AdExchangeBuyer_DirectDeals_Resource extends Google_Service
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdExchangeBuyer_DirectDeal");
   }
+
   /**
    * Retrieves the authenticated user's list of direct deals.
    * (directDeals.listDirectDeals)
@@ -568,19 +569,18 @@ class Google_Service_AdExchangeBuyer_PerformanceReport_Resource extends Google_S
    * Retrieves the authenticated user's list of performance metrics.
    * (performanceReport.listPerformanceReport)
    *
-   * @param string $accountId
-   * The account id to get the reports.
-   * @param string $endDateTime
-   * The end time of the report in ISO 8601 timestamp format using UTC.
-   * @param string $startDateTime
-   * The start time of the report in ISO 8601 timestamp format using UTC.
+   * @param string $accountId The account id to get the reports.
+   * @param string $endDateTime The end time of the report in ISO 8601 timestamp
+   * format using UTC.
+   * @param string $startDateTime The start time of the report in ISO 8601
+   * timestamp format using UTC.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through performance reports. To retrieve the next page, set
-    * this parameter to the value of "nextPageToken" from the previous response. Optional.
-   * @opt_param string maxResults
-   * Maximum number of entries returned on one result page. If not set, the default is 100. Optional.
+   * @opt_param string pageToken A continuation token, used to page through
+   * performance reports. To retrieve the next page, set this parameter to the
+   * value of "nextPageToken" from the previous response. Optional.
+   * @opt_param string maxResults Maximum number of entries returned on one result
+   * page. If not set, the default is 100. Optional.
    * @return Google_Service_AdExchangeBuyer_PerformanceReportList
    */
   public function listPerformanceReport($accountId, $endDateTime, $startDateTime, $optParams = array())
@@ -605,10 +605,9 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig_Resource extends Google_
   /**
    * Deletes an existing pretargeting config. (pretargetingConfig.delete)
    *
-   * @param string $accountId
-   * The account id to delete the pretargeting config for.
-   * @param string $configId
-   * The specific id of the configuration to delete.
+   * @param string $accountId The account id to delete the pretargeting config
+   * for.
+   * @param string $configId The specific id of the configuration to delete.
    * @param array $optParams Optional parameters.
    */
   public function delete($accountId, $configId, $optParams = array())
@@ -617,13 +616,12 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig_Resource extends Google_
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Gets a specific pretargeting configuration (pretargetingConfig.get)
    *
-   * @param string $accountId
-   * The account id to get the pretargeting config for.
-   * @param string $configId
-   * The specific id of the configuration to retrieve.
+   * @param string $accountId The account id to get the pretargeting config for.
+   * @param string $configId The specific id of the configuration to retrieve.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdExchangeBuyer_PretargetingConfig
    */
@@ -633,11 +631,12 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig_Resource extends Google_
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdExchangeBuyer_PretargetingConfig");
   }
+
   /**
    * Inserts a new pretargeting configuration. (pretargetingConfig.insert)
    *
-   * @param string $accountId
-   * The account id to insert the pretargeting config for.
+   * @param string $accountId The account id to insert the pretargeting config
+   * for.
    * @param Google_PretargetingConfig $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdExchangeBuyer_PretargetingConfig
@@ -648,12 +647,12 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig_Resource extends Google_
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_AdExchangeBuyer_PretargetingConfig");
   }
+
   /**
    * Retrieves a list of the authenticated user's pretargeting configurations.
    * (pretargetingConfig.listPretargetingConfig)
    *
-   * @param string $accountId
-   * The account id to get the pretargeting configs for.
+   * @param string $accountId The account id to get the pretargeting configs for.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdExchangeBuyer_PretargetingConfigList
    */
@@ -663,14 +662,14 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig_Resource extends Google_
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_AdExchangeBuyer_PretargetingConfigList");
   }
+
   /**
    * Updates an existing pretargeting config. This method supports patch
    * semantics. (pretargetingConfig.patch)
    *
-   * @param string $accountId
-   * The account id to update the pretargeting config for.
-   * @param string $configId
-   * The specific id of the configuration to update.
+   * @param string $accountId The account id to update the pretargeting config
+   * for.
+   * @param string $configId The specific id of the configuration to update.
    * @param Google_PretargetingConfig $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdExchangeBuyer_PretargetingConfig
@@ -681,13 +680,13 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig_Resource extends Google_
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_AdExchangeBuyer_PretargetingConfig");
   }
+
   /**
    * Updates an existing pretargeting config. (pretargetingConfig.update)
    *
-   * @param string $accountId
-   * The account id to update the pretargeting config for.
-   * @param string $configId
-   * The specific id of the configuration to update.
+   * @param string $accountId The account id to update the pretargeting config
+   * for.
+   * @param string $configId The specific id of the configuration to update.
    * @param Google_PretargetingConfig $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdExchangeBuyer_PretargetingConfig
@@ -718,11 +717,11 @@ class Google_Service_AdExchangeBuyer_Account extends Google_Collection
   public $maximumTotalQps;
   public $numberActiveCreatives;
 
+
   public function setBidderLocation($bidderLocation)
   {
     $this->bidderLocation = $bidderLocation;
   }
-
   public function getBidderLocation()
   {
     return $this->bidderLocation;
@@ -731,7 +730,6 @@ class Google_Service_AdExchangeBuyer_Account extends Google_Collection
   {
     $this->cookieMatchingNid = $cookieMatchingNid;
   }
-
   public function getCookieMatchingNid()
   {
     return $this->cookieMatchingNid;
@@ -740,7 +738,6 @@ class Google_Service_AdExchangeBuyer_Account extends Google_Collection
   {
     $this->cookieMatchingUrl = $cookieMatchingUrl;
   }
-
   public function getCookieMatchingUrl()
   {
     return $this->cookieMatchingUrl;
@@ -749,7 +746,6 @@ class Google_Service_AdExchangeBuyer_Account extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -758,7 +754,6 @@ class Google_Service_AdExchangeBuyer_Account extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -767,7 +762,6 @@ class Google_Service_AdExchangeBuyer_Account extends Google_Collection
   {
     $this->maximumActiveCreatives = $maximumActiveCreatives;
   }
-
   public function getMaximumActiveCreatives()
   {
     return $this->maximumActiveCreatives;
@@ -776,7 +770,6 @@ class Google_Service_AdExchangeBuyer_Account extends Google_Collection
   {
     $this->maximumTotalQps = $maximumTotalQps;
   }
-
   public function getMaximumTotalQps()
   {
     return $this->maximumTotalQps;
@@ -785,12 +778,10 @@ class Google_Service_AdExchangeBuyer_Account extends Google_Collection
   {
     $this->numberActiveCreatives = $numberActiveCreatives;
   }
-
   public function getNumberActiveCreatives()
   {
     return $this->numberActiveCreatives;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_AccountBidderLocation extends Google_Model
@@ -801,11 +792,11 @@ class Google_Service_AdExchangeBuyer_AccountBidderLocation extends Google_Model
   public $region;
   public $url;
 
+
   public function setMaximumQps($maximumQps)
   {
     $this->maximumQps = $maximumQps;
   }
-
   public function getMaximumQps()
   {
     return $this->maximumQps;
@@ -814,7 +805,6 @@ class Google_Service_AdExchangeBuyer_AccountBidderLocation extends Google_Model
   {
     $this->region = $region;
   }
-
   public function getRegion()
   {
     return $this->region;
@@ -823,12 +813,10 @@ class Google_Service_AdExchangeBuyer_AccountBidderLocation extends Google_Model
   {
     $this->url = $url;
   }
-
   public function getUrl()
   {
     return $this->url;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_AccountsList extends Google_Collection
@@ -840,11 +828,11 @@ class Google_Service_AdExchangeBuyer_AccountsList extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -853,12 +841,10 @@ class Google_Service_AdExchangeBuyer_AccountsList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_BillingInfo extends Google_Collection
@@ -871,11 +857,11 @@ class Google_Service_AdExchangeBuyer_BillingInfo extends Google_Collection
   public $billingId;
   public $kind;
 
+
   public function setAccountId($accountId)
   {
     $this->accountId = $accountId;
   }
-
   public function getAccountId()
   {
     return $this->accountId;
@@ -884,7 +870,6 @@ class Google_Service_AdExchangeBuyer_BillingInfo extends Google_Collection
   {
     $this->accountName = $accountName;
   }
-
   public function getAccountName()
   {
     return $this->accountName;
@@ -893,7 +878,6 @@ class Google_Service_AdExchangeBuyer_BillingInfo extends Google_Collection
   {
     $this->billingId = $billingId;
   }
-
   public function getBillingId()
   {
     return $this->billingId;
@@ -902,12 +886,10 @@ class Google_Service_AdExchangeBuyer_BillingInfo extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_BillingInfoList extends Google_Collection
@@ -919,11 +901,11 @@ class Google_Service_AdExchangeBuyer_BillingInfoList extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -932,12 +914,10 @@ class Google_Service_AdExchangeBuyer_BillingInfoList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
@@ -970,11 +950,11 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   public $videoURL;
   public $width;
 
+
   public function setHTMLSnippet($hTMLSnippet)
   {
     $this->hTMLSnippet = $hTMLSnippet;
   }
-
   public function getHTMLSnippet()
   {
     return $this->hTMLSnippet;
@@ -983,7 +963,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->accountId = $accountId;
   }
-
   public function getAccountId()
   {
     return $this->accountId;
@@ -992,7 +971,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->advertiserId = $advertiserId;
   }
-
   public function getAdvertiserId()
   {
     return $this->advertiserId;
@@ -1001,7 +979,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->advertiserName = $advertiserName;
   }
-
   public function getAdvertiserName()
   {
     return $this->advertiserName;
@@ -1010,7 +987,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->agencyId = $agencyId;
   }
-
   public function getAgencyId()
   {
     return $this->agencyId;
@@ -1019,7 +995,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->attribute = $attribute;
   }
-
   public function getAttribute()
   {
     return $this->attribute;
@@ -1028,7 +1003,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->buyerCreativeId = $buyerCreativeId;
   }
-
   public function getBuyerCreativeId()
   {
     return $this->buyerCreativeId;
@@ -1037,7 +1011,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->clickThroughUrl = $clickThroughUrl;
   }
-
   public function getClickThroughUrl()
   {
     return $this->clickThroughUrl;
@@ -1046,7 +1019,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->corrections = $corrections;
   }
-
   public function getCorrections()
   {
     return $this->corrections;
@@ -1055,7 +1027,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->disapprovalReasons = $disapprovalReasons;
   }
-
   public function getDisapprovalReasons()
   {
     return $this->disapprovalReasons;
@@ -1064,7 +1035,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->filteringReasons = $filteringReasons;
   }
-
   public function getFilteringReasons()
   {
     return $this->filteringReasons;
@@ -1073,7 +1043,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->height = $height;
   }
-
   public function getHeight()
   {
     return $this->height;
@@ -1082,7 +1051,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1091,7 +1059,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->productCategories = $productCategories;
   }
-
   public function getProductCategories()
   {
     return $this->productCategories;
@@ -1100,7 +1067,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->restrictedCategories = $restrictedCategories;
   }
-
   public function getRestrictedCategories()
   {
     return $this->restrictedCategories;
@@ -1109,7 +1075,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->sensitiveCategories = $sensitiveCategories;
   }
-
   public function getSensitiveCategories()
   {
     return $this->sensitiveCategories;
@@ -1118,7 +1083,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
@@ -1127,7 +1091,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->vendorType = $vendorType;
   }
-
   public function getVendorType()
   {
     return $this->vendorType;
@@ -1136,7 +1099,6 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->videoURL = $videoURL;
   }
-
   public function getVideoURL()
   {
     return $this->videoURL;
@@ -1145,12 +1107,10 @@ class Google_Service_AdExchangeBuyer_Creative extends Google_Collection
   {
     $this->width = $width;
   }
-
   public function getWidth()
   {
     return $this->width;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_CreativeCorrections extends Google_Collection
@@ -1161,11 +1121,11 @@ class Google_Service_AdExchangeBuyer_CreativeCorrections extends Google_Collecti
   public $details;
   public $reason;
 
+
   public function setDetails($details)
   {
     $this->details = $details;
   }
-
   public function getDetails()
   {
     return $this->details;
@@ -1174,12 +1134,10 @@ class Google_Service_AdExchangeBuyer_CreativeCorrections extends Google_Collecti
   {
     $this->reason = $reason;
   }
-
   public function getReason()
   {
     return $this->reason;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_CreativeDisapprovalReasons extends Google_Collection
@@ -1190,11 +1148,11 @@ class Google_Service_AdExchangeBuyer_CreativeDisapprovalReasons extends Google_C
   public $details;
   public $reason;
 
+
   public function setDetails($details)
   {
     $this->details = $details;
   }
-
   public function getDetails()
   {
     return $this->details;
@@ -1203,12 +1161,10 @@ class Google_Service_AdExchangeBuyer_CreativeDisapprovalReasons extends Google_C
   {
     $this->reason = $reason;
   }
-
   public function getReason()
   {
     return $this->reason;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_CreativeFilteringReasons extends Google_Collection
@@ -1220,11 +1176,11 @@ class Google_Service_AdExchangeBuyer_CreativeFilteringReasons extends Google_Col
   protected $reasonsType = 'Google_Service_AdExchangeBuyer_CreativeFilteringReasonsReasons';
   protected $reasonsDataType = 'array';
 
+
   public function setDate($date)
   {
     $this->date = $date;
   }
-
   public function getDate()
   {
     return $this->date;
@@ -1233,12 +1189,10 @@ class Google_Service_AdExchangeBuyer_CreativeFilteringReasons extends Google_Col
   {
     $this->reasons = $reasons;
   }
-
   public function getReasons()
   {
     return $this->reasons;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_CreativeFilteringReasonsReasons extends Google_Model
@@ -1248,11 +1202,11 @@ class Google_Service_AdExchangeBuyer_CreativeFilteringReasonsReasons extends Goo
   public $filteringCount;
   public $filteringStatus;
 
+
   public function setFilteringCount($filteringCount)
   {
     $this->filteringCount = $filteringCount;
   }
-
   public function getFilteringCount()
   {
     return $this->filteringCount;
@@ -1261,12 +1215,10 @@ class Google_Service_AdExchangeBuyer_CreativeFilteringReasonsReasons extends Goo
   {
     $this->filteringStatus = $filteringStatus;
   }
-
   public function getFilteringStatus()
   {
     return $this->filteringStatus;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_CreativesList extends Google_Collection
@@ -1279,11 +1231,11 @@ class Google_Service_AdExchangeBuyer_CreativesList extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -1292,7 +1244,6 @@ class Google_Service_AdExchangeBuyer_CreativesList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1301,12 +1252,10 @@ class Google_Service_AdExchangeBuyer_CreativesList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
@@ -1326,11 +1275,11 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   public $sellerNetwork;
   public $startTime;
 
+
   public function setAccountId($accountId)
   {
     $this->accountId = $accountId;
   }
-
   public function getAccountId()
   {
     return $this->accountId;
@@ -1339,7 +1288,6 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   {
     $this->advertiser = $advertiser;
   }
-
   public function getAdvertiser()
   {
     return $this->advertiser;
@@ -1348,7 +1296,6 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   {
     $this->currencyCode = $currencyCode;
   }
-
   public function getCurrencyCode()
   {
     return $this->currencyCode;
@@ -1357,7 +1304,6 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   {
     $this->endTime = $endTime;
   }
-
   public function getEndTime()
   {
     return $this->endTime;
@@ -1366,7 +1312,6 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   {
     $this->fixedCpm = $fixedCpm;
   }
-
   public function getFixedCpm()
   {
     return $this->fixedCpm;
@@ -1375,7 +1320,6 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1384,7 +1328,6 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1393,7 +1336,6 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -1402,7 +1344,6 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   {
     $this->privateExchangeMinCpm = $privateExchangeMinCpm;
   }
-
   public function getPrivateExchangeMinCpm()
   {
     return $this->privateExchangeMinCpm;
@@ -1411,7 +1352,6 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   {
     $this->publisherBlocksOverriden = $publisherBlocksOverriden;
   }
-
   public function getPublisherBlocksOverriden()
   {
     return $this->publisherBlocksOverriden;
@@ -1420,7 +1360,6 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   {
     $this->sellerNetwork = $sellerNetwork;
   }
-
   public function getSellerNetwork()
   {
     return $this->sellerNetwork;
@@ -1429,12 +1368,10 @@ class Google_Service_AdExchangeBuyer_DirectDeal extends Google_Model
   {
     $this->startTime = $startTime;
   }
-
   public function getStartTime()
   {
     return $this->startTime;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_DirectDealsList extends Google_Collection
@@ -1446,11 +1383,11 @@ class Google_Service_AdExchangeBuyer_DirectDealsList extends Google_Collection
   protected $directDealsDataType = 'array';
   public $kind;
 
+
   public function setDirectDeals($directDeals)
   {
     $this->directDeals = $directDeals;
   }
-
   public function getDirectDeals()
   {
     return $this->directDeals;
@@ -1459,12 +1396,10 @@ class Google_Service_AdExchangeBuyer_DirectDealsList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
@@ -1489,11 +1424,11 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   public $region;
   public $timestamp;
 
+
   public function setCalloutStatusRate($calloutStatusRate)
   {
     $this->calloutStatusRate = $calloutStatusRate;
   }
-
   public function getCalloutStatusRate()
   {
     return $this->calloutStatusRate;
@@ -1502,7 +1437,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->cookieMatcherStatusRate = $cookieMatcherStatusRate;
   }
-
   public function getCookieMatcherStatusRate()
   {
     return $this->cookieMatcherStatusRate;
@@ -1511,7 +1445,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->creativeStatusRate = $creativeStatusRate;
   }
-
   public function getCreativeStatusRate()
   {
     return $this->creativeStatusRate;
@@ -1520,7 +1453,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->hostedMatchStatusRate = $hostedMatchStatusRate;
   }
-
   public function getHostedMatchStatusRate()
   {
     return $this->hostedMatchStatusRate;
@@ -1529,7 +1461,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1538,7 +1469,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->latency50thPercentile = $latency50thPercentile;
   }
-
   public function getLatency50thPercentile()
   {
     return $this->latency50thPercentile;
@@ -1547,7 +1477,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->latency85thPercentile = $latency85thPercentile;
   }
-
   public function getLatency85thPercentile()
   {
     return $this->latency85thPercentile;
@@ -1556,7 +1485,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->latency95thPercentile = $latency95thPercentile;
   }
-
   public function getLatency95thPercentile()
   {
     return $this->latency95thPercentile;
@@ -1565,7 +1493,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->noQuotaInRegion = $noQuotaInRegion;
   }
-
   public function getNoQuotaInRegion()
   {
     return $this->noQuotaInRegion;
@@ -1574,7 +1501,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->outOfQuota = $outOfQuota;
   }
-
   public function getOutOfQuota()
   {
     return $this->outOfQuota;
@@ -1583,7 +1509,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->pixelMatchRequests = $pixelMatchRequests;
   }
-
   public function getPixelMatchRequests()
   {
     return $this->pixelMatchRequests;
@@ -1592,7 +1517,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->pixelMatchResponses = $pixelMatchResponses;
   }
-
   public function getPixelMatchResponses()
   {
     return $this->pixelMatchResponses;
@@ -1601,7 +1525,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->quotaConfiguredLimit = $quotaConfiguredLimit;
   }
-
   public function getQuotaConfiguredLimit()
   {
     return $this->quotaConfiguredLimit;
@@ -1610,7 +1533,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->quotaThrottledLimit = $quotaThrottledLimit;
   }
-
   public function getQuotaThrottledLimit()
   {
     return $this->quotaThrottledLimit;
@@ -1619,7 +1541,6 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->region = $region;
   }
-
   public function getRegion()
   {
     return $this->region;
@@ -1628,12 +1549,10 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     $this->timestamp = $timestamp;
   }
-
   public function getTimestamp()
   {
     return $this->timestamp;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_PerformanceReportList extends Google_Collection
@@ -1645,11 +1564,11 @@ class Google_Service_AdExchangeBuyer_PerformanceReportList extends Google_Collec
   protected $performanceReportType = 'Google_Service_AdExchangeBuyer_PerformanceReport';
   protected $performanceReportDataType = 'array';
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1658,12 +1577,10 @@ class Google_Service_AdExchangeBuyer_PerformanceReportList extends Google_Collec
   {
     $this->performanceReport = $performanceReport;
   }
-
   public function getPerformanceReport()
   {
     return $this->performanceReport;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collection
@@ -1698,11 +1615,11 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   public $vendorTypes;
   public $verticals;
 
+
   public function setBillingId($billingId)
   {
     $this->billingId = $billingId;
   }
-
   public function getBillingId()
   {
     return $this->billingId;
@@ -1711,7 +1628,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->configId = $configId;
   }
-
   public function getConfigId()
   {
     return $this->configId;
@@ -1720,7 +1636,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->configName = $configName;
   }
-
   public function getConfigName()
   {
     return $this->configName;
@@ -1729,7 +1644,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->creativeType = $creativeType;
   }
-
   public function getCreativeType()
   {
     return $this->creativeType;
@@ -1738,7 +1652,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->dimensions = $dimensions;
   }
-
   public function getDimensions()
   {
     return $this->dimensions;
@@ -1747,7 +1660,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->excludedContentLabels = $excludedContentLabels;
   }
-
   public function getExcludedContentLabels()
   {
     return $this->excludedContentLabels;
@@ -1756,7 +1668,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->excludedGeoCriteriaIds = $excludedGeoCriteriaIds;
   }
-
   public function getExcludedGeoCriteriaIds()
   {
     return $this->excludedGeoCriteriaIds;
@@ -1765,7 +1676,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->excludedPlacements = $excludedPlacements;
   }
-
   public function getExcludedPlacements()
   {
     return $this->excludedPlacements;
@@ -1774,7 +1684,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->excludedUserLists = $excludedUserLists;
   }
-
   public function getExcludedUserLists()
   {
     return $this->excludedUserLists;
@@ -1783,7 +1692,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->excludedVerticals = $excludedVerticals;
   }
-
   public function getExcludedVerticals()
   {
     return $this->excludedVerticals;
@@ -1792,7 +1700,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->geoCriteriaIds = $geoCriteriaIds;
   }
-
   public function getGeoCriteriaIds()
   {
     return $this->geoCriteriaIds;
@@ -1801,7 +1708,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->isActive = $isActive;
   }
-
   public function getIsActive()
   {
     return $this->isActive;
@@ -1810,7 +1716,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1819,7 +1724,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->languages = $languages;
   }
-
   public function getLanguages()
   {
     return $this->languages;
@@ -1828,7 +1732,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->mobileCarriers = $mobileCarriers;
   }
-
   public function getMobileCarriers()
   {
     return $this->mobileCarriers;
@@ -1837,7 +1740,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->mobileDevices = $mobileDevices;
   }
-
   public function getMobileDevices()
   {
     return $this->mobileDevices;
@@ -1846,7 +1748,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->mobileOperatingSystemVersions = $mobileOperatingSystemVersions;
   }
-
   public function getMobileOperatingSystemVersions()
   {
     return $this->mobileOperatingSystemVersions;
@@ -1855,7 +1756,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->placements = $placements;
   }
-
   public function getPlacements()
   {
     return $this->placements;
@@ -1864,7 +1764,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->platforms = $platforms;
   }
-
   public function getPlatforms()
   {
     return $this->platforms;
@@ -1873,7 +1772,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->supportedCreativeAttributes = $supportedCreativeAttributes;
   }
-
   public function getSupportedCreativeAttributes()
   {
     return $this->supportedCreativeAttributes;
@@ -1882,7 +1780,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->userLists = $userLists;
   }
-
   public function getUserLists()
   {
     return $this->userLists;
@@ -1891,7 +1788,6 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->vendorTypes = $vendorTypes;
   }
-
   public function getVendorTypes()
   {
     return $this->vendorTypes;
@@ -1900,12 +1796,10 @@ class Google_Service_AdExchangeBuyer_PretargetingConfig extends Google_Collectio
   {
     $this->verticals = $verticals;
   }
-
   public function getVerticals()
   {
     return $this->verticals;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_PretargetingConfigDimensions extends Google_Model
@@ -1915,11 +1809,11 @@ class Google_Service_AdExchangeBuyer_PretargetingConfigDimensions extends Google
   public $height;
   public $width;
 
+
   public function setHeight($height)
   {
     $this->height = $height;
   }
-
   public function getHeight()
   {
     return $this->height;
@@ -1928,12 +1822,10 @@ class Google_Service_AdExchangeBuyer_PretargetingConfigDimensions extends Google
   {
     $this->width = $width;
   }
-
   public function getWidth()
   {
     return $this->width;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_PretargetingConfigExcludedPlacements extends Google_Model
@@ -1943,11 +1835,11 @@ class Google_Service_AdExchangeBuyer_PretargetingConfigExcludedPlacements extend
   public $token;
   public $type;
 
+
   public function setToken($token)
   {
     $this->token = $token;
   }
-
   public function getToken()
   {
     return $this->token;
@@ -1956,12 +1848,10 @@ class Google_Service_AdExchangeBuyer_PretargetingConfigExcludedPlacements extend
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_PretargetingConfigList extends Google_Collection
@@ -1973,11 +1863,11 @@ class Google_Service_AdExchangeBuyer_PretargetingConfigList extends Google_Colle
   protected $itemsDataType = 'array';
   public $kind;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -1986,12 +1876,10 @@ class Google_Service_AdExchangeBuyer_PretargetingConfigList extends Google_Colle
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_AdExchangeBuyer_PretargetingConfigPlacements extends Google_Model
@@ -2001,11 +1889,11 @@ class Google_Service_AdExchangeBuyer_PretargetingConfigPlacements extends Google
   public $token;
   public $type;
 
+
   public function setToken($token)
   {
     $this->token = $token;
   }
-
   public function getToken()
   {
     return $this->token;
@@ -2014,10 +1902,8 @@ class Google_Service_AdExchangeBuyer_PretargetingConfigPlacements extends Google
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
