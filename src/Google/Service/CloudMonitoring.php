@@ -19,8 +19,7 @@
  * Service definition for CloudMonitoring (v2beta1).
  *
  * <p>
- * API for accessing Google Cloud and API monitoring data.
- * </p>
+ * API for accessing Google Cloud and API monitoring data.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,7 +31,8 @@
 class Google_Service_CloudMonitoring extends Google_Service
 {
   /** View monitoring data for all of your Google Cloud and API projects. */
-  const MONITORING_READONLY = "https://www.googleapis.com/auth/monitoring.readonly";
+  const MONITORING_READONLY =
+      "https://www.googleapis.com/auth/monitoring.readonly";
 
   public $metricDescriptors;
   public $timeseries;
@@ -207,21 +207,20 @@ class Google_Service_CloudMonitoring_MetricDescriptors_Resource extends Google_S
    * subsequent pages of results by setting the pageToken query parameter to the
    * value of the nextPageToken. (metricDescriptors.listMetricDescriptors)
    *
-   * @param string $project
-   * The project id. The value can be the numeric project ID or string-based project name.
+   * @param string $project The project id. The value can be the numeric project
+   * ID or string-based project name.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int count
-   * Maximum number of metric descriptors per page. Used for pagination. If not specified, count =
-    * 100.
-   * @opt_param string pageToken
-   * The pagination token, which is used to page through large result sets. Set this value to the
-    * value of the nextPageToken to retrieve the next page of results.
-   * @opt_param string query
-   * The query used to search against existing metrics. Separate keywords with a space; the service
-    * joins all keywords with AND, meaning that all keywords must match for a metric to be returned.
-    * If this field is omitted, all metrics are returned. If an empty string is passed with this
-    * field, no metrics are returned.
+   * @opt_param int count Maximum number of metric descriptors per page. Used for
+   * pagination. If not specified, count = 100.
+   * @opt_param string pageToken The pagination token, which is used to page
+   * through large result sets. Set this value to the value of the nextPageToken
+   * to retrieve the next page of results.
+   * @opt_param string query The query used to search against existing metrics.
+   * Separate keywords with a space; the service joins all keywords with AND,
+   * meaning that all keywords must match for a metric to be returned. If this
+   * field is omitted, all metrics are returned. If an empty string is passed with
+   * this field, no metrics are returned.
    * @return Google_Service_CloudMonitoring_ListMetricDescriptorsResponse
    */
   public function listMetricDescriptors($project, $optParams = array())
@@ -250,48 +249,38 @@ class Google_Service_CloudMonitoring_Timeseries_Resource extends Google_Service_
    * subsequent pages of results by setting the pageToken query parameter to the
    * value of the nextPageToken. (timeseries.listTimeseries)
    *
-   * @param string $project
-   * The project ID to which this time series belongs. The value can be the numeric project ID or
-    * string-based project name.
-   * @param string $metric
-   * Metric names are protocol-free URLs as listed in the Supported Metrics page. For example,
-    * compute.googleapis.com/instance/disk/read_ops_count.
-   * @param string $youngest
-   * End of the time interval (inclusive), which is expressed as an RFC 3339 timestamp.
+   * @param string $project The project ID to which this time series belongs. The
+   * value can be the numeric project ID or string-based project name.
+   * @param string $metric Metric names are protocol-free URLs as listed in the
+   * Supported Metrics page. For example,
+   * compute.googleapis.com/instance/disk/read_ops_count.
+   * @param string $youngest End of the time interval (inclusive), which is
+   * expressed as an RFC 3339 timestamp.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int count
-   * Maximum number of data points per page, which is used for pagination of results.
-   * @opt_param string timespan
-   * Length of the time interval to query, which is an alternative way to declare the interval:
-    * (youngest - timespan, youngest]. The timespan and oldest parameters should not be used together.
-    * Units:
-  - s: second
-  - m: minute
-  - h: hour
-  - d: day
-  - w: week  Examples: 2s, 3m, 4w. Only
-    * one unit is allowed, for example: 2w3d is not allowed; you should use 17d instead.
-  If neither
-    * oldest nor timespan is specified, the default time interval will be (youngest - 4 hours,
-    * youngest].
-   * @opt_param string labels
-   * A collection of labels for the matching time series, which are represented as:
-  - key==value:
-    * key equals the value
-  - key=~value: key regex matches the value
-  - key!=value: key does not
-    * equal the value
-  - key!~value: key regex does not match the value  For example, to list all of
-    * the time series descriptors for the region us-central1, you could specify:
-    * label=cloud.googleapis.com%2Flocation=~us-central1.*
-   * @opt_param string pageToken
-   * The pagination token, which is used to page through large result sets. Set this value to the
-    * value of the nextPageToken to retrieve the next page of results.
-   * @opt_param string oldest
-   * Start of the time interval (exclusive), which is expressed as an RFC 3339 timestamp. If neither
-    * oldest nor timespan is specified, the default time interval will be (youngest - 4 hours,
-    * youngest]
+   * @opt_param int count Maximum number of data points per page, which is used
+   * for pagination of results.
+   * @opt_param string timespan Length of the time interval to query, which is an
+   * alternative way to declare the interval: (youngest - timespan, youngest]. The
+   * timespan and oldest parameters should not be used together. Units: - s:
+   * second  - m: minute  - h: hour  - d: day  - w: week  Examples: 2s, 3m, 4w.
+   * Only one unit is allowed, for example: 2w3d is not allowed; you should use
+   * 17d instead.
+   *
+   * If neither oldest nor timespan is specified, the default time interval will
+   * be (youngest - 4 hours, youngest].
+   * @opt_param string labels A collection of labels for the matching time series,
+   * which are represented as: - key==value: key equals the value  - key=~value:
+   * key regex matches the value  - key!=value: key does not equal the value  -
+   * key!~value: key regex does not match the value  For example, to list all of
+   * the time series descriptors for the region us-central1, you could specify:
+   * label=cloud.googleapis.com%2Flocation=~us-central1.*
+   * @opt_param string pageToken The pagination token, which is used to page
+   * through large result sets. Set this value to the value of the nextPageToken
+   * to retrieve the next page of results.
+   * @opt_param string oldest Start of the time interval (exclusive), which is
+   * expressed as an RFC 3339 timestamp. If neither oldest nor timespan is
+   * specified, the default time interval will be (youngest - 4 hours, youngest]
    * @return Google_Service_CloudMonitoring_ListTimeseriesResponse
    */
   public function listTimeseries($project, $metric, $youngest, $optParams = array())
@@ -320,49 +309,38 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptors_Resource extends Goog
    * subsequent pages of results by setting the pageToken query parameter to the
    * value of the nextPageToken. (timeseriesDescriptors.listTimeseriesDescriptors)
    *
-   * @param string $project
-   * The project ID to which this time series belongs. The value can be the numeric project ID or
-    * string-based project name.
-   * @param string $metric
-   * Metric names are protocol-free URLs as listed in the Supported Metrics page. For example,
-    * compute.googleapis.com/instance/disk/read_ops_count.
-   * @param string $youngest
-   * End of the time interval (inclusive), which is expressed as an RFC 3339 timestamp.
+   * @param string $project The project ID to which this time series belongs. The
+   * value can be the numeric project ID or string-based project name.
+   * @param string $metric Metric names are protocol-free URLs as listed in the
+   * Supported Metrics page. For example,
+   * compute.googleapis.com/instance/disk/read_ops_count.
+   * @param string $youngest End of the time interval (inclusive), which is
+   * expressed as an RFC 3339 timestamp.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int count
-   * Maximum number of time series descriptors per page. Used for pagination. If not specified, count
-    * = 100.
-   * @opt_param string timespan
-   * Length of the time interval to query, which is an alternative way to declare the interval:
-    * (youngest - timespan, youngest]. The timespan and oldest parameters should not be used together.
-    * Units:
-  - s: second
-  - m: minute
-  - h: hour
-  - d: day
-  - w: week  Examples: 2s, 3m, 4w. Only
-    * one unit is allowed, for example: 2w3d is not allowed; you should use 17d instead.
-  If neither
-    * oldest nor timespan is specified, the default time interval will be (youngest - 4 hours,
-    * youngest].
-   * @opt_param string labels
-   * A collection of labels for the matching time series, which are represented as:
-  - key==value:
-    * key equals the value
-  - key=~value: key regex matches the value
-  - key!=value: key does not
-    * equal the value
-  - key!~value: key regex does not match the value  For example, to list all of
-    * the time series descriptors for the region us-central1, you could specify:
-    * label=cloud.googleapis.com%2Flocation=~us-central1.*
-   * @opt_param string pageToken
-   * The pagination token, which is used to page through large result sets. Set this value to the
-    * value of the nextPageToken to retrieve the next page of results.
-   * @opt_param string oldest
-   * Start of the time interval (exclusive), which is expressed as an RFC 3339 timestamp. If neither
-    * oldest nor timespan is specified, the default time interval will be (youngest - 4 hours,
-    * youngest]
+   * @opt_param int count Maximum number of time series descriptors per page. Used
+   * for pagination. If not specified, count = 100.
+   * @opt_param string timespan Length of the time interval to query, which is an
+   * alternative way to declare the interval: (youngest - timespan, youngest]. The
+   * timespan and oldest parameters should not be used together. Units: - s:
+   * second  - m: minute  - h: hour  - d: day  - w: week  Examples: 2s, 3m, 4w.
+   * Only one unit is allowed, for example: 2w3d is not allowed; you should use
+   * 17d instead.
+   *
+   * If neither oldest nor timespan is specified, the default time interval will
+   * be (youngest - 4 hours, youngest].
+   * @opt_param string labels A collection of labels for the matching time series,
+   * which are represented as: - key==value: key equals the value  - key=~value:
+   * key regex matches the value  - key!=value: key does not equal the value  -
+   * key!~value: key regex does not match the value  For example, to list all of
+   * the time series descriptors for the region us-central1, you could specify:
+   * label=cloud.googleapis.com%2Flocation=~us-central1.*
+   * @opt_param string pageToken The pagination token, which is used to page
+   * through large result sets. Set this value to the value of the nextPageToken
+   * to retrieve the next page of results.
+   * @opt_param string oldest Start of the time interval (exclusive), which is
+   * expressed as an RFC 3339 timestamp. If neither oldest nor timespan is
+   * specified, the default time interval will be (youngest - 4 hours, youngest]
    * @return Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse
    */
   public function listTimeseriesDescriptors($project, $metric, $youngest, $optParams = array())
@@ -382,16 +360,15 @@ class Google_Service_CloudMonitoring_ListMetricDescriptorsRequest extends Google
   );
   public $kind;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_CloudMonitoring_ListMetricDescriptorsResponse extends Google_Collection
@@ -404,11 +381,11 @@ class Google_Service_CloudMonitoring_ListMetricDescriptorsResponse extends Googl
   protected $metricsDataType = 'array';
   public $nextPageToken;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -417,7 +394,6 @@ class Google_Service_CloudMonitoring_ListMetricDescriptorsResponse extends Googl
   {
     $this->metrics = $metrics;
   }
-
   public function getMetrics()
   {
     return $this->metrics;
@@ -426,12 +402,10 @@ class Google_Service_CloudMonitoring_ListMetricDescriptorsResponse extends Googl
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsRequest extends Google_Model
@@ -440,16 +414,15 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsRequest extends Go
   );
   public $kind;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends Google_Collection
@@ -464,11 +437,11 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends G
   protected $timeseriesDataType = 'array';
   public $youngest;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -477,7 +450,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends G
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -486,7 +458,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends G
   {
     $this->oldest = $oldest;
   }
-
   public function getOldest()
   {
     return $this->oldest;
@@ -495,7 +466,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends G
   {
     $this->timeseries = $timeseries;
   }
-
   public function getTimeseries()
   {
     return $this->timeseries;
@@ -504,12 +474,10 @@ class Google_Service_CloudMonitoring_ListTimeseriesDescriptorsResponse extends G
   {
     $this->youngest = $youngest;
   }
-
   public function getYoungest()
   {
     return $this->youngest;
   }
-
 }
 
 class Google_Service_CloudMonitoring_ListTimeseriesRequest extends Google_Model
@@ -518,16 +486,15 @@ class Google_Service_CloudMonitoring_ListTimeseriesRequest extends Google_Model
   );
   public $kind;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Collection
@@ -542,11 +509,11 @@ class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Colle
   protected $timeseriesDataType = 'array';
   public $youngest;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -555,7 +522,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Colle
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -564,7 +530,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Colle
   {
     $this->oldest = $oldest;
   }
-
   public function getOldest()
   {
     return $this->oldest;
@@ -573,7 +538,6 @@ class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Colle
   {
     $this->timeseries = $timeseries;
   }
-
   public function getTimeseries()
   {
     return $this->timeseries;
@@ -582,12 +546,10 @@ class Google_Service_CloudMonitoring_ListTimeseriesResponse extends Google_Colle
   {
     $this->youngest = $youngest;
   }
-
   public function getYoungest()
   {
     return $this->youngest;
   }
-
 }
 
 class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
@@ -603,11 +565,11 @@ class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
   protected $typeDescriptorType = 'Google_Service_CloudMonitoring_MetricDescriptorTypeDescriptor';
   protected $typeDescriptorDataType = '';
 
+
   public function setDescription($description)
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -616,7 +578,6 @@ class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
   {
     $this->labels = $labels;
   }
-
   public function getLabels()
   {
     return $this->labels;
@@ -625,7 +586,6 @@ class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -634,7 +594,6 @@ class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
   {
     $this->project = $project;
   }
-
   public function getProject()
   {
     return $this->project;
@@ -643,12 +602,10 @@ class Google_Service_CloudMonitoring_MetricDescriptor extends Google_Collection
   {
     $this->typeDescriptor = $typeDescriptor;
   }
-
   public function getTypeDescriptor()
   {
     return $this->typeDescriptor;
   }
-
 }
 
 class Google_Service_CloudMonitoring_MetricDescriptorLabelDescriptor extends Google_Model
@@ -658,11 +615,11 @@ class Google_Service_CloudMonitoring_MetricDescriptorLabelDescriptor extends Goo
   public $description;
   public $key;
 
+
   public function setDescription($description)
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -671,12 +628,10 @@ class Google_Service_CloudMonitoring_MetricDescriptorLabelDescriptor extends Goo
   {
     $this->key = $key;
   }
-
   public function getKey()
   {
     return $this->key;
   }
-
 }
 
 class Google_Service_CloudMonitoring_MetricDescriptorTypeDescriptor extends Google_Model
@@ -686,11 +641,11 @@ class Google_Service_CloudMonitoring_MetricDescriptorTypeDescriptor extends Goog
   public $metricType;
   public $valueType;
 
+
   public function setMetricType($metricType)
   {
     $this->metricType = $metricType;
   }
-
   public function getMetricType()
   {
     return $this->metricType;
@@ -699,12 +654,10 @@ class Google_Service_CloudMonitoring_MetricDescriptorTypeDescriptor extends Goog
   {
     $this->valueType = $valueType;
   }
-
   public function getValueType()
   {
     return $this->valueType;
   }
-
 }
 
 class Google_Service_CloudMonitoring_Point extends Google_Model
@@ -720,11 +673,11 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   public $start;
   public $stringValue;
 
+
   public function setBoolValue($boolValue)
   {
     $this->boolValue = $boolValue;
   }
-
   public function getBoolValue()
   {
     return $this->boolValue;
@@ -733,7 +686,6 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     $this->distributionValue = $distributionValue;
   }
-
   public function getDistributionValue()
   {
     return $this->distributionValue;
@@ -742,7 +694,6 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     $this->doubleValue = $doubleValue;
   }
-
   public function getDoubleValue()
   {
     return $this->doubleValue;
@@ -751,7 +702,6 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     $this->end = $end;
   }
-
   public function getEnd()
   {
     return $this->end;
@@ -760,7 +710,6 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     $this->int64Value = $int64Value;
   }
-
   public function getInt64Value()
   {
     return $this->int64Value;
@@ -769,7 +718,6 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     $this->start = $start;
   }
-
   public function getStart()
   {
     return $this->start;
@@ -778,12 +726,10 @@ class Google_Service_CloudMonitoring_Point extends Google_Model
   {
     $this->stringValue = $stringValue;
   }
-
   public function getStringValue()
   {
     return $this->stringValue;
   }
-
 }
 
 class Google_Service_CloudMonitoring_PointDistribution extends Google_Collection
@@ -798,11 +744,11 @@ class Google_Service_CloudMonitoring_PointDistribution extends Google_Collection
   protected $underflowBucketType = 'Google_Service_CloudMonitoring_PointDistributionUnderflowBucket';
   protected $underflowBucketDataType = '';
 
+
   public function setBuckets($buckets)
   {
     $this->buckets = $buckets;
   }
-
   public function getBuckets()
   {
     return $this->buckets;
@@ -811,7 +757,6 @@ class Google_Service_CloudMonitoring_PointDistribution extends Google_Collection
   {
     $this->overflowBucket = $overflowBucket;
   }
-
   public function getOverflowBucket()
   {
     return $this->overflowBucket;
@@ -820,12 +765,10 @@ class Google_Service_CloudMonitoring_PointDistribution extends Google_Collection
   {
     $this->underflowBucket = $underflowBucket;
   }
-
   public function getUnderflowBucket()
   {
     return $this->underflowBucket;
   }
-
 }
 
 class Google_Service_CloudMonitoring_PointDistributionBucket extends Google_Model
@@ -836,11 +779,11 @@ class Google_Service_CloudMonitoring_PointDistributionBucket extends Google_Mode
   public $lowerBound;
   public $upperBound;
 
+
   public function setCount($count)
   {
     $this->count = $count;
   }
-
   public function getCount()
   {
     return $this->count;
@@ -849,7 +792,6 @@ class Google_Service_CloudMonitoring_PointDistributionBucket extends Google_Mode
   {
     $this->lowerBound = $lowerBound;
   }
-
   public function getLowerBound()
   {
     return $this->lowerBound;
@@ -858,12 +800,10 @@ class Google_Service_CloudMonitoring_PointDistributionBucket extends Google_Mode
   {
     $this->upperBound = $upperBound;
   }
-
   public function getUpperBound()
   {
     return $this->upperBound;
   }
-
 }
 
 class Google_Service_CloudMonitoring_PointDistributionOverflowBucket extends Google_Model
@@ -873,11 +813,11 @@ class Google_Service_CloudMonitoring_PointDistributionOverflowBucket extends Goo
   public $count;
   public $lowerBound;
 
+
   public function setCount($count)
   {
     $this->count = $count;
   }
-
   public function getCount()
   {
     return $this->count;
@@ -886,12 +826,10 @@ class Google_Service_CloudMonitoring_PointDistributionOverflowBucket extends Goo
   {
     $this->lowerBound = $lowerBound;
   }
-
   public function getLowerBound()
   {
     return $this->lowerBound;
   }
-
 }
 
 class Google_Service_CloudMonitoring_PointDistributionUnderflowBucket extends Google_Model
@@ -901,11 +839,11 @@ class Google_Service_CloudMonitoring_PointDistributionUnderflowBucket extends Go
   public $count;
   public $upperBound;
 
+
   public function setCount($count)
   {
     $this->count = $count;
   }
-
   public function getCount()
   {
     return $this->count;
@@ -914,12 +852,10 @@ class Google_Service_CloudMonitoring_PointDistributionUnderflowBucket extends Go
   {
     $this->upperBound = $upperBound;
   }
-
   public function getUpperBound()
   {
     return $this->upperBound;
   }
-
 }
 
 class Google_Service_CloudMonitoring_Timeseries extends Google_Collection
@@ -932,11 +868,11 @@ class Google_Service_CloudMonitoring_Timeseries extends Google_Collection
   protected $timeseriesDescType = 'Google_Service_CloudMonitoring_TimeseriesDescriptor';
   protected $timeseriesDescDataType = '';
 
+
   public function setPoints($points)
   {
     $this->points = $points;
   }
-
   public function getPoints()
   {
     return $this->points;
@@ -945,12 +881,10 @@ class Google_Service_CloudMonitoring_Timeseries extends Google_Collection
   {
     $this->timeseriesDesc = $timeseriesDesc;
   }
-
   public function getTimeseriesDesc()
   {
     return $this->timeseriesDesc;
   }
-
 }
 
 class Google_Service_CloudMonitoring_TimeseriesDescriptor extends Google_Model
@@ -961,11 +895,11 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptor extends Google_Model
   public $metric;
   public $project;
 
+
   public function setLabels($labels)
   {
     $this->labels = $labels;
   }
-
   public function getLabels()
   {
     return $this->labels;
@@ -974,7 +908,6 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptor extends Google_Model
   {
     $this->metric = $metric;
   }
-
   public function getMetric()
   {
     return $this->metric;
@@ -983,12 +916,10 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptor extends Google_Model
   {
     $this->project = $project;
   }
-
   public function getProject()
   {
     return $this->project;
   }
-
 }
 
 class Google_Service_CloudMonitoring_TimeseriesDescriptorLabel extends Google_Model
@@ -998,11 +929,11 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptorLabel extends Google_Mo
   public $key;
   public $value;
 
+
   public function setKey($key)
   {
     $this->key = $key;
   }
-
   public function getKey()
   {
     return $this->key;
@@ -1011,18 +942,12 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptorLabel extends Google_Mo
   {
     $this->value = $value;
   }
-
   public function getValue()
   {
     return $this->value;
   }
-
 }
 
 class Google_Service_CloudMonitoring_TimeseriesDescriptorLabels extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
