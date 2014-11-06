@@ -19,8 +19,7 @@
  * Service definition for CivicInfo (v2).
  *
  * <p>
- * An API for accessing civic information.
- * </p>
+ * An API for accessing civic information.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -179,11 +178,11 @@ class Google_Service_CivicInfo_Divisions_Resource extends Google_Service_Resourc
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string query
-   * The search query. Queries can cover any parts of a OCD ID or a human readable division name. All
-    * words given in the query are treated as required patterns. In addition to that, most query
-    * operators of the Apache Lucene library are supported. See
-    * http://lucene.apache.org/core/2_9_4/queryparsersyntax.html
+   * @opt_param string query The search query. Queries can cover any parts of a
+   * OCD ID or a human readable division name. All words given in the query are
+   * treated as required patterns. In addition to that, most query operators of
+   * the Apache Lucene library are supported. See
+   * http://lucene.apache.org/core/2_9_4/queryparsersyntax.html
    * @return Google_Service_CivicInfo_DivisionSearchResponse
    */
   public function search($optParams = array())
@@ -217,19 +216,19 @@ class Google_Service_CivicInfo_Elections_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('electionQuery', array($params), "Google_Service_CivicInfo_ElectionsQueryResponse");
   }
+
   /**
    * Looks up information relevant to a voter based on the voter's registered
    * address. (elections.voterInfoQuery)
    *
-   * @param string $address
-   * The registered address of the voter to look up.
+   * @param string $address The registered address of the voter to look up.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string electionId
-   * The unique ID of the election to look up. A list of election IDs can be obtained at
-    * https://www.googleapis.com/civicinfo/{version}/elections
-   * @opt_param bool officialOnly
-   * If set to true, only data from official state sources will be returned.
+   * @opt_param string electionId The unique ID of the election to look up. A list
+   * of election IDs can be obtained at
+   * https://www.googleapis.com/civicinfo/{version}/elections
+   * @opt_param bool officialOnly If set to true, only data from official state
+   * sources will be returned.
    * @return Google_Service_CivicInfo_VoterInfoResponse
    */
   public function voterInfoQuery($address, $optParams = array())
@@ -257,17 +256,17 @@ class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_R
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool includeOffices
-   * Whether to return information about offices and officials. If false, only the top-level district
-    * information will be returned.
-   * @opt_param string levels
-   * A list of office levels to filter by. Only offices that serve at least one of these levels will
-    * be returned. Divisions that don't contain a matching office will not be returned.
-   * @opt_param string roles
-   * A list of office roles to filter by. Only offices fulfilling one of these roles will be
-    * returned. Divisions that don't contain a matching office will not be returned.
-   * @opt_param string address
-   * The address to look up. May only be specified if the field ocdId is not given in the URL.
+   * @opt_param bool includeOffices Whether to return information about offices
+   * and officials. If false, only the top-level district information will be
+   * returned.
+   * @opt_param string levels A list of office levels to filter by. Only offices
+   * that serve at least one of these levels will be returned. Divisions that
+   * don't contain a matching office will not be returned.
+   * @opt_param string roles A list of office roles to filter by. Only offices
+   * fulfilling one of these roles will be returned. Divisions that don't contain
+   * a matching office will not be returned.
+   * @opt_param string address The address to look up. May only be specified if
+   * the field ocdId is not given in the URL.
    * @return Google_Service_CivicInfo_RepresentativeInfoResponse
    */
   public function representativeInfoByAddress($optParams = array())
@@ -276,24 +275,25 @@ class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_R
     $params = array_merge($params, $optParams);
     return $this->call('representativeInfoByAddress', array($params), "Google_Service_CivicInfo_RepresentativeInfoResponse");
   }
+
   /**
    * Looks up representative information for a single geographic division.
    * (representatives.representativeInfoByDivision)
    *
-   * @param string $ocdId
-   * The Open Civic Data division identifier of the division to look up.
+   * @param string $ocdId The Open Civic Data division identifier of the division
+   * to look up.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string levels
-   * A list of office levels to filter by. Only offices that serve at least one of these levels will
-    * be returned. Divisions that don't contain a matching office will not be returned.
-   * @opt_param bool recursive
-   * If true, information about all divisions contained in the division requested will be included as
-    * well. For example, if querying ocd-division/country:us/district:dc, this would also return all
-    * DC's wards and ANCs.
-   * @opt_param string roles
-   * A list of office roles to filter by. Only offices fulfilling one of these roles will be
-    * returned. Divisions that don't contain a matching office will not be returned.
+   * @opt_param string levels A list of office levels to filter by. Only offices
+   * that serve at least one of these levels will be returned. Divisions that
+   * don't contain a matching office will not be returned.
+   * @opt_param bool recursive If true, information about all divisions contained
+   * in the division requested will be included as well. For example, if querying
+   * ocd-division/country:us/district:dc, this would also return all DC's wards
+   * and ANCs.
+   * @opt_param string roles A list of office roles to filter by. Only offices
+   * fulfilling one of these roles will be returned. Divisions that don't contain
+   * a matching office will not be returned.
    * @return Google_Service_CivicInfo_RepresentativeInfoData
    */
   public function representativeInfoByDivision($ocdId, $optParams = array())
@@ -322,11 +322,11 @@ class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
   protected $sourcesType = 'Google_Service_CivicInfo_Source';
   protected $sourcesDataType = 'array';
 
+
   public function setElectionAdministrationBody(Google_Service_CivicInfo_AdministrativeBody $electionAdministrationBody)
   {
     $this->electionAdministrationBody = $electionAdministrationBody;
   }
-
   public function getElectionAdministrationBody()
   {
     return $this->electionAdministrationBody;
@@ -335,7 +335,6 @@ class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -344,7 +343,6 @@ class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
   {
     $this->localJurisdiction = $localJurisdiction;
   }
-
   public function getLocalJurisdiction()
   {
     return $this->localJurisdiction;
@@ -353,7 +351,6 @@ class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -362,12 +359,10 @@ class Google_Service_CivicInfo_AdministrationRegion extends Google_Collection
   {
     $this->sources = $sources;
   }
-
   public function getSources()
   {
     return $this->sources;
   }
-
 }
 
 class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
@@ -393,11 +388,11 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   public $voterServices;
   public $votingLocationFinderUrl;
 
+
   public function setAbsenteeVotingInfoUrl($absenteeVotingInfoUrl)
   {
     $this->absenteeVotingInfoUrl = $absenteeVotingInfoUrl;
   }
-
   public function getAbsenteeVotingInfoUrl()
   {
     return $this->absenteeVotingInfoUrl;
@@ -406,7 +401,6 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     $this->ballotInfoUrl = $ballotInfoUrl;
   }
-
   public function getBallotInfoUrl()
   {
     return $this->ballotInfoUrl;
@@ -415,7 +409,6 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     $this->correspondenceAddress = $correspondenceAddress;
   }
-
   public function getCorrespondenceAddress()
   {
     return $this->correspondenceAddress;
@@ -424,7 +417,6 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     $this->electionInfoUrl = $electionInfoUrl;
   }
-
   public function getElectionInfoUrl()
   {
     return $this->electionInfoUrl;
@@ -433,7 +425,6 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     $this->electionOfficials = $electionOfficials;
   }
-
   public function getElectionOfficials()
   {
     return $this->electionOfficials;
@@ -442,7 +433,6 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     $this->electionRegistrationConfirmationUrl = $electionRegistrationConfirmationUrl;
   }
-
   public function getElectionRegistrationConfirmationUrl()
   {
     return $this->electionRegistrationConfirmationUrl;
@@ -451,7 +441,6 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     $this->electionRegistrationUrl = $electionRegistrationUrl;
   }
-
   public function getElectionRegistrationUrl()
   {
     return $this->electionRegistrationUrl;
@@ -460,7 +449,6 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     $this->electionRulesUrl = $electionRulesUrl;
   }
-
   public function getElectionRulesUrl()
   {
     return $this->electionRulesUrl;
@@ -469,7 +457,6 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     $this->hoursOfOperation = $hoursOfOperation;
   }
-
   public function getHoursOfOperation()
   {
     return $this->hoursOfOperation;
@@ -478,7 +465,6 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -487,7 +473,6 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     $this->physicalAddress = $physicalAddress;
   }
-
   public function getPhysicalAddress()
   {
     return $this->physicalAddress;
@@ -496,7 +481,6 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     $this->voterServices = $voterServices;
   }
-
   public function getVoterServices()
   {
     return $this->voterServices;
@@ -505,12 +489,10 @@ class Google_Service_CivicInfo_AdministrativeBody extends Google_Collection
   {
     $this->votingLocationFinderUrl = $votingLocationFinderUrl;
   }
-
   public function getVotingLocationFinderUrl()
   {
     return $this->votingLocationFinderUrl;
   }
-
 }
 
 class Google_Service_CivicInfo_Candidate extends Google_Collection
@@ -528,11 +510,11 @@ class Google_Service_CivicInfo_Candidate extends Google_Collection
   public $phone;
   public $photoUrl;
 
+
   public function setCandidateUrl($candidateUrl)
   {
     $this->candidateUrl = $candidateUrl;
   }
-
   public function getCandidateUrl()
   {
     return $this->candidateUrl;
@@ -541,7 +523,6 @@ class Google_Service_CivicInfo_Candidate extends Google_Collection
   {
     $this->channels = $channels;
   }
-
   public function getChannels()
   {
     return $this->channels;
@@ -550,7 +531,6 @@ class Google_Service_CivicInfo_Candidate extends Google_Collection
   {
     $this->email = $email;
   }
-
   public function getEmail()
   {
     return $this->email;
@@ -559,7 +539,6 @@ class Google_Service_CivicInfo_Candidate extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -568,7 +547,6 @@ class Google_Service_CivicInfo_Candidate extends Google_Collection
   {
     $this->orderOnBallot = $orderOnBallot;
   }
-
   public function getOrderOnBallot()
   {
     return $this->orderOnBallot;
@@ -577,7 +555,6 @@ class Google_Service_CivicInfo_Candidate extends Google_Collection
   {
     $this->party = $party;
   }
-
   public function getParty()
   {
     return $this->party;
@@ -586,7 +563,6 @@ class Google_Service_CivicInfo_Candidate extends Google_Collection
   {
     $this->phone = $phone;
   }
-
   public function getPhone()
   {
     return $this->phone;
@@ -595,12 +571,10 @@ class Google_Service_CivicInfo_Candidate extends Google_Collection
   {
     $this->photoUrl = $photoUrl;
   }
-
   public function getPhotoUrl()
   {
     return $this->photoUrl;
   }
-
 }
 
 class Google_Service_CivicInfo_Channel extends Google_Model
@@ -610,11 +584,11 @@ class Google_Service_CivicInfo_Channel extends Google_Model
   public $id;
   public $type;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -623,12 +597,10 @@ class Google_Service_CivicInfo_Channel extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_CivicInfo_Contest extends Google_Collection
@@ -657,11 +629,11 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   public $special;
   public $type;
 
+
   public function setBallotPlacement($ballotPlacement)
   {
     $this->ballotPlacement = $ballotPlacement;
   }
-
   public function getBallotPlacement()
   {
     return $this->ballotPlacement;
@@ -670,7 +642,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->candidates = $candidates;
   }
-
   public function getCandidates()
   {
     return $this->candidates;
@@ -679,7 +650,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->district = $district;
   }
-
   public function getDistrict()
   {
     return $this->district;
@@ -688,7 +658,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->electorateSpecifications = $electorateSpecifications;
   }
-
   public function getElectorateSpecifications()
   {
     return $this->electorateSpecifications;
@@ -697,7 +666,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -706,7 +674,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->level = $level;
   }
-
   public function getLevel()
   {
     return $this->level;
@@ -715,7 +682,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->numberElected = $numberElected;
   }
-
   public function getNumberElected()
   {
     return $this->numberElected;
@@ -724,7 +690,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->numberVotingFor = $numberVotingFor;
   }
-
   public function getNumberVotingFor()
   {
     return $this->numberVotingFor;
@@ -733,7 +698,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->office = $office;
   }
-
   public function getOffice()
   {
     return $this->office;
@@ -742,7 +706,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->primaryParty = $primaryParty;
   }
-
   public function getPrimaryParty()
   {
     return $this->primaryParty;
@@ -751,7 +714,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->referendumSubtitle = $referendumSubtitle;
   }
-
   public function getReferendumSubtitle()
   {
     return $this->referendumSubtitle;
@@ -760,7 +722,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->referendumTitle = $referendumTitle;
   }
-
   public function getReferendumTitle()
   {
     return $this->referendumTitle;
@@ -769,7 +730,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->referendumUrl = $referendumUrl;
   }
-
   public function getReferendumUrl()
   {
     return $this->referendumUrl;
@@ -778,7 +738,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->roles = $roles;
   }
-
   public function getRoles()
   {
     return $this->roles;
@@ -787,7 +746,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->sources = $sources;
   }
-
   public function getSources()
   {
     return $this->sources;
@@ -796,7 +754,6 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->special = $special;
   }
-
   public function getSpecial()
   {
     return $this->special;
@@ -805,12 +762,10 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
@@ -822,11 +777,11 @@ class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
   protected $resultsType = 'Google_Service_CivicInfo_DivisionSearchResult';
   protected $resultsDataType = 'array';
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -835,12 +790,10 @@ class Google_Service_CivicInfo_DivisionSearchResponse extends Google_Collection
   {
     $this->results = $results;
   }
-
   public function getResults()
   {
     return $this->results;
   }
-
 }
 
 class Google_Service_CivicInfo_DivisionSearchResult extends Google_Collection
@@ -852,11 +805,11 @@ class Google_Service_CivicInfo_DivisionSearchResult extends Google_Collection
   public $name;
   public $ocdId;
 
+
   public function setAliases($aliases)
   {
     $this->aliases = $aliases;
   }
-
   public function getAliases()
   {
     return $this->aliases;
@@ -865,7 +818,6 @@ class Google_Service_CivicInfo_DivisionSearchResult extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -874,12 +826,10 @@ class Google_Service_CivicInfo_DivisionSearchResult extends Google_Collection
   {
     $this->ocdId = $ocdId;
   }
-
   public function getOcdId()
   {
     return $this->ocdId;
   }
-
 }
 
 class Google_Service_CivicInfo_Election extends Google_Model
@@ -890,11 +840,11 @@ class Google_Service_CivicInfo_Election extends Google_Model
   public $id;
   public $name;
 
+
   public function setElectionDay($electionDay)
   {
     $this->electionDay = $electionDay;
   }
-
   public function getElectionDay()
   {
     return $this->electionDay;
@@ -903,7 +853,6 @@ class Google_Service_CivicInfo_Election extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -912,12 +861,10 @@ class Google_Service_CivicInfo_Election extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_CivicInfo_ElectionOfficial extends Google_Model
@@ -930,11 +877,11 @@ class Google_Service_CivicInfo_ElectionOfficial extends Google_Model
   public $officePhoneNumber;
   public $title;
 
+
   public function setEmailAddress($emailAddress)
   {
     $this->emailAddress = $emailAddress;
   }
-
   public function getEmailAddress()
   {
     return $this->emailAddress;
@@ -943,7 +890,6 @@ class Google_Service_CivicInfo_ElectionOfficial extends Google_Model
   {
     $this->faxNumber = $faxNumber;
   }
-
   public function getFaxNumber()
   {
     return $this->faxNumber;
@@ -952,7 +898,6 @@ class Google_Service_CivicInfo_ElectionOfficial extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -961,7 +906,6 @@ class Google_Service_CivicInfo_ElectionOfficial extends Google_Model
   {
     $this->officePhoneNumber = $officePhoneNumber;
   }
-
   public function getOfficePhoneNumber()
   {
     return $this->officePhoneNumber;
@@ -970,12 +914,10 @@ class Google_Service_CivicInfo_ElectionOfficial extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
   }
-
 }
 
 class Google_Service_CivicInfo_ElectionsQueryResponse extends Google_Collection
@@ -987,11 +929,11 @@ class Google_Service_CivicInfo_ElectionsQueryResponse extends Google_Collection
   protected $electionsDataType = 'array';
   public $kind;
 
+
   public function setElections($elections)
   {
     $this->elections = $elections;
   }
-
   public function getElections()
   {
     return $this->elections;
@@ -1000,12 +942,10 @@ class Google_Service_CivicInfo_ElectionsQueryResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_CivicInfo_ElectoralDistrict extends Google_Model
@@ -1016,11 +956,11 @@ class Google_Service_CivicInfo_ElectoralDistrict extends Google_Model
   public $name;
   public $scope;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1029,7 +969,6 @@ class Google_Service_CivicInfo_ElectoralDistrict extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -1038,12 +977,10 @@ class Google_Service_CivicInfo_ElectoralDistrict extends Google_Model
   {
     $this->scope = $scope;
   }
-
   public function getScope()
   {
     return $this->scope;
   }
-
 }
 
 class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
@@ -1055,11 +992,11 @@ class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
   public $name;
   public $officeIndices;
 
+
   public function setAlsoKnownAs($alsoKnownAs)
   {
     $this->alsoKnownAs = $alsoKnownAs;
   }
-
   public function getAlsoKnownAs()
   {
     return $this->alsoKnownAs;
@@ -1068,7 +1005,6 @@ class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -1077,12 +1013,10 @@ class Google_Service_CivicInfo_GeographicDivision extends Google_Collection
   {
     $this->officeIndices = $officeIndices;
   }
-
   public function getOfficeIndices()
   {
     return $this->officeIndices;
   }
-
 }
 
 class Google_Service_CivicInfo_Office extends Google_Collection
@@ -1098,11 +1032,11 @@ class Google_Service_CivicInfo_Office extends Google_Collection
   protected $sourcesType = 'Google_Service_CivicInfo_Source';
   protected $sourcesDataType = 'array';
 
+
   public function setDivisionId($divisionId)
   {
     $this->divisionId = $divisionId;
   }
-
   public function getDivisionId()
   {
     return $this->divisionId;
@@ -1111,7 +1045,6 @@ class Google_Service_CivicInfo_Office extends Google_Collection
   {
     $this->levels = $levels;
   }
-
   public function getLevels()
   {
     return $this->levels;
@@ -1120,7 +1053,6 @@ class Google_Service_CivicInfo_Office extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -1129,7 +1061,6 @@ class Google_Service_CivicInfo_Office extends Google_Collection
   {
     $this->officialIndices = $officialIndices;
   }
-
   public function getOfficialIndices()
   {
     return $this->officialIndices;
@@ -1138,7 +1069,6 @@ class Google_Service_CivicInfo_Office extends Google_Collection
   {
     $this->roles = $roles;
   }
-
   public function getRoles()
   {
     return $this->roles;
@@ -1147,12 +1077,10 @@ class Google_Service_CivicInfo_Office extends Google_Collection
   {
     $this->sources = $sources;
   }
-
   public function getSources()
   {
     return $this->sources;
   }
-
 }
 
 class Google_Service_CivicInfo_Official extends Google_Collection
@@ -1171,11 +1099,11 @@ class Google_Service_CivicInfo_Official extends Google_Collection
   public $photoUrl;
   public $urls;
 
+
   public function setAddress($address)
   {
     $this->address = $address;
   }
-
   public function getAddress()
   {
     return $this->address;
@@ -1184,7 +1112,6 @@ class Google_Service_CivicInfo_Official extends Google_Collection
   {
     $this->channels = $channels;
   }
-
   public function getChannels()
   {
     return $this->channels;
@@ -1193,7 +1120,6 @@ class Google_Service_CivicInfo_Official extends Google_Collection
   {
     $this->emails = $emails;
   }
-
   public function getEmails()
   {
     return $this->emails;
@@ -1202,7 +1128,6 @@ class Google_Service_CivicInfo_Official extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -1211,7 +1136,6 @@ class Google_Service_CivicInfo_Official extends Google_Collection
   {
     $this->party = $party;
   }
-
   public function getParty()
   {
     return $this->party;
@@ -1220,7 +1144,6 @@ class Google_Service_CivicInfo_Official extends Google_Collection
   {
     $this->phones = $phones;
   }
-
   public function getPhones()
   {
     return $this->phones;
@@ -1229,7 +1152,6 @@ class Google_Service_CivicInfo_Official extends Google_Collection
   {
     $this->photoUrl = $photoUrl;
   }
-
   public function getPhotoUrl()
   {
     return $this->photoUrl;
@@ -1238,12 +1160,10 @@ class Google_Service_CivicInfo_Official extends Google_Collection
   {
     $this->urls = $urls;
   }
-
   public function getUrls()
   {
     return $this->urls;
   }
-
 }
 
 class Google_Service_CivicInfo_PollingLocation extends Google_Collection
@@ -1263,11 +1183,11 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   public $startDate;
   public $voterServices;
 
+
   public function setAddress(Google_Service_CivicInfo_SimpleAddressType $address)
   {
     $this->address = $address;
   }
-
   public function getAddress()
   {
     return $this->address;
@@ -1276,7 +1196,6 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   {
     $this->endDate = $endDate;
   }
-
   public function getEndDate()
   {
     return $this->endDate;
@@ -1285,7 +1204,6 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1294,7 +1212,6 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -1303,7 +1220,6 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   {
     $this->notes = $notes;
   }
-
   public function getNotes()
   {
     return $this->notes;
@@ -1312,7 +1228,6 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   {
     $this->pollingHours = $pollingHours;
   }
-
   public function getPollingHours()
   {
     return $this->pollingHours;
@@ -1321,7 +1236,6 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   {
     $this->sources = $sources;
   }
-
   public function getSources()
   {
     return $this->sources;
@@ -1330,7 +1244,6 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   {
     $this->startDate = $startDate;
   }
-
   public function getStartDate()
   {
     return $this->startDate;
@@ -1339,12 +1252,10 @@ class Google_Service_CivicInfo_PollingLocation extends Google_Collection
   {
     $this->voterServices = $voterServices;
   }
-
   public function getVoterServices()
   {
     return $this->voterServices;
   }
-
 }
 
 class Google_Service_CivicInfo_RepresentativeInfoData extends Google_Collection
@@ -1359,11 +1270,11 @@ class Google_Service_CivicInfo_RepresentativeInfoData extends Google_Collection
   protected $officialsType = 'Google_Service_CivicInfo_Official';
   protected $officialsDataType = 'array';
 
+
   public function setDivisions($divisions)
   {
     $this->divisions = $divisions;
   }
-
   public function getDivisions()
   {
     return $this->divisions;
@@ -1372,7 +1283,6 @@ class Google_Service_CivicInfo_RepresentativeInfoData extends Google_Collection
   {
     $this->offices = $offices;
   }
-
   public function getOffices()
   {
     return $this->offices;
@@ -1381,20 +1291,14 @@ class Google_Service_CivicInfo_RepresentativeInfoData extends Google_Collection
   {
     $this->officials = $officials;
   }
-
   public function getOfficials()
   {
     return $this->officials;
   }
-
 }
 
 class Google_Service_CivicInfo_RepresentativeInfoDataDivisions extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collection
@@ -1412,11 +1316,11 @@ class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collect
   protected $officialsType = 'Google_Service_CivicInfo_Official';
   protected $officialsDataType = 'array';
 
+
   public function setDivisions($divisions)
   {
     $this->divisions = $divisions;
   }
-
   public function getDivisions()
   {
     return $this->divisions;
@@ -1425,7 +1329,6 @@ class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collect
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1434,7 +1337,6 @@ class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collect
   {
     $this->normalizedInput = $normalizedInput;
   }
-
   public function getNormalizedInput()
   {
     return $this->normalizedInput;
@@ -1443,7 +1345,6 @@ class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collect
   {
     $this->offices = $offices;
   }
-
   public function getOffices()
   {
     return $this->offices;
@@ -1452,20 +1353,14 @@ class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collect
   {
     $this->officials = $officials;
   }
-
   public function getOfficials()
   {
     return $this->officials;
   }
-
 }
 
 class Google_Service_CivicInfo_RepresentativeInfoResponseDivisions extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
@@ -1480,11 +1375,11 @@ class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
   public $state;
   public $zip;
 
+
   public function setCity($city)
   {
     $this->city = $city;
   }
-
   public function getCity()
   {
     return $this->city;
@@ -1493,7 +1388,6 @@ class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
   {
     $this->line1 = $line1;
   }
-
   public function getLine1()
   {
     return $this->line1;
@@ -1502,7 +1396,6 @@ class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
   {
     $this->line2 = $line2;
   }
-
   public function getLine2()
   {
     return $this->line2;
@@ -1511,7 +1404,6 @@ class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
   {
     $this->line3 = $line3;
   }
-
   public function getLine3()
   {
     return $this->line3;
@@ -1520,7 +1412,6 @@ class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
   {
     $this->locationName = $locationName;
   }
-
   public function getLocationName()
   {
     return $this->locationName;
@@ -1529,7 +1420,6 @@ class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
   {
     $this->state = $state;
   }
-
   public function getState()
   {
     return $this->state;
@@ -1538,12 +1428,10 @@ class Google_Service_CivicInfo_SimpleAddressType extends Google_Model
   {
     $this->zip = $zip;
   }
-
   public function getZip()
   {
     return $this->zip;
   }
-
 }
 
 class Google_Service_CivicInfo_Source extends Google_Model
@@ -1553,11 +1441,11 @@ class Google_Service_CivicInfo_Source extends Google_Model
   public $name;
   public $official;
 
+
   public function setName($name)
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -1566,12 +1454,10 @@ class Google_Service_CivicInfo_Source extends Google_Model
   {
     $this->official = $official;
   }
-
   public function getOfficial()
   {
     return $this->official;
   }
-
 }
 
 class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
@@ -1598,11 +1484,11 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   protected $stateType = 'Google_Service_CivicInfo_AdministrationRegion';
   protected $stateDataType = 'array';
 
+
   public function setContests($contests)
   {
     $this->contests = $contests;
   }
-
   public function getContests()
   {
     return $this->contests;
@@ -1611,7 +1497,6 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   {
     $this->dropOffLocations = $dropOffLocations;
   }
-
   public function getDropOffLocations()
   {
     return $this->dropOffLocations;
@@ -1620,7 +1505,6 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   {
     $this->earlyVoteSites = $earlyVoteSites;
   }
-
   public function getEarlyVoteSites()
   {
     return $this->earlyVoteSites;
@@ -1629,7 +1513,6 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   {
     $this->election = $election;
   }
-
   public function getElection()
   {
     return $this->election;
@@ -1638,7 +1521,6 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1647,7 +1529,6 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   {
     $this->normalizedInput = $normalizedInput;
   }
-
   public function getNormalizedInput()
   {
     return $this->normalizedInput;
@@ -1656,7 +1537,6 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   {
     $this->otherElections = $otherElections;
   }
-
   public function getOtherElections()
   {
     return $this->otherElections;
@@ -1665,7 +1545,6 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   {
     $this->pollingLocations = $pollingLocations;
   }
-
   public function getPollingLocations()
   {
     return $this->pollingLocations;
@@ -1674,7 +1553,6 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   {
     $this->precinctId = $precinctId;
   }
-
   public function getPrecinctId()
   {
     return $this->precinctId;
@@ -1683,10 +1561,8 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   {
     $this->state = $state;
   }
-
   public function getState()
   {
     return $this->state;
   }
-
 }
