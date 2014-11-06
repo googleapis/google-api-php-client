@@ -19,8 +19,7 @@
  * Service definition for Fusiontables (v1).
  *
  * <p>
- * API for working with Fusion Tables data.
- * </p>
+ * API for working with Fusion Tables data.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,9 +31,11 @@
 class Google_Service_Fusiontables extends Google_Service
 {
   /** Manage your Fusion Tables. */
-  const FUSIONTABLES = "https://www.googleapis.com/auth/fusiontables";
+  const FUSIONTABLES =
+      "https://www.googleapis.com/auth/fusiontables";
   /** View your Fusion Tables. */
-  const FUSIONTABLES_READONLY = "https://www.googleapis.com/auth/fusiontables.readonly";
+  const FUSIONTABLES_READONLY =
+      "https://www.googleapis.com/auth/fusiontables.readonly";
 
   public $column;
   public $query;
@@ -613,10 +614,8 @@ class Google_Service_Fusiontables_Column_Resource extends Google_Service_Resourc
   /**
    * Deletes the column. (column.delete)
    *
-   * @param string $tableId
-   * Table from which the column is being deleted.
-   * @param string $columnId
-   * Name or identifier for the column being deleted.
+   * @param string $tableId Table from which the column is being deleted.
+   * @param string $columnId Name or identifier for the column being deleted.
    * @param array $optParams Optional parameters.
    */
   public function delete($tableId, $columnId, $optParams = array())
@@ -625,13 +624,13 @@ class Google_Service_Fusiontables_Column_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Retrieves a specific column by its id. (column.get)
    *
-   * @param string $tableId
-   * Table to which the column belongs.
-   * @param string $columnId
-   * Name or identifier for the column that is being requested.
+   * @param string $tableId Table to which the column belongs.
+   * @param string $columnId Name or identifier for the column that is being
+   * requested.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_Column
    */
@@ -641,11 +640,11 @@ class Google_Service_Fusiontables_Column_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Fusiontables_Column");
   }
+
   /**
    * Adds a new column to the table. (column.insert)
    *
-   * @param string $tableId
-   * Table for which a new column is being added.
+   * @param string $tableId Table for which a new column is being added.
    * @param Google_Column $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_Column
@@ -656,17 +655,17 @@ class Google_Service_Fusiontables_Column_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Fusiontables_Column");
   }
+
   /**
    * Retrieves a list of columns. (column.listColumn)
    *
-   * @param string $tableId
-   * Table whose columns are being listed.
+   * @param string $tableId Table whose columns are being listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Continuation token specifying which result page to return. Optional.
-   * @opt_param string maxResults
-   * Maximum number of columns to return. Optional. Default is 5.
+   * @opt_param string pageToken Continuation token specifying which result page
+   * to return. Optional.
+   * @opt_param string maxResults Maximum number of columns to return. Optional.
+   * Default is 5.
    * @return Google_Service_Fusiontables_ColumnList
    */
   public function listColumn($tableId, $optParams = array())
@@ -675,14 +674,14 @@ class Google_Service_Fusiontables_Column_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Fusiontables_ColumnList");
   }
+
   /**
    * Updates the name or type of an existing column. This method supports patch
    * semantics. (column.patch)
    *
-   * @param string $tableId
-   * Table for which the column is being updated.
-   * @param string $columnId
-   * Name or identifier for the column that is being updated.
+   * @param string $tableId Table for which the column is being updated.
+   * @param string $columnId Name or identifier for the column that is being
+   * updated.
    * @param Google_Column $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_Column
@@ -693,13 +692,13 @@ class Google_Service_Fusiontables_Column_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_Fusiontables_Column");
   }
+
   /**
    * Updates the name or type of an existing column. (column.update)
    *
-   * @param string $tableId
-   * Table for which the column is being updated.
-   * @param string $columnId
-   * Name or identifier for the column that is being updated.
+   * @param string $tableId Table for which the column is being updated.
+   * @param string $columnId Name or identifier for the column that is being
+   * updated.
    * @param Google_Column $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_Column
@@ -727,15 +726,15 @@ class Google_Service_Fusiontables_Query_Resource extends Google_Service_Resource
    * Executes an SQL SELECT/INSERT/UPDATE/DELETE/SHOW/DESCRIBE/CREATE statement.
    * (query.sql)
    *
-   * @param string $sql
-   * An SQL SELECT/SHOW/DESCRIBE/INSERT/UPDATE/DELETE/CREATE statement.
+   * @param string $sql An SQL SELECT/SHOW/DESCRIBE/INSERT/UPDATE/DELETE/CREATE
+   * statement.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool typed
-   * Should typed values be returned in the (JSON) response -- numbers for numeric values and parsed
-    * geometries for KML values? Default is true.
-   * @opt_param bool hdrs
-   * Should column names be included (in the first row)?. Default is true.
+   * @opt_param bool typed Should typed values be returned in the (JSON) response
+   * -- numbers for numeric values and parsed geometries for KML values? Default
+   * is true.
+   * @opt_param bool hdrs Should column names be included (in the first row)?.
+   * Default is true.
    * @return Google_Service_Fusiontables_Sqlresponse
    */
   public function sql($sql, $optParams = array())
@@ -744,18 +743,18 @@ class Google_Service_Fusiontables_Query_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('sql', array($params), "Google_Service_Fusiontables_Sqlresponse");
   }
+
   /**
    * Executes an SQL SELECT/SHOW/DESCRIBE statement. (query.sqlGet)
    *
-   * @param string $sql
-   * An SQL SELECT/SHOW/DESCRIBE statement.
+   * @param string $sql An SQL SELECT/SHOW/DESCRIBE statement.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool typed
-   * Should typed values be returned in the (JSON) response -- numbers for numeric values and parsed
-    * geometries for KML values? Default is true.
-   * @opt_param bool hdrs
-   * Should column names be included (in the first row)?. Default is true.
+   * @opt_param bool typed Should typed values be returned in the (JSON) response
+   * -- numbers for numeric values and parsed geometries for KML values? Default
+   * is true.
+   * @opt_param bool hdrs Should column names be included (in the first row)?.
+   * Default is true.
    * @return Google_Service_Fusiontables_Sqlresponse
    */
   public function sqlGet($sql, $optParams = array())
@@ -780,10 +779,8 @@ class Google_Service_Fusiontables_Style_Resource extends Google_Service_Resource
   /**
    * Deletes a style. (style.delete)
    *
-   * @param string $tableId
-   * Table from which the style is being deleted
-   * @param int $styleId
-   * Identifier (within a table) for the style being deleted
+   * @param string $tableId Table from which the style is being deleted
+   * @param int $styleId Identifier (within a table) for the style being deleted
    * @param array $optParams Optional parameters.
    */
   public function delete($tableId, $styleId, $optParams = array())
@@ -792,13 +789,12 @@ class Google_Service_Fusiontables_Style_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Gets a specific style. (style.get)
    *
-   * @param string $tableId
-   * Table to which the requested style belongs
-   * @param int $styleId
-   * Identifier (integer) for a specific style in a table
+   * @param string $tableId Table to which the requested style belongs
+   * @param int $styleId Identifier (integer) for a specific style in a table
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_StyleSetting
    */
@@ -808,11 +804,11 @@ class Google_Service_Fusiontables_Style_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Fusiontables_StyleSetting");
   }
+
   /**
    * Adds a new style for the table. (style.insert)
    *
-   * @param string $tableId
-   * Table for which a new style is being added
+   * @param string $tableId Table for which a new style is being added
    * @param Google_StyleSetting $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_StyleSetting
@@ -823,17 +819,17 @@ class Google_Service_Fusiontables_Style_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Fusiontables_StyleSetting");
   }
+
   /**
    * Retrieves a list of styles. (style.listStyle)
    *
-   * @param string $tableId
-   * Table whose styles are being listed
+   * @param string $tableId Table whose styles are being listed
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Continuation token specifying which result page to return. Optional.
-   * @opt_param string maxResults
-   * Maximum number of styles to return. Optional. Default is 5.
+   * @opt_param string pageToken Continuation token specifying which result page
+   * to return. Optional.
+   * @opt_param string maxResults Maximum number of styles to return. Optional.
+   * Default is 5.
    * @return Google_Service_Fusiontables_StyleSettingList
    */
   public function listStyle($tableId, $optParams = array())
@@ -842,14 +838,13 @@ class Google_Service_Fusiontables_Style_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Fusiontables_StyleSettingList");
   }
+
   /**
    * Updates an existing style. This method supports patch semantics.
    * (style.patch)
    *
-   * @param string $tableId
-   * Table whose style is being updated.
-   * @param int $styleId
-   * Identifier (within a table) for the style being updated.
+   * @param string $tableId Table whose style is being updated.
+   * @param int $styleId Identifier (within a table) for the style being updated.
    * @param Google_StyleSetting $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_StyleSetting
@@ -860,13 +855,12 @@ class Google_Service_Fusiontables_Style_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_Fusiontables_StyleSetting");
   }
+
   /**
    * Updates an existing style. (style.update)
    *
-   * @param string $tableId
-   * Table whose style is being updated.
-   * @param int $styleId
-   * Identifier (within a table) for the style being updated.
+   * @param string $tableId Table whose style is being updated.
+   * @param int $styleId Identifier (within a table) for the style being updated.
    * @param Google_StyleSetting $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_StyleSetting
@@ -893,12 +887,11 @@ class Google_Service_Fusiontables_Table_Resource extends Google_Service_Resource
   /**
    * Copies a table. (table.copy)
    *
-   * @param string $tableId
-   * ID of the table that is being copied.
+   * @param string $tableId ID of the table that is being copied.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool copyPresentation
-   * Whether to also copy tabs, styles, and templates. Default is false.
+   * @opt_param bool copyPresentation Whether to also copy tabs, styles, and
+   * templates. Default is false.
    * @return Google_Service_Fusiontables_Table
    */
   public function copy($tableId, $optParams = array())
@@ -907,11 +900,11 @@ class Google_Service_Fusiontables_Table_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('copy', array($params), "Google_Service_Fusiontables_Table");
   }
+
   /**
    * Deletes a table. (table.delete)
    *
-   * @param string $tableId
-   * ID of the table that is being deleted.
+   * @param string $tableId ID of the table that is being deleted.
    * @param array $optParams Optional parameters.
    */
   public function delete($tableId, $optParams = array())
@@ -920,11 +913,11 @@ class Google_Service_Fusiontables_Table_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Retrieves a specific table by its id. (table.get)
    *
-   * @param string $tableId
-   * Identifier(ID) for the table being requested.
+   * @param string $tableId Identifier(ID) for the table being requested.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_Table
    */
@@ -934,31 +927,30 @@ class Google_Service_Fusiontables_Table_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Fusiontables_Table");
   }
+
   /**
    * Import more rows into a table. (table.importRows)
    *
-   * @param string $tableId
-   * The table into which new rows are being imported.
+   * @param string $tableId The table into which new rows are being imported.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int startLine
-   * The index of the first line from which to start importing, inclusive. Default is 0.
-   * @opt_param bool isStrict
-   * Whether the CSV must have the same number of values for each row. If false, rows with fewer
-    * values will be padded with empty values. Default is true.
-   * @opt_param string encoding
-   * The encoding of the content. Default is UTF-8. Use 'auto-detect' if you are unsure of the
-    * encoding.
-   * @opt_param string delimiter
-   * The delimiter used to separate cell values. This can only consist of a single character. Default
-    * is ','.
-   * @opt_param int endLine
-   * The index of the last line from which to start importing, exclusive. Thus, the number of
-    * imported lines is endLine - startLine. If this parameter is not provided, the file will be
-    * imported until the last line of the file. If endLine is negative, then the imported content will
-    * exclude the last endLine lines. That is, if endline is negative, no line will be imported whose
-    * index is greater than N + endLine where N is the number of lines in the file, and the number of
-    * imported lines will be N + endLine - startLine.
+   * @opt_param int startLine The index of the first line from which to start
+   * importing, inclusive. Default is 0.
+   * @opt_param bool isStrict Whether the CSV must have the same number of values
+   * for each row. If false, rows with fewer values will be padded with empty
+   * values. Default is true.
+   * @opt_param string encoding The encoding of the content. Default is UTF-8. Use
+   * 'auto-detect' if you are unsure of the encoding.
+   * @opt_param string delimiter The delimiter used to separate cell values. This
+   * can only consist of a single character. Default is ','.
+   * @opt_param int endLine The index of the last line from which to start
+   * importing, exclusive. Thus, the number of imported lines is endLine -
+   * startLine. If this parameter is not provided, the file will be imported until
+   * the last line of the file. If endLine is negative, then the imported content
+   * will exclude the last endLine lines. That is, if endline is negative, no line
+   * will be imported whose index is greater than N + endLine where N is the
+   * number of lines in the file, and the number of imported lines will be N +
+   * endLine - startLine.
    * @return Google_Service_Fusiontables_Import
    */
   public function importRows($tableId, $optParams = array())
@@ -967,19 +959,17 @@ class Google_Service_Fusiontables_Table_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('importRows', array($params), "Google_Service_Fusiontables_Import");
   }
+
   /**
    * Import a new table. (table.importTable)
    *
-   * @param string $name
-   * The name to be assigned to the new table.
+   * @param string $name The name to be assigned to the new table.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string delimiter
-   * The delimiter used to separate cell values. This can only consist of a single character. Default
-    * is ','.
-   * @opt_param string encoding
-   * The encoding of the content. Default is UTF-8. Use 'auto-detect' if you are unsure of the
-    * encoding.
+   * @opt_param string delimiter The delimiter used to separate cell values. This
+   * can only consist of a single character. Default is ','.
+   * @opt_param string encoding The encoding of the content. Default is UTF-8. Use
+   * 'auto-detect' if you are unsure of the encoding.
    * @return Google_Service_Fusiontables_Table
    */
   public function importTable($name, $optParams = array())
@@ -988,6 +978,7 @@ class Google_Service_Fusiontables_Table_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('importTable', array($params), "Google_Service_Fusiontables_Table");
   }
+
   /**
    * Creates a new table. (table.insert)
    *
@@ -1001,15 +992,16 @@ class Google_Service_Fusiontables_Table_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Fusiontables_Table");
   }
+
   /**
    * Retrieves a list of tables a user owns. (table.listTable)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Continuation token specifying which result page to return. Optional.
-   * @opt_param string maxResults
-   * Maximum number of styles to return. Optional. Default is 5.
+   * @opt_param string pageToken Continuation token specifying which result page
+   * to return. Optional.
+   * @opt_param string maxResults Maximum number of styles to return. Optional.
+   * Default is 5.
    * @return Google_Service_Fusiontables_TableList
    */
   public function listTable($optParams = array())
@@ -1018,19 +1010,19 @@ class Google_Service_Fusiontables_Table_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Fusiontables_TableList");
   }
+
   /**
    * Updates an existing table. Unless explicitly requested, only the name,
    * description, and attribution will be updated. This method supports patch
    * semantics. (table.patch)
    *
-   * @param string $tableId
-   * ID of the table that is being updated.
+   * @param string $tableId ID of the table that is being updated.
    * @param Google_Table $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool replaceViewDefinition
-   * Should the view definition also be updated? The specified view definition replaces the existing
-    * one. Only a view can be updated with a new definition.
+   * @opt_param bool replaceViewDefinition Should the view definition also be
+   * updated? The specified view definition replaces the existing one. Only a view
+   * can be updated with a new definition.
    * @return Google_Service_Fusiontables_Table
    */
   public function patch($tableId, Google_Service_Fusiontables_Table $postBody, $optParams = array())
@@ -1039,18 +1031,18 @@ class Google_Service_Fusiontables_Table_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_Fusiontables_Table");
   }
+
   /**
    * Updates an existing table. Unless explicitly requested, only the name,
    * description, and attribution will be updated. (table.update)
    *
-   * @param string $tableId
-   * ID of the table that is being updated.
+   * @param string $tableId ID of the table that is being updated.
    * @param Google_Table $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool replaceViewDefinition
-   * Should the view definition also be updated? The specified view definition replaces the existing
-    * one. Only a view can be updated with a new definition.
+   * @opt_param bool replaceViewDefinition Should the view definition also be
+   * updated? The specified view definition replaces the existing one. Only a view
+   * can be updated with a new definition.
    * @return Google_Service_Fusiontables_Table
    */
   public function update($tableId, Google_Service_Fusiontables_Table $postBody, $optParams = array())
@@ -1075,10 +1067,8 @@ class Google_Service_Fusiontables_Task_Resource extends Google_Service_Resource
   /**
    * Deletes the task, unless already started. (task.delete)
    *
-   * @param string $tableId
-   * Table from which the task is being deleted.
+   * @param string $tableId Table from which the task is being deleted.
    * @param string $taskId
-   *
    * @param array $optParams Optional parameters.
    */
   public function delete($tableId, $taskId, $optParams = array())
@@ -1087,13 +1077,12 @@ class Google_Service_Fusiontables_Task_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Retrieves a specific task by its id. (task.get)
    *
-   * @param string $tableId
-   * Table to which the task belongs.
+   * @param string $tableId Table to which the task belongs.
    * @param string $taskId
-   *
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_Task
    */
@@ -1103,19 +1092,17 @@ class Google_Service_Fusiontables_Task_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Fusiontables_Task");
   }
+
   /**
    * Retrieves a list of tasks. (task.listTask)
    *
-   * @param string $tableId
-   * Table whose tasks are being listed.
+   * @param string $tableId Table whose tasks are being listed.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken
-   *
    * @opt_param string startIndex
-   *
-   * @opt_param string maxResults
-   * Maximum number of columns to return. Optional. Default is 5.
+   * @opt_param string maxResults Maximum number of columns to return. Optional.
+   * Default is 5.
    * @return Google_Service_Fusiontables_TaskList
    */
   public function listTask($tableId, $optParams = array())
@@ -1140,10 +1127,8 @@ class Google_Service_Fusiontables_Template_Resource extends Google_Service_Resou
   /**
    * Deletes a template (template.delete)
    *
-   * @param string $tableId
-   * Table from which the template is being deleted
-   * @param int $templateId
-   * Identifier for the template which is being deleted
+   * @param string $tableId Table from which the template is being deleted
+   * @param int $templateId Identifier for the template which is being deleted
    * @param array $optParams Optional parameters.
    */
   public function delete($tableId, $templateId, $optParams = array())
@@ -1152,13 +1137,12 @@ class Google_Service_Fusiontables_Template_Resource extends Google_Service_Resou
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Retrieves a specific template by its id (template.get)
    *
-   * @param string $tableId
-   * Table to which the template belongs
-   * @param int $templateId
-   * Identifier for the template that is being requested
+   * @param string $tableId Table to which the template belongs
+   * @param int $templateId Identifier for the template that is being requested
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_Template
    */
@@ -1168,11 +1152,11 @@ class Google_Service_Fusiontables_Template_Resource extends Google_Service_Resou
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Fusiontables_Template");
   }
+
   /**
    * Creates a new template for the table. (template.insert)
    *
-   * @param string $tableId
-   * Table for which a new template is being created
+   * @param string $tableId Table for which a new template is being created
    * @param Google_Template $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_Template
@@ -1183,17 +1167,18 @@ class Google_Service_Fusiontables_Template_Resource extends Google_Service_Resou
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Fusiontables_Template");
   }
+
   /**
    * Retrieves a list of templates. (template.listTemplate)
    *
-   * @param string $tableId
-   * Identifier for the table whose templates are being requested
+   * @param string $tableId Identifier for the table whose templates are being
+   * requested
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Continuation token specifying which results page to return. Optional.
-   * @opt_param string maxResults
-   * Maximum number of templates to return. Optional. Default is 5.
+   * @opt_param string pageToken Continuation token specifying which results page
+   * to return. Optional.
+   * @opt_param string maxResults Maximum number of templates to return. Optional.
+   * Default is 5.
    * @return Google_Service_Fusiontables_TemplateList
    */
   public function listTemplate($tableId, $optParams = array())
@@ -1202,14 +1187,13 @@ class Google_Service_Fusiontables_Template_Resource extends Google_Service_Resou
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Fusiontables_TemplateList");
   }
+
   /**
    * Updates an existing template. This method supports patch semantics.
    * (template.patch)
    *
-   * @param string $tableId
-   * Table to which the updated template belongs
-   * @param int $templateId
-   * Identifier for the template that is being updated
+   * @param string $tableId Table to which the updated template belongs
+   * @param int $templateId Identifier for the template that is being updated
    * @param Google_Template $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_Template
@@ -1220,13 +1204,12 @@ class Google_Service_Fusiontables_Template_Resource extends Google_Service_Resou
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_Fusiontables_Template");
   }
+
   /**
    * Updates an existing template (template.update)
    *
-   * @param string $tableId
-   * Table to which the updated template belongs
-   * @param int $templateId
-   * Identifier for the template that is being updated
+   * @param string $tableId Table to which the updated template belongs
+   * @param int $templateId Identifier for the template that is being updated
    * @param Google_Template $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Fusiontables_Template
@@ -1253,11 +1236,11 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   public $opacity;
   public $weight;
 
+
   public function setColor($color)
   {
     $this->color = $color;
   }
-
   public function getColor()
   {
     return $this->color;
@@ -1266,7 +1249,6 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   {
     $this->icon = $icon;
   }
-
   public function getIcon()
   {
     return $this->icon;
@@ -1275,7 +1257,6 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   {
     $this->max = $max;
   }
-
   public function getMax()
   {
     return $this->max;
@@ -1284,7 +1265,6 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   {
     $this->min = $min;
   }
-
   public function getMin()
   {
     return $this->min;
@@ -1293,7 +1273,6 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   {
     $this->opacity = $opacity;
   }
-
   public function getOpacity()
   {
     return $this->opacity;
@@ -1302,12 +1281,10 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   {
     $this->weight = $weight;
   }
-
   public function getWeight()
   {
     return $this->weight;
   }
-
 }
 
 class Google_Service_Fusiontables_Column extends Google_Model
@@ -1324,11 +1301,11 @@ class Google_Service_Fusiontables_Column extends Google_Model
   public $name;
   public $type;
 
+
   public function setBaseColumn(Google_Service_Fusiontables_ColumnBaseColumn $baseColumn)
   {
     $this->baseColumn = $baseColumn;
   }
-
   public function getBaseColumn()
   {
     return $this->baseColumn;
@@ -1337,7 +1314,6 @@ class Google_Service_Fusiontables_Column extends Google_Model
   {
     $this->columnId = $columnId;
   }
-
   public function getColumnId()
   {
     return $this->columnId;
@@ -1346,7 +1322,6 @@ class Google_Service_Fusiontables_Column extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -1355,7 +1330,6 @@ class Google_Service_Fusiontables_Column extends Google_Model
   {
     $this->graphPredicate = $graphPredicate;
   }
-
   public function getGraphPredicate()
   {
     return $this->graphPredicate;
@@ -1364,7 +1338,6 @@ class Google_Service_Fusiontables_Column extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1373,7 +1346,6 @@ class Google_Service_Fusiontables_Column extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -1382,12 +1354,10 @@ class Google_Service_Fusiontables_Column extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_Fusiontables_ColumnBaseColumn extends Google_Model
@@ -1397,11 +1367,11 @@ class Google_Service_Fusiontables_ColumnBaseColumn extends Google_Model
   public $columnId;
   public $tableIndex;
 
+
   public function setColumnId($columnId)
   {
     $this->columnId = $columnId;
   }
-
   public function getColumnId()
   {
     return $this->columnId;
@@ -1410,12 +1380,10 @@ class Google_Service_Fusiontables_ColumnBaseColumn extends Google_Model
   {
     $this->tableIndex = $tableIndex;
   }
-
   public function getTableIndex()
   {
     return $this->tableIndex;
   }
-
 }
 
 class Google_Service_Fusiontables_ColumnList extends Google_Collection
@@ -1429,11 +1397,11 @@ class Google_Service_Fusiontables_ColumnList extends Google_Collection
   public $nextPageToken;
   public $totalItems;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -1442,7 +1410,6 @@ class Google_Service_Fusiontables_ColumnList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1451,7 +1418,6 @@ class Google_Service_Fusiontables_ColumnList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -1460,12 +1426,10 @@ class Google_Service_Fusiontables_ColumnList extends Google_Collection
   {
     $this->totalItems = $totalItems;
   }
-
   public function getTotalItems()
   {
     return $this->totalItems;
   }
-
 }
 
 class Google_Service_Fusiontables_Geometry extends Google_Collection
@@ -1477,11 +1441,11 @@ class Google_Service_Fusiontables_Geometry extends Google_Collection
   public $geometry;
   public $type;
 
+
   public function setGeometries($geometries)
   {
     $this->geometries = $geometries;
   }
-
   public function getGeometries()
   {
     return $this->geometries;
@@ -1490,7 +1454,6 @@ class Google_Service_Fusiontables_Geometry extends Google_Collection
   {
     $this->geometry = $geometry;
   }
-
   public function getGeometry()
   {
     return $this->geometry;
@@ -1499,12 +1462,10 @@ class Google_Service_Fusiontables_Geometry extends Google_Collection
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_Fusiontables_Import extends Google_Model
@@ -1514,11 +1475,11 @@ class Google_Service_Fusiontables_Import extends Google_Model
   public $kind;
   public $numRowsReceived;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1527,12 +1488,10 @@ class Google_Service_Fusiontables_Import extends Google_Model
   {
     $this->numRowsReceived = $numRowsReceived;
   }
-
   public function getNumRowsReceived()
   {
     return $this->numRowsReceived;
   }
-
 }
 
 class Google_Service_Fusiontables_Line extends Google_Collection
@@ -1543,11 +1502,11 @@ class Google_Service_Fusiontables_Line extends Google_Collection
   public $coordinates;
   public $type;
 
+
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
   }
-
   public function getCoordinates()
   {
     return $this->coordinates;
@@ -1556,12 +1515,10 @@ class Google_Service_Fusiontables_Line extends Google_Collection
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_Fusiontables_LineStyle extends Google_Model
@@ -1576,11 +1533,11 @@ class Google_Service_Fusiontables_LineStyle extends Google_Model
   protected $strokeWeightStylerType = 'Google_Service_Fusiontables_StyleFunction';
   protected $strokeWeightStylerDataType = '';
 
+
   public function setStrokeColor($strokeColor)
   {
     $this->strokeColor = $strokeColor;
   }
-
   public function getStrokeColor()
   {
     return $this->strokeColor;
@@ -1589,7 +1546,6 @@ class Google_Service_Fusiontables_LineStyle extends Google_Model
   {
     $this->strokeColorStyler = $strokeColorStyler;
   }
-
   public function getStrokeColorStyler()
   {
     return $this->strokeColorStyler;
@@ -1598,7 +1554,6 @@ class Google_Service_Fusiontables_LineStyle extends Google_Model
   {
     $this->strokeOpacity = $strokeOpacity;
   }
-
   public function getStrokeOpacity()
   {
     return $this->strokeOpacity;
@@ -1607,7 +1562,6 @@ class Google_Service_Fusiontables_LineStyle extends Google_Model
   {
     $this->strokeWeight = $strokeWeight;
   }
-
   public function getStrokeWeight()
   {
     return $this->strokeWeight;
@@ -1616,12 +1570,10 @@ class Google_Service_Fusiontables_LineStyle extends Google_Model
   {
     $this->strokeWeightStyler = $strokeWeightStyler;
   }
-
   public function getStrokeWeightStyler()
   {
     return $this->strokeWeightStyler;
   }
-
 }
 
 class Google_Service_Fusiontables_Point extends Google_Collection
@@ -1632,11 +1584,11 @@ class Google_Service_Fusiontables_Point extends Google_Collection
   public $coordinates;
   public $type;
 
+
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
   }
-
   public function getCoordinates()
   {
     return $this->coordinates;
@@ -1645,12 +1597,10 @@ class Google_Service_Fusiontables_Point extends Google_Collection
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_Fusiontables_PointStyle extends Google_Model
@@ -1661,11 +1611,11 @@ class Google_Service_Fusiontables_PointStyle extends Google_Model
   protected $iconStylerType = 'Google_Service_Fusiontables_StyleFunction';
   protected $iconStylerDataType = '';
 
+
   public function setIconName($iconName)
   {
     $this->iconName = $iconName;
   }
-
   public function getIconName()
   {
     return $this->iconName;
@@ -1674,12 +1624,10 @@ class Google_Service_Fusiontables_PointStyle extends Google_Model
   {
     $this->iconStyler = $iconStyler;
   }
-
   public function getIconStyler()
   {
     return $this->iconStyler;
   }
-
 }
 
 class Google_Service_Fusiontables_Polygon extends Google_Collection
@@ -1690,11 +1638,11 @@ class Google_Service_Fusiontables_Polygon extends Google_Collection
   public $coordinates;
   public $type;
 
+
   public function setCoordinates($coordinates)
   {
     $this->coordinates = $coordinates;
   }
-
   public function getCoordinates()
   {
     return $this->coordinates;
@@ -1703,12 +1651,10 @@ class Google_Service_Fusiontables_Polygon extends Google_Collection
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_Fusiontables_PolygonStyle extends Google_Model
@@ -1727,11 +1673,11 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   protected $strokeWeightStylerType = 'Google_Service_Fusiontables_StyleFunction';
   protected $strokeWeightStylerDataType = '';
 
+
   public function setFillColor($fillColor)
   {
     $this->fillColor = $fillColor;
   }
-
   public function getFillColor()
   {
     return $this->fillColor;
@@ -1740,7 +1686,6 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     $this->fillColorStyler = $fillColorStyler;
   }
-
   public function getFillColorStyler()
   {
     return $this->fillColorStyler;
@@ -1749,7 +1694,6 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     $this->fillOpacity = $fillOpacity;
   }
-
   public function getFillOpacity()
   {
     return $this->fillOpacity;
@@ -1758,7 +1702,6 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     $this->strokeColor = $strokeColor;
   }
-
   public function getStrokeColor()
   {
     return $this->strokeColor;
@@ -1767,7 +1710,6 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     $this->strokeColorStyler = $strokeColorStyler;
   }
-
   public function getStrokeColorStyler()
   {
     return $this->strokeColorStyler;
@@ -1776,7 +1718,6 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     $this->strokeOpacity = $strokeOpacity;
   }
-
   public function getStrokeOpacity()
   {
     return $this->strokeOpacity;
@@ -1785,7 +1726,6 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     $this->strokeWeight = $strokeWeight;
   }
-
   public function getStrokeWeight()
   {
     return $this->strokeWeight;
@@ -1794,12 +1734,10 @@ class Google_Service_Fusiontables_PolygonStyle extends Google_Model
   {
     $this->strokeWeightStyler = $strokeWeightStyler;
   }
-
   public function getStrokeWeightStyler()
   {
     return $this->strokeWeightStyler;
   }
-
 }
 
 class Google_Service_Fusiontables_Sqlresponse extends Google_Collection
@@ -1811,11 +1749,11 @@ class Google_Service_Fusiontables_Sqlresponse extends Google_Collection
   public $kind;
   public $rows;
 
+
   public function setColumns($columns)
   {
     $this->columns = $columns;
   }
-
   public function getColumns()
   {
     return $this->columns;
@@ -1824,7 +1762,6 @@ class Google_Service_Fusiontables_Sqlresponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1833,12 +1770,10 @@ class Google_Service_Fusiontables_Sqlresponse extends Google_Collection
   {
     $this->rows = $rows;
   }
-
   public function getRows()
   {
     return $this->rows;
   }
-
 }
 
 class Google_Service_Fusiontables_StyleFunction extends Google_Collection
@@ -1853,11 +1788,11 @@ class Google_Service_Fusiontables_StyleFunction extends Google_Collection
   protected $gradientDataType = '';
   public $kind;
 
+
   public function setBuckets($buckets)
   {
     $this->buckets = $buckets;
   }
-
   public function getBuckets()
   {
     return $this->buckets;
@@ -1866,7 +1801,6 @@ class Google_Service_Fusiontables_StyleFunction extends Google_Collection
   {
     $this->columnName = $columnName;
   }
-
   public function getColumnName()
   {
     return $this->columnName;
@@ -1875,7 +1809,6 @@ class Google_Service_Fusiontables_StyleFunction extends Google_Collection
   {
     $this->gradient = $gradient;
   }
-
   public function getGradient()
   {
     return $this->gradient;
@@ -1884,12 +1817,10 @@ class Google_Service_Fusiontables_StyleFunction extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_Fusiontables_StyleFunctionGradient extends Google_Collection
@@ -1902,11 +1833,11 @@ class Google_Service_Fusiontables_StyleFunctionGradient extends Google_Collectio
   public $max;
   public $min;
 
+
   public function setColors($colors)
   {
     $this->colors = $colors;
   }
-
   public function getColors()
   {
     return $this->colors;
@@ -1915,7 +1846,6 @@ class Google_Service_Fusiontables_StyleFunctionGradient extends Google_Collectio
   {
     $this->max = $max;
   }
-
   public function getMax()
   {
     return $this->max;
@@ -1924,12 +1854,10 @@ class Google_Service_Fusiontables_StyleFunctionGradient extends Google_Collectio
   {
     $this->min = $min;
   }
-
   public function getMin()
   {
     return $this->min;
   }
-
 }
 
 class Google_Service_Fusiontables_StyleFunctionGradientColors extends Google_Model
@@ -1939,11 +1867,11 @@ class Google_Service_Fusiontables_StyleFunctionGradientColors extends Google_Mod
   public $color;
   public $opacity;
 
+
   public function setColor($color)
   {
     $this->color = $color;
   }
-
   public function getColor()
   {
     return $this->color;
@@ -1952,12 +1880,10 @@ class Google_Service_Fusiontables_StyleFunctionGradientColors extends Google_Mod
   {
     $this->opacity = $opacity;
   }
-
   public function getOpacity()
   {
     return $this->opacity;
   }
-
 }
 
 class Google_Service_Fusiontables_StyleSetting extends Google_Model
@@ -1975,11 +1901,11 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   public $styleId;
   public $tableId;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1988,7 +1914,6 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     $this->markerOptions = $markerOptions;
   }
-
   public function getMarkerOptions()
   {
     return $this->markerOptions;
@@ -1997,7 +1922,6 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -2006,7 +1930,6 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     $this->polygonOptions = $polygonOptions;
   }
-
   public function getPolygonOptions()
   {
     return $this->polygonOptions;
@@ -2015,7 +1938,6 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     $this->polylineOptions = $polylineOptions;
   }
-
   public function getPolylineOptions()
   {
     return $this->polylineOptions;
@@ -2024,7 +1946,6 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     $this->styleId = $styleId;
   }
-
   public function getStyleId()
   {
     return $this->styleId;
@@ -2033,12 +1954,10 @@ class Google_Service_Fusiontables_StyleSetting extends Google_Model
   {
     $this->tableId = $tableId;
   }
-
   public function getTableId()
   {
     return $this->tableId;
   }
-
 }
 
 class Google_Service_Fusiontables_StyleSettingList extends Google_Collection
@@ -2052,11 +1971,11 @@ class Google_Service_Fusiontables_StyleSettingList extends Google_Collection
   public $nextPageToken;
   public $totalItems;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -2065,7 +1984,6 @@ class Google_Service_Fusiontables_StyleSettingList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2074,7 +1992,6 @@ class Google_Service_Fusiontables_StyleSettingList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -2083,12 +2000,10 @@ class Google_Service_Fusiontables_StyleSettingList extends Google_Collection
   {
     $this->totalItems = $totalItems;
   }
-
   public function getTotalItems()
   {
     return $this->totalItems;
   }
-
 }
 
 class Google_Service_Fusiontables_Table extends Google_Collection
@@ -2108,11 +2023,11 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   public $sql;
   public $tableId;
 
+
   public function setAttribution($attribution)
   {
     $this->attribution = $attribution;
   }
-
   public function getAttribution()
   {
     return $this->attribution;
@@ -2121,7 +2036,6 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     $this->attributionLink = $attributionLink;
   }
-
   public function getAttributionLink()
   {
     return $this->attributionLink;
@@ -2130,7 +2044,6 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     $this->baseTableIds = $baseTableIds;
   }
-
   public function getBaseTableIds()
   {
     return $this->baseTableIds;
@@ -2139,7 +2052,6 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     $this->columns = $columns;
   }
-
   public function getColumns()
   {
     return $this->columns;
@@ -2148,7 +2060,6 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -2157,7 +2068,6 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     $this->isExportable = $isExportable;
   }
-
   public function getIsExportable()
   {
     return $this->isExportable;
@@ -2166,7 +2076,6 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2175,7 +2084,6 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -2184,7 +2092,6 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     $this->sql = $sql;
   }
-
   public function getSql()
   {
     return $this->sql;
@@ -2193,12 +2100,10 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   {
     $this->tableId = $tableId;
   }
-
   public function getTableId()
   {
     return $this->tableId;
   }
-
 }
 
 class Google_Service_Fusiontables_TableList extends Google_Collection
@@ -2211,11 +2116,11 @@ class Google_Service_Fusiontables_TableList extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -2224,7 +2129,6 @@ class Google_Service_Fusiontables_TableList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2233,12 +2137,10 @@ class Google_Service_Fusiontables_TableList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_Fusiontables_Task extends Google_Model
@@ -2251,11 +2153,11 @@ class Google_Service_Fusiontables_Task extends Google_Model
   public $taskId;
   public $type;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2264,7 +2166,6 @@ class Google_Service_Fusiontables_Task extends Google_Model
   {
     $this->progress = $progress;
   }
-
   public function getProgress()
   {
     return $this->progress;
@@ -2273,7 +2174,6 @@ class Google_Service_Fusiontables_Task extends Google_Model
   {
     $this->started = $started;
   }
-
   public function getStarted()
   {
     return $this->started;
@@ -2282,7 +2182,6 @@ class Google_Service_Fusiontables_Task extends Google_Model
   {
     $this->taskId = $taskId;
   }
-
   public function getTaskId()
   {
     return $this->taskId;
@@ -2291,12 +2190,10 @@ class Google_Service_Fusiontables_Task extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_Fusiontables_TaskList extends Google_Collection
@@ -2310,11 +2207,11 @@ class Google_Service_Fusiontables_TaskList extends Google_Collection
   public $nextPageToken;
   public $totalItems;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -2323,7 +2220,6 @@ class Google_Service_Fusiontables_TaskList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2332,7 +2228,6 @@ class Google_Service_Fusiontables_TaskList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -2341,12 +2236,10 @@ class Google_Service_Fusiontables_TaskList extends Google_Collection
   {
     $this->totalItems = $totalItems;
   }
-
   public function getTotalItems()
   {
     return $this->totalItems;
   }
-
 }
 
 class Google_Service_Fusiontables_Template extends Google_Collection
@@ -2361,11 +2254,11 @@ class Google_Service_Fusiontables_Template extends Google_Collection
   public $tableId;
   public $templateId;
 
+
   public function setAutomaticColumnNames($automaticColumnNames)
   {
     $this->automaticColumnNames = $automaticColumnNames;
   }
-
   public function getAutomaticColumnNames()
   {
     return $this->automaticColumnNames;
@@ -2374,7 +2267,6 @@ class Google_Service_Fusiontables_Template extends Google_Collection
   {
     $this->body = $body;
   }
-
   public function getBody()
   {
     return $this->body;
@@ -2383,7 +2275,6 @@ class Google_Service_Fusiontables_Template extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2392,7 +2283,6 @@ class Google_Service_Fusiontables_Template extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -2401,7 +2291,6 @@ class Google_Service_Fusiontables_Template extends Google_Collection
   {
     $this->tableId = $tableId;
   }
-
   public function getTableId()
   {
     return $this->tableId;
@@ -2410,12 +2299,10 @@ class Google_Service_Fusiontables_Template extends Google_Collection
   {
     $this->templateId = $templateId;
   }
-
   public function getTemplateId()
   {
     return $this->templateId;
   }
-
 }
 
 class Google_Service_Fusiontables_TemplateList extends Google_Collection
@@ -2429,11 +2316,11 @@ class Google_Service_Fusiontables_TemplateList extends Google_Collection
   public $nextPageToken;
   public $totalItems;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -2442,7 +2329,6 @@ class Google_Service_Fusiontables_TemplateList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2451,7 +2337,6 @@ class Google_Service_Fusiontables_TemplateList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -2460,10 +2345,8 @@ class Google_Service_Fusiontables_TemplateList extends Google_Collection
   {
     $this->totalItems = $totalItems;
   }
-
   public function getTotalItems()
   {
     return $this->totalItems;
   }
-
 }
