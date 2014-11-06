@@ -19,8 +19,8 @@
  * Service definition for AdSense (v1.4).
  *
  * <p>
- * Gives AdSense publishers access to their inventory and the ability to generate reports
- * </p>
+ * Gives AdSense publishers access to their inventory and the ability to
+ * generate reports</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,9 +32,11 @@
 class Google_Service_AdSense extends Google_Service
 {
   /** View and manage your AdSense data. */
-  const ADSENSE = "https://www.googleapis.com/auth/adsense";
+  const ADSENSE =
+      "https://www.googleapis.com/auth/adsense";
   /** View your AdSense data. */
-  const ADSENSE_READONLY = "https://www.googleapis.com/auth/adsense.readonly";
+  const ADSENSE_READONLY =
+      "https://www.googleapis.com/auth/adsense.readonly";
 
   public $accounts;
   public $accounts_adclients;
@@ -1073,12 +1075,10 @@ class Google_Service_AdSense_Accounts_Resource extends Google_Service_Resource
   /**
    * Get information about the selected AdSense account. (accounts.get)
    *
-   * @param string $accountId
-   * Account to get information about.
+   * @param string $accountId Account to get information about.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool tree
-   * Whether the tree of sub accounts should be returned.
+   * @opt_param bool tree Whether the tree of sub accounts should be returned.
    * @return Google_Service_AdSense_Account
    */
   public function get($accountId, $optParams = array())
@@ -1087,16 +1087,17 @@ class Google_Service_AdSense_Accounts_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdSense_Account");
   }
+
   /**
    * List all accounts available to this AdSense account. (accounts.listAccounts)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through accounts. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of accounts to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through
+   * accounts. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of accounts to include in the
+   * response, used for paging.
    * @return Google_Service_AdSense_Accounts
    */
   public function listAccounts($optParams = array())
@@ -1122,15 +1123,14 @@ class Google_Service_AdSense_AccountsAdclients_Resource extends Google_Service_R
    * List all ad clients in the specified account.
    * (adclients.listAccountsAdclients)
    *
-   * @param string $accountId
-   * Account for which to list ad clients.
+   * @param string $accountId Account for which to list ad clients.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through ad clients. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of ad clients to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through ad
+   * clients. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of ad clients to include in the
+   * response, used for paging.
    * @return Google_Service_AdSense_AdClients
    */
   public function listAccountsAdclients($accountId, $optParams = array())
@@ -1155,12 +1155,9 @@ class Google_Service_AdSense_AccountsAdunits_Resource extends Google_Service_Res
    * Gets the specified ad unit in the specified ad client for the specified
    * account. (adunits.get)
    *
-   * @param string $accountId
-   * Account to which the ad client belongs.
-   * @param string $adClientId
-   * Ad client for which to get the ad unit.
-   * @param string $adUnitId
-   * Ad unit to retrieve.
+   * @param string $accountId Account to which the ad client belongs.
+   * @param string $adClientId Ad client for which to get the ad unit.
+   * @param string $adUnitId Ad unit to retrieve.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdSense_AdUnit
    */
@@ -1170,15 +1167,13 @@ class Google_Service_AdSense_AccountsAdunits_Resource extends Google_Service_Res
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdSense_AdUnit");
   }
+
   /**
    * Get ad code for the specified ad unit. (adunits.getAdCode)
    *
-   * @param string $accountId
-   * Account which contains the ad client.
-   * @param string $adClientId
-   * Ad client with contains the ad unit.
-   * @param string $adUnitId
-   * Ad unit to get the code for.
+   * @param string $accountId Account which contains the ad client.
+   * @param string $adClientId Ad client with contains the ad unit.
+   * @param string $adUnitId Ad unit to get the code for.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdSense_AdCode
    */
@@ -1188,23 +1183,22 @@ class Google_Service_AdSense_AccountsAdunits_Resource extends Google_Service_Res
     $params = array_merge($params, $optParams);
     return $this->call('getAdCode', array($params), "Google_Service_AdSense_AdCode");
   }
+
   /**
    * List all ad units in the specified ad client for the specified account.
    * (adunits.listAccountsAdunits)
    *
-   * @param string $accountId
-   * Account to which the ad client belongs.
-   * @param string $adClientId
-   * Ad client for which to list ad units.
+   * @param string $accountId Account to which the ad client belongs.
+   * @param string $adClientId Ad client for which to list ad units.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool includeInactive
-   * Whether to include inactive ad units. Default: true.
-   * @opt_param string pageToken
-   * A continuation token, used to page through ad units. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of ad units to include in the response, used for paging.
+   * @opt_param bool includeInactive Whether to include inactive ad units.
+   * Default: true.
+   * @opt_param string pageToken A continuation token, used to page through ad
+   * units. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of ad units to include in the
+   * response, used for paging.
    * @return Google_Service_AdSense_AdUnits
    */
   public function listAccountsAdunits($accountId, $adClientId, $optParams = array())
@@ -1230,19 +1224,16 @@ class Google_Service_AdSense_AccountsAdunitsCustomchannels_Resource extends Goog
    * List all custom channels which the specified ad unit belongs to.
    * (customchannels.listAccountsAdunitsCustomchannels)
    *
-   * @param string $accountId
-   * Account to which the ad client belongs.
-   * @param string $adClientId
-   * Ad client which contains the ad unit.
-   * @param string $adUnitId
-   * Ad unit for which to list custom channels.
+   * @param string $accountId Account to which the ad client belongs.
+   * @param string $adClientId Ad client which contains the ad unit.
+   * @param string $adUnitId Ad unit for which to list custom channels.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through custom channels. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of custom channels to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through custom
+   * channels. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of custom channels to include in
+   * the response, used for paging.
    * @return Google_Service_AdSense_CustomChannels
    */
   public function listAccountsAdunitsCustomchannels($accountId, $adClientId, $adUnitId, $optParams = array())
@@ -1267,10 +1258,8 @@ class Google_Service_AdSense_AccountsAlerts_Resource extends Google_Service_Reso
    * Dismiss (delete) the specified alert from the specified publisher AdSense
    * account. (alerts.delete)
    *
-   * @param string $accountId
-   * Account which contains the ad unit.
-   * @param string $alertId
-   * Alert to delete.
+   * @param string $accountId Account which contains the ad unit.
+   * @param string $alertId Alert to delete.
    * @param array $optParams Optional parameters.
    */
   public function delete($accountId, $alertId, $optParams = array())
@@ -1279,18 +1268,17 @@ class Google_Service_AdSense_AccountsAlerts_Resource extends Google_Service_Reso
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * List the alerts for the specified AdSense account.
    * (alerts.listAccountsAlerts)
    *
-   * @param string $accountId
-   * Account for which to retrieve the alerts.
+   * @param string $accountId Account for which to retrieve the alerts.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string locale
-   * The locale to use for translating alert messages. The account locale will be used if this is not
-    * supplied. The AdSense default (English) will be used if the supplied locale is invalid or
-    * unsupported.
+   * @opt_param string locale The locale to use for translating alert messages.
+   * The account locale will be used if this is not supplied. The AdSense default
+   * (English) will be used if the supplied locale is invalid or unsupported.
    * @return Google_Service_AdSense_Alerts
    */
   public function listAccountsAlerts($accountId, $optParams = array())
@@ -1315,12 +1303,9 @@ class Google_Service_AdSense_AccountsCustomchannels_Resource extends Google_Serv
    * Get the specified custom channel from the specified ad client for the
    * specified account. (customchannels.get)
    *
-   * @param string $accountId
-   * Account to which the ad client belongs.
-   * @param string $adClientId
-   * Ad client which contains the custom channel.
-   * @param string $customChannelId
-   * Custom channel to retrieve.
+   * @param string $accountId Account to which the ad client belongs.
+   * @param string $adClientId Ad client which contains the custom channel.
+   * @param string $customChannelId Custom channel to retrieve.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdSense_CustomChannel
    */
@@ -1330,21 +1315,20 @@ class Google_Service_AdSense_AccountsCustomchannels_Resource extends Google_Serv
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdSense_CustomChannel");
   }
+
   /**
    * List all custom channels in the specified ad client for the specified
    * account. (customchannels.listAccountsCustomchannels)
    *
-   * @param string $accountId
-   * Account to which the ad client belongs.
-   * @param string $adClientId
-   * Ad client for which to list custom channels.
+   * @param string $accountId Account to which the ad client belongs.
+   * @param string $adClientId Ad client for which to list custom channels.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through custom channels. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of custom channels to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through custom
+   * channels. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of custom channels to include in
+   * the response, used for paging.
    * @return Google_Service_AdSense_CustomChannels
    */
   public function listAccountsCustomchannels($accountId, $adClientId, $optParams = array())
@@ -1370,21 +1354,18 @@ class Google_Service_AdSense_AccountsCustomchannelsAdunits_Resource extends Goog
    * List all ad units in the specified custom channel.
    * (adunits.listAccountsCustomchannelsAdunits)
    *
-   * @param string $accountId
-   * Account to which the ad client belongs.
-   * @param string $adClientId
-   * Ad client which contains the custom channel.
-   * @param string $customChannelId
-   * Custom channel for which to list ad units.
+   * @param string $accountId Account to which the ad client belongs.
+   * @param string $adClientId Ad client which contains the custom channel.
+   * @param string $customChannelId Custom channel for which to list ad units.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool includeInactive
-   * Whether to include inactive ad units. Default: true.
-   * @opt_param int maxResults
-   * The maximum number of ad units to include in the response, used for paging.
-   * @opt_param string pageToken
-   * A continuation token, used to page through ad units. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
+   * @opt_param bool includeInactive Whether to include inactive ad units.
+   * Default: true.
+   * @opt_param int maxResults The maximum number of ad units to include in the
+   * response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through ad
+   * units. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
    * @return Google_Service_AdSense_AdUnits
    */
   public function listAccountsCustomchannelsAdunits($accountId, $adClientId, $customChannelId, $optParams = array())
@@ -1409,8 +1390,7 @@ class Google_Service_AdSense_AccountsPayments_Resource extends Google_Service_Re
    * List the payments for the specified AdSense account.
    * (payments.listAccountsPayments)
    *
-   * @param string $accountId
-   * Account for which to retrieve the payments.
+   * @param string $accountId Account for which to retrieve the payments.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdSense_Payments
    */
@@ -1437,37 +1417,29 @@ class Google_Service_AdSense_AccountsReports_Resource extends Google_Service_Res
    * parameters. Returns the result as JSON; to retrieve output in CSV format
    * specify "alt=csv" as a query parameter. (reports.generate)
    *
-   * @param string $accountId
-   * Account upon which to report.
-   * @param string $startDate
-   * Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
-   * @param string $endDate
-   * End of the date range to report on in "YYYY-MM-DD" format, inclusive.
+   * @param string $accountId Account upon which to report.
+   * @param string $startDate Start of the date range to report on in "YYYY-MM-DD"
+   * format, inclusive.
+   * @param string $endDate End of the date range to report on in "YYYY-MM-DD"
+   * format, inclusive.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string sort
-   * The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+"
-    * to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted
-    * ascending.
-   * @opt_param string locale
-   * Optional locale to use for translating report output to a local language. Defaults to "en_US" if
-    * not specified.
-   * @opt_param string metric
-   * Numeric columns to include in the report.
-   * @opt_param int maxResults
-   * The maximum number of rows of report data to return.
-   * @opt_param string filter
-   * Filters to be run on the report.
-   * @opt_param string currency
-   * Optional currency to use when reporting on monetary metrics. Defaults to the account's currency
-    * if not set.
-   * @opt_param int startIndex
-   * Index of the first row of report data to return.
-   * @opt_param bool useTimezoneReporting
-   * Whether the report should be generated in the AdSense account's local timezone. If false default
-    * PST/PDT timezone will be used.
-   * @opt_param string dimension
-   * Dimensions to base the report on.
+   * @opt_param string sort The name of a dimension or metric to sort the
+   * resulting report on, optionally prefixed with "+" to sort ascending or "-" to
+   * sort descending. If no prefix is specified, the column is sorted ascending.
+   * @opt_param string locale Optional locale to use for translating report output
+   * to a local language. Defaults to "en_US" if not specified.
+   * @opt_param string metric Numeric columns to include in the report.
+   * @opt_param int maxResults The maximum number of rows of report data to
+   * return.
+   * @opt_param string filter Filters to be run on the report.
+   * @opt_param string currency Optional currency to use when reporting on
+   * monetary metrics. Defaults to the account's currency if not set.
+   * @opt_param int startIndex Index of the first row of report data to return.
+   * @opt_param bool useTimezoneReporting Whether the report should be generated
+   * in the AdSense account's local timezone. If false default PST/PDT timezone
+   * will be used.
+   * @opt_param string dimension Dimensions to base the report on.
    * @return Google_Service_AdSense_AdsenseReportsGenerateResponse
    */
   public function generate($accountId, $startDate, $endDate, $optParams = array())
@@ -1493,19 +1465,15 @@ class Google_Service_AdSense_AccountsReportsSaved_Resource extends Google_Servic
    * Generate an AdSense report based on the saved report ID sent in the query
    * parameters. (saved.generate)
    *
-   * @param string $accountId
-   * Account to which the saved reports belong.
-   * @param string $savedReportId
-   * The saved report to retrieve.
+   * @param string $accountId Account to which the saved reports belong.
+   * @param string $savedReportId The saved report to retrieve.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string locale
-   * Optional locale to use for translating report output to a local language. Defaults to "en_US" if
-    * not specified.
-   * @opt_param int startIndex
-   * Index of the first row of report data to return.
-   * @opt_param int maxResults
-   * The maximum number of rows of report data to return.
+   * @opt_param string locale Optional locale to use for translating report output
+   * to a local language. Defaults to "en_US" if not specified.
+   * @opt_param int startIndex Index of the first row of report data to return.
+   * @opt_param int maxResults The maximum number of rows of report data to
+   * return.
    * @return Google_Service_AdSense_AdsenseReportsGenerateResponse
    */
   public function generate($accountId, $savedReportId, $optParams = array())
@@ -1514,19 +1482,19 @@ class Google_Service_AdSense_AccountsReportsSaved_Resource extends Google_Servic
     $params = array_merge($params, $optParams);
     return $this->call('generate', array($params), "Google_Service_AdSense_AdsenseReportsGenerateResponse");
   }
+
   /**
    * List all saved reports in the specified AdSense account.
    * (saved.listAccountsReportsSaved)
    *
-   * @param string $accountId
-   * Account to which the saved reports belong.
+   * @param string $accountId Account to which the saved reports belong.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through saved reports. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of saved reports to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through saved
+   * reports. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of saved reports to include in
+   * the response, used for paging.
    * @return Google_Service_AdSense_SavedReports
    */
   public function listAccountsReportsSaved($accountId, $optParams = array())
@@ -1550,10 +1518,8 @@ class Google_Service_AdSense_AccountsSavedadstyles_Resource extends Google_Servi
   /**
    * List a specific saved ad style for the specified account. (savedadstyles.get)
    *
-   * @param string $accountId
-   * Account for which to get the saved ad style.
-   * @param string $savedAdStyleId
-   * Saved ad style to retrieve.
+   * @param string $accountId Account for which to get the saved ad style.
+   * @param string $savedAdStyleId Saved ad style to retrieve.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdSense_SavedAdStyle
    */
@@ -1563,19 +1529,19 @@ class Google_Service_AdSense_AccountsSavedadstyles_Resource extends Google_Servi
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdSense_SavedAdStyle");
   }
+
   /**
    * List all saved ad styles in the specified account.
    * (savedadstyles.listAccountsSavedadstyles)
    *
-   * @param string $accountId
-   * Account for which to list saved ad styles.
+   * @param string $accountId Account for which to list saved ad styles.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through saved ad styles. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of saved ad styles to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through saved
+   * ad styles. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of saved ad styles to include in
+   * the response, used for paging.
    * @return Google_Service_AdSense_SavedAdStyles
    */
   public function listAccountsSavedadstyles($accountId, $optParams = array())
@@ -1600,17 +1566,15 @@ class Google_Service_AdSense_AccountsUrlchannels_Resource extends Google_Service
    * List all URL channels in the specified ad client for the specified account.
    * (urlchannels.listAccountsUrlchannels)
    *
-   * @param string $accountId
-   * Account to which the ad client belongs.
-   * @param string $adClientId
-   * Ad client for which to list URL channels.
+   * @param string $accountId Account to which the ad client belongs.
+   * @param string $adClientId Ad client for which to list URL channels.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through URL channels. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of URL channels to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through URL
+   * channels. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of URL channels to include in
+   * the response, used for paging.
    * @return Google_Service_AdSense_UrlChannels
    */
   public function listAccountsUrlchannels($accountId, $adClientId, $optParams = array())
@@ -1637,11 +1601,11 @@ class Google_Service_AdSense_Adclients_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through ad clients. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of ad clients to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through ad
+   * clients. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of ad clients to include in the
+   * response, used for paging.
    * @return Google_Service_AdSense_AdClients
    */
   public function listAdclients($optParams = array())
@@ -1666,10 +1630,8 @@ class Google_Service_AdSense_Adunits_Resource extends Google_Service_Resource
   /**
    * Gets the specified ad unit in the specified ad client. (adunits.get)
    *
-   * @param string $adClientId
-   * Ad client for which to get the ad unit.
-   * @param string $adUnitId
-   * Ad unit to retrieve.
+   * @param string $adClientId Ad client for which to get the ad unit.
+   * @param string $adUnitId Ad unit to retrieve.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdSense_AdUnit
    */
@@ -1679,13 +1641,12 @@ class Google_Service_AdSense_Adunits_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdSense_AdUnit");
   }
+
   /**
    * Get ad code for the specified ad unit. (adunits.getAdCode)
    *
-   * @param string $adClientId
-   * Ad client with contains the ad unit.
-   * @param string $adUnitId
-   * Ad unit to get the code for.
+   * @param string $adClientId Ad client with contains the ad unit.
+   * @param string $adUnitId Ad unit to get the code for.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdSense_AdCode
    */
@@ -1695,21 +1656,21 @@ class Google_Service_AdSense_Adunits_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('getAdCode', array($params), "Google_Service_AdSense_AdCode");
   }
+
   /**
    * List all ad units in the specified ad client for this AdSense account.
    * (adunits.listAdunits)
    *
-   * @param string $adClientId
-   * Ad client for which to list ad units.
+   * @param string $adClientId Ad client for which to list ad units.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool includeInactive
-   * Whether to include inactive ad units. Default: true.
-   * @opt_param string pageToken
-   * A continuation token, used to page through ad units. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of ad units to include in the response, used for paging.
+   * @opt_param bool includeInactive Whether to include inactive ad units.
+   * Default: true.
+   * @opt_param string pageToken A continuation token, used to page through ad
+   * units. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of ad units to include in the
+   * response, used for paging.
    * @return Google_Service_AdSense_AdUnits
    */
   public function listAdunits($adClientId, $optParams = array())
@@ -1735,17 +1696,15 @@ class Google_Service_AdSense_AdunitsCustomchannels_Resource extends Google_Servi
    * List all custom channels which the specified ad unit belongs to.
    * (customchannels.listAdunitsCustomchannels)
    *
-   * @param string $adClientId
-   * Ad client which contains the ad unit.
-   * @param string $adUnitId
-   * Ad unit for which to list custom channels.
+   * @param string $adClientId Ad client which contains the ad unit.
+   * @param string $adUnitId Ad unit for which to list custom channels.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through custom channels. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of custom channels to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through custom
+   * channels. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of custom channels to include in
+   * the response, used for paging.
    * @return Google_Service_AdSense_CustomChannels
    */
   public function listAdunitsCustomchannels($adClientId, $adUnitId, $optParams = array())
@@ -1771,8 +1730,7 @@ class Google_Service_AdSense_Alerts_Resource extends Google_Service_Resource
    * Dismiss (delete) the specified alert from the publisher's AdSense account.
    * (alerts.delete)
    *
-   * @param string $alertId
-   * Alert to delete.
+   * @param string $alertId Alert to delete.
    * @param array $optParams Optional parameters.
    */
   public function delete($alertId, $optParams = array())
@@ -1781,15 +1739,15 @@ class Google_Service_AdSense_Alerts_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * List the alerts for this AdSense account. (alerts.listAlerts)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string locale
-   * The locale to use for translating alert messages. The account locale will be used if this is not
-    * supplied. The AdSense default (English) will be used if the supplied locale is invalid or
-    * unsupported.
+   * @opt_param string locale The locale to use for translating alert messages.
+   * The account locale will be used if this is not supplied. The AdSense default
+   * (English) will be used if the supplied locale is invalid or unsupported.
    * @return Google_Service_AdSense_Alerts
    */
   public function listAlerts($optParams = array())
@@ -1815,10 +1773,8 @@ class Google_Service_AdSense_Customchannels_Resource extends Google_Service_Reso
    * Get the specified custom channel from the specified ad client.
    * (customchannels.get)
    *
-   * @param string $adClientId
-   * Ad client which contains the custom channel.
-   * @param string $customChannelId
-   * Custom channel to retrieve.
+   * @param string $adClientId Ad client which contains the custom channel.
+   * @param string $customChannelId Custom channel to retrieve.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdSense_CustomChannel
    */
@@ -1828,19 +1784,19 @@ class Google_Service_AdSense_Customchannels_Resource extends Google_Service_Reso
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdSense_CustomChannel");
   }
+
   /**
    * List all custom channels in the specified ad client for this AdSense account.
    * (customchannels.listCustomchannels)
    *
-   * @param string $adClientId
-   * Ad client for which to list custom channels.
+   * @param string $adClientId Ad client for which to list custom channels.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through custom channels. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of custom channels to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through custom
+   * channels. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of custom channels to include in
+   * the response, used for paging.
    * @return Google_Service_AdSense_CustomChannels
    */
   public function listCustomchannels($adClientId, $optParams = array())
@@ -1866,19 +1822,17 @@ class Google_Service_AdSense_CustomchannelsAdunits_Resource extends Google_Servi
    * List all ad units in the specified custom channel.
    * (adunits.listCustomchannelsAdunits)
    *
-   * @param string $adClientId
-   * Ad client which contains the custom channel.
-   * @param string $customChannelId
-   * Custom channel for which to list ad units.
+   * @param string $adClientId Ad client which contains the custom channel.
+   * @param string $customChannelId Custom channel for which to list ad units.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool includeInactive
-   * Whether to include inactive ad units. Default: true.
-   * @opt_param string pageToken
-   * A continuation token, used to page through ad units. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of ad units to include in the response, used for paging.
+   * @opt_param bool includeInactive Whether to include inactive ad units.
+   * Default: true.
+   * @opt_param string pageToken A continuation token, used to page through ad
+   * units. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of ad units to include in the
+   * response, used for paging.
    * @return Google_Service_AdSense_AdUnits
    */
   public function listCustomchannelsAdunits($adClientId, $customChannelId, $optParams = array())
@@ -1899,7 +1853,6 @@ class Google_Service_AdSense_CustomchannelsAdunits_Resource extends Google_Servi
  */
 class Google_Service_AdSense_Metadata_Resource extends Google_Service_Resource
 {
-
 }
 
 /**
@@ -1994,37 +1947,29 @@ class Google_Service_AdSense_Reports_Resource extends Google_Service_Resource
    * parameters. Returns the result as JSON; to retrieve output in CSV format
    * specify "alt=csv" as a query parameter. (reports.generate)
    *
-   * @param string $startDate
-   * Start of the date range to report on in "YYYY-MM-DD" format, inclusive.
-   * @param string $endDate
-   * End of the date range to report on in "YYYY-MM-DD" format, inclusive.
+   * @param string $startDate Start of the date range to report on in "YYYY-MM-DD"
+   * format, inclusive.
+   * @param string $endDate End of the date range to report on in "YYYY-MM-DD"
+   * format, inclusive.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string sort
-   * The name of a dimension or metric to sort the resulting report on, optionally prefixed with "+"
-    * to sort ascending or "-" to sort descending. If no prefix is specified, the column is sorted
-    * ascending.
-   * @opt_param string locale
-   * Optional locale to use for translating report output to a local language. Defaults to "en_US" if
-    * not specified.
-   * @opt_param string metric
-   * Numeric columns to include in the report.
-   * @opt_param int maxResults
-   * The maximum number of rows of report data to return.
-   * @opt_param string filter
-   * Filters to be run on the report.
-   * @opt_param string currency
-   * Optional currency to use when reporting on monetary metrics. Defaults to the account's currency
-    * if not set.
-   * @opt_param int startIndex
-   * Index of the first row of report data to return.
-   * @opt_param bool useTimezoneReporting
-   * Whether the report should be generated in the AdSense account's local timezone. If false default
-    * PST/PDT timezone will be used.
-   * @opt_param string dimension
-   * Dimensions to base the report on.
-   * @opt_param string accountId
-   * Accounts upon which to report.
+   * @opt_param string sort The name of a dimension or metric to sort the
+   * resulting report on, optionally prefixed with "+" to sort ascending or "-" to
+   * sort descending. If no prefix is specified, the column is sorted ascending.
+   * @opt_param string locale Optional locale to use for translating report output
+   * to a local language. Defaults to "en_US" if not specified.
+   * @opt_param string metric Numeric columns to include in the report.
+   * @opt_param int maxResults The maximum number of rows of report data to
+   * return.
+   * @opt_param string filter Filters to be run on the report.
+   * @opt_param string currency Optional currency to use when reporting on
+   * monetary metrics. Defaults to the account's currency if not set.
+   * @opt_param int startIndex Index of the first row of report data to return.
+   * @opt_param bool useTimezoneReporting Whether the report should be generated
+   * in the AdSense account's local timezone. If false default PST/PDT timezone
+   * will be used.
+   * @opt_param string dimension Dimensions to base the report on.
+   * @opt_param string accountId Accounts upon which to report.
    * @return Google_Service_AdSense_AdsenseReportsGenerateResponse
    */
   public function generate($startDate, $endDate, $optParams = array())
@@ -2050,17 +1995,14 @@ class Google_Service_AdSense_ReportsSaved_Resource extends Google_Service_Resour
    * Generate an AdSense report based on the saved report ID sent in the query
    * parameters. (saved.generate)
    *
-   * @param string $savedReportId
-   * The saved report to retrieve.
+   * @param string $savedReportId The saved report to retrieve.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string locale
-   * Optional locale to use for translating report output to a local language. Defaults to "en_US" if
-    * not specified.
-   * @opt_param int startIndex
-   * Index of the first row of report data to return.
-   * @opt_param int maxResults
-   * The maximum number of rows of report data to return.
+   * @opt_param string locale Optional locale to use for translating report output
+   * to a local language. Defaults to "en_US" if not specified.
+   * @opt_param int startIndex Index of the first row of report data to return.
+   * @opt_param int maxResults The maximum number of rows of report data to
+   * return.
    * @return Google_Service_AdSense_AdsenseReportsGenerateResponse
    */
   public function generate($savedReportId, $optParams = array())
@@ -2069,16 +2011,17 @@ class Google_Service_AdSense_ReportsSaved_Resource extends Google_Service_Resour
     $params = array_merge($params, $optParams);
     return $this->call('generate', array($params), "Google_Service_AdSense_AdsenseReportsGenerateResponse");
   }
+
   /**
    * List all saved reports in this AdSense account. (saved.listReportsSaved)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through saved reports. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of saved reports to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through saved
+   * reports. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of saved reports to include in
+   * the response, used for paging.
    * @return Google_Service_AdSense_SavedReports
    */
   public function listReportsSaved($optParams = array())
@@ -2103,8 +2046,7 @@ class Google_Service_AdSense_Savedadstyles_Resource extends Google_Service_Resou
   /**
    * Get a specific saved ad style from the user's account. (savedadstyles.get)
    *
-   * @param string $savedAdStyleId
-   * Saved ad style to retrieve.
+   * @param string $savedAdStyleId Saved ad style to retrieve.
    * @param array $optParams Optional parameters.
    * @return Google_Service_AdSense_SavedAdStyle
    */
@@ -2114,17 +2056,18 @@ class Google_Service_AdSense_Savedadstyles_Resource extends Google_Service_Resou
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_AdSense_SavedAdStyle");
   }
+
   /**
    * List all saved ad styles in the user's account.
    * (savedadstyles.listSavedadstyles)
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through saved ad styles. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of saved ad styles to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through saved
+   * ad styles. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of saved ad styles to include in
+   * the response, used for paging.
    * @return Google_Service_AdSense_SavedAdStyles
    */
   public function listSavedadstyles($optParams = array())
@@ -2150,15 +2093,14 @@ class Google_Service_AdSense_Urlchannels_Resource extends Google_Service_Resourc
    * List all URL channels in the specified ad client for this AdSense account.
    * (urlchannels.listUrlchannels)
    *
-   * @param string $adClientId
-   * Ad client for which to list URL channels.
+   * @param string $adClientId Ad client for which to list URL channels.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A continuation token, used to page through URL channels. To retrieve the next page, set this
-    * parameter to the value of "nextPageToken" from the previous response.
-   * @opt_param int maxResults
-   * The maximum number of URL channels to include in the response, used for paging.
+   * @opt_param string pageToken A continuation token, used to page through URL
+   * channels. To retrieve the next page, set this parameter to the value of
+   * "nextPageToken" from the previous response.
+   * @opt_param int maxResults The maximum number of URL channels to include in
+   * the response, used for paging.
    * @return Google_Service_AdSense_UrlChannels
    */
   public function listUrlchannels($adClientId, $optParams = array())
@@ -2185,11 +2127,11 @@ class Google_Service_AdSense_Account extends Google_Collection
   protected $subAccountsDataType = 'array';
   public $timezone;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -2198,7 +2140,6 @@ class Google_Service_AdSense_Account extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2207,7 +2148,6 @@ class Google_Service_AdSense_Account extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -2216,7 +2156,6 @@ class Google_Service_AdSense_Account extends Google_Collection
   {
     $this->premium = $premium;
   }
-
   public function getPremium()
   {
     return $this->premium;
@@ -2225,7 +2164,6 @@ class Google_Service_AdSense_Account extends Google_Collection
   {
     $this->subAccounts = $subAccounts;
   }
-
   public function getSubAccounts()
   {
     return $this->subAccounts;
@@ -2234,12 +2172,10 @@ class Google_Service_AdSense_Account extends Google_Collection
   {
     $this->timezone = $timezone;
   }
-
   public function getTimezone()
   {
     return $this->timezone;
   }
-
 }
 
 class Google_Service_AdSense_Accounts extends Google_Collection
@@ -2253,11 +2189,11 @@ class Google_Service_AdSense_Accounts extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -2266,7 +2202,6 @@ class Google_Service_AdSense_Accounts extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -2275,7 +2210,6 @@ class Google_Service_AdSense_Accounts extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2284,12 +2218,10 @@ class Google_Service_AdSense_Accounts extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_AdSense_AdClient extends Google_Model
@@ -2303,11 +2235,11 @@ class Google_Service_AdSense_AdClient extends Google_Model
   public $productCode;
   public $supportsReporting;
 
+
   public function setArcOptIn($arcOptIn)
   {
     $this->arcOptIn = $arcOptIn;
   }
-
   public function getArcOptIn()
   {
     return $this->arcOptIn;
@@ -2316,7 +2248,6 @@ class Google_Service_AdSense_AdClient extends Google_Model
   {
     $this->arcReviewMode = $arcReviewMode;
   }
-
   public function getArcReviewMode()
   {
     return $this->arcReviewMode;
@@ -2325,7 +2256,6 @@ class Google_Service_AdSense_AdClient extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -2334,7 +2264,6 @@ class Google_Service_AdSense_AdClient extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2343,7 +2272,6 @@ class Google_Service_AdSense_AdClient extends Google_Model
   {
     $this->productCode = $productCode;
   }
-
   public function getProductCode()
   {
     return $this->productCode;
@@ -2352,12 +2280,10 @@ class Google_Service_AdSense_AdClient extends Google_Model
   {
     $this->supportsReporting = $supportsReporting;
   }
-
   public function getSupportsReporting()
   {
     return $this->supportsReporting;
   }
-
 }
 
 class Google_Service_AdSense_AdClients extends Google_Collection
@@ -2371,11 +2297,11 @@ class Google_Service_AdSense_AdClients extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -2384,7 +2310,6 @@ class Google_Service_AdSense_AdClients extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -2393,7 +2318,6 @@ class Google_Service_AdSense_AdClients extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2402,12 +2326,10 @@ class Google_Service_AdSense_AdClients extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_AdSense_AdCode extends Google_Model
@@ -2417,11 +2339,11 @@ class Google_Service_AdSense_AdCode extends Google_Model
   public $adCode;
   public $kind;
 
+
   public function setAdCode($adCode)
   {
     $this->adCode = $adCode;
   }
-
   public function getAdCode()
   {
     return $this->adCode;
@@ -2430,12 +2352,10 @@ class Google_Service_AdSense_AdCode extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_AdSense_AdStyle extends Google_Model
@@ -2449,11 +2369,11 @@ class Google_Service_AdSense_AdStyle extends Google_Model
   protected $fontDataType = '';
   public $kind;
 
+
   public function setColors(Google_Service_AdSense_AdStyleColors $colors)
   {
     $this->colors = $colors;
   }
-
   public function getColors()
   {
     return $this->colors;
@@ -2462,7 +2382,6 @@ class Google_Service_AdSense_AdStyle extends Google_Model
   {
     $this->corners = $corners;
   }
-
   public function getCorners()
   {
     return $this->corners;
@@ -2471,7 +2390,6 @@ class Google_Service_AdSense_AdStyle extends Google_Model
   {
     $this->font = $font;
   }
-
   public function getFont()
   {
     return $this->font;
@@ -2480,12 +2398,10 @@ class Google_Service_AdSense_AdStyle extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_AdSense_AdStyleColors extends Google_Model
@@ -2498,11 +2414,11 @@ class Google_Service_AdSense_AdStyleColors extends Google_Model
   public $title;
   public $url;
 
+
   public function setBackground($background)
   {
     $this->background = $background;
   }
-
   public function getBackground()
   {
     return $this->background;
@@ -2511,7 +2427,6 @@ class Google_Service_AdSense_AdStyleColors extends Google_Model
   {
     $this->border = $border;
   }
-
   public function getBorder()
   {
     return $this->border;
@@ -2520,7 +2435,6 @@ class Google_Service_AdSense_AdStyleColors extends Google_Model
   {
     $this->text = $text;
   }
-
   public function getText()
   {
     return $this->text;
@@ -2529,7 +2443,6 @@ class Google_Service_AdSense_AdStyleColors extends Google_Model
   {
     $this->title = $title;
   }
-
   public function getTitle()
   {
     return $this->title;
@@ -2538,12 +2451,10 @@ class Google_Service_AdSense_AdStyleColors extends Google_Model
   {
     $this->url = $url;
   }
-
   public function getUrl()
   {
     return $this->url;
   }
-
 }
 
 class Google_Service_AdSense_AdStyleFont extends Google_Model
@@ -2553,11 +2464,11 @@ class Google_Service_AdSense_AdStyleFont extends Google_Model
   public $family;
   public $size;
 
+
   public function setFamily($family)
   {
     $this->family = $family;
   }
-
   public function getFamily()
   {
     return $this->family;
@@ -2566,12 +2477,10 @@ class Google_Service_AdSense_AdStyleFont extends Google_Model
   {
     $this->size = $size;
   }
-
   public function getSize()
   {
     return $this->size;
   }
-
 }
 
 class Google_Service_AdSense_AdUnit extends Google_Model
@@ -2593,11 +2502,11 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   public $savedStyleId;
   public $status;
 
+
   public function setCode($code)
   {
     $this->code = $code;
   }
-
   public function getCode()
   {
     return $this->code;
@@ -2606,7 +2515,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     $this->contentAdsSettings = $contentAdsSettings;
   }
-
   public function getContentAdsSettings()
   {
     return $this->contentAdsSettings;
@@ -2615,7 +2523,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     $this->customStyle = $customStyle;
   }
-
   public function getCustomStyle()
   {
     return $this->customStyle;
@@ -2624,7 +2531,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     $this->feedAdsSettings = $feedAdsSettings;
   }
-
   public function getFeedAdsSettings()
   {
     return $this->feedAdsSettings;
@@ -2633,7 +2539,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -2642,7 +2547,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2651,7 +2555,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     $this->mobileContentAdsSettings = $mobileContentAdsSettings;
   }
-
   public function getMobileContentAdsSettings()
   {
     return $this->mobileContentAdsSettings;
@@ -2660,7 +2563,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -2669,7 +2571,6 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     $this->savedStyleId = $savedStyleId;
   }
-
   public function getSavedStyleId()
   {
     return $this->savedStyleId;
@@ -2678,12 +2579,10 @@ class Google_Service_AdSense_AdUnit extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
   }
-
 }
 
 class Google_Service_AdSense_AdUnitContentAdsSettings extends Google_Model
@@ -2695,11 +2594,11 @@ class Google_Service_AdSense_AdUnitContentAdsSettings extends Google_Model
   public $size;
   public $type;
 
+
   public function setBackupOption(Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption $backupOption)
   {
     $this->backupOption = $backupOption;
   }
-
   public function getBackupOption()
   {
     return $this->backupOption;
@@ -2708,7 +2607,6 @@ class Google_Service_AdSense_AdUnitContentAdsSettings extends Google_Model
   {
     $this->size = $size;
   }
-
   public function getSize()
   {
     return $this->size;
@@ -2717,12 +2615,10 @@ class Google_Service_AdSense_AdUnitContentAdsSettings extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption extends Google_Model
@@ -2733,11 +2629,11 @@ class Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption extends Google
   public $type;
   public $url;
 
+
   public function setColor($color)
   {
     $this->color = $color;
   }
-
   public function getColor()
   {
     return $this->color;
@@ -2746,7 +2642,6 @@ class Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption extends Google
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
@@ -2755,12 +2650,10 @@ class Google_Service_AdSense_AdUnitContentAdsSettingsBackupOption extends Google
   {
     $this->url = $url;
   }
-
   public function getUrl()
   {
     return $this->url;
   }
-
 }
 
 class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
@@ -2772,11 +2665,11 @@ class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
   public $minimumWordCount;
   public $type;
 
+
   public function setAdPosition($adPosition)
   {
     $this->adPosition = $adPosition;
   }
-
   public function getAdPosition()
   {
     return $this->adPosition;
@@ -2785,7 +2678,6 @@ class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
   {
     $this->frequency = $frequency;
   }
-
   public function getFrequency()
   {
     return $this->frequency;
@@ -2794,7 +2686,6 @@ class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
   {
     $this->minimumWordCount = $minimumWordCount;
   }
-
   public function getMinimumWordCount()
   {
     return $this->minimumWordCount;
@@ -2803,12 +2694,10 @@ class Google_Service_AdSense_AdUnitFeedAdsSettings extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
@@ -2820,11 +2709,11 @@ class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
   public $size;
   public $type;
 
+
   public function setMarkupLanguage($markupLanguage)
   {
     $this->markupLanguage = $markupLanguage;
   }
-
   public function getMarkupLanguage()
   {
     return $this->markupLanguage;
@@ -2833,7 +2722,6 @@ class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
   {
     $this->scriptingLanguage = $scriptingLanguage;
   }
-
   public function getScriptingLanguage()
   {
     return $this->scriptingLanguage;
@@ -2842,7 +2730,6 @@ class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
   {
     $this->size = $size;
   }
-
   public function getSize()
   {
     return $this->size;
@@ -2851,12 +2738,10 @@ class Google_Service_AdSense_AdUnitMobileContentAdsSettings extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_AdSense_AdUnits extends Google_Collection
@@ -2870,11 +2755,11 @@ class Google_Service_AdSense_AdUnits extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -2883,7 +2768,6 @@ class Google_Service_AdSense_AdUnits extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -2892,7 +2776,6 @@ class Google_Service_AdSense_AdUnits extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2901,12 +2784,10 @@ class Google_Service_AdSense_AdUnits extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Collection
@@ -2925,11 +2806,11 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   public $totals;
   public $warnings;
 
+
   public function setAverages($averages)
   {
     $this->averages = $averages;
   }
-
   public function getAverages()
   {
     return $this->averages;
@@ -2938,7 +2819,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     $this->endDate = $endDate;
   }
-
   public function getEndDate()
   {
     return $this->endDate;
@@ -2947,7 +2827,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     $this->headers = $headers;
   }
-
   public function getHeaders()
   {
     return $this->headers;
@@ -2956,7 +2835,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2965,7 +2843,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     $this->rows = $rows;
   }
-
   public function getRows()
   {
     return $this->rows;
@@ -2974,7 +2851,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     $this->startDate = $startDate;
   }
-
   public function getStartDate()
   {
     return $this->startDate;
@@ -2983,7 +2859,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     $this->totalMatchedRows = $totalMatchedRows;
   }
-
   public function getTotalMatchedRows()
   {
     return $this->totalMatchedRows;
@@ -2992,7 +2867,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     $this->totals = $totals;
   }
-
   public function getTotals()
   {
     return $this->totals;
@@ -3001,12 +2875,10 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponse extends Google_Colle
   {
     $this->warnings = $warnings;
   }
-
   public function getWarnings()
   {
     return $this->warnings;
   }
-
 }
 
 class Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders extends Google_Model
@@ -3017,11 +2889,11 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders extends Googl
   public $name;
   public $type;
 
+
   public function setCurrency($currency)
   {
     $this->currency = $currency;
   }
-
   public function getCurrency()
   {
     return $this->currency;
@@ -3030,7 +2902,6 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders extends Googl
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -3039,12 +2910,10 @@ class Google_Service_AdSense_AdsenseReportsGenerateResponseHeaders extends Googl
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_AdSense_Alert extends Google_Model
@@ -3058,11 +2927,11 @@ class Google_Service_AdSense_Alert extends Google_Model
   public $severity;
   public $type;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -3071,7 +2940,6 @@ class Google_Service_AdSense_Alert extends Google_Model
   {
     $this->isDismissible = $isDismissible;
   }
-
   public function getIsDismissible()
   {
     return $this->isDismissible;
@@ -3080,7 +2948,6 @@ class Google_Service_AdSense_Alert extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3089,7 +2956,6 @@ class Google_Service_AdSense_Alert extends Google_Model
   {
     $this->message = $message;
   }
-
   public function getMessage()
   {
     return $this->message;
@@ -3098,7 +2964,6 @@ class Google_Service_AdSense_Alert extends Google_Model
   {
     $this->severity = $severity;
   }
-
   public function getSeverity()
   {
     return $this->severity;
@@ -3107,12 +2972,10 @@ class Google_Service_AdSense_Alert extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_AdSense_Alerts extends Google_Collection
@@ -3124,11 +2987,11 @@ class Google_Service_AdSense_Alerts extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -3137,12 +3000,10 @@ class Google_Service_AdSense_Alerts extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_AdSense_CustomChannel extends Google_Model
@@ -3156,11 +3017,11 @@ class Google_Service_AdSense_CustomChannel extends Google_Model
   protected $targetingInfoType = 'Google_Service_AdSense_CustomChannelTargetingInfo';
   protected $targetingInfoDataType = '';
 
+
   public function setCode($code)
   {
     $this->code = $code;
   }
-
   public function getCode()
   {
     return $this->code;
@@ -3169,7 +3030,6 @@ class Google_Service_AdSense_CustomChannel extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -3178,7 +3038,6 @@ class Google_Service_AdSense_CustomChannel extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3187,7 +3046,6 @@ class Google_Service_AdSense_CustomChannel extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -3196,12 +3054,10 @@ class Google_Service_AdSense_CustomChannel extends Google_Model
   {
     $this->targetingInfo = $targetingInfo;
   }
-
   public function getTargetingInfo()
   {
     return $this->targetingInfo;
   }
-
 }
 
 class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
@@ -3213,11 +3069,11 @@ class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
   public $location;
   public $siteLanguage;
 
+
   public function setAdsAppearOn($adsAppearOn)
   {
     $this->adsAppearOn = $adsAppearOn;
   }
-
   public function getAdsAppearOn()
   {
     return $this->adsAppearOn;
@@ -3226,7 +3082,6 @@ class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -3235,7 +3090,6 @@ class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
   {
     $this->location = $location;
   }
-
   public function getLocation()
   {
     return $this->location;
@@ -3244,12 +3098,10 @@ class Google_Service_AdSense_CustomChannelTargetingInfo extends Google_Model
   {
     $this->siteLanguage = $siteLanguage;
   }
-
   public function getSiteLanguage()
   {
     return $this->siteLanguage;
   }
-
 }
 
 class Google_Service_AdSense_CustomChannels extends Google_Collection
@@ -3263,11 +3115,11 @@ class Google_Service_AdSense_CustomChannels extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -3276,7 +3128,6 @@ class Google_Service_AdSense_CustomChannels extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -3285,7 +3136,6 @@ class Google_Service_AdSense_CustomChannels extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3294,12 +3144,10 @@ class Google_Service_AdSense_CustomChannels extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_AdSense_Metadata extends Google_Collection
@@ -3311,11 +3159,11 @@ class Google_Service_AdSense_Metadata extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -3324,12 +3172,10 @@ class Google_Service_AdSense_Metadata extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_AdSense_Payment extends Google_Model
@@ -3342,11 +3188,11 @@ class Google_Service_AdSense_Payment extends Google_Model
   public $paymentAmountCurrencyCode;
   public $paymentDate;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -3355,7 +3201,6 @@ class Google_Service_AdSense_Payment extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3364,7 +3209,6 @@ class Google_Service_AdSense_Payment extends Google_Model
   {
     $this->paymentAmount = $paymentAmount;
   }
-
   public function getPaymentAmount()
   {
     return $this->paymentAmount;
@@ -3373,7 +3217,6 @@ class Google_Service_AdSense_Payment extends Google_Model
   {
     $this->paymentAmountCurrencyCode = $paymentAmountCurrencyCode;
   }
-
   public function getPaymentAmountCurrencyCode()
   {
     return $this->paymentAmountCurrencyCode;
@@ -3382,12 +3225,10 @@ class Google_Service_AdSense_Payment extends Google_Model
   {
     $this->paymentDate = $paymentDate;
   }
-
   public function getPaymentDate()
   {
     return $this->paymentDate;
   }
-
 }
 
 class Google_Service_AdSense_Payments extends Google_Collection
@@ -3399,11 +3240,11 @@ class Google_Service_AdSense_Payments extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -3412,12 +3253,10 @@ class Google_Service_AdSense_Payments extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
@@ -3433,11 +3272,11 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   public $requiredMetrics;
   public $supportedProducts;
 
+
   public function setCompatibleDimensions($compatibleDimensions)
   {
     $this->compatibleDimensions = $compatibleDimensions;
   }
-
   public function getCompatibleDimensions()
   {
     return $this->compatibleDimensions;
@@ -3446,7 +3285,6 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     $this->compatibleMetrics = $compatibleMetrics;
   }
-
   public function getCompatibleMetrics()
   {
     return $this->compatibleMetrics;
@@ -3455,7 +3293,6 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -3464,7 +3301,6 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3473,7 +3309,6 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     $this->requiredDimensions = $requiredDimensions;
   }
-
   public function getRequiredDimensions()
   {
     return $this->requiredDimensions;
@@ -3482,7 +3317,6 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     $this->requiredMetrics = $requiredMetrics;
   }
-
   public function getRequiredMetrics()
   {
     return $this->requiredMetrics;
@@ -3491,12 +3325,10 @@ class Google_Service_AdSense_ReportingMetadataEntry extends Google_Collection
   {
     $this->supportedProducts = $supportedProducts;
   }
-
   public function getSupportedProducts()
   {
     return $this->supportedProducts;
   }
-
 }
 
 class Google_Service_AdSense_SavedAdStyle extends Google_Model
@@ -3509,11 +3341,11 @@ class Google_Service_AdSense_SavedAdStyle extends Google_Model
   public $kind;
   public $name;
 
+
   public function setAdStyle(Google_Service_AdSense_AdStyle $adStyle)
   {
     $this->adStyle = $adStyle;
   }
-
   public function getAdStyle()
   {
     return $this->adStyle;
@@ -3522,7 +3354,6 @@ class Google_Service_AdSense_SavedAdStyle extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -3531,7 +3362,6 @@ class Google_Service_AdSense_SavedAdStyle extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3540,12 +3370,10 @@ class Google_Service_AdSense_SavedAdStyle extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_AdSense_SavedAdStyles extends Google_Collection
@@ -3559,11 +3387,11 @@ class Google_Service_AdSense_SavedAdStyles extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -3572,7 +3400,6 @@ class Google_Service_AdSense_SavedAdStyles extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -3581,7 +3408,6 @@ class Google_Service_AdSense_SavedAdStyles extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3590,12 +3416,10 @@ class Google_Service_AdSense_SavedAdStyles extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_AdSense_SavedReport extends Google_Model
@@ -3606,11 +3430,11 @@ class Google_Service_AdSense_SavedReport extends Google_Model
   public $kind;
   public $name;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -3619,7 +3443,6 @@ class Google_Service_AdSense_SavedReport extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3628,12 +3451,10 @@ class Google_Service_AdSense_SavedReport extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_AdSense_SavedReports extends Google_Collection
@@ -3647,11 +3468,11 @@ class Google_Service_AdSense_SavedReports extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -3660,7 +3481,6 @@ class Google_Service_AdSense_SavedReports extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -3669,7 +3489,6 @@ class Google_Service_AdSense_SavedReports extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3678,12 +3497,10 @@ class Google_Service_AdSense_SavedReports extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_AdSense_UrlChannel extends Google_Model
@@ -3694,11 +3511,11 @@ class Google_Service_AdSense_UrlChannel extends Google_Model
   public $kind;
   public $urlPattern;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -3707,7 +3524,6 @@ class Google_Service_AdSense_UrlChannel extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3716,12 +3532,10 @@ class Google_Service_AdSense_UrlChannel extends Google_Model
   {
     $this->urlPattern = $urlPattern;
   }
-
   public function getUrlPattern()
   {
     return $this->urlPattern;
   }
-
 }
 
 class Google_Service_AdSense_UrlChannels extends Google_Collection
@@ -3735,11 +3549,11 @@ class Google_Service_AdSense_UrlChannels extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -3748,7 +3562,6 @@ class Google_Service_AdSense_UrlChannels extends Google_Collection
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -3757,7 +3570,6 @@ class Google_Service_AdSense_UrlChannels extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3766,10 +3578,8 @@ class Google_Service_AdSense_UrlChannels extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
