@@ -19,8 +19,7 @@
  * Service definition for Bigquery (v2).
  *
  * <p>
- * A data platform for customers to create, manage, share and query data.
- * </p>
+ * A data platform for customers to create, manage, share and query data.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,17 +31,23 @@
 class Google_Service_Bigquery extends Google_Service
 {
   /** View and manage your data in Google BigQuery. */
-  const BIGQUERY = "https://www.googleapis.com/auth/bigquery";
+  const BIGQUERY =
+      "https://www.googleapis.com/auth/bigquery";
   /** Insert data into Google BigQuery. */
-  const BIGQUERY_INSERTDATA = "https://www.googleapis.com/auth/bigquery.insertdata";
+  const BIGQUERY_INSERTDATA =
+      "https://www.googleapis.com/auth/bigquery.insertdata";
   /** View and manage your data across Google Cloud Platform services. */
-  const CLOUD_PLATFORM = "https://www.googleapis.com/auth/cloud-platform";
+  const CLOUD_PLATFORM =
+      "https://www.googleapis.com/auth/cloud-platform";
   /** Manage your data and permissions in Google Cloud Storage. */
-  const DEVSTORAGE_FULL_CONTROL = "https://www.googleapis.com/auth/devstorage.full_control";
+  const DEVSTORAGE_FULL_CONTROL =
+      "https://www.googleapis.com/auth/devstorage.full_control";
   /** View your data in Google Cloud Storage. */
-  const DEVSTORAGE_READ_ONLY = "https://www.googleapis.com/auth/devstorage.read_only";
+  const DEVSTORAGE_READ_ONLY =
+      "https://www.googleapis.com/auth/devstorage.read_only";
   /** Manage your data in Google Cloud Storage. */
-  const DEVSTORAGE_READ_WRITE = "https://www.googleapis.com/auth/devstorage.read_write";
+  const DEVSTORAGE_READ_WRITE =
+      "https://www.googleapis.com/auth/devstorage.read_write";
 
   public $datasets;
   public $jobs;
@@ -510,15 +515,13 @@ class Google_Service_Bigquery_Datasets_Resource extends Google_Service_Resource
    * deleteContents. Immediately after deletion, you can create another dataset
    * with the same name. (datasets.delete)
    *
-   * @param string $projectId
-   * Project ID of the dataset being deleted
-   * @param string $datasetId
-   * Dataset ID of dataset being deleted
+   * @param string $projectId Project ID of the dataset being deleted
+   * @param string $datasetId Dataset ID of dataset being deleted
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool deleteContents
-   * If True, delete all the tables in the dataset. If False and the dataset contains tables, the
-    * request will fail. Default is False
+   * @opt_param bool deleteContents If True, delete all the tables in the dataset.
+   * If False and the dataset contains tables, the request will fail. Default is
+   * False
    */
   public function delete($projectId, $datasetId, $optParams = array())
   {
@@ -526,13 +529,12 @@ class Google_Service_Bigquery_Datasets_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Returns the dataset specified by datasetID. (datasets.get)
    *
-   * @param string $projectId
-   * Project ID of the requested dataset
-   * @param string $datasetId
-   * Dataset ID of the requested dataset
+   * @param string $projectId Project ID of the requested dataset
+   * @param string $datasetId Dataset ID of the requested dataset
    * @param array $optParams Optional parameters.
    * @return Google_Service_Bigquery_Dataset
    */
@@ -542,11 +544,11 @@ class Google_Service_Bigquery_Datasets_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Bigquery_Dataset");
   }
+
   /**
    * Creates a new empty dataset. (datasets.insert)
    *
-   * @param string $projectId
-   * Project ID of the new dataset
+   * @param string $projectId Project ID of the new dataset
    * @param Google_Dataset $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Bigquery_Dataset
@@ -557,21 +559,19 @@ class Google_Service_Bigquery_Datasets_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Bigquery_Dataset");
   }
+
   /**
    * Lists all the datasets in the specified project to which the caller has read
    * access; however, a project owner can list (but not necessarily get) all
    * datasets in his project. (datasets.listDatasets)
    *
-   * @param string $projectId
-   * Project ID of the datasets to be listed
+   * @param string $projectId Project ID of the datasets to be listed
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Page token, returned by a previous call, to request the next page of results
-   * @opt_param bool all
-   * Whether to list all datasets, including hidden ones
-   * @opt_param string maxResults
-   * The maximum number of results to return
+   * @opt_param string pageToken Page token, returned by a previous call, to
+   * request the next page of results
+   * @opt_param bool all Whether to list all datasets, including hidden ones
+   * @opt_param string maxResults The maximum number of results to return
    * @return Google_Service_Bigquery_DatasetList
    */
   public function listDatasets($projectId, $optParams = array())
@@ -580,16 +580,15 @@ class Google_Service_Bigquery_Datasets_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Bigquery_DatasetList");
   }
+
   /**
    * Updates information in an existing dataset. The update method replaces the
    * entire dataset resource, whereas the patch method only replaces fields that
    * are provided in the submitted dataset resource. This method supports patch
    * semantics. (datasets.patch)
    *
-   * @param string $projectId
-   * Project ID of the dataset being updated
-   * @param string $datasetId
-   * Dataset ID of the dataset being updated
+   * @param string $projectId Project ID of the dataset being updated
+   * @param string $datasetId Dataset ID of the dataset being updated
    * @param Google_Dataset $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Bigquery_Dataset
@@ -600,15 +599,14 @@ class Google_Service_Bigquery_Datasets_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_Bigquery_Dataset");
   }
+
   /**
    * Updates information in an existing dataset. The update method replaces the
    * entire dataset resource, whereas the patch method only replaces fields that
    * are provided in the submitted dataset resource. (datasets.update)
    *
-   * @param string $projectId
-   * Project ID of the dataset being updated
-   * @param string $datasetId
-   * Dataset ID of the dataset being updated
+   * @param string $projectId Project ID of the dataset being updated
+   * @param string $datasetId Dataset ID of the dataset being updated
    * @param Google_Dataset $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Bigquery_Dataset
@@ -635,10 +633,8 @@ class Google_Service_Bigquery_Jobs_Resource extends Google_Service_Resource
   /**
    * Retrieves the specified job by ID. (jobs.get)
    *
-   * @param string $projectId
-   * Project ID of the requested job
-   * @param string $jobId
-   * Job ID of the requested job
+   * @param string $projectId Project ID of the requested job
+   * @param string $jobId Job ID of the requested job
    * @param array $optParams Optional parameters.
    * @return Google_Service_Bigquery_Job
    */
@@ -648,25 +644,22 @@ class Google_Service_Bigquery_Jobs_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Bigquery_Job");
   }
+
   /**
    * Retrieves the results of a query job. (jobs.getQueryResults)
    *
-   * @param string $projectId
-   * Project ID of the query job
-   * @param string $jobId
-   * Job ID of the query job
+   * @param string $projectId Project ID of the query job
+   * @param string $jobId Job ID of the query job
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string timeoutMs
-   * How long to wait for the query to complete, in milliseconds, before returning. Default is to
-    * return immediately. If the timeout passes before the job completes, the request will fail with a
-    * TIMEOUT error
-   * @opt_param string maxResults
-   * Maximum number of results to read
-   * @opt_param string pageToken
-   * Page token, returned by a previous call, to request the next page of results
-   * @opt_param string startIndex
-   * Zero-based index of the starting row
+   * @opt_param string timeoutMs How long to wait for the query to complete, in
+   * milliseconds, before returning. Default is to return immediately. If the
+   * timeout passes before the job completes, the request will fail with a TIMEOUT
+   * error
+   * @opt_param string maxResults Maximum number of results to read
+   * @opt_param string pageToken Page token, returned by a previous call, to
+   * request the next page of results
+   * @opt_param string startIndex Zero-based index of the starting row
    * @return Google_Service_Bigquery_GetQueryResultsResponse
    */
   public function getQueryResults($projectId, $jobId, $optParams = array())
@@ -675,11 +668,12 @@ class Google_Service_Bigquery_Jobs_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('getQueryResults', array($params), "Google_Service_Bigquery_GetQueryResultsResponse");
   }
+
   /**
    * Starts a new asynchronous job. (jobs.insert)
    *
-   * @param string $projectId
-   * Project ID of the project that will be billed for the job
+   * @param string $projectId Project ID of the project that will be billed for
+   * the job
    * @param Google_Job $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Bigquery_Job
@@ -690,25 +684,23 @@ class Google_Service_Bigquery_Jobs_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Bigquery_Job");
   }
+
   /**
    * Lists all the Jobs in the specified project that were started by the user.
    * The job list returns in reverse chronological order of when the jobs were
    * created, starting with the most recent job created. (jobs.listJobs)
    *
-   * @param string $projectId
-   * Project ID of the jobs to list
+   * @param string $projectId Project ID of the jobs to list
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string projection
-   * Restrict information returned to a set of selected fields
-   * @opt_param string stateFilter
-   * Filter for job state
-   * @opt_param bool allUsers
-   * Whether to display jobs owned by all users in the project. Default false
-   * @opt_param string maxResults
-   * Maximum number of results to return
-   * @opt_param string pageToken
-   * Page token, returned by a previous call, to request the next page of results
+   * @opt_param string projection Restrict information returned to a set of
+   * selected fields
+   * @opt_param string stateFilter Filter for job state
+   * @opt_param bool allUsers Whether to display jobs owned by all users in the
+   * project. Default false
+   * @opt_param string maxResults Maximum number of results to return
+   * @opt_param string pageToken Page token, returned by a previous call, to
+   * request the next page of results
    * @return Google_Service_Bigquery_JobList
    */
   public function listJobs($projectId, $optParams = array())
@@ -717,12 +709,12 @@ class Google_Service_Bigquery_Jobs_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Bigquery_JobList");
   }
+
   /**
    * Runs a BigQuery SQL query synchronously and returns query results if the
    * query completes within a specified timeout. (jobs.query)
    *
-   * @param string $projectId
-   * Project ID of the project billed for the query
+   * @param string $projectId Project ID of the project billed for the query
    * @param Google_QueryRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Bigquery_QueryResponse
@@ -752,10 +744,9 @@ class Google_Service_Bigquery_Projects_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Page token, returned by a previous call, to request the next page of results
-   * @opt_param string maxResults
-   * Maximum number of results to return
+   * @opt_param string pageToken Page token, returned by a previous call, to
+   * request the next page of results
+   * @opt_param string maxResults Maximum number of results to return
    * @return Google_Service_Bigquery_ProjectList
    */
   public function listProjects($optParams = array())
@@ -781,12 +772,9 @@ class Google_Service_Bigquery_Tabledata_Resource extends Google_Service_Resource
    * Streams data into BigQuery one record at a time without needing to run a load
    * job. (tabledata.insertAll)
    *
-   * @param string $projectId
-   * Project ID of the destination table.
-   * @param string $datasetId
-   * Dataset ID of the destination table.
-   * @param string $tableId
-   * Table ID of the destination table.
+   * @param string $projectId Project ID of the destination table.
+   * @param string $datasetId Dataset ID of the destination table.
+   * @param string $tableId Table ID of the destination table.
    * @param Google_TableDataInsertAllRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Bigquery_TableDataInsertAllResponse
@@ -797,23 +785,19 @@ class Google_Service_Bigquery_Tabledata_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('insertAll', array($params), "Google_Service_Bigquery_TableDataInsertAllResponse");
   }
+
   /**
    * Retrieves table data from a specified set of rows. (tabledata.listTabledata)
    *
-   * @param string $projectId
-   * Project ID of the table to read
-   * @param string $datasetId
-   * Dataset ID of the table to read
-   * @param string $tableId
-   * Table ID of the table to read
+   * @param string $projectId Project ID of the table to read
+   * @param string $datasetId Dataset ID of the table to read
+   * @param string $tableId Table ID of the table to read
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string maxResults
-   * Maximum number of results to return
-   * @opt_param string pageToken
-   * Page token, returned by a previous call, identifying the result set
-   * @opt_param string startIndex
-   * Zero-based index of the starting row to read
+   * @opt_param string maxResults Maximum number of results to return
+   * @opt_param string pageToken Page token, returned by a previous call,
+   * identifying the result set
+   * @opt_param string startIndex Zero-based index of the starting row to read
    * @return Google_Service_Bigquery_TableDataList
    */
   public function listTabledata($projectId, $datasetId, $tableId, $optParams = array())
@@ -839,12 +823,9 @@ class Google_Service_Bigquery_Tables_Resource extends Google_Service_Resource
    * Deletes the table specified by tableId from the dataset. If the table
    * contains data, all the data will be deleted. (tables.delete)
    *
-   * @param string $projectId
-   * Project ID of the table to delete
-   * @param string $datasetId
-   * Dataset ID of the table to delete
-   * @param string $tableId
-   * Table ID of the table to delete
+   * @param string $projectId Project ID of the table to delete
+   * @param string $datasetId Dataset ID of the table to delete
+   * @param string $tableId Table ID of the table to delete
    * @param array $optParams Optional parameters.
    */
   public function delete($projectId, $datasetId, $tableId, $optParams = array())
@@ -853,17 +834,15 @@ class Google_Service_Bigquery_Tables_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params));
   }
+
   /**
    * Gets the specified table resource by table ID. This method does not return
    * the data in the table, it only returns the table resource, which describes
    * the structure of this table. (tables.get)
    *
-   * @param string $projectId
-   * Project ID of the requested table
-   * @param string $datasetId
-   * Dataset ID of the requested table
-   * @param string $tableId
-   * Table ID of the requested table
+   * @param string $projectId Project ID of the requested table
+   * @param string $datasetId Dataset ID of the requested table
+   * @param string $tableId Table ID of the requested table
    * @param array $optParams Optional parameters.
    * @return Google_Service_Bigquery_Table
    */
@@ -873,13 +852,12 @@ class Google_Service_Bigquery_Tables_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Bigquery_Table");
   }
+
   /**
    * Creates a new, empty table in the dataset. (tables.insert)
    *
-   * @param string $projectId
-   * Project ID of the new table
-   * @param string $datasetId
-   * Dataset ID of the new table
+   * @param string $projectId Project ID of the new table
+   * @param string $datasetId Dataset ID of the new table
    * @param Google_Table $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Bigquery_Table
@@ -890,19 +868,17 @@ class Google_Service_Bigquery_Tables_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Bigquery_Table");
   }
+
   /**
    * Lists all tables in the specified dataset. (tables.listTables)
    *
-   * @param string $projectId
-   * Project ID of the tables to list
-   * @param string $datasetId
-   * Dataset ID of the tables to list
+   * @param string $projectId Project ID of the tables to list
+   * @param string $datasetId Dataset ID of the tables to list
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * Page token, returned by a previous call, to request the next page of results
-   * @opt_param string maxResults
-   * Maximum number of results to return
+   * @opt_param string pageToken Page token, returned by a previous call, to
+   * request the next page of results
+   * @opt_param string maxResults Maximum number of results to return
    * @return Google_Service_Bigquery_TableList
    */
   public function listTables($projectId, $datasetId, $optParams = array())
@@ -911,18 +887,16 @@ class Google_Service_Bigquery_Tables_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Bigquery_TableList");
   }
+
   /**
    * Updates information in an existing table. The update method replaces the
    * entire table resource, whereas the patch method only replaces fields that are
    * provided in the submitted table resource. This method supports patch
    * semantics. (tables.patch)
    *
-   * @param string $projectId
-   * Project ID of the table to update
-   * @param string $datasetId
-   * Dataset ID of the table to update
-   * @param string $tableId
-   * Table ID of the table to update
+   * @param string $projectId Project ID of the table to update
+   * @param string $datasetId Dataset ID of the table to update
+   * @param string $tableId Table ID of the table to update
    * @param Google_Table $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Bigquery_Table
@@ -933,17 +907,15 @@ class Google_Service_Bigquery_Tables_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_Bigquery_Table");
   }
+
   /**
    * Updates information in an existing table. The update method replaces the
    * entire table resource, whereas the patch method only replaces fields that are
    * provided in the submitted table resource. (tables.update)
    *
-   * @param string $projectId
-   * Project ID of the table to update
-   * @param string $datasetId
-   * Dataset ID of the table to update
-   * @param string $tableId
-   * Table ID of the table to update
+   * @param string $projectId Project ID of the table to update
+   * @param string $datasetId Dataset ID of the table to update
+   * @param string $tableId Table ID of the table to update
    * @param Google_Table $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Bigquery_Table
@@ -977,11 +949,11 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   public $lastModifiedTime;
   public $selfLink;
 
+
   public function setAccess($access)
   {
     $this->access = $access;
   }
-
   public function getAccess()
   {
     return $this->access;
@@ -990,7 +962,6 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   {
     $this->creationTime = $creationTime;
   }
-
   public function getCreationTime()
   {
     return $this->creationTime;
@@ -999,7 +970,6 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   {
     $this->datasetReference = $datasetReference;
   }
-
   public function getDatasetReference()
   {
     return $this->datasetReference;
@@ -1008,7 +978,6 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -1017,7 +986,6 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -1026,7 +994,6 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   {
     $this->friendlyName = $friendlyName;
   }
-
   public function getFriendlyName()
   {
     return $this->friendlyName;
@@ -1035,7 +1002,6 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1044,7 +1010,6 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1053,7 +1018,6 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   {
     $this->lastModifiedTime = $lastModifiedTime;
   }
-
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
@@ -1062,12 +1026,10 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   {
     $this->selfLink = $selfLink;
   }
-
   public function getSelfLink()
   {
     return $this->selfLink;
   }
-
 }
 
 class Google_Service_Bigquery_DatasetAccess extends Google_Model
@@ -1082,11 +1044,11 @@ class Google_Service_Bigquery_DatasetAccess extends Google_Model
   protected $viewType = 'Google_Service_Bigquery_TableReference';
   protected $viewDataType = '';
 
+
   public function setDomain($domain)
   {
     $this->domain = $domain;
   }
-
   public function getDomain()
   {
     return $this->domain;
@@ -1095,7 +1057,6 @@ class Google_Service_Bigquery_DatasetAccess extends Google_Model
   {
     $this->groupByEmail = $groupByEmail;
   }
-
   public function getGroupByEmail()
   {
     return $this->groupByEmail;
@@ -1104,7 +1065,6 @@ class Google_Service_Bigquery_DatasetAccess extends Google_Model
   {
     $this->role = $role;
   }
-
   public function getRole()
   {
     return $this->role;
@@ -1113,7 +1073,6 @@ class Google_Service_Bigquery_DatasetAccess extends Google_Model
   {
     $this->specialGroup = $specialGroup;
   }
-
   public function getSpecialGroup()
   {
     return $this->specialGroup;
@@ -1122,7 +1081,6 @@ class Google_Service_Bigquery_DatasetAccess extends Google_Model
   {
     $this->userByEmail = $userByEmail;
   }
-
   public function getUserByEmail()
   {
     return $this->userByEmail;
@@ -1131,12 +1089,10 @@ class Google_Service_Bigquery_DatasetAccess extends Google_Model
   {
     $this->view = $view;
   }
-
   public function getView()
   {
     return $this->view;
   }
-
 }
 
 class Google_Service_Bigquery_DatasetList extends Google_Collection
@@ -1150,11 +1106,11 @@ class Google_Service_Bigquery_DatasetList extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setDatasets($datasets)
   {
     $this->datasets = $datasets;
   }
-
   public function getDatasets()
   {
     return $this->datasets;
@@ -1163,7 +1119,6 @@ class Google_Service_Bigquery_DatasetList extends Google_Collection
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -1172,7 +1127,6 @@ class Google_Service_Bigquery_DatasetList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1181,12 +1135,10 @@ class Google_Service_Bigquery_DatasetList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_Bigquery_DatasetListDatasets extends Google_Model
@@ -1199,11 +1151,11 @@ class Google_Service_Bigquery_DatasetListDatasets extends Google_Model
   public $id;
   public $kind;
 
+
   public function setDatasetReference(Google_Service_Bigquery_DatasetReference $datasetReference)
   {
     $this->datasetReference = $datasetReference;
   }
-
   public function getDatasetReference()
   {
     return $this->datasetReference;
@@ -1212,7 +1164,6 @@ class Google_Service_Bigquery_DatasetListDatasets extends Google_Model
   {
     $this->friendlyName = $friendlyName;
   }
-
   public function getFriendlyName()
   {
     return $this->friendlyName;
@@ -1221,7 +1172,6 @@ class Google_Service_Bigquery_DatasetListDatasets extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1230,12 +1180,10 @@ class Google_Service_Bigquery_DatasetListDatasets extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_Bigquery_DatasetReference extends Google_Model
@@ -1245,11 +1193,11 @@ class Google_Service_Bigquery_DatasetReference extends Google_Model
   public $datasetId;
   public $projectId;
 
+
   public function setDatasetId($datasetId)
   {
     $this->datasetId = $datasetId;
   }
-
   public function getDatasetId()
   {
     return $this->datasetId;
@@ -1258,12 +1206,10 @@ class Google_Service_Bigquery_DatasetReference extends Google_Model
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
   }
-
 }
 
 class Google_Service_Bigquery_ErrorProto extends Google_Model
@@ -1275,11 +1221,11 @@ class Google_Service_Bigquery_ErrorProto extends Google_Model
   public $message;
   public $reason;
 
+
   public function setDebugInfo($debugInfo)
   {
     $this->debugInfo = $debugInfo;
   }
-
   public function getDebugInfo()
   {
     return $this->debugInfo;
@@ -1288,7 +1234,6 @@ class Google_Service_Bigquery_ErrorProto extends Google_Model
   {
     $this->location = $location;
   }
-
   public function getLocation()
   {
     return $this->location;
@@ -1297,7 +1242,6 @@ class Google_Service_Bigquery_ErrorProto extends Google_Model
   {
     $this->message = $message;
   }
-
   public function getMessage()
   {
     return $this->message;
@@ -1306,12 +1250,10 @@ class Google_Service_Bigquery_ErrorProto extends Google_Model
   {
     $this->reason = $reason;
   }
-
   public function getReason()
   {
     return $this->reason;
   }
-
 }
 
 class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
@@ -1332,11 +1274,11 @@ class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
   protected $schemaDataType = '';
   public $totalRows;
 
+
   public function setCacheHit($cacheHit)
   {
     $this->cacheHit = $cacheHit;
   }
-
   public function getCacheHit()
   {
     return $this->cacheHit;
@@ -1345,7 +1287,6 @@ class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -1354,7 +1295,6 @@ class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
   {
     $this->jobComplete = $jobComplete;
   }
-
   public function getJobComplete()
   {
     return $this->jobComplete;
@@ -1363,7 +1303,6 @@ class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
   {
     $this->jobReference = $jobReference;
   }
-
   public function getJobReference()
   {
     return $this->jobReference;
@@ -1372,7 +1311,6 @@ class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1381,7 +1319,6 @@ class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
   {
     $this->pageToken = $pageToken;
   }
-
   public function getPageToken()
   {
     return $this->pageToken;
@@ -1390,7 +1327,6 @@ class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
   {
     $this->rows = $rows;
   }
-
   public function getRows()
   {
     return $this->rows;
@@ -1399,7 +1335,6 @@ class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
   {
     $this->schema = $schema;
   }
-
   public function getSchema()
   {
     return $this->schema;
@@ -1408,12 +1343,10 @@ class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
   {
     $this->totalRows = $totalRows;
   }
-
   public function getTotalRows()
   {
     return $this->totalRows;
   }
-
 }
 
 class Google_Service_Bigquery_Job extends Google_Model
@@ -1433,11 +1366,11 @@ class Google_Service_Bigquery_Job extends Google_Model
   protected $statusType = 'Google_Service_Bigquery_JobStatus';
   protected $statusDataType = '';
 
+
   public function setConfiguration(Google_Service_Bigquery_JobConfiguration $configuration)
   {
     $this->configuration = $configuration;
   }
-
   public function getConfiguration()
   {
     return $this->configuration;
@@ -1446,7 +1379,6 @@ class Google_Service_Bigquery_Job extends Google_Model
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -1455,7 +1387,6 @@ class Google_Service_Bigquery_Job extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1464,7 +1395,6 @@ class Google_Service_Bigquery_Job extends Google_Model
   {
     $this->jobReference = $jobReference;
   }
-
   public function getJobReference()
   {
     return $this->jobReference;
@@ -1473,7 +1403,6 @@ class Google_Service_Bigquery_Job extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1482,7 +1411,6 @@ class Google_Service_Bigquery_Job extends Google_Model
   {
     $this->selfLink = $selfLink;
   }
-
   public function getSelfLink()
   {
     return $this->selfLink;
@@ -1491,7 +1419,6 @@ class Google_Service_Bigquery_Job extends Google_Model
   {
     $this->statistics = $statistics;
   }
-
   public function getStatistics()
   {
     return $this->statistics;
@@ -1500,12 +1427,10 @@ class Google_Service_Bigquery_Job extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
   }
-
 }
 
 class Google_Service_Bigquery_JobConfiguration extends Google_Model
@@ -1524,11 +1449,11 @@ class Google_Service_Bigquery_JobConfiguration extends Google_Model
   protected $queryType = 'Google_Service_Bigquery_JobConfigurationQuery';
   protected $queryDataType = '';
 
+
   public function setCopy(Google_Service_Bigquery_JobConfigurationTableCopy $copy)
   {
     $this->copy = $copy;
   }
-
   public function getCopy()
   {
     return $this->copy;
@@ -1537,7 +1462,6 @@ class Google_Service_Bigquery_JobConfiguration extends Google_Model
   {
     $this->dryRun = $dryRun;
   }
-
   public function getDryRun()
   {
     return $this->dryRun;
@@ -1546,7 +1470,6 @@ class Google_Service_Bigquery_JobConfiguration extends Google_Model
   {
     $this->extract = $extract;
   }
-
   public function getExtract()
   {
     return $this->extract;
@@ -1555,7 +1478,6 @@ class Google_Service_Bigquery_JobConfiguration extends Google_Model
   {
     $this->link = $link;
   }
-
   public function getLink()
   {
     return $this->link;
@@ -1564,7 +1486,6 @@ class Google_Service_Bigquery_JobConfiguration extends Google_Model
   {
     $this->load = $load;
   }
-
   public function getLoad()
   {
     return $this->load;
@@ -1573,12 +1494,10 @@ class Google_Service_Bigquery_JobConfiguration extends Google_Model
   {
     $this->query = $query;
   }
-
   public function getQuery()
   {
     return $this->query;
   }
-
 }
 
 class Google_Service_Bigquery_JobConfigurationExtract extends Google_Collection
@@ -1595,11 +1514,11 @@ class Google_Service_Bigquery_JobConfigurationExtract extends Google_Collection
   protected $sourceTableType = 'Google_Service_Bigquery_TableReference';
   protected $sourceTableDataType = '';
 
+
   public function setCompression($compression)
   {
     $this->compression = $compression;
   }
-
   public function getCompression()
   {
     return $this->compression;
@@ -1608,7 +1527,6 @@ class Google_Service_Bigquery_JobConfigurationExtract extends Google_Collection
   {
     $this->destinationFormat = $destinationFormat;
   }
-
   public function getDestinationFormat()
   {
     return $this->destinationFormat;
@@ -1617,7 +1535,6 @@ class Google_Service_Bigquery_JobConfigurationExtract extends Google_Collection
   {
     $this->destinationUri = $destinationUri;
   }
-
   public function getDestinationUri()
   {
     return $this->destinationUri;
@@ -1626,7 +1543,6 @@ class Google_Service_Bigquery_JobConfigurationExtract extends Google_Collection
   {
     $this->destinationUris = $destinationUris;
   }
-
   public function getDestinationUris()
   {
     return $this->destinationUris;
@@ -1635,7 +1551,6 @@ class Google_Service_Bigquery_JobConfigurationExtract extends Google_Collection
   {
     $this->fieldDelimiter = $fieldDelimiter;
   }
-
   public function getFieldDelimiter()
   {
     return $this->fieldDelimiter;
@@ -1644,7 +1559,6 @@ class Google_Service_Bigquery_JobConfigurationExtract extends Google_Collection
   {
     $this->printHeader = $printHeader;
   }
-
   public function getPrintHeader()
   {
     return $this->printHeader;
@@ -1653,12 +1567,10 @@ class Google_Service_Bigquery_JobConfigurationExtract extends Google_Collection
   {
     $this->sourceTable = $sourceTable;
   }
-
   public function getSourceTable()
   {
     return $this->sourceTable;
   }
-
 }
 
 class Google_Service_Bigquery_JobConfigurationLink extends Google_Collection
@@ -1672,11 +1584,11 @@ class Google_Service_Bigquery_JobConfigurationLink extends Google_Collection
   public $sourceUri;
   public $writeDisposition;
 
+
   public function setCreateDisposition($createDisposition)
   {
     $this->createDisposition = $createDisposition;
   }
-
   public function getCreateDisposition()
   {
     return $this->createDisposition;
@@ -1685,7 +1597,6 @@ class Google_Service_Bigquery_JobConfigurationLink extends Google_Collection
   {
     $this->destinationTable = $destinationTable;
   }
-
   public function getDestinationTable()
   {
     return $this->destinationTable;
@@ -1694,7 +1605,6 @@ class Google_Service_Bigquery_JobConfigurationLink extends Google_Collection
   {
     $this->sourceUri = $sourceUri;
   }
-
   public function getSourceUri()
   {
     return $this->sourceUri;
@@ -1703,12 +1613,10 @@ class Google_Service_Bigquery_JobConfigurationLink extends Google_Collection
   {
     $this->writeDisposition = $writeDisposition;
   }
-
   public function getWriteDisposition()
   {
     return $this->writeDisposition;
   }
-
 }
 
 class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
@@ -1735,11 +1643,11 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public $sourceUris;
   public $writeDisposition;
 
+
   public function setAllowJaggedRows($allowJaggedRows)
   {
     $this->allowJaggedRows = $allowJaggedRows;
   }
-
   public function getAllowJaggedRows()
   {
     return $this->allowJaggedRows;
@@ -1748,7 +1656,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->allowQuotedNewlines = $allowQuotedNewlines;
   }
-
   public function getAllowQuotedNewlines()
   {
     return $this->allowQuotedNewlines;
@@ -1757,7 +1664,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->createDisposition = $createDisposition;
   }
-
   public function getCreateDisposition()
   {
     return $this->createDisposition;
@@ -1766,7 +1672,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->destinationTable = $destinationTable;
   }
-
   public function getDestinationTable()
   {
     return $this->destinationTable;
@@ -1775,7 +1680,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->encoding = $encoding;
   }
-
   public function getEncoding()
   {
     return $this->encoding;
@@ -1784,7 +1688,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->fieldDelimiter = $fieldDelimiter;
   }
-
   public function getFieldDelimiter()
   {
     return $this->fieldDelimiter;
@@ -1793,7 +1696,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->ignoreUnknownValues = $ignoreUnknownValues;
   }
-
   public function getIgnoreUnknownValues()
   {
     return $this->ignoreUnknownValues;
@@ -1802,7 +1704,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->maxBadRecords = $maxBadRecords;
   }
-
   public function getMaxBadRecords()
   {
     return $this->maxBadRecords;
@@ -1811,7 +1712,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->quote = $quote;
   }
-
   public function getQuote()
   {
     return $this->quote;
@@ -1820,7 +1720,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->schema = $schema;
   }
-
   public function getSchema()
   {
     return $this->schema;
@@ -1829,7 +1728,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->schemaInline = $schemaInline;
   }
-
   public function getSchemaInline()
   {
     return $this->schemaInline;
@@ -1838,7 +1736,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->schemaInlineFormat = $schemaInlineFormat;
   }
-
   public function getSchemaInlineFormat()
   {
     return $this->schemaInlineFormat;
@@ -1847,7 +1744,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->skipLeadingRows = $skipLeadingRows;
   }
-
   public function getSkipLeadingRows()
   {
     return $this->skipLeadingRows;
@@ -1856,7 +1752,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->sourceFormat = $sourceFormat;
   }
-
   public function getSourceFormat()
   {
     return $this->sourceFormat;
@@ -1865,7 +1760,6 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->sourceUris = $sourceUris;
   }
-
   public function getSourceUris()
   {
     return $this->sourceUris;
@@ -1874,12 +1768,10 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   {
     $this->writeDisposition = $writeDisposition;
   }
-
   public function getWriteDisposition()
   {
     return $this->writeDisposition;
   }
-
 }
 
 class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
@@ -1899,11 +1791,11 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   public $useQueryCache;
   public $writeDisposition;
 
+
   public function setAllowLargeResults($allowLargeResults)
   {
     $this->allowLargeResults = $allowLargeResults;
   }
-
   public function getAllowLargeResults()
   {
     return $this->allowLargeResults;
@@ -1912,7 +1804,6 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   {
     $this->createDisposition = $createDisposition;
   }
-
   public function getCreateDisposition()
   {
     return $this->createDisposition;
@@ -1921,7 +1812,6 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   {
     $this->defaultDataset = $defaultDataset;
   }
-
   public function getDefaultDataset()
   {
     return $this->defaultDataset;
@@ -1930,7 +1820,6 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   {
     $this->destinationTable = $destinationTable;
   }
-
   public function getDestinationTable()
   {
     return $this->destinationTable;
@@ -1939,7 +1828,6 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   {
     $this->flattenResults = $flattenResults;
   }
-
   public function getFlattenResults()
   {
     return $this->flattenResults;
@@ -1948,7 +1836,6 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   {
     $this->preserveNulls = $preserveNulls;
   }
-
   public function getPreserveNulls()
   {
     return $this->preserveNulls;
@@ -1957,7 +1844,6 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   {
     $this->priority = $priority;
   }
-
   public function getPriority()
   {
     return $this->priority;
@@ -1966,7 +1852,6 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   {
     $this->query = $query;
   }
-
   public function getQuery()
   {
     return $this->query;
@@ -1975,7 +1860,6 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   {
     $this->useQueryCache = $useQueryCache;
   }
-
   public function getUseQueryCache()
   {
     return $this->useQueryCache;
@@ -1984,12 +1868,10 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   {
     $this->writeDisposition = $writeDisposition;
   }
-
   public function getWriteDisposition()
   {
     return $this->writeDisposition;
   }
-
 }
 
 class Google_Service_Bigquery_JobConfigurationTableCopy extends Google_Collection
@@ -2006,11 +1888,11 @@ class Google_Service_Bigquery_JobConfigurationTableCopy extends Google_Collectio
   protected $sourceTablesDataType = 'array';
   public $writeDisposition;
 
+
   public function setCreateDisposition($createDisposition)
   {
     $this->createDisposition = $createDisposition;
   }
-
   public function getCreateDisposition()
   {
     return $this->createDisposition;
@@ -2019,7 +1901,6 @@ class Google_Service_Bigquery_JobConfigurationTableCopy extends Google_Collectio
   {
     $this->destinationTable = $destinationTable;
   }
-
   public function getDestinationTable()
   {
     return $this->destinationTable;
@@ -2028,7 +1909,6 @@ class Google_Service_Bigquery_JobConfigurationTableCopy extends Google_Collectio
   {
     $this->sourceTable = $sourceTable;
   }
-
   public function getSourceTable()
   {
     return $this->sourceTable;
@@ -2037,7 +1917,6 @@ class Google_Service_Bigquery_JobConfigurationTableCopy extends Google_Collectio
   {
     $this->sourceTables = $sourceTables;
   }
-
   public function getSourceTables()
   {
     return $this->sourceTables;
@@ -2046,12 +1925,10 @@ class Google_Service_Bigquery_JobConfigurationTableCopy extends Google_Collectio
   {
     $this->writeDisposition = $writeDisposition;
   }
-
   public function getWriteDisposition()
   {
     return $this->writeDisposition;
   }
-
 }
 
 class Google_Service_Bigquery_JobList extends Google_Collection
@@ -2066,11 +1943,11 @@ class Google_Service_Bigquery_JobList extends Google_Collection
   public $nextPageToken;
   public $totalItems;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -2079,7 +1956,6 @@ class Google_Service_Bigquery_JobList extends Google_Collection
   {
     $this->jobs = $jobs;
   }
-
   public function getJobs()
   {
     return $this->jobs;
@@ -2088,7 +1964,6 @@ class Google_Service_Bigquery_JobList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2097,7 +1972,6 @@ class Google_Service_Bigquery_JobList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -2106,12 +1980,10 @@ class Google_Service_Bigquery_JobList extends Google_Collection
   {
     $this->totalItems = $totalItems;
   }
-
   public function getTotalItems()
   {
     return $this->totalItems;
   }
-
 }
 
 class Google_Service_Bigquery_JobListJobs extends Google_Model
@@ -2134,11 +2006,11 @@ class Google_Service_Bigquery_JobListJobs extends Google_Model
   protected $statusDataType = '';
   public $userEmail;
 
+
   public function setConfiguration(Google_Service_Bigquery_JobConfiguration $configuration)
   {
     $this->configuration = $configuration;
   }
-
   public function getConfiguration()
   {
     return $this->configuration;
@@ -2147,7 +2019,6 @@ class Google_Service_Bigquery_JobListJobs extends Google_Model
   {
     $this->errorResult = $errorResult;
   }
-
   public function getErrorResult()
   {
     return $this->errorResult;
@@ -2156,7 +2027,6 @@ class Google_Service_Bigquery_JobListJobs extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -2165,7 +2035,6 @@ class Google_Service_Bigquery_JobListJobs extends Google_Model
   {
     $this->jobReference = $jobReference;
   }
-
   public function getJobReference()
   {
     return $this->jobReference;
@@ -2174,7 +2043,6 @@ class Google_Service_Bigquery_JobListJobs extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2183,7 +2051,6 @@ class Google_Service_Bigquery_JobListJobs extends Google_Model
   {
     $this->state = $state;
   }
-
   public function getState()
   {
     return $this->state;
@@ -2192,7 +2059,6 @@ class Google_Service_Bigquery_JobListJobs extends Google_Model
   {
     $this->statistics = $statistics;
   }
-
   public function getStatistics()
   {
     return $this->statistics;
@@ -2201,7 +2067,6 @@ class Google_Service_Bigquery_JobListJobs extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
@@ -2210,12 +2075,10 @@ class Google_Service_Bigquery_JobListJobs extends Google_Model
   {
     $this->userEmail = $userEmail;
   }
-
   public function getUserEmail()
   {
     return $this->userEmail;
   }
-
 }
 
 class Google_Service_Bigquery_JobReference extends Google_Model
@@ -2225,11 +2088,11 @@ class Google_Service_Bigquery_JobReference extends Google_Model
   public $jobId;
   public $projectId;
 
+
   public function setJobId($jobId)
   {
     $this->jobId = $jobId;
   }
-
   public function getJobId()
   {
     return $this->jobId;
@@ -2238,12 +2101,10 @@ class Google_Service_Bigquery_JobReference extends Google_Model
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
   }
-
 }
 
 class Google_Service_Bigquery_JobStatistics extends Google_Model
@@ -2259,11 +2120,11 @@ class Google_Service_Bigquery_JobStatistics extends Google_Model
   public $startTime;
   public $totalBytesProcessed;
 
+
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
   }
-
   public function getCreationTime()
   {
     return $this->creationTime;
@@ -2272,7 +2133,6 @@ class Google_Service_Bigquery_JobStatistics extends Google_Model
   {
     $this->endTime = $endTime;
   }
-
   public function getEndTime()
   {
     return $this->endTime;
@@ -2281,7 +2141,6 @@ class Google_Service_Bigquery_JobStatistics extends Google_Model
   {
     $this->load = $load;
   }
-
   public function getLoad()
   {
     return $this->load;
@@ -2290,7 +2149,6 @@ class Google_Service_Bigquery_JobStatistics extends Google_Model
   {
     $this->query = $query;
   }
-
   public function getQuery()
   {
     return $this->query;
@@ -2299,7 +2157,6 @@ class Google_Service_Bigquery_JobStatistics extends Google_Model
   {
     $this->startTime = $startTime;
   }
-
   public function getStartTime()
   {
     return $this->startTime;
@@ -2308,12 +2165,10 @@ class Google_Service_Bigquery_JobStatistics extends Google_Model
   {
     $this->totalBytesProcessed = $totalBytesProcessed;
   }
-
   public function getTotalBytesProcessed()
   {
     return $this->totalBytesProcessed;
   }
-
 }
 
 class Google_Service_Bigquery_JobStatistics2 extends Google_Model
@@ -2323,11 +2178,11 @@ class Google_Service_Bigquery_JobStatistics2 extends Google_Model
   public $cacheHit;
   public $totalBytesProcessed;
 
+
   public function setCacheHit($cacheHit)
   {
     $this->cacheHit = $cacheHit;
   }
-
   public function getCacheHit()
   {
     return $this->cacheHit;
@@ -2336,12 +2191,10 @@ class Google_Service_Bigquery_JobStatistics2 extends Google_Model
   {
     $this->totalBytesProcessed = $totalBytesProcessed;
   }
-
   public function getTotalBytesProcessed()
   {
     return $this->totalBytesProcessed;
   }
-
 }
 
 class Google_Service_Bigquery_JobStatistics3 extends Google_Model
@@ -2353,11 +2206,11 @@ class Google_Service_Bigquery_JobStatistics3 extends Google_Model
   public $outputBytes;
   public $outputRows;
 
+
   public function setInputFileBytes($inputFileBytes)
   {
     $this->inputFileBytes = $inputFileBytes;
   }
-
   public function getInputFileBytes()
   {
     return $this->inputFileBytes;
@@ -2366,7 +2219,6 @@ class Google_Service_Bigquery_JobStatistics3 extends Google_Model
   {
     $this->inputFiles = $inputFiles;
   }
-
   public function getInputFiles()
   {
     return $this->inputFiles;
@@ -2375,7 +2227,6 @@ class Google_Service_Bigquery_JobStatistics3 extends Google_Model
   {
     $this->outputBytes = $outputBytes;
   }
-
   public function getOutputBytes()
   {
     return $this->outputBytes;
@@ -2384,12 +2235,10 @@ class Google_Service_Bigquery_JobStatistics3 extends Google_Model
   {
     $this->outputRows = $outputRows;
   }
-
   public function getOutputRows()
   {
     return $this->outputRows;
   }
-
 }
 
 class Google_Service_Bigquery_JobStatus extends Google_Collection
@@ -2403,11 +2252,11 @@ class Google_Service_Bigquery_JobStatus extends Google_Collection
   protected $errorsDataType = 'array';
   public $state;
 
+
   public function setErrorResult(Google_Service_Bigquery_ErrorProto $errorResult)
   {
     $this->errorResult = $errorResult;
   }
-
   public function getErrorResult()
   {
     return $this->errorResult;
@@ -2416,7 +2265,6 @@ class Google_Service_Bigquery_JobStatus extends Google_Collection
   {
     $this->errors = $errors;
   }
-
   public function getErrors()
   {
     return $this->errors;
@@ -2425,20 +2273,14 @@ class Google_Service_Bigquery_JobStatus extends Google_Collection
   {
     $this->state = $state;
   }
-
   public function getState()
   {
     return $this->state;
   }
-
 }
 
 class Google_Service_Bigquery_JsonObject extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
-  );
-
-
 }
 
 class Google_Service_Bigquery_ProjectList extends Google_Collection
@@ -2453,11 +2295,11 @@ class Google_Service_Bigquery_ProjectList extends Google_Collection
   protected $projectsDataType = 'array';
   public $totalItems;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -2466,7 +2308,6 @@ class Google_Service_Bigquery_ProjectList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2475,7 +2316,6 @@ class Google_Service_Bigquery_ProjectList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -2484,7 +2324,6 @@ class Google_Service_Bigquery_ProjectList extends Google_Collection
   {
     $this->projects = $projects;
   }
-
   public function getProjects()
   {
     return $this->projects;
@@ -2493,12 +2332,10 @@ class Google_Service_Bigquery_ProjectList extends Google_Collection
   {
     $this->totalItems = $totalItems;
   }
-
   public function getTotalItems()
   {
     return $this->totalItems;
   }
-
 }
 
 class Google_Service_Bigquery_ProjectListProjects extends Google_Model
@@ -2512,11 +2349,11 @@ class Google_Service_Bigquery_ProjectListProjects extends Google_Model
   protected $projectReferenceType = 'Google_Service_Bigquery_ProjectReference';
   protected $projectReferenceDataType = '';
 
+
   public function setFriendlyName($friendlyName)
   {
     $this->friendlyName = $friendlyName;
   }
-
   public function getFriendlyName()
   {
     return $this->friendlyName;
@@ -2525,7 +2362,6 @@ class Google_Service_Bigquery_ProjectListProjects extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -2534,7 +2370,6 @@ class Google_Service_Bigquery_ProjectListProjects extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2543,7 +2378,6 @@ class Google_Service_Bigquery_ProjectListProjects extends Google_Model
   {
     $this->numericId = $numericId;
   }
-
   public function getNumericId()
   {
     return $this->numericId;
@@ -2552,12 +2386,10 @@ class Google_Service_Bigquery_ProjectListProjects extends Google_Model
   {
     $this->projectReference = $projectReference;
   }
-
   public function getProjectReference()
   {
     return $this->projectReference;
   }
-
 }
 
 class Google_Service_Bigquery_ProjectReference extends Google_Model
@@ -2566,16 +2398,15 @@ class Google_Service_Bigquery_ProjectReference extends Google_Model
   );
   public $projectId;
 
+
   public function setProjectId($projectId)
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
   }
-
 }
 
 class Google_Service_Bigquery_QueryRequest extends Google_Model
@@ -2592,11 +2423,11 @@ class Google_Service_Bigquery_QueryRequest extends Google_Model
   public $timeoutMs;
   public $useQueryCache;
 
+
   public function setDefaultDataset(Google_Service_Bigquery_DatasetReference $defaultDataset)
   {
     $this->defaultDataset = $defaultDataset;
   }
-
   public function getDefaultDataset()
   {
     return $this->defaultDataset;
@@ -2605,7 +2436,6 @@ class Google_Service_Bigquery_QueryRequest extends Google_Model
   {
     $this->dryRun = $dryRun;
   }
-
   public function getDryRun()
   {
     return $this->dryRun;
@@ -2614,7 +2444,6 @@ class Google_Service_Bigquery_QueryRequest extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2623,7 +2452,6 @@ class Google_Service_Bigquery_QueryRequest extends Google_Model
   {
     $this->maxResults = $maxResults;
   }
-
   public function getMaxResults()
   {
     return $this->maxResults;
@@ -2632,7 +2460,6 @@ class Google_Service_Bigquery_QueryRequest extends Google_Model
   {
     $this->preserveNulls = $preserveNulls;
   }
-
   public function getPreserveNulls()
   {
     return $this->preserveNulls;
@@ -2641,7 +2468,6 @@ class Google_Service_Bigquery_QueryRequest extends Google_Model
   {
     $this->query = $query;
   }
-
   public function getQuery()
   {
     return $this->query;
@@ -2650,7 +2476,6 @@ class Google_Service_Bigquery_QueryRequest extends Google_Model
   {
     $this->timeoutMs = $timeoutMs;
   }
-
   public function getTimeoutMs()
   {
     return $this->timeoutMs;
@@ -2659,12 +2484,10 @@ class Google_Service_Bigquery_QueryRequest extends Google_Model
   {
     $this->useQueryCache = $useQueryCache;
   }
-
   public function getUseQueryCache()
   {
     return $this->useQueryCache;
   }
-
 }
 
 class Google_Service_Bigquery_QueryResponse extends Google_Collection
@@ -2685,11 +2508,11 @@ class Google_Service_Bigquery_QueryResponse extends Google_Collection
   public $totalBytesProcessed;
   public $totalRows;
 
+
   public function setCacheHit($cacheHit)
   {
     $this->cacheHit = $cacheHit;
   }
-
   public function getCacheHit()
   {
     return $this->cacheHit;
@@ -2698,7 +2521,6 @@ class Google_Service_Bigquery_QueryResponse extends Google_Collection
   {
     $this->jobComplete = $jobComplete;
   }
-
   public function getJobComplete()
   {
     return $this->jobComplete;
@@ -2707,7 +2529,6 @@ class Google_Service_Bigquery_QueryResponse extends Google_Collection
   {
     $this->jobReference = $jobReference;
   }
-
   public function getJobReference()
   {
     return $this->jobReference;
@@ -2716,7 +2537,6 @@ class Google_Service_Bigquery_QueryResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2725,7 +2545,6 @@ class Google_Service_Bigquery_QueryResponse extends Google_Collection
   {
     $this->pageToken = $pageToken;
   }
-
   public function getPageToken()
   {
     return $this->pageToken;
@@ -2734,7 +2553,6 @@ class Google_Service_Bigquery_QueryResponse extends Google_Collection
   {
     $this->rows = $rows;
   }
-
   public function getRows()
   {
     return $this->rows;
@@ -2743,7 +2561,6 @@ class Google_Service_Bigquery_QueryResponse extends Google_Collection
   {
     $this->schema = $schema;
   }
-
   public function getSchema()
   {
     return $this->schema;
@@ -2752,7 +2569,6 @@ class Google_Service_Bigquery_QueryResponse extends Google_Collection
   {
     $this->totalBytesProcessed = $totalBytesProcessed;
   }
-
   public function getTotalBytesProcessed()
   {
     return $this->totalBytesProcessed;
@@ -2761,12 +2577,10 @@ class Google_Service_Bigquery_QueryResponse extends Google_Collection
   {
     $this->totalRows = $totalRows;
   }
-
   public function getTotalRows()
   {
     return $this->totalRows;
   }
-
 }
 
 class Google_Service_Bigquery_Table extends Google_Model
@@ -2792,11 +2606,11 @@ class Google_Service_Bigquery_Table extends Google_Model
   protected $viewType = 'Google_Service_Bigquery_ViewDefinition';
   protected $viewDataType = '';
 
+
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
   }
-
   public function getCreationTime()
   {
     return $this->creationTime;
@@ -2805,7 +2619,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -2814,7 +2627,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -2823,7 +2635,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->expirationTime = $expirationTime;
   }
-
   public function getExpirationTime()
   {
     return $this->expirationTime;
@@ -2832,7 +2643,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->friendlyName = $friendlyName;
   }
-
   public function getFriendlyName()
   {
     return $this->friendlyName;
@@ -2841,7 +2651,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -2850,7 +2659,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2859,7 +2667,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->lastModifiedTime = $lastModifiedTime;
   }
-
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
@@ -2868,7 +2675,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->numBytes = $numBytes;
   }
-
   public function getNumBytes()
   {
     return $this->numBytes;
@@ -2877,7 +2683,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->numRows = $numRows;
   }
-
   public function getNumRows()
   {
     return $this->numRows;
@@ -2886,7 +2691,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->schema = $schema;
   }
-
   public function getSchema()
   {
     return $this->schema;
@@ -2895,7 +2699,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->selfLink = $selfLink;
   }
-
   public function getSelfLink()
   {
     return $this->selfLink;
@@ -2904,7 +2707,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->tableReference = $tableReference;
   }
-
   public function getTableReference()
   {
     return $this->tableReference;
@@ -2913,7 +2715,6 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
@@ -2922,12 +2723,10 @@ class Google_Service_Bigquery_Table extends Google_Model
   {
     $this->view = $view;
   }
-
   public function getView()
   {
     return $this->view;
   }
-
 }
 
 class Google_Service_Bigquery_TableCell extends Google_Model
@@ -2936,16 +2735,15 @@ class Google_Service_Bigquery_TableCell extends Google_Model
   );
   public $v;
 
+
   public function setV($v)
   {
     $this->v = $v;
   }
-
   public function getV()
   {
     return $this->v;
   }
-
 }
 
 class Google_Service_Bigquery_TableDataInsertAllRequest extends Google_Collection
@@ -2957,11 +2755,11 @@ class Google_Service_Bigquery_TableDataInsertAllRequest extends Google_Collectio
   protected $rowsType = 'Google_Service_Bigquery_TableDataInsertAllRequestRows';
   protected $rowsDataType = 'array';
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2970,12 +2768,10 @@ class Google_Service_Bigquery_TableDataInsertAllRequest extends Google_Collectio
   {
     $this->rows = $rows;
   }
-
   public function getRows()
   {
     return $this->rows;
   }
-
 }
 
 class Google_Service_Bigquery_TableDataInsertAllRequestRows extends Google_Model
@@ -2985,11 +2781,11 @@ class Google_Service_Bigquery_TableDataInsertAllRequestRows extends Google_Model
   public $insertId;
   public $json;
 
+
   public function setInsertId($insertId)
   {
     $this->insertId = $insertId;
   }
-
   public function getInsertId()
   {
     return $this->insertId;
@@ -2998,12 +2794,10 @@ class Google_Service_Bigquery_TableDataInsertAllRequestRows extends Google_Model
   {
     $this->json = $json;
   }
-
   public function getJson()
   {
     return $this->json;
   }
-
 }
 
 class Google_Service_Bigquery_TableDataInsertAllResponse extends Google_Collection
@@ -3015,11 +2809,11 @@ class Google_Service_Bigquery_TableDataInsertAllResponse extends Google_Collecti
   protected $insertErrorsDataType = 'array';
   public $kind;
 
+
   public function setInsertErrors($insertErrors)
   {
     $this->insertErrors = $insertErrors;
   }
-
   public function getInsertErrors()
   {
     return $this->insertErrors;
@@ -3028,12 +2822,10 @@ class Google_Service_Bigquery_TableDataInsertAllResponse extends Google_Collecti
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_Bigquery_TableDataInsertAllResponseInsertErrors extends Google_Collection
@@ -3045,11 +2837,11 @@ class Google_Service_Bigquery_TableDataInsertAllResponseInsertErrors extends Goo
   protected $errorsDataType = 'array';
   public $index;
 
+
   public function setErrors($errors)
   {
     $this->errors = $errors;
   }
-
   public function getErrors()
   {
     return $this->errors;
@@ -3058,12 +2850,10 @@ class Google_Service_Bigquery_TableDataInsertAllResponseInsertErrors extends Goo
   {
     $this->index = $index;
   }
-
   public function getIndex()
   {
     return $this->index;
   }
-
 }
 
 class Google_Service_Bigquery_TableDataList extends Google_Collection
@@ -3078,11 +2868,11 @@ class Google_Service_Bigquery_TableDataList extends Google_Collection
   protected $rowsDataType = 'array';
   public $totalRows;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -3091,7 +2881,6 @@ class Google_Service_Bigquery_TableDataList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3100,7 +2889,6 @@ class Google_Service_Bigquery_TableDataList extends Google_Collection
   {
     $this->pageToken = $pageToken;
   }
-
   public function getPageToken()
   {
     return $this->pageToken;
@@ -3109,7 +2897,6 @@ class Google_Service_Bigquery_TableDataList extends Google_Collection
   {
     $this->rows = $rows;
   }
-
   public function getRows()
   {
     return $this->rows;
@@ -3118,12 +2905,10 @@ class Google_Service_Bigquery_TableDataList extends Google_Collection
   {
     $this->totalRows = $totalRows;
   }
-
   public function getTotalRows()
   {
     return $this->totalRows;
   }
-
 }
 
 class Google_Service_Bigquery_TableFieldSchema extends Google_Collection
@@ -3138,11 +2923,11 @@ class Google_Service_Bigquery_TableFieldSchema extends Google_Collection
   public $name;
   public $type;
 
+
   public function setDescription($description)
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -3151,7 +2936,6 @@ class Google_Service_Bigquery_TableFieldSchema extends Google_Collection
   {
     $this->fields = $fields;
   }
-
   public function getFields()
   {
     return $this->fields;
@@ -3160,7 +2944,6 @@ class Google_Service_Bigquery_TableFieldSchema extends Google_Collection
   {
     $this->mode = $mode;
   }
-
   public function getMode()
   {
     return $this->mode;
@@ -3169,7 +2952,6 @@ class Google_Service_Bigquery_TableFieldSchema extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -3178,12 +2960,10 @@ class Google_Service_Bigquery_TableFieldSchema extends Google_Collection
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_Bigquery_TableList extends Google_Collection
@@ -3198,11 +2978,11 @@ class Google_Service_Bigquery_TableList extends Google_Collection
   protected $tablesDataType = 'array';
   public $totalItems;
 
+
   public function setEtag($etag)
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -3211,7 +2991,6 @@ class Google_Service_Bigquery_TableList extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3220,7 +2999,6 @@ class Google_Service_Bigquery_TableList extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
@@ -3229,7 +3007,6 @@ class Google_Service_Bigquery_TableList extends Google_Collection
   {
     $this->tables = $tables;
   }
-
   public function getTables()
   {
     return $this->tables;
@@ -3238,12 +3015,10 @@ class Google_Service_Bigquery_TableList extends Google_Collection
   {
     $this->totalItems = $totalItems;
   }
-
   public function getTotalItems()
   {
     return $this->totalItems;
   }
-
 }
 
 class Google_Service_Bigquery_TableListTables extends Google_Model
@@ -3257,11 +3032,11 @@ class Google_Service_Bigquery_TableListTables extends Google_Model
   protected $tableReferenceDataType = '';
   public $type;
 
+
   public function setFriendlyName($friendlyName)
   {
     $this->friendlyName = $friendlyName;
   }
-
   public function getFriendlyName()
   {
     return $this->friendlyName;
@@ -3270,7 +3045,6 @@ class Google_Service_Bigquery_TableListTables extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -3279,7 +3053,6 @@ class Google_Service_Bigquery_TableListTables extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -3288,7 +3061,6 @@ class Google_Service_Bigquery_TableListTables extends Google_Model
   {
     $this->tableReference = $tableReference;
   }
-
   public function getTableReference()
   {
     return $this->tableReference;
@@ -3297,12 +3069,10 @@ class Google_Service_Bigquery_TableListTables extends Google_Model
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_Bigquery_TableReference extends Google_Model
@@ -3313,11 +3083,11 @@ class Google_Service_Bigquery_TableReference extends Google_Model
   public $projectId;
   public $tableId;
 
+
   public function setDatasetId($datasetId)
   {
     $this->datasetId = $datasetId;
   }
-
   public function getDatasetId()
   {
     return $this->datasetId;
@@ -3326,7 +3096,6 @@ class Google_Service_Bigquery_TableReference extends Google_Model
   {
     $this->projectId = $projectId;
   }
-
   public function getProjectId()
   {
     return $this->projectId;
@@ -3335,12 +3104,10 @@ class Google_Service_Bigquery_TableReference extends Google_Model
   {
     $this->tableId = $tableId;
   }
-
   public function getTableId()
   {
     return $this->tableId;
   }
-
 }
 
 class Google_Service_Bigquery_TableRow extends Google_Collection
@@ -3351,16 +3118,15 @@ class Google_Service_Bigquery_TableRow extends Google_Collection
   protected $fType = 'Google_Service_Bigquery_TableCell';
   protected $fDataType = 'array';
 
+
   public function setF($f)
   {
     $this->f = $f;
   }
-
   public function getF()
   {
     return $this->f;
   }
-
 }
 
 class Google_Service_Bigquery_TableSchema extends Google_Collection
@@ -3371,16 +3137,15 @@ class Google_Service_Bigquery_TableSchema extends Google_Collection
   protected $fieldsType = 'Google_Service_Bigquery_TableFieldSchema';
   protected $fieldsDataType = 'array';
 
+
   public function setFields($fields)
   {
     $this->fields = $fields;
   }
-
   public function getFields()
   {
     return $this->fields;
   }
-
 }
 
 class Google_Service_Bigquery_ViewDefinition extends Google_Model
@@ -3389,14 +3154,13 @@ class Google_Service_Bigquery_ViewDefinition extends Google_Model
   );
   public $query;
 
+
   public function setQuery($query)
   {
     $this->query = $query;
   }
-
   public function getQuery()
   {
     return $this->query;
   }
-
 }
