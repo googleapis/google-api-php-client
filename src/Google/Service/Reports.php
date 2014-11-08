@@ -277,7 +277,7 @@ class Google_Service_Reports_Activities_Resource extends Google_Service_Resource
    * be retrieved.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string startTime Return events which occured at or after this
+   * @opt_param string startTime Return events which occurred at or after this
    * time.
    * @opt_param string actorIpAddress IP Address of host where the event was
    * performed. Supports both IPv4 and IPv6 addresses.
@@ -288,7 +288,7 @@ class Google_Service_Reports_Activities_Resource extends Google_Service_Resource
    * @opt_param string filters Event parameters in the form [parameter1
    * name][operator][parameter1 value],[parameter2 name][operator][parameter2
    * value],...
-   * @opt_param string endTime Return events which occured at or before this time.
+   * @opt_param string endTime Return events which occurred at or before this time.
    * @opt_param string customerId Represents the customer for which the data is to
    * be fetched.
    * @return Google_Service_Reports_Activities
@@ -311,7 +311,7 @@ class Google_Service_Reports_Activities_Resource extends Google_Service_Resource
    * @param Google_Channel $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string startTime Return events which occured at or after this
+   * @opt_param string startTime Return events which occurred at or after this
    * time.
    * @opt_param string actorIpAddress IP Address of host where the event was
    * performed. Supports both IPv4 and IPv6 addresses.
@@ -322,7 +322,7 @@ class Google_Service_Reports_Activities_Resource extends Google_Service_Resource
    * @opt_param string filters Event parameters in the form [parameter1
    * name][operator][parameter1 value],[parameter2 name][operator][parameter2
    * value],...
-   * @opt_param string endTime Return events which occured at or before this time.
+   * @opt_param string endTime Return events which occurred at or before this time.
    * @opt_param string customerId Represents the customer for which the data is to
    * be fetched.
    * @return Google_Service_Reports_Channel
