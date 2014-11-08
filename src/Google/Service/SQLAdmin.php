@@ -19,8 +19,7 @@
  * Service definition for SQLAdmin (v1beta3).
  *
  * <p>
- * API for Cloud SQL database instance management.
- * </p>
+ * API for Cloud SQL database instance management.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,9 +31,11 @@
 class Google_Service_SQLAdmin extends Google_Service
 {
   /** View and manage your data across Google Cloud Platform services. */
-  const CLOUD_PLATFORM = "https://www.googleapis.com/auth/cloud-platform";
+  const CLOUD_PLATFORM =
+      "https://www.googleapis.com/auth/cloud-platform";
   /** Manage your Google SQL Service instances. */
-  const SQLSERVICE_ADMIN = "https://www.googleapis.com/auth/sqlservice.admin";
+  const SQLSERVICE_ADMIN =
+      "https://www.googleapis.com/auth/sqlservice.admin";
 
   public $backupRuns;
   public $flags;
@@ -528,16 +529,14 @@ class Google_Service_SQLAdmin_BackupRuns_Resource extends Google_Service_Resourc
    * Retrieves information about a specified backup run for a Cloud SQL instance.
    * (backupRuns.get)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
-   * @param string $backupConfiguration
-   * Identifier for the backup configuration. This gets generated automatically when a backup
-    * configuration is created.
-   * @param string $dueTime
-   * The start time of the four-hour backup window. The backup can occur any time in the window. The
-    * time is in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param string $backupConfiguration Identifier for the backup configuration.
+   * This gets generated automatically when a backup configuration is created.
+   * @param string $dueTime The start time of the four-hour backup window. The
+   * backup can occur any time in the window. The time is in RFC 3339 format, for
+   * example 2012-11-15T16:19:00.094Z.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_BackupRun
    */
@@ -547,23 +546,21 @@ class Google_Service_SQLAdmin_BackupRuns_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_SQLAdmin_BackupRun");
   }
+
   /**
    * Lists all backup runs associated with a Cloud SQL instance.
    * (backupRuns.listBackupRuns)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
-   * @param string $backupConfiguration
-   * Identifier for the backup configuration. This gets generated automatically when a backup
-    * configuration is created.
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param string $backupConfiguration Identifier for the backup configuration.
+   * This gets generated automatically when a backup configuration is created.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A previously-returned page token representing part of the larger set of results to view.
-   * @opt_param int maxResults
-   * Maximum number of backup runs per response.
+   * @opt_param string pageToken A previously-returned page token representing
+   * part of the larger set of results to view.
+   * @opt_param int maxResults Maximum number of backup runs per response.
    * @return Google_Service_SQLAdmin_BackupRunsListResponse
    */
   public function listBackupRuns($project, $instance, $backupConfiguration, $optParams = array())
@@ -615,8 +612,8 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
    * Creates a Cloud SQL instance as a clone of a source instance.
    * (instances.cloneInstances)
    *
-   * @param string $project
-   * Project ID of the source as well as the clone Cloud SQL instance.
+   * @param string $project Project ID of the source as well as the clone Cloud
+   * SQL instance.
    * @param Google_InstancesCloneRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesCloneResponse
@@ -627,13 +624,14 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('clone', array($params), "Google_Service_SQLAdmin_InstancesCloneResponse");
   }
+
   /**
    * Deletes a Cloud SQL instance. (instances.delete)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance to be deleted.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
+   * @param string $project Project ID of the project that contains the instance
+   * to be deleted.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesDeleteResponse
    */
@@ -643,14 +641,15 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params), "Google_Service_SQLAdmin_InstancesDeleteResponse");
   }
+
   /**
    * Exports data from a Cloud SQL instance to a Google Cloud Storage bucket as a
    * MySQL dump file. (instances.export)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance to be exported.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
+   * @param string $project Project ID of the project that contains the instance
+   * to be exported.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
    * @param Google_InstancesExportRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesExportResponse
@@ -661,13 +660,13 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('export', array($params), "Google_Service_SQLAdmin_InstancesExportResponse");
   }
+
   /**
    * Retrieves information about a Cloud SQL instance. (instances.get)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance.
-   * @param string $instance
-   * Database instance ID. This does not include the project ID.
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Database instance ID. This does not include the
+   * project ID.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_DatabaseInstance
    */
@@ -677,14 +676,14 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_SQLAdmin_DatabaseInstance");
   }
+
   /**
    * Imports data into a Cloud SQL instance from a MySQL dump file stored in a
    * Google Cloud Storage bucket. (instances.import)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
    * @param Google_InstancesImportRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesImportResponse
@@ -695,11 +694,12 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('import', array($params), "Google_Service_SQLAdmin_InstancesImportResponse");
   }
+
   /**
    * Creates a new Cloud SQL instance. (instances.insert)
    *
-   * @param string $project
-   * Project ID of the project to which the newly created Cloud SQL instances should belong.
+   * @param string $project Project ID of the project to which the newly created
+   * Cloud SQL instances should belong.
    * @param Google_DatabaseInstance $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesInsertResponse
@@ -710,18 +710,19 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_SQLAdmin_InstancesInsertResponse");
   }
+
   /**
    * Lists instances for a given project, in alphabetical order by instance name.
    * (instances.listInstances)
    *
-   * @param string $project
-   * Project ID of the project for which to list Cloud SQL instances.
+   * @param string $project Project ID of the project for which to list Cloud SQL
+   * instances.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * A previously-returned page token representing part of the larger set of results to view.
-   * @opt_param string maxResults
-   * The maximum number of results to return per response.
+   * @opt_param string pageToken A previously-returned page token representing
+   * part of the larger set of results to view.
+   * @opt_param string maxResults The maximum number of results to return per
+   * response.
    * @return Google_Service_SQLAdmin_InstancesListResponse
    */
   public function listInstances($project, $optParams = array())
@@ -730,14 +731,14 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_SQLAdmin_InstancesListResponse");
   }
+
   /**
    * Updates the settings of a Cloud SQL instance. This method supports patch
    * semantics. (instances.patch)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
    * @param Google_DatabaseInstance $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesUpdateResponse
@@ -748,14 +749,13 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_SQLAdmin_InstancesUpdateResponse");
   }
+
   /**
    * Promotes the read replica instance to be a stand-alone Cloud SQL instance.
    * (instances.promoteReplica)
    *
-   * @param string $project
-   * ID of the project that contains the read replica.
-   * @param string $instance
-   * Cloud SQL read replica instance name.
+   * @param string $project ID of the project that contains the read replica.
+   * @param string $instance Cloud SQL read replica instance name.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesPromoteReplicaResponse
    */
@@ -765,14 +765,14 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('promoteReplica', array($params), "Google_Service_SQLAdmin_InstancesPromoteReplicaResponse");
   }
+
   /**
    * Deletes all client certificates and generates a new server SSL certificate
    * for a Cloud SQL instance. (instances.resetSslConfig)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesResetSslConfigResponse
    */
@@ -782,13 +782,14 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('resetSslConfig', array($params), "Google_Service_SQLAdmin_InstancesResetSslConfigResponse");
   }
+
   /**
    * Restarts a Cloud SQL instance. (instances.restart)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance to be restarted.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
+   * @param string $project Project ID of the project that contains the instance
+   * to be restarted.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesRestartResponse
    */
@@ -798,19 +799,19 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('restart', array($params), "Google_Service_SQLAdmin_InstancesRestartResponse");
   }
+
   /**
    * Restores a backup of a Cloud SQL instance. (instances.restoreBackup)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
-   * @param string $backupConfiguration
-   * The identifier of the backup configuration. This gets generated automatically when a backup
-    * configuration is created.
-   * @param string $dueTime
-   * The start time of the four-hour backup window. The backup can occur any time in the window. The
-    * time is in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param string $backupConfiguration The identifier of the backup
+   * configuration. This gets generated automatically when a backup configuration
+   * is created.
+   * @param string $dueTime The start time of the four-hour backup window. The
+   * backup can occur any time in the window. The time is in RFC 3339 format, for
+   * example 2012-11-15T16:19:00.094Z.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesRestoreBackupResponse
    */
@@ -820,14 +821,14 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('restoreBackup', array($params), "Google_Service_SQLAdmin_InstancesRestoreBackupResponse");
   }
+
   /**
    * Sets the password for the root user of the specified Cloud SQL instance.
    * (instances.setRootPassword)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
    * @param Google_InstanceSetRootPasswordRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesSetRootPasswordResponse
@@ -838,13 +839,13 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('setRootPassword', array($params), "Google_Service_SQLAdmin_InstancesSetRootPasswordResponse");
   }
+
   /**
    * Updates the settings of a Cloud SQL instance. (instances.update)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
    * @param Google_DatabaseInstance $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstancesUpdateResponse
@@ -872,12 +873,10 @@ class Google_Service_SQLAdmin_Operations_Resource extends Google_Service_Resourc
    * Retrieves information about a specific operation that was performed on a
    * Cloud SQL instance. (operations.get)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
-   * @param string $operation
-   * Instance operation ID.
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param string $operation Instance operation ID.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_InstanceOperation
    */
@@ -887,20 +886,19 @@ class Google_Service_SQLAdmin_Operations_Resource extends Google_Service_Resourc
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_SQLAdmin_InstanceOperation");
   }
+
   /**
    * Lists all operations that have been performed on a Cloud SQL instance.
    * (operations.listOperations)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string maxResults
-   * Maximum number of operations per response.
-   * @opt_param string pageToken
-   * A previously-returned page token representing part of the larger set of results to view.
+   * @opt_param string maxResults Maximum number of operations per response.
+   * @opt_param string pageToken A previously-returned page token representing
+   * part of the larger set of results to view.
    * @return Google_Service_SQLAdmin_OperationsListResponse
    */
   public function listOperations($project, $instance, $optParams = array())
@@ -925,12 +923,11 @@ class Google_Service_SQLAdmin_SslCerts_Resource extends Google_Service_Resource
   /**
    * Deletes an SSL certificate from a Cloud SQL instance. (sslCerts.delete)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance to be deleted.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
-   * @param string $sha1Fingerprint
-   * Sha1 FingerPrint.
+   * @param string $project Project ID of the project that contains the instance
+   * to be deleted.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param string $sha1Fingerprint Sha1 FingerPrint.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_SslCertsDeleteResponse
    */
@@ -940,16 +937,15 @@ class Google_Service_SQLAdmin_SslCerts_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params), "Google_Service_SQLAdmin_SslCertsDeleteResponse");
   }
+
   /**
    * Retrieves an SSL certificate as specified by its SHA-1 fingerprint.
    * (sslCerts.get)
    *
-   * @param string $project
-   * Project ID of the project that contains the instance.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
-   * @param string $sha1Fingerprint
-   * Sha1 FingerPrint.
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param string $sha1Fingerprint Sha1 FingerPrint.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_SslCert
    */
@@ -959,14 +955,15 @@ class Google_Service_SQLAdmin_SslCerts_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_SQLAdmin_SslCert");
   }
+
   /**
    * Creates an SSL certificate and returns the certificate, the associated
    * private key, and the server certificate authority. (sslCerts.insert)
    *
-   * @param string $project
-   * Project ID of the project to which the newly created Cloud SQL instances should belong.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
+   * @param string $project Project ID of the project to which the newly created
+   * Cloud SQL instances should belong.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
    * @param Google_SslCertsInsertRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_SslCertsInsertResponse
@@ -977,14 +974,15 @@ class Google_Service_SQLAdmin_SslCerts_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_SQLAdmin_SslCertsInsertResponse");
   }
+
   /**
    * Lists all of the current SSL certificates defined for a Cloud SQL instance.
    * (sslCerts.listSslCerts)
    *
-   * @param string $project
-   * Project ID of the project for which to list Cloud SQL instances.
-   * @param string $instance
-   * Cloud SQL instance ID. This does not include the project ID.
+   * @param string $project Project ID of the project for which to list Cloud SQL
+   * instances.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_SslCertsListResponse
    */
@@ -1011,8 +1009,7 @@ class Google_Service_SQLAdmin_Tiers_Resource extends Google_Service_Resource
    * Lists service tiers that can be used to create Google Cloud SQL instances.
    * (tiers.listTiers)
    *
-   * @param string $project
-   * Project ID of the project for which to list tiers.
+   * @param string $project Project ID of the project for which to list tiers.
    * @param array $optParams Optional parameters.
    * @return Google_Service_SQLAdmin_TiersListResponse
    */
@@ -1037,11 +1034,11 @@ class Google_Service_SQLAdmin_BackupConfiguration extends Google_Model
   public $kind;
   public $startTime;
 
+
   public function setBinaryLogEnabled($binaryLogEnabled)
   {
     $this->binaryLogEnabled = $binaryLogEnabled;
   }
-
   public function getBinaryLogEnabled()
   {
     return $this->binaryLogEnabled;
@@ -1050,7 +1047,6 @@ class Google_Service_SQLAdmin_BackupConfiguration extends Google_Model
   {
     $this->enabled = $enabled;
   }
-
   public function getEnabled()
   {
     return $this->enabled;
@@ -1059,7 +1055,6 @@ class Google_Service_SQLAdmin_BackupConfiguration extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1068,7 +1063,6 @@ class Google_Service_SQLAdmin_BackupConfiguration extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1077,12 +1071,10 @@ class Google_Service_SQLAdmin_BackupConfiguration extends Google_Model
   {
     $this->startTime = $startTime;
   }
-
   public function getStartTime()
   {
     return $this->startTime;
   }
-
 }
 
 class Google_Service_SQLAdmin_BackupRun extends Google_Model
@@ -1100,11 +1092,11 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
   public $startTime;
   public $status;
 
+
   public function setBackupConfiguration($backupConfiguration)
   {
     $this->backupConfiguration = $backupConfiguration;
   }
-
   public function getBackupConfiguration()
   {
     return $this->backupConfiguration;
@@ -1113,7 +1105,6 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
   {
     $this->dueTime = $dueTime;
   }
-
   public function getDueTime()
   {
     return $this->dueTime;
@@ -1122,7 +1113,6 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
   {
     $this->endTime = $endTime;
   }
-
   public function getEndTime()
   {
     return $this->endTime;
@@ -1131,7 +1121,6 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
   {
     $this->enqueuedTime = $enqueuedTime;
   }
-
   public function getEnqueuedTime()
   {
     return $this->enqueuedTime;
@@ -1140,7 +1129,6 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
   {
     $this->error = $error;
   }
-
   public function getError()
   {
     return $this->error;
@@ -1149,7 +1137,6 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
   {
     $this->instance = $instance;
   }
-
   public function getInstance()
   {
     return $this->instance;
@@ -1158,7 +1145,6 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1167,7 +1153,6 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
   {
     $this->startTime = $startTime;
   }
-
   public function getStartTime()
   {
     return $this->startTime;
@@ -1176,12 +1161,10 @@ class Google_Service_SQLAdmin_BackupRun extends Google_Model
   {
     $this->status = $status;
   }
-
   public function getStatus()
   {
     return $this->status;
   }
-
 }
 
 class Google_Service_SQLAdmin_BackupRunsListResponse extends Google_Collection
@@ -1194,11 +1177,11 @@ class Google_Service_SQLAdmin_BackupRunsListResponse extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -1207,7 +1190,6 @@ class Google_Service_SQLAdmin_BackupRunsListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1216,12 +1198,10 @@ class Google_Service_SQLAdmin_BackupRunsListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_SQLAdmin_BinLogCoordinates extends Google_Model
@@ -1232,11 +1212,11 @@ class Google_Service_SQLAdmin_BinLogCoordinates extends Google_Model
   public $binLogPosition;
   public $kind;
 
+
   public function setBinLogFileName($binLogFileName)
   {
     $this->binLogFileName = $binLogFileName;
   }
-
   public function getBinLogFileName()
   {
     return $this->binLogFileName;
@@ -1245,7 +1225,6 @@ class Google_Service_SQLAdmin_BinLogCoordinates extends Google_Model
   {
     $this->binLogPosition = $binLogPosition;
   }
-
   public function getBinLogPosition()
   {
     return $this->binLogPosition;
@@ -1254,12 +1233,10 @@ class Google_Service_SQLAdmin_BinLogCoordinates extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_SQLAdmin_CloneContext extends Google_Model
@@ -1272,11 +1249,11 @@ class Google_Service_SQLAdmin_CloneContext extends Google_Model
   public $kind;
   public $sourceInstanceName;
 
+
   public function setBinLogCoordinates(Google_Service_SQLAdmin_BinLogCoordinates $binLogCoordinates)
   {
     $this->binLogCoordinates = $binLogCoordinates;
   }
-
   public function getBinLogCoordinates()
   {
     return $this->binLogCoordinates;
@@ -1285,7 +1262,6 @@ class Google_Service_SQLAdmin_CloneContext extends Google_Model
   {
     $this->destinationInstanceName = $destinationInstanceName;
   }
-
   public function getDestinationInstanceName()
   {
     return $this->destinationInstanceName;
@@ -1294,7 +1270,6 @@ class Google_Service_SQLAdmin_CloneContext extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1303,12 +1278,10 @@ class Google_Service_SQLAdmin_CloneContext extends Google_Model
   {
     $this->sourceInstanceName = $sourceInstanceName;
   }
-
   public function getSourceInstanceName()
   {
     return $this->sourceInstanceName;
   }
-
 }
 
 class Google_Service_SQLAdmin_DatabaseFlags extends Google_Model
@@ -1318,11 +1291,11 @@ class Google_Service_SQLAdmin_DatabaseFlags extends Google_Model
   public $name;
   public $value;
 
+
   public function setName($name)
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -1331,12 +1304,10 @@ class Google_Service_SQLAdmin_DatabaseFlags extends Google_Model
   {
     $this->value = $value;
   }
-
   public function getValue()
   {
     return $this->value;
   }
-
 }
 
 class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
@@ -1364,11 +1335,11 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   protected $settingsDataType = '';
   public $state;
 
+
   public function setCurrentDiskSize($currentDiskSize)
   {
     $this->currentDiskSize = $currentDiskSize;
   }
-
   public function getCurrentDiskSize()
   {
     return $this->currentDiskSize;
@@ -1377,7 +1348,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->databaseVersion = $databaseVersion;
   }
-
   public function getDatabaseVersion()
   {
     return $this->databaseVersion;
@@ -1386,7 +1356,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->etag = $etag;
   }
-
   public function getEtag()
   {
     return $this->etag;
@@ -1395,7 +1364,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->instance = $instance;
   }
-
   public function getInstance()
   {
     return $this->instance;
@@ -1404,7 +1372,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->instanceType = $instanceType;
   }
-
   public function getInstanceType()
   {
     return $this->instanceType;
@@ -1413,7 +1380,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->ipAddresses = $ipAddresses;
   }
-
   public function getIpAddresses()
   {
     return $this->ipAddresses;
@@ -1422,7 +1388,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->ipv6Address = $ipv6Address;
   }
-
   public function getIpv6Address()
   {
     return $this->ipv6Address;
@@ -1431,7 +1396,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1440,7 +1404,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->masterInstanceName = $masterInstanceName;
   }
-
   public function getMasterInstanceName()
   {
     return $this->masterInstanceName;
@@ -1449,7 +1412,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->maxDiskSize = $maxDiskSize;
   }
-
   public function getMaxDiskSize()
   {
     return $this->maxDiskSize;
@@ -1458,7 +1420,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->project = $project;
   }
-
   public function getProject()
   {
     return $this->project;
@@ -1467,7 +1428,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->region = $region;
   }
-
   public function getRegion()
   {
     return $this->region;
@@ -1476,7 +1436,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->replicaNames = $replicaNames;
   }
-
   public function getReplicaNames()
   {
     return $this->replicaNames;
@@ -1485,7 +1444,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->serverCaCert = $serverCaCert;
   }
-
   public function getServerCaCert()
   {
     return $this->serverCaCert;
@@ -1494,7 +1452,6 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->settings = $settings;
   }
-
   public function getSettings()
   {
     return $this->settings;
@@ -1503,12 +1460,10 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     $this->state = $state;
   }
-
   public function getState()
   {
     return $this->state;
   }
-
 }
 
 class Google_Service_SQLAdmin_ExportContext extends Google_Collection
@@ -1521,11 +1476,11 @@ class Google_Service_SQLAdmin_ExportContext extends Google_Collection
   public $table;
   public $uri;
 
+
   public function setDatabase($database)
   {
     $this->database = $database;
   }
-
   public function getDatabase()
   {
     return $this->database;
@@ -1534,7 +1489,6 @@ class Google_Service_SQLAdmin_ExportContext extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1543,7 +1497,6 @@ class Google_Service_SQLAdmin_ExportContext extends Google_Collection
   {
     $this->table = $table;
   }
-
   public function getTable()
   {
     return $this->table;
@@ -1552,12 +1505,10 @@ class Google_Service_SQLAdmin_ExportContext extends Google_Collection
   {
     $this->uri = $uri;
   }
-
   public function getUri()
   {
     return $this->uri;
   }
-
 }
 
 class Google_Service_SQLAdmin_Flag extends Google_Collection
@@ -1573,11 +1524,11 @@ class Google_Service_SQLAdmin_Flag extends Google_Collection
   public $name;
   public $type;
 
+
   public function setAllowedStringValues($allowedStringValues)
   {
     $this->allowedStringValues = $allowedStringValues;
   }
-
   public function getAllowedStringValues()
   {
     return $this->allowedStringValues;
@@ -1586,7 +1537,6 @@ class Google_Service_SQLAdmin_Flag extends Google_Collection
   {
     $this->appliesTo = $appliesTo;
   }
-
   public function getAppliesTo()
   {
     return $this->appliesTo;
@@ -1595,7 +1545,6 @@ class Google_Service_SQLAdmin_Flag extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1604,7 +1553,6 @@ class Google_Service_SQLAdmin_Flag extends Google_Collection
   {
     $this->maxValue = $maxValue;
   }
-
   public function getMaxValue()
   {
     return $this->maxValue;
@@ -1613,7 +1561,6 @@ class Google_Service_SQLAdmin_Flag extends Google_Collection
   {
     $this->minValue = $minValue;
   }
-
   public function getMinValue()
   {
     return $this->minValue;
@@ -1622,7 +1569,6 @@ class Google_Service_SQLAdmin_Flag extends Google_Collection
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -1631,12 +1577,10 @@ class Google_Service_SQLAdmin_Flag extends Google_Collection
   {
     $this->type = $type;
   }
-
   public function getType()
   {
     return $this->type;
   }
-
 }
 
 class Google_Service_SQLAdmin_FlagsListResponse extends Google_Collection
@@ -1648,11 +1592,11 @@ class Google_Service_SQLAdmin_FlagsListResponse extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -1661,12 +1605,10 @@ class Google_Service_SQLAdmin_FlagsListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_SQLAdmin_ImportContext extends Google_Collection
@@ -1678,11 +1620,11 @@ class Google_Service_SQLAdmin_ImportContext extends Google_Collection
   public $kind;
   public $uri;
 
+
   public function setDatabase($database)
   {
     $this->database = $database;
   }
-
   public function getDatabase()
   {
     return $this->database;
@@ -1691,7 +1633,6 @@ class Google_Service_SQLAdmin_ImportContext extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1700,12 +1641,10 @@ class Google_Service_SQLAdmin_ImportContext extends Google_Collection
   {
     $this->uri = $uri;
   }
-
   public function getUri()
   {
     return $this->uri;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
@@ -1729,11 +1668,11 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
   public $state;
   public $userEmailAddress;
 
+
   public function setEndTime($endTime)
   {
     $this->endTime = $endTime;
   }
-
   public function getEndTime()
   {
     return $this->endTime;
@@ -1742,7 +1681,6 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
   {
     $this->enqueuedTime = $enqueuedTime;
   }
-
   public function getEnqueuedTime()
   {
     return $this->enqueuedTime;
@@ -1751,7 +1689,6 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
   {
     $this->error = $error;
   }
-
   public function getError()
   {
     return $this->error;
@@ -1760,7 +1697,6 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
   {
     $this->exportContext = $exportContext;
   }
-
   public function getExportContext()
   {
     return $this->exportContext;
@@ -1769,7 +1705,6 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
   {
     $this->importContext = $importContext;
   }
-
   public function getImportContext()
   {
     return $this->importContext;
@@ -1778,7 +1713,6 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
   {
     $this->instance = $instance;
   }
-
   public function getInstance()
   {
     return $this->instance;
@@ -1787,7 +1721,6 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1796,7 +1729,6 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
@@ -1805,7 +1737,6 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
   {
     $this->operationType = $operationType;
   }
-
   public function getOperationType()
   {
     return $this->operationType;
@@ -1814,7 +1745,6 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
   {
     $this->startTime = $startTime;
   }
-
   public function getStartTime()
   {
     return $this->startTime;
@@ -1823,7 +1753,6 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
   {
     $this->state = $state;
   }
-
   public function getState()
   {
     return $this->state;
@@ -1832,12 +1761,10 @@ class Google_Service_SQLAdmin_InstanceOperation extends Google_Collection
   {
     $this->userEmailAddress = $userEmailAddress;
   }
-
   public function getUserEmailAddress()
   {
     return $this->userEmailAddress;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstanceSetRootPasswordRequest extends Google_Model
@@ -1847,16 +1774,15 @@ class Google_Service_SQLAdmin_InstanceSetRootPasswordRequest extends Google_Mode
   protected $setRootPasswordContextType = 'Google_Service_SQLAdmin_SetRootPasswordContext';
   protected $setRootPasswordContextDataType = '';
 
+
   public function setSetRootPasswordContext(Google_Service_SQLAdmin_SetRootPasswordContext $setRootPasswordContext)
   {
     $this->setRootPasswordContext = $setRootPasswordContext;
   }
-
   public function getSetRootPasswordContext()
   {
     return $this->setRootPasswordContext;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesCloneRequest extends Google_Model
@@ -1866,16 +1792,15 @@ class Google_Service_SQLAdmin_InstancesCloneRequest extends Google_Model
   protected $cloneContextType = 'Google_Service_SQLAdmin_CloneContext';
   protected $cloneContextDataType = '';
 
+
   public function setCloneContext(Google_Service_SQLAdmin_CloneContext $cloneContext)
   {
     $this->cloneContext = $cloneContext;
   }
-
   public function getCloneContext()
   {
     return $this->cloneContext;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesCloneResponse extends Google_Model
@@ -1885,11 +1810,11 @@ class Google_Service_SQLAdmin_InstancesCloneResponse extends Google_Model
   public $kind;
   public $operation;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1898,12 +1823,10 @@ class Google_Service_SQLAdmin_InstancesCloneResponse extends Google_Model
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesDeleteResponse extends Google_Model
@@ -1913,11 +1836,11 @@ class Google_Service_SQLAdmin_InstancesDeleteResponse extends Google_Model
   public $kind;
   public $operation;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1926,12 +1849,10 @@ class Google_Service_SQLAdmin_InstancesDeleteResponse extends Google_Model
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesExportRequest extends Google_Model
@@ -1941,16 +1862,15 @@ class Google_Service_SQLAdmin_InstancesExportRequest extends Google_Model
   protected $exportContextType = 'Google_Service_SQLAdmin_ExportContext';
   protected $exportContextDataType = '';
 
+
   public function setExportContext(Google_Service_SQLAdmin_ExportContext $exportContext)
   {
     $this->exportContext = $exportContext;
   }
-
   public function getExportContext()
   {
     return $this->exportContext;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesExportResponse extends Google_Model
@@ -1960,11 +1880,11 @@ class Google_Service_SQLAdmin_InstancesExportResponse extends Google_Model
   public $kind;
   public $operation;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1973,12 +1893,10 @@ class Google_Service_SQLAdmin_InstancesExportResponse extends Google_Model
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesImportRequest extends Google_Model
@@ -1988,16 +1906,15 @@ class Google_Service_SQLAdmin_InstancesImportRequest extends Google_Model
   protected $importContextType = 'Google_Service_SQLAdmin_ImportContext';
   protected $importContextDataType = '';
 
+
   public function setImportContext(Google_Service_SQLAdmin_ImportContext $importContext)
   {
     $this->importContext = $importContext;
   }
-
   public function getImportContext()
   {
     return $this->importContext;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesImportResponse extends Google_Model
@@ -2007,11 +1924,11 @@ class Google_Service_SQLAdmin_InstancesImportResponse extends Google_Model
   public $kind;
   public $operation;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2020,12 +1937,10 @@ class Google_Service_SQLAdmin_InstancesImportResponse extends Google_Model
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesInsertResponse extends Google_Model
@@ -2035,11 +1950,11 @@ class Google_Service_SQLAdmin_InstancesInsertResponse extends Google_Model
   public $kind;
   public $operation;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2048,12 +1963,10 @@ class Google_Service_SQLAdmin_InstancesInsertResponse extends Google_Model
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesListResponse extends Google_Collection
@@ -2066,11 +1979,11 @@ class Google_Service_SQLAdmin_InstancesListResponse extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -2079,7 +1992,6 @@ class Google_Service_SQLAdmin_InstancesListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2088,12 +2000,10 @@ class Google_Service_SQLAdmin_InstancesListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesPromoteReplicaResponse extends Google_Model
@@ -2103,11 +2013,11 @@ class Google_Service_SQLAdmin_InstancesPromoteReplicaResponse extends Google_Mod
   public $kind;
   public $operation;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2116,12 +2026,10 @@ class Google_Service_SQLAdmin_InstancesPromoteReplicaResponse extends Google_Mod
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesResetSslConfigResponse extends Google_Model
@@ -2131,11 +2039,11 @@ class Google_Service_SQLAdmin_InstancesResetSslConfigResponse extends Google_Mod
   public $kind;
   public $operation;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2144,12 +2052,10 @@ class Google_Service_SQLAdmin_InstancesResetSslConfigResponse extends Google_Mod
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesRestartResponse extends Google_Model
@@ -2159,11 +2065,11 @@ class Google_Service_SQLAdmin_InstancesRestartResponse extends Google_Model
   public $kind;
   public $operation;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2172,12 +2078,10 @@ class Google_Service_SQLAdmin_InstancesRestartResponse extends Google_Model
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesRestoreBackupResponse extends Google_Model
@@ -2187,11 +2091,11 @@ class Google_Service_SQLAdmin_InstancesRestoreBackupResponse extends Google_Mode
   public $kind;
   public $operation;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2200,12 +2104,10 @@ class Google_Service_SQLAdmin_InstancesRestoreBackupResponse extends Google_Mode
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesSetRootPasswordResponse extends Google_Model
@@ -2215,11 +2117,11 @@ class Google_Service_SQLAdmin_InstancesSetRootPasswordResponse extends Google_Mo
   public $kind;
   public $operation;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2228,12 +2130,10 @@ class Google_Service_SQLAdmin_InstancesSetRootPasswordResponse extends Google_Mo
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
   }
-
 }
 
 class Google_Service_SQLAdmin_InstancesUpdateResponse extends Google_Model
@@ -2243,11 +2143,11 @@ class Google_Service_SQLAdmin_InstancesUpdateResponse extends Google_Model
   public $kind;
   public $operation;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2256,12 +2156,10 @@ class Google_Service_SQLAdmin_InstancesUpdateResponse extends Google_Model
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
   }
-
 }
 
 class Google_Service_SQLAdmin_IpConfiguration extends Google_Collection
@@ -2274,11 +2172,11 @@ class Google_Service_SQLAdmin_IpConfiguration extends Google_Collection
   public $kind;
   public $requireSsl;
 
+
   public function setAuthorizedNetworks($authorizedNetworks)
   {
     $this->authorizedNetworks = $authorizedNetworks;
   }
-
   public function getAuthorizedNetworks()
   {
     return $this->authorizedNetworks;
@@ -2287,7 +2185,6 @@ class Google_Service_SQLAdmin_IpConfiguration extends Google_Collection
   {
     $this->enabled = $enabled;
   }
-
   public function getEnabled()
   {
     return $this->enabled;
@@ -2296,7 +2193,6 @@ class Google_Service_SQLAdmin_IpConfiguration extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2305,12 +2201,10 @@ class Google_Service_SQLAdmin_IpConfiguration extends Google_Collection
   {
     $this->requireSsl = $requireSsl;
   }
-
   public function getRequireSsl()
   {
     return $this->requireSsl;
   }
-
 }
 
 class Google_Service_SQLAdmin_IpMapping extends Google_Model
@@ -2320,11 +2214,11 @@ class Google_Service_SQLAdmin_IpMapping extends Google_Model
   public $ipAddress;
   public $timeToRetire;
 
+
   public function setIpAddress($ipAddress)
   {
     $this->ipAddress = $ipAddress;
   }
-
   public function getIpAddress()
   {
     return $this->ipAddress;
@@ -2333,12 +2227,10 @@ class Google_Service_SQLAdmin_IpMapping extends Google_Model
   {
     $this->timeToRetire = $timeToRetire;
   }
-
   public function getTimeToRetire()
   {
     return $this->timeToRetire;
   }
-
 }
 
 class Google_Service_SQLAdmin_LocationPreference extends Google_Model
@@ -2349,11 +2241,11 @@ class Google_Service_SQLAdmin_LocationPreference extends Google_Model
   public $kind;
   public $zone;
 
+
   public function setFollowGaeApplication($followGaeApplication)
   {
     $this->followGaeApplication = $followGaeApplication;
   }
-
   public function getFollowGaeApplication()
   {
     return $this->followGaeApplication;
@@ -2362,7 +2254,6 @@ class Google_Service_SQLAdmin_LocationPreference extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2371,12 +2262,10 @@ class Google_Service_SQLAdmin_LocationPreference extends Google_Model
   {
     $this->zone = $zone;
   }
-
   public function getZone()
   {
     return $this->zone;
   }
-
 }
 
 class Google_Service_SQLAdmin_OperationError extends Google_Model
@@ -2386,11 +2275,11 @@ class Google_Service_SQLAdmin_OperationError extends Google_Model
   public $code;
   public $kind;
 
+
   public function setCode($code)
   {
     $this->code = $code;
   }
-
   public function getCode()
   {
     return $this->code;
@@ -2399,12 +2288,10 @@ class Google_Service_SQLAdmin_OperationError extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_SQLAdmin_OperationsListResponse extends Google_Collection
@@ -2417,11 +2304,11 @@ class Google_Service_SQLAdmin_OperationsListResponse extends Google_Collection
   public $kind;
   public $nextPageToken;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -2430,7 +2317,6 @@ class Google_Service_SQLAdmin_OperationsListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2439,12 +2325,10 @@ class Google_Service_SQLAdmin_OperationsListResponse extends Google_Collection
   {
     $this->nextPageToken = $nextPageToken;
   }
-
   public function getNextPageToken()
   {
     return $this->nextPageToken;
   }
-
 }
 
 class Google_Service_SQLAdmin_SetRootPasswordContext extends Google_Model
@@ -2454,11 +2338,11 @@ class Google_Service_SQLAdmin_SetRootPasswordContext extends Google_Model
   public $kind;
   public $password;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2467,12 +2351,10 @@ class Google_Service_SQLAdmin_SetRootPasswordContext extends Google_Model
   {
     $this->password = $password;
   }
-
   public function getPassword()
   {
     return $this->password;
   }
-
 }
 
 class Google_Service_SQLAdmin_Settings extends Google_Collection
@@ -2497,11 +2379,11 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   public $settingsVersion;
   public $tier;
 
+
   public function setActivationPolicy($activationPolicy)
   {
     $this->activationPolicy = $activationPolicy;
   }
-
   public function getActivationPolicy()
   {
     return $this->activationPolicy;
@@ -2510,7 +2392,6 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   {
     $this->authorizedGaeApplications = $authorizedGaeApplications;
   }
-
   public function getAuthorizedGaeApplications()
   {
     return $this->authorizedGaeApplications;
@@ -2519,7 +2400,6 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   {
     $this->backupConfiguration = $backupConfiguration;
   }
-
   public function getBackupConfiguration()
   {
     return $this->backupConfiguration;
@@ -2528,7 +2408,6 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   {
     $this->databaseFlags = $databaseFlags;
   }
-
   public function getDatabaseFlags()
   {
     return $this->databaseFlags;
@@ -2537,7 +2416,6 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   {
     $this->databaseReplicationEnabled = $databaseReplicationEnabled;
   }
-
   public function getDatabaseReplicationEnabled()
   {
     return $this->databaseReplicationEnabled;
@@ -2546,7 +2424,6 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   {
     $this->ipConfiguration = $ipConfiguration;
   }
-
   public function getIpConfiguration()
   {
     return $this->ipConfiguration;
@@ -2555,7 +2432,6 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2564,7 +2440,6 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   {
     $this->locationPreference = $locationPreference;
   }
-
   public function getLocationPreference()
   {
     return $this->locationPreference;
@@ -2573,7 +2448,6 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   {
     $this->pricingPlan = $pricingPlan;
   }
-
   public function getPricingPlan()
   {
     return $this->pricingPlan;
@@ -2582,7 +2456,6 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   {
     $this->replicationType = $replicationType;
   }
-
   public function getReplicationType()
   {
     return $this->replicationType;
@@ -2591,7 +2464,6 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   {
     $this->settingsVersion = $settingsVersion;
   }
-
   public function getSettingsVersion()
   {
     return $this->settingsVersion;
@@ -2600,12 +2472,10 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   {
     $this->tier = $tier;
   }
-
   public function getTier()
   {
     return $this->tier;
   }
-
 }
 
 class Google_Service_SQLAdmin_SslCert extends Google_Model
@@ -2621,11 +2491,11 @@ class Google_Service_SQLAdmin_SslCert extends Google_Model
   public $kind;
   public $sha1Fingerprint;
 
+
   public function setCert($cert)
   {
     $this->cert = $cert;
   }
-
   public function getCert()
   {
     return $this->cert;
@@ -2634,7 +2504,6 @@ class Google_Service_SQLAdmin_SslCert extends Google_Model
   {
     $this->certSerialNumber = $certSerialNumber;
   }
-
   public function getCertSerialNumber()
   {
     return $this->certSerialNumber;
@@ -2643,7 +2512,6 @@ class Google_Service_SQLAdmin_SslCert extends Google_Model
   {
     $this->commonName = $commonName;
   }
-
   public function getCommonName()
   {
     return $this->commonName;
@@ -2652,7 +2520,6 @@ class Google_Service_SQLAdmin_SslCert extends Google_Model
   {
     $this->createTime = $createTime;
   }
-
   public function getCreateTime()
   {
     return $this->createTime;
@@ -2661,7 +2528,6 @@ class Google_Service_SQLAdmin_SslCert extends Google_Model
   {
     $this->expirationTime = $expirationTime;
   }
-
   public function getExpirationTime()
   {
     return $this->expirationTime;
@@ -2670,7 +2536,6 @@ class Google_Service_SQLAdmin_SslCert extends Google_Model
   {
     $this->instance = $instance;
   }
-
   public function getInstance()
   {
     return $this->instance;
@@ -2679,7 +2544,6 @@ class Google_Service_SQLAdmin_SslCert extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2688,12 +2552,10 @@ class Google_Service_SQLAdmin_SslCert extends Google_Model
   {
     $this->sha1Fingerprint = $sha1Fingerprint;
   }
-
   public function getSha1Fingerprint()
   {
     return $this->sha1Fingerprint;
   }
-
 }
 
 class Google_Service_SQLAdmin_SslCertDetail extends Google_Model
@@ -2704,11 +2566,11 @@ class Google_Service_SQLAdmin_SslCertDetail extends Google_Model
   protected $certInfoDataType = '';
   public $certPrivateKey;
 
+
   public function setCertInfo(Google_Service_SQLAdmin_SslCert $certInfo)
   {
     $this->certInfo = $certInfo;
   }
-
   public function getCertInfo()
   {
     return $this->certInfo;
@@ -2717,12 +2579,10 @@ class Google_Service_SQLAdmin_SslCertDetail extends Google_Model
   {
     $this->certPrivateKey = $certPrivateKey;
   }
-
   public function getCertPrivateKey()
   {
     return $this->certPrivateKey;
   }
-
 }
 
 class Google_Service_SQLAdmin_SslCertsDeleteResponse extends Google_Model
@@ -2732,11 +2592,11 @@ class Google_Service_SQLAdmin_SslCertsDeleteResponse extends Google_Model
   public $kind;
   public $operation;
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2745,12 +2605,10 @@ class Google_Service_SQLAdmin_SslCertsDeleteResponse extends Google_Model
   {
     $this->operation = $operation;
   }
-
   public function getOperation()
   {
     return $this->operation;
   }
-
 }
 
 class Google_Service_SQLAdmin_SslCertsInsertRequest extends Google_Model
@@ -2759,16 +2617,15 @@ class Google_Service_SQLAdmin_SslCertsInsertRequest extends Google_Model
   );
   public $commonName;
 
+
   public function setCommonName($commonName)
   {
     $this->commonName = $commonName;
   }
-
   public function getCommonName()
   {
     return $this->commonName;
   }
-
 }
 
 class Google_Service_SQLAdmin_SslCertsInsertResponse extends Google_Model
@@ -2781,11 +2638,11 @@ class Google_Service_SQLAdmin_SslCertsInsertResponse extends Google_Model
   protected $serverCaCertType = 'Google_Service_SQLAdmin_SslCert';
   protected $serverCaCertDataType = '';
 
+
   public function setClientCert(Google_Service_SQLAdmin_SslCertDetail $clientCert)
   {
     $this->clientCert = $clientCert;
   }
-
   public function getClientCert()
   {
     return $this->clientCert;
@@ -2794,7 +2651,6 @@ class Google_Service_SQLAdmin_SslCertsInsertResponse extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2803,12 +2659,10 @@ class Google_Service_SQLAdmin_SslCertsInsertResponse extends Google_Model
   {
     $this->serverCaCert = $serverCaCert;
   }
-
   public function getServerCaCert()
   {
     return $this->serverCaCert;
   }
-
 }
 
 class Google_Service_SQLAdmin_SslCertsListResponse extends Google_Collection
@@ -2820,11 +2674,11 @@ class Google_Service_SQLAdmin_SslCertsListResponse extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -2833,12 +2687,10 @@ class Google_Service_SQLAdmin_SslCertsListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
 
 class Google_Service_SQLAdmin_Tier extends Google_Collection
@@ -2854,11 +2706,11 @@ class Google_Service_SQLAdmin_Tier extends Google_Collection
   public $region;
   public $tier;
 
+
   public function setDiskQuota($diskQuota)
   {
     $this->diskQuota = $diskQuota;
   }
-
   public function getDiskQuota()
   {
     return $this->diskQuota;
@@ -2867,7 +2719,6 @@ class Google_Service_SQLAdmin_Tier extends Google_Collection
   {
     $this->rAM = $rAM;
   }
-
   public function getRAM()
   {
     return $this->rAM;
@@ -2876,7 +2727,6 @@ class Google_Service_SQLAdmin_Tier extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -2885,7 +2735,6 @@ class Google_Service_SQLAdmin_Tier extends Google_Collection
   {
     $this->region = $region;
   }
-
   public function getRegion()
   {
     return $this->region;
@@ -2894,12 +2743,10 @@ class Google_Service_SQLAdmin_Tier extends Google_Collection
   {
     $this->tier = $tier;
   }
-
   public function getTier()
   {
     return $this->tier;
   }
-
 }
 
 class Google_Service_SQLAdmin_TiersListResponse extends Google_Collection
@@ -2911,11 +2758,11 @@ class Google_Service_SQLAdmin_TiersListResponse extends Google_Collection
   protected $itemsDataType = 'array';
   public $kind;
 
+
   public function setItems($items)
   {
     $this->items = $items;
   }
-
   public function getItems()
   {
     return $this->items;
@@ -2924,10 +2771,8 @@ class Google_Service_SQLAdmin_TiersListResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
   }
-
 }
