@@ -19,8 +19,7 @@
  * Service definition for Oauth2 (v2).
  *
  * <p>
- * Lets you access OAuth2 protocol related APIs.
- * </p>
+ * Lets you access OAuth2 protocol related APIs.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,13 +31,17 @@
 class Google_Service_Oauth2 extends Google_Service
 {
   /** Know your basic profile info and list of people in your circles.. */
-  const PLUS_LOGIN = "https://www.googleapis.com/auth/plus.login";
+  const PLUS_LOGIN =
+      "https://www.googleapis.com/auth/plus.login";
   /** Know who you are on Google. */
-  const PLUS_ME = "https://www.googleapis.com/auth/plus.me";
+  const PLUS_ME =
+      "https://www.googleapis.com/auth/plus.me";
   /** View your email address. */
-  const USERINFO_EMAIL = "https://www.googleapis.com/auth/userinfo.email";
+  const USERINFO_EMAIL =
+      "https://www.googleapis.com/auth/userinfo.email";
   /** View your basic profile info. */
-  const USERINFO_PROFILE = "https://www.googleapis.com/auth/userinfo.profile";
+  const USERINFO_PROFILE =
+      "https://www.googleapis.com/auth/userinfo.profile";
 
   public $userinfo;
   public $userinfo_v2_me;
@@ -114,9 +117,7 @@ class Google_Service_Oauth2 extends Google_Service
    * @param array $optParams Optional parameters.
    *
    * @opt_param string access_token
-   *
    * @opt_param string id_token
-   *
    * @return Google_Service_Oauth2_Tokeninfo
    */
   public function tokeninfo($optParams = array())
@@ -163,7 +164,6 @@ class Google_Service_Oauth2_Userinfo_Resource extends Google_Service_Resource
  */
 class Google_Service_Oauth2_UserinfoV2_Resource extends Google_Service_Resource
 {
-
 }
 
 /**
@@ -212,11 +212,11 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   public $userId;
   public $verifiedEmail;
 
+
   public function setAccessType($accessType)
   {
     $this->accessType = $accessType;
   }
-
   public function getAccessType()
   {
     return $this->accessType;
@@ -225,7 +225,6 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     $this->audience = $audience;
   }
-
   public function getAudience()
   {
     return $this->audience;
@@ -234,7 +233,6 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     $this->email = $email;
   }
-
   public function getEmail()
   {
     return $this->email;
@@ -243,7 +241,6 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     $this->expiresIn = $expiresIn;
   }
-
   public function getExpiresIn()
   {
     return $this->expiresIn;
@@ -252,7 +249,6 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     $this->issuedTo = $issuedTo;
   }
-
   public function getIssuedTo()
   {
     return $this->issuedTo;
@@ -261,7 +257,6 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     $this->scope = $scope;
   }
-
   public function getScope()
   {
     return $this->scope;
@@ -270,7 +265,6 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     $this->userId = $userId;
   }
-
   public function getUserId()
   {
     return $this->userId;
@@ -279,12 +273,10 @@ class Google_Service_Oauth2_Tokeninfo extends Google_Model
   {
     $this->verifiedEmail = $verifiedEmail;
   }
-
   public function getVerifiedEmail()
   {
     return $this->verifiedEmail;
   }
-
 }
 
 class Google_Service_Oauth2_Userinfoplus extends Google_Model
@@ -306,11 +298,11 @@ class Google_Service_Oauth2_Userinfoplus extends Google_Model
   public $picture;
   public $verifiedEmail;
 
+
   public function setEmail($email)
   {
     $this->email = $email;
   }
-
   public function getEmail()
   {
     return $this->email;
@@ -319,7 +311,6 @@ class Google_Service_Oauth2_Userinfoplus extends Google_Model
   {
     $this->familyName = $familyName;
   }
-
   public function getFamilyName()
   {
     return $this->familyName;
@@ -328,7 +319,6 @@ class Google_Service_Oauth2_Userinfoplus extends Google_Model
   {
     $this->gender = $gender;
   }
-
   public function getGender()
   {
     return $this->gender;
@@ -337,7 +327,6 @@ class Google_Service_Oauth2_Userinfoplus extends Google_Model
   {
     $this->givenName = $givenName;
   }
-
   public function getGivenName()
   {
     return $this->givenName;
@@ -346,7 +335,6 @@ class Google_Service_Oauth2_Userinfoplus extends Google_Model
   {
     $this->hd = $hd;
   }
-
   public function getHd()
   {
     return $this->hd;
@@ -355,7 +343,6 @@ class Google_Service_Oauth2_Userinfoplus extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -364,7 +351,6 @@ class Google_Service_Oauth2_Userinfoplus extends Google_Model
   {
     $this->link = $link;
   }
-
   public function getLink()
   {
     return $this->link;
@@ -373,7 +359,6 @@ class Google_Service_Oauth2_Userinfoplus extends Google_Model
   {
     $this->locale = $locale;
   }
-
   public function getLocale()
   {
     return $this->locale;
@@ -382,7 +367,6 @@ class Google_Service_Oauth2_Userinfoplus extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
@@ -391,7 +375,6 @@ class Google_Service_Oauth2_Userinfoplus extends Google_Model
   {
     $this->picture = $picture;
   }
-
   public function getPicture()
   {
     return $this->picture;
@@ -400,10 +383,8 @@ class Google_Service_Oauth2_Userinfoplus extends Google_Model
   {
     $this->verifiedEmail = $verifiedEmail;
   }
-
   public function getVerifiedEmail()
   {
     return $this->verifiedEmail;
   }
-
 }
