@@ -19,8 +19,8 @@
  * Service definition for QPXExpress (v1).
  *
  * <p>
- * Lets you find the least expensive flights between an origin and a destination.
- * </p>
+ * Lets you find the least expensive flights between an origin and a
+ * destination.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -103,11 +103,11 @@ class Google_Service_QPXExpress_AircraftData extends Google_Model
   public $kind;
   public $name;
 
+
   public function setCode($code)
   {
     $this->code = $code;
   }
-
   public function getCode()
   {
     return $this->code;
@@ -116,7 +116,6 @@ class Google_Service_QPXExpress_AircraftData extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -125,12 +124,10 @@ class Google_Service_QPXExpress_AircraftData extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_QPXExpress_AirportData extends Google_Model
@@ -142,11 +139,11 @@ class Google_Service_QPXExpress_AirportData extends Google_Model
   public $kind;
   public $name;
 
+
   public function setCity($city)
   {
     $this->city = $city;
   }
-
   public function getCity()
   {
     return $this->city;
@@ -155,7 +152,6 @@ class Google_Service_QPXExpress_AirportData extends Google_Model
   {
     $this->code = $code;
   }
-
   public function getCode()
   {
     return $this->code;
@@ -164,7 +160,6 @@ class Google_Service_QPXExpress_AirportData extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -173,12 +168,10 @@ class Google_Service_QPXExpress_AirportData extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_QPXExpress_BagDescriptor extends Google_Collection
@@ -192,11 +185,11 @@ class Google_Service_QPXExpress_BagDescriptor extends Google_Collection
   public $kind;
   public $subcode;
 
+
   public function setCommercialName($commercialName)
   {
     $this->commercialName = $commercialName;
   }
-
   public function getCommercialName()
   {
     return $this->commercialName;
@@ -205,7 +198,6 @@ class Google_Service_QPXExpress_BagDescriptor extends Google_Collection
   {
     $this->count = $count;
   }
-
   public function getCount()
   {
     return $this->count;
@@ -214,7 +206,6 @@ class Google_Service_QPXExpress_BagDescriptor extends Google_Collection
   {
     $this->description = $description;
   }
-
   public function getDescription()
   {
     return $this->description;
@@ -223,7 +214,6 @@ class Google_Service_QPXExpress_BagDescriptor extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -232,12 +222,10 @@ class Google_Service_QPXExpress_BagDescriptor extends Google_Collection
   {
     $this->subcode = $subcode;
   }
-
   public function getSubcode()
   {
     return $this->subcode;
   }
-
 }
 
 class Google_Service_QPXExpress_CarrierData extends Google_Model
@@ -248,11 +236,11 @@ class Google_Service_QPXExpress_CarrierData extends Google_Model
   public $kind;
   public $name;
 
+
   public function setCode($code)
   {
     $this->code = $code;
   }
-
   public function getCode()
   {
     return $this->code;
@@ -261,7 +249,6 @@ class Google_Service_QPXExpress_CarrierData extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -270,12 +257,10 @@ class Google_Service_QPXExpress_CarrierData extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_QPXExpress_CityData extends Google_Model
@@ -287,11 +272,11 @@ class Google_Service_QPXExpress_CityData extends Google_Model
   public $kind;
   public $name;
 
+
   public function setCode($code)
   {
     $this->code = $code;
   }
-
   public function getCode()
   {
     return $this->code;
@@ -300,7 +285,6 @@ class Google_Service_QPXExpress_CityData extends Google_Model
   {
     $this->country = $country;
   }
-
   public function getCountry()
   {
     return $this->country;
@@ -309,7 +293,6 @@ class Google_Service_QPXExpress_CityData extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -318,12 +301,10 @@ class Google_Service_QPXExpress_CityData extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_QPXExpress_Data extends Google_Collection
@@ -343,11 +324,11 @@ class Google_Service_QPXExpress_Data extends Google_Collection
   protected $taxType = 'Google_Service_QPXExpress_TaxData';
   protected $taxDataType = 'array';
 
+
   public function setAircraft($aircraft)
   {
     $this->aircraft = $aircraft;
   }
-
   public function getAircraft()
   {
     return $this->aircraft;
@@ -356,7 +337,6 @@ class Google_Service_QPXExpress_Data extends Google_Collection
   {
     $this->airport = $airport;
   }
-
   public function getAirport()
   {
     return $this->airport;
@@ -365,7 +345,6 @@ class Google_Service_QPXExpress_Data extends Google_Collection
   {
     $this->carrier = $carrier;
   }
-
   public function getCarrier()
   {
     return $this->carrier;
@@ -374,7 +353,6 @@ class Google_Service_QPXExpress_Data extends Google_Collection
   {
     $this->city = $city;
   }
-
   public function getCity()
   {
     return $this->city;
@@ -383,7 +361,6 @@ class Google_Service_QPXExpress_Data extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -392,12 +369,10 @@ class Google_Service_QPXExpress_Data extends Google_Collection
   {
     $this->tax = $tax;
   }
-
   public function getTax()
   {
     return $this->tax;
   }
-
 }
 
 class Google_Service_QPXExpress_FareInfo extends Google_Model
@@ -412,11 +387,11 @@ class Google_Service_QPXExpress_FareInfo extends Google_Model
   public $origin;
   public $private;
 
+
   public function setBasisCode($basisCode)
   {
     $this->basisCode = $basisCode;
   }
-
   public function getBasisCode()
   {
     return $this->basisCode;
@@ -425,7 +400,6 @@ class Google_Service_QPXExpress_FareInfo extends Google_Model
   {
     $this->carrier = $carrier;
   }
-
   public function getCarrier()
   {
     return $this->carrier;
@@ -434,7 +408,6 @@ class Google_Service_QPXExpress_FareInfo extends Google_Model
   {
     $this->destination = $destination;
   }
-
   public function getDestination()
   {
     return $this->destination;
@@ -443,7 +416,6 @@ class Google_Service_QPXExpress_FareInfo extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -452,7 +424,6 @@ class Google_Service_QPXExpress_FareInfo extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -461,7 +432,6 @@ class Google_Service_QPXExpress_FareInfo extends Google_Model
   {
     $this->origin = $origin;
   }
-
   public function getOrigin()
   {
     return $this->origin;
@@ -470,12 +440,10 @@ class Google_Service_QPXExpress_FareInfo extends Google_Model
   {
     $this->private = $private;
   }
-
   public function getPrivate()
   {
     return $this->private;
   }
-
 }
 
 class Google_Service_QPXExpress_FlightInfo extends Google_Model
@@ -485,11 +453,11 @@ class Google_Service_QPXExpress_FlightInfo extends Google_Model
   public $carrier;
   public $number;
 
+
   public function setCarrier($carrier)
   {
     $this->carrier = $carrier;
   }
-
   public function getCarrier()
   {
     return $this->carrier;
@@ -498,12 +466,10 @@ class Google_Service_QPXExpress_FlightInfo extends Google_Model
   {
     $this->number = $number;
   }
-
   public function getNumber()
   {
     return $this->number;
   }
-
 }
 
 class Google_Service_QPXExpress_FreeBaggageAllowance extends Google_Collection
@@ -519,11 +485,11 @@ class Google_Service_QPXExpress_FreeBaggageAllowance extends Google_Collection
   public $pieces;
   public $pounds;
 
+
   public function setBagDescriptor($bagDescriptor)
   {
     $this->bagDescriptor = $bagDescriptor;
   }
-
   public function getBagDescriptor()
   {
     return $this->bagDescriptor;
@@ -532,7 +498,6 @@ class Google_Service_QPXExpress_FreeBaggageAllowance extends Google_Collection
   {
     $this->kilos = $kilos;
   }
-
   public function getKilos()
   {
     return $this->kilos;
@@ -541,7 +506,6 @@ class Google_Service_QPXExpress_FreeBaggageAllowance extends Google_Collection
   {
     $this->kilosPerPiece = $kilosPerPiece;
   }
-
   public function getKilosPerPiece()
   {
     return $this->kilosPerPiece;
@@ -550,7 +514,6 @@ class Google_Service_QPXExpress_FreeBaggageAllowance extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -559,7 +522,6 @@ class Google_Service_QPXExpress_FreeBaggageAllowance extends Google_Collection
   {
     $this->pieces = $pieces;
   }
-
   public function getPieces()
   {
     return $this->pieces;
@@ -568,12 +530,10 @@ class Google_Service_QPXExpress_FreeBaggageAllowance extends Google_Collection
   {
     $this->pounds = $pounds;
   }
-
   public function getPounds()
   {
     return $this->pounds;
   }
-
 }
 
 class Google_Service_QPXExpress_LegInfo extends Google_Model
@@ -598,11 +558,11 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   public $originTerminal;
   public $secure;
 
+
   public function setAircraft($aircraft)
   {
     $this->aircraft = $aircraft;
   }
-
   public function getAircraft()
   {
     return $this->aircraft;
@@ -611,7 +571,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->arrivalTime = $arrivalTime;
   }
-
   public function getArrivalTime()
   {
     return $this->arrivalTime;
@@ -620,7 +579,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->changePlane = $changePlane;
   }
-
   public function getChangePlane()
   {
     return $this->changePlane;
@@ -629,7 +587,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->connectionDuration = $connectionDuration;
   }
-
   public function getConnectionDuration()
   {
     return $this->connectionDuration;
@@ -638,7 +595,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->departureTime = $departureTime;
   }
-
   public function getDepartureTime()
   {
     return $this->departureTime;
@@ -647,7 +603,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->destination = $destination;
   }
-
   public function getDestination()
   {
     return $this->destination;
@@ -656,7 +611,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->destinationTerminal = $destinationTerminal;
   }
-
   public function getDestinationTerminal()
   {
     return $this->destinationTerminal;
@@ -665,7 +619,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->duration = $duration;
   }
-
   public function getDuration()
   {
     return $this->duration;
@@ -674,7 +627,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -683,7 +635,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -692,7 +643,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->meal = $meal;
   }
-
   public function getMeal()
   {
     return $this->meal;
@@ -701,7 +651,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->mileage = $mileage;
   }
-
   public function getMileage()
   {
     return $this->mileage;
@@ -710,7 +659,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->onTimePerformance = $onTimePerformance;
   }
-
   public function getOnTimePerformance()
   {
     return $this->onTimePerformance;
@@ -719,7 +667,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->operatingDisclosure = $operatingDisclosure;
   }
-
   public function getOperatingDisclosure()
   {
     return $this->operatingDisclosure;
@@ -728,7 +675,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->origin = $origin;
   }
-
   public function getOrigin()
   {
     return $this->origin;
@@ -737,7 +683,6 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->originTerminal = $originTerminal;
   }
-
   public function getOriginTerminal()
   {
     return $this->originTerminal;
@@ -746,12 +691,10 @@ class Google_Service_QPXExpress_LegInfo extends Google_Model
   {
     $this->secure = $secure;
   }
-
   public function getSecure()
   {
     return $this->secure;
   }
-
 }
 
 class Google_Service_QPXExpress_PassengerCounts extends Google_Model
@@ -765,11 +708,11 @@ class Google_Service_QPXExpress_PassengerCounts extends Google_Model
   public $kind;
   public $seniorCount;
 
+
   public function setAdultCount($adultCount)
   {
     $this->adultCount = $adultCount;
   }
-
   public function getAdultCount()
   {
     return $this->adultCount;
@@ -778,7 +721,6 @@ class Google_Service_QPXExpress_PassengerCounts extends Google_Model
   {
     $this->childCount = $childCount;
   }
-
   public function getChildCount()
   {
     return $this->childCount;
@@ -787,7 +729,6 @@ class Google_Service_QPXExpress_PassengerCounts extends Google_Model
   {
     $this->infantInLapCount = $infantInLapCount;
   }
-
   public function getInfantInLapCount()
   {
     return $this->infantInLapCount;
@@ -796,7 +737,6 @@ class Google_Service_QPXExpress_PassengerCounts extends Google_Model
   {
     $this->infantInSeatCount = $infantInSeatCount;
   }
-
   public function getInfantInSeatCount()
   {
     return $this->infantInSeatCount;
@@ -805,7 +745,6 @@ class Google_Service_QPXExpress_PassengerCounts extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -814,12 +753,10 @@ class Google_Service_QPXExpress_PassengerCounts extends Google_Model
   {
     $this->seniorCount = $seniorCount;
   }
-
   public function getSeniorCount()
   {
     return $this->seniorCount;
   }
-
 }
 
 class Google_Service_QPXExpress_PricingInfo extends Google_Collection
@@ -845,11 +782,11 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   protected $taxType = 'Google_Service_QPXExpress_TaxInfo';
   protected $taxDataType = 'array';
 
+
   public function setBaseFareTotal($baseFareTotal)
   {
     $this->baseFareTotal = $baseFareTotal;
   }
-
   public function getBaseFareTotal()
   {
     return $this->baseFareTotal;
@@ -858,7 +795,6 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   {
     $this->fare = $fare;
   }
-
   public function getFare()
   {
     return $this->fare;
@@ -867,7 +803,6 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   {
     $this->fareCalculation = $fareCalculation;
   }
-
   public function getFareCalculation()
   {
     return $this->fareCalculation;
@@ -876,7 +811,6 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -885,7 +819,6 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   {
     $this->latestTicketingTime = $latestTicketingTime;
   }
-
   public function getLatestTicketingTime()
   {
     return $this->latestTicketingTime;
@@ -894,7 +827,6 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   {
     $this->passengers = $passengers;
   }
-
   public function getPassengers()
   {
     return $this->passengers;
@@ -903,7 +835,6 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   {
     $this->ptc = $ptc;
   }
-
   public function getPtc()
   {
     return $this->ptc;
@@ -912,7 +843,6 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   {
     $this->refundable = $refundable;
   }
-
   public function getRefundable()
   {
     return $this->refundable;
@@ -921,7 +851,6 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   {
     $this->saleFareTotal = $saleFareTotal;
   }
-
   public function getSaleFareTotal()
   {
     return $this->saleFareTotal;
@@ -930,7 +859,6 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   {
     $this->saleTaxTotal = $saleTaxTotal;
   }
-
   public function getSaleTaxTotal()
   {
     return $this->saleTaxTotal;
@@ -939,7 +867,6 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   {
     $this->saleTotal = $saleTotal;
   }
-
   public function getSaleTotal()
   {
     return $this->saleTotal;
@@ -948,7 +875,6 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   {
     $this->segmentPricing = $segmentPricing;
   }
-
   public function getSegmentPricing()
   {
     return $this->segmentPricing;
@@ -957,12 +883,10 @@ class Google_Service_QPXExpress_PricingInfo extends Google_Collection
   {
     $this->tax = $tax;
   }
-
   public function getTax()
   {
     return $this->tax;
   }
-
 }
 
 class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
@@ -984,11 +908,11 @@ class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
   public $marriedSegmentGroup;
   public $subjectToGovernmentApproval;
 
+
   public function setBookingCode($bookingCode)
   {
     $this->bookingCode = $bookingCode;
   }
-
   public function getBookingCode()
   {
     return $this->bookingCode;
@@ -997,7 +921,6 @@ class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
   {
     $this->bookingCodeCount = $bookingCodeCount;
   }
-
   public function getBookingCodeCount()
   {
     return $this->bookingCodeCount;
@@ -1006,7 +929,6 @@ class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
   {
     $this->cabin = $cabin;
   }
-
   public function getCabin()
   {
     return $this->cabin;
@@ -1015,7 +937,6 @@ class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
   {
     $this->connectionDuration = $connectionDuration;
   }
-
   public function getConnectionDuration()
   {
     return $this->connectionDuration;
@@ -1024,7 +945,6 @@ class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
   {
     $this->duration = $duration;
   }
-
   public function getDuration()
   {
     return $this->duration;
@@ -1033,7 +953,6 @@ class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
   {
     $this->flight = $flight;
   }
-
   public function getFlight()
   {
     return $this->flight;
@@ -1042,7 +961,6 @@ class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1051,7 +969,6 @@ class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1060,7 +977,6 @@ class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
   {
     $this->leg = $leg;
   }
-
   public function getLeg()
   {
     return $this->leg;
@@ -1069,7 +985,6 @@ class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
   {
     $this->marriedSegmentGroup = $marriedSegmentGroup;
   }
-
   public function getMarriedSegmentGroup()
   {
     return $this->marriedSegmentGroup;
@@ -1078,12 +993,10 @@ class Google_Service_QPXExpress_SegmentInfo extends Google_Collection
   {
     $this->subjectToGovernmentApproval = $subjectToGovernmentApproval;
   }
-
   public function getSubjectToGovernmentApproval()
   {
     return $this->subjectToGovernmentApproval;
   }
-
 }
 
 class Google_Service_QPXExpress_SegmentPricing extends Google_Collection
@@ -1097,11 +1010,11 @@ class Google_Service_QPXExpress_SegmentPricing extends Google_Collection
   public $kind;
   public $segmentId;
 
+
   public function setFareId($fareId)
   {
     $this->fareId = $fareId;
   }
-
   public function getFareId()
   {
     return $this->fareId;
@@ -1110,7 +1023,6 @@ class Google_Service_QPXExpress_SegmentPricing extends Google_Collection
   {
     $this->freeBaggageOption = $freeBaggageOption;
   }
-
   public function getFreeBaggageOption()
   {
     return $this->freeBaggageOption;
@@ -1119,7 +1031,6 @@ class Google_Service_QPXExpress_SegmentPricing extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1128,12 +1039,10 @@ class Google_Service_QPXExpress_SegmentPricing extends Google_Collection
   {
     $this->segmentId = $segmentId;
   }
-
   public function getSegmentId()
   {
     return $this->segmentId;
   }
-
 }
 
 class Google_Service_QPXExpress_SliceInfo extends Google_Collection
@@ -1146,11 +1055,11 @@ class Google_Service_QPXExpress_SliceInfo extends Google_Collection
   protected $segmentType = 'Google_Service_QPXExpress_SegmentInfo';
   protected $segmentDataType = 'array';
 
+
   public function setDuration($duration)
   {
     $this->duration = $duration;
   }
-
   public function getDuration()
   {
     return $this->duration;
@@ -1159,7 +1068,6 @@ class Google_Service_QPXExpress_SliceInfo extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1168,12 +1076,10 @@ class Google_Service_QPXExpress_SliceInfo extends Google_Collection
   {
     $this->segment = $segment;
   }
-
   public function getSegment()
   {
     return $this->segment;
   }
-
 }
 
 class Google_Service_QPXExpress_SliceInput extends Google_Collection
@@ -1194,11 +1100,11 @@ class Google_Service_QPXExpress_SliceInput extends Google_Collection
   public $preferredCabin;
   public $prohibitedCarrier;
 
+
   public function setAlliance($alliance)
   {
     $this->alliance = $alliance;
   }
-
   public function getAlliance()
   {
     return $this->alliance;
@@ -1207,7 +1113,6 @@ class Google_Service_QPXExpress_SliceInput extends Google_Collection
   {
     $this->date = $date;
   }
-
   public function getDate()
   {
     return $this->date;
@@ -1216,7 +1121,6 @@ class Google_Service_QPXExpress_SliceInput extends Google_Collection
   {
     $this->destination = $destination;
   }
-
   public function getDestination()
   {
     return $this->destination;
@@ -1225,7 +1129,6 @@ class Google_Service_QPXExpress_SliceInput extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1234,7 +1137,6 @@ class Google_Service_QPXExpress_SliceInput extends Google_Collection
   {
     $this->maxConnectionDuration = $maxConnectionDuration;
   }
-
   public function getMaxConnectionDuration()
   {
     return $this->maxConnectionDuration;
@@ -1243,7 +1145,6 @@ class Google_Service_QPXExpress_SliceInput extends Google_Collection
   {
     $this->maxStops = $maxStops;
   }
-
   public function getMaxStops()
   {
     return $this->maxStops;
@@ -1252,7 +1153,6 @@ class Google_Service_QPXExpress_SliceInput extends Google_Collection
   {
     $this->origin = $origin;
   }
-
   public function getOrigin()
   {
     return $this->origin;
@@ -1261,7 +1161,6 @@ class Google_Service_QPXExpress_SliceInput extends Google_Collection
   {
     $this->permittedCarrier = $permittedCarrier;
   }
-
   public function getPermittedCarrier()
   {
     return $this->permittedCarrier;
@@ -1270,7 +1169,6 @@ class Google_Service_QPXExpress_SliceInput extends Google_Collection
   {
     $this->permittedDepartureTime = $permittedDepartureTime;
   }
-
   public function getPermittedDepartureTime()
   {
     return $this->permittedDepartureTime;
@@ -1279,7 +1177,6 @@ class Google_Service_QPXExpress_SliceInput extends Google_Collection
   {
     $this->preferredCabin = $preferredCabin;
   }
-
   public function getPreferredCabin()
   {
     return $this->preferredCabin;
@@ -1288,12 +1185,10 @@ class Google_Service_QPXExpress_SliceInput extends Google_Collection
   {
     $this->prohibitedCarrier = $prohibitedCarrier;
   }
-
   public function getProhibitedCarrier()
   {
     return $this->prohibitedCarrier;
   }
-
 }
 
 class Google_Service_QPXExpress_TaxData extends Google_Model
@@ -1304,11 +1199,11 @@ class Google_Service_QPXExpress_TaxData extends Google_Model
   public $kind;
   public $name;
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1317,7 +1212,6 @@ class Google_Service_QPXExpress_TaxData extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1326,12 +1220,10 @@ class Google_Service_QPXExpress_TaxData extends Google_Model
   {
     $this->name = $name;
   }
-
   public function getName()
   {
     return $this->name;
   }
-
 }
 
 class Google_Service_QPXExpress_TaxInfo extends Google_Model
@@ -1345,11 +1237,11 @@ class Google_Service_QPXExpress_TaxInfo extends Google_Model
   public $kind;
   public $salePrice;
 
+
   public function setChargeType($chargeType)
   {
     $this->chargeType = $chargeType;
   }
-
   public function getChargeType()
   {
     return $this->chargeType;
@@ -1358,7 +1250,6 @@ class Google_Service_QPXExpress_TaxInfo extends Google_Model
   {
     $this->code = $code;
   }
-
   public function getCode()
   {
     return $this->code;
@@ -1367,7 +1258,6 @@ class Google_Service_QPXExpress_TaxInfo extends Google_Model
   {
     $this->country = $country;
   }
-
   public function getCountry()
   {
     return $this->country;
@@ -1376,7 +1266,6 @@ class Google_Service_QPXExpress_TaxInfo extends Google_Model
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1385,7 +1274,6 @@ class Google_Service_QPXExpress_TaxInfo extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1394,12 +1282,10 @@ class Google_Service_QPXExpress_TaxInfo extends Google_Model
   {
     $this->salePrice = $salePrice;
   }
-
   public function getSalePrice()
   {
     return $this->salePrice;
   }
-
 }
 
 class Google_Service_QPXExpress_TimeOfDayRange extends Google_Model
@@ -1410,11 +1296,11 @@ class Google_Service_QPXExpress_TimeOfDayRange extends Google_Model
   public $kind;
   public $latestTime;
 
+
   public function setEarliestTime($earliestTime)
   {
     $this->earliestTime = $earliestTime;
   }
-
   public function getEarliestTime()
   {
     return $this->earliestTime;
@@ -1423,7 +1309,6 @@ class Google_Service_QPXExpress_TimeOfDayRange extends Google_Model
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1432,12 +1317,10 @@ class Google_Service_QPXExpress_TimeOfDayRange extends Google_Model
   {
     $this->latestTime = $latestTime;
   }
-
   public function getLatestTime()
   {
     return $this->latestTime;
   }
-
 }
 
 class Google_Service_QPXExpress_TripOption extends Google_Collection
@@ -1453,11 +1336,11 @@ class Google_Service_QPXExpress_TripOption extends Google_Collection
   protected $sliceType = 'Google_Service_QPXExpress_SliceInfo';
   protected $sliceDataType = 'array';
 
+
   public function setId($id)
   {
     $this->id = $id;
   }
-
   public function getId()
   {
     return $this->id;
@@ -1466,7 +1349,6 @@ class Google_Service_QPXExpress_TripOption extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1475,7 +1357,6 @@ class Google_Service_QPXExpress_TripOption extends Google_Collection
   {
     $this->pricing = $pricing;
   }
-
   public function getPricing()
   {
     return $this->pricing;
@@ -1484,7 +1365,6 @@ class Google_Service_QPXExpress_TripOption extends Google_Collection
   {
     $this->saleTotal = $saleTotal;
   }
-
   public function getSaleTotal()
   {
     return $this->saleTotal;
@@ -1493,12 +1373,10 @@ class Google_Service_QPXExpress_TripOption extends Google_Collection
   {
     $this->slice = $slice;
   }
-
   public function getSlice()
   {
     return $this->slice;
   }
-
 }
 
 class Google_Service_QPXExpress_TripOptionsRequest extends Google_Collection
@@ -1515,11 +1393,11 @@ class Google_Service_QPXExpress_TripOptionsRequest extends Google_Collection
   protected $sliceDataType = 'array';
   public $solutions;
 
+
   public function setMaxPrice($maxPrice)
   {
     $this->maxPrice = $maxPrice;
   }
-
   public function getMaxPrice()
   {
     return $this->maxPrice;
@@ -1528,7 +1406,6 @@ class Google_Service_QPXExpress_TripOptionsRequest extends Google_Collection
   {
     $this->passengers = $passengers;
   }
-
   public function getPassengers()
   {
     return $this->passengers;
@@ -1537,7 +1414,6 @@ class Google_Service_QPXExpress_TripOptionsRequest extends Google_Collection
   {
     $this->refundable = $refundable;
   }
-
   public function getRefundable()
   {
     return $this->refundable;
@@ -1546,7 +1422,6 @@ class Google_Service_QPXExpress_TripOptionsRequest extends Google_Collection
   {
     $this->saleCountry = $saleCountry;
   }
-
   public function getSaleCountry()
   {
     return $this->saleCountry;
@@ -1555,7 +1430,6 @@ class Google_Service_QPXExpress_TripOptionsRequest extends Google_Collection
   {
     $this->slice = $slice;
   }
-
   public function getSlice()
   {
     return $this->slice;
@@ -1564,12 +1438,10 @@ class Google_Service_QPXExpress_TripOptionsRequest extends Google_Collection
   {
     $this->solutions = $solutions;
   }
-
   public function getSolutions()
   {
     return $this->solutions;
   }
-
 }
 
 class Google_Service_QPXExpress_TripOptionsResponse extends Google_Collection
@@ -1584,11 +1456,11 @@ class Google_Service_QPXExpress_TripOptionsResponse extends Google_Collection
   protected $tripOptionType = 'Google_Service_QPXExpress_TripOption';
   protected $tripOptionDataType = 'array';
 
+
   public function setData(Google_Service_QPXExpress_Data $data)
   {
     $this->data = $data;
   }
-
   public function getData()
   {
     return $this->data;
@@ -1597,7 +1469,6 @@ class Google_Service_QPXExpress_TripOptionsResponse extends Google_Collection
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1606,7 +1477,6 @@ class Google_Service_QPXExpress_TripOptionsResponse extends Google_Collection
   {
     $this->requestId = $requestId;
   }
-
   public function getRequestId()
   {
     return $this->requestId;
@@ -1615,12 +1485,10 @@ class Google_Service_QPXExpress_TripOptionsResponse extends Google_Collection
   {
     $this->tripOption = $tripOption;
   }
-
   public function getTripOption()
   {
     return $this->tripOption;
   }
-
 }
 
 class Google_Service_QPXExpress_TripsSearchRequest extends Google_Model
@@ -1630,16 +1498,15 @@ class Google_Service_QPXExpress_TripsSearchRequest extends Google_Model
   protected $requestType = 'Google_Service_QPXExpress_TripOptionsRequest';
   protected $requestDataType = '';
 
+
   public function setRequest(Google_Service_QPXExpress_TripOptionsRequest $request)
   {
     $this->request = $request;
   }
-
   public function getRequest()
   {
     return $this->request;
   }
-
 }
 
 class Google_Service_QPXExpress_TripsSearchResponse extends Google_Model
@@ -1650,11 +1517,11 @@ class Google_Service_QPXExpress_TripsSearchResponse extends Google_Model
   protected $tripsType = 'Google_Service_QPXExpress_TripOptionsResponse';
   protected $tripsDataType = '';
 
+
   public function setKind($kind)
   {
     $this->kind = $kind;
   }
-
   public function getKind()
   {
     return $this->kind;
@@ -1663,10 +1530,8 @@ class Google_Service_QPXExpress_TripsSearchResponse extends Google_Model
   {
     $this->trips = $trips;
   }
-
   public function getTrips()
   {
     return $this->trips;
   }
-
 }
