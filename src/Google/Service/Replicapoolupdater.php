@@ -24,7 +24,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/compute/docs/instance-groups/manager/v1beta2" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
