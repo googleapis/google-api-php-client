@@ -23,7 +23,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/fit/rest/" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -198,6 +198,10 @@ class Google_Service_Fitness extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -494,6 +498,12 @@ class Google_Service_Fitness_UsersDataSourcesDatasets_Resource extends Google_Se
    * nanoseconds from the epoch. The ID is formatted like: "startTime-endTime"
    * where startTime and endTime are 64 bit integers.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string pageToken The continuation token, which is used to page
+   * through large datasets. To get the next page of a dataset, set this parameter
+   * to the value of nextPageToken from the previous response. Each subsequent
+   * call will yield a partial dataset with data point end timestamps that are
+   * strictly smaller than those in the previous partial response.
    * @return Google_Service_Fitness_Dataset
    */
   public function get($userId, $dataSourceId, $datasetId, $optParams = array())
@@ -873,6 +883,7 @@ class Google_Service_Fitness_Dataset extends Google_Collection
   public $dataSourceId;
   public $maxEndTimeNs;
   public $minStartTimeNs;
+  public $nextPageToken;
   protected $pointType = 'Google_Service_Fitness_DataPoint';
   protected $pointDataType = 'array';
 
@@ -900,6 +911,14 @@ class Google_Service_Fitness_Dataset extends Google_Collection
   public function getMinStartTimeNs()
   {
     return $this->minStartTimeNs;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
   }
   public function setPoint($point)
   {
