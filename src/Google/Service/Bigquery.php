@@ -1272,6 +1272,7 @@ class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
   protected $rowsDataType = 'array';
   protected $schemaType = 'Google_Service_Bigquery_TableSchema';
   protected $schemaDataType = '';
+  public $totalBytesProcessed;
   public $totalRows;
 
 
@@ -1338,6 +1339,14 @@ class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
   public function getSchema()
   {
     return $this->schema;
+  }
+  public function setTotalBytesProcessed($totalBytesProcessed)
+  {
+    $this->totalBytesProcessed = $totalBytesProcessed;
+  }
+  public function getTotalBytesProcessed()
+  {
+    return $this->totalBytesProcessed;
   }
   public function setTotalRows($totalRows)
   {
