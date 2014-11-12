@@ -1103,7 +1103,7 @@ class Google_Service_Calendar_CalendarList_Resource extends Google_Service_Resou
    * @opt_param bool showDeleted Whether to include deleted calendar list entries
    * in the result. Optional. The default is False.
    * @opt_param string minAccessRole The minimum access role for the user in the
-   * returned entires. Optional. The default is no restriction.
+   * returned entries. Optional. The default is no restriction.
    * @opt_param int maxResults Maximum number of entries returned on one result
    * page. By default the value is 100 entries. The page size can never be larger
    * than 250 entries. Optional.
@@ -1182,7 +1182,7 @@ class Google_Service_Calendar_CalendarList_Resource extends Google_Service_Resou
    * @opt_param bool showDeleted Whether to include deleted calendar list entries
    * in the result. Optional. The default is False.
    * @opt_param string minAccessRole The minimum access role for the user in the
-   * returned entires. Optional. The default is no restriction.
+   * returned entries. Optional. The default is no restriction.
    * @opt_param int maxResults Maximum number of entries returned on one result
    * page. By default the value is 100 entries. The page size can never be larger
    * than 250 entries. Optional.

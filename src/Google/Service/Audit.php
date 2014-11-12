@@ -144,9 +144,9 @@ class Google_Service_Audit_Activities_Resource extends Google_Service_Resource
    * @opt_param int maxResults Number of activity records to be shown in each
    * page.
    * @opt_param string eventName Name of the event being queried.
-   * @opt_param string startTime Return events which occured at or after this
+   * @opt_param string startTime Return events which occurred at or after this
    * time.
-   * @opt_param string endTime Return events which occured at or before this time.
+   * @opt_param string endTime Return events which occurred at or before this time.
    * @opt_param string continuationToken Next page URL.
    * @return Google_Service_Audit_Activities
    */

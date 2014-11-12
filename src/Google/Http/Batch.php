@@ -126,7 +126,7 @@ class Google_Http_Batch
             $response = Google_Http_REST::decodeHttpResponse($response);
             $responses[$key] = $response;
           } catch (Google_Service_Exception $e) {
-            // Store the exception as the response, so succesful responses
+            // Store the exception as the response, so successful responses
             // can be processed.
             $responses[$key] = $e;
           }
