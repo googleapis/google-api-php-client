@@ -98,7 +98,11 @@ class Google_Config
     if ($ini_file_location) {
       $ini = parse_ini_file($ini_file_location, true);
       if (is_array($ini) && count($ini)) {
-        $this->configuration = array_merge($this->configuration, $ini);
+        $merged_configuration = $ini + $this->configuration;
+        if (isset($ini['classes']) && isset($this->configuration['classes'])) {
+          $merged_configuration['classes'] = $ini['classes'] + $this->configuration['classes'];
+        }
+        $this->configuration = $merged_configuration;
       }
     }
   }

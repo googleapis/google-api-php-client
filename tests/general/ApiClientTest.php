@@ -177,5 +177,13 @@ class ApiClientTest extends BaseTest
         'gjfiwnGinpena3',
         $config->getClassConfig('Google_Auth_OAuth2', 'client_secret')
     );
+    $this->assertInternalType(
+        'array',
+        $config->getClassConfig('Google_IO_Abstract')
+    );
+    $this->assertEquals(
+        100,
+        $config->getClassConfig('Google_IO_Abstract', 'request_timeout_seconds')
+    );
   }
 }
