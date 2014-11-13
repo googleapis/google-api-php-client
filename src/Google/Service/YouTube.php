@@ -173,6 +173,10 @@ class Google_Service_YouTube extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'insert' => array(
               'path' => 'channelSections',
@@ -226,6 +230,10 @@ class Google_Service_YouTube extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1466,6 +1474,19 @@ class Google_Service_YouTube_ChannelSections_Resource extends Google_Service_Res
    * for the resource that is being deleted. In a channelSection resource, the id
    * property specifies the YouTube channelSection ID.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    */
   public function delete($id, $optParams = array())
   {
@@ -1583,6 +1604,19 @@ class Google_Service_YouTube_ChannelSections_Resource extends Google_Service_Res
    * contentDetails.
    * @param Google_ChannelSection $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
    * @return Google_Service_YouTube_ChannelSection
    */
   public function update($part, Google_Service_YouTube_ChannelSection $postBody, $optParams = array())
@@ -5222,8 +5256,9 @@ class Google_Service_YouTube_ChannelTopicDetails extends Google_Collection
   }
 }
 
-class Google_Service_YouTube_ContentRating extends Google_Model
+class Google_Service_YouTube_ContentRating extends Google_Collection
 {
+  protected $collection_key = 'djctqRatingReasons';
   protected $internal_gapi_mappings = array(
   );
   public $acbRating;
@@ -5245,6 +5280,7 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   public $cscfRating;
   public $czfilmRating;
   public $djctqRating;
+  public $djctqRatingReasons;
   public $eefilmRating;
   public $egfilmRating;
   public $eirinRating;
@@ -5442,6 +5478,14 @@ class Google_Service_YouTube_ContentRating extends Google_Model
   public function getDjctqRating()
   {
     return $this->djctqRating;
+  }
+  public function setDjctqRatingReasons($djctqRatingReasons)
+  {
+    $this->djctqRatingReasons = $djctqRatingReasons;
+  }
+  public function getDjctqRatingReasons()
+  {
+    return $this->djctqRatingReasons;
   }
   public function setEefilmRating($eefilmRating)
   {
