@@ -39,11 +39,11 @@ class CacheTest extends BaseTest
     $this->getSetDelete($cache);
   }
 
+  /**
+   * @requires extension Memcache
+   */
   public function testNull()
   {
-    if (!function_exists('memcache_connect')) {
-      $this->markTestSkipped('Test requires memcache');
-    }
     $client = $this->getClient();
     $cache = new Google_Cache_Null($client);
     $client->setCache($cache);
@@ -63,11 +63,11 @@ class CacheTest extends BaseTest
     $this->assertEquals($cache->get('foo'), false);
   }
 
+  /**
+   * @requires extension Memcache
+   */
   public function testMemcache()
   {
-    if (!function_exists('memcache_connect')) {
-      $this->markTestSkipped('Test requires memcache');
-    }
     $client = $this->getClient();
     if (!$client->getClassConfig('Google_Cache_Memcache', 'host')) {
       $this->markTestSkipped('Test requires memcache host specified');
@@ -78,11 +78,11 @@ class CacheTest extends BaseTest
     $this->getSetDelete($cache);
   }
 
+  /**
+   * @requires extension APC
+   */
   public function testAPC()
   {
-    if (!function_exists('apc_add')) {
-      $this->markTestSkipped('Test requires APC');
-    }
     if (!ini_get('apc.enable_cli')) {
       $this->markTestSkipped('Test requires APC enabled for CLI');
     }

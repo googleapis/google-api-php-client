@@ -123,11 +123,11 @@ class ApiClientTest extends BaseTest
     $this->assertEquals($token, $client->getAccessToken());
   }
 
+  /**
+   * @requires extension Memcached
+   */
   public function testAppEngineAutoConfig()
   {
-    if (!class_exists("Memcached")) {
-      $this->markTestSkipped('Test requires memcache');
-    }
     $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
     $client = new Google_Client();
     $this->assertInstanceOf('Google_Cache_Memcache', $client->getCache());
