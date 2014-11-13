@@ -2255,7 +2255,7 @@ class Google_Service_Books_VolumesMybooks_Resource extends Google_Service_Resour
    * 0)
    * @opt_param string maxResults Maximum number of results to return.
    * @opt_param string source String to identify the originator of this request.
-   * @opt_param string acquireMethod How the book was acquired
+   * @opt_param string acquireMethod How the book was aquired
    * @opt_param string processingState The processing state of the user uploaded
    * volumes to be returned. Applicable only if the UPLOADED is specified in the
    * acquireMethod.
