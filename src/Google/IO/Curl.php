@@ -53,9 +53,8 @@ class Google_IO_Curl extends Google_IO_Abstract
       }
       curl_setopt($curl, CURLOPT_HTTPHEADER, $curlHeaders);
     }
-
     curl_setopt($curl, CURLOPT_URL, $request->getUrl());
-    
+
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $request->getRequestMethod());
     curl_setopt($curl, CURLOPT_USERAGENT, $request->getUserAgent());
 
@@ -78,15 +77,36 @@ class Google_IO_Curl extends Google_IO_Abstract
       curl_setopt($curl, CURLOPT_CAINFO, dirname(__FILE__) . '/cacerts.pem');
     }
 
+    $this->client->getLogger()->debug(
+        'cURL request',
+        array(
+            'url' => $request->getUrl(),
+            'method' => $request->getRequestMethod(),
+            'headers' => $requestHeaders,
+            'body' => $request->getPostBody()
+        )
+    );
+
     $response = curl_exec($curl);
     if ($response === false) {
-      throw new Google_IO_Exception(curl_error($curl));
+      $error = curl_error($curl);
+
+      $this->client->getLogger()->error('cURL ' . $error);
+      throw new Google_IO_Exception($error);
     }
     $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
 
     list($responseHeaders, $responseBody) = $this->parseHttpResponse($response, $headerSize);
-
     $responseCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+    $this->client->getLogger()->debug(
+        'cURL response',
+        array(
+            'code' => $responseCode,
+            'headers' => $responseHeaders,
+            'body' => $responseBody,
+        )
+    );
 
     return array($responseBody, $responseHeaders, $responseCode);
   }

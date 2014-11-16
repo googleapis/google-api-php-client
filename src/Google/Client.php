@@ -49,6 +49,11 @@ class Google_Client
   private $config;
 
   /**
+   * @var Google_Logger_Abstract $logger
+   */
+  private $logger;
+
+  /**
    * @var boolean $deferExecution
    */
   private $deferExecution = false;
@@ -213,6 +218,16 @@ class Google_Client
   {
     $this->config->setCacheClass(get_class($cache));
     $this->cache = $cache;
+  }
+
+  /**
+   * Set the Logger object
+   * @param Google_Logger_Abstract $logger
+   */
+  public function setLogger(Google_Logger_Abstract $logger)
+  {
+    $this->config->setLoggerClass(get_class($logger));
+    $this->logger = $logger;
   }
 
   /**
@@ -596,6 +611,18 @@ class Google_Client
       $this->cache = new $class($this);
     }
     return $this->cache;
+  }
+
+  /**
+   * @return Google_Logger_Abstract Logger implementation
+   */
+  public function getLogger()
+  {
+    if (!isset($this->logger)) {
+      $class = $this->config->getLoggerClass();
+      $this->logger = new $class($this);
+    }
+    return $this->logger;
   }
 
   /**
