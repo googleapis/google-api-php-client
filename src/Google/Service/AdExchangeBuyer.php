@@ -37,6 +37,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
 
   public $accounts;
   public $billingInfo;
+  public $budget;
   public $creatives;
   public $directDeals;
   public $performanceReport;
@@ -119,6 +120,61 @@ class Google_Service_AdExchangeBuyer extends Google_Service
               'path' => 'billinginfo',
               'httpMethod' => 'GET',
               'parameters' => array(),
+            ),
+          )
+        )
+    );
+    $this->budget = new Google_Service_AdExchangeBuyer_Budget_Resource(
+        $this,
+        $this->serviceName,
+        'budget',
+        array(
+          'methods' => array(
+            'get' => array(
+              'path' => 'billinginfo/{accountId}/{billingId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'billingId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'patch' => array(
+              'path' => 'billinginfo/{accountId}/{billingId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'billingId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'billinginfo/{accountId}/{billingId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'billingId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )
@@ -443,6 +499,74 @@ class Google_Service_AdExchangeBuyer_BillingInfo_Resource extends Google_Service
     $params = array();
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_AdExchangeBuyer_BillingInfoList");
+  }
+}
+
+/**
+ * The "budget" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adexchangebuyerService = new Google_Service_AdExchangeBuyer(...);
+ *   $budget = $adexchangebuyerService->budget;
+ *  </code>
+ */
+class Google_Service_AdExchangeBuyer_Budget_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Returns the budget information for the adgroup specified by the accountId and
+   * billingId. (budget.get)
+   *
+   * @param string $accountId The account id to get the budget information for.
+   * @param string $billingId The billing id to get the budget information for.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_AdExchangeBuyer_Budget
+   */
+  public function get($accountId, $billingId, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'billingId' => $billingId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_AdExchangeBuyer_Budget");
+  }
+
+  /**
+   * Updates the budget amount for the budget of the adgroup specified by the
+   * accountId and billingId, with the budget amount in the request. This method
+   * supports patch semantics. (budget.patch)
+   *
+   * @param string $accountId The account id associated with the budget being
+   * updated.
+   * @param string $billingId The billing id associated with the budget being
+   * updated.
+   * @param Google_Budget $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_AdExchangeBuyer_Budget
+   */
+  public function patch($accountId, $billingId, Google_Service_AdExchangeBuyer_Budget $postBody, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'billingId' => $billingId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_AdExchangeBuyer_Budget");
+  }
+
+  /**
+   * Updates the budget amount for the budget of the adgroup specified by the
+   * accountId and billingId, with the budget amount in the request.
+   * (budget.update)
+   *
+   * @param string $accountId The account id associated with the budget being
+   * updated.
+   * @param string $billingId The billing id associated with the budget being
+   * updated.
+   * @param Google_Budget $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_AdExchangeBuyer_Budget
+   */
+  public function update($accountId, $billingId, Google_Service_AdExchangeBuyer_Budget $postBody, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'billingId' => $billingId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_AdExchangeBuyer_Budget");
   }
 }
 
@@ -909,6 +1033,68 @@ class Google_Service_AdExchangeBuyer_BillingInfoList extends Google_Collection
   public function getItems()
   {
     return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_AdExchangeBuyer_Budget extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $accountId;
+  public $billingId;
+  public $budgetAmount;
+  public $currencyCode;
+  public $id;
+  public $kind;
+
+
+  public function setAccountId($accountId)
+  {
+    $this->accountId = $accountId;
+  }
+  public function getAccountId()
+  {
+    return $this->accountId;
+  }
+  public function setBillingId($billingId)
+  {
+    $this->billingId = $billingId;
+  }
+  public function getBillingId()
+  {
+    return $this->billingId;
+  }
+  public function setBudgetAmount($budgetAmount)
+  {
+    $this->budgetAmount = $budgetAmount;
+  }
+  public function getBudgetAmount()
+  {
+    return $this->budgetAmount;
+  }
+  public function setCurrencyCode($currencyCode)
+  {
+    $this->currencyCode = $currencyCode;
+  }
+  public function getCurrencyCode()
+  {
+    return $this->currencyCode;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
   }
   public function setKind($kind)
   {
