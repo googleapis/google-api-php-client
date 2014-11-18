@@ -522,11 +522,13 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
   public $adId;
   public $advertiserId;
   public $agencyId;
+  public $attributionModel;
   public $campaignId;
   public $clickId;
   public $conversionId;
   public $conversionModifiedTimestamp;
   public $conversionTimestamp;
+  public $countMillis;
   public $criterionId;
   public $currencyCode;
   protected $customDimensionType = 'Google_Service_Doubleclicksearch_CustomDimension';
@@ -577,6 +579,14 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
   {
     return $this->agencyId;
   }
+  public function setAttributionModel($attributionModel)
+  {
+    $this->attributionModel = $attributionModel;
+  }
+  public function getAttributionModel()
+  {
+    return $this->attributionModel;
+  }
   public function setCampaignId($campaignId)
   {
     $this->campaignId = $campaignId;
@@ -616,6 +626,14 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
   public function getConversionTimestamp()
   {
     return $this->conversionTimestamp;
+  }
+  public function setCountMillis($countMillis)
+  {
+    $this->countMillis = $countMillis;
+  }
+  public function getCountMillis()
+  {
+    return $this->countMillis;
   }
   public function setCriterionId($criterionId)
   {
