@@ -947,13 +947,13 @@ class Google_Service_Genomics_Readgroupsets_Resource extends Google_Service_Reso
   /**
    * Calls variants on read data from existing read group sets or files from
    * Google Cloud Storage. See the  alignment and variant calling documentation
-   * for more details. (readgroupsets.call)
+   * for more details. (readgroupsets.callReadgroupsets)
    *
    * @param Google_CallReadGroupSetsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Genomics_CallReadGroupSetsResponse
    */
-  public function call(Google_Service_Genomics_CallReadGroupSetsRequest $postBody, $optParams = array())
+  public function callReadgroupsets(Google_Service_Genomics_CallReadGroupSetsRequest $postBody, $optParams = array())
   {
     $params = array('postBody' => $postBody);
     $params = array_merge($params, $optParams);
@@ -1611,73 +1611,6 @@ class Google_Service_Genomics_AlignReadGroupSetsResponse extends Google_Model
   }
 }
 
-class Google_Service_Genomics_Call extends Google_Collection
-{
-  protected $collection_key = 'genotypeLikelihood';
-  protected $internal_gapi_mappings = array(
-  );
-  public $callSetId;
-  public $callSetName;
-  public $genotype;
-  public $genotypeLikelihood;
-  public $info;
-  public $phaseset;
-
-
-  public function setCallSetId($callSetId)
-  {
-    $this->callSetId = $callSetId;
-  }
-  public function getCallSetId()
-  {
-    return $this->callSetId;
-  }
-  public function setCallSetName($callSetName)
-  {
-    $this->callSetName = $callSetName;
-  }
-  public function getCallSetName()
-  {
-    return $this->callSetName;
-  }
-  public function setGenotype($genotype)
-  {
-    $this->genotype = $genotype;
-  }
-  public function getGenotype()
-  {
-    return $this->genotype;
-  }
-  public function setGenotypeLikelihood($genotypeLikelihood)
-  {
-    $this->genotypeLikelihood = $genotypeLikelihood;
-  }
-  public function getGenotypeLikelihood()
-  {
-    return $this->genotypeLikelihood;
-  }
-  public function setInfo($info)
-  {
-    $this->info = $info;
-  }
-  public function getInfo()
-  {
-    return $this->info;
-  }
-  public function setPhaseset($phaseset)
-  {
-    $this->phaseset = $phaseset;
-  }
-  public function getPhaseset()
-  {
-    return $this->phaseset;
-  }
-}
-
-class Google_Service_Genomics_CallInfo extends Google_Model
-{
-}
-
 class Google_Service_Genomics_CallReadGroupSetsRequest extends Google_Collection
 {
   protected $collection_key = 'sourceUris';
@@ -2168,6 +2101,73 @@ class Google_Service_Genomics_FastqMetadata extends Google_Model
   {
     return $this->sampleName;
   }
+}
+
+class Google_Service_Genomics_GenomicsCall extends Google_Collection
+{
+  protected $collection_key = 'genotypeLikelihood';
+  protected $internal_gapi_mappings = array(
+  );
+  public $callSetId;
+  public $callSetName;
+  public $genotype;
+  public $genotypeLikelihood;
+  public $info;
+  public $phaseset;
+
+
+  public function setCallSetId($callSetId)
+  {
+    $this->callSetId = $callSetId;
+  }
+  public function getCallSetId()
+  {
+    return $this->callSetId;
+  }
+  public function setCallSetName($callSetName)
+  {
+    $this->callSetName = $callSetName;
+  }
+  public function getCallSetName()
+  {
+    return $this->callSetName;
+  }
+  public function setGenotype($genotype)
+  {
+    $this->genotype = $genotype;
+  }
+  public function getGenotype()
+  {
+    return $this->genotype;
+  }
+  public function setGenotypeLikelihood($genotypeLikelihood)
+  {
+    $this->genotypeLikelihood = $genotypeLikelihood;
+  }
+  public function getGenotypeLikelihood()
+  {
+    return $this->genotypeLikelihood;
+  }
+  public function setInfo($info)
+  {
+    $this->info = $info;
+  }
+  public function getInfo()
+  {
+    return $this->info;
+  }
+  public function setPhaseset($phaseset)
+  {
+    $this->phaseset = $phaseset;
+  }
+  public function getPhaseset()
+  {
+    return $this->phaseset;
+  }
+}
+
+class Google_Service_Genomics_GenomicsCallInfo extends Google_Model
+{
 }
 
 class Google_Service_Genomics_ImportReadGroupSetsRequest extends Google_Collection
@@ -4054,7 +4054,7 @@ class Google_Service_Genomics_Variant extends Google_Collection
   protected $internal_gapi_mappings = array(
   );
   public $alternateBases;
-  protected $callsType = 'Google_Service_Genomics_Call';
+  protected $callsType = 'Google_Service_Genomics_GenomicsCall';
   protected $callsDataType = 'array';
   public $created;
   public $end;
