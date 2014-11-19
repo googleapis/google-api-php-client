@@ -199,6 +199,10 @@ class Google_Service_Fitness extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'limit' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -499,6 +503,9 @@ class Google_Service_Fitness_UsersDataSourcesDatasets_Resource extends Google_Se
    * where startTime and endTime are 64 bit integers.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int limit If specified, no more than this many data points will be
+   * included in the dataset. If the there are more data points in the dataset,
+   * nextPageToken will be set in the dataset response.
    * @opt_param string pageToken The continuation token, which is used to page
    * through large datasets. To get the next page of a dataset, set this parameter
    * to the value of nextPageToken from the previous response. Each subsequent
