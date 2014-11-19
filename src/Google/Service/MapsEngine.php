@@ -31,10 +31,10 @@
  */
 class Google_Service_MapsEngine extends Google_Service
 {
-  /** View and manage your Google Maps Engine data. */
+  /** View and manage your Google My Maps data. */
   const MAPSENGINE =
       "https://www.googleapis.com/auth/mapsengine";
-  /** View your Google Maps Engine data. */
+  /** View your Google My Maps data. */
   const MAPSENGINE_READONLY =
       "https://www.googleapis.com/auth/mapsengine.readonly";
 
