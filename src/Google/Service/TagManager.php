@@ -1919,6 +1919,7 @@ class Google_Service_TagManager_Container extends Google_Collection
   public $accountId;
   public $containerId;
   public $domainName;
+  public $enabledBuiltInVariable;
   public $fingerprint;
   public $name;
   public $notes;
@@ -1951,6 +1952,14 @@ class Google_Service_TagManager_Container extends Google_Collection
   public function getDomainName()
   {
     return $this->domainName;
+  }
+  public function setEnabledBuiltInVariable($enabledBuiltInVariable)
+  {
+    $this->enabledBuiltInVariable = $enabledBuiltInVariable;
+  }
+  public function getEnabledBuiltInVariable()
+  {
+    return $this->enabledBuiltInVariable;
   }
   public function setFingerprint($fingerprint)
   {
@@ -2793,8 +2802,6 @@ class Google_Service_TagManager_Tag extends Google_Collection
   public $blockingRuleId;
   public $blockingTriggerId;
   public $containerId;
-  protected $dependenciesType = 'Google_Service_TagManager_Parameter';
-  protected $dependenciesDataType = '';
   public $fingerprint;
   public $firingRuleId;
   public $firingTriggerId;
@@ -2842,14 +2849,6 @@ class Google_Service_TagManager_Tag extends Google_Collection
   public function getContainerId()
   {
     return $this->containerId;
-  }
-  public function setDependencies(Google_Service_TagManager_Parameter $dependencies)
-  {
-    $this->dependencies = $dependencies;
-  }
-  public function getDependencies()
-  {
-    return $this->dependencies;
   }
   public function setFingerprint($fingerprint)
   {
