@@ -37,6 +37,7 @@ class Google_Service_Books extends Google_Service
   public $bookshelves;
   public $bookshelves_volumes;
   public $cloudloading;
+  public $dictionary;
   public $layers;
   public $layers_annotationData;
   public $layers_volumeAnnotations;
@@ -190,6 +191,26 @@ class Google_Service_Books extends Google_Service
               'path' => 'cloudloading/updateBook',
               'httpMethod' => 'POST',
               'parameters' => array(),
+            ),
+          )
+        )
+    );
+    $this->dictionary = new Google_Service_Books_Dictionary_Resource(
+        $this,
+        $this->serviceName,
+        'dictionary',
+        array(
+          'methods' => array(
+            'listOfflineMetadata' => array(
+              'path' => 'dictionary/listOfflineMetadata',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'cpksver' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )
@@ -622,13 +643,17 @@ class Google_Service_Books extends Google_Service
               'path' => 'mylibrary/annotations',
               'httpMethod' => 'POST',
               'parameters' => array(
-                'source' => array(
+                'country' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'showOnlySummaryInResponse' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+                'source' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'list' => array(
@@ -1447,6 +1472,33 @@ class Google_Service_Books_Cloudloading_Resource extends Google_Service_Resource
 }
 
 /**
+ * The "dictionary" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $booksService = new Google_Service_Books(...);
+ *   $dictionary = $booksService->dictionary;
+ *  </code>
+ */
+class Google_Service_Books_Dictionary_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Returns a list of offline dictionary meatadata available
+   * (dictionary.listOfflineMetadata)
+   *
+   * @param string $cpksver The device/version ID from which to request the data.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Books_Metadata
+   */
+  public function listOfflineMetadata($cpksver, $optParams = array())
+  {
+    $params = array('cpksver' => $cpksver);
+    $params = array_merge($params, $optParams);
+    return $this->call('listOfflineMetadata', array($params), "Google_Service_Books_Metadata");
+  }
+}
+
+/**
  * The "layers" collection of methods.
  * Typical usage is:
  *  <code>
@@ -1786,9 +1838,10 @@ class Google_Service_Books_MylibraryAnnotations_Resource extends Google_Service_
    * @param Google_Annotation $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string source String to identify the originator of this request.
+   * @opt_param string country ISO-3166-1 code to override the IP-based location.
    * @opt_param bool showOnlySummaryInResponse Requests that only the summary of
    * the specified layer be provided in the response.
+   * @opt_param string source String to identify the originator of this request.
    * @return Google_Service_Books_Annotation
    */
   public function insert(Google_Service_Books_Annotation $postBody, $optParams = array())
@@ -4416,6 +4469,89 @@ class Google_Service_Books_Layersummary extends Google_Collection
   public function getVolumeId()
   {
     return $this->volumeId;
+  }
+}
+
+class Google_Service_Books_Metadata extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $itemsType = 'Google_Service_Books_MetadataItems';
+  protected $itemsDataType = 'array';
+  public $kind;
+
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_Books_MetadataItems extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+        "downloadUrl" => "download_url",
+        "encryptedKey" => "encrypted_key",
+  );
+  public $downloadUrl;
+  public $encryptedKey;
+  public $language;
+  public $size;
+  public $version;
+
+
+  public function setDownloadUrl($downloadUrl)
+  {
+    $this->downloadUrl = $downloadUrl;
+  }
+  public function getDownloadUrl()
+  {
+    return $this->downloadUrl;
+  }
+  public function setEncryptedKey($encryptedKey)
+  {
+    $this->encryptedKey = $encryptedKey;
+  }
+  public function getEncryptedKey()
+  {
+    return $this->encryptedKey;
+  }
+  public function setLanguage($language)
+  {
+    $this->language = $language;
+  }
+  public function getLanguage()
+  {
+    return $this->language;
+  }
+  public function setSize($size)
+  {
+    $this->size = $size;
+  }
+  public function getSize()
+  {
+    return $this->size;
+  }
+  public function setVersion($version)
+  {
+    $this->version = $version;
+  }
+  public function getVersion()
+  {
+    return $this->version;
   }
 }
 
