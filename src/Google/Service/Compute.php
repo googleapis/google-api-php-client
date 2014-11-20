@@ -4334,7 +4334,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * Retrieves the list of machine type resources grouped by scope.
    * (machineTypes.aggregatedList)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -4355,7 +4355,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
   /**
    * Returns the specified machine type resource. (machineTypes.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param string $machineType Name of the machine type resource to return.
    * @param array $optParams Optional parameters.
@@ -4372,7 +4372,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * Retrieves the list of machine type resources available to the specified
    * project. (machineTypes.listMachineTypes)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param array $optParams Optional parameters.
    *
