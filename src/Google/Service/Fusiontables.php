@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Fusiontables (v1).
+ * Service definition for Fusiontables (v2).
  *
  * <p>
  * API for working with Fusion Tables data.</p>
@@ -53,8 +53,8 @@ class Google_Service_Fusiontables extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->servicePath = 'fusiontables/v1/';
-    $this->version = 'v1';
+    $this->servicePath = 'fusiontables/v2/';
+    $this->version = 'v2';
     $this->serviceName = 'fusiontables';
 
     $this->column = new Google_Service_Fusiontables_Column_Resource(
@@ -418,6 +418,36 @@ class Google_Service_Fusiontables extends Google_Service
                   'type' => 'boolean',
                 ),
               ),
+            ),'replaceRows' => array(
+              'path' => 'tables/{tableId}/replace',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'tableId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'startLine' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'isStrict' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'encoding' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'delimiter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'endLine' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
             ),'update' => array(
               'path' => 'tables/{tableId}',
               'httpMethod' => 'PUT',
@@ -663,9 +693,9 @@ class Google_Service_Fusiontables_Column_Resource extends Google_Service_Resourc
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken Continuation token specifying which result page
-   * to return. Optional.
-   * @opt_param string maxResults Maximum number of columns to return. Optional.
-   * Default is 5.
+   * to return.
+   * @opt_param string maxResults Maximum number of columns to return. Default is
+   * 5.
    * @return Google_Service_Fusiontables_ColumnList
    */
   public function listColumn($tableId, $optParams = array())
@@ -1033,6 +1063,36 @@ class Google_Service_Fusiontables_Table_Resource extends Google_Service_Resource
   }
 
   /**
+   * Replaces rows of an existing table. Current rows remain visible until all
+   * replacement rows are ready. (table.replaceRows)
+   *
+   * @param string $tableId Table whose rows will be replaced.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param int startLine The index of the first line from which to start
+   * importing, inclusive. Default is 0.
+   * @opt_param bool isStrict Whether the CSV must have the same number of column
+   * values for each row. If true, throws an exception if the CSV does not not
+   * have the same number of columns. If false, rows with fewer column values will
+   * be padded with empty values. Default is true.
+   * @opt_param string encoding The encoding of the content. Default is UTF-8. Use
+   * 'auto-detect' if you are unsure of the encoding.
+   * @opt_param string delimiter The delimiter used to separate cell values. This
+   * can only consist of a single character. Default is ','.
+   * @opt_param int endLine The index of the last line to import, exclusive.
+   * 'endLine - startLine' rows will be imported. Default is to import through the
+   * end of the file. If endLine is negative, it is an offset from the end of the
+   * file; the imported content will exclude the last endLine lines.
+   * @return Google_Service_Fusiontables_Task
+   */
+  public function replaceRows($tableId, $optParams = array())
+  {
+    $params = array('tableId' => $tableId);
+    $params = array_merge($params, $optParams);
+    return $this->call('replaceRows', array($params), "Google_Service_Fusiontables_Task");
+  }
+
+  /**
    * Updates an existing table. Unless explicitly requested, only the name,
    * description, and attribution will be updated. (table.update)
    *
@@ -1099,10 +1159,11 @@ class Google_Service_Fusiontables_Task_Resource extends Google_Service_Resource
    * @param string $tableId Table whose tasks are being listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * @opt_param string startIndex
-   * @opt_param string maxResults Maximum number of columns to return. Optional.
-   * Default is 5.
+   * @opt_param string pageToken Continuation token specifying which result page
+   * to return.
+   * @opt_param string startIndex Index of the first result returned in the
+   * current page.
+   * @opt_param string maxResults Maximum number of tasks to return. Default is 5.
    * @return Google_Service_Fusiontables_TaskList
    */
   public function listTask($tableId, $optParams = array())
@@ -1287,19 +1348,24 @@ class Google_Service_Fusiontables_Bucket extends Google_Model
   }
 }
 
-class Google_Service_Fusiontables_Column extends Google_Model
+class Google_Service_Fusiontables_Column extends Google_Collection
 {
+  protected $collection_key = 'validValues';
   protected $internal_gapi_mappings = array(
-        "graphPredicate" => "graph_predicate",
   );
   protected $baseColumnType = 'Google_Service_Fusiontables_ColumnBaseColumn';
   protected $baseColumnDataType = '';
   public $columnId;
+  public $columnJsonSchema;
+  public $columnPropertiesJson;
   public $description;
+  public $formatPattern;
   public $graphPredicate;
   public $kind;
   public $name;
   public $type;
+  public $validValues;
+  public $validateData;
 
 
   public function setBaseColumn(Google_Service_Fusiontables_ColumnBaseColumn $baseColumn)
@@ -1318,6 +1384,22 @@ class Google_Service_Fusiontables_Column extends Google_Model
   {
     return $this->columnId;
   }
+  public function setColumnJsonSchema($columnJsonSchema)
+  {
+    $this->columnJsonSchema = $columnJsonSchema;
+  }
+  public function getColumnJsonSchema()
+  {
+    return $this->columnJsonSchema;
+  }
+  public function setColumnPropertiesJson($columnPropertiesJson)
+  {
+    $this->columnPropertiesJson = $columnPropertiesJson;
+  }
+  public function getColumnPropertiesJson()
+  {
+    return $this->columnPropertiesJson;
+  }
   public function setDescription($description)
   {
     $this->description = $description;
@@ -1325,6 +1407,14 @@ class Google_Service_Fusiontables_Column extends Google_Model
   public function getDescription()
   {
     return $this->description;
+  }
+  public function setFormatPattern($formatPattern)
+  {
+    $this->formatPattern = $formatPattern;
+  }
+  public function getFormatPattern()
+  {
+    return $this->formatPattern;
   }
   public function setGraphPredicate($graphPredicate)
   {
@@ -1357,6 +1447,22 @@ class Google_Service_Fusiontables_Column extends Google_Model
   public function getType()
   {
     return $this->type;
+  }
+  public function setValidValues($validValues)
+  {
+    $this->validValues = $validValues;
+  }
+  public function getValidValues()
+  {
+    return $this->validValues;
+  }
+  public function setValidateData($validateData)
+  {
+    $this->validateData = $validateData;
+  }
+  public function getValidateData()
+  {
+    return $this->validateData;
   }
 }
 
@@ -2014,6 +2120,7 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   public $attribution;
   public $attributionLink;
   public $baseTableIds;
+  public $columnPropertiesJsonSchema;
   protected $columnsType = 'Google_Service_Fusiontables_Column';
   protected $columnsDataType = 'array';
   public $description;
@@ -2022,6 +2129,8 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   public $name;
   public $sql;
   public $tableId;
+  public $tablePropertiesJson;
+  public $tablePropertiesJsonSchema;
 
 
   public function setAttribution($attribution)
@@ -2047,6 +2156,14 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   public function getBaseTableIds()
   {
     return $this->baseTableIds;
+  }
+  public function setColumnPropertiesJsonSchema($columnPropertiesJsonSchema)
+  {
+    $this->columnPropertiesJsonSchema = $columnPropertiesJsonSchema;
+  }
+  public function getColumnPropertiesJsonSchema()
+  {
+    return $this->columnPropertiesJsonSchema;
   }
   public function setColumns($columns)
   {
@@ -2103,6 +2220,22 @@ class Google_Service_Fusiontables_Table extends Google_Collection
   public function getTableId()
   {
     return $this->tableId;
+  }
+  public function setTablePropertiesJson($tablePropertiesJson)
+  {
+    $this->tablePropertiesJson = $tablePropertiesJson;
+  }
+  public function getTablePropertiesJson()
+  {
+    return $this->tablePropertiesJson;
+  }
+  public function setTablePropertiesJsonSchema($tablePropertiesJsonSchema)
+  {
+    $this->tablePropertiesJsonSchema = $tablePropertiesJsonSchema;
+  }
+  public function getTablePropertiesJsonSchema()
+  {
+    return $this->tablePropertiesJsonSchema;
   }
 }
 
