@@ -30,10 +30,10 @@ require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
 class Google_Auth_AppIdentity extends Google_Auth_Abstract
 {
   const CACHE_PREFIX = "Google_Auth_AppIdentity::";
-  private $key = null;
-  private $client;
-  private $token = false;
-  private $tokenScopes = false;
+  protected $key = null;
+  protected $client;
+  protected $token = false;
+  protected $tokenScopes = false;
 
   public function __construct(Google_Client $client, $config = null)
   {

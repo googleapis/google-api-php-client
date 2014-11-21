@@ -27,9 +27,9 @@ class Google_IO_Stream extends Google_IO_Abstract
 {
   const TIMEOUT = "timeout";
   const ZLIB = "compress.zlib://";
-  private $options = array();
-  private $trappedErrorNumber;
-  private $trappedErrorString;
+  protected $options = array();
+  protected $trappedErrorNumber;
+  protected $trappedErrorString;
 
   private static $DEFAULT_HTTP_CONTEXT = array(
     "follow_location" => 0,

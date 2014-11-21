@@ -31,7 +31,7 @@ class Google_Utils_URITemplate
    * modify the way in which the variables inside are
    * processed.
    */
-  private $operators = array(
+  protected $operators = array(
       "+" => "reserved",
       "/" => "segments",
       "." => "dotprefix",
@@ -46,11 +46,11 @@ class Google_Utils_URITemplate
    * These are the characters which should not be URL encoded in reserved
    * strings.
    */
-  private $reserved = array(
+  protected $reserved = array(
       "=", ",", "!", "@", "|", ":", "/", "?", "#",
       "[", "]",'$', "&", "'", "(", ")", "*", "+", ";"
   );
-  private $reservedEncoded = array(
+  protected $reservedEncoded = array(
     "%3D", "%2C", "%21", "%40", "%7C", "%3A", "%2F", "%3F",
     "%23", "%5B", "%5D", "%24", "%26", "%27", "%28", "%29",
     "%2A", "%2B", "%3B"

@@ -37,7 +37,7 @@ class Google_Auth_AssertionCredentials
    * @link http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06
    */
   public $prn;
-  private $useCache;
+  protected $useCache;
 
   /**
    * @param $serviceAccountName

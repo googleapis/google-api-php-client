@@ -27,7 +27,7 @@ require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
 class Google_Signer_P12 extends Google_Signer_Abstract
 {
   // OpenSSL private key resource
-  private $privateKey;
+  protected $privateKey;
 
   // Creates a new signer from a .p12 file.
   public function __construct($p12, $password)

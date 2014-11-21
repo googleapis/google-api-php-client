@@ -27,10 +27,10 @@ class Google_Auth_LoginTicket
   const USER_ATTR = "sub";
 
   // Information from id token envelope.
-  private $envelope;
+  protected $envelope;
 
   // Information from id token payload.
-  private $payload;
+  protected $payload;
 
   /**
    * Creates a user based on the supplied token.

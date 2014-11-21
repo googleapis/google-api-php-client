@@ -35,22 +35,22 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
   const OAUTH2_ISSUER = 'accounts.google.com';
 
   /** @var Google_Auth_AssertionCredentials $assertionCredentials */
-  private $assertionCredentials;
+  protected $assertionCredentials;
 
   /**
    * @var string The state parameters for CSRF and other forgery protection.
    */
-  private $state;
+  protected $state;
 
   /**
    * @var array The token bundle.
    */
-  private $token = array();
+  protected $token = array();
 
   /**
    * @var Google_Client the base client
    */
-  private $client;
+  protected $client;
 
   /**
    * Instantiates the class, but does not initiate the login flow, leaving it

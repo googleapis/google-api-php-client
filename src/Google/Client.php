@@ -31,27 +31,27 @@ class Google_Client
   /**
    * @var Google_Auth_Abstract $auth
    */
-  private $auth;
+  protected $auth;
 
   /**
    * @var Google_IO_Abstract $io
    */
-  private $io;
+  protected $io;
 
   /**
    * @var Google_Cache_Abstract $cache
    */
-  private $cache;
+  protected $cache;
 
   /**
    * @var Google_Config $config
    */
-  private $config;
+  protected $config;
 
   /**
    * @var boolean $deferExecution
    */
-  private $deferExecution = false;
+  protected $deferExecution = false;
 
   /** @var array $scopes */
   // Scopes requested by the client
@@ -61,7 +61,7 @@ class Google_Client
   protected $services = array();
 
   // Used to track authenticated state, can't discover services after doing authenticate()
-  private $authenticated = false;
+  protected $authenticated = false;
 
   /**
    * Construct the Google Client.

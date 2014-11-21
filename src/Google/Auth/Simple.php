@@ -26,8 +26,8 @@ require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
  */
 class Google_Auth_Simple extends Google_Auth_Abstract
 {
-  private $key = null;
-  private $client;
+  protected $key = null;
+  protected $client;
 
   public function __construct(Google_Client $client, $config = null)
   {
