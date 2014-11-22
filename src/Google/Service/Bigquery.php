@@ -2122,6 +2122,8 @@ class Google_Service_Bigquery_JobStatistics extends Google_Model
   );
   public $creationTime;
   public $endTime;
+  protected $extractType = 'Google_Service_Bigquery_JobStatistics4';
+  protected $extractDataType = '';
   protected $loadType = 'Google_Service_Bigquery_JobStatistics3';
   protected $loadDataType = '';
   protected $queryType = 'Google_Service_Bigquery_JobStatistics2';
@@ -2145,6 +2147,14 @@ class Google_Service_Bigquery_JobStatistics extends Google_Model
   public function getEndTime()
   {
     return $this->endTime;
+  }
+  public function setExtract(Google_Service_Bigquery_JobStatistics4 $extract)
+  {
+    $this->extract = $extract;
+  }
+  public function getExtract()
+  {
+    return $this->extract;
   }
   public function setLoad(Google_Service_Bigquery_JobStatistics3 $load)
   {
@@ -2247,6 +2257,24 @@ class Google_Service_Bigquery_JobStatistics3 extends Google_Model
   public function getOutputRows()
   {
     return $this->outputRows;
+  }
+}
+
+class Google_Service_Bigquery_JobStatistics4 extends Google_Collection
+{
+  protected $collection_key = 'destinationUriFileCounts';
+  protected $internal_gapi_mappings = array(
+  );
+  public $destinationUriFileCounts;
+
+
+  public function setDestinationUriFileCounts($destinationUriFileCounts)
+  {
+    $this->destinationUriFileCounts = $destinationUriFileCounts;
+  }
+  public function getDestinationUriFileCounts()
+  {
+    return $this->destinationUriFileCounts;
   }
 }
 
