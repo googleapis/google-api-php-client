@@ -24,7 +24,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/compute/docs/instance-groups/manager/v1beta2" target="_blank">Documentation</a>
+ * <a href="https://cloud.google.com/compute/docs/instance-groups/manager/#applying_rolling_updates_using_the_updater_service" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -336,8 +336,8 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
   }
 
   /**
-   * Called on the particular Update endpoint. Pauses the update in state from {
-   * ROLLING_FORWARD, ROLLING_BACK, PAUSED }. No-op if invoked in state PAUSED.
+   * Called on the particular Update endpoint. Pauses the update in state
+   * ROLLING_FORWARD or ROLLING_BACK. No-op if invoked in state PAUSED.
    * (updates.pause)
    *
    * @param string $project Project ID for this request.
@@ -355,9 +355,9 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
   }
 
   /**
-   * Called on the particular Update endpoint. Rolls back the update in state from
-   * { ROLLING_FORWARD, ROLLING_BACK, PAUSED }. No-op if invoked in state
-   * ROLLED_BACK. (updates.rollback)
+   * Called on the particular Update endpoint. Rolls back the update in state
+   * ROLLING_FORWARD or PAUSED. No-op if invoked in state ROLLED_BACK or
+   * ROLLING_BACK. (updates.rollback)
    *
    * @param string $project Project ID for this request.
    * @param string $zone Zone for the instance group manager.
@@ -375,8 +375,8 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
 
   /**
    * Called on the particular Update endpoint. Rolls forward the update in state
-   * from { ROLLING_FORWARD, ROLLING_BACK, PAUSED }. No-op if invoked in state
-   * ROLLED_OUT. (updates.rollforward)
+   * ROLLING_BACK or PAUSED. No-op if invoked in state ROLLED_OUT or
+   * ROLLING_FORWARD. (updates.rollforward)
    *
    * @param string $project Project ID for this request.
    * @param string $zone Zone for the instance group manager.
@@ -444,6 +444,7 @@ class Google_Service_Replicapoolupdater_Update extends Google_Collection
   protected $collection_key = 'instanceUpdates';
   protected $internal_gapi_mappings = array(
   );
+  public $creationTimestamp;
   public $details;
   public $handle;
   public $instanceTemplate;
@@ -455,8 +456,17 @@ class Google_Service_Replicapoolupdater_Update extends Google_Collection
   public $selfLink;
   public $state;
   public $targetState;
+  public $user;
 
 
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
   public function setDetails($details)
   {
     $this->details = $details;
@@ -528,6 +538,14 @@ class Google_Service_Replicapoolupdater_Update extends Google_Collection
   public function getTargetState()
   {
     return $this->targetState;
+  }
+  public function setUser($user)
+  {
+    $this->user = $user;
+  }
+  public function getUser()
+  {
+    return $this->user;
   }
 }
 
