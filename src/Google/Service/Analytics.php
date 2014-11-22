@@ -39,6 +39,9 @@ class Google_Service_Analytics extends Google_Service
   /** Manage Google Analytics Account users by email address. */
   const ANALYTICS_MANAGE_USERS =
       "https://www.googleapis.com/auth/analytics.manage.users";
+  /** View Google Analytics user permissions. */
+  const ANALYTICS_MANAGE_USERS_READONLY =
+      "https://www.googleapis.com/auth/analytics.manage.users.readonly";
   /** Create a new Google Analytics account along with its default property and view. */
   const ANALYTICS_PROVISION =
       "https://www.googleapis.com/auth/analytics.provision";
