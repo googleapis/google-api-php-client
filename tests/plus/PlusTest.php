@@ -15,19 +15,6 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../../autoload.php');
-
-class AllPlusTests extends PHPUnit_Framework_TestSuite
-{
-  public static function suite()
-  {
-    $suite = new PHPUnit_Framework_TestSuite();
-    $suite->setName('Google Plus API tests');
-    $suite->addTestSuite('PlusTest');
-    return $suite;
-  }
-}
-
 class PlusTest extends BaseTest
 {
   /** @var Google_PlusService */
@@ -53,10 +40,10 @@ class PlusTest extends BaseTest
     $this->checkToken();
     $activities = $this->plus->activities
         ->listActivities("118051310819094153327", "public");
-    
+
     $this->assertArrayHasKey('kind', $activities);
     $this->assertGreaterThan(0, count($activities));
-    
+
     // Test a variety of access methods.
     $this->assertItem($activities['items'][0]);
     $this->assertItem($activities[0]);
@@ -68,7 +55,7 @@ class PlusTest extends BaseTest
     // Test deeper type transformations
     $this->assertGreaterThan(0, strlen($activities[0]->actor->displayName));
   }
-  
+
   public function assertItem($item)
   {
     // assertArrayHasKey uses array_key_exists, which is not great:

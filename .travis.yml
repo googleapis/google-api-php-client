@@ -14,7 +14,7 @@ php:
   - 5.5
   - 5.6
   - hhvm
-        
+
 before_script:
   - composer install
   - sh -c 'if [ "$TRAVIS_PHP_VERSION" != "hhvm" ]; then echo "extension=memcache.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini; fi;'
@@ -23,4 +23,4 @@ before_script:
   - phpenv version-name | grep ^5.[34] && echo "apc.enable_cli=1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ; true
 
 script:
-  - cd tests ; phpunit .
+  - vendor/bin/phpunit

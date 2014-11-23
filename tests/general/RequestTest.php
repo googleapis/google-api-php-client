@@ -18,9 +18,6 @@
  * under the License.
  */
 
-require_once 'BaseTest.php';
-require_once realpath(dirname(__FILE__) . '/../../autoload.php');
-
 class RequestTest extends BaseTest
 {
   public function testRequestParameters()
@@ -33,13 +30,13 @@ class RequestTest extends BaseTest
     $request->setQueryParam("hi", "there");
     $this->assertEquals($url2, $request->getUrl());
     $this->assertEquals("Google_Client", $request->getExpectedClass());
-    
+
     $urlPath = "/foo/bar";
     $request = new Google_Http_Request($urlPath);
     $this->assertEquals($urlPath, $request->getUrl());
     $request->setBaseComponent("http://example.com");
     $this->assertEquals("http://example.com" . $urlPath, $request->getUrl());
-    
+
     $url3a = 'http://localhost:8080/foo/bar';
     $url3b = 'foo=a&foo=b&wowee=oh+my';
     $url3c = 'foo=a&foo=b&wowee=oh+my&hi=there';
@@ -48,7 +45,7 @@ class RequestTest extends BaseTest
     $request->maybeMoveParametersToBody();
     $this->assertEquals($url3a, $request->getUrl());
     $this->assertEquals($url3c, $request->getPostBody());
-    
+
     $url4 = 'http://localhost:8080/upload/foo/bar?foo=a&foo=b&wowee=oh+my&hi=there';
     $request = new Google_Http_Request($url);
     $this->assertEquals(2, count($request->getQueryParams()));
@@ -57,7 +54,7 @@ class RequestTest extends BaseTest
     $request->setBaseComponent($base . '/upload');
     $this->assertEquals($url4, $request->getUrl());
   }
-  
+
   public function testGzipSupport()
   {
     $url = 'http://localhost:8080/foo/bar?foo=a&foo=b&wowee=oh+my';
