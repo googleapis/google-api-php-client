@@ -44,6 +44,7 @@ class Google_Config
       'auth_class'    => 'Google_Auth_OAuth2',
       'io_class'      => self::USE_AUTO_IO_SELECTION,
       'cache_class'   => 'Google_Cache_File',
+      'logger_class'  => 'Google_Logger_Null',
 
       // Don't change these unless you're working against a special development
       // or testing environment.
@@ -53,6 +54,17 @@ class Google_Config
       'classes' => array(
         'Google_IO_Abstract' => array(
           'request_timeout_seconds' => 100,
+        ),
+        'Google_Logger_Abstract' => array(
+          'level' => 'debug',
+          'log_format' => "[%datetime%] %level%: %message% %context%\n",
+          'date_format' => 'd/M/Y:H:i:s O',
+          'allow_newlines' => true
+        ),
+        'Google_Logger_File' => array(
+          'file' => 'php://stdout',
+          'mode' => 0640,
+          'lock' => false,
         ),
         'Google_Http_Request' => array(
           // Disable the use of gzip on calls if set to true. Defaults to false.
@@ -149,6 +161,15 @@ class Google_Config
   }
 
   /**
+   * Return the configured logger class.
+   * @return string
+   */
+  public function getLoggerClass()
+  {
+    return $this->configuration['logger_class'];
+  }
+
+  /**
    * Return the configured Auth class.
    * @return string
    */
@@ -203,6 +224,22 @@ class Google_Config
           $this->configuration['classes'][$prev];
     }
     $this->configuration['cache_class'] = $class;
+  }
+
+  /**
+   * Set the logger class.
+   *
+   * @param $class string the class name to set
+   */
+  public function setLoggerClass($class)
+  {
+    $prev = $this->configuration['logger_class'];
+    if (!isset($this->configuration['classes'][$class]) &&
+        isset($this->configuration['classes'][$prev])) {
+      $this->configuration['classes'][$class] =
+          $this->configuration['classes'][$prev];
+    }
+    $this->configuration['logger_class'] = $class;
   }
 
   /**

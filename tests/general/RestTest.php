@@ -33,7 +33,7 @@ class RestTest extends BaseTest
     $client = $this->getClient();
     $response = new Google_Http_Request($url);
     $response->setResponseHttpCode(204);
-    $decoded = $this->rest->decodeHttpResponse($response);
+    $decoded = $this->rest->decodeHttpResponse($response, $client);
     $this->assertEquals(null, $decoded);
 
 
@@ -43,7 +43,7 @@ class RestTest extends BaseTest
       $response->setResponseBody('{"a": 1}');
 
       $response->setResponseHttpCode($code);
-      $decoded = $this->rest->decodeHttpResponse($response);
+      $decoded = $this->rest->decodeHttpResponse($response, $client);
       $this->assertEquals(array("a" => 1), $decoded);
     }
 
@@ -52,7 +52,7 @@ class RestTest extends BaseTest
 
     $error = "";
     try {
-      $this->rest->decodeHttpResponse($response);
+      $this->rest->decodeHttpResponse($response, $client);
     } catch (Exception $e) {
       $error = $e->getMessage();
 

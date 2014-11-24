@@ -97,6 +97,16 @@ class Google_IO_Stream extends Google_IO_Abstract
       $url = self::ZLIB . $url;
     }
 
+    $this->client->getLogger()->debug(
+        'Stream request',
+        array(
+            'url' => $url,
+            'method' => $request->getRequestMethod(),
+            'headers' => $requestHeaders,
+            'body' => $request->getPostBody()
+        )
+    );
+
     // We are trapping any thrown errors in this method only and
     // throwing an exception.
     $this->trappedErrorNumber = null;
@@ -109,13 +119,13 @@ class Google_IO_Stream extends Google_IO_Abstract
     // END - error trap.
 
     if ($this->trappedErrorNumber) {
-      throw new Google_IO_Exception(
-          sprintf(
-              "HTTP Error: Unable to connect: '%s'",
-              $this->trappedErrorString
-          ),
-          $this->trappedErrorNumber
+      $error = sprintf(
+          "HTTP Error: Unable to connect: '%s'",
+          $this->trappedErrorString
       );
+
+      $this->client->getLogger()->error('Stream ' . $error);
+      throw new Google_IO_Exception($error, $this->trappedErrorNumber);
     }
 
     $response_data = false;
@@ -132,16 +142,25 @@ class Google_IO_Stream extends Google_IO_Abstract
     }
 
     if (false === $response_data) {
-      throw new Google_IO_Exception(
-          sprintf(
-              "HTTP Error: Unable to connect: '%s'",
-              $respHttpCode
-          ),
+      $error = sprintf(
+          "HTTP Error: Unable to connect: '%s'",
           $respHttpCode
       );
+
+      $this->client->getLogger()->error('Stream ' . $error);
+      throw new Google_IO_Exception($error, $respHttpCode);
     }
 
     $responseHeaders = $this->getHttpResponseHeaders($http_response_header);
+
+    $this->client->getLogger()->debug(
+        'Stream response',
+        array(
+            'code' => $respHttpCode,
+            'headers' => $responseHeaders,
+            'body' => $response_data,
+        )
+    );
 
     return array($response_data, $responseHeaders, $respHttpCode);
   }
