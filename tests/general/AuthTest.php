@@ -18,9 +18,6 @@
  * under the License.
  */
 
-require_once 'BaseTest.php';
-require_once realpath(dirname(__FILE__) . '/../../autoload.php');
-
 class AuthTest extends BaseTest
 {
   const PRIVATE_KEY_FILE = "testdata/cert.p12";

@@ -15,19 +15,6 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../../autoload.php');
-
-class AdsenseTests extends PHPUnit_Framework_TestSuite
-{
-  public static function suite()
-  {
-    $suite = new PHPUnit_Framework_TestSuite();
-    $suite->setName('AdSense Management API tests');
-    $suite->addTestSuite('AdSenseManagementTest');
-    return $suite;
-  }
-}
-
 class AdSenseManagementTest extends BaseTest
 {
   public $adsense;

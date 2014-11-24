@@ -15,16 +15,13 @@
  * limitations under the License.
  */
 
-require_once 'BaseTest.php';
-require_once realpath(dirname(__FILE__) . '/../../autoload.php');
-
 class RestTest extends BaseTest
 {
   /**
    * @var Google_Http_REST $rest
    */
   private $rest;
-  
+
   public function setUp()
   {
     $this->rest = new Google_Http_REST();
@@ -80,7 +77,7 @@ class RestTest extends BaseTest
   {
     $basePath = "http://localhost";
     $restPath = "/plus/{u}";
-    
+
     // Test Path
     $params = array();
     $params['u']['type'] = 'string';
@@ -108,7 +105,7 @@ class RestTest extends BaseTest
     $params['u']['location'] = 'query';
     $value = $this->rest->createRequestUri($basePath, '/plus', $params);
     $this->assertEquals("http://localhost/plus?u=true", $value);
-    
+
     // Test encoding
     $params = array();
     $params['u']['type'] = 'string';
@@ -117,7 +114,7 @@ class RestTest extends BaseTest
     $value = $this->rest->createRequestUri($basePath, '/plus', $params);
     $this->assertEquals("http://localhost/plus?u=%40me%2F", $value);
   }
-  
+
   /**
    * @expectedException Google_Service_Exception
    */
@@ -135,7 +132,7 @@ class RestTest extends BaseTest
     );
     Google_Http_Rest::decodeHttpResponse($request);
   }
-  
+
   /**
    * @expectedException Google_Service_Exception
    */

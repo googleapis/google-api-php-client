@@ -18,9 +18,6 @@
  * under the License.
  */
 
-require_once 'BaseTest.php';
-require_once realpath(dirname(__FILE__) . '/../../autoload.php');
-
 class ApiModelTest extends BaseTest
 {
   public function testModelMutation()

@@ -15,19 +15,6 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../../autoload.php');
-
-class YouTubeTests extends PHPUnit_Framework_TestSuite
-{
-  public static function suite()
-  {
-    $suite = new PHPUnit_Framework_TestSuite();
-    $suite->setName('Google YouTube API tests');
-    $suite->addTestSuite('YouTubeTest');
-    return $suite;
-  }
-}
-
 class YouTubeTest extends BaseTest
 {
   /** @var Google_PlusService */
