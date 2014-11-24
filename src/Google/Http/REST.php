@@ -80,6 +80,9 @@ class Google_Http_REST
     if ($code != '204') {
       $decoded = json_decode($body, true);
       if ($decoded === null || $decoded === "") {
+		    $decoded = json_decode(gzdecode($body), true);	  
+	    }        
+      if ($decoded === null || $decoded === "") {	    
         throw new Google_Service_Exception("Invalid json in service response: $body");
       }
 
