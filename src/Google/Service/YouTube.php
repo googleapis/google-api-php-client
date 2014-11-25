@@ -9661,9 +9661,11 @@ class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
   protected $internal_gapi_mappings = array(
   );
   public $etag;
+  public $eventId;
   protected $itemsType = 'Google_Service_YouTube_VideoRating';
   protected $itemsDataType = 'array';
   public $kind;
+  public $visitorId;
 
 
   public function setEtag($etag)
@@ -9673,6 +9675,14 @@ class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
   public function getEtag()
   {
     return $this->etag;
+  }
+  public function setEventId($eventId)
+  {
+    $this->eventId = $eventId;
+  }
+  public function getEventId()
+  {
+    return $this->eventId;
   }
   public function setItems($items)
   {
@@ -9689,6 +9699,14 @@ class Google_Service_YouTube_VideoGetRatingResponse extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setVisitorId($visitorId)
+  {
+    $this->visitorId = $visitorId;
+  }
+  public function getVisitorId()
+  {
+    return $this->visitorId;
   }
 }
 
