@@ -92,7 +92,8 @@ class Google_Client
     }
 
     if ($config->getIoClass() == Google_Config::USE_AUTO_IO_SELECTION) {
-      if (function_exists('curl_version') && function_exists('curl_exec') && !$this->isAppEngine()) {
+      if (function_exists('curl_version') && function_exists('curl_exec')
+          && !$this->isAppEngine()) {
         $config->setIoClass("Google_IO_Curl");
       } else {
         $config->setIoClass("Google_IO_Stream");
