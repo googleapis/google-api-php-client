@@ -24,7 +24,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="" target="_blank">Documentation</a>
+ * <a href="https://cloud.google.com/container-engine/docs/v1beta1/" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -461,6 +461,7 @@ class Google_Service_Container_Cluster extends Google_Model
   protected $masterAuthType = 'Google_Service_Container_MasterAuth';
   protected $masterAuthDataType = '';
   public $name;
+  public $network;
   protected $nodeConfigType = 'Google_Service_Container_NodeConfig';
   protected $nodeConfigDataType = '';
   public $nodeRoutingPrefixSize;
@@ -526,6 +527,14 @@ class Google_Service_Container_Cluster extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+  public function setNetwork($network)
+  {
+    $this->network = $network;
+  }
+  public function getNetwork()
+  {
+    return $this->network;
   }
   public function setNodeConfig(Google_Service_Container_NodeConfig $nodeConfig)
   {
@@ -738,6 +747,7 @@ class Google_Service_Container_Operation extends Google_Model
   public $errorMessage;
   public $name;
   public $operationType;
+  public $selfLink;
   public $status;
   public $target;
   public $zone;
@@ -766,6 +776,14 @@ class Google_Service_Container_Operation extends Google_Model
   public function getOperationType()
   {
     return $this->operationType;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
   }
   public function setStatus($status)
   {
