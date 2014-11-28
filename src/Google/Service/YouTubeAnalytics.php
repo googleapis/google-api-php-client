@@ -280,23 +280,28 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
 
 
 
-class Google_Service_YouTubeAnalytics_BatchReportDefinitionList extends Google_Collection
+class Google_Service_YouTubeAnalytics_BatchReport extends Google_Collection
 {
-  protected $collection_key = 'items';
+  protected $collection_key = 'outputs';
   protected $internal_gapi_mappings = array(
   );
-  protected $itemsType = 'Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplate';
-  protected $itemsDataType = 'array';
+  public $id;
   public $kind;
+  protected $outputsType = 'Google_Service_YouTubeAnalytics_BatchReportOutputs';
+  protected $outputsDataType = 'array';
+  public $reportId;
+  protected $timeSpanType = 'Google_Service_YouTubeAnalytics_BatchReportTimeSpan';
+  protected $timeSpanDataType = '';
+  public $timeUpdated;
 
 
-  public function setItems($items)
+  public function setId($id)
   {
-    $this->items = $items;
+    $this->id = $id;
   }
-  public function getItems()
+  public function getId()
   {
-    return $this->items;
+    return $this->id;
   }
   public function setKind($kind)
   {
@@ -306,29 +311,51 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionList extends Google_C
   {
     return $this->kind;
   }
+  public function setOutputs($outputs)
+  {
+    $this->outputs = $outputs;
+  }
+  public function getOutputs()
+  {
+    return $this->outputs;
+  }
+  public function setReportId($reportId)
+  {
+    $this->reportId = $reportId;
+  }
+  public function getReportId()
+  {
+    return $this->reportId;
+  }
+  public function setTimeSpan(Google_Service_YouTubeAnalytics_BatchReportTimeSpan $timeSpan)
+  {
+    $this->timeSpan = $timeSpan;
+  }
+  public function getTimeSpan()
+  {
+    return $this->timeSpan;
+  }
+  public function setTimeUpdated($timeUpdated)
+  {
+    $this->timeUpdated = $timeUpdated;
+  }
+  public function getTimeUpdated()
+  {
+    return $this->timeUpdated;
+  }
 }
 
-class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplate extends Google_Collection
+class Google_Service_YouTubeAnalytics_BatchReportDefinition extends Google_Model
 {
-  protected $collection_key = 'defaultOutput';
   protected $internal_gapi_mappings = array(
   );
-  protected $defaultOutputType = 'Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplateDefaultOutput';
-  protected $defaultOutputDataType = 'array';
   public $id;
+  public $kind;
   public $name;
   public $status;
   public $type;
 
 
-  public function setDefaultOutput($defaultOutput)
-  {
-    $this->defaultOutput = $defaultOutput;
-  }
-  public function getDefaultOutput()
-  {
-    return $this->defaultOutput;
-  }
   public function setId($id)
   {
     $this->id = $id;
@@ -336,6 +363,14 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplate extends Goog
   public function getId()
   {
     return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
   }
   public function setName($name)
   {
@@ -363,38 +398,12 @@ class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplate extends Goog
   }
 }
 
-class Google_Service_YouTubeAnalytics_BatchReportDefinitionTemplateDefaultOutput extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $format;
-  public $type;
-
-
-  public function setFormat($format)
-  {
-    $this->format = $format;
-  }
-  public function getFormat()
-  {
-    return $this->format;
-  }
-  public function setType($type)
-  {
-    $this->type = $type;
-  }
-  public function getType()
-  {
-    return $this->type;
-  }
-}
-
-class Google_Service_YouTubeAnalytics_BatchReportList extends Google_Collection
+class Google_Service_YouTubeAnalytics_BatchReportDefinitionList extends Google_Collection
 {
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  protected $itemsType = 'Google_Service_YouTubeAnalytics_BatchReportTemplate';
+  protected $itemsType = 'Google_Service_YouTubeAnalytics_BatchReportDefinition';
   protected $itemsDataType = 'array';
   public $kind;
 
@@ -417,64 +426,35 @@ class Google_Service_YouTubeAnalytics_BatchReportList extends Google_Collection
   }
 }
 
-class Google_Service_YouTubeAnalytics_BatchReportTemplate extends Google_Collection
+class Google_Service_YouTubeAnalytics_BatchReportList extends Google_Collection
 {
-  protected $collection_key = 'outputs';
+  protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
-        "reportId" => "report_id",
   );
-  public $id;
-  protected $outputsType = 'Google_Service_YouTubeAnalytics_BatchReportTemplateOutputs';
-  protected $outputsDataType = 'array';
-  public $reportId;
-  protected $timeSpanType = 'Google_Service_YouTubeAnalytics_BatchReportTemplateTimeSpan';
-  protected $timeSpanDataType = '';
-  public $timeUpdated;
+  protected $itemsType = 'Google_Service_YouTubeAnalytics_BatchReport';
+  protected $itemsDataType = 'array';
+  public $kind;
 
 
-  public function setId($id)
+  public function setItems($items)
   {
-    $this->id = $id;
+    $this->items = $items;
   }
-  public function getId()
+  public function getItems()
   {
-    return $this->id;
+    return $this->items;
   }
-  public function setOutputs($outputs)
+  public function setKind($kind)
   {
-    $this->outputs = $outputs;
+    $this->kind = $kind;
   }
-  public function getOutputs()
+  public function getKind()
   {
-    return $this->outputs;
-  }
-  public function setReportId($reportId)
-  {
-    $this->reportId = $reportId;
-  }
-  public function getReportId()
-  {
-    return $this->reportId;
-  }
-  public function setTimeSpan(Google_Service_YouTubeAnalytics_BatchReportTemplateTimeSpan $timeSpan)
-  {
-    $this->timeSpan = $timeSpan;
-  }
-  public function getTimeSpan()
-  {
-    return $this->timeSpan;
-  }
-  public function setTimeUpdated($timeUpdated)
-  {
-    $this->timeUpdated = $timeUpdated;
-  }
-  public function getTimeUpdated()
-  {
-    return $this->timeUpdated;
+    return $this->kind;
   }
 }
 
-class Google_Service_YouTubeAnalytics_BatchReportTemplateOutputs extends Google_Model
+class Google_Service_YouTubeAnalytics_BatchReportOutputs extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
@@ -509,7 +489,7 @@ class Google_Service_YouTubeAnalytics_BatchReportTemplateOutputs extends Google_
   }
 }
 
-class Google_Service_YouTubeAnalytics_BatchReportTemplateTimeSpan extends Google_Model
+class Google_Service_YouTubeAnalytics_BatchReportTimeSpan extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
