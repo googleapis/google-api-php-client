@@ -1615,6 +1615,46 @@ class Google_Service_Compute extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'start' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/start',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'stop' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/stop',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )
@@ -4289,6 +4329,38 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
     $params = array('project' => $project, 'zone' => $zone, 'instance' => $instance, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('setTags', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Starts an instance (instances.start)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $zone Name of the zone scoping this request.
+   * @param string $instance Name of the instance resource to start.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function start($project, $zone, $instance, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instance' => $instance);
+    $params = array_merge($params, $optParams);
+    return $this->call('start', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Stops an instance (instances.stop)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $zone Name of the zone scoping this request.
+   * @param string $instance Name of the instance resource to start.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function stop($project, $zone, $instance, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instance' => $instance);
+    $params = array_merge($params, $optParams);
+    return $this->call('stop', array($params), "Google_Service_Compute_Operation");
   }
 }
 
