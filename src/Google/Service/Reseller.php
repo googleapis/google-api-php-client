@@ -837,6 +837,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $billingMethod;
   public $creationTime;
   public $customerId;
   public $kind;
@@ -857,6 +858,14 @@ class Google_Service_Reseller_Subscription extends Google_Model
   protected $trialSettingsDataType = '';
 
 
+  public function setBillingMethod($billingMethod)
+  {
+    $this->billingMethod = $billingMethod;
+  }
+  public function getBillingMethod()
+  {
+    return $this->billingMethod;
+  }
   public function setCreationTime($creationTime)
   {
     $this->creationTime = $creationTime;
