@@ -134,6 +134,80 @@ class IoTest extends BaseTest
     $this->invalidRequest($io);
   }
 
+  public function testCacheRevalidate()
+  {
+    $client = $this->getClient();
+
+    $req = new Google_Http_Request('/test', 'GET');
+    $req->setRequestHeaders(array('Accept' => '*/*'));
+    $req->setResponseBody('{"a": "foo"}');
+    $req->setResponseHttpCode(200);
+    $req->setResponseHeaders(
+        array(
+            'cache-control' => 'private',
+            'etag' => '"this-is-an-etag"',
+            'expires' => '-1',
+            'date' => 'Sun, 1 Jan 2012 09:00:56 GMT',
+            'content-type' => 'application/json; charset=UTF-8',
+        )
+    );
+
+    $io = $this->getMockBuilder('Google_IO_Abstract')
+               ->setConstructorArgs(array($client))
+               ->setMethods(
+                   array(
+                       'getCachedRequest',
+                       'checkMustRevalidateCachedRequest'
+                   )
+               )
+               ->getMockForAbstractClass();
+
+    $io->expects($this->once())
+       ->method('getCachedRequest')
+       ->will($this->returnValue($req));
+
+    $io->expects($this->once())
+       ->method('checkMustRevalidateCachedRequest')
+       ->will($this->returnValue(true));
+
+    $io->expects($this->once())
+       ->method('executeRequest')
+       ->will(
+           $this->returnValue(
+               array(
+                   '{"a": "foo"}',
+                   array(
+                       'te' => 'gzip',
+                       'connection' => 'Keep-Alive, Foo, Bar',
+                       'foo' => '123',
+                       'keep-alive' => 'timeout=30',
+                       'cache-control' => 'private',
+                       'eTag' => '"this-is-a-new-etag"',
+                       "expires" => 'Sun, 22 Jan 2022 09:00:56 GMT',
+                       'date' => 'Sun, 1 Jan 2012 09:00:56 GMT',
+                       'content-type' => 'application/json; charset=UTF-8',
+                   ),
+                   304
+               )
+           )
+       );
+
+    $res = $io->makeRequest(new Google_Http_Request('/test', 'GET'));
+
+    $this->assertEquals('{"a": "foo"}', $res->getResponseBody());
+    $this->assertEquals(200, $res->getResponseHttpCode());
+    $this->assertEquals(
+        array(
+            'cache-control' => 'private',
+            'etag' => '"this-is-a-new-etag"',
+            "expires" => 'Sun, 22 Jan 2022 09:00:56 GMT',
+            'date' => 'Sun, 1 Jan 2012 09:00:56 GMT',
+            'content-type' => 'application/json; charset=UTF-8',
+        ),
+        $res->getResponseHeaders()
+    );
+  }
+
   // Asserting Functions
 
   public function timeoutChecker($io)
