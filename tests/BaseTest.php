@@ -47,19 +47,6 @@ class BaseTest extends PHPUnit_Framework_TestCase
     return $client;
   }
 
-  public function testClientConstructor()
-  {
-    $this->assertInstanceOf('Google_Client', $this->getClient());
-  }
-
-  public function testIncludes()
-  {
-    $path = dirname(dirname(__FILE__)) . '/src/Google/Service';
-    foreach (glob($path . "/*.php") as $file) {
-      $this->assertEquals(1, require_once($file));
-    }
-  }
-
   public function checkToken()
   {
     if (!strlen($this->token)) {

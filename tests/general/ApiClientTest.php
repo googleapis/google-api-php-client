@@ -34,6 +34,11 @@ class ApiClientTest extends BaseTest
     $this->assertEquals("{\"access_token\":\"1\"}", $client->getAccessToken());
   }
 
+  public function testClientConstructor()
+  {
+    $this->assertInstanceOf('Google_Client', $this->getClient());
+  }
+
   /**
    * @expectedException Google_Auth_Exception
    */
