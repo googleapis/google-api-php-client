@@ -46,6 +46,7 @@ class Google_Service_Books extends Google_Service
   public $mylibrary_bookshelves;
   public $mylibrary_bookshelves_volumes;
   public $mylibrary_readingpositions;
+  public $onboarding;
   public $promooffer;
   public $volumes;
   public $volumes_associated;
@@ -506,7 +507,11 @@ class Google_Service_Books extends Google_Service
         'myconfig',
         array(
           'methods' => array(
-            'releaseDownloadAccess' => array(
+            'getUserSettings' => array(
+              'path' => 'myconfig/getUserSettings',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),'releaseDownloadAccess' => array(
               'path' => 'myconfig/releaseDownloadAccess',
               'httpMethod' => 'POST',
               'parameters' => array(
@@ -601,6 +606,10 @@ class Google_Service_Books extends Google_Service
                   'repeated' => true,
                 ),
               ),
+            ),'updateUserSettings' => array(
+              'path' => 'myconfig/updateUserSettings',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),
           )
         )
@@ -956,6 +965,47 @@ class Google_Service_Books extends Google_Service
                 'action' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->onboarding = new Google_Service_Books_Onboarding_Resource(
+        $this,
+        $this->serviceName,
+        'onboarding',
+        array(
+          'methods' => array(
+            'listCategories' => array(
+              'path' => 'onboarding/listCategories',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'locale' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'listCategoryVolumes' => array(
+              'path' => 'onboarding/listCategoryVolumes',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'locale' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'categoryId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -1706,6 +1756,19 @@ class Google_Service_Books_Myconfig_Resource extends Google_Service_Resource
 {
 
   /**
+   * Gets the current settings for the user. (myconfig.getUserSettings)
+   *
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Books_Usersettings
+   */
+  public function getUserSettings($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('getUserSettings', array($params), "Google_Service_Books_Usersettings");
+  }
+
+  /**
    * Release downloaded content access restriction.
    * (myconfig.releaseDownloadAccess)
    *
@@ -1775,6 +1838,21 @@ class Google_Service_Books_Myconfig_Resource extends Google_Service_Resource
     $params = array('source' => $source, 'nonce' => $nonce, 'cpksver' => $cpksver);
     $params = array_merge($params, $optParams);
     return $this->call('syncVolumeLicenses', array($params), "Google_Service_Books_Volumes");
+  }
+
+  /**
+   * Sets the settings for the user. Unspecified sub-objects will retain the
+   * existing value. (myconfig.updateUserSettings)
+   *
+   * @param Google_Usersettings $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Books_Usersettings
+   */
+  public function updateUserSettings(Google_Service_Books_Usersettings $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('updateUserSettings', array($params), "Google_Service_Books_Usersettings");
   }
 }
 
@@ -2117,6 +2195,56 @@ class Google_Service_Books_MylibraryReadingpositions_Resource extends Google_Ser
     $params = array('volumeId' => $volumeId, 'timestamp' => $timestamp, 'position' => $position);
     $params = array_merge($params, $optParams);
     return $this->call('setPosition', array($params));
+  }
+}
+
+/**
+ * The "onboarding" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $booksService = new Google_Service_Books(...);
+ *   $onboarding = $booksService->onboarding;
+ *  </code>
+ */
+class Google_Service_Books_Onboarding_Resource extends Google_Service_Resource
+{
+
+  /**
+   * List categories for onboarding experience. (onboarding.listCategories)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string locale ISO-639-1 language and ISO-3166-1 country code.
+   * Default is en-US if unset.
+   * @return Google_Service_Books_Category
+   */
+  public function listCategories($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('listCategories', array($params), "Google_Service_Books_Category");
+  }
+
+  /**
+   * List available volumes under categories for onboarding experience.
+   * (onboarding.listCategoryVolumes)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string locale ISO-639-1 language and ISO-3166-1 country code.
+   * Default is en-US if unset.
+   * @opt_param string pageToken The value of the nextToken from the previous
+   * page.
+   * @opt_param string categoryId List of category ids requested.
+   * @opt_param string pageSize Number of maximum results per page to be included
+   * in the response.
+   * @return Google_Service_Books_Volume2
+   */
+  public function listCategoryVolumes($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('listCategoryVolumes', array($params), "Google_Service_Books_Volume2");
   }
 }
 
@@ -3215,6 +3343,69 @@ class Google_Service_Books_Bookshelves extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+}
+
+class Google_Service_Books_Category extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $itemsType = 'Google_Service_Books_CategoryItems';
+  protected $itemsDataType = 'array';
+  public $kind;
+
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_Books_CategoryItems extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $badgeUrl;
+  public $categoryId;
+  public $name;
+
+
+  public function setBadgeUrl($badgeUrl)
+  {
+    $this->badgeUrl = $badgeUrl;
+  }
+  public function getBadgeUrl()
+  {
+    return $this->badgeUrl;
+  }
+  public function setCategoryId($categoryId)
+  {
+    $this->categoryId = $categoryId;
+  }
+  public function getCategoryId()
+  {
+    return $this->categoryId;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
   }
 }
 
@@ -4942,6 +5133,59 @@ class Google_Service_Books_ReviewSource extends Google_Model
   }
 }
 
+class Google_Service_Books_Usersettings extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+  protected $notesExportType = 'Google_Service_Books_UsersettingsNotesExport';
+  protected $notesExportDataType = '';
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNotesExport(Google_Service_Books_UsersettingsNotesExport $notesExport)
+  {
+    $this->notesExport = $notesExport;
+  }
+  public function getNotesExport()
+  {
+    return $this->notesExport;
+  }
+}
+
+class Google_Service_Books_UsersettingsNotesExport extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $folderName;
+  public $isEnabled;
+
+
+  public function setFolderName($folderName)
+  {
+    $this->folderName = $folderName;
+  }
+  public function getFolderName()
+  {
+    return $this->folderName;
+  }
+  public function setIsEnabled($isEnabled)
+  {
+    $this->isEnabled = $isEnabled;
+  }
+  public function getIsEnabled()
+  {
+    return $this->isEnabled;
+  }
+}
+
 class Google_Service_Books_Volume extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -5053,6 +5297,43 @@ class Google_Service_Books_Volume extends Google_Model
   public function getVolumeInfo()
   {
     return $this->volumeInfo;
+  }
+}
+
+class Google_Service_Books_Volume2 extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $itemsType = 'Google_Service_Books_Volume';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
   }
 }
 
