@@ -160,6 +160,39 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'integer',
                 ),
               ),
+            ),'listInstanceUpdates' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/instanceUpdates',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'update' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
             ),'pause' => array(
               'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/pause',
               'httpMethod' => 'POST',
@@ -336,6 +369,30 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
   }
 
   /**
+   * Lists instance updates for a given update. (updates.listInstanceUpdates)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $zone Zone for the instance group manager.
+   * @param string $instanceGroupManager Name of the instance group manager for
+   * this request.
+   * @param string $update Unique (in the context of a group) handle of an update.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
+   * values are 1 to 100, inclusive. (Default: 50)
+   * @opt_param string pageToken Set this to the nextPageToken value returned by a
+   * previous list request to obtain the next page of results from the previous
+   * list request.
+   * @return Google_Service_Replicapoolupdater_InstanceUpdateList
+   */
+  public function listInstanceUpdates($project, $zone, $instanceGroupManager, $update, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
+    $params = array_merge($params, $optParams);
+    return $this->call('listInstanceUpdates', array($params), "Google_Service_Replicapoolupdater_InstanceUpdateList");
+  }
+
+  /**
    * Called on the particular Update endpoint. Pauses the update in state
    * ROLLING_FORWARD or ROLLING_BACK. No-op if invoked in state PAUSED.
    * (updates.pause)
@@ -417,17 +474,17 @@ class Google_Service_Replicapoolupdater_InstanceUpdate extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
-  public $instanceName;
+  public $instance;
   public $state;
 
 
-  public function setInstanceName($instanceName)
+  public function setInstance($instance)
   {
-    $this->instanceName = $instanceName;
+    $this->instance = $instance;
   }
-  public function getInstanceName()
+  public function getInstance()
   {
-    return $this->instanceName;
+    return $this->instance;
   }
   public function setState($state)
   {
@@ -439,20 +496,47 @@ class Google_Service_Replicapoolupdater_InstanceUpdate extends Google_Model
   }
 }
 
-class Google_Service_Replicapoolupdater_Update extends Google_Collection
+class Google_Service_Replicapoolupdater_InstanceUpdateList extends Google_Collection
 {
-  protected $collection_key = 'instanceUpdates';
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $itemsType = 'Google_Service_Replicapoolupdater_InstanceUpdate';
+  protected $itemsDataType = 'array';
+  public $nextPageToken;
+
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+}
+
+class Google_Service_Replicapoolupdater_Update extends Google_Model
+{
   protected $internal_gapi_mappings = array(
   );
   public $creationTimestamp;
   public $details;
   public $handle;
+  public $instanceGroupManager;
   public $instanceTemplate;
-  protected $instanceUpdatesType = 'Google_Service_Replicapoolupdater_InstanceUpdate';
-  protected $instanceUpdatesDataType = 'array';
   public $kind;
   protected $policyType = 'Google_Service_Replicapoolupdater_UpdatePolicy';
   protected $policyDataType = '';
+  public $progress;
   public $selfLink;
   public $state;
   public $targetState;
@@ -483,6 +567,14 @@ class Google_Service_Replicapoolupdater_Update extends Google_Collection
   {
     return $this->handle;
   }
+  public function setInstanceGroupManager($instanceGroupManager)
+  {
+    $this->instanceGroupManager = $instanceGroupManager;
+  }
+  public function getInstanceGroupManager()
+  {
+    return $this->instanceGroupManager;
+  }
   public function setInstanceTemplate($instanceTemplate)
   {
     $this->instanceTemplate = $instanceTemplate;
@@ -490,14 +582,6 @@ class Google_Service_Replicapoolupdater_Update extends Google_Collection
   public function getInstanceTemplate()
   {
     return $this->instanceTemplate;
-  }
-  public function setInstanceUpdates($instanceUpdates)
-  {
-    $this->instanceUpdates = $instanceUpdates;
-  }
-  public function getInstanceUpdates()
-  {
-    return $this->instanceUpdates;
   }
   public function setKind($kind)
   {
@@ -514,6 +598,14 @@ class Google_Service_Replicapoolupdater_Update extends Google_Collection
   public function getPolicy()
   {
     return $this->policy;
+  }
+  public function setProgress($progress)
+  {
+    $this->progress = $progress;
+  }
+  public function getProgress()
+  {
+    return $this->progress;
   }
   public function setSelfLink($selfLink)
   {
