@@ -25,6 +25,9 @@ class Google_Config
   const GZIP_UPLOADS_ENABLED = true;
   const GZIP_UPLOADS_DISABLED = false;
   const USE_AUTO_IO_SELECTION = "auto";
+  const TASK_RETRY_NEVER = 0;
+  const TASK_RETRY_ONCE = 1;
+  const TASK_RETRY_ALWAYS = -1;
   protected $configuration;
 
   /**
@@ -100,6 +103,36 @@ class Google_Config
           'approval_prompt' => 'auto',
           'federated_signon_certs_url' =>
               'https://www.googleapis.com/oauth2/v1/certs',
+        ),
+        'Google_Task_Runner' => array(
+          // Delays are specified in seconds
+          'initial_delay' => 1,
+          'max_delay' => 60,
+          // Base number for exponential backoff
+          'factor' => 2,
+          // A random number between -jitter and jitter will be added to the
+          // factor on each iteration to allow for better distribution of
+          // retries.
+          'jitter' => .5,
+          // Maximum number of retries allowed
+          'retries' => 0
+        ),
+        'Google_Service_Exception' => array(
+          'retry_map' => array(
+            '500' => self::TASK_RETRY_ALWAYS,
+            '503' => self::TASK_RETRY_ALWAYS,
+            'rateLimitExceeded' => self::TASK_RETRY_ALWAYS,
+            'userRateLimitExceeded' => self::TASK_RETRY_ALWAYS
+          )
+        ),
+        'Google_IO_Exception' => array(
+          'retry_map' => array(
+            CURLE_COULDNT_RESOLVE_HOST => self::TASK_RETRY_ALWAYS,
+            CURLE_COULDNT_CONNECT => self::TASK_RETRY_ALWAYS,
+            CURLE_OPERATION_TIMEOUTED => self::TASK_RETRY_ALWAYS,
+            CURLE_SSL_CONNECT_ERROR => self::TASK_RETRY_ALWAYS,
+            CURLE_GOT_NOTHING => self::TASK_RETRY_ALWAYS
+          )
         ),
         // Set a default directory for the file cache.
         'Google_Cache_File' => array(

@@ -90,9 +90,11 @@ class Google_IO_Curl extends Google_IO_Abstract
     $response = curl_exec($curl);
     if ($response === false) {
       $error = curl_error($curl);
+      $code = curl_errno($curl);
+      $map = $this->client->getClassConfig('Google_IO_Exception', 'retry_map');
 
       $this->client->getLogger()->error('cURL ' . $error);
-      throw new Google_IO_Exception($error);
+      throw new Google_IO_Exception($error, $code, null, $map);
     }
     $headerSize = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
 
