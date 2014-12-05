@@ -29,7 +29,7 @@ class Google_Http_Request
 {
   const GZIP_UA = " (gzip)";
 
-  private $batchHeaders = array(
+  protected $batchHeaders = array(
     'Content-Type' => 'application/http',
     'Content-Transfer-Encoding' => 'binary',
     'MIME-Version' => '1.0',

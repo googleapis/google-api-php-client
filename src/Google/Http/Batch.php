@@ -23,17 +23,17 @@ require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
 class Google_Http_Batch
 {
   /** @var string Multipart Boundary. */
-  private $boundary;
+  protected $boundary;
 
   /** @var array service requests to be executed. */
-  private $requests = array();
+  protected $requests = array();
 
   /** @var Google_Client */
-  private $client;
+  protected $client;
 
-  private $expected_classes = array();
+  protected $expected_classes = array();
 
-  private $base_path;
+  protected $base_path;
 
   public function __construct(Google_Client $client, $boundary = false)
   {

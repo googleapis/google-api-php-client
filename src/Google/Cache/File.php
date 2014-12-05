@@ -28,8 +28,8 @@ require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
 class Google_Cache_File extends Google_Cache_Abstract
 {
   const MAX_LOCK_RETRIES = 10;
-  private $path;
-  private $fh;
+  protected $path;
+  protected $fh;
 
   /**
    * @var Google_Client the current client

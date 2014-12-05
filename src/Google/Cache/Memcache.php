@@ -29,10 +29,10 @@ require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
  */
 class Google_Cache_Memcache extends Google_Cache_Abstract
 {
-  private $connection = false;
-  private $mc = false;
-  private $host;
-  private $port;
+  protected $connection = false;
+  protected $mc = false;
+  protected $host;
+  protected $port;
 
   /**
    * @var Google_Client the current client

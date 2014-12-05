@@ -21,7 +21,7 @@ class Google_Service
   public $servicePath;
   public $availableScopes;
   public $resource;
-  private $client;
+  protected $client;
 
   public function __construct(Google_Client $client)
   {

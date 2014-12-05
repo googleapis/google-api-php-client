@@ -28,7 +28,7 @@ class Google_IO_Curl extends Google_IO_Abstract
   // cURL hex representation of version 7.30.0
   const NO_QUIRK_VERSION = 0x071E00;
 
-  private $options = array();
+  protected $options = array();
   /**
    * Execute an HTTP Request
    *

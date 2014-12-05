@@ -29,7 +29,7 @@ require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
 class Google_Service_Resource
 {
   // Valid query parameters that work, but don't appear in discovery.
-  private $stackParameters = array(
+  protected $stackParameters = array(
       'alt' => array('type' => 'string', 'location' => 'query'),
       'fields' => array('type' => 'string', 'location' => 'query'),
       'trace' => array('type' => 'string', 'location' => 'query'),
@@ -43,19 +43,19 @@ class Google_Service_Resource
   );
 
   /** @var Google_Service $service */
-  private $service;
+  protected $service;
 
   /** @var Google_Client $client */
-  private $client;
+  protected $client;
 
   /** @var string $serviceName */
-  private $serviceName;
+  protected $serviceName;
 
   /** @var string $resourceName */
-  private $resourceName;
+  protected $resourceName;
 
   /** @var array $methods */
-  private $methods;
+  protected $methods;
 
   public function __construct($service, $serviceName, $resourceName, $resource)
   {

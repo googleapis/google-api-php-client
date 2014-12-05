@@ -28,40 +28,40 @@ class Google_Http_MediaFileUpload
   const UPLOAD_RESUMABLE_TYPE = 'resumable';
 
   /** @var string $mimeType */
-  private $mimeType;
+  protected $mimeType;
 
   /** @var string $data */
-  private $data;
+  protected $data;
 
   /** @var bool $resumable */
-  private $resumable;
+  protected $resumable;
 
   /** @var int $chunkSize */
-  private $chunkSize;
+  protected $chunkSize;
 
   /** @var int $size */
-  private $size;
+  protected $size;
 
   /** @var string $resumeUri */
-  private $resumeUri;
+  protected $resumeUri;
 
   /** @var int $progress */
-  private $progress;
+  protected $progress;
 
   /** @var Google_Client */
-  private $client;
+  protected $client;
 
   /** @var Google_Http_Request */
-  private $request;
+  protected $request;
 
   /** @var string */
-  private $boundary;
+  protected $boundary;
 
   /**
    * Result code from last HTTP call
    * @var int
    */
-  private $httpResultCode;
+  protected $httpResultCode;
 
   /**
    * @param $mimeType string

@@ -33,7 +33,7 @@ class Google_Service_Freebase extends Google_Service
 
 
 
-  private $base_methods;
+  protected $base_methods;
 
   /**
    * Constructs the internal representation of the Freebase service.
