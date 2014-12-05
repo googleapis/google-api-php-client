@@ -58,16 +58,31 @@ class Google_Auth_AppIdentity extends Google_Auth_Abstract
 
     $this->token = $this->client->getCache()->get($cacheKey);
     if (!$this->token) {
-      $this->token = AppIdentityService::getAccessToken($scopes);
-      if ($this->token) {
-        $this->client->getCache()->set(
-            $cacheKey,
-            $this->token
-        );
-      }
+      $this->retrieveToken($scopes, $cacheKey);
     }
+    else if ($this->token['expiration_time'] < time()) {
+      $this->client->getCache()->delete($cacheKey);
+      $this->retrieveToken($scopes, $cacheKey);
+    }
+
     $this->tokenScopes = $scopes;
     return $this->token;
+  }
+
+  /**
+   * Retrieve a new access token and store it in cache
+   * @param mixed $scopes
+   * @param string $cacheKey
+   */
+  private function retrieveToken($scopes, $cacheKey)
+  {
+    $this->token = AppIdentityService::getAccessToken($scopes);
+    if ($this->token) {
+      $this->client->getCache()->set(
+        $cacheKey,
+        $this->token
+        );
+    }
   }
 
   /**
