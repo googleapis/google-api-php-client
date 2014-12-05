@@ -31,7 +31,7 @@ class TestModel extends Google_Model
   }
 }
 
-class ServiceTest extends BaseTest
+class ServiceTest extends PHPUnit_Framework_TestCase
 {
   public function testModel()
   {
@@ -69,6 +69,28 @@ class ServiceTest extends BaseTest
 
     $this->assertEquals(true, $model->isAssociativeArray(array('test' => 'a')));
     $this->assertEquals(true, $model->isAssociativeArray(array("a", "b" => 2)));
+  }
+
+  /**
+   * @dataProvider serviceProvider
+   */
+  public function testIncludes($class)
+  {
+    $this->assertTrue(
+        class_exists($class),
+        sprintf('Failed asserting class %s exists.', $class)
+    );
+  }
+
+  public function serviceProvider()
+  {
+    $classes = array();
+    $path = dirname(dirname(dirname(__FILE__))) . '/src/Google/Service';
+    foreach (glob($path . "/*.php") as $file) {
+      $classes[] = array('Google_Service_' . basename($file, '.php'));
+    }
+
+    return $classes;
   }
 
   public function testStrLen()
