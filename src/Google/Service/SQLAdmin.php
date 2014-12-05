@@ -1331,6 +1331,7 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   public $replicaNames;
   protected $serverCaCertType = 'Google_Service_SQLAdmin_SslCert';
   protected $serverCaCertDataType = '';
+  public $serviceAccountEmailAddress;
   protected $settingsType = 'Google_Service_SQLAdmin_Settings';
   protected $settingsDataType = '';
   public $state;
@@ -1447,6 +1448,14 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   public function getServerCaCert()
   {
     return $this->serverCaCert;
+  }
+  public function setServiceAccountEmailAddress($serviceAccountEmailAddress)
+  {
+    $this->serviceAccountEmailAddress = $serviceAccountEmailAddress;
+  }
+  public function getServiceAccountEmailAddress()
+  {
+    return $this->serviceAccountEmailAddress;
   }
   public function setSettings(Google_Service_SQLAdmin_Settings $settings)
   {
