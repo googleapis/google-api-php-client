@@ -4432,6 +4432,7 @@ class Google_Service_Directory_User extends Google_Collection
   protected $nameType = 'Google_Service_Directory_UserName';
   protected $nameDataType = '';
   public $nonEditableAliases;
+  public $notes;
   public $orgUnitPath;
   public $organizations;
   public $password;
@@ -4441,6 +4442,7 @@ class Google_Service_Directory_User extends Google_Collection
   public $suspended;
   public $suspensionReason;
   public $thumbnailPhotoUrl;
+  public $websites;
 
 
   public function setAddresses($addresses)
@@ -4627,6 +4629,14 @@ class Google_Service_Directory_User extends Google_Collection
   {
     return $this->nonEditableAliases;
   }
+  public function setNotes($notes)
+  {
+    $this->notes = $notes;
+  }
+  public function getNotes()
+  {
+    return $this->notes;
+  }
   public function setOrgUnitPath($orgUnitPath)
   {
     $this->orgUnitPath = $orgUnitPath;
@@ -4698,6 +4708,40 @@ class Google_Service_Directory_User extends Google_Collection
   public function getThumbnailPhotoUrl()
   {
     return $this->thumbnailPhotoUrl;
+  }
+  public function setWebsites($websites)
+  {
+    $this->websites = $websites;
+  }
+  public function getWebsites()
+  {
+    return $this->websites;
+  }
+}
+
+class Google_Service_Directory_UserAbout extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $contentType;
+  public $value;
+
+
+  public function setContentType($contentType)
+  {
+    $this->contentType = $contentType;
+  }
+  public function getContentType()
+  {
+    return $this->contentType;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
   }
 }
 
@@ -5307,6 +5351,50 @@ class Google_Service_Directory_UserUndelete extends Google_Model
   public function getOrgUnitPath()
   {
     return $this->orgUnitPath;
+  }
+}
+
+class Google_Service_Directory_UserWebsite extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $customType;
+  public $primary;
+  public $type;
+  public $value;
+
+
+  public function setCustomType($customType)
+  {
+    $this->customType = $customType;
+  }
+  public function getCustomType()
+  {
+    return $this->customType;
+  }
+  public function setPrimary($primary)
+  {
+    $this->primary = $primary;
+  }
+  public function getPrimary()
+  {
+    return $this->primary;
+  }
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  public function getType()
+  {
+    return $this->type;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
   }
 }
 
