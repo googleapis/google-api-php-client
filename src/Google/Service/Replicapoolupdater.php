@@ -291,10 +291,10 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * Called on the particular Update endpoint. Cancels the update in state PAUSED.
    * No-op if invoked in state CANCELLED. (updates.cancel)
    *
-   * @param string $project Project ID for this request.
-   * @param string $zone Zone for the instance group manager.
-   * @param string $instanceGroupManager Name of the instance group manager for
-   * this request.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the update's target
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param string $update Unique (in the context of a group) handle of an update.
    * @param array $optParams Optional parameters.
    */
@@ -309,10 +309,10 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * Called on the particular Update endpoint. Returns the Update resource.
    * (updates.get)
    *
-   * @param string $project Project ID for this request.
-   * @param string $zone Zone for the instance group manager.
-   * @param string $instanceGroupManager Name of the instance group manager for
-   * this request.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the update's target
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param string $update Unique (in the context of a group) handle of an update.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapoolupdater_Update
@@ -328,10 +328,10 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * Called on the collection endpoint. Inserts the new Update resource and starts
    * the update. (updates.insert)
    *
-   * @param string $project Project ID for this request.
-   * @param string $zone Zone for the instance group manager.
-   * @param string $instanceGroupManager Name of the instance group manager for
-   * this request.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the update's target
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param Google_Update $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapoolupdater_InsertResponse
@@ -348,10 +348,10 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * in reverse chronological order. Pagination is supported, see
    * ListRequestHeader. (updates.listUpdates)
    *
-   * @param string $project Project ID for this request.
-   * @param string $zone Zone for the instance group manager.
-   * @param string $instanceGroupManager Name of the instance group manager for
-   * this request.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the update's target
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken Set this to the nextPageToken value returned by a
@@ -369,12 +369,13 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
   }
 
   /**
-   * Lists instance updates for a given update. (updates.listInstanceUpdates)
+   * Called on the particular Update endpoint. Lists instance updates for a given
+   * update. (updates.listInstanceUpdates)
    *
-   * @param string $project Project ID for this request.
-   * @param string $zone Zone for the instance group manager.
-   * @param string $instanceGroupManager Name of the instance group manager for
-   * this request.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the update's target
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param string $update Unique (in the context of a group) handle of an update.
    * @param array $optParams Optional parameters.
    *
@@ -397,10 +398,10 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * ROLLING_FORWARD or ROLLING_BACK. No-op if invoked in state PAUSED.
    * (updates.pause)
    *
-   * @param string $project Project ID for this request.
-   * @param string $zone Zone for the instance group manager.
-   * @param string $instanceGroupManager Name of the instance group manager for
-   * this request.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the update's target
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param string $update Unique (in the context of a group) handle of an update.
    * @param array $optParams Optional parameters.
    */
@@ -416,10 +417,10 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * ROLLING_FORWARD or PAUSED. No-op if invoked in state ROLLED_BACK or
    * ROLLING_BACK. (updates.rollback)
    *
-   * @param string $project Project ID for this request.
-   * @param string $zone Zone for the instance group manager.
-   * @param string $instanceGroupManager Name of the instance group manager for
-   * this request.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the update's target
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param string $update Unique (in the context of a group) handle of an update.
    * @param array $optParams Optional parameters.
    */
@@ -435,10 +436,10 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * ROLLING_BACK or PAUSED. No-op if invoked in state ROLLED_OUT or
    * ROLLING_FORWARD. (updates.rollforward)
    *
-   * @param string $project Project ID for this request.
-   * @param string $zone Zone for the instance group manager.
-   * @param string $instanceGroupManager Name of the instance group manager for
-   * this request.
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the update's target
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
    * @param string $update Unique (in the context of a group) handle of an update.
    * @param array $optParams Optional parameters.
    */
@@ -476,6 +477,7 @@ class Google_Service_Replicapoolupdater_InstanceUpdate extends Google_Model
   );
   public $instance;
   public $state;
+  public $status;
 
 
   public function setInstance($instance)
@@ -494,6 +496,14 @@ class Google_Service_Replicapoolupdater_InstanceUpdate extends Google_Model
   {
     return $this->state;
   }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
+  }
 }
 
 class Google_Service_Replicapoolupdater_InstanceUpdateList extends Google_Collection
@@ -503,7 +513,9 @@ class Google_Service_Replicapoolupdater_InstanceUpdateList extends Google_Collec
   );
   protected $itemsType = 'Google_Service_Replicapoolupdater_InstanceUpdate';
   protected $itemsDataType = 'array';
+  public $kind;
   public $nextPageToken;
+  public $selfLink;
 
 
   public function setItems($items)
@@ -514,6 +526,14 @@ class Google_Service_Replicapoolupdater_InstanceUpdateList extends Google_Collec
   {
     return $this->items;
   }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -521,6 +541,14 @@ class Google_Service_Replicapoolupdater_InstanceUpdateList extends Google_Collec
   public function getNextPageToken()
   {
     return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
   }
 }
 
@@ -531,6 +559,7 @@ class Google_Service_Replicapoolupdater_Update extends Google_Model
   public $creationTimestamp;
   public $details;
   public $handle;
+  public $id;
   public $instanceGroupManager;
   public $instanceTemplate;
   public $kind;
@@ -539,6 +568,8 @@ class Google_Service_Replicapoolupdater_Update extends Google_Model
   public $progress;
   public $selfLink;
   public $state;
+  public $status;
+  public $statusMessage;
   public $targetState;
   public $user;
 
@@ -566,6 +597,14 @@ class Google_Service_Replicapoolupdater_Update extends Google_Model
   public function getHandle()
   {
     return $this->handle;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
   }
   public function setInstanceGroupManager($instanceGroupManager)
   {
@@ -623,6 +662,22 @@ class Google_Service_Replicapoolupdater_Update extends Google_Model
   {
     return $this->state;
   }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
+  }
+  public function setStatusMessage($statusMessage)
+  {
+    $this->statusMessage = $statusMessage;
+  }
+  public function getStatusMessage()
+  {
+    return $this->statusMessage;
+  }
   public function setTargetState($targetState)
   {
     $this->targetState = $targetState;
@@ -648,7 +703,9 @@ class Google_Service_Replicapoolupdater_UpdateList extends Google_Collection
   );
   protected $itemsType = 'Google_Service_Replicapoolupdater_Update';
   protected $itemsDataType = 'array';
+  public $kind;
   public $nextPageToken;
+  public $selfLink;
 
 
   public function setItems($items)
@@ -659,6 +716,14 @@ class Google_Service_Replicapoolupdater_UpdateList extends Google_Collection
   {
     return $this->items;
   }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
   public function setNextPageToken($nextPageToken)
   {
     $this->nextPageToken = $nextPageToken;
@@ -666,6 +731,14 @@ class Google_Service_Replicapoolupdater_UpdateList extends Google_Collection
   public function getNextPageToken()
   {
     return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
   }
 }
 
