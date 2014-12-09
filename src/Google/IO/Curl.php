@@ -29,6 +29,18 @@ class Google_IO_Curl extends Google_IO_Abstract
   const NO_QUIRK_VERSION = 0x071E00;
 
   private $options = array();
+
+  public function __construct(Google_Client $client)
+  {
+    if (!extension_loaded('curl')) {
+      $error = 'The cURL IO handler requires the cURL extension to be enabled';
+      $client->getLogger()->critical($error);
+      throw new Google_IO_Exception($error);
+    }
+
+    parent::__construct($client);
+  }
+
   /**
    * Execute an HTTP Request
    *
