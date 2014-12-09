@@ -107,7 +107,7 @@ if (
   <div class="request">
 <?php 
 if (isset($authUrl)) {
-  echo "<a class='login' href='" . $authUrl . ">Connect Me!</a>";
+  echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
 }
 ?>
   </div>
