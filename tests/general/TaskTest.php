@@ -151,6 +151,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
    * @expectedException Google_IO_Exception
    */
@@ -160,6 +161,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
    * @expectedException Google_IO_Exception
    */
@@ -170,6 +172,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
    * @expectedException Google_IO_Exception
    */
@@ -182,6 +185,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
    */
   public function testOneCurlRetryWithSuccess($errorCode, $errorMessage = '')
@@ -195,6 +199,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
    */
   public function testMultipleCurlRetriesWithSuccess(
@@ -210,6 +215,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
    * @expectedException Google_IO_Exception
    */
@@ -226,6 +232,9 @@ class TaskTest extends PHPUnit_Framework_TestCase
     $this->setNextResponseThrows($errorMessage, $errorCode)->makeRequest();
   }
 
+  /**
+   * @requires extension curl
+   */
   public function testCustomCurlRetryMapAddsNewHandlers()
   {
     $this->client->setClassConfig(
@@ -244,6 +253,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * @requires extension curl
    * @expectedException Google_IO_Exception
    * @dataProvider customLimitsProvider
    */
@@ -262,6 +272,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   }
 
   /**
+   * @requires extension curl
    * @dataProvider timeoutProvider
    */
   public function testCurlTimeouts($config, $minTime)
@@ -471,11 +482,11 @@ class TaskTest extends PHPUnit_Framework_TestCase
   public function defaultCurlErrorProvider()
   {
     return array(
-        array(CURLE_COULDNT_RESOLVE_HOST),
-        array(CURLE_COULDNT_CONNECT),
-        array(CURLE_OPERATION_TIMEOUTED),
-        array(CURLE_SSL_CONNECT_ERROR),
-        array(CURLE_GOT_NOTHING),
+        array(6),  // CURLE_COULDNT_RESOLVE_HOST
+        array(7),  // CURLE_COULDNT_CONNECT
+        array(28), // CURLE_OPERATION_TIMEOUTED
+        array(35), // CURLE_SSL_CONNECT_ERROR
+        array(52), // CURLE_GOT_NOTHING
     );
   }
 
