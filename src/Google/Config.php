@@ -126,7 +126,7 @@ class Google_Config
           )
         ),
         'Google_IO_Exception' => array(
-          'retry_map' => array(
+          'retry_map' => !extension_loaded('curl') ? array() : array(
             CURLE_COULDNT_RESOLVE_HOST => self::TASK_RETRY_ALWAYS,
             CURLE_COULDNT_CONNECT => self::TASK_RETRY_ALWAYS,
             CURLE_OPERATION_TIMEOUTED => self::TASK_RETRY_ALWAYS,
