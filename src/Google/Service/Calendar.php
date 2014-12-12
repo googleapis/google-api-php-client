@@ -2634,7 +2634,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   }
   public function getCreator()
   {
-    return $this->creator;
+    return $this->modelData['creator'];
   }
   public function setDescription($description)
   {
@@ -2650,7 +2650,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   }
   public function getEnd()
   {
-    return $this->end;
+    return $this->modelData['end']['dateTime'];
   }
   public function setEndTimeUnspecified($endTimeUnspecified)
   {
@@ -2770,7 +2770,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   }
   public function getOrganizer()
   {
-    return $this->organizer;
+    return $this->modelData['organizer'];
   }
   public function setOriginalStartTime(Google_Service_Calendar_EventDateTime $originalStartTime)
   {
@@ -2834,7 +2834,7 @@ class Google_Service_Calendar_Event extends Google_Collection
   }
   public function getStart()
   {
-    return $this->start;
+    return $this->modelData['start']['dateTime'];
   }
   public function setStatus($status)
   {
