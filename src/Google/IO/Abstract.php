@@ -243,12 +243,7 @@ abstract class Google_IO_Abstract
       $hopByHop += array_fill_keys($connectionHeaders, true);
     }
 
-    $endToEnd = array();
-    foreach ($responseHeaders as $key => $val) {
-      if (empty($hopByHop[$key])) {
-        $endToEnd[$key] = $val;
-      }
-    }
+    $endToEnd = array_diff_key($responseHeaders, $hopByHop);
     $cached->setResponseHeaders($endToEnd);
   }
 
