@@ -466,6 +466,7 @@ class Google_Service_Container_Cluster extends Google_Model
   protected $nodeConfigDataType = '';
   public $nodeRoutingPrefixSize;
   public $numNodes;
+  public $selfLink;
   public $servicesIpv4Cidr;
   public $status;
   public $statusMessage;
@@ -559,6 +560,14 @@ class Google_Service_Container_Cluster extends Google_Model
   public function getNumNodes()
   {
     return $this->numNodes;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
   }
   public function setServicesIpv4Cidr($servicesIpv4Cidr)
   {
@@ -750,6 +759,7 @@ class Google_Service_Container_Operation extends Google_Model
   public $selfLink;
   public $status;
   public $target;
+  public $targetLink;
   public $zone;
 
 
@@ -800,6 +810,14 @@ class Google_Service_Container_Operation extends Google_Model
   public function getTarget()
   {
     return $this->target;
+  }
+  public function setTargetLink($targetLink)
+  {
+    $this->targetLink = $targetLink;
+  }
+  public function getTargetLink()
+  {
+    return $this->targetLink;
   }
   public function setZone($zone)
   {
