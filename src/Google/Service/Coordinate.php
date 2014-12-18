@@ -41,6 +41,7 @@ class Google_Service_Coordinate extends Google_Service
   public $jobs;
   public $location;
   public $schedule;
+  public $team;
   public $worker;
   
 
@@ -52,7 +53,7 @@ class Google_Service_Coordinate extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->servicePath = 'coordinate/v1/teams/';
+    $this->servicePath = 'coordinate/v1/';
     $this->version = 'v1';
     $this->serviceName = 'coordinate';
 
@@ -63,7 +64,7 @@ class Google_Service_Coordinate extends Google_Service
         array(
           'methods' => array(
             'list' => array(
-              'path' => '{teamId}/custom_fields',
+              'path' => 'teams/{teamId}/custom_fields',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'teamId' => array(
@@ -83,7 +84,7 @@ class Google_Service_Coordinate extends Google_Service
         array(
           'methods' => array(
             'get' => array(
-              'path' => '{teamId}/jobs/{jobId}',
+              'path' => 'teams/{teamId}/jobs/{jobId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'teamId' => array(
@@ -98,7 +99,7 @@ class Google_Service_Coordinate extends Google_Service
                 ),
               ),
             ),'insert' => array(
-              'path' => '{teamId}/jobs',
+              'path' => 'teams/{teamId}/jobs',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'teamId' => array(
@@ -149,7 +150,7 @@ class Google_Service_Coordinate extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => '{teamId}/jobs',
+              'path' => 'teams/{teamId}/jobs',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'teamId' => array(
@@ -171,7 +172,7 @@ class Google_Service_Coordinate extends Google_Service
                 ),
               ),
             ),'patch' => array(
-              'path' => '{teamId}/jobs/{jobId}',
+              'path' => 'teams/{teamId}/jobs/{jobId}',
               'httpMethod' => 'PATCH',
               'parameters' => array(
                 'teamId' => array(
@@ -227,7 +228,7 @@ class Google_Service_Coordinate extends Google_Service
                 ),
               ),
             ),'update' => array(
-              'path' => '{teamId}/jobs/{jobId}',
+              'path' => 'teams/{teamId}/jobs/{jobId}',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'teamId' => array(
@@ -293,7 +294,7 @@ class Google_Service_Coordinate extends Google_Service
         array(
           'methods' => array(
             'list' => array(
-              'path' => '{teamId}/workers/{workerEmail}/locations',
+              'path' => 'teams/{teamId}/workers/{workerEmail}/locations',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'teamId' => array(
@@ -331,7 +332,7 @@ class Google_Service_Coordinate extends Google_Service
         array(
           'methods' => array(
             'get' => array(
-              'path' => '{teamId}/jobs/{jobId}/schedule',
+              'path' => 'teams/{teamId}/jobs/{jobId}/schedule',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'teamId' => array(
@@ -346,7 +347,7 @@ class Google_Service_Coordinate extends Google_Service
                 ),
               ),
             ),'patch' => array(
-              'path' => '{teamId}/jobs/{jobId}/schedule',
+              'path' => 'teams/{teamId}/jobs/{jobId}/schedule',
               'httpMethod' => 'PATCH',
               'parameters' => array(
                 'teamId' => array(
@@ -377,7 +378,7 @@ class Google_Service_Coordinate extends Google_Service
                 ),
               ),
             ),'update' => array(
-              'path' => '{teamId}/jobs/{jobId}/schedule',
+              'path' => 'teams/{teamId}/jobs/{jobId}/schedule',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'teamId' => array(
@@ -411,6 +412,33 @@ class Google_Service_Coordinate extends Google_Service
           )
         )
     );
+    $this->team = new Google_Service_Coordinate_Team_Resource(
+        $this,
+        $this->serviceName,
+        'team',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'teams',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'admin' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'worker' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'dispatcher' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->worker = new Google_Service_Coordinate_Worker_Resource(
         $this,
         $this->serviceName,
@@ -418,7 +446,7 @@ class Google_Service_Coordinate extends Google_Service
         array(
           'methods' => array(
             'list' => array(
-              'path' => '{teamId}/workers',
+              'path' => 'teams/{teamId}/workers',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'teamId' => array(
@@ -505,8 +533,12 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
    * @opt_param string assignee Assignee email address, or empty string to
    * unassign.
    * @opt_param string customerPhoneNumber Customer phone number
-   * @opt_param string customField Map from custom field id (from
-   * /team//custom_fields) to the field value. For example '123=Alice'
+   * @opt_param string customField Sets the value of custom fields. To set a
+   * custom field, pass the field id (from /team/teamId/custom_fields), a URL
+   * escaped '=' character, and the desired value as a parameter. For example,
+   * customField=12%3DAlice. Repeat the parameter for each custom field. Note that
+   * '=' cannot appear in the parameter value. Specifying an invalid, or inactive
+   * enum field will result in an error 500.
    * @return Google_Service_Coordinate_Job
    */
   public function insert($teamId, $address, $lat, $lng, $title, Google_Service_Coordinate_Job $postBody, $optParams = array())
@@ -554,8 +586,12 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
    * @opt_param double lat The latitude coordinate of this job's location.
    * @opt_param string progress Job progress
    * @opt_param double lng The longitude coordinate of this job's location.
-   * @opt_param string customField Map from custom field id (from
-   * /team//custom_fields) to the field value. For example '123=Alice'
+   * @opt_param string customField Sets the value of custom fields. To set a
+   * custom field, pass the field id (from /team/teamId/custom_fields), a URL
+   * escaped '=' character, and the desired value as a parameter. For example,
+   * customField=12%3DAlice. Repeat the parameter for each custom field. Note that
+   * '=' cannot appear in the parameter value. Specifying an invalid, or inactive
+   * enum field will result in an error 500.
    * @return Google_Service_Coordinate_Job
    */
   public function patch($teamId, $jobId, Google_Service_Coordinate_Job $postBody, $optParams = array())
@@ -584,8 +620,12 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
    * @opt_param double lat The latitude coordinate of this job's location.
    * @opt_param string progress Job progress
    * @opt_param double lng The longitude coordinate of this job's location.
-   * @opt_param string customField Map from custom field id (from
-   * /team//custom_fields) to the field value. For example '123=Alice'
+   * @opt_param string customField Sets the value of custom fields. To set a
+   * custom field, pass the field id (from /team/teamId/custom_fields), a URL
+   * escaped '=' character, and the desired value as a parameter. For example,
+   * customField=12%3DAlice. Repeat the parameter for each custom field. Note that
+   * '=' cannot appear in the parameter value. Specifying an invalid, or inactive
+   * enum field will result in an error 500.
    * @return Google_Service_Coordinate_Job
    */
   public function update($teamId, $jobId, Google_Service_Coordinate_Job $postBody, $optParams = array())
@@ -701,6 +741,38 @@ class Google_Service_Coordinate_Schedule_Resource extends Google_Service_Resourc
 }
 
 /**
+ * The "team" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $coordinateService = new Google_Service_Coordinate(...);
+ *   $team = $coordinateService->team;
+ *  </code>
+ */
+class Google_Service_Coordinate_Team_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Retrieves a list of teams for a user. (team.listTeam)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool admin Whether to include teams for which the user has the
+   * Admin role.
+   * @opt_param bool worker Whether to include teams for which the user has the
+   * Worker role.
+   * @opt_param bool dispatcher Whether to include teams for which the user has
+   * the Dispatcher role.
+   * @return Google_Service_Coordinate_TeamListResponse
+   */
+  public function listTeam($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Coordinate_TeamListResponse");
+  }
+}
+
+/**
  * The "worker" collection of methods.
  * Typical usage is:
  *  <code>
@@ -764,11 +836,14 @@ class Google_Service_Coordinate_CustomField extends Google_Model
   }
 }
 
-class Google_Service_Coordinate_CustomFieldDef extends Google_Model
+class Google_Service_Coordinate_CustomFieldDef extends Google_Collection
 {
+  protected $collection_key = 'enumitems';
   protected $internal_gapi_mappings = array(
   );
   public $enabled;
+  protected $enumitemsType = 'Google_Service_Coordinate_EnumItemDef';
+  protected $enumitemsDataType = 'array';
   public $id;
   public $kind;
   public $name;
@@ -783,6 +858,14 @@ class Google_Service_Coordinate_CustomFieldDef extends Google_Model
   public function getEnabled()
   {
     return $this->enabled;
+  }
+  public function setEnumitems($enumitems)
+  {
+    $this->enumitems = $enumitems;
+  }
+  public function getEnumitems()
+  {
+    return $this->enumitems;
   }
   public function setId($id)
   {
@@ -879,6 +962,41 @@ class Google_Service_Coordinate_CustomFields extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+}
+
+class Google_Service_Coordinate_EnumItemDef extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $active;
+  public $kind;
+  public $value;
+
+
+  public function setActive($active)
+  {
+    $this->active = $active;
+  }
+  public function getActive()
+  {
+    return $this->active;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
   }
 }
 
@@ -1289,6 +1407,69 @@ class Google_Service_Coordinate_Schedule extends Google_Model
   public function getStartTime()
   {
     return $this->startTime;
+  }
+}
+
+class Google_Service_Coordinate_Team extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  public $kind;
+  public $name;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+}
+
+class Google_Service_Coordinate_TeamListResponse extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $itemsType = 'Google_Service_Coordinate_Team';
+  protected $itemsDataType = 'array';
+  public $kind;
+
+
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
   }
 }
 
