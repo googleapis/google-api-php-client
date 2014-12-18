@@ -770,6 +770,10 @@ class Google_Service_Books extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'reason' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'source' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -2011,6 +2015,8 @@ class Google_Service_Books_MylibraryBookshelves_Resource extends Google_Service_
    * @param string $volumeId ID of volume to add.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string reason The reason for which the book is added to the
+   * library.
    * @opt_param string source String to identify the originator of this request.
    */
   public function addVolume($shelf, $volumeId, $optParams = array())
