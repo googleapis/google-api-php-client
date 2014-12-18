@@ -2176,6 +2176,7 @@ class Google_Service_Genomics_ImportReadGroupSetsRequest extends Google_Collecti
   protected $internal_gapi_mappings = array(
   );
   public $datasetId;
+  public $partitionStrategy;
   public $referenceSetId;
   public $sourceUris;
 
@@ -2187,6 +2188,14 @@ class Google_Service_Genomics_ImportReadGroupSetsRequest extends Google_Collecti
   public function getDatasetId()
   {
     return $this->datasetId;
+  }
+  public function setPartitionStrategy($partitionStrategy)
+  {
+    $this->partitionStrategy = $partitionStrategy;
+  }
+  public function getPartitionStrategy()
+  {
+    return $this->partitionStrategy;
   }
   public function setReferenceSetId($referenceSetId)
   {
