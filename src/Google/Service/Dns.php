@@ -601,6 +601,7 @@ class Google_Service_Dns_ManagedZone extends Google_Collection
   public $id;
   public $kind;
   public $name;
+  public $nameServerSet;
   public $nameServers;
 
 
@@ -651,6 +652,14 @@ class Google_Service_Dns_ManagedZone extends Google_Collection
   public function getName()
   {
     return $this->name;
+  }
+  public function setNameServerSet($nameServerSet)
+  {
+    $this->nameServerSet = $nameServerSet;
+  }
+  public function getNameServerSet()
+  {
+    return $this->nameServerSet;
   }
   public function setNameServers($nameServers)
   {
