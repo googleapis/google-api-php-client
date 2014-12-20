@@ -22,7 +22,7 @@ echo pageHeader("Batching Queries");
   books API again as an example, but this time we
   will batch up two queries into a single call.
  ************************************************/
-require_once realpath(dirname(__FILE__) . '/../autoload.php');
+require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
 
 /************************************************
   We create the client and set the simple API

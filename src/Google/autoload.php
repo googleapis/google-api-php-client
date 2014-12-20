@@ -15,27 +15,18 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../autoload.php');
-
-/**
- * Null logger based on the PSR-3 standard.
- *
- * This logger simply discards all messages.
- */
-class Google_Logger_Null extends Google_Logger_Abstract
-{
-  /**
-   * {@inheritdoc}
-   */
-  public function shouldHandle($level)
-  {
-    return false;
+function google_api_php_client_autoload($className) {
+  $classPath = explode('_', $className);
+  if ($classPath[0] != 'Google') {
+    return;
   }
+  // Drop 'Google', and maximum class file path depth in this project is 3.
+  $classPath = array_slice($classPath, 1, 2);
 
-  /**
-   * {@inheritdoc}
-   */
-  protected function write($message, array $context = array())
-  {
+  $filePath = dirname(__FILE__) . '/' . implode('/', $classPath) . '.php';
+  if (file_exists($filePath)) {
+    require_once($filePath);
   }
 }
+
+spl_autoload_register('google_api_php_client_autoload');

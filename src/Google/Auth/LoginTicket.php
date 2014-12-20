@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
+require_once realpath(dirname(__FILE__) . '/../autoload.php');
 
 /**
  * Class to hold information about an authenticated login.

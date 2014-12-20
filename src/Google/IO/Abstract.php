@@ -19,7 +19,7 @@
  * Abstract IO base class
  */
 
-require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
+require_once realpath(dirname(__FILE__) . '/../autoload.php');
 
 abstract class Google_IO_Abstract
 {

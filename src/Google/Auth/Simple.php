@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
+require_once realpath(dirname(__FILE__) . '/../autoload.php');
 
 /**
  * Simple API access implementation. Can either be used to make requests

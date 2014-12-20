@@ -21,7 +21,7 @@ include_once "templates/base.php";
   Make an API request authenticated with a service
   account.
  ************************************************/
-require_once realpath(dirname(__FILE__) . '/../autoload.php');
+require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
 
 /************************************************
   ATTENTION: Fill in these values! You can get

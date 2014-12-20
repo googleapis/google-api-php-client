@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
+require_once realpath(dirname(__FILE__) . '/../autoload.php');
 
 /**
  * Implements the actual methods/resources of the discovered Google API using magic function

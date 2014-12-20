@@ -26,7 +26,7 @@ See the examples/ directory for examples of the key client features.
 ```PHP
 <?php
 
-  require_once 'google-api-php-client/autoload.php'; // or wherever autoload.php is located
+  require_once 'google-api-php-client/src/Google/autoload.php'; // or wherever autoload.php is located
   
   $client = new Google_Client();
   $client->setApplicationName("Client_Library_Examples");
