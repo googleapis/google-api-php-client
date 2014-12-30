@@ -23,7 +23,7 @@ require_once realpath(dirname(__FILE__) . '/../autoload.php');
   We'll setup an empty 1MB file to upload.
  ************************************************/
 DEFINE("TESTFILE", 'testfile-small.txt');
-if (true || !file_exists(TESTFILE)) {
+if (!file_exists(TESTFILE)) {
   $fh = fopen(TESTFILE, 'w');
   fseek($fh, 1024 * 1024);
   fwrite($fh, "!", 1);
