@@ -218,6 +218,31 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'resume' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/resume',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'update' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'rollback' => array(
               'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/rollback',
               'httpMethod' => 'POST',
@@ -295,7 +320,7 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * @param string $zone The name of the zone in which the update's target
    * resides.
    * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update Unique (in the context of a group) handle of an update.
+   * @param string $update The id of the update.
    * @param array $optParams Optional parameters.
    */
   public function cancel($project, $zone, $instanceGroupManager, $update, $optParams = array())
@@ -313,7 +338,7 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * @param string $zone The name of the zone in which the update's target
    * resides.
    * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update Unique (in the context of a group) handle of an update.
+   * @param string $update The id of the update.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapoolupdater_Update
    */
@@ -376,7 +401,7 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * @param string $zone The name of the zone in which the update's target
    * resides.
    * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update Unique (in the context of a group) handle of an update.
+   * @param string $update The id of the update.
    * @param array $optParams Optional parameters.
    *
    * @opt_param int maxResults Maximum count of results to be returned. Acceptable
@@ -402,7 +427,7 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * @param string $zone The name of the zone in which the update's target
    * resides.
    * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update Unique (in the context of a group) handle of an update.
+   * @param string $update The id of the update.
    * @param array $optParams Optional parameters.
    */
   public function pause($project, $zone, $instanceGroupManager, $update, $optParams = array())
@@ -410,6 +435,24 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
     $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
     $params = array_merge($params, $optParams);
     return $this->call('pause', array($params));
+  }
+
+  /**
+   * Called on the particular Update endpoint. Resumes the update in state PAUSED.
+   * No-op if invoked in state ROLLING_FORWARD or ROLLING_BACK. (updates.resume)
+   *
+   * @param string $project The Google Developers Console project name.
+   * @param string $zone The name of the zone in which the update's target
+   * resides.
+   * @param string $instanceGroupManager The name of the instance group manager.
+   * @param string $update The id of the update.
+   * @param array $optParams Optional parameters.
+   */
+  public function resume($project, $zone, $instanceGroupManager, $update, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
+    $params = array_merge($params, $optParams);
+    return $this->call('resume', array($params));
   }
 
   /**
@@ -421,7 +464,7 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * @param string $zone The name of the zone in which the update's target
    * resides.
    * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update Unique (in the context of a group) handle of an update.
+   * @param string $update The id of the update.
    * @param array $optParams Optional parameters.
    */
   public function rollback($project, $zone, $instanceGroupManager, $update, $optParams = array())
@@ -433,14 +476,14 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
 
   /**
    * Called on the particular Update endpoint. Rolls forward the update in state
-   * ROLLING_BACK or PAUSED. No-op if invoked in state ROLLED_OUT or
-   * ROLLING_FORWARD. (updates.rollforward)
+   * PAUSED before ordering it to roll back. No-op if invoked in state ROLLED_OUT
+   * or ROLLING_FORWARD. (updates.rollforward)
    *
    * @param string $project The Google Developers Console project name.
    * @param string $zone The name of the zone in which the update's target
    * resides.
    * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update Unique (in the context of a group) handle of an update.
+   * @param string $update The id of the update.
    * @param array $optParams Optional parameters.
    */
   public function rollforward($project, $zone, $instanceGroupManager, $update, $optParams = array())
@@ -476,7 +519,6 @@ class Google_Service_Replicapoolupdater_InstanceUpdate extends Google_Model
   protected $internal_gapi_mappings = array(
   );
   public $instance;
-  public $state;
   public $status;
 
 
@@ -487,14 +529,6 @@ class Google_Service_Replicapoolupdater_InstanceUpdate extends Google_Model
   public function getInstance()
   {
     return $this->instance;
-  }
-  public function setState($state)
-  {
-    $this->state = $state;
-  }
-  public function getState()
-  {
-    return $this->state;
   }
   public function setStatus($status)
   {
@@ -557,8 +591,6 @@ class Google_Service_Replicapoolupdater_Update extends Google_Model
   protected $internal_gapi_mappings = array(
   );
   public $creationTimestamp;
-  public $details;
-  public $handle;
   public $id;
   public $instanceGroupManager;
   public $instanceTemplate;
@@ -567,10 +599,8 @@ class Google_Service_Replicapoolupdater_Update extends Google_Model
   protected $policyDataType = '';
   public $progress;
   public $selfLink;
-  public $state;
   public $status;
   public $statusMessage;
-  public $targetState;
   public $user;
 
 
@@ -581,22 +611,6 @@ class Google_Service_Replicapoolupdater_Update extends Google_Model
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
-  }
-  public function setDetails($details)
-  {
-    $this->details = $details;
-  }
-  public function getDetails()
-  {
-    return $this->details;
-  }
-  public function setHandle($handle)
-  {
-    $this->handle = $handle;
-  }
-  public function getHandle()
-  {
-    return $this->handle;
   }
   public function setId($id)
   {
@@ -654,14 +668,6 @@ class Google_Service_Replicapoolupdater_Update extends Google_Model
   {
     return $this->selfLink;
   }
-  public function setState($state)
-  {
-    $this->state = $state;
-  }
-  public function getState()
-  {
-    return $this->state;
-  }
   public function setStatus($status)
   {
     $this->status = $status;
@@ -677,14 +683,6 @@ class Google_Service_Replicapoolupdater_Update extends Google_Model
   public function getStatusMessage()
   {
     return $this->statusMessage;
-  }
-  public function setTargetState($targetState)
-  {
-    $this->targetState = $targetState;
-  }
-  public function getTargetState()
-  {
-    return $this->targetState;
   }
   public function setUser($user)
   {
