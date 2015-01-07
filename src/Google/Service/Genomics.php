@@ -980,8 +980,9 @@ class Google_Service_Genomics_Readgroupsets_Resource extends Google_Service_Reso
    *
    * Note that currently there may be some differences between exported BAM files
    * and the original BAM file at the time of import. In particular, comments in
-   * the input file header will not be preserved, and some custom tags will be
-   * converted to strings. (readgroupsets.export)
+   * the input file header will not be preserved, some custom tags will be
+   * converted to strings, and original reference sequence order is not
+   * necessarily preserved. (readgroupsets.export)
    *
    * @param Google_ExportReadGroupSetsRequest $postBody
    * @param array $optParams Optional parameters.
@@ -3144,6 +3145,7 @@ class Google_Service_Genomics_ReadGroupSet extends Google_Collection
   public $datasetId;
   public $filename;
   public $id;
+  public $info;
   public $name;
   protected $readGroupsType = 'Google_Service_Genomics_ReadGroup';
   protected $readGroupsDataType = 'array';
@@ -3174,6 +3176,14 @@ class Google_Service_Genomics_ReadGroupSet extends Google_Collection
   {
     return $this->id;
   }
+  public function setInfo($info)
+  {
+    $this->info = $info;
+  }
+  public function getInfo()
+  {
+    return $this->info;
+  }
   public function setName($name)
   {
     $this->name = $name;
@@ -3198,6 +3208,10 @@ class Google_Service_Genomics_ReadGroupSet extends Google_Collection
   {
     return $this->referenceSetId;
   }
+}
+
+class Google_Service_Genomics_ReadGroupSetInfo extends Google_Model
+{
 }
 
 class Google_Service_Genomics_ReadInfo extends Google_Model
