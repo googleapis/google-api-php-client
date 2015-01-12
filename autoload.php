@@ -15,7 +15,10 @@
  * limitations under the License.
  */
 
-function google_api_php_client_autoload($className) {
+/**
+ * CMS extension and/or plugin developers should replace MyProject with an unique identifier to avoid library conflicts
+ */
+function google_api_php_client_autoload_MyProject($className) { //Replace MyProject with an unique project identifier
   $classPath = explode('_', $className);
   if ($classPath[0] != 'Google') {
     return;
@@ -30,4 +33,4 @@ function google_api_php_client_autoload($className) {
   }
 }
 
-spl_autoload_register('google_api_php_client_autoload');
+spl_autoload_register('google_api_php_client_autoload_MyProject'); //Replace MyProject with an unique project identifier
