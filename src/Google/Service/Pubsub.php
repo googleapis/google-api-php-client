@@ -299,7 +299,7 @@ class Google_Service_Pubsub_Subscriptions_Resource extends Google_Service_Resour
 
   /**
    * Modifies the PushConfig for a specified subscription. This method can be used
-   * to suspend the flow of messages to an end point by clearing the PushConfig
+   * to suspend the flow of messages to an endpoint by clearing the PushConfig
    * field in the request. Messages will be accumulated for delivery even if no
    * push configuration is defined or while the configuration is modified.
    * (subscriptions.modifyPushConfig)
@@ -335,7 +335,7 @@ class Google_Service_Pubsub_Subscriptions_Resource extends Google_Service_Resour
   /**
    * Pulls messages from the server. Returns an empty list if there are no
    * messages available in the backlog. The system is free to return UNAVAILABLE
-   * if there too many pull requests outstanding for a given subscription.
+   * if there are too many pull requests outstanding for the given subscription.
    * (subscriptions.pullBatch)
    *
    * @param Google_PullBatchRequest $postBody
