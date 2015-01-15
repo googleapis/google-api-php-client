@@ -41,7 +41,7 @@ class Google_Service_Replicapoolupdater extends Google_Service
   const REPLICAPOOL_READONLY =
       "https://www.googleapis.com/auth/replicapool.readonly";
 
-  public $updates;
+  public $rollingUpdates;
   
 
   /**
@@ -56,14 +56,14 @@ class Google_Service_Replicapoolupdater extends Google_Service
     $this->version = 'v1beta1';
     $this->serviceName = 'replicapoolupdater';
 
-    $this->updates = new Google_Service_Replicapoolupdater_Updates_Resource(
+    $this->rollingUpdates = new Google_Service_Replicapoolupdater_RollingUpdates_Resource(
         $this,
         $this->serviceName,
-        'updates',
+        'rollingUpdates',
         array(
           'methods' => array(
             'cancel' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/cancel',
+              'path' => '{project}/zones/{zone}/rollingUpdates/{rollingUpdate}/cancel',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'project' => array(
@@ -76,19 +76,14 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'instanceGroupManager' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'update' => array(
+                'rollingUpdate' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'get' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}',
+              'path' => '{project}/zones/{zone}/rollingUpdates/{rollingUpdate}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'project' => array(
@@ -101,19 +96,14 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'instanceGroupManager' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'update' => array(
+                'rollingUpdate' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'insert' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates',
+              'path' => '{project}/zones/{zone}/rollingUpdates',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'project' => array(
@@ -122,18 +112,13 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'required' => true,
                 ),
                 'zone' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'instanceGroupManager' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'list' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates',
+              'path' => '{project}/zones/{zone}/rollingUpdates',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'project' => array(
@@ -146,11 +131,6 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'instanceGroupManager' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -158,10 +138,14 @@ class Google_Service_Replicapoolupdater extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'listInstanceUpdates' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/instanceUpdates',
+              'path' => '{project}/zones/{zone}/rollingUpdates/{rollingUpdate}/instanceUpdates',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'project' => array(
@@ -174,27 +158,22 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'instanceGroupManager' => array(
+                'rollingUpdate' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
-                ),
-                'update' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),'pause' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/pause',
+              'path' => '{project}/zones/{zone}/rollingUpdates/{rollingUpdate}/pause',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'project' => array(
@@ -207,19 +186,14 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'instanceGroupManager' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'update' => array(
+                'rollingUpdate' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'resume' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/resume',
+              'path' => '{project}/zones/{zone}/rollingUpdates/{rollingUpdate}/resume',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'project' => array(
@@ -232,19 +206,14 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'instanceGroupManager' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'update' => array(
+                'rollingUpdate' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
               ),
             ),'rollback' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/rollback',
+              'path' => '{project}/zones/{zone}/rollingUpdates/{rollingUpdate}/rollback',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'project' => array(
@@ -257,37 +226,7 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'instanceGroupManager' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'update' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'rollforward' => array(
-              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updates/{update}/rollforward',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'project' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'zone' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'instanceGroupManager' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'update' => array(
+                'rollingUpdate' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -302,81 +241,74 @@ class Google_Service_Replicapoolupdater extends Google_Service
 
 
 /**
- * The "updates" collection of methods.
+ * The "rollingUpdates" collection of methods.
  * Typical usage is:
  *  <code>
  *   $replicapoolupdaterService = new Google_Service_Replicapoolupdater(...);
- *   $updates = $replicapoolupdaterService->updates;
+ *   $rollingUpdates = $replicapoolupdaterService->rollingUpdates;
  *  </code>
  */
-class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_Resource
+class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_Service_Resource
 {
 
   /**
-   * Called on the particular Update endpoint. Cancels the update in state PAUSED.
-   * No-op if invoked in state CANCELLED. (updates.cancel)
+   * Cancels an update. The update must be PAUSED before it can be cancelled. This
+   * has no effect if the update is already CANCELLED. (rollingUpdates.cancel)
    *
    * @param string $project The Google Developers Console project name.
    * @param string $zone The name of the zone in which the update's target
    * resides.
-   * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update The id of the update.
+   * @param string $rollingUpdate The name of the update.
    * @param array $optParams Optional parameters.
    */
-  public function cancel($project, $zone, $instanceGroupManager, $update, $optParams = array())
+  public function cancel($project, $zone, $rollingUpdate, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
+    $params = array('project' => $project, 'zone' => $zone, 'rollingUpdate' => $rollingUpdate);
     $params = array_merge($params, $optParams);
     return $this->call('cancel', array($params));
   }
 
   /**
-   * Called on the particular Update endpoint. Returns the Update resource.
-   * (updates.get)
+   * Returns information about an update. (rollingUpdates.get)
    *
    * @param string $project The Google Developers Console project name.
    * @param string $zone The name of the zone in which the update's target
    * resides.
-   * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update The id of the update.
+   * @param string $rollingUpdate The name of the update.
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Replicapoolupdater_Update
+   * @return Google_Service_Replicapoolupdater_RollingUpdate
    */
-  public function get($project, $zone, $instanceGroupManager, $update, $optParams = array())
+  public function get($project, $zone, $rollingUpdate, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
+    $params = array('project' => $project, 'zone' => $zone, 'rollingUpdate' => $rollingUpdate);
     $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Replicapoolupdater_Update");
+    return $this->call('get', array($params), "Google_Service_Replicapoolupdater_RollingUpdate");
   }
 
   /**
-   * Called on the collection endpoint. Inserts the new Update resource and starts
-   * the update. (updates.insert)
+   * Inserts and starts a new update. (rollingUpdates.insert)
    *
    * @param string $project The Google Developers Console project name.
    * @param string $zone The name of the zone in which the update's target
    * resides.
-   * @param string $instanceGroupManager The name of the instance group manager.
-   * @param Google_Update $postBody
+   * @param Google_RollingUpdate $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Replicapoolupdater_InsertResponse
    */
-  public function insert($project, $zone, $instanceGroupManager, Google_Service_Replicapoolupdater_Update $postBody, $optParams = array())
+  public function insert($project, $zone, Google_Service_Replicapoolupdater_RollingUpdate $postBody, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'postBody' => $postBody);
+    $params = array('project' => $project, 'zone' => $zone, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('insert', array($params), "Google_Service_Replicapoolupdater_InsertResponse");
   }
 
   /**
-   * Called on the collection endpoint. Lists updates for a given instance group,
-   * in reverse chronological order. Pagination is supported, see
-   * ListRequestHeader. (updates.listUpdates)
+   * Lists recent updates for a given managed instance group, in reverse
+   * chronological order and paginated format. (rollingUpdates.listRollingUpdates)
    *
    * @param string $project The Google Developers Console project name.
    * @param string $zone The name of the zone in which the update's target
    * resides.
-   * @param string $instanceGroupManager The name of the instance group manager.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken Set this to the nextPageToken value returned by a
@@ -384,113 +316,92 @@ class Google_Service_Replicapoolupdater_Updates_Resource extends Google_Service_
    * list request.
    * @opt_param int maxResults Maximum count of results to be returned. Acceptable
    * values are 1 to 100, inclusive. (Default: 50)
-   * @return Google_Service_Replicapoolupdater_UpdateList
+   * @opt_param string instanceGroupManager The name of the instance group
+   * manager.
+   * @return Google_Service_Replicapoolupdater_RollingUpdateList
    */
-  public function listUpdates($project, $zone, $instanceGroupManager, $optParams = array())
+  public function listRollingUpdates($project, $zone, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager);
+    $params = array('project' => $project, 'zone' => $zone);
     $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Replicapoolupdater_UpdateList");
+    return $this->call('list', array($params), "Google_Service_Replicapoolupdater_RollingUpdateList");
   }
 
   /**
-   * Called on the particular Update endpoint. Lists instance updates for a given
-   * update. (updates.listInstanceUpdates)
+   * Lists the current status for each instance within a given update.
+   * (rollingUpdates.listInstanceUpdates)
    *
    * @param string $project The Google Developers Console project name.
    * @param string $zone The name of the zone in which the update's target
    * resides.
-   * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update The id of the update.
+   * @param string $rollingUpdate The name of the update.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
-   * values are 1 to 100, inclusive. (Default: 50)
    * @opt_param string pageToken Set this to the nextPageToken value returned by a
    * previous list request to obtain the next page of results from the previous
    * list request.
+   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
+   * values are 1 to 100, inclusive. (Default: 50)
    * @return Google_Service_Replicapoolupdater_InstanceUpdateList
    */
-  public function listInstanceUpdates($project, $zone, $instanceGroupManager, $update, $optParams = array())
+  public function listInstanceUpdates($project, $zone, $rollingUpdate, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
+    $params = array('project' => $project, 'zone' => $zone, 'rollingUpdate' => $rollingUpdate);
     $params = array_merge($params, $optParams);
     return $this->call('listInstanceUpdates', array($params), "Google_Service_Replicapoolupdater_InstanceUpdateList");
   }
 
   /**
-   * Called on the particular Update endpoint. Pauses the update in state
-   * ROLLING_FORWARD or ROLLING_BACK. No-op if invoked in state PAUSED.
-   * (updates.pause)
+   * Pauses the update in state from ROLLING_FORWARD or ROLLING_BACK. Has no
+   * effect if invoked when the state of the update is PAUSED.
+   * (rollingUpdates.pause)
    *
    * @param string $project The Google Developers Console project name.
    * @param string $zone The name of the zone in which the update's target
    * resides.
-   * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update The id of the update.
+   * @param string $rollingUpdate The name of the update.
    * @param array $optParams Optional parameters.
    */
-  public function pause($project, $zone, $instanceGroupManager, $update, $optParams = array())
+  public function pause($project, $zone, $rollingUpdate, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
+    $params = array('project' => $project, 'zone' => $zone, 'rollingUpdate' => $rollingUpdate);
     $params = array_merge($params, $optParams);
     return $this->call('pause', array($params));
   }
 
   /**
-   * Called on the particular Update endpoint. Resumes the update in state PAUSED.
-   * No-op if invoked in state ROLLING_FORWARD or ROLLING_BACK. (updates.resume)
+   * Continues an update in PAUSED state. Has no effect if invoked when the state
+   * of the update is ROLLED_OUT. (rollingUpdates.resume)
    *
    * @param string $project The Google Developers Console project name.
    * @param string $zone The name of the zone in which the update's target
    * resides.
-   * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update The id of the update.
+   * @param string $rollingUpdate The name of the update.
    * @param array $optParams Optional parameters.
    */
-  public function resume($project, $zone, $instanceGroupManager, $update, $optParams = array())
+  public function resume($project, $zone, $rollingUpdate, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
+    $params = array('project' => $project, 'zone' => $zone, 'rollingUpdate' => $rollingUpdate);
     $params = array_merge($params, $optParams);
     return $this->call('resume', array($params));
   }
 
   /**
-   * Called on the particular Update endpoint. Rolls back the update in state
-   * ROLLING_FORWARD or PAUSED. No-op if invoked in state ROLLED_BACK or
-   * ROLLING_BACK. (updates.rollback)
+   * Rolls back the update in state from ROLLING_FORWARD or PAUSED. Has no effect
+   * if invoked when the state of the update is ROLLED_BACK.
+   * (rollingUpdates.rollback)
    *
    * @param string $project The Google Developers Console project name.
    * @param string $zone The name of the zone in which the update's target
    * resides.
-   * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update The id of the update.
+   * @param string $rollingUpdate The name of the update.
    * @param array $optParams Optional parameters.
    */
-  public function rollback($project, $zone, $instanceGroupManager, $update, $optParams = array())
+  public function rollback($project, $zone, $rollingUpdate, $optParams = array())
   {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
+    $params = array('project' => $project, 'zone' => $zone, 'rollingUpdate' => $rollingUpdate);
     $params = array_merge($params, $optParams);
     return $this->call('rollback', array($params));
-  }
-
-  /**
-   * Called on the particular Update endpoint. Rolls forward the update in state
-   * PAUSED before ordering it to roll back. No-op if invoked in state ROLLED_OUT
-   * or ROLLING_FORWARD. (updates.rollforward)
-   *
-   * @param string $project The Google Developers Console project name.
-   * @param string $zone The name of the zone in which the update's target
-   * resides.
-   * @param string $instanceGroupManager The name of the instance group manager.
-   * @param string $update The id of the update.
-   * @param array $optParams Optional parameters.
-   */
-  public function rollforward($project, $zone, $instanceGroupManager, $update, $optParams = array())
-  {
-    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'update' => $update);
-    $params = array_merge($params, $optParams);
-    return $this->call('rollforward', array($params));
   }
 }
 
@@ -501,16 +412,16 @@ class Google_Service_Replicapoolupdater_InsertResponse extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
-  public $update;
+  public $rollingUpdate;
 
 
-  public function setUpdate($update)
+  public function setRollingUpdate($rollingUpdate)
   {
-    $this->update = $update;
+    $this->rollingUpdate = $rollingUpdate;
   }
-  public function getUpdate()
+  public function getRollingUpdate()
   {
-    return $this->update;
+    return $this->rollingUpdate;
   }
 }
 
@@ -586,7 +497,7 @@ class Google_Service_Replicapoolupdater_InstanceUpdateList extends Google_Collec
   }
 }
 
-class Google_Service_Replicapoolupdater_Update extends Google_Model
+class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
@@ -595,7 +506,7 @@ class Google_Service_Replicapoolupdater_Update extends Google_Model
   public $instanceGroupManager;
   public $instanceTemplate;
   public $kind;
-  protected $policyType = 'Google_Service_Replicapoolupdater_UpdatePolicy';
+  protected $policyType = 'Google_Service_Replicapoolupdater_RollingUpdatePolicy';
   protected $policyDataType = '';
   public $progress;
   public $selfLink;
@@ -644,7 +555,7 @@ class Google_Service_Replicapoolupdater_Update extends Google_Model
   {
     return $this->kind;
   }
-  public function setPolicy(Google_Service_Replicapoolupdater_UpdatePolicy $policy)
+  public function setPolicy(Google_Service_Replicapoolupdater_RollingUpdatePolicy $policy)
   {
     $this->policy = $policy;
   }
@@ -694,12 +605,12 @@ class Google_Service_Replicapoolupdater_Update extends Google_Model
   }
 }
 
-class Google_Service_Replicapoolupdater_UpdateList extends Google_Collection
+class Google_Service_Replicapoolupdater_RollingUpdateList extends Google_Collection
 {
   protected $collection_key = 'items';
   protected $internal_gapi_mappings = array(
   );
-  protected $itemsType = 'Google_Service_Replicapoolupdater_Update';
+  protected $itemsType = 'Google_Service_Replicapoolupdater_RollingUpdate';
   protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
@@ -740,17 +651,17 @@ class Google_Service_Replicapoolupdater_UpdateList extends Google_Collection
   }
 }
 
-class Google_Service_Replicapoolupdater_UpdatePolicy extends Google_Model
+class Google_Service_Replicapoolupdater_RollingUpdatePolicy extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
-  protected $canaryType = 'Google_Service_Replicapoolupdater_UpdatePolicyCanary';
+  protected $canaryType = 'Google_Service_Replicapoolupdater_RollingUpdatePolicyCanary';
   protected $canaryDataType = '';
   public $maxNumConcurrentInstances;
   public $sleepAfterInstanceRestartSec;
 
 
-  public function setCanary(Google_Service_Replicapoolupdater_UpdatePolicyCanary $canary)
+  public function setCanary(Google_Service_Replicapoolupdater_RollingUpdatePolicyCanary $canary)
   {
     $this->canary = $canary;
   }
@@ -776,7 +687,7 @@ class Google_Service_Replicapoolupdater_UpdatePolicy extends Google_Model
   }
 }
 
-class Google_Service_Replicapoolupdater_UpdatePolicyCanary extends Google_Model
+class Google_Service_Replicapoolupdater_RollingUpdatePolicyCanary extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
