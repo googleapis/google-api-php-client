@@ -2503,6 +2503,7 @@ class Google_Service_Drive_About extends Google_Collection
   protected $exportFormatsDataType = 'array';
   protected $featuresType = 'Google_Service_Drive_AboutFeatures';
   protected $featuresDataType = 'array';
+  public $folderColorPalette;
   protected $importFormatsType = 'Google_Service_Drive_AboutImportFormats';
   protected $importFormatsDataType = 'array';
   public $isCurrentAppInstalled;
@@ -2566,6 +2567,14 @@ class Google_Service_Drive_About extends Google_Collection
   public function getFeatures()
   {
     return $this->features;
+  }
+  public function setFolderColorPalette($folderColorPalette)
+  {
+    $this->folderColorPalette = $folderColorPalette;
+  }
+  public function getFolderColorPalette()
+  {
+    return $this->folderColorPalette;
   }
   public function setImportFormats($importFormats)
   {
@@ -3963,6 +3972,7 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   public $exportLinks;
   public $fileExtension;
   public $fileSize;
+  public $folderColorRgb;
   public $headRevisionId;
   public $iconLink;
   public $id;
@@ -4124,6 +4134,14 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   public function getFileSize()
   {
     return $this->fileSize;
+  }
+  public function setFolderColorRgb($folderColorRgb)
+  {
+    $this->folderColorRgb = $folderColorRgb;
+  }
+  public function getFolderColorRgb()
+  {
+    return $this->folderColorRgb;
   }
   public function setHeadRevisionId($headRevisionId)
   {
