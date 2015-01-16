@@ -1541,7 +1541,7 @@ class Google_Service_Genomics_Variantsets_Resource extends Google_Service_Resour
 
 class Google_Service_Genomics_AlignReadGroupSetsRequest extends Google_Collection
 {
-  protected $collection_key = 'readGroupSetIds';
+  protected $collection_key = 'bamSourceUris';
   protected $internal_gapi_mappings = array(
   );
   public $bamSourceUris;
@@ -1550,7 +1550,7 @@ class Google_Service_Genomics_AlignReadGroupSetsRequest extends Google_Collectio
   protected $interleavedFastqSourceDataType = '';
   protected $pairedFastqSourceType = 'Google_Service_Genomics_PairedFastqSource';
   protected $pairedFastqSourceDataType = '';
-  public $readGroupSetIds;
+  public $readGroupSetId;
 
 
   public function setBamSourceUris($bamSourceUris)
@@ -1585,13 +1585,13 @@ class Google_Service_Genomics_AlignReadGroupSetsRequest extends Google_Collectio
   {
     return $this->pairedFastqSource;
   }
-  public function setReadGroupSetIds($readGroupSetIds)
+  public function setReadGroupSetId($readGroupSetId)
   {
-    $this->readGroupSetIds = $readGroupSetIds;
+    $this->readGroupSetId = $readGroupSetId;
   }
-  public function getReadGroupSetIds()
+  public function getReadGroupSetId()
   {
-    return $this->readGroupSetIds;
+    return $this->readGroupSetId;
   }
 }
 
@@ -1618,7 +1618,7 @@ class Google_Service_Genomics_CallReadGroupSetsRequest extends Google_Collection
   protected $internal_gapi_mappings = array(
   );
   public $datasetId;
-  public $readGroupSetIds;
+  public $readGroupSetId;
   public $sourceUris;
 
 
@@ -1630,13 +1630,13 @@ class Google_Service_Genomics_CallReadGroupSetsRequest extends Google_Collection
   {
     return $this->datasetId;
   }
-  public function setReadGroupSetIds($readGroupSetIds)
+  public function setReadGroupSetId($readGroupSetId)
   {
-    $this->readGroupSetIds = $readGroupSetIds;
+    $this->readGroupSetId = $readGroupSetId;
   }
-  public function getReadGroupSetIds()
+  public function getReadGroupSetId()
   {
-    return $this->readGroupSetIds;
+    return $this->readGroupSetId;
   }
   public function setSourceUris($sourceUris)
   {
