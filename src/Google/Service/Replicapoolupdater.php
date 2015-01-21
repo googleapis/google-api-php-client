@@ -131,13 +131,17 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'instanceGroupManager' => array(
                   'location' => 'query',
@@ -163,13 +167,17 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'pause' => array(
@@ -311,11 +319,12 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
    * resides.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Set this to the nextPageToken value returned by a
-   * previous list request to obtain the next page of results from the previous
-   * list request.
-   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
-   * values are 1 to 100, inclusive. (Default: 50)
+   * @opt_param string maxResults Optional. Maximum count of results to be
+   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Optional. Filter expression for filtering listed
+   * resources.
+   * @opt_param string pageToken Optional. Tag returned by a previous list request
+   * truncated by maxResults. Used to continue a previous list request.
    * @opt_param string instanceGroupManager The name of the instance group
    * manager.
    * @return Google_Service_Replicapoolupdater_RollingUpdateList
@@ -337,11 +346,12 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
    * @param string $rollingUpdate The name of the update.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Set this to the nextPageToken value returned by a
-   * previous list request to obtain the next page of results from the previous
-   * list request.
-   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
-   * values are 1 to 100, inclusive. (Default: 50)
+   * @opt_param string maxResults Optional. Maximum count of results to be
+   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Optional. Filter expression for filtering listed
+   * resources.
+   * @opt_param string pageToken Optional. Tag returned by a previous list request
+   * truncated by maxResults. Used to continue a previous list request.
    * @return Google_Service_Replicapoolupdater_InstanceUpdateList
    */
   public function listInstanceUpdates($project, $zone, $rollingUpdate, $optParams = array())
@@ -501,6 +511,7 @@ class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $actionType;
   public $creationTimestamp;
   public $id;
   public $instanceGroupManager;
@@ -515,6 +526,14 @@ class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
   public $user;
 
 
+  public function setActionType($actionType)
+  {
+    $this->actionType = $actionType;
+  }
+  public function getActionType()
+  {
+    return $this->actionType;
+  }
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
