@@ -36,7 +36,9 @@ class Google_Service_ShoppingContent extends Google_Service
       "https://www.googleapis.com/auth/content";
 
   public $accounts;
+  public $accountshipping;
   public $accountstatuses;
+  public $accounttax;
   public $datafeeds;
   public $datafeedstatuses;
   public $inventory;
@@ -158,6 +160,83 @@ class Google_Service_ShoppingContent extends Google_Service
           )
         )
     );
+    $this->accountshipping = new Google_Service_ShoppingContent_Accountshipping_Resource(
+        $this,
+        $this->serviceName,
+        'accountshipping',
+        array(
+          'methods' => array(
+            'custombatch' => array(
+              'path' => 'accountshipping/batch',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'get' => array(
+              'path' => '{merchantId}/accountshipping/{accountId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{merchantId}/accountshipping',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'patch' => array(
+              'path' => '{merchantId}/accountshipping/{accountId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'update' => array(
+              'path' => '{merchantId}/accountshipping/{accountId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->accountstatuses = new Google_Service_ShoppingContent_Accountstatuses_Resource(
         $this,
         $this->serviceName,
@@ -199,6 +278,83 @@ class Google_Service_ShoppingContent extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->accounttax = new Google_Service_ShoppingContent_Accounttax_Resource(
+        $this,
+        $this->serviceName,
+        'accounttax',
+        array(
+          'methods' => array(
+            'custombatch' => array(
+              'path' => 'accounttax/batch',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'get' => array(
+              'path' => '{merchantId}/accounttax/{accountId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{merchantId}/accounttax',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'patch' => array(
+              'path' => '{merchantId}/accounttax/{accountId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'update' => array(
+              'path' => '{merchantId}/accounttax/{accountId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),
@@ -648,6 +804,103 @@ class Google_Service_ShoppingContent_Accounts_Resource extends Google_Service_Re
 }
 
 /**
+ * The "accountshipping" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $contentService = new Google_Service_ShoppingContent(...);
+ *   $accountshipping = $contentService->accountshipping;
+ *  </code>
+ */
+class Google_Service_ShoppingContent_Accountshipping_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Retrieves and updates the shipping settings of multiple accounts in a single
+   * request. (accountshipping.custombatch)
+   *
+   * @param Google_AccountshippingCustomBatchRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_AccountshippingCustomBatchResponse
+   */
+  public function custombatch(Google_Service_ShoppingContent_AccountshippingCustomBatchRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('custombatch', array($params), "Google_Service_ShoppingContent_AccountshippingCustomBatchResponse");
+  }
+
+  /**
+   * Retrieves the shipping settings of the account. (accountshipping.get)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $accountId The ID of the account for which to get/update
+   * account shipping settings.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_AccountShipping
+   */
+  public function get($merchantId, $accountId, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'accountId' => $accountId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_ShoppingContent_AccountShipping");
+  }
+
+  /**
+   * Lists the shipping settings of the sub-accounts in your Merchant Center
+   * account. (accountshipping.listAccountshipping)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string pageToken The token returned by the previous request.
+   * @opt_param string maxResults The maximum number of shipping settings to
+   * return in the response, used for paging.
+   * @return Google_Service_ShoppingContent_AccountshippingListResponse
+   */
+  public function listAccountshipping($merchantId, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_ShoppingContent_AccountshippingListResponse");
+  }
+
+  /**
+   * Updates the shipping settings of the account. This method supports patch
+   * semantics. (accountshipping.patch)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $accountId The ID of the account for which to get/update
+   * account shipping settings.
+   * @param Google_AccountShipping $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_AccountShipping
+   */
+  public function patch($merchantId, $accountId, Google_Service_ShoppingContent_AccountShipping $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'accountId' => $accountId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_ShoppingContent_AccountShipping");
+  }
+
+  /**
+   * Updates the shipping settings of the account. (accountshipping.update)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $accountId The ID of the account for which to get/update
+   * account shipping settings.
+   * @param Google_AccountShipping $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_AccountShipping
+   */
+  public function update($merchantId, $accountId, Google_Service_ShoppingContent_AccountShipping $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'accountId' => $accountId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_ShoppingContent_AccountShipping");
+  }
+}
+
+/**
  * The "accountstatuses" collection of methods.
  * Typical usage is:
  *  <code>
@@ -704,6 +957,103 @@ class Google_Service_ShoppingContent_Accountstatuses_Resource extends Google_Ser
     $params = array('merchantId' => $merchantId);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_ShoppingContent_AccountstatusesListResponse");
+  }
+}
+
+/**
+ * The "accounttax" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $contentService = new Google_Service_ShoppingContent(...);
+ *   $accounttax = $contentService->accounttax;
+ *  </code>
+ */
+class Google_Service_ShoppingContent_Accounttax_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Retrieves and updates tax settings of multiple accounts in a single request.
+   * (accounttax.custombatch)
+   *
+   * @param Google_AccounttaxCustomBatchRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_AccounttaxCustomBatchResponse
+   */
+  public function custombatch(Google_Service_ShoppingContent_AccounttaxCustomBatchRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('custombatch', array($params), "Google_Service_ShoppingContent_AccounttaxCustomBatchResponse");
+  }
+
+  /**
+   * Retrieves the tax settings of the account. (accounttax.get)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $accountId The ID of the account for which to get/update
+   * account tax settings.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_AccountTax
+   */
+  public function get($merchantId, $accountId, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'accountId' => $accountId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_ShoppingContent_AccountTax");
+  }
+
+  /**
+   * Lists the tax settings of the sub-accounts in your Merchant Center account.
+   * (accounttax.listAccounttax)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string pageToken The token returned by the previous request.
+   * @opt_param string maxResults The maximum number of tax settings to return in
+   * the response, used for paging.
+   * @return Google_Service_ShoppingContent_AccounttaxListResponse
+   */
+  public function listAccounttax($merchantId, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_ShoppingContent_AccounttaxListResponse");
+  }
+
+  /**
+   * Updates the tax settings of the account. This method supports patch
+   * semantics. (accounttax.patch)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $accountId The ID of the account for which to get/update
+   * account tax settings.
+   * @param Google_AccountTax $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_AccountTax
+   */
+  public function patch($merchantId, $accountId, Google_Service_ShoppingContent_AccountTax $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'accountId' => $accountId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_ShoppingContent_AccountTax");
+  }
+
+  /**
+   * Updates the tax settings of the account. (accounttax.update)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $accountId The ID of the account for which to get/update
+   * account tax settings.
+   * @param Google_AccountTax $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_AccountTax
+   */
+  public function update($merchantId, $accountId, Google_Service_ShoppingContent_AccountTax $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'accountId' => $accountId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_ShoppingContent_AccountTax");
   }
 }
 
@@ -1216,6 +1566,513 @@ class Google_Service_ShoppingContent_AccountAdwordsLink extends Google_Model
   }
 }
 
+class Google_Service_ShoppingContent_AccountShipping extends Google_Collection
+{
+  protected $collection_key = 'services';
+  protected $internal_gapi_mappings = array(
+  );
+  public $accountId;
+  protected $carrierRatesType = 'Google_Service_ShoppingContent_AccountShippingCarrierRate';
+  protected $carrierRatesDataType = 'array';
+  public $kind;
+  protected $locationGroupsType = 'Google_Service_ShoppingContent_AccountShippingLocationGroup';
+  protected $locationGroupsDataType = 'array';
+  protected $rateTablesType = 'Google_Service_ShoppingContent_AccountShippingRateTable';
+  protected $rateTablesDataType = 'array';
+  protected $servicesType = 'Google_Service_ShoppingContent_AccountShippingShippingService';
+  protected $servicesDataType = 'array';
+
+
+  public function setAccountId($accountId)
+  {
+    $this->accountId = $accountId;
+  }
+  public function getAccountId()
+  {
+    return $this->accountId;
+  }
+  public function setCarrierRates($carrierRates)
+  {
+    $this->carrierRates = $carrierRates;
+  }
+  public function getCarrierRates()
+  {
+    return $this->carrierRates;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setLocationGroups($locationGroups)
+  {
+    $this->locationGroups = $locationGroups;
+  }
+  public function getLocationGroups()
+  {
+    return $this->locationGroups;
+  }
+  public function setRateTables($rateTables)
+  {
+    $this->rateTables = $rateTables;
+  }
+  public function getRateTables()
+  {
+    return $this->rateTables;
+  }
+  public function setServices($services)
+  {
+    $this->services = $services;
+  }
+  public function getServices()
+  {
+    return $this->services;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountShippingCarrierRate extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $carrier;
+  public $carrierService;
+  protected $modifierFlatRateType = 'Google_Service_ShoppingContent_Price';
+  protected $modifierFlatRateDataType = '';
+  public $modifierPercent;
+  public $name;
+  public $saleCountry;
+  public $shippingOrigin;
+
+
+  public function setCarrier($carrier)
+  {
+    $this->carrier = $carrier;
+  }
+  public function getCarrier()
+  {
+    return $this->carrier;
+  }
+  public function setCarrierService($carrierService)
+  {
+    $this->carrierService = $carrierService;
+  }
+  public function getCarrierService()
+  {
+    return $this->carrierService;
+  }
+  public function setModifierFlatRate(Google_Service_ShoppingContent_Price $modifierFlatRate)
+  {
+    $this->modifierFlatRate = $modifierFlatRate;
+  }
+  public function getModifierFlatRate()
+  {
+    return $this->modifierFlatRate;
+  }
+  public function setModifierPercent($modifierPercent)
+  {
+    $this->modifierPercent = $modifierPercent;
+  }
+  public function getModifierPercent()
+  {
+    return $this->modifierPercent;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setSaleCountry($saleCountry)
+  {
+    $this->saleCountry = $saleCountry;
+  }
+  public function getSaleCountry()
+  {
+    return $this->saleCountry;
+  }
+  public function setShippingOrigin($shippingOrigin)
+  {
+    $this->shippingOrigin = $shippingOrigin;
+  }
+  public function getShippingOrigin()
+  {
+    return $this->shippingOrigin;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountShippingCondition extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $deliveryLocationGroup;
+  public $deliveryLocationId;
+  public $deliveryPostalCode;
+  protected $deliveryPostalCodeRangeType = 'Google_Service_ShoppingContent_AccountShippingPostalCodeRange';
+  protected $deliveryPostalCodeRangeDataType = '';
+  protected $priceMaxType = 'Google_Service_ShoppingContent_Price';
+  protected $priceMaxDataType = '';
+  public $shippingLabel;
+  protected $weightMaxType = 'Google_Service_ShoppingContent_Weight';
+  protected $weightMaxDataType = '';
+
+
+  public function setDeliveryLocationGroup($deliveryLocationGroup)
+  {
+    $this->deliveryLocationGroup = $deliveryLocationGroup;
+  }
+  public function getDeliveryLocationGroup()
+  {
+    return $this->deliveryLocationGroup;
+  }
+  public function setDeliveryLocationId($deliveryLocationId)
+  {
+    $this->deliveryLocationId = $deliveryLocationId;
+  }
+  public function getDeliveryLocationId()
+  {
+    return $this->deliveryLocationId;
+  }
+  public function setDeliveryPostalCode($deliveryPostalCode)
+  {
+    $this->deliveryPostalCode = $deliveryPostalCode;
+  }
+  public function getDeliveryPostalCode()
+  {
+    return $this->deliveryPostalCode;
+  }
+  public function setDeliveryPostalCodeRange(Google_Service_ShoppingContent_AccountShippingPostalCodeRange $deliveryPostalCodeRange)
+  {
+    $this->deliveryPostalCodeRange = $deliveryPostalCodeRange;
+  }
+  public function getDeliveryPostalCodeRange()
+  {
+    return $this->deliveryPostalCodeRange;
+  }
+  public function setPriceMax(Google_Service_ShoppingContent_Price $priceMax)
+  {
+    $this->priceMax = $priceMax;
+  }
+  public function getPriceMax()
+  {
+    return $this->priceMax;
+  }
+  public function setShippingLabel($shippingLabel)
+  {
+    $this->shippingLabel = $shippingLabel;
+  }
+  public function getShippingLabel()
+  {
+    return $this->shippingLabel;
+  }
+  public function setWeightMax(Google_Service_ShoppingContent_Weight $weightMax)
+  {
+    $this->weightMax = $weightMax;
+  }
+  public function getWeightMax()
+  {
+    return $this->weightMax;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountShippingLocationGroup extends Google_Collection
+{
+  protected $collection_key = 'postalCodes';
+  protected $internal_gapi_mappings = array(
+  );
+  public $country;
+  public $locationIds;
+  public $name;
+  protected $postalCodeRangesType = 'Google_Service_ShoppingContent_AccountShippingPostalCodeRange';
+  protected $postalCodeRangesDataType = 'array';
+  public $postalCodes;
+
+
+  public function setCountry($country)
+  {
+    $this->country = $country;
+  }
+  public function getCountry()
+  {
+    return $this->country;
+  }
+  public function setLocationIds($locationIds)
+  {
+    $this->locationIds = $locationIds;
+  }
+  public function getLocationIds()
+  {
+    return $this->locationIds;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setPostalCodeRanges($postalCodeRanges)
+  {
+    $this->postalCodeRanges = $postalCodeRanges;
+  }
+  public function getPostalCodeRanges()
+  {
+    return $this->postalCodeRanges;
+  }
+  public function setPostalCodes($postalCodes)
+  {
+    $this->postalCodes = $postalCodes;
+  }
+  public function getPostalCodes()
+  {
+    return $this->postalCodes;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountShippingPostalCodeRange extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $end;
+  public $start;
+
+
+  public function setEnd($end)
+  {
+    $this->end = $end;
+  }
+  public function getEnd()
+  {
+    return $this->end;
+  }
+  public function setStart($start)
+  {
+    $this->start = $start;
+  }
+  public function getStart()
+  {
+    return $this->start;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountShippingRateTable extends Google_Collection
+{
+  protected $collection_key = 'content';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $contentType = 'Google_Service_ShoppingContent_AccountShippingRateTableCell';
+  protected $contentDataType = 'array';
+  public $name;
+  public $saleCountry;
+
+
+  public function setContent($content)
+  {
+    $this->content = $content;
+  }
+  public function getContent()
+  {
+    return $this->content;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setSaleCountry($saleCountry)
+  {
+    $this->saleCountry = $saleCountry;
+  }
+  public function getSaleCountry()
+  {
+    return $this->saleCountry;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountShippingRateTableCell extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $conditionType = 'Google_Service_ShoppingContent_AccountShippingCondition';
+  protected $conditionDataType = '';
+  protected $rateType = 'Google_Service_ShoppingContent_Price';
+  protected $rateDataType = '';
+
+
+  public function setCondition(Google_Service_ShoppingContent_AccountShippingCondition $condition)
+  {
+    $this->condition = $condition;
+  }
+  public function getCondition()
+  {
+    return $this->condition;
+  }
+  public function setRate(Google_Service_ShoppingContent_Price $rate)
+  {
+    $this->rate = $rate;
+  }
+  public function getRate()
+  {
+    return $this->rate;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountShippingShippingService extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $active;
+  protected $calculationMethodType = 'Google_Service_ShoppingContent_AccountShippingShippingServiceCalculationMethod';
+  protected $calculationMethodDataType = '';
+  protected $costRuleTreeType = 'Google_Service_ShoppingContent_AccountShippingShippingServiceCostRule';
+  protected $costRuleTreeDataType = '';
+  public $name;
+  public $saleCountry;
+
+
+  public function setActive($active)
+  {
+    $this->active = $active;
+  }
+  public function getActive()
+  {
+    return $this->active;
+  }
+  public function setCalculationMethod(Google_Service_ShoppingContent_AccountShippingShippingServiceCalculationMethod $calculationMethod)
+  {
+    $this->calculationMethod = $calculationMethod;
+  }
+  public function getCalculationMethod()
+  {
+    return $this->calculationMethod;
+  }
+  public function setCostRuleTree(Google_Service_ShoppingContent_AccountShippingShippingServiceCostRule $costRuleTree)
+  {
+    $this->costRuleTree = $costRuleTree;
+  }
+  public function getCostRuleTree()
+  {
+    return $this->costRuleTree;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setSaleCountry($saleCountry)
+  {
+    $this->saleCountry = $saleCountry;
+  }
+  public function getSaleCountry()
+  {
+    return $this->saleCountry;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountShippingShippingServiceCalculationMethod extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $carrierRate;
+  public $excluded;
+  protected $flatRateType = 'Google_Service_ShoppingContent_Price';
+  protected $flatRateDataType = '';
+  public $percentageRate;
+  public $rateTable;
+
+
+  public function setCarrierRate($carrierRate)
+  {
+    $this->carrierRate = $carrierRate;
+  }
+  public function getCarrierRate()
+  {
+    return $this->carrierRate;
+  }
+  public function setExcluded($excluded)
+  {
+    $this->excluded = $excluded;
+  }
+  public function getExcluded()
+  {
+    return $this->excluded;
+  }
+  public function setFlatRate(Google_Service_ShoppingContent_Price $flatRate)
+  {
+    $this->flatRate = $flatRate;
+  }
+  public function getFlatRate()
+  {
+    return $this->flatRate;
+  }
+  public function setPercentageRate($percentageRate)
+  {
+    $this->percentageRate = $percentageRate;
+  }
+  public function getPercentageRate()
+  {
+    return $this->percentageRate;
+  }
+  public function setRateTable($rateTable)
+  {
+    $this->rateTable = $rateTable;
+  }
+  public function getRateTable()
+  {
+    return $this->rateTable;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountShippingShippingServiceCostRule extends Google_Collection
+{
+  protected $collection_key = 'children';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $calculationMethodType = 'Google_Service_ShoppingContent_AccountShippingShippingServiceCalculationMethod';
+  protected $calculationMethodDataType = '';
+  protected $childrenType = 'Google_Service_ShoppingContent_AccountShippingShippingServiceCostRule';
+  protected $childrenDataType = 'array';
+  protected $conditionType = 'Google_Service_ShoppingContent_AccountShippingCondition';
+  protected $conditionDataType = '';
+
+
+  public function setCalculationMethod(Google_Service_ShoppingContent_AccountShippingShippingServiceCalculationMethod $calculationMethod)
+  {
+    $this->calculationMethod = $calculationMethod;
+  }
+  public function getCalculationMethod()
+  {
+    return $this->calculationMethod;
+  }
+  public function setChildren($children)
+  {
+    $this->children = $children;
+  }
+  public function getChildren()
+  {
+    return $this->children;
+  }
+  public function setCondition(Google_Service_ShoppingContent_AccountShippingCondition $condition)
+  {
+    $this->condition = $condition;
+  }
+  public function getCondition()
+  {
+    return $this->condition;
+  }
+}
+
 class Google_Service_ShoppingContent_AccountStatus extends Google_Collection
 {
   protected $collection_key = 'dataQualityIssues';
@@ -1385,6 +2242,96 @@ class Google_Service_ShoppingContent_AccountStatusExampleItem extends Google_Mod
   public function getValueOnLandingPage()
   {
     return $this->valueOnLandingPage;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountTax extends Google_Collection
+{
+  protected $collection_key = 'rules';
+  protected $internal_gapi_mappings = array(
+  );
+  public $accountId;
+  public $kind;
+  protected $rulesType = 'Google_Service_ShoppingContent_AccountTaxTaxRule';
+  protected $rulesDataType = 'array';
+
+
+  public function setAccountId($accountId)
+  {
+    $this->accountId = $accountId;
+  }
+  public function getAccountId()
+  {
+    return $this->accountId;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setRules($rules)
+  {
+    $this->rules = $rules;
+  }
+  public function getRules()
+  {
+    return $this->rules;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountTaxTaxRule extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $country;
+  public $locationId;
+  public $ratePercent;
+  public $shippingTaxed;
+  public $useGlobalRate;
+
+
+  public function setCountry($country)
+  {
+    $this->country = $country;
+  }
+  public function getCountry()
+  {
+    return $this->country;
+  }
+  public function setLocationId($locationId)
+  {
+    $this->locationId = $locationId;
+  }
+  public function getLocationId()
+  {
+    return $this->locationId;
+  }
+  public function setRatePercent($ratePercent)
+  {
+    $this->ratePercent = $ratePercent;
+  }
+  public function getRatePercent()
+  {
+    return $this->ratePercent;
+  }
+  public function setShippingTaxed($shippingTaxed)
+  {
+    $this->shippingTaxed = $shippingTaxed;
+  }
+  public function getShippingTaxed()
+  {
+    return $this->shippingTaxed;
+  }
+  public function setUseGlobalRate($useGlobalRate)
+  {
+    $this->useGlobalRate = $useGlobalRate;
+  }
+  public function getUseGlobalRate()
+  {
+    return $this->useGlobalRate;
   }
 }
 
@@ -1598,6 +2545,190 @@ class Google_Service_ShoppingContent_AccountsListResponse extends Google_Collect
   }
 }
 
+class Google_Service_ShoppingContent_AccountshippingCustomBatchRequest extends Google_Collection
+{
+  protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $entriesType = 'Google_Service_ShoppingContent_AccountshippingCustomBatchRequestEntry';
+  protected $entriesDataType = 'array';
+
+
+  public function setEntries($entries)
+  {
+    $this->entries = $entries;
+  }
+  public function getEntries()
+  {
+    return $this->entries;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountshippingCustomBatchRequestEntry extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $accountId;
+  protected $accountShippingType = 'Google_Service_ShoppingContent_AccountShipping';
+  protected $accountShippingDataType = '';
+  public $batchId;
+  public $merchantId;
+  public $method;
+
+
+  public function setAccountId($accountId)
+  {
+    $this->accountId = $accountId;
+  }
+  public function getAccountId()
+  {
+    return $this->accountId;
+  }
+  public function setAccountShipping(Google_Service_ShoppingContent_AccountShipping $accountShipping)
+  {
+    $this->accountShipping = $accountShipping;
+  }
+  public function getAccountShipping()
+  {
+    return $this->accountShipping;
+  }
+  public function setBatchId($batchId)
+  {
+    $this->batchId = $batchId;
+  }
+  public function getBatchId()
+  {
+    return $this->batchId;
+  }
+  public function setMerchantId($merchantId)
+  {
+    $this->merchantId = $merchantId;
+  }
+  public function getMerchantId()
+  {
+    return $this->merchantId;
+  }
+  public function setMethod($method)
+  {
+    $this->method = $method;
+  }
+  public function getMethod()
+  {
+    return $this->method;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountshippingCustomBatchResponse extends Google_Collection
+{
+  protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $entriesType = 'Google_Service_ShoppingContent_AccountshippingCustomBatchResponseEntry';
+  protected $entriesDataType = 'array';
+  public $kind;
+
+
+  public function setEntries($entries)
+  {
+    $this->entries = $entries;
+  }
+  public function getEntries()
+  {
+    return $this->entries;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountshippingCustomBatchResponseEntry extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $accountShippingType = 'Google_Service_ShoppingContent_AccountShipping';
+  protected $accountShippingDataType = '';
+  public $batchId;
+  protected $errorsType = 'Google_Service_ShoppingContent_Errors';
+  protected $errorsDataType = '';
+  public $kind;
+
+
+  public function setAccountShipping(Google_Service_ShoppingContent_AccountShipping $accountShipping)
+  {
+    $this->accountShipping = $accountShipping;
+  }
+  public function getAccountShipping()
+  {
+    return $this->accountShipping;
+  }
+  public function setBatchId($batchId)
+  {
+    $this->batchId = $batchId;
+  }
+  public function getBatchId()
+  {
+    return $this->batchId;
+  }
+  public function setErrors(Google_Service_ShoppingContent_Errors $errors)
+  {
+    $this->errors = $errors;
+  }
+  public function getErrors()
+  {
+    return $this->errors;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountshippingListResponse extends Google_Collection
+{
+  protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+  public $nextPageToken;
+  protected $resourcesType = 'Google_Service_ShoppingContent_AccountShipping';
+  protected $resourcesDataType = 'array';
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setResources($resources)
+  {
+    $this->resources = $resources;
+  }
+  public function getResources()
+  {
+    return $this->resources;
+  }
+}
+
 class Google_Service_ShoppingContent_AccountstatusesCustomBatchRequest extends Google_Collection
 {
   protected $collection_key = 'entries';
@@ -1734,6 +2865,190 @@ class Google_Service_ShoppingContent_AccountstatusesListResponse extends Google_
   public $kind;
   public $nextPageToken;
   protected $resourcesType = 'Google_Service_ShoppingContent_AccountStatus';
+  protected $resourcesDataType = 'array';
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setResources($resources)
+  {
+    $this->resources = $resources;
+  }
+  public function getResources()
+  {
+    return $this->resources;
+  }
+}
+
+class Google_Service_ShoppingContent_AccounttaxCustomBatchRequest extends Google_Collection
+{
+  protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $entriesType = 'Google_Service_ShoppingContent_AccounttaxCustomBatchRequestEntry';
+  protected $entriesDataType = 'array';
+
+
+  public function setEntries($entries)
+  {
+    $this->entries = $entries;
+  }
+  public function getEntries()
+  {
+    return $this->entries;
+  }
+}
+
+class Google_Service_ShoppingContent_AccounttaxCustomBatchRequestEntry extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $accountId;
+  protected $accountTaxType = 'Google_Service_ShoppingContent_AccountTax';
+  protected $accountTaxDataType = '';
+  public $batchId;
+  public $merchantId;
+  public $method;
+
+
+  public function setAccountId($accountId)
+  {
+    $this->accountId = $accountId;
+  }
+  public function getAccountId()
+  {
+    return $this->accountId;
+  }
+  public function setAccountTax(Google_Service_ShoppingContent_AccountTax $accountTax)
+  {
+    $this->accountTax = $accountTax;
+  }
+  public function getAccountTax()
+  {
+    return $this->accountTax;
+  }
+  public function setBatchId($batchId)
+  {
+    $this->batchId = $batchId;
+  }
+  public function getBatchId()
+  {
+    return $this->batchId;
+  }
+  public function setMerchantId($merchantId)
+  {
+    $this->merchantId = $merchantId;
+  }
+  public function getMerchantId()
+  {
+    return $this->merchantId;
+  }
+  public function setMethod($method)
+  {
+    $this->method = $method;
+  }
+  public function getMethod()
+  {
+    return $this->method;
+  }
+}
+
+class Google_Service_ShoppingContent_AccounttaxCustomBatchResponse extends Google_Collection
+{
+  protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $entriesType = 'Google_Service_ShoppingContent_AccounttaxCustomBatchResponseEntry';
+  protected $entriesDataType = 'array';
+  public $kind;
+
+
+  public function setEntries($entries)
+  {
+    $this->entries = $entries;
+  }
+  public function getEntries()
+  {
+    return $this->entries;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_AccounttaxCustomBatchResponseEntry extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $accountTaxType = 'Google_Service_ShoppingContent_AccountTax';
+  protected $accountTaxDataType = '';
+  public $batchId;
+  protected $errorsType = 'Google_Service_ShoppingContent_Errors';
+  protected $errorsDataType = '';
+  public $kind;
+
+
+  public function setAccountTax(Google_Service_ShoppingContent_AccountTax $accountTax)
+  {
+    $this->accountTax = $accountTax;
+  }
+  public function getAccountTax()
+  {
+    return $this->accountTax;
+  }
+  public function setBatchId($batchId)
+  {
+    $this->batchId = $batchId;
+  }
+  public function getBatchId()
+  {
+    return $this->batchId;
+  }
+  public function setErrors(Google_Service_ShoppingContent_Errors $errors)
+  {
+    $this->errors = $errors;
+  }
+  public function getErrors()
+  {
+    return $this->errors;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_AccounttaxListResponse extends Google_Collection
+{
+  protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+  public $nextPageToken;
+  protected $resourcesType = 'Google_Service_ShoppingContent_AccountTax';
   protected $resourcesDataType = 'array';
 
 
@@ -3670,16 +4985,27 @@ class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
   protected $collection_key = 'destinationStatuses';
   protected $internal_gapi_mappings = array(
   );
+  public $creationDate;
   protected $dataQualityIssuesType = 'Google_Service_ShoppingContent_ProductStatusDataQualityIssue';
   protected $dataQualityIssuesDataType = 'array';
   protected $destinationStatusesType = 'Google_Service_ShoppingContent_ProductStatusDestinationStatus';
   protected $destinationStatusesDataType = 'array';
+  public $googleExpirationDate;
   public $kind;
+  public $lastUpdateDate;
   public $link;
   public $productId;
   public $title;
 
 
+  public function setCreationDate($creationDate)
+  {
+    $this->creationDate = $creationDate;
+  }
+  public function getCreationDate()
+  {
+    return $this->creationDate;
+  }
   public function setDataQualityIssues($dataQualityIssues)
   {
     $this->dataQualityIssues = $dataQualityIssues;
@@ -3696,6 +5022,14 @@ class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
   {
     return $this->destinationStatuses;
   }
+  public function setGoogleExpirationDate($googleExpirationDate)
+  {
+    $this->googleExpirationDate = $googleExpirationDate;
+  }
+  public function getGoogleExpirationDate()
+  {
+    return $this->googleExpirationDate;
+  }
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3703,6 +5037,14 @@ class Google_Service_ShoppingContent_ProductStatus extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setLastUpdateDate($lastUpdateDate)
+  {
+    $this->lastUpdateDate = $lastUpdateDate;
+  }
+  public function getLastUpdateDate()
+  {
+    return $this->lastUpdateDate;
   }
   public function setLink($link)
   {
@@ -4305,5 +5647,31 @@ class Google_Service_ShoppingContent_ProductstatusesListResponse extends Google_
   public function getResources()
   {
     return $this->resources;
+  }
+}
+
+class Google_Service_ShoppingContent_Weight extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $unit;
+  public $value;
+
+
+  public function setUnit($unit)
+  {
+    $this->unit = $unit;
+  }
+  public function getUnit()
+  {
+    return $this->unit;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
   }
 }
