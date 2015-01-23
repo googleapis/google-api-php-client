@@ -4786,6 +4786,7 @@ class Google_Service_Books_OffersItems extends Google_Collection
   protected $internal_gapi_mappings = array(
   );
   public $artUrl;
+  public $gservicesKey;
   public $id;
   protected $itemsType = 'Google_Service_Books_OffersItemsItems';
   protected $itemsDataType = 'array';
@@ -4798,6 +4799,14 @@ class Google_Service_Books_OffersItems extends Google_Collection
   public function getArtUrl()
   {
     return $this->artUrl;
+  }
+  public function setGservicesKey($gservicesKey)
+  {
+    $this->gservicesKey = $gservicesKey;
+  }
+  public function getGservicesKey()
+  {
+    return $this->gservicesKey;
   }
   public function setId($id)
   {
