@@ -116,12 +116,20 @@ class Google_Service_CloudMonitoring extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'aggregator' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'labels' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'window' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -167,12 +175,20 @@ class Google_Service_CloudMonitoring extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'aggregator' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'labels' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'window' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -269,6 +285,9 @@ class Google_Service_CloudMonitoring_Timeseries_Resource extends Google_Service_
    *
    * If neither oldest nor timespan is specified, the default time interval will
    * be (youngest - 4 hours, youngest].
+   * @opt_param string aggregator The aggregation function that will reduce the
+   * data points in each window to a single point. This parameter is only valid
+   * for non-cumulative metric types.
    * @opt_param string labels A collection of labels for the matching time series,
    * which are represented as: - key==value: key equals the value  - key=~value:
    * key regex matches the value  - key!=value: key does not equal the value  -
@@ -278,6 +297,11 @@ class Google_Service_CloudMonitoring_Timeseries_Resource extends Google_Service_
    * @opt_param string pageToken The pagination token, which is used to page
    * through large result sets. Set this value to the value of the nextPageToken
    * to retrieve the next page of results.
+   * @opt_param string window The sampling window. At most one data point will be
+   * returned for each window in the requested time interval. This parameter is
+   * only valid for non-cumulative metric types. Units: - m: minute  - h: hour  -
+   * d: day  - w: week  Examples: 3m, 4w. Only one unit is allowed, for example:
+   * 2w3d is not allowed; you should use 17d instead.
    * @opt_param string oldest Start of the time interval (exclusive), which is
    * expressed as an RFC 3339 timestamp. If neither oldest nor timespan is
    * specified, the default time interval will be (youngest - 4 hours, youngest]
@@ -329,6 +353,9 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptors_Resource extends Goog
    *
    * If neither oldest nor timespan is specified, the default time interval will
    * be (youngest - 4 hours, youngest].
+   * @opt_param string aggregator The aggregation function that will reduce the
+   * data points in each window to a single point. This parameter is only valid
+   * for non-cumulative metric types.
    * @opt_param string labels A collection of labels for the matching time series,
    * which are represented as: - key==value: key equals the value  - key=~value:
    * key regex matches the value  - key!=value: key does not equal the value  -
@@ -338,6 +365,11 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptors_Resource extends Goog
    * @opt_param string pageToken The pagination token, which is used to page
    * through large result sets. Set this value to the value of the nextPageToken
    * to retrieve the next page of results.
+   * @opt_param string window The sampling window. At most one data point will be
+   * returned for each window in the requested time interval. This parameter is
+   * only valid for non-cumulative metric types. Units: - m: minute  - h: hour  -
+   * d: day  - w: week  Examples: 3m, 4w. Only one unit is allowed, for example:
+   * 2w3d is not allowed; you should use 17d instead.
    * @opt_param string oldest Start of the time interval (exclusive), which is
    * expressed as an RFC 3339 timestamp. If neither oldest nor timespan is
    * specified, the default time interval will be (youngest - 4 hours, youngest]
