@@ -234,6 +234,10 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'prefix' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'projection' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -1140,6 +1144,8 @@ class Google_Service_Storage_Buckets_Resource extends Google_Service_Resource
    *
    * @opt_param string pageToken A previously-returned page token representing
    * part of the larger set of results to view.
+   * @opt_param string prefix Filter results to buckets whose names begin with
+   * this prefix.
    * @opt_param string projection Set of properties to return. Defaults to noAcl.
    * @opt_param string maxResults Maximum number of buckets to return.
    * @return Google_Service_Storage_Buckets
