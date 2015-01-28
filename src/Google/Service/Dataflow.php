@@ -2419,6 +2419,7 @@ class Google_Service_Dataflow_TaskRunnerSettings extends Google_Collection
   public $oauthScopes;
   protected $parallelWorkerSettingsType = 'Google_Service_Dataflow_WorkerSettings';
   protected $parallelWorkerSettingsDataType = '';
+  public $streamingWorkerMainClass;
   public $taskGroup;
   public $taskUser;
   public $tempStoragePrefix;
@@ -2529,6 +2530,14 @@ class Google_Service_Dataflow_TaskRunnerSettings extends Google_Collection
   public function getParallelWorkerSettings()
   {
     return $this->parallelWorkerSettings;
+  }
+  public function setStreamingWorkerMainClass($streamingWorkerMainClass)
+  {
+    $this->streamingWorkerMainClass = $streamingWorkerMainClass;
+  }
+  public function getStreamingWorkerMainClass()
+  {
+    return $this->streamingWorkerMainClass;
   }
   public function setTaskGroup($taskGroup)
   {
