@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Dataflow (v1beta3).
+ * Service definition for Dataflow (v1b4).
  *
  * <p>
  * Google Dataflow API.</p>
@@ -50,8 +50,8 @@ class Google_Service_Dataflow extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->servicePath = 'dataflow/v1b3/projects/';
-    $this->version = 'v1beta3';
+    $this->servicePath = 'v1b3/projects/';
+    $this->version = 'v1b4';
     $this->serviceName = 'dataflow';
 
     $this->v1b3_projects_jobs = new Google_Service_Dataflow_V1b3ProjectsJobs_Resource(
