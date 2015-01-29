@@ -8993,6 +8993,8 @@ class Google_Service_YouTube_Video extends Google_Model
   public $kind;
   protected $liveStreamingDetailsType = 'Google_Service_YouTube_VideoLiveStreamingDetails';
   protected $liveStreamingDetailsDataType = '';
+  protected $localizationsType = 'Google_Service_YouTube_VideoLocalization';
+  protected $localizationsDataType = 'map';
   protected $monetizationDetailsType = 'Google_Service_YouTube_VideoMonetizationDetails';
   protected $monetizationDetailsDataType = '';
   protected $playerType = 'Google_Service_YouTube_VideoPlayer';
@@ -9078,6 +9080,14 @@ class Google_Service_YouTube_Video extends Google_Model
   public function getLiveStreamingDetails()
   {
     return $this->liveStreamingDetails;
+  }
+  public function setLocalizations($localizations)
+  {
+    $this->localizations = $localizations;
+  }
+  public function getLocalizations()
+  {
+    return $this->localizations;
   }
   public function setMonetizationDetails(Google_Service_YouTube_VideoMonetizationDetails $monetizationDetails)
   {
@@ -9951,6 +9961,36 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
   }
 }
 
+class Google_Service_YouTube_VideoLocalization extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $description;
+  public $title;
+
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+  public function getTitle()
+  {
+    return $this->title;
+  }
+}
+
+class Google_Service_YouTube_VideoLocalizations extends Google_Model
+{
+}
+
 class Google_Service_YouTube_VideoMonetizationDetails extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -10190,8 +10230,12 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   public $categoryId;
   public $channelId;
   public $channelTitle;
+  protected $defaultLanguageType = 'Google_Service_YouTube_LanguageTag';
+  protected $defaultLanguageDataType = '';
   public $description;
   public $liveBroadcastContent;
+  protected $localizedType = 'Google_Service_YouTube_VideoLocalization';
+  protected $localizedDataType = '';
   public $publishedAt;
   public $tags;
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
@@ -10223,6 +10267,14 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     return $this->channelTitle;
   }
+  public function setDefaultLanguage(Google_Service_YouTube_LanguageTag $defaultLanguage)
+  {
+    $this->defaultLanguage = $defaultLanguage;
+  }
+  public function getDefaultLanguage()
+  {
+    return $this->defaultLanguage;
+  }
   public function setDescription($description)
   {
     $this->description = $description;
@@ -10238,6 +10290,14 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   public function getLiveBroadcastContent()
   {
     return $this->liveBroadcastContent;
+  }
+  public function setLocalized(Google_Service_YouTube_VideoLocalization $localized)
+  {
+    $this->localized = $localized;
+  }
+  public function getLocalized()
+  {
+    return $this->localized;
   }
   public function setPublishedAt($publishedAt)
   {
