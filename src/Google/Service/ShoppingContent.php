@@ -4256,9 +4256,15 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   public $salePriceEffectiveDate;
   protected $shippingType = 'Google_Service_ShoppingContent_ProductShipping';
   protected $shippingDataType = 'array';
+  protected $shippingHeightType = 'Google_Service_ShoppingContent_ProductShippingDimension';
+  protected $shippingHeightDataType = '';
   public $shippingLabel;
+  protected $shippingLengthType = 'Google_Service_ShoppingContent_ProductShippingDimension';
+  protected $shippingLengthDataType = '';
   protected $shippingWeightType = 'Google_Service_ShoppingContent_ProductShippingWeight';
   protected $shippingWeightDataType = '';
+  protected $shippingWidthType = 'Google_Service_ShoppingContent_ProductShippingDimension';
+  protected $shippingWidthDataType = '';
   public $sizeSystem;
   public $sizeType;
   public $sizes;
@@ -4659,6 +4665,14 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->shipping;
   }
+  public function setShippingHeight(Google_Service_ShoppingContent_ProductShippingDimension $shippingHeight)
+  {
+    $this->shippingHeight = $shippingHeight;
+  }
+  public function getShippingHeight()
+  {
+    return $this->shippingHeight;
+  }
   public function setShippingLabel($shippingLabel)
   {
     $this->shippingLabel = $shippingLabel;
@@ -4667,6 +4681,14 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->shippingLabel;
   }
+  public function setShippingLength(Google_Service_ShoppingContent_ProductShippingDimension $shippingLength)
+  {
+    $this->shippingLength = $shippingLength;
+  }
+  public function getShippingLength()
+  {
+    return $this->shippingLength;
+  }
   public function setShippingWeight(Google_Service_ShoppingContent_ProductShippingWeight $shippingWeight)
   {
     $this->shippingWeight = $shippingWeight;
@@ -4674,6 +4696,14 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   public function getShippingWeight()
   {
     return $this->shippingWeight;
+  }
+  public function setShippingWidth(Google_Service_ShoppingContent_ProductShippingDimension $shippingWidth)
+  {
+    $this->shippingWidth = $shippingWidth;
+  }
+  public function getShippingWidth()
+  {
+    return $this->shippingWidth;
   }
   public function setSizeSystem($sizeSystem)
   {
@@ -4951,6 +4981,32 @@ class Google_Service_ShoppingContent_ProductShipping extends Google_Model
   public function getService()
   {
     return $this->service;
+  }
+}
+
+class Google_Service_ShoppingContent_ProductShippingDimension extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $unit;
+  public $value;
+
+
+  public function setUnit($unit)
+  {
+    $this->unit = $unit;
+  }
+  public function getUnit()
+  {
+    return $this->unit;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
   }
 }
 
