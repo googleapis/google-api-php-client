@@ -281,6 +281,11 @@ class Google_Service_Blogger extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'status' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
                 'startDate' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -1119,6 +1124,7 @@ class Google_Service_Blogger_Comments_Resource extends Google_Service_Resource
    * @param string $blogId ID of the blog to fetch comments from.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string status
    * @opt_param string startDate Earliest date of comment to fetch, a date-time
    * with RFC 3339 formatting.
    * @opt_param string endDate Latest date of comment to fetch, a date-time with
