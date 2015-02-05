@@ -82,8 +82,8 @@ class Google_IO_Curl extends Google_IO_Abstract
     }
     
     $options = $this->client->getClassConfig('Google_IO_Curl', 'options');
-        if (is_array($options)) {
-        $this->setOptions($options);
+    if (is_array($options)) {
+      $this->setOptions($options);
     }
     
     foreach ($this->options as $key => $var) {
