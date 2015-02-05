@@ -42,6 +42,10 @@ See the examples/ directory for examples of the key client features.
   
 ```
 
+### Service Specific Examples ###
+
+YouTube: https://github.com/youtube/api-samples/tree/master/php
+
 ## Frequently Asked Questions ##
 
 ### What do I do if something isn't working? ###
@@ -53,6 +57,10 @@ If there is a specific bug with the library, please file a issue in the Github i
 ### How do I contribute? ###
 
 We accept contributions via Github Pull Requests, but all contributors need to be covered by the standard Google Contributor License Agreement. You can find links, and more instructions, in the documentation: https://developers.google.com/api-client-library/php/contribute
+
+### I want an example of X! ### 
+
+If X is a feature of the library, file away! If X is an example of using a specific service, the best place to go is to the teams for those specific APIs - our preference is to link to their examples rather than add them to the library, as they can then pin to specific versions of the library. If you have any examples for other APIs, let us know and we will happily add a link to the README above!
 
 ### Why do you still support 5.2? ###
 
@@ -71,6 +79,10 @@ $opt_params = array(
   'alt' => "json"
 );
 ```
+
+## Notes For Distributors ##
+
+To avoid clashes with the autoloader, its best to update the function inside autoload.php to `google_api_php_client_autoload_MyProject`.
 
 ## Code Quality ##
 
