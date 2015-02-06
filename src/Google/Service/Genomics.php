@@ -4541,6 +4541,7 @@ class Google_Service_Genomics_SearchReferenceSetsRequest extends Google_Collecti
   protected $internal_gapi_mappings = array(
   );
   public $accessions;
+  public $assemblyId;
   public $md5checksums;
   public $pageSize;
   public $pageToken;
@@ -4553,6 +4554,14 @@ class Google_Service_Genomics_SearchReferenceSetsRequest extends Google_Collecti
   public function getAccessions()
   {
     return $this->accessions;
+  }
+  public function setAssemblyId($assemblyId)
+  {
+    $this->assemblyId = $assemblyId;
+  }
+  public function getAssemblyId()
+  {
+    return $this->assemblyId;
   }
   public function setMd5checksums($md5checksums)
   {
