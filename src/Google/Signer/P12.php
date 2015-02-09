@@ -77,14 +77,23 @@ class Google_Signer_P12 extends Google_Signer_Abstract
   public function sign($data)
   {
     if (version_compare(PHP_VERSION, '5.3.0') < 0) {
-      throw new Google_Auth_Exception(
-          "PHP 5.3.0 or higher is required to use service accounts."
-      );
+      $keyDetails = openssl_pkey_get_details($this->privateKey);
+      $keyHash  = substr(hash('sha256', microtime()), 0, 38) . hash('sha256', $data);
+      $psLength = $keyDetails['bits']/8 - (strlen($keyHash)/2 + 3);
+
+      $eB = pack('H*', '0001' . str_repeat('FF', $psLength) . '00' . $keyHash);
+
+      if (!openssl_private_encrypt($eB, $signature, $this->privateKey, OPENSSL_NO_PADDING)) {
+          throw new Google_Auth_Exception("Unable to sign data");
+      }
+    } else {
+      $hash = defined("OPENSSL_ALGO_SHA256") ? OPENSSL_ALGO_SHA256 : "sha256";
+      if (!openssl_sign($data, $signature, $this->privateKey, $hash)) {
+          throw new Google_Auth_Exception("Unable to sign data");
+      }
     }
-    $hash = defined("OPENSSL_ALGO_SHA256") ? OPENSSL_ALGO_SHA256 : "sha256";
-    if (!openssl_sign($data, $signature, $this->privateKey, $hash)) {
-      throw new Google_Auth_Exception("Unable to sign data");
-    }
+
+    // give back the final signature...
     return $signature;
   }
 }
