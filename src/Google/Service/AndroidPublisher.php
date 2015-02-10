@@ -296,7 +296,22 @@ class Google_Service_AndroidPublisher extends Google_Service
         'apks',
         array(
           'methods' => array(
-            'list' => array(
+            'addexternallyhosted' => array(
+              'path' => '{packageName}/edits/{editId}/apks/externallyHosted',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'packageName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'editId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
               'path' => '{packageName}/edits/{editId}/apks',
               'httpMethod' => 'GET',
               'parameters' => array(
@@ -1392,6 +1407,26 @@ class Google_Service_AndroidPublisher_EditsApks_Resource extends Google_Service_
 {
 
   /**
+   * Creates a new APK without uploading the APK itself to Google Play, instead
+   * hosting the APK at a specified URL. This function is only available to
+   * enterprises using Android for Work, for applications distributed within the
+   * enterprise Private Channel. (apks.addexternallyhosted)
+   *
+   * @param string $packageName Unique identifier for the Android app that is
+   * being updated; for example, "com.spiffygame".
+   * @param string $editId Unique identifier for this edit.
+   * @param Google_ApksAddExternallyHostedRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_AndroidPublisher_ApksAddExternallyHostedResponse
+   */
+  public function addexternallyhosted($packageName, $editId, Google_Service_AndroidPublisher_ApksAddExternallyHostedRequest $postBody, $optParams = array())
+  {
+    $params = array('packageName' => $packageName, 'editId' => $editId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('addexternallyhosted', array($params), "Google_Service_AndroidPublisher_ApksAddExternallyHostedResponse");
+  }
+
+  /**
    * (apks.listEditsApks)
    *
    * @param string $packageName Unique identifier for the Android app that is
@@ -1907,8 +1942,10 @@ class Google_Service_AndroidPublisher_EditsTracks_Resource extends Google_Servic
   }
 
   /**
-   * Updates the track configuration for the specified track type. This method
-   * supports patch semantics. (tracks.patch)
+   * Updates the track configuration for the specified track type. When halted,
+   * the rollout track cannot be updated without adding new APKs, and adding new
+   * APKs will cause it to resume. This method supports patch semantics.
+   * (tracks.patch)
    *
    * @param string $packageName Unique identifier for the Android app that is
    * being updated; for example, "com.spiffygame".
@@ -1926,7 +1963,9 @@ class Google_Service_AndroidPublisher_EditsTracks_Resource extends Google_Servic
   }
 
   /**
-   * Updates the track configuration for the specified track type. (tracks.update)
+   * Updates the track configuration for the specified track type. When halted,
+   * the rollout track cannot be updated without adding new APKs, and adding new
+   * APKs will cause it to resume. (tracks.update)
    *
    * @param string $packageName Unique identifier for the Android app that is
    * being updated; for example, "com.spiffygame".
@@ -2341,6 +2380,42 @@ class Google_Service_AndroidPublisher_ApkListingsListResponse extends Google_Col
   }
 }
 
+class Google_Service_AndroidPublisher_ApksAddExternallyHostedRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $externallyHostedApkType = 'Google_Service_AndroidPublisher_ExternallyHostedApk';
+  protected $externallyHostedApkDataType = '';
+
+
+  public function setExternallyHostedApk(Google_Service_AndroidPublisher_ExternallyHostedApk $externallyHostedApk)
+  {
+    $this->externallyHostedApk = $externallyHostedApk;
+  }
+  public function getExternallyHostedApk()
+  {
+    return $this->externallyHostedApk;
+  }
+}
+
+class Google_Service_AndroidPublisher_ApksAddExternallyHostedResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $externallyHostedApkType = 'Google_Service_AndroidPublisher_ExternallyHostedApk';
+  protected $externallyHostedApkDataType = '';
+
+
+  public function setExternallyHostedApk(Google_Service_AndroidPublisher_ExternallyHostedApk $externallyHostedApk)
+  {
+    $this->externallyHostedApk = $externallyHostedApk;
+  }
+  public function getExternallyHostedApk()
+  {
+    return $this->externallyHostedApk;
+  }
+}
+
 class Google_Service_AndroidPublisher_ApksListResponse extends Google_Collection
 {
   protected $collection_key = 'apks';
@@ -2480,6 +2555,177 @@ class Google_Service_AndroidPublisher_ExpansionFilesUploadResponse extends Googl
   public function getExpansionFile()
   {
     return $this->expansionFile;
+  }
+}
+
+class Google_Service_AndroidPublisher_ExternallyHostedApk extends Google_Collection
+{
+  protected $collection_key = 'usesPermissions';
+  protected $internal_gapi_mappings = array(
+  );
+  public $applicationLabel;
+  public $certificateBase64s;
+  public $externallyHostedUrl;
+  public $fileSha1Base64;
+  public $fileSha256Base64;
+  public $fileSize;
+  public $iconBase64;
+  public $maximumSdk;
+  public $minimumSdk;
+  public $nativeCodes;
+  public $packageName;
+  public $usesFeatures;
+  protected $usesPermissionsType = 'Google_Service_AndroidPublisher_ExternallyHostedApkUsesPermission';
+  protected $usesPermissionsDataType = 'array';
+  public $versionCode;
+  public $versionName;
+
+
+  public function setApplicationLabel($applicationLabel)
+  {
+    $this->applicationLabel = $applicationLabel;
+  }
+  public function getApplicationLabel()
+  {
+    return $this->applicationLabel;
+  }
+  public function setCertificateBase64s($certificateBase64s)
+  {
+    $this->certificateBase64s = $certificateBase64s;
+  }
+  public function getCertificateBase64s()
+  {
+    return $this->certificateBase64s;
+  }
+  public function setExternallyHostedUrl($externallyHostedUrl)
+  {
+    $this->externallyHostedUrl = $externallyHostedUrl;
+  }
+  public function getExternallyHostedUrl()
+  {
+    return $this->externallyHostedUrl;
+  }
+  public function setFileSha1Base64($fileSha1Base64)
+  {
+    $this->fileSha1Base64 = $fileSha1Base64;
+  }
+  public function getFileSha1Base64()
+  {
+    return $this->fileSha1Base64;
+  }
+  public function setFileSha256Base64($fileSha256Base64)
+  {
+    $this->fileSha256Base64 = $fileSha256Base64;
+  }
+  public function getFileSha256Base64()
+  {
+    return $this->fileSha256Base64;
+  }
+  public function setFileSize($fileSize)
+  {
+    $this->fileSize = $fileSize;
+  }
+  public function getFileSize()
+  {
+    return $this->fileSize;
+  }
+  public function setIconBase64($iconBase64)
+  {
+    $this->iconBase64 = $iconBase64;
+  }
+  public function getIconBase64()
+  {
+    return $this->iconBase64;
+  }
+  public function setMaximumSdk($maximumSdk)
+  {
+    $this->maximumSdk = $maximumSdk;
+  }
+  public function getMaximumSdk()
+  {
+    return $this->maximumSdk;
+  }
+  public function setMinimumSdk($minimumSdk)
+  {
+    $this->minimumSdk = $minimumSdk;
+  }
+  public function getMinimumSdk()
+  {
+    return $this->minimumSdk;
+  }
+  public function setNativeCodes($nativeCodes)
+  {
+    $this->nativeCodes = $nativeCodes;
+  }
+  public function getNativeCodes()
+  {
+    return $this->nativeCodes;
+  }
+  public function setPackageName($packageName)
+  {
+    $this->packageName = $packageName;
+  }
+  public function getPackageName()
+  {
+    return $this->packageName;
+  }
+  public function setUsesFeatures($usesFeatures)
+  {
+    $this->usesFeatures = $usesFeatures;
+  }
+  public function getUsesFeatures()
+  {
+    return $this->usesFeatures;
+  }
+  public function setUsesPermissions($usesPermissions)
+  {
+    $this->usesPermissions = $usesPermissions;
+  }
+  public function getUsesPermissions()
+  {
+    return $this->usesPermissions;
+  }
+  public function setVersionCode($versionCode)
+  {
+    $this->versionCode = $versionCode;
+  }
+  public function getVersionCode()
+  {
+    return $this->versionCode;
+  }
+  public function setVersionName($versionName)
+  {
+    $this->versionName = $versionName;
+  }
+  public function getVersionName()
+  {
+    return $this->versionName;
+  }
+}
+
+class Google_Service_AndroidPublisher_ExternallyHostedApkUsesPermission extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $maxSdkVersion;
+  public $name;
+
+
+  public function setMaxSdkVersion($maxSdkVersion)
+  {
+    $this->maxSdkVersion = $maxSdkVersion;
+  }
+  public function getMaxSdkVersion()
+  {
+    return $this->maxSdkVersion;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
   }
 }
 
