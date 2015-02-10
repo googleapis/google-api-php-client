@@ -444,6 +444,14 @@ class Google_Service_Blogger extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'fetchBodies' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -1268,10 +1276,12 @@ class Google_Service_Blogger_Pages_Resource extends Google_Service_Resource
    * Retrieves the pages for a blog, optionally including non-LIVE statuses.
    * (pages.listPages)
    *
-   * @param string $blogId ID of the blog to fetch pages from.
+   * @param string $blogId ID of the blog to fetch Pages from.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string status
+   * @opt_param string maxResults Maximum number of Pages to fetch.
+   * @opt_param string pageToken Continuation token if the request is paged.
    * @opt_param bool fetchBodies Whether to retrieve the Page bodies.
    * @opt_param string view Access level with which to view the returned result.
    * Note that some fields require elevated access.
@@ -2529,6 +2539,7 @@ class Google_Service_Blogger_PageList extends Google_Collection
   protected $itemsType = 'Google_Service_Blogger_Page';
   protected $itemsDataType = 'array';
   public $kind;
+  public $nextPageToken;
 
 
   public function setItems($items)
@@ -2546,6 +2557,14 @@ class Google_Service_Blogger_PageList extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
   }
 }
 
