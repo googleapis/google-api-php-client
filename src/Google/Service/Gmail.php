@@ -361,9 +361,21 @@ class Google_Service_Gmail extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'deleted' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'processForCalendar' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'internalDateSource' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'neverMarkSpam' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'insert' => array(
@@ -979,8 +991,15 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
    * @param Google_Message $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool deleted Mark the email as permanently deleted (not TRASH) and
+   * only visible in Google Apps Vault to a Vault administrator. Only used for
+   * Google Apps for Work accounts.
+   * @opt_param bool processForCalendar Process calendar invites in the email and
+   * add any extracted meetings to the Google Calendar for this user.
    * @opt_param string internalDateSource Source for Gmail's internal date of the
    * message.
+   * @opt_param bool neverMarkSpam Ignore the Gmail spam classifer decision and
+   * never mark this email as SPAM in the mailbox.
    * @return Google_Service_Gmail_Message
    */
   public function import($userId, Google_Service_Gmail_Message $postBody, $optParams = array())
