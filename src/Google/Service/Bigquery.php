@@ -1361,6 +1361,7 @@ class Google_Service_Bigquery_GetQueryResultsResponse extends Google_Collection
 class Google_Service_Bigquery_Job extends Google_Model
 {
   protected $internal_gapi_mappings = array(
+        "userEmail" => "user_email",
   );
   protected $configurationType = 'Google_Service_Bigquery_JobConfiguration';
   protected $configurationDataType = '';
@@ -1374,6 +1375,7 @@ class Google_Service_Bigquery_Job extends Google_Model
   protected $statisticsDataType = '';
   protected $statusType = 'Google_Service_Bigquery_JobStatus';
   protected $statusDataType = '';
+  public $userEmail;
 
 
   public function setConfiguration(Google_Service_Bigquery_JobConfiguration $configuration)
@@ -1439,6 +1441,14 @@ class Google_Service_Bigquery_Job extends Google_Model
   public function getStatus()
   {
     return $this->status;
+  }
+  public function setUserEmail($userEmail)
+  {
+    $this->userEmail = $userEmail;
+  }
+  public function getUserEmail()
+  {
+    return $this->userEmail;
   }
 }
 
