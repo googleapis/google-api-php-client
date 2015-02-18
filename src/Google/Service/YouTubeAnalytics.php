@@ -30,6 +30,15 @@
  */
 class Google_Service_YouTubeAnalytics extends Google_Service
 {
+  /** Manage your YouTube account. */
+  const YOUTUBE =
+      "https://www.googleapis.com/auth/youtube";
+  /** View your YouTube account. */
+  const YOUTUBE_READONLY =
+      "https://www.googleapis.com/auth/youtube.readonly";
+  /** View and manage your assets and associated content on YouTube. */
+  const YOUTUBEPARTNER =
+      "https://www.googleapis.com/auth/youtubepartner";
   /** View YouTube Analytics monetary reports for your YouTube content. */
   const YT_ANALYTICS_MONETARY_READONLY =
       "https://www.googleapis.com/auth/yt-analytics-monetary.readonly";
@@ -39,6 +48,8 @@ class Google_Service_YouTubeAnalytics extends Google_Service
 
   public $batchReportDefinitions;
   public $batchReports;
+  public $groupItems;
+  public $groups;
   public $reports;
   
 
@@ -93,6 +104,112 @@ class Google_Service_YouTubeAnalytics extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->groupItems = new Google_Service_YouTubeAnalytics_GroupItems_Resource(
+        $this,
+        $this->serviceName,
+        'groupItems',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => 'groupItems',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'insert' => array(
+              'path' => 'groupItems',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'groupItems',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'groupId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->groups = new Google_Service_YouTubeAnalytics_Groups_Resource(
+        $this,
+        $this->serviceName,
+        'groups',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => 'groups',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'insert' => array(
+              'path' => 'groups',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'groups',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'mine' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'groups',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -213,6 +330,228 @@ class Google_Service_YouTubeAnalytics_BatchReports_Resource extends Google_Servi
     $params = array('batchReportDefinitionId' => $batchReportDefinitionId, 'onBehalfOfContentOwner' => $onBehalfOfContentOwner);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_YouTubeAnalytics_BatchReportList");
+  }
+}
+
+/**
+ * The "groupItems" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $youtubeAnalyticsService = new Google_Service_YouTubeAnalytics(...);
+ *   $groupItems = $youtubeAnalyticsService->groupItems;
+ *  </code>
+ */
+class Google_Service_YouTubeAnalytics_GroupItems_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Removes an item from a group. (groupItems.delete)
+   *
+   * @param string $id The id parameter specifies the YouTube group item ID for
+   * the group that is being deleted.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   */
+  public function delete($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+
+  /**
+   * Creates a group item. (groupItems.insert)
+   *
+   * @param Google_GroupItem $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @return Google_Service_YouTubeAnalytics_GroupItem
+   */
+  public function insert(Google_Service_YouTubeAnalytics_GroupItem $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_YouTubeAnalytics_GroupItem");
+  }
+
+  /**
+   * Returns a collection of group items that match the API request parameters.
+   * (groupItems.listGroupItems)
+   *
+   * @param string $groupId The id parameter specifies the unique ID of the group
+   * for which you want to retrieve group items.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @return Google_Service_YouTubeAnalytics_GroupItemListResponse
+   */
+  public function listGroupItems($groupId, $optParams = array())
+  {
+    $params = array('groupId' => $groupId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_YouTubeAnalytics_GroupItemListResponse");
+  }
+}
+
+/**
+ * The "groups" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $youtubeAnalyticsService = new Google_Service_YouTubeAnalytics(...);
+ *   $groups = $youtubeAnalyticsService->groups;
+ *  </code>
+ */
+class Google_Service_YouTubeAnalytics_Groups_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Deletes a group. (groups.delete)
+   *
+   * @param string $id The id parameter specifies the YouTube group ID for the
+   * group that is being deleted.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   */
+  public function delete($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+
+  /**
+   * Creates a group. (groups.insert)
+   *
+   * @param Google_Group $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @return Google_Service_YouTubeAnalytics_Group
+   */
+  public function insert(Google_Service_YouTubeAnalytics_Group $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_YouTubeAnalytics_Group");
+  }
+
+  /**
+   * Returns a collection of groups that match the API request parameters. For
+   * example, you can retrieve all groups that the authenticated user owns, or you
+   * can retrieve one or more groups by their unique IDs. (groups.listGroups)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param string id The id parameter specifies a comma-separated list of the
+   * YouTube group ID(s) for the resource(s) that are being retrieved. In a group
+   * resource, the id property specifies the group's YouTube group ID.
+   * @opt_param bool mine Set this parameter's value to true to instruct the API
+   * to only return groups owned by the authenticated user.
+   * @return Google_Service_YouTubeAnalytics_GroupListResponse
+   */
+  public function listGroups($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_YouTubeAnalytics_GroupListResponse");
+  }
+
+  /**
+   * Modifies a group. For example, you could change a group's title.
+   * (groups.update)
+   *
+   * @param Google_Group $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @return Google_Service_YouTubeAnalytics_Group
+   */
+  public function update(Google_Service_YouTubeAnalytics_Group $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_YouTubeAnalytics_Group");
   }
 }
 
@@ -512,6 +851,267 @@ class Google_Service_YouTubeAnalytics_BatchReportTimeSpan extends Google_Model
   public function getStartTime()
   {
     return $this->startTime;
+  }
+}
+
+class Google_Service_YouTubeAnalytics_Group extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $contentDetailsType = 'Google_Service_YouTubeAnalytics_GroupContentDetails';
+  protected $contentDetailsDataType = '';
+  public $etag;
+  public $id;
+  public $kind;
+  protected $snippetType = 'Google_Service_YouTubeAnalytics_GroupSnippet';
+  protected $snippetDataType = '';
+
+
+  public function setContentDetails(Google_Service_YouTubeAnalytics_GroupContentDetails $contentDetails)
+  {
+    $this->contentDetails = $contentDetails;
+  }
+  public function getContentDetails()
+  {
+    return $this->contentDetails;
+  }
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setSnippet(Google_Service_YouTubeAnalytics_GroupSnippet $snippet)
+  {
+    $this->snippet = $snippet;
+  }
+  public function getSnippet()
+  {
+    return $this->snippet;
+  }
+}
+
+class Google_Service_YouTubeAnalytics_GroupContentDetails extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $itemCount;
+  public $itemType;
+
+
+  public function setItemCount($itemCount)
+  {
+    $this->itemCount = $itemCount;
+  }
+  public function getItemCount()
+  {
+    return $this->itemCount;
+  }
+  public function setItemType($itemType)
+  {
+    $this->itemType = $itemType;
+  }
+  public function getItemType()
+  {
+    return $this->itemType;
+  }
+}
+
+class Google_Service_YouTubeAnalytics_GroupItem extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $etag;
+  public $groupId;
+  public $id;
+  public $kind;
+  protected $resourceType = 'Google_Service_YouTubeAnalytics_GroupItemResource';
+  protected $resourceDataType = '';
+
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setGroupId($groupId)
+  {
+    $this->groupId = $groupId;
+  }
+  public function getGroupId()
+  {
+    return $this->groupId;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setResource(Google_Service_YouTubeAnalytics_GroupItemResource $resource)
+  {
+    $this->resource = $resource;
+  }
+  public function getResource()
+  {
+    return $this->resource;
+  }
+}
+
+class Google_Service_YouTubeAnalytics_GroupItemListResponse extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $etag;
+  protected $itemsType = 'Google_Service_YouTubeAnalytics_GroupItem';
+  protected $itemsDataType = 'array';
+  public $kind;
+
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_YouTubeAnalytics_GroupItemResource extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  public $kind;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_YouTubeAnalytics_GroupListResponse extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $etag;
+  protected $itemsType = 'Google_Service_YouTubeAnalytics_Group';
+  protected $itemsDataType = 'array';
+  public $kind;
+
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_YouTubeAnalytics_GroupSnippet extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $publishedAt;
+  public $title;
+
+
+  public function setPublishedAt($publishedAt)
+  {
+    $this->publishedAt = $publishedAt;
+  }
+  public function getPublishedAt()
+  {
+    return $this->publishedAt;
+  }
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+  public function getTitle()
+  {
+    return $this->title;
   }
 }
 
