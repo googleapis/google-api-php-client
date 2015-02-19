@@ -219,6 +219,10 @@ class Google_Service_Resource
       );
     }
 
+    if (isset($parameters['alt']) && $parameters['alt']['value'] == 'media') {
+      $httpRequest->enableExpectedRaw();
+    }
+
     if ($this->client->shouldDefer()) {
       // If we are in batch or upload mode, return the raw request.
       return $httpRequest;
