@@ -955,6 +955,10 @@ class Google_Service_YouTube extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'relevanceLanguage' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'forMine' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -2966,6 +2970,12 @@ class Google_Service_YouTube_Search_Resource extends Google_Service_Resource
    * 720p, though higher resolutions, like 1080p, might also be available.
    * @opt_param string videoDuration The videoDuration parameter filters video
    * search results based on their duration.
+   * @opt_param string relevanceLanguage The relevanceLanguage parameter instructs
+   * the API to return search results that are most relevant to the specified
+   * language. The parameter value is typically an ISO 639-1 two-letter language
+   * code. However, you should use the values zh-Hans for simplified Chinese and
+   * zh-Hant for traditional Chinese. Please note that results in other languages
+   * will still be returned if they are highly relevant to the search query term.
    * @opt_param bool forMine The forMine parameter restricts the search to only
    * retrieve videos owned by the authenticated user. If you set this parameter to
    * true, then the type parameter's value must also be set to video.
