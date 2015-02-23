@@ -951,6 +951,8 @@ class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
   public $actionType;
   public $creationTimestamp;
   public $description;
+  protected $errorType = 'Google_Service_Replicapoolupdater_RollingUpdateError';
+  protected $errorDataType = '';
   public $id;
   public $instanceGroup;
   public $instanceGroupManager;
@@ -988,6 +990,14 @@ class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
   public function getDescription()
   {
     return $this->description;
+  }
+  public function setError(Google_Service_Replicapoolupdater_RollingUpdateError $error)
+  {
+    $this->error = $error;
+  }
+  public function getError()
+  {
+    return $this->error;
   }
   public function setId($id)
   {
@@ -1079,6 +1089,60 @@ class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
   }
 }
 
+class Google_Service_Replicapoolupdater_RollingUpdateError extends Google_Collection
+{
+  protected $collection_key = 'errors';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $errorsType = 'Google_Service_Replicapoolupdater_RollingUpdateErrorErrors';
+  protected $errorsDataType = 'array';
+
+
+  public function setErrors($errors)
+  {
+    $this->errors = $errors;
+  }
+  public function getErrors()
+  {
+    return $this->errors;
+  }
+}
+
+class Google_Service_Replicapoolupdater_RollingUpdateErrorErrors extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  public $location;
+  public $message;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setLocation($location)
+  {
+    $this->location = $location;
+  }
+  public function getLocation()
+  {
+    return $this->location;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
 class Google_Service_Replicapoolupdater_RollingUpdateList extends Google_Collection
 {
   protected $collection_key = 'items';
@@ -1129,12 +1193,24 @@ class Google_Service_Replicapoolupdater_RollingUpdatePolicy extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $autoPauseAfterInstances;
   protected $canaryType = 'Google_Service_Replicapoolupdater_RollingUpdatePolicyCanary';
   protected $canaryDataType = '';
+  public $instanceStartupTimeoutSec;
   public $maxNumConcurrentInstances;
+  public $maxNumFailedInstances;
+  public $minInstanceUpdateTimeSec;
   public $sleepAfterInstanceRestartSec;
 
 
+  public function setAutoPauseAfterInstances($autoPauseAfterInstances)
+  {
+    $this->autoPauseAfterInstances = $autoPauseAfterInstances;
+  }
+  public function getAutoPauseAfterInstances()
+  {
+    return $this->autoPauseAfterInstances;
+  }
   public function setCanary(Google_Service_Replicapoolupdater_RollingUpdatePolicyCanary $canary)
   {
     $this->canary = $canary;
@@ -1143,6 +1219,14 @@ class Google_Service_Replicapoolupdater_RollingUpdatePolicy extends Google_Model
   {
     return $this->canary;
   }
+  public function setInstanceStartupTimeoutSec($instanceStartupTimeoutSec)
+  {
+    $this->instanceStartupTimeoutSec = $instanceStartupTimeoutSec;
+  }
+  public function getInstanceStartupTimeoutSec()
+  {
+    return $this->instanceStartupTimeoutSec;
+  }
   public function setMaxNumConcurrentInstances($maxNumConcurrentInstances)
   {
     $this->maxNumConcurrentInstances = $maxNumConcurrentInstances;
@@ -1150,6 +1234,22 @@ class Google_Service_Replicapoolupdater_RollingUpdatePolicy extends Google_Model
   public function getMaxNumConcurrentInstances()
   {
     return $this->maxNumConcurrentInstances;
+  }
+  public function setMaxNumFailedInstances($maxNumFailedInstances)
+  {
+    $this->maxNumFailedInstances = $maxNumFailedInstances;
+  }
+  public function getMaxNumFailedInstances()
+  {
+    return $this->maxNumFailedInstances;
+  }
+  public function setMinInstanceUpdateTimeSec($minInstanceUpdateTimeSec)
+  {
+    $this->minInstanceUpdateTimeSec = $minInstanceUpdateTimeSec;
+  }
+  public function getMinInstanceUpdateTimeSec()
+  {
+    return $this->minInstanceUpdateTimeSec;
   }
   public function setSleepAfterInstanceRestartSec($sleepAfterInstanceRestartSec)
   {
