@@ -4225,6 +4225,11 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   public $description;
   protected $destinationsType = 'Google_Service_ShoppingContent_ProductDestination';
   protected $destinationsDataType = 'array';
+  public $displayAdsId;
+  public $displayAdsLink;
+  public $displayAdsSimilarIds;
+  public $displayAdsTitle;
+  public $displayAdsValue;
   public $energyEfficiencyClass;
   public $expirationDate;
   public $gender;
@@ -4456,6 +4461,46 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   public function getDestinations()
   {
     return $this->destinations;
+  }
+  public function setDisplayAdsId($displayAdsId)
+  {
+    $this->displayAdsId = $displayAdsId;
+  }
+  public function getDisplayAdsId()
+  {
+    return $this->displayAdsId;
+  }
+  public function setDisplayAdsLink($displayAdsLink)
+  {
+    $this->displayAdsLink = $displayAdsLink;
+  }
+  public function getDisplayAdsLink()
+  {
+    return $this->displayAdsLink;
+  }
+  public function setDisplayAdsSimilarIds($displayAdsSimilarIds)
+  {
+    $this->displayAdsSimilarIds = $displayAdsSimilarIds;
+  }
+  public function getDisplayAdsSimilarIds()
+  {
+    return $this->displayAdsSimilarIds;
+  }
+  public function setDisplayAdsTitle($displayAdsTitle)
+  {
+    $this->displayAdsTitle = $displayAdsTitle;
+  }
+  public function getDisplayAdsTitle()
+  {
+    return $this->displayAdsTitle;
+  }
+  public function setDisplayAdsValue($displayAdsValue)
+  {
+    $this->displayAdsValue = $displayAdsValue;
+  }
+  public function getDisplayAdsValue()
+  {
+    return $this->displayAdsValue;
   }
   public function setEnergyEfficiencyClass($energyEfficiencyClass)
   {
@@ -5136,6 +5181,7 @@ class Google_Service_ShoppingContent_ProductStatusDataQualityIssue extends Googl
   public $fetchStatus;
   public $id;
   public $location;
+  public $severity;
   public $timestamp;
   public $valueOnLandingPage;
   public $valueProvided;
@@ -5172,6 +5218,14 @@ class Google_Service_ShoppingContent_ProductStatusDataQualityIssue extends Googl
   public function getLocation()
   {
     return $this->location;
+  }
+  public function setSeverity($severity)
+  {
+    $this->severity = $severity;
+  }
+  public function getSeverity()
+  {
+    return $this->severity;
   }
   public function setTimestamp($timestamp)
   {
