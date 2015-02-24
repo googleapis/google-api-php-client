@@ -40,6 +40,7 @@ class Google_Service_Resource
       'mimeType' => array('type' => 'string', 'location' => 'header'),
       'uploadType' => array('type' => 'string', 'location' => 'query'),
       'mediaUpload' => array('type' => 'complex', 'location' => 'query'),
+      'prettyPrint' => array('type' => 'string', 'location' => 'query'),
   );
 
   /** @var Google_Service $service */
