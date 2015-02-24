@@ -20,7 +20,6 @@ require_once realpath(dirname(__FILE__) . '/../autoload.php');
 /**
  * Implement the caching directives specified in rfc2616. This
  * implementation is guided by the guidance offered in rfc2616-sec13.
- * @author Chirag Shah <chirags@google.com>
  */
 class Google_Http_CacheParser
 {

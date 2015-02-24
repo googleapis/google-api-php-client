@@ -20,13 +20,10 @@ require_once realpath(dirname(__FILE__) . '/autoload.php');
 /**
  * The Google API Client
  * http://code.google.com/p/google-api-php-client/
- *
- * @author Chris Chabot <chabotc@google.com>
- * @author Chirag Shah <chirags@google.com>
  */
 class Google_Client
 {
-  const LIBVER = "1.1.2";
+  const LIBVER = "1.1.3";
   const USER_AGENT_SUFFIX = "google-api-php-client/";
   /**
    * @var Google_Auth_Abstract $auth

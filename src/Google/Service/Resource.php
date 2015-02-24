@@ -22,9 +22,6 @@ require_once realpath(dirname(__FILE__) . '/../autoload.php');
  * calling overloading (__call()), which on call will see if the method name (plus.activities.list)
  * is available in this service, and if so construct an apiHttpRequest representing it.
  *
- * @author Chris Chabot <chabotc@google.com>
- * @author Chirag Shah <chirags@google.com>
- *
  */
 class Google_Service_Resource
 {
@@ -40,6 +37,7 @@ class Google_Service_Resource
       'mimeType' => array('type' => 'string', 'location' => 'header'),
       'uploadType' => array('type' => 'string', 'location' => 'query'),
       'mediaUpload' => array('type' => 'complex', 'location' => 'query'),
+      'prettyPrint' => array('type' => 'string', 'location' => 'query'),
   );
 
   /** @var Google_Service $service */

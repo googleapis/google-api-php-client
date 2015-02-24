@@ -86,6 +86,10 @@ To avoid clashes with the autoloader, its best to update the function inside aut
 
 ## Code Quality ##
 
+Run the PHPUnit tests with PHPUnit. You can configure and API key and token in BaseTest.php to run all calls, but this will require some setup on the Google Developer Console.
+
+    phpunit tests/
+
 Copy the ruleset.xml in style/ into a new directory named GAPI/ in your
 /usr/share/php/PHP/CodeSniffer/Standards (or appropriate equivalent directory),
 and run code sniffs with:
