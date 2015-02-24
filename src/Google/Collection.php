@@ -48,6 +48,9 @@ class Google_Collection extends Google_Model implements Iterator, Countable
 
   public function count()
   {
+    if(!isset($this->modelData[$this->collection_key])) {
+      return 0;
+    }
     return count($this->modelData[$this->collection_key]);
   }
 
