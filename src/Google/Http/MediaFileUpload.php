@@ -18,8 +18,8 @@
 require_once realpath(dirname(__FILE__) . '/../autoload.php');
 
 /**
- * @author Chirag Shah <chirags@google.com>
- *
+ * Manage large file uploads, which may be media but can be any type
+ * of sizable data.
  */
 class Google_Http_MediaFileUpload
 {
