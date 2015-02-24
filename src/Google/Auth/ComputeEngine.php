@@ -15,7 +15,9 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../autoload.php');
+if (!class_exists('Google_Client')) {
+  require_once dirname(__FILE__) . '/../autoload.php';
+}
 
 /**
  * Authentication via built-in Compute Engine service accounts.

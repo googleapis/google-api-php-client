@@ -15,7 +15,9 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../autoload.php');
+if (!class_exists('Google_Client')) {
+  require_once dirname(__FILE__) . '/../autoload.php';
+}
 
 /**
  * HTTP Request to be executed by IO classes. Upon execution, the
