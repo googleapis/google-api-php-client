@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
+require_once realpath(dirname(__FILE__) . '/../autoload.php');
 
 class Google_IO_Exception extends Google_Exception implements Google_Task_Retryable
 {

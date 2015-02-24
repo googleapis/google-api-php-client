@@ -21,7 +21,7 @@
  * @author Stuart Langley <slangley@google.com>
  */
 
-require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
+require_once realpath(dirname(__FILE__) . '/../autoload.php');
 
 class Google_IO_Curl extends Google_IO_Abstract
 {
