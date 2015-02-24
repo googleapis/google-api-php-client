@@ -20,8 +20,6 @@
  * from a given json schema.
  * http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5
  *
- * @author Chirag Shah <chirags@google.com>
- *
  */
 class Google_Model implements ArrayAccess
 {
