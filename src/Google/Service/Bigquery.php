@@ -1652,6 +1652,7 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public $fieldDelimiter;
   public $ignoreUnknownValues;
   public $maxBadRecords;
+  public $projectionFields;
   public $quote;
   protected $schemaType = 'Google_Service_Bigquery_TableSchema';
   protected $schemaDataType = '';
@@ -1726,6 +1727,14 @@ class Google_Service_Bigquery_JobConfigurationLoad extends Google_Collection
   public function getMaxBadRecords()
   {
     return $this->maxBadRecords;
+  }
+  public function setProjectionFields($projectionFields)
+  {
+    $this->projectionFields = $projectionFields;
+  }
+  public function getProjectionFields()
+  {
+    return $this->projectionFields;
   }
   public function setQuote($quote)
   {
