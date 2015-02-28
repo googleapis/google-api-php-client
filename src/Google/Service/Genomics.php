@@ -135,7 +135,11 @@ class Google_Service_Genomics extends Google_Service
         'annotations',
         array(
           'methods' => array(
-            'create' => array(
+            'batchCreate' => array(
+              'path' => 'annotations:batchCreate',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'create' => array(
               'path' => 'annotations',
               'httpMethod' => 'POST',
               'parameters' => array(),
@@ -840,6 +844,29 @@ class Google_Service_Genomics_AnnotationSets_Resource extends Google_Service_Res
  */
 class Google_Service_Genomics_Annotations_Resource extends Google_Service_Resource
 {
+
+  /**
+   * Creates one or more new annotations atomically. All annotations must belong
+   * to the same annotation set. Caller must have WRITE permission for this
+   * annotation set. For optimal performance, batch positionally adjacent
+   * annotations together.
+   *
+   * If the request has a systemic issue, such as an attempt to write to an
+   * inaccessible annotation set, the entire RPC will fail accordingly. For lesser
+   * data issues, when possible an error will be isolated to the corresponding
+   * batch entry in the response; the remaining well formed annotations will be
+   * created normally. (annotations.batchCreate)
+   *
+   * @param Google_BatchCreateAnnotationsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Genomics_BatchAnnotationsResponse
+   */
+  public function batchCreate(Google_Service_Genomics_BatchCreateAnnotationsRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchCreate', array($params), "Google_Service_Genomics_BatchAnnotationsResponse");
+  }
 
   /**
    * Creates a new annotation. Caller must have WRITE permission for the
@@ -2106,6 +2133,98 @@ class Google_Service_Genomics_AnnotationSet extends Google_Model
 
 class Google_Service_Genomics_AnnotationSetInfo extends Google_Model
 {
+}
+
+class Google_Service_Genomics_BatchAnnotationsResponse extends Google_Collection
+{
+  protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $entriesType = 'Google_Service_Genomics_BatchAnnotationsResponseEntry';
+  protected $entriesDataType = 'array';
+
+
+  public function setEntries($entries)
+  {
+    $this->entries = $entries;
+  }
+  public function getEntries()
+  {
+    return $this->entries;
+  }
+}
+
+class Google_Service_Genomics_BatchAnnotationsResponseEntry extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $annotationType = 'Google_Service_Genomics_Annotation';
+  protected $annotationDataType = '';
+  protected $statusType = 'Google_Service_Genomics_BatchAnnotationsResponseEntryStatus';
+  protected $statusDataType = '';
+
+
+  public function setAnnotation(Google_Service_Genomics_Annotation $annotation)
+  {
+    $this->annotation = $annotation;
+  }
+  public function getAnnotation()
+  {
+    return $this->annotation;
+  }
+  public function setStatus(Google_Service_Genomics_BatchAnnotationsResponseEntryStatus $status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
+  }
+}
+
+class Google_Service_Genomics_BatchAnnotationsResponseEntryStatus extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  public $message;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Genomics_BatchCreateAnnotationsRequest extends Google_Collection
+{
+  protected $collection_key = 'annotations';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $annotationsType = 'Google_Service_Genomics_Annotation';
+  protected $annotationsDataType = 'array';
+
+
+  public function setAnnotations($annotations)
+  {
+    $this->annotations = $annotations;
+  }
+  public function getAnnotations()
+  {
+    return $this->annotations;
+  }
 }
 
 class Google_Service_Genomics_CallReadGroupSetsRequest extends Google_Collection
