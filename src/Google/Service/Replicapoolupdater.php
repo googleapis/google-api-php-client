@@ -944,8 +944,9 @@ class Google_Service_Replicapoolupdater_OperationWarningsData extends Google_Mod
   }
 }
 
-class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
+class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Collection
 {
+  protected $collection_key = 'instances';
   protected $internal_gapi_mappings = array(
   );
   public $actionType;
@@ -957,6 +958,7 @@ class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
   public $instanceGroup;
   public $instanceGroupManager;
   public $instanceTemplate;
+  public $instances;
   public $kind;
   protected $policyType = 'Google_Service_Replicapoolupdater_RollingUpdatePolicy';
   protected $policyDataType = '';
@@ -1030,6 +1032,14 @@ class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
   public function getInstanceTemplate()
   {
     return $this->instanceTemplate;
+  }
+  public function setInstances($instances)
+  {
+    $this->instances = $instances;
+  }
+  public function getInstances()
+  {
+    return $this->instances;
   }
   public function setKind($kind)
   {
@@ -1194,8 +1204,6 @@ class Google_Service_Replicapoolupdater_RollingUpdatePolicy extends Google_Model
   protected $internal_gapi_mappings = array(
   );
   public $autoPauseAfterInstances;
-  protected $canaryType = 'Google_Service_Replicapoolupdater_RollingUpdatePolicyCanary';
-  protected $canaryDataType = '';
   public $instanceStartupTimeoutSec;
   public $maxNumConcurrentInstances;
   public $maxNumFailedInstances;
@@ -1210,14 +1218,6 @@ class Google_Service_Replicapoolupdater_RollingUpdatePolicy extends Google_Model
   public function getAutoPauseAfterInstances()
   {
     return $this->autoPauseAfterInstances;
-  }
-  public function setCanary(Google_Service_Replicapoolupdater_RollingUpdatePolicyCanary $canary)
-  {
-    $this->canary = $canary;
-  }
-  public function getCanary()
-  {
-    return $this->canary;
   }
   public function setInstanceStartupTimeoutSec($instanceStartupTimeoutSec)
   {
@@ -1258,22 +1258,5 @@ class Google_Service_Replicapoolupdater_RollingUpdatePolicy extends Google_Model
   public function getSleepAfterInstanceRestartSec()
   {
     return $this->sleepAfterInstanceRestartSec;
-  }
-}
-
-class Google_Service_Replicapoolupdater_RollingUpdatePolicyCanary extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $numInstances;
-
-
-  public function setNumInstances($numInstances)
-  {
-    $this->numInstances = $numInstances;
-  }
-  public function getNumInstances()
-  {
-    return $this->numInstances;
   }
 }
