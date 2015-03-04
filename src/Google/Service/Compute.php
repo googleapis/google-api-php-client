@@ -1854,6 +1854,26 @@ class Google_Service_Compute extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'moveDisk' => array(
+              'path' => '{project}/moveDisk',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'moveInstance' => array(
+              'path' => '{project}/moveInstance',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'setCommonInstanceMetadata' => array(
               'path' => '{project}/setCommonInstanceMetadata',
               'httpMethod' => 'POST',
@@ -2834,7 +2854,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
   /**
    * Retrieves the list of addresses grouped by scope. (addresses.aggregatedList)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -2855,8 +2875,8 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
   /**
    * Deletes the specified address resource. (addresses.delete)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $region Name of the region scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $region The name of the region for this request.
    * @param string $address Name of the address resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -2871,8 +2891,8 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
   /**
    * Returns the specified address resource. (addresses.get)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $region Name of the region scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $region The name of the region for this request.
    * @param string $address Name of the address resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Address
@@ -2888,8 +2908,8 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * Creates an address resource in the specified project using the data included
    * in the request. (addresses.insert)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $region Name of the region scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $region The name of the region for this request.
    * @param Google_Address $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -2905,8 +2925,8 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * Retrieves the list of address resources contained within the specified
    * region. (addresses.listAddresses)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $region Name of the region scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $region The name of the region for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -3072,7 +3092,7 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * Retrieves the list of disk type resources grouped by scope.
    * (diskTypes.aggregatedList)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -3093,8 +3113,8 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
   /**
    * Returns the specified disk type resource. (diskTypes.get)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param string $diskType Name of the disk type resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_DiskType
@@ -3110,8 +3130,8 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * Retrieves the list of disk type resources available to the specified project.
    * (diskTypes.listDiskTypes)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -3506,7 +3526,7 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
   /**
    * Deletes the specified address resource. (globalAddresses.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $address Name of the address resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -3521,7 +3541,7 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
   /**
    * Returns the specified address resource. (globalAddresses.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $address Name of the address resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Address
@@ -3537,7 +3557,7 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
    * Creates an address resource in the specified project using the data included
    * in the request. (globalAddresses.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_Address $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -3553,7 +3573,7 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
    * Retrieves the list of global address resources.
    * (globalAddresses.listGlobalAddresses)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -3684,7 +3704,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * Retrieves the list of all operations grouped by scope.
    * (globalOperations.aggregatedList)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -3705,7 +3725,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
   /**
    * Deletes the specified operation resource. (globalOperations.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $operation Name of the operation resource to delete.
    * @param array $optParams Optional parameters.
    */
@@ -3719,7 +3739,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
   /**
    * Retrieves the specified operation resource. (globalOperations.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $operation Name of the operation resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -3735,7 +3755,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * Retrieves the list of operation resources contained within the specified
    * project. (globalOperations.listGlobalOperations)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -4067,10 +4087,11 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * Adds an access config to an instance's network interface.
    * (instances.addAccessConfig)
    *
-   * @param string $project Project name.
-   * @param string $zone Name of the zone scoping this request.
-   * @param string $instance Instance name.
-   * @param string $networkInterface Network interface name.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
+   * @param string $instance The instance name for this request.
+   * @param string $networkInterface The name of the network interface to add to
+   * this instance.
    * @param Google_AccessConfig $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4085,7 +4106,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   /**
    * (instances.aggregatedList)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -4104,10 +4125,10 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * Attaches a disk resource to an instance. (instances.attachDisk)
+   * Attaches a Disk resource to an instance. (instances.attachDisk)
    *
-   * @param string $project Project name.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param string $instance Instance name.
    * @param Google_AttachedDisk $postBody
    * @param array $optParams Optional parameters.
@@ -4121,10 +4142,11 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * Deletes the specified instance resource. (instances.delete)
+   * Deletes the specified Instance resource. For more information, see Shutting
+   * down an instance. (instances.delete)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param string $instance Name of the instance resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4140,11 +4162,11 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * Deletes an access config from an instance's network interface.
    * (instances.deleteAccessConfig)
    *
-   * @param string $project Project name.
-   * @param string $zone Name of the zone scoping this request.
-   * @param string $instance Instance name.
-   * @param string $accessConfig Access config name.
-   * @param string $networkInterface Network interface name.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
+   * @param string $instance The instance name for this request.
+   * @param string $accessConfig The name of the access config to delete.
+   * @param string $networkInterface The name of the network interface.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -4158,8 +4180,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   /**
    * Detaches a disk from an instance. (instances.detachDisk)
    *
-   * @param string $project Project name.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param string $instance Instance name.
    * @param string $deviceName Disk device name to detach.
    * @param array $optParams Optional parameters.
@@ -4175,8 +4197,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   /**
    * Returns the specified instance resource. (instances.get)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the The name of the zone for this request..
    * @param string $instance Name of the instance resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Instance
@@ -4192,8 +4214,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * Returns the specified instance's serial port output.
    * (instances.getSerialPortOutput)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param string $instance Name of the instance scoping this request.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_SerialPortOutput
@@ -4209,8 +4231,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * Creates an instance resource in the specified project using the data included
    * in the request. (instances.insert)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param Google_Instance $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4226,8 +4248,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * Retrieves the list of instance resources contained within the specified zone.
    * (instances.listInstances)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -4248,8 +4270,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   /**
    * Performs a hard reset on the instance. (instances.reset)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param string $instance Name of the instance scoping this request.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4262,15 +4284,15 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * Sets the auto-delete flag for a disk attached to an instance
+   * Sets the auto-delete flag for a disk attached to an instance.
    * (instances.setDiskAutoDelete)
    *
-   * @param string $project Project name.
-   * @param string $zone Name of the zone scoping this request.
-   * @param string $instance Instance name.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
+   * @param string $instance The instance name.
    * @param bool $autoDelete Whether to auto-delete the disk when the instance is
    * deleted.
-   * @param string $deviceName Disk device name to modify.
+   * @param string $deviceName The device name of the disk to modify.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -4285,8 +4307,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * Sets metadata for the specified instance to the data included in the request.
    * (instances.setMetadata)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param string $instance Name of the instance scoping this request.
    * @param Google_Metadata $postBody
    * @param array $optParams Optional parameters.
@@ -4302,8 +4324,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   /**
    * Sets an instance's scheduling options. (instances.setScheduling)
    *
-   * @param string $project Project name.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param string $instance Instance name.
    * @param Google_Scheduling $postBody
    * @param array $optParams Optional parameters.
@@ -4320,8 +4342,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * Sets tags for the specified instance to the data included in the request.
    * (instances.setTags)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param string $instance Name of the instance scoping this request.
    * @param Google_Tags $postBody
    * @param array $optParams Optional parameters.
@@ -4335,10 +4357,12 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * Starts an instance (instances.start)
+   * This method starts an instance that was stopped using the using the
+   * instances().stop method. For more information, see Restart an instance.
+   * (instances.start)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param string $instance Name of the instance resource to start.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4351,10 +4375,15 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * Stops an instance (instances.stop)
+   * This method stops a running instance, shutting it down cleanly, and allows
+   * you to restart the instance at a later time. Stopped instances do not incur
+   * per-minute, virtual machine usage charges while they are stopped, but any
+   * resources that the virtual machine is using, such as persistent disks and
+   * static IP addresses,will continue to be charged until they are deleted. For
+   * more information, see Stopping an instance. (instances.stop)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param string $instance Name of the instance resource to start.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4381,7 +4410,7 @@ class Google_Service_Compute_Licenses_Resource extends Google_Service_Resource
   /**
    * Returns the specified license resource. (licenses.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $license Name of the license resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_License
@@ -4561,7 +4590,7 @@ class Google_Service_Compute_Projects_Resource extends Google_Service_Resource
   /**
    * Returns the specified project resource. (projects.get)
    *
-   * @param string $project Name of the project resource to retrieve.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Project
    */
@@ -4573,10 +4602,41 @@ class Google_Service_Compute_Projects_Resource extends Google_Service_Resource
   }
 
   /**
+   * Moves a persistent disk from one zone to another. (projects.moveDisk)
+   *
+   * @param string $project Project ID for this request.
+   * @param Google_DiskMoveRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function moveDisk($project, Google_Service_Compute_DiskMoveRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('moveDisk', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Moves an instance and its attached persistent disks from one zone to another.
+   * (projects.moveInstance)
+   *
+   * @param string $project Project ID for this request.
+   * @param Google_InstanceMoveRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function moveInstance($project, Google_Service_Compute_InstanceMoveRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('moveInstance', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
    * Sets metadata common to all instances within the specified project using the
    * data included in the request. (projects.setCommonInstanceMetadata)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_Metadata $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4589,9 +4649,11 @@ class Google_Service_Compute_Projects_Resource extends Google_Service_Resource
   }
 
   /**
-   * Sets usage export location (projects.setUsageExportBucket)
+   * Enables the usage export feature and sets the usage export bucket where
+   * reports are stored. If you provide an empty request body using this method,
+   * the usage export feature will be disabled. (projects.setUsageExportBucket)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_UsageExportLocation $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4619,7 +4681,7 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * Deletes the specified region-specific operation resource.
    * (regionOperations.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param string $operation Name of the operation resource to delete.
    * @param array $optParams Optional parameters.
@@ -4635,7 +4697,7 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * Retrieves the specified region-specific operation resource.
    * (regionOperations.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the zone scoping this request.
    * @param string $operation Name of the operation resource to return.
    * @param array $optParams Optional parameters.
@@ -4652,7 +4714,7 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * Retrieves the list of operation resources contained within the specified
    * region. (regionOperations.listRegionOperations)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param array $optParams Optional parameters.
    *
@@ -5436,7 +5498,7 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    * Deletes the specified zone-specific operation resource.
    * (zoneOperations.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param string $operation Name of the operation resource to delete.
    * @param array $optParams Optional parameters.
@@ -5452,7 +5514,7 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    * Retrieves the specified zone-specific operation resource.
    * (zoneOperations.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param string $operation Name of the operation resource to return.
    * @param array $optParams Optional parameters.
@@ -5469,7 +5531,7 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    * Retrieves the list of operation resources contained within the specified
    * zone. (zoneOperations.listZoneOperations)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param array $optParams Optional parameters.
    *
@@ -6639,6 +6701,32 @@ class Google_Service_Compute_DiskList extends Google_Collection
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_DiskMoveRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $destinationZone;
+  public $targetDisk;
+
+
+  public function setDestinationZone($destinationZone)
+  {
+    $this->destinationZone = $destinationZone;
+  }
+  public function getDestinationZone()
+  {
+    return $this->destinationZone;
+  }
+  public function setTargetDisk($targetDisk)
+  {
+    $this->targetDisk = $targetDisk;
+  }
+  public function getTargetDisk()
+  {
+    return $this->targetDisk;
   }
 }
 
@@ -8335,6 +8423,32 @@ class Google_Service_Compute_InstanceList extends Google_Collection
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_InstanceMoveRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $destinationZone;
+  public $targetInstance;
+
+
+  public function setDestinationZone($destinationZone)
+  {
+    $this->destinationZone = $destinationZone;
+  }
+  public function getDestinationZone()
+  {
+    return $this->destinationZone;
+  }
+  public function setTargetInstance($targetInstance)
+  {
+    $this->targetInstance = $targetInstance;
+  }
+  public function getTargetInstance()
+  {
+    return $this->targetInstance;
   }
 }
 
