@@ -15,43 +15,18 @@
  * limitations under the License.
  */
 
-if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
-}
-
-/**
- * A blank storage class, for cases where caching is not
- * required.
- */
-class Google_Cache_Null extends Google_Cache_Abstract
-{
-  public function __construct(Google_Client $client)
-  {
-
+function google_api_php_client_autoload($className) {
+  $classPath = explode('_', $className);
+  if ($classPath[0] != 'Google') {
+    return;
   }
+  // Drop 'Google', and maximum class file path depth in this project is 3.
+  $classPath = array_slice($classPath, 1, 2);
 
-   /**
-   * @inheritDoc
-   */
-  public function get($key, $expiration = false)
-  {
-    return false;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  public function set($key, $value)
-  {
-    // Nop.
-  }
-
-  /**
-   * @inheritDoc
-   * @param String $key
-   */
-  public function delete($key)
-  {
-    // Nop.
+  $filePath = dirname(__FILE__) . '/' . implode('/', $classPath) . '.php';
+  if (file_exists($filePath)) {
+    require_once($filePath);
   }
 }
+
+spl_autoload_register('google_api_php_client_autoload');

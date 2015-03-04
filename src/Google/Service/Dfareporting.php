@@ -4053,18 +4053,18 @@ class Google_Service_Dfareporting_AccountUserProfiles_Resource extends Google_Se
    * @param array $optParams Optional parameters.
    *
    * @opt_param string searchString Allows searching for objects by name, ID or
-   * email. Wildcards (*) are allowed. For example, "user profile*2010" will
-   * return objects with names like "user profile June 2010", "user profile April
-   * 2010" or simply "user profile 2010". Most of the searches also add wildcards
+   * email. Wildcards (*) are allowed. For example, "user profile*2015" will
+   * return objects with names like "user profile June 2015", "user profile April
+   * 2015" or simply "user profile 2015". Most of the searches also add wildcards
    * implicitly at the start and the end of the search string. For example, a
    * search string of "user profile" will match objects with name "my user
-   * profile", "user profile 2010" or simply "user profile".
+   * profile", "user profile 2015" or simply "user profile".
    * @opt_param string subaccountId Select only user profiles with the specified
    * subaccount ID.
-   * @opt_param string sortField The field by which to sort the list.
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string ids Select only user profiles with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string userRoleId Select only user profiles with the specified
    * user role ID.
@@ -4145,15 +4145,15 @@ class Google_Service_Dfareporting_Accounts_Resource extends Google_Service_Resou
    * @param array $optParams Optional parameters.
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "account*2010" will return objects
-   * with names like "account June 2010", "account April 2010" or simply "account
-   * 2010". Most of the searches also add wildcards implicitly at the start and
+   * Wildcards (*) are allowed. For example, "account*2015" will return objects
+   * with names like "account June 2015", "account April 2015" or simply "account
+   * 2015". Most of the searches also add wildcards implicitly at the start and
    * the end of the search string. For example, a search string of "account" will
-   * match objects with name "my account", "account 2010" or simply "account".
-   * @opt_param string sortField The field by which to sort the list.
+   * match objects with name "my account", "account 2015" or simply "account".
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string ids Select only accounts with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param bool active Select only active accounts. Don't set this field to
@@ -4254,43 +4254,44 @@ class Google_Service_Dfareporting_Ads_Resource extends Google_Service_Resource
    * @opt_param bool archived Select only archived ads.
    * @opt_param string creativeOptimizationConfigurationIds Select only ads with
    * these creative optimization configuration IDs.
-   * @opt_param bool sslCompliant Select only ads that are ssl compliant.
+   * @opt_param bool sslCompliant Select only ads that are SSL-compliant.
    * @opt_param string sizeIds Select only ads with these size IDs.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string type Select only ads with these types.
-   * @opt_param bool sslRequired Select only ads that require ssl.
+   * @opt_param bool sslRequired Select only ads that require SSL.
    * @opt_param string creativeIds Select only ads with these creative IDs
    * assigned.
    * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string creativeType Select only ads with the specified
-   * CreativeType.
+   * creativeType.
    * @opt_param string placementIds Select only ads with these placement IDs
    * assigned.
    * @opt_param bool active Select only active ads.
-   * @opt_param string compatibility Applicable when type is
-   * AD_SERVING_DEFAULT_AD. Select default ads with the specified compatibility.
-   * WEB and WEB_INTERSTITIAL refer to rendering either on desktop or on mobile
-   * devices for regular or interstitial ads respectively. APP and
-   * APP_INTERSTITIAL are for rendering in mobile apps. IN_STREAM_VIDEO refers to
-   * rendering in in-stream video ads developed with the VAST standard.
+   * @opt_param string compatibility Select default ads with the specified
+   * compatibility. Applicable when type is AD_SERVING_DEFAULT_AD. WEB and
+   * WEB_INTERSTITIAL refer to rendering either on desktop or on mobile devices
+   * for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are
+   * for rendering in mobile apps. IN_STREAM_VIDEO refers to rendering an in-
+   * stream video ads developed with the VAST standard.
    * @opt_param string advertiserId Select only ads with this advertiser ID.
    * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "ad*2010" will return objects with
-   * names like "ad June 2010", "ad April 2010" or simply "ad 2010". Most of the
+   * Wildcards (*) are allowed. For example, "ad*2015" will return objects with
+   * names like "ad June 2015", "ad April 2015" or simply "ad 2015". Most of the
    * searches also add wildcards implicitly at the start and the end of the search
    * string. For example, a search string of "ad" will match objects with name "my
-   * ad", "ad 2010" or simply "ad".
-   * @opt_param string sortField The field by which to sort the list.
+   * ad", "ad 2015" or simply "ad".
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string audienceSegmentIds Select only ads with these audience
    * segment IDs.
    * @opt_param string ids Select only ads with these IDs.
    * @opt_param string remarketingListIds Select only ads whose list targeting
    * expression use these remarketing list IDs.
-   * @opt_param bool dynamicClickTracker Applicable when type is
-   * AD_SERVING_CLICK_TRACKER. If true, select dynamic click trackers. If false,
-   * select static click trackers. Leave unset to select both.
+   * @opt_param bool dynamicClickTracker Select only dynamic click trackers.
+   * Applicable when type is AD_SERVING_CLICK_TRACKER. If true, select dynamic
+   * click trackers. If false, select static click trackers. Leave unset to select
+   * both.
    * @return Google_Service_Dfareporting_AdsListResponse
    */
   public function listAds($profileId, $optParams = array())
@@ -4395,16 +4396,16 @@ class Google_Service_Dfareporting_AdvertiserGroups_Resource extends Google_Servi
    * @param array $optParams Optional parameters.
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "advertiser*2010" will return objects
-   * with names like "advertiser group June 2010", "advertiser group April 2010"
-   * or simply "advertiser group 2010". Most of the searches also add wildcards
+   * Wildcards (*) are allowed. For example, "advertiser*2015" will return objects
+   * with names like "advertiser group June 2015", "advertiser group April 2015"
+   * or simply "advertiser group 2015". Most of the searches also add wildcards
    * implicitly at the start and the end of the search string. For example, a
    * search string of "advertisergroup" will match objects with name "my
-   * advertisergroup", "advertisergroup 2010" or simply "advertisergroup".
-   * @opt_param string sortField The field by which to sort the list.
-   * @opt_param string ids Set of IDs of specified advertiser groups to retrieve.
+   * advertisergroup", "advertisergroup 2015" or simply "advertisergroup".
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string ids Select only advertiser groups with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_AdvertiserGroupsListResponse
@@ -4497,29 +4498,30 @@ class Google_Service_Dfareporting_Advertisers_Resource extends Google_Service_Re
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string status Specifies the status of retrieved advertisers.
+   * @opt_param string status Select only advertisers with the specified status.
    * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "advertiser*2010" will return objects
-   * with names like "advertiser June 2010", "advertiser April 2010" or simply
-   * "advertiser 2010". Most of the searches also add wildcards implicitly at the
+   * Wildcards (*) are allowed. For example, "advertiser*2015" will return objects
+   * with names like "advertiser June 2015", "advertiser April 2015" or simply
+   * "advertiser 2015". Most of the searches also add wildcards implicitly at the
    * start and the end of the search string. For example, a search string of
-   * "advertiser" will match objects with name "my advertiser", "advertiser 2010"
+   * "advertiser" will match objects with name "my advertiser", "advertiser 2015"
    * or simply "advertiser".
-   * @opt_param string subaccountId Subaccount ID of advertisers to retrieve.
-   * @opt_param bool includeAdvertisersWithoutGroupsOnly If true, will return only
-   * advertisers which do not belong to any advertiser group.
-   * @opt_param string sortField The field by which to sort the list.
-   * @opt_param string ids Set of IDs of specified advertisers to retrieve.
+   * @opt_param string subaccountId Select only advertisers with these subaccount
+   * IDs.
+   * @opt_param bool includeAdvertisersWithoutGroupsOnly Select only advertisers
+   * which do not belong to any advertiser group.
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string ids Select only advertisers with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
-   * @opt_param bool onlyParent If true, will return only advertisers which use
-   * another advertiser's floodlight configuration.
+   * @opt_param bool onlyParent Select only advertisers which use another
+   * advertiser's floodlight configuration.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param string floodlightConfigurationIds Set of floodlight configuration
-   * IDs of advertisers to retrieve.
-   * @opt_param string advertiserGroupIds Set of advertiser group IDs of
-   * advertisers to retrieve.
+   * @opt_param string floodlightConfigurationIds Select only advertisers with
+   * these floodlight configuration IDs.
+   * @opt_param string advertiserGroupIds Select only advertisers with these
+   * advertiser group IDs.
    * @return Google_Service_Dfareporting_AdvertisersListResponse
    */
   public function listAdvertisers($profileId, $optParams = array())
@@ -4600,9 +4602,9 @@ class Google_Service_Dfareporting_CampaignCreativeAssociations_Resource extends 
 {
 
   /**
-   * Associates a creative with this campaign. This method creates a default ad
-   * with dimensions matching the creative in this campaign if such a default ad
-   * does not exist already. (campaignCreativeAssociations.insert)
+   * Associates a creative with the specified campaign. This method creates a
+   * default ad with dimensions matching the creative in the campaign if such a
+   * default ad does not exist already. (campaignCreativeAssociations.insert)
    *
    * @param string $profileId User profile ID associated with this request.
    * @param string $campaignId Campaign ID in this association.
@@ -4618,14 +4620,14 @@ class Google_Service_Dfareporting_CampaignCreativeAssociations_Resource extends 
   }
 
   /**
-   * Retrieves the list of creative IDs associated with this campaign.
+   * Retrieves the list of creative IDs associated with the specified campaign.
    * (campaignCreativeAssociations.listCampaignCreativeAssociations)
    *
    * @param string $profileId User profile ID associated with this request.
    * @param string $campaignId Campaign ID in this association.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param int maxResults Maximum number of results to return.
@@ -4670,7 +4672,7 @@ class Google_Service_Dfareporting_Campaigns_Resource extends Google_Service_Reso
    *
    * @param string $profileId User profile ID associated with this request.
    * @param string $defaultLandingPageName Default landing page name for this new
-   * campaign.
+   * campaign. Must be less than 256 characters long.
    * @param string $defaultLandingPageUrl Default landing page URL for this new
    * campaign.
    * @param Google_Campaign $postBody
@@ -4693,21 +4695,21 @@ class Google_Service_Dfareporting_Campaigns_Resource extends Google_Service_Reso
    * @opt_param bool archived Select only archived campaigns. Don't set this field
    * to select both archived and non-archived campaigns.
    * @opt_param string searchString Allows searching for campaigns by name or ID.
-   * Wildcards (*) are allowed. For example, "campaign*2010" will return campaigns
-   * with names like "campaign June 2010", "campaign April 2010" or simply
-   * "campaign 2010". Most of the searches also add wildcards implicitly at the
+   * Wildcards (*) are allowed. For example, "campaign*2015" will return campaigns
+   * with names like "campaign June 2015", "campaign April 2015" or simply
+   * "campaign 2015". Most of the searches also add wildcards implicitly at the
    * start and the end of the search string. For example, a search string of
-   * "campaign" will match campaigns with name "my campaign", "campaign 2010" or
+   * "campaign" will match campaigns with name "my campaign", "campaign 2015" or
    * simply "campaign".
    * @opt_param string subaccountId Select only campaigns that belong to this
    * subaccount.
-   * @opt_param string sortField The field by which to sort the list.
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string advertiserIds Select only campaigns that belong to these
    * advertisers.
    * @opt_param string ids Select only campaigns with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string excludedIds Exclude campaigns with these IDs.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string advertiserGroupIds Select only campaigns whose advertisers
    * belong to these advertiser groups.
@@ -4792,16 +4794,16 @@ class Google_Service_Dfareporting_ChangeLogs_Resource extends Google_Service_Res
    *
    * @opt_param string minChangeTime Select only change logs whose change time is
    * before the specified minChangeTime.The time should be formatted as an RFC3339
-   * date/time string. For example, for 10:54 PM on July 18th, 2014, in the
-   * America/New York time zone, the format is "2014-07-18T22:54:00-04:00". In
+   * date/time string. For example, for 10:54 PM on July 18th, 2015, in the
+   * America/New York time zone, the format is "2015-07-18T22:54:00-04:00". In
    * other words, the year, month, day, the letter T, the hour (24-hour clock
    * system), minute, second, and then the time zone offset.
    * @opt_param string searchString Select only change logs whose object ID, user
    * name, old or new values match the search string.
    * @opt_param string maxChangeTime Select only change logs whose change time is
    * before the specified maxChangeTime.The time should be formatted as an RFC3339
-   * date/time string. For example, for 10:54 PM on July 18th, 2014, in the
-   * America/New York time zone, the format is "2014-07-18T22:54:00-04:00". In
+   * date/time string. For example, for 10:54 PM on July 18th, 2015, in the
+   * America/New York time zone, the format is "2015-07-18T22:54:00-04:00". In
    * other words, the year, month, day, the letter T, the hour (24-hour clock
    * system), minute, second, and then the time zone offset.
    * @opt_param string userProfileIds Select only change logs with these user
@@ -4809,7 +4811,7 @@ class Google_Service_Dfareporting_ChangeLogs_Resource extends Google_Service_Res
    * @opt_param string ids Select only change logs with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string objectIds Select only change logs with these object IDs.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string action Select only change logs with the specified action.
    * @opt_param string objectType Select only change logs with the specified
@@ -4841,11 +4843,11 @@ class Google_Service_Dfareporting_Cities_Resource extends Google_Service_Resourc
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string dartIds Return cities with these IDs.
-   * @opt_param string namePrefix Select cities with names starting with this
+   * @opt_param string dartIds Select only cities with these DART IDs.
+   * @opt_param string namePrefix Select only cities with names starting with this
    * prefix.
-   * @opt_param string regionDartIds Select cities from these regions.
-   * @opt_param string countryDartIds Select cities from these countries.
+   * @opt_param string regionDartIds Select only cities from these regions.
+   * @opt_param string countryDartIds Select only cities from these countries.
    * @return Google_Service_Dfareporting_CitiesListResponse
    */
   public function listCities($profileId, $optParams = array())
@@ -4945,16 +4947,16 @@ class Google_Service_Dfareporting_ContentCategories_Resource extends Google_Serv
    * @param array $optParams Optional parameters.
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "contentcategory*2010" will return
-   * objects with names like "contentcategory June 2010", "contentcategory April
-   * 2010" or simply "contentcategory 2010". Most of the searches also add
+   * Wildcards (*) are allowed. For example, "contentcategory*2015" will return
+   * objects with names like "contentcategory June 2015", "contentcategory April
+   * 2015" or simply "contentcategory 2015". Most of the searches also add
    * wildcards implicitly at the start and the end of the search string. For
    * example, a search string of "contentcategory" will match objects with name
-   * "my contentcategory", "contentcategory 2010" or simply "contentcategory".
-   * @opt_param string sortField The field by which to sort the list.
-   * @opt_param string ids Set of IDs of specified content categories to retrieve.
+   * "my contentcategory", "contentcategory 2015" or simply "contentcategory".
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string ids Select only content categories with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_ContentCategoriesListResponse
@@ -5141,9 +5143,9 @@ class Google_Service_Dfareporting_CreativeFieldValues_Resource extends Google_Se
    *
    * @opt_param string searchString Allows searching for creative field values by
    * their values. Wildcards (e.g. *) are not allowed.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
-   * @opt_param string sortField The field by which to sort the list.
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string ids Select only creative field values with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
@@ -5256,19 +5258,19 @@ class Google_Service_Dfareporting_CreativeFields_Resource extends Google_Service
    * @param array $optParams Optional parameters.
    *
    * @opt_param string searchString Allows searching for creative fields by name
-   * or ID. Wildcards (*) are allowed. For example, "creativefield*2010" will
-   * return creative fields with names like "creativefield June 2010",
-   * "creativefield April 2010" or simply "creativefield 2010". Most of the
+   * or ID. Wildcards (*) are allowed. For example, "creativefield*2015" will
+   * return creative fields with names like "creativefield June 2015",
+   * "creativefield April 2015" or simply "creativefield 2015". Most of the
    * searches also add wild-cards implicitly at the start and the end of the
    * search string. For example, a search string of "creativefield" will match
-   * creative fields with the name "my creativefield", "creativefield 2010" or
+   * creative fields with the name "my creativefield", "creativefield 2015" or
    * simply "creativefield".
-   * @opt_param string sortField The field by which to sort the list.
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string advertiserIds Select only creative fields that belong to
    * these advertisers.
    * @opt_param string ids Select only creative fields with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_CreativeFieldsListResponse
@@ -5362,21 +5364,21 @@ class Google_Service_Dfareporting_CreativeGroups_Resource extends Google_Service
    * @param array $optParams Optional parameters.
    *
    * @opt_param string searchString Allows searching for creative groups by name
-   * or ID. Wildcards (*) are allowed. For example, "creativegroup*2010" will
-   * return creative groups with names like "creativegroup June 2010",
-   * "creativegroup April 2010" or simply "creativegroup 2010". Most of the
+   * or ID. Wildcards (*) are allowed. For example, "creativegroup*2015" will
+   * return creative groups with names like "creativegroup June 2015",
+   * "creativegroup April 2015" or simply "creativegroup 2015". Most of the
    * searches also add wild-cards implicitly at the start and the end of the
    * search string. For example, a search string of "creativegroup" will match
-   * creative groups with the name "my creativegroup", "creativegroup 2010" or
+   * creative groups with the name "my creativegroup", "creativegroup 2015" or
    * simply "creativegroup".
-   * @opt_param string sortField The field by which to sort the list.
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string advertiserIds Select only creative groups that belong to
    * these advertisers.
    * @opt_param int groupNumber Select only creative groups that belong to this
    * subgroup.
    * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string ids Select only creative groups with these IDs.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_CreativeGroupsListResponse
@@ -5468,36 +5470,35 @@ class Google_Service_Dfareporting_Creatives_Resource extends Google_Service_Reso
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string sizeIds Select only creatives with specified size.
+   * @opt_param string sizeIds Select only creatives with these size IDs.
    * @opt_param bool archived Select only archived creatives. Leave blank to
    * select archived and unarchived creatives.
    * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "creative*2010" will return objects
-   * with names like "creative June 2010", "creative April 2010" or simply
-   * "creative 2010". Most of the searches also add wildcards implicitly at the
+   * Wildcards (*) are allowed. For example, "creative*2015" will return objects
+   * with names like "creative June 2015", "creative April 2015" or simply
+   * "creative 2015". Most of the searches also add wildcards implicitly at the
    * start and the end of the search string. For example, a search string of
-   * "creative" will match objects with name "my creative", "creative 2010" or
+   * "creative" will match objects with name "my creative", "creative 2015" or
    * simply "creative".
-   * @opt_param string campaignId Campaign ID of creatives to retrieve.
-   * @opt_param string sortField The field by which to sort the list.
-   * @opt_param string renderingIds Select only creatives with specified rendering
+   * @opt_param string campaignId Select only creatives with this campaign ID.
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string renderingIds Select only creatives with these rendering
    * IDs.
-   * @opt_param string ids List of creative IDs.
+   * @opt_param string ids Select only creatives with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string advertiserId Advertiser ID.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string advertiserId Select only creatives with this advertiser ID.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
-   * @opt_param string studioCreativeId Studio creative ID associated with DCM
-   * creatives.
+   * @opt_param string studioCreativeId Select only creatives corresponding to
+   * this Studio creative ID.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string companionCreativeIds Select only in-stream video creatives
-   * with specified companion IDs.
+   * with these companion IDs.
    * @opt_param bool active Select only active creatives. Leave blank to select
    * active and inactive creatives.
-   * @opt_param string creativeFieldIds Select only creatives with specified
-   * creative field IDs.
-   * @opt_param string types Select only creatives with specified type of
-   * creative.
+   * @opt_param string creativeFieldIds Select only creatives with these creative
+   * field IDs.
+   * @opt_param string types Select only creatives with these creative types.
    * @return Google_Service_Dfareporting_CreativesListResponse
    */
   public function listCreatives($profileId, $optParams = array())
@@ -5606,20 +5607,19 @@ class Google_Service_Dfareporting_DirectorySiteContacts_Resource extends Google_
    * @param array $optParams Optional parameters.
    *
    * @opt_param string searchString Allows searching for objects by name, ID or
-   * email. Wildcards (*) are allowed. For example, "directory site contact*2010"
-   * will return objects with names like "directory site contact June 2010",
-   * "directory site contact April 2010" or simply "directory site contact 2010".
+   * email. Wildcards (*) are allowed. For example, "directory site contact*2015"
+   * will return objects with names like "directory site contact June 2015",
+   * "directory site contact April 2015" or simply "directory site contact 2015".
    * Most of the searches also add wildcards implicitly at the start and the end
    * of the search string. For example, a search string of "directory site
    * contact" will match objects with name "my directory site contact", "directory
-   * site contact 2010" or simply "directory site contact".
-   * @opt_param string directorySiteIds Retrieve contacts of directory sites with
-   * this set of IDs. This is a required field.
-   * @opt_param string sortField The field by which to sort the list.
-   * @opt_param string ids Set of IDs of specified directory site contacts to
-   * retrieve.
+   * site contact 2015" or simply "directory site contact".
+   * @opt_param string directorySiteIds Select only directory site contacts with
+   * these directory site IDs. This is a required field.
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string ids Select only directory site contacts with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_DirectorySiteContactsListResponse
@@ -5665,31 +5665,31 @@ class Google_Service_Dfareporting_DirectorySites_Resource extends Google_Service
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool acceptsInterstitialPlacements Select only sites that accept
-   * interstitial placements. This field be left blank.
+   * @opt_param bool acceptsInterstitialPlacements This search filter is no longer
+   * supported and will have no effect on the results returned.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string searchString Allows searching for objects by name, ID or
-   * URL. Wildcards (*) are allowed. For example, "directory site*2010" will
-   * return objects with names like "directory site June 2010", "directory site
-   * April 2010" or simply "directory site 2010". Most of the searches also add
+   * URL. Wildcards (*) are allowed. For example, "directory site*2015" will
+   * return objects with names like "directory site June 2015", "directory site
+   * April 2015" or simply "directory site 2015". Most of the searches also add
    * wildcards implicitly at the start and the end of the search string. For
    * example, a search string of "directory site" will match objects with name "my
-   * directory site", "directory site 2010" or simply "directory site".
-   * @opt_param string countryId Country ID of directory sites to retrieve.
-   * @opt_param string sortField The field by which to sort the list.
-   * @opt_param bool acceptsInStreamVideoPlacements Select only sites that accept
-   * in-stream video placements. This field can be left blank.
-   * @opt_param string ids Set of IDs of specified directory sites to retrieve.
+   * directory site", "directory site 2015" or simply "directory site".
+   * @opt_param string countryId Select only directory sites with this country ID.
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param bool acceptsInStreamVideoPlacements This search filter is no
+   * longer supported and will have no effect on the results returned.
+   * @opt_param string ids Select only directory sites with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param bool acceptsPublisherPaidPlacements Select only directory sites
    * that accept publisher paid placements. This field can be left blank.
-   * @opt_param string parentId Parent ID of directory sites to retrieve.
-   * @opt_param bool active Whether to retrieve active directory sites. Leave
-   * blank to retrieve both active and inactive directory sites.
-   * @opt_param string dfp_network_code DFP network code of directory sites to
-   * retrieve.
+   * @opt_param string parentId Select only directory sites with this parent ID.
+   * @opt_param bool active Select only active directory sites. Leave blank to
+   * retrieve both active and inactive directory sites.
+   * @opt_param string dfp_network_code Select only directory sites with this DFP
+   * network code.
    * @return Google_Service_Dfareporting_DirectorySitesListResponse
    */
   public function listDirectorySites($profileId, $optParams = array())
@@ -5762,21 +5762,21 @@ class Google_Service_Dfareporting_EventTags_Resource extends Google_Service_Reso
    * @param array $optParams Optional parameters.
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "eventtag*2010" will return objects
-   * with names like "eventtag June 2010", "eventtag April 2010" or simply
-   * "eventtag 2010". Most of the searches also add wildcards implicitly at the
+   * Wildcards (*) are allowed. For example, "eventtag*2015" will return objects
+   * with names like "eventtag June 2015", "eventtag April 2015" or simply
+   * "eventtag 2015". Most of the searches also add wildcards implicitly at the
    * start and the end of the search string. For example, a search string of
-   * "eventtag" will match objects with name "my eventtag", "eventtag 2010" or
+   * "eventtag" will match objects with name "my eventtag", "eventtag 2015" or
    * simply "eventtag".
    * @opt_param string campaignId Select only event tags that belong to this
    * campaign.
-   * @opt_param string sortField The field by which to sort the list.
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param bool enabled Select only enabled event tags. When definitionsOnly
    * is set to true, only the specified advertiser or campaign's event tags'
    * enabledByDefault field is examined. When definitionsOnly is set to false, the
    * specified ad or specified campaign's parent advertiser's or parent campaign's
    * event tags' enabledByDefault and status fields are examined as well.
-   * @opt_param string ids Set of IDs of specified event tags to retrieve.
+   * @opt_param string ids Select only event tags with these IDs.
    * @opt_param string advertiserId Select only event tags that belong to this
    * advertiser.
    * @opt_param string adId Select only event tags that belong to this ad.
@@ -5960,38 +5960,38 @@ class Google_Service_Dfareporting_FloodlightActivities_Resource extends Google_S
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string floodlightActivityGroupIds Retrieve Floodlight activities
-   * with the specified Floodlight activity group IDs.
+   * @opt_param string floodlightActivityGroupIds Select only floodlight
+   * activities with the specified floodlight activity group IDs.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "floodlightactivity*2010" will return
-   * objects with names like "floodlightactivity June 2010", "floodlightactivity
-   * April 2010" or simply "floodlightactivity 2010". Most of the searches also
+   * Wildcards (*) are allowed. For example, "floodlightactivity*2015" will return
+   * objects with names like "floodlightactivity June 2015", "floodlightactivity
+   * April 2015" or simply "floodlightactivity 2015". Most of the searches also
    * add wildcards implicitly at the start and the end of the search string. For
    * example, a search string of "floodlightactivity" will match objects with name
-   * "my floodlightactivity activity", "floodlightactivity 2010" or simply
+   * "my floodlightactivity activity", "floodlightactivity 2015" or simply
    * "floodlightactivity".
-   * @opt_param string sortField The field by which to sort the list.
-   * @opt_param string floodlightConfigurationId Retrieve Floodlight activities
-   * for the specified Floodlight configuration ID. Must specify either ids,
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string floodlightConfigurationId Select only floodlight activities
+   * for the specified floodlight configuration ID. Must specify either ids,
    * advertiserId, or floodlightConfigurationId for a non-empty result.
-   * @opt_param string ids Retrieve Floodlight activities with the specified IDs.
-   * Must specify either ids, advertiserId, or floodlightConfigurationId for a
-   * non-empty result.
-   * @opt_param string floodlightActivityGroupName Retrieve Floodlight activities
-   * with the specified Floodlight activity group name.
-   * @opt_param string advertiserId Retrieve Floodlight activities for the
+   * @opt_param string ids Select only floodlight activities with the specified
+   * IDs. Must specify either ids, advertiserId, or floodlightConfigurationId for
+   * a non-empty result.
+   * @opt_param string floodlightActivityGroupName Select only floodlight
+   * activities with the specified floodlight activity group name.
+   * @opt_param string advertiserId Select only floodlight activities for the
    * specified advertiser ID. Must specify either ids, advertiserId, or
    * floodlightConfigurationId for a non-empty result.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string tagString Retrieve Floodlight activities with the specified
-   * tag string.
-   * @opt_param string floodlightActivityGroupTagString Retrieve Floodlight
-   * activities with the specified Floodlight activity group tag string.
-   * @opt_param string floodlightActivityGroupType Retrieve Floodlight activities
-   * with the specified Floodlight activity group type.
+   * @opt_param string tagString Select only floodlight activities with the
+   * specified tag string.
+   * @opt_param string floodlightActivityGroupTagString Select only floodlight
+   * activities with the specified floodlight activity group tag string.
+   * @opt_param string floodlightActivityGroupType Select only floodlight
+   * activities with the specified floodlight activity group type.
    * @return Google_Service_Dfareporting_FloodlightActivitiesListResponse
    */
   public function listFloodlightActivities($profileId, $optParams = array())
@@ -6098,30 +6098,30 @@ class Google_Service_Dfareporting_FloodlightActivityGroups_Resource extends Goog
    * @param array $optParams Optional parameters.
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "floodlightactivitygroup*2010" will
-   * return objects with names like "floodlightactivitygroup June 2010",
-   * "floodlightactivitygroup April 2010" or simply "floodlightactivitygroup
-   * 2010". Most of the searches also add wildcards implicitly at the start and
+   * Wildcards (*) are allowed. For example, "floodlightactivitygroup*2015" will
+   * return objects with names like "floodlightactivitygroup June 2015",
+   * "floodlightactivitygroup April 2015" or simply "floodlightactivitygroup
+   * 2015". Most of the searches also add wildcards implicitly at the start and
    * the end of the search string. For example, a search string of
    * "floodlightactivitygroup" will match objects with name "my
-   * floodlightactivitygroup activity", "floodlightactivitygroup 2010" or simply
+   * floodlightactivitygroup activity", "floodlightactivitygroup 2015" or simply
    * "floodlightactivitygroup".
-   * @opt_param string sortField The field by which to sort the list.
-   * @opt_param string floodlightConfigurationId Retrieve Floodlight activity
-   * groups with the specified Floodlight configuration ID. Must specify either
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string floodlightConfigurationId Select only floodlight activity
+   * groups with the specified floodlight configuration ID. Must specify either
    * ids, advertiserId, or floodlightConfigurationId for a non-empty result.
-   * @opt_param string ids Retrieve Floodlight activity groups with the specified
-   * IDs. Must specify either ids, advertiserId, or floodlightConfigurationId for
-   * a non-empty result.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string advertiserId Retrieve Floodlight activity groups with the
-   * specified advertiser ID. Must specify either ids, advertiserId, or
+   * @opt_param string ids Select only floodlight activity groups with the
+   * specified IDs. Must specify either ids, advertiserId, or
    * floodlightConfigurationId for a non-empty result.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string advertiserId Select only floodlight activity groups with
+   * the specified advertiser ID. Must specify either ids, advertiserId, or
+   * floodlightConfigurationId for a non-empty result.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param string type Retrieve Floodlight activity groups with the specified
-   * Floodlight activity group type.
+   * @opt_param string type Select only floodlight activity groups with the
+   * specified floodlight activity group type.
    * @return Google_Service_Dfareporting_FloodlightActivityGroupsListResponse
    */
   public function listFloodlightActivityGroups($profileId, $optParams = array())
@@ -6286,7 +6286,7 @@ class Google_Service_Dfareporting_LandingPages_Resource extends Google_Service_R
   }
 
   /**
-   * Inserts a new landing page for this campaign. (landingPages.insert)
+   * Inserts a new landing page for the specified campaign. (landingPages.insert)
    *
    * @param string $profileId User profile ID associated with this request.
    * @param string $campaignId Landing page campaign ID.
@@ -6302,7 +6302,7 @@ class Google_Service_Dfareporting_LandingPages_Resource extends Google_Service_R
   }
 
   /**
-   * Retrieves the list of landing pages for this campaign.
+   * Retrieves the list of landing pages for the specified campaign.
    * (landingPages.listLandingPages)
    *
    * @param string $profileId User profile ID associated with this request.
@@ -6511,22 +6511,22 @@ class Google_Service_Dfareporting_PlacementGroups_Resource extends Google_Servic
    * @opt_param bool archived Select only archived placements. Don't set this
    * field to select both archived and non-archived placements.
    * @opt_param string searchString Allows searching for placement groups by name
-   * or ID. Wildcards (*) are allowed. For example, "placement*2010" will return
-   * placement groups with names like "placement group June 2010", "placement
-   * group May 2010" or simply "placements 2010". Most of the searches also add
+   * or ID. Wildcards (*) are allowed. For example, "placement*2015" will return
+   * placement groups with names like "placement group June 2015", "placement
+   * group May 2015" or simply "placements 2015". Most of the searches also add
    * wildcards implicitly at the start and the end of the search string. For
    * example, a search string of "placementgroup" will match placement groups with
-   * name "my placementgroup", "placementgroup 2010" or simply "placementgroup".
+   * name "my placementgroup", "placementgroup 2015" or simply "placementgroup".
    * @opt_param string contentCategoryIds Select only placement groups that are
    * associated with these content categories.
    * @opt_param string directorySiteIds Select only placement groups that are
    * associated with these directory sites.
-   * @opt_param string sortField The field by which to sort the list.
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string advertiserIds Select only placement groups that belong to
    * these advertisers.
    * @opt_param string ids Select only placement groups with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string placementGroupType Select only placement groups belonging
@@ -6646,18 +6646,17 @@ class Google_Service_Dfareporting_PlacementStrategies_Resource extends Google_Se
    * @param array $optParams Optional parameters.
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "placementstrategy*2010" will return
-   * objects with names like "placementstrategy June 2010", "placementstrategy
-   * April 2010" or simply "placementstrategy 2010". Most of the searches also add
+   * Wildcards (*) are allowed. For example, "placementstrategy*2015" will return
+   * objects with names like "placementstrategy June 2015", "placementstrategy
+   * April 2015" or simply "placementstrategy 2015". Most of the searches also add
    * wildcards implicitly at the start and the end of the search string. For
    * example, a search string of "placementstrategy" will match objects with name
-   * "my placementstrategy", "placementstrategy 2010" or simply
+   * "my placementstrategy", "placementstrategy 2015" or simply
    * "placementstrategy".
-   * @opt_param string sortField The field by which to sort the list.
-   * @opt_param string ids Set of IDs of specified placement strategies to
-   * retrieve.
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string ids Select only placement strategies with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_PlacementStrategiesListResponse
@@ -6775,17 +6774,17 @@ class Google_Service_Dfareporting_Placements_Resource extends Google_Service_Res
    * @opt_param bool archived Select only archived placements. Don't set this
    * field to select both archived and non-archived placements.
    * @opt_param string searchString Allows searching for placements by name or ID.
-   * Wildcards (*) are allowed. For example, "placement*2010" will return
-   * placements with names like "placement June 2010", "placement May 2010" or
-   * simply "placements 2010". Most of the searches also add wildcards implicitly
+   * Wildcards (*) are allowed. For example, "placement*2015" will return
+   * placements with names like "placement June 2015", "placement May 2015" or
+   * simply "placements 2015". Most of the searches also add wildcards implicitly
    * at the start and the end of the search string. For example, a search string
    * of "placement" will match placements with name "my placement", "placement
-   * 2010" or simply "placement".
+   * 2015" or simply "placement".
    * @opt_param string contentCategoryIds Select only placements that are
    * associated with these content categories.
    * @opt_param string directorySiteIds Select only placements that are associated
    * with these directory sites.
-   * @opt_param string sortField The field by which to sort the list.
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string advertiserIds Select only placements that belong to these
    * advertisers.
    * @opt_param string paymentSource Select only placements with this payment
@@ -6794,7 +6793,7 @@ class Google_Service_Dfareporting_Placements_Resource extends Google_Service_Res
    * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string sizeIds Select only placements that are associated with
    * these sizes.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string compatibilities Select only placements that are associated
    * with these compatibilities. WEB and WEB_INTERSTITIAL refer to rendering
@@ -7182,31 +7181,32 @@ class Google_Service_Dfareporting_Sites_Resource extends Google_Service_Resource
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool acceptsInterstitialPlacements Select only sites that accept
-   * interstitial placements.
+   * @opt_param bool acceptsInterstitialPlacements This search filter is no longer
+   * supported and will have no effect on the results returned.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string searchString Allows searching for objects by name, ID or
-   * keyName. Wildcards (*) are allowed. For example, "site*2010" will return
-   * objects with names like "site June 2010", "site April 2010" or simply "site
-   * 2010". Most of the searches also add wildcards implicitly at the start and
+   * keyName. Wildcards (*) are allowed. For example, "site*2015" will return
+   * objects with names like "site June 2015", "site April 2015" or simply "site
+   * 2015". Most of the searches also add wildcards implicitly at the start and
    * the end of the search string. For example, a search string of "site" will
-   * match objects with name "my site", "site 2010" or simply "site".
-   * @opt_param string subaccountId Subaccount ID of sites to retrieve.
-   * @opt_param string directorySiteIds Directory site IDs of sites to retrieve.
-   * @opt_param bool acceptsInStreamVideoPlacements Select only sites that accept
-   * in-stream video placements.
-   * @opt_param string ids Set of IDs of specified sites to retrieve.
+   * match objects with name "my site", "site 2015" or simply "site".
+   * @opt_param string subaccountId Select only sites with this subaccount ID.
+   * @opt_param string directorySiteIds Select only sites with these directory
+   * site IDs.
+   * @opt_param bool acceptsInStreamVideoPlacements This search filter is no
+   * longer supported and will have no effect on the results returned.
+   * @opt_param string ids Select only sites with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param bool acceptsPublisherPaidPlacements Select only sites that accept
    * publisher paid placements.
-   * @opt_param string sortField The field by which to sort the list.
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param bool adWordsSite Select only AdWords sites.
    * @opt_param bool unmappedSite Select only sites that have not been mapped to a
    * directory site.
    * @opt_param bool approved Select only approved sites.
-   * @opt_param string campaignIds Campaign IDs of sites to retrieve.
+   * @opt_param string campaignIds Select only sites with these campaign IDs.
    * @return Google_Service_Dfareporting_SitesListResponse
    */
   public function listSites($profileId, $optParams = array())
@@ -7295,11 +7295,10 @@ class Google_Service_Dfareporting_Sizes_Resource extends Google_Service_Resource
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool iabStandard Whether only IAB standard sizes should be
-   * retrieved.
-   * @opt_param int width Width of sizes to retrieve.
-   * @opt_param string ids Set of IDs of specified sizes to retrieve.
-   * @opt_param int height Height of sizes to retrieve.
+   * @opt_param bool iabStandard Select only IAB standard sizes.
+   * @opt_param int width Select only sizes with this width.
+   * @opt_param string ids Select only sizes with these IDs.
+   * @opt_param int height Select only sizes with this height.
    * @return Google_Service_Dfareporting_SizesListResponse
    */
   public function listSizes($profileId, $optParams = array())
@@ -7358,16 +7357,16 @@ class Google_Service_Dfareporting_Subaccounts_Resource extends Google_Service_Re
    * @param array $optParams Optional parameters.
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "subaccount*2010" will return objects
-   * with names like "subaccount June 2010", "subaccount April 2010" or simply
-   * "subaccount 2010". Most of the searches also add wildcards implicitly at the
+   * Wildcards (*) are allowed. For example, "subaccount*2015" will return objects
+   * with names like "subaccount June 2015", "subaccount April 2015" or simply
+   * "subaccount 2015". Most of the searches also add wildcards implicitly at the
    * start and the end of the search string. For example, a search string of
-   * "subaccount" will match objects with name "my subaccount", "subaccount 2010"
+   * "subaccount" will match objects with name "my subaccount", "subaccount 2015"
    * or simply "subaccount".
-   * @opt_param string sortField The field by which to sort the list.
-   * @opt_param string ids The set of IDs of the subaccounts to retrieve.
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string ids Select only subaccounts with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_SubaccountsListResponse
@@ -7526,8 +7525,7 @@ class Google_Service_Dfareporting_UserRolePermissions_Resource extends Google_Se
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string ids Set of IDs of specified user role permissions to
-   * retrieve.
+   * @opt_param string ids Select only user role permissions with these IDs.
    * @return Google_Service_Dfareporting_UserRolePermissionsListResponse
    */
   public function listUserRolePermissions($profileId, $optParams = array())
@@ -7600,22 +7598,22 @@ class Google_Service_Dfareporting_UserRoles_Resource extends Google_Service_Reso
    * @param array $optParams Optional parameters.
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
-   * Wildcards (*) are allowed. For example, "userrole*2010" will return objects
-   * with names like "userrole June 2010", "userrole April 2010" or simply
-   * "userrole 2010". Most of the searches also add wildcards implicitly at the
+   * Wildcards (*) are allowed. For example, "userrole*2015" will return objects
+   * with names like "userrole June 2015", "userrole April 2015" or simply
+   * "userrole 2015". Most of the searches also add wildcards implicitly at the
    * start and the end of the search string. For example, a search string of
-   * "userrole" will match objects with name "my userrole", "userrole 2010" or
+   * "userrole" will match objects with name "my userrole", "userrole 2015" or
    * simply "userrole".
    * @opt_param string subaccountId Select only user roles that belong to this
    * subaccount.
-   * @opt_param string sortField The field by which to sort the list.
-   * @opt_param string ids Set of IDs of specified user roles to retrieve.
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string ids Select only user roles with the specified IDs.
    * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken The value of the nextPageToken from the previous
+   * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param bool accountUserRoleOnly If true, select only account level user
-   * roles not associated with any specific subaccount.
+   * @opt_param bool accountUserRoleOnly Select only account level user roles not
+   * associated with any specific subaccount.
    * @return Google_Service_Dfareporting_UserRolesListResponse
    */
   public function listUserRoles($profileId, $optParams = array())

@@ -955,6 +955,10 @@ class Google_Service_YouTube extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'relevanceLanguage' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'forMine' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -1218,6 +1222,10 @@ class Google_Service_YouTube extends Google_Service
                   'type' => 'integer',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'hl' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2962,6 +2970,12 @@ class Google_Service_YouTube_Search_Resource extends Google_Service_Resource
    * 720p, though higher resolutions, like 1080p, might also be available.
    * @opt_param string videoDuration The videoDuration parameter filters video
    * search results based on their duration.
+   * @opt_param string relevanceLanguage The relevanceLanguage parameter instructs
+   * the API to return search results that are most relevant to the specified
+   * language. The parameter value is typically an ISO 639-1 two-letter language
+   * code. However, you should use the values zh-Hans for simplified Chinese and
+   * zh-Hant for traditional Chinese. Please note that results in other languages
+   * will still be returned if they are highly relevant to the search query term.
    * @opt_param bool forMine The forMine parameter restricts the search to only
    * retrieve videos owned by the authenticated user. If you set this parameter to
    * true, then the type parameter's value must also be set to video.
@@ -3260,14 +3274,14 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
    * properties that the API response will include.
    *
    * The part names that you can include in the parameter value are snippet,
-   * contentDetails, fileDetails, liveStreamingDetails, player, processingDetails,
-   * recordingDetails, statistics, status, suggestions, and topicDetails. However,
-   * not all of those parts contain properties that can be set when setting or
-   * updating a video's metadata. For example, the statistics object encapsulates
-   * statistics that YouTube calculates for a video and does not contain values
-   * that you can set or modify. If the parameter value specifies a part that does
-   * not contain mutable values, that part will still be included in the API
-   * response.
+   * contentDetails, fileDetails, liveStreamingDetails, localizations, player,
+   * processingDetails, recordingDetails, statistics, status, suggestions, and
+   * topicDetails. However, not all of those parts contain properties that can be
+   * set when setting or updating a video's metadata. For example, the statistics
+   * object encapsulates statistics that YouTube calculates for a video and does
+   * not contain values that you can set or modify. If the parameter value
+   * specifies a part that does not contain mutable values, that part will still
+   * be included in the API response.
    * @param Google_Video $postBody
    * @param array $optParams Optional parameters.
    *
@@ -3325,8 +3339,9 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
    * @param string $part The part parameter specifies a comma-separated list of
    * one or more video resource properties that the API response will include. The
    * part names that you can include in the parameter value are id, snippet,
-   * contentDetails, fileDetails, liveStreamingDetails, player, processingDetails,
-   * recordingDetails, statistics, status, suggestions, and topicDetails.
+   * contentDetails, fileDetails, liveStreamingDetails, localizations, player,
+   * processingDetails, recordingDetails, statistics, status, suggestions, and
+   * topicDetails.
    *
    * If the parameter identifies a property that contains child properties, the
    * child properties will be included in the response. For example, in a video
@@ -3372,6 +3387,13 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
    * Note: This parameter is supported for use in conjunction with the myRating
    * parameter, but it is not supported for use in conjunction with the id
    * parameter.
+   * @opt_param string hl The hl parameter instructs the API to return a localized
+   * version of the video details. If localized text is nor available for the
+   * requested language, the localizations object in the API response will contain
+   * the requested information in the default language instead. The parameter
+   * value is a BCP-47 language code. Your application can determine whether the
+   * requested localization was returned by checking the value of the
+   * snippet.localized.language property in the API response.
    * @opt_param string myRating Set this parameter's value to like or dislike to
    * instruct the API to only return videos liked or disliked by the authenticated
    * user.
@@ -3424,8 +3446,9 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
    * properties that the API response will include.
    *
    * The part names that you can include in the parameter value are snippet,
-   * contentDetails, fileDetails, liveStreamingDetails, player, processingDetails,
-   * recordingDetails, statistics, status, suggestions, and topicDetails.
+   * contentDetails, fileDetails, liveStreamingDetails, localizations, player,
+   * processingDetails, recordingDetails, statistics, status, suggestions, and
+   * topicDetails.
    *
    * Note that this method will override the existing values for all of the
    * mutable properties that are contained in any parts that the parameter value
@@ -4847,6 +4870,8 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   public $etag;
   public $id;
   public $kind;
+  protected $localizationsType = 'Google_Service_YouTube_ChannelSectionLocalization';
+  protected $localizationsDataType = 'map';
   protected $snippetType = 'Google_Service_YouTube_ChannelSectionSnippet';
   protected $snippetDataType = '';
 
@@ -4882,6 +4907,14 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setLocalizations($localizations)
+  {
+    $this->localizations = $localizations;
+  }
+  public function getLocalizations()
+  {
+    return $this->localizations;
   }
   public function setSnippet(Google_Service_YouTube_ChannelSectionSnippet $snippet)
   {
@@ -4975,11 +5008,35 @@ class Google_Service_YouTube_ChannelSectionListResponse extends Google_Collectio
   }
 }
 
+class Google_Service_YouTube_ChannelSectionLocalization extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $title;
+
+
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+  public function getTitle()
+  {
+    return $this->title;
+  }
+}
+
+class Google_Service_YouTube_ChannelSectionLocalizations extends Google_Model
+{
+}
+
 class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
   public $channelId;
+  public $defaultLanguage;
+  protected $localizedType = 'Google_Service_YouTube_ChannelSectionLocalization';
+  protected $localizedDataType = '';
   public $position;
   public $style;
   public $title;
@@ -4993,6 +5050,22 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
   public function getChannelId()
   {
     return $this->channelId;
+  }
+  public function setDefaultLanguage($defaultLanguage)
+  {
+    $this->defaultLanguage = $defaultLanguage;
+  }
+  public function getDefaultLanguage()
+  {
+    return $this->defaultLanguage;
+  }
+  public function setLocalized(Google_Service_YouTube_ChannelSectionLocalization $localized)
+  {
+    $this->localized = $localized;
+  }
+  public function getLocalized()
+  {
+    return $this->localized;
   }
   public function setPosition($position)
   {
@@ -7549,6 +7622,8 @@ class Google_Service_YouTube_Playlist extends Google_Model
   public $etag;
   public $id;
   public $kind;
+  protected $localizationsType = 'Google_Service_YouTube_PlaylistLocalization';
+  protected $localizationsDataType = 'map';
   protected $playerType = 'Google_Service_YouTube_PlaylistPlayer';
   protected $playerDataType = '';
   protected $snippetType = 'Google_Service_YouTube_PlaylistSnippet';
@@ -7588,6 +7663,14 @@ class Google_Service_YouTube_Playlist extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setLocalizations($localizations)
+  {
+    $this->localizations = $localizations;
+  }
+  public function getLocalizations()
+  {
+    return $this->localizations;
   }
   public function setPlayer(Google_Service_YouTube_PlaylistPlayer $player)
   {
@@ -8035,6 +8118,36 @@ class Google_Service_YouTube_PlaylistListResponse extends Google_Collection
   }
 }
 
+class Google_Service_YouTube_PlaylistLocalization extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $description;
+  public $title;
+
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+  public function getTitle()
+  {
+    return $this->title;
+  }
+}
+
+class Google_Service_YouTube_PlaylistLocalizations extends Google_Model
+{
+}
+
 class Google_Service_YouTube_PlaylistPlayer extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -8059,7 +8172,10 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   );
   public $channelId;
   public $channelTitle;
+  public $defaultLanguage;
   public $description;
+  protected $localizedType = 'Google_Service_YouTube_PlaylistLocalization';
+  protected $localizedDataType = '';
   public $publishedAt;
   public $tags;
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
@@ -8083,6 +8199,14 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   {
     return $this->channelTitle;
   }
+  public function setDefaultLanguage($defaultLanguage)
+  {
+    $this->defaultLanguage = $defaultLanguage;
+  }
+  public function getDefaultLanguage()
+  {
+    return $this->defaultLanguage;
+  }
   public function setDescription($description)
   {
     $this->description = $description;
@@ -8090,6 +8214,14 @@ class Google_Service_YouTube_PlaylistSnippet extends Google_Collection
   public function getDescription()
   {
     return $this->description;
+  }
+  public function setLocalized(Google_Service_YouTube_PlaylistLocalization $localized)
+  {
+    $this->localized = $localized;
+  }
+  public function getLocalized()
+  {
+    return $this->localized;
   }
   public function setPublishedAt($publishedAt)
   {
@@ -8993,6 +9125,8 @@ class Google_Service_YouTube_Video extends Google_Model
   public $kind;
   protected $liveStreamingDetailsType = 'Google_Service_YouTube_VideoLiveStreamingDetails';
   protected $liveStreamingDetailsDataType = '';
+  protected $localizationsType = 'Google_Service_YouTube_VideoLocalization';
+  protected $localizationsDataType = 'map';
   protected $monetizationDetailsType = 'Google_Service_YouTube_VideoMonetizationDetails';
   protected $monetizationDetailsDataType = '';
   protected $playerType = 'Google_Service_YouTube_VideoPlayer';
@@ -9078,6 +9212,14 @@ class Google_Service_YouTube_Video extends Google_Model
   public function getLiveStreamingDetails()
   {
     return $this->liveStreamingDetails;
+  }
+  public function setLocalizations($localizations)
+  {
+    $this->localizations = $localizations;
+  }
+  public function getLocalizations()
+  {
+    return $this->localizations;
   }
   public function setMonetizationDetails(Google_Service_YouTube_VideoMonetizationDetails $monetizationDetails)
   {
@@ -9951,6 +10093,36 @@ class Google_Service_YouTube_VideoLiveStreamingDetails extends Google_Model
   }
 }
 
+class Google_Service_YouTube_VideoLocalization extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $description;
+  public $title;
+
+
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+  public function getTitle()
+  {
+    return $this->title;
+  }
+}
+
+class Google_Service_YouTube_VideoLocalizations extends Google_Model
+{
+}
+
 class Google_Service_YouTube_VideoMonetizationDetails extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -10190,8 +10362,11 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   public $categoryId;
   public $channelId;
   public $channelTitle;
+  public $defaultLanguage;
   public $description;
   public $liveBroadcastContent;
+  protected $localizedType = 'Google_Service_YouTube_VideoLocalization';
+  protected $localizedDataType = '';
   public $publishedAt;
   public $tags;
   protected $thumbnailsType = 'Google_Service_YouTube_ThumbnailDetails';
@@ -10223,6 +10398,14 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   {
     return $this->channelTitle;
   }
+  public function setDefaultLanguage($defaultLanguage)
+  {
+    $this->defaultLanguage = $defaultLanguage;
+  }
+  public function getDefaultLanguage()
+  {
+    return $this->defaultLanguage;
+  }
   public function setDescription($description)
   {
     $this->description = $description;
@@ -10238,6 +10421,14 @@ class Google_Service_YouTube_VideoSnippet extends Google_Collection
   public function getLiveBroadcastContent()
   {
     return $this->liveBroadcastContent;
+  }
+  public function setLocalized(Google_Service_YouTube_VideoLocalization $localized)
+  {
+    $this->localized = $localized;
+  }
+  public function getLocalized()
+  {
+    return $this->localized;
   }
   public function setPublishedAt($publishedAt)
   {

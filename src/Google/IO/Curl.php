@@ -21,7 +21,9 @@
  * @author Stuart Langley <slangley@google.com>
  */
 
-require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
+if (!class_exists('Google_Client')) {
+  require_once dirname(__FILE__) . '/../autoload.php';
+}
 
 class Google_IO_Curl extends Google_IO_Abstract
 {
@@ -80,7 +82,12 @@ class Google_IO_Curl extends Google_IO_Abstract
     if ($request->canGzip()) {
       curl_setopt($curl, CURLOPT_ENCODING, 'gzip,deflate');
     }
-
+    
+    $options = $this->client->getClassConfig('Google_IO_Curl', 'options');
+    if (is_array($options)) {
+      $this->setOptions($options);
+    }
+    
     foreach ($this->options as $key => $var) {
       curl_setopt($curl, $key, $var);
     }

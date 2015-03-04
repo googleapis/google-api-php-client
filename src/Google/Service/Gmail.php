@@ -361,9 +361,21 @@ class Google_Service_Gmail extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'deleted' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'processForCalendar' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'internalDateSource' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'neverMarkSpam' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'insert' => array(
@@ -979,8 +991,15 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
    * @param Google_Message $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool deleted Mark the email as permanently deleted (not TRASH) and
+   * only visible in Google Apps Vault to a Vault administrator. Only used for
+   * Google Apps for Work accounts.
+   * @opt_param bool processForCalendar Process calendar invites in the email and
+   * add any extracted meetings to the Google Calendar for this user.
    * @opt_param string internalDateSource Source for Gmail's internal date of the
    * message.
+   * @opt_param bool neverMarkSpam Ignore the Gmail spam classifier decision and
+   * never mark this email as SPAM in the mailbox.
    * @return Google_Service_Gmail_Message
    */
   public function import($userId, Google_Service_Gmail_Message $postBody, $optParams = array())
@@ -1288,12 +1307,20 @@ class Google_Service_Gmail_Draft extends Google_Model
 
 class Google_Service_Gmail_History extends Google_Collection
 {
-  protected $collection_key = 'messages';
+  protected $collection_key = 'messagesDeleted';
   protected $internal_gapi_mappings = array(
   );
   public $id;
+  protected $labelsAddedType = 'Google_Service_Gmail_HistoryLabelAdded';
+  protected $labelsAddedDataType = 'array';
+  protected $labelsRemovedType = 'Google_Service_Gmail_HistoryLabelRemoved';
+  protected $labelsRemovedDataType = 'array';
   protected $messagesType = 'Google_Service_Gmail_Message';
   protected $messagesDataType = 'array';
+  protected $messagesAddedType = 'Google_Service_Gmail_HistoryMessageAdded';
+  protected $messagesAddedDataType = 'array';
+  protected $messagesDeletedType = 'Google_Service_Gmail_HistoryMessageDeleted';
+  protected $messagesDeletedDataType = 'array';
 
 
   public function setId($id)
@@ -1304,6 +1331,22 @@ class Google_Service_Gmail_History extends Google_Collection
   {
     return $this->id;
   }
+  public function setLabelsAdded($labelsAdded)
+  {
+    $this->labelsAdded = $labelsAdded;
+  }
+  public function getLabelsAdded()
+  {
+    return $this->labelsAdded;
+  }
+  public function setLabelsRemoved($labelsRemoved)
+  {
+    $this->labelsRemoved = $labelsRemoved;
+  }
+  public function getLabelsRemoved()
+  {
+    return $this->labelsRemoved;
+  }
   public function setMessages($messages)
   {
     $this->messages = $messages;
@@ -1311,6 +1354,114 @@ class Google_Service_Gmail_History extends Google_Collection
   public function getMessages()
   {
     return $this->messages;
+  }
+  public function setMessagesAdded($messagesAdded)
+  {
+    $this->messagesAdded = $messagesAdded;
+  }
+  public function getMessagesAdded()
+  {
+    return $this->messagesAdded;
+  }
+  public function setMessagesDeleted($messagesDeleted)
+  {
+    $this->messagesDeleted = $messagesDeleted;
+  }
+  public function getMessagesDeleted()
+  {
+    return $this->messagesDeleted;
+  }
+}
+
+class Google_Service_Gmail_HistoryLabelAdded extends Google_Collection
+{
+  protected $collection_key = 'labelIds';
+  protected $internal_gapi_mappings = array(
+  );
+  public $labelIds;
+  protected $messageType = 'Google_Service_Gmail_Message';
+  protected $messageDataType = '';
+
+
+  public function setLabelIds($labelIds)
+  {
+    $this->labelIds = $labelIds;
+  }
+  public function getLabelIds()
+  {
+    return $this->labelIds;
+  }
+  public function setMessage(Google_Service_Gmail_Message $message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Gmail_HistoryLabelRemoved extends Google_Collection
+{
+  protected $collection_key = 'labelIds';
+  protected $internal_gapi_mappings = array(
+  );
+  public $labelIds;
+  protected $messageType = 'Google_Service_Gmail_Message';
+  protected $messageDataType = '';
+
+
+  public function setLabelIds($labelIds)
+  {
+    $this->labelIds = $labelIds;
+  }
+  public function getLabelIds()
+  {
+    return $this->labelIds;
+  }
+  public function setMessage(Google_Service_Gmail_Message $message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Gmail_HistoryMessageAdded extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $messageType = 'Google_Service_Gmail_Message';
+  protected $messageDataType = '';
+
+
+  public function setMessage(Google_Service_Gmail_Message $message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Gmail_HistoryMessageDeleted extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $messageType = 'Google_Service_Gmail_Message';
+  protected $messageDataType = '';
+
+
+  public function setMessage(Google_Service_Gmail_Message $message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
   }
 }
 

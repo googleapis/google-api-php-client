@@ -30,7 +30,7 @@
  */
 class Google_Service_Drive extends Google_Service
 {
-  /** View and manage the files and documents in your Google Drive. */
+  /** View and manage the files in your Google Drive. */
   const DRIVE =
       "https://www.googleapis.com/auth/drive";
   /** View and manage its own configuration data in your Google Drive. */
@@ -42,10 +42,10 @@ class Google_Service_Drive extends Google_Service
   /** View and manage Google Drive files that you have opened or created with this app. */
   const DRIVE_FILE =
       "https://www.googleapis.com/auth/drive.file";
-  /** View metadata for files and documents in your Google Drive. */
+  /** View metadata for files in your Google Drive. */
   const DRIVE_METADATA_READONLY =
       "https://www.googleapis.com/auth/drive.metadata.readonly";
-  /** View the files and documents in your Google Drive. */
+  /** View the files in your Google Drive. */
   const DRIVE_READONLY =
       "https://www.googleapis.com/auth/drive.readonly";
   /** Modify your Google Apps Script scripts' behavior. */

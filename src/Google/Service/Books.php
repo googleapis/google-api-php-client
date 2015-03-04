@@ -854,6 +854,10 @@ class Google_Service_Books extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'reason' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'source' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -1140,7 +1144,11 @@ class Google_Service_Books extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'source' => array(
+                'user_library_consistent_read' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'projection' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1148,7 +1156,7 @@ class Google_Service_Books extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'projection' => array(
+                'source' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2100,6 +2108,8 @@ class Google_Service_Books_MylibraryBookshelves_Resource extends Google_Service_
    * @param string $volumeId ID of volume to remove.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string reason The reason for which the book is removed from the
+   * library.
    * @opt_param string source String to identify the originator of this request.
    */
   public function removeVolume($shelf, $volumeId, $optParams = array())
@@ -2344,10 +2354,11 @@ class Google_Service_Books_Volumes_Resource extends Google_Service_Resource
    * @param string $volumeId ID of volume to retrieve.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string source String to identify the originator of this request.
-   * @opt_param string country ISO-3166-1 code to override the IP-based location.
+   * @opt_param bool user_library_consistent_read
    * @opt_param string projection Restrict information returned to a set of
    * selected fields.
+   * @opt_param string country ISO-3166-1 code to override the IP-based location.
+   * @opt_param string source String to identify the originator of this request.
    * @opt_param string partner Brand results for partner ID.
    * @return Google_Service_Books_Volume
    */
@@ -6126,6 +6137,7 @@ class Google_Service_Books_VolumeVolumeInfo extends Google_Collection
   public $publisher;
   public $ratingsCount;
   public $readingModes;
+  public $samplePageCount;
   public $subtitle;
   public $title;
 
@@ -6289,6 +6301,14 @@ class Google_Service_Books_VolumeVolumeInfo extends Google_Collection
   public function getReadingModes()
   {
     return $this->readingModes;
+  }
+  public function setSamplePageCount($samplePageCount)
+  {
+    $this->samplePageCount = $samplePageCount;
+  }
+  public function getSamplePageCount()
+  {
+    return $this->samplePageCount;
   }
   public function setSubtitle($subtitle)
   {

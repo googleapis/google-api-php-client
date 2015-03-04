@@ -15,13 +15,12 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
+if (!class_exists('Google_Client')) {
+  require_once dirname(__FILE__) . '/../autoload.php';
+}
 
 /**
  * This class implements the RESTful transport of apiServiceRequest()'s
- *
- * @author Chris Chabot <chabotc@google.com>
- * @author Chirag Shah <chirags@google.com>
  */
 class Google_Http_REST
 {
@@ -113,6 +112,10 @@ class Google_Http_REST
 
     // Only attempt to decode the response, if the response code wasn't (204) 'no content'
     if ($code != '204') {
+      if ($response->getExpectedRaw()) {
+        return $body;
+      }
+      
       $decoded = json_decode($body, true);
       if ($decoded === null || $decoded === "") {
         $error = "Invalid json in service response: $body";

@@ -15,7 +15,9 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
+if (!class_exists('Google_Client')) {
+  require_once dirname(__FILE__) . '/../autoload.php';
+}
 
 /*
  * This class implements a basic on disk storage. While that does
@@ -170,6 +172,13 @@ class Google_Cache_File extends Google_Cache_Abstract
   {
     $mode = $type == LOCK_EX ? "w" : "r";
     $this->fh = fopen($storageFile, $mode);
+    if (!$this->fh) {
+      $this->client->getLogger()->error(
+        'Failed to open file during lock acquisition',
+        array('file' => $storageFile)
+      );
+      return false;
+    }
     $count = 0;
     while (!flock($this->fh, $type | LOCK_NB)) {
       // Sleep for 10ms.

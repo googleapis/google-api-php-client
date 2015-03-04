@@ -862,6 +862,7 @@ class Google_Service_Fitness_DataTypeField extends Google_Model
   );
   public $format;
   public $name;
+  public $optional;
 
 
   public function setFormat($format)
@@ -879,6 +880,14 @@ class Google_Service_Fitness_DataTypeField extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+  public function setOptional($optional)
+  {
+    $this->optional = $optional;
+  }
+  public function getOptional()
+  {
+    return $this->optional;
   }
 }
 

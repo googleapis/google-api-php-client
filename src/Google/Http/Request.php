@@ -15,7 +15,9 @@
  * limitations under the License.
  */
 
-require_once realpath(dirname(__FILE__) . '/../../../autoload.php');
+if (!class_exists('Google_Client')) {
+  require_once dirname(__FILE__) . '/../autoload.php';
+}
 
 /**
  * HTTP Request to be executed by IO classes. Upon execution, the
@@ -49,6 +51,7 @@ class Google_Http_Request
   protected $responseBody;
   
   protected $expectedClass;
+  protected $expectedRaw = false;
 
   public $accessKey;
 
@@ -186,6 +189,31 @@ class Google_Http_Request
   public function getExpectedClass()
   {
     return $this->expectedClass;
+  }
+
+  /**
+   * Enable expected raw response
+   */
+  public function enableExpectedRaw()
+  {
+    $this->expectedRaw = true;
+  }
+
+  /**
+   * Disable expected raw response
+   */
+  public function disableExpectedRaw()
+  {
+    $this->expectedRaw = false;
+  }
+
+  /**
+   * Expected raw response or not.
+   * @return boolean expected raw response
+   */
+  public function getExpectedRaw()
+  {
+    return $this->expectedRaw;
   }
 
   /**

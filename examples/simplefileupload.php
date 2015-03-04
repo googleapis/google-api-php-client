@@ -17,7 +17,7 @@
 include_once "templates/base.php";
 session_start();
 
-require_once realpath(dirname(__FILE__) . '/../autoload.php');
+require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
 
 /************************************************
   We'll setup an empty 1MB file to upload.
