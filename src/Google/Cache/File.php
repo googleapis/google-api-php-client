@@ -70,8 +70,15 @@ class Google_Cache_File extends Google_Cache_Abstract
     }
 
     if ($this->acquireReadLock($storageFile)) {
-      $data = fread($this->fh, filesize($storageFile));
-      $data =  unserialize($data);
+      if (filesize($storageFile) > 0) {
+        $data = fread($this->fh, filesize($storageFile));
+        $data =  unserialize($data);
+      } else {
+        $this->client->getLogger()->debug(
+            'Cache file was empty',
+            array('file' => $storageFile)
+        );
+      }
       $this->unlock($storageFile);
     }
 
