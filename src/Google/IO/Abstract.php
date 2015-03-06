@@ -57,9 +57,10 @@ abstract class Google_IO_Abstract
   }
 
   /**
-   * Executes a Google_Http_Request and returns the resulting populated Google_Http_Request
-   * @param Google_Http_Request $request
-   * @return Google_Http_Request $request
+   * Executes a Google_Http_Request
+   * @param Google_Http_Request $request the http request to be executed
+   * @return array containing response headers, body, and http code
+   * @throws Google_IO_Exception on curl or IO error
    */
   abstract public function executeRequest(Google_Http_Request $request);
 

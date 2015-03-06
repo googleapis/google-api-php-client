@@ -70,8 +70,15 @@ class Google_Cache_File extends Google_Cache_Abstract
     }
 
     if ($this->acquireReadLock($storageFile)) {
-      $data = fread($this->fh, filesize($storageFile));
-      $data =  unserialize($data);
+      if (filesize($storageFile) > 0) {
+        $data = fread($this->fh, filesize($storageFile));
+        $data =  unserialize($data);
+      } else {
+        $this->client->getLogger()->debug(
+            'Cache file was empty',
+            array('file' => $storageFile)
+        );
+      }
       $this->unlock($storageFile);
     }
 
@@ -174,8 +181,8 @@ class Google_Cache_File extends Google_Cache_Abstract
     $this->fh = fopen($storageFile, $mode);
     if (!$this->fh) {
       $this->client->getLogger()->error(
-        'Failed to open file during lock acquisition',
-        array('file' => $storageFile)
+          'Failed to open file during lock acquisition',
+          array('file' => $storageFile)
       );
       return false;
     }

@@ -15,7 +15,8 @@
  * limitations under the License.
  */
 
-function google_api_php_client_autoload($className) {
+function google_api_php_client_autoload($className)
+{
   $classPath = explode('_', $className);
   if ($classPath[0] != 'Google') {
     return;
