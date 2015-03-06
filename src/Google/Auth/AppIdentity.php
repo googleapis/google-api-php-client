@@ -61,8 +61,7 @@ class Google_Auth_AppIdentity extends Google_Auth_Abstract
     $this->token = $this->client->getCache()->get($cacheKey);
     if (!$this->token) {
       $this->retrieveToken($scopes, $cacheKey);
-    }
-    else if ($this->token['expiration_time'] < time()) {
+    } else if ($this->token['expiration_time'] < time()) {
       $this->client->getCache()->delete($cacheKey);
       $this->retrieveToken($scopes, $cacheKey);
     }
@@ -81,9 +80,9 @@ class Google_Auth_AppIdentity extends Google_Auth_Abstract
     $this->token = AppIdentityService::getAccessToken($scopes);
     if ($this->token) {
       $this->client->getCache()->set(
-        $cacheKey,
-        $this->token
-        );
+          $cacheKey,
+          $this->token
+      );
     }
   }
 

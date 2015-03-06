@@ -27,7 +27,8 @@ if (!class_exists('Google_Client')) {
  */
 class Google_Auth_ComputeEngine extends Google_Auth_Abstract
 {
-  const METADATA_AUTH_URL = 'http://metadata/computeMetadata/v1/instance/service-accounts/default/token';
+  const METADATA_AUTH_URL =
+      'http://metadata/computeMetadata/v1/instance/service-accounts/default/token';
   private $client;
   private $token;
 
@@ -78,7 +79,8 @@ class Google_Auth_ComputeEngine extends Google_Auth_Abstract
    * Acquires a new access token from the compute engine metadata server.
    * @throws Google_Auth_Exception
    */
-  public function acquireAccessToken(){
+  public function acquireAccessToken()
+  {
     $request = new Google_Http_Request(
         self::METADATA_AUTH_URL,
         'GET',
@@ -112,14 +114,14 @@ class Google_Auth_ComputeEngine extends Google_Auth_Abstract
    */
   public function sign(Google_Http_Request $request)
   {
-    if($this->isAccessTokenExpired()) {
+    if ($this->isAccessTokenExpired()) {
       $this->acquireAccessToken();
     }
 
     $this->client->getLogger()->debug('Compute engine service account authentication');
 
     $request->setRequestHeaders(
-       array('Authorization' => 'Bearer ' . $this->token['access_token'])
+        array('Authorization' => 'Bearer ' . $this->token['access_token'])
     );
 
     return $request;

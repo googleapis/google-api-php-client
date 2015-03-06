@@ -66,12 +66,14 @@ class ComputeEngineAuthTest extends BaseTest
     $oauth = new Google_Auth_ComputeEngine($client);
     
     /* Load mock access token */
-    $oauth->setAccessToken(json_encode(
-        array(
-          'access_token' => "ACCESS_TOKEN",
-          'expires_in' => "12345"
+    $oauth->setAccessToken(
+        json_encode(
+            array(
+                'access_token' => "ACCESS_TOKEN",
+                'expires_in' => "12345"
+            )
         )
-    ));
+    );
 
     /* Sign a URL and verify auth header is correctly set */
     $req = new Google_Http_Request('http://localhost');

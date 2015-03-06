@@ -136,20 +136,20 @@ class Google_Client
    * @return Google_Auth_AssertionCredentials.
    * @
    */
-  public function loadServiceAccountJson($jsonLocation, $scopes) 
+  public function loadServiceAccountJson($jsonLocation, $scopes)
   {
     $data = json_decode(file_get_contents($jsonLocation));
     if (isset($data->type) && $data->type == 'service_account') {
       // Service Account format.
       $cred = new Google_Auth_AssertionCredentials(
-        $data->client_email,
-        $scopes,
-        $data->private_key
+          $data->client_email,
+          $scopes,
+          $data->private_key
       );
       return $cred;
     } else {
       throw new Google_Exception("Invalid service account JSON file.");
-    } 
+    }
   }
 
   /**

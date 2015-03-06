@@ -179,7 +179,8 @@ class Google_Model implements ArrayAccess
   /**
    * Check whether the value is the null placeholder and return true null.
    */
-  private function nullPlaceholderCheck($value) {
+  private function nullPlaceholderCheck($value)
+  {
     if ($value === self::NULL_VALUE) {
       return null;
     }

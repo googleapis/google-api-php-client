@@ -181,8 +181,8 @@ class Google_Cache_File extends Google_Cache_Abstract
     $this->fh = fopen($storageFile, $mode);
     if (!$this->fh) {
       $this->client->getLogger()->error(
-        'Failed to open file during lock acquisition',
-        array('file' => $storageFile)
+          'Failed to open file during lock acquisition',
+          array('file' => $storageFile)
       );
       return false;
     }
