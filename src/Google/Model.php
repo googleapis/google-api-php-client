@@ -23,6 +23,11 @@
  */
 class Google_Model implements ArrayAccess
 {
+  /**
+   * If you need to specify a NULL JSON value, use Google_Model::NULL_VALUE
+   * instead - it will be replaced when converting to JSON with a real null. 
+   */
+  const NULL_VALUE = "{}gapi-php-null";
   protected $internal_gapi_mappings = array();
   protected $modelData = array();
   protected $processed = array();
@@ -91,7 +96,7 @@ class Google_Model implements ArrayAccess
    */
   protected function mapTypes($array)
   {
-    // Hard initilise simple types, lazy load more complex ones.
+    // Hard initialise simple types, lazy load more complex ones.
     foreach ($array as $key => $val) {
       if ( !property_exists($this, $this->keyType($key)) &&
         property_exists($this, $key)) {
@@ -130,7 +135,7 @@ class Google_Model implements ArrayAccess
     foreach ($this->modelData as $key => $val) {
       $result = $this->getSimpleValue($val);
       if ($result !== null) {
-        $object->$key = $result;
+        $object->$key = $this->nullPlaceholderCheck($result);
       }
     }
 
@@ -142,7 +147,7 @@ class Google_Model implements ArrayAccess
       $result = $this->getSimpleValue($this->$name);
       if ($result !== null) {
         $name = $this->getMappedName($name);
-        $object->$name = $result;
+        $object->$name = $this->nullPlaceholderCheck($result);
       }
     }
 
@@ -163,10 +168,20 @@ class Google_Model implements ArrayAccess
         $a_value = $this->getSimpleValue($a_value);
         if ($a_value !== null) {
           $key = $this->getMappedName($key);
-          $return[$key] = $a_value;
+          $return[$key] = $this->nullPlaceholderCheck($a_value);
         }
       }
       return $return;
+    }
+    return $value;
+  }
+  
+  /**
+   * Check whether the value is the null placeholder and return true null.
+   */
+  private function nullPlaceholderCheck($value) {
+    if ($value === self::NULL_VALUE) {
+      return null;
     }
     return $value;
   }
