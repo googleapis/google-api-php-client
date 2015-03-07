@@ -64,7 +64,11 @@ class Google_Service_ShoppingContent extends Google_Service
         'accounts',
         array(
           'methods' => array(
-            'custombatch' => array(
+            'authinfo' => array(
+              'path' => 'accounts/authinfo',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
+            ),'custombatch' => array(
               'path' => 'accounts/batch',
               'httpMethod' => 'POST',
               'parameters' => array(),
@@ -690,6 +694,19 @@ class Google_Service_ShoppingContent extends Google_Service
  */
 class Google_Service_ShoppingContent_Accounts_Resource extends Google_Service_Resource
 {
+
+  /**
+   * Returns information about the authenticated user. (accounts.authinfo)
+   *
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_AccountsAuthInfoResponse
+   */
+  public function authinfo($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('authinfo', array($params), "Google_Service_ShoppingContent_AccountsAuthInfoResponse");
+  }
 
   /**
    * Retrieves, inserts, updates, and deletes multiple Merchant Center
@@ -1566,6 +1583,32 @@ class Google_Service_ShoppingContent_AccountAdwordsLink extends Google_Model
   }
 }
 
+class Google_Service_ShoppingContent_AccountIdentifier extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $aggregatorId;
+  public $merchantId;
+
+
+  public function setAggregatorId($aggregatorId)
+  {
+    $this->aggregatorId = $aggregatorId;
+  }
+  public function getAggregatorId()
+  {
+    return $this->aggregatorId;
+  }
+  public function setMerchantId($merchantId)
+  {
+    $this->merchantId = $merchantId;
+  }
+  public function getMerchantId()
+  {
+    return $this->merchantId;
+  }
+}
+
 class Google_Service_ShoppingContent_AccountShipping extends Google_Collection
 {
   protected $collection_key = 'services';
@@ -2358,6 +2401,34 @@ class Google_Service_ShoppingContent_AccountUser extends Google_Model
   public function getEmailAddress()
   {
     return $this->emailAddress;
+  }
+}
+
+class Google_Service_ShoppingContent_AccountsAuthInfoResponse extends Google_Collection
+{
+  protected $collection_key = 'accountIdentifiers';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $accountIdentifiersType = 'Google_Service_ShoppingContent_AccountIdentifier';
+  protected $accountIdentifiersDataType = 'array';
+  public $kind;
+
+
+  public function setAccountIdentifiers($accountIdentifiers)
+  {
+    $this->accountIdentifiers = $accountIdentifiers;
+  }
+  public function getAccountIdentifiers()
+  {
+    return $this->accountIdentifiers;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
   }
 }
 
