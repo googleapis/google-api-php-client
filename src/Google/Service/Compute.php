@@ -3164,7 +3164,7 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   /**
    * Retrieves the list of disks grouped by scope. (disks.aggregatedList)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -3185,9 +3185,9 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   /**
    * (disks.createSnapshot)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
-   * @param string $disk Name of the persistent disk resource to snapshot.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
+   * @param string $disk Name of the persistent disk to snapshot.
    * @param Google_Snapshot $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -3200,11 +3200,11 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Deletes the specified persistent disk resource. (disks.delete)
+   * Deletes the specified persistent disk. (disks.delete)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
-   * @param string $disk Name of the persistent disk resource to delete.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
+   * @param string $disk Name of the persistent disk to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -3216,11 +3216,11 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified persistent disk resource. (disks.get)
+   * Returns a specified persistent disk. (disks.get)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
-   * @param string $disk Name of the persistent disk resource to return.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
+   * @param string $disk Name of the persistent disk to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Disk
    */
@@ -3232,11 +3232,11 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Creates a persistent disk resource in the specified project using the data
-   * included in the request. (disks.insert)
+   * Creates a persistent disk in the specified project using the data included in
+   * the request. (disks.insert)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param Google_Disk $postBody
    * @param array $optParams Optional parameters.
    *
@@ -3251,11 +3251,11 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves the list of persistent disk resources contained within the
-   * specified zone. (disks.listDisks)
+   * Retrieves the list of persistent disks contained within the specified zone.
+   * (disks.listDisks)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -3288,7 +3288,7 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
   /**
    * Deletes the specified firewall resource. (firewalls.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $firewall Name of the firewall resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -3303,7 +3303,7 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
   /**
    * Returns the specified firewall resource. (firewalls.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $firewall Name of the firewall resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Firewall
@@ -3319,7 +3319,7 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
    * Creates a firewall resource in the specified project using the data included
    * in the request. (firewalls.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_Firewall $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -3335,7 +3335,7 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
    * Retrieves the list of firewall resources available to the specified project.
    * (firewalls.listFirewalls)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -3357,7 +3357,7 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
    * Updates the specified firewall resource with the data included in the
    * request. This method supports patch semantics. (firewalls.patch)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $firewall Name of the firewall resource to update.
    * @param Google_Firewall $postBody
    * @param array $optParams Optional parameters.
@@ -3374,7 +3374,7 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
    * Updates the specified firewall resource with the data included in the
    * request. (firewalls.update)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $firewall Name of the firewall resource to update.
    * @param Google_Firewall $postBody
    * @param array $optParams Optional parameters.
@@ -3907,7 +3907,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
   /**
    * Deletes the specified image resource. (images.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $image Name of the image resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -3920,10 +3920,12 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
   }
 
   /**
-   * Sets the deprecation status of an image. If no message body is given, clears
-   * the deprecation status instead. (images.deprecate)
+   * Sets the deprecation status of an image.
    *
-   * @param string $project Name of the project scoping this request.
+   * If an empty request body is given, clears the deprecation status instead.
+   * (images.deprecate)
+   *
+   * @param string $project Project ID for this request.
    * @param string $image Image name.
    * @param Google_DeprecationStatus $postBody
    * @param array $optParams Optional parameters.
@@ -3939,7 +3941,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
   /**
    * Returns the specified image resource. (images.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $image Name of the image resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Image
@@ -3955,7 +3957,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
    * Creates an image resource in the specified project using the data included in
    * the request. (images.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_Image $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -3971,7 +3973,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
    * Retrieves the list of image resources available to the specified project.
    * (images.listImages)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -4460,7 +4462,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * Returns the specified machine type resource. (machineTypes.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $zone The name of the zone for this request.
    * @param string $machineType Name of the machine type resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_MachineType
@@ -4477,7 +4479,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * project. (machineTypes.listMachineTypes)
    *
    * @param string $project Project ID for this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $zone The name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -4510,7 +4512,7 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
   /**
    * Deletes the specified network resource. (networks.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $network Name of the network resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4525,7 +4527,7 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
   /**
    * Returns the specified network resource. (networks.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $network Name of the network resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Network
@@ -4541,7 +4543,7 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
    * Creates a network resource in the specified project using the data included
    * in the request. (networks.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_Network $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4557,7 +4559,7 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
    * Retrieves the list of network resources available to the specified project.
    * (networks.listNetworks)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -4748,7 +4750,7 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
   /**
    * Returns the specified region resource. (regions.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Region
@@ -4764,7 +4766,7 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
    * Retrieves the list of region resources available to the specified project.
    * (regions.listRegions)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
@@ -5565,7 +5567,7 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
   /**
    * Returns the specified zone resource. (zones.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Zone
@@ -5581,7 +5583,7 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
    * Retrieves the list of zone resources available to the specified project.
    * (zones.listZones)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
