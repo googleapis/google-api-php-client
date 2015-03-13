@@ -1679,7 +1679,8 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
   }
 
   /**
-   * Permanently deletes a file by ID. Skips the trash. (files.delete)
+   * Permanently deletes a file by ID. Skips the trash. The currently
+   * authenticated user must own the file. (files.delete)
    *
    * @param string $fileId The ID of the file to delete.
    * @param array $optParams Optional parameters.
@@ -2086,8 +2087,9 @@ class Google_Service_Drive_Permissions_Resource extends Google_Service_Resource
    * @param Google_Permission $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool transferOwnership Whether changing a role to 'owner' should
-   * also downgrade the current owners to writers.
+   * @opt_param bool transferOwnership Whether changing a role to 'owner'
+   * downgrades the current owners to writers. Does nothing if the specified role
+   * is not 'owner'.
    * @return Google_Service_Drive_Permission
    */
   public function patch($fileId, $permissionId, Google_Service_Drive_Permission $postBody, $optParams = array())
@@ -2105,8 +2107,9 @@ class Google_Service_Drive_Permissions_Resource extends Google_Service_Resource
    * @param Google_Permission $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool transferOwnership Whether changing a role to 'owner' should
-   * also downgrade the current owners to writers.
+   * @opt_param bool transferOwnership Whether changing a role to 'owner'
+   * downgrades the current owners to writers. Does nothing if the specified role
+   * is not 'owner'.
    * @return Google_Service_Drive_Permission
    */
   public function update($fileId, $permissionId, Google_Service_Drive_Permission $postBody, $optParams = array())
