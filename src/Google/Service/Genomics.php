@@ -1124,9 +1124,7 @@ class Google_Service_Genomics_Datasets_Resource extends Google_Service_Resource
    * @opt_param string pageToken The continuation token, which is used to page
    * through large result sets. To get the next page of results, set this
    * parameter to the value of nextPageToken from the previous response.
-   * @opt_param string projectNumber Only return datasets which belong to this
-   * Google Developers Console project. Only accepts project numbers. Returns all
-   * public projects if no project number is specified.
+   * @opt_param string projectNumber The project to list datasets for.
    * @opt_param int pageSize The maximum number of results returned by this
    * request.
    * @return Google_Service_Genomics_ListDatasetsResponse
