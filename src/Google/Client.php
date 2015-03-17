@@ -144,7 +144,8 @@ class Google_Client
       $cred = new Google_Auth_AssertionCredentials(
           $data->client_email,
           $scopes,
-          $data->private_key
+          $data->private_key,
+          ''
       );
       return $cred;
     } else {
