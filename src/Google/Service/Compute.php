@@ -3183,7 +3183,7 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   }
 
   /**
-   * (disks.createSnapshot)
+   * Creates a snapshot of this disk. (disks.createSnapshot)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
