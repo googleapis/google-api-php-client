@@ -262,6 +262,10 @@ class Google_Service_YouTubeAnalytics extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'currency' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'filters' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -598,6 +602,10 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
    * @opt_param int start-index An index of the first entity to retrieve. Use this
    * parameter as a pagination mechanism along with the max-results parameter
    * (one-based, inclusive).
+   * @opt_param string currency The currency to which financial metrics should be
+   * converted. The default is US Dollar (USD). If the result contains no
+   * financial metrics, this flag will be ignored. Responds with an error if the
+   * specified currency is not recognized.
    * @opt_param string filters A list of filters that should be applied when
    * retrieving YouTube Analytics data. The Available Reports document identifies
    * the dimensions that can be used to filter each report, and the Dimensions
