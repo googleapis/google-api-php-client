@@ -634,20 +634,6 @@ class Google_Service_Books extends Google_Service
                   'type' => 'string',
                 ),
               ),
-            ),'get' => array(
-              'path' => 'mylibrary/annotations/{annotationId}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'annotationId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'source' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
             ),'insert' => array(
               'path' => 'mylibrary/annotations',
               'httpMethod' => 'POST',
@@ -694,10 +680,9 @@ class Google_Service_Books extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageIds' => array(
+                'updatedMax' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
                 ),
                 'contentVersion' => array(
                   'location' => 'query',
@@ -708,10 +693,6 @@ class Google_Service_Books extends Google_Service
                   'type' => 'string',
                 ),
                 'layerId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'updatedMax' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1907,22 +1888,6 @@ class Google_Service_Books_MylibraryAnnotations_Resource extends Google_Service_
   }
 
   /**
-   * Gets an annotation by its ID. (annotations.get)
-   *
-   * @param string $annotationId The ID for the annotation to retrieve.
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string source String to identify the originator of this request.
-   * @return Google_Service_Books_Annotation
-   */
-  public function get($annotationId, $optParams = array())
-  {
-    $params = array('annotationId' => $annotationId);
-    $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Books_Annotation");
-  }
-
-  /**
    * Inserts a new annotation. (annotations.insert)
    *
    * @param Google_Annotation $postBody
@@ -1956,14 +1921,12 @@ class Google_Service_Books_MylibraryAnnotations_Resource extends Google_Service_
    * @opt_param string maxResults Maximum number of results to return
    * @opt_param string pageToken The value of the nextToken from the previous
    * page.
-   * @opt_param string pageIds The page ID(s) for the volume that is being
-   * queried.
+   * @opt_param string updatedMax RFC 3339 timestamp to restrict to items updated
+   * prior to this timestamp (exclusive).
    * @opt_param string contentVersion The content version for the requested
    * volume.
    * @opt_param string source String to identify the originator of this request.
    * @opt_param string layerId The layer ID to limit annotation by.
-   * @opt_param string updatedMax RFC 3339 timestamp to restrict to items updated
-   * prior to this timestamp (exclusive).
    * @return Google_Service_Books_Annotations
    */
   public function listMylibraryAnnotations($optParams = array())
