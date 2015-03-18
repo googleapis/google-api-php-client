@@ -2807,11 +2807,21 @@ class Google_Service_Bigquery_TableDataInsertAllRequest extends Google_Collectio
   protected $collection_key = 'rows';
   protected $internal_gapi_mappings = array(
   );
+  public $ignoreUnknownValues;
   public $kind;
   protected $rowsType = 'Google_Service_Bigquery_TableDataInsertAllRequestRows';
   protected $rowsDataType = 'array';
+  public $skipInvalidRows;
 
 
+  public function setIgnoreUnknownValues($ignoreUnknownValues)
+  {
+    $this->ignoreUnknownValues = $ignoreUnknownValues;
+  }
+  public function getIgnoreUnknownValues()
+  {
+    return $this->ignoreUnknownValues;
+  }
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -2827,6 +2837,14 @@ class Google_Service_Bigquery_TableDataInsertAllRequest extends Google_Collectio
   public function getRows()
   {
     return $this->rows;
+  }
+  public function setSkipInvalidRows($skipInvalidRows)
+  {
+    $this->skipInvalidRows = $skipInvalidRows;
+  }
+  public function getSkipInvalidRows()
+  {
+    return $this->skipInvalidRows;
   }
 }
 
