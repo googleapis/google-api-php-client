@@ -387,6 +387,10 @@ class Google_Service_Gmail extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'deleted' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'internalDateSource' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -1019,6 +1023,9 @@ class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resourc
    * @param Google_Message $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool deleted Mark the email as permanently deleted (not TRASH) and
+   * only visible in Google Apps Vault to a Vault administrator. Only used for
+   * Google Apps for Work accounts.
    * @opt_param string internalDateSource Source for Gmail's internal date of the
    * message.
    * @return Google_Service_Gmail_Message
