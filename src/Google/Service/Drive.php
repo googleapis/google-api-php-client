@@ -1500,7 +1500,11 @@ class Google_Service_Drive_Children_Resource extends Google_Service_Resource
   {
     $params = array('folderId' => $folderId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('insert', array($params), "Google_Service_Drive_ChildReference");
+    $primaryPath = $this->servicePath;
+    $this->servicePath = 'upload/' . $this->servicePath;
+    $result = $this->call('insert', array($params), "Google_Service_Drive_ChildReference");
+    $this->servicePath = $primaryPath;
+    return $result;
   }
 
   /**
