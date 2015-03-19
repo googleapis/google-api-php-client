@@ -1117,7 +1117,7 @@ class Google_Service_Genomics_Datasets_Resource extends Google_Service_Resource
   }
 
   /**
-   * Lists all datasets. (datasets.listDatasets)
+   * Lists datasets within a project. (datasets.listDatasets)
    *
    * @param array $optParams Optional parameters.
    *
@@ -1126,7 +1126,7 @@ class Google_Service_Genomics_Datasets_Resource extends Google_Service_Resource
    * parameter to the value of nextPageToken from the previous response.
    * @opt_param string projectNumber The project to list datasets for.
    * @opt_param int pageSize The maximum number of results returned by this
-   * request.
+   * request. If unspecified, defaults to 50.
    * @return Google_Service_Genomics_ListDatasetsResponse
    */
   public function listDatasets($optParams = array())
