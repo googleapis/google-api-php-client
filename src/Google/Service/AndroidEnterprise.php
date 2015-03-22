@@ -24,7 +24,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/play/enterprise" target="_blank">Documentation</a>
+ * <a href="" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
