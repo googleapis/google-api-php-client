@@ -800,7 +800,7 @@ class Google_Service_Genomics_AnnotationSets_Resource extends Google_Service_Res
   }
 
   /**
-   * Searches for annotation sets which match the given criteria. Results are
+   * Searches for annotation sets that match the given criteria. Results are
    * returned in a deterministic order. Caller must have READ permission for the
    * queried datasets. (annotationSets.search)
    *
@@ -931,10 +931,10 @@ class Google_Service_Genomics_Annotations_Resource extends Google_Service_Resour
   }
 
   /**
-   * Searches for annotations which match the given criteria. Results are returned
-   * ordered by start position. Annotations which have matching start positions
-   * are ordered deterministically. Caller must have READ permission for the
-   * queried annotation sets. (annotations.search)
+   * Searches for annotations that match the given criteria. Results are returned
+   * ordered by start position. Annotations that have matching start positions are
+   * ordered deterministically. Caller must have READ permission for the queried
+   * annotation sets. (annotations.search)
    *
    * @param Google_SearchAnnotationsRequest $postBody
    * @param array $optParams Optional parameters.
