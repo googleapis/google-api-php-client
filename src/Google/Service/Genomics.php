@@ -55,6 +55,7 @@ class Google_Service_Genomics extends Google_Service
   public $references;
   public $references_bases;
   public $referencesets;
+  public $streamingVariantStore;
   public $variants;
   public $variantsets;
   
@@ -584,6 +585,20 @@ class Google_Service_Genomics extends Google_Service
               ),
             ),'search' => array(
               'path' => 'referencesets/search',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),
+          )
+        )
+    );
+    $this->streamingVariantStore = new Google_Service_Genomics_StreamingVariantStore_Resource(
+        $this,
+        $this->serviceName,
+        'streamingVariantStore',
+        array(
+          'methods' => array(
+            'streamvariants' => array(
+              'path' => 'streamingVariantStore/streamvariants',
               'httpMethod' => 'POST',
               'parameters' => array(),
             ),
@@ -1656,6 +1671,33 @@ class Google_Service_Genomics_Referencesets_Resource extends Google_Service_Reso
     $params = array('postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('search', array($params), "Google_Service_Genomics_SearchReferenceSetsResponse");
+  }
+}
+
+/**
+ * The "streamingVariantStore" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $genomicsService = new Google_Service_Genomics(...);
+ *   $streamingVariantStore = $genomicsService->streamingVariantStore;
+ *  </code>
+ */
+class Google_Service_Genomics_StreamingVariantStore_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Returns a stream of all the variants matching the search request, ordered by
+   * reference name, position, and ID. (streamingVariantStore.streamvariants)
+   *
+   * @param Google_StreamVariantsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Genomics_Variant
+   */
+  public function streamvariants(Google_Service_Genomics_StreamVariantsRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('streamvariants', array($params), "Google_Service_Genomics_Variant");
   }
 }
 
@@ -4995,6 +5037,60 @@ class Google_Service_Genomics_SearchVariantsResponse extends Google_Collection
   public function getVariants()
   {
     return $this->variants;
+  }
+}
+
+class Google_Service_Genomics_StreamVariantsRequest extends Google_Collection
+{
+  protected $collection_key = 'variantSetIds';
+  protected $internal_gapi_mappings = array(
+  );
+  public $callSetIds;
+  public $end;
+  public $referenceName;
+  public $start;
+  public $variantSetIds;
+
+
+  public function setCallSetIds($callSetIds)
+  {
+    $this->callSetIds = $callSetIds;
+  }
+  public function getCallSetIds()
+  {
+    return $this->callSetIds;
+  }
+  public function setEnd($end)
+  {
+    $this->end = $end;
+  }
+  public function getEnd()
+  {
+    return $this->end;
+  }
+  public function setReferenceName($referenceName)
+  {
+    $this->referenceName = $referenceName;
+  }
+  public function getReferenceName()
+  {
+    return $this->referenceName;
+  }
+  public function setStart($start)
+  {
+    $this->start = $start;
+  }
+  public function getStart()
+  {
+    return $this->start;
+  }
+  public function setVariantSetIds($variantSetIds)
+  {
+    $this->variantSetIds = $variantSetIds;
+  }
+  public function getVariantSetIds()
+  {
+    return $this->variantSetIds;
   }
 }
 
