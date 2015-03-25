@@ -931,6 +931,68 @@ class Google_Service_Bigquery_Tables_Resource extends Google_Service_Resource
 
 
 
+class Google_Service_Bigquery_CsvOptions extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $allowJaggedRows;
+  public $allowQuotedNewlines;
+  public $encoding;
+  public $fieldDelimiter;
+  public $quote;
+  public $skipLeadingRows;
+
+
+  public function setAllowJaggedRows($allowJaggedRows)
+  {
+    $this->allowJaggedRows = $allowJaggedRows;
+  }
+  public function getAllowJaggedRows()
+  {
+    return $this->allowJaggedRows;
+  }
+  public function setAllowQuotedNewlines($allowQuotedNewlines)
+  {
+    $this->allowQuotedNewlines = $allowQuotedNewlines;
+  }
+  public function getAllowQuotedNewlines()
+  {
+    return $this->allowQuotedNewlines;
+  }
+  public function setEncoding($encoding)
+  {
+    $this->encoding = $encoding;
+  }
+  public function getEncoding()
+  {
+    return $this->encoding;
+  }
+  public function setFieldDelimiter($fieldDelimiter)
+  {
+    $this->fieldDelimiter = $fieldDelimiter;
+  }
+  public function getFieldDelimiter()
+  {
+    return $this->fieldDelimiter;
+  }
+  public function setQuote($quote)
+  {
+    $this->quote = $quote;
+  }
+  public function getQuote()
+  {
+    return $this->quote;
+  }
+  public function setSkipLeadingRows($skipLeadingRows)
+  {
+    $this->skipLeadingRows = $skipLeadingRows;
+  }
+  public function getSkipLeadingRows()
+  {
+    return $this->skipLeadingRows;
+  }
+}
+
 class Google_Service_Bigquery_Dataset extends Google_Collection
 {
   protected $collection_key = 'access';
@@ -941,6 +1003,7 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   public $creationTime;
   protected $datasetReferenceType = 'Google_Service_Bigquery_DatasetReference';
   protected $datasetReferenceDataType = '';
+  public $defaultTableExpirationMs;
   public $description;
   public $etag;
   public $friendlyName;
@@ -973,6 +1036,14 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   public function getDatasetReference()
   {
     return $this->datasetReference;
+  }
+  public function setDefaultTableExpirationMs($defaultTableExpirationMs)
+  {
+    $this->defaultTableExpirationMs = $defaultTableExpirationMs;
+  }
+  public function getDefaultTableExpirationMs()
+  {
+    return $this->defaultTableExpirationMs;
   }
   public function setDescription($description)
   {
@@ -1253,6 +1324,80 @@ class Google_Service_Bigquery_ErrorProto extends Google_Model
   public function getReason()
   {
     return $this->reason;
+  }
+}
+
+class Google_Service_Bigquery_ExternalDataConfiguration extends Google_Collection
+{
+  protected $collection_key = 'sourceUris';
+  protected $internal_gapi_mappings = array(
+  );
+  public $compression;
+  protected $csvOptionsType = 'Google_Service_Bigquery_CsvOptions';
+  protected $csvOptionsDataType = '';
+  public $ignoreUnknownValues;
+  public $maxBadRecords;
+  protected $schemaType = 'Google_Service_Bigquery_TableSchema';
+  protected $schemaDataType = '';
+  public $sourceFormat;
+  public $sourceUris;
+
+
+  public function setCompression($compression)
+  {
+    $this->compression = $compression;
+  }
+  public function getCompression()
+  {
+    return $this->compression;
+  }
+  public function setCsvOptions(Google_Service_Bigquery_CsvOptions $csvOptions)
+  {
+    $this->csvOptions = $csvOptions;
+  }
+  public function getCsvOptions()
+  {
+    return $this->csvOptions;
+  }
+  public function setIgnoreUnknownValues($ignoreUnknownValues)
+  {
+    $this->ignoreUnknownValues = $ignoreUnknownValues;
+  }
+  public function getIgnoreUnknownValues()
+  {
+    return $this->ignoreUnknownValues;
+  }
+  public function setMaxBadRecords($maxBadRecords)
+  {
+    $this->maxBadRecords = $maxBadRecords;
+  }
+  public function getMaxBadRecords()
+  {
+    return $this->maxBadRecords;
+  }
+  public function setSchema(Google_Service_Bigquery_TableSchema $schema)
+  {
+    $this->schema = $schema;
+  }
+  public function getSchema()
+  {
+    return $this->schema;
+  }
+  public function setSourceFormat($sourceFormat)
+  {
+    $this->sourceFormat = $sourceFormat;
+  }
+  public function getSourceFormat()
+  {
+    return $this->sourceFormat;
+  }
+  public function setSourceUris($sourceUris)
+  {
+    $this->sourceUris = $sourceUris;
+  }
+  public function getSourceUris()
+  {
+    return $this->sourceUris;
   }
 }
 
@@ -1816,6 +1961,8 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   public $preserveNulls;
   public $priority;
   public $query;
+  protected $tableDefinitionsType = 'Google_Service_Bigquery_ExternalDataConfiguration';
+  protected $tableDefinitionsDataType = 'map';
   public $useQueryCache;
   public $writeDisposition;
 
@@ -1884,6 +2031,14 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   {
     return $this->query;
   }
+  public function setTableDefinitions($tableDefinitions)
+  {
+    $this->tableDefinitions = $tableDefinitions;
+  }
+  public function getTableDefinitions()
+  {
+    return $this->tableDefinitions;
+  }
   public function setUseQueryCache($useQueryCache)
   {
     $this->useQueryCache = $useQueryCache;
@@ -1900,6 +2055,10 @@ class Google_Service_Bigquery_JobConfigurationQuery extends Google_Model
   {
     return $this->writeDisposition;
   }
+}
+
+class Google_Service_Bigquery_JobConfigurationQueryTableDefinitions extends Google_Model
+{
 }
 
 class Google_Service_Bigquery_JobConfigurationTableCopy extends Google_Collection
