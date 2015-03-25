@@ -392,7 +392,7 @@ class Google_Service_Doubleclicksearch_Reports_Resource extends Google_Service_R
   }
 
   /**
-   * Downloads a report file. (reports.getFile)
+   * Downloads a report file encoded in UTF-8. (reports.getFile)
    *
    * @param string $reportId ID of the report.
    * @param int $reportFragment The index of the report fragment to download.
