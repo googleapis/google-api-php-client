@@ -73,7 +73,9 @@ class Google_Service_Compute extends Google_Service
   public $targetHttpProxies;
   public $targetInstances;
   public $targetPools;
+  public $targetVpnGateways;
   public $urlMaps;
+  public $vpnTunnels;
   public $zoneOperations;
   public $zones;
   
@@ -2595,6 +2597,120 @@ class Google_Service_Compute extends Google_Service
           )
         )
     );
+    $this->targetVpnGateways = new Google_Service_Compute_TargetVpnGateways_Resource(
+        $this,
+        $this->serviceName,
+        'targetVpnGateways',
+        array(
+          'methods' => array(
+            'aggregatedList' => array(
+              'path' => '{project}/aggregated/targetVpnGateways',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'delete' => array(
+              'path' => '{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'targetVpnGateway' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => '{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'targetVpnGateway' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => '{project}/regions/{region}/targetVpnGateways',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{project}/regions/{region}/targetVpnGateways',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->urlMaps = new Google_Service_Compute_UrlMaps_Resource(
         $this,
         $this->serviceName,
@@ -2706,6 +2822,120 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->vpnTunnels = new Google_Service_Compute_VpnTunnels_Resource(
+        $this,
+        $this->serviceName,
+        'vpnTunnels',
+        array(
+          'methods' => array(
+            'aggregatedList' => array(
+              'path' => '{project}/aggregated/vpnTunnels',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'delete' => array(
+              'path' => '{project}/regions/{region}/vpnTunnels/{vpnTunnel}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'vpnTunnel' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => '{project}/regions/{region}/vpnTunnels/{vpnTunnel}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'vpnTunnel' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => '{project}/regions/{region}/vpnTunnels',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{project}/regions/{region}/vpnTunnels',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -5355,6 +5585,114 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
 }
 
 /**
+ * The "targetVpnGateways" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $targetVpnGateways = $computeService->targetVpnGateways;
+ *  </code>
+ */
+class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Retrieves the list of target VPN gateways grouped by scope.
+   * (targetVpnGateways.aggregatedList)
+   *
+   * @param string $project Project ID for this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Optional. Filter expression for filtering listed
+   * resources.
+   * @opt_param string pageToken Optional. Tag returned by a previous list request
+   * truncated by maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Optional. Maximum count of results to be
+   * returned. Maximum value is 500 and default value is 500.
+   * @return Google_Service_Compute_TargetVpnGatewayAggregatedList
+   */
+  public function aggregatedList($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('aggregatedList', array($params), "Google_Service_Compute_TargetVpnGatewayAggregatedList");
+  }
+
+  /**
+   * Deletes the specified TargetVpnGateway resource. (targetVpnGateways.delete)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $region The name of the region for this request.
+   * @param string $targetVpnGateway Name of the TargetVpnGateway resource to
+   * delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function delete($project, $region, $targetVpnGateway, $optParams = array())
+  {
+    $params = array('project' => $project, 'region' => $region, 'targetVpnGateway' => $targetVpnGateway);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Returns the specified TargetVpnGateway resource. (targetVpnGateways.get)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $region The name of the region for this request.
+   * @param string $targetVpnGateway Name of the TargetVpnGateway resource to
+   * return.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_TargetVpnGateway
+   */
+  public function get($project, $region, $targetVpnGateway, $optParams = array())
+  {
+    $params = array('project' => $project, 'region' => $region, 'targetVpnGateway' => $targetVpnGateway);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_TargetVpnGateway");
+  }
+
+  /**
+   * Creates a TargetVpnGateway resource in the specified project and region using
+   * the data included in the request. (targetVpnGateways.insert)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $region The name of the region for this request.
+   * @param Google_TargetVpnGateway $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function insert($project, $region, Google_Service_Compute_TargetVpnGateway $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'region' => $region, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Retrieves the list of TargetVpnGateway resources available to the specified
+   * project and region. (targetVpnGateways.listTargetVpnGateways)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $region The name of the region for this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Optional. Filter expression for filtering listed
+   * resources.
+   * @opt_param string pageToken Optional. Tag returned by a previous list request
+   * truncated by maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Optional. Maximum count of results to be
+   * returned. Maximum value is 500 and default value is 500.
+   * @return Google_Service_Compute_TargetVpnGatewayList
+   */
+  public function listTargetVpnGateways($project, $region, $optParams = array())
+  {
+    $params = array('project' => $project, 'region' => $region);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Compute_TargetVpnGatewayList");
+  }
+}
+
+/**
  * The "urlMaps" collection of methods.
  * Typical usage is:
  *  <code>
@@ -5482,6 +5820,112 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
     $params = array('project' => $project, 'urlMap' => $urlMap, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('validate', array($params), "Google_Service_Compute_UrlMapsValidateResponse");
+  }
+}
+
+/**
+ * The "vpnTunnels" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $vpnTunnels = $computeService->vpnTunnels;
+ *  </code>
+ */
+class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Retrieves the list of VPN tunnels grouped by scope.
+   * (vpnTunnels.aggregatedList)
+   *
+   * @param string $project Project ID for this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Optional. Filter expression for filtering listed
+   * resources.
+   * @opt_param string pageToken Optional. Tag returned by a previous list request
+   * truncated by maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Optional. Maximum count of results to be
+   * returned. Maximum value is 500 and default value is 500.
+   * @return Google_Service_Compute_VpnTunnelAggregatedList
+   */
+  public function aggregatedList($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('aggregatedList', array($params), "Google_Service_Compute_VpnTunnelAggregatedList");
+  }
+
+  /**
+   * Deletes the specified VpnTunnel resource. (vpnTunnels.delete)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $region The name of the region for this request.
+   * @param string $vpnTunnel Name of the VpnTunnel resource to delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function delete($project, $region, $vpnTunnel, $optParams = array())
+  {
+    $params = array('project' => $project, 'region' => $region, 'vpnTunnel' => $vpnTunnel);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Returns the specified VpnTunnel resource. (vpnTunnels.get)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $region The name of the region for this request.
+   * @param string $vpnTunnel Name of the VpnTunnel resource to return.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_VpnTunnel
+   */
+  public function get($project, $region, $vpnTunnel, $optParams = array())
+  {
+    $params = array('project' => $project, 'region' => $region, 'vpnTunnel' => $vpnTunnel);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_VpnTunnel");
+  }
+
+  /**
+   * Creates a VpnTunnel resource in the specified project and region using the
+   * data included in the request. (vpnTunnels.insert)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $region The name of the region for this request.
+   * @param Google_VpnTunnel $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function insert($project, $region, Google_Service_Compute_VpnTunnel $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'region' => $region, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Retrieves the list of VpnTunnel resources contained in the specified project
+   * and region. (vpnTunnels.listVpnTunnels)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $region The name of the region for this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Optional. Filter expression for filtering listed
+   * resources.
+   * @opt_param string pageToken Optional. Tag returned by a previous list request
+   * truncated by maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Optional. Maximum count of results to be
+   * returned. Maximum value is 500 and default value is 500.
+   * @return Google_Service_Compute_VpnTunnelList
+   */
+  public function listVpnTunnels($project, $region, $optParams = array())
+  {
+    $params = array('project' => $project, 'region' => $region);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Compute_VpnTunnelList");
   }
 }
 
@@ -8153,6 +8597,7 @@ class Google_Service_Compute_Instance extends Google_Collection
   protected $internal_gapi_mappings = array(
   );
   public $canIpForward;
+  public $cpuPlatform;
   public $creationTimestamp;
   public $description;
   protected $disksType = 'Google_Service_Compute_AttachedDisk';
@@ -8184,6 +8629,14 @@ class Google_Service_Compute_Instance extends Google_Collection
   public function getCanIpForward()
   {
     return $this->canIpForward;
+  }
+  public function setCpuPlatform($cpuPlatform)
+  {
+    $this->cpuPlatform = $cpuPlatform;
+  }
+  public function getCpuPlatform()
+  {
+    return $this->cpuPlatform;
   }
   public function setCreationTimestamp($creationTimestamp)
   {
@@ -11761,6 +12214,319 @@ class Google_Service_Compute_TargetReference extends Google_Model
   }
 }
 
+class Google_Service_Compute_TargetVpnGateway extends Google_Collection
+{
+  protected $collection_key = 'tunnels';
+  protected $internal_gapi_mappings = array(
+  );
+  public $creationTimestamp;
+  public $description;
+  public $forwardingRules;
+  public $id;
+  public $kind;
+  public $name;
+  public $network;
+  public $region;
+  public $selfLink;
+  public $status;
+  public $tunnels;
+
+
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setForwardingRules($forwardingRules)
+  {
+    $this->forwardingRules = $forwardingRules;
+  }
+  public function getForwardingRules()
+  {
+    return $this->forwardingRules;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setNetwork($network)
+  {
+    $this->network = $network;
+  }
+  public function getNetwork()
+  {
+    return $this->network;
+  }
+  public function setRegion($region)
+  {
+    $this->region = $region;
+  }
+  public function getRegion()
+  {
+    return $this->region;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
+  }
+  public function setTunnels($tunnels)
+  {
+    $this->tunnels = $tunnels;
+  }
+  public function getTunnels()
+  {
+    return $this->tunnels;
+  }
+}
+
+class Google_Service_Compute_TargetVpnGatewayAggregatedList extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_TargetVpnGatewaysScopedList';
+  protected $itemsDataType = 'map';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_TargetVpnGatewayAggregatedListItems extends Google_Model
+{
+}
+
+class Google_Service_Compute_TargetVpnGatewayList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_TargetVpnGateway';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_TargetVpnGatewaysScopedList extends Google_Collection
+{
+  protected $collection_key = 'targetVpnGateways';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $targetVpnGatewaysType = 'Google_Service_Compute_TargetVpnGateway';
+  protected $targetVpnGatewaysDataType = 'array';
+  protected $warningType = 'Google_Service_Compute_TargetVpnGatewaysScopedListWarning';
+  protected $warningDataType = '';
+
+
+  public function setTargetVpnGateways($targetVpnGateways)
+  {
+    $this->targetVpnGateways = $targetVpnGateways;
+  }
+  public function getTargetVpnGateways()
+  {
+    return $this->targetVpnGateways;
+  }
+  public function setWarning(Google_Service_Compute_TargetVpnGatewaysScopedListWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+  public function getWarning()
+  {
+    return $this->warning;
+  }
+}
+
+class Google_Service_Compute_TargetVpnGatewaysScopedListWarning extends Google_Collection
+{
+  protected $collection_key = 'data';
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  protected $dataType = 'Google_Service_Compute_TargetVpnGatewaysScopedListWarningData';
+  protected $dataDataType = 'array';
+  public $message;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setData($data)
+  {
+    $this->data = $data;
+  }
+  public function getData()
+  {
+    return $this->data;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Compute_TargetVpnGatewaysScopedListWarningData extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $key;
+  public $value;
+
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+  public function getKey()
+  {
+    return $this->key;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
 class Google_Service_Compute_TestFailure extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -12137,6 +12903,355 @@ class Google_Service_Compute_UsageExportLocation extends Google_Model
   public function getReportNamePrefix()
   {
     return $this->reportNamePrefix;
+  }
+}
+
+class Google_Service_Compute_VpnTunnel extends Google_Collection
+{
+  protected $collection_key = 'ikeNetworks';
+  protected $internal_gapi_mappings = array(
+  );
+  public $creationTimestamp;
+  public $description;
+  public $detailedStatus;
+  public $id;
+  public $ikeNetworks;
+  public $ikeVersion;
+  public $kind;
+  public $name;
+  public $peerIp;
+  public $region;
+  public $selfLink;
+  public $sharedSecret;
+  public $sharedSecretHash;
+  public $status;
+  public $targetVpnGateway;
+
+
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setDetailedStatus($detailedStatus)
+  {
+    $this->detailedStatus = $detailedStatus;
+  }
+  public function getDetailedStatus()
+  {
+    return $this->detailedStatus;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setIkeNetworks($ikeNetworks)
+  {
+    $this->ikeNetworks = $ikeNetworks;
+  }
+  public function getIkeNetworks()
+  {
+    return $this->ikeNetworks;
+  }
+  public function setIkeVersion($ikeVersion)
+  {
+    $this->ikeVersion = $ikeVersion;
+  }
+  public function getIkeVersion()
+  {
+    return $this->ikeVersion;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setPeerIp($peerIp)
+  {
+    $this->peerIp = $peerIp;
+  }
+  public function getPeerIp()
+  {
+    return $this->peerIp;
+  }
+  public function setRegion($region)
+  {
+    $this->region = $region;
+  }
+  public function getRegion()
+  {
+    return $this->region;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+  public function setSharedSecret($sharedSecret)
+  {
+    $this->sharedSecret = $sharedSecret;
+  }
+  public function getSharedSecret()
+  {
+    return $this->sharedSecret;
+  }
+  public function setSharedSecretHash($sharedSecretHash)
+  {
+    $this->sharedSecretHash = $sharedSecretHash;
+  }
+  public function getSharedSecretHash()
+  {
+    return $this->sharedSecretHash;
+  }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
+  }
+  public function setTargetVpnGateway($targetVpnGateway)
+  {
+    $this->targetVpnGateway = $targetVpnGateway;
+  }
+  public function getTargetVpnGateway()
+  {
+    return $this->targetVpnGateway;
+  }
+}
+
+class Google_Service_Compute_VpnTunnelAggregatedList extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_VpnTunnelsScopedList';
+  protected $itemsDataType = 'map';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_VpnTunnelAggregatedListItems extends Google_Model
+{
+}
+
+class Google_Service_Compute_VpnTunnelList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_VpnTunnel';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_VpnTunnelsScopedList extends Google_Collection
+{
+  protected $collection_key = 'vpnTunnels';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $vpnTunnelsType = 'Google_Service_Compute_VpnTunnel';
+  protected $vpnTunnelsDataType = 'array';
+  protected $warningType = 'Google_Service_Compute_VpnTunnelsScopedListWarning';
+  protected $warningDataType = '';
+
+
+  public function setVpnTunnels($vpnTunnels)
+  {
+    $this->vpnTunnels = $vpnTunnels;
+  }
+  public function getVpnTunnels()
+  {
+    return $this->vpnTunnels;
+  }
+  public function setWarning(Google_Service_Compute_VpnTunnelsScopedListWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+  public function getWarning()
+  {
+    return $this->warning;
+  }
+}
+
+class Google_Service_Compute_VpnTunnelsScopedListWarning extends Google_Collection
+{
+  protected $collection_key = 'data';
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  protected $dataType = 'Google_Service_Compute_VpnTunnelsScopedListWarningData';
+  protected $dataDataType = 'array';
+  public $message;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setData($data)
+  {
+    $this->data = $data;
+  }
+  public function getData()
+  {
+    return $this->data;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Compute_VpnTunnelsScopedListWarningData extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $key;
+  public $value;
+
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+  public function getKey()
+  {
+    return $this->key;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
   }
 }
 
