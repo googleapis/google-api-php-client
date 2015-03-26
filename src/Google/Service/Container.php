@@ -457,6 +457,7 @@ class Google_Service_Container_Cluster extends Google_Model
   public $containerIpv4Cidr;
   public $creationTimestamp;
   public $description;
+  public $enableCloudLogging;
   public $endpoint;
   protected $masterAuthType = 'Google_Service_Container_MasterAuth';
   protected $masterAuthDataType = '';
@@ -504,6 +505,14 @@ class Google_Service_Container_Cluster extends Google_Model
   public function getDescription()
   {
     return $this->description;
+  }
+  public function setEnableCloudLogging($enableCloudLogging)
+  {
+    $this->enableCloudLogging = $enableCloudLogging;
+  }
+  public function getEnableCloudLogging()
+  {
+    return $this->enableCloudLogging;
   }
   public function setEndpoint($endpoint)
   {
