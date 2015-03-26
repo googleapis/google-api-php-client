@@ -1865,8 +1865,12 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   public $masterInstanceName;
   public $maxDiskSize;
   public $name;
+  protected $onPremisesConfigurationType = 'Google_Service_SQLAdmin_OnPremisesConfiguration';
+  protected $onPremisesConfigurationDataType = '';
   public $project;
   public $region;
+  protected $replicaConfigurationType = 'Google_Service_SQLAdmin_ReplicaConfiguration';
+  protected $replicaConfigurationDataType = '';
   public $replicaNames;
   public $selfLink;
   protected $serverCaCertType = 'Google_Service_SQLAdmin_SslCert';
@@ -1957,6 +1961,14 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   {
     return $this->name;
   }
+  public function setOnPremisesConfiguration(Google_Service_SQLAdmin_OnPremisesConfiguration $onPremisesConfiguration)
+  {
+    $this->onPremisesConfiguration = $onPremisesConfiguration;
+  }
+  public function getOnPremisesConfiguration()
+  {
+    return $this->onPremisesConfiguration;
+  }
   public function setProject($project)
   {
     $this->project = $project;
@@ -1972,6 +1984,14 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   public function getRegion()
   {
     return $this->region;
+  }
+  public function setReplicaConfiguration(Google_Service_SQLAdmin_ReplicaConfiguration $replicaConfiguration)
+  {
+    $this->replicaConfiguration = $replicaConfiguration;
+  }
+  public function getReplicaConfiguration()
+  {
+    return $this->replicaConfiguration;
   }
   public function setReplicaNames($replicaNames)
   {
@@ -2539,6 +2559,139 @@ class Google_Service_SQLAdmin_LocationPreference extends Google_Model
   }
 }
 
+class Google_Service_SQLAdmin_MySqlReplicaConfiguration extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $caCertificate;
+  public $clientCertificate;
+  public $clientKey;
+  public $connectRetryInterval;
+  public $dumpFilePath;
+  public $kind;
+  public $masterHeartbeatPeriod;
+  public $password;
+  public $sslCipher;
+  public $username;
+  public $verifyServerCertificate;
+
+
+  public function setCaCertificate($caCertificate)
+  {
+    $this->caCertificate = $caCertificate;
+  }
+  public function getCaCertificate()
+  {
+    return $this->caCertificate;
+  }
+  public function setClientCertificate($clientCertificate)
+  {
+    $this->clientCertificate = $clientCertificate;
+  }
+  public function getClientCertificate()
+  {
+    return $this->clientCertificate;
+  }
+  public function setClientKey($clientKey)
+  {
+    $this->clientKey = $clientKey;
+  }
+  public function getClientKey()
+  {
+    return $this->clientKey;
+  }
+  public function setConnectRetryInterval($connectRetryInterval)
+  {
+    $this->connectRetryInterval = $connectRetryInterval;
+  }
+  public function getConnectRetryInterval()
+  {
+    return $this->connectRetryInterval;
+  }
+  public function setDumpFilePath($dumpFilePath)
+  {
+    $this->dumpFilePath = $dumpFilePath;
+  }
+  public function getDumpFilePath()
+  {
+    return $this->dumpFilePath;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setMasterHeartbeatPeriod($masterHeartbeatPeriod)
+  {
+    $this->masterHeartbeatPeriod = $masterHeartbeatPeriod;
+  }
+  public function getMasterHeartbeatPeriod()
+  {
+    return $this->masterHeartbeatPeriod;
+  }
+  public function setPassword($password)
+  {
+    $this->password = $password;
+  }
+  public function getPassword()
+  {
+    return $this->password;
+  }
+  public function setSslCipher($sslCipher)
+  {
+    $this->sslCipher = $sslCipher;
+  }
+  public function getSslCipher()
+  {
+    return $this->sslCipher;
+  }
+  public function setUsername($username)
+  {
+    $this->username = $username;
+  }
+  public function getUsername()
+  {
+    return $this->username;
+  }
+  public function setVerifyServerCertificate($verifyServerCertificate)
+  {
+    $this->verifyServerCertificate = $verifyServerCertificate;
+  }
+  public function getVerifyServerCertificate()
+  {
+    return $this->verifyServerCertificate;
+  }
+}
+
+class Google_Service_SQLAdmin_OnPremisesConfiguration extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $hostPort;
+  public $kind;
+
+
+  public function setHostPort($hostPort)
+  {
+    $this->hostPort = $hostPort;
+  }
+  public function getHostPort()
+  {
+    return $this->hostPort;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
 class Google_Service_SQLAdmin_Operation extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -2776,6 +2929,33 @@ class Google_Service_SQLAdmin_OperationsListResponse extends Google_Collection
   }
 }
 
+class Google_Service_SQLAdmin_ReplicaConfiguration extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+  protected $mysqlReplicaConfigurationType = 'Google_Service_SQLAdmin_MySqlReplicaConfiguration';
+  protected $mysqlReplicaConfigurationDataType = '';
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setMysqlReplicaConfiguration(Google_Service_SQLAdmin_MySqlReplicaConfiguration $mysqlReplicaConfiguration)
+  {
+    $this->mysqlReplicaConfiguration = $mysqlReplicaConfiguration;
+  }
+  public function getMysqlReplicaConfiguration()
+  {
+    return $this->mysqlReplicaConfiguration;
+  }
+}
+
 class Google_Service_SQLAdmin_RestoreBackupContext extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -2811,6 +2991,7 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   public $authorizedGaeApplications;
   protected $backupConfigurationType = 'Google_Service_SQLAdmin_BackupConfiguration';
   protected $backupConfigurationDataType = '';
+  public $crashSafeReplicationEnabled;
   protected $databaseFlagsType = 'Google_Service_SQLAdmin_DatabaseFlags';
   protected $databaseFlagsDataType = 'array';
   public $databaseReplicationEnabled;
@@ -2848,6 +3029,14 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   public function getBackupConfiguration()
   {
     return $this->backupConfiguration;
+  }
+  public function setCrashSafeReplicationEnabled($crashSafeReplicationEnabled)
+  {
+    $this->crashSafeReplicationEnabled = $crashSafeReplicationEnabled;
+  }
+  public function getCrashSafeReplicationEnabled()
+  {
+    return $this->crashSafeReplicationEnabled;
   }
   public function setDatabaseFlags($databaseFlags)
   {
