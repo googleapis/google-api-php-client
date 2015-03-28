@@ -10808,6 +10808,7 @@ class Google_Service_Compute_Route extends Google_Collection
   public $nextHopInstance;
   public $nextHopIp;
   public $nextHopNetwork;
+  public $nextHopVpnTunnel;
   public $priority;
   public $selfLink;
   public $tags;
@@ -10902,6 +10903,14 @@ class Google_Service_Compute_Route extends Google_Collection
   public function getNextHopNetwork()
   {
     return $this->nextHopNetwork;
+  }
+  public function setNextHopVpnTunnel($nextHopVpnTunnel)
+  {
+    $this->nextHopVpnTunnel = $nextHopVpnTunnel;
+  }
+  public function getNextHopVpnTunnel()
+  {
+    return $this->nextHopVpnTunnel;
   }
   public function setPriority($priority)
   {
