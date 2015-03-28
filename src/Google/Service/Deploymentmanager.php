@@ -321,11 +321,11 @@ class Google_Service_Deploymentmanager_Deployments_Resource extends Google_Servi
 {
 
   /**
-   * Deletes a deployment and all of the resources in the deployment.
+   * ! Deletes a deployment and all of the resources in the deployment.
    * (deployments.delete)
    *
-   * @param string $project The project ID for this request.
-   * @param string $deployment The name of the deployment for this request.
+   * @param string $project ! The project ID for this request.
+   * @param string $deployment ! The name of the deployment for this request.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Deploymentmanager_Operation
    */
@@ -337,10 +337,10 @@ class Google_Service_Deploymentmanager_Deployments_Resource extends Google_Servi
   }
 
   /**
-   * Gets information about a specific deployment. (deployments.get)
+   * ! Gets information about a specific deployment. (deployments.get)
    *
-   * @param string $project The project ID for this request.
-   * @param string $deployment The name of the deployment for this request.
+   * @param string $project ! The project ID for this request.
+   * @param string $deployment ! The name of the deployment for this request.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Deploymentmanager_Deployment
    */
@@ -352,10 +352,10 @@ class Google_Service_Deploymentmanager_Deployments_Resource extends Google_Servi
   }
 
   /**
-   * Creates a deployment and all of the resources described by the deployment
+   * ! Creates a deployment and all of the resources described by the ! deployment
    * manifest. (deployments.insert)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project ! The project ID for this request.
    * @param Google_Deployment $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Deploymentmanager_Operation
@@ -368,16 +368,16 @@ class Google_Service_Deploymentmanager_Deployments_Resource extends Google_Servi
   }
 
   /**
-   * Lists all deployments for a given project. (deployments.listDeployments)
+   * ! Lists all deployments for a given project. (deployments.listDeployments)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project ! The project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Specifies a nextPageToken returned by a previous
-   * list request. This token can be used to request the next page of results from
-   * a previous list request.
-   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
-   * values are 0 to 100, inclusive. (Default: 50)
+   * @opt_param string pageToken ! Specifies a nextPageToken returned by a
+   * previous list request. This ! token can be used to request the next page of
+   * results from a previous ! list request.
+   * @opt_param int maxResults ! Maximum count of results to be returned. !
+   * Acceptable values are 0 to 100, inclusive. (Default: 50)
    * @return Google_Service_Deploymentmanager_DeploymentsListResponse
    */
   public function listDeployments($project, $optParams = array())
@@ -400,11 +400,11 @@ class Google_Service_Deploymentmanager_Manifests_Resource extends Google_Service
 {
 
   /**
-   * Gets information about a specific manifest. (manifests.get)
+   * ! Gets information about a specific manifest. (manifests.get)
    *
-   * @param string $project The project ID for this request.
-   * @param string $deployment The name of the deployment for this request.
-   * @param string $manifest The name of the manifest for this request.
+   * @param string $project ! The project ID for this request.
+   * @param string $deployment ! The name of the deployment for this request.
+   * @param string $manifest ! The name of the manifest for this request.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Deploymentmanager_Manifest
    */
@@ -416,17 +416,17 @@ class Google_Service_Deploymentmanager_Manifests_Resource extends Google_Service
   }
 
   /**
-   * Lists all manifests for a given deployment. (manifests.listManifests)
+   * ! Lists all manifests for a given deployment. (manifests.listManifests)
    *
-   * @param string $project The project ID for this request.
-   * @param string $deployment The name of the deployment for this request.
+   * @param string $project ! The project ID for this request.
+   * @param string $deployment ! The name of the deployment for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Specifies a nextPageToken returned by a previous
-   * list request. This token can be used to request the next page of results from
-   * a previous list request.
-   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
-   * values are 0 to 100, inclusive. (Default: 50)
+   * @opt_param string pageToken ! Specifies a nextPageToken returned by a
+   * previous list request. This ! token can be used to request the next page of
+   * results from a previous ! list request.
+   * @opt_param int maxResults ! Maximum count of results to be returned. !
+   * Acceptable values are 0 to 100, inclusive. (Default: 50)
    * @return Google_Service_Deploymentmanager_ManifestsListResponse
    */
   public function listManifests($project, $deployment, $optParams = array())
@@ -449,10 +449,10 @@ class Google_Service_Deploymentmanager_Operations_Resource extends Google_Servic
 {
 
   /**
-   * Gets information about a specific Operation. (operations.get)
+   * ! Gets information about a specific Operation. (operations.get)
    *
-   * @param string $project The project ID for this request.
-   * @param string $operation The name of the operation for this request.
+   * @param string $project ! The project ID for this request.
+   * @param string $operation ! The name of the operation for this request.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Deploymentmanager_Operation
    */
@@ -464,16 +464,16 @@ class Google_Service_Deploymentmanager_Operations_Resource extends Google_Servic
   }
 
   /**
-   * Lists all Operations for a project. (operations.listOperations)
+   * ! Lists all Operations for a project. (operations.listOperations)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project ! The project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Specifies a nextPageToken returned by a previous
-   * list request. This token can be used to request the next page of results from
-   * a previous list request.
-   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
-   * values are 0 to 100, inclusive. (Default: 50)
+   * @opt_param string pageToken ! Specifies a nextPageToken returned by a
+   * previous list request. This ! token can be used to request the next page of
+   * results from a previous ! list request.
+   * @opt_param int maxResults ! Maximum count of results to be returned. !
+   * Acceptable values are 0 to 100, inclusive. (Default: 50)
    * @return Google_Service_Deploymentmanager_OperationsListResponse
    */
   public function listOperations($project, $optParams = array())
@@ -496,11 +496,11 @@ class Google_Service_Deploymentmanager_Resources_Resource extends Google_Service
 {
 
   /**
-   * Gets information about a single resource. (resources.get)
+   * ! Gets information about a single resource. (resources.get)
    *
-   * @param string $project The project ID for this request.
-   * @param string $deployment The name of the deployment for this request.
-   * @param string $resource The name of the resource for this request.
+   * @param string $project ! The project ID for this request.
+   * @param string $deployment ! The name of the deployment for this request.
+   * @param string $resource ! The name of the resource for this request.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Deploymentmanager_DeploymentmanagerResource
    */
@@ -512,17 +512,17 @@ class Google_Service_Deploymentmanager_Resources_Resource extends Google_Service
   }
 
   /**
-   * Lists all resources in a given deployment. (resources.listResources)
+   * ! Lists all resources in a given deployment. (resources.listResources)
    *
-   * @param string $project The project ID for this request.
-   * @param string $deployment The name of the deployment for this request.
+   * @param string $project ! The project ID for this request.
+   * @param string $deployment ! The name of the deployment for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Specifies a nextPageToken returned by a previous
-   * list request. This token can be used to request the next page of results from
-   * a previous list request.
-   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
-   * values are 0 to 100, inclusive. (Default: 50)
+   * @opt_param string pageToken ! Specifies a nextPageToken returned by a
+   * previous list request. This ! token can be used to request the next page of
+   * results from a previous ! list request.
+   * @opt_param int maxResults ! Maximum count of results to be returned. !
+   * Acceptable values are 0 to 100, inclusive. (Default: 50)
    * @return Google_Service_Deploymentmanager_ResourcesListResponse
    */
   public function listResources($project, $deployment, $optParams = array())
@@ -545,16 +545,16 @@ class Google_Service_Deploymentmanager_Types_Resource extends Google_Service_Res
 {
 
   /**
-   * Lists all Types for Deployment Manager. (types.listTypes)
+   * ! Lists all Types for Deployment Manager. (types.listTypes)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project ! The project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Specifies a nextPageToken returned by a previous
-   * list request. This token can be used to request the next page of results from
-   * a previous list request.
-   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
-   * values are 0 to 100, inclusive. (Default: 50)
+   * @opt_param string pageToken ! Specifies a nextPageToken returned by a
+   * previous list request. This ! token can be used to request the next page of
+   * results from a previous ! list request.
+   * @opt_param int maxResults ! Maximum count of results to be returned. !
+   * Acceptable values are 0 to 100, inclusive. (Default: 50)
    * @return Google_Service_Deploymentmanager_TypesListResponse
    */
   public function listTypes($project, $optParams = array())
