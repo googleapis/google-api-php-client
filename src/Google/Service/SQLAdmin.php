@@ -2838,25 +2838,6 @@ class Google_Service_SQLAdmin_Operation extends Google_Model
   }
 }
 
-class Google_Service_SQLAdmin_OperationError extends Google_Collection
-{
-  protected $collection_key = 'errors';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $errorsType = 'Google_Service_SQLAdmin_OperationError';
-  protected $errorsDataType = 'array';
-
-
-  public function setErrors($errors)
-  {
-    $this->errors = $errors;
-  }
-  public function getErrors()
-  {
-    return $this->errors;
-  }
-}
-
 class Google_Service_SQLAdmin_OperationError extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -2889,6 +2870,25 @@ class Google_Service_SQLAdmin_OperationError extends Google_Model
   public function getMessage()
   {
     return $this->message;
+  }
+}
+
+class Google_Service_SQLAdmin_OperationError extends Google_Collection
+{
+  protected $collection_key = 'errors';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $errorsType = 'Google_Service_SQLAdmin_OperationError';
+  protected $errorsDataType = 'array';
+
+
+  public function setErrors($errors)
+  {
+    $this->errors = $errors;
+  }
+  public function getErrors()
+  {
+    return $this->errors;
   }
 }
 
