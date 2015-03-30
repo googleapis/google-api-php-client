@@ -19,8 +19,8 @@
  * Service definition for Logging (v1beta3).
  *
  * <p>
- * Google Cloud Logging API lets you manage logs, ingest and retrieve log
- * entries within a log, and manage log sinks and metrics.</p>
+ * Google Cloud Logging API lets you create logs, ingest log entries, and manage
+ * log sinks.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -35,14 +35,12 @@ class Google_Service_Logging extends Google_Service
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
 
-  public $projects_logEntries;
   public $projects_logServices;
   public $projects_logServices_indexes;
   public $projects_logServices_sinks;
   public $projects_logs;
   public $projects_logs_entries;
   public $projects_logs_sinks;
-  public $projects_metrics;
   
 
   /**
@@ -57,42 +55,6 @@ class Google_Service_Logging extends Google_Service
     $this->version = 'v1beta3';
     $this->serviceName = 'logging';
 
-    $this->projects_logEntries = new Google_Service_Logging_ProjectsLogEntries_Resource(
-        $this,
-        $this->serviceName,
-        'logEntries',
-        array(
-          'methods' => array(
-            'list' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logEntries',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'projectsId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'orderBy' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),
-          )
-        )
-    );
     $this->projects_logServices = new Google_Service_Logging_ProjectsLogServices_Resource(
         $this,
         $this->serviceName,
@@ -108,6 +70,10 @@ class Google_Service_Logging extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'log' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -115,10 +81,6 @@ class Google_Service_Logging extends Google_Service
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),
@@ -145,14 +107,6 @@ class Google_Service_Logging extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'indexPrefix' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'depth' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'log' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -162,6 +116,14 @@ class Google_Service_Logging extends Google_Service
                   'type' => 'integer',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'depth' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'indexPrefix' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -300,6 +262,10 @@ class Google_Service_Logging extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'serviceName' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -311,10 +277,6 @@ class Google_Service_Logging extends Google_Service
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),
@@ -446,89 +408,6 @@ class Google_Service_Logging extends Google_Service
           )
         )
     );
-    $this->projects_metrics = new Google_Service_Logging_ProjectsMetrics_Resource(
-        $this,
-        $this->serviceName,
-        'metrics',
-        array(
-          'methods' => array(
-            'create' => array(
-              'path' => 'v1beta3/projects/{projectsId}/metrics',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'projectsId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'delete' => array(
-              'path' => 'v1beta3/projects/{projectsId}/metrics/{metricsId}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'projectsId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'metricsId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'get' => array(
-              'path' => 'v1beta3/projects/{projectsId}/metrics/{metricsId}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'projectsId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'metricsId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v1beta3/projects/{projectsId}/metrics',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'projectsId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-              ),
-            ),'update' => array(
-              'path' => 'v1beta3/projects/{projectsId}/metrics/{metricsId}',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'projectsId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'metricsId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),
-          )
-        )
-    );
   }
 }
 
@@ -546,46 +425,6 @@ class Google_Service_Logging_Projects_Resource extends Google_Service_Resource
 }
 
 /**
- * The "logEntries" collection of methods.
- * Typical usage is:
- *  <code>
- *   $loggingService = new Google_Service_Logging(...);
- *   $logEntries = $loggingService->logEntries;
- *  </code>
- */
-class Google_Service_Logging_ProjectsLogEntries_Resource extends Google_Service_Resource
-{
-
-  /**
-   * Lists log entries in the specified project.
-   * (logEntries.listProjectsLogEntries)
-   *
-   * @param string $projectsId Part of `projectName`. The project resource from
-   * which to retrieve log entries, for example: "projects/my_project_id".
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string filter Filter specification. Response includes only entries
-   * which are selected by this filter. If empty, response is unfiltered.
-   * @opt_param string orderBy Sort order. The only LogEntry field supported for
-   * sorting is metadata.timestamp and the default order is ascending (from older
-   * to newer). To have entries returned in the opposite (descending) order,
-   * specify order_by="metadata.timestamp desc".
-   * @opt_param int pageSize Maximum number of entries to return per request.
-   * Fewer entries may be returned.
-   * @opt_param string pageToken An opaque token obtained from a prior
-   * ListLogEntries response (in next_page_token). If this is supplied, other
-   * parameters in this request are ignored, in favor of the corresponding
-   * parameters in the original request.
-   * @return Google_Service_Logging_ListLogEntriesResponse
-   */
-  public function listProjectsLogEntries($projectsId, $optParams = array())
-  {
-    $params = array('projectsId' => $projectsId);
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Logging_ListLogEntriesResponse");
-  }
-}
-/**
  * The "logServices" collection of methods.
  * Typical usage is:
  *  <code>
@@ -600,17 +439,18 @@ class Google_Service_Logging_ProjectsLogServices_Resource extends Google_Service
    * Lists log services associated with log entries ingested for a project.
    * (logServices.listProjectsLogServices)
    *
-   * @param string $projectsId Part of `projectName`. The project resource for
-   * which to list the services.
+   * @param string $projectsId Part of `projectName`. The project resource whose
+   * services are to be listed.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string log A log resource like /projects/project_id/logs/log_name
-   * identifying the log for which to list services. When empty, all services will
-   * be listed.
-   * @opt_param int pageSize The maximum number of LogService objects to return.
-   * @opt_param string pageToken An optional next_page_token from a previous
-   * ListLogServicesResult. Other fields are ignored when the page_token is not
-   * empty.
+   * @opt_param string pageToken An opaque token, returned as `nextPageToken` by a
+   * prior `ListLogServices` operation. If `pageToken` is supplied, then the other
+   * fields of this request are ignored, and instead the previous
+   * `ListLogServices` operation is continued.
+   * @opt_param string log The name of the log resource whose services are to be
+   * listed. log for which to list services. When empty, all services are listed.
+   * @opt_param int pageSize The maximum number of `LogService` objects to return
+   * in one operation.
    * @return Google_Service_Logging_ListLogServicesResponse
    */
   public function listProjectsLogServices($projectsId, $optParams = array())
@@ -636,33 +476,35 @@ class Google_Service_Logging_ProjectsLogServicesIndexes_Resource extends Google_
    * Lists log service indexes associated with a log service.
    * (indexes.listProjectsLogServicesIndexes)
    *
-   * @param string $projectsId Part of `serviceName`. A log service resource whose
-   * service indexes to return (e.g.
-   * /projects/myProj/logServices/appengine.googleapis.com).
+   * @param string $projectsId Part of `serviceName`. A log service resource of
+   * the form `/projects/logServices`. The service indexes of the log service are
+   * returned. Example: `"/projects/myProj/logServices/appengine.googleapis.com"`.
    * @param string $logServicesId Part of `serviceName`. See documentation of
    * `projectsId`.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string indexPrefix A prefix of the log service indexes to be
-   * returned. The prefix is a slash separated list of the label values in order
-   * corresponding to the [LogService
-   * index_keys][google.logging.v1.LogService.index_keys]. For example use
-   * "/myModule/" to retrieve App Engine versions associated with myModule. The
-   * trailing slash terminates the value, while "/myModule" would allow retrieval
-   * of App Engine modules with names beginning with myModule. An prefix component
-   * matches all log service indexes. A non-empty prefix must begin with "/".
-   * @opt_param int depth A limit to the number of levels of the index hierarchy
-   * that will be expanded. If the depth is 0, it will default to the level
-   * specified by the prefix field (the number of slash separators). The default
-   * empty prefix implies a depth of 1. It is an error for depth to be any non-
-   * zero value less than the number of components in index_prefix.
-   * @opt_param string log A log resource like /projects/project_id/logs/log_name
-   * identifying the log for which to list services indexes.
+   * @opt_param string log A log resource like
+   * `/projects/project_id/logs/log_name`, identifying the log for which to list
+   * service indexes.
    * @opt_param int pageSize The maximum number of log service index resources to
-   * return.
-   * @opt_param string pageToken An optional next_page_token from a previous
-   * ListLogServicesIndexesResult. Other fields are ignored when the page_token is
-   * not empty.
+   * return in one operation.
+   * @opt_param string pageToken An opaque token, returned as `nextPageToken` by a
+   * prior `ListLogServiceIndexes` operation. If `pageToken` is supplied, then the
+   * other fields of this request are ignored, and instead the previous
+   * `ListLogServiceIndexes` operation is continued.
+   * @opt_param int depth A limit to the number of levels of the index hierarchy
+   * that are expanded. If `depth` is 0, it defaults to the level specified by the
+   * prefix field (the number of slash separators). The default empty prefix
+   * implies a `depth` of 1. It is an error for `depth` to be any non-zero value
+   * less than the number of components in `indexPrefix`.
+   * @opt_param string indexPrefix Restricts the indexes returned to be those with
+   * a specified prefix. The prefix has the form `"/label_value/label_value/..."`,
+   * in order corresponding to the [`LogService
+   * indexKeys`][google.logging.v1.LogService.index_keys]. Non-empty prefixes must
+   * begin with `/` . Example prefixes: + `"/myModule/"` retrieves App Engine
+   * versions associated with `myModule`. The trailing slash terminates the value.
+   * + `"/myModule"` retrieves App Engine modules with names beginning with
+   * `myModule`. + `""` retrieves all indexes.
    * @return Google_Service_Logging_ListLogServiceIndexesResponse
    */
   public function listProjectsLogServicesIndexes($projectsId, $logServicesId, $optParams = array())
@@ -684,10 +526,10 @@ class Google_Service_Logging_ProjectsLogServicesSinks_Resource extends Google_Se
 {
 
   /**
-   * Create the specified log service sink resource. (sinks.create)
+   * Creates the specified log service sink resource. (sinks.create)
    *
-   * @param string $projectsId Part of `serviceName`. The service in which to
-   * create a sink.
+   * @param string $projectsId Part of `serviceName`. The name of the service in
+   * which to create a sink.
    * @param string $logServicesId Part of `serviceName`. See documentation of
    * `projectsId`.
    * @param Google_LogSink $postBody
@@ -704,7 +546,7 @@ class Google_Service_Logging_ProjectsLogServicesSinks_Resource extends Google_Se
   /**
    * Deletes the specified log service sink. (sinks.delete)
    *
-   * @param string $projectsId Part of `sinkName`. The sink to delete.
+   * @param string $projectsId Part of `sinkName`. The name of the sink to delete.
    * @param string $logServicesId Part of `sinkName`. See documentation of
    * `projectsId`.
    * @param string $sinksId Part of `sinkName`. See documentation of `projectsId`.
@@ -719,9 +561,9 @@ class Google_Service_Logging_ProjectsLogServicesSinks_Resource extends Google_Se
   }
 
   /**
-   * Get the specified log service sink resource. (sinks.get)
+   * Gets the specified log service sink resource. (sinks.get)
    *
-   * @param string $projectsId Part of `sinkName`. The sink to return.
+   * @param string $projectsId Part of `sinkName`. The name of the sink to return.
    * @param string $logServicesId Part of `sinkName`. See documentation of
    * `projectsId`.
    * @param string $sinksId Part of `sinkName`. See documentation of `projectsId`.
@@ -736,11 +578,11 @@ class Google_Service_Logging_ProjectsLogServicesSinks_Resource extends Google_Se
   }
 
   /**
-   * List log service sinks associated with the specified service.
+   * Lists log service sinks associated with the specified service.
    * (sinks.listProjectsLogServicesSinks)
    *
-   * @param string $projectsId Part of `serviceName`. The service for which to
-   * list sinks.
+   * @param string $projectsId Part of `serviceName`. The name of the service for
+   * which to list sinks.
    * @param string $logServicesId Part of `serviceName`. See documentation of
    * `projectsId`.
    * @param array $optParams Optional parameters.
@@ -754,9 +596,9 @@ class Google_Service_Logging_ProjectsLogServicesSinks_Resource extends Google_Se
   }
 
   /**
-   * Create or update the specified log service sink resource. (sinks.update)
+   * Creates or update the specified log service sink resource. (sinks.update)
    *
-   * @param string $projectsId Part of `sinkName`. The sink to update.
+   * @param string $projectsId Part of `sinkName`. The name of the sink to update.
    * @param string $logServicesId Part of `sinkName`. See documentation of
    * `projectsId`.
    * @param string $sinksId Part of `sinkName`. See documentation of `projectsId`.
@@ -806,22 +648,24 @@ class Google_Service_Logging_ProjectsLogs_Resource extends Google_Service_Resour
    * to list the log resources.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string pageToken An opaque token, returned as `nextPageToken` by a
+   * prior `ListLogs` operation. If `pageToken` is supplied, then the other fields
+   * of this request are ignored, and instead the previous `ListLogs` operation is
+   * continued.
    * @opt_param string serviceName A service name for which to list logs. Only
-   * logs containing entries whose metadata included this service name will be
-   * returned. If empty and service_index_prefix is also empty then all log names
-   * are returned. To list all log names (regardless of service) leave both the
-   * service_name and service_index_prefix empty. To list log names containing
-   * entries with a particular service name (or explicitly empty service name) set
-   * service_name to the desired value and service_index_prefix to "/".
+   * logs containing entries whose metadata includes this service name are
+   * returned. If `serviceName` and `serviceIndexPrefix` are both empty, then all
+   * log names are returned. To list all log names, regardless of service, leave
+   * both the `serviceName` and `serviceIndexPrefix` empty. To list log names
+   * containing entries with a particular service name (or explicitly empty
+   * service name) set `serviceName` to the desired value and `serviceIndexPrefix`
+   * to `"/"`.
    * @opt_param string serviceIndexPrefix A log service index prefix for which to
-   * list logs. Only logs containing entries whose metadata included these label
-   * values (associated with index keys) will be returned. The prefix is a slash
+   * list logs. Only logs containing entries whose metadata that includes these
+   * label values (associated with index keys) are returned. The prefix is a slash
    * separated list of values, and need not specify all index labels. An empty
    * index (or a single slash) matches all log service indexes.
    * @opt_param int pageSize The maximum number of results to return.
-   * @opt_param string pageToken An optional next_page_token from a previous
-   * ListLogsResponse. Other query parameters are ignored when page_token is not
-   * empty.
    * @return Google_Service_Logging_ListLogsResponse
    */
   public function listProjectsLogs($projectsId, $optParams = array())
@@ -844,12 +688,16 @@ class Google_Service_Logging_ProjectsLogsEntries_Resource extends Google_Service
 {
 
   /**
-   * Creates several log entries in a log. (entries.write)
+   * Creates one or more log entries in a log. You must supply a list of
+   * `LogEntry` objects, named `entries`. Each `LogEntry` object must contain a
+   * payload object and a `LogEntryMetadata` object that describes the entry. You
+   * must fill in all the fields of the entry, metadata, and payload. You can also
+   * supply a map, `commonLabels`, that supplies default (key, value) data for the
+   * `entries[].metadata.labels` maps, saving you the trouble of creating
+   * identical copies for each entry. (entries.write)
    *
-   * @param string $projectsId Part of `logName`. The log resource into which to
-   * insert the log entries. If the log resource name contains characters that are
-   * illegal in a URL (for example, "/") they must be URL-encoded (for example, as
-   * "%2F").
+   * @param string $projectsId Part of `logName`. The name of the log resource
+   * into which to insert the log entries.
    * @param string $logsId Part of `logName`. See documentation of `projectsId`.
    * @param Google_WriteLogEntriesRequest $postBody
    * @param array $optParams Optional parameters.
@@ -874,10 +722,10 @@ class Google_Service_Logging_ProjectsLogsSinks_Resource extends Google_Service_R
 {
 
   /**
-   * Create the specified log sink resource. (sinks.create)
+   * Creates the specified log sink resource. (sinks.create)
    *
    * @param string $projectsId Part of `logName`. The log in which to create a
-   * sink
+   * sink resource.
    * @param string $logsId Part of `logName`. See documentation of `projectsId`.
    * @param Google_LogSink $postBody
    * @param array $optParams Optional parameters.
@@ -891,9 +739,9 @@ class Google_Service_Logging_ProjectsLogsSinks_Resource extends Google_Service_R
   }
 
   /**
-   * Deletes the specified log sink. (sinks.delete)
+   * Deletes the specified log sink resource. (sinks.delete)
    *
-   * @param string $projectsId Part of `sinkName`. The sink to delete.
+   * @param string $projectsId Part of `sinkName`. The name of the sink to delete.
    * @param string $logsId Part of `sinkName`. See documentation of `projectsId`.
    * @param string $sinksId Part of `sinkName`. See documentation of `projectsId`.
    * @param array $optParams Optional parameters.
@@ -907,9 +755,10 @@ class Google_Service_Logging_ProjectsLogsSinks_Resource extends Google_Service_R
   }
 
   /**
-   * Get the specified log sink resource. (sinks.get)
+   * Gets the specified log sink resource. (sinks.get)
    *
-   * @param string $projectsId Part of `sinkName`. The sink to return.
+   * @param string $projectsId Part of `sinkName`. The name of the sink resource
+   * to return.
    * @param string $logsId Part of `sinkName`. See documentation of `projectsId`.
    * @param string $sinksId Part of `sinkName`. See documentation of `projectsId`.
    * @param array $optParams Optional parameters.
@@ -923,7 +772,7 @@ class Google_Service_Logging_ProjectsLogsSinks_Resource extends Google_Service_R
   }
 
   /**
-   * List log sinks associated with the specified log.
+   * Lists log sinks associated with the specified log.
    * (sinks.listProjectsLogsSinks)
    *
    * @param string $projectsId Part of `logName`. The log for which to list sinks.
@@ -939,9 +788,9 @@ class Google_Service_Logging_ProjectsLogsSinks_Resource extends Google_Service_R
   }
 
   /**
-   * Create or update the specified log sink resource. (sinks.update)
+   * Creates or updates the specified log sink resource. (sinks.update)
    *
-   * @param string $projectsId Part of `sinkName`. The sink to update.
+   * @param string $projectsId Part of `sinkName`. The name of the sink to update.
    * @param string $logsId Part of `sinkName`. See documentation of `projectsId`.
    * @param string $sinksId Part of `sinkName`. See documentation of `projectsId`.
    * @param Google_LogSink $postBody
@@ -955,165 +804,12 @@ class Google_Service_Logging_ProjectsLogsSinks_Resource extends Google_Service_R
     return $this->call('update', array($params), "Google_Service_Logging_LogSink");
   }
 }
-/**
- * The "metrics" collection of methods.
- * Typical usage is:
- *  <code>
- *   $loggingService = new Google_Service_Logging(...);
- *   $metrics = $loggingService->metrics;
- *  </code>
- */
-class Google_Service_Logging_ProjectsMetrics_Resource extends Google_Service_Resource
-{
-
-  /**
-   * Create the specified log metric resource. (metrics.create)
-   *
-   * @param string $projectsId Part of `projectName`. The project in which to
-   * create a metric.
-   * @param Google_LogMetric $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Logging_LogMetric
-   */
-  public function create($projectsId, Google_Service_Logging_LogMetric $postBody, $optParams = array())
-  {
-    $params = array('projectsId' => $projectsId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('create', array($params), "Google_Service_Logging_LogMetric");
-  }
-
-  /**
-   * Deletes the specified log metric. (metrics.delete)
-   *
-   * @param string $projectsId Part of `metricName`. The metric to delete.
-   * @param string $metricsId Part of `metricName`. See documentation of
-   * `projectsId`.
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Logging_Empty
-   */
-  public function delete($projectsId, $metricsId, $optParams = array())
-  {
-    $params = array('projectsId' => $projectsId, 'metricsId' => $metricsId);
-    $params = array_merge($params, $optParams);
-    return $this->call('delete', array($params), "Google_Service_Logging_Empty");
-  }
-
-  /**
-   * Get the specified log metric resource. (metrics.get)
-   *
-   * @param string $projectsId Part of `metricName`. The metric to return.
-   * @param string $metricsId Part of `metricName`. See documentation of
-   * `projectsId`.
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Logging_LogMetric
-   */
-  public function get($projectsId, $metricsId, $optParams = array())
-  {
-    $params = array('projectsId' => $projectsId, 'metricsId' => $metricsId);
-    $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Logging_LogMetric");
-  }
-
-  /**
-   * List log metrics associated with the specified project.
-   * (metrics.listProjectsMetrics)
-   *
-   * @param string $projectsId Part of `projectName`. The project name for which
-   * to list metrics.
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string pageToken If non-empty, specifies from where to start
-   * returning results. This page_token is from a previous call to
-   * ListLogsMetrics.
-   * @opt_param int pageSize Maximum number of results to return.
-   * @return Google_Service_Logging_ListLogMetricsResponse
-   */
-  public function listProjectsMetrics($projectsId, $optParams = array())
-  {
-    $params = array('projectsId' => $projectsId);
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Logging_ListLogMetricsResponse");
-  }
-
-  /**
-   * Create or update the specified log metric resource. (metrics.update)
-   *
-   * @param string $projectsId Part of `metricName`. The metric to update.
-   * @param string $metricsId Part of `metricName`. See documentation of
-   * `projectsId`.
-   * @param Google_LogMetric $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Logging_LogMetric
-   */
-  public function update($projectsId, $metricsId, Google_Service_Logging_LogMetric $postBody, $optParams = array())
-  {
-    $params = array('projectsId' => $projectsId, 'metricsId' => $metricsId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('update', array($params), "Google_Service_Logging_LogMetric");
-  }
-}
 
 
 
 
 class Google_Service_Logging_Empty extends Google_Model
 {
-}
-
-class Google_Service_Logging_ListLogEntriesResponse extends Google_Collection
-{
-  protected $collection_key = 'entries';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $entriesType = 'Google_Service_Logging_LogEntry';
-  protected $entriesDataType = 'array';
-  public $nextPageToken;
-
-
-  public function setEntries($entries)
-  {
-    $this->entries = $entries;
-  }
-  public function getEntries()
-  {
-    return $this->entries;
-  }
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
-}
-
-class Google_Service_Logging_ListLogMetricsResponse extends Google_Collection
-{
-  protected $collection_key = 'metrics';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $metricsType = 'Google_Service_Logging_LogMetric';
-  protected $metricsDataType = 'array';
-  public $nextPageToken;
-
-
-  public function setMetrics($metrics)
-  {
-    $this->metrics = $metrics;
-  }
-  public function getMetrics()
-  {
-    return $this->metrics;
-  }
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
 }
 
 class Google_Service_Logging_ListLogServiceIndexesResponse extends Google_Collection
@@ -1341,11 +1037,9 @@ class Google_Service_Logging_LogEntryMetadata extends Google_Model
   );
   public $labels;
   public $projectId;
-  public $projectNumber;
   public $region;
   public $serviceName;
   public $severity;
-  public $timeNanos;
   public $timestamp;
   public $userId;
   public $zone;
@@ -1366,14 +1060,6 @@ class Google_Service_Logging_LogEntryMetadata extends Google_Model
   public function getProjectId()
   {
     return $this->projectId;
-  }
-  public function setProjectNumber($projectNumber)
-  {
-    $this->projectNumber = $projectNumber;
-  }
-  public function getProjectNumber()
-  {
-    return $this->projectNumber;
   }
   public function setRegion($region)
   {
@@ -1398,14 +1084,6 @@ class Google_Service_Logging_LogEntryMetadata extends Google_Model
   public function getSeverity()
   {
     return $this->severity;
-  }
-  public function setTimeNanos($timeNanos)
-  {
-    $this->timeNanos = $timeNanos;
-  }
-  public function getTimeNanos()
-  {
-    return $this->timeNanos;
   }
   public function setTimestamp($timestamp)
   {
@@ -1478,50 +1156,6 @@ class Google_Service_Logging_LogError extends Google_Model
   public function getTimeNanos()
   {
     return $this->timeNanos;
-  }
-}
-
-class Google_Service_Logging_LogMetric extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $description;
-  public $filter;
-  public $name;
-  public $projectId;
-
-
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-  public function getDescription()
-  {
-    return $this->description;
-  }
-  public function setFilter($filter)
-  {
-    $this->filter = $filter;
-  }
-  public function getFilter()
-  {
-    return $this->filter;
-  }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-  public function getName()
-  {
-    return $this->name;
-  }
-  public function setProjectId($projectId)
-  {
-    $this->projectId = $projectId;
-  }
-  public function getProjectId()
-  {
-    return $this->projectId;
   }
 }
 
