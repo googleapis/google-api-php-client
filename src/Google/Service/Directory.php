@@ -1936,7 +1936,7 @@ class Google_Service_Directory_Orgunits_Resource extends Google_Service_Resource
    * Remove Organization Unit (orgunits.delete)
    *
    * @param string $customerId Immutable id of the Google Apps account
-   * @param string $orgUnitPath Full path of the organization unit
+   * @param string $orgUnitPath Full path of the organization unit or its Id
    * @param array $optParams Optional parameters.
    */
   public function delete($customerId, $orgUnitPath, $optParams = array())
@@ -1950,7 +1950,7 @@ class Google_Service_Directory_Orgunits_Resource extends Google_Service_Resource
    * Retrieve Organization Unit (orgunits.get)
    *
    * @param string $customerId Immutable id of the Google Apps account
-   * @param string $orgUnitPath Full path of the organization unit
+   * @param string $orgUnitPath Full path of the organization unit or its Id
    * @param array $optParams Optional parameters.
    * @return Google_Service_Directory_OrgUnit
    */
@@ -1984,7 +1984,8 @@ class Google_Service_Directory_Orgunits_Resource extends Google_Service_Resource
    *
    * @opt_param string type Whether to return all sub-organizations or just
    * immediate children
-   * @opt_param string orgUnitPath the URL-encoded organization unit
+   * @opt_param string orgUnitPath the URL-encoded organization unit's path or its
+   * Id
    * @return Google_Service_Directory_OrgUnits
    */
   public function listOrgunits($customerId, $optParams = array())
@@ -1999,7 +2000,7 @@ class Google_Service_Directory_Orgunits_Resource extends Google_Service_Resource
    * (orgunits.patch)
    *
    * @param string $customerId Immutable id of the Google Apps account
-   * @param string $orgUnitPath Full path of the organization unit
+   * @param string $orgUnitPath Full path of the organization unit or its Id
    * @param Google_OrgUnit $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Directory_OrgUnit
@@ -2015,7 +2016,7 @@ class Google_Service_Directory_Orgunits_Resource extends Google_Service_Resource
    * Update Organization Unit (orgunits.update)
    *
    * @param string $customerId Immutable id of the Google Apps account
-   * @param string $orgUnitPath Full path of the organization unit
+   * @param string $orgUnitPath Full path of the organization unit or its Id
    * @param Google_OrgUnit $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Directory_OrgUnit
@@ -3978,7 +3979,9 @@ class Google_Service_Directory_OrgUnit extends Google_Model
   public $etag;
   public $kind;
   public $name;
+  public $orgUnitId;
   public $orgUnitPath;
+  public $parentOrgUnitId;
   public $parentOrgUnitPath;
 
 
@@ -4022,6 +4025,14 @@ class Google_Service_Directory_OrgUnit extends Google_Model
   {
     return $this->name;
   }
+  public function setOrgUnitId($orgUnitId)
+  {
+    $this->orgUnitId = $orgUnitId;
+  }
+  public function getOrgUnitId()
+  {
+    return $this->orgUnitId;
+  }
   public function setOrgUnitPath($orgUnitPath)
   {
     $this->orgUnitPath = $orgUnitPath;
@@ -4029,6 +4040,14 @@ class Google_Service_Directory_OrgUnit extends Google_Model
   public function getOrgUnitPath()
   {
     return $this->orgUnitPath;
+  }
+  public function setParentOrgUnitId($parentOrgUnitId)
+  {
+    $this->parentOrgUnitId = $parentOrgUnitId;
+  }
+  public function getParentOrgUnitId()
+  {
+    return $this->parentOrgUnitId;
   }
   public function setParentOrgUnitPath($parentOrgUnitPath)
   {
