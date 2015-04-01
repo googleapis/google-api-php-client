@@ -1409,7 +1409,7 @@ class Google_Service_AndroidPublisher_EditsApks_Resource extends Google_Service_
   /**
    * Creates a new APK without uploading the APK itself to Google Play, instead
    * hosting the APK at a specified URL. This function is only available to
-   * enterprises using Google Play for work whose application is configured to
+   * enterprises using Google Play for Work whose application is configured to
    * restrict distribution to the enterprise domain. (apks.addexternallyhosted)
    *
    * @param string $packageName Unique identifier for the Android app that is
