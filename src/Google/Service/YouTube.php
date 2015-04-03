@@ -50,6 +50,7 @@ class Google_Service_YouTube extends Google_Service
       "https://www.googleapis.com/auth/youtubepartner-channel-audit";
 
   public $activities;
+  public $captions;
   public $channelBanners;
   public $channelSections;
   public $channels;
@@ -142,6 +143,131 @@ class Google_Service_YouTube extends Google_Service
           )
         )
     );
+    $this->captions = new Google_Service_YouTube_Captions_Resource(
+        $this,
+        $this->serviceName,
+        'captions',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => 'captions',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'onBehalfOf' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'debugProjectIdOverride' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'download' => array(
+              'path' => 'captions/{id}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'tfmt' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'onBehalfOf' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'tlang' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'debugProjectIdOverride' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'insert' => array(
+              'path' => 'captions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'part' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'onBehalfOf' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'debugProjectIdOverride' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sync' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'captions',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'part' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'videoId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'onBehalfOf' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'debugProjectIdOverride' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'captions',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'part' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'onBehalfOf' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'debugProjectIdOverride' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sync' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->channelBanners = new Google_Service_YouTube_ChannelBanners_Resource(
         $this,
         $this->serviceName,
@@ -216,13 +342,17 @@ class Google_Service_YouTube extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'id' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'mine' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'update' => array(
@@ -289,6 +419,10 @@ class Google_Service_YouTube extends Google_Service
                 'mySubscribers' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'categoryId' => array(
                   'location' => 'query',
@@ -832,6 +966,10 @@ class Google_Service_YouTube extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'id' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -877,6 +1015,10 @@ class Google_Service_YouTube extends Google_Service
                 'channelId' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'forDeveloper' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
                 'videoSyndicated' => array(
                   'location' => 'query',
@@ -1421,6 +1563,159 @@ class Google_Service_YouTube_Activities_Resource extends Google_Service_Resource
 }
 
 /**
+ * The "captions" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $youtubeService = new Google_Service_YouTube(...);
+ *   $captions = $youtubeService->captions;
+ *  </code>
+ */
+class Google_Service_YouTube_Captions_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Deletes a specified caption track. (captions.delete)
+   *
+   * @param string $id The id parameter identifies the caption track that is being
+   * deleted. The value is a caption track ID as identified by the id property in
+   * a caption resource.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
+   * request is be on behalf of
+   * @opt_param string debugProjectIdOverride The debugProjectIdOverride parameter
+   * should be used for mimicking a request for a certain project ID
+   */
+  public function delete($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+
+  /**
+   * Downloads a caption track. The caption track is returned in its original
+   * format unless the request specifies a value for the tfmt parameter and in its
+   * original language unless the request specifies a value for the tlang
+   * parameter. (captions.download)
+   *
+   * @param string $id The id parameter identifies the caption track that is being
+   * retrieved. The value is a caption track ID as identified by the id property
+   * in a caption resource.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string tfmt The tfmt parameter specifies that the caption track
+   * should be returned in a specific format. If the parameter is not included in
+   * the request, the track is returned in its original format.
+   * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
+   * request is be on behalf of
+   * @opt_param string tlang The tlang parameter specifies that the API response
+   * should return a translation of the specified caption track. The parameter
+   * value is an ISO 639-1 two-letter language code that identifies the desired
+   * caption language. The translation is generated by using machine translation,
+   * such as Google Translate.
+   * @opt_param string debugProjectIdOverride The debugProjectIdOverride parameter
+   * should be used for mimicking a request for a certain project ID
+   */
+  public function download($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('download', array($params));
+  }
+
+  /**
+   * Uploads a caption track. (captions.insert)
+   *
+   * @param string $part The part parameter specifies the caption resource parts
+   * that the API response will include. Set the parameter value to snippet.
+   * @param Google_Caption $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
+   * request is be on behalf of
+   * @opt_param string debugProjectIdOverride The debugProjectIdOverride parameter
+   * should be used for mimicking a request for a certain project ID.
+   * @opt_param bool sync The sync parameter indicates whether YouTube should
+   * automatically synchronize the caption file with the audio track of the video.
+   * If you set the value to true, YouTube will disregard any time codes that are
+   * in the uploaded caption file and generate new time codes for the captions.
+   *
+   * You should set the sync parameter to true if you are uploading a transcript,
+   * which has no time codes, or if you suspect the time codes in your file are
+   * incorrect and want YouTube to try to fix them.
+   * @return Google_Service_YouTube_Caption
+   */
+  public function insert($part, Google_Service_YouTube_Caption $postBody, $optParams = array())
+  {
+    $params = array('part' => $part, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_YouTube_Caption");
+  }
+
+  /**
+   * Returns a list of caption tracks that are associated with a specified video.
+   * Note that the API response does not contain the actual captions and that the
+   * captions.download method provides the ability to retrieve a caption track.
+   * (captions.listCaptions)
+   *
+   * @param string $part The part parameter specifies the caption resource parts
+   * that the API response will include.
+   * @param string $videoId The videoId parameter specifies the YouTube video ID
+   * of the video for which the API should return caption tracks.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
+   * request is on behalf of.
+   * @opt_param string debugProjectIdOverride The debugProjectIdOverride parameter
+   * should be used for mimicking a request for a certain project ID.
+   * @opt_param string id The id parameter specifies a comma-separated list of IDs
+   * that identify the caption resources that should be retrieved. Each ID must
+   * identify a caption track associated with the specified video.
+   * @return Google_Service_YouTube_CaptionListResponse
+   */
+  public function listCaptions($part, $videoId, $optParams = array())
+  {
+    $params = array('part' => $part, 'videoId' => $videoId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_YouTube_CaptionListResponse");
+  }
+
+  /**
+   * Updates a caption track. When updating a caption track, you can change the
+   * track's draft status, upload a new caption file for the track, or both.
+   * (captions.update)
+   *
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include. Set the property value to
+   * snippet if you are updating the track's draft status. Otherwise, set the
+   * property value to id.
+   * @param Google_Caption $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
+   * request is be on behalf of
+   * @opt_param string debugProjectIdOverride The debugProjectIdOverride parameter
+   * should be used for mimicking a request for a certain project ID.
+   * @opt_param bool sync Note: The API server only processes the parameter value
+   * if the request contains an updated caption file.
+   *
+   * The sync parameter indicates whether YouTube should automatically synchronize
+   * the caption file with the audio track of the video. If you set the value to
+   * true, YouTube will automatically synchronize the caption track with the audio
+   * track.
+   * @return Google_Service_YouTube_Caption
+   */
+  public function update($part, Google_Service_YouTube_Caption $postBody, $optParams = array())
+  {
+    $params = array('part' => $part, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_YouTube_Caption");
+  }
+}
+
+/**
  * The "channelBanners" collection of methods.
  * Typical usage is:
  *  <code>
@@ -1589,12 +1884,19 @@ class Google_Service_YouTube_ChannelSections_Resource extends Google_Service_Res
    * owner.
    * @opt_param string channelId The channelId parameter specifies a YouTube
    * channel ID. The API will only return that channel's channelSections.
+   * @opt_param bool mine Set this parameter's value to true to retrieve a feed of
+   * the authenticated user's channelSections.
+   * @opt_param string hl The hl parameter indicates that the snippet.localized
+   * property values in the returned channelSection resources should be in the
+   * specified language if localized values for that language are available. For
+   * example, if the API request specifies hl=de, the snippet.localized properties
+   * in the API response will contain German titles if German titles are
+   * available. Channel owners can provide localized channel section titles using
+   * either the channelSections.insert or channelSections.update method.
    * @opt_param string id The id parameter specifies a comma-separated list of the
    * YouTube channelSection ID(s) for the resource(s) that are being retrieved. In
    * a channelSection resource, the id property specifies the YouTube
    * channelSection ID.
-   * @opt_param bool mine Set this parameter's value to true to retrieve a feed of
-   * the authenticated user's channelSections.
    * @return Google_Service_YouTube_ChannelSectionListResponse
    */
   public function listChannelSections($part, $optParams = array())
@@ -1693,6 +1995,9 @@ class Google_Service_YouTube_Channels_Resource extends Google_Service_Resource
    * retrieved.
    * @opt_param bool mySubscribers Set this parameter's value to true to retrieve
    * a list of channels that subscribed to the authenticated user's channel.
+   * @opt_param string hl The hl parameter should be used for filter out the
+   * properties that are not in the given language. Used for the brandingSettings
+   * part.
    * @opt_param string categoryId The categoryId parameter specifies a YouTube
    * guide category, thereby requesting YouTube channels associated with that
    * category.
@@ -2804,6 +3109,8 @@ class Google_Service_YouTube_Playlists_Resource extends Google_Service_Resource
    * page in the result set that should be returned. In an API response, the
    * nextPageToken and prevPageToken properties identify other pages that could be
    * retrieved.
+   * @opt_param string hl The hl parameter should be used for filter out the
+   * properties that are not in the given language. Used for the snippet part.
    * @opt_param string id The id parameter specifies a comma-separated list of the
    * YouTube playlist ID(s) for the resource(s) that are being retrieved. In a
    * playlist resource, the id property specifies the playlist's YouTube playlist
@@ -2894,6 +3201,12 @@ class Google_Service_YouTube_Search_Resource extends Google_Service_Resource
    * broadcast events.
    * @opt_param string channelId The channelId parameter indicates that the API
    * response should only contain resources created by the channel
+   * @opt_param bool forDeveloper The forDeveloper parameter restricts the search
+   * to only retrieve videos uploaded via the developer's application or website.
+   * The API server uses the request's authorization credentials to identify the
+   * developer. Therefore, a developer can restrict results to videos uploaded
+   * through the developer's own app or website but not to videos uploaded through
+   * other apps or sites.
    * @opt_param string videoSyndicated The videoSyndicated parameter lets you to
    * restrict a search to only videos that can be played outside youtube.com.
    * @opt_param string channelType The channelType parameter lets you restrict a
@@ -4278,6 +4591,231 @@ class Google_Service_YouTube_ActivitySnippet extends Google_Model
   public function getType()
   {
     return $this->type;
+  }
+}
+
+class Google_Service_YouTube_Caption extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $etag;
+  public $id;
+  public $kind;
+  protected $snippetType = 'Google_Service_YouTube_CaptionSnippet';
+  protected $snippetDataType = '';
+
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setSnippet(Google_Service_YouTube_CaptionSnippet $snippet)
+  {
+    $this->snippet = $snippet;
+  }
+  public function getSnippet()
+  {
+    return $this->snippet;
+  }
+}
+
+class Google_Service_YouTube_CaptionListResponse extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $etag;
+  public $eventId;
+  protected $itemsType = 'Google_Service_YouTube_Caption';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $visitorId;
+
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setEventId($eventId)
+  {
+    $this->eventId = $eventId;
+  }
+  public function getEventId()
+  {
+    return $this->eventId;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setVisitorId($visitorId)
+  {
+    $this->visitorId = $visitorId;
+  }
+  public function getVisitorId()
+  {
+    return $this->visitorId;
+  }
+}
+
+class Google_Service_YouTube_CaptionSnippet extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $audioTrackType;
+  public $failureReason;
+  public $isAutoSynced;
+  public $isCC;
+  public $isDraft;
+  public $isEasyReader;
+  public $isLarge;
+  public $language;
+  public $lastUpdated;
+  public $name;
+  public $status;
+  public $trackKind;
+  public $videoId;
+
+
+  public function setAudioTrackType($audioTrackType)
+  {
+    $this->audioTrackType = $audioTrackType;
+  }
+  public function getAudioTrackType()
+  {
+    return $this->audioTrackType;
+  }
+  public function setFailureReason($failureReason)
+  {
+    $this->failureReason = $failureReason;
+  }
+  public function getFailureReason()
+  {
+    return $this->failureReason;
+  }
+  public function setIsAutoSynced($isAutoSynced)
+  {
+    $this->isAutoSynced = $isAutoSynced;
+  }
+  public function getIsAutoSynced()
+  {
+    return $this->isAutoSynced;
+  }
+  public function setIsCC($isCC)
+  {
+    $this->isCC = $isCC;
+  }
+  public function getIsCC()
+  {
+    return $this->isCC;
+  }
+  public function setIsDraft($isDraft)
+  {
+    $this->isDraft = $isDraft;
+  }
+  public function getIsDraft()
+  {
+    return $this->isDraft;
+  }
+  public function setIsEasyReader($isEasyReader)
+  {
+    $this->isEasyReader = $isEasyReader;
+  }
+  public function getIsEasyReader()
+  {
+    return $this->isEasyReader;
+  }
+  public function setIsLarge($isLarge)
+  {
+    $this->isLarge = $isLarge;
+  }
+  public function getIsLarge()
+  {
+    return $this->isLarge;
+  }
+  public function setLanguage($language)
+  {
+    $this->language = $language;
+  }
+  public function getLanguage()
+  {
+    return $this->language;
+  }
+  public function setLastUpdated($lastUpdated)
+  {
+    $this->lastUpdated = $lastUpdated;
+  }
+  public function getLastUpdated()
+  {
+    return $this->lastUpdated;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
+  }
+  public function setTrackKind($trackKind)
+  {
+    $this->trackKind = $trackKind;
+  }
+  public function getTrackKind()
+  {
+    return $this->trackKind;
+  }
+  public function setVideoId($videoId)
+  {
+    $this->videoId = $videoId;
+  }
+  public function getVideoId()
+  {
+    return $this->videoId;
   }
 }
 
