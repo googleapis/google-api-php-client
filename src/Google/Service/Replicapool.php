@@ -393,8 +393,8 @@ class Google_Service_Replicapool_InstanceGroupManagers_Resource extends Google_S
   }
 
   /**
-   * Deletes the specified instances. The instances are removed from the instance
-   * group and any target pools of which they are a member, then deleted. The
+   * Deletes the specified instances. The instances are deleted, then removed from
+   * the instance group and any target pools of which they were a member. The
    * targetSize of the instance group manager is reduced by the number of
    * instances deleted. (instanceGroupManagers.deleteInstances)
    *
