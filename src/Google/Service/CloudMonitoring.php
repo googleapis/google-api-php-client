@@ -353,7 +353,7 @@ class Google_Service_CloudMonitoring_Timeseries_Resource extends Google_Service_
    * be (youngest - 4 hours, youngest].
    * @opt_param string aggregator The aggregation function that will reduce the
    * data points in each window to a single point. This parameter is only valid
-   * for non-cumulative metric types.
+   * for non-cumulative metrics with a value type of INT64 or DOUBLE.
    * @opt_param string labels A collection of labels for the matching time series,
    * which are represented as: - key==value: key equals the value  - key=~value:
    * key regex matches the value  - key!=value: key does not equal the value  -
@@ -443,7 +443,7 @@ class Google_Service_CloudMonitoring_TimeseriesDescriptors_Resource extends Goog
    * be (youngest - 4 hours, youngest].
    * @opt_param string aggregator The aggregation function that will reduce the
    * data points in each window to a single point. This parameter is only valid
-   * for non-cumulative metric types.
+   * for non-cumulative metrics with a value type of INT64 or DOUBLE.
    * @opt_param string labels A collection of labels for the matching time series,
    * which are represented as: - key==value: key equals the value  - key=~value:
    * key regex matches the value  - key!=value: key does not equal the value  -
