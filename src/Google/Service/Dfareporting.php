@@ -4055,10 +4055,10 @@ class Google_Service_Dfareporting_AccountUserProfiles_Resource extends Google_Se
    * @opt_param string searchString Allows searching for objects by name, ID or
    * email. Wildcards (*) are allowed. For example, "user profile*2015" will
    * return objects with names like "user profile June 2015", "user profile April
-   * 2015" or simply "user profile 2015". Most of the searches also add wildcards
+   * 2015", or simply "user profile 2015". Most of the searches also add wildcards
    * implicitly at the start and the end of the search string. For example, a
    * search string of "user profile" will match objects with name "my user
-   * profile", "user profile 2015" or simply "user profile".
+   * profile", "user profile 2015", or simply "user profile".
    * @opt_param string subaccountId Select only user profiles with the specified
    * subaccount ID.
    * @opt_param string sortField Field by which to sort the list.
@@ -4146,10 +4146,10 @@ class Google_Service_Dfareporting_Accounts_Resource extends Google_Service_Resou
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "account*2015" will return objects
-   * with names like "account June 2015", "account April 2015" or simply "account
+   * with names like "account June 2015", "account April 2015", or simply "account
    * 2015". Most of the searches also add wildcards implicitly at the start and
    * the end of the search string. For example, a search string of "account" will
-   * match objects with name "my account", "account 2015" or simply "account".
+   * match objects with name "my account", "account 2015", or simply "account".
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param string ids Select only accounts with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
@@ -4278,10 +4278,10 @@ class Google_Service_Dfareporting_Ads_Resource extends Google_Service_Resource
    * @opt_param string advertiserId Select only ads with this advertiser ID.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "ad*2015" will return objects with
-   * names like "ad June 2015", "ad April 2015" or simply "ad 2015". Most of the
+   * names like "ad June 2015", "ad April 2015", or simply "ad 2015". Most of the
    * searches also add wildcards implicitly at the start and the end of the search
    * string. For example, a search string of "ad" will match objects with name "my
-   * ad", "ad 2015" or simply "ad".
+   * ad", "ad 2015", or simply "ad".
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param string audienceSegmentIds Select only ads with these audience
    * segment IDs.
@@ -4397,11 +4397,11 @@ class Google_Service_Dfareporting_AdvertiserGroups_Resource extends Google_Servi
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "advertiser*2015" will return objects
-   * with names like "advertiser group June 2015", "advertiser group April 2015"
+   * with names like "advertiser group June 2015", "advertiser group April 2015",
    * or simply "advertiser group 2015". Most of the searches also add wildcards
    * implicitly at the start and the end of the search string. For example, a
    * search string of "advertisergroup" will match objects with name "my
-   * advertisergroup", "advertisergroup 2015" or simply "advertisergroup".
+   * advertisergroup", "advertisergroup 2015", or simply "advertisergroup".
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param string ids Select only advertiser groups with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
@@ -4501,10 +4501,10 @@ class Google_Service_Dfareporting_Advertisers_Resource extends Google_Service_Re
    * @opt_param string status Select only advertisers with the specified status.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "advertiser*2015" will return objects
-   * with names like "advertiser June 2015", "advertiser April 2015" or simply
+   * with names like "advertiser June 2015", "advertiser April 2015", or simply
    * "advertiser 2015". Most of the searches also add wildcards implicitly at the
    * start and the end of the search string. For example, a search string of
-   * "advertiser" will match objects with name "my advertiser", "advertiser 2015"
+   * "advertiser" will match objects with name "my advertiser", "advertiser 2015",
    * or simply "advertiser".
    * @opt_param string subaccountId Select only advertisers with these subaccount
    * IDs.
@@ -4696,10 +4696,10 @@ class Google_Service_Dfareporting_Campaigns_Resource extends Google_Service_Reso
    * to select both archived and non-archived campaigns.
    * @opt_param string searchString Allows searching for campaigns by name or ID.
    * Wildcards (*) are allowed. For example, "campaign*2015" will return campaigns
-   * with names like "campaign June 2015", "campaign April 2015" or simply
+   * with names like "campaign June 2015", "campaign April 2015", or simply
    * "campaign 2015". Most of the searches also add wildcards implicitly at the
    * start and the end of the search string. For example, a search string of
-   * "campaign" will match campaigns with name "my campaign", "campaign 2015" or
+   * "campaign" will match campaigns with name "my campaign", "campaign 2015", or
    * simply "campaign".
    * @opt_param string subaccountId Select only campaigns that belong to this
    * subaccount.
@@ -4949,10 +4949,10 @@ class Google_Service_Dfareporting_ContentCategories_Resource extends Google_Serv
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "contentcategory*2015" will return
    * objects with names like "contentcategory June 2015", "contentcategory April
-   * 2015" or simply "contentcategory 2015". Most of the searches also add
+   * 2015", or simply "contentcategory 2015". Most of the searches also add
    * wildcards implicitly at the start and the end of the search string. For
    * example, a search string of "contentcategory" will match objects with name
-   * "my contentcategory", "contentcategory 2015" or simply "contentcategory".
+   * "my contentcategory", "contentcategory 2015", or simply "contentcategory".
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param string ids Select only content categories with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
@@ -5260,10 +5260,10 @@ class Google_Service_Dfareporting_CreativeFields_Resource extends Google_Service
    * @opt_param string searchString Allows searching for creative fields by name
    * or ID. Wildcards (*) are allowed. For example, "creativefield*2015" will
    * return creative fields with names like "creativefield June 2015",
-   * "creativefield April 2015" or simply "creativefield 2015". Most of the
+   * "creativefield April 2015", or simply "creativefield 2015". Most of the
    * searches also add wild-cards implicitly at the start and the end of the
    * search string. For example, a search string of "creativefield" will match
-   * creative fields with the name "my creativefield", "creativefield 2015" or
+   * creative fields with the name "my creativefield", "creativefield 2015", or
    * simply "creativefield".
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param string advertiserIds Select only creative fields that belong to
@@ -5366,10 +5366,10 @@ class Google_Service_Dfareporting_CreativeGroups_Resource extends Google_Service
    * @opt_param string searchString Allows searching for creative groups by name
    * or ID. Wildcards (*) are allowed. For example, "creativegroup*2015" will
    * return creative groups with names like "creativegroup June 2015",
-   * "creativegroup April 2015" or simply "creativegroup 2015". Most of the
+   * "creativegroup April 2015", or simply "creativegroup 2015". Most of the
    * searches also add wild-cards implicitly at the start and the end of the
    * search string. For example, a search string of "creativegroup" will match
-   * creative groups with the name "my creativegroup", "creativegroup 2015" or
+   * creative groups with the name "my creativegroup", "creativegroup 2015", or
    * simply "creativegroup".
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param string advertiserIds Select only creative groups that belong to
@@ -5475,10 +5475,10 @@ class Google_Service_Dfareporting_Creatives_Resource extends Google_Service_Reso
    * select archived and unarchived creatives.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "creative*2015" will return objects
-   * with names like "creative June 2015", "creative April 2015" or simply
+   * with names like "creative June 2015", "creative April 2015", or simply
    * "creative 2015". Most of the searches also add wildcards implicitly at the
    * start and the end of the search string. For example, a search string of
-   * "creative" will match objects with name "my creative", "creative 2015" or
+   * "creative" will match objects with name "my creative", "creative 2015", or
    * simply "creative".
    * @opt_param string campaignId Select only creatives with this campaign ID.
    * @opt_param string sortField Field by which to sort the list.
@@ -5609,11 +5609,11 @@ class Google_Service_Dfareporting_DirectorySiteContacts_Resource extends Google_
    * @opt_param string searchString Allows searching for objects by name, ID or
    * email. Wildcards (*) are allowed. For example, "directory site contact*2015"
    * will return objects with names like "directory site contact June 2015",
-   * "directory site contact April 2015" or simply "directory site contact 2015".
+   * "directory site contact April 2015", or simply "directory site contact 2015".
    * Most of the searches also add wildcards implicitly at the start and the end
    * of the search string. For example, a search string of "directory site
    * contact" will match objects with name "my directory site contact", "directory
-   * site contact 2015" or simply "directory site contact".
+   * site contact 2015", or simply "directory site contact".
    * @opt_param string directorySiteIds Select only directory site contacts with
    * these directory site IDs. This is a required field.
    * @opt_param string sortField Field by which to sort the list.
@@ -5671,10 +5671,10 @@ class Google_Service_Dfareporting_DirectorySites_Resource extends Google_Service
    * @opt_param string searchString Allows searching for objects by name, ID or
    * URL. Wildcards (*) are allowed. For example, "directory site*2015" will
    * return objects with names like "directory site June 2015", "directory site
-   * April 2015" or simply "directory site 2015". Most of the searches also add
+   * April 2015", or simply "directory site 2015". Most of the searches also add
    * wildcards implicitly at the start and the end of the search string. For
    * example, a search string of "directory site" will match objects with name "my
-   * directory site", "directory site 2015" or simply "directory site".
+   * directory site", "directory site 2015" or simply, "directory site".
    * @opt_param string countryId Select only directory sites with this country ID.
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param bool acceptsInStreamVideoPlacements This search filter is no
@@ -5763,10 +5763,10 @@ class Google_Service_Dfareporting_EventTags_Resource extends Google_Service_Reso
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "eventtag*2015" will return objects
-   * with names like "eventtag June 2015", "eventtag April 2015" or simply
+   * with names like "eventtag June 2015", "eventtag April 2015", or simply
    * "eventtag 2015". Most of the searches also add wildcards implicitly at the
    * start and the end of the search string. For example, a search string of
-   * "eventtag" will match objects with name "my eventtag", "eventtag 2015" or
+   * "eventtag" will match objects with name "my eventtag", "eventtag 2015", or
    * simply "eventtag".
    * @opt_param string campaignId Select only event tags that belong to this
    * campaign.
@@ -5966,10 +5966,10 @@ class Google_Service_Dfareporting_FloodlightActivities_Resource extends Google_S
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "floodlightactivity*2015" will return
    * objects with names like "floodlightactivity June 2015", "floodlightactivity
-   * April 2015" or simply "floodlightactivity 2015". Most of the searches also
+   * April 2015", or simply "floodlightactivity 2015". Most of the searches also
    * add wildcards implicitly at the start and the end of the search string. For
    * example, a search string of "floodlightactivity" will match objects with name
-   * "my floodlightactivity activity", "floodlightactivity 2015" or simply
+   * "my floodlightactivity activity", "floodlightactivity 2015", or simply
    * "floodlightactivity".
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param string floodlightConfigurationId Select only floodlight activities
@@ -6100,22 +6100,22 @@ class Google_Service_Dfareporting_FloodlightActivityGroups_Resource extends Goog
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "floodlightactivitygroup*2015" will
    * return objects with names like "floodlightactivitygroup June 2015",
-   * "floodlightactivitygroup April 2015" or simply "floodlightactivitygroup
+   * "floodlightactivitygroup April 2015", or simply "floodlightactivitygroup
    * 2015". Most of the searches also add wildcards implicitly at the start and
    * the end of the search string. For example, a search string of
    * "floodlightactivitygroup" will match objects with name "my
-   * floodlightactivitygroup activity", "floodlightactivitygroup 2015" or simply
+   * floodlightactivitygroup activity", "floodlightactivitygroup 2015", or simply
    * "floodlightactivitygroup".
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param string floodlightConfigurationId Select only floodlight activity
    * groups with the specified floodlight configuration ID. Must specify either
-   * ids, advertiserId, or floodlightConfigurationId for a non-empty result.
+   * advertiserId, or floodlightConfigurationId for a non-empty result.
    * @opt_param string ids Select only floodlight activity groups with the
-   * specified IDs. Must specify either ids, advertiserId, or
-   * floodlightConfigurationId for a non-empty result.
+   * specified IDs. Must specify either advertiserId or floodlightConfigurationId
+   * for a non-empty result.
    * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string advertiserId Select only floodlight activity groups with
-   * the specified advertiser ID. Must specify either ids, advertiserId, or
+   * the specified advertiser ID. Must specify either advertiserId or
    * floodlightConfigurationId for a non-empty result.
    * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
@@ -6513,10 +6513,10 @@ class Google_Service_Dfareporting_PlacementGroups_Resource extends Google_Servic
    * @opt_param string searchString Allows searching for placement groups by name
    * or ID. Wildcards (*) are allowed. For example, "placement*2015" will return
    * placement groups with names like "placement group June 2015", "placement
-   * group May 2015" or simply "placements 2015". Most of the searches also add
+   * group May 2015", or simply "placements 2015". Most of the searches also add
    * wildcards implicitly at the start and the end of the search string. For
    * example, a search string of "placementgroup" will match placement groups with
-   * name "my placementgroup", "placementgroup 2015" or simply "placementgroup".
+   * name "my placementgroup", "placementgroup 2015", or simply "placementgroup".
    * @opt_param string contentCategoryIds Select only placement groups that are
    * associated with these content categories.
    * @opt_param string directorySiteIds Select only placement groups that are
@@ -6648,10 +6648,10 @@ class Google_Service_Dfareporting_PlacementStrategies_Resource extends Google_Se
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "placementstrategy*2015" will return
    * objects with names like "placementstrategy June 2015", "placementstrategy
-   * April 2015" or simply "placementstrategy 2015". Most of the searches also add
-   * wildcards implicitly at the start and the end of the search string. For
+   * April 2015", or simply "placementstrategy 2015". Most of the searches also
+   * add wildcards implicitly at the start and the end of the search string. For
    * example, a search string of "placementstrategy" will match objects with name
-   * "my placementstrategy", "placementstrategy 2015" or simply
+   * "my placementstrategy", "placementstrategy 2015", or simply
    * "placementstrategy".
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param string ids Select only placement strategies with these IDs.
@@ -6775,11 +6775,11 @@ class Google_Service_Dfareporting_Placements_Resource extends Google_Service_Res
    * field to select both archived and non-archived placements.
    * @opt_param string searchString Allows searching for placements by name or ID.
    * Wildcards (*) are allowed. For example, "placement*2015" will return
-   * placements with names like "placement June 2015", "placement May 2015" or
+   * placements with names like "placement June 2015", "placement May 2015", or
    * simply "placements 2015". Most of the searches also add wildcards implicitly
    * at the start and the end of the search string. For example, a search string
    * of "placement" will match placements with name "my placement", "placement
-   * 2015" or simply "placement".
+   * 2015", or simply "placement".
    * @opt_param string contentCategoryIds Select only placements that are
    * associated with these content categories.
    * @opt_param string directorySiteIds Select only placements that are associated
@@ -7186,10 +7186,10 @@ class Google_Service_Dfareporting_Sites_Resource extends Google_Service_Resource
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string searchString Allows searching for objects by name, ID or
    * keyName. Wildcards (*) are allowed. For example, "site*2015" will return
-   * objects with names like "site June 2015", "site April 2015" or simply "site
+   * objects with names like "site June 2015", "site April 2015", or simply "site
    * 2015". Most of the searches also add wildcards implicitly at the start and
    * the end of the search string. For example, a search string of "site" will
-   * match objects with name "my site", "site 2015" or simply "site".
+   * match objects with name "my site", "site 2015", or simply "site".
    * @opt_param string subaccountId Select only sites with this subaccount ID.
    * @opt_param string directorySiteIds Select only sites with these directory
    * site IDs.
@@ -7358,10 +7358,10 @@ class Google_Service_Dfareporting_Subaccounts_Resource extends Google_Service_Re
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "subaccount*2015" will return objects
-   * with names like "subaccount June 2015", "subaccount April 2015" or simply
+   * with names like "subaccount June 2015", "subaccount April 2015", or simply
    * "subaccount 2015". Most of the searches also add wildcards implicitly at the
    * start and the end of the search string. For example, a search string of
-   * "subaccount" will match objects with name "my subaccount", "subaccount 2015"
+   * "subaccount" will match objects with name "my subaccount", "subaccount 2015",
    * or simply "subaccount".
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param string ids Select only subaccounts with these IDs.
@@ -7599,10 +7599,10 @@ class Google_Service_Dfareporting_UserRoles_Resource extends Google_Service_Reso
    *
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "userrole*2015" will return objects
-   * with names like "userrole June 2015", "userrole April 2015" or simply
+   * with names like "userrole June 2015", "userrole April 2015", or simply
    * "userrole 2015". Most of the searches also add wildcards implicitly at the
    * start and the end of the search string. For example, a search string of
-   * "userrole" will match objects with name "my userrole", "userrole 2015" or
+   * "userrole" will match objects with name "my userrole", "userrole 2015", or
    * simply "userrole".
    * @opt_param string subaccountId Select only user roles that belong to this
    * subaccount.
