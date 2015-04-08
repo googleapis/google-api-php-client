@@ -37,8 +37,9 @@ $client = new Google_Client();
 $client->setApplicationName("Client_Library_Examples");
 $apiKey = "<YOUR_API_KEY>"; // Change this line.
 // Warn if the API key isn't changed.
-if ($apiKey == '<YOUR_API_KEY>') {
+if (strpos($apiKey, "<") !== false) {
   echo missingApiKeyWarning();
+  exit;
 }
 $client->setDeveloperKey($apiKey);
 
