@@ -2697,7 +2697,7 @@ class Google_Service_SQLAdmin_Operation extends Google_Model
   protected $internal_gapi_mappings = array(
   );
   public $endTime;
-  protected $errorType = 'Google_Service_SQLAdmin_OperationError';
+  protected $errorType = 'Google_Service_SQLAdmin_OperationErrors';
   protected $errorDataType = '';
   protected $exportContextType = 'Google_Service_SQLAdmin_ExportContext';
   protected $exportContextDataType = '';
@@ -2724,7 +2724,7 @@ class Google_Service_SQLAdmin_Operation extends Google_Model
   {
     return $this->endTime;
   }
-  public function setError(Google_Service_SQLAdmin_OperationError $error)
+  public function setError(Google_Service_SQLAdmin_OperationErrors $error)
   {
     $this->error = $error;
   }
@@ -2873,13 +2873,14 @@ class Google_Service_SQLAdmin_OperationError extends Google_Model
   }
 }
 
-class Google_Service_SQLAdmin_OperationError extends Google_Collection
+class Google_Service_SQLAdmin_OperationErrors extends Google_Collection
 {
   protected $collection_key = 'errors';
   protected $internal_gapi_mappings = array(
   );
   protected $errorsType = 'Google_Service_SQLAdmin_OperationError';
   protected $errorsDataType = 'array';
+  public $kind;
 
 
   public function setErrors($errors)
@@ -2889,6 +2890,14 @@ class Google_Service_SQLAdmin_OperationError extends Google_Collection
   public function getErrors()
   {
     return $this->errors;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
   }
 }
 
