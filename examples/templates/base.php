@@ -52,7 +52,7 @@ function missingApiKeyWarning()
       </h3>";
   } else {
     $ret = "Warning: You need to set a Simple API Access key from the Google API console:";
-    $ret .= "\nhttp://developers.google.com/console";
+    $ret .= "\nhttp://developers.google.com/console\n";
   }
   return $ret;
 }
@@ -68,7 +68,7 @@ function missingClientSecretsWarning()
       </h3>";
   } else {
     $ret = "Warning: You need to set Client ID, Client Secret and Redirect URI from the";
-    $ret .= "Google API console:\nhttp://developers.google.com/console";
+    $ret .= " Google API console:\nhttp://developers.google.com/console\n";
   }
   return $ret;
 }
@@ -84,7 +84,7 @@ function missingServiceAccountDetailsWarning()
       </h3>";
   } else {
     $ret = "Warning: You need to set Client ID, Email address and the location of the Key from the";
-    $ret .= "Google API console:\nhttp://developers.google.com/console";
+    $ret .= " Google API console:\nhttp://developers.google.com/console\n";
   }
   return $ret;
 }

@@ -98,11 +98,9 @@ if ($client->getAccessToken() && isset($_GET['url'])) {
 }
 
 echo pageHeader("User Query - URL Shortener");
-if (
-    $client_id == '<YOUR_CLIENT_ID>'
-    || $client_secret == '<YOUR_CLIENT_SECRET>'
-    || $redirect_uri == '<YOUR_REDIRECT_URI>') {
+if (strpos($client_id, "googleusercontent") == false) {
   echo missingClientSecretsWarning();
+  exit;
 }
 ?>
 <div class="box">
