@@ -2903,6 +2903,7 @@ class Google_Service_Directory_ChromeOsDevice extends Google_Collection
   );
   protected $activeTimeRangesType = 'Google_Service_Directory_ChromeOsDeviceActiveTimeRanges';
   protected $activeTimeRangesDataType = 'array';
+  public $annotatedAssetId;
   public $annotatedLocation;
   public $annotatedUser;
   public $bootMode;
@@ -2936,6 +2937,14 @@ class Google_Service_Directory_ChromeOsDevice extends Google_Collection
   public function getActiveTimeRanges()
   {
     return $this->activeTimeRanges;
+  }
+  public function setAnnotatedAssetId($annotatedAssetId)
+  {
+    $this->annotatedAssetId = $annotatedAssetId;
+  }
+  public function getAnnotatedAssetId()
+  {
+    return $this->annotatedAssetId;
   }
   public function setAnnotatedLocation($annotatedLocation)
   {
