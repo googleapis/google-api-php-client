@@ -3376,6 +3376,7 @@ class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
   public $itemsTotal;
   public $itemsValid;
   public $kind;
+  public $lastUploadDate;
   public $processingStatus;
   protected $warningsType = 'Google_Service_ShoppingContent_DatafeedStatusError';
   protected $warningsDataType = 'array';
@@ -3420,6 +3421,14 @@ class Google_Service_ShoppingContent_DatafeedStatus extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setLastUploadDate($lastUploadDate)
+  {
+    $this->lastUploadDate = $lastUploadDate;
+  }
+  public function getLastUploadDate()
+  {
+    return $this->lastUploadDate;
   }
   public function setProcessingStatus($processingStatus)
   {
