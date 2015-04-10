@@ -82,6 +82,21 @@ class Google_Service_Fitness extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'delete' => array(
+              'path' => '{userId}/dataSources/{dataSourceId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'dataSourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'get' => array(
               'path' => '{userId}/dataSources/{dataSourceId}',
               'httpMethod' => 'GET',
@@ -358,6 +373,23 @@ class Google_Service_Fitness_UsersDataSources_Resource extends Google_Service_Re
     $params = array('userId' => $userId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('create', array($params), "Google_Service_Fitness_DataSource");
+  }
+
+  /**
+   * Delete the data source if there are no datapoints associated with it
+   * (dataSources.delete)
+   *
+   * @param string $userId Retrieve a data source for the person identified. Use
+   * me to indicate the authenticated user. Only me is supported at this time.
+   * @param string $dataSourceId The data stream ID of the data source to delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Fitness_DataSource
+   */
+  public function delete($userId, $dataSourceId, $optParams = array())
+  {
+    $params = array('userId' => $userId, 'dataSourceId' => $dataSourceId);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Fitness_DataSource");
   }
 
   /**
@@ -1056,10 +1088,28 @@ class Google_Service_Fitness_ListSessionsResponse extends Google_Collection
   }
 }
 
+class Google_Service_Fitness_MapValue extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $fpVal;
+
+
+  public function setFpVal($fpVal)
+  {
+    $this->fpVal = $fpVal;
+  }
+  public function getFpVal()
+  {
+    return $this->fpVal;
+  }
+}
+
 class Google_Service_Fitness_Session extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $activeTimeMillis;
   public $activityType;
   protected $applicationType = 'Google_Service_Fitness_Application';
   protected $applicationDataType = '';
@@ -1071,6 +1121,14 @@ class Google_Service_Fitness_Session extends Google_Model
   public $startTimeMillis;
 
 
+  public function setActiveTimeMillis($activeTimeMillis)
+  {
+    $this->activeTimeMillis = $activeTimeMillis;
+  }
+  public function getActiveTimeMillis()
+  {
+    return $this->activeTimeMillis;
+  }
   public function setActivityType($activityType)
   {
     $this->activityType = $activityType;
@@ -1137,14 +1195,28 @@ class Google_Service_Fitness_Session extends Google_Model
   }
 }
 
-class Google_Service_Fitness_Value extends Google_Model
+class Google_Service_Fitness_Value extends Google_Collection
 {
+  protected $collection_key = 'mapVal';
   protected $internal_gapi_mappings = array(
   );
+  public $floatListVal;
   public $fpVal;
+  public $int64ListVal;
   public $intVal;
+  protected $mapValType = 'Google_Service_Fitness_ValueMapValEntry';
+  protected $mapValDataType = 'array';
+  public $stringVal;
 
 
+  public function setFloatListVal($floatListVal)
+  {
+    $this->floatListVal = $floatListVal;
+  }
+  public function getFloatListVal()
+  {
+    return $this->floatListVal;
+  }
   public function setFpVal($fpVal)
   {
     $this->fpVal = $fpVal;
@@ -1153,6 +1225,14 @@ class Google_Service_Fitness_Value extends Google_Model
   {
     return $this->fpVal;
   }
+  public function setInt64ListVal($int64ListVal)
+  {
+    $this->int64ListVal = $int64ListVal;
+  }
+  public function getInt64ListVal()
+  {
+    return $this->int64ListVal;
+  }
   public function setIntVal($intVal)
   {
     $this->intVal = $intVal;
@@ -1160,5 +1240,48 @@ class Google_Service_Fitness_Value extends Google_Model
   public function getIntVal()
   {
     return $this->intVal;
+  }
+  public function setMapVal($mapVal)
+  {
+    $this->mapVal = $mapVal;
+  }
+  public function getMapVal()
+  {
+    return $this->mapVal;
+  }
+  public function setStringVal($stringVal)
+  {
+    $this->stringVal = $stringVal;
+  }
+  public function getStringVal()
+  {
+    return $this->stringVal;
+  }
+}
+
+class Google_Service_Fitness_ValueMapValEntry extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $key;
+  protected $valueType = 'Google_Service_Fitness_MapValue';
+  protected $valueDataType = '';
+
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+  public function getKey()
+  {
+    return $this->key;
+  }
+  public function setValue(Google_Service_Fitness_MapValue $value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
   }
 }
