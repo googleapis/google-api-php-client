@@ -189,12 +189,22 @@ class ApiClientTest extends BaseTest
         $config->getClassConfig('Google_IO_Abstract', 'request_timeout_seconds')
     );
   }
-  
+
   public function testServiceAccountJson()
   {
     $client = new Google_Client();
     $c = $client->loadServiceAccountJson(
         __DIR__ . "/testdata/service-12345.json",
+        array()
+    );
+    $this->assertInstanceOf('Google_Auth_AssertionCredentials', $c);
+  }
+
+  public function testRsaServiceAccountJson()
+  {
+    $client = new Google_Client();
+    $c = $client->loadServiceAccountJson(
+        __DIR__ . "/testdata/service-rsa-12345.json",
         array()
     );
     $this->assertInstanceOf('Google_Auth_AssertionCredentials', $c);
