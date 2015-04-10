@@ -54,6 +54,8 @@ class Google_Service_YouTube extends Google_Service
   public $channelBanners;
   public $channelSections;
   public $channels;
+  public $commentThreads;
+  public $comments;
   public $guideCategories;
   public $i18nLanguages;
   public $i18nRegions;
@@ -441,6 +443,185 @@ class Google_Service_YouTube extends Google_Service
                 'onBehalfOfContentOwner' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->commentThreads = new Google_Service_YouTube_CommentThreads_Resource(
+        $this,
+        $this->serviceName,
+        'commentThreads',
+        array(
+          'methods' => array(
+            'insert' => array(
+              'path' => 'commentThreads',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'part' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'shareOnGooglePlus' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'commentThreads',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'part' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'searchTerms' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'allThreadsRelatedToChannelId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'channelId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'videoId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'moderationStatus' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'textFormat' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'commentThreads',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'part' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->comments = new Google_Service_YouTube_Comments_Resource(
+        $this,
+        $this->serviceName,
+        'comments',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => 'comments',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => 'comments',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'part' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'comments',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'part' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'parentId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'textFormat' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'markAsSpam' => array(
+              'path' => 'comments/markAsSpam',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'setModerationStatus' => array(
+              'path' => 'comments/setModerationStatus',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'moderationStatus' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'banAuthor' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'comments',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'part' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),
@@ -1659,8 +1840,9 @@ class Google_Service_YouTube_Captions_Resource extends Google_Service_Resource
    * captions.download method provides the ability to retrieve a caption track.
    * (captions.listCaptions)
    *
-   * @param string $part The part parameter specifies the caption resource parts
-   * that the API response will include.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more caption resource parts that the API response will include. The
+   * part names that you can include in the parameter value are id and snippet.
    * @param string $videoId The videoId parameter specifies the YouTube video ID
    * of the video for which the API should return caption tracks.
    * @param array $optParams Optional parameters.
@@ -2041,6 +2223,263 @@ class Google_Service_YouTube_Channels_Resource extends Google_Service_Resource
     $params = array('part' => $part, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('update', array($params), "Google_Service_YouTube_Channel");
+  }
+}
+
+/**
+ * The "commentThreads" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $youtubeService = new Google_Service_YouTube(...);
+ *   $commentThreads = $youtubeService->commentThreads;
+ *  </code>
+ */
+class Google_Service_YouTube_CommentThreads_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Creates a new comment thread and top level comment. (commentThreads.insert)
+   *
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are id and
+   * snippet. However only snippet contains properties that can be set.
+   * @param Google_CommentThread $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool shareOnGooglePlus The shareOnGooglePlus determines whether
+   * this thread should also be posted on Google+.
+   * @return Google_Service_YouTube_CommentThread
+   */
+  public function insert($part, Google_Service_YouTube_CommentThread $postBody, $optParams = array())
+  {
+    $params = array('part' => $part, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_YouTube_CommentThread");
+  }
+
+  /**
+   * Returns a list of comment threads that match the API request parameters.
+   * (commentThreads.listCommentThreads)
+   *
+   * @param string $part The part parameter specifies the commentThread resource
+   * parts that the API response will include. Supported values are id, snippet
+   * and replies.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string searchTerms The searchTerms parameter instructs the API to
+   * limit the returned comments to those which contain the specified search
+   * terms.
+   *
+   * Note: This parameter is not supported for use in conjunction with the id
+   * parameter.
+   * @opt_param string allThreadsRelatedToChannelId The
+   * allThreadsRelatedToChannelId parameter instructs the API to return the
+   * comment threads of all videos of the channel and the channel comments as
+   * well.
+   * @opt_param string channelId The channelId parameter instructs the API to
+   * return the comment threads for all the channel comments (not including
+   * comments left on videos).
+   * @opt_param string videoId The videoId parameter instructs the API to return
+   * the comment threads for the video specified by the video id.
+   * @opt_param string maxResults The maxResults parameter specifies the maximum
+   * number of items that should be returned in the result set.
+   *
+   * Note: This parameter is not supported for use in conjunction with the id
+   * parameter.
+   * @opt_param string pageToken The pageToken parameter identifies a specific
+   * page in the result set that should be returned. In an API response, the
+   * nextPageToken property identifies the next page of the result that can be
+   * retrieved.
+   *
+   * Note: This parameter is not supported for use in conjunction with the id
+   * parameter.
+   * @opt_param string moderationStatus Set this parameter to limit the returned
+   * comment threads to a particular moderation state.
+   *
+   * Note: This parameter is not supported for use in conjunction with the id
+   * parameter.
+   * @opt_param string textFormat Set this parameter's value to html or plainText
+   * to instruct the API to return the comments left by users in html formatted or
+   * in plain text.
+   * @opt_param string id The id parameter specifies a comma-separated list of
+   * comment thread IDs for the resources that should be retrieved.
+   * @return Google_Service_YouTube_CommentThreadListResponse
+   */
+  public function listCommentThreads($part, $optParams = array())
+  {
+    $params = array('part' => $part);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_YouTube_CommentThreadListResponse");
+  }
+
+  /**
+   * Modifies an existing comment. (commentThreads.update)
+   *
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are id, snippet
+   * and replies. However only snippet contains properties that can be updated.
+   * @param Google_CommentThread $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_YouTube_CommentThread
+   */
+  public function update($part, Google_Service_YouTube_CommentThread $postBody, $optParams = array())
+  {
+    $params = array('part' => $part, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_YouTube_CommentThread");
+  }
+}
+
+/**
+ * The "comments" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $youtubeService = new Google_Service_YouTube(...);
+ *   $comments = $youtubeService->comments;
+ *  </code>
+ */
+class Google_Service_YouTube_Comments_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Deletes a comment. (comments.delete)
+   *
+   * @param string $id The id parameter specifies the comment ID for the resource
+   * that should be deleted.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+
+  /**
+   * Creates a new comment.
+   *
+   * Note: to create a top level comment it is also necessary to create a comment
+   * thread. Both are accomplished through the commentThreads resource.
+   * (comments.insert)
+   *
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are id and
+   * snippet. However only snippet contains properties that can be set.
+   * @param Google_Comment $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_YouTube_Comment
+   */
+  public function insert($part, Google_Service_YouTube_Comment $postBody, $optParams = array())
+  {
+    $params = array('part' => $part, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_YouTube_Comment");
+  }
+
+  /**
+   * Returns a list of comments that match the API request parameters.
+   * (comments.listComments)
+   *
+   * @param string $part The part parameter specifies the comment resource parts
+   * that the API response will include. Supported values are id and snippet.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string maxResults The maxResults parameter specifies the maximum
+   * number of items that should be returned in the result set.
+   *
+   * Note: This parameter is not supported for use in conjunction with the id
+   * parameter.
+   * @opt_param string pageToken The pageToken parameter identifies a specific
+   * page in the result set that should be returned. In an API response, the
+   * nextPageToken property identifies the next page of the result that can be
+   * retrieved.
+   *
+   * Note: This parameter is not supported for use in conjunction with the id
+   * parameter.
+   * @opt_param string parentId The parentId parameter specifies the ID of the
+   * comment for which replies should be retrieved.
+   *
+   * Note: Currently YouTube features only one level of replies (ie replies to top
+   * level comments). However replies to replies may be supported in the future.
+   * @opt_param string textFormat Set this parameter's value to html or plainText
+   * to instruct the API to return the comments left by users formatted as HTML or
+   * as plain text.
+   * @opt_param string id The id parameter specifies a comma-separated list of
+   * comment IDs for the resources that should be retrieved.
+   * @return Google_Service_YouTube_CommentListResponse
+   */
+  public function listComments($part, $optParams = array())
+  {
+    $params = array('part' => $part);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_YouTube_CommentListResponse");
+  }
+
+  /**
+   * Expresses the caller's opinion that a comment is spam. (comments.markAsSpam)
+   *
+   * @param string $id The id parameter specifies a comma-separated list of IDs of
+   * comments which should get flagged as spam.
+   * @param array $optParams Optional parameters.
+   */
+  public function markAsSpam($id, $optParams = array())
+  {
+    $params = array('id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('markAsSpam', array($params));
+  }
+
+  /**
+   * Sets the moderation status of one or more comments.
+   * (comments.setModerationStatus)
+   *
+   * @param string $id The id parameter specifies a comma-separated list of IDs of
+   * comments whose moderation status should be updated.
+   * @param string $moderationStatus Determines the new moderation status of the
+   * specified comments.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool banAuthor The banAuthor paramter, if set to true, adds the
+   * author of the comment to the ban list. This means all future comments of the
+   * author will autmomatically be rejected.
+   *
+   * Note: This parameter is only valid in combination with moderationStatus
+   * 'rejected'.
+   */
+  public function setModerationStatus($id, $moderationStatus, $optParams = array())
+  {
+    $params = array('id' => $id, 'moderationStatus' => $moderationStatus);
+    $params = array_merge($params, $optParams);
+    return $this->call('setModerationStatus', array($params));
+  }
+
+  /**
+   * Modifies an existing comment. (comments.update)
+   *
+   * @param string $part The part parameter serves two purposes in this operation.
+   * It identifies the properties that the write operation will set as well as the
+   * properties that the API response will include.
+   *
+   * The part names that you can include in the parameter value are id and
+   * snippet. However only snippet contains properties that can be updated.
+   * @param Google_Comment $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_YouTube_Comment
+   */
+  public function update($part, Google_Service_YouTube_Comment $postBody, $optParams = array())
+  {
+    $params = array('part' => $part, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_YouTube_Comment");
   }
 }
 
@@ -5279,6 +5718,23 @@ class Google_Service_YouTube_ChannelConversionPings extends Google_Collection
   }
 }
 
+class Google_Service_YouTube_ChannelId extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $value;
+
+
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
 class Google_Service_YouTube_ChannelListResponse extends Google_Collection
 {
   protected $collection_key = 'items';
@@ -5935,6 +6391,509 @@ class Google_Service_YouTube_ChannelTopicDetails extends Google_Collection
   public function getTopicIds()
   {
     return $this->topicIds;
+  }
+}
+
+class Google_Service_YouTube_Comment extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $etag;
+  public $id;
+  public $kind;
+  protected $snippetType = 'Google_Service_YouTube_CommentSnippet';
+  protected $snippetDataType = '';
+
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setSnippet(Google_Service_YouTube_CommentSnippet $snippet)
+  {
+    $this->snippet = $snippet;
+  }
+  public function getSnippet()
+  {
+    return $this->snippet;
+  }
+}
+
+class Google_Service_YouTube_CommentListResponse extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $etag;
+  public $eventId;
+  protected $itemsType = 'Google_Service_YouTube_Comment';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
+  protected $pageInfoDataType = '';
+  protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
+  protected $tokenPaginationDataType = '';
+  public $visitorId;
+
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setEventId($eventId)
+  {
+    $this->eventId = $eventId;
+  }
+  public function getEventId()
+  {
+    return $this->eventId;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
+  {
+    $this->pageInfo = $pageInfo;
+  }
+  public function getPageInfo()
+  {
+    return $this->pageInfo;
+  }
+  public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
+  {
+    $this->tokenPagination = $tokenPagination;
+  }
+  public function getTokenPagination()
+  {
+    return $this->tokenPagination;
+  }
+  public function setVisitorId($visitorId)
+  {
+    $this->visitorId = $visitorId;
+  }
+  public function getVisitorId()
+  {
+    return $this->visitorId;
+  }
+}
+
+class Google_Service_YouTube_CommentSnippet extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $authorChannelIdType = 'Google_Service_YouTube_ChannelId';
+  protected $authorChannelIdDataType = '';
+  public $authorChannelUrl;
+  public $authorDisplayName;
+  public $authorGoogleplusProfileUrl;
+  public $authorProfileImageUrl;
+  public $canRate;
+  public $channelId;
+  public $likeCount;
+  public $moderationStatus;
+  public $parentId;
+  public $publishedAt;
+  public $textDisplay;
+  public $textOriginal;
+  public $updatedAt;
+  public $videoId;
+  public $viewerRating;
+
+
+  public function setAuthorChannelId(Google_Service_YouTube_ChannelId $authorChannelId)
+  {
+    $this->authorChannelId = $authorChannelId;
+  }
+  public function getAuthorChannelId()
+  {
+    return $this->authorChannelId;
+  }
+  public function setAuthorChannelUrl($authorChannelUrl)
+  {
+    $this->authorChannelUrl = $authorChannelUrl;
+  }
+  public function getAuthorChannelUrl()
+  {
+    return $this->authorChannelUrl;
+  }
+  public function setAuthorDisplayName($authorDisplayName)
+  {
+    $this->authorDisplayName = $authorDisplayName;
+  }
+  public function getAuthorDisplayName()
+  {
+    return $this->authorDisplayName;
+  }
+  public function setAuthorGoogleplusProfileUrl($authorGoogleplusProfileUrl)
+  {
+    $this->authorGoogleplusProfileUrl = $authorGoogleplusProfileUrl;
+  }
+  public function getAuthorGoogleplusProfileUrl()
+  {
+    return $this->authorGoogleplusProfileUrl;
+  }
+  public function setAuthorProfileImageUrl($authorProfileImageUrl)
+  {
+    $this->authorProfileImageUrl = $authorProfileImageUrl;
+  }
+  public function getAuthorProfileImageUrl()
+  {
+    return $this->authorProfileImageUrl;
+  }
+  public function setCanRate($canRate)
+  {
+    $this->canRate = $canRate;
+  }
+  public function getCanRate()
+  {
+    return $this->canRate;
+  }
+  public function setChannelId($channelId)
+  {
+    $this->channelId = $channelId;
+  }
+  public function getChannelId()
+  {
+    return $this->channelId;
+  }
+  public function setLikeCount($likeCount)
+  {
+    $this->likeCount = $likeCount;
+  }
+  public function getLikeCount()
+  {
+    return $this->likeCount;
+  }
+  public function setModerationStatus($moderationStatus)
+  {
+    $this->moderationStatus = $moderationStatus;
+  }
+  public function getModerationStatus()
+  {
+    return $this->moderationStatus;
+  }
+  public function setParentId($parentId)
+  {
+    $this->parentId = $parentId;
+  }
+  public function getParentId()
+  {
+    return $this->parentId;
+  }
+  public function setPublishedAt($publishedAt)
+  {
+    $this->publishedAt = $publishedAt;
+  }
+  public function getPublishedAt()
+  {
+    return $this->publishedAt;
+  }
+  public function setTextDisplay($textDisplay)
+  {
+    $this->textDisplay = $textDisplay;
+  }
+  public function getTextDisplay()
+  {
+    return $this->textDisplay;
+  }
+  public function setTextOriginal($textOriginal)
+  {
+    $this->textOriginal = $textOriginal;
+  }
+  public function getTextOriginal()
+  {
+    return $this->textOriginal;
+  }
+  public function setUpdatedAt($updatedAt)
+  {
+    $this->updatedAt = $updatedAt;
+  }
+  public function getUpdatedAt()
+  {
+    return $this->updatedAt;
+  }
+  public function setVideoId($videoId)
+  {
+    $this->videoId = $videoId;
+  }
+  public function getVideoId()
+  {
+    return $this->videoId;
+  }
+  public function setViewerRating($viewerRating)
+  {
+    $this->viewerRating = $viewerRating;
+  }
+  public function getViewerRating()
+  {
+    return $this->viewerRating;
+  }
+}
+
+class Google_Service_YouTube_CommentThread extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $etag;
+  public $id;
+  public $kind;
+  protected $repliesType = 'Google_Service_YouTube_CommentThreadReplies';
+  protected $repliesDataType = '';
+  protected $snippetType = 'Google_Service_YouTube_CommentThreadSnippet';
+  protected $snippetDataType = '';
+
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setReplies(Google_Service_YouTube_CommentThreadReplies $replies)
+  {
+    $this->replies = $replies;
+  }
+  public function getReplies()
+  {
+    return $this->replies;
+  }
+  public function setSnippet(Google_Service_YouTube_CommentThreadSnippet $snippet)
+  {
+    $this->snippet = $snippet;
+  }
+  public function getSnippet()
+  {
+    return $this->snippet;
+  }
+}
+
+class Google_Service_YouTube_CommentThreadListResponse extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $etag;
+  public $eventId;
+  protected $itemsType = 'Google_Service_YouTube_CommentThread';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  protected $pageInfoType = 'Google_Service_YouTube_PageInfo';
+  protected $pageInfoDataType = '';
+  protected $tokenPaginationType = 'Google_Service_YouTube_TokenPagination';
+  protected $tokenPaginationDataType = '';
+  public $visitorId;
+
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setEventId($eventId)
+  {
+    $this->eventId = $eventId;
+  }
+  public function getEventId()
+  {
+    return $this->eventId;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setPageInfo(Google_Service_YouTube_PageInfo $pageInfo)
+  {
+    $this->pageInfo = $pageInfo;
+  }
+  public function getPageInfo()
+  {
+    return $this->pageInfo;
+  }
+  public function setTokenPagination(Google_Service_YouTube_TokenPagination $tokenPagination)
+  {
+    $this->tokenPagination = $tokenPagination;
+  }
+  public function getTokenPagination()
+  {
+    return $this->tokenPagination;
+  }
+  public function setVisitorId($visitorId)
+  {
+    $this->visitorId = $visitorId;
+  }
+  public function getVisitorId()
+  {
+    return $this->visitorId;
+  }
+}
+
+class Google_Service_YouTube_CommentThreadReplies extends Google_Collection
+{
+  protected $collection_key = 'comments';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $commentsType = 'Google_Service_YouTube_Comment';
+  protected $commentsDataType = 'array';
+
+
+  public function setComments($comments)
+  {
+    $this->comments = $comments;
+  }
+  public function getComments()
+  {
+    return $this->comments;
+  }
+}
+
+class Google_Service_YouTube_CommentThreadSnippet extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $canReply;
+  public $channelId;
+  public $isPublic;
+  protected $topLevelCommentType = 'Google_Service_YouTube_Comment';
+  protected $topLevelCommentDataType = '';
+  public $totalReplyCount;
+  public $videoId;
+
+
+  public function setCanReply($canReply)
+  {
+    $this->canReply = $canReply;
+  }
+  public function getCanReply()
+  {
+    return $this->canReply;
+  }
+  public function setChannelId($channelId)
+  {
+    $this->channelId = $channelId;
+  }
+  public function getChannelId()
+  {
+    return $this->channelId;
+  }
+  public function setIsPublic($isPublic)
+  {
+    $this->isPublic = $isPublic;
+  }
+  public function getIsPublic()
+  {
+    return $this->isPublic;
+  }
+  public function setTopLevelComment(Google_Service_YouTube_Comment $topLevelComment)
+  {
+    $this->topLevelComment = $topLevelComment;
+  }
+  public function getTopLevelComment()
+  {
+    return $this->topLevelComment;
+  }
+  public function setTotalReplyCount($totalReplyCount)
+  {
+    $this->totalReplyCount = $totalReplyCount;
+  }
+  public function getTotalReplyCount()
+  {
+    return $this->totalReplyCount;
+  }
+  public function setVideoId($videoId)
+  {
+    $this->videoId = $videoId;
+  }
+  public function getVideoId()
+  {
+    return $this->videoId;
   }
 }
 
