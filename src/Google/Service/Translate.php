@@ -330,6 +330,21 @@ class Google_Service_Translate_TranslationsListResponse extends Google_Collectio
   protected $translationsType = 'Google_Service_Translate_TranslationsResource';
   protected $translationsDataType = 'array';
 
+  /**
+   * Overide array when element has a data key 
+   */
+  public function __construct(){
+    if (func_num_args() == 1 && is_array(func_get_arg(0))) {
+      $array = func_get_arg(0);
+      if (count($array) == 1 && isset($array['data'])) {
+        parent::__construct($array['data']);
+      } else{
+        parent::__construct(func_get_args());
+      }
+    } else {
+      parent::__construct(func_get_args());
+    }
+  }
 
   public function setTranslations($translations)
   {
