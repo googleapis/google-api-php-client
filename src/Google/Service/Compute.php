@@ -1467,6 +1467,10 @@ class Google_Service_Compute extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'port' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
               ),
             ),'insert' => array(
               'path' => '{project}/zones/{zone}/instances',
@@ -4450,6 +4454,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * @param string $zone The name of the zone for this request.
    * @param string $instance Name of the instance scoping this request.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param int port Which COM port to retrieve data from.
    * @return Google_Service_Compute_SerialPortOutput
    */
   public function getSerialPortOutput($project, $zone, $instance, $optParams = array())
