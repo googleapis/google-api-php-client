@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Dns (v1beta1).
+ * Service definition for Dns (v1).
  *
  * <p>
  * The Google Cloud DNS API provides services for configuring and serving
@@ -55,8 +55,8 @@ class Google_Service_Dns extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->servicePath = 'dns/v1beta1/projects/';
-    $this->version = 'v1beta1';
+    $this->servicePath = 'dns/v1/projects/';
+    $this->version = 'v1';
     $this->serviceName = 'dns';
 
     $this->changes = new Google_Service_Dns_Changes_Resource(
