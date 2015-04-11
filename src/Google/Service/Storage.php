@@ -587,15 +587,7 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'encryptionKeyHash' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ifGenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'encryptionAlgorithm' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -604,10 +596,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                 ),
                 'destinationPredefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'encryptionKey' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -636,11 +624,7 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'encryptionKeyHash' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifGenerationMatch' => array(
+                'ifSourceGenerationNotMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -648,15 +632,7 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'ifMetagenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ifSourceMetagenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'encryptionAlgorithm' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -680,11 +656,11 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'ifSourceGenerationNotMatch' => array(
+                'ifGenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'encryptionKey' => array(
+                'ifMetagenerationNotMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -742,23 +718,11 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'encryptionKeyHash' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ifGenerationNotMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'ifMetagenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'generation' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'encryptionAlgorithm' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -770,7 +734,7 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'encryptionKey' => array(
+                'ifMetagenerationNotMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -788,10 +752,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'encryptionKeyHash' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'predefinedAcl' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -801,14 +761,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                 ),
                 'ifGenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifMetagenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'encryptionAlgorithm' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -824,7 +776,7 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'encryptionKey' => array(
+                'ifMetagenerationNotMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -881,10 +833,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'encryptionKeyHash' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'predefinedAcl' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -893,15 +841,7 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'ifMetagenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'generation' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'encryptionAlgorithm' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -913,7 +853,7 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'encryptionKey' => array(
+                'ifMetagenerationNotMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -936,10 +876,6 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'encryptionKeyHash' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'predefinedAcl' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -948,15 +884,7 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'ifMetagenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'generation' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'encryptionAlgorithm' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -968,7 +896,7 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'encryptionKey' => array(
+                'ifMetagenerationNotMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1591,21 +1519,12 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param Google_ComposeRequest $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string encryptionKeyHash Provides the digest of the key for error-
-   * checking transmission. A digest is in the format of '='. Algorithm, key, and
-   * key hash must be supplied together.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
    * whether the object's current generation matches the given value.
-   * @opt_param string encryptionAlgorithm Specifies the encryption algorithm that
-   * was used to encrypt the object, if any. Only 'AES256' is supported currently.
-   * Algorithm, key, and key hash must be supplied together.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
    * @opt_param string destinationPredefinedAcl Apply a predefined set of access
    * controls to the destination object.
-   * @opt_param string encryptionKey Provides a base64-encoded 256-bit key that
-   * was used to encrypt the object, if any. Algorithm, key, and key hash must be
-   * supplied together.
    * @return Google_Service_Storage_StorageObject
    */
   public function compose($destinationBucket, $destinationObject, Google_Service_Storage_ComposeRequest $postBody, $optParams = array())
@@ -1630,23 +1549,14 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param Google_StorageObject $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string encryptionKeyHash Provides the digest of the key for error-
-   * checking transmission. A digest is in the format of '='. Algorithm, key, and
-   * key hash must be supplied together.
-   * @opt_param string ifGenerationMatch Makes the operation conditional on
-   * whether the destination object's current generation matches the given value.
+   * @opt_param string ifSourceGenerationNotMatch Makes the operation conditional
+   * on whether the source object's generation does not match the given value.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
    * whether the destination object's current generation does not match the given
    * value.
-   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
-   * whether the destination object's current metageneration does not match the
-   * given value.
    * @opt_param string ifSourceMetagenerationNotMatch Makes the operation
    * conditional on whether the source object's current metageneration does not
    * match the given value.
-   * @opt_param string encryptionAlgorithm Specifies the encryption algorithm that
-   * was used to encrypt the object, if any. Only 'AES256' is supported currently.
-   * Algorithm, key, and key hash must be supplied together.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the destination object's current metageneration matches the given
    * value.
@@ -1659,11 +1569,11 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @opt_param string ifSourceMetagenerationMatch Makes the operation conditional
    * on whether the source object's current metageneration matches the given
    * value.
-   * @opt_param string ifSourceGenerationNotMatch Makes the operation conditional
-   * on whether the source object's generation does not match the given value.
-   * @opt_param string encryptionKey Provides a base64-encoded 256-bit key that
-   * was used to encrypt the object, if any. Algorithm, key, and key hash must be
-   * supplied together.
+   * @opt_param string ifGenerationMatch Makes the operation conditional on
+   * whether the destination object's current generation matches the given value.
+   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
+   * whether the destination object's current metageneration does not match the
+   * given value.
    * @opt_param string projection Set of properties to return. Defaults to noAcl,
    * unless the object resource specifies the acl property, when it defaults to
    * full.
@@ -1710,24 +1620,16 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param string $object Name of the object.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string encryptionKeyHash Provides the digest of the key for error-
-   * checking transmission. A digest is in the format of '='. Algorithm, key, and
-   * key hash must be supplied together.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
    * whether the object's generation does not match the given value.
-   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
-   * whether the object's current metageneration does not match the given value.
    * @opt_param string generation If present, selects a specific revision of this
    * object (as opposed to the latest version, the default).
-   * @opt_param string encryptionAlgorithm Specifies the encryption algorithm that
-   * would be used to decrypt the object. Only 'AES256' is supported currently.
-   * Algorithm, key, and key hash must be supplied together.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
    * whether the object's generation matches the given value.
-   * @opt_param string encryptionKey Provides a base64-encoded 256-bit key to
-   * decrypt the object. Algorithm, key, and key hash must be supplied together.
+   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
+   * whether the object's current metageneration does not match the given value.
    * @opt_param string projection Set of properties to return. Defaults to noAcl.
    * @return Google_Service_Storage_StorageObject
    */
@@ -1746,9 +1648,6 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param Google_StorageObject $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string encryptionKeyHash Provides the digest of the key for error-
-   * checking transmission. A digest is in the format of '='. Algorithm, key, and
-   * key hash must be supplied together.
    * @opt_param string predefinedAcl Apply a predefined set of access controls to
    * this object.
    * @opt_param string projection Set of properties to return. Defaults to noAcl,
@@ -1756,11 +1655,6 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * full.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
    * whether the object's current generation does not match the given value.
-   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
-   * whether the object's current metageneration does not match the given value.
-   * @opt_param string encryptionAlgorithm Specifies the encryption algorithm that
-   * would be used to encrypt the object. Only 'AES256' is supported currently.
-   * Algorithm, key, and key hash must be supplied together.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
    * @opt_param string contentEncoding If set, sets the contentEncoding property
@@ -1770,8 +1664,8 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * content being uploaded.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
    * whether the object's current generation matches the given value.
-   * @opt_param string encryptionKey Provides a base64-encoded 256-bit key to
-   * encrypt the object. Algorithm, key, and key hash must be supplied together.
+   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
+   * whether the object's current metageneration does not match the given value.
    * @opt_param string name Name of the object. Required when the object metadata
    * is not otherwise provided. Overrides the object metadata's name value, if
    * any.
@@ -1823,28 +1717,18 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param Google_StorageObject $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string encryptionKeyHash For downloading encrypted objects,
-   * provides the digest of the key for error-checking transmission. A digest is
-   * in the format of '='. Algorithm, key, and key hash must be supplied together.
    * @opt_param string predefinedAcl Apply a predefined set of access controls to
    * this object.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
    * whether the object's current generation does not match the given value.
-   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
-   * whether the object's current metageneration does not match the given value.
    * @opt_param string generation If present, selects a specific revision of this
    * object (as opposed to the latest version, the default).
-   * @opt_param string encryptionAlgorithm For downloading encrypted objects,
-   * specifies the encryption algorithm that would be used to decrypt the object.
-   * Only 'AES256' is supported currently. Algorithm, key, and key hash must be
-   * supplied together.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
    * whether the object's current generation matches the given value.
-   * @opt_param string encryptionKey For downloading encrypted objects, provides a
-   * base64-encoded 256-bit key to decrypt the object. Algorithm, key, and key
-   * hash must be supplied together.
+   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
+   * whether the object's current metageneration does not match the given value.
    * @opt_param string projection Set of properties to return. Defaults to full.
    * @return Google_Service_Storage_StorageObject
    */
@@ -1863,28 +1747,18 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param Google_StorageObject $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string encryptionKeyHash For downloading encrypted objects,
-   * provides the digest of the key for error-checking transmission. A digest is
-   * in the format of '='. Algorithm, key, and key hash must be supplied together.
    * @opt_param string predefinedAcl Apply a predefined set of access controls to
    * this object.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
    * whether the object's current generation does not match the given value.
-   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
-   * whether the object's current metageneration does not match the given value.
    * @opt_param string generation If present, selects a specific revision of this
    * object (as opposed to the latest version, the default).
-   * @opt_param string encryptionAlgorithm For downloading encrypted objects,
-   * specifies the encryption algorithm that would be used to decrypt the object.
-   * Only 'AES256' is supported currently. Algorithm, key, and key hash must be
-   * supplied together.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
    * whether the object's current generation matches the given value.
-   * @opt_param string encryptionKey For downloading encrypted objects, provides a
-   * base64-encoded 256-bit key to decrypt the object. Algorithm, key, and key
-   * hash must be supplied together.
+   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
+   * whether the object's current metageneration does not match the given value.
    * @opt_param string projection Set of properties to return. Defaults to full.
    * @return Google_Service_Storage_StorageObject
    */
