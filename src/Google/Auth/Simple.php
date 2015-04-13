@@ -26,7 +26,6 @@ if (!class_exists('Google_Client')) {
  */
 class Google_Auth_Simple extends Google_Auth_Abstract
 {
-  private $key = null;
   private $client;
 
   public function __construct(Google_Client $client, $config = null)

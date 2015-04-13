@@ -32,7 +32,6 @@ if (!class_exists('Google_Client')) {
 class Google_Auth_AppIdentity extends Google_Auth_Abstract
 {
   const CACHE_PREFIX = "Google_Auth_AppIdentity::";
-  private $key = null;
   private $client;
   private $token = false;
   private $tokenScopes = false;
