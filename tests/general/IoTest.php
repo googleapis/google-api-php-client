@@ -48,21 +48,21 @@ class IoTest extends BaseTest
   {
     $client = $this->getClient();
     $io = new Google_IO_Stream($client);
-    $this->processEntityRequest($io, $client);
+    $this->processEntityRequest($io);
   }
 
   public function testStreamCacheHit()
   {
     $client = $this->getClient();
     $io = new Google_IO_Stream($client);
-    $this->cacheHit($io, $client);
+    $this->cacheHit($io);
   }
 
   public function testStreamAuthCache()
   {
     $client = $this->getClient();
     $io = new Google_IO_Stream($client);
-    $this->authCache($io, $client);
+    $this->authCache($io);
   }
 
   /**
@@ -99,7 +99,7 @@ class IoTest extends BaseTest
     }
     $client = $this->getClient();
     $io = new Google_IO_Curl($client);
-    $this->processEntityRequest($io, $client);
+    $this->processEntityRequest($io);
   }
 
   public function testCurlCacheHit()
@@ -109,7 +109,7 @@ class IoTest extends BaseTest
     }
     $client = $this->getClient();
     $io = new Google_IO_Curl($client);
-    $this->cacheHit($io, $client);
+    $this->cacheHit($io);
   }
 
   public function testCurlAuthCache()
@@ -119,7 +119,7 @@ class IoTest extends BaseTest
     }
     $client = $this->getClient();
     $io = new Google_IO_Curl($client);
-    $this->authCache($io, $client);
+    $this->authCache($io);
   }
 
   /**
@@ -224,7 +224,7 @@ class IoTest extends BaseTest
     $io->makeRequest($req);
   }
 
-  public function cacheHit($io, $client)
+  public function cacheHit($io)
   {
     $url = "http://www.googleapis.com";
     // Create a cacheable request/response.
@@ -254,7 +254,7 @@ class IoTest extends BaseTest
     $this->assertEquals(200, $res->getResponseHttpCode());
   }
 
-  public function authCache($io, $client)
+  public function authCache($io)
   {
     $url = "http://www.googleapis.com/protected/resource";
 
@@ -337,7 +337,7 @@ class IoTest extends BaseTest
     }
   }
 
-  public function processEntityRequest($io, $client)
+  public function processEntityRequest($io)
   {
     $req = new Google_Http_Request("http://localhost.com");
     $req->setRequestMethod("POST");
