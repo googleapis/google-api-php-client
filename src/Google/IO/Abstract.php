@@ -114,8 +114,8 @@ abstract class Google_IO_Abstract
   /**
    * Execute an HTTP Request
    *
-   * @param Google_HttpRequest $request the http request to be executed
-   * @return Google_HttpRequest http request with the response http code,
+   * @param Google_Http_Request $request the http request to be executed
+   * @return Google_Http_Request http request with the response http code,
    * response headers and response body filled in
    * @throws Google_IO_Exception on curl or IO error
    */
@@ -230,7 +230,7 @@ abstract class Google_IO_Abstract
 
   /**
    * Update a cached request, using the headers from the last response.
-   * @param Google_HttpRequest $cached A previously cached response.
+   * @param Google_Http_Request $cached A previously cached response.
    * @param mixed Associative array of response headers from the last request.
    */
   protected function updateCachedRequest($cached, $responseHeaders)
