@@ -77,6 +77,10 @@ class Google_Service_IdentityToolkit extends Google_Service
               'path' => 'publicKeys',
               'httpMethod' => 'GET',
               'parameters' => array(),
+            ),'getRecaptchaParam' => array(
+              'path' => 'getRecaptchaParam',
+              'httpMethod' => 'GET',
+              'parameters' => array(),
             ),'resetPassword' => array(
               'path' => 'resetPassword',
               'httpMethod' => 'POST',
@@ -199,6 +203,19 @@ class Google_Service_IdentityToolkit_Relyingparty_Resource extends Google_Servic
     $params = array();
     $params = array_merge($params, $optParams);
     return $this->call('getPublicKeys', array($params), "Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyGetPublicKeysResponse");
+  }
+
+  /**
+   * Get recaptcha secure param. (relyingparty.getRecaptchaParam)
+   *
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_IdentityToolkit_GetRecaptchaParamResponse
+   */
+  public function getRecaptchaParam($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('getRecaptchaParam', array($params), "Google_Service_IdentityToolkit_GetRecaptchaParamResponse");
   }
 
   /**
@@ -445,6 +462,41 @@ class Google_Service_IdentityToolkit_GetOobConfirmationCodeResponse extends Goog
   }
 }
 
+class Google_Service_IdentityToolkit_GetRecaptchaParamResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+  public $recaptchaSiteKey;
+  public $recaptchaStoken;
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setRecaptchaSiteKey($recaptchaSiteKey)
+  {
+    $this->recaptchaSiteKey = $recaptchaSiteKey;
+  }
+  public function getRecaptchaSiteKey()
+  {
+    return $this->recaptchaSiteKey;
+  }
+  public function setRecaptchaStoken($recaptchaStoken)
+  {
+    $this->recaptchaStoken = $recaptchaStoken;
+  }
+  public function getRecaptchaStoken()
+  {
+    return $this->recaptchaStoken;
+  }
+}
+
 class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyCreateAuthUriRequest extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -454,6 +506,8 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyCreateAuthUriReq
   public $context;
   public $continueUri;
   public $identifier;
+  public $oauthConsumerKey;
+  public $oauthScope;
   public $openidRealm;
   public $otaApp;
   public $providerId;
@@ -498,6 +552,22 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyCreateAuthUriReq
   public function getIdentifier()
   {
     return $this->identifier;
+  }
+  public function setOauthConsumerKey($oauthConsumerKey)
+  {
+    $this->oauthConsumerKey = $oauthConsumerKey;
+  }
+  public function getOauthConsumerKey()
+  {
+    return $this->oauthConsumerKey;
+  }
+  public function setOauthScope($oauthScope)
+  {
+    $this->oauthScope = $oauthScope;
+  }
+  public function getOauthScope()
+  {
+    return $this->oauthScope;
   }
   public function setOpenidRealm($openidRealm)
   {
@@ -831,6 +901,7 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyVerifyAssertionR
   public $pendingIdToken;
   public $postBody;
   public $requestUri;
+  public $returnRefreshToken;
 
 
   public function setPendingIdToken($pendingIdToken)
@@ -856,6 +927,14 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartyVerifyAssertionR
   public function getRequestUri()
   {
     return $this->requestUri;
+  }
+  public function setReturnRefreshToken($returnRefreshToken)
+  {
+    $this->returnRefreshToken = $returnRefreshToken;
+  }
+  public function getReturnRefreshToken()
+  {
+    return $this->returnRefreshToken;
   }
 }
 
@@ -1331,6 +1410,9 @@ class Google_Service_IdentityToolkit_VerifyAssertionResponse extends Google_Coll
   public $localId;
   public $needConfirmation;
   public $nickName;
+  public $oauthAccessToken;
+  public $oauthAuthorizationCode;
+  public $oauthExpireIn;
   public $oauthRequestToken;
   public $oauthScope;
   public $originalEmail;
@@ -1499,6 +1581,30 @@ class Google_Service_IdentityToolkit_VerifyAssertionResponse extends Google_Coll
   public function getNickName()
   {
     return $this->nickName;
+  }
+  public function setOauthAccessToken($oauthAccessToken)
+  {
+    $this->oauthAccessToken = $oauthAccessToken;
+  }
+  public function getOauthAccessToken()
+  {
+    return $this->oauthAccessToken;
+  }
+  public function setOauthAuthorizationCode($oauthAuthorizationCode)
+  {
+    $this->oauthAuthorizationCode = $oauthAuthorizationCode;
+  }
+  public function getOauthAuthorizationCode()
+  {
+    return $this->oauthAuthorizationCode;
+  }
+  public function setOauthExpireIn($oauthExpireIn)
+  {
+    $this->oauthExpireIn = $oauthExpireIn;
+  }
+  public function getOauthExpireIn()
+  {
+    return $this->oauthExpireIn;
   }
   public function setOauthRequestToken($oauthRequestToken)
   {
