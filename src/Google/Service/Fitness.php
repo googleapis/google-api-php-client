@@ -1202,7 +1202,7 @@ class Google_Service_Fitness_Value extends Google_Collection
   );
   public $floatListVal;
   public $fpVal;
-  public $int64ListVal;
+  public $intListVal;
   public $intVal;
   protected $mapValType = 'Google_Service_Fitness_ValueMapValEntry';
   protected $mapValDataType = 'array';
@@ -1225,13 +1225,13 @@ class Google_Service_Fitness_Value extends Google_Collection
   {
     return $this->fpVal;
   }
-  public function setInt64ListVal($int64ListVal)
+  public function setIntListVal($intListVal)
   {
-    $this->int64ListVal = $int64ListVal;
+    $this->intListVal = $intListVal;
   }
-  public function getInt64ListVal()
+  public function getIntListVal()
   {
-    return $this->int64ListVal;
+    return $this->intListVal;
   }
   public function setIntVal($intVal)
   {
