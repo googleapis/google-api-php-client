@@ -862,6 +862,83 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                 ),
               ),
+            ),'rewrite' => array(
+              'path' => 'b/{sourceBucket}/o/{sourceObject}/rewriteTo/b/{destinationBucket}/o/{destinationObject}',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'sourceBucket' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'sourceObject' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'destinationBucket' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'destinationObject' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'ifSourceGenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifGenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'rewriteToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifSourceMetagenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifMetagenerationMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sourceGeneration' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'destinationPredefinedAcl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifSourceGenerationMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxBytesRewrittenPerCall' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifSourceMetagenerationMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifGenerationMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifMetagenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
             ),'update' => array(
               'path' => 'b/{bucket}/o/{object}',
               'httpMethod' => 'PUT',
@@ -1737,6 +1814,70 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
     $params = array('bucket' => $bucket, 'object' => $object, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('patch', array($params), "Google_Service_Storage_StorageObject");
+  }
+
+  /**
+   * Rewrites a source object to a destination object. Optionally overrides
+   * metadata. (objects.rewrite)
+   *
+   * @param string $sourceBucket Name of the bucket in which to find the source
+   * object.
+   * @param string $sourceObject Name of the source object.
+   * @param string $destinationBucket Name of the bucket in which to store the new
+   * object. Overrides the provided object metadata's bucket value, if any.
+   * @param string $destinationObject Name of the new object. Required when the
+   * object metadata is not otherwise provided. Overrides the object metadata's
+   * name value, if any.
+   * @param Google_StorageObject $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string ifSourceGenerationNotMatch Makes the operation conditional
+   * on whether the source object's generation does not match the given value.
+   * @opt_param string ifGenerationNotMatch Makes the operation conditional on
+   * whether the destination object's current generation does not match the given
+   * value.
+   * @opt_param string rewriteToken Include this field (from the previous Rewrite
+   * response) on each Rewrite request after the first one, until the Rewrite
+   * response 'done' flag is true. Calls that provide a rewriteToken can omit all
+   * other request fields, but if included those fields must match the values
+   * provided in the first rewrite request.
+   * @opt_param string ifSourceMetagenerationNotMatch Makes the operation
+   * conditional on whether the source object's current metageneration does not
+   * match the given value.
+   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
+   * whether the destination object's current metageneration matches the given
+   * value.
+   * @opt_param string sourceGeneration If present, selects a specific revision of
+   * the source object (as opposed to the latest version, the default).
+   * @opt_param string destinationPredefinedAcl Apply a predefined set of access
+   * controls to the destination object.
+   * @opt_param string ifSourceGenerationMatch Makes the operation conditional on
+   * whether the source object's generation matches the given value.
+   * @opt_param string maxBytesRewrittenPerCall The maximum number of bytes that
+   * will be rewritten per Rewrite request. Most callers shouldn't need to specify
+   * this parameter - it is primarily in place to support testing. If specified
+   * the value must be an integral multiple of 1 MiB (1048576). Also, this only
+   * applies to requests where the source and destination span locations and/or
+   * storage classes. Finally, this value must not change across Rewrite calls
+   * else you'll get an error that the rewrite token is invalid.
+   * @opt_param string ifSourceMetagenerationMatch Makes the operation conditional
+   * on whether the source object's current metageneration matches the given
+   * value.
+   * @opt_param string ifGenerationMatch Makes the operation conditional on
+   * whether the destination object's current generation matches the given value.
+   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
+   * whether the destination object's current metageneration does not match the
+   * given value.
+   * @opt_param string projection Set of properties to return. Defaults to noAcl,
+   * unless the object resource specifies the acl property, when it defaults to
+   * full.
+   * @return Google_Service_Storage_RewriteResponse
+   */
+  public function rewrite($sourceBucket, $sourceObject, $destinationBucket, $destinationObject, Google_Service_Storage_StorageObject $postBody, $optParams = array())
+  {
+    $params = array('sourceBucket' => $sourceBucket, 'sourceObject' => $sourceObject, 'destinationBucket' => $destinationBucket, 'destinationObject' => $destinationObject, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('rewrite', array($params), "Google_Service_Storage_RewriteResponse");
   }
 
   /**
@@ -2845,6 +2986,69 @@ class Google_Service_Storage_Objects extends Google_Collection
   public function getPrefixes()
   {
     return $this->prefixes;
+  }
+}
+
+class Google_Service_Storage_RewriteResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $done;
+  public $kind;
+  public $objectSize;
+  protected $resourceType = 'Google_Service_Storage_StorageObject';
+  protected $resourceDataType = '';
+  public $rewriteToken;
+  public $totalBytesRewritten;
+
+
+  public function setDone($done)
+  {
+    $this->done = $done;
+  }
+  public function getDone()
+  {
+    return $this->done;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setObjectSize($objectSize)
+  {
+    $this->objectSize = $objectSize;
+  }
+  public function getObjectSize()
+  {
+    return $this->objectSize;
+  }
+  public function setResource(Google_Service_Storage_StorageObject $resource)
+  {
+    $this->resource = $resource;
+  }
+  public function getResource()
+  {
+    return $this->resource;
+  }
+  public function setRewriteToken($rewriteToken)
+  {
+    $this->rewriteToken = $rewriteToken;
+  }
+  public function getRewriteToken()
+  {
+    return $this->rewriteToken;
+  }
+  public function setTotalBytesRewritten($totalBytesRewritten)
+  {
+    $this->totalBytesRewritten = $totalBytesRewritten;
+  }
+  public function getTotalBytesRewritten()
+  {
+    return $this->totalBytesRewritten;
   }
 }
 
