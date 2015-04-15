@@ -1834,8 +1834,9 @@ class Google_Service_Books_Myconfig_Resource extends Google_Service_Resource
   }
 
   /**
-   * Sets the settings for the user. Unspecified sub-objects will retain the
-   * existing value. (myconfig.updateUserSettings)
+   * Sets the settings for the user. If a sub-object is specified, it will
+   * overwrite the existing sub-object stored in the server. Unspecified sub-
+   * objects will retain the existing value. (myconfig.updateUserSettings)
    *
    * @param Google_Usersettings $postBody
    * @param array $optParams Optional parameters.
@@ -6092,6 +6093,7 @@ class Google_Service_Books_VolumeVolumeInfo extends Google_Collection
   public $infoLink;
   public $language;
   public $mainCategory;
+  public $maturityRating;
   public $pageCount;
   public $previewLink;
   public $printType;
@@ -6200,6 +6202,14 @@ class Google_Service_Books_VolumeVolumeInfo extends Google_Collection
   public function getMainCategory()
   {
     return $this->mainCategory;
+  }
+  public function setMaturityRating($maturityRating)
+  {
+    $this->maturityRating = $maturityRating;
+  }
+  public function getMaturityRating()
+  {
+    return $this->maturityRating;
   }
   public function setPageCount($pageCount)
   {
