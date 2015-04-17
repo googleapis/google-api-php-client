@@ -779,10 +779,19 @@ class Google_Service_Container_MasterAuth extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $bearerToken;
   public $password;
   public $user;
 
 
+  public function setBearerToken($bearerToken)
+  {
+    $this->bearerToken = $bearerToken;
+  }
+  public function getBearerToken()
+  {
+    return $this->bearerToken;
+  }
   public function setPassword($password)
   {
     $this->password = $password;
