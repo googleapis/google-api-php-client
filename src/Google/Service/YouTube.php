@@ -66,6 +66,7 @@ class Google_Service_YouTube extends Google_Service
   public $search;
   public $subscriptions;
   public $thumbnails;
+  public $videoAbuseReportReasons;
   public $videoCategories;
   public $videos;
   public $watermarks;
@@ -1418,6 +1419,30 @@ class Google_Service_YouTube extends Google_Service
           )
         )
     );
+    $this->videoAbuseReportReasons = new Google_Service_YouTube_VideoAbuseReportReasons_Resource(
+        $this,
+        $this->serviceName,
+        'videoAbuseReportReasons',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'videoAbuseReportReasons',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'part' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'hl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->videoCategories = new Google_Service_YouTube_VideoCategories_Resource(
         $this,
         $this->serviceName,
@@ -1578,6 +1603,15 @@ class Google_Service_YouTube extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'reportAbuse' => array(
+              'path' => 'videos/reportAbuse',
+              'httpMethod' => 'POST',
+              'parameters' => array(
                 'onBehalfOfContentOwner' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -3915,6 +3949,38 @@ class Google_Service_YouTube_Thumbnails_Resource extends Google_Service_Resource
 }
 
 /**
+ * The "videoAbuseReportReasons" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $youtubeService = new Google_Service_YouTube(...);
+ *   $videoAbuseReportReasons = $youtubeService->videoAbuseReportReasons;
+ *  </code>
+ */
+class Google_Service_YouTube_VideoAbuseReportReasons_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Returns a list of abuse reasons that can be used for reporting abusive
+   * videos. (videoAbuseReportReasons.listVideoAbuseReportReasons)
+   *
+   * @param string $part The part parameter specifies the videoCategory resource
+   * parts that the API response will include. Supported values are id and
+   * snippet.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string hl The hl parameter specifies the language that should be
+   * used for text values in the API response.
+   * @return Google_Service_YouTube_VideoAbuseReportReasonListResponse
+   */
+  public function listVideoAbuseReportReasons($part, $optParams = array())
+  {
+    $params = array('part' => $part);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_YouTube_VideoAbuseReportReasonListResponse");
+  }
+}
+
+/**
  * The "videoCategories" collection of methods.
  * Typical usage is:
  *  <code>
@@ -4191,6 +4257,32 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
     $params = array('id' => $id, 'rating' => $rating);
     $params = array_merge($params, $optParams);
     return $this->call('rate', array($params));
+  }
+
+  /**
+   * Report abuse for a video. (videos.reportAbuse)
+   *
+   * @param Google_VideoAbuseReport $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   */
+  public function reportAbuse(Google_Service_YouTube_VideoAbuseReport $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('reportAbuse', array($params));
   }
 
   /**
@@ -5871,6 +5963,8 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   protected $localizationsDataType = 'map';
   protected $snippetType = 'Google_Service_YouTube_ChannelSectionSnippet';
   protected $snippetDataType = '';
+  protected $targetingType = 'Google_Service_YouTube_ChannelSectionTargeting';
+  protected $targetingDataType = '';
 
 
   public function setContentDetails(Google_Service_YouTube_ChannelSectionContentDetails $contentDetails)
@@ -5920,6 +6014,14 @@ class Google_Service_YouTube_ChannelSection extends Google_Model
   public function getSnippet()
   {
     return $this->snippet;
+  }
+  public function setTargeting(Google_Service_YouTube_ChannelSectionTargeting $targeting)
+  {
+    $this->targeting = $targeting;
+  }
+  public function getTargeting()
+  {
+    return $this->targeting;
   }
 }
 
@@ -6095,6 +6197,42 @@ class Google_Service_YouTube_ChannelSectionSnippet extends Google_Model
   public function getType()
   {
     return $this->type;
+  }
+}
+
+class Google_Service_YouTube_ChannelSectionTargeting extends Google_Collection
+{
+  protected $collection_key = 'regions';
+  protected $internal_gapi_mappings = array(
+  );
+  public $countrys;
+  public $languages;
+  public $regions;
+
+
+  public function setCountrys($countrys)
+  {
+    $this->countrys = $countrys;
+  }
+  public function getCountrys()
+  {
+    return $this->countrys;
+  }
+  public function setLanguages($languages)
+  {
+    $this->languages = $languages;
+  }
+  public function getLanguages()
+  {
+    return $this->languages;
+  }
+  public function setRegions($regions)
+  {
+    $this->regions = $regions;
+  }
+  public function getRegions()
+  {
+    return $this->regions;
   }
 }
 
@@ -10800,6 +10938,234 @@ class Google_Service_YouTube_Video extends Google_Model
   public function getTopicDetails()
   {
     return $this->topicDetails;
+  }
+}
+
+class Google_Service_YouTube_VideoAbuseReport extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $comments;
+  protected $languageType = 'Google_Service_YouTube_LanguageTag';
+  protected $languageDataType = '';
+  protected $reasonIdType = 'Google_Service_YouTube_VideoAbuseReportReasonId';
+  protected $reasonIdDataType = '';
+  protected $secondaryReasonIdType = 'Google_Service_YouTube_VideoAbuseReportReasonId';
+  protected $secondaryReasonIdDataType = '';
+  public $videoId;
+
+
+  public function setComments($comments)
+  {
+    $this->comments = $comments;
+  }
+  public function getComments()
+  {
+    return $this->comments;
+  }
+  public function setLanguage(Google_Service_YouTube_LanguageTag $language)
+  {
+    $this->language = $language;
+  }
+  public function getLanguage()
+  {
+    return $this->language;
+  }
+  public function setReasonId(Google_Service_YouTube_VideoAbuseReportReasonId $reasonId)
+  {
+    $this->reasonId = $reasonId;
+  }
+  public function getReasonId()
+  {
+    return $this->reasonId;
+  }
+  public function setSecondaryReasonId(Google_Service_YouTube_VideoAbuseReportReasonId $secondaryReasonId)
+  {
+    $this->secondaryReasonId = $secondaryReasonId;
+  }
+  public function getSecondaryReasonId()
+  {
+    return $this->secondaryReasonId;
+  }
+  public function setVideoId($videoId)
+  {
+    $this->videoId = $videoId;
+  }
+  public function getVideoId()
+  {
+    return $this->videoId;
+  }
+}
+
+class Google_Service_YouTube_VideoAbuseReportReason extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $etag;
+  public $id;
+  public $kind;
+  protected $snippetType = 'Google_Service_YouTube_VideoAbuseReportReasonSnippet';
+  protected $snippetDataType = '';
+
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setSnippet(Google_Service_YouTube_VideoAbuseReportReasonSnippet $snippet)
+  {
+    $this->snippet = $snippet;
+  }
+  public function getSnippet()
+  {
+    return $this->snippet;
+  }
+}
+
+class Google_Service_YouTube_VideoAbuseReportReasonId extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $value;
+
+
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
+class Google_Service_YouTube_VideoAbuseReportReasonListResponse extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $etag;
+  public $eventId;
+  protected $itemsType = 'Google_Service_YouTube_VideoAbuseReportReason';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $visitorId;
+
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setEventId($eventId)
+  {
+    $this->eventId = $eventId;
+  }
+  public function getEventId()
+  {
+    return $this->eventId;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setVisitorId($visitorId)
+  {
+    $this->visitorId = $visitorId;
+  }
+  public function getVisitorId()
+  {
+    return $this->visitorId;
+  }
+}
+
+class Google_Service_YouTube_VideoAbuseReportReasonSnippet extends Google_Collection
+{
+  protected $collection_key = 'secondaryReasons';
+  protected $internal_gapi_mappings = array(
+  );
+  public $label;
+  protected $secondaryReasonsType = 'Google_Service_YouTube_VideoAbuseReportSecondaryReason';
+  protected $secondaryReasonsDataType = 'array';
+
+
+  public function setLabel($label)
+  {
+    $this->label = $label;
+  }
+  public function getLabel()
+  {
+    return $this->label;
+  }
+  public function setSecondaryReasons($secondaryReasons)
+  {
+    $this->secondaryReasons = $secondaryReasons;
+  }
+  public function getSecondaryReasons()
+  {
+    return $this->secondaryReasons;
+  }
+}
+
+class Google_Service_YouTube_VideoAbuseReportSecondaryReason extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $idType = 'Google_Service_YouTube_VideoAbuseReportReasonId';
+  protected $idDataType = '';
+  public $label;
+
+
+  public function setId(Google_Service_YouTube_VideoAbuseReportReasonId $id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setLabel($label)
+  {
+    $this->label = $label;
+  }
+  public function getLabel()
+  {
+    return $this->label;
   }
 }
 
