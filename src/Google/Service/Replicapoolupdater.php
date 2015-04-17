@@ -357,8 +357,9 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
    * resources.
    * @opt_param string pageToken Optional. Tag returned by a previous list request
    * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string instanceGroupManager The name of the instance group manager
-   * used for filtering.
+   * @opt_param string instanceGroupManager The name of the instance group
+   * manager. Use this parameter to return only updates to instances that are part
+   * of a specific instance group.
    * @return Google_Service_Replicapoolupdater_RollingUpdateList
    */
   public function listRollingUpdates($project, $zone, $optParams = array())
@@ -944,9 +945,8 @@ class Google_Service_Replicapoolupdater_OperationWarningsData extends Google_Mod
   }
 }
 
-class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Collection
+class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
 {
-  protected $collection_key = 'instances';
   protected $internal_gapi_mappings = array(
   );
   public $actionType;
@@ -958,7 +958,6 @@ class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Collection
   public $instanceGroup;
   public $instanceGroupManager;
   public $instanceTemplate;
-  public $instances;
   public $kind;
   protected $policyType = 'Google_Service_Replicapoolupdater_RollingUpdatePolicy';
   protected $policyDataType = '';
@@ -1032,14 +1031,6 @@ class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Collection
   public function getInstanceTemplate()
   {
     return $this->instanceTemplate;
-  }
-  public function setInstances($instances)
-  {
-    $this->instances = $instances;
-  }
-  public function getInstances()
-  {
-    return $this->instances;
   }
   public function setKind($kind)
   {
@@ -1208,7 +1199,6 @@ class Google_Service_Replicapoolupdater_RollingUpdatePolicy extends Google_Model
   public $maxNumConcurrentInstances;
   public $maxNumFailedInstances;
   public $minInstanceUpdateTimeSec;
-  public $sleepAfterInstanceRestartSec;
 
 
   public function setAutoPauseAfterInstances($autoPauseAfterInstances)
@@ -1250,13 +1240,5 @@ class Google_Service_Replicapoolupdater_RollingUpdatePolicy extends Google_Model
   public function getMinInstanceUpdateTimeSec()
   {
     return $this->minInstanceUpdateTimeSec;
-  }
-  public function setSleepAfterInstanceRestartSec($sleepAfterInstanceRestartSec)
-  {
-    $this->sleepAfterInstanceRestartSec = $sleepAfterInstanceRestartSec;
-  }
-  public function getSleepAfterInstanceRestartSec()
-  {
-    return $this->sleepAfterInstanceRestartSec;
   }
 }
