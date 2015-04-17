@@ -42,6 +42,9 @@ class Google_Service_Drive extends Google_Service
   /** View and manage Google Drive files that you have opened or created with this app. */
   const DRIVE_FILE =
       "https://www.googleapis.com/auth/drive.file";
+  /** View and manage metadata of files in your Google Drive. */
+  const DRIVE_METADATA =
+      "https://www.googleapis.com/auth/drive.metadata";
   /** View metadata for files in your Google Drive. */
   const DRIVE_METADATA_READONLY =
       "https://www.googleapis.com/auth/drive.metadata.readonly";
