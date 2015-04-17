@@ -30,7 +30,7 @@
  */
 class Google_Service_GamesConfiguration extends Google_Service
 {
-  /** View and manage your Google Play Android Developer account. */
+  /** View and manage your Google Play Developer account. */
   const ANDROIDPUBLISHER =
       "https://www.googleapis.com/auth/androidpublisher";
 
