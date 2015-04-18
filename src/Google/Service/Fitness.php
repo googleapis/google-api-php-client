@@ -1088,23 +1088,6 @@ class Google_Service_Fitness_ListSessionsResponse extends Google_Collection
   }
 }
 
-class Google_Service_Fitness_MapValue extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $fpVal;
-
-
-  public function setFpVal($fpVal)
-  {
-    $this->fpVal = $fpVal;
-  }
-  public function getFpVal()
-  {
-    return $this->fpVal;
-  }
-}
-
 class Google_Service_Fitness_Session extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -1195,28 +1178,14 @@ class Google_Service_Fitness_Session extends Google_Model
   }
 }
 
-class Google_Service_Fitness_Value extends Google_Collection
+class Google_Service_Fitness_Value extends Google_Model
 {
-  protected $collection_key = 'mapVal';
   protected $internal_gapi_mappings = array(
   );
-  public $floatListVal;
   public $fpVal;
-  public $intListVal;
   public $intVal;
-  protected $mapValType = 'Google_Service_Fitness_ValueMapValEntry';
-  protected $mapValDataType = 'array';
-  public $stringVal;
 
 
-  public function setFloatListVal($floatListVal)
-  {
-    $this->floatListVal = $floatListVal;
-  }
-  public function getFloatListVal()
-  {
-    return $this->floatListVal;
-  }
   public function setFpVal($fpVal)
   {
     $this->fpVal = $fpVal;
@@ -1225,14 +1194,6 @@ class Google_Service_Fitness_Value extends Google_Collection
   {
     return $this->fpVal;
   }
-  public function setIntListVal($intListVal)
-  {
-    $this->intListVal = $intListVal;
-  }
-  public function getIntListVal()
-  {
-    return $this->intListVal;
-  }
   public function setIntVal($intVal)
   {
     $this->intVal = $intVal;
@@ -1240,48 +1201,5 @@ class Google_Service_Fitness_Value extends Google_Collection
   public function getIntVal()
   {
     return $this->intVal;
-  }
-  public function setMapVal($mapVal)
-  {
-    $this->mapVal = $mapVal;
-  }
-  public function getMapVal()
-  {
-    return $this->mapVal;
-  }
-  public function setStringVal($stringVal)
-  {
-    $this->stringVal = $stringVal;
-  }
-  public function getStringVal()
-  {
-    return $this->stringVal;
-  }
-}
-
-class Google_Service_Fitness_ValueMapValEntry extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $key;
-  protected $valueType = 'Google_Service_Fitness_MapValue';
-  protected $valueDataType = '';
-
-
-  public function setKey($key)
-  {
-    $this->key = $key;
-  }
-  public function getKey()
-  {
-    return $this->key;
-  }
-  public function setValue(Google_Service_Fitness_MapValue $value)
-  {
-    $this->value = $value;
-  }
-  public function getValue()
-  {
-    return $this->value;
   }
 }
