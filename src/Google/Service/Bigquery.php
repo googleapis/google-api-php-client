@@ -23,7 +23,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/bigquery/docs/overview" target="_blank">Documentation</a>
+ * <a href="https://cloud.google.com/bigquery/" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -561,9 +561,8 @@ class Google_Service_Bigquery_Datasets_Resource extends Google_Service_Resource
   }
 
   /**
-   * Lists all the datasets in the specified project to which the caller has read
-   * access; however, a project owner can list (but not necessarily get) all
-   * datasets in his project. (datasets.listDatasets)
+   * Lists all datasets in the specified project to which you have been granted
+   * the READER dataset role. (datasets.listDatasets)
    *
    * @param string $projectId Project ID of the datasets to be listed
    * @param array $optParams Optional parameters.
@@ -631,7 +630,9 @@ class Google_Service_Bigquery_Jobs_Resource extends Google_Service_Resource
 {
 
   /**
-   * Retrieves the specified job by ID. (jobs.get)
+   * Returns information about a specific job. Job information is available for a
+   * six month period after creation. Requires that you're the person who ran the
+   * job, or have the Is Owner project role. (jobs.get)
    *
    * @param string $projectId Project ID of the requested job
    * @param string $jobId Job ID of the requested job
@@ -670,7 +671,8 @@ class Google_Service_Bigquery_Jobs_Resource extends Google_Service_Resource
   }
 
   /**
-   * Starts a new asynchronous job. (jobs.insert)
+   * Starts a new asynchronous job. Requires the Can View project role.
+   * (jobs.insert)
    *
    * @param string $projectId Project ID of the project that will be billed for
    * the job
@@ -686,9 +688,11 @@ class Google_Service_Bigquery_Jobs_Resource extends Google_Service_Resource
   }
 
   /**
-   * Lists all the Jobs in the specified project that were started by the user.
-   * The job list returns in reverse chronological order of when the jobs were
-   * created, starting with the most recent job created. (jobs.listJobs)
+   * Lists all jobs that you started in the specified project. The job list
+   * returns in reverse chronological order of when the jobs were created,
+   * starting with the most recent job created. Requires the Can View project
+   * role, or the Is Owner project role if you set the allUsers property.
+   * (jobs.listJobs)
    *
    * @param string $projectId Project ID of the jobs to list
    * @param array $optParams Optional parameters.
@@ -739,7 +743,7 @@ class Google_Service_Bigquery_Projects_Resource extends Google_Service_Resource
 {
 
   /**
-   * Lists the projects to which you have at least read access.
+   * Lists all projects to which you have been granted any project role.
    * (projects.listProjects)
    *
    * @param array $optParams Optional parameters.
@@ -770,7 +774,7 @@ class Google_Service_Bigquery_Tabledata_Resource extends Google_Service_Resource
 
   /**
    * Streams data into BigQuery one record at a time without needing to run a load
-   * job. (tabledata.insertAll)
+   * job. Requires the WRITER dataset role. (tabledata.insertAll)
    *
    * @param string $projectId Project ID of the destination table.
    * @param string $datasetId Dataset ID of the destination table.
@@ -787,7 +791,8 @@ class Google_Service_Bigquery_Tabledata_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves table data from a specified set of rows. (tabledata.listTabledata)
+   * Retrieves table data from a specified set of rows. Requires the READER
+   * dataset role. (tabledata.listTabledata)
    *
    * @param string $projectId Project ID of the table to read
    * @param string $datasetId Dataset ID of the table to read
@@ -870,7 +875,8 @@ class Google_Service_Bigquery_Tables_Resource extends Google_Service_Resource
   }
 
   /**
-   * Lists all tables in the specified dataset. (tables.listTables)
+   * Lists all tables in the specified dataset. Requires the READER dataset role.
+   * (tables.listTables)
    *
    * @param string $projectId Project ID of the tables to list
    * @param string $datasetId Dataset ID of the tables to list
