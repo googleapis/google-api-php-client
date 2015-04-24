@@ -1762,13 +1762,13 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string projection Set of properties to return. Defaults to noAcl.
-   * @opt_param bool versions If true, lists all versions of a file as distinct
-   * results.
+   * @opt_param bool versions If true, lists all versions of an object as distinct
+   * results. The default is false. For more information, see Object Versioning.
    * @opt_param string prefix Filter results to objects whose names begin with
    * this prefix.
    * @opt_param string maxResults Maximum number of items plus prefixes to return.
    * As duplicate prefixes are omitted, fewer total results may be returned than
-   * requested.
+   * requested. The default value of this parameter is 1,000 items.
    * @opt_param string pageToken A previously-returned page token representing
    * part of the larger set of results to view.
    * @opt_param string delimiter Returns results in a directory-like mode. items
@@ -1918,13 +1918,13 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string projection Set of properties to return. Defaults to noAcl.
-   * @opt_param bool versions If true, lists all versions of a file as distinct
-   * results.
+   * @opt_param bool versions If true, lists all versions of an object as distinct
+   * results. The default is false. For more information, see Object Versioning.
    * @opt_param string prefix Filter results to objects whose names begin with
    * this prefix.
    * @opt_param string maxResults Maximum number of items plus prefixes to return.
    * As duplicate prefixes are omitted, fewer total results may be returned than
-   * requested.
+   * requested. The default value of this parameter is 1,000 items.
    * @opt_param string pageToken A previously-returned page token representing
    * part of the larger set of results to view.
    * @opt_param string delimiter Returns results in a directory-like mode. items
