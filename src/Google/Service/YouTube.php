@@ -6205,18 +6205,18 @@ class Google_Service_YouTube_ChannelSectionTargeting extends Google_Collection
   protected $collection_key = 'regions';
   protected $internal_gapi_mappings = array(
   );
-  public $countrys;
+  public $countries;
   public $languages;
   public $regions;
 
 
-  public function setCountrys($countrys)
+  public function setCountries($countries)
   {
-    $this->countrys = $countrys;
+    $this->countries = $countries;
   }
-  public function getCountrys()
+  public function getCountries()
   {
-    return $this->countrys;
+    return $this->countries;
   }
   public function setLanguages($languages)
   {
@@ -6241,6 +6241,7 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   protected $collection_key = 'featuredChannelsUrls';
   protected $internal_gapi_mappings = array(
   );
+  public $country;
   public $defaultLanguage;
   public $defaultTab;
   public $description;
@@ -6256,6 +6257,14 @@ class Google_Service_YouTube_ChannelSettings extends Google_Collection
   public $unsubscribedTrailer;
 
 
+  public function setCountry($country)
+  {
+    $this->country = $country;
+  }
+  public function getCountry()
+  {
+    return $this->country;
+  }
   public function setDefaultLanguage($defaultLanguage)
   {
     $this->defaultLanguage = $defaultLanguage;
@@ -6366,6 +6375,7 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $country;
   public $defaultLanguage;
   public $description;
   protected $localizedType = 'Google_Service_YouTube_ChannelLocalization';
@@ -6376,6 +6386,14 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   public $title;
 
 
+  public function setCountry($country)
+  {
+    $this->country = $country;
+  }
+  public function getCountry()
+  {
+    return $this->country;
+  }
   public function setDefaultLanguage($defaultLanguage)
   {
     $this->defaultLanguage = $defaultLanguage;
@@ -8831,12 +8849,21 @@ class Google_Service_YouTube_LiveBroadcastStatus extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $isDefaultBroadcast;
   public $lifeCycleStatus;
   public $liveBroadcastPriority;
   public $privacyStatus;
   public $recordingStatus;
 
 
+  public function setIsDefaultBroadcast($isDefaultBroadcast)
+  {
+    $this->isDefaultBroadcast = $isDefaultBroadcast;
+  }
+  public function getIsDefaultBroadcast()
+  {
+    return $this->isDefaultBroadcast;
+  }
   public function setLifeCycleStatus($lifeCycleStatus)
   {
     $this->lifeCycleStatus = $lifeCycleStatus;
@@ -9113,9 +9140,18 @@ class Google_Service_YouTube_LiveStreamStatus extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $isDefaultStream;
   public $streamStatus;
 
 
+  public function setIsDefaultStream($isDefaultStream)
+  {
+    $this->isDefaultStream = $isDefaultStream;
+  }
+  public function getIsDefaultStream()
+  {
+    return $this->isDefaultStream;
+  }
   public function setStreamStatus($streamStatus)
   {
     $this->streamStatus = $streamStatus;
@@ -10946,12 +10982,9 @@ class Google_Service_YouTube_VideoAbuseReport extends Google_Model
   protected $internal_gapi_mappings = array(
   );
   public $comments;
-  protected $languageType = 'Google_Service_YouTube_LanguageTag';
-  protected $languageDataType = '';
-  protected $reasonIdType = 'Google_Service_YouTube_VideoAbuseReportReasonId';
-  protected $reasonIdDataType = '';
-  protected $secondaryReasonIdType = 'Google_Service_YouTube_VideoAbuseReportReasonId';
-  protected $secondaryReasonIdDataType = '';
+  public $language;
+  public $reasonId;
+  public $secondaryReasonId;
   public $videoId;
 
 
@@ -10963,7 +10996,7 @@ class Google_Service_YouTube_VideoAbuseReport extends Google_Model
   {
     return $this->comments;
   }
-  public function setLanguage(Google_Service_YouTube_LanguageTag $language)
+  public function setLanguage($language)
   {
     $this->language = $language;
   }
@@ -10971,7 +11004,7 @@ class Google_Service_YouTube_VideoAbuseReport extends Google_Model
   {
     return $this->language;
   }
-  public function setReasonId(Google_Service_YouTube_VideoAbuseReportReasonId $reasonId)
+  public function setReasonId($reasonId)
   {
     $this->reasonId = $reasonId;
   }
@@ -10979,7 +11012,7 @@ class Google_Service_YouTube_VideoAbuseReport extends Google_Model
   {
     return $this->reasonId;
   }
-  public function setSecondaryReasonId(Google_Service_YouTube_VideoAbuseReportReasonId $secondaryReasonId)
+  public function setSecondaryReasonId($secondaryReasonId)
   {
     $this->secondaryReasonId = $secondaryReasonId;
   }
