@@ -479,14 +479,6 @@ class Google_Service_Drive extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'revisionId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'acknowledgeAbuse' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -494,6 +486,14 @@ class Google_Service_Drive extends Google_Service
                 'updateViewedDate' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+                'revisionId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'insert' => array(
@@ -713,14 +713,6 @@ class Google_Service_Drive extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'revisionId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'acknowledgeAbuse' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -728,6 +720,14 @@ class Google_Service_Drive extends Google_Service
                 'updateViewedDate' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+                'revisionId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1721,15 +1721,14 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @param string $fileId The ID for the file in question.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string projection This parameter is deprecated and has no
-   * function.
-   * @opt_param string revisionId Specifies the Revision ID that should be
-   * downloaded. Ignored unless alt=media is specified.
    * @opt_param bool acknowledgeAbuse Whether the user is acknowledging the risk
-   * of downloading known malware or other abusive files. Ignored unless alt=media
-   * is specified.
+   * of downloading known malware or other abusive files.
    * @opt_param bool updateViewedDate Whether to update the view date after
    * successfully retrieving the file.
+   * @opt_param string revisionId Specifies the Revision ID that should be
+   * downloaded. Ignored unless alt=media is specified.
+   * @opt_param string projection This parameter is deprecated and has no
+   * function.
    * @return Google_Service_Drive_DriveFile
    */
   public function get($fileId, $optParams = array())
@@ -1917,15 +1916,14 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @param Google_Channel $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string projection This parameter is deprecated and has no
-   * function.
-   * @opt_param string revisionId Specifies the Revision ID that should be
-   * downloaded. Ignored unless alt=media is specified.
    * @opt_param bool acknowledgeAbuse Whether the user is acknowledging the risk
-   * of downloading known malware or other abusive files. Ignored unless alt=media
-   * is specified.
+   * of downloading known malware or other abusive files.
    * @opt_param bool updateViewedDate Whether to update the view date after
    * successfully retrieving the file.
+   * @opt_param string revisionId Specifies the Revision ID that should be
+   * downloaded. Ignored unless alt=media is specified.
+   * @opt_param string projection This parameter is deprecated and has no
+   * function.
    * @return Google_Service_Drive_Channel
    */
   public function watch($fileId, Google_Service_Drive_Channel $postBody, $optParams = array())
