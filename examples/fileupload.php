@@ -95,7 +95,10 @@ if ($client->getAccessToken()) {
   $status = false;
   $handle = fopen(TESTFILE, "rb");
   while (!$status && !feof($handle)) {
-    $chunk = fread($handle, $chunkSizeBytes);
+    // read until you get $chunkSizeBytes from TESTFILE
+    // fread will never return more than 8192 bytes if the stream is read buffered and it does not represent a plain file
+    // An example of a read buffered file is when reading from a URL
+    $chunk = readVideoChunk($handle, $chunkSizeBytes);
     $status = $media->nextChunk($chunk);
   }
 
@@ -113,10 +116,26 @@ if (strpos($client_id, "googleusercontent") == false) {
   echo missingClientSecretsWarning();
   exit;
 }
+function readVideoChunk ($handle, $chunkSize)
+{
+    $byteCount = 0;
+    $giantChunk = "";
+    while (!feof($handle)) {
+        // fread will never return more than 8192 bytes if the stream is read buffered and it does not represent a plain file
+        $chunk = fread($handle, 8192);
+        $byteCount += strlen($chunk);
+        $giantChunk .= $chunk;
+        if ($byteCount >= $chunkSize)
+        {
+            return $giantChunk;
+        }
+    }
+    return $giantChunk;
+}
 ?>
 <div class="box">
   <div class="request">
-<?php 
+<?php
 if (isset($authUrl)) {
   echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
 }
@@ -124,7 +143,7 @@ if (isset($authUrl)) {
   </div>
 
     <div class="shortened">
-<?php 
+<?php
 if (isset($result) && $result) {
   var_dump($result);
 }
