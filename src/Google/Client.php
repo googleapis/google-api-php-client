@@ -114,15 +114,18 @@ class Google_Client
 
   /**
    * Attempt to exchange a code for an valid authentication token.
+   * If $crossClient is set to true, the request body will not include
+   * the request_uri argument
    * Helper wrapped around the OAuth 2.0 implementation.
    *
    * @param $code string code from accounts.google.com
+   * @param $crossIdentity boolean, whether this is a cross-client authentication
    * @return string token
    */
-  public function authenticate($code)
+  public function authenticate($code, $crossClient = false)
   {
     $this->authenticated = true;
-    return $this->getAuth()->authenticate($code);
+    return $this->getAuth()->authenticate($code, $crossClient);
   }
   
   /**
