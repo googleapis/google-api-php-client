@@ -119,7 +119,7 @@ class Google_Client
    * Helper wrapped around the OAuth 2.0 implementation.
    *
    * @param $code string code from accounts.google.com
-   * @param $crossIdentity boolean, whether this is a cross-client authentication
+   * @param $crossClient boolean, whether this is a cross-client authentication
    * @return string token
    */
   public function authenticate($code, $crossClient = false)

@@ -82,7 +82,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
    * @throws Google_Auth_Exception
    * @return string
    */
-  public function authenticate($code, $crossClient)
+  public function authenticate($code, $crossClient = false)
   {
     if (strlen($code) == 0) {
       throw new Google_Auth_Exception("Invalid code");
