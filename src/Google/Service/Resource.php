@@ -41,6 +41,9 @@ class Google_Service_Resource
       'prettyPrint' => array('type' => 'string', 'location' => 'query'),
   );
 
+  /** @var string $rootUrl */
+  private $rootUrl;
+
   /** @var Google_Client $client */
   private $client;
 
@@ -58,11 +61,12 @@ class Google_Service_Resource
 
   public function __construct($service, $serviceName, $resourceName, $resource)
   {
+    $this->rootUrl = $service->rootUrl;
     $this->client = $service->getClient();
     $this->servicePath = $service->servicePath;
     $this->serviceName = $serviceName;
     $this->resourceName = $resourceName;
-    $this->methods = isset($resource['methods']) ?
+    $this->methods = is_array($resource) && isset($resource['methods']) ?
         $resource['methods'] :
         array($resourceName => $resource);
   }
@@ -193,7 +197,12 @@ class Google_Service_Resource
         null,
         $postBody
     );
-    $httpRequest->setBaseComponent($this->client->getBasePath());
+
+    if ($this->rootUrl) {
+      $httpRequest->setBaseComponent($this->rootUrl);
+    } else {
+      $httpRequest->setBaseComponent($this->client->getBasePath());
+    }
 
     if ($postBody) {
       $contentTypeHeader = array();

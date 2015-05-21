@@ -17,6 +17,7 @@
 
 class Google_Service
 {
+  public $rootUrl;
   public $version;
   public $servicePath;
   public $availableScopes;
