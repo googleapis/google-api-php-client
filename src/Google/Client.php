@@ -25,7 +25,7 @@ if (!class_exists('Google_Client')) {
  */
 class Google_Client
 {
-  const LIBVER = "1.1.4";
+  const LIBVER = "1.1.5";
   const USER_AGENT_SUFFIX = "google-api-php-client/";
   /**
    * @var Google_Auth_Abstract $auth
