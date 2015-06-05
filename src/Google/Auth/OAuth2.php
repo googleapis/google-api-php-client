@@ -78,13 +78,25 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
 
   /**
    * @param string $code
+   * @param boolean $crossClient
    * @throws Google_Auth_Exception
    * @return string
    */
-  public function authenticate($code)
+  public function authenticate($code, $crossClient = false)
   {
     if (strlen($code) == 0) {
       throw new Google_Auth_Exception("Invalid code");
+    }
+
+    $arguments = array(
+          'code' => $code,
+          'grant_type' => 'authorization_code',
+          'client_id' => $this->client->getClassConfig($this, 'client_id'),
+          'client_secret' => $this->client->getClassConfig($this, 'client_secret')
+    );
+
+    if($crossClient !== true) {
+        $arguments['redirect_uri'] = $this->client->getClassConfig($this, 'redirect_uri');
     }
 
     // We got here from the redirect from a successful authorization grant,
@@ -93,13 +105,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
         self::OAUTH2_TOKEN_URI,
         'POST',
         array(),
-        array(
-          'code' => $code,
-          'grant_type' => 'authorization_code',
-          'redirect_uri' => $this->client->getClassConfig($this, 'redirect_uri'),
-          'client_id' => $this->client->getClassConfig($this, 'client_id'),
-          'client_secret' => $this->client->getClassConfig($this, 'client_secret')
-        )
+        $arguments
     );
     $request->disableGzip();
     $response = $this->client->getIo()->makeRequest($request);
