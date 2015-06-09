@@ -16,7 +16,7 @@
  */
 
 if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
+  require_once dirname(__FILE__) . '/autoload.php';
 }
 
 /**
@@ -25,7 +25,7 @@ if (!class_exists('Google_Client')) {
  */
 class Google_Client
 {
-  const LIBVER = "1.1.4";
+  const LIBVER = "1.1.5";
   const USER_AGENT_SUFFIX = "google-api-php-client/";
   /**
    * @var Google_Auth_Abstract $auth
@@ -114,15 +114,18 @@ class Google_Client
 
   /**
    * Attempt to exchange a code for an valid authentication token.
+   * If $crossClient is set to true, the request body will not include
+   * the request_uri argument
    * Helper wrapped around the OAuth 2.0 implementation.
    *
    * @param $code string code from accounts.google.com
+   * @param $crossClient boolean, whether this is a cross-client authentication
    * @return string token
    */
-  public function authenticate($code)
+  public function authenticate($code, $crossClient = false)
   {
     $this->authenticated = true;
-    return $this->getAuth()->authenticate($code);
+    return $this->getAuth()->authenticate($code, $crossClient);
   }
   
   /**
