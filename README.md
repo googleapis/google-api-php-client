@@ -90,7 +90,7 @@ To avoid clashes with the autoloader, its best to update the function inside aut
 
 ## Code Quality ##
 
-Run the PHPUnit tests with PHPUnit. You can configure and API key and token in BaseTest.php to run all calls, but this will require some setup on the Google Developer Console.
+Run the PHPUnit tests with PHPUnit. You can configure an API key and token in BaseTest.php to run all calls, but this will require some setup on the Google Developer Console.
 
     phpunit tests/
 
