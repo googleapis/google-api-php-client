@@ -52,7 +52,7 @@ class BatchTest extends PHPUnit_Framework_TestCase
   {
     $io = $this->getMockBuilder('Google_IO_Abstract')
             ->disableOriginalConstructor()
-            ->setMethods(['makeRequest', 'needsQuirk', 'executeRequest', 'setOptions', 'setTimeout', 'getTimeout'])
+            ->setMethods(array('makeRequest', 'needsQuirk', 'executeRequest', 'setOptions', 'setTimeout', 'getTimeout'))
             ->getMock();
     $req = null;
     $io->expects($this->once())
@@ -74,7 +74,7 @@ class BatchTest extends PHPUnit_Framework_TestCase
   {
     $io = $this->getMockBuilder('Google_IO_Abstract')
             ->disableOriginalConstructor()
-            ->setMethods(['makeRequest', 'needsQuirk', 'executeRequest', 'setOptions', 'setTimeout', 'getTimeout'])
+            ->setMethods(array('makeRequest', 'needsQuirk', 'executeRequest', 'setOptions', 'setTimeout', 'getTimeout'))
             ->getMock();
     $req = null;
     $io->expects($this->once())
