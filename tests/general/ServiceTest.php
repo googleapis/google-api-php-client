@@ -33,6 +33,7 @@ class TestModel extends Google_Model
 
 class ServiceTest extends PHPUnit_Framework_TestCase
 {
+
   public function testModel()
   {
     $model = new TestModel();
