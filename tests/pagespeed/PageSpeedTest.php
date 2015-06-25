@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2011 Google Inc.
  *
@@ -17,24 +18,24 @@
 
 class PageSpeedTest extends BaseTest
 {
-  public $service;
-  public function __construct()
-  {
-    parent::__construct();
-    $this->service = new Google_Service_Pagespeedonline($this->getClient());
-  }
+    public $service;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->service = new Google_Service_Pagespeedonline($this->getClient());
+    }
 
-  public function testPageSpeed()
-  {
-    $this->checkToken();
-    $psapi = $this->service->pagespeedapi;
-    $result = $psapi->runpagespeed('http://code.google.com');
-    $this->assertArrayHasKey('kind', $result);
-    $this->assertArrayHasKey('id', $result);
-    $this->assertArrayHasKey('responseCode', $result);
-    $this->assertArrayHasKey('title', $result);
-    $this->assertArrayHasKey('score', $result->ruleGroups['SPEED']);
-    $this->assertInstanceOf('Google_Service_Pagespeedonline_ResultPageStats', $result->pageStats);
-    $this->assertArrayHasKey('minor', $result['version']);
-  }
+    public function testPageSpeed()
+    {
+        $this->checkToken();
+        $psapi = $this->service->pagespeedapi;
+        $result = $psapi->runpagespeed('http://code.google.com');
+        $this->assertArrayHasKey('kind', $result);
+        $this->assertArrayHasKey('id', $result);
+        $this->assertArrayHasKey('responseCode', $result);
+        $this->assertArrayHasKey('title', $result);
+        $this->assertArrayHasKey('score', $result->ruleGroups['SPEED']);
+        $this->assertInstanceOf('Google_Service_Pagespeedonline_ResultPageStats', $result->pageStats);
+        $this->assertArrayHasKey('minor', $result['version']);
+    }
 }

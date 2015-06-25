@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -16,7 +17,7 @@
  */
 
 if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
+    require_once dirname(__FILE__) . '/../autoload.php';
 }
 
 /**
@@ -26,50 +27,50 @@ if (!class_exists('Google_Client')) {
  */
 class Google_Task_Runner
 {
-  /**
-   * @var integer $maxDelay The max time (in seconds) to wait before a retry.
+    /**
+   * @var int The max time (in seconds) to wait before a retry.
    */
   private $maxDelay = 60;
   /**
-   * @var integer $delay The previous delay from which the next is calculated.
+   * @var int The previous delay from which the next is calculated.
    */
   private $delay = 1;
 
   /**
-   * @var integer $factor The base number for the exponential back off.
+   * @var int The base number for the exponential back off.
    */
   private $factor = 2;
   /**
-   * @var float $jitter A random number between -$jitter and $jitter will be
+   * @var float A random number between -$jitter and will be
    * added to $factor on each iteration to allow for a better distribution of
    * retries.
    */
   private $jitter = 0.5;
 
   /**
-   * @var integer $attempts The number of attempts that have been tried so far.
+   * @var int The number of attempts that have been tried so far.
    */
   private $attempts = 0;
   /**
-   * @var integer $maxAttempts The max number of attempts allowed.
+   * @var int The max number of attempts allowed.
    */
   private $maxAttempts = 1;
 
   /**
-   * @var Google_Client $client The current API client.
+   * @var Google_Client The current API client.
    */
   private $client;
 
   /**
-   * @var string $name The name of the current task (used for logging).
+   * @var string The name of the current task (used for logging).
    */
   private $name;
   /**
-   * @var callable $action The task to run and possibly retry.
+   * @var callable The task to run and possibly retry.
    */
   private $action;
   /**
-   * @var array $arguments The task arguments.
+   * @var array The task arguments.
    */
   private $arguments;
 
@@ -80,6 +81,7 @@ class Google_Task_Runner
    * @param string $name The name of the current task (used for logging)
    * @param callable $action The task to run and possibly retry
    * @param array $arguments The task arguments
+   *
    * @throws Google_Task_Exception when misconfigured
    */
   public function __construct(
@@ -88,105 +90,106 @@ class Google_Task_Runner
       $action,
       array $arguments = array()
   ) {
-    $config = (array) $client->getClassConfig('Google_Task_Runner');
+      $config = (array) $client->getClassConfig('Google_Task_Runner');
 
-    if (isset($config['initial_delay'])) {
-      if ($config['initial_delay'] < 0) {
-        throw new Google_Task_Exception(
+      if (isset($config['initial_delay'])) {
+          if ($config['initial_delay'] < 0) {
+              throw new Google_Task_Exception(
             'Task configuration `initial_delay` must not be negative.'
         );
+          }
+
+          $this->delay = $config['initial_delay'];
       }
 
-      $this->delay = $config['initial_delay'];
-    }
-
-    if (isset($config['max_delay'])) {
-      if ($config['max_delay'] <= 0) {
-        throw new Google_Task_Exception(
+      if (isset($config['max_delay'])) {
+          if ($config['max_delay'] <= 0) {
+              throw new Google_Task_Exception(
             'Task configuration `max_delay` must be greater than 0.'
         );
+          }
+
+          $this->maxDelay = $config['max_delay'];
       }
 
-      $this->maxDelay = $config['max_delay'];
-    }
-
-    if (isset($config['factor'])) {
-      if ($config['factor'] <= 0) {
-        throw new Google_Task_Exception(
+      if (isset($config['factor'])) {
+          if ($config['factor'] <= 0) {
+              throw new Google_Task_Exception(
             'Task configuration `factor` must be greater than 0.'
         );
+          }
+
+          $this->factor = $config['factor'];
       }
 
-      $this->factor = $config['factor'];
-    }
-
-    if (isset($config['jitter'])) {
-      if ($config['jitter'] <= 0) {
-        throw new Google_Task_Exception(
+      if (isset($config['jitter'])) {
+          if ($config['jitter'] <= 0) {
+              throw new Google_Task_Exception(
             'Task configuration `jitter` must be greater than 0.'
         );
+          }
+
+          $this->jitter = $config['jitter'];
       }
 
-      $this->jitter = $config['jitter'];
-    }
-
-    if (isset($config['retries'])) {
-      if ($config['retries'] < 0) {
-        throw new Google_Task_Exception(
+      if (isset($config['retries'])) {
+          if ($config['retries'] < 0) {
+              throw new Google_Task_Exception(
             'Task configuration `retries` must not be negative.'
         );
+          }
+          $this->maxAttempts += $config['retries'];
       }
-      $this->maxAttempts += $config['retries'];
-    }
 
-    if (!is_callable($action)) {
-        throw new Google_Task_Exception(
+      if (!is_callable($action)) {
+          throw new Google_Task_Exception(
             'Task argument `$action` must be a valid callable.'
         );
-    }
+      }
 
-    $this->name = $name;
-    $this->client = $client;
-    $this->action = $action;
-    $this->arguments = $arguments;
+      $this->name = $name;
+      $this->client = $client;
+      $this->action = $action;
+      $this->arguments = $arguments;
   }
 
   /**
    * Checks if a retry can be attempted.
    *
-   * @return boolean
+   * @return bool
    */
   public function canAttmpt()
   {
-    return $this->attempts < $this->maxAttempts;
+      return $this->attempts < $this->maxAttempts;
   }
 
   /**
    * Runs the task and (if applicable) automatically retries when errors occur.
    *
    * @return mixed
+   *
    * @throws Google_Task_Retryable on failure when no retries are available.
    */
   public function run()
   {
-    while ($this->attempt()) {
-      try {
-        return call_user_func_array($this->action, $this->arguments);
-      } catch (Google_Task_Retryable $exception) {
-        $allowedRetries = $exception->allowedRetries();
+      while ($this->attempt()) {
+          try {
+              return call_user_func_array($this->action, $this->arguments);
+          } catch (Google_Task_Retryable $exception) {
+              $allowedRetries = $exception->allowedRetries();
 
-        if (!$this->canAttmpt() || !$allowedRetries) {
-          throw $exception;
-        }
+              if (!$this->canAttmpt() || !$allowedRetries) {
+                  throw $exception;
+              }
 
-        if ($allowedRetries > 0) {
-          $this->maxAttempts = min(
+              if ($allowedRetries > 0) {
+                  $this->maxAttempts = min(
               $this->maxAttempts,
               $this->attempts + $allowedRetries
           );
-        }
+              }
+          }
       }
-    }
   }
 
   /**
@@ -196,20 +199,20 @@ class Google_Task_Runner
    * NOTE: If this is not the first attempt, this function will sleep in
    * accordance to the backoff configurations before running the task.
    *
-   * @return boolean
+   * @return bool
    */
   public function attempt()
   {
-    if (!$this->canAttmpt()) {
-      return false;
-    }
+      if (!$this->canAttmpt()) {
+          return false;
+      }
 
-    if ($this->attempts > 0) {
-      $this->backOff();
-    }
+      if ($this->attempts > 0) {
+          $this->backOff();
+      }
 
-    $this->attempts++;
-    return true;
+      ++$this->attempts;
+      return true;
   }
 
   /**
@@ -217,18 +220,18 @@ class Google_Task_Runner
    */
   private function backOff()
   {
-    $delay = $this->getDelay();
+      $delay = $this->getDelay();
 
-    $this->client->getLogger()->debug(
+      $this->client->getLogger()->debug(
         'Retrying task with backoff',
         array(
-            'request' => $this->name,
-            'retry' => $this->attempts,
-            'backoff_seconds' => $delay
+            'request'         => $this->name,
+            'retry'           => $this->attempts,
+            'backoff_seconds' => $delay,
         )
     );
 
-    usleep($delay * 1000000);
+      usleep($delay * 1000000);
   }
 
   /**
@@ -238,10 +241,10 @@ class Google_Task_Runner
    */
   private function getDelay()
   {
-    $jitter = $this->getJitter();
-    $factor = $this->attempts > 1 ? $this->factor + $jitter : 1 + abs($jitter);
+      $jitter = $this->getJitter();
+      $factor = $this->attempts > 1 ? $this->factor + $jitter : 1 + abs($jitter);
 
-    return $this->delay = min($this->maxDelay, $this->delay * $factor);
+      return $this->delay = min($this->maxDelay, $this->delay * $factor);
   }
 
   /**
@@ -252,6 +255,6 @@ class Google_Task_Runner
    */
   private function getJitter()
   {
-    return $this->jitter * 2 * mt_rand() / mt_getrandmax() - $this->jitter;
+      return $this->jitter * 2 * mt_rand() / mt_getrandmax() - $this->jitter;
   }
 }

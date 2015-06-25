@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -16,18 +17,18 @@
  */
 
 if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
+    require_once dirname(__FILE__) . '/../autoload.php';
 }
 
 class Google_Service_Exception extends Google_Exception implements Google_Task_Retryable
 {
-  /**
+    /**
    * Optional list of errors returned in a JSON body of an HTTP error response.
    */
   protected $errors = array();
 
   /**
-   * @var array $retryMap Map of errors with retry counts.
+   * @var array Map of errors with retry counts.
    */
   private $retryMap = array();
 
@@ -49,17 +50,17 @@ class Google_Service_Exception extends Google_Exception implements Google_Task_R
       $errors = array(),
       array $retryMap = null
   ) {
-    if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
-      parent::__construct($message, $code, $previous);
-    } else {
-      parent::__construct($message, $code);
-    }
+      if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
+          parent::__construct($message, $code, $previous);
+      } else {
+          parent::__construct($message, $code);
+      }
 
-    $this->errors = $errors;
+      $this->errors = $errors;
 
-    if (is_array($retryMap)) {
-      $this->retryMap = $retryMap;
-    }
+      if (is_array($retryMap)) {
+          $this->retryMap = $retryMap;
+      }
   }
 
   /**
@@ -77,7 +78,7 @@ class Google_Service_Exception extends Google_Exception implements Google_Task_R
    */
   public function getErrors()
   {
-    return $this->errors;
+      return $this->errors;
   }
 
   /**
@@ -85,21 +86,21 @@ class Google_Service_Exception extends Google_Exception implements Google_Task_R
    *
    * NOTE: -1 is returned if the task can be retried indefinitely
    *
-   * @return integer
+   * @return int
    */
   public function allowedRetries()
   {
-    if (isset($this->retryMap[$this->code])) {
-      return $this->retryMap[$this->code];
-    }
+      if (isset($this->retryMap[$this->code])) {
+          return $this->retryMap[$this->code];
+      }
 
-    $errors = $this->getErrors();
+      $errors = $this->getErrors();
 
-    if (!empty($errors) && isset($errors[0]['reason']) &&
+      if (!empty($errors) && isset($errors[0]['reason']) &&
         isset($this->retryMap[$errors[0]['reason']])) {
-      return $this->retryMap[$errors[0]['reason']];
-    }
+          return $this->retryMap[$errors[0]['reason']];
+      }
 
-    return 0;
+      return 0;
   }
 }

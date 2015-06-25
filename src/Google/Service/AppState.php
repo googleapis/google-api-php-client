@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2010 Google Inc.
  *
@@ -30,12 +31,11 @@
  */
 class Google_Service_AppState extends Google_Service
 {
-  /** View and manage your data for this application. */
+    /** View and manage your data for this application. */
   const APPSTATE =
-      "https://www.googleapis.com/auth/appstate";
+      'https://www.googleapis.com/auth/appstate';
 
-  public $states;
-  
+    public $states;
 
   /**
    * Constructs the internal representation of the AppState service.
@@ -44,81 +44,80 @@ class Google_Service_AppState extends Google_Service
    */
   public function __construct(Google_Client $client)
   {
-    parent::__construct($client);
-    $this->servicePath = 'appstate/v1/';
-    $this->version = 'v1';
-    $this->serviceName = 'appstate';
+      parent::__construct($client);
+      $this->servicePath = 'appstate/v1/';
+      $this->version = 'v1';
+      $this->serviceName = 'appstate';
 
-    $this->states = new Google_Service_AppState_States_Resource(
+      $this->states = new Google_Service_AppState_States_Resource(
         $this,
         $this->serviceName,
         'states',
         array(
           'methods' => array(
             'clear' => array(
-              'path' => 'states/{stateKey}/clear',
+              'path'       => 'states/{stateKey}/clear',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'stateKey' => array(
                   'location' => 'path',
-                  'type' => 'integer',
+                  'type'     => 'integer',
                   'required' => true,
                 ),
                 'currentDataVersion' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type'     => 'string',
                 ),
               ),
-            ),'delete' => array(
-              'path' => 'states/{stateKey}',
+            ), 'delete' => array(
+              'path'       => 'states/{stateKey}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'stateKey' => array(
                   'location' => 'path',
-                  'type' => 'integer',
+                  'type'     => 'integer',
                   'required' => true,
                 ),
               ),
-            ),'get' => array(
-              'path' => 'states/{stateKey}',
+            ), 'get' => array(
+              'path'       => 'states/{stateKey}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'stateKey' => array(
                   'location' => 'path',
-                  'type' => 'integer',
+                  'type'     => 'integer',
                   'required' => true,
                 ),
               ),
-            ),'list' => array(
-              'path' => 'states',
+            ), 'list' => array(
+              'path'       => 'states',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'includeData' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type'     => 'boolean',
                 ),
               ),
-            ),'update' => array(
-              'path' => 'states/{stateKey}',
+            ), 'update' => array(
+              'path'       => 'states/{stateKey}',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'stateKey' => array(
                   'location' => 'path',
-                  'type' => 'integer',
+                  'type'     => 'integer',
                   'required' => true,
                 ),
                 'currentStateVersion' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type'     => 'string',
                 ),
               ),
             ),
-          )
+          ),
         )
     );
   }
 }
-
 
 /**
  * The "states" collection of methods.
@@ -130,8 +129,7 @@ class Google_Service_AppState extends Google_Service
  */
 class Google_Service_AppState_States_Resource extends Google_Service_Resource
 {
-
-  /**
+    /**
    * Clears (sets to empty) the data for the passed key if and only if the passed
    * version matches the currently stored version. This method results in a
    * conflict error on version mismatch. (states.clear)
@@ -141,13 +139,14 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
    *
    * @opt_param string currentDataVersion The version of the data to be cleared.
    * Version strings are returned by the server.
+   *
    * @return Google_Service_AppState_WriteResult
    */
   public function clear($stateKey, $optParams = array())
   {
-    $params = array('stateKey' => $stateKey);
-    $params = array_merge($params, $optParams);
-    return $this->call('clear', array($params), "Google_Service_AppState_WriteResult");
+      $params = array('stateKey' => $stateKey);
+      $params = array_merge($params, $optParams);
+      return $this->call('clear', array($params), 'Google_Service_AppState_WriteResult');
   }
 
   /**
@@ -162,9 +161,9 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
    */
   public function delete($stateKey, $optParams = array())
   {
-    $params = array('stateKey' => $stateKey);
-    $params = array_merge($params, $optParams);
-    return $this->call('delete', array($params));
+      $params = array('stateKey' => $stateKey);
+      $params = array_merge($params, $optParams);
+      return $this->call('delete', array($params));
   }
 
   /**
@@ -173,13 +172,14 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
    *
    * @param int $stateKey The key for the data to be retrieved.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_AppState_GetResponse
    */
   public function get($stateKey, $optParams = array())
   {
-    $params = array('stateKey' => $stateKey);
-    $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_AppState_GetResponse");
+      $params = array('stateKey' => $stateKey);
+      $params = array_merge($params, $optParams);
+      return $this->call('get', array($params), 'Google_Service_AppState_GetResponse');
   }
 
   /**
@@ -189,13 +189,14 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
    *
    * @opt_param bool includeData Whether to include the full data in addition to
    * the version number
+   *
    * @return Google_Service_AppState_ListResponse
    */
   public function listStates($optParams = array())
   {
-    $params = array();
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_AppState_ListResponse");
+      $params = array();
+      $params = array_merge($params, $optParams);
+      return $this->call('list', array($params), 'Google_Service_AppState_ListResponse');
   }
 
   /**
@@ -212,157 +213,151 @@ class Google_Service_AppState_States_Resource extends Google_Service_Resource
    * version, this method will return a conflict error. If there is no data stored
    * on the server for this key, the update will succeed irrespective of the value
    * of this parameter.
+   *
    * @return Google_Service_AppState_WriteResult
    */
   public function update($stateKey, Google_Service_AppState_UpdateRequest $postBody, $optParams = array())
   {
-    $params = array('stateKey' => $stateKey, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('update', array($params), "Google_Service_AppState_WriteResult");
+      $params = array('stateKey' => $stateKey, 'postBody' => $postBody);
+      $params = array_merge($params, $optParams);
+      return $this->call('update', array($params), 'Google_Service_AppState_WriteResult');
   }
 }
 
-
-
-
 class Google_Service_AppState_GetResponse extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
+    protected $internal_gapi_mappings = array(
   );
-  public $currentStateVersion;
-  public $data;
-  public $kind;
-  public $stateKey;
+    public $currentStateVersion;
+    public $data;
+    public $kind;
+    public $stateKey;
 
-
-  public function setCurrentStateVersion($currentStateVersion)
-  {
-    $this->currentStateVersion = $currentStateVersion;
-  }
-  public function getCurrentStateVersion()
-  {
-    return $this->currentStateVersion;
-  }
-  public function setData($data)
-  {
-    $this->data = $data;
-  }
-  public function getData()
-  {
-    return $this->data;
-  }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  public function setStateKey($stateKey)
-  {
-    $this->stateKey = $stateKey;
-  }
-  public function getStateKey()
-  {
-    return $this->stateKey;
-  }
+    public function setCurrentStateVersion($currentStateVersion)
+    {
+        $this->currentStateVersion = $currentStateVersion;
+    }
+    public function getCurrentStateVersion()
+    {
+        return $this->currentStateVersion;
+    }
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+    public function getData()
+    {
+        return $this->data;
+    }
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    public function setStateKey($stateKey)
+    {
+        $this->stateKey = $stateKey;
+    }
+    public function getStateKey()
+    {
+        return $this->stateKey;
+    }
 }
 
 class Google_Service_AppState_ListResponse extends Google_Collection
 {
-  protected $collection_key = 'items';
-  protected $internal_gapi_mappings = array(
+    protected $collection_key = 'items';
+    protected $internal_gapi_mappings = array(
   );
-  protected $itemsType = 'Google_Service_AppState_GetResponse';
-  protected $itemsDataType = 'array';
-  public $kind;
-  public $maximumKeyCount;
+    protected $itemsType = 'Google_Service_AppState_GetResponse';
+    protected $itemsDataType = 'array';
+    public $kind;
+    public $maximumKeyCount;
 
-
-  public function setItems($items)
-  {
-    $this->items = $items;
-  }
-  public function getItems()
-  {
-    return $this->items;
-  }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  public function setMaximumKeyCount($maximumKeyCount)
-  {
-    $this->maximumKeyCount = $maximumKeyCount;
-  }
-  public function getMaximumKeyCount()
-  {
-    return $this->maximumKeyCount;
-  }
+    public function setItems($items)
+    {
+        $this->items = $items;
+    }
+    public function getItems()
+    {
+        return $this->items;
+    }
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    public function setMaximumKeyCount($maximumKeyCount)
+    {
+        $this->maximumKeyCount = $maximumKeyCount;
+    }
+    public function getMaximumKeyCount()
+    {
+        return $this->maximumKeyCount;
+    }
 }
 
 class Google_Service_AppState_UpdateRequest extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
+    protected $internal_gapi_mappings = array(
   );
-  public $data;
-  public $kind;
+    public $data;
+    public $kind;
 
-
-  public function setData($data)
-  {
-    $this->data = $data;
-  }
-  public function getData()
-  {
-    return $this->data;
-  }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
-  {
-    return $this->kind;
-  }
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+    public function getData()
+    {
+        return $this->data;
+    }
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    public function getKind()
+    {
+        return $this->kind;
+    }
 }
 
 class Google_Service_AppState_WriteResult extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
+    protected $internal_gapi_mappings = array(
   );
-  public $currentStateVersion;
-  public $kind;
-  public $stateKey;
+    public $currentStateVersion;
+    public $kind;
+    public $stateKey;
 
-
-  public function setCurrentStateVersion($currentStateVersion)
-  {
-    $this->currentStateVersion = $currentStateVersion;
-  }
-  public function getCurrentStateVersion()
-  {
-    return $this->currentStateVersion;
-  }
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  public function setStateKey($stateKey)
-  {
-    $this->stateKey = $stateKey;
-  }
-  public function getStateKey()
-  {
-    return $this->stateKey;
-  }
+    public function setCurrentStateVersion($currentStateVersion)
+    {
+        $this->currentStateVersion = $currentStateVersion;
+    }
+    public function getCurrentStateVersion()
+    {
+        return $this->currentStateVersion;
+    }
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    public function setStateKey($stateKey)
+    {
+        $this->stateKey = $stateKey;
+    }
+    public function getStateKey()
+    {
+        return $this->stateKey;
+    }
 }

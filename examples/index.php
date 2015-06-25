@@ -1,11 +1,11 @@
 <?php
-include_once "templates/base.php";
+include_once 'templates/base.php';
 if (!isWebRequest()) {
-  echo "To view this page on a webserver using PHP 5.4 or above run: \n\t
+    echo "To view this page on a webserver using PHP 5.4 or above run: \n\t
     php -S localhost:8080\n";
-  exit();
+    exit();
 }
-echo pageHeader("PHP Library Examples"); ?>
+echo pageHeader('PHP Library Examples'); ?>
 <ul>
   <li><a href="simple-query.php">A query using simple API access</a></li>
   <li><a href="user-example.php">A query for user data, using OAuth 2.0 authentication.</a></li>

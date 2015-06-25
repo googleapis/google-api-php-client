@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2013 Google Inc.
  *
@@ -15,7 +16,7 @@
  * limitations under the License.
  */
 session_start();
-include_once "templates/base.php";
+include_once 'templates/base.php';
 
 /************************************************
   Make an API request authenticated with a service
@@ -40,16 +41,16 @@ $client_id = '<YOUR_CLIENT_ID>'; //Client ID
 $service_account_name = ''; //Email Address
 $key_file_location = ''; //key.p12
 
-echo pageHeader("Service Account Access");
-if (strpos($client_id, "googleusercontent") == false
+echo pageHeader('Service Account Access');
+if (strpos($client_id, 'googleusercontent') == false
     || !strlen($service_account_name)
     || !strlen($key_file_location)) {
-  echo missingServiceAccountDetailsWarning();
-  exit;
+    echo missingServiceAccountDetailsWarning();
+    exit;
 }
 
 $client = new Google_Client();
-$client->setApplicationName("Client_Library_Examples");
+$client->setApplicationName('Client_Library_Examples');
 $service = new Google_Service_Books($client);
 
 /************************************************
@@ -61,7 +62,7 @@ $service = new Google_Service_Books($client);
   the service account
  ************************************************/
 if (isset($_SESSION['service_token'])) {
-  $client->setAccessToken($_SESSION['service_token']);
+    $client->setAccessToken($_SESSION['service_token']);
 }
 $key = file_get_contents($key_file_location);
 $cred = new Google_Auth_AssertionCredentials(
@@ -71,7 +72,7 @@ $cred = new Google_Auth_AssertionCredentials(
 );
 $client->setAssertionCredentials($cred);
 if ($client->getAuth()->isAccessTokenExpired()) {
-  $client->getAuth()->refreshTokenWithAssertion($cred);
+    $client->getAuth()->refreshTokenWithAssertion($cred);
 }
 $_SESSION['service_token'] = $client->getAccessToken();
 
@@ -81,9 +82,9 @@ $_SESSION['service_token'] = $client->getAccessToken();
  ************************************************/
 $optParams = array('filter' => 'free-ebooks');
 $results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
-echo "<h3>Results Of Call:</h3>";
+echo '<h3>Results Of Call:</h3>';
 foreach ($results as $item) {
-  echo $item['volumeInfo']['title'], "<br /> \n";
+    echo $item['volumeInfo']['title'], "<br /> \n";
 }
 
 echo pageFooter(__FILE__);

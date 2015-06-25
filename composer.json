@@ -9,6 +9,7 @@
         "php": ">=5.2.1"
     },
     "require-dev": {
+      "fabpot/php-cs-fixer": "*",
       "phpunit/phpunit": "3.7.*"
     },
     "autoload": {

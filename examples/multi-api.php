@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-include_once "templates/base.php";
+include_once 'templates/base.php';
 session_start();
 
 require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
@@ -39,8 +39,8 @@ $client = new Google_Client();
 $client->setClientId($client_id);
 $client->setClientSecret($client_secret);
 $client->setRedirectUri($redirect_uri);
-$client->addScope("https://www.googleapis.com/auth/drive");
-$client->addScope("https://www.googleapis.com/auth/youtube");
+$client->addScope('https://www.googleapis.com/auth/drive');
+$client->addScope('https://www.googleapis.com/auth/youtube');
 
 /************************************************
   We are going to create both YouTube and Drive
@@ -49,25 +49,24 @@ $client->addScope("https://www.googleapis.com/auth/youtube");
 $yt_service = new Google_Service_YouTube($client);
 $dr_service = new Google_Service_Drive($client);
 
-
 /************************************************
   Boilerplate auth management - see
   user-example.php for details.
  ************************************************/
 if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['access_token']);
+    unset($_SESSION['access_token']);
 }
 if (isset($_GET['code'])) {
-  $client->authenticate($_GET['code']);
-  $_SESSION['access_token'] = $client->getAccessToken();
-  $redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-  header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
+    $client->authenticate($_GET['code']);
+    $_SESSION['access_token'] = $client->getAccessToken();
+    $redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+    header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
 }
 
 if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
-  $client->setAccessToken($_SESSION['access_token']);
+    $client->setAccessToken($_SESSION['access_token']);
 } else {
-  $authUrl = $client->createAuthUrl();
+    $authUrl = $client->createAuthUrl();
 }
 
 /************************************************
@@ -75,39 +74,39 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
   and a list of files from Drive.
  ************************************************/
 if ($client->getAccessToken()) {
-  $_SESSION['access_token'] = $client->getAccessToken();
+    $_SESSION['access_token'] = $client->getAccessToken();
 
-  $dr_results = $dr_service->files->listFiles(array('maxResults' => 10));
+    $dr_results = $dr_service->files->listFiles(array('maxResults' => 10));
 
-  $yt_channels = $yt_service->channels->listChannels('contentDetails', array("mine" => true));
-  $likePlaylist = $yt_channels[0]->contentDetails->relatedPlaylists->likes;
-  $yt_results = $yt_service->playlistItems->listPlaylistItems(
-      "snippet",
-      array("playlistId" => $likePlaylist)
+    $yt_channels = $yt_service->channels->listChannels('contentDetails', array('mine' => true));
+    $likePlaylist = $yt_channels[0]->contentDetails->relatedPlaylists->likes;
+    $yt_results = $yt_service->playlistItems->listPlaylistItems(
+      'snippet',
+      array('playlistId' => $likePlaylist)
   );
 }
 
-echo pageHeader("User Query - Multiple APIs");
-if (strpos($client_id, "googleusercontent") == false) {
-  echo missingClientSecretsWarning();
-  exit;
+echo pageHeader('User Query - Multiple APIs');
+if (strpos($client_id, 'googleusercontent') == false) {
+    echo missingClientSecretsWarning();
+    exit;
 }
 ?>
 <div class="box">
   <div class="request">
-<?php 
+<?php
 if (isset($authUrl)) {
-  echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
+    echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
 } else {
-  echo "<h3>Results Of Drive List:</h3>";
-  foreach ($dr_results as $item) {
-    echo $item->title, "<br /> \n";
-  }
+    echo '<h3>Results Of Drive List:</h3>';
+    foreach ($dr_results as $item) {
+        echo $item->title, "<br /> \n";
+    }
 
-  echo "<h3>Results Of YouTube Likes:</h3>";
-  foreach ($yt_results as $item) {
-    echo $item['snippet']['title'], "<br /> \n";
-  }
+    echo '<h3>Results Of YouTube Likes:</h3>';
+    foreach ($yt_results as $item) {
+        echo $item['snippet']['title'], "<br /> \n";
+    }
 } ?>
   </div>
 </div>

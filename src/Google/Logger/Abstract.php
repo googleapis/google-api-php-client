@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -16,7 +17,7 @@
  */
 
 if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
+    require_once dirname(__FILE__) . '/../autoload.php';
 }
 
 /**
@@ -29,7 +30,7 @@ if (!class_exists('Google_Client')) {
  */
 abstract class Google_Logger_Abstract
 {
-  /**
+    /**
    * Default log format
    */
   const DEFAULT_LOG_FORMAT = "[%datetime%] %level%: %message% %context%\n";
@@ -85,35 +86,35 @@ abstract class Google_Logger_Abstract
   const DEBUG = 'debug';
 
   /**
-   * @var array $levels Logging levels
+   * @var array Logging levels
    */
   protected static $levels = array(
-      self::EMERGENCY  => 600,
-      self::ALERT => 550,
-      self::CRITICAL => 500,
-      self::ERROR => 400,
-      self::WARNING => 300,
-      self::NOTICE => 250,
-      self::INFO => 200,
-      self::DEBUG => 100,
+      self::EMERGENCY => 600,
+      self::ALERT     => 550,
+      self::CRITICAL  => 500,
+      self::ERROR     => 400,
+      self::WARNING   => 300,
+      self::NOTICE    => 250,
+      self::INFO      => 200,
+      self::DEBUG     => 100,
   );
 
   /**
-   * @var integer $level The minimum logging level
+   * @var int The minimum logging level
    */
   protected $level = self::DEBUG;
 
   /**
-   * @var string $logFormat The current log format
+   * @var string The current log format
    */
   protected $logFormat = self::DEFAULT_LOG_FORMAT;
   /**
-   * @var string $dateFormat The current date format
+   * @var string The current date format
    */
   protected $dateFormat = self::DEFAULT_DATE_FORMAT;
 
   /**
-   * @var boolean $allowNewLines If newlines are allowed
+   * @var bool If newlines are allowed
    */
   protected $allowNewLines = false;
 
@@ -122,17 +123,17 @@ abstract class Google_Logger_Abstract
    */
   public function __construct(Google_Client $client)
   {
-    $this->setLevel(
+      $this->setLevel(
         $client->getClassConfig('Google_Logger_Abstract', 'level')
     );
 
-    $format = $client->getClassConfig('Google_Logger_Abstract', 'log_format');
-    $this->logFormat = $format ? $format : self::DEFAULT_LOG_FORMAT;
+      $format = $client->getClassConfig('Google_Logger_Abstract', 'log_format');
+      $this->logFormat = $format ? $format : self::DEFAULT_LOG_FORMAT;
 
-    $format = $client->getClassConfig('Google_Logger_Abstract', 'date_format');
-    $this->dateFormat = $format ? $format : self::DEFAULT_DATE_FORMAT;
+      $format = $client->getClassConfig('Google_Logger_Abstract', 'date_format');
+      $this->dateFormat = $format ? $format : self::DEFAULT_DATE_FORMAT;
 
-    $this->allowNewLines = (bool) $client->getClassConfig(
+      $this->allowNewLines = (bool) $client->getClassConfig(
         'Google_Logger_Abstract',
         'allow_newlines'
     );
@@ -141,22 +142,23 @@ abstract class Google_Logger_Abstract
   /**
    * Sets the minimum logging level that this logger handles.
    *
-   * @param integer $level
+   * @param int $level
    */
   public function setLevel($level)
   {
-    $this->level = $this->normalizeLevel($level);
+      $this->level = $this->normalizeLevel($level);
   }
 
   /**
    * Checks if the logger should handle messages at the provided level.
    *
-   * @param  integer $level
-   * @return boolean
+   * @param  int $level
+   *
+   * @return bool
    */
   public function shouldHandle($level)
   {
-    return $this->normalizeLevel($level) >= $this->level;
+      return $this->normalizeLevel($level) >= $this->level;
   }
 
   /**
@@ -167,7 +169,7 @@ abstract class Google_Logger_Abstract
    */
   public function emergency($message, array $context = array())
   {
-    $this->log(self::EMERGENCY, $message, $context);
+      $this->log(self::EMERGENCY, $message, $context);
   }
 
   /**
@@ -181,7 +183,7 @@ abstract class Google_Logger_Abstract
    */
   public function alert($message, array $context = array())
   {
-    $this->log(self::ALERT, $message, $context);
+      $this->log(self::ALERT, $message, $context);
   }
 
   /**
@@ -194,7 +196,7 @@ abstract class Google_Logger_Abstract
    */
   public function critical($message, array $context = array())
   {
-    $this->log(self::CRITICAL, $message, $context);
+      $this->log(self::CRITICAL, $message, $context);
   }
 
   /**
@@ -206,7 +208,7 @@ abstract class Google_Logger_Abstract
    */
   public function error($message, array $context = array())
   {
-    $this->log(self::ERROR, $message, $context);
+      $this->log(self::ERROR, $message, $context);
   }
 
   /**
@@ -220,7 +222,7 @@ abstract class Google_Logger_Abstract
    */
   public function warning($message, array $context = array())
   {
-    $this->log(self::WARNING, $message, $context);
+      $this->log(self::WARNING, $message, $context);
   }
 
   /**
@@ -231,7 +233,7 @@ abstract class Google_Logger_Abstract
    */
   public function notice($message, array $context = array())
   {
-    $this->log(self::NOTICE, $message, $context);
+      $this->log(self::NOTICE, $message, $context);
   }
 
   /**
@@ -244,7 +246,7 @@ abstract class Google_Logger_Abstract
    */
   public function info($message, array $context = array())
   {
-    $this->log(self::INFO, $message, $context);
+      $this->log(self::INFO, $message, $context);
   }
 
   /**
@@ -255,7 +257,7 @@ abstract class Google_Logger_Abstract
    */
   public function debug($message, array $context = array())
   {
-    $this->log(self::DEBUG, $message, $context);
+      $this->log(self::DEBUG, $message, $context);
   }
 
   /**
@@ -267,51 +269,52 @@ abstract class Google_Logger_Abstract
    */
   public function log($level, $message, array $context = array())
   {
-    if (!$this->shouldHandle($level)) {
-      return false;
-    }
+      if (!$this->shouldHandle($level)) {
+          return false;
+      }
 
-    $levelName = is_int($level) ? array_search($level, self::$levels) : $level;
-    $message = $this->interpolate(
+      $levelName = is_int($level) ? array_search($level, self::$levels) : $level;
+      $message = $this->interpolate(
         array(
-            'message' => $message,
-            'context' => $context,
-            'level' => strtoupper($levelName),
+            'message'  => $message,
+            'context'  => $context,
+            'level'    => strtoupper($levelName),
             'datetime' => new DateTime(),
         )
     );
 
-    $this->write($message);
+      $this->write($message);
   }
 
   /**
    * Interpolates log variables into the defined log format.
    *
    * @param  array $variables The log variables.
+   *
    * @return string
    */
   protected function interpolate(array $variables = array())
   {
-    $template = $this->logFormat;
+      $template = $this->logFormat;
 
-    if (!$variables['context']) {
-      $template = str_replace('%context%', '', $template);
-      unset($variables['context']);
-    } else {
-      $this->reverseJsonInContext($variables['context']);
-    }
+      if (!$variables['context']) {
+          $template = str_replace('%context%', '', $template);
+          unset($variables['context']);
+      } else {
+          $this->reverseJsonInContext($variables['context']);
+      }
 
-    foreach ($variables as $key => $value) {
-      if (strpos($template, '%'. $key .'%') !== false) {
-        $template = str_replace(
+      foreach ($variables as $key => $value) {
+          if (strpos($template, '%'. $key .'%') !== false) {
+              $template = str_replace(
             '%' . $key . '%',
             $this->export($value),
             $template
         );
+          }
       }
-    }
 
-    return $template;
+      return $template;
   }
 
   /**
@@ -321,20 +324,20 @@ abstract class Google_Logger_Abstract
    */
   protected function reverseJsonInContext(array &$context)
   {
-    if (!$context) {
-      return;
-    }
-
-    foreach ($context as $key => $val) {
-      if (!$val || !is_string($val) || !($val[0] == '{' || $val[0] == '[')) {
-        continue;
+      if (!$context) {
+          return;
       }
 
-      $json = @json_decode($val);
-      if (is_object($json) || is_array($json)) {
-        $context[$key] = $json;
+      foreach ($context as $key => $val) {
+          if (!$val || !is_string($val) || !($val[0] == '{' || $val[0] == '[')) {
+              continue;
+          }
+
+          $json = @json_decode($val);
+          if (is_object($json) || is_array($json)) {
+              $context[$key] = $json;
+          }
       }
-    }
   }
 
   /**
@@ -344,57 +347,59 @@ abstract class Google_Logger_Abstract
    */
   protected function export($value)
   {
-    if (is_string($value)) {
-      if ($this->allowNewLines) {
-        return $value;
+      if (is_string($value)) {
+          if ($this->allowNewLines) {
+              return $value;
+          }
+
+          return preg_replace('/[\r\n]+/', ' ', $value);
       }
 
-      return preg_replace('/[\r\n]+/', ' ', $value);
-    }
-
-    if (is_resource($value)) {
-      return sprintf(
+      if (is_resource($value)) {
+          return sprintf(
           'resource(%d) of type (%s)',
           $value,
           get_resource_type($value)
       );
-    }
-
-    if ($value instanceof DateTime) {
-      return $value->format($this->dateFormat);
-    }
-
-    if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
-      $options = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
-
-      if ($this->allowNewLines) {
-        $options |= JSON_PRETTY_PRINT;
       }
 
-      return @json_encode($value, $options);
-    }
+      if ($value instanceof DateTime) {
+          return $value->format($this->dateFormat);
+      }
 
-    return str_replace('\\/', '/', @json_encode($value));
+      if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
+          $options = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
+
+          if ($this->allowNewLines) {
+              $options |= JSON_PRETTY_PRINT;
+          }
+
+          return @json_encode($value, $options);
+      }
+
+      return str_replace('\\/', '/', @json_encode($value));
   }
 
   /**
    * Converts a given log level to the integer form.
    *
    * @param  mixed $level   The logging level
-   * @return integer $level The normalized level
+   *
+   * @return int $level The normalized level
+   *
    * @throws Google_Logger_Exception If $level is invalid
    */
   protected function normalizeLevel($level)
   {
-    if (is_int($level) && array_search($level, self::$levels) !== false) {
-      return $level;
-    }
+      if (is_int($level) && array_search($level, self::$levels) !== false) {
+          return $level;
+      }
 
-    if (is_string($level) && isset(self::$levels[$level])) {
-      return self::$levels[$level];
-    }
+      if (is_string($level) && isset(self::$levels[$level])) {
+          return self::$levels[$level];
+      }
 
-    throw new Google_Logger_Exception(
+      throw new Google_Logger_Exception(
         sprintf("Unknown LogLevel: '%s'", $level)
     );
   }

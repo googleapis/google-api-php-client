@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2010 Google Inc.
  *
@@ -20,15 +21,15 @@
  */
 class Google_Config
 {
-  const GZIP_DISABLED = true;
-  const GZIP_ENABLED = false;
-  const GZIP_UPLOADS_ENABLED = true;
-  const GZIP_UPLOADS_DISABLED = false;
-  const USE_AUTO_IO_SELECTION = "auto";
-  const TASK_RETRY_NEVER = 0;
-  const TASK_RETRY_ONCE = 1;
-  const TASK_RETRY_ALWAYS = -1;
-  protected $configuration;
+    const GZIP_DISABLED = true;
+    const GZIP_ENABLED = false;
+    const GZIP_UPLOADS_ENABLED = true;
+    const GZIP_UPLOADS_DISABLED = false;
+    const USE_AUTO_IO_SELECTION = 'auto';
+    const TASK_RETRY_NEVER = 0;
+    const TASK_RETRY_ONCE = 1;
+    const TASK_RETRY_ALWAYS = -1;
+    protected $configuration;
 
   /**
    * Create a new Google_Config. Can accept an ini file location with the
@@ -39,15 +40,15 @@ class Google_Config
    */
   public function __construct($ini_file_location = null)
   {
-    $this->configuration = array(
+      $this->configuration = array(
       // The application_name is included in the User-Agent HTTP header.
       'application_name' => '',
 
       // Which Authentication, Storage and HTTP IO classes to use.
-      'auth_class'    => 'Google_Auth_OAuth2',
-      'io_class'      => self::USE_AUTO_IO_SELECTION,
-      'cache_class'   => 'Google_Cache_File',
-      'logger_class'  => 'Google_Logger_Null',
+      'auth_class'   => 'Google_Auth_OAuth2',
+      'io_class'     => self::USE_AUTO_IO_SELECTION,
+      'cache_class'  => 'Google_Cache_File',
+      'logger_class' => 'Google_Logger_Null',
 
       // Don't change these unless you're working against a special development
       // or testing environment.
@@ -59,10 +60,10 @@ class Google_Config
           'request_timeout_seconds' => 100,
         ),
         'Google_Logger_Abstract' => array(
-          'level' => 'debug',
-          'log_format' => "[%datetime%] %level%: %message% %context%\n",
-          'date_format' => 'd/M/Y:H:i:s O',
-          'allow_newlines' => true
+          'level'          => 'debug',
+          'log_format'     => "[%datetime%] %level%: %message% %context%\n",
+          'date_format'    => 'd/M/Y:H:i:s O',
+          'allow_newlines' => true,
         ),
         'Google_Logger_File' => array(
           'file' => 'php://stdout',
@@ -84,30 +85,29 @@ class Google_Config
         'Google_Auth_OAuth2' => array(
           // Keys for OAuth 2.0 access, see the API console at
           // https://developers.google.com/console
-          'client_id' => '',
+          'client_id'     => '',
           'client_secret' => '',
-          'redirect_uri' => '',
+          'redirect_uri'  => '',
 
           // Simple API access key, also from the API console. Ensure you get
           // a Server key, and not a Browser key.
           'developer_key' => '',
 
           // Other parameters.
-          'hd' => '',
-          'prompt' => '',
-          'openid.realm' => '',
-          'include_granted_scopes' => '',
-          'login_hint' => '',
-          'request_visible_actions' => '',
-          'access_type' => 'online',
-          'approval_prompt' => 'auto',
-          'federated_signon_certs_url' =>
-              'https://www.googleapis.com/oauth2/v1/certs',
+          'hd'                         => '',
+          'prompt'                     => '',
+          'openid.realm'               => '',
+          'include_granted_scopes'     => '',
+          'login_hint'                 => '',
+          'request_visible_actions'    => '',
+          'access_type'                => 'online',
+          'approval_prompt'            => 'auto',
+          'federated_signon_certs_url' => 'https://www.googleapis.com/oauth2/v1/certs',
         ),
         'Google_Task_Runner' => array(
           // Delays are specified in seconds
           'initial_delay' => 1,
-          'max_delay' => 60,
+          'max_delay'     => 60,
           // Base number for exponential backoff
           'factor' => 2,
           // A random number between -jitter and jitter will be added to the
@@ -115,100 +115,104 @@ class Google_Config
           // retries.
           'jitter' => .5,
           // Maximum number of retries allowed
-          'retries' => 0
+          'retries' => 0,
         ),
         'Google_Service_Exception' => array(
           'retry_map' => array(
-            '500' => self::TASK_RETRY_ALWAYS,
-            '503' => self::TASK_RETRY_ALWAYS,
-            'rateLimitExceeded' => self::TASK_RETRY_ALWAYS,
-            'userRateLimitExceeded' => self::TASK_RETRY_ALWAYS
-          )
+            '500'                   => self::TASK_RETRY_ALWAYS,
+            '503'                   => self::TASK_RETRY_ALWAYS,
+            'rateLimitExceeded'     => self::TASK_RETRY_ALWAYS,
+            'userRateLimitExceeded' => self::TASK_RETRY_ALWAYS,
+          ),
         ),
         'Google_IO_Exception' => array(
           'retry_map' => !extension_loaded('curl') ? array() : array(
             CURLE_COULDNT_RESOLVE_HOST => self::TASK_RETRY_ALWAYS,
-            CURLE_COULDNT_CONNECT => self::TASK_RETRY_ALWAYS,
-            CURLE_OPERATION_TIMEOUTED => self::TASK_RETRY_ALWAYS,
-            CURLE_SSL_CONNECT_ERROR => self::TASK_RETRY_ALWAYS,
-            CURLE_GOT_NOTHING => self::TASK_RETRY_ALWAYS
-          )
+            CURLE_COULDNT_CONNECT      => self::TASK_RETRY_ALWAYS,
+            CURLE_OPERATION_TIMEOUTED  => self::TASK_RETRY_ALWAYS,
+            CURLE_SSL_CONNECT_ERROR    => self::TASK_RETRY_ALWAYS,
+            CURLE_GOT_NOTHING          => self::TASK_RETRY_ALWAYS,
+          ),
         ),
         // Set a default directory for the file cache.
         'Google_Cache_File' => array(
-          'directory' => sys_get_temp_dir() . '/Google_Client'
-        )
+          'directory' => sys_get_temp_dir() . '/Google_Client',
+        ),
       ),
     );
-    if ($ini_file_location) {
-      $ini = parse_ini_file($ini_file_location, true);
-      if (is_array($ini) && count($ini)) {
-        $merged_configuration = $ini + $this->configuration;
-        if (isset($ini['classes']) && isset($this->configuration['classes'])) {
-          $merged_configuration['classes'] = $ini['classes'] + $this->configuration['classes'];
-        }
-        $this->configuration = $merged_configuration;
+      if ($ini_file_location) {
+          $ini = parse_ini_file($ini_file_location, true);
+          if (is_array($ini) && count($ini)) {
+              $merged_configuration = $ini + $this->configuration;
+              if (isset($ini['classes']) && isset($this->configuration['classes'])) {
+                  $merged_configuration['classes'] = $ini['classes'] + $this->configuration['classes'];
+              }
+              $this->configuration = $merged_configuration;
+          }
       }
-    }
   }
 
   /**
    * Set configuration specific to a given class.
    * $config->setClassConfig('Google_Cache_File',
    *   array('directory' => '/tmp/cache'));
+   *
    * @param $class string The class name for the configuration
    * @param $config string key or an array of configuration values
    * @param $value string optional - if $config is a key, the value
    */
   public function setClassConfig($class, $config, $value = null)
   {
-    if (!is_array($config)) {
-      if (!isset($this->configuration['classes'][$class])) {
-        $this->configuration['classes'][$class] = array();
+      if (!is_array($config)) {
+          if (!isset($this->configuration['classes'][$class])) {
+              $this->configuration['classes'][$class] = array();
+          }
+          $this->configuration['classes'][$class][$config] = $value;
+      } else {
+          $this->configuration['classes'][$class] = $config;
       }
-      $this->configuration['classes'][$class][$config] = $value;
-    } else {
-      $this->configuration['classes'][$class] = $config;
-    }
   }
 
-  public function getClassConfig($class, $key = null)
-  {
-    if (!isset($this->configuration['classes'][$class])) {
-      return null;
+    public function getClassConfig($class, $key = null)
+    {
+        if (!isset($this->configuration['classes'][$class])) {
+            return;
+        }
+        if ($key === null) {
+            return $this->configuration['classes'][$class];
+        } else {
+            return $this->configuration['classes'][$class][$key];
+        }
     }
-    if ($key === null) {
-      return $this->configuration['classes'][$class];
-    } else {
-      return $this->configuration['classes'][$class][$key];
-    }
-  }
 
   /**
    * Return the configured cache class.
+   *
    * @return string
    */
   public function getCacheClass()
   {
-    return $this->configuration['cache_class'];
+      return $this->configuration['cache_class'];
   }
 
   /**
    * Return the configured logger class.
+   *
    * @return string
    */
   public function getLoggerClass()
   {
-    return $this->configuration['logger_class'];
+      return $this->configuration['logger_class'];
   }
 
   /**
    * Return the configured Auth class.
+   *
    * @return string
    */
   public function getAuthClass()
   {
-    return $this->configuration['auth_class'];
+      return $this->configuration['auth_class'];
   }
 
   /**
@@ -218,13 +222,13 @@ class Google_Config
    */
   public function setAuthClass($class)
   {
-    $prev = $this->configuration['auth_class'];
-    if (!isset($this->configuration['classes'][$class]) &&
+      $prev = $this->configuration['auth_class'];
+      if (!isset($this->configuration['classes'][$class]) &&
         isset($this->configuration['classes'][$prev])) {
-      $this->configuration['classes'][$class] =
+          $this->configuration['classes'][$class] =
           $this->configuration['classes'][$prev];
-    }
-    $this->configuration['auth_class'] = $class;
+      }
+      $this->configuration['auth_class'] = $class;
   }
 
   /**
@@ -234,13 +238,13 @@ class Google_Config
    */
   public function setIoClass($class)
   {
-    $prev = $this->configuration['io_class'];
-    if (!isset($this->configuration['classes'][$class]) &&
+      $prev = $this->configuration['io_class'];
+      if (!isset($this->configuration['classes'][$class]) &&
         isset($this->configuration['classes'][$prev])) {
-      $this->configuration['classes'][$class] =
+          $this->configuration['classes'][$class] =
           $this->configuration['classes'][$prev];
-    }
-    $this->configuration['io_class'] = $class;
+      }
+      $this->configuration['io_class'] = $class;
   }
 
   /**
@@ -250,13 +254,13 @@ class Google_Config
    */
   public function setCacheClass($class)
   {
-    $prev = $this->configuration['cache_class'];
-    if (!isset($this->configuration['classes'][$class]) &&
+      $prev = $this->configuration['cache_class'];
+      if (!isset($this->configuration['classes'][$class]) &&
         isset($this->configuration['classes'][$prev])) {
-      $this->configuration['classes'][$class] =
+          $this->configuration['classes'][$class] =
           $this->configuration['classes'][$prev];
-    }
-    $this->configuration['cache_class'] = $class;
+      }
+      $this->configuration['cache_class'] = $class;
   }
 
   /**
@@ -266,13 +270,13 @@ class Google_Config
    */
   public function setLoggerClass($class)
   {
-    $prev = $this->configuration['logger_class'];
-    if (!isset($this->configuration['classes'][$class]) &&
+      $prev = $this->configuration['logger_class'];
+      if (!isset($this->configuration['classes'][$class]) &&
         isset($this->configuration['classes'][$prev])) {
-      $this->configuration['classes'][$class] =
+          $this->configuration['classes'][$class] =
           $this->configuration['classes'][$prev];
-    }
-    $this->configuration['logger_class'] = $class;
+      }
+      $this->configuration['logger_class'] = $class;
   }
 
   /**
@@ -282,16 +286,17 @@ class Google_Config
    */
   public function getIoClass()
   {
-    return $this->configuration['io_class'];
+      return $this->configuration['io_class'];
   }
 
   /**
    * Set the application name, this is included in the User-Agent HTTP header.
+   *
    * @param string $name
    */
   public function setApplicationName($name)
   {
-    $this->configuration['application_name'] = $name;
+      $this->configuration['application_name'] = $name;
   }
 
   /**
@@ -299,25 +304,27 @@ class Google_Config
    */
   public function getApplicationName()
   {
-    return $this->configuration['application_name'];
+      return $this->configuration['application_name'];
   }
 
   /**
    * Set the client ID for the auth class.
+   *
    * @param $clientId string - the API console client ID
    */
   public function setClientId($clientId)
   {
-    $this->setAuthConfig('client_id', $clientId);
+      $this->setAuthConfig('client_id', $clientId);
   }
 
   /**
    * Set the client secret for the auth class.
+   *
    * @param $secret string - the API console client secret
    */
   public function setClientSecret($secret)
   {
-    $this->setAuthConfig('client_secret', $secret);
+      $this->setAuthConfig('client_secret', $secret);
   }
 
   /**
@@ -328,60 +335,65 @@ class Google_Config
    */
   public function setRedirectUri($uri)
   {
-    $this->setAuthConfig('redirect_uri', $uri);
+      $this->setAuthConfig('redirect_uri', $uri);
   }
 
   /**
    * Set the app activities for the auth class.
+   *
    * @param $rva string a space separated list of app activity types
    */
   public function setRequestVisibleActions($rva)
   {
-    $this->setAuthConfig('request_visible_actions', $rva);
+      $this->setAuthConfig('request_visible_actions', $rva);
   }
 
   /**
    * Set the the access type requested (offline or online.)
+   *
    * @param $access string - the access type
    */
   public function setAccessType($access)
   {
-    $this->setAuthConfig('access_type', $access);
+      $this->setAuthConfig('access_type', $access);
   }
 
   /**
    * Set when to show the approval prompt (auto or force)
+   *
    * @param $approval string - the approval request
    */
   public function setApprovalPrompt($approval)
   {
-    $this->setAuthConfig('approval_prompt', $approval);
+      $this->setAuthConfig('approval_prompt', $approval);
   }
 
   /**
    * Set the login hint (email address or sub identifier)
+   *
    * @param $hint string
    */
   public function setLoginHint($hint)
   {
-    $this->setAuthConfig('login_hint', $hint);
+      $this->setAuthConfig('login_hint', $hint);
   }
 
   /**
    * Set the developer key for the auth class. Note that this is separate value
    * from the client ID - if it looks like a URL, its a client ID!
+   *
    * @param $key string - the API console developer key
    */
   public function setDeveloperKey($key)
   {
-    $this->setAuthConfig('developer_key', $key);
+      $this->setAuthConfig('developer_key', $key);
   }
 
   /**
    * Set the hd (hosted domain) parameter streamlines the login process for
    * Google Apps hosted accounts. By including the domain of the user, you
-   * restrict sign-in to accounts at that domain. 
-   * 
+   * restrict sign-in to accounts at that domain.
+   *
    * This should not be used to ensure security on your application - check
    * the hd values within an id token (@see Google_Auth_LoginTicket) after sign
    * in to ensure that the user is from the domain you were expecting.
@@ -390,42 +402,45 @@ class Google_Config
    */
   public function setHostedDomain($hd)
   {
-    $this->setAuthConfig('hd', $hd);
+      $this->setAuthConfig('hd', $hd);
   }
 
   /**
    * Set the prompt hint. Valid values are none, consent and select_account.
    * If no value is specified and the user has not previously authorized
    * access, then the user is shown a consent screen.
+   *
    * @param $prompt string
    */
   public function setPrompt($prompt)
   {
-    $this->setAuthConfig('prompt', $prompt);
+      $this->setAuthConfig('prompt', $prompt);
   }
 
   /**
    * openid.realm is a parameter from the OpenID 2.0 protocol, not from OAuth
    * 2.0. It is used in OpenID 2.0 requests to signify the URL-space for which
    * an authentication request is valid.
+   *
    * @param $realm string - the URL-space to use.
    */
   public function setOpenidRealm($realm)
   {
-    $this->setAuthConfig('openid.realm', $realm);
+      $this->setAuthConfig('openid.realm', $realm);
   }
 
   /**
    * If this is provided with the value true, and the authorization request is
    * granted, the authorization will include any previous authorizations
    * granted to this user/application combination for other scopes.
+   *
    * @param $include boolean - the URL-space to use.
    */
   public function setIncludeGrantedScopes($include)
   {
-    $this->setAuthConfig(
+      $this->setAuthConfig(
         'include_granted_scopes',
-        $include ? "true" : "false"
+        $include ? 'true' : 'false'
     );
   }
 
@@ -434,19 +449,20 @@ class Google_Config
    */
   public function getBasePath()
   {
-    return $this->configuration['base_path'];
+      return $this->configuration['base_path'];
   }
 
   /**
    * Set the auth configuration for the current auth class.
+   *
    * @param $key - the key to set
    * @param $value - the parameter value
    */
   private function setAuthConfig($key, $value)
   {
-    if (!isset($this->configuration['classes'][$this->getAuthClass()])) {
-      $this->configuration['classes'][$this->getAuthClass()] = array();
-    }
-    $this->configuration['classes'][$this->getAuthClass()][$key] = $value;
+      if (!isset($this->configuration['classes'][$this->getAuthClass()])) {
+          $this->configuration['classes'][$this->getAuthClass()] = array();
+      }
+      $this->configuration['classes'][$this->getAuthClass()][$key] = $value;
   }
 }

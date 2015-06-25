@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-include_once "templates/base.php";
+include_once 'templates/base.php';
 session_start();
 
 require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
@@ -22,12 +22,12 @@ require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
 /************************************************
   We'll setup an empty 1MB file to upload.
  ************************************************/
-DEFINE("TESTFILE", 'testfile-small.txt');
+DEFINE('TESTFILE', 'testfile-small.txt');
 if (!file_exists(TESTFILE)) {
-  $fh = fopen(TESTFILE, 'w');
-  fseek($fh, 1024 * 1024);
-  fwrite($fh, "!", 1);
-  fclose($fh);
+    $fh = fopen(TESTFILE, 'w');
+    fseek($fh, 1024 * 1024);
+    fwrite($fh, '!', 1);
+    fclose($fh);
 }
 
 /************************************************
@@ -43,27 +43,27 @@ $client = new Google_Client();
 $client->setClientId($client_id);
 $client->setClientSecret($client_secret);
 $client->setRedirectUri($redirect_uri);
-$client->addScope("https://www.googleapis.com/auth/drive");
+$client->addScope('https://www.googleapis.com/auth/drive');
 $service = new Google_Service_Drive($client);
 
 if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['upload_token']);
+    unset($_SESSION['upload_token']);
 }
 
 if (isset($_GET['code'])) {
-  $client->authenticate($_GET['code']);
-  $_SESSION['upload_token'] = $client->getAccessToken();
-  $redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-  header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
+    $client->authenticate($_GET['code']);
+    $_SESSION['upload_token'] = $client->getAccessToken();
+    $redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+    header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
 }
 
 if (isset($_SESSION['upload_token']) && $_SESSION['upload_token']) {
-  $client->setAccessToken($_SESSION['upload_token']);
-  if ($client->isAccessTokenExpired()) {
-    unset($_SESSION['upload_token']);
-  }
+    $client->setAccessToken($_SESSION['upload_token']);
+    if ($client->isAccessTokenExpired()) {
+        unset($_SESSION['upload_token']);
+    }
 } else {
-  $authUrl = $client->createAuthUrl();
+    $authUrl = $client->createAuthUrl();
 }
 
 /************************************************
@@ -71,50 +71,50 @@ if (isset($_SESSION['upload_token']) && $_SESSION['upload_token']) {
   file. For larger files, see fileupload.php.
  ************************************************/
 if ($client->getAccessToken()) {
-  // This is uploading a file directly, with no metadata associated.
+    // This is uploading a file directly, with no metadata associated.
   $file = new Google_Service_Drive_DriveFile();
-  $result = $service->files->insert(
+    $result = $service->files->insert(
       $file,
       array(
-        'data' => file_get_contents(TESTFILE),
-        'mimeType' => 'application/octet-stream',
-        'uploadType' => 'media'
+        'data'       => file_get_contents(TESTFILE),
+        'mimeType'   => 'application/octet-stream',
+        'uploadType' => 'media',
       )
   );
 
   // Now lets try and send the metadata as well using multipart!
   $file = new Google_Service_Drive_DriveFile();
-  $file->setTitle("Hello World!");
-  $result2 = $service->files->insert(
+    $file->setTitle('Hello World!');
+    $result2 = $service->files->insert(
       $file,
       array(
-        'data' => file_get_contents(TESTFILE),
-        'mimeType' => 'application/octet-stream',
-        'uploadType' => 'multipart'
+        'data'       => file_get_contents(TESTFILE),
+        'mimeType'   => 'application/octet-stream',
+        'uploadType' => 'multipart',
       )
   );
 }
 
-echo pageHeader("File Upload - Uploading a small file");
-if (strpos($client_id, "googleusercontent") == false) {
-  echo missingClientSecretsWarning();
-  exit;
+echo pageHeader('File Upload - Uploading a small file');
+if (strpos($client_id, 'googleusercontent') == false) {
+    echo missingClientSecretsWarning();
+    exit;
 }
 ?>
 <div class="box">
   <div class="request">
-<?php 
+<?php
 if (isset($authUrl)) {
-  echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
+    echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
 }
 ?>
   </div>
 
   <div class="shortened">
-<?php 
+<?php
 if (isset($result) && $result) {
-  var_dump($result->title);
-  var_dump($result2->title);
+    var_dump($result->title);
+    var_dump($result2->title);
 }
 ?>
   </div>

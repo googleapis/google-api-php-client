@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,10 +18,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
 class ApiModelTest extends BaseTest
 {
-  private $calendarData =  '{
+    private $calendarData = '{
          "kind": "calendar#event",
          "etag": "\"-kteSF26GsdKQ5bfmcd4H3_-u3g/MTE0NTUyNTAxOTk0MjAwMA\"",
          "id": "1234566",
@@ -53,116 +53,116 @@ class ApiModelTest extends BaseTest
          }
        }';
 
-  public function testIntentionalNulls()
-  {
-    $data = json_decode($this->calendarData, true);
-    $event = new Google_Service_Calendar_Event($data);
-    $obj = json_decode(json_encode($event->toSimpleObject()), true);
-    $this->assertArrayHasKey('date', $obj['start']);
-    $this->assertArrayNotHasKey('dateTime', $obj['start']);
-    $date = new Google_Service_Calendar_EventDateTime();
-    $date->setDate(Google_Model::NULL_VALUE);
-    $event->setStart($date);
-    $obj = json_decode(json_encode($event->toSimpleObject()), true);
-    $this->assertNull($obj['start']['date']);
-    $this->assertArrayHasKey('date', $obj['start']);
-    $this->assertArrayNotHasKey('dateTime', $obj['start']);
-  }
-  public function testModelMutation()
-  {
-    $data = json_decode($this->calendarData, true);
-    $event = new Google_Service_Calendar_Event($data);
-    $date = new Google_Service_Calendar_EventDateTime();
-    date_default_timezone_set('UTC');
-    $dateString = Date("c");
-    $summary = "hello";
-    $date->setDate($dateString);
-    $event->setStart($date);
-    $event->setEnd($date);
-    $event->setSummary($summary);
-    $simpleEvent = $event->toSimpleObject();
-    $this->assertEquals($dateString, $simpleEvent->start->date);
-    $this->assertEquals($dateString, $simpleEvent->end->date);
-    $this->assertEquals($summary, $simpleEvent->summary);
+    public function testIntentionalNulls()
+    {
+        $data = json_decode($this->calendarData, true);
+        $event = new Google_Service_Calendar_Event($data);
+        $obj = json_decode(json_encode($event->toSimpleObject()), true);
+        $this->assertArrayHasKey('date', $obj['start']);
+        $this->assertArrayNotHasKey('dateTime', $obj['start']);
+        $date = new Google_Service_Calendar_EventDateTime();
+        $date->setDate(Google_Model::NULL_VALUE);
+        $event->setStart($date);
+        $obj = json_decode(json_encode($event->toSimpleObject()), true);
+        $this->assertNull($obj['start']['date']);
+        $this->assertArrayHasKey('date', $obj['start']);
+        $this->assertArrayNotHasKey('dateTime', $obj['start']);
+    }
+    public function testModelMutation()
+    {
+        $data = json_decode($this->calendarData, true);
+        $event = new Google_Service_Calendar_Event($data);
+        $date = new Google_Service_Calendar_EventDateTime();
+        date_default_timezone_set('UTC');
+        $dateString = Date('c');
+        $summary = 'hello';
+        $date->setDate($dateString);
+        $event->setStart($date);
+        $event->setEnd($date);
+        $event->setSummary($summary);
+        $simpleEvent = $event->toSimpleObject();
+        $this->assertEquals($dateString, $simpleEvent->start->date);
+        $this->assertEquals($dateString, $simpleEvent->end->date);
+        $this->assertEquals($summary, $simpleEvent->summary);
 
-    $event2 = new Google_Service_Calendar_Event();
-    $this->assertNull($event2->getStart());
-  }
+        $event2 = new Google_Service_Calendar_Event();
+        $this->assertNull($event2->getStart());
+    }
 
-  public function testVariantTypes()
-  {
-    $feature = new Google_Service_MapsEngine_Feature();
-    $geometry = new Google_Service_MapsEngine_GeoJsonPoint();
-    $geometry->setCoordinates(array(1, 0));
-    $feature->setGeometry($geometry);
-    $data = json_decode(json_encode($feature->toSimpleObject()), true);
-    $this->assertEquals('Point', $data['geometry']['type']);
-    $this->assertEquals(1, $data['geometry']['coordinates'][0]);
-  }
+    public function testVariantTypes()
+    {
+        $feature = new Google_Service_MapsEngine_Feature();
+        $geometry = new Google_Service_MapsEngine_GeoJsonPoint();
+        $geometry->setCoordinates(array(1, 0));
+        $feature->setGeometry($geometry);
+        $data = json_decode(json_encode($feature->toSimpleObject()), true);
+        $this->assertEquals('Point', $data['geometry']['type']);
+        $this->assertEquals(1, $data['geometry']['coordinates'][0]);
+    }
 
-  public function testOddMappingNames()
-  {
-    $creative = new Google_Service_AdExchangeBuyer_Creative();
-    $creative->setAccountId('12345');
-    $creative->setBuyerCreativeId('12345');
-    $creative->setAdvertiserName('Hi');
-    $creative->setHTMLSnippet("<p>Foo!</p>");
-    $creative->setClickThroughUrl(array('http://somedomain.com'));
-    $creative->setWidth(100);
-    $creative->setHeight(100);
-    $data = json_decode(json_encode($creative->toSimpleObject()), true);
-    $this->assertEquals($data['HTMLSnippet'], "<p>Foo!</p>");
-    $this->assertEquals($data['width'], 100);
-    $this->assertEquals($data['height'], 100);
-    $this->assertEquals($data['accountId'], "12345");
-  }
+    public function testOddMappingNames()
+    {
+        $creative = new Google_Service_AdExchangeBuyer_Creative();
+        $creative->setAccountId('12345');
+        $creative->setBuyerCreativeId('12345');
+        $creative->setAdvertiserName('Hi');
+        $creative->setHTMLSnippet('<p>Foo!</p>');
+        $creative->setClickThroughUrl(array('http://somedomain.com'));
+        $creative->setWidth(100);
+        $creative->setHeight(100);
+        $data = json_decode(json_encode($creative->toSimpleObject()), true);
+        $this->assertEquals($data['HTMLSnippet'], '<p>Foo!</p>');
+        $this->assertEquals($data['width'], 100);
+        $this->assertEquals($data['height'], 100);
+        $this->assertEquals($data['accountId'], '12345');
+    }
 
-  public function testJsonStructure()
-  {
-    $model = new Google_Model();
-    $model->publicA = "This is a string";
-    $model2 = new Google_Model();
-    $model2->publicC = 12345;
-    $model2->publicD = null;
-    $model->publicB = $model2;
-    $model3 = new Google_Model();
-    $model3->publicE = 54321;
-    $model3->publicF = null;
-    $model->publicG = array($model3, "hello", false);
-    $model->publicH = false;
-    $model->publicI = 0;
-    $string = json_encode($model->toSimpleObject());
-    $data = json_decode($string, true);
-    $this->assertEquals(12345, $data['publicB']['publicC']);
-    $this->assertEquals("This is a string", $data['publicA']);
-    $this->assertArrayNotHasKey("publicD", $data['publicB']);
-    $this->assertArrayHasKey("publicE", $data['publicG'][0]);
-    $this->assertArrayNotHasKey("publicF", $data['publicG'][0]);
-    $this->assertEquals("hello", $data['publicG'][1]);
-    $this->assertEquals(false, $data['publicG'][2]);
-    $this->assertArrayNotHasKey("data", $data);
-    $this->assertEquals(false, $data['publicH']);
-    $this->assertEquals(0, $data['publicI']);
-  }
+    public function testJsonStructure()
+    {
+        $model = new Google_Model();
+        $model->publicA = 'This is a string';
+        $model2 = new Google_Model();
+        $model2->publicC = 12345;
+        $model2->publicD = null;
+        $model->publicB = $model2;
+        $model3 = new Google_Model();
+        $model3->publicE = 54321;
+        $model3->publicF = null;
+        $model->publicG = array($model3, 'hello', false);
+        $model->publicH = false;
+        $model->publicI = 0;
+        $string = json_encode($model->toSimpleObject());
+        $data = json_decode($string, true);
+        $this->assertEquals(12345, $data['publicB']['publicC']);
+        $this->assertEquals('This is a string', $data['publicA']);
+        $this->assertArrayNotHasKey('publicD', $data['publicB']);
+        $this->assertArrayHasKey('publicE', $data['publicG'][0]);
+        $this->assertArrayNotHasKey('publicF', $data['publicG'][0]);
+        $this->assertEquals('hello', $data['publicG'][1]);
+        $this->assertEquals(false, $data['publicG'][2]);
+        $this->assertArrayNotHasKey('data', $data);
+        $this->assertEquals(false, $data['publicH']);
+        $this->assertEquals(0, $data['publicI']);
+    }
 
-  public function testIssetPropertyOnModel()
-  {
-    $model = new Google_Model();
-    $model['foo'] = 'bar';
-    $this->assertTrue(isset($model->foo));
-  }
+    public function testIssetPropertyOnModel()
+    {
+        $model = new Google_Model();
+        $model['foo'] = 'bar';
+        $this->assertTrue(isset($model->foo));
+    }
 
-  public function testUnsetPropertyOnModel()
-  {
-    $model = new Google_Model();
-    $model['foo'] = 'bar';
-    unset($model->foo);
-    $this->assertFalse(isset($model->foo));
-  }
+    public function testUnsetPropertyOnModel()
+    {
+        $model = new Google_Model();
+        $model['foo'] = 'bar';
+        unset($model->foo);
+        $this->assertFalse(isset($model->foo));
+    }
 
-  public function testCollection()
-  {
-    $data = json_decode(
+    public function testCollection()
+    {
+        $data = json_decode(
         '{
            "kind": "calendar#events",
            "id": "1234566",
@@ -177,13 +177,13 @@ class ApiModelTest extends BaseTest
          }',
         true
     );
-    $collection = new Google_Service_Calendar_Events($data);
-    $this->assertEquals(4, count($collection));
-    $count = 0;
-    foreach ($collection as $col) {
-      $count++;
+        $collection = new Google_Service_Calendar_Events($data);
+        $this->assertEquals(4, count($collection));
+        $count = 0;
+        foreach ($collection as $col) {
+            ++$count;
+        }
+        $this->assertEquals(4, $count);
+        $this->assertEquals(1, $collection[0]->id);
     }
-    $this->assertEquals(4, $count);
-    $this->assertEquals(1, $collection[0]->id);
-  }
 }

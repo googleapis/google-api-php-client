@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2010 Google Inc.
  *
@@ -16,7 +17,7 @@
  */
 
 if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
+    require_once dirname(__FILE__) . '/../autoload.php';
 }
 
 /**
@@ -26,12 +27,12 @@ if (!class_exists('Google_Client')) {
  */
 class Google_Auth_Simple extends Google_Auth_Abstract
 {
-  private $client;
+    private $client;
 
-  public function __construct(Google_Client $client, $config = null)
-  {
-    $this->client = $client;
-  }
+    public function __construct(Google_Client $client, $config = null)
+    {
+        $this->client = $client;
+    }
 
   /**
    * Perform an authenticated / signed apiHttpRequest.
@@ -40,24 +41,25 @@ class Google_Auth_Simple extends Google_Auth_Abstract
    * and then calls apiCurlIO::makeRequest on the signed request
    *
    * @param Google_Http_Request $request
+   *
    * @return Google_Http_Request The resulting HTTP response including the
    * responseHttpCode, responseHeaders and responseBody.
    */
   public function authenticatedRequest(Google_Http_Request $request)
   {
-    $request = $this->sign($request);
-    return $this->io->makeRequest($request);
+      $request = $this->sign($request);
+      return $this->io->makeRequest($request);
   }
 
-  public function sign(Google_Http_Request $request)
-  {
-    $key = $this->client->getClassConfig($this, 'developer_key');
-    if ($key) {
-      $this->client->getLogger()->debug(
+    public function sign(Google_Http_Request $request)
+    {
+        $key = $this->client->getClassConfig($this, 'developer_key');
+        if ($key) {
+            $this->client->getLogger()->debug(
           'Simple API Access developer key authentication'
       );
-      $request->setQueryParam('key', $key);
+            $request->setQueryParam('key', $key);
+        }
+        return $request;
     }
-    return $request;
-  }
 }
