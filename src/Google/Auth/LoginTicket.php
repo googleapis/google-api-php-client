@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2011 Google Inc.
  *
@@ -16,7 +17,7 @@
  */
 
 if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
+    require_once dirname(__FILE__) . '/../autoload.php';
 }
 
 /**
@@ -26,7 +27,7 @@ if (!class_exists('Google_Client')) {
  */
 class Google_Auth_LoginTicket
 {
-  const USER_ATTR = "sub";
+    const USER_ATTR = 'sub';
 
   // Information from id token envelope.
   private $envelope;
@@ -42,30 +43,33 @@ class Google_Auth_LoginTicket
    */
   public function __construct($envelope, $payload)
   {
-    $this->envelope = $envelope;
-    $this->payload = $payload;
+      $this->envelope = $envelope;
+      $this->payload = $payload;
   }
 
   /**
    * Returns the numeric identifier for the user.
+   *
    * @throws Google_Auth_Exception
+   *
    * @return
    */
   public function getUserId()
   {
-    if (array_key_exists(self::USER_ATTR, $this->payload)) {
-      return $this->payload[self::USER_ATTR];
-    }
-    throw new Google_Auth_Exception("No user_id in token");
+      if (array_key_exists(self::USER_ATTR, $this->payload)) {
+          return $this->payload[self::USER_ATTR];
+      }
+      throw new Google_Auth_Exception('No user_id in token');
   }
 
   /**
    * Returns attributes from the login ticket.  This can contain
    * various information about the user session.
+   *
    * @return array
    */
   public function getAttributes()
   {
-    return array("envelope" => $this->envelope, "payload" => $this->payload);
+      return array('envelope' => $this->envelope, 'payload' => $this->payload);
   }
 }

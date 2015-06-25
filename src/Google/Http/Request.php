@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2010 Google Inc.
  *
@@ -16,7 +17,7 @@
  */
 
 if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
+    require_once dirname(__FILE__) . '/../autoload.php';
 }
 
 /**
@@ -25,119 +26,123 @@ if (!class_exists('Google_Client')) {
  *
  * @author Chris Chabot <chabotc@google.com>
  * @author Chirag Shah <chirags@google.com>
- *
  */
 class Google_Http_Request
 {
-  const GZIP_UA = " (gzip)";
+    const GZIP_UA = ' (gzip)';
 
-  private $batchHeaders = array(
-    'Content-Type' => 'application/http',
+    private $batchHeaders = array(
+    'Content-Type'              => 'application/http',
     'Content-Transfer-Encoding' => 'binary',
-    'MIME-Version' => '1.0',
+    'MIME-Version'              => '1.0',
   );
 
-  protected $queryParams;
-  protected $requestMethod;
-  protected $requestHeaders;
-  protected $baseComponent = null;
-  protected $path;
-  protected $postBody;
-  protected $userAgent;
-  protected $canGzip = null;
+    protected $queryParams;
+    protected $requestMethod;
+    protected $requestHeaders;
+    protected $baseComponent = null;
+    protected $path;
+    protected $postBody;
+    protected $userAgent;
+    protected $canGzip = null;
 
-  protected $responseHttpCode;
-  protected $responseHeaders;
-  protected $responseBody;
-  
-  protected $expectedClass;
-  protected $expectedRaw = false;
+    protected $responseHttpCode;
+    protected $responseHeaders;
+    protected $responseBody;
 
-  public $accessKey;
+    protected $expectedClass;
+    protected $expectedRaw = false;
 
-  public function __construct(
+    public $accessKey;
+
+    public function __construct(
       $url,
       $method = 'GET',
       $headers = array(),
       $postBody = null
   ) {
-    $this->setUrl($url);
-    $this->setRequestMethod($method);
-    $this->setRequestHeaders($headers);
-    $this->setPostBody($postBody);
-  }
+        $this->setUrl($url);
+        $this->setRequestMethod($method);
+        $this->setRequestHeaders($headers);
+        $this->setPostBody($postBody);
+    }
 
   /**
    * Misc function that returns the base url component of the $url
    * used by the OAuth signing class to calculate the base string
+   *
    * @return string The base url component of the $url.
    */
   public function getBaseComponent()
   {
-    return $this->baseComponent;
+      return $this->baseComponent;
   }
-  
+
   /**
    * Set the base URL that path and query parameters will be added to.
+   *
    * @param $baseComponent string
    */
   public function setBaseComponent($baseComponent)
   {
-    $this->baseComponent = $baseComponent;
+      $this->baseComponent = $baseComponent;
   }
-  
+
   /**
    * Enable support for gzipped responses with this request.
    */
   public function enableGzip()
   {
-    $this->setRequestHeaders(array("Accept-Encoding" => "gzip"));
-    $this->canGzip = true;
-    $this->setUserAgent($this->userAgent);
+      $this->setRequestHeaders(array('Accept-Encoding' => 'gzip'));
+      $this->canGzip = true;
+      $this->setUserAgent($this->userAgent);
   }
-  
+
   /**
    * Disable support for gzip responses with this request.
    */
   public function disableGzip()
   {
-    if (
+      if (
         isset($this->requestHeaders['accept-encoding']) &&
-        $this->requestHeaders['accept-encoding'] == "gzip"
+        $this->requestHeaders['accept-encoding'] == 'gzip'
     ) {
-      unset($this->requestHeaders['accept-encoding']);
-    }
-    $this->canGzip = false;
-    $this->userAgent = str_replace(self::GZIP_UA, "", $this->userAgent);
+          unset($this->requestHeaders['accept-encoding']);
+      }
+      $this->canGzip = false;
+      $this->userAgent = str_replace(self::GZIP_UA, '', $this->userAgent);
   }
-  
+
   /**
    * Can this request accept a gzip response?
+   *
    * @return bool
    */
   public function canGzip()
   {
-    return $this->canGzip;
+      return $this->canGzip;
   }
 
   /**
    * Misc function that returns an array of the query parameters of the current
    * url used by the OAuth signing class to calculate the signature
+   *
    * @return array Query parameters in the query string.
    */
   public function getQueryParams()
   {
-    return $this->queryParams;
+      return $this->queryParams;
   }
 
-  /** 
+  /**
    * Set a new query parameter.
+   *
    * @param $key - string to set, does not need to be URL encoded
    * @param $value - string to set, does not need to be URL encoded
    */
   public function setQueryParam($key, $value)
   {
-    $this->queryParams[$key] = $value;
+      $this->queryParams[$key] = $value;
   }
 
   /**
@@ -145,7 +150,7 @@ class Google_Http_Request
    */
   public function getResponseHttpCode()
   {
-    return (int) $this->responseHttpCode;
+      return (int) $this->responseHttpCode;
   }
 
   /**
@@ -153,7 +158,7 @@ class Google_Http_Request
    */
   public function setResponseHttpCode($responseHttpCode)
   {
-    $this->responseHttpCode = $responseHttpCode;
+      $this->responseHttpCode = $responseHttpCode;
   }
 
   /**
@@ -161,7 +166,7 @@ class Google_Http_Request
    */
   public function getResponseHeaders()
   {
-    return $this->responseHeaders;
+      return $this->responseHeaders;
   }
 
   /**
@@ -169,9 +174,9 @@ class Google_Http_Request
    */
   public function getResponseBody()
   {
-    return $this->responseBody;
+      return $this->responseBody;
   }
-  
+
   /**
    * Set the class the response to this request should expect.
    *
@@ -179,16 +184,17 @@ class Google_Http_Request
    */
   public function setExpectedClass($class)
   {
-    $this->expectedClass = $class;
+      $this->expectedClass = $class;
   }
-  
+
   /**
    * Retrieve the expected class the response should expect.
+   *
    * @return string class name
    */
   public function getExpectedClass()
   {
-    return $this->expectedClass;
+      return $this->expectedClass;
   }
 
   /**
@@ -196,7 +202,7 @@ class Google_Http_Request
    */
   public function enableExpectedRaw()
   {
-    $this->expectedRaw = true;
+      $this->expectedRaw = true;
   }
 
   /**
@@ -204,16 +210,17 @@ class Google_Http_Request
    */
   public function disableExpectedRaw()
   {
-    $this->expectedRaw = false;
+      $this->expectedRaw = false;
   }
 
   /**
    * Expected raw response or not.
-   * @return boolean expected raw response
+   *
+   * @return bool expected raw response
    */
   public function getExpectedRaw()
   {
-    return $this->expectedRaw;
+      return $this->expectedRaw;
   }
 
   /**
@@ -222,22 +229,23 @@ class Google_Http_Request
    */
   public function setResponseHeaders($headers)
   {
-    $headers = Google_Utils::normalize($headers);
-    if ($this->responseHeaders) {
-      $headers = array_merge($this->responseHeaders, $headers);
-    }
+      $headers = Google_Utils::normalize($headers);
+      if ($this->responseHeaders) {
+          $headers = array_merge($this->responseHeaders, $headers);
+      }
 
-    $this->responseHeaders = $headers;
+      $this->responseHeaders = $headers;
   }
 
   /**
    * @param string $key
-   * @return array|boolean Returns the requested HTTP header or
+   *
+   * @return array|bool Returns the requested HTTP header or
    * false if unavailable.
    */
   public function getResponseHeader($key)
   {
-    return isset($this->responseHeaders[$key])
+      return isset($this->responseHeaders[$key])
         ? $this->responseHeaders[$key]
         : false;
   }
@@ -247,7 +255,7 @@ class Google_Http_Request
    */
   public function setResponseBody($responseBody)
   {
-    $this->responseBody = $responseBody;
+      $this->responseBody = $responseBody;
   }
 
   /**
@@ -255,9 +263,9 @@ class Google_Http_Request
    */
   public function getUrl()
   {
-    return $this->baseComponent . $this->path .
+      return $this->baseComponent . $this->path .
         (count($this->queryParams) ?
-            "?" . $this->buildQuery($this->queryParams) :
+            '?' . $this->buildQuery($this->queryParams) :
             '');
   }
 
@@ -266,7 +274,7 @@ class Google_Http_Request
    */
   public function getRequestMethod()
   {
-    return $this->requestMethod;
+      return $this->requestMethod;
   }
 
   /**
@@ -274,17 +282,18 @@ class Google_Http_Request
    */
   public function getRequestHeaders()
   {
-    return $this->requestHeaders;
+      return $this->requestHeaders;
   }
 
   /**
    * @param string $key
-   * @return array|boolean Returns the requested HTTP header or
+   *
+   * @return array|bool Returns the requested HTTP header or
    * false if unavailable.
    */
   public function getRequestHeader($key)
   {
-    return isset($this->requestHeaders[$key])
+      return isset($this->requestHeaders[$key])
         ? $this->requestHeaders[$key]
         : false;
   }
@@ -294,7 +303,7 @@ class Google_Http_Request
    */
   public function getPostBody()
   {
-    return $this->postBody;
+      return $this->postBody;
   }
 
   /**
@@ -302,36 +311,35 @@ class Google_Http_Request
    */
   public function setUrl($url)
   {
-    if (substr($url, 0, 4) != 'http') {
-      // Force the path become relative.
+      if (substr($url, 0, 4) != 'http') {
+          // Force the path become relative.
       if (substr($url, 0, 1) !== '/') {
-        $url = '/' . $url;
+          $url = '/' . $url;
       }
-    }
-    $parts = parse_url($url);
-    if (isset($parts['host'])) {
-      $this->baseComponent = sprintf(
-          "%s%s%s",
-          isset($parts['scheme']) ? $parts['scheme'] . "://" : '',
+      }
+      $parts = parse_url($url);
+      if (isset($parts['host'])) {
+          $this->baseComponent = sprintf(
+          '%s%s%s',
+          isset($parts['scheme']) ? $parts['scheme'] . '://' : '',
           isset($parts['host']) ? $parts['host'] : '',
-          isset($parts['port']) ? ":" . $parts['port'] : ''
+          isset($parts['port']) ? ':' . $parts['port'] : ''
       );
-    }
-    $this->path = isset($parts['path']) ? $parts['path'] : '';
-    $this->queryParams = array();
-    if (isset($parts['query'])) {
-      $this->queryParams = $this->parseQuery($parts['query']);
-    }
+      }
+      $this->path = isset($parts['path']) ? $parts['path'] : '';
+      $this->queryParams = array();
+      if (isset($parts['query'])) {
+          $this->queryParams = $this->parseQuery($parts['query']);
+      }
   }
 
   /**
    * @param string $method Set he HTTP Method and normalize
    * it to upper-case, as required by HTTP.
-   *
    */
   public function setRequestMethod($method)
   {
-    $this->requestMethod = strtoupper($method);
+      $this->requestMethod = strtoupper($method);
   }
 
   /**
@@ -340,11 +348,11 @@ class Google_Http_Request
    */
   public function setRequestHeaders($headers)
   {
-    $headers = Google_Utils::normalize($headers);
-    if ($this->requestHeaders) {
-      $headers = array_merge($this->requestHeaders, $headers);
-    }
-    $this->requestHeaders = $headers;
+      $headers = Google_Utils::normalize($headers);
+      if ($this->requestHeaders) {
+          $headers = array_merge($this->requestHeaders, $headers);
+      }
+      $this->requestHeaders = $headers;
   }
 
   /**
@@ -352,19 +360,20 @@ class Google_Http_Request
    */
   public function setPostBody($postBody)
   {
-    $this->postBody = $postBody;
+      $this->postBody = $postBody;
   }
 
   /**
    * Set the User-Agent Header.
+   *
    * @param string $userAgent The User-Agent.
    */
   public function setUserAgent($userAgent)
   {
-    $this->userAgent = $userAgent;
-    if ($this->canGzip) {
-      $this->userAgent = $userAgent . self::GZIP_UA;
-    }
+      $this->userAgent = $userAgent;
+      if ($this->canGzip) {
+          $this->userAgent = $userAgent . self::GZIP_UA;
+      }
   }
 
   /**
@@ -372,133 +381,136 @@ class Google_Http_Request
    */
   public function getUserAgent()
   {
-    return $this->userAgent;
+      return $this->userAgent;
   }
 
   /**
    * Returns a cache key depending on if this was an OAuth signed request
    * in which case it will use the non-signed url and access key to make this
    * cache key unique per authenticated user, else use the plain request url
+   *
    * @return string The md5 hash of the request cache key.
    */
   public function getCacheKey()
   {
-    $key = $this->getUrl();
+      $key = $this->getUrl();
 
-    if (isset($this->accessKey)) {
-      $key .= $this->accessKey;
-    }
+      if (isset($this->accessKey)) {
+          $key .= $this->accessKey;
+      }
 
-    if (isset($this->requestHeaders['authorization'])) {
-      $key .= $this->requestHeaders['authorization'];
-    }
+      if (isset($this->requestHeaders['authorization'])) {
+          $key .= $this->requestHeaders['authorization'];
+      }
 
-    return md5($key);
+      return md5($key);
   }
 
-  public function getParsedCacheControl()
-  {
-    $parsed = array();
-    $rawCacheControl = $this->getResponseHeader('cache-control');
-    if ($rawCacheControl) {
-      $rawCacheControl = str_replace(', ', '&', $rawCacheControl);
-      parse_str($rawCacheControl, $parsed);
-    }
+    public function getParsedCacheControl()
+    {
+        $parsed = array();
+        $rawCacheControl = $this->getResponseHeader('cache-control');
+        if ($rawCacheControl) {
+            $rawCacheControl = str_replace(', ', '&', $rawCacheControl);
+            parse_str($rawCacheControl, $parsed);
+        }
 
-    return $parsed;
-  }
+        return $parsed;
+    }
 
   /**
    * @param string $id
+   *
    * @return string A string representation of the HTTP Request.
    */
   public function toBatchString($id)
   {
-    $str = '';
-    $path = parse_url($this->getUrl(), PHP_URL_PATH) . "?" .
+      $str = '';
+      $path = parse_url($this->getUrl(), PHP_URL_PATH) . '?' .
         http_build_query($this->queryParams);
-    $str .= $this->getRequestMethod() . ' ' . $path . " HTTP/1.1\n";
+      $str .= $this->getRequestMethod() . ' ' . $path . " HTTP/1.1\n";
 
-    foreach ($this->getRequestHeaders() as $key => $val) {
-      $str .= $key . ': ' . $val . "\n";
-    }
+      foreach ($this->getRequestHeaders() as $key => $val) {
+          $str .= $key . ': ' . $val . "\n";
+      }
 
-    if ($this->getPostBody()) {
-      $str .= "\n";
-      $str .= $this->getPostBody();
-    }
-    
-    $headers = '';
-    foreach ($this->batchHeaders as $key => $val) {
-      $headers .= $key . ': ' . $val . "\n";
-    }
+      if ($this->getPostBody()) {
+          $str .= "\n";
+          $str .= $this->getPostBody();
+      }
 
-    $headers .= "Content-ID: $id\n";
-    $str = $headers . "\n" . $str;
+      $headers = '';
+      foreach ($this->batchHeaders as $key => $val) {
+          $headers .= $key . ': ' . $val . "\n";
+      }
 
-    return $str;
+      $headers .= "Content-ID: $id\n";
+      $str = $headers . "\n" . $str;
+
+      return $str;
   }
-  
+
   /**
    * Our own version of parse_str that allows for multiple variables
-   * with the same name. 
+   * with the same name.
+   *
    * @param $string - the query string to parse
    */
   private function parseQuery($string)
   {
-    $return = array();
-    $parts = explode("&", $string);
-    foreach ($parts as $part) {
-      list($key, $value) = explode('=', $part, 2);
-      $value = urldecode($value);
-      if (isset($return[$key])) {
-        if (!is_array($return[$key])) {
-          $return[$key] = array($return[$key]);
-        }
-        $return[$key][] = $value;
-      } else {
-        $return[$key] = $value;
+      $return = array();
+      $parts = explode('&', $string);
+      foreach ($parts as $part) {
+          list($key, $value) = explode('=', $part, 2);
+          $value = urldecode($value);
+          if (isset($return[$key])) {
+              if (!is_array($return[$key])) {
+                  $return[$key] = array($return[$key]);
+              }
+              $return[$key][] = $value;
+          } else {
+              $return[$key] = $value;
+          }
       }
-    }
-    return $return;
+      return $return;
   }
-  
+
   /**
    * A version of build query that allows for multiple
-   * duplicate keys. 
+   * duplicate keys.
+   *
    * @param $parts array of key value pairs
    */
   private function buildQuery($parts)
   {
-    $return = array();
-    foreach ($parts as $key => $value) {
-      if (is_array($value)) {
-        foreach ($value as $v) {
-          $return[] = urlencode($key) . "=" . urlencode($v);
-        }
-      } else {
-        $return[] = urlencode($key) . "=" . urlencode($value);
+      $return = array();
+      foreach ($parts as $key => $value) {
+          if (is_array($value)) {
+              foreach ($value as $v) {
+                  $return[] = urlencode($key) . '=' . urlencode($v);
+              }
+          } else {
+              $return[] = urlencode($key) . '=' . urlencode($value);
+          }
       }
-    }
-    return implode('&', $return);
+      return implode('&', $return);
   }
-  
-  /** 
+
+  /**
    * If we're POSTing and have no body to send, we can send the query
    * parameters in there, which avoids length issues with longer query
    * params.
    */
   public function maybeMoveParametersToBody()
   {
-    if ($this->getRequestMethod() == "POST" && empty($this->postBody)) {
-      $this->setRequestHeaders(
+      if ($this->getRequestMethod() == 'POST' && empty($this->postBody)) {
+          $this->setRequestHeaders(
           array(
-            "content-type" =>
-                "application/x-www-form-urlencoded; charset=UTF-8"
+            'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
           )
       );
-      $this->setPostBody($this->buildQuery($this->queryParams));
-      $this->queryParams = array();
-    }
+          $this->setPostBody($this->buildQuery($this->queryParams));
+          $this->queryParams = array();
+      }
   }
 }

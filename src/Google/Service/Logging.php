@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2010 Google Inc.
  *
@@ -31,17 +32,16 @@
  */
 class Google_Service_Logging extends Google_Service
 {
-  /** View and manage your data across Google Cloud Platform services. */
+    /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
-      "https://www.googleapis.com/auth/cloud-platform";
+      'https://www.googleapis.com/auth/cloud-platform';
 
-  public $projects_logServices;
-  public $projects_logServices_indexes;
-  public $projects_logServices_sinks;
-  public $projects_logs;
-  public $projects_logs_entries;
-  public $projects_logs_sinks;
-  
+    public $projects_logServices;
+    public $projects_logServices_indexes;
+    public $projects_logServices_sinks;
+    public $projects_logs;
+    public $projects_logs_entries;
+    public $projects_logs_sinks;
 
   /**
    * Constructs the internal representation of the Logging service.
@@ -50,367 +50,366 @@ class Google_Service_Logging extends Google_Service
    */
   public function __construct(Google_Client $client)
   {
-    parent::__construct($client);
-    $this->servicePath = '';
-    $this->version = 'v1beta3';
-    $this->serviceName = 'logging';
+      parent::__construct($client);
+      $this->servicePath = '';
+      $this->version = 'v1beta3';
+      $this->serviceName = 'logging';
 
-    $this->projects_logServices = new Google_Service_Logging_ProjectsLogServices_Resource(
+      $this->projects_logServices = new Google_Service_Logging_ProjectsLogServices_Resource(
         $this,
         $this->serviceName,
         'logServices',
         array(
           'methods' => array(
             'list' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logServices',
+              'path'       => 'v1beta3/projects/{projectsId}/logServices',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'pageToken' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type'     => 'string',
                 ),
                 'log' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type'     => 'string',
                 ),
                 'pageSize' => array(
                   'location' => 'query',
-                  'type' => 'integer',
+                  'type'     => 'integer',
                 ),
               ),
             ),
-          )
+          ),
         )
     );
-    $this->projects_logServices_indexes = new Google_Service_Logging_ProjectsLogServicesIndexes_Resource(
+      $this->projects_logServices_indexes = new Google_Service_Logging_ProjectsLogServicesIndexes_Resource(
         $this,
         $this->serviceName,
         'indexes',
         array(
           'methods' => array(
             'list' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logServices/{logServicesId}/indexes',
+              'path'       => 'v1beta3/projects/{projectsId}/logServices/{logServicesId}/indexes',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logServicesId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'log' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type'     => 'string',
                 ),
                 'pageSize' => array(
                   'location' => 'query',
-                  'type' => 'integer',
+                  'type'     => 'integer',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type'     => 'string',
                 ),
                 'depth' => array(
                   'location' => 'query',
-                  'type' => 'integer',
+                  'type'     => 'integer',
                 ),
                 'indexPrefix' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type'     => 'string',
                 ),
               ),
             ),
-          )
+          ),
         )
     );
-    $this->projects_logServices_sinks = new Google_Service_Logging_ProjectsLogServicesSinks_Resource(
+      $this->projects_logServices_sinks = new Google_Service_Logging_ProjectsLogServicesSinks_Resource(
         $this,
         $this->serviceName,
         'sinks',
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logServices/{logServicesId}/sinks',
+              'path'       => 'v1beta3/projects/{projectsId}/logServices/{logServicesId}/sinks',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logServicesId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
               ),
-            ),'delete' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logServices/{logServicesId}/sinks/{sinksId}',
+            ), 'delete' => array(
+              'path'       => 'v1beta3/projects/{projectsId}/logServices/{logServicesId}/sinks/{sinksId}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logServicesId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'sinksId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
               ),
-            ),'get' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logServices/{logServicesId}/sinks/{sinksId}',
+            ), 'get' => array(
+              'path'       => 'v1beta3/projects/{projectsId}/logServices/{logServicesId}/sinks/{sinksId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logServicesId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'sinksId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
               ),
-            ),'list' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logServices/{logServicesId}/sinks',
+            ), 'list' => array(
+              'path'       => 'v1beta3/projects/{projectsId}/logServices/{logServicesId}/sinks',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logServicesId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
               ),
-            ),'update' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logServices/{logServicesId}/sinks/{sinksId}',
+            ), 'update' => array(
+              'path'       => 'v1beta3/projects/{projectsId}/logServices/{logServicesId}/sinks/{sinksId}',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logServicesId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'sinksId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
               ),
             ),
-          )
+          ),
         )
     );
-    $this->projects_logs = new Google_Service_Logging_ProjectsLogs_Resource(
+      $this->projects_logs = new Google_Service_Logging_ProjectsLogs_Resource(
         $this,
         $this->serviceName,
         'logs',
         array(
           'methods' => array(
             'delete' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logs/{logsId}',
+              'path'       => 'v1beta3/projects/{projectsId}/logs/{logsId}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
               ),
-            ),'list' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logs',
+            ), 'list' => array(
+              'path'       => 'v1beta3/projects/{projectsId}/logs',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'pageToken' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type'     => 'string',
                 ),
                 'serviceName' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type'     => 'string',
                 ),
                 'serviceIndexPrefix' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type'     => 'string',
                 ),
                 'pageSize' => array(
                   'location' => 'query',
-                  'type' => 'integer',
+                  'type'     => 'integer',
                 ),
               ),
             ),
-          )
+          ),
         )
     );
-    $this->projects_logs_entries = new Google_Service_Logging_ProjectsLogsEntries_Resource(
+      $this->projects_logs_entries = new Google_Service_Logging_ProjectsLogsEntries_Resource(
         $this,
         $this->serviceName,
         'entries',
         array(
           'methods' => array(
             'write' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logs/{logsId}/entries:write',
+              'path'       => 'v1beta3/projects/{projectsId}/logs/{logsId}/entries:write',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
               ),
             ),
-          )
+          ),
         )
     );
-    $this->projects_logs_sinks = new Google_Service_Logging_ProjectsLogsSinks_Resource(
+      $this->projects_logs_sinks = new Google_Service_Logging_ProjectsLogsSinks_Resource(
         $this,
         $this->serviceName,
         'sinks',
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logs/{logsId}/sinks',
+              'path'       => 'v1beta3/projects/{projectsId}/logs/{logsId}/sinks',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
               ),
-            ),'delete' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logs/{logsId}/sinks/{sinksId}',
+            ), 'delete' => array(
+              'path'       => 'v1beta3/projects/{projectsId}/logs/{logsId}/sinks/{sinksId}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'sinksId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
               ),
-            ),'get' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logs/{logsId}/sinks/{sinksId}',
+            ), 'get' => array(
+              'path'       => 'v1beta3/projects/{projectsId}/logs/{logsId}/sinks/{sinksId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'sinksId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
               ),
-            ),'list' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logs/{logsId}/sinks',
+            ), 'list' => array(
+              'path'       => 'v1beta3/projects/{projectsId}/logs/{logsId}/sinks',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
               ),
-            ),'update' => array(
-              'path' => 'v1beta3/projects/{projectsId}/logs/{logsId}/sinks/{sinksId}',
+            ), 'update' => array(
+              'path'       => 'v1beta3/projects/{projectsId}/logs/{logsId}/sinks/{sinksId}',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'projectsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'logsId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
                 'sinksId' => array(
                   'location' => 'path',
-                  'type' => 'string',
+                  'type'     => 'string',
                   'required' => true,
                 ),
               ),
             ),
-          )
+          ),
         )
     );
   }
 }
-
 
 /**
  * The "projects" collection of methods.
@@ -434,8 +433,7 @@ class Google_Service_Logging_Projects_Resource extends Google_Service_Resource
  */
 class Google_Service_Logging_ProjectsLogServices_Resource extends Google_Service_Resource
 {
-
-  /**
+    /**
    * Lists log services associated with log entries ingested for a project.
    * (logServices.listProjectsLogServices)
    *
@@ -451,13 +449,14 @@ class Google_Service_Logging_ProjectsLogServices_Resource extends Google_Service
    * listed. log for which to list services. When empty, all services are listed.
    * @opt_param int pageSize The maximum number of `LogService` objects to return
    * in one operation.
+   *
    * @return Google_Service_Logging_ListLogServicesResponse
    */
   public function listProjectsLogServices($projectsId, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId);
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Logging_ListLogServicesResponse");
+      $params = array('projectsId' => $projectsId);
+      $params = array_merge($params, $optParams);
+      return $this->call('list', array($params), 'Google_Service_Logging_ListLogServicesResponse');
   }
 }
 
@@ -471,8 +470,7 @@ class Google_Service_Logging_ProjectsLogServices_Resource extends Google_Service
  */
 class Google_Service_Logging_ProjectsLogServicesIndexes_Resource extends Google_Service_Resource
 {
-
-  /**
+    /**
    * Lists log service indexes associated with a log service.
    * (indexes.listProjectsLogServicesIndexes)
    *
@@ -505,13 +503,14 @@ class Google_Service_Logging_ProjectsLogServicesIndexes_Resource extends Google_
    * versions associated with `myModule`. The trailing slash terminates the value.
    * + `"/myModule"` retrieves App Engine modules with names beginning with
    * `myModule`. + `""` retrieves all indexes.
+   *
    * @return Google_Service_Logging_ListLogServiceIndexesResponse
    */
   public function listProjectsLogServicesIndexes($projectsId, $logServicesId, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logServicesId' => $logServicesId);
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Logging_ListLogServiceIndexesResponse");
+      $params = array('projectsId' => $projectsId, 'logServicesId' => $logServicesId);
+      $params = array_merge($params, $optParams);
+      return $this->call('list', array($params), 'Google_Service_Logging_ListLogServiceIndexesResponse');
   }
 }
 /**
@@ -524,8 +523,7 @@ class Google_Service_Logging_ProjectsLogServicesIndexes_Resource extends Google_
  */
 class Google_Service_Logging_ProjectsLogServicesSinks_Resource extends Google_Service_Resource
 {
-
-  /**
+    /**
    * Creates the specified log service sink resource. (sinks.create)
    *
    * @param string $projectsId Part of `serviceName`. The name of the service in
@@ -534,13 +532,14 @@ class Google_Service_Logging_ProjectsLogServicesSinks_Resource extends Google_Se
    * `projectsId`.
    * @param Google_LogSink $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Logging_LogSink
    */
   public function create($projectsId, $logServicesId, Google_Service_Logging_LogSink $postBody, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logServicesId' => $logServicesId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('create', array($params), "Google_Service_Logging_LogSink");
+      $params = array('projectsId' => $projectsId, 'logServicesId' => $logServicesId, 'postBody' => $postBody);
+      $params = array_merge($params, $optParams);
+      return $this->call('create', array($params), 'Google_Service_Logging_LogSink');
   }
 
   /**
@@ -551,13 +550,14 @@ class Google_Service_Logging_ProjectsLogServicesSinks_Resource extends Google_Se
    * `projectsId`.
    * @param string $sinksId Part of `sinkName`. See documentation of `projectsId`.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Logging_Empty
    */
   public function delete($projectsId, $logServicesId, $sinksId, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logServicesId' => $logServicesId, 'sinksId' => $sinksId);
-    $params = array_merge($params, $optParams);
-    return $this->call('delete', array($params), "Google_Service_Logging_Empty");
+      $params = array('projectsId' => $projectsId, 'logServicesId' => $logServicesId, 'sinksId' => $sinksId);
+      $params = array_merge($params, $optParams);
+      return $this->call('delete', array($params), 'Google_Service_Logging_Empty');
   }
 
   /**
@@ -568,13 +568,14 @@ class Google_Service_Logging_ProjectsLogServicesSinks_Resource extends Google_Se
    * `projectsId`.
    * @param string $sinksId Part of `sinkName`. See documentation of `projectsId`.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Logging_LogSink
    */
   public function get($projectsId, $logServicesId, $sinksId, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logServicesId' => $logServicesId, 'sinksId' => $sinksId);
-    $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Logging_LogSink");
+      $params = array('projectsId' => $projectsId, 'logServicesId' => $logServicesId, 'sinksId' => $sinksId);
+      $params = array_merge($params, $optParams);
+      return $this->call('get', array($params), 'Google_Service_Logging_LogSink');
   }
 
   /**
@@ -586,13 +587,14 @@ class Google_Service_Logging_ProjectsLogServicesSinks_Resource extends Google_Se
    * @param string $logServicesId Part of `serviceName`. See documentation of
    * `projectsId`.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Logging_ListLogServiceSinksResponse
    */
   public function listProjectsLogServicesSinks($projectsId, $logServicesId, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logServicesId' => $logServicesId);
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Logging_ListLogServiceSinksResponse");
+      $params = array('projectsId' => $projectsId, 'logServicesId' => $logServicesId);
+      $params = array_merge($params, $optParams);
+      return $this->call('list', array($params), 'Google_Service_Logging_ListLogServiceSinksResponse');
   }
 
   /**
@@ -604,13 +606,14 @@ class Google_Service_Logging_ProjectsLogServicesSinks_Resource extends Google_Se
    * @param string $sinksId Part of `sinkName`. See documentation of `projectsId`.
    * @param Google_LogSink $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Logging_LogSink
    */
   public function update($projectsId, $logServicesId, $sinksId, Google_Service_Logging_LogSink $postBody, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logServicesId' => $logServicesId, 'sinksId' => $sinksId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('update', array($params), "Google_Service_Logging_LogSink");
+      $params = array('projectsId' => $projectsId, 'logServicesId' => $logServicesId, 'sinksId' => $sinksId, 'postBody' => $postBody);
+      $params = array_merge($params, $optParams);
+      return $this->call('update', array($params), 'Google_Service_Logging_LogSink');
   }
 }
 /**
@@ -623,21 +626,21 @@ class Google_Service_Logging_ProjectsLogServicesSinks_Resource extends Google_Se
  */
 class Google_Service_Logging_ProjectsLogs_Resource extends Google_Service_Resource
 {
-
-  /**
+    /**
    * Deletes the specified log resource and all log entries contained in it.
    * (logs.delete)
    *
    * @param string $projectsId Part of `logName`. The log resource to delete.
    * @param string $logsId Part of `logName`. See documentation of `projectsId`.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Logging_Empty
    */
   public function delete($projectsId, $logsId, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logsId' => $logsId);
-    $params = array_merge($params, $optParams);
-    return $this->call('delete', array($params), "Google_Service_Logging_Empty");
+      $params = array('projectsId' => $projectsId, 'logsId' => $logsId);
+      $params = array_merge($params, $optParams);
+      return $this->call('delete', array($params), 'Google_Service_Logging_Empty');
   }
 
   /**
@@ -666,13 +669,14 @@ class Google_Service_Logging_ProjectsLogs_Resource extends Google_Service_Resour
    * separated list of values, and need not specify all index labels. An empty
    * index (or a single slash) matches all log service indexes.
    * @opt_param int pageSize The maximum number of results to return.
+   *
    * @return Google_Service_Logging_ListLogsResponse
    */
   public function listProjectsLogs($projectsId, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId);
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Logging_ListLogsResponse");
+      $params = array('projectsId' => $projectsId);
+      $params = array_merge($params, $optParams);
+      return $this->call('list', array($params), 'Google_Service_Logging_ListLogsResponse');
   }
 }
 
@@ -686,8 +690,7 @@ class Google_Service_Logging_ProjectsLogs_Resource extends Google_Service_Resour
  */
 class Google_Service_Logging_ProjectsLogsEntries_Resource extends Google_Service_Resource
 {
-
-  /**
+    /**
    * Creates one or more log entries in a log. You must supply a list of
    * `LogEntry` objects, named `entries`. Each `LogEntry` object must contain a
    * payload object and a `LogEntryMetadata` object that describes the entry. You
@@ -701,13 +704,14 @@ class Google_Service_Logging_ProjectsLogsEntries_Resource extends Google_Service
    * @param string $logsId Part of `logName`. See documentation of `projectsId`.
    * @param Google_WriteLogEntriesRequest $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Logging_WriteLogEntriesResponse
    */
   public function write($projectsId, $logsId, Google_Service_Logging_WriteLogEntriesRequest $postBody, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logsId' => $logsId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('write', array($params), "Google_Service_Logging_WriteLogEntriesResponse");
+      $params = array('projectsId' => $projectsId, 'logsId' => $logsId, 'postBody' => $postBody);
+      $params = array_merge($params, $optParams);
+      return $this->call('write', array($params), 'Google_Service_Logging_WriteLogEntriesResponse');
   }
 }
 /**
@@ -720,8 +724,7 @@ class Google_Service_Logging_ProjectsLogsEntries_Resource extends Google_Service
  */
 class Google_Service_Logging_ProjectsLogsSinks_Resource extends Google_Service_Resource
 {
-
-  /**
+    /**
    * Creates the specified log sink resource. (sinks.create)
    *
    * @param string $projectsId Part of `logName`. The log in which to create a
@@ -729,13 +732,14 @@ class Google_Service_Logging_ProjectsLogsSinks_Resource extends Google_Service_R
    * @param string $logsId Part of `logName`. See documentation of `projectsId`.
    * @param Google_LogSink $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Logging_LogSink
    */
   public function create($projectsId, $logsId, Google_Service_Logging_LogSink $postBody, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logsId' => $logsId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('create', array($params), "Google_Service_Logging_LogSink");
+      $params = array('projectsId' => $projectsId, 'logsId' => $logsId, 'postBody' => $postBody);
+      $params = array_merge($params, $optParams);
+      return $this->call('create', array($params), 'Google_Service_Logging_LogSink');
   }
 
   /**
@@ -745,13 +749,14 @@ class Google_Service_Logging_ProjectsLogsSinks_Resource extends Google_Service_R
    * @param string $logsId Part of `sinkName`. See documentation of `projectsId`.
    * @param string $sinksId Part of `sinkName`. See documentation of `projectsId`.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Logging_Empty
    */
   public function delete($projectsId, $logsId, $sinksId, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logsId' => $logsId, 'sinksId' => $sinksId);
-    $params = array_merge($params, $optParams);
-    return $this->call('delete', array($params), "Google_Service_Logging_Empty");
+      $params = array('projectsId' => $projectsId, 'logsId' => $logsId, 'sinksId' => $sinksId);
+      $params = array_merge($params, $optParams);
+      return $this->call('delete', array($params), 'Google_Service_Logging_Empty');
   }
 
   /**
@@ -762,13 +767,14 @@ class Google_Service_Logging_ProjectsLogsSinks_Resource extends Google_Service_R
    * @param string $logsId Part of `sinkName`. See documentation of `projectsId`.
    * @param string $sinksId Part of `sinkName`. See documentation of `projectsId`.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Logging_LogSink
    */
   public function get($projectsId, $logsId, $sinksId, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logsId' => $logsId, 'sinksId' => $sinksId);
-    $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Logging_LogSink");
+      $params = array('projectsId' => $projectsId, 'logsId' => $logsId, 'sinksId' => $sinksId);
+      $params = array_merge($params, $optParams);
+      return $this->call('get', array($params), 'Google_Service_Logging_LogSink');
   }
 
   /**
@@ -778,13 +784,14 @@ class Google_Service_Logging_ProjectsLogsSinks_Resource extends Google_Service_R
    * @param string $projectsId Part of `logName`. The log for which to list sinks.
    * @param string $logsId Part of `logName`. See documentation of `projectsId`.
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Logging_ListLogSinksResponse
    */
   public function listProjectsLogsSinks($projectsId, $logsId, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logsId' => $logsId);
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Logging_ListLogSinksResponse");
+      $params = array('projectsId' => $projectsId, 'logsId' => $logsId);
+      $params = array_merge($params, $optParams);
+      return $this->call('list', array($params), 'Google_Service_Logging_ListLogSinksResponse');
   }
 
   /**
@@ -795,18 +802,16 @@ class Google_Service_Logging_ProjectsLogsSinks_Resource extends Google_Service_R
    * @param string $sinksId Part of `sinkName`. See documentation of `projectsId`.
    * @param Google_LogSink $postBody
    * @param array $optParams Optional parameters.
+   *
    * @return Google_Service_Logging_LogSink
    */
   public function update($projectsId, $logsId, $sinksId, Google_Service_Logging_LogSink $postBody, $optParams = array())
   {
-    $params = array('projectsId' => $projectsId, 'logsId' => $logsId, 'sinksId' => $sinksId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('update', array($params), "Google_Service_Logging_LogSink");
+      $params = array('projectsId' => $projectsId, 'logsId' => $logsId, 'sinksId' => $sinksId, 'postBody' => $postBody);
+      $params = array_merge($params, $optParams);
+      return $this->call('update', array($params), 'Google_Service_Logging_LogSink');
   }
 }
-
-
-
 
 class Google_Service_Logging_Empty extends Google_Model
 {
@@ -814,301 +819,293 @@ class Google_Service_Logging_Empty extends Google_Model
 
 class Google_Service_Logging_ListLogServiceIndexesResponse extends Google_Collection
 {
-  protected $collection_key = 'serviceIndexPrefixes';
-  protected $internal_gapi_mappings = array(
+    protected $collection_key = 'serviceIndexPrefixes';
+    protected $internal_gapi_mappings = array(
   );
-  public $nextPageToken;
-  public $serviceIndexPrefixes;
+    public $nextPageToken;
+    public $serviceIndexPrefixes;
 
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
-  public function setServiceIndexPrefixes($serviceIndexPrefixes)
-  {
-    $this->serviceIndexPrefixes = $serviceIndexPrefixes;
-  }
-  public function getServiceIndexPrefixes()
-  {
-    return $this->serviceIndexPrefixes;
-  }
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+    public function getNextPageToken()
+    {
+        return $this->nextPageToken;
+    }
+    public function setServiceIndexPrefixes($serviceIndexPrefixes)
+    {
+        $this->serviceIndexPrefixes = $serviceIndexPrefixes;
+    }
+    public function getServiceIndexPrefixes()
+    {
+        return $this->serviceIndexPrefixes;
+    }
 }
 
 class Google_Service_Logging_ListLogServiceSinksResponse extends Google_Collection
 {
-  protected $collection_key = 'sinks';
-  protected $internal_gapi_mappings = array(
+    protected $collection_key = 'sinks';
+    protected $internal_gapi_mappings = array(
   );
-  protected $sinksType = 'Google_Service_Logging_LogSink';
-  protected $sinksDataType = 'array';
+    protected $sinksType = 'Google_Service_Logging_LogSink';
+    protected $sinksDataType = 'array';
 
-
-  public function setSinks($sinks)
-  {
-    $this->sinks = $sinks;
-  }
-  public function getSinks()
-  {
-    return $this->sinks;
-  }
+    public function setSinks($sinks)
+    {
+        $this->sinks = $sinks;
+    }
+    public function getSinks()
+    {
+        return $this->sinks;
+    }
 }
 
 class Google_Service_Logging_ListLogServicesResponse extends Google_Collection
 {
-  protected $collection_key = 'logServices';
-  protected $internal_gapi_mappings = array(
+    protected $collection_key = 'logServices';
+    protected $internal_gapi_mappings = array(
   );
-  protected $logServicesType = 'Google_Service_Logging_LogService';
-  protected $logServicesDataType = 'array';
-  public $nextPageToken;
+    protected $logServicesType = 'Google_Service_Logging_LogService';
+    protected $logServicesDataType = 'array';
+    public $nextPageToken;
 
-
-  public function setLogServices($logServices)
-  {
-    $this->logServices = $logServices;
-  }
-  public function getLogServices()
-  {
-    return $this->logServices;
-  }
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
+    public function setLogServices($logServices)
+    {
+        $this->logServices = $logServices;
+    }
+    public function getLogServices()
+    {
+        return $this->logServices;
+    }
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+    public function getNextPageToken()
+    {
+        return $this->nextPageToken;
+    }
 }
 
 class Google_Service_Logging_ListLogSinksResponse extends Google_Collection
 {
-  protected $collection_key = 'sinks';
-  protected $internal_gapi_mappings = array(
+    protected $collection_key = 'sinks';
+    protected $internal_gapi_mappings = array(
   );
-  protected $sinksType = 'Google_Service_Logging_LogSink';
-  protected $sinksDataType = 'array';
+    protected $sinksType = 'Google_Service_Logging_LogSink';
+    protected $sinksDataType = 'array';
 
-
-  public function setSinks($sinks)
-  {
-    $this->sinks = $sinks;
-  }
-  public function getSinks()
-  {
-    return $this->sinks;
-  }
+    public function setSinks($sinks)
+    {
+        $this->sinks = $sinks;
+    }
+    public function getSinks()
+    {
+        return $this->sinks;
+    }
 }
 
 class Google_Service_Logging_ListLogsResponse extends Google_Collection
 {
-  protected $collection_key = 'logs';
-  protected $internal_gapi_mappings = array(
+    protected $collection_key = 'logs';
+    protected $internal_gapi_mappings = array(
   );
-  protected $logsType = 'Google_Service_Logging_Log';
-  protected $logsDataType = 'array';
-  public $nextPageToken;
+    protected $logsType = 'Google_Service_Logging_Log';
+    protected $logsDataType = 'array';
+    public $nextPageToken;
 
-
-  public function setLogs($logs)
-  {
-    $this->logs = $logs;
-  }
-  public function getLogs()
-  {
-    return $this->logs;
-  }
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
+    public function setLogs($logs)
+    {
+        $this->logs = $logs;
+    }
+    public function getLogs()
+    {
+        return $this->logs;
+    }
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+    public function getNextPageToken()
+    {
+        return $this->nextPageToken;
+    }
 }
 
 class Google_Service_Logging_Log extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
+    protected $internal_gapi_mappings = array(
   );
-  public $displayName;
-  public $name;
-  public $payloadType;
+    public $displayName;
+    public $name;
+    public $payloadType;
 
-
-  public function setDisplayName($displayName)
-  {
-    $this->displayName = $displayName;
-  }
-  public function getDisplayName()
-  {
-    return $this->displayName;
-  }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-  public function getName()
-  {
-    return $this->name;
-  }
-  public function setPayloadType($payloadType)
-  {
-    $this->payloadType = $payloadType;
-  }
-  public function getPayloadType()
-  {
-    return $this->payloadType;
-  }
+    public function setDisplayName($displayName)
+    {
+        $this->displayName = $displayName;
+    }
+    public function getDisplayName()
+    {
+        return $this->displayName;
+    }
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    public function getName()
+    {
+        return $this->name;
+    }
+    public function setPayloadType($payloadType)
+    {
+        $this->payloadType = $payloadType;
+    }
+    public function getPayloadType()
+    {
+        return $this->payloadType;
+    }
 }
 
 class Google_Service_Logging_LogEntry extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
+    protected $internal_gapi_mappings = array(
   );
-  public $insertId;
-  public $log;
-  protected $metadataType = 'Google_Service_Logging_LogEntryMetadata';
-  protected $metadataDataType = '';
-  public $protoPayload;
-  public $structPayload;
-  public $textPayload;
+    public $insertId;
+    public $log;
+    protected $metadataType = 'Google_Service_Logging_LogEntryMetadata';
+    protected $metadataDataType = '';
+    public $protoPayload;
+    public $structPayload;
+    public $textPayload;
 
-
-  public function setInsertId($insertId)
-  {
-    $this->insertId = $insertId;
-  }
-  public function getInsertId()
-  {
-    return $this->insertId;
-  }
-  public function setLog($log)
-  {
-    $this->log = $log;
-  }
-  public function getLog()
-  {
-    return $this->log;
-  }
-  public function setMetadata(Google_Service_Logging_LogEntryMetadata $metadata)
-  {
-    $this->metadata = $metadata;
-  }
-  public function getMetadata()
-  {
-    return $this->metadata;
-  }
-  public function setProtoPayload($protoPayload)
-  {
-    $this->protoPayload = $protoPayload;
-  }
-  public function getProtoPayload()
-  {
-    return $this->protoPayload;
-  }
-  public function setStructPayload($structPayload)
-  {
-    $this->structPayload = $structPayload;
-  }
-  public function getStructPayload()
-  {
-    return $this->structPayload;
-  }
-  public function setTextPayload($textPayload)
-  {
-    $this->textPayload = $textPayload;
-  }
-  public function getTextPayload()
-  {
-    return $this->textPayload;
-  }
+    public function setInsertId($insertId)
+    {
+        $this->insertId = $insertId;
+    }
+    public function getInsertId()
+    {
+        return $this->insertId;
+    }
+    public function setLog($log)
+    {
+        $this->log = $log;
+    }
+    public function getLog()
+    {
+        return $this->log;
+    }
+    public function setMetadata(Google_Service_Logging_LogEntryMetadata $metadata)
+    {
+        $this->metadata = $metadata;
+    }
+    public function getMetadata()
+    {
+        return $this->metadata;
+    }
+    public function setProtoPayload($protoPayload)
+    {
+        $this->protoPayload = $protoPayload;
+    }
+    public function getProtoPayload()
+    {
+        return $this->protoPayload;
+    }
+    public function setStructPayload($structPayload)
+    {
+        $this->structPayload = $structPayload;
+    }
+    public function getStructPayload()
+    {
+        return $this->structPayload;
+    }
+    public function setTextPayload($textPayload)
+    {
+        $this->textPayload = $textPayload;
+    }
+    public function getTextPayload()
+    {
+        return $this->textPayload;
+    }
 }
 
 class Google_Service_Logging_LogEntryMetadata extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
+    protected $internal_gapi_mappings = array(
   );
-  public $labels;
-  public $projectId;
-  public $region;
-  public $serviceName;
-  public $severity;
-  public $timestamp;
-  public $userId;
-  public $zone;
+    public $labels;
+    public $projectId;
+    public $region;
+    public $serviceName;
+    public $severity;
+    public $timestamp;
+    public $userId;
+    public $zone;
 
-
-  public function setLabels($labels)
-  {
-    $this->labels = $labels;
-  }
-  public function getLabels()
-  {
-    return $this->labels;
-  }
-  public function setProjectId($projectId)
-  {
-    $this->projectId = $projectId;
-  }
-  public function getProjectId()
-  {
-    return $this->projectId;
-  }
-  public function setRegion($region)
-  {
-    $this->region = $region;
-  }
-  public function getRegion()
-  {
-    return $this->region;
-  }
-  public function setServiceName($serviceName)
-  {
-    $this->serviceName = $serviceName;
-  }
-  public function getServiceName()
-  {
-    return $this->serviceName;
-  }
-  public function setSeverity($severity)
-  {
-    $this->severity = $severity;
-  }
-  public function getSeverity()
-  {
-    return $this->severity;
-  }
-  public function setTimestamp($timestamp)
-  {
-    $this->timestamp = $timestamp;
-  }
-  public function getTimestamp()
-  {
-    return $this->timestamp;
-  }
-  public function setUserId($userId)
-  {
-    $this->userId = $userId;
-  }
-  public function getUserId()
-  {
-    return $this->userId;
-  }
-  public function setZone($zone)
-  {
-    $this->zone = $zone;
-  }
-  public function getZone()
-  {
-    return $this->zone;
-  }
+    public function setLabels($labels)
+    {
+        $this->labels = $labels;
+    }
+    public function getLabels()
+    {
+        return $this->labels;
+    }
+    public function setProjectId($projectId)
+    {
+        $this->projectId = $projectId;
+    }
+    public function getProjectId()
+    {
+        return $this->projectId;
+    }
+    public function setRegion($region)
+    {
+        $this->region = $region;
+    }
+    public function getRegion()
+    {
+        return $this->region;
+    }
+    public function setServiceName($serviceName)
+    {
+        $this->serviceName = $serviceName;
+    }
+    public function getServiceName()
+    {
+        return $this->serviceName;
+    }
+    public function setSeverity($severity)
+    {
+        $this->severity = $severity;
+    }
+    public function getSeverity()
+    {
+        return $this->severity;
+    }
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+    }
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
+    }
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+    public function setZone($zone)
+    {
+        $this->zone = $zone;
+    }
+    public function getZone()
+    {
+        return $this->zone;
+    }
 }
 
 class Google_Service_Logging_LogEntryMetadataLabels extends Google_Model
@@ -1125,138 +1122,134 @@ class Google_Service_Logging_LogEntryStructPayload extends Google_Model
 
 class Google_Service_Logging_LogError extends Google_Model
 {
-  protected $internal_gapi_mappings = array(
+    protected $internal_gapi_mappings = array(
   );
-  public $resource;
-  protected $statusType = 'Google_Service_Logging_Status';
-  protected $statusDataType = '';
-  public $timeNanos;
+    public $resource;
+    protected $statusType = 'Google_Service_Logging_Status';
+    protected $statusDataType = '';
+    public $timeNanos;
 
-
-  public function setResource($resource)
-  {
-    $this->resource = $resource;
-  }
-  public function getResource()
-  {
-    return $this->resource;
-  }
-  public function setStatus(Google_Service_Logging_Status $status)
-  {
-    $this->status = $status;
-  }
-  public function getStatus()
-  {
-    return $this->status;
-  }
-  public function setTimeNanos($timeNanos)
-  {
-    $this->timeNanos = $timeNanos;
-  }
-  public function getTimeNanos()
-  {
-    return $this->timeNanos;
-  }
+    public function setResource($resource)
+    {
+        $this->resource = $resource;
+    }
+    public function getResource()
+    {
+        return $this->resource;
+    }
+    public function setStatus(Google_Service_Logging_Status $status)
+    {
+        $this->status = $status;
+    }
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    public function setTimeNanos($timeNanos)
+    {
+        $this->timeNanos = $timeNanos;
+    }
+    public function getTimeNanos()
+    {
+        return $this->timeNanos;
+    }
 }
 
 class Google_Service_Logging_LogService extends Google_Collection
 {
-  protected $collection_key = 'indexKeys';
-  protected $internal_gapi_mappings = array(
+    protected $collection_key = 'indexKeys';
+    protected $internal_gapi_mappings = array(
   );
-  public $indexKeys;
-  public $name;
+    public $indexKeys;
+    public $name;
 
-
-  public function setIndexKeys($indexKeys)
-  {
-    $this->indexKeys = $indexKeys;
-  }
-  public function getIndexKeys()
-  {
-    return $this->indexKeys;
-  }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-  public function getName()
-  {
-    return $this->name;
-  }
+    public function setIndexKeys($indexKeys)
+    {
+        $this->indexKeys = $indexKeys;
+    }
+    public function getIndexKeys()
+    {
+        return $this->indexKeys;
+    }
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    public function getName()
+    {
+        return $this->name;
+    }
 }
 
 class Google_Service_Logging_LogSink extends Google_Collection
 {
-  protected $collection_key = 'errors';
-  protected $internal_gapi_mappings = array(
+    protected $collection_key = 'errors';
+    protected $internal_gapi_mappings = array(
   );
-  public $destination;
-  protected $errorsType = 'Google_Service_Logging_LogError';
-  protected $errorsDataType = 'array';
-  public $name;
+    public $destination;
+    protected $errorsType = 'Google_Service_Logging_LogError';
+    protected $errorsDataType = 'array';
+    public $name;
 
-
-  public function setDestination($destination)
-  {
-    $this->destination = $destination;
-  }
-  public function getDestination()
-  {
-    return $this->destination;
-  }
-  public function setErrors($errors)
-  {
-    $this->errors = $errors;
-  }
-  public function getErrors()
-  {
-    return $this->errors;
-  }
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-  public function getName()
-  {
-    return $this->name;
-  }
+    public function setDestination($destination)
+    {
+        $this->destination = $destination;
+    }
+    public function getDestination()
+    {
+        return $this->destination;
+    }
+    public function setErrors($errors)
+    {
+        $this->errors = $errors;
+    }
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    public function getName()
+    {
+        return $this->name;
+    }
 }
 
 class Google_Service_Logging_Status extends Google_Collection
 {
-  protected $collection_key = 'details';
-  protected $internal_gapi_mappings = array(
+    protected $collection_key = 'details';
+    protected $internal_gapi_mappings = array(
   );
-  public $code;
-  public $details;
-  public $message;
+    public $code;
+    public $details;
+    public $message;
 
-
-  public function setCode($code)
-  {
-    $this->code = $code;
-  }
-  public function getCode()
-  {
-    return $this->code;
-  }
-  public function setDetails($details)
-  {
-    $this->details = $details;
-  }
-  public function getDetails()
-  {
-    return $this->details;
-  }
-  public function setMessage($message)
-  {
-    $this->message = $message;
-  }
-  public function getMessage()
-  {
-    return $this->message;
-  }
+    public function setCode($code)
+    {
+        $this->code = $code;
+    }
+    public function getCode()
+    {
+        return $this->code;
+    }
+    public function setDetails($details)
+    {
+        $this->details = $details;
+    }
+    public function getDetails()
+    {
+        return $this->details;
+    }
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
+    public function getMessage()
+    {
+        return $this->message;
+    }
 }
 
 class Google_Service_Logging_StatusDetails extends Google_Model
@@ -1265,30 +1258,29 @@ class Google_Service_Logging_StatusDetails extends Google_Model
 
 class Google_Service_Logging_WriteLogEntriesRequest extends Google_Collection
 {
-  protected $collection_key = 'entries';
-  protected $internal_gapi_mappings = array(
+    protected $collection_key = 'entries';
+    protected $internal_gapi_mappings = array(
   );
-  public $commonLabels;
-  protected $entriesType = 'Google_Service_Logging_LogEntry';
-  protected $entriesDataType = 'array';
+    public $commonLabels;
+    protected $entriesType = 'Google_Service_Logging_LogEntry';
+    protected $entriesDataType = 'array';
 
-
-  public function setCommonLabels($commonLabels)
-  {
-    $this->commonLabels = $commonLabels;
-  }
-  public function getCommonLabels()
-  {
-    return $this->commonLabels;
-  }
-  public function setEntries($entries)
-  {
-    $this->entries = $entries;
-  }
-  public function getEntries()
-  {
-    return $this->entries;
-  }
+    public function setCommonLabels($commonLabels)
+    {
+        $this->commonLabels = $commonLabels;
+    }
+    public function getCommonLabels()
+    {
+        return $this->commonLabels;
+    }
+    public function setEntries($entries)
+    {
+        $this->entries = $entries;
+    }
+    public function getEntries()
+    {
+        return $this->entries;
+    }
 }
 
 class Google_Service_Logging_WriteLogEntriesRequestCommonLabels extends Google_Model

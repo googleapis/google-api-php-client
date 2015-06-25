@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2010 Google Inc.
  *
@@ -32,26 +33,16 @@
  */
 class Google_Service_Cloudsearch extends Google_Service
 {
-
-
-
-  
-
-  /**
+    /**
    * Constructs the internal representation of the Cloudsearch service.
    *
    * @param Google_Client $client
    */
   public function __construct(Google_Client $client)
   {
-    parent::__construct($client);
-    $this->servicePath = '';
-    $this->version = 'v1';
-    $this->serviceName = 'cloudsearch';
-
+      parent::__construct($client);
+      $this->servicePath = '';
+      $this->version = 'v1';
+      $this->serviceName = 'cloudsearch';
   }
 }
-
-
-
-

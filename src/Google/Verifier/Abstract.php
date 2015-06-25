@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2011 Google Inc.
  *
@@ -22,7 +23,7 @@
  */
 abstract class Google_Verifier_Abstract
 {
-  /**
+    /**
    * Checks a signature, returns true if the signature is correct,
    * false otherwise.
    */

@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2013 Google Inc.
  *
@@ -14,8 +15,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-include_once "templates/base.php";
-echo pageHeader("Simple API Access");
+include_once 'templates/base.php';
+echo pageHeader('Simple API Access');
 
 /************************************************
   Make a simple API request using a key. In this
@@ -34,12 +35,12 @@ require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
   using the anonymous quota.
  ************************************************/
 $client = new Google_Client();
-$client->setApplicationName("Client_Library_Examples");
-$apiKey = "<YOUR_API_KEY>"; // Change this line.
+$client->setApplicationName('Client_Library_Examples');
+$apiKey = '<YOUR_API_KEY>'; // Change this line.
 // Warn if the API key isn't changed.
-if (strpos($apiKey, "<") !== false) {
-  echo missingApiKeyWarning();
-  exit;
+if (strpos($apiKey, '<') !== false) {
+    echo missingApiKeyWarning();
+    exit;
 }
 $client->setDeveloperKey($apiKey);
 
@@ -66,9 +67,9 @@ $results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
   are typed as Google_Service_Books_Volume, but
   can be treated as an array.
  ***********************************************/
-echo "<h3>Results Of Call:</h3>";
+echo '<h3>Results Of Call:</h3>';
 foreach ($results as $item) {
-  echo $item['volumeInfo']['title'], "<br /> \n";
+    echo $item['volumeInfo']['title'], "<br /> \n";
 }
 
 /************************************************
@@ -79,9 +80,9 @@ $optParams = array('filter' => 'free-ebooks');
 $request = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
 $results = $client->execute($request);
 
-echo "<h3>Results Of Deferred Call:</h3>";
+echo '<h3>Results Of Deferred Call:</h3>';
 foreach ($results as $item) {
-  echo $item['volumeInfo']['title'], "<br /> \n";
+    echo $item['volumeInfo']['title'], "<br /> \n";
 }
 
 echo pageFooter(__FILE__);

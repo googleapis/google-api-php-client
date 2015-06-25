@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-include_once "templates/base.php";
+include_once 'templates/base.php';
 session_start();
 
 require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
@@ -39,7 +39,7 @@ $client->setScopes('email');
   local access token in this case
  ************************************************/
 if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['access_token']);
+    unset($_SESSION['access_token']);
 }
 
 /************************************************
@@ -49,10 +49,10 @@ if (isset($_REQUEST['logout'])) {
   bundle in the session, and redirect to ourself.
  ************************************************/
 if (isset($_GET['code'])) {
-  $client->authenticate($_GET['code']);
-  $_SESSION['access_token'] = $client->getAccessToken();
-  $redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-  header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
+    $client->authenticate($_GET['code']);
+    $_SESSION['access_token'] = $client->getAccessToken();
+    $redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+    header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
 }
 
 /************************************************
@@ -60,9 +60,9 @@ if (isset($_GET['code'])) {
   requests, else we generate an authentication URL.
  ************************************************/
 if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
-  $client->setAccessToken($_SESSION['access_token']);
+    $client->setAccessToken($_SESSION['access_token']);
 } else {
-  $authUrl = $client->createAuthUrl();
+    $authUrl = $client->createAuthUrl();
 }
 
 /************************************************
@@ -74,31 +74,31 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
   and that can be cached.
  ************************************************/
 if ($client->getAccessToken()) {
-  $_SESSION['access_token'] = $client->getAccessToken();
-  $token_data = $client->verifyIdToken()->getAttributes();
+    $_SESSION['access_token'] = $client->getAccessToken();
+    $token_data = $client->verifyIdToken()->getAttributes();
 }
 
-echo pageHeader("User Query - Retrieving An Id Token");
-if (strpos($client_id, "googleusercontent") == false) {
-  echo missingClientSecretsWarning();
-  exit;
+echo pageHeader('User Query - Retrieving An Id Token');
+if (strpos($client_id, 'googleusercontent') == false) {
+    echo missingClientSecretsWarning();
+    exit;
 }
 ?>
 <div class="box">
   <div class="request">
 <?php
 if (isset($authUrl)) {
-  echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
+    echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
 } else {
-  echo "<a class='logout' href='?logout'>Logout</a>";
+    echo "<a class='logout' href='?logout'>Logout</a>";
 }
 ?>
   </div>
 
   <div class="data">
-<?php 
+<?php
 if (isset($token_data)) {
-  var_dump($token_data);
+    var_dump($token_data);
 }
 ?>
   </div>

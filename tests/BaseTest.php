@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2011 Google Inc.
  *
@@ -17,42 +18,42 @@
 
 class BaseTest extends PHPUnit_Framework_TestCase
 {
-  const KEY = "";
-  private $token;
-  private $memcacheHost;
-  private $memcachePort;
+    const KEY = '';
+    private $token;
+    private $memcacheHost;
+    private $memcachePort;
 
-  public function __construct()
-  {
-    parent::__construct();
+    public function __construct()
+    {
+        parent::__construct();
     // Fill in a token JSON here and you can test the oauth token
     // requiring functions.
     // $this->token = '';
 
     $this->memcacheHost = getenv('MEMCACHE_HOST') ? getenv('MEMCACHE_HOST') : null;
-    $this->memcachePort = getenv('MEMCACHE_PORT') ? getenv('MEMCACHE_PORT') : null;
-  }
+        $this->memcachePort = getenv('MEMCACHE_PORT') ? getenv('MEMCACHE_PORT') : null;
+    }
 
-  public function getClient()
-  {
-    $client = new Google_Client();
-    $client->setDeveloperKey(self::KEY);
-    if (strlen($this->token)) {
-      $client->setAccessToken($this->token);
+    public function getClient()
+    {
+        $client = new Google_Client();
+        $client->setDeveloperKey(self::KEY);
+        if (strlen($this->token)) {
+            $client->setAccessToken($this->token);
+        }
+        if (strlen($this->memcacheHost)) {
+            $client->setClassConfig('Google_Cache_Memcache', 'host', $this->memcacheHost);
+            $client->setClassConfig('Google_Cache_Memcache', 'port', $this->memcachePort);
+        }
+        return $client;
     }
-    if (strlen($this->memcacheHost)) {
-      $client->setClassConfig('Google_Cache_Memcache', 'host', $this->memcacheHost);
-      $client->setClassConfig('Google_Cache_Memcache', 'port', $this->memcachePort);
-    }
-    return $client;
-  }
 
-  public function checkToken()
-  {
-    if (!strlen($this->token)) {
-      $this->markTestSkipped('Test requires access token');
-      return false;
+    public function checkToken()
+    {
+        if (!strlen($this->token)) {
+            $this->markTestSkipped('Test requires access token');
+            return false;
+        }
+        return true;
     }
-    return true;
-  }
 }

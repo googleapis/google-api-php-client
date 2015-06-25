@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -16,7 +17,7 @@
  */
 
 if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
+    require_once dirname(__FILE__) . '/../autoload.php';
 }
 
 /**
@@ -27,7 +28,7 @@ if (!class_exists('Google_Client')) {
  */
 class Google_Logger_Psr extends Google_Logger_Abstract
 {
-  /**
+    /**
    * @param Psr\Log\LoggerInterface $logger The PSR-3 logger
    */
   private $logger;
@@ -38,11 +39,11 @@ class Google_Logger_Psr extends Google_Logger_Abstract
    */
   public function __construct(Google_Client $client, /*Psr\Log\LoggerInterface*/ $logger = null)
   {
-    parent::__construct($client);
+      parent::__construct($client);
 
-    if ($logger) {
-      $this->setLogger($logger);
-    }
+      if ($logger) {
+          $this->setLogger($logger);
+      }
   }
 
   /**
@@ -56,7 +57,7 @@ class Google_Logger_Psr extends Google_Logger_Abstract
    */
   public function setLogger(/*Psr\Log\LoggerInterface*/ $logger)
   {
-    $this->logger = $logger;
+      $this->logger = $logger;
   }
 
   /**
@@ -64,7 +65,7 @@ class Google_Logger_Psr extends Google_Logger_Abstract
    */
   public function shouldHandle($level)
   {
-    return isset($this->logger) && parent::shouldHandle($level);
+      return isset($this->logger) && parent::shouldHandle($level);
   }
 
   /**
@@ -72,16 +73,16 @@ class Google_Logger_Psr extends Google_Logger_Abstract
    */
   public function log($level, $message, array $context = array())
   {
-    if (!$this->shouldHandle($level)) {
-      return false;
-    }
+      if (!$this->shouldHandle($level)) {
+          return false;
+      }
 
-    if ($context) {
-      $this->reverseJsonInContext($context);
-    }
+      if ($context) {
+          $this->reverseJsonInContext($context);
+      }
 
-    $levelName = is_int($level) ? array_search($level, self::$levels) : $level;
-    $this->logger->log($levelName, $message, $context);
+      $levelName = is_int($level) ? array_search($level, self::$levels) : $level;
+      $this->logger->log($levelName, $message, $context);
   }
 
   /**

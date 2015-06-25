@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2008 Google Inc.
  *
@@ -22,16 +23,14 @@
  */
 abstract class Google_Cache_Abstract
 {
-  
-  abstract public function __construct(Google_Client $client);
+    abstract public function __construct(Google_Client $client);
 
   /**
    * Retrieves the data for the given key, or false if they
    * key is unknown or expired
    *
    * @param String $key The key who's data to retrieve
-   * @param boolean|int $expiration Expiration time in seconds
-   *
+   * @param bool|int $expiration Expiration time in seconds
    */
   abstract public function get($key, $expiration = false);
 
