@@ -94,8 +94,6 @@ Run the PHPUnit tests with PHPUnit. You can configure an API key and token in Ba
 
     phpunit tests/
 
-Copy the ruleset.xml in style/ into a new directory named GAPI/ in your
-/usr/share/php/PHP/CodeSniffer/Standards (or appropriate equivalent directory),
-and run code sniffs with:
+Fix the code standard by running:
 
-        phpcs --standard=GAPI src/
+        ./bin/fix_code_standard.sh
