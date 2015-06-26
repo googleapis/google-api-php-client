@@ -54,6 +54,7 @@ class Google_Service_ShoppingContent extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'content/v2/';
     $this->version = 'v2';
     $this->serviceName = 'content';
