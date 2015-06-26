@@ -43,6 +43,7 @@ class Google_Service_IdentityToolkit extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'identitytoolkit/v3/relyingparty/';
     $this->version = 'v3';
     $this->serviceName = 'identitytoolkit';
@@ -729,6 +730,7 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   );
   public $captchaChallenge;
   public $captchaResponse;
+  public $disableUser;
   public $displayName;
   public $email;
   public $emailVerified;
@@ -738,6 +740,7 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   public $password;
   public $provider;
   public $upgradeToFederatedLogin;
+  public $validSince;
 
 
   public function setCaptchaChallenge($captchaChallenge)
@@ -755,6 +758,14 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   public function getCaptchaResponse()
   {
     return $this->captchaResponse;
+  }
+  public function setDisableUser($disableUser)
+  {
+    $this->disableUser = $disableUser;
+  }
+  public function getDisableUser()
+  {
+    return $this->disableUser;
   }
   public function setDisplayName($displayName)
   {
@@ -827,6 +838,14 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   public function getUpgradeToFederatedLogin()
   {
     return $this->upgradeToFederatedLogin;
+  }
+  public function setValidSince($validSince)
+  {
+    $this->validSince = $validSince;
+  }
+  public function getValidSince()
+  {
+    return $this->validSince;
   }
 }
 
@@ -1246,6 +1265,7 @@ class Google_Service_IdentityToolkit_UserInfo extends Google_Collection
   protected $collection_key = 'providerUserInfo';
   protected $internal_gapi_mappings = array(
   );
+  public $disabled;
   public $displayName;
   public $email;
   public $emailVerified;
@@ -1256,9 +1276,18 @@ class Google_Service_IdentityToolkit_UserInfo extends Google_Collection
   protected $providerUserInfoType = 'Google_Service_IdentityToolkit_UserInfoProviderUserInfo';
   protected $providerUserInfoDataType = 'array';
   public $salt;
+  public $validSince;
   public $version;
 
 
+  public function setDisabled($disabled)
+  {
+    $this->disabled = $disabled;
+  }
+  public function getDisabled()
+  {
+    return $this->disabled;
+  }
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -1330,6 +1359,14 @@ class Google_Service_IdentityToolkit_UserInfo extends Google_Collection
   public function getSalt()
   {
     return $this->salt;
+  }
+  public function setValidSince($validSince)
+  {
+    $this->validSince = $validSince;
+  }
+  public function getValidSince()
+  {
+    return $this->validSince;
   }
   public function setVersion($version)
   {
