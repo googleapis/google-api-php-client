@@ -55,6 +55,7 @@ class Google_Service_Calendar extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'calendar/v3/';
     $this->version = 'v3';
     $this->serviceName = 'calendar';
@@ -469,6 +470,10 @@ class Google_Service_Calendar extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'supportsAttachments' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
             ),'insert' => array(
               'path' => 'calendars/{calendarId}/events',
@@ -478,6 +483,10 @@ class Google_Service_Calendar extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'supportsAttachments' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
                 'sendNotifications' => array(
                   'location' => 'query',
@@ -665,6 +674,10 @@ class Google_Service_Calendar extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
+                'supportsAttachments' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'maxAttendees' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -708,6 +721,10 @@ class Google_Service_Calendar extends Google_Service
                   'type' => 'boolean',
                 ),
                 'alwaysIncludeEmail' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'supportsAttachments' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
@@ -1103,7 +1120,7 @@ class Google_Service_Calendar_CalendarList_Resource extends Google_Service_Resou
    * @opt_param bool showDeleted Whether to include deleted calendar list entries
    * in the result. Optional. The default is False.
    * @opt_param string minAccessRole The minimum access role for the user in the
-   * returned entires. Optional. The default is no restriction.
+   * returned entries. Optional. The default is no restriction.
    * @opt_param int maxResults Maximum number of entries returned on one result
    * page. By default the value is 100 entries. The page size can never be larger
    * than 250 entries. Optional.
@@ -1182,7 +1199,7 @@ class Google_Service_Calendar_CalendarList_Resource extends Google_Service_Resou
    * @opt_param bool showDeleted Whether to include deleted calendar list entries
    * in the result. Optional. The default is False.
    * @opt_param string minAccessRole The minimum access role for the user in the
-   * returned entires. Optional. The default is no restriction.
+   * returned entries. Optional. The default is no restriction.
    * @opt_param int maxResults Maximum number of entries returned on one result
    * page. By default the value is 100 entries. The page size can never be larger
    * than 250 entries. Optional.
@@ -1411,6 +1428,9 @@ class Google_Service_Calendar_Events_Resource extends Google_Service_Resource
    * @param string $calendarId Calendar identifier.
    * @param Google_Event $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool supportsAttachments Whether API client performing operation
+   * supports event attachments. Optional. The default is False.
    * @return Google_Service_Calendar_Event
    */
   public function import($calendarId, Google_Service_Calendar_Event $postBody, $optParams = array())
@@ -1427,6 +1447,8 @@ class Google_Service_Calendar_Events_Resource extends Google_Service_Resource
    * @param Google_Event $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool supportsAttachments Whether API client performing operation
+   * supports event attachments. Optional. The default is False.
    * @opt_param bool sendNotifications Whether to send notifications about the
    * creation of the new event. Optional. The default is False.
    * @opt_param int maxAttendees The maximum number of attendees to include in the
@@ -1601,6 +1623,8 @@ class Google_Service_Calendar_Events_Resource extends Google_Service_Resource
    * of this option is discouraged and should only be used by clients which cannot
    * handle the absence of an email address value in the mentioned places.
    * Optional. The default is False.
+   * @opt_param bool supportsAttachments Whether API client performing operation
+   * supports event attachments. Optional. The default is False.
    * @opt_param int maxAttendees The maximum number of attendees to include in the
    * response. If there are more than the specified number of attendees, only the
    * participant is returned. Optional.
@@ -1648,6 +1672,8 @@ class Google_Service_Calendar_Events_Resource extends Google_Service_Resource
    * of this option is discouraged and should only be used by clients which cannot
    * handle the absence of an email address value in the mentioned places.
    * Optional. The default is False.
+   * @opt_param bool supportsAttachments Whether API client performing operation
+   * supports event attachments. Optional. The default is False.
    * @opt_param int maxAttendees The maximum number of attendees to include in the
    * response. If there are more than the specified number of attendees, only the
    * participant is returned. Optional.
@@ -2542,6 +2568,8 @@ class Google_Service_Calendar_Event extends Google_Collection
   protected $internal_gapi_mappings = array(
   );
   public $anyoneCanAddSelf;
+  protected $attachmentsType = 'Google_Service_Calendar_EventAttachment';
+  protected $attachmentsDataType = 'array';
   protected $attendeesType = 'Google_Service_Calendar_EventAttendee';
   protected $attendeesDataType = 'array';
   public $attendeesOmitted;
@@ -2596,6 +2624,14 @@ class Google_Service_Calendar_Event extends Google_Collection
   public function getAnyoneCanAddSelf()
   {
     return $this->anyoneCanAddSelf;
+  }
+  public function setAttachments($attachments)
+  {
+    $this->attachments = $attachments;
+  }
+  public function getAttachments()
+  {
+    return $this->attachments;
   }
   public function setAttendees($attendees)
   {
@@ -2881,6 +2917,46 @@ class Google_Service_Calendar_Event extends Google_Collection
 
 class Google_Service_Calendar_EventAttachment extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
+  public $fileUrl;
+  public $iconLink;
+  public $mimeType;
+  public $title;
+
+
+  public function setFileUrl($fileUrl)
+  {
+    $this->fileUrl = $fileUrl;
+  }
+  public function getFileUrl()
+  {
+    return $this->fileUrl;
+  }
+  public function setIconLink($iconLink)
+  {
+    $this->iconLink = $iconLink;
+  }
+  public function getIconLink()
+  {
+    return $this->iconLink;
+  }
+  public function setMimeType($mimeType)
+  {
+    $this->mimeType = $mimeType;
+  }
+  public function getMimeType()
+  {
+    return $this->mimeType;
+  }
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+  public function getTitle()
+  {
+    return $this->title;
+  }
 }
 
 class Google_Service_Calendar_EventAttendee extends Google_Model
