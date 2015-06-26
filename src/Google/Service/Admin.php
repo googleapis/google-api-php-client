@@ -45,6 +45,7 @@ class Google_Service_Admin extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'email/v2/users/';
     $this->version = 'email_migration_v2';
     $this->serviceName = 'admin';
