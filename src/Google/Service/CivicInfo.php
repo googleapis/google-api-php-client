@@ -45,6 +45,7 @@ class Google_Service_CivicInfo extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'civicinfo/v2/';
     $this->version = 'v2';
     $this->serviceName = 'civicinfo';
