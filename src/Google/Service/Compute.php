@@ -88,6 +88,7 @@ class Google_Service_Compute extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'compute/v1/projects/';
     $this->version = 'v1';
     $this->serviceName = 'compute';
@@ -3091,12 +3092,10 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_AddressAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -3163,12 +3162,10 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * @param string $region The name of the region for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_AddressList
    */
   public function listAddresses($project, $region, $optParams = array())
@@ -3261,12 +3258,10 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_BackendServiceList
    */
   public function listBackendServices($project, $optParams = array())
@@ -3329,12 +3324,10 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_DiskTypeAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -3368,12 +3361,10 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * @param string $zone The name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_DiskTypeList
    */
   public function listDiskTypes($project, $zone, $optParams = array())
@@ -3401,12 +3392,10 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_DiskAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -3492,12 +3481,10 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * @param string $zone The name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_DiskList
    */
   public function listDisks($project, $zone, $optParams = array())
@@ -3572,12 +3559,10 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_FirewallList
    */
   public function listFirewalls($project, $optParams = array())
@@ -3640,12 +3625,10 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_ForwardingRuleAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -3712,12 +3695,10 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * @param string $region Name of the region scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_ForwardingRuleList
    */
   public function listForwardingRules($project, $region, $optParams = array())
@@ -3810,12 +3791,10 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_AddressList
    */
   public function listGlobalAddresses($project, $optParams = array())
@@ -3890,12 +3869,10 @@ class Google_Service_Compute_GlobalForwardingRules_Resource extends Google_Servi
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_ForwardingRuleList
    */
   public function listGlobalForwardingRules($project, $optParams = array())
@@ -3941,12 +3918,10 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_OperationAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -3992,12 +3967,10 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_OperationList
    */
   public function listGlobalOperations($project, $optParams = array())
@@ -4074,12 +4047,10 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_HttpHealthCheckList
    */
   public function listHttpHealthChecks($project, $optParams = array())
@@ -4210,12 +4181,10 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_ImageList
    */
   public function listImages($project, $optParams = array())
@@ -4238,11 +4207,10 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
 {
 
   /**
-   * Deletes the specified instance template resource. (instanceTemplates.delete)
+   * Deletes the specified instance template. (instanceTemplates.delete)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $instanceTemplate Name of the instance template resource to
-   * delete.
+   * @param string $project The project ID for this request.
+   * @param string $instanceTemplate The name of the instance template to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -4256,9 +4224,8 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
   /**
    * Returns the specified instance template resource. (instanceTemplates.get)
    *
-   * @param string $project Name of the project scoping this request.
-   * @param string $instanceTemplate Name of the instance template resource to
-   * return.
+   * @param string $project The project ID for this request.
+   * @param string $instanceTemplate The name of the instance template.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_InstanceTemplate
    */
@@ -4270,10 +4237,10 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
   }
 
   /**
-   * Creates an instance template resource in the specified project using the data
+   * Creates an instance template in the specified project using the data that is
    * included in the request. (instanceTemplates.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project The project ID for this request.
    * @param Google_InstanceTemplate $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4286,18 +4253,16 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
   }
 
   /**
-   * Retrieves the list of instance template resources contained within the
-   * specified project. (instanceTemplates.listInstanceTemplates)
+   * Retrieves a list of instance templates that are contained within the
+   * specified project and zone. (instanceTemplates.listInstanceTemplates)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project The project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_InstanceTemplateList
    */
   public function listInstanceTemplates($project, $optParams = array())
@@ -4345,12 +4310,10 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_InstanceAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -4490,12 +4453,10 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * @param string $zone The name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_InstanceList
    */
   public function listInstances($project, $zone, $optParams = array())
@@ -4622,7 +4583,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
-   * @param string $instance Name of the instance resource to start.
+   * @param string $instance Name of the instance resource to stop.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -4679,12 +4640,10 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_MachineTypeAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -4718,12 +4677,10 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * @param string $zone The name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_MachineTypeList
    */
   public function listMachineTypes($project, $zone, $optParams = array())
@@ -4798,12 +4755,10 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_NetworkList
    */
   public function listNetworks($project, $optParams = array())
@@ -4956,12 +4911,10 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * @param string $region Name of the region scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_OperationList
    */
   public function listRegionOperations($project, $region, $optParams = array())
@@ -5005,12 +4958,10 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_RegionList
    */
   public function listRegions($project, $optParams = array())
@@ -5085,12 +5036,10 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_RouteList
    */
   public function listRoutes($project, $optParams = array())
@@ -5151,12 +5100,10 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_SnapshotList
    */
   public function listSnapshots($project, $optParams = array())
@@ -5233,12 +5180,10 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetHttpProxyList
    */
   public function listTargetHttpProxies($project, $optParams = array())
@@ -5284,12 +5229,10 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetInstanceAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -5356,12 +5299,10 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * @param string $zone Name of the zone scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetInstanceList
    */
   public function listTargetInstances($project, $zone, $optParams = array())
@@ -5426,12 +5367,10 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetPoolAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -5517,12 +5456,10 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * @param string $region Name of the region scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetPoolList
    */
   public function listTargetPools($project, $region, $optParams = array())
@@ -5608,12 +5545,10 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetVpnGatewayAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -5682,12 +5617,10 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * @param string $region The name of the region for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetVpnGatewayList
    */
   public function listTargetVpnGateways($project, $region, $optParams = array())
@@ -5762,12 +5695,10 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_UrlMapList
    */
   public function listUrlMaps($project, $optParams = array())
@@ -5847,12 +5778,10 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_VpnTunnelAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -5919,12 +5848,10 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * @param string $region The name of the region for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_VpnTunnelList
    */
   public function listVpnTunnels($project, $region, $optParams = array())
@@ -5987,12 +5914,10 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    * @param string $zone Name of the zone scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_OperationList
    */
   public function listZoneOperations($project, $zone, $optParams = array())
@@ -6036,12 +5961,10 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Optional. Filter expression for filtering listed
-   * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string filter Filter expression for filtering listed resources.
+   * @opt_param string pageToken Tag returned by a previous list request when that
+   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_ZoneList
    */
   public function listZones($project, $optParams = array())
@@ -6892,13 +6815,15 @@ class Google_Service_Compute_DeprecationStatus extends Google_Model
 
 class Google_Service_Compute_Disk extends Google_Collection
 {
-  protected $collection_key = 'licenses';
+  protected $collection_key = 'users';
   protected $internal_gapi_mappings = array(
   );
   public $creationTimestamp;
   public $description;
   public $id;
   public $kind;
+  public $lastAttachTimestamp;
+  public $lastDetachTimestamp;
   public $licenses;
   public $name;
   public $options;
@@ -6910,6 +6835,7 @@ class Google_Service_Compute_Disk extends Google_Collection
   public $sourceSnapshotId;
   public $status;
   public $type;
+  public $users;
   public $zone;
 
 
@@ -6944,6 +6870,22 @@ class Google_Service_Compute_Disk extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setLastAttachTimestamp($lastAttachTimestamp)
+  {
+    $this->lastAttachTimestamp = $lastAttachTimestamp;
+  }
+  public function getLastAttachTimestamp()
+  {
+    return $this->lastAttachTimestamp;
+  }
+  public function setLastDetachTimestamp($lastDetachTimestamp)
+  {
+    $this->lastDetachTimestamp = $lastDetachTimestamp;
+  }
+  public function getLastDetachTimestamp()
+  {
+    return $this->lastDetachTimestamp;
   }
   public function setLicenses($licenses)
   {
@@ -7032,6 +6974,14 @@ class Google_Service_Compute_Disk extends Google_Collection
   public function getType()
   {
     return $this->type;
+  }
+  public function setUsers($users)
+  {
+    $this->users = $users;
+  }
+  public function getUsers()
+  {
+    return $this->users;
   }
   public function setZone($zone)
   {
@@ -11076,6 +11026,7 @@ class Google_Service_Compute_Scheduling extends Google_Model
   );
   public $automaticRestart;
   public $onHostMaintenance;
+  public $preemptible;
 
 
   public function setAutomaticRestart($automaticRestart)
@@ -11093,6 +11044,14 @@ class Google_Service_Compute_Scheduling extends Google_Model
   public function getOnHostMaintenance()
   {
     return $this->onHostMaintenance;
+  }
+  public function setPreemptible($preemptible)
+  {
+    $this->preemptible = $preemptible;
+  }
+  public function getPreemptible()
+  {
+    return $this->preemptible;
   }
 }
 
