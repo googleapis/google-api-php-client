@@ -47,6 +47,7 @@ class Google_Service_CloudMonitoring extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'cloudmonitoring/v2beta2/projects/';
     $this->version = 'v2beta2';
     $this->serviceName = 'cloudmonitoring';
