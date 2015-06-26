@@ -115,6 +115,7 @@ class Google_Service_Directory extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'admin/directory/v1/';
     $this->version = 'directory_v1';
     $this->serviceName = 'admin';
@@ -4469,6 +4470,7 @@ class Google_Service_Directory_User extends Google_Collection
   public $relations;
   public $suspended;
   public $suspensionReason;
+  public $thumbnailPhotoEtag;
   public $thumbnailPhotoUrl;
   public $websites;
 
@@ -4728,6 +4730,14 @@ class Google_Service_Directory_User extends Google_Collection
   public function getSuspensionReason()
   {
     return $this->suspensionReason;
+  }
+  public function setThumbnailPhotoEtag($thumbnailPhotoEtag)
+  {
+    $this->thumbnailPhotoEtag = $thumbnailPhotoEtag;
+  }
+  public function getThumbnailPhotoEtag()
+  {
+    return $this->thumbnailPhotoEtag;
   }
   public function setThumbnailPhotoUrl($thumbnailPhotoUrl)
   {
