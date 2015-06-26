@@ -45,6 +45,7 @@ class Google_Service_Cloudlatencytest extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://cloudlatencytest-pa.googleapis.com/';
     $this->servicePath = 'v2/statscollection/';
     $this->version = 'v2';
     $this->serviceName = 'cloudlatencytest';
