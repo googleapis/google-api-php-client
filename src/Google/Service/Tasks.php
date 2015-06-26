@@ -49,6 +49,7 @@ class Google_Service_Tasks extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'tasks/v1/';
     $this->version = 'v1';
     $this->serviceName = 'tasks';
