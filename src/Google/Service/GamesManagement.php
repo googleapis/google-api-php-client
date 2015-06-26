@@ -55,6 +55,7 @@ class Google_Service_GamesManagement extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'games/v1management/';
     $this->version = 'v1management';
     $this->serviceName = 'gamesManagement';
