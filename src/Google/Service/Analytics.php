@@ -82,6 +82,7 @@ class Google_Service_Analytics extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'analytics/v3/';
     $this->version = 'v3';
     $this->serviceName = 'analytics';
@@ -6071,11 +6072,14 @@ class Google_Service_Analytics_FilterAdvancedDetails extends Google_Model
   public $extractA;
   public $extractB;
   public $fieldA;
+  public $fieldAIndex;
   public $fieldARequired;
   public $fieldB;
+  public $fieldBIndex;
   public $fieldBRequired;
   public $outputConstructor;
   public $outputToField;
+  public $outputToFieldIndex;
   public $overrideOutputField;
 
 
@@ -6111,6 +6115,14 @@ class Google_Service_Analytics_FilterAdvancedDetails extends Google_Model
   {
     return $this->fieldA;
   }
+  public function setFieldAIndex($fieldAIndex)
+  {
+    $this->fieldAIndex = $fieldAIndex;
+  }
+  public function getFieldAIndex()
+  {
+    return $this->fieldAIndex;
+  }
   public function setFieldARequired($fieldARequired)
   {
     $this->fieldARequired = $fieldARequired;
@@ -6126,6 +6138,14 @@ class Google_Service_Analytics_FilterAdvancedDetails extends Google_Model
   public function getFieldB()
   {
     return $this->fieldB;
+  }
+  public function setFieldBIndex($fieldBIndex)
+  {
+    $this->fieldBIndex = $fieldBIndex;
+  }
+  public function getFieldBIndex()
+  {
+    return $this->fieldBIndex;
   }
   public function setFieldBRequired($fieldBRequired)
   {
@@ -6151,6 +6171,14 @@ class Google_Service_Analytics_FilterAdvancedDetails extends Google_Model
   {
     return $this->outputToField;
   }
+  public function setOutputToFieldIndex($outputToFieldIndex)
+  {
+    $this->outputToFieldIndex = $outputToFieldIndex;
+  }
+  public function getOutputToFieldIndex()
+  {
+    return $this->outputToFieldIndex;
+  }
   public function setOverrideOutputField($overrideOutputField)
   {
     $this->overrideOutputField = $overrideOutputField;
@@ -6168,6 +6196,7 @@ class Google_Service_Analytics_FilterExpression extends Google_Model
   public $caseSensitive;
   public $expressionValue;
   public $field;
+  public $fieldIndex;
   public $kind;
   public $matchType;
 
@@ -6196,6 +6225,14 @@ class Google_Service_Analytics_FilterExpression extends Google_Model
   {
     return $this->field;
   }
+  public function setFieldIndex($fieldIndex)
+  {
+    $this->fieldIndex = $fieldIndex;
+  }
+  public function getFieldIndex()
+  {
+    return $this->fieldIndex;
+  }
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -6219,6 +6256,7 @@ class Google_Service_Analytics_FilterLowercaseDetails extends Google_Model
   protected $internal_gapi_mappings = array(
   );
   public $field;
+  public $fieldIndex;
 
 
   public function setField($field)
@@ -6228,6 +6266,14 @@ class Google_Service_Analytics_FilterLowercaseDetails extends Google_Model
   public function getField()
   {
     return $this->field;
+  }
+  public function setFieldIndex($fieldIndex)
+  {
+    $this->fieldIndex = $fieldIndex;
+  }
+  public function getFieldIndex()
+  {
+    return $this->fieldIndex;
   }
 }
 
@@ -6316,6 +6362,7 @@ class Google_Service_Analytics_FilterSearchAndReplaceDetails extends Google_Mode
   );
   public $caseSensitive;
   public $field;
+  public $fieldIndex;
   public $replaceString;
   public $searchString;
 
@@ -6335,6 +6382,14 @@ class Google_Service_Analytics_FilterSearchAndReplaceDetails extends Google_Mode
   public function getField()
   {
     return $this->field;
+  }
+  public function setFieldIndex($fieldIndex)
+  {
+    $this->fieldIndex = $fieldIndex;
+  }
+  public function getFieldIndex()
+  {
+    return $this->fieldIndex;
   }
   public function setReplaceString($replaceString)
   {
@@ -6359,6 +6414,7 @@ class Google_Service_Analytics_FilterUppercaseDetails extends Google_Model
   protected $internal_gapi_mappings = array(
   );
   public $field;
+  public $fieldIndex;
 
 
   public function setField($field)
@@ -6368,6 +6424,14 @@ class Google_Service_Analytics_FilterUppercaseDetails extends Google_Model
   public function getField()
   {
     return $this->field;
+  }
+  public function setFieldIndex($fieldIndex)
+  {
+    $this->fieldIndex = $fieldIndex;
+  }
+  public function getFieldIndex()
+  {
+    return $this->fieldIndex;
   }
 }
 
