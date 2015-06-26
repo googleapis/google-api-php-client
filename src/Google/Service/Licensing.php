@@ -45,6 +45,7 @@ class Google_Service_Licensing extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'apps/licensing/v1/product/';
     $this->version = 'v1';
     $this->serviceName = 'licensing';
