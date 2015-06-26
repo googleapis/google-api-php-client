@@ -64,6 +64,7 @@ class Google_Service_Bigquery extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'bigquery/v2/';
     $this->version = 'v2';
     $this->serviceName = 'bigquery';
@@ -180,7 +181,22 @@ class Google_Service_Bigquery extends Google_Service
         'jobs',
         array(
           'methods' => array(
-            'get' => array(
+            'cancel' => array(
+              'path' => 'project/{projectId}/jobs/{jobId}/cancel',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'jobId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
               'path' => 'projects/{projectId}/jobs/{jobId}',
               'httpMethod' => 'GET',
               'parameters' => array(
@@ -630,6 +646,23 @@ class Google_Service_Bigquery_Jobs_Resource extends Google_Service_Resource
 {
 
   /**
+   * Requests that a job be cancelled. This call will return immediately, and the
+   * client will need to poll for the job status to see if the cancel completed
+   * successfully. (jobs.cancel)
+   *
+   * @param string $projectId Project ID of the job to cancel
+   * @param string $jobId Job ID of the job to cancel
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Bigquery_JobCancelResponse
+   */
+  public function cancel($projectId, $jobId, $optParams = array())
+  {
+    $params = array('projectId' => $projectId, 'jobId' => $jobId);
+    $params = array_merge($params, $optParams);
+    return $this->call('cancel', array($params), "Google_Service_Bigquery_JobCancelResponse");
+  }
+
+  /**
    * Returns information about a specific job. Job information is available for a
    * six month period after creation. Requires that you're the person who ran the
    * job, or have the Is Owner project role. (jobs.get)
@@ -1016,6 +1049,7 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   public $id;
   public $kind;
   public $lastModifiedTime;
+  public $location;
   public $selfLink;
 
 
@@ -1098,6 +1132,14 @@ class Google_Service_Bigquery_Dataset extends Google_Collection
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
+  }
+  public function setLocation($location)
+  {
+    $this->location = $location;
+  }
+  public function getLocation()
+  {
+    return $this->location;
   }
   public function setSelfLink($selfLink)
   {
@@ -1600,6 +1642,33 @@ class Google_Service_Bigquery_Job extends Google_Model
   public function getUserEmail()
   {
     return $this->userEmail;
+  }
+}
+
+class Google_Service_Bigquery_JobCancelResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $jobType = 'Google_Service_Bigquery_Job';
+  protected $jobDataType = '';
+  public $kind;
+
+
+  public function setJob(Google_Service_Bigquery_Job $job)
+  {
+    $this->job = $job;
+  }
+  public function getJob()
+  {
+    return $this->job;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
   }
 }
 
@@ -2134,7 +2203,6 @@ class Google_Service_Bigquery_JobList extends Google_Collection
   protected $jobsDataType = 'array';
   public $kind;
   public $nextPageToken;
-  public $totalItems;
 
 
   public function setEtag($etag)
@@ -2168,14 +2236,6 @@ class Google_Service_Bigquery_JobList extends Google_Collection
   public function getNextPageToken()
   {
     return $this->nextPageToken;
-  }
-  public function setTotalItems($totalItems)
-  {
-    $this->totalItems = $totalItems;
-  }
-  public function getTotalItems()
-  {
-    return $this->totalItems;
   }
 }
 
