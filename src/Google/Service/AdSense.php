@@ -73,6 +73,7 @@ class Google_Service_AdSense extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'adsense/v1.4/';
     $this->version = 'v1.4';
     $this->serviceName = 'adsense';
