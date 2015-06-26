@@ -23,7 +23,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/webmaster-tools/v3/welcome" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/webmaster-tools/" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -37,6 +37,7 @@ class Google_Service_Webmasters extends Google_Service
   const WEBMASTERS_READONLY =
       "https://www.googleapis.com/auth/webmasters.readonly";
 
+  public $searchanalytics;
   public $sitemaps;
   public $sites;
   public $urlcrawlerrorscounts;
@@ -51,10 +52,31 @@ class Google_Service_Webmasters extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'webmasters/v3/';
     $this->version = 'v3';
     $this->serviceName = 'webmasters';
 
+    $this->searchanalytics = new Google_Service_Webmasters_Searchanalytics_Resource(
+        $this,
+        $this->serviceName,
+        'searchanalytics',
+        array(
+          'methods' => array(
+            'query' => array(
+              'path' => 'sites/{siteUrl}/searchAnalytics/query',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'siteUrl' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->sitemaps = new Google_Service_Webmasters_Sitemaps_Resource(
         $this,
         $this->serviceName,
@@ -285,6 +307,43 @@ class Google_Service_Webmasters extends Google_Service
 
 
 /**
+ * The "searchanalytics" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $webmastersService = new Google_Service_Webmasters(...);
+ *   $searchanalytics = $webmastersService->searchanalytics;
+ *  </code>
+ */
+class Google_Service_Webmasters_Searchanalytics_Resource extends Google_Service_Resource
+{
+
+  /**
+   * [LIMITED ACCESS]
+   *
+   * Query your data with filters and parameters that you define. Returns zero or
+   * more rows grouped by the row keys that you define. You must define a date
+   * range of one or more days.
+   *
+   * When date is one of the group by values, any days without data are omitted
+   * from the result list. If you need to know which days have data, issue a broad
+   * date range query grouped by date for any metric, and see which day rows are
+   * returned. (searchanalytics.query)
+   *
+   * @param string $siteUrl The site's URL, including protocol. For example:
+   * http://www.example.com/
+   * @param Google_SearchAnalyticsQueryRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Webmasters_SearchAnalyticsQueryResponse
+   */
+  public function query($siteUrl, Google_Service_Webmasters_SearchAnalyticsQueryRequest $postBody, $optParams = array())
+  {
+    $params = array('siteUrl' => $siteUrl, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('query', array($params), "Google_Service_Webmasters_SearchAnalyticsQueryResponse");
+  }
+}
+
+/**
  * The "sitemaps" collection of methods.
  * Typical usage is:
  *  <code>
@@ -298,10 +357,10 @@ class Google_Service_Webmasters_Sitemaps_Resource extends Google_Service_Resourc
   /**
    * Deletes a sitemap from this site. (sitemaps.delete)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
-   * 'http://www.example.com/'
-   * @param string $feedpath The URL of the actual sitemap (for example
-   * http://www.example.com/sitemap.xml).
+   * @param string $siteUrl The site's URL, including protocol. For example:
+   * http://www.example.com/
+   * @param string $feedpath The URL of the actual sitemap. For example:
+   * http://www.example.com/sitemap.xml
    * @param array $optParams Optional parameters.
    */
   public function delete($siteUrl, $feedpath, $optParams = array())
@@ -314,10 +373,10 @@ class Google_Service_Webmasters_Sitemaps_Resource extends Google_Service_Resourc
   /**
    * Retrieves information about a specific sitemap. (sitemaps.get)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
-   * 'http://www.example.com/'
-   * @param string $feedpath The URL of the actual sitemap (for example
-   * http://www.example.com/sitemap.xml).
+   * @param string $siteUrl The site's URL, including protocol. For example:
+   * http://www.example.com/
+   * @param string $feedpath The URL of the actual sitemap. For example:
+   * http://www.example.com/sitemap.xml
    * @param array $optParams Optional parameters.
    * @return Google_Service_Webmasters_WmxSitemap
    */
@@ -329,13 +388,16 @@ class Google_Service_Webmasters_Sitemaps_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Lists sitemaps uploaded to the site. (sitemaps.listSitemaps)
+   * Lists the sitemaps-entries submitted for this site, or included in the
+   * sitemap index file (if sitemapIndex is specified in the request).
+   * (sitemaps.listSitemaps)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
-   * 'http://www.example.com/'
+   * @param string $siteUrl The site's URL, including protocol. For example:
+   * http://www.example.com/
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string sitemapIndex A URL of a site's sitemap index.
+   * @opt_param string sitemapIndex A URL of a site's sitemap index. For example:
+   * http://www.example.com/sitemapindex.xml
    * @return Google_Service_Webmasters_SitemapsListResponse
    */
   public function listSitemaps($siteUrl, $optParams = array())
@@ -348,9 +410,10 @@ class Google_Service_Webmasters_Sitemaps_Resource extends Google_Service_Resourc
   /**
    * Submits a sitemap for a site. (sitemaps.submit)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
-   * 'http://www.example.com/'
-   * @param string $feedpath The URL of the sitemap to add.
+   * @param string $siteUrl The site's URL, including protocol. For example:
+   * http://www.example.com/
+   * @param string $feedpath The URL of the sitemap to add. For example:
+   * http://www.example.com/sitemap.xml
    * @param array $optParams Optional parameters.
    */
   public function submit($siteUrl, $feedpath, $optParams = array())
@@ -389,8 +452,8 @@ class Google_Service_Webmasters_Sites_Resource extends Google_Service_Resource
    * Removes a site from the set of the user's Webmaster Tools sites.
    * (sites.delete)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
-   * 'http://www.example.com/'
+   * @param string $siteUrl The URI of the property as defined in Search Console.
+   * Examples: http://www.example.com/ or android-app://com.example/
    * @param array $optParams Optional parameters.
    */
   public function delete($siteUrl, $optParams = array())
@@ -403,8 +466,8 @@ class Google_Service_Webmasters_Sites_Resource extends Google_Service_Resource
   /**
    * Retrieves information about specific site. (sites.get)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
-   * 'http://www.example.com/'
+   * @param string $siteUrl The URI of the property as defined in Search Console.
+   * Examples: http://www.example.com/ or android-app://com.example/
    * @param array $optParams Optional parameters.
    * @return Google_Service_Webmasters_WmxSite
    */
@@ -416,7 +479,7 @@ class Google_Service_Webmasters_Sites_Resource extends Google_Service_Resource
   }
 
   /**
-   * Lists your Webmaster Tools sites. (sites.listSites)
+   * Lists the user's Webmaster Tools sites. (sites.listSites)
    *
    * @param array $optParams Optional parameters.
    * @return Google_Service_Webmasters_SitesListResponse
@@ -444,14 +507,14 @@ class Google_Service_Webmasters_Urlcrawlerrorscounts_Resource extends Google_Ser
    * Retrieves a time series of the number of URL crawl errors per error category
    * and platform. (urlcrawlerrorscounts.query)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
-   * 'http://www.example.com/'
+   * @param string $siteUrl The site's URL, including protocol. For example:
+   * http://www.example.com/
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string category The crawl error category, for example
-   * 'serverError'. If not specified, we return results for all categories.
+   * @opt_param string category The crawl error category. For example:
+   * serverError. If not specified, returns results for all categories.
    * @opt_param string platform The user agent type (platform) that made the
-   * request, for example 'web'. If not specified, we return results for all
+   * request. For example: web. If not specified, returns results for all
    * platforms.
    * @opt_param bool latestCountsOnly If true, returns only the latest crawl error
    * counts.
@@ -480,14 +543,16 @@ class Google_Service_Webmasters_Urlcrawlerrorssamples_Resource extends Google_Se
    * Retrieves details about crawl errors for a site's sample URL.
    * (urlcrawlerrorssamples.get)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
-   * 'http://www.example.com/'
-   * @param string $url The relative path (without the site) of the sample URL;
-   * must be one of the URLs returned by list
-   * @param string $category The crawl error category, for example
-   * 'authPermissions'
-   * @param string $platform The user agent type (platform) that made the request,
-   * for example 'web'
+   * @param string $siteUrl The site's URL, including protocol. For example:
+   * http://www.example.com/
+   * @param string $url The relative path (without the site) of the sample URL. It
+   * must be one of the URLs returned by list(). For example, for the URL
+   * https://www.example.com/pagename on the site https://www.example.com/, the
+   * url value is pagename
+   * @param string $category The crawl error category. For example:
+   * authPermissions
+   * @param string $platform The user agent type (platform) that made the request.
+   * For example: web
    * @param array $optParams Optional parameters.
    * @return Google_Service_Webmasters_UrlCrawlErrorsSample
    */
@@ -502,12 +567,12 @@ class Google_Service_Webmasters_Urlcrawlerrorssamples_Resource extends Google_Se
    * Lists a site's sample URLs for the specified crawl error category and
    * platform. (urlcrawlerrorssamples.listUrlcrawlerrorssamples)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
-   * 'http://www.example.com/'
-   * @param string $category The crawl error category, for example
-   * 'authPermissions'
-   * @param string $platform The user agent type (platform) that made the request,
-   * for example 'web'
+   * @param string $siteUrl The site's URL, including protocol. For example:
+   * http://www.example.com/
+   * @param string $category The crawl error category. For example:
+   * authPermissions
+   * @param string $platform The user agent type (platform) that made the request.
+   * For example: web
    * @param array $optParams Optional parameters.
    * @return Google_Service_Webmasters_UrlCrawlErrorsSamplesListResponse
    */
@@ -522,14 +587,16 @@ class Google_Service_Webmasters_Urlcrawlerrorssamples_Resource extends Google_Se
    * Marks the provided site's sample URL as fixed, and removes it from the
    * samples list. (urlcrawlerrorssamples.markAsFixed)
    *
-   * @param string $siteUrl The site's URL, including protocol, for example
-   * 'http://www.example.com/'
-   * @param string $url The relative path (without the site) of the sample URL;
-   * must be one of the URLs returned by list
-   * @param string $category The crawl error category, for example
-   * 'authPermissions'
-   * @param string $platform The user agent type (platform) that made the request,
-   * for example 'web'
+   * @param string $siteUrl The site's URL, including protocol. For example:
+   * http://www.example.com/
+   * @param string $url The relative path (without the site) of the sample URL. It
+   * must be one of the URLs returned by list(). For example, for the URL
+   * https://www.example.com/pagename on the site https://www.example.com/, the
+   * url value is pagename
+   * @param string $category The crawl error category. For example:
+   * authPermissions
+   * @param string $platform The user agent type (platform) that made the request.
+   * For example: web
    * @param array $optParams Optional parameters.
    */
   public function markAsFixed($siteUrl, $url, $category, $platform, $optParams = array())
@@ -542,6 +609,224 @@ class Google_Service_Webmasters_Urlcrawlerrorssamples_Resource extends Google_Se
 
 
 
+
+class Google_Service_Webmasters_ApiDataRow extends Google_Collection
+{
+  protected $collection_key = 'keys';
+  protected $internal_gapi_mappings = array(
+  );
+  public $clicks;
+  public $ctr;
+  public $impressions;
+  public $keys;
+  public $position;
+
+
+  public function setClicks($clicks)
+  {
+    $this->clicks = $clicks;
+  }
+  public function getClicks()
+  {
+    return $this->clicks;
+  }
+  public function setCtr($ctr)
+  {
+    $this->ctr = $ctr;
+  }
+  public function getCtr()
+  {
+    return $this->ctr;
+  }
+  public function setImpressions($impressions)
+  {
+    $this->impressions = $impressions;
+  }
+  public function getImpressions()
+  {
+    return $this->impressions;
+  }
+  public function setKeys($keys)
+  {
+    $this->keys = $keys;
+  }
+  public function getKeys()
+  {
+    return $this->keys;
+  }
+  public function setPosition($position)
+  {
+    $this->position = $position;
+  }
+  public function getPosition()
+  {
+    return $this->position;
+  }
+}
+
+class Google_Service_Webmasters_ApiDimensionFilter extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $dimension;
+  public $expression;
+  public $operator;
+
+
+  public function setDimension($dimension)
+  {
+    $this->dimension = $dimension;
+  }
+  public function getDimension()
+  {
+    return $this->dimension;
+  }
+  public function setExpression($expression)
+  {
+    $this->expression = $expression;
+  }
+  public function getExpression()
+  {
+    return $this->expression;
+  }
+  public function setOperator($operator)
+  {
+    $this->operator = $operator;
+  }
+  public function getOperator()
+  {
+    return $this->operator;
+  }
+}
+
+class Google_Service_Webmasters_ApiDimensionFilterGroup extends Google_Collection
+{
+  protected $collection_key = 'filters';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $filtersType = 'Google_Service_Webmasters_ApiDimensionFilter';
+  protected $filtersDataType = 'array';
+  public $groupType;
+
+
+  public function setFilters($filters)
+  {
+    $this->filters = $filters;
+  }
+  public function getFilters()
+  {
+    return $this->filters;
+  }
+  public function setGroupType($groupType)
+  {
+    $this->groupType = $groupType;
+  }
+  public function getGroupType()
+  {
+    return $this->groupType;
+  }
+}
+
+class Google_Service_Webmasters_SearchAnalyticsQueryRequest extends Google_Collection
+{
+  protected $collection_key = 'dimensions';
+  protected $internal_gapi_mappings = array(
+  );
+  public $aggregationType;
+  protected $dimensionFilterGroupsType = 'Google_Service_Webmasters_ApiDimensionFilterGroup';
+  protected $dimensionFilterGroupsDataType = 'array';
+  public $dimensions;
+  public $endDate;
+  public $rowLimit;
+  public $searchType;
+  public $startDate;
+
+
+  public function setAggregationType($aggregationType)
+  {
+    $this->aggregationType = $aggregationType;
+  }
+  public function getAggregationType()
+  {
+    return $this->aggregationType;
+  }
+  public function setDimensionFilterGroups($dimensionFilterGroups)
+  {
+    $this->dimensionFilterGroups = $dimensionFilterGroups;
+  }
+  public function getDimensionFilterGroups()
+  {
+    return $this->dimensionFilterGroups;
+  }
+  public function setDimensions($dimensions)
+  {
+    $this->dimensions = $dimensions;
+  }
+  public function getDimensions()
+  {
+    return $this->dimensions;
+  }
+  public function setEndDate($endDate)
+  {
+    $this->endDate = $endDate;
+  }
+  public function getEndDate()
+  {
+    return $this->endDate;
+  }
+  public function setRowLimit($rowLimit)
+  {
+    $this->rowLimit = $rowLimit;
+  }
+  public function getRowLimit()
+  {
+    return $this->rowLimit;
+  }
+  public function setSearchType($searchType)
+  {
+    $this->searchType = $searchType;
+  }
+  public function getSearchType()
+  {
+    return $this->searchType;
+  }
+  public function setStartDate($startDate)
+  {
+    $this->startDate = $startDate;
+  }
+  public function getStartDate()
+  {
+    return $this->startDate;
+  }
+}
+
+class Google_Service_Webmasters_SearchAnalyticsQueryResponse extends Google_Collection
+{
+  protected $collection_key = 'rows';
+  protected $internal_gapi_mappings = array(
+  );
+  public $responseAggregationType;
+  protected $rowsType = 'Google_Service_Webmasters_ApiDataRow';
+  protected $rowsDataType = 'array';
+
+
+  public function setResponseAggregationType($responseAggregationType)
+  {
+    $this->responseAggregationType = $responseAggregationType;
+  }
+  public function getResponseAggregationType()
+  {
+    return $this->responseAggregationType;
+  }
+  public function setRows($rows)
+  {
+    $this->rows = $rows;
+  }
+  public function getRows()
+  {
+    return $this->rows;
+  }
+}
 
 class Google_Service_Webmasters_SitemapsListResponse extends Google_Collection
 {
