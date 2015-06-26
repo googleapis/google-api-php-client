@@ -56,6 +56,7 @@ class Google_Service_AndroidEnterprise extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'androidenterprise/v1/';
     $this->version = 'v1';
     $this->serviceName = 'androidenterprise';
@@ -753,7 +754,41 @@ class Google_Service_AndroidEnterprise extends Google_Service
         'products',
         array(
           'methods' => array(
-            'get' => array(
+            'approve' => array(
+              'path' => 'enterprises/{enterpriseId}/products/{productId}/approve',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'generateApprovalUrl' => array(
+              'path' => 'enterprises/{enterpriseId}/products/{productId}/generateApprovalUrl',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'enterpriseId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'languageCode' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'get' => array(
               'path' => 'enterprises/{enterpriseId}/products/{productId}',
               'httpMethod' => 'GET',
               'parameters' => array(
@@ -1642,6 +1677,43 @@ class Google_Service_AndroidEnterprise_Products_Resource extends Google_Service_
 {
 
   /**
+   * Approves the specified product (and the relevant app permissions, if any).
+   * (products.approve)
+   *
+   * @param string $enterpriseId The ID of the enterprise.
+   * @param string $productId The ID of the product.
+   * @param Google_ProductsApproveRequest $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function approve($enterpriseId, $productId, Google_Service_AndroidEnterprise_ProductsApproveRequest $postBody, $optParams = array())
+  {
+    $params = array('enterpriseId' => $enterpriseId, 'productId' => $productId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('approve', array($params));
+  }
+
+  /**
+   * Generates a URL that can be used to display an iframe to view the product's
+   * permissions (if any) and approve the product. This URL can be used to approve
+   * the product for a limited time (currently 1 hour) using the Products.approve
+   * call. (products.generateApprovalUrl)
+   *
+   * @param string $enterpriseId The ID of the enterprise.
+   * @param string $productId The ID of the product.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string languageCode The language code that will be used for
+   * permission names and descriptions in the returned iframe.
+   * @return Google_Service_AndroidEnterprise_ProductsGenerateApprovalUrlResponse
+   */
+  public function generateApprovalUrl($enterpriseId, $productId, $optParams = array())
+  {
+    $params = array('enterpriseId' => $enterpriseId, 'productId' => $productId);
+    $params = array_merge($params, $optParams);
+    return $this->call('generateApprovalUrl', array($params), "Google_Service_AndroidEnterprise_ProductsGenerateApprovalUrlResponse");
+  }
+
+  /**
    * Retrieves details of a product for display to an enterprise admin.
    * (products.get)
    *
@@ -1938,6 +2010,58 @@ class Google_Service_AndroidEnterprise_AppRestrictionsSchemaRestrictionRestricti
   }
 }
 
+class Google_Service_AndroidEnterprise_AppVersion extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $versionCode;
+  public $versionString;
+
+
+  public function setVersionCode($versionCode)
+  {
+    $this->versionCode = $versionCode;
+  }
+  public function getVersionCode()
+  {
+    return $this->versionCode;
+  }
+  public function setVersionString($versionString)
+  {
+    $this->versionString = $versionString;
+  }
+  public function getVersionString()
+  {
+    return $this->versionString;
+  }
+}
+
+class Google_Service_AndroidEnterprise_ApprovalUrlInfo extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $approvalUrl;
+  public $kind;
+
+
+  public function setApprovalUrl($approvalUrl)
+  {
+    $this->approvalUrl = $approvalUrl;
+  }
+  public function getApprovalUrl()
+  {
+    return $this->approvalUrl;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
 class Google_Service_AndroidEnterprise_Collection extends Google_Collection
 {
   protected $collection_key = 'productId';
@@ -2054,6 +2178,7 @@ class Google_Service_AndroidEnterprise_Device extends Google_Model
   );
   public $androidId;
   public $kind;
+  public $managementType;
 
 
   public function setAndroidId($androidId)
@@ -2071,6 +2196,14 @@ class Google_Service_AndroidEnterprise_Device extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setManagementType($managementType)
+  {
+    $this->managementType = $managementType;
+  }
+  public function getManagementType()
+  {
+    return $this->managementType;
   }
 }
 
@@ -2523,19 +2656,32 @@ class Google_Service_AndroidEnterprise_Permission extends Google_Model
   }
 }
 
-class Google_Service_AndroidEnterprise_Product extends Google_Model
+class Google_Service_AndroidEnterprise_Product extends Google_Collection
 {
+  protected $collection_key = 'appVersion';
   protected $internal_gapi_mappings = array(
   );
+  protected $appVersionType = 'Google_Service_AndroidEnterprise_AppVersion';
+  protected $appVersionDataType = 'array';
   public $authorName;
   public $detailsUrl;
+  public $distributionChannel;
   public $iconUrl;
   public $kind;
   public $productId;
+  public $requiresContainerApp;
   public $title;
   public $workDetailsUrl;
 
 
+  public function setAppVersion($appVersion)
+  {
+    $this->appVersion = $appVersion;
+  }
+  public function getAppVersion()
+  {
+    return $this->appVersion;
+  }
   public function setAuthorName($authorName)
   {
     $this->authorName = $authorName;
@@ -2551,6 +2697,14 @@ class Google_Service_AndroidEnterprise_Product extends Google_Model
   public function getDetailsUrl()
   {
     return $this->detailsUrl;
+  }
+  public function setDistributionChannel($distributionChannel)
+  {
+    $this->distributionChannel = $distributionChannel;
+  }
+  public function getDistributionChannel()
+  {
+    return $this->distributionChannel;
   }
   public function setIconUrl($iconUrl)
   {
@@ -2575,6 +2729,14 @@ class Google_Service_AndroidEnterprise_Product extends Google_Model
   public function getProductId()
   {
     return $this->productId;
+  }
+  public function setRequiresContainerApp($requiresContainerApp)
+  {
+    $this->requiresContainerApp = $requiresContainerApp;
+  }
+  public function getRequiresContainerApp()
+  {
+    return $this->requiresContainerApp;
   }
   public function setTitle($title)
   {
@@ -2654,6 +2816,41 @@ class Google_Service_AndroidEnterprise_ProductPermissions extends Google_Collect
   public function getProductId()
   {
     return $this->productId;
+  }
+}
+
+class Google_Service_AndroidEnterprise_ProductsApproveRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $approvalUrlInfoType = 'Google_Service_AndroidEnterprise_ApprovalUrlInfo';
+  protected $approvalUrlInfoDataType = '';
+
+
+  public function setApprovalUrlInfo(Google_Service_AndroidEnterprise_ApprovalUrlInfo $approvalUrlInfo)
+  {
+    $this->approvalUrlInfo = $approvalUrlInfo;
+  }
+  public function getApprovalUrlInfo()
+  {
+    return $this->approvalUrlInfo;
+  }
+}
+
+class Google_Service_AndroidEnterprise_ProductsGenerateApprovalUrlResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $url;
+
+
+  public function setUrl($url)
+  {
+    $this->url = $url;
+  }
+  public function getUrl()
+  {
+    return $this->url;
   }
 }
 
