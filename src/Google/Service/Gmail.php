@@ -66,6 +66,7 @@ class Google_Service_Gmail extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'gmail/v1/users/';
     $this->version = 'v1';
     $this->serviceName = 'gmail';
@@ -79,6 +80,26 @@ class Google_Service_Gmail extends Google_Service
             'getProfile' => array(
               'path' => '{userId}/profile',
               'httpMethod' => 'GET',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'stop' => array(
+              'path' => '{userId}/stop',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'watch' => array(
+              'path' => '{userId}/watch',
+              'httpMethod' => 'POST',
               'parameters' => array(
                 'userId' => array(
                   'location' => 'path',
@@ -676,6 +697,37 @@ class Google_Service_Gmail_Users_Resource extends Google_Service_Resource
     $params = array_merge($params, $optParams);
     return $this->call('getProfile', array($params), "Google_Service_Gmail_Profile");
   }
+
+  /**
+   * Stop receiving push notifications for the given user mailbox. (users.stop)
+   *
+   * @param string $userId The user's email address. The special value me can be
+   * used to indicate the authenticated user.
+   * @param array $optParams Optional parameters.
+   */
+  public function stop($userId, $optParams = array())
+  {
+    $params = array('userId' => $userId);
+    $params = array_merge($params, $optParams);
+    return $this->call('stop', array($params));
+  }
+
+  /**
+   * Set up or update a push notification watch on the given user mailbox.
+   * (users.watch)
+   *
+   * @param string $userId The user's email address. The special value me can be
+   * used to indicate the authenticated user.
+   * @param Google_WatchRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Gmail_WatchResponse
+   */
+  public function watch($userId, Google_Service_Gmail_WatchRequest $postBody, $optParams = array())
+  {
+    $params = array('userId' => $userId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('watch', array($params), "Google_Service_Gmail_WatchResponse");
+  }
 }
 
 /**
@@ -822,10 +874,11 @@ class Google_Service_Gmail_UsersHistory_Resource extends Google_Service_Resource
    * increase chronologically but are not contiguous with random gaps in between
    * valid IDs. Supplying an invalid or out of date startHistoryId typically
    * returns an HTTP 404 error code. A historyId is typically valid for at least a
-   * week, but in some circumstances may be valid for only a few hours. If you
-   * receive an HTTP 404 error response, your application should perform a full
-   * sync. If you receive no nextPageToken in the response, there are no updates
-   * to retrieve and you can store the returned historyId for a future request.
+   * week, but in some rare circumstances may be valid for only a few hours. If
+   * you receive an HTTP 404 error response, your application should perform a
+   * full sync. If you receive no nextPageToken in the response, there are no
+   * updates to retrieve and you can store the returned historyId for a future
+   * request.
    * @return Google_Service_Gmail_ListHistoryResponse
    */
   public function listUsersHistory($userId, $optParams = array())
@@ -1741,6 +1794,7 @@ class Google_Service_Gmail_Message extends Google_Collection
   );
   public $historyId;
   public $id;
+  public $internalDate;
   public $labelIds;
   protected $payloadType = 'Google_Service_Gmail_MessagePart';
   protected $payloadDataType = '';
@@ -1765,6 +1819,14 @@ class Google_Service_Gmail_Message extends Google_Collection
   public function getId()
   {
     return $this->id;
+  }
+  public function setInternalDate($internalDate)
+  {
+    $this->internalDate = $internalDate;
+  }
+  public function getInternalDate()
+  {
+    return $this->internalDate;
   }
   public function setLabelIds($labelIds)
   {
@@ -2084,5 +2146,67 @@ class Google_Service_Gmail_Thread extends Google_Collection
   public function getSnippet()
   {
     return $this->snippet;
+  }
+}
+
+class Google_Service_Gmail_WatchRequest extends Google_Collection
+{
+  protected $collection_key = 'labelIds';
+  protected $internal_gapi_mappings = array(
+  );
+  public $labelFilterAction;
+  public $labelIds;
+  public $topicName;
+
+
+  public function setLabelFilterAction($labelFilterAction)
+  {
+    $this->labelFilterAction = $labelFilterAction;
+  }
+  public function getLabelFilterAction()
+  {
+    return $this->labelFilterAction;
+  }
+  public function setLabelIds($labelIds)
+  {
+    $this->labelIds = $labelIds;
+  }
+  public function getLabelIds()
+  {
+    return $this->labelIds;
+  }
+  public function setTopicName($topicName)
+  {
+    $this->topicName = $topicName;
+  }
+  public function getTopicName()
+  {
+    return $this->topicName;
+  }
+}
+
+class Google_Service_Gmail_WatchResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $expiration;
+  public $historyId;
+
+
+  public function setExpiration($expiration)
+  {
+    $this->expiration = $expiration;
+  }
+  public function getExpiration()
+  {
+    return $this->expiration;
+  }
+  public function setHistoryId($historyId)
+  {
+    $this->historyId = $historyId;
+  }
+  public function getHistoryId()
+  {
+    return $this->historyId;
   }
 }
