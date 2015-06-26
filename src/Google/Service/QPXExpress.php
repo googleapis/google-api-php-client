@@ -44,6 +44,7 @@ class Google_Service_QPXExpress extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'qpxExpress/v1/trips/';
     $this->version = 'v1';
     $this->serviceName = 'qpxExpress';
