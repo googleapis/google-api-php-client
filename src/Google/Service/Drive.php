@@ -39,7 +39,7 @@ class Google_Service_Drive extends Google_Service
   /** View your Google Drive apps. */
   const DRIVE_APPS_READONLY =
       "https://www.googleapis.com/auth/drive.apps.readonly";
-  /** View and manage Google Drive files that you have opened or created with this app. */
+  /** View and manage Google Drive files and folders that you have opened or created with this app. */
   const DRIVE_FILE =
       "https://www.googleapis.com/auth/drive.file";
   /** View and manage metadata of files in your Google Drive. */
@@ -78,6 +78,7 @@ class Google_Service_Drive extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'drive/v2/';
     $this->version = 'v2';
     $this->serviceName = 'drive';
@@ -170,10 +171,6 @@ class Google_Service_Drive extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'startChangeId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'includeDeleted' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -183,6 +180,14 @@ class Google_Service_Drive extends Google_Service
                   'type' => 'integer',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'spaces' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'startChangeId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -195,10 +200,6 @@ class Google_Service_Drive extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'startChangeId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'includeDeleted' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -208,6 +209,14 @@ class Google_Service_Drive extends Google_Service
                   'type' => 'integer',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'spaces' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'startChangeId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -537,6 +546,14 @@ class Google_Service_Drive extends Google_Service
               'path' => 'files',
               'httpMethod' => 'GET',
               'parameters' => array(
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'q' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -545,17 +562,13 @@ class Google_Service_Drive extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'spaces' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'corpus' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-                'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
                 ),
               ),
             ),'patch' => array(
@@ -1397,10 +1410,12 @@ class Google_Service_Drive_Changes_Resource extends Google_Service_Resource
    * has opened and shared files. When set to false, the list only includes owned
    * files plus any shared or public files the user has explicitly added to a
    * folder they own.
-   * @opt_param string startChangeId Change ID to start listing changes from.
    * @opt_param bool includeDeleted Whether to include deleted items.
    * @opt_param int maxResults Maximum number of changes to return.
    * @opt_param string pageToken Page token for changes.
+   * @opt_param string spaces A comma-separated list of spaces to query. Supported
+   * values are 'drive' and 'appDataFolder'.
+   * @opt_param string startChangeId Change ID to start listing changes from.
    * @return Google_Service_Drive_ChangeList
    */
   public function listChanges($optParams = array())
@@ -1420,10 +1435,12 @@ class Google_Service_Drive_Changes_Resource extends Google_Service_Resource
    * has opened and shared files. When set to false, the list only includes owned
    * files plus any shared or public files the user has explicitly added to a
    * folder they own.
-   * @opt_param string startChangeId Change ID to start listing changes from.
    * @opt_param bool includeDeleted Whether to include deleted items.
    * @opt_param int maxResults Maximum number of changes to return.
    * @opt_param string pageToken Page token for changes.
+   * @opt_param string spaces A comma-separated list of spaces to query. Supported
+   * values are 'drive' and 'appDataFolder'.
+   * @opt_param string startChangeId Change ID to start listing changes from.
    * @return Google_Service_Drive_Channel
    */
   public function watch(Google_Service_Drive_Channel $postBody, $optParams = array())
@@ -1670,7 +1687,7 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @opt_param bool convert Whether to convert this file to the corresponding
    * Google Docs format.
    * @opt_param string ocrLanguage If ocr is true, hints at the language to use.
-   * Valid values are ISO 639-1 codes.
+   * Valid values are BCP 47 codes.
    * @opt_param string visibility The visibility of the new file. This parameter
    * is only relevant when the source is not a native Google Doc and
    * convert=false.
@@ -1749,7 +1766,7 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @opt_param bool useContentAsIndexableText Whether to use the content as
    * indexable text.
    * @opt_param string ocrLanguage If ocr is true, hints at the language to use.
-   * Valid values are ISO 639-1 codes.
+   * Valid values are BCP 47 codes.
    * @opt_param string visibility The visibility of the new file. This parameter
    * is only relevant when convert=false.
    * @opt_param bool pinned Whether to pin the head revision of the uploaded file.
@@ -1772,13 +1789,15 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string q Query string for searching files.
-   * @opt_param string pageToken Page token for files.
-   * @opt_param string corpus The body of items (files/documents) to which the
-   * query applies.
    * @opt_param string projection This parameter is deprecated and has no
    * function.
    * @opt_param int maxResults Maximum number of files to return.
+   * @opt_param string q Query string for searching files.
+   * @opt_param string pageToken Page token for files.
+   * @opt_param string spaces A comma-separated list of spaces to query. Supported
+   * values are 'drive' and 'appDataFolder'.
+   * @opt_param string corpus The body of items (files/documents) to which the
+   * query applies.
    * @return Google_Service_Drive_FileList
    */
   public function listFiles($optParams = array())
@@ -1807,14 +1826,15 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @opt_param bool useContentAsIndexableText Whether to use the content as
    * indexable text.
    * @opt_param string ocrLanguage If ocr is true, hints at the language to use.
-   * Valid values are ISO 639-1 codes.
+   * Valid values are BCP 47 codes.
    * @opt_param bool pinned Whether to pin the new revision. A file can have a
    * maximum of 200 pinned revisions.
    * @opt_param bool newRevision Whether a blob upload should create a new
    * revision. If false, the blob data in the current head revision is replaced.
    * If true or not set, a new blob is created as head revision, and previous
-   * revisions are preserved (causing increased use of the user's data storage
-   * quota).
+   * unpinned revisions are preserved for a short period of time. Pinned revisions
+   * are stored indefinitely, using additional storage quota, up to a maximum of
+   * 200 revisions.
    * @opt_param bool ocr Whether to attempt OCR on .jpg, .png, .gif, or .pdf
    * uploads.
    * @opt_param string timedTextLanguage The language of the timed text.
@@ -1888,14 +1908,15 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @opt_param bool useContentAsIndexableText Whether to use the content as
    * indexable text.
    * @opt_param string ocrLanguage If ocr is true, hints at the language to use.
-   * Valid values are ISO 639-1 codes.
+   * Valid values are BCP 47 codes.
    * @opt_param bool pinned Whether to pin the new revision. A file can have a
    * maximum of 200 pinned revisions.
    * @opt_param bool newRevision Whether a blob upload should create a new
    * revision. If false, the blob data in the current head revision is replaced.
    * If true or not set, a new blob is created as head revision, and previous
-   * revisions are preserved (causing increased use of the user's data storage
-   * quota).
+   * unpinned revisions are preserved for a short period of time. Pinned revisions
+   * are stored indefinitely, using additional storage quota, up to a maximum of
+   * 200 revisions.
    * @opt_param bool ocr Whether to attempt OCR on .jpg, .png, .gif, or .pdf
    * uploads.
    * @opt_param string timedTextLanguage The language of the timed text.
@@ -3973,11 +3994,12 @@ class Google_Service_Drive_CommentReplyList extends Google_Collection
 
 class Google_Service_Drive_DriveFile extends Google_Collection
 {
-  protected $collection_key = 'properties';
+  protected $collection_key = 'spaces';
   protected $internal_gapi_mappings = array(
   );
   public $alternateLink;
   public $appDataContents;
+  public $canComment;
   public $copyable;
   public $createdDate;
   public $defaultOpenWithLink;
@@ -4012,6 +4034,7 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   public $modifiedDate;
   public $openWithLinks;
   public $originalFilename;
+  public $ownedByMe;
   public $ownerNames;
   protected $ownersType = 'Google_Service_Drive_User';
   protected $ownersDataType = 'array';
@@ -4023,10 +4046,12 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   protected $propertiesDataType = 'array';
   public $quotaBytesUsed;
   public $selfLink;
+  public $shareable;
   public $shared;
   public $sharedWithMeDate;
   protected $sharingUserType = 'Google_Service_Drive_User';
   protected $sharingUserDataType = '';
+  public $spaces;
   protected $thumbnailType = 'Google_Service_Drive_DriveFileThumbnail';
   protected $thumbnailDataType = '';
   public $thumbnailLink;
@@ -4056,6 +4081,14 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   public function getAppDataContents()
   {
     return $this->appDataContents;
+  }
+  public function setCanComment($canComment)
+  {
+    $this->canComment = $canComment;
+  }
+  public function getCanComment()
+  {
+    return $this->canComment;
   }
   public function setCopyable($copyable)
   {
@@ -4297,6 +4330,14 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->originalFilename;
   }
+  public function setOwnedByMe($ownedByMe)
+  {
+    $this->ownedByMe = $ownedByMe;
+  }
+  public function getOwnedByMe()
+  {
+    return $this->ownedByMe;
+  }
   public function setOwnerNames($ownerNames)
   {
     $this->ownerNames = $ownerNames;
@@ -4353,6 +4394,14 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   {
     return $this->selfLink;
   }
+  public function setShareable($shareable)
+  {
+    $this->shareable = $shareable;
+  }
+  public function getShareable()
+  {
+    return $this->shareable;
+  }
   public function setShared($shared)
   {
     $this->shared = $shared;
@@ -4376,6 +4425,14 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   public function getSharingUser()
   {
     return $this->sharingUser;
+  }
+  public function setSpaces($spaces)
+  {
+    $this->spaces = $spaces;
+  }
+  public function getSpaces()
+  {
+    return $this->spaces;
   }
   public function setThumbnail(Google_Service_Drive_DriveFileThumbnail $thumbnail)
   {
