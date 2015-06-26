@@ -53,6 +53,7 @@ class Google_Service_Replicapool extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'replicapool/v1beta2/projects/';
     $this->version = 'v1beta2';
     $this->serviceName = 'replicapool';
@@ -617,6 +618,8 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   protected $collection_key = 'targetPools';
   protected $internal_gapi_mappings = array(
   );
+  protected $autoHealingPoliciesType = 'Google_Service_Replicapool_ReplicaPoolAutoHealingPolicy';
+  protected $autoHealingPoliciesDataType = 'array';
   public $baseInstanceName;
   public $creationTimestamp;
   public $currentSize;
@@ -632,6 +635,14 @@ class Google_Service_Replicapool_InstanceGroupManager extends Google_Collection
   public $targetSize;
 
 
+  public function setAutoHealingPolicies($autoHealingPolicies)
+  {
+    $this->autoHealingPolicies = $autoHealingPolicies;
+  }
+  public function getAutoHealingPolicies()
+  {
+    return $this->autoHealingPolicies;
+  }
   public function setBaseInstanceName($baseInstanceName)
   {
     $this->baseInstanceName = $baseInstanceName;
@@ -1269,5 +1280,22 @@ class Google_Service_Replicapool_OperationWarningsData extends Google_Model
   public function getValue()
   {
     return $this->value;
+  }
+}
+
+class Google_Service_Replicapool_ReplicaPoolAutoHealingPolicy extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $healthCheck;
+
+
+  public function setHealthCheck($healthCheck)
+  {
+    $this->healthCheck = $healthCheck;
+  }
+  public function getHealthCheck()
+  {
+    return $this->healthCheck;
   }
 }
