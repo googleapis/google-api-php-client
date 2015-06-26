@@ -43,6 +43,7 @@ class Google_Service_AndroidPublisher extends Google_Service
   public $edits_listings;
   public $edits_testers;
   public $edits_tracks;
+  public $entitlements;
   public $inappproducts;
   public $purchases_products;
   public $purchases_subscriptions;
@@ -56,6 +57,7 @@ class Google_Service_AndroidPublisher extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'androidpublisher/v2/applications/';
     $this->version = 'v2';
     $this->serviceName = 'androidpublisher';
@@ -894,6 +896,42 @@ class Google_Service_AndroidPublisher extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->entitlements = new Google_Service_AndroidPublisher_Entitlements_Resource(
+        $this,
+        $this->serviceName,
+        'entitlements',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => '{packageName}/entitlements',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'packageName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'token' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'startIndex' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'productId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1984,6 +2022,40 @@ class Google_Service_AndroidPublisher_EditsTracks_Resource extends Google_Servic
 }
 
 /**
+ * The "entitlements" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $androidpublisherService = new Google_Service_AndroidPublisher(...);
+ *   $entitlements = $androidpublisherService->entitlements;
+ *  </code>
+ */
+class Google_Service_AndroidPublisher_Entitlements_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Lists the user's current inapp item or subscription entitlements
+   * (entitlements.listEntitlements)
+   *
+   * @param string $packageName The package name of the application the inapp
+   * product was sold in (for example, 'com.some.thing').
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string token
+   * @opt_param string startIndex
+   * @opt_param string maxResults
+   * @opt_param string productId The product id of the inapp product (for example,
+   * 'sku1'). This can be used to restrict the result set.
+   * @return Google_Service_AndroidPublisher_EntitlementsListResponse
+   */
+  public function listEntitlements($packageName, $optParams = array())
+  {
+    $params = array('packageName' => $packageName);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_AndroidPublisher_EntitlementsListResponse");
+  }
+}
+
+/**
  * The "inappproducts" collection of methods.
  * Typical usage is:
  *  <code>
@@ -2511,6 +2583,89 @@ class Google_Service_AndroidPublisher_AppEdit extends Google_Model
   public function getId()
   {
     return $this->id;
+  }
+}
+
+class Google_Service_AndroidPublisher_Entitlement extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+  public $productId;
+  public $productType;
+  public $token;
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setProductId($productId)
+  {
+    $this->productId = $productId;
+  }
+  public function getProductId()
+  {
+    return $this->productId;
+  }
+  public function setProductType($productType)
+  {
+    $this->productType = $productType;
+  }
+  public function getProductType()
+  {
+    return $this->productType;
+  }
+  public function setToken($token)
+  {
+    $this->token = $token;
+  }
+  public function getToken()
+  {
+    return $this->token;
+  }
+}
+
+class Google_Service_AndroidPublisher_EntitlementsListResponse extends Google_Collection
+{
+  protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $pageInfoType = 'Google_Service_AndroidPublisher_PageInfo';
+  protected $pageInfoDataType = '';
+  protected $resourcesType = 'Google_Service_AndroidPublisher_Entitlement';
+  protected $resourcesDataType = 'array';
+  protected $tokenPaginationType = 'Google_Service_AndroidPublisher_TokenPagination';
+  protected $tokenPaginationDataType = '';
+
+
+  public function setPageInfo(Google_Service_AndroidPublisher_PageInfo $pageInfo)
+  {
+    $this->pageInfo = $pageInfo;
+  }
+  public function getPageInfo()
+  {
+    return $this->pageInfo;
+  }
+  public function setResources($resources)
+  {
+    $this->resources = $resources;
+  }
+  public function getResources()
+  {
+    return $this->resources;
+  }
+  public function setTokenPagination(Google_Service_AndroidPublisher_TokenPagination $tokenPagination)
+  {
+    $this->tokenPagination = $tokenPagination;
+  }
+  public function getTokenPagination()
+  {
+    return $this->tokenPagination;
   }
 }
 
