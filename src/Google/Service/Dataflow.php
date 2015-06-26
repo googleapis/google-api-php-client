@@ -50,6 +50,7 @@ class Google_Service_Dataflow extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://dataflow.googleapis.com/';
     $this->servicePath = 'v1b3/projects/';
     $this->version = 'v1b3';
     $this->serviceName = 'dataflow';
@@ -68,6 +69,10 @@ class Google_Service_Dataflow extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'replaceJobId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'view' => array(
                   'location' => 'query',
@@ -287,6 +292,7 @@ class Google_Service_Dataflow_ProjectsJobs_Resource extends Google_Service_Resou
    * @param Google_Job $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string replaceJobId
    * @opt_param string view
    * @return Google_Service_Dataflow_Job
    */
@@ -864,6 +870,7 @@ class Google_Service_Dataflow_Job extends Google_Collection
   protected $collection_key = 'steps';
   protected $internal_gapi_mappings = array(
   );
+  public $clientRequestId;
   public $createTime;
   public $currentState;
   public $currentStateTime;
@@ -874,12 +881,22 @@ class Google_Service_Dataflow_Job extends Google_Collection
   public $id;
   public $name;
   public $projectId;
+  public $replaceJobId;
   public $requestedState;
   protected $stepsType = 'Google_Service_Dataflow_Step';
   protected $stepsDataType = 'array';
+  public $transformNameMapping;
   public $type;
 
 
+  public function setClientRequestId($clientRequestId)
+  {
+    $this->clientRequestId = $clientRequestId;
+  }
+  public function getClientRequestId()
+  {
+    return $this->clientRequestId;
+  }
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
@@ -944,6 +961,14 @@ class Google_Service_Dataflow_Job extends Google_Collection
   {
     return $this->projectId;
   }
+  public function setReplaceJobId($replaceJobId)
+  {
+    $this->replaceJobId = $replaceJobId;
+  }
+  public function getReplaceJobId()
+  {
+    return $this->replaceJobId;
+  }
   public function setRequestedState($requestedState)
   {
     $this->requestedState = $requestedState;
@@ -959,6 +984,14 @@ class Google_Service_Dataflow_Job extends Google_Collection
   public function getSteps()
   {
     return $this->steps;
+  }
+  public function setTransformNameMapping($transformNameMapping)
+  {
+    $this->transformNameMapping = $transformNameMapping;
+  }
+  public function getTransformNameMapping()
+  {
+    return $this->transformNameMapping;
   }
   public function setType($type)
   {
@@ -1080,6 +1113,10 @@ class Google_Service_Dataflow_JobMetrics extends Google_Collection
   {
     return $this->metrics;
   }
+}
+
+class Google_Service_Dataflow_JobTransformNameMapping extends Google_Model
+{
 }
 
 class Google_Service_Dataflow_KeyRangeDataDiskAssignment extends Google_Model
@@ -3264,9 +3301,11 @@ class Google_Service_Dataflow_WorkerPool extends Google_Collection
   public $defaultPackageSet;
   public $diskSizeGb;
   public $diskSourceImage;
+  public $diskType;
   public $kind;
   public $machineType;
   public $metadata;
+  public $network;
   public $numWorkers;
   public $onHostMaintenance;
   protected $packagesType = 'Google_Service_Dataflow_Package';
@@ -3318,6 +3357,14 @@ class Google_Service_Dataflow_WorkerPool extends Google_Collection
   {
     return $this->diskSourceImage;
   }
+  public function setDiskType($diskType)
+  {
+    $this->diskType = $diskType;
+  }
+  public function getDiskType()
+  {
+    return $this->diskType;
+  }
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3341,6 +3388,14 @@ class Google_Service_Dataflow_WorkerPool extends Google_Collection
   public function getMetadata()
   {
     return $this->metadata;
+  }
+  public function setNetwork($network)
+  {
+    $this->network = $network;
+  }
+  public function getNetwork()
+  {
+    return $this->network;
   }
   public function setNumWorkers($numWorkers)
   {
