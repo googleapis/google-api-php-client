@@ -58,6 +58,7 @@ class Google_Service_AdExchangeSeller extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'adexchangeseller/v2.0/';
     $this->version = 'v2.0';
     $this->serviceName = 'adexchangeseller';
