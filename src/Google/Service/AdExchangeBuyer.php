@@ -52,6 +52,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'adexchangebuyer/v1.3/';
     $this->version = 'v1.3';
     $this->serviceName = 'adexchangebuyer';
@@ -1593,10 +1594,14 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   protected $collection_key = 'hostedMatchStatusRate';
   protected $internal_gapi_mappings = array(
   );
+  public $bidRate;
+  public $bidRequestRate;
   public $calloutStatusRate;
   public $cookieMatcherStatusRate;
   public $creativeStatusRate;
+  public $filteredBidRate;
   public $hostedMatchStatusRate;
+  public $inventoryMatchRate;
   public $kind;
   public $latency50thPercentile;
   public $latency85thPercentile;
@@ -1608,9 +1613,27 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   public $quotaConfiguredLimit;
   public $quotaThrottledLimit;
   public $region;
+  public $successfulRequestRate;
   public $timestamp;
+  public $unsuccessfulRequestRate;
 
 
+  public function setBidRate($bidRate)
+  {
+    $this->bidRate = $bidRate;
+  }
+  public function getBidRate()
+  {
+    return $this->bidRate;
+  }
+  public function setBidRequestRate($bidRequestRate)
+  {
+    $this->bidRequestRate = $bidRequestRate;
+  }
+  public function getBidRequestRate()
+  {
+    return $this->bidRequestRate;
+  }
   public function setCalloutStatusRate($calloutStatusRate)
   {
     $this->calloutStatusRate = $calloutStatusRate;
@@ -1635,6 +1658,14 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     return $this->creativeStatusRate;
   }
+  public function setFilteredBidRate($filteredBidRate)
+  {
+    $this->filteredBidRate = $filteredBidRate;
+  }
+  public function getFilteredBidRate()
+  {
+    return $this->filteredBidRate;
+  }
   public function setHostedMatchStatusRate($hostedMatchStatusRate)
   {
     $this->hostedMatchStatusRate = $hostedMatchStatusRate;
@@ -1642,6 +1673,14 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   public function getHostedMatchStatusRate()
   {
     return $this->hostedMatchStatusRate;
+  }
+  public function setInventoryMatchRate($inventoryMatchRate)
+  {
+    $this->inventoryMatchRate = $inventoryMatchRate;
+  }
+  public function getInventoryMatchRate()
+  {
+    return $this->inventoryMatchRate;
   }
   public function setKind($kind)
   {
@@ -1731,6 +1770,14 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   {
     return $this->region;
   }
+  public function setSuccessfulRequestRate($successfulRequestRate)
+  {
+    $this->successfulRequestRate = $successfulRequestRate;
+  }
+  public function getSuccessfulRequestRate()
+  {
+    return $this->successfulRequestRate;
+  }
   public function setTimestamp($timestamp)
   {
     $this->timestamp = $timestamp;
@@ -1738,6 +1785,14 @@ class Google_Service_AdExchangeBuyer_PerformanceReport extends Google_Collection
   public function getTimestamp()
   {
     return $this->timestamp;
+  }
+  public function setUnsuccessfulRequestRate($unsuccessfulRequestRate)
+  {
+    $this->unsuccessfulRequestRate = $unsuccessfulRequestRate;
+  }
+  public function getUnsuccessfulRequestRate()
+  {
+    return $this->unsuccessfulRequestRate;
   }
 }
 
