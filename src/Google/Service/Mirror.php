@@ -54,6 +54,7 @@ class Google_Service_Mirror extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'mirror/v1/';
     $this->version = 'v1';
     $this->serviceName = 'mirror';
