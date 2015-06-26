@@ -51,6 +51,7 @@ class Google_Service_Logging extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://logging.googleapis.com/';
     $this->servicePath = '';
     $this->version = 'v1beta3';
     $this->serviceName = 'logging';
