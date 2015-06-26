@@ -48,6 +48,7 @@ class Google_Service_Doubleclicksearch extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'doubleclicksearch/v2/';
     $this->version = 'v2';
     $this->serviceName = 'doubleclicksearch';
@@ -524,6 +525,7 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
   public $agencyId;
   public $attributionModel;
   public $campaignId;
+  public $channel;
   public $clickId;
   public $conversionId;
   public $conversionModifiedTimestamp;
@@ -535,15 +537,22 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
   protected $customDimensionDataType = 'array';
   protected $customMetricType = 'Google_Service_Doubleclicksearch_CustomMetric';
   protected $customMetricDataType = 'array';
+  public $deviceType;
   public $dsConversionId;
   public $engineAccountId;
   public $floodlightOrderId;
+  public $inventoryAccountId;
+  public $productCountry;
+  public $productGroupId;
+  public $productId;
+  public $productLanguage;
   public $quantityMillis;
   public $revenueMicros;
   public $segmentationId;
   public $segmentationName;
   public $segmentationType;
   public $state;
+  public $storeId;
   public $type;
 
 
@@ -594,6 +603,14 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
   public function getCampaignId()
   {
     return $this->campaignId;
+  }
+  public function setChannel($channel)
+  {
+    $this->channel = $channel;
+  }
+  public function getChannel()
+  {
+    return $this->channel;
   }
   public function setClickId($clickId)
   {
@@ -667,6 +684,14 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
   {
     return $this->customMetric;
   }
+  public function setDeviceType($deviceType)
+  {
+    $this->deviceType = $deviceType;
+  }
+  public function getDeviceType()
+  {
+    return $this->deviceType;
+  }
   public function setDsConversionId($dsConversionId)
   {
     $this->dsConversionId = $dsConversionId;
@@ -690,6 +715,46 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
   public function getFloodlightOrderId()
   {
     return $this->floodlightOrderId;
+  }
+  public function setInventoryAccountId($inventoryAccountId)
+  {
+    $this->inventoryAccountId = $inventoryAccountId;
+  }
+  public function getInventoryAccountId()
+  {
+    return $this->inventoryAccountId;
+  }
+  public function setProductCountry($productCountry)
+  {
+    $this->productCountry = $productCountry;
+  }
+  public function getProductCountry()
+  {
+    return $this->productCountry;
+  }
+  public function setProductGroupId($productGroupId)
+  {
+    $this->productGroupId = $productGroupId;
+  }
+  public function getProductGroupId()
+  {
+    return $this->productGroupId;
+  }
+  public function setProductId($productId)
+  {
+    $this->productId = $productId;
+  }
+  public function getProductId()
+  {
+    return $this->productId;
+  }
+  public function setProductLanguage($productLanguage)
+  {
+    $this->productLanguage = $productLanguage;
+  }
+  public function getProductLanguage()
+  {
+    return $this->productLanguage;
   }
   public function setQuantityMillis($quantityMillis)
   {
@@ -738,6 +803,14 @@ class Google_Service_Doubleclicksearch_Conversion extends Google_Collection
   public function getState()
   {
     return $this->state;
+  }
+  public function setStoreId($storeId)
+  {
+    $this->storeId = $storeId;
+  }
+  public function getStoreId()
+  {
+    return $this->storeId;
   }
   public function setType($type)
   {
