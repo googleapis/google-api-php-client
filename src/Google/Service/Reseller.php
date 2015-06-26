@@ -49,6 +49,7 @@ class Google_Service_Reseller extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
+    $this->rootUrl = 'https://www.googleapis.com/';
     $this->servicePath = 'apps/reseller/v1/';
     $this->version = 'v1';
     $this->serviceName = 'reseller';
@@ -833,8 +834,9 @@ class Google_Service_Reseller_Seats extends Google_Model
   }
 }
 
-class Google_Service_Reseller_Subscription extends Google_Model
+class Google_Service_Reseller_Subscription extends Google_Collection
 {
+  protected $collection_key = 'suspensionReasons';
   protected $internal_gapi_mappings = array(
   );
   public $billingMethod;
@@ -852,6 +854,7 @@ class Google_Service_Reseller_Subscription extends Google_Model
   public $skuId;
   public $status;
   public $subscriptionId;
+  public $suspensionReasons;
   protected $transferInfoType = 'Google_Service_Reseller_SubscriptionTransferInfo';
   protected $transferInfoDataType = '';
   protected $trialSettingsType = 'Google_Service_Reseller_SubscriptionTrialSettings';
@@ -953,6 +956,14 @@ class Google_Service_Reseller_Subscription extends Google_Model
   public function getSubscriptionId()
   {
     return $this->subscriptionId;
+  }
+  public function setSuspensionReasons($suspensionReasons)
+  {
+    $this->suspensionReasons = $suspensionReasons;
+  }
+  public function getSuspensionReasons()
+  {
+    return $this->suspensionReasons;
   }
   public function setTransferInfo(Google_Service_Reseller_SubscriptionTransferInfo $transferInfo)
   {
