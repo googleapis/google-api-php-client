@@ -2876,6 +2876,7 @@ class Google_Service_Bigquery_Table extends Google_Model
   public $id;
   public $kind;
   public $lastModifiedTime;
+  public $location;
   public $numBytes;
   public $numRows;
   protected $schemaType = 'Google_Service_Bigquery_TableSchema';
@@ -2951,6 +2952,14 @@ class Google_Service_Bigquery_Table extends Google_Model
   public function getLastModifiedTime()
   {
     return $this->lastModifiedTime;
+  }
+  public function setLocation($location)
+  {
+    $this->location = $location;
+  }
+  public function getLocation()
+  {
+    return $this->location;
   }
   public function setNumBytes($numBytes)
   {
