@@ -1287,9 +1287,18 @@ class Google_Service_Replicapool_ReplicaPoolAutoHealingPolicy extends Google_Mod
 {
   protected $internal_gapi_mappings = array(
   );
+  public $actionType;
   public $healthCheck;
 
 
+  public function setActionType($actionType)
+  {
+    $this->actionType = $actionType;
+  }
+  public function getActionType()
+  {
+    return $this->actionType;
+  }
   public function setHealthCheck($healthCheck)
   {
     $this->healthCheck = $healthCheck;
