@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-class BatchTest extends PHPUnit_Framework_TestCase
+class Google_Http_BatchTest extends PHPUnit_Framework_TestCase
 {
 
   public function setUp()

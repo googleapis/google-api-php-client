@@ -83,7 +83,7 @@ class Google_Http_Request
    */
   public function setBaseComponent($baseComponent)
   {
-    $this->baseComponent = $baseComponent;
+    $this->baseComponent = rtrim($baseComponent, '/');
   }
   
   /**
