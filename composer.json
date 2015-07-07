@@ -9,7 +9,8 @@
         "php": ">=5.2.1"
     },
     "require-dev": {
-      "phpunit/phpunit": "3.7.*"
+        "phpunit/phpunit": "3.7.*",
+        "squizlabs/php_codesniffer": "~2.3"
     },
     "autoload": {
         "classmap": [
