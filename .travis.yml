@@ -34,3 +34,4 @@ before_script:
 
 script:
   - vendor/bin/phpunit
+  - vendor/bin/phpcs src --standard=style/ruleset.xml -np
