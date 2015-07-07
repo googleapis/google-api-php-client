@@ -25,7 +25,7 @@ class Google_Model implements ArrayAccess
 {
   /**
    * If you need to specify a NULL JSON value, use Google_Model::NULL_VALUE
-   * instead - it will be replaced when converting to JSON with a real null. 
+   * instead - it will be replaced when converting to JSON with a real null.
    */
   const NULL_VALUE = "{}gapi-php-null";
   protected $internal_gapi_mappings = array();

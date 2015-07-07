@@ -95,7 +95,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
           'client_secret' => $this->client->getClassConfig($this, 'client_secret')
     );
 
-    if($crossClient !== true) {
+    if ($crossClient !== true) {
         $arguments['redirect_uri'] = $this->client->getClassConfig($this, 'redirect_uri');
     }
 

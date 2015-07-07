@@ -129,10 +129,10 @@ class Google_Client
   }
   
   /**
-   * Loads a service account key and parameters from a JSON 
+   * Loads a service account key and parameters from a JSON
    * file from the Google Developer Console. Uses that and the
-   * given array of scopes to return an assertion credential for 
-   * use with refreshTokenWithAssertionCredential. 
+   * given array of scopes to return an assertion credential for
+   * use with refreshTokenWithAssertionCredential.
    *
    * @param string $jsonLocation File location of the project-key.json.
    * @param array $scopes The scopes to assert.

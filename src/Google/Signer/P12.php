@@ -46,7 +46,7 @@ class Google_Signer_P12 extends Google_Signer_Abstract
     // at the time.
     if (!$password && strpos($p12, "-----BEGIN RSA PRIVATE KEY-----") !== false) {
       $this->privateKey = openssl_pkey_get_private($p12);
-    } elseif($password === 'notasecret' && strpos($p12, "-----BEGIN PRIVATE KEY-----") !== false) {
+    } elseif ($password === 'notasecret' && strpos($p12, "-----BEGIN PRIVATE KEY-----") !== false) {
       $this->privateKey = openssl_pkey_get_private($p12);
     } else {
       // This throws on error
