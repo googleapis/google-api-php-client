@@ -14,14 +14,16 @@ cache:
   directories:
     - $HOME/.composer/cache
 
-php:
-  # Can't test against 5.2; openssl is not available:
-  # http://docs.travis-ci.com/user/languages/php/#PHP-installation
-  - 5.3
-  - 5.4
-  - 5.5
-  - 5.6
-  - hhvm
+matrix:
+  include:
+    # Can't test against 5.2; openssl is not available:
+    # http://docs.travis-ci.com/user/languages/php/#PHP-installation
+    - php: 5.3
+    - php: 5.4
+    - php: 5.5
+    - php: 5.6
+      env: PHPCS=true
+    - php: hhvm
 
 install:
   - composer install
@@ -34,4 +36,4 @@ before_script:
 
 script:
   - vendor/bin/phpunit
-  - vendor/bin/phpcs src --standard=style/ruleset.xml -np
+  - if [[ "$PHPCS" == "true" ]]; then vendor/bin/phpcs src --standard=style/ruleset.xml -np; fi
