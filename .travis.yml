@@ -5,10 +5,14 @@ services:
 
 env:
   global:
-    - MEMCACHE_HOST=127.0.0.1 
+    - MEMCACHE_HOST=127.0.0.1
     - MEMCACHE_PORT=11211
 
 sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
 
 php:
   # Can't test against 5.2; openssl is not available:
