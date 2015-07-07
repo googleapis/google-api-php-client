@@ -15,6 +15,7 @@ cache:
     - $HOME/.composer/cache
 
 matrix:
+  fast_finish: true
   include:
     # Can't test against 5.2; openssl is not available:
     # http://docs.travis-ci.com/user/languages/php/#PHP-installation
