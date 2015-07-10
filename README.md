@@ -84,18 +84,22 @@ $opt_params = array(
 
 The library strips out nulls from the objects sent to the Google APIs as its the default value of all of the uninitialised properties. To work around this, set the field you want to null to Google_Model::NULL_VALUE. This is a placeholder that will be replaced with a true null when sent over the wire.
 
-## Notes For Distributors ##
-
-To avoid clashes with the autoloader, its best to update the function inside autoload.php to `google_api_php_client_autoload_MyProject`.
-
 ## Code Quality ##
 
 Run the PHPUnit tests with PHPUnit. You can configure an API key and token in BaseTest.php to run all calls, but this will require some setup on the Google Developer Console.
 
     phpunit tests/
 
-Copy the ruleset.xml in style/ into a new directory named GAPI/ in your
-/usr/share/php/PHP/CodeSniffer/Standards (or appropriate equivalent directory),
-and run code sniffs with:
+### Coding Style
 
-        phpcs --standard=GAPI src/
+To check for coding style violations, run
+
+```
+vendor/bin/phpcs src --standard=style/ruleset.xml -np 
+```
+
+To automatically fix (fixable) coding style violations, run  
+
+```
+vendor/bin/phpcbf src --standard=style/ruleset.xml
+```

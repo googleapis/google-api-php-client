@@ -56,7 +56,7 @@ class Google_Collection extends Google_Model implements Iterator, Countable
     return count($this->modelData[$this->collection_key]);
   }
 
-  public function offsetExists ($offset)
+  public function offsetExists($offset)
   {
     if (!is_numeric($offset)) {
       return parent::offsetExists($offset);

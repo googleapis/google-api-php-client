@@ -130,7 +130,7 @@ class Google_Http_Request
     return $this->queryParams;
   }
 
-  /** 
+  /**
    * Set a new query parameter.
    * @param $key - string to set, does not need to be URL encoded
    * @param $value - string to set, does not need to be URL encoded
@@ -441,7 +441,7 @@ class Google_Http_Request
   
   /**
    * Our own version of parse_str that allows for multiple variables
-   * with the same name. 
+   * with the same name.
    * @param $string - the query string to parse
    */
   private function parseQuery($string)
@@ -465,7 +465,7 @@ class Google_Http_Request
   
   /**
    * A version of build query that allows for multiple
-   * duplicate keys. 
+   * duplicate keys.
    * @param $parts array of key value pairs
    */
   private function buildQuery($parts)
@@ -483,7 +483,7 @@ class Google_Http_Request
     return implode('&', $return);
   }
   
-  /** 
+  /**
    * If we're POSTing and have no body to send, we can send the query
    * parameters in there, which avoids length issues with longer query
    * params.
