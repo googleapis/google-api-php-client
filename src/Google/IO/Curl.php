@@ -66,8 +66,10 @@ class Google_IO_Curl extends Google_IO_Abstract
       }
 
       if (isset($this->options[CURLOPT_HTTPHEADER])) {
-        foreach($this->options[CURLOPT_HTTPHEADER] as $optionHeader) {
-          $curlHeaders[] = $optionHeader;
+        if (is_array($this->options[CURLOPT_HTTPHEADER])) {
+          foreach($this->options[CURLOPT_HTTPHEADER] as $optionHeader) {
+            $curlHeaders[] = $optionHeader;
+          }
         }
         unset($this->options[CURLOPT_HTTPHEADER]);
       }
