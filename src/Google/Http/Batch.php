@@ -79,7 +79,9 @@ class Google_Http_Batch
 
     $httpRequest->setPostBody($body);
     $response = $this->client->getIo()->makeRequest($httpRequest);
-
+    
+    $this->requests = array();
+    
     return $this->parseResponse($response);
   }
 
