@@ -30,8 +30,13 @@ $client->setRedirectUri("urn:ietf:wg:oauth:2.0:oob");
 // Visit https://code.google.com/apis/console to
 // generate your oauth2_client_id, oauth2_client_secret, and to
 // register your oauth2_redirect_uri.
-$client->setClientId("");
-$client->setClientSecret("");
+$clientId = getenv('GCLOUD_CLIENT_ID') ? getenv('GCLOUD_CLIENT_ID') : null;
+$clientSecret = getenv('GCLOUD_CLIENT_SECRET') ? getenv('GCLOUD_CLIENT_SECRET') : null;
+if (!($clientId && $clientSecret)) {
+  die("fetching a token requires GCLOUD_CLIENT_ID and GCLOUD_CLIENT_SECRET to be set\n");
+}
+$client->setClientId($clientId);
+$client->setClientSecret($clientSecret);
 
 $authUrl = $client->createAuthUrl();
 
@@ -40,6 +45,7 @@ echo "\nPlease enter the auth code:\n";
 $authCode = trim(fgets(STDIN));
 
 $accessToken = $client->authenticate($authCode);
+$file = dirname(__FILE__) . DIRECTORY_SEPARATOR . '.accessToken';
+file_put_contents($file, $accessToken);
 
-echo "\n", 'Add the following to BaseTest.php as the $token value:', "\n\n";
-echo $accessToken, "\n\n";
+echo "successfully loaded access token\n";
