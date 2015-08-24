@@ -15,6 +15,10 @@
  * limitations under the License.
  */
 
+use GuzzleHttp\Message\Request;
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Stream\Stream;
+
 class TaskTest extends PHPUnit_Framework_TestCase
 {
   private $client;
@@ -153,7 +157,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   /**
    * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
-   * @expectedException Google_IO_Exception
+   * @expectedException Google_Service_Exception
    */
   public function testCurlRetryOffByDefault($errorCode, $errorMessage = '')
   {
@@ -163,7 +167,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   /**
    * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
-   * @expectedException Google_IO_Exception
+   * @expectedException Google_Service_Exception
    */
   public function testOneCurlRetryWithError($errorCode, $errorMessage = '')
   {
@@ -174,7 +178,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   /**
    * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
-   * @expectedException Google_IO_Exception
+   * @expectedException Google_Service_Exception
    */
   public function testMultipleCurlRetriesWithErrors(
       $errorCode,
@@ -217,14 +221,14 @@ class TaskTest extends PHPUnit_Framework_TestCase
   /**
    * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
-   * @expectedException Google_IO_Exception
+   * @expectedException Google_Service_Exception
    */
   public function testCustomCurlRetryMapReplacesDefaults(
       $errorCode,
       $errorMessage = ''
   ) {
     $this->client->setClassConfig(
-        'Google_IO_Exception',
+        'Google_Service_Exception',
         array('retry_map' => array())
     );
 
@@ -238,7 +242,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   public function testCustomCurlRetryMapAddsNewHandlers()
   {
     $this->client->setClassConfig(
-        'Google_IO_Exception',
+        'Google_Service_Exception',
         array('retry_map' => array(
             CURLE_COULDNT_RESOLVE_PROXY => Google_Config::TASK_RETRY_ALWAYS
         ))
@@ -254,13 +258,13 @@ class TaskTest extends PHPUnit_Framework_TestCase
 
   /**
    * @requires extension curl
-   * @expectedException Google_IO_Exception
+   * @expectedException Google_Service_Exception
    * @dataProvider customLimitsProvider
    */
   public function testCustomCurlRetryMapWithCustomLimits($limit)
   {
     $this->client->setClassConfig(
-        'Google_IO_Exception',
+        'Google_Service_Exception',
         array('retry_map' => array(
             CURLE_COULDNT_RESOLVE_PROXY => $limit
         ))
@@ -297,7 +301,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
     $this->setTaskConfig($config);
 
     new Google_Task_Runner(
-        $this->client,
+        $this->client->getClassConfig('Google_Task_Runner'),
         '',
         array($this, 'testBadTaskConfig')
     );
@@ -309,11 +313,12 @@ class TaskTest extends PHPUnit_Framework_TestCase
    */
   public function testBadTaskCallback()
   {
-    new Google_Task_Runner($this->client, '', 5);
+    $config = $this->client->getClassConfig('Google_Task_Runner');
+    new Google_Task_Runner($config, '', 5);
   }
 
   /**
-   * @expectedException Google_IO_Exception
+   * @expectedException Google_Service_Exception
    */
   public function testTaskRetryOffByDefault()
   {
@@ -322,7 +327,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   }
 
   /**
-   * @expectedException Google_IO_Exception
+   * @expectedException Google_Service_Exception
    */
   public function testOneTaskRetryWithError()
   {
@@ -332,7 +337,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   }
 
   /**
-   * @expectedException Google_IO_Exception
+   * @expectedException Google_Service_Exception
    */
   public function testMultipleTaskRetriesWithErrors()
   {
@@ -362,7 +367,7 @@ class TaskTest extends PHPUnit_Framework_TestCase
   }
 
   /**
-   * @expectedException Google_IO_Exception
+   * @expectedException Google_Service_Exception
    * @dataProvider customLimitsProvider
    */
   public function testTaskRetryWithCustomLimits($limit)
@@ -392,9 +397,10 @@ class TaskTest extends PHPUnit_Framework_TestCase
   {
     $this->setTaskConfig(array('retries' => 2));
     $this->setNextTasksAllowedRetries(2, Google_Config::TASK_RETRY_ALWAYS);
+    $config = $this->client->getClassConfig('Google_Task_Runner');
 
     $task = new Google_Task_Runner(
-        $this->client,
+        $config,
         '',
         array($this, 'runNextTask')
     );
@@ -610,11 +616,12 @@ class TaskTest extends PHPUnit_Framework_TestCase
    */
   private function setNextResponseThrows($message, $code)
   {
-    $map = $this->client->getClassConfig('Google_IO_Exception', 'retry_map');
-    $this->mockedCalls[$this->mockedCallsCount++] = new Google_IO_Exception(
+    $map = $this->client->getClassConfig('Google_Service_Exception', 'retry_map');
+    $this->mockedCalls[$this->mockedCallsCount++] = new Google_Service_Exception(
         $message,
         $code,
         null,
+        array(),
         $map
     );
 
@@ -628,20 +635,17 @@ class TaskTest extends PHPUnit_Framework_TestCase
    */
   private function makeRequest()
   {
-    $request = new Google_Http_Request('/test');
+    $request = new Request('GET', '/test');
+    $http = $this->getMock('GuzzleHttp\ClientInterface');
 
-    $io = $this->getMockBuilder('Google_IO_Abstract')
-               ->disableOriginalConstructor()
-               ->setMethods(array('makeRequest'))
-               ->getMockForAbstractClass();
-
-    $io->expects($this->exactly($this->mockedCallsCount))
-       ->method('makeRequest')
+    $http->expects($this->exactly($this->mockedCallsCount))
+       ->method('send')
        ->will($this->returnCallback(array($this, 'getNextMockedCall')));
 
-    $this->client->setIo($io);
+    $config = $this->client->getClassConfig('Google_Task_Runner');
+    $retryMap = $this->client->getClassConfig('Google_Service_Exception', 'retry_map');
 
-    return Google_Http_REST::execute($this->client, $request);
+    return Google_Http_REST::execute($http, $request, $config, $retryMap);
   }
 
   /**
@@ -659,11 +663,10 @@ class TaskTest extends PHPUnit_Framework_TestCase
       throw $current;
     }
 
-    $request->setResponseHttpCode($current['code']);
-    $request->setResponseHeaders($current['headers']);
-    $request->setResponseBody($current['body']);
+    $stream = Stream::factory($current['body']);
+    $response = new Response($current['code'], $current['headers'], $stream);
 
-    return $request;
+    return $response;
   }
 
   /**
@@ -716,13 +719,14 @@ class TaskTest extends PHPUnit_Framework_TestCase
    */
   private function runTask()
   {
+    $config = $this->client->getClassConfig('Google_Task_Runner');
     $task = new Google_Task_Runner(
-        $this->client,
+        $config,
         '',
         array($this, 'runNextTask')
     );
 
-    $exception = $this->getMockBuilder('Google_IO_Exception')
+    $exception = $this->getMockBuilder('Google_Service_Exception')
                       ->disableOriginalConstructor()
                       ->setMethods(array('allowedRetries'))
                       ->getMock();

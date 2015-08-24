@@ -15,6 +15,9 @@
  * limitations under the License.
  */
 
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Stream\Stream;
+
 class RestTest extends BaseTest
 {
   /**
@@ -29,90 +32,35 @@ class RestTest extends BaseTest
 
   public function testDecodeResponse()
   {
-    $url = 'http://localhost';
     $client = $this->getClient();
-    $response = new Google_Http_Request($url);
-    $response->setResponseHttpCode(204);
-    $decoded = $this->rest->decodeHttpResponse($response, $client);
+    $response = new Response(204);
+    $decoded = $this->rest->decodeHttpResponse($response);
     $this->assertEquals(null, $decoded);
-
 
     foreach (array(200, 201) as $code) {
       $headers = array('foo', 'bar');
-      $response = new Google_Http_Request($url, 'GET', $headers);
-      $response->setResponseBody('{"a": 1}');
+      $stream = Stream::factory('{"a": 1}');
+      $response = new Response($code, $headers, $stream);
 
-      $response->setResponseHttpCode($code);
-      $decoded = $this->rest->decodeHttpResponse($response, $client);
+      $decoded = $this->rest->decodeHttpResponse($response);
       $this->assertEquals(array("a" => 1), $decoded);
     }
+  }
 
-    $response = new Google_Http_Request($url);
-    $response->setResponseHttpCode(500);
-
-    $error = "";
-    try {
-      $this->rest->decodeHttpResponse($response, $client);
-    } catch (Exception $e) {
-      $error = $e->getMessage();
-
-    }
-    $this->assertEquals(trim($error), "Error calling GET http://localhost: (500)");
+  /** @expectedException Google_Service_Exception */
+  public function testDecode500ResponseThrowsException()
+  {
+    $response = new Response(500);
+    $this->rest->decodeHttpResponse($response);
   }
 
 
   public function testDecodeEmptyResponse()
   {
-    $url = 'http://localhost';
-
-    $response = new Google_Http_Request($url, 'GET', array());
-    $response->setResponseBody('{}');
-
-    $response->setResponseHttpCode(200);
+    $stream = Stream::factory('{}');
+    $response = new Response(200, array(), $stream);
     $decoded = $this->rest->decodeHttpResponse($response);
     $this->assertEquals(array(), $decoded);
-  }
-
-  public function testCreateRequestUri()
-  {
-    $basePath = "http://localhost";
-    $restPath = "/plus/{u}";
-
-    // Test Path
-    $params = array();
-    $params['u']['type'] = 'string';
-    $params['u']['location'] = 'path';
-    $params['u']['value'] = 'me';
-    $value = $this->rest->createRequestUri($basePath, $restPath, $params);
-    $this->assertEquals("http://localhost/plus/me", $value);
-
-    // Test Query
-    $params = array();
-    $params['u']['type'] = 'string';
-    $params['u']['location'] = 'query';
-    $params['u']['value'] = 'me';
-    $value = $this->rest->createRequestUri($basePath, '/plus', $params);
-    $this->assertEquals("http://localhost/plus?u=me", $value);
-
-    // Test Booleans
-    $params = array();
-    $params['u']['type'] = 'boolean';
-    $params['u']['location'] = 'path';
-    $params['u']['value'] = '1';
-    $value = $this->rest->createRequestUri($basePath, $restPath, $params);
-    $this->assertEquals("http://localhost/plus/true", $value);
-
-    $params['u']['location'] = 'query';
-    $value = $this->rest->createRequestUri($basePath, '/plus', $params);
-    $this->assertEquals("http://localhost/plus?u=true", $value);
-
-    // Test encoding
-    $params = array();
-    $params['u']['type'] = 'string';
-    $params['u']['location'] = 'query';
-    $params['u']['value'] = '@me/';
-    $value = $this->rest->createRequestUri($basePath, '/plus', $params);
-    $this->assertEquals("http://localhost/plus?u=%40me%2F", $value);
   }
 
   /**
@@ -120,9 +68,7 @@ class RestTest extends BaseTest
    */
   public function testBadErrorFormatting()
   {
-    $request = new Google_Http_Request("/a/b");
-    $request->setResponseHttpCode(500);
-    $request->setResponseBody(
+    $stream = Stream::factory(
         '{
          "error": {
           "code": 500,
@@ -130,7 +76,8 @@ class RestTest extends BaseTest
          }
         }'
     );
-    Google_Http_Rest::decodeHttpResponse($request);
+    $response = new Response(500, array(), $stream);
+    $this->rest->decodeHttpResponse($response);
   }
 
   /**
@@ -138,9 +85,7 @@ class RestTest extends BaseTest
    */
   public function tesProperErrorFormatting()
   {
-    $request = new Google_Http_Request("/a/b");
-    $request->setResponseHttpCode(401);
-    $request->setResponseBody(
+    $stream = Stream::factory(
         '{
           error: {
            errors: [
@@ -156,6 +101,7 @@ class RestTest extends BaseTest
           "message": "Invalid Credentials"
         }'
     );
-    Google_Http_Rest::decodeHttpResponse($request);
+    $response = new Response(401, array(), $stream);
+    $this->rest->decodeHttpResponse($response);
   }
 }

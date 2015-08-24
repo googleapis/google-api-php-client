@@ -79,11 +79,11 @@ function missingServiceAccountDetailsWarning()
   if (isWebRequest()) {
     $ret = "
       <h3 class='warn'>
-        Warning: You need to set Client ID, Email address and the location of the Key from the
+        Warning: You need to set the location of your Service Account JSON Credentials from the
         <a href='http://developers.google.com/console'>Google API console</a>
       </h3>";
   } else {
-    $ret = "Warning: You need to set Client ID, Email address and the location of the Key from the";
+    $ret = "Warning: You need to set the location of Service Account JSON Credentials from the";
     $ret .= " Google API console:\nhttp://developers.google.com/console\n";
   }
   return $ret;

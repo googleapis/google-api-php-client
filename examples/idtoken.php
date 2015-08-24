@@ -59,7 +59,11 @@ if (isset($_GET['code'])) {
   If we have an access token, we can make
   requests, else we generate an authentication URL.
  ************************************************/
-if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
+if (
+  isset($_SESSION['access_token'])
+  && $_SESSION['access_token']
+  && false !== strpos($_SESSION['access_token'], 'id_token')
+) {
   $client->setAccessToken($_SESSION['access_token']);
 } else {
   $authUrl = $client->createAuthUrl();
@@ -75,7 +79,7 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
  ************************************************/
 if ($client->getAccessToken()) {
   $_SESSION['access_token'] = $client->getAccessToken();
-  $token_data = $client->verifyIdToken()->getAttributes();
+  $token_data = $client->verifyIdToken();
 }
 
 echo pageHeader("User Query - Retrieving An Id Token");
@@ -96,7 +100,7 @@ if (isset($authUrl)) {
   </div>
 
   <div class="data">
-<?php 
+<?php
 if (isset($token_data)) {
   var_dump($token_data);
 }

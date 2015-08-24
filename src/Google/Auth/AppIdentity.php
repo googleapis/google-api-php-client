@@ -29,7 +29,7 @@ if (!class_exists('Google_Client')) {
 /**
  * Authentication via the Google App Engine App Identity service.
  */
-class Google_Auth_AppIdentity extends Google_Auth_Abstract
+class Google_Auth_AppIdentity implements Google_Auth_Interface
 {
   const CACHE_PREFIX = "Google_Auth_AppIdentity::";
   private $client;
@@ -89,19 +89,19 @@ class Google_Auth_AppIdentity extends Google_Auth_Abstract
    * Perform an authenticated / signed apiHttpRequest.
    * This function takes the apiHttpRequest, calls apiAuth->sign on it
    * (which can modify the request in what ever way fits the auth mechanism)
-   * and then calls apiCurlIO::makeRequest on the signed request
+   * and then sends the request using the http client
    *
-   * @param Google_Http_Request $request
-   * @return Google_Http_Request The resulting HTTP response including the
-   * responseHttpCode, responseHeaders and responseBody.
+   * @param GuzzleHttp\Message\Request $request
+   * @return GuzzleHttp\Message\Response The resulting HTTP response
    */
-  public function authenticatedRequest(Google_Http_Request $request)
+  public function authenticatedRequest($request)
   {
     $request = $this->sign($request);
-    return $this->client->getIo()->makeRequest($request);
+
+    return $this->client->getHttpClient()->send($request);
   }
 
-  public function sign(Google_Http_Request $request)
+  public function sign($request)
   {
     if (!$this->token) {
       // No token, so nothing to do.
@@ -111,9 +111,7 @@ class Google_Auth_AppIdentity extends Google_Auth_Abstract
     $this->client->getLogger()->debug('App Identity authentication');
 
     // Add the OAuth2 header to the request
-    $request->setRequestHeaders(
-        array('Authorization' => 'Bearer ' . $this->token['access_token'])
-    );
+    $request->setHeader('Authorization', 'Bearer ' . $this->token['access_token']);
 
     return $request;
   }

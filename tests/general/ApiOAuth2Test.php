@@ -1,4 +1,7 @@
 <?php
+
+use GuzzleHttp\Message\Request;
+
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -34,7 +37,7 @@ class ApiOAuth2Test extends BaseTest
     $client->setApprovalPrompt('force');
     $client->setRequestVisibleActions('http://foo');
 
-    $req = new Google_Http_Request('http://localhost');
+    $req = new Request('GET', 'http://localhost');
     $req = $oauth->sign($req);
 
     $this->assertEquals('http://localhost?key=devKey', $req->getUrl());
@@ -51,7 +54,7 @@ class ApiOAuth2Test extends BaseTest
     );
 
     $req = $oauth->sign($req);
-    $auth = $req->getRequestHeader('authorization');
+    $auth = $req->getHeader('authorization');
     $this->assertEquals('Bearer ACCESS_TOKEN', $auth);
   }
 
@@ -63,26 +66,33 @@ class ApiOAuth2Test extends BaseTest
     $token = "";
 
     $client = $this->getClient();
-    $response = $this->getMock("Google_Http_Request", array(), array(''));
-    $response->expects($this->any())
-            ->method('getResponseHttpCode')
-            ->will($this->returnValue(200));
-    $io = $this->getMock("Google_IO_Stream", array(), array($client));
-    $io->expects($this->any())
-        ->method('makeRequest')
-        ->will(
-            $this->returnCallback(
-                function ($request) use (&$token, $response) {
-                  $elements = array();
-                  parse_str($request->getPostBody(), $elements);
-                  $token = isset($elements['token']) ? $elements['token'] : null;
-                  return $response;
-                }
-            )
-        );
-    $client->setIo($io);
+
+    $postBody = $this->getMock('GuzzleHttp\Post\PostBodyInterface');
+    $postBody->expects($this->exactly(3))
+      ->method('replaceFields')
+      ->will($this->returnCallback(
+            function ($fields) use (&$token) {
+              $token = isset($fields['token']) ? $fields['token'] : null;
+            }
+        ));
+    $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
+    $request->expects($this->exactly(3))
+      ->method('getBody')
+      ->will($this->returnValue($postBody));
+    $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+    $response->expects($this->exactly(3))
+      ->method('getStatusCode')
+      ->will($this->returnValue(200));
+    $http = $this->getMock('GuzzleHttp\ClientInterface');
+    $http->expects($this->exactly(3))
+      ->method('send')
+      ->will($this->returnValue($response));
+    $http->expects($this->exactly(3))
+      ->method('createRequest')
+      ->will($this->returnValue($request));
 
     // Test with access token.
+    $client->setHttpClient($http);
     $oauth  = new Google_Auth_OAuth2($client);
     $oauth->setAccessToken(
         json_encode(
@@ -97,7 +107,6 @@ class ApiOAuth2Test extends BaseTest
     $this->assertEquals($accessToken, $token);
 
     // Test with refresh token.
-    $oauth  = new Google_Auth_OAuth2($client);
     $oauth->setAccessToken(
         json_encode(
             array(
@@ -127,18 +136,20 @@ class ApiOAuth2Test extends BaseTest
     $client->setDeveloperKey('devKey');
     $client->setAccessType('offline');
     $client->setApprovalPrompt('force');
+    $client->setState('xyz');
     $client->setRequestVisibleActions(array('http://foo'));
     $client->setLoginHint("bob@example.org");
 
     $authUrl = $oauth->createAuthUrl("http://googleapis.com/scope/foo");
     $expected = "https://accounts.google.com/o/oauth2/auth"
         . "?response_type=code"
-        . "&redirect_uri=http%3A%2F%2Flocalhost"
-        . "&client_id=clientId1"
-        . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
         . "&access_type=offline"
+        . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
         . "&approval_prompt=force"
-        . "&login_hint=bob%40example.org";
+        . "&login_hint=bob%40example.org"
+        . "&state=xyz"
+        . "&client_id=clientId1"
+        . "&redirect_uri=http%3A%2F%2Flocalhost";
     $this->assertEquals($expected, $authUrl);
 
     // Again with a blank login hint (should remove all traces from authUrl)
@@ -150,14 +161,15 @@ class ApiOAuth2Test extends BaseTest
     $authUrl = $oauth->createAuthUrl("http://googleapis.com/scope/foo");
     $expected = "https://accounts.google.com/o/oauth2/auth"
         . "?response_type=code"
-        . "&redirect_uri=http%3A%2F%2Flocalhost"
-        . "&client_id=clientId1"
-        . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
         . "&access_type=offline"
+        . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
         . "&prompt=select_account"
         . "&hd=example.com"
         . "&openid.realm=example.com"
-        . "&include_granted_scopes=true";
+        . "&include_granted_scopes=true"
+        . "&state=xyz"
+        . "&client_id=clientId1"
+        . "&redirect_uri=http%3A%2F%2Flocalhost";
     $this->assertEquals($expected, $authUrl);
   }
 
@@ -177,26 +189,21 @@ class ApiOAuth2Test extends BaseTest
     $segments = explode(".", $token->id_token);
     $this->assertEquals(3, count($segments));
     // Extract the client ID in this case as it wont be set on the test client.
-    $data = json_decode(Google_Utils::urlSafeB64Decode($segments[1]));
+    $data = json_decode(JWT::urlSafeB64Decode($segments[1]));
     $oauth = new Google_Auth_OAuth2($client);
-    $ticket = $oauth->verifyIdToken($token->id_token, $data->aud);
-    $this->assertInstanceOf(
-        "Google_Auth_LoginTicket",
-        $ticket
-    );
-    $this->assertTrue(strlen($ticket->getUserId()) > 0);
+    $payload = $oauth->verifyIdToken($token->id_token, $data->aud);
+    $this->assertArrayHasKey('sub', $payload);
+    $this->assertTrue(strlen($payload['sub']) > 0);
 
     // TODO: Need to be smart about testing/disabling the
     // caching for this test to make sense. Not sure how to do that
     // at the moment.
     $client = $this->getClient();
-    $client->setIo(new Google_IO_Stream($client));
-    $data = json_decode(Google_Utils::urlSafeB64Decode($segments[1]));
+    $data = json_decode(JWT::urlSafeB64Decode($segments[1]));
     $oauth = new Google_Auth_OAuth2($client);
-    $this->assertInstanceOf(
-        "Google_Auth_LoginTicket",
-        $oauth->verifyIdToken($token->id_token, $data->aud)
-    );
+    $payload = $oauth->verifyIdToken($token->id_token, $data->aud);
+    $this->assertArrayHasKey('sub', $payload);
+    $this->assertTrue(strlen($payload['sub']) > 0);
   }
 
   /**
@@ -214,40 +221,28 @@ class ApiOAuth2Test extends BaseTest
   public function testRefreshTokenSetsValues()
   {
     $client = new Google_Client();
-    $response_data = json_encode(
-        array(
-          'access_token' => "ACCESS_TOKEN",
-          'id_token' => "ID_TOKEN",
-          'expires_in' => "12345",
-        )
-    );
-    $response = $this->getMock("Google_Http_Request", array(), array(''));
-    $response->expects($this->any())
-            ->method('getResponseHttpCode')
-            ->will($this->returnValue(200));
-    $response->expects($this->any())
-            ->method('getResponseBody')
-            ->will($this->returnValue($response_data));
-    $io = $this->getMock("Google_IO_Stream", array(), array($client));
-    $io->expects($this->any())
-        ->method('makeRequest')
-        ->will(
-            $this->returnCallback(
-                function ($request) use (&$token, $response) {
-                  $elements = $request->getPostBody();
-                  PHPUnit_Framework_TestCase::assertEquals(
-                      $elements['grant_type'],
-                      "refresh_token"
-                  );
-                  PHPUnit_Framework_TestCase::assertEquals(
-                      $elements['refresh_token'],
-                      "REFRESH_TOKEN"
-                  );
-                  return $response;
-                }
-            )
-        );
-    $client->setIo($io);
+    $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
+    $request->expects($this->once())
+      ->method('getBody')
+      ->will($this->returnValue($this->getMock('GuzzleHttp\Post\PostBodyInterface')));
+    $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+    $response->expects($this->once())
+      ->method('json')
+      ->will($this->returnValue(array(
+          'access_token' => 'xyz',
+          'id_token' => 'ID_TOKEN',
+        )));
+    $response->expects($this->once())
+      ->method('getBody')
+      ->will($this->returnValue($this->getMock('GuzzleHttp\Post\PostBody')));
+    $http = $this->getMock('GuzzleHttp\ClientInterface');
+    $http->expects($this->once())
+      ->method('send')
+      ->will($this->returnValue($response));
+    $http->expects($this->once())
+      ->method('createRequest')
+      ->will($this->returnValue($request));
+    $client->setHttpClient($http);
     $oauth = new Google_Auth_OAuth2($client);
     $oauth->refreshToken("REFRESH_TOKEN");
     $token = json_decode($oauth->getAccessToken(), true);

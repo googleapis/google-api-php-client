@@ -17,9 +17,6 @@ cache:
 matrix:
   fast_finish: true
   include:
-    # Can't test against 5.2; openssl is not available:
-    # http://docs.travis-ci.com/user/languages/php/#PHP-installation
-    - php: 5.3
     - php: 5.4
     - php: 5.5
     - php: 5.6

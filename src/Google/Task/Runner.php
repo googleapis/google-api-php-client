@@ -56,11 +56,6 @@ class Google_Task_Runner
   private $maxAttempts = 1;
 
   /**
-   * @var Google_Client $client The current API client.
-   */
-  private $client;
-
-  /**
    * @var string $name The name of the current task (used for logging).
    */
   private $name;
@@ -76,20 +71,18 @@ class Google_Task_Runner
   /**
    * Creates a new task runner with exponential backoff support.
    *
-   * @param Google_Client $client The current API client
+   * @param array $config The task runner config
    * @param string $name The name of the current task (used for logging)
    * @param callable $action The task to run and possibly retry
    * @param array $arguments The task arguments
    * @throws Google_Task_Exception when misconfigured
    */
   public function __construct(
-      Google_Client $client,
+      $config,
       $name,
       $action,
       array $arguments = array()
   ) {
-    $config = (array) $client->getClassConfig('Google_Task_Runner');
-
     if (isset($config['initial_delay'])) {
       if ($config['initial_delay'] < 0) {
         throw new Google_Task_Exception(
@@ -146,7 +139,6 @@ class Google_Task_Runner
     }
 
     $this->name = $name;
-    $this->client = $client;
     $this->action = $action;
     $this->arguments = $arguments;
   }
@@ -218,15 +210,6 @@ class Google_Task_Runner
   private function backOff()
   {
     $delay = $this->getDelay();
-
-    $this->client->getLogger()->debug(
-        'Retrying task with backoff',
-        array(
-            'request' => $this->name,
-            'retry' => $this->attempts,
-            'backoff_seconds' => $delay
-        )
-    );
 
     usleep($delay * 1000000);
   }

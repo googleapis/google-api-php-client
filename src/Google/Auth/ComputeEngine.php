@@ -1,4 +1,7 @@
 <?php
+
+use GuzzleHttp\Message\Request;
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -25,7 +28,7 @@ if (!class_exists('Google_Client')) {
  * and the appropriate scopes.
  * @author Jonathan Parrott <jon.wayne.parrott@gmail.com>
  */
-class Google_Auth_ComputeEngine extends Google_Auth_Abstract
+class Google_Auth_ComputeEngine implements Google_Auth_Interface
 {
   const METADATA_AUTH_URL =
       'http://metadata/computeMetadata/v1/instance/service-accounts/default/token';
@@ -43,14 +46,15 @@ class Google_Auth_ComputeEngine extends Google_Auth_Abstract
    * (which can modify the request in what ever way fits the auth mechanism)
    * and then calls apiCurlIO::makeRequest on the signed request
    *
-   * @param Google_Http_Request $request
-   * @return Google_Http_Request The resulting HTTP response including the
+   * @param GuzzleHttp\Message\Request $request
+   * @return GuzzleHttp\Message\Response The resulting HTTP response including the
    * responseHttpCode, responseHeaders and responseBody.
    */
-  public function authenticatedRequest(Google_Http_Request $request)
+  public function authenticatedRequest($request)
   {
     $request = $this->sign($request);
-    return $this->client->getIo()->makeRequest($request);
+
+    return $this->client->getHttpClient()->send($request);
   }
 
   /**
@@ -81,38 +85,39 @@ class Google_Auth_ComputeEngine extends Google_Auth_Abstract
    */
   public function acquireAccessToken()
   {
-    $request = new Google_Http_Request(
-        self::METADATA_AUTH_URL,
+    $request = new Request(
         'GET',
+        self::METADATA_AUTH_URL,
         array(
           'Metadata-Flavor' => 'Google'
         )
     );
-    $request->disableGzip();
-    $response = $this->client->getIo()->makeRequest($request);
+    $http = $this->client->getHttpClient();
+    $http->setDefaultOption('disable_gzip', true);
+    $response = $http->send($request);
 
-    if ($response->getResponseHttpCode() == 200) {
-      $this->setAccessToken($response->getResponseBody());
+    if ($response->getStatusCode() == 200) {
+      $this->setAccessToken((string) $response->getBody());
       $this->token['created'] = time();
       return $this->getAccessToken();
     } else {
       throw new Google_Auth_Exception(
           sprintf(
               "Error fetching service account access token, message: '%s'",
-              $response->getResponseBody()
+              $response->getBody()
           ),
-          $response->getResponseHttpCode()
+          $response->getStatusCode()
       );
     }
   }
 
   /**
    * Include an accessToken in a given apiHttpRequest.
-   * @param Google_Http_Request $request
-   * @return Google_Http_Request
+   * @param GuzzleHttp\Message\Request $request
+   * @return GuzzleHttp\Message\Request $request
    * @throws Google_Auth_Exception
    */
-  public function sign(Google_Http_Request $request)
+  public function sign($request)
   {
     if ($this->isAccessTokenExpired()) {
       $this->acquireAccessToken();
@@ -120,9 +125,7 @@ class Google_Auth_ComputeEngine extends Google_Auth_Abstract
 
     $this->client->getLogger()->debug('Compute engine service account authentication');
 
-    $request->setRequestHeaders(
-        array('Authorization' => 'Bearer ' . $this->token['access_token'])
-    );
+    $request->setHeader('Authorization', 'Bearer ' . $this->token['access_token']);
 
     return $request;
   }
