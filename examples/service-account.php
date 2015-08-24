@@ -30,26 +30,20 @@ require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
   somewhere you can get to it - though in real
   operations you'd want to make sure it wasn't
   accessible from the webserver!
-  The name is the email address value provided
-  as part of the service account (not your
-  address!)
   Make sure the Books API is enabled on this
   account as well, or the call will fail.
  ************************************************/
-$client_id = '<YOUR_CLIENT_ID>'; //Client ID
-$service_account_name = ''; //Email Address
-$key_file_location = ''; //key.p12
+$key_file_location = ''; //.json credentials
 
 echo pageHeader("Service Account Access");
-if (strpos($client_id, "googleusercontent") == false
-    || !strlen($service_account_name)
-    || !strlen($key_file_location)) {
+if (!strlen($key_file_location)) {
   echo missingServiceAccountDetailsWarning();
   exit;
 }
 
 $client = new Google_Client();
 $client->setApplicationName("Client_Library_Examples");
+$client->setScopes(['https://www.googleapis.com/auth/books']);
 $service = new Google_Service_Books($client);
 
 /************************************************
@@ -63,15 +57,9 @@ $service = new Google_Service_Books($client);
 if (isset($_SESSION['service_token'])) {
   $client->setAccessToken($_SESSION['service_token']);
 }
-$key = file_get_contents($key_file_location);
-$cred = new Google_Auth_AssertionCredentials(
-    $service_account_name,
-    array('https://www.googleapis.com/auth/books'),
-    $key
-);
-$client->setAssertionCredentials($cred);
+$client->setAuthConfigFile($key_file_location);
 if ($client->getAuth()->isAccessTokenExpired()) {
-  $client->getAuth()->refreshTokenWithAssertion($cred);
+  $client->getAuth()->refreshTokenWithAssertion();
 }
 $_SESSION['service_token'] = $client->getAccessToken();
 

@@ -24,7 +24,7 @@ if (!class_exists('Google_Client')) {
  * completely unauthenticated, or by using a Simple API Access developer
  * key.
  */
-class Google_Auth_Simple extends Google_Auth_Abstract
+class Google_Auth_Simple implements Google_Auth_Interface
 {
   private $client;
 
@@ -39,24 +39,25 @@ class Google_Auth_Simple extends Google_Auth_Abstract
    * (which can modify the request in what ever way fits the auth mechanism)
    * and then calls apiCurlIO::makeRequest on the signed request
    *
-   * @param Google_Http_Request $request
-   * @return Google_Http_Request The resulting HTTP response including the
+   * @param GuzzleHttp\Message\Request $request
+   * @return GuzzleHttp\Message\Request The resulting HTTP response including the
    * responseHttpCode, responseHeaders and responseBody.
    */
-  public function authenticatedRequest(Google_Http_Request $request)
+  public function authenticatedRequest($request)
   {
     $request = $this->sign($request);
-    return $this->io->makeRequest($request);
+
+    return $this->client->getHttpClient()->send($request);
   }
 
-  public function sign(Google_Http_Request $request)
+  public function sign($request)
   {
     $key = $this->client->getClassConfig($this, 'developer_key');
     if ($key) {
       $this->client->getLogger()->debug(
           'Simple API Access developer key authentication'
       );
-      $request->setQueryParam('key', $key);
+      $request->getQuery()->set('key', $key);
     }
     return $request;
   }

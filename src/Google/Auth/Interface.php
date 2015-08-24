@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2011 Google Inc.
+ * Copyright 2010 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,15 +15,22 @@
  * limitations under the License.
  */
 
+if (!class_exists('Google_Client')) {
+  require_once dirname(__FILE__) . '/../autoload.php';
+}
+
 /**
- * Signs data.
+ * Abstract class for the Authentication in the API client
+ * @author Chris Chabot <chabotc@google.com>
  *
- * @author Brian Eaton <beaton@google.com>
  */
-abstract class Google_Signer_Abstract
+interface Google_Auth_Interface
 {
   /**
-   * Signs data, returns the signature as binary data.
+   * Used for when a request should be authenticated
+   *
+   * @param GuzzleHttp\Message\Request $request
+   * @return GuzzleHttp\Message\Request $request
    */
-  abstract public function sign($data);
+  public function sign($request);
 }

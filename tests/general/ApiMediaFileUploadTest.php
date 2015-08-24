@@ -1,4 +1,8 @@
 <?php
+
+use GuzzleHttp\Message\Request;
+use GuzzleHttp\Stream\Stream;
+
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -23,7 +27,7 @@ class ApiMediaFileUploadTest extends BaseTest
   public function testMediaFile()
   {
     $client = $this->getClient();
-    $request = new Google_Http_Request('http://www.example.com', 'POST');
+    $request = new Request('POST', 'http://www.example.com');
     $media = new Google_Http_MediaFileUpload(
         $client,
         $request,
@@ -32,13 +36,13 @@ class ApiMediaFileUploadTest extends BaseTest
     );
 
     $this->assertEquals(0, $media->getProgress());
-    $this->assertGreaterThan(0, strlen($request->getPostBody()));
+    $this->assertGreaterThan(0, strlen($request->getBody()));
   }
 
   public function testGetUploadType()
   {
     $client = $this->getClient();
-    $request = new Google_Http_Request('http://www.example.com', 'POST');
+    $request = new Request('POST', 'http://www.example.com');
 
     // Test resumable upload
     $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', 'a', true);
@@ -54,39 +58,29 @@ class ApiMediaFileUploadTest extends BaseTest
     $this->assertEquals('multipart', $media->getUploadType(array('a' => 'b')));
   }
 
-  public function testResultCode()
-  {
-    $client = $this->getClient();
-    $request = new Google_Http_Request('http://www.example.com', 'POST');
-
-    // Test resumable upload
-    $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', 'a', true);
-    $this->assertEquals(null, $media->getHttpResultCode());
-  }
-
   public function testProcess()
   {
     $client = $this->getClient();
     $data = 'foo';
 
     // Test data *only* uploads.
-    $request = new Google_Http_Request('http://www.example.com', 'POST');
+    $request = new Request('POST', 'http://www.example.com');
     $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, false);
-    $this->assertEquals($data, $request->getPostBody());
+    $this->assertEquals($data, (string) $request->getBody());
 
     // Test resumable (meta data) - we want to send the metadata, not the app data.
-    $request = new Google_Http_Request('http://www.example.com', 'POST');
+    $request = new Request('POST', 'http://www.example.com');
     $reqData = json_encode("hello");
-    $request->setPostBody($reqData);
+    $request->setBody(Stream::factory($reqData));
     $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, true);
-    $this->assertEquals(json_decode($reqData), $request->getPostBody());
+    $this->assertEquals(json_decode($reqData), (string) $request->getBody());
 
     // Test multipart - we are sending encoded meta data and post data
-    $request = new Google_Http_Request('http://www.example.com', 'POST');
+    $request = new Request('POST', 'http://www.example.com');
     $reqData = json_encode("hello");
-    $request->setPostBody($reqData);
+    $request->setBody(Stream::factory($reqData));
     $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, false);
-    $this->assertContains($reqData, $request->getPostBody());
-    $this->assertContains(base64_encode($data), $request->getPostBody());
+    $this->assertContains($reqData, (string) $request->getBody());
+    $this->assertContains(base64_encode($data), (string) $request->getBody());
   }
 }

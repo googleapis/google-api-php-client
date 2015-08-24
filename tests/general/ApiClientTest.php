@@ -18,6 +18,8 @@
  * under the License.
  */
 
+use GuzzleHttp\Message\Request;
+
 class ApiClientTest extends BaseTest
 {
   public function testClient()
@@ -25,10 +27,10 @@ class ApiClientTest extends BaseTest
     $client = new Google_Client();
     $client->setAccessType('foo');
     $client->setDeveloperKey('foo');
-    $req = new Google_Http_Request('http://foo.com');
+    $req = new Request('GET', 'http://foo.com');
     $client->getAuth()->sign($req);
-    $params = $req->getQueryParams();
-    $this->assertEquals('foo', $params['key']);
+    $key = $req->getQuery()->get('key');
+    $this->assertEquals('foo', $key);
 
     $client->setAccessToken(json_encode(array('access_token' => '1')));
     $this->assertEquals("{\"access_token\":\"1\"}", $client->getAccessToken());
@@ -76,23 +78,44 @@ class ApiClientTest extends BaseTest
 
     $client->setClientId('test1');
     $client->setRedirectUri('http://localhost/');
+    $client->setState('xyz');
     $client->setScopes(array("http://test.com", "scope2"));
     $scopes = $client->prepareScopes();
     $this->assertEquals("http://test.com scope2", $scopes);
     $this->assertEquals(
         ''
         .  'https://accounts.google.com/o/oauth2/auth'
-        . '?response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2F'
+        . '?response_type=code'
+        . '&access_type=online'
+        . '&scope=http%3A%2F%2Ftest.com%20scope2'
+        . '&approval_prompt=auto'
+        . '&state=xyz'
         . '&client_id=test1'
-        . '&scope=http%3A%2F%2Ftest.com+scope2&access_type=online'
-        . '&approval_prompt=auto',
+        . '&redirect_uri=http%3A%2F%2Flocalhost%2F',
         $client->createAuthUrl()
     );
 
-    // This should not trigger a request.
-    $client->setDefer(true);
+    $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+    $response->expects($this->once())
+      ->method('getBody')
+      ->will($this->returnValue($this->getMock('GuzzleHttp\Post\PostBody')));
+    $response->expects($this->once())
+      ->method('json')
+      ->will($this->returnValue($this->getMock('Google_Model')));
+    $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
+    $request->expects($this->once())
+      ->method('getQuery')
+      ->will($this->returnValue($this->getMock('GuzzleHttp\Query')));
+    $http = $this->getMock('GuzzleHttp\ClientInterface');
+    $http->expects($this->once())
+      ->method('createRequest')
+      ->will($this->returnValue($request));
+    $http->expects($this->once())
+      ->method('send')
+      ->will($this->returnValue($response));
+    $client->setHttpClient($http);
     $dr_service = new Google_Service_Drive($client);
-    $this->assertInstanceOf('Google_Http_Request', $dr_service->files->listFiles());
+    $this->assertInstanceOf('Google_Model', $dr_service->files->listFiles());
   }
 
   public function testSettersGetters()
@@ -108,14 +131,13 @@ class ApiClientTest extends BaseTest
     $client->setApplicationName('me');
     $this->assertEquals('object', gettype($client->getAuth()));
     $this->assertEquals('object', gettype($client->getCache()));
-    $this->assertEquals('object', gettype($client->getIo()));
 
     $client->setAuth(new Google_Auth_Simple($client));
     $client->setAuth(new Google_Auth_OAuth2($client));
 
     try {
       $client->setAccessToken(null);
-      die('Should have thrown an Google_Auth_Exception.');
+      $this->fail('Should have thrown an Google_Auth_Exception.');
     } catch (Google_Auth_Exception $e) {
       $this->assertEquals('Could not json decode the token', $e->getMessage());
     }
@@ -133,7 +155,6 @@ class ApiClientTest extends BaseTest
     $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
     $client = new Google_Client();
     $this->assertInstanceOf('Google_Cache_Memcache', $client->getCache());
-    $this->assertInstanceOf('Google_Io_Stream', $client->getIo());
     unset($_SERVER['SERVER_SOFTWARE']);
   }
 
@@ -188,25 +209,5 @@ class ApiClientTest extends BaseTest
         100,
         $config->getClassConfig('Google_IO_Abstract', 'request_timeout_seconds')
     );
-  }
-
-  public function testServiceAccountJson()
-  {
-    $client = new Google_Client();
-    $c = $client->loadServiceAccountJson(
-        __DIR__ . "/testdata/service-12345.json",
-        array()
-    );
-    $this->assertInstanceOf('Google_Auth_AssertionCredentials', $c);
-  }
-
-  public function testRsaServiceAccountJson()
-  {
-    $client = new Google_Client();
-    $c = $client->loadServiceAccountJson(
-        __DIR__ . "/testdata/service-rsa-12345.json",
-        array()
-    );
-    $this->assertInstanceOf('Google_Auth_AssertionCredentials', $c);
   }
 }

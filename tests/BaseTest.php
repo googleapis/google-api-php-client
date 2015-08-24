@@ -17,7 +17,7 @@
 
 class BaseTest extends PHPUnit_Framework_TestCase
 {
-  const KEY = "";
+  private $key;
   private $token;
   private $memcacheHost;
   private $memcachePort;
@@ -34,13 +34,24 @@ class BaseTest extends PHPUnit_Framework_TestCase
   public function getClient()
   {
     $client = new Google_Client();
-    $client->setDeveloperKey(self::KEY);
+    if ($this->key) {
+      $client->setDeveloperKey($this->key);
+    }
     if (strlen($this->token)) {
       $client->setAccessToken($this->token);
     }
     if (strlen($this->memcacheHost)) {
       $client->setClassConfig('Google_Cache_Memcache', 'host', $this->memcacheHost);
       $client->setClassConfig('Google_Cache_Memcache', 'port', $this->memcachePort);
+    }
+    if ($proxy = getenv('HTTP_PROXY')) {
+      $httpClient = new GuzzleHttp\Client([
+        'defaults' => [
+          'proxy'  => $proxy,
+          'verify' => false,
+        ]
+      ]);
+      $client->setHttpClient($httpClient);
     }
     return $client;
   }
@@ -63,6 +74,23 @@ class BaseTest extends PHPUnit_Framework_TestCase
           return $t;
         }
       }
+    }
+  }
+
+  public function checkKey()
+  {
+    if (!strlen($this->key)) {
+      $this->markTestSkipped("Test requires api key\nYou can create one in your developer console");
+      return false;
+    }
+
+    $this->key = $this->loadKey();
+  }
+
+  public function loadKey()
+  {
+    if (file_exists($f = dirname(__FILE__) . DIRECTORY_SEPARATOR . '.apiKey')) {
+      return file_get_contents($f);
     }
   }
 }

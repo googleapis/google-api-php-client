@@ -37,7 +37,6 @@ if (!($clientId && $clientSecret)) {
 }
 $client->setClientId($clientId);
 $client->setClientSecret($clientSecret);
-
 $authUrl = $client->createAuthUrl();
 
 `open '$authUrl'`;

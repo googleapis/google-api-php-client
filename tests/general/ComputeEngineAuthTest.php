@@ -18,12 +18,14 @@
  * under the License.
  */
 
+use GuzzleHttp\Message\Request;
+
 class ComputeEngineAuthTest extends BaseTest
 {
   public function testTokenAcquisition()
   {
     $client = new Google_Client();
-    
+
     /* Mock out refresh call */
     $response_data = json_encode(
         array(
@@ -31,24 +33,21 @@ class ComputeEngineAuthTest extends BaseTest
           'expires_in' => "12345"
         )
     );
-    $response = $this->getMock("Google_Http_Request", array(), array(''));
+    $response = $this->getMock("GuzzleHttp\Message\ResponseInterface", array(), array(''));
     $response->expects($this->any())
-            ->method('getResponseHttpCode')
+            ->method('getStatusCode')
             ->will($this->returnValue(200));
     $response->expects($this->any())
-            ->method('getResponseBody')
+            ->method('getBody')
             ->will($this->returnValue($response_data));
-    $io = $this->getMock("Google_IO_Stream", array(), array($client));
-    $client->setIo($io);$io->expects($this->any())
-        ->method('makeRequest')
-        ->will(
-            $this->returnCallback(
-                function ($request) use ($response) {
-                  return $response;
-                }
-            )
-        );
-    
+    $http = $this->getMockBuilder('GuzzleHttp\Client')
+            ->disableOriginalConstructor()
+            ->getMock();
+    $http->expects($this->once())
+            ->method('send')
+            ->will($this->returnValue($response));
+    $client->setHttpClient($http);
+
     /* Run method */
     $oauth = new Google_Auth_ComputeEngine($client);
     $oauth->acquireAccessToken();
@@ -64,7 +63,7 @@ class ComputeEngineAuthTest extends BaseTest
   {
     $client = new Google_Client();
     $oauth = new Google_Auth_ComputeEngine($client);
-    
+
     /* Load mock access token */
     $oauth->setAccessToken(
         json_encode(
@@ -76,9 +75,9 @@ class ComputeEngineAuthTest extends BaseTest
     );
 
     /* Sign a URL and verify auth header is correctly set */
-    $req = new Google_Http_Request('http://localhost');
+    $req = new Request('GET', 'http://localhost');
     $req = $oauth->sign($req);
-    $auth = $req->getRequestHeader('authorization');
+    $auth = $req->getHeader('authorization');
     $this->assertEquals('Bearer ACCESS_TOKEN', $auth);
   }
 }
