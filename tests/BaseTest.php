@@ -25,10 +25,8 @@ class BaseTest extends PHPUnit_Framework_TestCase
   public function __construct()
   {
     parent::__construct();
-    // Fill in a token JSON here and you can test the oauth token
-    // requiring functions.
-    // $this->token = '';
 
+    $this->token = $this->loadToken();
     $this->memcacheHost = getenv('MEMCACHE_HOST') ? getenv('MEMCACHE_HOST') : null;
     $this->memcachePort = getenv('MEMCACHE_PORT') ? getenv('MEMCACHE_PORT') : null;
   }
@@ -50,9 +48,21 @@ class BaseTest extends PHPUnit_Framework_TestCase
   public function checkToken()
   {
     if (!strlen($this->token)) {
-      $this->markTestSkipped('Test requires access token');
+      $this->markTestSkipped("Test requires access token\nrun \"php tests/OAuthHelper.php\"");
       return false;
     }
     return true;
+  }
+
+  public function loadToken()
+  {
+    if (file_exists($f = dirname(__FILE__) . DIRECTORY_SEPARATOR . '.accessToken')) {
+      $t = file_get_contents($f);
+      if ($token = json_decode($t, true)) {
+        if ($token['expires_in'] + $token['created'] > time()) {
+          return $t;
+        }
+      }
+    }
   }
 }

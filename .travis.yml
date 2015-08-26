@@ -26,6 +26,9 @@ matrix:
       env: PHPCS=true
     - php: hhvm
 
+before_install:
+  - composer self-update
+
 install:
   - composer install
 
