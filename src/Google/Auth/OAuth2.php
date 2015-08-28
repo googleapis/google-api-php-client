@@ -125,7 +125,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       throw new Google_Auth_Exception(
           sprintf(
               "Error fetching OAuth2 access token, message: '%s'",
-              $errorText
+              isset($errorText) ? $errorText : ''
           ),
           $response->getResponseHttpCode()
       );
