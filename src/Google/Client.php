@@ -19,23 +19,22 @@ if (!class_exists('Google_Client')) {
   require_once dirname(__FILE__) . '/autoload.php';
 }
 
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Post\PostBodyInterface;
+use GuzzleHttp\Stream\Stream;
 /**
  * The Google API Client
  * http://code.google.com/p/google-api-php-client/
  */
 class Google_Client
 {
-  const LIBVER = "1.1.5";
+  const LIBVER = "2.0.0-alpha";
   const USER_AGENT_SUFFIX = "google-api-php-client/";
   /**
-   * @var Google_Auth_Abstract $auth
+   * @var Google_Auth_Interface $auth
    */
   private $auth;
-
-  /**
-   * @var Google_IO_Abstract $io
-   */
-  private $io;
 
   /**
    * @var Google_Cache_Abstract $cache
@@ -72,7 +71,7 @@ class Google_Client
    *
    * @param $config Google_Config or string for the ini file to load
    */
-  public function __construct($config = null)
+  public function __construct($config = null, ClientInterface $httpClient = null)
   {
     if (is_string($config) && strlen($config)) {
       $config = new Google_Config($config);
@@ -84,9 +83,9 @@ class Google_Client
         $config->setCacheClass('Google_Cache_Memcache');
       }
 
-      if (version_compare(phpversion(), "5.3.4", "<=") || $this->isAppEngine()) {
+      if ($this->isAppEngine()) {
         // Automatically disable compress.zlib, as currently unsupported.
-        $config->setClassConfig('Google_Http_Request', 'disable_gzip', true);
+        $config->setClassConfig('request', 'disable_gzip', true);
       }
     }
 
@@ -100,6 +99,7 @@ class Google_Client
     }
 
     $this->config = $config;
+    $this->httpClient = $httpClient;
   }
 
   /**
@@ -127,33 +127,6 @@ class Google_Client
     $this->authenticated = true;
     return $this->getAuth()->authenticate($code, $crossClient);
   }
-  
-  /**
-   * Loads a service account key and parameters from a JSON
-   * file from the Google Developer Console. Uses that and the
-   * given array of scopes to return an assertion credential for
-   * use with refreshTokenWithAssertionCredential.
-   *
-   * @param string $jsonLocation File location of the project-key.json.
-   * @param array $scopes The scopes to assert.
-   * @return Google_Auth_AssertionCredentials.
-   * @
-   */
-  public function loadServiceAccountJson($jsonLocation, $scopes)
-  {
-    $data = json_decode(file_get_contents($jsonLocation));
-    if (isset($data->type) && $data->type == 'service_account') {
-      // Service Account format.
-      $cred = new Google_Auth_AssertionCredentials(
-          $data->client_email,
-          $scopes,
-          $data->private_key
-      );
-      return $cred;
-    } else {
-      throw new Google_Exception("Invalid service account JSON file.");
-    }
-  }
 
   /**
    * Set the auth config from the JSON string provided.
@@ -166,14 +139,16 @@ class Google_Client
   public function setAuthConfig($json)
   {
     $data = json_decode($json);
-    $key = isset($data->installed) ? 'installed' : 'web';
-    if (!isset($data->$key)) {
-      throw new Google_Exception("Invalid client secret JSON file.");
-    }
-    $this->setClientId($data->$key->client_id);
-    $this->setClientSecret($data->$key->client_secret);
-    if (isset($data->$key->redirect_uris)) {
-      $this->setRedirectUri($data->$key->redirect_uris[0]);
+    if (isset($data->installed) || isset($data->web)) {
+      $key = isset($data->installed) ? 'installed' : 'web';
+      $this->setClientId($data->$key->client_id);
+      $this->setClientSecret($data->$key->client_secret);
+      if (isset($data->$key->redirect_uris)) {
+        $this->setRedirectUri($data->$key->redirect_uris[0]);
+      }
+    } else {
+      $this->getAuth()->setSigningKey($data->private_key);
+      $this->setClientId($data->client_email);
     }
   }
 
@@ -222,22 +197,12 @@ class Google_Client
 
   /**
    * Set the authenticator object
-   * @param Google_Auth_Abstract $auth
+   * @param Google_Auth_Interface $auth
    */
-  public function setAuth(Google_Auth_Abstract $auth)
+  public function setAuth(Google_Auth_Interface $auth)
   {
     $this->config->setAuthClass(get_class($auth));
     $this->auth = $auth;
-  }
-
-  /**
-   * Set the IO object
-   * @param Google_IO_Abstract $io
-   */
-  public function setIo(Google_IO_Abstract $io)
-  {
-    $this->config->setIoClass(get_class($io));
-    $this->io = $io;
   }
 
   /**
@@ -474,7 +439,7 @@ class Google_Client
    * isn't provided.
    * @throws Google_Auth_Exception
    * @param string|null $token The token (id_token) that should be verified.
-   * @return Google_Auth_LoginTicket Returns an apiLoginTicket if the verification was
+   * @return Returns the token payload as an array if the verification was
    * successful.
    */
   public function verifyIdToken($token = null)
@@ -497,14 +462,6 @@ class Google_Client
     $auth = new Google_Auth_OAuth2($this);
     $certs = $auth->retrieveCertsFromLocation($cert_location);
     return $auth->verifySignedJwtWithCerts($id_token, $certs, $audience, $issuer, $max_expiry);
-  }
-
-  /**
-   * @param $creds Google_Auth_AssertionCredentials
-   */
-  public function setAssertionCredentials(Google_Auth_AssertionCredentials $creds)
-  {
-    $this->getAuth()->setAssertionCredentials($creds);
   }
 
   /**
@@ -574,28 +531,33 @@ class Google_Client
   /**
    * Helper method to execute deferred HTTP requests.
    *
-   * @param $request Google_Http_Request|Google_Http_Batch
+   * @param $request GuzzleHttp\Message\RequestInterface|Google_Http_Batch
    * @throws Google_Exception
    * @return object of the type of the expected class or array.
    */
-  public function execute($request)
+  public function execute($request, $expectedClass = null)
   {
-    if ($request instanceof Google_Http_Request) {
-      $request->setUserAgent(
-          $this->getApplicationName()
-          . " " . self::USER_AGENT_SUFFIX
-          . $this->getLibraryVersion()
-      );
-      if (!$this->getClassConfig("Google_Http_Request", "disable_gzip")) {
-        $request->enableGzip();
-      }
-      $request->maybeMoveParametersToBody();
-      return Google_Http_REST::execute($this, $request);
-    } else if ($request instanceof Google_Http_Batch) {
-      return $request->execute();
-    } else {
-      throw new Google_Exception("Do not know how to execute this type of object.");
+    $request->setHeader(
+        'User-Agent',
+        $this->getApplicationName()
+        . " " . self::USER_AGENT_SUFFIX
+        . $this->getLibraryVersion()
+    );
+
+    $http = $this->getHttpClient();
+    if ($this->getClassConfig('request', 'disable_gzip')) {
+      $http->setDefaultOption('disable_gzip', true);
     }
+    $config = $this->getClassConfig('Google_Task_Runner');
+    $retryMap = $this->getClassConfig('Google_Service_Exception', 'retry_map');
+
+    $result = Google_Http_REST::execute($http, $request, $config, $retryMap);
+    $expectedClass = $expectedClass ?: $request->getHeader('X-Php-Expected-Class');
+    if ($expectedClass) {
+      $result = new $expectedClass($result);
+    }
+
+    return $result;
   }
 
   /**
@@ -608,7 +570,7 @@ class Google_Client
   }
 
   /**
-   * @return Google_Auth_Abstract Authentication implementation
+   * @return Google_Auth_Interface Authentication implementation
    */
   public function getAuth()
   {
@@ -617,18 +579,6 @@ class Google_Client
       $this->auth = new $class($this);
     }
     return $this->auth;
-  }
-
-  /**
-   * @return Google_IO_Abstract IO implementation
-   */
-  public function getIo()
-  {
-    if (!isset($this->io)) {
-      $class = $this->config->getIoClass();
-      $this->io = new $class($this);
-    }
-    return $this->io;
   }
 
   /**
@@ -711,5 +661,26 @@ class Google_Client
   {
     return (isset($_SERVER['SERVER_SOFTWARE']) &&
         strpos($_SERVER['SERVER_SOFTWARE'], 'Google App Engine') !== false);
+  }
+
+  public function setHttpClient(ClientInterface $httpClient)
+  {
+    $this->httpClient = $httpClient;
+  }
+
+  public function getHttpClient()
+  {
+    if (is_null($this->httpClient)) {
+      $this->httpClient = $this->createDefaultHttpClient();
+    }
+
+    return $this->httpClient;
+  }
+
+  protected function createDefaultHttpClient()
+  {
+    $options = array('base_url' => $this->getBasePath());
+
+    return new Client($options);
   }
 }

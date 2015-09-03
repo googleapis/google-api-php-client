@@ -64,11 +64,13 @@ class ResourceTest extends PHPUnit_Framework_TestCase
           ->method("shouldDefer")
           ->will($this->returnValue(true));
     $this->client->expects($this->any())
-          ->method("getBasePath")
-          ->will($this->returnValue("https://test.example.com"));
-    $this->client->expects($this->any())
           ->method("getAuth")
           ->will($this->returnValue(new Google_Auth_Simple($this->client)));
+    $this->client->expects($this->any())
+          ->method("getHttpClient")
+          ->will($this->returnValue(new GuzzleHttp\Client([
+              'base_url' => 'https://test.example.com'
+            ])));
     $this->service = new Test_Google_Service($this->client);
   }
 
@@ -77,8 +79,8 @@ class ResourceTest extends PHPUnit_Framework_TestCase
     $resource = new Google_Service_Resource(
       $this->service,
       "test",
-      "testResource", 
-      array("methods" => 
+      "testResource",
+      array("methods" =>
         array(
           "testMethod" => array(
             "parameters" => array(),
@@ -89,7 +91,7 @@ class ResourceTest extends PHPUnit_Framework_TestCase
       )
     );
     $this->setExpectedException(
-        "Google_Exception", 
+        "Google_Exception",
         "Unknown function: test->testResource->someothermethod()"
     );
     $resource->call("someothermethod", array());
@@ -101,7 +103,7 @@ class ResourceTest extends PHPUnit_Framework_TestCase
       $this->service,
       "test",
       "testResource",
-      array("methods" => 
+      array("methods" =>
         array(
           "testMethod" => array(
             "parameters" => array(),
@@ -113,7 +115,7 @@ class ResourceTest extends PHPUnit_Framework_TestCase
     );
     $request = $resource->call("testMethod", array(array()));
     $this->assertEquals("https://test.example.com/method/path?key=testKey", $request->getUrl());
-    $this->assertEquals("POST", $request->getRequestMethod());
+    $this->assertEquals("POST", $request->getMethod());
   }
 
   public function testCallServiceDefinedRoot()
@@ -123,7 +125,7 @@ class ResourceTest extends PHPUnit_Framework_TestCase
       $this->service,
       "test",
       "testResource",
-      array("methods" => 
+      array("methods" =>
         array(
           "testMethod" => array(
             "parameters" => array(),
@@ -135,6 +137,50 @@ class ResourceTest extends PHPUnit_Framework_TestCase
     );
     $request = $resource->call("testMethod", array(array()));
     $this->assertEquals("https://sample.example.com/method/path?key=testKey", $request->getUrl());
-    $this->assertEquals("POST", $request->getRequestMethod());
+    $this->assertEquals("POST", $request->getMethod());
+  }
+
+  public function testCreateRequestUri()
+  {
+    $restPath = "/plus/{u}";
+    $service = new Google_Service($this->client);
+    $service->servicePath = "http://localhost";
+    $resource = new Google_Service_Resource($service, 'test', 'testResource', array());
+
+    // Test Path
+    $params = array();
+    $params['u']['type'] = 'string';
+    $params['u']['location'] = 'path';
+    $params['u']['value'] = 'me';
+    $value = $resource->createRequestUri($restPath, $params);
+    $this->assertEquals("http://localhost/plus/me", $value);
+
+    // Test Query
+    $params = array();
+    $params['u']['type'] = 'string';
+    $params['u']['location'] = 'query';
+    $params['u']['value'] = 'me';
+    $value = $resource->createRequestUri('/plus', $params);
+    $this->assertEquals("http://localhost/plus?u=me", $value);
+
+    // Test Booleans
+    $params = array();
+    $params['u']['type'] = 'boolean';
+    $params['u']['location'] = 'path';
+    $params['u']['value'] = '1';
+    $value = $resource->createRequestUri($restPath, $params);
+    $this->assertEquals("http://localhost/plus/true", $value);
+
+    $params['u']['location'] = 'query';
+    $value = $resource->createRequestUri('/plus', $params);
+    $this->assertEquals("http://localhost/plus?u=true", $value);
+
+    // Test encoding
+    $params = array();
+    $params['u']['type'] = 'string';
+    $params['u']['location'] = 'query';
+    $params['u']['value'] = '@me/';
+    $value = $resource->createRequestUri('/plus', $params);
+    $this->assertEquals("http://localhost/plus?u=%40me%2F", $value);
   }
 }

@@ -69,7 +69,7 @@ class Google_Config
           'mode' => 0640,
           'lock' => false,
         ),
-        'Google_Http_Request' => array(
+        'request' => array(
           // Disable the use of gzip on calls if set to true. Defaults to false.
           'disable_gzip' => self::GZIP_ENABLED,
 
@@ -86,7 +86,7 @@ class Google_Config
           // https://developers.google.com/console
           'client_id' => '',
           'client_secret' => '',
-          'redirect_uri' => '',
+          'redirect_uri' => null,
 
           // Simple API access key, also from the API console. Ensure you get
           // a Server key, and not a Browser key.
@@ -122,11 +122,7 @@ class Google_Config
             '500' => self::TASK_RETRY_ALWAYS,
             '503' => self::TASK_RETRY_ALWAYS,
             'rateLimitExceeded' => self::TASK_RETRY_ALWAYS,
-            'userRateLimitExceeded' => self::TASK_RETRY_ALWAYS
-          )
-        ),
-        'Google_IO_Exception' => array(
-          'retry_map' => !extension_loaded('curl') ? array() : array(
+            'userRateLimitExceeded' => self::TASK_RETRY_ALWAYS,
             CURLE_COULDNT_RESOLVE_HOST => self::TASK_RETRY_ALWAYS,
             CURLE_COULDNT_CONNECT => self::TASK_RETRY_ALWAYS,
             CURLE_OPERATION_TIMEOUTED => self::TASK_RETRY_ALWAYS,
@@ -383,8 +379,8 @@ class Google_Config
    * restrict sign-in to accounts at that domain.
    *
    * This should not be used to ensure security on your application - check
-   * the hd values within an id token (@see Google_Auth_LoginTicket) after sign
-   * in to ensure that the user is from the domain you were expecting.
+   * the hd values within an id token after sign in to ensure that the user
+   * is from the domain you were expecting.
    *
    * @param $hd string - the domain to use.
    */
