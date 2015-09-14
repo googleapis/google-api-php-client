@@ -296,4 +296,9 @@ class Google_Http_MediaFileUpload
     $url = Url::fromString(Url::buildUrl($parts));
     $this->request->setUrl($url);
   }
+
+  public function setChunkSize($chunkSize)
+  {
+    $this->chunkSize = $chunkSize;
+  }
 }
