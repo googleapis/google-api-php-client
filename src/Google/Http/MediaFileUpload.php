@@ -299,4 +299,9 @@ class Google_Http_MediaFileUpload
     $this->client->getLogger()->error($error);
     throw new Google_Exception($error);
   }
+
+  public function setChunkSize($chunkSize)
+  {
+    $this->chunkSize = $chunkSize;
+  }
 }
