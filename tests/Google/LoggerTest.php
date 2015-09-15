@@ -18,7 +18,7 @@
  * under the License.
  */
 
-class LoggerTest extends PHPUnit_Framework_TestCase
+class Google_LoggerTest extends PHPUnit_Framework_TestCase
 {
   private $client;
 

@@ -22,7 +22,7 @@ use GuzzleHttp\Stream\Stream;
  * under the License.
  */
 
-class ApiMediaFileUploadTest extends BaseTest
+class Google_Http_MediaFileUploadTest extends BaseTest
 {
   public function testMediaFile()
   {

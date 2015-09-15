@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-class PageSpeedTest extends BaseTest
+class Google_Service_PagespeedonlineTest extends BaseTest
 {
   public $service;
   public function __construct()

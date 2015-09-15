@@ -18,7 +18,7 @@
  * under the License.
  */
 
-class ApiBatchRequestTest extends BaseTest
+class Google_Http_BatchTest extends BaseTest
 {
   public $plus;
 

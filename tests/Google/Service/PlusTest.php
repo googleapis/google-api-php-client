@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-class PlusTest extends BaseTest
+class Google_Service_PlusTest extends BaseTest
 {
   /** @var Google_PlusService */
   public $plus;
