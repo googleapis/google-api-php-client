@@ -20,7 +20,7 @@
 
 use GuzzleHttp\Message\Request;
 
-class ComputeEngineAuthTest extends BaseTest
+class Google_Auth_ComputeEngineTest extends BaseTest
 {
   public function testTokenAcquisition()
   {

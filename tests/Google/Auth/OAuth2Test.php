@@ -21,7 +21,7 @@ use GuzzleHttp\Message\Request;
  * under the License.
  */
 
-class ApiOAuth2Test extends BaseTest
+class Google_Auth_OAuth2Test extends BaseTest
 {
 
   public function testSign()

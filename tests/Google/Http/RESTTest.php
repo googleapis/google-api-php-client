@@ -18,7 +18,7 @@
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Stream\Stream;
 
-class RestTest extends BaseTest
+class Google_HTTP_RESTTest extends BaseTest
 {
   /**
    * @var Google_Http_REST $rest

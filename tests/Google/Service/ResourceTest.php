@@ -30,7 +30,7 @@ class Test_Google_Service extends Google_Service
   }
 }
 
-class ResourceTest extends PHPUnit_Framework_TestCase
+class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
 {
   private $client;
   private $service;

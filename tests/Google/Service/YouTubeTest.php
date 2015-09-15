@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-class YouTubeTest extends BaseTest
+class Google_Service_YouTubeTest extends BaseTest
 {
   /** @var Google_PlusService */
   public $plus;
