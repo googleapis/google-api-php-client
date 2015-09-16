@@ -18,7 +18,7 @@
  * under the License.
  */
 
-class ApiModelTest extends BaseTest
+class Google_ModelTest extends BaseTest
 {
   private $calendarData =  '{
          "kind": "calendar#event",

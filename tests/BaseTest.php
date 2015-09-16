@@ -21,6 +21,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
   private $token;
   private $memcacheHost;
   private $memcachePort;
+  protected $testDir = __DIR__;
 
   public function __construct()
   {
@@ -79,12 +80,12 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
   public function checkKey()
   {
+    $this->key = $this->loadKey();
+
     if (!strlen($this->key)) {
       $this->markTestSkipped("Test requires api key\nYou can create one in your developer console");
       return false;
     }
-
-    $this->key = $this->loadKey();
   }
 
   public function loadKey()

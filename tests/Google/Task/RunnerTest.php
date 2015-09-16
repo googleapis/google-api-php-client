@@ -19,7 +19,7 @@ use GuzzleHttp\Message\Request;
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Stream\Stream;
 
-class TaskTest extends PHPUnit_Framework_TestCase
+class Google_Task_RunnerTest extends PHPUnit_Framework_TestCase
 {
   private $client;
 

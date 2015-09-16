@@ -20,7 +20,7 @@
 
 use GuzzleHttp\Message\Request;
 
-class ApiClientTest extends BaseTest
+class Google_ClientTest extends BaseTest
 {
   public function testClient()
   {
@@ -195,7 +195,7 @@ class ApiClientTest extends BaseTest
 
   public function testIniConfig()
   {
-    $config = new Google_Config(__DIR__ . "/testdata/test.ini");
+    $config = new Google_Config($this->testDir . "/config/test.ini");
     $this->assertEquals('My Test application', $config->getApplicationName());
     $this->assertEquals(
         'gjfiwnGinpena3',
@@ -209,5 +209,18 @@ class ApiClientTest extends BaseTest
         100,
         $config->getClassConfig('Google_IO_Abstract', 'request_timeout_seconds')
     );
+  }
+
+  public function testNoAuth()
+  {
+    /** @var $noAuth Google_Auth_Simple */
+    $noAuth = new Google_Auth_Simple($this->getClient());
+    $client = new Google_Client();
+    $client->setAuth($noAuth);
+    $client->setDeveloperKey(null);
+    $req = new Request('GET', 'http://example.com');
+
+    $resp = $noAuth->sign($req);
+    $this->assertEquals('http://example.com', $resp->getUrl());
   }
 }

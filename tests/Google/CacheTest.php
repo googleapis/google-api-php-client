@@ -18,7 +18,7 @@
  * under the License.
  */
 
-class CacheTest extends BaseTest
+class Google_CacheTest extends BaseTest
 {
   public function testFile()
   {

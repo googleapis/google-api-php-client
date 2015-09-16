@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-class TasksTest extends BaseTest
+class Google_Service_TasksTest extends BaseTest
 {
   /** @var Google_TasksService */
   public $taskService;

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-class AdSenseManagementTest extends BaseTest
+class Google_Service_AdSenseTest extends BaseTest
 {
   public $adsense;
   public function __construct()
