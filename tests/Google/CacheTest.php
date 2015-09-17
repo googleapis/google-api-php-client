@@ -23,28 +23,16 @@ class Google_CacheTest extends BaseTest
   public function testFile()
   {
     $dir = sys_get_temp_dir() . '/google-api-php-client/tests';
-    $client = $this->getClient();
-    $client->setClassConfig(
-        'Google_Cache_File',
-        'directory',
-        $dir
-    );
-    $cache = new Google_Cache_File($client);
+    $cache = new Google_Cache_File($dir);
     $cache->set('foo', 'bar');
     $this->assertEquals($cache->get('foo'), 'bar');
 
     $this->getSetDelete($cache);
   }
 
-  /**
-   * @requires extension Memcache
-   */
   public function testNull()
   {
-    $client = $this->getClient();
-    $cache = new Google_Cache_Null($client);
-    $client->setCache($cache);
-
+    $cache = new Google_Cache_Null();
     $cache->set('foo', 'bar');
     $cache->delete('foo');
     $this->assertEquals(false, $cache->get('foo'));
@@ -65,12 +53,13 @@ class Google_CacheTest extends BaseTest
    */
   public function testMemcache()
   {
-    $client = $this->getClient();
-    if (!$client->getClassConfig('Google_Cache_Memcache', 'host')) {
-      $this->markTestSkipped('Test requires memcache host specified');
+    $host = getenv('MEMCACHE_HOST') ? getenv('MEMCACHE_HOST') : null;
+    $port = getenv('MEMCACHE_PORT') ? getenv('MEMCACHE_PORT') : null;
+    if (!($host && $port)) {
+      $this->markTestSkipped('Test requires memcache host and port specified');
     }
 
-    $cache = new Google_Cache_Memcache($client);
+    $cache = new Google_Cache_Memcache($host, $port);
 
     $this->getSetDelete($cache);
   }
@@ -83,8 +72,7 @@ class Google_CacheTest extends BaseTest
     if (!ini_get('apc.enable_cli')) {
       $this->markTestSkipped('Test requires APC enabled for CLI');
     }
-    $client = $this->getClient();
-    $cache = new Google_Cache_Apc($client);
+    $cache = new Google_Cache_Apc();
 
     $this->getSetDelete($cache);
   }

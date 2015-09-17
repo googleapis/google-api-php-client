@@ -18,17 +18,14 @@
 class Google_Service_AdSenseTest extends BaseTest
 {
   public $adsense;
-  public function __construct()
+  public function setUp()
   {
-    parent::__construct();
+    $this->checkToken();
     $this->adsense = new Google_Service_AdSense($this->getClient());
   }
 
   public function testAccountsList()
   {
-    if (!$this->checkToken()) {
-      return;
-    }
     $accounts = $this->adsense->accounts->listAccounts();
     $this->assertArrayHasKey('kind', $accounts);
     $this->assertEquals($accounts['kind'], 'adsense#accounts');
@@ -251,9 +248,6 @@ class Google_Service_AdSenseTest extends BaseTest
 
   public function testAdClientsList()
   {
-    if (!$this->checkToken()) {
-      return;
-    }
     $adClients = $this->adsense->adclients->listAdclients();
     $this->checkAdClientsCollection($adClients);
   }

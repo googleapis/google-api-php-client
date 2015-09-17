@@ -15,10 +15,6 @@
  * limitations under the License.
  */
 
-if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
-}
-
 /**
  * Implements the actual methods/resources of the discovered Google API using magic function
  * calling overloading (__call()), which on call will see if the method name (plus.activities.list)
@@ -194,13 +190,15 @@ class Google_Service_Resource
         $parameters
     );
 
-    $request = $this->client->getHttpClient()->createRequest(
+    $http = $this->client->getHttpClient();
+    $this->client->attachAuthListener($http);
+
+    $request = $http->createRequest(
         $method['httpMethod'],
         $url,
         ['json' => $postBody]
     );
 
-    $request = $this->client->getAuth()->sign($request);
     if ($this->client->shouldDefer()) {
       // @TODO find a better way to do this
       $request->setHeader('X-Php-Expected-Class', $expected_class);

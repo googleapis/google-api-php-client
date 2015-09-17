@@ -19,10 +19,6 @@ use GuzzleHttp\Message\Request;
 use GuzzleHttp\Stream\Stream;
 use GuzzleHttp\Url;
 
-if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
-}
-
 /**
  * Manage large file uploads, which may be media but can be any type
  * of sizable data.
