@@ -18,38 +18,103 @@
  * under the License.
  */
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Event\RequestEvents;
 use GuzzleHttp\Message\Request;
 
 class Google_ClientTest extends BaseTest
 {
-  public function testClient()
-  {
-    $client = new Google_Client();
-    $client->setAccessType('foo');
-    $client->setDeveloperKey('foo');
-    $req = new Request('GET', 'http://foo.com');
-    $client->getAuth()->sign($req);
-    $key = $req->getQuery()->get('key');
-    $this->assertEquals('foo', $key);
-
-    $client->setAccessToken(json_encode(array('access_token' => '1')));
-    $this->assertEquals("{\"access_token\":\"1\"}", $client->getAccessToken());
-  }
-
   public function testClientConstructor()
   {
     $this->assertInstanceOf('Google_Client', $this->getClient());
   }
 
-  /**
-   * @expectedException Google_Auth_Exception
-   */
-  public function testPrepareInvalidScopes()
+  public function testSignAppKey()
+  {
+    $client = $this->getClient();
+    $client->setDeveloperKey('devKey');
+
+    $http = new Client();
+    $client->attachAuthListener($http);
+
+    $listeners = $http->getEmitter()->listeners('before');
+    $this->assertEquals(1, count($listeners));
+    $this->assertEquals(2, count($listeners[0]));
+    $this->assertInstanceOf('Google\Auth\Simple', $listeners[0][0]);
+  }
+
+  public function testSignAccessToken()
+  {
+    $client = $this->getClient();
+
+    $http = new Client();
+    $client->setAccessToken([
+      'access_token' => 'test_token',
+      'expires_in'   => 3600,
+      'created'      => time(),
+    ]);
+    $client->setScopes('test_scope');
+    $client->attachAuthListener($http);
+
+    $listeners = $http->getEmitter()->listeners('before');
+    $this->assertEquals(1, count($listeners));
+    $this->assertEquals(2, count($listeners[0]));
+    $this->assertInstanceOf('Google\Auth\ScopedAccessToken', $listeners[0][0]);
+  }
+
+  public function testCreateAuthUrl()
+  {
+    $client = $this->getClient();
+
+    $client->setClientId('clientId1');
+    $client->setClientSecret('clientSecret1');
+    $client->setRedirectUri('http://localhost');
+    $client->setDeveloperKey('devKey');
+    $client->setState('xyz');
+    $client->setConfig('access_type', 'offline');
+    $client->setConfig('approval_prompt', 'force');
+    $client->setConfig('request_visible_actions', 'http://foo');
+    $client->setConfig('login_hint', 'bob@example.org');
+
+    $authUrl = $client->createAuthUrl("http://googleapis.com/scope/foo");
+    $expected = "https://accounts.google.com/o/oauth2/auth"
+        . "?access_type=offline"
+        . "&approval_prompt=force"
+        . "&login_hint=bob%40example.org"
+        . "&response_type=code"
+        . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
+        . "&state=xyz"
+        . "&client_id=clientId1"
+        . "&redirect_uri=http%3A%2F%2Flocalhost";
+    $this->assertEquals($expected, $authUrl);
+
+    // Again with a blank login hint (should remove all traces from authUrl)
+    $client->setConfig('login_hint', '');
+    $client->setConfig('hosted_domain', 'example.com');
+    $client->setConfig('openid.realm', 'example.com');
+    $client->setConfig('prompt', 'select_account');
+    $client->setConfig('include_granted_scopes', true);
+    $authUrl = $client->createAuthUrl("http://googleapis.com/scope/foo");
+    $expected = "https://accounts.google.com/o/oauth2/auth"
+        . "?access_type=offline"
+        . "&hd=example.com"
+        . "&include_granted_scopes=true"
+        . "&openid.realm=example.com"
+        . "&prompt=select_account"
+        . "&response_type=code"
+        . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
+        . "&state=xyz"
+        . "&client_id=clientId1"
+        . "&redirect_uri=http%3A%2F%2Flocalhost";
+    $this->assertEquals($expected, $authUrl);
+  }
+
+  public function testPrepareNoScopes()
   {
     $client = new Google_Client();
 
     $scopes = $client->prepareScopes();
-    $this->assertEquals("", $scopes);
+    $this->assertEquals(null, $scopes);
   }
 
   public function testNoAuthIsNull()
@@ -84,11 +149,11 @@ class Google_ClientTest extends BaseTest
     $this->assertEquals("http://test.com scope2", $scopes);
     $this->assertEquals(
         ''
-        .  'https://accounts.google.com/o/oauth2/auth'
-        . '?response_type=code'
-        . '&access_type=online'
-        . '&scope=http%3A%2F%2Ftest.com%20scope2'
+        . 'https://accounts.google.com/o/oauth2/auth'
+        . '?access_type=online'
         . '&approval_prompt=auto'
+        . '&response_type=code'
+        . '&scope=http%3A%2F%2Ftest.com%20scope2'
         . '&state=xyz'
         . '&client_id=test1'
         . '&redirect_uri=http%3A%2F%2Flocalhost%2F',
@@ -111,6 +176,9 @@ class Google_ClientTest extends BaseTest
       ->method('createRequest')
       ->will($this->returnValue($request));
     $http->expects($this->once())
+      ->method('getEmitter')
+      ->will($this->returnValue($this->getMock('GuzzleHttp\Event\EmitterInterface')));
+    $http->expects($this->once())
       ->method('send')
       ->will($this->returnValue($response));
     $client->setHttpClient($http);
@@ -124,25 +192,21 @@ class Google_ClientTest extends BaseTest
     $client->setClientId("client1");
     $client->setClientSecret('client1secret');
     $client->setState('1');
-    $client->setApprovalPrompt('force');
-    $client->setAccessType('offline');
+    $client->setConfig('approval_prompt', 'force');
+    $client->setConfig('access_type', 'offline');
 
     $client->setRedirectUri('localhost');
-    $client->setApplicationName('me');
-    $this->assertEquals('object', gettype($client->getAuth()));
+    $client->setConfig('application_name', 'me');
     $this->assertEquals('object', gettype($client->getCache()));
-
-    $client->setAuth(new Google_Auth_Simple($client));
-    $client->setAuth(new Google_Auth_OAuth2($client));
 
     try {
       $client->setAccessToken(null);
       $this->fail('Should have thrown an Google_Auth_Exception.');
-    } catch (Google_Auth_Exception $e) {
-      $this->assertEquals('Could not json decode the token', $e->getMessage());
+    } catch (InvalidArgumentException $e) {
+      $this->assertEquals('invalid json token', $e->getMessage());
     }
 
-    $token = json_encode(array('access_token' => 'token'));
+    $token = array('access_token' => 'token');
     $client->setAccessToken($token);
     $this->assertEquals($token, $client->getAccessToken());
   }
@@ -161,8 +225,7 @@ class Google_ClientTest extends BaseTest
   public function testJsonConfig()
   {
     // Device config
-    $config = new Google_Config();
-    $client = new Google_Client($config);
+    $client = new Google_Client();
     $device =
     '{"installed":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret"'.
     ':"N0aHCBT1qX1VAcF5J1pJAn6S","token_uri":"https://accounts.google.com/o/oauth2/token",'.
@@ -171,14 +234,12 @@ class Google_ClientTest extends BaseTest
     '"https://www.googleapis.com/oauth2/v1/certs"}}';
     $dObj = json_decode($device);
     $client->setAuthConfig($device);
-    $cfg = $config->getClassConfig('Google_Auth_OAuth2');
-    $this->assertEquals($cfg['client_id'], $dObj->installed->client_id);
-    $this->assertEquals($cfg['client_secret'], $dObj->installed->client_secret);
-    $this->assertEquals($cfg['redirect_uri'], $dObj->installed->redirect_uris[0]);
+    $this->assertEquals($client->getClientId(), $dObj->installed->client_id);
+    $this->assertEquals($client->getClientSecret(), $dObj->installed->client_secret);
+    $this->assertEquals($client->getRedirectUri(), $dObj->installed->redirect_uris[0]);
 
     // Web config
-    $config = new Google_Config();
-    $client = new Google_Client($config);
+    $client = new Google_Client();
     $web = '{"web":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret"' .
       ':"lpoubuib8bj-Fmke_YhhyHGgXc","token_uri":"https://accounts.google.com/o/oauth2/token"' .
       ',"client_email":"123456789@developer.gserviceaccount.com","client_x509_cert_url":'.
@@ -187,40 +248,41 @@ class Google_ClientTest extends BaseTest
       '"https://www.googleapis.com/oauth2/v1/certs"}}';
     $wObj = json_decode($web);
     $client->setAuthConfig($web);
-    $cfg = $config->getClassConfig('Google_Auth_OAuth2');
-    $this->assertEquals($cfg['client_id'], $wObj->web->client_id);
-    $this->assertEquals($cfg['client_secret'], $wObj->web->client_secret);
-    $this->assertEquals($cfg['redirect_uri'], '');
+    $this->assertEquals($client->getClientId(), $wObj->web->client_id);
+    $this->assertEquals($client->getClientSecret(), $wObj->web->client_secret);
+    $this->assertEquals($client->getRedirectUri(), '');
   }
 
   public function testIniConfig()
   {
-    $config = new Google_Config($this->testDir . "/config/test.ini");
-    $this->assertEquals('My Test application', $config->getApplicationName());
+    $config = parse_ini_file($this->testDir . "/config/test.ini");
+    $client = new Google_Client($config);
+
+    $this->assertEquals('My Test application', $client->getConfig('application_name'));
     $this->assertEquals(
         'gjfiwnGinpena3',
-        $config->getClassConfig('Google_Auth_OAuth2', 'client_secret')
-    );
-    $this->assertInternalType(
-        'array',
-        $config->getClassConfig('Google_IO_Abstract')
-    );
-    $this->assertEquals(
-        100,
-        $config->getClassConfig('Google_IO_Abstract', 'request_timeout_seconds')
+        $client->getClientSecret()
     );
   }
 
   public function testNoAuth()
   {
     /** @var $noAuth Google_Auth_Simple */
-    $noAuth = new Google_Auth_Simple($this->getClient());
     $client = new Google_Client();
-    $client->setAuth($noAuth);
     $client->setDeveloperKey(null);
-    $req = new Request('GET', 'http://example.com');
 
-    $resp = $noAuth->sign($req);
-    $this->assertEquals('http://example.com', $resp->getUrl());
+    // unset application credentials
+    $GOOGLE_APPLICATION_CREDENTIALS = getenv('GOOGLE_APPLICATION_CREDENTIALS');
+    $HOME = getenv('HOME');
+    putenv('GOOGLE_APPLICATION_CREDENTIALS=');
+    putenv('HOME='.sys_get_temp_dir());
+    $http = new Client();
+    $client->attachAuthListener($http);
+
+    $listeners = $http->getEmitter()->listeners('before');
+
+    putenv("GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS");
+    putenv("HOME=$HOME");
+    $this->assertEquals(0, count($listeners));
   }
 }

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-require_once dirname(__FILE__) . '/../src/Google/autoload.php';
-require_once dirname(__FILE__) . '/BaseTest.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/BaseTest.php';
 
 date_default_timezone_set('UTC');

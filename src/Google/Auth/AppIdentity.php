@@ -20,11 +20,8 @@
  * which is 5.3 and above only, so if you include this in a PHP 5.2
  * setup or one without 5.3 things will blow up.
  */
-use google\appengine\api\app_identity\AppIdentityService;
 
-if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
-}
+use google\appengine\api\app_identity\AppIdentityService;
 
 /**
  * Authentication via the Google App Engine App Identity service.

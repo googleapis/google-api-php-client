@@ -19,15 +19,14 @@ class Google_Service_PlusTest extends BaseTest
 {
   /** @var Google_PlusService */
   public $plus;
-  public function __construct()
+  public function setUp()
   {
-    parent::__construct();
+    $this->checkToken();
     $this->plus = new Google_Service_Plus($this->getClient());
   }
 
   public function testGetPerson()
   {
-    $this->checkToken();
     $person = $this->plus->people->get("118051310819094153327");
     $this->assertArrayHasKey('kind', $person);
     $this->assertArrayHasKey('displayName', $person);
@@ -37,7 +36,6 @@ class Google_Service_PlusTest extends BaseTest
 
   public function testListActivities()
   {
-    $this->checkToken();
     $activities = $this->plus->activities
         ->listActivities("118051310819094153327", "public");
 

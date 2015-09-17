@@ -15,10 +15,6 @@
  * limitations under the License.
  */
 
-if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
-}
-
 use GuzzleHttp\Pool;
 use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Message\ResponseInterface;
@@ -27,7 +23,7 @@ use GuzzleHttp\BatchResults;
 /**
  * Class to handle batched requests to the Google API service.
  */
-class Google_Http_Batch
+class Google_Http_Parallel
 {
   /** @var array service requests to be executed. */
   private $requests = array();
@@ -71,6 +67,7 @@ class Google_Http_Batch
       $response = $responses[$i];
       if (
         $response instanceof ResponseInterface &&
+        $response->getStatusCode() < 300 &&
         $class = $this->requests[$requestKeys[$j]]->getHeader('X-Php-Expected-Class')
       ) {
         $response = new $class($response->json());

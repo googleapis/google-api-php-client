@@ -7,7 +7,8 @@
     "license": "Apache-2.0",
     "require": {
         "php": ">=5.4",
-        "google/auth": "dev-master"
+        "google/auth": "dev-master",
+        "monolog/monolog": "^1.17"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",

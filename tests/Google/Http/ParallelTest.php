@@ -18,25 +18,27 @@
  * under the License.
  */
 
-class Google_Http_BatchTest extends BaseTest
+class Google_Http_ParallelTest extends BaseTest
 {
+  public $parallel;
   public $plus;
+
+  public function setUp()
+  {
+    $this->checkToken();
+    $client = $this->getClient();
+    $client->setUseBatch(true);
+    $this->parallel = new Google_Http_Parallel($client);
+    $this->plus = new Google_Service_Plus($client);
+  }
 
   public function testBatchRequestWithAuth()
   {
-    if (!$this->checkToken()) {
-      return;
-    }
-    $client = $this->getClient();
-    $batch = new Google_Http_Batch($client);
-    $this->plus = new Google_Service_Plus($client);
+    $this->parallel->add($this->plus->people->get('me'), 'key1');
+    $this->parallel->add($this->plus->people->get('me'), 'key2');
+    $this->parallel->add($this->plus->people->get('me'), 'key3');
 
-    $client->setUseBatch(true);
-    $batch->add($this->plus->people->get('me'), 'key1');
-    $batch->add($this->plus->people->get('me'), 'key2');
-    $batch->add($this->plus->people->get('me'), 'key3');
-
-    $result = $batch->execute();
+    $result = $this->parallel->execute();
     $this->assertTrue(isset($result['response-key1']));
     $this->assertTrue(isset($result['response-key2']));
     $this->assertTrue(isset($result['response-key3']));
@@ -47,19 +49,11 @@ class Google_Http_BatchTest extends BaseTest
 
   public function testBatchRequest()
   {
-    if (!$this->checkToken()) {
-      return;
-    }
-    $client = $this->getClient();
-    $batch = new Google_Http_Batch($client);
-    $this->plus = new Google_Service_Plus($client);
+    $this->parallel->add($this->plus->people->get('+LarryPage'), 'key1');
+    $this->parallel->add($this->plus->people->get('+LarryPage'), 'key2');
+    $this->parallel->add($this->plus->people->get('+LarryPage'), 'key3');
 
-    $client->setUseBatch(true);
-    $batch->add($this->plus->people->get('+LarryPage'), 'key1');
-    $batch->add($this->plus->people->get('+LarryPage'), 'key2');
-    $batch->add($this->plus->people->get('+LarryPage'), 'key3');
-
-    $result = $batch->execute();
+    $result = $this->parallel->execute();
     $this->assertTrue(isset($result['response-key1']));
     $this->assertTrue(isset($result['response-key2']));
     $this->assertTrue(isset($result['response-key3']));
@@ -70,19 +64,15 @@ class Google_Http_BatchTest extends BaseTest
 
   public function testInvalidBatchRequest()
   {
-    $client = $this->getClient();
-    $batch = new Google_Http_Batch($client);
-    $this->plus = new Google_Service_Plus($client);
+    $this->parallel->add($this->plus->people->get('123456789987654321'), 'key1');
+    $this->parallel->add($this->plus->people->get('+LarryPage'), 'key2');
 
-    $client->setUseBatch(true);
-    $batch->add($this->plus->people->get('123456789987654321'), 'key1');
-    $batch->add($this->plus->people->get('+LarryPage'), 'key2');
-
-    $result = $batch->execute();
+    $result = $this->parallel->execute();
     $this->assertTrue(isset($result['response-key2']));
     $this->assertInstanceOf(
-        'GuzzleHttp\Exception\ClientException',
+        'GuzzleHttp\Message\Response',
         $result['response-key1']
     );
+    $this->assertEquals(404, $result['response-key1']->getStatusCode());
   }
 }
