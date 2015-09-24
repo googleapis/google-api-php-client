@@ -30,6 +30,9 @@
  */
 class Google_Service_CloudMonitoring extends Google_Service
 {
+  /** View and manage your data across Google Cloud Platform services. */
+  const CLOUD_PLATFORM =
+      "https://www.googleapis.com/auth/cloud-platform";
   /** View and write monitoring data for all of your Google and third-party Cloud and API projects. */
   const MONITORING =
       "https://www.googleapis.com/auth/monitoring";

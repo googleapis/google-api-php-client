@@ -229,16 +229,6 @@ class Google_Service_Plus extends Google_Service
                   'type' => 'string',
                 ),
               ),
-            ),'remove' => array(
-              'path' => 'moments/{id}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
             ),
           )
         )
@@ -518,19 +508,6 @@ class Google_Service_Plus_Moments_Resource extends Google_Service_Resource
     $params = array('userId' => $userId, 'collection' => $collection);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Plus_MomentsFeed");
-  }
-
-  /**
-   * Delete a moment. (moments.remove)
-   *
-   * @param string $id The ID of the moment to delete.
-   * @param array $optParams Optional parameters.
-   */
-  public function remove($id, $optParams = array())
-  {
-    $params = array('id' => $id);
-    $params = array_merge($params, $optParams);
-    return $this->call('remove', array($params));
   }
 }
 
@@ -880,6 +857,8 @@ class Google_Service_Plus_ActivityActor extends Google_Model
   protected $nameType = 'Google_Service_Plus_ActivityActorName';
   protected $nameDataType = '';
   public $url;
+  protected $verificationType = 'Google_Service_Plus_ActivityActorVerification';
+  protected $verificationDataType = '';
 
 
   public function setDisplayName($displayName)
@@ -921,6 +900,14 @@ class Google_Service_Plus_ActivityActor extends Google_Model
   public function getUrl()
   {
     return $this->url;
+  }
+  public function setVerification(Google_Service_Plus_ActivityActorVerification $verification)
+  {
+    $this->verification = $verification;
+  }
+  public function getVerification()
+  {
+    return $this->verification;
   }
 }
 
@@ -964,6 +951,23 @@ class Google_Service_Plus_ActivityActorName extends Google_Model
   public function getGivenName()
   {
     return $this->givenName;
+  }
+}
+
+class Google_Service_Plus_ActivityActorVerification extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $adHocVerified;
+
+
+  public function setAdHocVerified($adHocVerified)
+  {
+    $this->adHocVerified = $adHocVerified;
+  }
+  public function getAdHocVerified()
+  {
+    return $this->adHocVerified;
   }
 }
 
@@ -1171,6 +1175,8 @@ class Google_Service_Plus_ActivityObjectActor extends Google_Model
   protected $imageType = 'Google_Service_Plus_ActivityObjectActorImage';
   protected $imageDataType = '';
   public $url;
+  protected $verificationType = 'Google_Service_Plus_ActivityObjectActorVerification';
+  protected $verificationDataType = '';
 
 
   public function setDisplayName($displayName)
@@ -1205,6 +1211,14 @@ class Google_Service_Plus_ActivityObjectActor extends Google_Model
   {
     return $this->url;
   }
+  public function setVerification(Google_Service_Plus_ActivityObjectActorVerification $verification)
+  {
+    $this->verification = $verification;
+  }
+  public function getVerification()
+  {
+    return $this->verification;
+  }
 }
 
 class Google_Service_Plus_ActivityObjectActorImage extends Google_Model
@@ -1221,6 +1235,23 @@ class Google_Service_Plus_ActivityObjectActorImage extends Google_Model
   public function getUrl()
   {
     return $this->url;
+  }
+}
+
+class Google_Service_Plus_ActivityObjectActorVerification extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $adHocVerified;
+
+
+  public function setAdHocVerified($adHocVerified)
+  {
+    $this->adHocVerified = $adHocVerified;
+  }
+  public function getAdHocVerified()
+  {
+    return $this->adHocVerified;
   }
 }
 
@@ -1728,6 +1759,8 @@ class Google_Service_Plus_CommentActor extends Google_Model
   protected $imageType = 'Google_Service_Plus_CommentActorImage';
   protected $imageDataType = '';
   public $url;
+  protected $verificationType = 'Google_Service_Plus_CommentActorVerification';
+  protected $verificationDataType = '';
 
 
   public function setDisplayName($displayName)
@@ -1762,6 +1795,14 @@ class Google_Service_Plus_CommentActor extends Google_Model
   {
     return $this->url;
   }
+  public function setVerification(Google_Service_Plus_CommentActorVerification $verification)
+  {
+    $this->verification = $verification;
+  }
+  public function getVerification()
+  {
+    return $this->verification;
+  }
 }
 
 class Google_Service_Plus_CommentActorImage extends Google_Model
@@ -1778,6 +1819,23 @@ class Google_Service_Plus_CommentActorImage extends Google_Model
   public function getUrl()
   {
     return $this->url;
+  }
+}
+
+class Google_Service_Plus_CommentActorVerification extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $adHocVerified;
+
+
+  public function setAdHocVerified($adHocVerified)
+  {
+    $this->adHocVerified = $adHocVerified;
+  }
+  public function getAdHocVerified()
+  {
+    return $this->adHocVerified;
   }
 }
 

@@ -23,7 +23,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="" target="_blank">Documentation</a>
+ * <a href="https://cloud.google.com/dataflow" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -51,7 +51,7 @@ class Google_Service_Dataflow extends Google_Service
   {
     parent::__construct($client);
     $this->rootUrl = 'https://dataflow.googleapis.com/';
-    $this->servicePath = 'v1b3/projects/';
+    $this->servicePath = '';
     $this->version = 'v1b3';
     $this->serviceName = 'dataflow';
 
@@ -62,7 +62,7 @@ class Google_Service_Dataflow extends Google_Service
         array(
           'methods' => array(
             'create' => array(
-              'path' => '{projectId}/jobs',
+              'path' => 'v1b3/projects/{projectId}/jobs',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -80,7 +80,7 @@ class Google_Service_Dataflow extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => '{projectId}/jobs/{jobId}',
+              'path' => 'v1b3/projects/{projectId}/jobs/{jobId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -99,7 +99,7 @@ class Google_Service_Dataflow extends Google_Service
                 ),
               ),
             ),'getMetrics' => array(
-              'path' => '{projectId}/jobs/{jobId}/metrics',
+              'path' => 'v1b3/projects/{projectId}/jobs/{jobId}/metrics',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -118,7 +118,7 @@ class Google_Service_Dataflow extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => '{projectId}/jobs',
+              'path' => 'v1b3/projects/{projectId}/jobs',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -130,32 +130,17 @@ class Google_Service_Dataflow extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'view' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-              ),
-            ),'patch' => array(
-              'path' => '{projectId}/jobs/{jobId}',
-              'httpMethod' => 'PATCH',
-              'parameters' => array(
-                'projectId' => array(
-                  'location' => 'path',
+                'view' => array(
+                  'location' => 'query',
                   'type' => 'string',
-                  'required' => true,
-                ),
-                'jobId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
                 ),
               ),
             ),'update' => array(
-              'path' => '{projectId}/jobs/{jobId}',
+              'path' => 'v1b3/projects/{projectId}/jobs/{jobId}',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'projectId' => array(
@@ -180,7 +165,7 @@ class Google_Service_Dataflow extends Google_Service
         array(
           'methods' => array(
             'list' => array(
-              'path' => '{projectId}/jobs/{jobId}/messages',
+              'path' => 'v1b3/projects/{projectId}/jobs/{jobId}/messages',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -225,7 +210,7 @@ class Google_Service_Dataflow extends Google_Service
         array(
           'methods' => array(
             'lease' => array(
-              'path' => '{projectId}/jobs/{jobId}/workItems:lease',
+              'path' => 'v1b3/projects/{projectId}/jobs/{jobId}/workItems:lease',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -240,7 +225,7 @@ class Google_Service_Dataflow extends Google_Service
                 ),
               ),
             ),'reportStatus' => array(
-              'path' => '{projectId}/jobs/{jobId}/workItems:reportStatus',
+              'path' => 'v1b3/projects/{projectId}/jobs/{jobId}/workItems:reportStatus',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -288,12 +273,13 @@ class Google_Service_Dataflow_ProjectsJobs_Resource extends Google_Service_Resou
   /**
    * Creates a dataflow job. (jobs.create)
    *
-   * @param string $projectId
+   * @param string $projectId The project which owns the job.
    * @param Google_Job $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string replaceJobId
-   * @opt_param string view
+   * @opt_param string replaceJobId DEPRECATED. This field is now on the Job
+   * message.
+   * @opt_param string view Level of information requested in response.
    * @return Google_Service_Dataflow_Job
    */
   public function create($projectId, Google_Service_Dataflow_Job $postBody, $optParams = array())
@@ -306,11 +292,11 @@ class Google_Service_Dataflow_ProjectsJobs_Resource extends Google_Service_Resou
   /**
    * Gets the state of the specified dataflow job. (jobs.get)
    *
-   * @param string $projectId
-   * @param string $jobId
+   * @param string $projectId The project which owns the job.
+   * @param string $jobId Identifies a single job.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string view
+   * @opt_param string view Level of information requested in response.
    * @return Google_Service_Dataflow_Job
    */
   public function get($projectId, $jobId, $optParams = array())
@@ -323,11 +309,13 @@ class Google_Service_Dataflow_ProjectsJobs_Resource extends Google_Service_Resou
   /**
    * Request the job status. (jobs.getMetrics)
    *
-   * @param string $projectId
-   * @param string $jobId
+   * @param string $projectId A project id.
+   * @param string $jobId The job to get messages for.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string startTime
+   * @opt_param string startTime Return only metric data that has changed since
+   * this time. Default is to return all information about all metrics for the
+   * job.
    * @return Google_Service_Dataflow_JobMetrics
    */
   public function getMetrics($projectId, $jobId, $optParams = array())
@@ -340,12 +328,16 @@ class Google_Service_Dataflow_ProjectsJobs_Resource extends Google_Service_Resou
   /**
    * List the jobs of a project (jobs.listProjectsJobs)
    *
-   * @param string $projectId
+   * @param string $projectId The project which owns the jobs.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken
-   * @opt_param string view
-   * @opt_param int pageSize
+   * @opt_param string pageToken Set this to the 'next_page_token' field of a
+   * previous response to request additional results in a long list.
+   * @opt_param int pageSize If there are many jobs, limit response to at most
+   * this many. The actual number of jobs returned will be the lesser of
+   * max_responses and an unspecified server-defined limit.
+   * @opt_param string view Level of information requested in response. Default is
+   * SUMMARY.
    * @return Google_Service_Dataflow_ListJobsResponse
    */
   public function listProjectsJobs($projectId, $optParams = array())
@@ -356,27 +348,10 @@ class Google_Service_Dataflow_ProjectsJobs_Resource extends Google_Service_Resou
   }
 
   /**
-   * Updates the state of an existing dataflow job. This method supports patch
-   * semantics. (jobs.patch)
-   *
-   * @param string $projectId
-   * @param string $jobId
-   * @param Google_Job $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Dataflow_Job
-   */
-  public function patch($projectId, $jobId, Google_Service_Dataflow_Job $postBody, $optParams = array())
-  {
-    $params = array('projectId' => $projectId, 'jobId' => $jobId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('patch', array($params), "Google_Service_Dataflow_Job");
-  }
-
-  /**
    * Updates the state of an existing dataflow job. (jobs.update)
    *
-   * @param string $projectId
-   * @param string $jobId
+   * @param string $projectId The project which owns the job.
+   * @param string $jobId Identifies a single job.
    * @param Google_Job $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Dataflow_Job
@@ -403,15 +378,23 @@ class Google_Service_Dataflow_ProjectsJobsMessages_Resource extends Google_Servi
   /**
    * Request the job status. (messages.listProjectsJobsMessages)
    *
-   * @param string $projectId
-   * @param string $jobId
+   * @param string $projectId A project id.
+   * @param string $jobId The job to get messages about.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int pageSize
-   * @opt_param string pageToken
-   * @opt_param string startTime
-   * @opt_param string endTime
-   * @opt_param string minimumImportance
+   * @opt_param int pageSize If specified, determines the maximum number of
+   * messages to return. If unspecified, the service may choose an appropriate
+   * default, or may return an arbitrarily large number of results.
+   * @opt_param string pageToken If supplied, this should be the value of
+   * next_page_token returned by an earlier call. This will cause the next page of
+   * results to be returned.
+   * @opt_param string startTime If specified, return only messages with
+   * timestamps >= start_time. The default is the job creation time (i.e.
+   * beginning of messages).
+   * @opt_param string endTime Return only messages with timestamps < end_time.
+   * The default is now (i.e. return up to the latest messages available).
+   * @opt_param string minimumImportance Filter to only get messages with
+   * importance >= level
    * @return Google_Service_Dataflow_ListJobMessagesResponse
    */
   public function listProjectsJobsMessages($projectId, $jobId, $optParams = array())
@@ -435,8 +418,8 @@ class Google_Service_Dataflow_ProjectsJobsWorkItems_Resource extends Google_Serv
   /**
    * Leases a dataflow WorkItem to run. (workItems.lease)
    *
-   * @param string $projectId
-   * @param string $jobId
+   * @param string $projectId Identifies the project this worker belongs to.
+   * @param string $jobId Identifies the workflow job this worker belongs to.
    * @param Google_LeaseWorkItemRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Dataflow_LeaseWorkItemResponse
@@ -452,8 +435,8 @@ class Google_Service_Dataflow_ProjectsJobsWorkItems_Resource extends Google_Serv
    * Reports the status of dataflow WorkItems leased by a worker.
    * (workItems.reportStatus)
    *
-   * @param string $projectId
-   * @param string $jobId
+   * @param string $projectId The project which owns the WorkItem's job.
+   * @param string $jobId The job which the WorkItem is part of.
    * @param Google_ReportWorkItemStatusRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Dataflow_ReportWorkItemStatusResponse
@@ -533,7 +516,7 @@ class Google_Service_Dataflow_AutoscalingSettings extends Google_Model
 
 class Google_Service_Dataflow_ComputationTopology extends Google_Collection
 {
-  protected $collection_key = 'outputs';
+  protected $collection_key = 'stateFamilies';
   protected $internal_gapi_mappings = array(
   );
   public $computationId;
@@ -543,6 +526,10 @@ class Google_Service_Dataflow_ComputationTopology extends Google_Collection
   protected $keyRangesDataType = 'array';
   protected $outputsType = 'Google_Service_Dataflow_StreamLocation';
   protected $outputsDataType = 'array';
+  protected $stateFamiliesType = 'Google_Service_Dataflow_StateFamilyConfig';
+  protected $stateFamiliesDataType = 'array';
+  public $systemStageName;
+  public $userStageName;
 
 
   public function setComputationId($computationId)
@@ -576,6 +563,74 @@ class Google_Service_Dataflow_ComputationTopology extends Google_Collection
   public function getOutputs()
   {
     return $this->outputs;
+  }
+  public function setStateFamilies($stateFamilies)
+  {
+    $this->stateFamilies = $stateFamilies;
+  }
+  public function getStateFamilies()
+  {
+    return $this->stateFamilies;
+  }
+  public function setSystemStageName($systemStageName)
+  {
+    $this->systemStageName = $systemStageName;
+  }
+  public function getSystemStageName()
+  {
+    return $this->systemStageName;
+  }
+  public function setUserStageName($userStageName)
+  {
+    $this->userStageName = $userStageName;
+  }
+  public function getUserStageName()
+  {
+    return $this->userStageName;
+  }
+}
+
+class Google_Service_Dataflow_ConcatPosition extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $index;
+  protected $positionType = 'Google_Service_Dataflow_Position';
+  protected $positionDataType = '';
+
+
+  public function setIndex($index)
+  {
+    $this->index = $index;
+  }
+  public function getIndex()
+  {
+    return $this->index;
+  }
+  public function setPosition(Google_Service_Dataflow_Position $position)
+  {
+    $this->position = $position;
+  }
+  public function getPosition()
+  {
+    return $this->position;
+  }
+}
+
+class Google_Service_Dataflow_CustomSourceLocation extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $stateful;
+
+
+  public function setStateful($stateful)
+  {
+    $this->stateful = $stateful;
+  }
+  public function getStateful()
+  {
+    return $this->stateful;
   }
 }
 
@@ -704,6 +759,7 @@ class Google_Service_Dataflow_Environment extends Google_Collection
   public $clusterManagerApiService;
   public $dataset;
   public $experiments;
+  public $internalExperiments;
   public $sdkPipelineOptions;
   public $tempStoragePrefix;
   public $userAgent;
@@ -735,6 +791,14 @@ class Google_Service_Dataflow_Environment extends Google_Collection
   public function getExperiments()
   {
     return $this->experiments;
+  }
+  public function setInternalExperiments($internalExperiments)
+  {
+    $this->internalExperiments = $internalExperiments;
+  }
+  public function getInternalExperiments()
+  {
+    return $this->internalExperiments;
   }
   public function setSdkPipelineOptions($sdkPipelineOptions)
   {
@@ -776,6 +840,10 @@ class Google_Service_Dataflow_Environment extends Google_Collection
   {
     return $this->workerPools;
   }
+}
+
+class Google_Service_Dataflow_EnvironmentInternalExperiments extends Google_Model
+{
 }
 
 class Google_Service_Dataflow_EnvironmentSdkPipelineOptions extends Google_Model
@@ -841,6 +909,7 @@ class Google_Service_Dataflow_InstructionOutput extends Google_Model
   );
   public $codec;
   public $name;
+  public $systemName;
 
 
   public function setCodec($codec)
@@ -858,6 +927,14 @@ class Google_Service_Dataflow_InstructionOutput extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+  public function setSystemName($systemName)
+  {
+    $this->systemName = $systemName;
+  }
+  public function getSystemName()
+  {
+    return $this->systemName;
   }
 }
 
@@ -882,6 +959,7 @@ class Google_Service_Dataflow_Job extends Google_Collection
   public $name;
   public $projectId;
   public $replaceJobId;
+  public $replacedByJobId;
   public $requestedState;
   protected $stepsType = 'Google_Service_Dataflow_Step';
   protected $stepsDataType = 'array';
@@ -968,6 +1046,14 @@ class Google_Service_Dataflow_Job extends Google_Collection
   public function getReplaceJobId()
   {
     return $this->replaceJobId;
+  }
+  public function setReplacedByJobId($replacedByJobId)
+  {
+    $this->replacedByJobId = $replacedByJobId;
+  }
+  public function getReplacedByJobId()
+  {
+    return $this->replacedByJobId;
   }
   public function setRequestedState($requestedState)
   {
@@ -1759,6 +1845,8 @@ class Google_Service_Dataflow_Position extends Google_Model
   protected $internal_gapi_mappings = array(
   );
   public $byteOffset;
+  protected $concatPositionType = 'Google_Service_Dataflow_ConcatPosition';
+  protected $concatPositionDataType = '';
   public $end;
   public $key;
   public $recordIndex;
@@ -1772,6 +1860,14 @@ class Google_Service_Dataflow_Position extends Google_Model
   public function getByteOffset()
   {
     return $this->byteOffset;
+  }
+  public function setConcatPosition(Google_Service_Dataflow_ConcatPosition $concatPosition)
+  {
+    $this->concatPosition = $concatPosition;
+  }
+  public function getConcatPosition()
+  {
+    return $this->concatPosition;
   }
   public function setEnd($end)
   {
@@ -2501,6 +2597,32 @@ class Google_Service_Dataflow_SourceSplitShard extends Google_Model
   }
 }
 
+class Google_Service_Dataflow_StateFamilyConfig extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $isRead;
+  public $stateFamily;
+
+
+  public function setIsRead($isRead)
+  {
+    $this->isRead = $isRead;
+  }
+  public function getIsRead()
+  {
+    return $this->isRead;
+  }
+  public function setStateFamily($stateFamily)
+  {
+    $this->stateFamily = $stateFamily;
+  }
+  public function getStateFamily()
+  {
+    return $this->stateFamily;
+  }
+}
+
 class Google_Service_Dataflow_Status extends Google_Collection
 {
   protected $collection_key = 'details';
@@ -2584,6 +2706,8 @@ class Google_Service_Dataflow_StreamLocation extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  protected $customSourceLocationType = 'Google_Service_Dataflow_CustomSourceLocation';
+  protected $customSourceLocationDataType = '';
   protected $pubsubLocationType = 'Google_Service_Dataflow_PubsubLocation';
   protected $pubsubLocationDataType = '';
   protected $sideInputLocationType = 'Google_Service_Dataflow_StreamingSideInputLocation';
@@ -2592,6 +2716,14 @@ class Google_Service_Dataflow_StreamLocation extends Google_Model
   protected $streamingStageLocationDataType = '';
 
 
+  public function setCustomSourceLocation(Google_Service_Dataflow_CustomSourceLocation $customSourceLocation)
+  {
+    $this->customSourceLocation = $customSourceLocation;
+  }
+  public function getCustomSourceLocation()
+  {
+    return $this->customSourceLocation;
+  }
   public function setPubsubLocation(Google_Service_Dataflow_PubsubLocation $pubsubLocation)
   {
     $this->pubsubLocation = $pubsubLocation;
@@ -2724,9 +2856,18 @@ class Google_Service_Dataflow_StreamingSideInputLocation extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $stateFamily;
   public $tag;
 
 
+  public function setStateFamily($stateFamily)
+  {
+    $this->stateFamily = $stateFamily;
+  }
+  public function getStateFamily()
+  {
+    return $this->stateFamily;
+  }
   public function setTag($tag)
   {
     $this->tag = $tag;
@@ -2944,6 +3085,7 @@ class Google_Service_Dataflow_TopologyConfig extends Google_Collection
   protected $computationsDataType = 'array';
   protected $dataDiskAssignmentsType = 'Google_Service_Dataflow_DataDiskAssignment';
   protected $dataDiskAssignmentsDataType = 'array';
+  public $userStageToComputationNameMap;
 
 
   public function setComputations($computations)
@@ -2962,6 +3104,18 @@ class Google_Service_Dataflow_TopologyConfig extends Google_Collection
   {
     return $this->dataDiskAssignments;
   }
+  public function setUserStageToComputationNameMap($userStageToComputationNameMap)
+  {
+    $this->userStageToComputationNameMap = $userStageToComputationNameMap;
+  }
+  public function getUserStageToComputationNameMap()
+  {
+    return $this->userStageToComputationNameMap;
+  }
+}
+
+class Google_Service_Dataflow_TopologyConfigUserStageToComputationNameMap extends Google_Model
+{
 }
 
 class Google_Service_Dataflow_WorkItem extends Google_Collection

@@ -37,6 +37,9 @@ class Google_Service_Manager extends Google_Service
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
+  /** View your data across Google Cloud Platform services. */
+  const CLOUD_PLATFORM_READ_ONLY =
+      "https://www.googleapis.com/auth/cloud-platform.read-only";
   /** View and manage your Google Compute Engine resources. */
   const COMPUTE =
       "https://www.googleapis.com/auth/compute";
