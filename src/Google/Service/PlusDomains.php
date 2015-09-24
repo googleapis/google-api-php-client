@@ -1148,6 +1148,8 @@ class Google_Service_PlusDomains_ActivityActor extends Google_Model
   protected $nameType = 'Google_Service_PlusDomains_ActivityActorName';
   protected $nameDataType = '';
   public $url;
+  protected $verificationType = 'Google_Service_PlusDomains_ActivityActorVerification';
+  protected $verificationDataType = '';
 
 
   public function setDisplayName($displayName)
@@ -1189,6 +1191,14 @@ class Google_Service_PlusDomains_ActivityActor extends Google_Model
   public function getUrl()
   {
     return $this->url;
+  }
+  public function setVerification(Google_Service_PlusDomains_ActivityActorVerification $verification)
+  {
+    $this->verification = $verification;
+  }
+  public function getVerification()
+  {
+    return $this->verification;
   }
 }
 
@@ -1232,6 +1242,23 @@ class Google_Service_PlusDomains_ActivityActorName extends Google_Model
   public function getGivenName()
   {
     return $this->givenName;
+  }
+}
+
+class Google_Service_PlusDomains_ActivityActorVerification extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $adHocVerified;
+
+
+  public function setAdHocVerified($adHocVerified)
+  {
+    $this->adHocVerified = $adHocVerified;
+  }
+  public function getAdHocVerified()
+  {
+    return $this->adHocVerified;
   }
 }
 
@@ -1449,6 +1476,8 @@ class Google_Service_PlusDomains_ActivityObjectActor extends Google_Model
   protected $imageType = 'Google_Service_PlusDomains_ActivityObjectActorImage';
   protected $imageDataType = '';
   public $url;
+  protected $verificationType = 'Google_Service_PlusDomains_ActivityObjectActorVerification';
+  protected $verificationDataType = '';
 
 
   public function setDisplayName($displayName)
@@ -1483,6 +1512,14 @@ class Google_Service_PlusDomains_ActivityObjectActor extends Google_Model
   {
     return $this->url;
   }
+  public function setVerification(Google_Service_PlusDomains_ActivityObjectActorVerification $verification)
+  {
+    $this->verification = $verification;
+  }
+  public function getVerification()
+  {
+    return $this->verification;
+  }
 }
 
 class Google_Service_PlusDomains_ActivityObjectActorImage extends Google_Model
@@ -1499,6 +1536,23 @@ class Google_Service_PlusDomains_ActivityObjectActorImage extends Google_Model
   public function getUrl()
   {
     return $this->url;
+  }
+}
+
+class Google_Service_PlusDomains_ActivityObjectActorVerification extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $adHocVerified;
+
+
+  public function setAdHocVerified($adHocVerified)
+  {
+    $this->adHocVerified = $adHocVerified;
+  }
+  public function getAdHocVerified()
+  {
+    return $this->adHocVerified;
   }
 }
 
@@ -2366,6 +2420,8 @@ class Google_Service_PlusDomains_CommentActor extends Google_Model
   protected $imageType = 'Google_Service_PlusDomains_CommentActorImage';
   protected $imageDataType = '';
   public $url;
+  protected $verificationType = 'Google_Service_PlusDomains_CommentActorVerification';
+  protected $verificationDataType = '';
 
 
   public function setDisplayName($displayName)
@@ -2400,6 +2456,14 @@ class Google_Service_PlusDomains_CommentActor extends Google_Model
   {
     return $this->url;
   }
+  public function setVerification(Google_Service_PlusDomains_CommentActorVerification $verification)
+  {
+    $this->verification = $verification;
+  }
+  public function getVerification()
+  {
+    return $this->verification;
+  }
 }
 
 class Google_Service_PlusDomains_CommentActorImage extends Google_Model
@@ -2416,6 +2480,23 @@ class Google_Service_PlusDomains_CommentActorImage extends Google_Model
   public function getUrl()
   {
     return $this->url;
+  }
+}
+
+class Google_Service_PlusDomains_CommentActorVerification extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $adHocVerified;
+
+
+  public function setAdHocVerified($adHocVerified)
+  {
+    $this->adHocVerified = $adHocVerified;
+  }
+  public function getAdHocVerified()
+  {
+    return $this->adHocVerified;
   }
 }
 

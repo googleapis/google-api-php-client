@@ -66,7 +66,27 @@ class Google_Service_SQLAdmin extends Google_Service
         'backupRuns',
         array(
           'methods' => array(
-            'get' => array(
+            'delete' => array(
+              'path' => 'projects/{project}/instances/{instance}/backupRuns/{id}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
               'path' => 'projects/{project}/instances/{instance}/backupRuns/{id}',
               'httpMethod' => 'GET',
               'parameters' => array(
@@ -534,7 +554,22 @@ class Google_Service_SQLAdmin extends Google_Service
         'sslCerts',
         array(
           'methods' => array(
-            'delete' => array(
+            'createEphemeral' => array(
+              'path' => 'projects/{project}/instances/{instance}/createEphemeral',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
               'path' => 'projects/{project}/instances/{instance}/sslCerts/{sha1Fingerprint}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
@@ -732,6 +767,23 @@ class Google_Service_SQLAdmin extends Google_Service
  */
 class Google_Service_SQLAdmin_BackupRuns_Resource extends Google_Service_Resource
 {
+
+  /**
+   * Deletes the backup taken by a backup run. (backupRuns.delete)
+   *
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param string $id The ID of the Backup Run to delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_SQLAdmin_Operation
+   */
+  public function delete($project, $instance, $id, $optParams = array())
+  {
+    $params = array('project' => $project, 'instance' => $instance, 'id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_SQLAdmin_Operation");
+  }
 
   /**
    * Retrieves a resource containing information about a backup run.
@@ -1259,6 +1311,26 @@ class Google_Service_SQLAdmin_Operations_Resource extends Google_Service_Resourc
  */
 class Google_Service_SQLAdmin_SslCerts_Resource extends Google_Service_Resource
 {
+
+  /**
+   * Generates a short-lived X509 certificate containing the provided public key
+   * and signed by a private key specific to the target instance. Users may use
+   * the certificate to authenticate as themselves when connecting to the
+   * database. (sslCerts.createEphemeral)
+   *
+   * @param string $project Project ID of the Cloud SQL project.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param Google_SslCertsCreateEphemeralRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_SQLAdmin_SslCert
+   */
+  public function createEphemeral($project, $instance, Google_Service_SQLAdmin_SslCertsCreateEphemeralRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'instance' => $instance, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('createEphemeral', array($params), "Google_Service_SQLAdmin_SslCert");
+  }
 
   /**
    * Deletes the SSL certificate. The change will not take effect until the
@@ -2159,9 +2231,18 @@ class Google_Service_SQLAdmin_ExportContextSqlExportOptions extends Google_Colle
   protected $collection_key = 'tables';
   protected $internal_gapi_mappings = array(
   );
+  public $schemaOnly;
   public $tables;
 
 
+  public function setSchemaOnly($schemaOnly)
+  {
+    $this->schemaOnly = $schemaOnly;
+  }
+  public function getSchemaOnly()
+  {
+    return $this->schemaOnly;
+  }
   public function setTables($tables)
   {
     $this->tables = $tables;
@@ -3244,6 +3325,24 @@ class Google_Service_SQLAdmin_SslCertDetail extends Google_Model
   public function getCertPrivateKey()
   {
     return $this->certPrivateKey;
+  }
+}
+
+class Google_Service_SQLAdmin_SslCertsCreateEphemeralRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+        "publicKey" => "public_key",
+  );
+  public $publicKey;
+
+
+  public function setPublicKey($publicKey)
+  {
+    $this->publicKey = $publicKey;
+  }
+  public function getPublicKey()
+  {
+    return $this->publicKey;
   }
 }
 

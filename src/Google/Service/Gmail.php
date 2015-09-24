@@ -32,7 +32,7 @@ class Google_Service_Gmail extends Google_Service
 {
   /** View and manage your mail. */
   const MAIL_GOOGLE_COM =
-      "https://mail.google.com";
+      "https://mail.google.com/";
   /** Manage drafts and send emails. */
   const GMAIL_COMPOSE =
       "https://www.googleapis.com/auth/gmail.compose";
@@ -48,6 +48,9 @@ class Google_Service_Gmail extends Google_Service
   /** View your emails messages and settings. */
   const GMAIL_READONLY =
       "https://www.googleapis.com/auth/gmail.readonly";
+  /** Send email on your behalf. */
+  const GMAIL_SEND =
+      "https://www.googleapis.com/auth/gmail.send";
 
   public $users;
   public $users_drafts;

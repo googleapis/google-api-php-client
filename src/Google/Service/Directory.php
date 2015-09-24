@@ -3486,14 +3486,16 @@ class Google_Service_Directory_Members extends Google_Collection
 
 class Google_Service_Directory_MobileDevice extends Google_Collection
 {
-  protected $collection_key = 'name';
+  protected $collection_key = 'otherAccountsInfo';
   protected $internal_gapi_mappings = array(
   );
+  public $adbStatus;
   protected $applicationsType = 'Google_Service_Directory_MobileDeviceApplications';
   protected $applicationsDataType = 'array';
   public $basebandVersion;
   public $buildNumber;
   public $defaultLanguage;
+  public $developerOptionsStatus;
   public $deviceCompromisedStatus;
   public $deviceId;
   public $email;
@@ -3510,14 +3512,25 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   public $name;
   public $networkOperator;
   public $os;
+  public $otherAccountsInfo;
   public $resourceId;
   public $serialNumber;
   public $status;
+  public $supportsWorkProfile;
   public $type;
+  public $unknownSourcesStatus;
   public $userAgent;
   public $wifiMacAddress;
 
 
+  public function setAdbStatus($adbStatus)
+  {
+    $this->adbStatus = $adbStatus;
+  }
+  public function getAdbStatus()
+  {
+    return $this->adbStatus;
+  }
   public function setApplications($applications)
   {
     $this->applications = $applications;
@@ -3549,6 +3562,14 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   public function getDefaultLanguage()
   {
     return $this->defaultLanguage;
+  }
+  public function setDeveloperOptionsStatus($developerOptionsStatus)
+  {
+    $this->developerOptionsStatus = $developerOptionsStatus;
+  }
+  public function getDeveloperOptionsStatus()
+  {
+    return $this->developerOptionsStatus;
   }
   public function setDeviceCompromisedStatus($deviceCompromisedStatus)
   {
@@ -3678,6 +3699,14 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   {
     return $this->os;
   }
+  public function setOtherAccountsInfo($otherAccountsInfo)
+  {
+    $this->otherAccountsInfo = $otherAccountsInfo;
+  }
+  public function getOtherAccountsInfo()
+  {
+    return $this->otherAccountsInfo;
+  }
   public function setResourceId($resourceId)
   {
     $this->resourceId = $resourceId;
@@ -3702,6 +3731,14 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   {
     return $this->status;
   }
+  public function setSupportsWorkProfile($supportsWorkProfile)
+  {
+    $this->supportsWorkProfile = $supportsWorkProfile;
+  }
+  public function getSupportsWorkProfile()
+  {
+    return $this->supportsWorkProfile;
+  }
   public function setType($type)
   {
     $this->type = $type;
@@ -3709,6 +3746,14 @@ class Google_Service_Directory_MobileDevice extends Google_Collection
   public function getType()
   {
     return $this->type;
+  }
+  public function setUnknownSourcesStatus($unknownSourcesStatus)
+  {
+    $this->unknownSourcesStatus = $unknownSourcesStatus;
+  }
+  public function getUnknownSourcesStatus()
+  {
+    return $this->unknownSourcesStatus;
   }
   public function setUserAgent($userAgent)
   {

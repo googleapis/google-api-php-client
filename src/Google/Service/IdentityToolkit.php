@@ -1125,6 +1125,7 @@ class Google_Service_IdentityToolkit_SetAccountInfoResponse extends Google_Colle
   public $email;
   public $idToken;
   public $kind;
+  public $newEmail;
   protected $providerUserInfoType = 'Google_Service_IdentityToolkit_SetAccountInfoResponseProviderUserInfo';
   protected $providerUserInfoDataType = 'array';
 
@@ -1160,6 +1161,14 @@ class Google_Service_IdentityToolkit_SetAccountInfoResponse extends Google_Colle
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setNewEmail($newEmail)
+  {
+    $this->newEmail = $newEmail;
+  }
+  public function getNewEmail()
+  {
+    return $this->newEmail;
   }
   public function setProviderUserInfo($providerUserInfo)
   {
@@ -1710,6 +1719,9 @@ class Google_Service_IdentityToolkit_VerifyPasswordResponse extends Google_Model
   public $idToken;
   public $kind;
   public $localId;
+  public $oauthAccessToken;
+  public $oauthAuthorizationCode;
+  public $oauthExpireIn;
   public $photoUrl;
   public $registered;
 
@@ -1753,6 +1765,30 @@ class Google_Service_IdentityToolkit_VerifyPasswordResponse extends Google_Model
   public function getLocalId()
   {
     return $this->localId;
+  }
+  public function setOauthAccessToken($oauthAccessToken)
+  {
+    $this->oauthAccessToken = $oauthAccessToken;
+  }
+  public function getOauthAccessToken()
+  {
+    return $this->oauthAccessToken;
+  }
+  public function setOauthAuthorizationCode($oauthAuthorizationCode)
+  {
+    $this->oauthAuthorizationCode = $oauthAuthorizationCode;
+  }
+  public function getOauthAuthorizationCode()
+  {
+    return $this->oauthAuthorizationCode;
+  }
+  public function setOauthExpireIn($oauthExpireIn)
+  {
+    $this->oauthExpireIn = $oauthExpireIn;
+  }
+  public function getOauthExpireIn()
+  {
+    return $this->oauthExpireIn;
   }
   public function setPhotoUrl($photoUrl)
   {
