@@ -48,6 +48,9 @@ class Google_Service_Drive extends Google_Service
   /** View metadata for files in your Google Drive. */
   const DRIVE_METADATA_READONLY =
       "https://www.googleapis.com/auth/drive.metadata.readonly";
+  /** View the photos, videos and albums in your Google Photos. */
+  const DRIVE_PHOTOS_READONLY =
+      "https://www.googleapis.com/auth/drive.photos.readonly";
   /** View the files in your Google Drive. */
   const DRIVE_READONLY =
       "https://www.googleapis.com/auth/drive.readonly";
@@ -294,11 +297,15 @@ class Google_Service_Drive extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'q' => array(
+                'orderBy' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'q' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -479,6 +486,19 @@ class Google_Service_Drive extends Google_Service
               'path' => 'files/trash',
               'httpMethod' => 'DELETE',
               'parameters' => array(),
+            ),'generateIds' => array(
+              'path' => 'files/generateIds',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'space' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
             ),'get' => array(
               'path' => 'files/{fileId}',
               'httpMethod' => 'GET',
@@ -546,6 +566,10 @@ class Google_Service_Drive extends Google_Service
               'path' => 'files',
               'httpMethod' => 'GET',
               'parameters' => array(
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'projection' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -584,23 +608,27 @@ class Google_Service_Drive extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'updateViewedDate' => array(
+                'modifiedDateBehavior' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type' => 'string',
                 ),
                 'removeParents' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'updateViewedDate' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'setModifiedDate' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'convert' => array(
+                'useContentAsIndexableText' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'useContentAsIndexableText' => array(
+                'convert' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
@@ -672,23 +700,27 @@ class Google_Service_Drive extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'updateViewedDate' => array(
+                'modifiedDateBehavior' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type' => 'string',
                 ),
                 'removeParents' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'updateViewedDate' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'setModifiedDate' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'convert' => array(
+                'useContentAsIndexableText' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'useContentAsIndexableText' => array(
+                'convert' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
@@ -1414,7 +1446,7 @@ class Google_Service_Drive_Changes_Resource extends Google_Service_Resource
    * @opt_param int maxResults Maximum number of changes to return.
    * @opt_param string pageToken Page token for changes.
    * @opt_param string spaces A comma-separated list of spaces to query. Supported
-   * values are 'drive' and 'appDataFolder'.
+   * values are 'drive', 'appDataFolder' and 'photos'.
    * @opt_param string startChangeId Change ID to start listing changes from.
    * @return Google_Service_Drive_ChangeList
    */
@@ -1439,7 +1471,7 @@ class Google_Service_Drive_Changes_Resource extends Google_Service_Resource
    * @opt_param int maxResults Maximum number of changes to return.
    * @opt_param string pageToken Page token for changes.
    * @opt_param string spaces A comma-separated list of spaces to query. Supported
-   * values are 'drive' and 'appDataFolder'.
+   * values are 'drive', 'appDataFolder' and 'photos'.
    * @opt_param string startChangeId Change ID to start listing changes from.
    * @return Google_Service_Drive_Channel
    */
@@ -1537,8 +1569,15 @@ class Google_Service_Drive_Children_Resource extends Google_Service_Resource
    * @param string $folderId The ID of the folder.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string q Query string for searching children.
+   * @opt_param string orderBy A comma-separated list of sort keys. Valid keys are
+   * 'createdDate', 'folder', 'lastViewedByMeDate', 'modifiedByMeDate',
+   * 'modifiedDate', 'quotaBytesUsed', 'recency', 'sharedWithMeDate', 'starred',
+   * and 'title'. Each key sorts ascending by default, but may be reversed with
+   * the 'desc' modifier. Example usage: ?orderBy=folder,modifiedDate desc,title.
+   * Please note that there is a current limitation for users with approximately
+   * one million files in which the requested sort order is ignored.
    * @opt_param string pageToken Page token for children.
+   * @opt_param string q Query string for searching children.
    * @opt_param int maxResults Maximum number of children to return.
    * @return Google_Service_Drive_ChildList
    */
@@ -1733,6 +1772,24 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
   }
 
   /**
+   * Generates a set of file IDs which can be provided in insert requests.
+   * (files.generateIds)
+   *
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param int maxResults Maximum number of IDs to return.
+   * @opt_param string space The space in which the IDs can be used to create new
+   * files. Supported values are 'drive' and 'appDataFolder'.
+   * @return Google_Service_Drive_GeneratedIds
+   */
+  public function generateIds($optParams = array())
+  {
+    $params = array();
+    $params = array_merge($params, $optParams);
+    return $this->call('generateIds', array($params), "Google_Service_Drive_GeneratedIds");
+  }
+
+  /**
    * Gets a file's metadata by ID. (files.get)
    *
    * @param string $fileId The ID for the file in question.
@@ -1789,13 +1846,20 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string orderBy A comma-separated list of sort keys. Valid keys are
+   * 'createdDate', 'folder', 'lastViewedByMeDate', 'modifiedByMeDate',
+   * 'modifiedDate', 'quotaBytesUsed', 'recency', 'sharedWithMeDate', 'starred',
+   * and 'title'. Each key sorts ascending by default, but may be reversed with
+   * the 'desc' modifier. Example usage: ?orderBy=folder,modifiedDate desc,title.
+   * Please note that there is a current limitation for users with approximately
+   * one million files in which the requested sort order is ignored.
    * @opt_param string projection This parameter is deprecated and has no
    * function.
    * @opt_param int maxResults Maximum number of files to return.
    * @opt_param string q Query string for searching files.
    * @opt_param string pageToken Page token for files.
    * @opt_param string spaces A comma-separated list of spaces to query. Supported
-   * values are 'drive' and 'appDataFolder'.
+   * values are 'drive', 'appDataFolder' and 'photos'.
    * @opt_param string corpus The body of items (files/documents) to which the
    * query applies.
    * @return Google_Service_Drive_FileList
@@ -1816,15 +1880,16 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string addParents Comma-separated list of parent IDs to add.
+   * @opt_param string modifiedDateBehavior Determines the behavior in which
+   * modifiedDate is updated. This overrides setModifiedDate.
+   * @opt_param string removeParents Comma-separated list of parent IDs to remove.
    * @opt_param bool updateViewedDate Whether to update the view date after
    * successfully updating the file.
-   * @opt_param string removeParents Comma-separated list of parent IDs to remove.
    * @opt_param bool setModifiedDate Whether to set the modified date with the
    * supplied modified date.
-   * @opt_param bool convert Whether to convert this file to the corresponding
-   * Google Docs format.
    * @opt_param bool useContentAsIndexableText Whether to use the content as
    * indexable text.
+   * @opt_param bool convert This parameter is deprecated and has no function.
    * @opt_param string ocrLanguage If ocr is true, hints at the language to use.
    * Valid values are BCP 47 codes.
    * @opt_param bool pinned Whether to pin the new revision. A file can have a
@@ -1834,7 +1899,8 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * If true or not set, a new blob is created as head revision, and previous
    * unpinned revisions are preserved for a short period of time. Pinned revisions
    * are stored indefinitely, using additional storage quota, up to a maximum of
-   * 200 revisions.
+   * 200 revisions. For details on how revisions are retained, see the Drive Help
+   * Center.
    * @opt_param bool ocr Whether to attempt OCR on .jpg, .png, .gif, or .pdf
    * uploads.
    * @opt_param string timedTextLanguage The language of the timed text.
@@ -1863,7 +1929,8 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
   }
 
   /**
-   * Moves a file to the trash. (files.trash)
+   * Moves a file to the trash. The currently authenticated user must own the
+   * file. (files.trash)
    *
    * @param string $fileId The ID of the file to trash.
    * @param array $optParams Optional parameters.
@@ -1898,15 +1965,16 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * @param array $optParams Optional parameters.
    *
    * @opt_param string addParents Comma-separated list of parent IDs to add.
+   * @opt_param string modifiedDateBehavior Determines the behavior in which
+   * modifiedDate is updated. This overrides setModifiedDate.
+   * @opt_param string removeParents Comma-separated list of parent IDs to remove.
    * @opt_param bool updateViewedDate Whether to update the view date after
    * successfully updating the file.
-   * @opt_param string removeParents Comma-separated list of parent IDs to remove.
    * @opt_param bool setModifiedDate Whether to set the modified date with the
    * supplied modified date.
-   * @opt_param bool convert Whether to convert this file to the corresponding
-   * Google Docs format.
    * @opt_param bool useContentAsIndexableText Whether to use the content as
    * indexable text.
+   * @opt_param bool convert This parameter is deprecated and has no function.
    * @opt_param string ocrLanguage If ocr is true, hints at the language to use.
    * Valid values are BCP 47 codes.
    * @opt_param bool pinned Whether to pin the new revision. A file can have a
@@ -1916,7 +1984,8 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    * If true or not set, a new blob is created as head revision, and previous
    * unpinned revisions are preserved for a short period of time. Pinned revisions
    * are stored indefinitely, using additional storage quota, up to a maximum of
-   * 200 revisions.
+   * 200 revisions. For details on how revisions are retained, see the Drive Help
+   * Center.
    * @opt_param bool ocr Whether to attempt OCR on .jpg, .png, .gif, or .pdf
    * uploads.
    * @opt_param string timedTextLanguage The language of the timed text.
@@ -4013,6 +4082,7 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   public $fileExtension;
   public $fileSize;
   public $folderColorRgb;
+  public $fullFileExtension;
   public $headRevisionId;
   public $iconLink;
   public $id;
@@ -4193,6 +4263,14 @@ class Google_Service_Drive_DriveFile extends Google_Collection
   public function getFolderColorRgb()
   {
     return $this->folderColorRgb;
+  }
+  public function setFullFileExtension($fullFileExtension)
+  {
+    $this->fullFileExtension = $fullFileExtension;
+  }
+  public function getFullFileExtension()
+  {
+    return $this->fullFileExtension;
   }
   public function setHeadRevisionId($headRevisionId)
   {
@@ -4941,6 +5019,42 @@ class Google_Service_Drive_FileList extends Google_Collection
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+}
+
+class Google_Service_Drive_GeneratedIds extends Google_Collection
+{
+  protected $collection_key = 'ids';
+  protected $internal_gapi_mappings = array(
+  );
+  public $ids;
+  public $kind;
+  public $space;
+
+
+  public function setIds($ids)
+  {
+    $this->ids = $ids;
+  }
+  public function getIds()
+  {
+    return $this->ids;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setSpace($space)
+  {
+    $this->space = $space;
+  }
+  public function getSpace()
+  {
+    return $this->space;
   }
 }
 
