@@ -16,7 +16,6 @@
 body {
   font-family: Arial,sans-serif;
   margin: auto;
-  white-space: nowrap;
   padding: 10px;
 }
 
@@ -37,6 +36,7 @@ body {
 
   margin: auto;
   padding: 10px;
+  overflow: scroll;
 }
 
 .request {
@@ -110,4 +110,8 @@ pre.code {
 
 .warn {
   color: red;
+}
+
+.api-key {
+  background-color:#DDD;
 }

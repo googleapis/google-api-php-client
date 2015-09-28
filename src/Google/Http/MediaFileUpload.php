@@ -60,6 +60,12 @@ class Google_Http_MediaFileUpload
   private $boundary;
 
   /**
+   * Result code from last HTTP call
+   * @var int
+   */
+  private $httpResultCode;
+
+  /**
    * @param $mimeType string
    * @param $data string The bytes you want to upload.
    * @param $resumable bool
@@ -130,8 +136,9 @@ class Google_Http_MediaFileUpload
     }
 
     $response = $http->send($request);
+    $this->httpResultCode = $response->getStatusCode();
 
-    if (308 == $response->getStatusCode()) {
+    if (308 == $this->httpResultCode) {
       // Track the amount uploaded.
       $range = explode('-', $response->getHeader('range'));
       $this->progress = $range[1] + 1;

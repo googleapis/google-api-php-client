@@ -17,17 +17,11 @@
 
 class Google_Service_PagespeedonlineTest extends BaseTest
 {
-  public $service;
-  public function __construct()
-  {
-    parent::__construct();
-    $this->service = new Google_Service_Pagespeedonline($this->getClient());
-  }
-
   public function testPageSpeed()
   {
     $this->checkToken();
-    $psapi = $this->service->pagespeedapi;
+    $service = new Google_Service_Pagespeedonline($this->getClient());
+    $psapi = $service->pagespeedapi;
     $result = $psapi->runpagespeed('http://code.google.com');
     $this->assertArrayHasKey('kind', $result);
     $this->assertArrayHasKey('id', $result);

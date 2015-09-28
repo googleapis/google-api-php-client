@@ -18,7 +18,7 @@
  * under the License.
  */
 
-class Google_Http_ParallelTest extends BaseTest
+class Google_Http_PoolTest extends BaseTest
 {
   public $parallel;
   public $plus;
@@ -28,11 +28,11 @@ class Google_Http_ParallelTest extends BaseTest
     $this->checkToken();
     $client = $this->getClient();
     $client->setUseBatch(true);
-    $this->parallel = new Google_Http_Parallel($client);
+    $this->parallel = new Google_Http_Pool($client);
     $this->plus = new Google_Service_Plus($client);
   }
 
-  public function testBatchRequestWithAuth()
+  public function testParallelRequestWithAuth()
   {
     $this->parallel->add($this->plus->people->get('me'), 'key1');
     $this->parallel->add($this->plus->people->get('me'), 'key2');
@@ -47,22 +47,7 @@ class Google_Http_ParallelTest extends BaseTest
     $this->assertInstanceOf('Google_Service_Plus_Person', $result['response-key3']);
   }
 
-  public function testBatchRequest()
-  {
-    $this->parallel->add($this->plus->people->get('+LarryPage'), 'key1');
-    $this->parallel->add($this->plus->people->get('+LarryPage'), 'key2');
-    $this->parallel->add($this->plus->people->get('+LarryPage'), 'key3');
-
-    $result = $this->parallel->execute();
-    $this->assertTrue(isset($result['response-key1']));
-    $this->assertTrue(isset($result['response-key2']));
-    $this->assertTrue(isset($result['response-key3']));
-    $this->assertInstanceOf('Google_Service_Plus_Person', $result['response-key1']);
-    $this->assertInstanceOf('Google_Service_Plus_Person', $result['response-key2']);
-    $this->assertInstanceOf('Google_Service_Plus_Person', $result['response-key3']);
-  }
-
-  public function testInvalidBatchRequest()
+  public function testInvalidParallelRequest()
   {
     $this->parallel->add($this->plus->people->get('123456789987654321'), 'key1');
     $this->parallel->add($this->plus->people->get('+LarryPage'), 'key2');

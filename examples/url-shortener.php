@@ -14,19 +14,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+include_once __DIR__ . '/../vendor/autoload.php';
 include_once "templates/base.php";
-session_start();
 
-require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
+echo pageHeader('User Query - URL Shortener');
 
-/************************************************
-  ATTENTION: Fill in these values! Make sure
-  the redirect URI is to this page, e.g:
-  http://localhost:8080/user-example.php
+/*************************************************
+ * Ensure you've downloaded your oauth credentials
  ************************************************/
- $client_id = '<YOUR_CLIENT_ID>';
- $client_secret = '<YOUR_CLIENT_SECRET>';
- $redirect_uri = '<YOUR_REDIRECT_URI>';
+if (!$oauth_credentials = getOAuthCredentialsFile()) {
+  echo missingOAuth2CredentialsWarning();
+  exit;
+}
 
 /************************************************
   Make an API request on behalf of a user. In
@@ -35,39 +35,50 @@ require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
   through a login flow. To do this we need some
   information from our API console project.
  ************************************************/
+/************************************************
+ * NOTICE:
+ * The redirect URI is to this page, e.g:
+ * http://localhost:8080/simplefileupload.php
+ ************************************************/
+$redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+
 $client = new Google_Client();
-$client->setClientId($client_id);
-$client->setClientSecret($client_secret);
+$client->setAuthConfig($oauth_credentials);
 $client->setRedirectUri($redirect_uri);
 $client->addScope("https://www.googleapis.com/auth/urlshortener");
 
 /************************************************
-  When we create the service here, we pass the
-  client to it. The client then queries the service
-  for the required scopes, and uses that when
-  generating the authentication URL later.
+ * When we create the service here, we pass the
+ * client to it. The client then queries the service
+ * for the required scopes, and uses that when
+ * generating the authentication URL later.
  ************************************************/
 $service = new Google_Service_Urlshortener($client);
 
 /************************************************
-  If we're logging out we just need to clear our
-  local access token in this case
+ * If we're logging out we just need to clear our
+ * local access token in this case
  ************************************************/
 if (isset($_REQUEST['logout'])) {
   unset($_SESSION['access_token']);
 }
 
 /************************************************
-  If we have a code back from the OAuth 2.0 flow,
-  we need to exchange that with the authenticate()
-  function. We store the resultant access token
-  bundle in the session, and redirect to ourself.
+ * If we have a code back from the OAuth 2.0 flow,
+ * we need to exchange that with the
+ * Google_Client::fetchAccessTokenWithAuthCode()
+ * function. We store the resultant access token
+ * bundle in the session, and redirect to ourself.
  ************************************************/
 if (isset($_GET['code'])) {
-  $client->authenticate($_GET['code']);
-  $_SESSION['access_token'] = $client->getAccessToken();
-  $redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-  header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
+  $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+  $client->setAccessToken($token);
+
+  // store in the session also
+  $_SESSION['access_token'] = $token;
+
+  // redirect back to the example
+  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
 }
 
 /************************************************
@@ -96,37 +107,27 @@ if ($client->getAccessToken() && isset($_GET['url'])) {
   $short = $service->url->insert($url);
   $_SESSION['access_token'] = $client->getAccessToken();
 }
-
-echo pageHeader("User Query - URL Shortener");
-if (strpos($client_id, "googleusercontent") == false) {
-  echo missingClientSecretsWarning();
-  exit;
-}
 ?>
+
 <div class="box">
+<?php if (isset($authUrl)): ?>
   <div class="request">
-<?php 
-if (isset($authUrl)) {
-  echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
-} else {
-  echo <<<END
-    <form id="url" method="GET" action="{$_SERVER['PHP_SELF']}">
-      <input name="url" class="url" type="text">
-      <input type="submit" value="Shorten">
-    </form>
-    <a class='logout' href='?logout'>Logout</a>
-END;
-}
-?>
+    <a class='login' href='<?= $authUrl ?>'>Connect Me!</a>
   </div>
-
+<?php elseif (empty($short)): ?>
+  <form id="url" method="GET" action="<?= $_SERVER['PHP_SELF'] ?>">
+    <input name="url" class="url" type="text">
+    <input type="submit" value="Shorten">
+  </form>
+  <a class='logout' href='?logout'>Logout</a>
+<?php else: ?>
+  You created a short link! <br />
+  <a href="<?= $short['id'] ?>"><?= $short['id'] ?></a>
   <div class="shortened">
-<?php
-if (isset($short)) {
-  var_dump($short);
-}
-?>
+    <pre><?php var_export($short) ?></pre>
   </div>
+  <a href="<?= $_SERVER['PHP_SELF'] ?>">Create another</a>
+<?php endif ?>
 </div>
 <?php
 echo pageFooter(__FILE__);

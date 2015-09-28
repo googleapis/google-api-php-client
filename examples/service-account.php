@@ -14,18 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-session_start();
+
+include_once __DIR__ . '/../vendor/autoload.php';
 include_once "templates/base.php";
+
+echo pageHeader("Service Account Access");
 
 /************************************************
   Make an API request authenticated with a service
   account.
  ************************************************/
-require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
+
+$client = new Google_Client();
 
 /************************************************
-  ATTENTION: Fill in these values! You can get
-  them by creating a new Service Account in the
+  ATTENTION: Fill in these values, or make sure you
+  have set the GOOGLE_APPLICATION_CREDENTIALS
+  environment variable. You can get these credentials
+  by creating a new Service Account in the
   API console. Be sure to store the key file
   somewhere you can get to it - though in real
   operations you'd want to make sure it wasn't
@@ -33,35 +39,21 @@ require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
   Make sure the Books API is enabled on this
   account as well, or the call will fail.
  ************************************************/
-$key_file_location = ''; //.json credentials
 
-echo pageHeader("Service Account Access");
-if (!strlen($key_file_location)) {
+if ($credentials_file = checkServiceAccountCredentialsFile()) {
+  // set the location manually
+  $client->setAuthConfig($credentials_file);
+} elseif (getenv('GOOGLE_APPLICATION_CREDENTIALS')) {
+  // use the application default credentials
+  $client->useApplicationDefaultCredentials();
+} else {
   echo missingServiceAccountDetailsWarning();
   exit;
 }
 
-$client = new Google_Client();
 $client->setApplicationName("Client_Library_Examples");
 $client->setScopes(['https://www.googleapis.com/auth/books']);
 $service = new Google_Service_Books($client);
-
-/************************************************
-  If we have an access token, we can carry on.
-  Otherwise, we'll get one with the help of an
-  assertion credential. In other examples the list
-  of scopes was managed by the Client, but here
-  we have to list them manually. We also supply
-  the service account
- ************************************************/
-if (isset($_SESSION['service_token'])) {
-  $client->setAccessToken($_SESSION['service_token']);
-}
-$client->setAuthConfigFile($key_file_location);
-if ($client->getAuth()->isAccessTokenExpired()) {
-  $client->getAuth()->refreshTokenWithAssertion();
-}
-$_SESSION['service_token'] = $client->getAccessToken();
 
 /************************************************
   We're just going to make the same call as in the

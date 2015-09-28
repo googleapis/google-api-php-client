@@ -180,7 +180,10 @@ class Google_Task_Runner
       try {
         return call_user_func_array($this->action, $this->arguments);
       } catch (Google_Service_Exception $exception) {
-        $allowedRetries = $this->allowedRetries($exception->getCode(), $exception->getErrors());
+        $allowedRetries = $this->allowedRetries(
+            $exception->getCode(),
+            $exception->getErrors()
+        );
 
         if (!$this->canAttempt() || !$allowedRetries) {
           throw $exception;

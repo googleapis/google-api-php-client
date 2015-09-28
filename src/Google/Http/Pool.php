@@ -23,7 +23,7 @@ use GuzzleHttp\BatchResults;
 /**
  * Class to handle batched requests to the Google API service.
  */
-class Google_Http_Parallel
+class Google_Http_Pool
 {
   /** @var array service requests to be executed. */
   private $requests = array();

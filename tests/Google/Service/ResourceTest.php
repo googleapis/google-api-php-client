@@ -167,4 +167,31 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
     $value = $resource->createRequestUri('/plus', $params);
     $this->assertEquals("http://localhost/plus?u=%40me%2F", $value);
   }
+
+  public function testAppEngineSslCerts()
+  {
+    $this->client->expects($this->once())
+          ->method("isAppEngine")
+          ->will($this->returnValue(true));
+    $resource = new Google_Service_Resource(
+      $this->service,
+      "test",
+      "testResource",
+      array("methods" =>
+        array(
+          "testMethod" => array(
+            "parameters" => array(),
+            "path" => "method/path",
+            "httpMethod" => "POST",
+          )
+        )
+      )
+    );
+    $request = $resource->call("testMethod", array(array()));
+    $this->assertEquals(
+        '/etc/ca-certificates.crt',
+        $this->client->getHttpClient()->getDefaultOption('verify')
+    );
+  }
+
 }

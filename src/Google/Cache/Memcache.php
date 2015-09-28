@@ -113,7 +113,8 @@ class Google_Cache_Memcache implements CacheInterface
       $rc = memcache_set($this->connection, $key, $data, false);
     }
     if ($rc == false) {
-      $this->log('error',
+      $this->log(
+          'error',
           'Memcache cache set failed',
           array('key' => $key, 'var' => $data)
       );

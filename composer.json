@@ -7,16 +7,23 @@
     "license": "Apache-2.0",
     "require": {
         "php": ">=5.4",
-        "google/auth": "dev-master",
-        "monolog/monolog": "^1.17"
+        "google/auth": "v0.2-alpha",
+        "monolog/monolog": "^1.17",
+        "phpseclib/phpseclib": "~2.0",
+        "guzzlehttp/guzzle": "5.2.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "3.7.*",
-        "squizlabs/php_codesniffer": "~2.3"
+        "phpunit/phpunit": "~4",
+        "squizlabs/php_codesniffer": "~2.3",
+        "symfony/dom-crawler": "~2.0",
+        "symfony/css-selector": "~2.0"
     },
     "autoload": {
+        "psr-0": {
+            "Google_": "src/"
+        },
         "classmap": [
-            "src/"
+            "src/Google/Service/"
         ]
     },
     "extra": {

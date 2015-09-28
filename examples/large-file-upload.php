@@ -14,50 +14,57 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+include_once __DIR__ . '/../vendor/autoload.php';
 include_once "templates/base.php";
-session_start();
 
-require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
+echo pageHeader("File Upload - Uploading a large file");
 
-/************************************************
-  We'll setup an empty 20MB file to upload.
+/*************************************************
+ * Ensure you've downloaded your oauth credentials
  ************************************************/
-DEFINE("TESTFILE", 'testfile.txt');
-if (!file_exists(TESTFILE)) {
-  $fh = fopen(TESTFILE, 'w');
-  fseek($fh, 1024*1024*20);
-  fwrite($fh, "!", 1);
-  fclose($fh);
+if (!$oauth_credentials = getOAuthCredentialsFile()) {
+  echo missingOAuth2CredentialsWarning();
+  exit;
 }
 
 /************************************************
-  ATTENTION: Fill in these values! Make sure
-  the redirect URI is to this page, e.g:
-  http://localhost:8080/fileupload.php
+ * The redirect URI is to the current page, e.g:
+ * http://localhost:8080/large-file-upload.php
  ************************************************/
-$client_id = '<YOUR_CLIENT_ID>';
-$client_secret = '<YOUR_CLIENT_SECRET>';
-$redirect_uri = '<YOUR_REDIRECT_URI>';
+$redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 
 $client = new Google_Client();
-$client->setClientId($client_id);
-$client->setClientSecret($client_secret);
+$client->setAuthConfig($oauth_credentials);
 $client->setRedirectUri($redirect_uri);
 $client->addScope("https://www.googleapis.com/auth/drive");
 $service = new Google_Service_Drive($client);
 
+// add "?logout" to the URL to remove a token from the session
 if (isset($_REQUEST['logout'])) {
   unset($_SESSION['upload_token']);
 }
 
+/************************************************
+ * If we have a code back from the OAuth 2.0 flow,
+ * we need to exchange that with the
+ * Google_Client::fetchAccessTokenWithAuthCode()
+ * function. We store the resultant access token
+ * bundle in the session, and redirect to ourself.
+ ************************************************/
 if (isset($_GET['code'])) {
-  $client->authenticate($_GET['code']);
-  $_SESSION['upload_token'] = $client->getAccessToken();
-  $redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-  header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
+  $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+  $client->setAccessToken($token);
+
+  // store in the session also
+  $_SESSION['upload_token'] = $token;
+
+  // redirect back to the example
+  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
 }
 
-if (isset($_SESSION['upload_token']) && $_SESSION['upload_token']) {
+// set the access token as part of the client
+if (!empty($_SESSION['upload_token'])) {
   $client->setAccessToken($_SESSION['upload_token']);
   if ($client->isAccessTokenExpired()) {
     unset($_SESSION['upload_token']);
@@ -67,10 +74,21 @@ if (isset($_SESSION['upload_token']) && $_SESSION['upload_token']) {
 }
 
 /************************************************
-  If we're signed in then lets try to upload our
-  file.
+ * If we're signed in then lets try to upload our
+ * file.
  ************************************************/
-if ($client->getAccessToken()) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
+  /************************************************
+   * We'll setup an empty 20MB file to upload.
+   ************************************************/
+  DEFINE("TESTFILE", 'testfile.txt');
+  if (!file_exists(TESTFILE)) {
+    $fh = fopen(TESTFILE, 'w');
+    fseek($fh, 1024*1024*20);
+    fwrite($fh, "!", 1);
+    fclose($fh);
+  }
+
   $file = new Google_Service_Drive_DriveFile();
   $file->title = "Big File";
   $chunkSizeBytes = 1 * 1024 * 1024;
@@ -111,11 +129,7 @@ if ($client->getAccessToken()) {
 
   fclose($handle);
 }
-echo pageHeader("File Upload - Uploading a large file");
-if (strpos($client_id, "googleusercontent") == false) {
-  echo missingClientSecretsWarning();
-  exit;
-}
+
 function readVideoChunk ($handle, $chunkSize)
 {
     $byteCount = 0;
@@ -133,22 +147,22 @@ function readVideoChunk ($handle, $chunkSize)
     return $giantChunk;
 }
 ?>
-<div class="box">
-  <div class="request">
-<?php
-if (isset($authUrl)) {
-  echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
-}
-?>
-  </div>
 
-    <div class="shortened">
-<?php
-if (isset($result) && $result) {
-  var_dump($result);
-}
-?>
-    </div>
+<div class="box">
+<?php if (isset($authUrl)): ?>
+  <div class="request">
+    <a class='login' href='<?= $authUrl ?>'>Connect Me!</a>
+  </div>
+<?php elseif($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
+  <div class="shortened">
+    <p>Your call was successful! Check your drive for this file:</p>
+    <p><a href="<?= $result->alternateLink ?>" target="_blank"><?= $result->title ?></a></p>
+  </div>
+<?php else: ?>
+  <form method="POST">
+    <input type="submit" value="Click here to upload a large (20MB) test file" />
+  </form>
+<?php endif ?>
 </div>
-<?php
-echo pageFooter(__FILE__);
+
+<?php echo pageFooter(__FILE__) ?>

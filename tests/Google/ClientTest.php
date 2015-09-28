@@ -35,7 +35,7 @@ class Google_ClientTest extends BaseTest
     $client->setDeveloperKey('devKey');
 
     $http = new Client();
-    $client->attachAuthListener($http);
+    $client->authorize($http);
 
     $listeners = $http->getEmitter()->listeners('before');
     $this->assertEquals(1, count($listeners));
@@ -54,7 +54,7 @@ class Google_ClientTest extends BaseTest
       'created'      => time(),
     ]);
     $client->setScopes('test_scope');
-    $client->attachAuthListener($http);
+    $client->authorize($http);
 
     $listeners = $http->getEmitter()->listeners('before');
     $this->assertEquals(1, count($listeners));
@@ -71,10 +71,10 @@ class Google_ClientTest extends BaseTest
     $client->setRedirectUri('http://localhost');
     $client->setDeveloperKey('devKey');
     $client->setState('xyz');
-    $client->setConfig('access_type', 'offline');
-    $client->setConfig('approval_prompt', 'force');
-    $client->setConfig('request_visible_actions', 'http://foo');
-    $client->setConfig('login_hint', 'bob@example.org');
+    $client->setAccessType('offline');
+    $client->setApprovalPrompt('force');
+    $client->setRequestVisibleActions('http://foo');
+    $client->setLoginHint('bob@example.org');
 
     $authUrl = $client->createAuthUrl("http://googleapis.com/scope/foo");
     $expected = "https://accounts.google.com/o/oauth2/auth"
@@ -89,11 +89,11 @@ class Google_ClientTest extends BaseTest
     $this->assertEquals($expected, $authUrl);
 
     // Again with a blank login hint (should remove all traces from authUrl)
-    $client->setConfig('login_hint', '');
-    $client->setConfig('hosted_domain', 'example.com');
-    $client->setConfig('openid.realm', 'example.com');
-    $client->setConfig('prompt', 'select_account');
-    $client->setConfig('include_granted_scopes', true);
+    $client->setLoginHint('');
+    $client->setHostedDomain('example.com');
+    $client->setOpenIdRealm('example.com');
+    $client->setPrompt('select_account');
+    $client->setIncludeGrantedScopes(true);
     $authUrl = $client->createAuthUrl("http://googleapis.com/scope/foo");
     $expected = "https://accounts.google.com/o/oauth2/auth"
         . "?access_type=offline"
@@ -176,9 +176,6 @@ class Google_ClientTest extends BaseTest
       ->method('createRequest')
       ->will($this->returnValue($request));
     $http->expects($this->once())
-      ->method('getEmitter')
-      ->will($this->returnValue($this->getMock('GuzzleHttp\Event\EmitterInterface')));
-    $http->expects($this->once())
       ->method('send')
       ->will($this->returnValue($response));
     $client->setHttpClient($http);
@@ -192,8 +189,8 @@ class Google_ClientTest extends BaseTest
     $client->setClientId("client1");
     $client->setClientSecret('client1secret');
     $client->setState('1');
-    $client->setConfig('approval_prompt', 'force');
-    $client->setConfig('access_type', 'offline');
+    $client->setApprovalPrompt('force');
+    $client->setAccessType('offline');
 
     $client->setRedirectUri('localhost');
     $client->setConfig('application_name', 'me');
@@ -201,7 +198,7 @@ class Google_ClientTest extends BaseTest
 
     try {
       $client->setAccessToken(null);
-      $this->fail('Should have thrown an Google_Auth_Exception.');
+      $this->fail('Should have thrown an Exception.');
     } catch (InvalidArgumentException $e) {
       $this->assertEquals('invalid json token', $e->getMessage());
     }
@@ -232,11 +229,11 @@ class Google_ClientTest extends BaseTest
     '"client_email":"","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","oob"],"client_x509_cert_url"'.
     ':"","client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":'.
     '"https://www.googleapis.com/oauth2/v1/certs"}}';
-    $dObj = json_decode($device);
-    $client->setAuthConfig($device);
-    $this->assertEquals($client->getClientId(), $dObj->installed->client_id);
-    $this->assertEquals($client->getClientSecret(), $dObj->installed->client_secret);
-    $this->assertEquals($client->getRedirectUri(), $dObj->installed->redirect_uris[0]);
+    $dObj = json_decode($device, true);
+    $client->setAuthConfig($dObj);
+    $this->assertEquals($client->getClientId(), $dObj['installed']['client_id']);
+    $this->assertEquals($client->getClientSecret(), $dObj['installed']['client_secret']);
+    $this->assertEquals($client->getRedirectUri(), $dObj['installed']['redirect_uris'][0]);
 
     // Web config
     $client = new Google_Client();
@@ -246,10 +243,10 @@ class Google_ClientTest extends BaseTest
       '"https://www.googleapis.com/robot/v1/metadata/x509/123456789@developer.gserviceaccount.com"'.
       ',"client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":'.
       '"https://www.googleapis.com/oauth2/v1/certs"}}';
-    $wObj = json_decode($web);
-    $client->setAuthConfig($web);
-    $this->assertEquals($client->getClientId(), $wObj->web->client_id);
-    $this->assertEquals($client->getClientSecret(), $wObj->web->client_secret);
+    $wObj = json_decode($web, true);
+    $client->setAuthConfig($wObj);
+    $this->assertEquals($client->getClientId(), $wObj['web']['client_id']);
+    $this->assertEquals($client->getClientSecret(), $wObj['web']['client_secret']);
     $this->assertEquals($client->getRedirectUri(), '');
   }
 
@@ -277,12 +274,45 @@ class Google_ClientTest extends BaseTest
     putenv('GOOGLE_APPLICATION_CREDENTIALS=');
     putenv('HOME='.sys_get_temp_dir());
     $http = new Client();
-    $client->attachAuthListener($http);
+    $client->authorize($http);
 
     $listeners = $http->getEmitter()->listeners('before');
 
     putenv("GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS");
     putenv("HOME=$HOME");
     $this->assertEquals(0, count($listeners));
+  }
+
+  /**
+   * Test that the ID token is properly refreshed.
+   */
+  public function testRefreshTokenSetsValues()
+  {
+    $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
+    $request->expects($this->once())
+      ->method('getBody')
+      ->will($this->returnValue($this->getMock('GuzzleHttp\Post\PostBodyInterface')));
+    $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+    $response->expects($this->once())
+      ->method('json')
+      ->will($this->returnValue(array(
+          'access_token' => 'xyz',
+          'id_token' => 'ID_TOKEN',
+        )));
+    $response->expects($this->once())
+      ->method('getBody')
+      ->will($this->returnValue($this->getMock('GuzzleHttp\Post\PostBody')));
+    $http = $this->getMock('GuzzleHttp\ClientInterface');
+    $http->expects($this->once())
+      ->method('send')
+      ->will($this->returnValue($response));
+    $http->expects($this->once())
+      ->method('createRequest')
+      ->will($this->returnValue($request));
+    $client = $this->getClient();
+    $client->setHttpClient($http);
+    $client->fetchAccessTokenWithRefreshToken("REFRESH_TOKEN");
+    $token = $client->getAccessToken();
+    $this->assertEquals($token['id_token'], "ID_TOKEN");
   }
 }
