@@ -15,10 +15,11 @@
  * limitations under the License.
  */
 
+use Symfony\Component\DomCrawler\Crawler;
+
 class BaseTest extends PHPUnit_Framework_TestCase
 {
   private $key;
-  private $token;
   private $client;
   private $memcacheHost;
   private $memcachePort;
@@ -53,6 +54,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
     ]);
 
     $client = new Google_Client();
+    $client->setApplicationName('google-api-php-client-tests');
     $client->setHttpClient($httpClient);
     $client->setScopes([
         "https://www.googleapis.com/auth/plus.me",
@@ -65,9 +67,6 @@ class BaseTest extends PHPUnit_Framework_TestCase
     if ($this->key) {
       $client->setDeveloperKey($this->key);
     }
-    if ($this->token) {
-      $client->setAccessToken($this->token);
-    }
     list($clientId, $clientSecret) = $this->getClientIdAndSecret();
     $client->setClientId($clientId);
     $client->setClientSecret($clientSecret);
@@ -78,36 +77,28 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
   public function checkToken()
   {
-    $cache = $this->getCache();
-    $this->token = $cache->get('access_token');
-    if (!$this->token) {
-      if (!$this->tryToGetAnAccessToken()) {
+    $client = $this->getClient();
+    $cache = $client->getCache();
+    $token = $cache->get('access_token');
+
+    if (!$token) {
+      if (!$token = $this->tryToGetAnAccessToken($client)) {
         return $this->markTestSkipped("Test requires access token");
       }
+      $cache->set('access_token', $token);
     }
 
-    $client = $this->getClient();
-    $client->setAccessToken($this->token);
-
-    if ($client->isAccessTokenExpired()) {
-      if (isset($this->token['refresh_token'])) {
-        $this->token = $client->refreshToken($this->token['refresh_token']);
-      }
-    }
-
-    $cache->set('access_token', $this->token);
+    $client->setAccessToken($token);
 
     return true;
   }
 
-  public function tryToGetAnAccessToken()
+  public function tryToGetAnAccessToken(Google_Client $client)
   {
-    $client = $this->getClient();
     if (!($client->getClientId() && $client->getClientSecret())) {
       $this->markTestSkipped("Test requires GCLOUD_CLIENT_ID and GCLOUD_CLIENT_SECRET to be set");
     }
 
-    $client = $this->getClient();
     $client->setRedirectUri("urn:ietf:wg:oauth:2.0:oob");
     $client->setConfig('access_type', 'offline');
     $authUrl = $client->createAuthUrl();
@@ -117,11 +108,9 @@ class BaseTest extends PHPUnit_Framework_TestCase
     `open '$authUrl'`;
     $authCode = trim(fgets(STDIN));
 
-    if ($accessToken = $client->authenticate($authCode)) {
+    if ($accessToken = $client->fetchAccessTokenWithAuthCode($authCode)) {
       if (isset($accessToken['access_token'])) {
-        $this->token = $accessToken;
-
-        return true;
+        return $accessToken;
       }
     }
 
@@ -168,5 +157,23 @@ class BaseTest extends PHPUnit_Framework_TestCase
     if (file_exists($f = dirname(__FILE__) . DIRECTORY_SEPARATOR . '.apiKey')) {
       return file_get_contents($f);
     }
+  }
+
+  protected function loadExample($example)
+  {
+    // trick app into thinking we are a web server
+    $_SERVER['HTTP_USER_AGENT'] = 'google-api-php-client-tests';
+
+    // include the file and return an HTML crawler
+    $file = __DIR__ . '/../examples/' . $example;
+    if (is_file($file)) {
+        ob_start();
+        include $file;
+        $html = ob_get_clean();
+
+        return new Crawler($html);
+    }
+
+    return false;
   }
 }

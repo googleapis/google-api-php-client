@@ -133,11 +133,6 @@ class Google_Http_MediaFileUpload
     );
 
     $http = $this->client->getHttpClient();
-    if ($this->client->getClassConfig("Google_Http_Request", "enable_gzip_for_uploads")) {
-      $http->setDefaultOption('disable_gzip', false);
-    } else {
-      $http->setDefaultOption('disable_gzip', true);
-    }
 
     $response = $http->send($request);
 

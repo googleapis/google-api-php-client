@@ -188,7 +188,7 @@ class Google_Service_Resource
     );
 
     $http = $this->client->getHttpClient();
-    $this->client->attachAuthListener($http);
+    $this->client->authorize($http);
 
     $request = $http->createRequest(
         $method['httpMethod'],
@@ -266,7 +266,7 @@ class Google_Service_Resource
     }
 
     if (count($uriTemplateVars)) {
-      $uriTemplateParser = new Google_Utils_URITemplate();
+      $uriTemplateParser = new Google_Utils_UriTemplate();
       $requestUrl = $uriTemplateParser->parse($requestUrl, $uriTemplateVars);
     }
 

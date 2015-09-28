@@ -1,4 +1,5 @@
 <?php
+
 /* Ad hoc functions to make the examples marginally prettier.*/
 function isWebRequest()
 {
@@ -87,4 +88,18 @@ function missingServiceAccountDetailsWarning()
     $ret .= " Google API console:\nhttp://developers.google.com/console\n";
   }
   return $ret;
+}
+
+function getApiKey()
+{
+  $file = dirname(__FILE__).'/../.apiKey';
+  if (file_exists($file)) {
+    return file_get_contents($file);
+  }
+}
+
+function setApiKey($apiKey)
+{
+  $file = dirname(__FILE__).'/../.apiKey';
+  file_put_contents($file, $apiKey);
 }

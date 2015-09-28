@@ -111,3 +111,7 @@ pre.code {
 .warn {
   color: red;
 }
+
+.api-key {
+  background-color:#DDD;
+}
