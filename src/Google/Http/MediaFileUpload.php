@@ -45,7 +45,7 @@ class Google_Http_MediaFileUpload
   private $size;
 
   /** @var string $resumeUri */
-  private $resumeUri;
+  public $resumeUri;
 
   /** @var int $progress */
   private $progress;
@@ -123,6 +123,45 @@ class Google_Http_MediaFileUpload
   public function getHttpResultCode()
   {
     return $this->httpResultCode;
+  }
+
+  /**
+   * Resume a file upload, retrieving the current status
+   */
+  public function resumeUpload($resumeUri)
+  {
+
+    $headers = array(
+      'content-range' => "bytes */$this->size",
+      'content-length' => 0,
+      'expect' => '',
+    );
+
+    $httpRequest = new Google_Http_Request(
+        $resumeUri,
+        'PUT',
+        $headers,
+        $chunk
+    );
+
+    if ($this->client->getClassConfig("Google_Http_Request", "enable_gzip_for_uploads")) {
+      $httpRequest->enableGzip();
+    } else {
+      $httpRequest->disableGzip();
+    }
+
+    $response = $this->client->getIo()->makeRequest($httpRequest);
+
+    $code = $response->getResponseHttpCode();
+
+    if (308 == $code) {
+      $range = explode('-', $response->getResponseHeader('range'));
+      $this->progress = $range[1] + 1;
+      $this->resumeUri = $resumeUri;
+      return $this->progress;
+    }
+
+    return false;
   }
 
   /**
