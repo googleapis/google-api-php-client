@@ -1,5 +1,7 @@
 <?php include_once "templates/base.php" ?>
 
+<?php echo pageHeader("PHP Library Examples"); ?>
+
 <?php if (!isWebRequest()): ?>
   <pre>
   To view this page on a webserver using PHP 5.4 or above run:
@@ -7,8 +9,6 @@
   </pre>
 <?php exit ?>
 <?php endif ?>
-
-<?php echo pageHeader("PHP Library Examples"); ?>
 
 <?php if (isset($_POST['api_key'])): ?>
 <?php setApiKey($_POST['api_key']) ?>
@@ -30,11 +30,11 @@
 
 <ul>
   <li><a href="simple-query.php">A query using simple API access</a></li>
-  <li><a href="user-example.php">A query for user data, using OAuth 2.0 authentication.</a></li>
+  <li><a href="url-shortener.php">Authorize a url shortener, using OAuth 2.0 authentication.</a></li>
   <li><a href="batch.php">An example of combining multiple calls into a batch request</a></li>
   <li><a href="service-account.php">A query using the service account functionality.</a></li>
-  <li><a href="simplefileupload.php">An example of a small file upload.</a></li>
-  <li><a href="fileupload.php">An example of a large file upload.</a></li>
+  <li><a href="simple-file-upload.php">An example of a small file upload.</a></li>
+  <li><a href="large-file-upload.php">An example of a large file upload.</a></li>
   <li><a href="idtoken.php">An example of verifying and retrieving the id token.</a></li>
   <li><a href="multi-api.php">An example of using multiple APIs.</a></li>
 </ul>

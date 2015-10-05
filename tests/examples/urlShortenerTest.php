@@ -19,19 +19,16 @@
  * under the License.
  */
 
-class examples_simpleQueryTest extends BaseTest
+class examples_urlShortenerTest extends BaseTest
 {
-  public function testSimpleQuery()
+  public function testUrlShortener()
   {
     $this->checkKey();
 
-    $crawler = $this->loadExample('simple-query.php');
-
-    $nodes = $crawler->filter('br');
-    $this->assertEquals(20, count($nodes));
+    $crawler = $this->loadExample('url-shortener.php');
 
     $nodes = $crawler->filter('h1');
     $this->assertEquals(1, count($nodes));
-    $this->assertEquals('Simple API Access', $nodes->first()->text());
+    $this->assertEquals('User Query - URL Shortener', $nodes->first()->text());
   }
 }

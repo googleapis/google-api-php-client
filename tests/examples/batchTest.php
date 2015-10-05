@@ -19,19 +19,17 @@
  * under the License.
  */
 
-class examples_simpleQueryTest extends BaseTest
+class examples_batchTest extends BaseTest
 {
-  public function testSimpleQuery()
+  public function testBatch()
   {
     $this->checkKey();
 
-    $crawler = $this->loadExample('simple-query.php');
+    $crawler = $this->loadExample('batch.php');
 
     $nodes = $crawler->filter('br');
     $this->assertEquals(20, count($nodes));
-
-    $nodes = $crawler->filter('h1');
-    $this->assertEquals(1, count($nodes));
-    $this->assertEquals('Simple API Access', $nodes->first()->text());
+    $this->assertContains('The Life of Henry David Thoreau', $crawler->text());
+    $this->assertContains('George Bernard Shaw His Life and Works', $crawler->text());
   }
 }

@@ -18,7 +18,7 @@
 include_once __DIR__ . '/../vendor/autoload.php';
 include_once "templates/base.php";
 
-echo pageHeader("Retrieving An Id Token");
+echo pageHeader("File Upload - Uploading a simple file");
 
 /*************************************************
  * Ensure you've downloaded your oauth credentials
@@ -29,25 +29,21 @@ if (!$oauth_credentials = getOAuthCredentialsFile()) {
 }
 
 /************************************************
- * NOTICE:
  * The redirect URI is to the current page, e.g:
- * http://localhost:8080/idtoken.php
+ * http://localhost:8080/simple-file-upload.php
  ************************************************/
 $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 
 $client = new Google_Client();
 $client->setAuthConfig($oauth_credentials);
 $client->setRedirectUri($redirect_uri);
-$client->setScopes('email');
+$client->addScope("https://www.googleapis.com/auth/drive");
+$service = new Google_Service_Drive($client);
 
-/************************************************
- * If we're logging out we just need to clear our
- * local access token in this case
- ************************************************/
+// add "?logout" to the URL to remove a token from the session
 if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['id_token']);
+  unset($_SESSION['upload_token']);
 }
-
 
 /************************************************
  * If we have a code back from the OAuth 2.0 flow,
@@ -61,35 +57,58 @@ if (isset($_GET['code'])) {
   $client->setAccessToken($token);
 
   // store in the session also
-  $_SESSION['id_token'] = $token;
+  $_SESSION['upload_token'] = $token;
 
   // redirect back to the example
   header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
 }
 
-/************************************************
-  If we have an access token, we can make
-  requests, else we generate an authentication URL.
- ************************************************/
-if (
-  !empty($_SESSION['id_token'])
-  && isset($_SESSION['id_token']['id_token'])
-) {
-  $client->setAccessToken($_SESSION['id_token']);
+// set the access token as part of the client
+if (!empty($_SESSION['upload_token'])) {
+  $client->setAccessToken($_SESSION['upload_token']);
+  if ($client->isAccessTokenExpired()) {
+    unset($_SESSION['upload_token']);
+  }
 } else {
   $authUrl = $client->createAuthUrl();
 }
 
 /************************************************
-  If we're signed in we can go ahead and retrieve
-  the ID token, which is part of the bundle of
-  data that is exchange in the authenticate step
-  - we only need to do a network call if we have
-  to retrieve the Google certificate to verify it,
-  and that can be cached.
+ * If we're signed in then lets try to upload our
+ * file. For larger files, see fileupload.php.
  ************************************************/
-if ($client->getAccessToken()) {
-  $token_data = $client->verifyIdToken();
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
+  // We'll setup an empty 1MB file to upload.
+  DEFINE("TESTFILE", 'testfile-small.txt');
+  if (!file_exists(TESTFILE)) {
+    $fh = fopen(TESTFILE, 'w');
+    fseek($fh, 1024 * 1024);
+    fwrite($fh, "!", 1);
+    fclose($fh);
+  }
+
+  // This is uploading a file directly, with no metadata associated.
+  $file = new Google_Service_Drive_DriveFile();
+  $result = $service->files->insert(
+      $file,
+      array(
+        'data' => file_get_contents(TESTFILE),
+        'mimeType' => 'application/octet-stream',
+        'uploadType' => 'media'
+      )
+  );
+
+  // Now lets try and send the metadata as well using multipart!
+  $file = new Google_Service_Drive_DriveFile();
+  $file->setTitle("Hello World!");
+  $result2 = $service->files->insert(
+      $file,
+      array(
+        'data' => file_get_contents(TESTFILE),
+        'mimeType' => 'application/octet-stream',
+        'uploadType' => 'multipart'
+      )
+  );
 }
 ?>
 
@@ -98,11 +117,18 @@ if ($client->getAccessToken()) {
   <div class="request">
     <a class='login' href='<?= $authUrl ?>'>Connect Me!</a>
   </div>
-<?php else: ?>
-  <div class="data">
-    <p>Here is the data from your Id Token:</p>
-    <pre><?php var_export($token_data) ?></pre>
+<?php elseif($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
+  <div class="shortened">
+    <p>Your call was successful! Check your drive for the following files:</p>
+    <ul>
+      <li><a href="<?= $result->alternateLink ?>" target="_blank"><?= $result->title ?></a></li>
+      <li><a href="<?= $result2->alternateLink ?>" target="_blank"><?= $result2->title ?></a></li>
+    </ul>
   </div>
+<?php else: ?>
+  <form method="POST">
+    <input type="submit" value="Click here to upload two small (1MB) test files" />
+  </form>
 <?php endif ?>
 </div>
 

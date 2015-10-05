@@ -24,9 +24,8 @@ class Google_Http_BatchTest extends BaseTest
 
   public function testBatchRequestWithAuth()
   {
-    if (!$this->checkToken()) {
-      return;
-    }
+    $this->checkToken();
+
     $client = $this->getClient();
     $batch = new Google_Http_Batch($client);
     $this->plus = new Google_Service_Plus($client);

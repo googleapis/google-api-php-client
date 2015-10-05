@@ -19,19 +19,14 @@
  * under the License.
  */
 
-class examples_simpleQueryTest extends BaseTest
+class examples_largeFileUploadTest extends BaseTest
 {
-  public function testSimpleQuery()
+  public function testLargeFileUpload()
   {
-    $this->checkKey();
-
-    $crawler = $this->loadExample('simple-query.php');
-
-    $nodes = $crawler->filter('br');
-    $this->assertEquals(20, count($nodes));
+    $crawler = $this->loadExample('large-file-upload.php');
 
     $nodes = $crawler->filter('h1');
     $this->assertEquals(1, count($nodes));
-    $this->assertEquals('Simple API Access', $nodes->first()->text());
+    $this->assertEquals('File Upload - Uploading a large file', $nodes->first()->text());
   }
 }

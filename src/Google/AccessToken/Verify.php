@@ -62,7 +62,6 @@ class Google_AccessToken_Verify
    *
    * @param $audience
    * @return array the token payload, if successful
-   * @throws Google_Auth_Exception
    */
   public function verifyIdToken($idToken, $audience = null)
   {
@@ -122,7 +121,7 @@ class Google_AccessToken_Verify
    * Retrieve and cache a certificates file.
    *
    * @param $url string location
-   * @throws Google_Auth_Exception
+   * @throws Google_Exception
    * @return array certificates
    */
   private function retrieveCertsFromLocation($url)
@@ -130,7 +129,7 @@ class Google_AccessToken_Verify
     // If we're retrieving a local file, just grab it.
     if (0 !== strpos($url, 'http')) {
       if (!$file = file_get_contents($url)) {
-        throw new Google_Auth_Exception(
+        throw new Google_Exception(
             "Failed to retrieve verification certificates: '" .
             $url . "'."
         );
@@ -144,7 +143,7 @@ class Google_AccessToken_Verify
     if ($response->getStatusCode() == 200) {
       return $response->json();
     }
-    throw new Google_Auth_Exception(
+    throw new Google_Exception(
         sprintf('Failed to retrieve verification certificates: "%s".',
           $response->getBody()->getContents()),
         $response->getStatusCode()

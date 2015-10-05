@@ -125,7 +125,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
     return array($clientId, $clientSecret);
   }
 
-  public function checkServiceAccountToken()
+  public function checkServiceAccountCredentials()
   {
     if (!$f = getenv('GOOGLE_APPLICATION_CREDENTIALS')) {
       $skip = "This test requires the GOOGLE_APPLICATION_CREDENTIALS environment variable to be set\n"
@@ -163,6 +163,8 @@ class BaseTest extends PHPUnit_Framework_TestCase
   {
     // trick app into thinking we are a web server
     $_SERVER['HTTP_USER_AGENT'] = 'google-api-php-client-tests';
+    $_SERVER['HTTP_HOST'] = 'localhost';
+    $_SERVER['REQUEST_METHOD'] = 'GET';
 
     // include the file and return an HTML crawler
     $file = __DIR__ . '/../examples/' . $example;

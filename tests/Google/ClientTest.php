@@ -198,7 +198,7 @@ class Google_ClientTest extends BaseTest
 
     try {
       $client->setAccessToken(null);
-      $this->fail('Should have thrown an Google_Auth_Exception.');
+      $this->fail('Should have thrown an Exception.');
     } catch (InvalidArgumentException $e) {
       $this->assertEquals('invalid json token', $e->getMessage());
     }

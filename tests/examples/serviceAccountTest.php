@@ -19,19 +19,16 @@
  * under the License.
  */
 
-class examples_simpleQueryTest extends BaseTest
+class examples_serviceAccountTest extends BaseTest
 {
-  public function testSimpleQuery()
+  public function testServiceAccount()
   {
-    $this->checkKey();
+    $this->checkServiceAccountCredentials();
 
-    $crawler = $this->loadExample('simple-query.php');
+    $crawler = $this->loadExample('service-account.php');
 
     $nodes = $crawler->filter('br');
-    $this->assertEquals(20, count($nodes));
-
-    $nodes = $crawler->filter('h1');
-    $this->assertEquals(1, count($nodes));
-    $this->assertEquals('Simple API Access', $nodes->first()->text());
+    $this->assertEquals(10, count($nodes));
+    $this->assertContains('The Life of Henry David Thoreau', $crawler->text());
   }
 }

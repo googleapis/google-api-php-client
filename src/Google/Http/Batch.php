@@ -42,8 +42,6 @@ class Google_Http_Batch
   /** @var Google_Client */
   private $client;
 
-  private $expected_classes = array();
-
   public function __construct(Google_Client $client)
   {
     $this->client = $client;
@@ -62,15 +60,16 @@ class Google_Http_Batch
   public function execute()
   {
     $body = '';
+    $classes = array();
 
     /** @var Google_Http_Request $req */
     foreach ($this->requests as $key => $request) {
-      $request->setHeaders(
+      $request->addHeaders(
           [
-          'Content-Type' => 'application/http',
-          'Content-Transfer-Encoding' => 'binary',
-          'MIME-Version' => '1.0',
-          'Content-ID' => $key,
+            'Content-Type' => 'application/http',
+            'Content-Transfer-Encoding' => 'binary',
+            'MIME-Version' => '1.0',
+            'Content-ID' => $key,
           ]
       );
       $body .= "--{$this->boundary}";
@@ -83,7 +82,7 @@ class Google_Http_Batch
       );
       $body .= "\n\n";
 
-      $this->expected_classes["response-" . $key] = $request->getHeader('X-Php-Expected-Class');
+      $classes['response-' . $key] = $request->getHeader('X-Php-Expected-Class');
     }
 
     $body .= "--{$this->boundary}--";
@@ -104,10 +103,10 @@ class Google_Http_Batch
 
     $response = $this->client->getHttpClient()->send($request);
 
-    return $this->parseResponse($response);
+    return $this->parseResponse($response, $classes);
   }
 
-  public function parseResponse(ResponseInterface $response)
+  public function parseResponse(ResponseInterface $response, $classes = array())
   {
     $contentType = $response->getHeader('content-type');
     $contentType = explode(';', $contentType);
@@ -151,14 +150,15 @@ class Google_Http_Batch
 
           try {
             $response = Google_Http_REST::decodeHttpResponse($response);
-            if ($class) {
-              $response = new $class($response);
+            if (isset($classes[$key])) {
+              $response = new $classes[$key]($response);
             }
           } catch (Google_Service_Exception $e) {
             // Store the exception as the response, so successful responses
             // can be processed.
             $response = $e;
           }
+
           $responses[$key] = $response;
         }
       }

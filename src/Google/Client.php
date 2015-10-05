@@ -172,6 +172,7 @@ class Google_Client
 
     $creds = $auth->fetchAuthToken($this->getHttpClient());
     if ($creds && isset($creds['access_token'])) {
+      $creds['created'] = time();
       $this->setAccessToken($creds);
     }
 
@@ -230,6 +231,7 @@ class Google_Client
 
     $creds = $auth->fetchAuthToken($this->getHttpClient());
     if ($creds && isset($creds['access_token'])) {
+      $creds['created'] = time();
       $this->setAccessToken($creds);
     }
 
@@ -301,6 +303,7 @@ class Google_Client
     $subscriber = null;
     $authIdentifier = null;
     if ($this->config->get('use_application_default_credentials')) {
+      $scopes = $this->prepareScopes();
       $subscriber = ApplicationDefaultCredentials::getFetcher(
           $scopes,
           null,
@@ -595,7 +598,7 @@ class Google_Client
   /**
    * Revoke an OAuth2 access token or refresh token. This method will revoke the current access
    * token, if a token isn't provided.
-   * @throws Google_Auth_Exception
+   *
    * @param string|null $token The token (access token or a refresh token) that should be revoked.
    * @return boolean Returns True if the revocation was successful, otherwise False.
    */
@@ -611,10 +614,11 @@ class Google_Client
   /**
    * Verify an id_token. This method will verify the current id_token, if one
    * isn't provided.
-   * @throws Google_Auth_Exception
+   *
+   * @throws Google_Exception
    * @param string|null $idToken The token (id_token) that should be verified.
-   * @return Returns the token payload as an array if the verification was
-   * successful.
+   * @return array|false Returns the token payload as an array if the verification was
+   * successful, false otherwise.
    */
   public function verifyIdToken($idToken = null)
   {
@@ -679,7 +683,6 @@ class Google_Client
   }
 
   /**
-   * @throws Google_Auth_Exception
    * @return array
    * @visible For Testing
    */
@@ -761,17 +764,9 @@ class Google_Client
    */
   public function setAuthConfigFile($file)
   {
-    if (!file_exists($file)) {
-      throw new InvalidArgumentException('file does not exist');
-    }
+    trigger_error('use Google_Client::setAuthConfig', E_USER_DEPRECATED);
 
-    $json = file_get_contents($file);
-
-    if (!$config = json_decode($json)) {
-      throw new LogicException('invalid json for auth config');
-    }
-
-    $this->setAuthConfig($json);
+    $this->setAuthConfig($file);
   }
 
   /**
@@ -779,13 +774,34 @@ class Google_Client
    * This structure should match the file downloaded from
    * the "Download JSON" button on in the Google Developer
    * Console.
-   * @param array $json the configuration json
+   * @param string|array $json the configuration json
    * @throws Google_Exception
    */
-  public function setAuthConfig(array $config)
+  public function setAuthConfig($config)
   {
+    if (is_string($config)) {
+      if (!file_exists($config)) {
+        throw new InvalidArgumentException('file does not exist');
+      }
+
+      $json = file_get_contents($config);
+
+      if (!$config = json_decode($json, true)) {
+        throw new LogicException('invalid json for auth config');
+      }
+    }
+
     $key = isset($config['installed']) ? 'installed' : 'web';
-    if (isset($config[$key])) {
+    if (isset($config['type']) && $config['type'] == 'service_account') {
+      // application default credentials
+      $this->useApplicationDefaultCredentials();
+
+      // overwrite APPLICATION_DEFAULT_CREDENTIALS with this config
+      $tmpFile = tempnam(sys_get_temp_dir(), 'appcreds');
+      file_put_contents($tmpFile, json_encode($config));
+      putenv('GOOGLE_APPLICATION_CREDENTIALS='.$tmpFile);
+
+    } elseif (isset($config[$key])) {
       // old-style
       $this->setClientId($config[$key]['client_id']);
       $this->setClientSecret($config[$key]['client_secret']);
@@ -941,7 +957,8 @@ class Google_Client
   protected function createDefaultHttpClient()
   {
     $options = [
-      'base_url' => $this->config->get('base_path')
+      'base_url' => $this->config->get('base_path'),
+      'defaults' => ['exceptions' => false]
     ];
 
     return new Client($options);
@@ -949,10 +966,12 @@ class Google_Client
 
   private function createUserRefreshCredentials($scope, $refreshToken)
   {
-    $creds = array(
-      'client_id' => $this->getClientId(),
-      'client_secret' => $this->getClientSecret(),
-      'refresh_token' => $refreshToken,
+    $creds = array_filter(
+        array(
+          'client_id' => $this->getClientId(),
+          'client_secret' => $this->getClientSecret(),
+          'refresh_token' => $refreshToken,
+        )
     );
 
     return new AuthTokenFetcher(
