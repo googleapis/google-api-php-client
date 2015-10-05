@@ -717,6 +717,9 @@ class Google_Task_RunnerTest extends PHPUnit_Framework_TestCase
     }
 
     $exception = $this->getMockBuilder('Google_Service_Exception')
+      // HHVM blows up unless this is set
+      // @see https://github.com/sebastianbergmann/phpunit-mock-objects/issues/207
+      ->setMethods(array('setTraceOptions'))
       ->disableOriginalConstructor()
       ->getMock();
     $exceptionCount = 0;

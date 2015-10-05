@@ -144,8 +144,10 @@ class Google_AccessToken_Verify
       return $response->json();
     }
     throw new Google_Exception(
-        sprintf('Failed to retrieve verification certificates: "%s".',
-          $response->getBody()->getContents()),
+        sprintf(
+            'Failed to retrieve verification certificates: "%s".',
+            $response->getBody()->getContents()
+        ),
         $response->getStatusCode()
     );
   }
