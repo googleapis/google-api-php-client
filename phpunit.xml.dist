@@ -4,8 +4,11 @@
          colors="true"
          bootstrap="tests/bootstrap.php">
     <testsuites>
-        <testsuite name="Google PHP Client Test Suite">
+        <testsuite name="Google PHP Client Unit Test Suite">
             <directory>tests/Google</directory>
+        </testsuite>
+        <testsuite name="Google PHP Client Examples Test Suite">
+            <directory>tests/examples</directory>
         </testsuite>
     </testsuites>
     <filter>

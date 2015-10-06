@@ -17,26 +17,22 @@
 
 class Google_Service_YouTubeTest extends BaseTest
 {
-  /** @var Google_PlusService */
-  public $plus;
-  public function __construct()
+  /** @var Google_Service_YouTube */
+  public $youtube;
+  public function setUp()
   {
-    parent::__construct();
+    $this->checkToken();
     $this->youtube = new Google_Service_YouTube($this->getClient());
   }
 
   public function testMissingFieldsAreNull()
   {
-    if (!$this->checkToken()) {
-      return;
-    }
-
     $parts = "id,brandingSettings";
     $opts = array("mine" => true);
     $channels = $this->youtube->channels->listChannels($parts, $opts);
 
     $newChannel = new Google_Service_YouTube_Channel();
-    $newChannel->setId($channels[0]->getId());
+    $newChannel->setId( $channels[0]->getId());
     $newChannel->setBrandingSettings($channels[0]->getBrandingSettings());
 
     $simpleOriginal = $channels[0]->toSimpleObject();

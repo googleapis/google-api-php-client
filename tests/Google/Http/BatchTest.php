@@ -24,9 +24,8 @@ class Google_Http_BatchTest extends BaseTest
 
   public function testBatchRequestWithAuth()
   {
-    if (!$this->checkToken()) {
-      return;
-    }
+    $this->checkToken();
+
     $client = $this->getClient();
     $batch = new Google_Http_Batch($client);
     $this->plus = new Google_Service_Plus($client);
@@ -40,16 +39,10 @@ class Google_Http_BatchTest extends BaseTest
     $this->assertTrue(isset($result['response-key1']));
     $this->assertTrue(isset($result['response-key2']));
     $this->assertTrue(isset($result['response-key3']));
-    $this->assertInstanceOf('Google_Service_Plus_Person', $result['response-key1']);
-    $this->assertInstanceOf('Google_Service_Plus_Person', $result['response-key2']);
-    $this->assertInstanceOf('Google_Service_Plus_Person', $result['response-key3']);
   }
 
   public function testBatchRequest()
   {
-    if (!$this->checkToken()) {
-      return;
-    }
     $client = $this->getClient();
     $batch = new Google_Http_Batch($client);
     $this->plus = new Google_Service_Plus($client);
@@ -63,9 +56,6 @@ class Google_Http_BatchTest extends BaseTest
     $this->assertTrue(isset($result['response-key1']));
     $this->assertTrue(isset($result['response-key2']));
     $this->assertTrue(isset($result['response-key3']));
-    $this->assertInstanceOf('Google_Service_Plus_Person', $result['response-key1']);
-    $this->assertInstanceOf('Google_Service_Plus_Person', $result['response-key2']);
-    $this->assertInstanceOf('Google_Service_Plus_Person', $result['response-key3']);
   }
 
   public function testInvalidBatchRequest()
@@ -81,7 +71,7 @@ class Google_Http_BatchTest extends BaseTest
     $result = $batch->execute();
     $this->assertTrue(isset($result['response-key2']));
     $this->assertInstanceOf(
-        'GuzzleHttp\Exception\ClientException',
+        'Google_Service_Exception',
         $result['response-key1']
     );
   }

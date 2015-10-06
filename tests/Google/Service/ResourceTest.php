@@ -41,31 +41,15 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
     $this->client = $this->getMockBuilder("Google_Client")
           ->disableOriginalConstructor()
           ->getMock();
-    $this->logger = $this->getMockBuilder("Google_Logger_Null")
+    $this->logger = $this->getMockBuilder("Monolog\Logger")
           ->disableOriginalConstructor()
           ->getMock();
-    $this->client->expects($this->any())
-          ->method("getClassConfig")
-          ->will($this->returnCallback(function($class, $type) {
-            if (!is_string($class)) {
-              $class = get_class($class);
-            }
-            $configMap = array(
-              "Google_Auth_Simple" => array(
-                "developer_key" => "testKey"
-              ),
-            );
-            return isset($configMap[$class][$type]) ? $configMap[$class][$type] : null;
-          }));
     $this->client->expects($this->any())
           ->method("getLogger")
           ->will($this->returnValue($this->logger));
     $this->client->expects($this->any())
           ->method("shouldDefer")
           ->will($this->returnValue(true));
-    $this->client->expects($this->any())
-          ->method("getAuth")
-          ->will($this->returnValue(new Google_Auth_Simple($this->client)));
     $this->client->expects($this->any())
           ->method("getHttpClient")
           ->will($this->returnValue(new GuzzleHttp\Client([
@@ -97,7 +81,7 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
     $resource->call("someothermethod", array());
   }
 
-  public function testCallSimple()
+  public function testCall()
   {
     $resource = new Google_Service_Resource(
       $this->service,
@@ -114,7 +98,7 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
       )
     );
     $request = $resource->call("testMethod", array(array()));
-    $this->assertEquals("https://test.example.com/method/path?key=testKey", $request->getUrl());
+    $this->assertEquals("https://test.example.com/method/path", $request->getUrl());
     $this->assertEquals("POST", $request->getMethod());
   }
 
@@ -136,7 +120,7 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
       )
     );
     $request = $resource->call("testMethod", array(array()));
-    $this->assertEquals("https://sample.example.com/method/path?key=testKey", $request->getUrl());
+    $this->assertEquals("https://sample.example.com/method/path", $request->getUrl());
     $this->assertEquals("POST", $request->getMethod());
   }
 

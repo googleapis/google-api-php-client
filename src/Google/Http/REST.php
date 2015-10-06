@@ -19,10 +19,6 @@ use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Message\ResponseInterface;
 use GuzzleHttp\ClientInterface;
 
-if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
-}
-
 /**
  * This class implements the RESTful transport of apiServiceRequest()'s
  */
@@ -42,14 +38,18 @@ class Google_Http_REST
       ClientInterface $client,
       RequestInterface $request,
       $config = array(),
-      $retryMap = array()
+      $retryMap = null
   ) {
     $runner = new Google_Task_Runner(
         $config,
         sprintf('%s %s', $request->getMethod(), $request->getUrl()),
         array(get_class(), 'doExecute'),
-        array($client, $request, $retryMap)
+        array($client, $request)
     );
+
+    if (!is_null($retryMap)) {
+      $runner->setRetryMap($retryMap);
+    }
 
     return $runner->run();
   }
@@ -63,11 +63,11 @@ class Google_Http_REST
    * @throws Google_Service_Exception on server side error (ie: not authenticated,
    *  invalid or malformed post body, invalid url)
    */
-  public static function doExecute(ClientInterface $client, RequestInterface $request, $retryMap = array())
+  public static function doExecute(ClientInterface $client, RequestInterface $request)
   {
     $response = $client->send($request);
 
-    return self::decodeHttpResponse($response, $request, $retryMap);
+    return self::decodeHttpResponse($response, $request);
   }
 
   /**
@@ -80,8 +80,7 @@ class Google_Http_REST
    */
   public static function decodeHttpResponse(
       ResponseInterface $response,
-      RequestInterface $request = null,
-      $retryMap = array()
+      RequestInterface $request = null
   ) {
     $result = $response->json();
     $body = (string) $response->getBody();
@@ -94,7 +93,7 @@ class Google_Http_REST
       if (isset($result['error']) && isset($result['error']['errors'])) {
         $errors = $result['error']['errors'];
       }
-      throw new Google_Service_Exception($body, $code, null, $errors, $retryMap);
+      throw new Google_Service_Exception($body, $code, null, $errors);
     }
 
     // return raw response when "alt" is "media"

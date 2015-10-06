@@ -20,17 +20,14 @@ class Google_Service_TasksTest extends BaseTest
   /** @var Google_TasksService */
   public $taskService;
 
-  public function __construct()
+  public function setUp()
   {
-    parent::__construct();
+    $this->checkToken();
     $this->taskService = new Google_Service_Tasks($this->getClient());
   }
 
   public function testInsertTask()
   {
-    if (!$this->checkToken()) {
-      return;
-    }
     $list = $this->createTaskList('List: ' . __METHOD__);
     $task = $this->createTask('Task: '.__METHOD__, $list->id);
     $this->assertIsTask($task);

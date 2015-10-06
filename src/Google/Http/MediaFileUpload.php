@@ -19,10 +19,6 @@ use GuzzleHttp\Message\Request;
 use GuzzleHttp\Stream\Stream;
 use GuzzleHttp\Url;
 
-if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
-}
-
 /**
  * Manage large file uploads, which may be media but can be any type
  * of sizable data.
@@ -137,11 +133,6 @@ class Google_Http_MediaFileUpload
     );
 
     $http = $this->client->getHttpClient();
-    if ($this->client->getClassConfig("Google_Http_Request", "enable_gzip_for_uploads")) {
-      $http->setDefaultOption('disable_gzip', false);
-    } else {
-      $http->setDefaultOption('disable_gzip', true);
-    }
 
     $response = $http->send($request);
 

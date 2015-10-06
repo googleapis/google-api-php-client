@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/google/google-api-php-client.svg)](https://travis-ci.org/google/google-api-php-client)
+[![Build Status](https://travis-ci.org/google/google-api-php-client.svg)](https://travis-ci.org/google/google-api-php-client.svg?branch=master)
 
 # Google APIs Client Library for PHP #
 
@@ -22,24 +22,31 @@ http://developers.google.com/api-client-library/php
 For the latest installation and setup instructions, see [the documentation](https://developers.google.com/api-client-library/php/start/installation).
 
 ## Basic Example ##
-See the examples/ directory for examples of the key client features.
+See the examples/ directory for examples of the key client features. You can
+view them in your browser by running the php built-in web server.
+
+```
+$ cd examples/
+$ php -S localhost:8000
+```
+
+And then browsing to the host and port you specified
+(in the above example, `http://localhost:8000`).
+
 ```PHP
-<?php
+require_once 'google-api-php-client/src/Google/autoload.php'; // or wherever autoload.php is located
 
-  require_once 'google-api-php-client/src/Google/autoload.php'; // or wherever autoload.php is located
-  
-  $client = new Google_Client();
-  $client->setApplicationName("Client_Library_Examples");
-  $client->setDeveloperKey("YOUR_APP_KEY");
-  
-  $service = new Google_Service_Books($client);
-  $optParams = array('filter' => 'free-ebooks');
-  $results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
+$client = new Google_Client();
+$client->setApplicationName("Client_Library_Examples");
+$client->setDeveloperKey("YOUR_APP_KEY");
 
-  foreach ($results as $item) {
-    echo $item['volumeInfo']['title'], "<br /> \n";
-  }
-  
+$service = new Google_Service_Books($client);
+$optParams = array('filter' => 'free-ebooks');
+$results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
+
+foreach ($results as $item) {
+  echo $item['volumeInfo']['title'], "<br /> \n";
+}
 ```
 
 ### Service Specific Examples ###
