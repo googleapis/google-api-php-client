@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/google/google-api-php-client.svg)](https://travis-ci.org/google/google-api-php-client)
+[![Build Status](https://travis-ci.org/google/google-api-php-client.svg)](https://travis-ci.org/google/google-api-php-client.svg?branch=master)
 
 # Google APIs Client Library for PHP #
 
