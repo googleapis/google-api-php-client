@@ -40,7 +40,7 @@ $client = new Google_Client();
   account as well, or the call will fail.
  ************************************************/
 
-if (!$credentails_file = checkServiceAccountCredentialsFile()) {
+if ($credentials_file = checkServiceAccountCredentialsFile()) {
   // set the location manually
   $client->setAuthConfig($credentials_file);
 } elseif (getenv('GOOGLE_APPLICATION_CREDENTIALS')) {

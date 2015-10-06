@@ -104,7 +104,7 @@ function checkServiceAccountCredentialsFile()
   // service account creds
   $application_creds = __DIR__ . '/../../service-account-credentials.json';
 
-  return file_exists($application_creds);
+  return file_exists($application_creds) ? $application_creds : false;
 }
 
 function getOAuthCredentialsFile()
