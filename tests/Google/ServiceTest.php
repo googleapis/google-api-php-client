@@ -93,15 +93,4 @@ class Google_ServiceTest extends PHPUnit_Framework_TestCase
 
     return $classes;
   }
-
-  public function testStrLen()
-  {
-    $this->assertEquals(0, Google_Utils::getStrLen(null));
-    $this->assertEquals(0, Google_Utils::getStrLen(false));
-    $this->assertEquals(0, Google_Utils::getStrLen(""));
-
-    $this->assertEquals(1, Google_Utils::getStrLen(" "));
-    $this->assertEquals(2, Google_Utils::getStrLen(" 1"));
-    $this->assertEquals(7, Google_Utils::getStrLen("0a\\n\n\r\n"));
-  }
 }

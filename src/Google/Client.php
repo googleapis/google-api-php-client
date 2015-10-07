@@ -180,6 +180,19 @@ class Google_Client
   }
 
   /**
+   * For backwards compatibility
+   * alias for fetchAccessTokenWithAssertion
+   *
+   * @return array access token
+   */
+  public function refreshTokenWithAssertion()
+  {
+    trigger_error('use Google_Client::fetchAccessTokenWithAssertion', E_DEPRECATED);
+
+    return $this->fetchAccessTokenWithAssertion();
+  }
+
+  /**
    * Fetches a fresh access token with a given assertion token.
    * @param $assertionCredentials optional.
    * @return void
@@ -212,8 +225,23 @@ class Google_Client
   }
 
   /**
+   * For backwards compatibility
+   * alias for fetchAccessTokenWithRefreshToken
+   *
+   * @param string $refreshToken
+   * @return array access token
+   */
+  public function refreshToken($refreshToken)
+  {
+    trigger_error('use Google_Client::fetchAccessTokenWithRefreshToken', E_DEPRECATED);
+
+    return $this->fetchAccessTokenWithRefreshToken($refreshToken);
+  }
+
+  /**
    * Fetches a fresh OAuth 2.0 access token with the given refresh token.
    * @param string $refreshToken
+   * @return array access token
    */
   public function fetchAccessTokenWithRefreshToken($refreshToken = null)
   {
@@ -436,6 +464,20 @@ class Google_Client
       + ($this->token['expires_in'] - 30)) < time();
 
     return $expired;
+  }
+
+  public function getAuth()
+  {
+    throw new BadMethodCallException(
+      'This function no longer exists. See UPGRADING.md for more information'
+    );
+  }
+
+  public function setAuth($auth)
+  {
+    throw new BadMethodCallException(
+      'This function no longer exists. See UPGRADING.md for more information'
+    );
   }
 
   /**
