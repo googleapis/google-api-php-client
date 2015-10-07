@@ -853,7 +853,7 @@ class Google_Client
   /**
    * create a default google auth object
    */
-  public function createOAuth2Service()
+  protected function createOAuth2Service()
   {
     $auth = new OAuth2(
         [
