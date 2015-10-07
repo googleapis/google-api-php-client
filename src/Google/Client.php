@@ -469,14 +469,14 @@ class Google_Client
   public function getAuth()
   {
     throw new BadMethodCallException(
-      'This function no longer exists. See UPGRADING.md for more information'
+        'This function no longer exists. See UPGRADING.md for more information'
     );
   }
 
   public function setAuth($auth)
   {
     throw new BadMethodCallException(
-      'This function no longer exists. See UPGRADING.md for more information'
+        'This function no longer exists. See UPGRADING.md for more information'
     );
   }
 
