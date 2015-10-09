@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/google/google-api-php-client.svg)](https://travis-ci.org/google/google-api-php-client)
+[![CodeHunt.io](https://img.shields.io/badge/vote-codehunt.io-02AFD1.svg)](http://codehunt.io/sub/api-client-library-for-php-beta/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)   
 
 # Google APIs Client Library for PHP #
 
