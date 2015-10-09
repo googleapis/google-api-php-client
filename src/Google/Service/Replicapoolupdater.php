@@ -34,6 +34,9 @@ class Google_Service_Replicapoolupdater extends Google_Service
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
+  /** View your data across Google Cloud Platform services. */
+  const CLOUD_PLATFORM_READ_ONLY =
+      "https://www.googleapis.com/auth/cloud-platform.read-only";
   /** View and manage replica pools. */
   const REPLICAPOOL =
       "https://www.googleapis.com/auth/replicapool";
@@ -133,10 +136,6 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -145,9 +144,9 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'instanceGroupManager' => array(
+                'maxResults' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'integer',
                 ),
               ),
             ),'listInstanceUpdates' => array(
@@ -272,6 +271,33 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'list' => array(
+              'path' => '{project}/zones/{zone}/operations',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
             ),
           )
         )
@@ -352,15 +378,12 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
    * resides.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
    * @opt_param string filter Optional. Filter expression for filtering listed
    * resources.
    * @opt_param string pageToken Optional. Tag returned by a previous list request
    * truncated by maxResults. Used to continue a previous list request.
-   * @opt_param string instanceGroupManager The name of the instance group
-   * manager. Use this parameter to return only updates to instances that are part
-   * of a specific instance group.
+   * @opt_param string maxResults Optional. Maximum count of results to be
+   * returned. Maximum value is 500 and default value is 500.
    * @return Google_Service_Replicapoolupdater_RollingUpdateList
    */
   public function listRollingUpdates($project, $zone, $optParams = array())
@@ -478,6 +501,29 @@ class Google_Service_Replicapoolupdater_ZoneOperations_Resource extends Google_S
     $params = array('project' => $project, 'zone' => $zone, 'operation' => $operation);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Replicapoolupdater_Operation");
+  }
+
+  /**
+   * Retrieves the list of Operation resources contained within the specified
+   * zone. (zoneOperations.listZoneOperations)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $zone Name of the zone scoping this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Optional. Filter expression for filtering listed
+   * resources.
+   * @opt_param string pageToken Optional. Tag returned by a previous list request
+   * truncated by maxResults. Used to continue a previous list request.
+   * @opt_param string maxResults Optional. Maximum count of results to be
+   * returned. Maximum value is 500 and default value is 500.
+   * @return Google_Service_Replicapoolupdater_OperationList
+   */
+  public function listZoneOperations($project, $zone, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Replicapoolupdater_OperationList");
   }
 }
 
@@ -883,6 +929,61 @@ class Google_Service_Replicapoolupdater_OperationErrorErrors extends Google_Mode
   }
 }
 
+class Google_Service_Replicapoolupdater_OperationList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Replicapoolupdater_Operation';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
 class Google_Service_Replicapoolupdater_OperationWarnings extends Google_Collection
 {
   protected $collection_key = 'data';
@@ -960,6 +1061,7 @@ class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
   public $instanceGroupManager;
   public $instanceTemplate;
   public $kind;
+  public $oldInstanceTemplate;
   protected $policyType = 'Google_Service_Replicapoolupdater_RollingUpdatePolicy';
   protected $policyDataType = '';
   public $progress;
@@ -1040,6 +1142,14 @@ class Google_Service_Replicapoolupdater_RollingUpdate extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setOldInstanceTemplate($oldInstanceTemplate)
+  {
+    $this->oldInstanceTemplate = $oldInstanceTemplate;
+  }
+  public function getOldInstanceTemplate()
+  {
+    return $this->oldInstanceTemplate;
   }
   public function setPolicy(Google_Service_Replicapoolupdater_RollingUpdatePolicy $policy)
   {

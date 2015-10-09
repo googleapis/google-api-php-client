@@ -162,15 +162,11 @@ class Google_Service_YouTube extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'onBehalfOf' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'debugProjectIdOverride' => array(
+                'onBehalfOfContentOwner' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -184,7 +180,7 @@ class Google_Service_YouTube extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'onBehalfOfContentOwner' => array(
+                'tfmt' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -192,15 +188,11 @@ class Google_Service_YouTube extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'debugProjectIdOverride' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'tfmt' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'tlang' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'onBehalfOfContentOwner' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -214,21 +206,17 @@ class Google_Service_YouTube extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'sync' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
                 'onBehalfOf' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'debugProjectIdOverride' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'onBehalfOfContentOwner' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'sync' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'list' => array(
@@ -245,19 +233,15 @@ class Google_Service_YouTube extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'onBehalfOf' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'debugProjectIdOverride' => array(
+                'id' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'id' => array(
+                'onBehalfOfContentOwner' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -271,21 +255,17 @@ class Google_Service_YouTube extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'sync' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
                 'onBehalfOf' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'debugProjectIdOverride' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'onBehalfOfContentOwner' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'sync' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),
@@ -485,10 +465,6 @@ class Google_Service_YouTube extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                   'required' => true,
-                ),
-                'shareOnGooglePlus' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
                 ),
               ),
             ),'list' => array(
@@ -742,6 +718,33 @@ class Google_Service_YouTube extends Google_Service
           'methods' => array(
             'bind' => array(
               'path' => 'liveBroadcasts/bind',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'id' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'part' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'onBehalfOfContentOwnerChannel' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'streamId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'bind_direct' => array(
+              'path' => 'liveBroadcasts/bind/direct',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'id' => array(
@@ -1601,10 +1604,6 @@ class Google_Service_YouTube extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'debugProjectIdOverride' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'hl' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -1816,6 +1815,8 @@ class Google_Service_YouTube_Captions_Resource extends Google_Service_Resource
    * a caption resource.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
+   * request is be on behalf of
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
    *
@@ -1828,10 +1829,6 @@ class Google_Service_YouTube_Captions_Resource extends Google_Service_Resource
    * authentication credentials for each individual channel. The actual CMS
    * account that the user authenticates with must be linked to the specified
    * YouTube content owner.
-   * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
-   * request is be on behalf of
-   * @opt_param string debugProjectIdOverride The debugProjectIdOverride parameter
-   * should be used for mimicking a request for a certain project ID
    */
   public function delete($id, $optParams = array())
   {
@@ -1851,6 +1848,16 @@ class Google_Service_YouTube_Captions_Resource extends Google_Service_Resource
    * in a caption resource.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string tfmt The tfmt parameter specifies that the caption track
+   * should be returned in a specific format. If the parameter is not included in
+   * the request, the track is returned in its original format.
+   * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
+   * request is be on behalf of
+   * @opt_param string tlang The tlang parameter specifies that the API response
+   * should return a translation of the specified caption track. The parameter
+   * value is an ISO 639-1 two-letter language code that identifies the desired
+   * caption language. The translation is generated by using machine translation,
+   * such as Google Translate.
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
    *
@@ -1863,18 +1870,6 @@ class Google_Service_YouTube_Captions_Resource extends Google_Service_Resource
    * authentication credentials for each individual channel. The actual CMS
    * account that the user authenticates with must be linked to the specified
    * YouTube content owner.
-   * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
-   * request is be on behalf of
-   * @opt_param string debugProjectIdOverride The debugProjectIdOverride parameter
-   * should be used for mimicking a request for a certain project ID
-   * @opt_param string tfmt The tfmt parameter specifies that the caption track
-   * should be returned in a specific format. If the parameter is not included in
-   * the request, the track is returned in its original format.
-   * @opt_param string tlang The tlang parameter specifies that the API response
-   * should return a translation of the specified caption track. The parameter
-   * value is an ISO 639-1 two-letter language code that identifies the desired
-   * caption language. The translation is generated by using machine translation,
-   * such as Google Translate.
    */
   public function download($id, $optParams = array())
   {
@@ -1891,18 +1886,8 @@ class Google_Service_YouTube_Captions_Resource extends Google_Service_Resource
    * @param Google_Caption $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool sync The sync parameter indicates whether YouTube should
-   * automatically synchronize the caption file with the audio track of the video.
-   * If you set the value to true, YouTube will disregard any time codes that are
-   * in the uploaded caption file and generate new time codes for the captions.
-   *
-   * You should set the sync parameter to true if you are uploading a transcript,
-   * which has no time codes, or if you suspect the time codes in your file are
-   * incorrect and want YouTube to try to fix them.
    * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
    * request is be on behalf of
-   * @opt_param string debugProjectIdOverride The debugProjectIdOverride parameter
-   * should be used for mimicking a request for a certain project ID.
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
    *
@@ -1915,6 +1900,14 @@ class Google_Service_YouTube_Captions_Resource extends Google_Service_Resource
    * authentication credentials for each individual channel. The actual CMS
    * account that the user authenticates with must be linked to the specified
    * YouTube content owner.
+   * @opt_param bool sync The sync parameter indicates whether YouTube should
+   * automatically synchronize the caption file with the audio track of the video.
+   * If you set the value to true, YouTube will disregard any time codes that are
+   * in the uploaded caption file and generate new time codes for the captions.
+   *
+   * You should set the sync parameter to true if you are uploading a transcript,
+   * which has no time codes, or if you suspect the time codes in your file are
+   * incorrect and want YouTube to try to fix them.
    * @return Google_Service_YouTube_Caption
    */
   public function insert($part, Google_Service_YouTube_Caption $postBody, $optParams = array())
@@ -1937,6 +1930,11 @@ class Google_Service_YouTube_Captions_Resource extends Google_Service_Resource
    * of the video for which the API should return caption tracks.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
+   * request is on behalf of.
+   * @opt_param string id The id parameter specifies a comma-separated list of IDs
+   * that identify the caption resources that should be retrieved. Each ID must
+   * identify a caption track associated with the specified video.
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
    *
@@ -1949,13 +1947,6 @@ class Google_Service_YouTube_Captions_Resource extends Google_Service_Resource
    * authentication credentials for each individual channel. The actual CMS
    * account that the user authenticates with must be linked to the specified
    * YouTube content owner.
-   * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
-   * request is on behalf of.
-   * @opt_param string debugProjectIdOverride The debugProjectIdOverride parameter
-   * should be used for mimicking a request for a certain project ID.
-   * @opt_param string id The id parameter specifies a comma-separated list of IDs
-   * that identify the caption resources that should be retrieved. Each ID must
-   * identify a caption track associated with the specified video.
    * @return Google_Service_YouTube_CaptionListResponse
    */
   public function listCaptions($part, $videoId, $optParams = array())
@@ -1978,17 +1969,8 @@ class Google_Service_YouTube_Captions_Resource extends Google_Service_Resource
    * @param Google_Caption $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool sync Note: The API server only processes the parameter value
-   * if the request contains an updated caption file.
-   *
-   * The sync parameter indicates whether YouTube should automatically synchronize
-   * the caption file with the audio track of the video. If you set the value to
-   * true, YouTube will automatically synchronize the caption track with the audio
-   * track.
    * @opt_param string onBehalfOf ID of the Google+ Page for the channel that the
    * request is be on behalf of
-   * @opt_param string debugProjectIdOverride The debugProjectIdOverride parameter
-   * should be used for mimicking a request for a certain project ID.
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
    *
@@ -2001,6 +1983,13 @@ class Google_Service_YouTube_Captions_Resource extends Google_Service_Resource
    * authentication credentials for each individual channel. The actual CMS
    * account that the user authenticates with must be linked to the specified
    * YouTube content owner.
+   * @opt_param bool sync Note: The API server only processes the parameter value
+   * if the request contains an updated caption file.
+   *
+   * The sync parameter indicates whether YouTube should automatically synchronize
+   * the caption file with the audio track of the video. If you set the value to
+   * true, YouTube will automatically synchronize the caption track with the audio
+   * track.
    * @return Google_Service_YouTube_Caption
    */
   public function update($part, Google_Service_YouTube_Caption $postBody, $optParams = array())
@@ -2368,10 +2357,6 @@ class Google_Service_YouTube_CommentThreads_Resource extends Google_Service_Reso
    * has a quota cost of 2 units.
    * @param Google_CommentThread $postBody
    * @param array $optParams Optional parameters.
-   *
-   * @opt_param bool shareOnGooglePlus The shareOnGooglePlus parameter indicates
-   * whether the top-level comment and any replies that are made to that comment
-   * should also be posted to the author's Google+ profile.
    * @return Google_Service_YouTube_CommentThread
    */
   public function insert($part, Google_Service_YouTube_CommentThread $postBody, $optParams = array())
@@ -2771,6 +2756,64 @@ class Google_Service_YouTube_LiveBroadcasts_Resource extends Google_Service_Reso
     $params = array('id' => $id, 'part' => $part);
     $params = array_merge($params, $optParams);
     return $this->call('bind', array($params), "Google_Service_YouTube_LiveBroadcast");
+  }
+
+  /**
+   * Binds a YouTube broadcast to a stream or removes an existing binding between
+   * a broadcast and a stream. A broadcast can only be bound to one video stream,
+   * though a video stream may be bound to more than one broadcast.
+   * (liveBroadcasts.bind_direct)
+   *
+   * @param string $id The id parameter specifies the unique ID of the broadcast
+   * that is being bound to a video stream.
+   * @param string $part The part parameter specifies a comma-separated list of
+   * one or more liveBroadcast resource properties that the API response will
+   * include. The part names that you can include in the parameter value are id,
+   * snippet, contentDetails, and status.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string onBehalfOfContentOwnerChannel This parameter can only be
+   * used in a properly authorized request. Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwnerChannel parameter specifies the YouTube channel ID
+   * of the channel to which a video is being added. This parameter is required
+   * when a request specifies a value for the onBehalfOfContentOwner parameter,
+   * and it can only be used in conjunction with that parameter. In addition, the
+   * request must be authorized using a CMS account that is linked to the content
+   * owner that the onBehalfOfContentOwner parameter specifies. Finally, the
+   * channel that the onBehalfOfContentOwnerChannel parameter value specifies must
+   * be linked to the content owner that the onBehalfOfContentOwner parameter
+   * specifies.
+   *
+   * This parameter is intended for YouTube content partners that own and manage
+   * many different YouTube channels. It allows content owners to authenticate
+   * once and perform actions on behalf of the channel specified in the parameter
+   * value, without having to provide authentication credentials for each separate
+   * channel.
+   * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
+   * exclusively for YouTube content partners.
+   *
+   * The onBehalfOfContentOwner parameter indicates that the request's
+   * authorization credentials identify a YouTube CMS user who is acting on behalf
+   * of the content owner specified in the parameter value. This parameter is
+   * intended for YouTube content partners that own and manage many different
+   * YouTube channels. It allows content owners to authenticate once and get
+   * access to all their video and channel data, without having to provide
+   * authentication credentials for each individual channel. The CMS account that
+   * the user authenticates with must be linked to the specified YouTube content
+   * owner.
+   * @opt_param string streamId The streamId parameter specifies the unique ID of
+   * the video stream that is being bound to a broadcast. If this parameter is
+   * omitted, the API will remove any existing binding between the broadcast and a
+   * video stream.
+   * @return Google_Service_YouTube_LiveBroadcast
+   */
+  public function bind_direct($id, $part, $optParams = array())
+  {
+    $params = array('id' => $id, 'part' => $part);
+    $params = array_merge($params, $optParams);
+    return $this->call('bind_direct', array($params), "Google_Service_YouTube_LiveBroadcast");
   }
 
   /**
@@ -4288,8 +4331,6 @@ class Google_Service_YouTube_Videos_Resource extends Google_Service_Resource
    * Note: This parameter is supported for use in conjunction with the myRating
    * parameter, but it is not supported for use in conjunction with the id
    * parameter.
-   * @opt_param string debugProjectIdOverride The debugProjectIdOverride parameter
-   * should be used for mimicking a request for a certain project ID
    * @opt_param string hl The hl parameter instructs the API to retrieve localized
    * resource metadata for a specific application language that the YouTube
    * website supports. The parameter value must be a language code included in the
@@ -7147,6 +7188,7 @@ class Google_Service_YouTube_ContentRating extends Google_Collection
   public $chvrsRating;
   public $cicfRating;
   public $cnaRating;
+  public $cncRating;
   public $csaRating;
   public $cscfRating;
   public $czfilmRating;
@@ -7317,6 +7359,14 @@ class Google_Service_YouTube_ContentRating extends Google_Collection
   public function getCnaRating()
   {
     return $this->cnaRating;
+  }
+  public function setCncRating($cncRating)
+  {
+    $this->cncRating = $cncRating;
+  }
+  public function getCncRating()
+  {
+    return $this->cncRating;
   }
   public function setCsaRating($csaRating)
   {
@@ -8867,6 +8917,7 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   public $channelId;
   public $description;
   public $isDefaultBroadcast;
+  public $liveChatId;
   public $publishedAt;
   public $scheduledEndTime;
   public $scheduledStartTime;
@@ -8914,6 +8965,14 @@ class Google_Service_YouTube_LiveBroadcastSnippet extends Google_Model
   public function getIsDefaultBroadcast()
   {
     return $this->isDefaultBroadcast;
+  }
+  public function setLiveChatId($liveChatId)
+  {
+    $this->liveChatId = $liveChatId;
+  }
+  public function getLiveChatId()
+  {
+    return $this->liveChatId;
   }
   public function setPublishedAt($publishedAt)
   {
@@ -9260,7 +9319,7 @@ class Google_Service_YouTube_LiveStreamHealthStatus extends Google_Collection
   );
   protected $configurationIssuesType = 'Google_Service_YouTube_LiveStreamConfigurationIssue';
   protected $configurationIssuesDataType = 'array';
-  public $lastUpdateTimeS;
+  public $lastUpdateTimeSeconds;
   public $status;
 
 
@@ -9272,13 +9331,13 @@ class Google_Service_YouTube_LiveStreamHealthStatus extends Google_Collection
   {
     return $this->configurationIssues;
   }
-  public function setLastUpdateTimeS($lastUpdateTimeS)
+  public function setLastUpdateTimeSeconds($lastUpdateTimeSeconds)
   {
-    $this->lastUpdateTimeS = $lastUpdateTimeS;
+    $this->lastUpdateTimeSeconds = $lastUpdateTimeSeconds;
   }
-  public function getLastUpdateTimeS()
+  public function getLastUpdateTimeSeconds()
   {
-    return $this->lastUpdateTimeS;
+    return $this->lastUpdateTimeSeconds;
   }
   public function setStatus($status)
   {

@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for DeploymentManager (v2beta2).
+ * Service definition for DeploymentManager (v2).
  *
  * <p>
  * The Deployment Manager API allows users to declaratively configure, deploy
@@ -24,7 +24,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/deployment-manager/" target="_blank">Documentation</a>
+ * <a href="https://cloud.google.com/deployment-manager/" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -34,6 +34,9 @@ class Google_Service_DeploymentManager extends Google_Service
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
+  /** View your data across Google Cloud Platform services. */
+  const CLOUD_PLATFORM_READ_ONLY =
+      "https://www.googleapis.com/auth/cloud-platform.read-only";
   /** View and manage your Google Cloud Platform management resources and deployment status information. */
   const NDEV_CLOUDMAN =
       "https://www.googleapis.com/auth/ndev.cloudman";
@@ -57,8 +60,8 @@ class Google_Service_DeploymentManager extends Google_Service
   {
     parent::__construct($client);
     $this->rootUrl = 'https://www.googleapis.com/';
-    $this->servicePath = 'deploymentmanager/v2beta2/projects/';
-    $this->version = 'v2beta2';
+    $this->servicePath = 'deploymentmanager/v2/projects/';
+    $this->version = 'v2';
     $this->serviceName = 'deploymentmanager';
 
     $this->deployments = new Google_Service_DeploymentManager_Deployments_Resource(
@@ -67,7 +70,22 @@ class Google_Service_DeploymentManager extends Google_Service
         'deployments',
         array(
           'methods' => array(
-            'delete' => array(
+            'cancelPreview' => array(
+              'path' => '{project}/global/deployments/{deployment}/cancelPreview',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'deployment' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
               'path' => '{project}/global/deployments/{deployment}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
@@ -106,6 +124,10 @@ class Google_Service_DeploymentManager extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'preview' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
             ),'list' => array(
               'path' => '{project}/global/deployments',
@@ -143,17 +165,32 @@ class Google_Service_DeploymentManager extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'deletePolicy' => array(
+                'preview' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
-                'updatePolicy' => array(
+                'deletePolicy' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'createPolicy' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+              ),
+            ),'stop' => array(
+              'path' => '{project}/global/deployments/{deployment}/stop',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'deployment' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),'update' => array(
@@ -170,11 +207,11 @@ class Google_Service_DeploymentManager extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'deletePolicy' => array(
+                'preview' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
-                'updatePolicy' => array(
+                'deletePolicy' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -396,6 +433,23 @@ class Google_Service_DeploymentManager_Deployments_Resource extends Google_Servi
 {
 
   /**
+   * Cancels and removes the preview currently associated with the deployment.
+   * (deployments.cancelPreview)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $deployment The name of the deployment for this request.
+   * @param Google_DeploymentsCancelPreviewRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_DeploymentManager_Operation
+   */
+  public function cancelPreview($project, $deployment, Google_Service_DeploymentManager_DeploymentsCancelPreviewRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'deployment' => $deployment, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('cancelPreview', array($params), "Google_Service_DeploymentManager_Operation");
+  }
+
+  /**
    * Deletes a deployment and all of the resources in the deployment.
    * (deployments.delete)
    *
@@ -433,6 +487,15 @@ class Google_Service_DeploymentManager_Deployments_Resource extends Google_Servi
    * @param string $project The project ID for this request.
    * @param Google_Deployment $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool preview If set to true, creates a deployment and creates
+   * "shell" resources but does not actually instantiate these resources. This
+   * allows you to preview what your deployment looks like. After previewing a
+   * deployment, you can deploy your resources by making a request with the
+   * update() method or you can use the cancelPreview() method to cancel the
+   * preview altogether. Note that the deployment will still exist after you
+   * cancel the preview and you must separately delete this deployment if you want
+   * to remove it.
    * @return Google_Service_DeploymentManager_Operation
    */
   public function insert($project, Google_Service_DeploymentManager_Deployment $postBody, $optParams = array())
@@ -448,9 +511,22 @@ class Google_Service_DeploymentManager_Deployments_Resource extends Google_Servi
    * @param string $project The project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_DeploymentManager_DeploymentsListResponse
    */
@@ -470,8 +546,17 @@ class Google_Service_DeploymentManager_Deployments_Resource extends Google_Servi
    * @param Google_Deployment $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool preview If set to true, updates the deployment and creates
+   * and updates the "shell" resources but does not actually alter or instantiate
+   * these resources. This allows you to preview what your deployment looks like.
+   * You can use this intent to preview how an update would affect your
+   * deployment. You must provide a target.config with a configuration if this is
+   * set to true. After previewing a deployment, you can deploy your resources by
+   * making a request with the update() or you can cancelPreview() to remove the
+   * preview altogether. Note that the deployment will still exist after you
+   * cancel the preview and you must separately delete this deployment if you want
+   * to remove it.
    * @opt_param string deletePolicy Sets the policy to use for deleting resources.
-   * @opt_param string updatePolicy Sets the policy to use for updating resources.
    * @opt_param string createPolicy Sets the policy to use for creating new
    * resources.
    * @return Google_Service_DeploymentManager_Operation
@@ -484,6 +569,24 @@ class Google_Service_DeploymentManager_Deployments_Resource extends Google_Servi
   }
 
   /**
+   * Stops an ongoing operation. This does not roll back any work that has already
+   * been completed, but prevents any new work from being started.
+   * (deployments.stop)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $deployment The name of the deployment for this request.
+   * @param Google_DeploymentsStopRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_DeploymentManager_Operation
+   */
+  public function stop($project, $deployment, Google_Service_DeploymentManager_DeploymentsStopRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'deployment' => $deployment, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('stop', array($params), "Google_Service_DeploymentManager_Operation");
+  }
+
+  /**
    * Updates a deployment and all of the resources described by the deployment
    * manifest. (deployments.update)
    *
@@ -492,8 +595,17 @@ class Google_Service_DeploymentManager_Deployments_Resource extends Google_Servi
    * @param Google_Deployment $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool preview If set to true, updates the deployment and creates
+   * and updates the "shell" resources but does not actually alter or instantiate
+   * these resources. This allows you to preview what your deployment looks like.
+   * You can use this intent to preview how an update would affect your
+   * deployment. You must provide a target.config with a configuration if this is
+   * set to true. After previewing a deployment, you can deploy your resources by
+   * making a request with the update() or you can cancelPreview() to remove the
+   * preview altogether. Note that the deployment will still exist after you
+   * cancel the preview and you must separately delete this deployment if you want
+   * to remove it.
    * @opt_param string deletePolicy Sets the policy to use for deleting resources.
-   * @opt_param string updatePolicy Sets the policy to use for updating resources.
    * @opt_param string createPolicy Sets the policy to use for creating new
    * resources.
    * @return Google_Service_DeploymentManager_Operation
@@ -540,9 +652,22 @@ class Google_Service_DeploymentManager_Manifests_Resource extends Google_Service
    * @param string $deployment The name of the deployment for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_DeploymentManager_ManifestsListResponse
    */
@@ -586,9 +711,22 @@ class Google_Service_DeploymentManager_Operations_Resource extends Google_Servic
    * @param string $project The project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_DeploymentManager_OperationsListResponse
    */
@@ -634,9 +772,22 @@ class Google_Service_DeploymentManager_Resources_Resource extends Google_Service
    * @param string $deployment The name of the deployment for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_DeploymentManager_ResourcesListResponse
    */
@@ -665,9 +816,22 @@ class Google_Service_DeploymentManager_Types_Resource extends Google_Service_Res
    * @param string $project The project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_DeploymentManager_TypesListResponse
    */
@@ -682,6 +846,23 @@ class Google_Service_DeploymentManager_Types_Resource extends Google_Service_Res
 
 
 
+class Google_Service_DeploymentManager_ConfigFile extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $content;
+
+
+  public function setContent($content)
+  {
+    $this->content = $content;
+  }
+  public function getContent()
+  {
+    return $this->content;
+  }
+}
+
 class Google_Service_DeploymentManager_Deployment extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -690,15 +871,14 @@ class Google_Service_DeploymentManager_Deployment extends Google_Model
   public $fingerprint;
   public $id;
   public $insertTime;
-  public $intent;
   public $manifest;
   public $name;
-  public $state;
+  protected $operationType = 'Google_Service_DeploymentManager_Operation';
+  protected $operationDataType = '';
   protected $targetType = 'Google_Service_DeploymentManager_TargetConfiguration';
   protected $targetDataType = '';
   protected $updateType = 'Google_Service_DeploymentManager_DeploymentUpdate';
   protected $updateDataType = '';
-  public $updateTime;
 
 
   public function setDescription($description)
@@ -733,14 +913,6 @@ class Google_Service_DeploymentManager_Deployment extends Google_Model
   {
     return $this->insertTime;
   }
-  public function setIntent($intent)
-  {
-    $this->intent = $intent;
-  }
-  public function getIntent()
-  {
-    return $this->intent;
-  }
   public function setManifest($manifest)
   {
     $this->manifest = $manifest;
@@ -757,13 +929,13 @@ class Google_Service_DeploymentManager_Deployment extends Google_Model
   {
     return $this->name;
   }
-  public function setState($state)
+  public function setOperation(Google_Service_DeploymentManager_Operation $operation)
   {
-    $this->state = $state;
+    $this->operation = $operation;
   }
-  public function getState()
+  public function getOperation()
   {
-    return $this->state;
+    return $this->operation;
   }
   public function setTarget(Google_Service_DeploymentManager_TargetConfiguration $target)
   {
@@ -781,33 +953,15 @@ class Google_Service_DeploymentManager_Deployment extends Google_Model
   {
     return $this->update;
   }
-  public function setUpdateTime($updateTime)
-  {
-    $this->updateTime = $updateTime;
-  }
-  public function getUpdateTime()
-  {
-    return $this->updateTime;
-  }
 }
 
-class Google_Service_DeploymentManager_DeploymentUpdate extends Google_Collection
+class Google_Service_DeploymentManager_DeploymentUpdate extends Google_Model
 {
-  protected $collection_key = 'errors';
   protected $internal_gapi_mappings = array(
   );
-  public $errors;
   public $manifest;
 
 
-  public function setErrors($errors)
-  {
-    $this->errors = $errors;
-  }
-  public function getErrors()
-  {
-    return $this->errors;
-  }
   public function setManifest($manifest)
   {
     $this->manifest = $manifest;
@@ -818,8 +972,9 @@ class Google_Service_DeploymentManager_DeploymentUpdate extends Google_Collectio
   }
 }
 
-class Google_Service_DeploymentManager_DeploymentmanagerResource extends Google_Model
+class Google_Service_DeploymentManager_DeploymentmanagerResource extends Google_Collection
 {
+  protected $collection_key = 'warnings';
   protected $internal_gapi_mappings = array(
   );
   public $finalProperties;
@@ -833,6 +988,8 @@ class Google_Service_DeploymentManager_DeploymentmanagerResource extends Google_
   protected $updateDataType = '';
   public $updateTime;
   public $url;
+  protected $warningsType = 'Google_Service_DeploymentManager_DeploymentmanagerResourceWarnings';
+  protected $warningsDataType = 'array';
 
 
   public function setFinalProperties($finalProperties)
@@ -915,6 +1072,94 @@ class Google_Service_DeploymentManager_DeploymentmanagerResource extends Google_
   {
     return $this->url;
   }
+  public function setWarnings($warnings)
+  {
+    $this->warnings = $warnings;
+  }
+  public function getWarnings()
+  {
+    return $this->warnings;
+  }
+}
+
+class Google_Service_DeploymentManager_DeploymentmanagerResourceWarnings extends Google_Collection
+{
+  protected $collection_key = 'data';
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  protected $dataType = 'Google_Service_DeploymentManager_DeploymentmanagerResourceWarningsData';
+  protected $dataDataType = 'array';
+  public $message;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setData($data)
+  {
+    $this->data = $data;
+  }
+  public function getData()
+  {
+    return $this->data;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_DeploymentManager_DeploymentmanagerResourceWarningsData extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $key;
+  public $value;
+
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+  public function getKey()
+  {
+    return $this->key;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
+class Google_Service_DeploymentManager_DeploymentsCancelPreviewRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $fingerprint;
+
+
+  public function setFingerprint($fingerprint)
+  {
+    $this->fingerprint = $fingerprint;
+  }
+  public function getFingerprint()
+  {
+    return $this->fingerprint;
+  }
 }
 
 class Google_Service_DeploymentManager_DeploymentsListResponse extends Google_Collection
@@ -942,6 +1187,23 @@ class Google_Service_DeploymentManager_DeploymentsListResponse extends Google_Co
   public function getNextPageToken()
   {
     return $this->nextPageToken;
+  }
+}
+
+class Google_Service_DeploymentManager_DeploymentsStopRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $fingerprint;
+
+
+  public function setFingerprint($fingerprint)
+  {
+    $this->fingerprint = $fingerprint;
+  }
+  public function getFingerprint()
+  {
+    return $this->fingerprint;
   }
 }
 
@@ -976,8 +1238,9 @@ class Google_Service_DeploymentManager_Manifest extends Google_Collection
   protected $collection_key = 'imports';
   protected $internal_gapi_mappings = array(
   );
-  public $config;
-  public $evaluatedConfig;
+  protected $configType = 'Google_Service_DeploymentManager_ConfigFile';
+  protected $configDataType = '';
+  public $expandedConfig;
   public $id;
   protected $importsType = 'Google_Service_DeploymentManager_ImportFile';
   protected $importsDataType = 'array';
@@ -987,7 +1250,7 @@ class Google_Service_DeploymentManager_Manifest extends Google_Collection
   public $selfLink;
 
 
-  public function setConfig($config)
+  public function setConfig(Google_Service_DeploymentManager_ConfigFile $config)
   {
     $this->config = $config;
   }
@@ -995,13 +1258,13 @@ class Google_Service_DeploymentManager_Manifest extends Google_Collection
   {
     return $this->config;
   }
-  public function setEvaluatedConfig($evaluatedConfig)
+  public function setExpandedConfig($expandedConfig)
   {
-    $this->evaluatedConfig = $evaluatedConfig;
+    $this->expandedConfig = $expandedConfig;
   }
-  public function getEvaluatedConfig()
+  public function getExpandedConfig()
   {
-    return $this->evaluatedConfig;
+    return $this->expandedConfig;
   }
   public function setId($id)
   {
@@ -1437,24 +1700,27 @@ class Google_Service_DeploymentManager_OperationsListResponse extends Google_Col
 
 class Google_Service_DeploymentManager_ResourceUpdate extends Google_Collection
 {
-  protected $collection_key = 'errors';
+  protected $collection_key = 'warnings';
   protected $internal_gapi_mappings = array(
   );
-  public $errors;
+  protected $errorType = 'Google_Service_DeploymentManager_ResourceUpdateError';
+  protected $errorDataType = '';
   public $finalProperties;
   public $intent;
   public $manifest;
   public $properties;
   public $state;
+  protected $warningsType = 'Google_Service_DeploymentManager_ResourceUpdateWarnings';
+  protected $warningsDataType = 'array';
 
 
-  public function setErrors($errors)
+  public function setError(Google_Service_DeploymentManager_ResourceUpdateError $error)
   {
-    $this->errors = $errors;
+    $this->error = $error;
   }
-  public function getErrors()
+  public function getError()
   {
-    return $this->errors;
+    return $this->error;
   }
   public function setFinalProperties($finalProperties)
   {
@@ -1496,6 +1762,131 @@ class Google_Service_DeploymentManager_ResourceUpdate extends Google_Collection
   {
     return $this->state;
   }
+  public function setWarnings($warnings)
+  {
+    $this->warnings = $warnings;
+  }
+  public function getWarnings()
+  {
+    return $this->warnings;
+  }
+}
+
+class Google_Service_DeploymentManager_ResourceUpdateError extends Google_Collection
+{
+  protected $collection_key = 'errors';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $errorsType = 'Google_Service_DeploymentManager_ResourceUpdateErrorErrors';
+  protected $errorsDataType = 'array';
+
+
+  public function setErrors($errors)
+  {
+    $this->errors = $errors;
+  }
+  public function getErrors()
+  {
+    return $this->errors;
+  }
+}
+
+class Google_Service_DeploymentManager_ResourceUpdateErrorErrors extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  public $location;
+  public $message;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setLocation($location)
+  {
+    $this->location = $location;
+  }
+  public function getLocation()
+  {
+    return $this->location;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_DeploymentManager_ResourceUpdateWarnings extends Google_Collection
+{
+  protected $collection_key = 'data';
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  protected $dataType = 'Google_Service_DeploymentManager_ResourceUpdateWarningsData';
+  protected $dataDataType = 'array';
+  public $message;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setData($data)
+  {
+    $this->data = $data;
+  }
+  public function getData()
+  {
+    return $this->data;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_DeploymentManager_ResourceUpdateWarningsData extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $key;
+  public $value;
+
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+  public function getKey()
+  {
+    return $this->key;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
+  }
 }
 
 class Google_Service_DeploymentManager_ResourcesListResponse extends Google_Collection
@@ -1531,12 +1922,13 @@ class Google_Service_DeploymentManager_TargetConfiguration extends Google_Collec
   protected $collection_key = 'imports';
   protected $internal_gapi_mappings = array(
   );
-  public $config;
+  protected $configType = 'Google_Service_DeploymentManager_ConfigFile';
+  protected $configDataType = '';
   protected $importsType = 'Google_Service_DeploymentManager_ImportFile';
   protected $importsDataType = 'array';
 
 
-  public function setConfig($config)
+  public function setConfig(Google_Service_DeploymentManager_ConfigFile $config)
   {
     $this->config = $config;
   }
@@ -1558,9 +1950,28 @@ class Google_Service_DeploymentManager_Type extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $id;
+  public $insertTime;
   public $name;
+  public $selfLink;
 
 
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setInsertTime($insertTime)
+  {
+    $this->insertTime = $insertTime;
+  }
+  public function getInsertTime()
+  {
+    return $this->insertTime;
+  }
   public function setName($name)
   {
     $this->name = $name;
@@ -1568,6 +1979,14 @@ class Google_Service_DeploymentManager_Type extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
   }
 }
 

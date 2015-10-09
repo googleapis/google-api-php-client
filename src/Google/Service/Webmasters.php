@@ -318,8 +318,6 @@ class Google_Service_Webmasters_Searchanalytics_Resource extends Google_Service_
 {
 
   /**
-   * [LIMITED ACCESS]
-   *
    * Query your data with filters and parameters that you define. Returns zero or
    * more rows grouped by the row keys that you define. You must define a date
    * range of one or more days.
