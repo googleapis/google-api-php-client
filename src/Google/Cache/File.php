@@ -153,7 +153,7 @@ class Google_Cache_File implements CacheInterface
     // and thus give some basic amount of scalability
     $storageDir = $this->path . '/' . substr(md5($file), 0, 2);
     if ($forWrite && ! is_dir($storageDir)) {
-      if (! mkdir($storageDir, 0755, true)) {
+      if (! mkdir($storageDir, 0700, true)) {
         $this->log(
             'error',
             'File cache creation failed',
@@ -195,6 +195,9 @@ class Google_Cache_File implements CacheInterface
           array('file' => $storageFile)
       );
       return false;
+    }
+    if ($type == LOCK_EX) {
+      chmod($storageFile, 0600);
     }
     $count = 0;
     while (!flock($this->fh, $type | LOCK_NB)) {

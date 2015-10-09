@@ -110,9 +110,7 @@ class Google_Http_MediaFileUpload
    */
   public function nextChunk($chunk = false)
   {
-    if (false == $this->resumeUri) {
-      $this->resumeUri = $this->getResumeUri();
-    }
+    $resumeUri = $this->getResumeUri();
 
     if (false == $chunk) {
       $chunk = substr($this->data, $this->progress, $this->chunkSize);
@@ -132,8 +130,30 @@ class Google_Http_MediaFileUpload
         Stream::factory($chunk)
     );
 
-    $http = $this->client->getHttpClient();
+    $this->makePutRequest($request);
+  }
 
+  /**
+   * Return the HTTP result code from the last call made.
+   * @return int code
+   */
+  public function getHttpResultCode()
+  {
+    return $this->httpResultCode;
+  }
+
+  /**
+  * Sends a PUT-Request to google drive and parses the response,
+  * setting the appropiate variables from the response()
+  *
+  * @param Google_Http_Request $httpRequest the Reuqest which will be send
+  *
+  * @return false|mixed false when the upload is unfinished or the decoded http response
+  *
+  */
+  private function makePutRequest(Request $request)
+  {
+    $http = $this->client->getHttpClient();
     $response = $http->send($request);
 
     if (308 == $response->getStatusCode()) {
@@ -162,8 +182,26 @@ class Google_Http_MediaFileUpload
   }
 
   /**
-   * @param $meta
-   * @param $params
+   * Resume a previously unfinished upload
+   * @param $resumeUri the resume-URI of the unfinished, resumable upload.
+   */
+  public function resume($resumeUri)
+  {
+     $this->resumeUri = $resumeUri;
+     $headers = array(
+       'content-range' => "bytes */$this->size",
+       'content-length' => 0,
+     );
+     $httpRequest = new Google_Http_Request(
+         $this->resumeUri,
+         'PUT',
+         $headers
+     );
+
+     return $this->makePutRequest($httpRequest);
+  }
+
+  /**
    * @return array|bool
    * @visible for testing
    */
@@ -236,7 +274,12 @@ class Google_Http_MediaFileUpload
     return self::UPLOAD_MULTIPART_TYPE;
   }
 
-  private function getResumeUri()
+  public function getResumeUri()
+  {
+    return ( $this->resumeUri !== null ? $this->resumeUri : $this->fetchResumeUri() );
+  }
+
+  private function fetchResumeUri()
   {
     $result = null;
     $body = $this->request->getBody();

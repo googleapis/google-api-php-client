@@ -42,7 +42,7 @@ $service = new Google_Service_Drive($client);
 
 // add "?logout" to the URL to remove a token from the session
 if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['upload_token ']);
+  unset($_SESSION['upload_token']);
 }
 
 /************************************************
