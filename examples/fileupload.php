@@ -47,7 +47,7 @@ $client->addScope("https://www.googleapis.com/auth/drive");
 $service = new Google_Service_Drive($client);
 
 if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['upload_token ']);
+  unset($_SESSION['upload_token']);
 }
 
 if (isset($_GET['code'])) {
