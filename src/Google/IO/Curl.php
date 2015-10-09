@@ -64,6 +64,16 @@ class Google_IO_Curl extends Google_IO_Abstract
       foreach ($requestHeaders as $k => $v) {
         $curlHeaders[] = "$k: $v";
       }
+
+      if (isset($this->options[CURLOPT_HTTPHEADER])) {
+        if (is_array($this->options[CURLOPT_HTTPHEADER])) {
+          foreach ($this->options[CURLOPT_HTTPHEADER] as $optionHeader) {
+            $curlHeaders[] = $optionHeader;
+          }
+        }
+        unset($this->options[CURLOPT_HTTPHEADER]);
+      }
+
       curl_setopt($curl, CURLOPT_HTTPHEADER, $curlHeaders);
     }
     curl_setopt($curl, CURLOPT_URL, $request->getUrl());
