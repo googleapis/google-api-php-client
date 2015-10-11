@@ -14,33 +14,67 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+include_once __DIR__ . '/../vendor/autoload.php';
 include_once "templates/base.php";
-session_start();
 
-require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
+echo pageHeader("User Query - Multiple APIs");
+
+
+/*************************************************
+ * Ensure you've downloaded your oauth credentials
+ ************************************************/
+if (!$oauth_credentials = getOAuthCredentialsFile()) {
+  echo missingOAuth2CredentialsWarning();
+  exit;
+}
 
 /************************************************
-  ATTENTION: Fill in these values! Make sure
-  the redirect URI is to this page, e.g:
-  http://localhost:8080/user-example.php
+ * The redirect URI is to the current page, e.g:
+ * http://localhost:8080/multi-api.php
  ************************************************/
- $client_id = '<YOUR_CLIENT_ID>';
- $client_secret = '<YOUR_CLIENT_SECRET>';
- $redirect_uri = '<YOUR_REDIRECT_URI>';
+$redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 
-/************************************************
-  Make an API request on behalf of a user. In
-  this case we need to have a valid OAuth 2.0
-  token for the user, so we need to send them
-  through a login flow. To do this we need some
-  information from our API console project.
- ************************************************/
 $client = new Google_Client();
-$client->setClientId($client_id);
-$client->setClientSecret($client_secret);
+$client->setAuthConfig($oauth_credentials);
 $client->setRedirectUri($redirect_uri);
 $client->addScope("https://www.googleapis.com/auth/drive");
 $client->addScope("https://www.googleapis.com/auth/youtube");
+
+$service = new Google_Service_Drive($client);
+
+// add "?logout" to the URL to remove a token from the session
+if (isset($_REQUEST['logout'])) {
+  unset($_SESSION['multi-api-token']);
+}
+
+/************************************************
+ * If we have a code back from the OAuth 2.0 flow,
+ * we need to exchange that with the
+ * Google_Client::fetchAccessTokenWithAuthCode()
+ * function. We store the resultant access token
+ * bundle in the session, and redirect to ourself.
+ ************************************************/
+if (isset($_GET['code'])) {
+  $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+  $client->setAccessToken($token);
+
+  // store in the session also
+  $_SESSION['multi-api-token'] = $token;
+
+  // redirect back to the example
+  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+}
+
+// set the access token as part of the client
+if (!empty($_SESSION['multi-api-token'])) {
+  $client->setAccessToken($_SESSION['multi-api-token']);
+  if ($client->isAccessTokenExpired()) {
+    unset($_SESSION['multi-api-token']);
+  }
+} else {
+  $authUrl = $client->createAuthUrl();
+}
 
 /************************************************
   We are going to create both YouTube and Drive
@@ -48,27 +82,6 @@ $client->addScope("https://www.googleapis.com/auth/youtube");
  ************************************************/
 $yt_service = new Google_Service_YouTube($client);
 $dr_service = new Google_Service_Drive($client);
-
-
-/************************************************
-  Boilerplate auth management - see
-  user-example.php for details.
- ************************************************/
-if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['access_token']);
-}
-if (isset($_GET['code'])) {
-  $client->authenticate($_GET['code']);
-  $_SESSION['access_token'] = $client->getAccessToken();
-  $redirect = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-  header('Location: ' . filter_var($redirect, FILTER_SANITIZE_URL));
-}
-
-if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
-  $client->setAccessToken($_SESSION['access_token']);
-} else {
-  $authUrl = $client->createAuthUrl();
-}
 
 /************************************************
   If we're signed in, retrieve channels from YouTube
@@ -86,29 +99,24 @@ if ($client->getAccessToken()) {
       array("playlistId" => $likePlaylist)
   );
 }
-
-echo pageHeader("User Query - Multiple APIs");
-if (strpos($client_id, "googleusercontent") == false) {
-  echo missingClientSecretsWarning();
-  exit;
-}
 ?>
+
 <div class="box">
   <div class="request">
-<?php 
-if (isset($authUrl)) {
-  echo "<a class='login' href='" . $authUrl . "'>Connect Me!</a>";
-} else {
-  echo "<h3>Results Of Drive List:</h3>";
-  foreach ($dr_results as $item) {
-    echo $item->title, "<br /> \n";
-  }
+<?php if (isset($authUrl)): ?>
+  <a class="login" href="<?= $authUrl ?>">Connect Me!</a>
+<?php else: ?>
+  <h3>Results Of Drive List:</h3>
+  <?php foreach ($dr_results as $item): ?>
+    <?= $item->title ?><br />
+  <?php endforeach ?>
 
-  echo "<h3>Results Of YouTube Likes:</h3>";
-  foreach ($yt_results as $item) {
-    echo $item['snippet']['title'], "<br /> \n";
-  }
-} ?>
+  <h3>Results Of YouTube Likes:</h3>
+  <?php foreach ($yt_results as $item): ?>
+    <?= $item['snippet']['title'] ?><br />
+  <?php endforeach ?>
+<?php endif ?>
   </div>
 </div>
-<?php echo pageFooter(__FILE__);
+
+<?php echo pageFooter(__FILE__) ?>

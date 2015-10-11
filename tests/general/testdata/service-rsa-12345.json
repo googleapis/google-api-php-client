@@ -1,7 +1,0 @@
-{
-  "private_key_id": "1936f241be592afc6f3a6d309f75cbf5229d3e75",
-  "private_key": "-----BEGIN RSA PRIVATE KEY-----MIIBOwIBAAJBAM4Aozh3TMZYcPx7MHlnD8MtyVUjzo6OdT32JwRHzHHNMMm88lNVfLYIT9C/jgXlDqG0h5wSClMvTQbdihNdFOkCAwEAAQJBAJuMo7KpcpF6iqY7Jtkk1yQb2KCvTvMZ4rGMwt1akaeDW2noyqCeO675gFBtlizgcRsybealQVQgGX4E5VqFUJkCIQDzJZZi2jloDXcyyy2rEa4mj4RnrnIYsDMJ55XMWJ9c9wIhANjkY97FSRX3WSdRFqXd3Pc4URUho+rCcPibafMOwAUfAiAa58ngXm2DyhmqkTkYePhgY/kuz+roOHctXWcCGbxouQIgLC5qAakieC0Ipi+oc2U8a8e3DJzrrRiqtpnB/VcV2nUCIQC2DXrpyt6jjVIzs4jI5Cl3QGLL6TZ8FqpyonU/1ARuhA==-----END RSA PRIVATE KEY-----",
-  "client_email": "12345-is5nq94smihmoa2k0567jab6u6vj278c@developer.gserviceaccount.com",
-  "client_id": "12345-is5nq94smihmoa2k0567jab6u6vj278c.apps.googleusercontent.com",
-  "type": "service_account"
-}
