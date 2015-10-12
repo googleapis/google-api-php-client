@@ -24,7 +24,7 @@
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/shopping-content/v2/" target="_blank">Documentation</a>
+ * <a href="https://developers.google.com/shopping-content" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -42,6 +42,7 @@ class Google_Service_ShoppingContent extends Google_Service
   public $datafeeds;
   public $datafeedstatuses;
   public $inventory;
+  public $orders;
   public $products;
   public $productstatuses;
   
@@ -72,7 +73,12 @@ class Google_Service_ShoppingContent extends Google_Service
             ),'custombatch' => array(
               'path' => 'accounts/batch',
               'httpMethod' => 'POST',
-              'parameters' => array(),
+              'parameters' => array(
+                'dryRun' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
             ),'delete' => array(
               'path' => '{merchantId}/accounts/{accountId}',
               'httpMethod' => 'DELETE',
@@ -86,6 +92,10 @@ class Google_Service_ShoppingContent extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'dryRun' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'get' => array(
@@ -111,6 +121,10 @@ class Google_Service_ShoppingContent extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'dryRun' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'list' => array(
@@ -145,6 +159,10 @@ class Google_Service_ShoppingContent extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'dryRun' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
             ),'update' => array(
               'path' => '{merchantId}/accounts/{accountId}',
@@ -159,6 +177,10 @@ class Google_Service_ShoppingContent extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'dryRun' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),
@@ -401,7 +423,12 @@ class Google_Service_ShoppingContent extends Google_Service
             'custombatch' => array(
               'path' => 'datafeeds/batch',
               'httpMethod' => 'POST',
-              'parameters' => array(),
+              'parameters' => array(
+                'dryRun' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
             ),'delete' => array(
               'path' => '{merchantId}/datafeeds/{datafeedId}',
               'httpMethod' => 'DELETE',
@@ -415,6 +442,10 @@ class Google_Service_ShoppingContent extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'dryRun' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'get' => array(
@@ -440,6 +471,10 @@ class Google_Service_ShoppingContent extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'dryRun' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'list' => array(
@@ -474,6 +509,10 @@ class Google_Service_ShoppingContent extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'dryRun' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
             ),'update' => array(
               'path' => '{merchantId}/datafeeds/{datafeedId}',
@@ -488,6 +527,10 @@ class Google_Service_ShoppingContent extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'dryRun' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),
@@ -550,7 +593,12 @@ class Google_Service_ShoppingContent extends Google_Service
             'custombatch' => array(
               'path' => 'inventory/batch',
               'httpMethod' => 'POST',
-              'parameters' => array(),
+              'parameters' => array(
+                'dryRun' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
             ),'set' => array(
               'path' => '{merchantId}/inventory/{storeCode}/products/{productId}',
               'httpMethod' => 'POST',
@@ -566,6 +614,253 @@ class Google_Service_ShoppingContent extends Google_Service
                   'required' => true,
                 ),
                 'productId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'dryRun' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->orders = new Google_Service_ShoppingContent_Orders_Resource(
+        $this,
+        $this->serviceName,
+        'orders',
+        array(
+          'methods' => array(
+            'acknowledge' => array(
+              'path' => '{merchantId}/orders/{orderId}/acknowledge',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'orderId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'advancetestorder' => array(
+              'path' => '{merchantId}/testorders/{orderId}/advance',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'orderId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'cancel' => array(
+              'path' => '{merchantId}/orders/{orderId}/cancel',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'orderId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'cancellineitem' => array(
+              'path' => '{merchantId}/orders/{orderId}/cancelLineItem',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'orderId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'createtestorder' => array(
+              'path' => '{merchantId}/testorders',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'custombatch' => array(
+              'path' => 'orders/batch',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
+            ),'get' => array(
+              'path' => '{merchantId}/orders/{orderId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'orderId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'getbymerchantorderid' => array(
+              'path' => '{merchantId}/ordersbymerchantid/{merchantOrderId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'merchantOrderId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'gettestordertemplate' => array(
+              'path' => '{merchantId}/testordertemplates/{templateName}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'templateName' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{merchantId}/orders',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'placedDateEnd' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'acknowledged' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'placedDateStart' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'statuses' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+              ),
+            ),'refund' => array(
+              'path' => '{merchantId}/orders/{orderId}/refund',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'orderId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'returnlineitem' => array(
+              'path' => '{merchantId}/orders/{orderId}/returnLineItem',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'orderId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'shiplineitems' => array(
+              'path' => '{merchantId}/orders/{orderId}/shipLineItems',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'orderId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'updatemerchantorderid' => array(
+              'path' => '{merchantId}/orders/{orderId}/updateMerchantOrderId',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'orderId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'updateshipment' => array(
+              'path' => '{merchantId}/orders/{orderId}/updateShipment',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'merchantId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'orderId' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -741,6 +1036,8 @@ class Google_Service_ShoppingContent_Accounts_Resource extends Google_Service_Re
    *
    * @param Google_AccountsCustomBatchRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool dryRun Flag to run the request in dry-run mode.
    * @return Google_Service_ShoppingContent_AccountsCustomBatchResponse
    */
   public function custombatch(Google_Service_ShoppingContent_AccountsCustomBatchRequest $postBody, $optParams = array())
@@ -756,6 +1053,8 @@ class Google_Service_ShoppingContent_Accounts_Resource extends Google_Service_Re
    * @param string $merchantId The ID of the managing account.
    * @param string $accountId The ID of the account.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool dryRun Flag to run the request in dry-run mode.
    */
   public function delete($merchantId, $accountId, $optParams = array())
   {
@@ -785,6 +1084,8 @@ class Google_Service_ShoppingContent_Accounts_Resource extends Google_Service_Re
    * @param string $merchantId The ID of the managing account.
    * @param Google_Account $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool dryRun Flag to run the request in dry-run mode.
    * @return Google_Service_ShoppingContent_Account
    */
   public function insert($merchantId, Google_Service_ShoppingContent_Account $postBody, $optParams = array())
@@ -821,6 +1122,8 @@ class Google_Service_ShoppingContent_Accounts_Resource extends Google_Service_Re
    * @param string $accountId The ID of the account.
    * @param Google_Account $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool dryRun Flag to run the request in dry-run mode.
    * @return Google_Service_ShoppingContent_Account
    */
   public function patch($merchantId, $accountId, Google_Service_ShoppingContent_Account $postBody, $optParams = array())
@@ -837,6 +1140,8 @@ class Google_Service_ShoppingContent_Accounts_Resource extends Google_Service_Re
    * @param string $accountId The ID of the account.
    * @param Google_Account $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool dryRun Flag to run the request in dry-run mode.
    * @return Google_Service_ShoppingContent_Account
    */
   public function update($merchantId, $accountId, Google_Service_ShoppingContent_Account $postBody, $optParams = array())
@@ -1129,6 +1434,8 @@ class Google_Service_ShoppingContent_Datafeeds_Resource extends Google_Service_R
    *
    * @param Google_DatafeedsCustomBatchRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool dryRun Flag to run the request in dry-run mode.
    * @return Google_Service_ShoppingContent_DatafeedsCustomBatchResponse
    */
   public function custombatch(Google_Service_ShoppingContent_DatafeedsCustomBatchRequest $postBody, $optParams = array())
@@ -1144,6 +1451,8 @@ class Google_Service_ShoppingContent_Datafeeds_Resource extends Google_Service_R
    * @param string $merchantId
    * @param string $datafeedId
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool dryRun Flag to run the request in dry-run mode.
    */
   public function delete($merchantId, $datafeedId, $optParams = array())
   {
@@ -1173,6 +1482,8 @@ class Google_Service_ShoppingContent_Datafeeds_Resource extends Google_Service_R
    * @param string $merchantId
    * @param Google_Datafeed $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool dryRun Flag to run the request in dry-run mode.
    * @return Google_Service_ShoppingContent_Datafeed
    */
   public function insert($merchantId, Google_Service_ShoppingContent_Datafeed $postBody, $optParams = array())
@@ -1209,6 +1520,8 @@ class Google_Service_ShoppingContent_Datafeeds_Resource extends Google_Service_R
    * @param string $datafeedId
    * @param Google_Datafeed $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool dryRun Flag to run the request in dry-run mode.
    * @return Google_Service_ShoppingContent_Datafeed
    */
   public function patch($merchantId, $datafeedId, Google_Service_ShoppingContent_Datafeed $postBody, $optParams = array())
@@ -1225,6 +1538,8 @@ class Google_Service_ShoppingContent_Datafeeds_Resource extends Google_Service_R
    * @param string $datafeedId
    * @param Google_Datafeed $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool dryRun Flag to run the request in dry-run mode.
    * @return Google_Service_ShoppingContent_Datafeed
    */
   public function update($merchantId, $datafeedId, Google_Service_ShoppingContent_Datafeed $postBody, $optParams = array())
@@ -1309,10 +1624,13 @@ class Google_Service_ShoppingContent_Inventory_Resource extends Google_Service_R
 
   /**
    * Updates price and availability for multiple products or stores in a single
-   * request. (inventory.custombatch)
+   * request. This operation does not update the expiration date of the products.
+   * (inventory.custombatch)
    *
    * @param Google_InventoryCustomBatchRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool dryRun Flag to run the request in dry-run mode.
    * @return Google_Service_ShoppingContent_InventoryCustomBatchResponse
    */
   public function custombatch(Google_Service_ShoppingContent_InventoryCustomBatchRequest $postBody, $optParams = array())
@@ -1324,6 +1642,7 @@ class Google_Service_ShoppingContent_Inventory_Resource extends Google_Service_R
 
   /**
    * Updates price and availability of a product in your Merchant Center account.
+   * This operation does not update the expiration date of the product.
    * (inventory.set)
    *
    * @param string $merchantId The ID of the managing account.
@@ -1334,6 +1653,8 @@ class Google_Service_ShoppingContent_Inventory_Resource extends Google_Service_R
    * availability.
    * @param Google_InventorySetRequest $postBody
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool dryRun Flag to run the request in dry-run mode.
    * @return Google_Service_ShoppingContent_InventorySetResponse
    */
   public function set($merchantId, $storeCode, $productId, Google_Service_ShoppingContent_InventorySetRequest $postBody, $optParams = array())
@@ -1341,6 +1662,280 @@ class Google_Service_ShoppingContent_Inventory_Resource extends Google_Service_R
     $params = array('merchantId' => $merchantId, 'storeCode' => $storeCode, 'productId' => $productId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('set', array($params), "Google_Service_ShoppingContent_InventorySetResponse");
+  }
+}
+
+/**
+ * The "orders" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $contentService = new Google_Service_ShoppingContent(...);
+ *   $orders = $contentService->orders;
+ *  </code>
+ */
+class Google_Service_ShoppingContent_Orders_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Marks an order as acknowledged. (orders.acknowledge)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $orderId The ID of the order.
+   * @param Google_OrdersAcknowledgeRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersAcknowledgeResponse
+   */
+  public function acknowledge($merchantId, $orderId, Google_Service_ShoppingContent_OrdersAcknowledgeRequest $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'orderId' => $orderId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('acknowledge', array($params), "Google_Service_ShoppingContent_OrdersAcknowledgeResponse");
+  }
+
+  /**
+   * Sandbox only. Moves a test order from state "inProgress" to state
+   * "pendingShipment". (orders.advancetestorder)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $orderId The ID of the test order to modify.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersAdvanceTestOrderResponse
+   */
+  public function advancetestorder($merchantId, $orderId, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'orderId' => $orderId);
+    $params = array_merge($params, $optParams);
+    return $this->call('advancetestorder', array($params), "Google_Service_ShoppingContent_OrdersAdvanceTestOrderResponse");
+  }
+
+  /**
+   * Cancels all line items in an order. (orders.cancel)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $orderId The ID of the order to cancel.
+   * @param Google_OrdersCancelRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersCancelResponse
+   */
+  public function cancel($merchantId, $orderId, Google_Service_ShoppingContent_OrdersCancelRequest $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'orderId' => $orderId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('cancel', array($params), "Google_Service_ShoppingContent_OrdersCancelResponse");
+  }
+
+  /**
+   * Cancels a line item. (orders.cancellineitem)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $orderId The ID of the order.
+   * @param Google_OrdersCancelLineItemRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersCancelLineItemResponse
+   */
+  public function cancellineitem($merchantId, $orderId, Google_Service_ShoppingContent_OrdersCancelLineItemRequest $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'orderId' => $orderId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('cancellineitem', array($params), "Google_Service_ShoppingContent_OrdersCancelLineItemResponse");
+  }
+
+  /**
+   * Sandbox only. Creates a test order. (orders.createtestorder)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param Google_OrdersCreateTestOrderRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersCreateTestOrderResponse
+   */
+  public function createtestorder($merchantId, Google_Service_ShoppingContent_OrdersCreateTestOrderRequest $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('createtestorder', array($params), "Google_Service_ShoppingContent_OrdersCreateTestOrderResponse");
+  }
+
+  /**
+   * Retrieves or modifies multiple orders in a single request.
+   * (orders.custombatch)
+   *
+   * @param Google_OrdersCustomBatchRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersCustomBatchResponse
+   */
+  public function custombatch(Google_Service_ShoppingContent_OrdersCustomBatchRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('custombatch', array($params), "Google_Service_ShoppingContent_OrdersCustomBatchResponse");
+  }
+
+  /**
+   * Retrieves an order from your Merchant Center account. (orders.get)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $orderId The ID of the order.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_Order
+   */
+  public function get($merchantId, $orderId, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'orderId' => $orderId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_ShoppingContent_Order");
+  }
+
+  /**
+   * Retrieves an order using merchant order id. (orders.getbymerchantorderid)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $merchantOrderId The merchant order id to be looked for.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersGetByMerchantOrderIdResponse
+   */
+  public function getbymerchantorderid($merchantId, $merchantOrderId, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'merchantOrderId' => $merchantOrderId);
+    $params = array_merge($params, $optParams);
+    return $this->call('getbymerchantorderid', array($params), "Google_Service_ShoppingContent_OrdersGetByMerchantOrderIdResponse");
+  }
+
+  /**
+   * Sandbox only. Retrieves an order template that can be used to quickly create
+   * a new order in sandbox. (orders.gettestordertemplate)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $templateName The name of the template to retrieve.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersGetTestOrderTemplateResponse
+   */
+  public function gettestordertemplate($merchantId, $templateName, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'templateName' => $templateName);
+    $params = array_merge($params, $optParams);
+    return $this->call('gettestordertemplate', array($params), "Google_Service_ShoppingContent_OrdersGetTestOrderTemplateResponse");
+  }
+
+  /**
+   * Lists the orders in your Merchant Center account. (orders.listOrders)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string orderBy The ordering of the returned list. The only
+   * supported value are placedDate desc and placedDate asc for now, which returns
+   * orders sorted by placement date. "placedDate desc" stands for listing orders
+   * by placement date, from oldest to most recent. "placedDate asc" stands for
+   * listing orders by placement date, from most recent to oldest. In future
+   * releases we'll support other sorting criteria.
+   * @opt_param string placedDateEnd Obtains orders placed before this date
+   * (exclusively), in ISO 8601 format.
+   * @opt_param bool acknowledged Obtains orders that match the acknowledgement
+   * status. When set to true, obtains orders that have been acknowledged. When
+   * false, obtains orders that have not been acknowledged. We recommend using
+   * this filter set to false, in conjunction with the acknowledge call, such that
+   * only un-acknowledged orders are returned.
+   * @opt_param string maxResults The maximum number of orders to return in the
+   * response, used for paging. The default value is 25 orders per page, and the
+   * maximum allowed value is 250 orders per page. Known issue: All List calls
+   * will return all Orders without limit regardless of the value of this field.
+   * @opt_param string pageToken The token returned by the previous request.
+   * @opt_param string placedDateStart Obtains orders placed after this date
+   * (inclusively), in ISO 8601 format.
+   * @opt_param string statuses Obtains orders that match any of the specified
+   * statuses. Multiple values can be specified with comma separation.
+   * Additionally, please note that active is a shortcut for pendingShipment and
+   * partiallyShipped, and completed is a shortcut for shipped ,
+   * partiallyDelivered, delivered, partiallyReturned, returned, and canceled.
+   * @return Google_Service_ShoppingContent_OrdersListResponse
+   */
+  public function listOrders($merchantId, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_ShoppingContent_OrdersListResponse");
+  }
+
+  /**
+   * Refund a portion of the order, up to the full amount paid. (orders.refund)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $orderId The ID of the order to refund.
+   * @param Google_OrdersRefundRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersRefundResponse
+   */
+  public function refund($merchantId, $orderId, Google_Service_ShoppingContent_OrdersRefundRequest $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'orderId' => $orderId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('refund', array($params), "Google_Service_ShoppingContent_OrdersRefundResponse");
+  }
+
+  /**
+   * Returns a line item. (orders.returnlineitem)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $orderId The ID of the order.
+   * @param Google_OrdersReturnLineItemRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersReturnLineItemResponse
+   */
+  public function returnlineitem($merchantId, $orderId, Google_Service_ShoppingContent_OrdersReturnLineItemRequest $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'orderId' => $orderId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('returnlineitem', array($params), "Google_Service_ShoppingContent_OrdersReturnLineItemResponse");
+  }
+
+  /**
+   * Marks line item(s) as shipped. (orders.shiplineitems)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $orderId The ID of the order.
+   * @param Google_OrdersShipLineItemsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersShipLineItemsResponse
+   */
+  public function shiplineitems($merchantId, $orderId, Google_Service_ShoppingContent_OrdersShipLineItemsRequest $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'orderId' => $orderId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('shiplineitems', array($params), "Google_Service_ShoppingContent_OrdersShipLineItemsResponse");
+  }
+
+  /**
+   * Updates the merchant order ID for a given order.
+   * (orders.updatemerchantorderid)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $orderId The ID of the order.
+   * @param Google_OrdersUpdateMerchantOrderIdRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersUpdateMerchantOrderIdResponse
+   */
+  public function updatemerchantorderid($merchantId, $orderId, Google_Service_ShoppingContent_OrdersUpdateMerchantOrderIdRequest $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'orderId' => $orderId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('updatemerchantorderid', array($params), "Google_Service_ShoppingContent_OrdersUpdateMerchantOrderIdResponse");
+  }
+
+  /**
+   * Updates a shipment's status, carrier, and/or tracking ID.
+   * (orders.updateshipment)
+   *
+   * @param string $merchantId The ID of the managing account.
+   * @param string $orderId The ID of the order.
+   * @param Google_OrdersUpdateShipmentRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_ShoppingContent_OrdersUpdateShipmentResponse
+   */
+  public function updateshipment($merchantId, $orderId, Google_Service_ShoppingContent_OrdersUpdateShipmentRequest $postBody, $optParams = array())
+  {
+    $params = array('merchantId' => $merchantId, 'orderId' => $orderId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('updateshipment', array($params), "Google_Service_ShoppingContent_OrdersUpdateShipmentResponse");
   }
 }
 
@@ -3992,6 +4587,7 @@ class Google_Service_ShoppingContent_Inventory extends Google_Model
   protected $salePriceType = 'Google_Service_ShoppingContent_Price';
   protected $salePriceDataType = '';
   public $salePriceEffectiveDate;
+  public $sellOnGoogleQuantity;
 
 
   public function setAvailability($availability)
@@ -4041,6 +4637,14 @@ class Google_Service_ShoppingContent_Inventory extends Google_Model
   public function getSalePriceEffectiveDate()
   {
     return $this->salePriceEffectiveDate;
+  }
+  public function setSellOnGoogleQuantity($sellOnGoogleQuantity)
+  {
+    $this->sellOnGoogleQuantity = $sellOnGoogleQuantity;
+  }
+  public function getSellOnGoogleQuantity()
+  {
+    return $this->sellOnGoogleQuantity;
   }
 }
 
@@ -4192,6 +4796,7 @@ class Google_Service_ShoppingContent_InventorySetRequest extends Google_Model
   protected $salePriceType = 'Google_Service_ShoppingContent_Price';
   protected $salePriceDataType = '';
   public $salePriceEffectiveDate;
+  public $sellOnGoogleQuantity;
 
 
   public function setAvailability($availability)
@@ -4233,6 +4838,14 @@ class Google_Service_ShoppingContent_InventorySetRequest extends Google_Model
   public function getSalePriceEffectiveDate()
   {
     return $this->salePriceEffectiveDate;
+  }
+  public function setSellOnGoogleQuantity($sellOnGoogleQuantity)
+  {
+    $this->sellOnGoogleQuantity = $sellOnGoogleQuantity;
+  }
+  public function getSellOnGoogleQuantity()
+  {
+    return $this->sellOnGoogleQuantity;
   }
 }
 
@@ -4285,6 +4898,2250 @@ class Google_Service_ShoppingContent_LoyaltyPoints extends Google_Model
   public function getRatio()
   {
     return $this->ratio;
+  }
+}
+
+class Google_Service_ShoppingContent_Order extends Google_Collection
+{
+  protected $collection_key = 'shipments';
+  protected $internal_gapi_mappings = array(
+  );
+  public $acknowledged;
+  protected $customerType = 'Google_Service_ShoppingContent_OrderCustomer';
+  protected $customerDataType = '';
+  protected $deliveryDetailsType = 'Google_Service_ShoppingContent_OrderDeliveryDetails';
+  protected $deliveryDetailsDataType = '';
+  public $id;
+  public $kind;
+  protected $lineItemsType = 'Google_Service_ShoppingContent_OrderLineItem';
+  protected $lineItemsDataType = 'array';
+  public $merchantId;
+  public $merchantOrderId;
+  protected $netAmountType = 'Google_Service_ShoppingContent_Price';
+  protected $netAmountDataType = '';
+  protected $paymentMethodType = 'Google_Service_ShoppingContent_OrderPaymentMethod';
+  protected $paymentMethodDataType = '';
+  public $paymentStatus;
+  public $placedDate;
+  protected $refundsType = 'Google_Service_ShoppingContent_OrderRefund';
+  protected $refundsDataType = 'array';
+  protected $shipmentsType = 'Google_Service_ShoppingContent_OrderShipment';
+  protected $shipmentsDataType = 'array';
+  protected $shippingCostType = 'Google_Service_ShoppingContent_Price';
+  protected $shippingCostDataType = '';
+  protected $shippingCostTaxType = 'Google_Service_ShoppingContent_Price';
+  protected $shippingCostTaxDataType = '';
+  public $shippingOption;
+  public $status;
+
+
+  public function setAcknowledged($acknowledged)
+  {
+    $this->acknowledged = $acknowledged;
+  }
+  public function getAcknowledged()
+  {
+    return $this->acknowledged;
+  }
+  public function setCustomer(Google_Service_ShoppingContent_OrderCustomer $customer)
+  {
+    $this->customer = $customer;
+  }
+  public function getCustomer()
+  {
+    return $this->customer;
+  }
+  public function setDeliveryDetails(Google_Service_ShoppingContent_OrderDeliveryDetails $deliveryDetails)
+  {
+    $this->deliveryDetails = $deliveryDetails;
+  }
+  public function getDeliveryDetails()
+  {
+    return $this->deliveryDetails;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setLineItems($lineItems)
+  {
+    $this->lineItems = $lineItems;
+  }
+  public function getLineItems()
+  {
+    return $this->lineItems;
+  }
+  public function setMerchantId($merchantId)
+  {
+    $this->merchantId = $merchantId;
+  }
+  public function getMerchantId()
+  {
+    return $this->merchantId;
+  }
+  public function setMerchantOrderId($merchantOrderId)
+  {
+    $this->merchantOrderId = $merchantOrderId;
+  }
+  public function getMerchantOrderId()
+  {
+    return $this->merchantOrderId;
+  }
+  public function setNetAmount(Google_Service_ShoppingContent_Price $netAmount)
+  {
+    $this->netAmount = $netAmount;
+  }
+  public function getNetAmount()
+  {
+    return $this->netAmount;
+  }
+  public function setPaymentMethod(Google_Service_ShoppingContent_OrderPaymentMethod $paymentMethod)
+  {
+    $this->paymentMethod = $paymentMethod;
+  }
+  public function getPaymentMethod()
+  {
+    return $this->paymentMethod;
+  }
+  public function setPaymentStatus($paymentStatus)
+  {
+    $this->paymentStatus = $paymentStatus;
+  }
+  public function getPaymentStatus()
+  {
+    return $this->paymentStatus;
+  }
+  public function setPlacedDate($placedDate)
+  {
+    $this->placedDate = $placedDate;
+  }
+  public function getPlacedDate()
+  {
+    return $this->placedDate;
+  }
+  public function setRefunds($refunds)
+  {
+    $this->refunds = $refunds;
+  }
+  public function getRefunds()
+  {
+    return $this->refunds;
+  }
+  public function setShipments($shipments)
+  {
+    $this->shipments = $shipments;
+  }
+  public function getShipments()
+  {
+    return $this->shipments;
+  }
+  public function setShippingCost(Google_Service_ShoppingContent_Price $shippingCost)
+  {
+    $this->shippingCost = $shippingCost;
+  }
+  public function getShippingCost()
+  {
+    return $this->shippingCost;
+  }
+  public function setShippingCostTax(Google_Service_ShoppingContent_Price $shippingCostTax)
+  {
+    $this->shippingCostTax = $shippingCostTax;
+  }
+  public function getShippingCostTax()
+  {
+    return $this->shippingCostTax;
+  }
+  public function setShippingOption($shippingOption)
+  {
+    $this->shippingOption = $shippingOption;
+  }
+  public function getShippingOption()
+  {
+    return $this->shippingOption;
+  }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderAddress extends Google_Collection
+{
+  protected $collection_key = 'streetAddress';
+  protected $internal_gapi_mappings = array(
+  );
+  public $country;
+  public $fullAddress;
+  public $isPostOfficeBox;
+  public $locality;
+  public $postalCode;
+  public $recipientName;
+  public $region;
+  public $streetAddress;
+
+
+  public function setCountry($country)
+  {
+    $this->country = $country;
+  }
+  public function getCountry()
+  {
+    return $this->country;
+  }
+  public function setFullAddress($fullAddress)
+  {
+    $this->fullAddress = $fullAddress;
+  }
+  public function getFullAddress()
+  {
+    return $this->fullAddress;
+  }
+  public function setIsPostOfficeBox($isPostOfficeBox)
+  {
+    $this->isPostOfficeBox = $isPostOfficeBox;
+  }
+  public function getIsPostOfficeBox()
+  {
+    return $this->isPostOfficeBox;
+  }
+  public function setLocality($locality)
+  {
+    $this->locality = $locality;
+  }
+  public function getLocality()
+  {
+    return $this->locality;
+  }
+  public function setPostalCode($postalCode)
+  {
+    $this->postalCode = $postalCode;
+  }
+  public function getPostalCode()
+  {
+    return $this->postalCode;
+  }
+  public function setRecipientName($recipientName)
+  {
+    $this->recipientName = $recipientName;
+  }
+  public function getRecipientName()
+  {
+    return $this->recipientName;
+  }
+  public function setRegion($region)
+  {
+    $this->region = $region;
+  }
+  public function getRegion()
+  {
+    return $this->region;
+  }
+  public function setStreetAddress($streetAddress)
+  {
+    $this->streetAddress = $streetAddress;
+  }
+  public function getStreetAddress()
+  {
+    return $this->streetAddress;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderCancellation extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $actor;
+  public $creationDate;
+  public $quantity;
+  public $reason;
+  public $reasonText;
+
+
+  public function setActor($actor)
+  {
+    $this->actor = $actor;
+  }
+  public function getActor()
+  {
+    return $this->actor;
+  }
+  public function setCreationDate($creationDate)
+  {
+    $this->creationDate = $creationDate;
+  }
+  public function getCreationDate()
+  {
+    return $this->creationDate;
+  }
+  public function setQuantity($quantity)
+  {
+    $this->quantity = $quantity;
+  }
+  public function getQuantity()
+  {
+    return $this->quantity;
+  }
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+  public function getReason()
+  {
+    return $this->reason;
+  }
+  public function setReasonText($reasonText)
+  {
+    $this->reasonText = $reasonText;
+  }
+  public function getReasonText()
+  {
+    return $this->reasonText;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderCustomer extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $email;
+  public $explicitMarketingPreference;
+  public $fullName;
+
+
+  public function setEmail($email)
+  {
+    $this->email = $email;
+  }
+  public function getEmail()
+  {
+    return $this->email;
+  }
+  public function setExplicitMarketingPreference($explicitMarketingPreference)
+  {
+    $this->explicitMarketingPreference = $explicitMarketingPreference;
+  }
+  public function getExplicitMarketingPreference()
+  {
+    return $this->explicitMarketingPreference;
+  }
+  public function setFullName($fullName)
+  {
+    $this->fullName = $fullName;
+  }
+  public function getFullName()
+  {
+    return $this->fullName;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderDeliveryDetails extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $addressType = 'Google_Service_ShoppingContent_OrderAddress';
+  protected $addressDataType = '';
+  public $phoneNumber;
+
+
+  public function setAddress(Google_Service_ShoppingContent_OrderAddress $address)
+  {
+    $this->address = $address;
+  }
+  public function getAddress()
+  {
+    return $this->address;
+  }
+  public function setPhoneNumber($phoneNumber)
+  {
+    $this->phoneNumber = $phoneNumber;
+  }
+  public function getPhoneNumber()
+  {
+    return $this->phoneNumber;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderLineItem extends Google_Collection
+{
+  protected $collection_key = 'returns';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $cancellationsType = 'Google_Service_ShoppingContent_OrderCancellation';
+  protected $cancellationsDataType = 'array';
+  public $id;
+  protected $priceType = 'Google_Service_ShoppingContent_Price';
+  protected $priceDataType = '';
+  protected $productType = 'Google_Service_ShoppingContent_OrderLineItemProduct';
+  protected $productDataType = '';
+  public $quantityCanceled;
+  public $quantityDelivered;
+  public $quantityOrdered;
+  public $quantityPending;
+  public $quantityReturned;
+  public $quantityShipped;
+  protected $returnInfoType = 'Google_Service_ShoppingContent_OrderLineItemReturnInfo';
+  protected $returnInfoDataType = '';
+  protected $returnsType = 'Google_Service_ShoppingContent_OrderReturn';
+  protected $returnsDataType = 'array';
+  protected $shippingDetailsType = 'Google_Service_ShoppingContent_OrderLineItemShippingDetails';
+  protected $shippingDetailsDataType = '';
+  protected $taxType = 'Google_Service_ShoppingContent_Price';
+  protected $taxDataType = '';
+
+
+  public function setCancellations($cancellations)
+  {
+    $this->cancellations = $cancellations;
+  }
+  public function getCancellations()
+  {
+    return $this->cancellations;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setPrice(Google_Service_ShoppingContent_Price $price)
+  {
+    $this->price = $price;
+  }
+  public function getPrice()
+  {
+    return $this->price;
+  }
+  public function setProduct(Google_Service_ShoppingContent_OrderLineItemProduct $product)
+  {
+    $this->product = $product;
+  }
+  public function getProduct()
+  {
+    return $this->product;
+  }
+  public function setQuantityCanceled($quantityCanceled)
+  {
+    $this->quantityCanceled = $quantityCanceled;
+  }
+  public function getQuantityCanceled()
+  {
+    return $this->quantityCanceled;
+  }
+  public function setQuantityDelivered($quantityDelivered)
+  {
+    $this->quantityDelivered = $quantityDelivered;
+  }
+  public function getQuantityDelivered()
+  {
+    return $this->quantityDelivered;
+  }
+  public function setQuantityOrdered($quantityOrdered)
+  {
+    $this->quantityOrdered = $quantityOrdered;
+  }
+  public function getQuantityOrdered()
+  {
+    return $this->quantityOrdered;
+  }
+  public function setQuantityPending($quantityPending)
+  {
+    $this->quantityPending = $quantityPending;
+  }
+  public function getQuantityPending()
+  {
+    return $this->quantityPending;
+  }
+  public function setQuantityReturned($quantityReturned)
+  {
+    $this->quantityReturned = $quantityReturned;
+  }
+  public function getQuantityReturned()
+  {
+    return $this->quantityReturned;
+  }
+  public function setQuantityShipped($quantityShipped)
+  {
+    $this->quantityShipped = $quantityShipped;
+  }
+  public function getQuantityShipped()
+  {
+    return $this->quantityShipped;
+  }
+  public function setReturnInfo(Google_Service_ShoppingContent_OrderLineItemReturnInfo $returnInfo)
+  {
+    $this->returnInfo = $returnInfo;
+  }
+  public function getReturnInfo()
+  {
+    return $this->returnInfo;
+  }
+  public function setReturns($returns)
+  {
+    $this->returns = $returns;
+  }
+  public function getReturns()
+  {
+    return $this->returns;
+  }
+  public function setShippingDetails(Google_Service_ShoppingContent_OrderLineItemShippingDetails $shippingDetails)
+  {
+    $this->shippingDetails = $shippingDetails;
+  }
+  public function getShippingDetails()
+  {
+    return $this->shippingDetails;
+  }
+  public function setTax(Google_Service_ShoppingContent_Price $tax)
+  {
+    $this->tax = $tax;
+  }
+  public function getTax()
+  {
+    return $this->tax;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderLineItemProduct extends Google_Collection
+{
+  protected $collection_key = 'variantAttributes';
+  protected $internal_gapi_mappings = array(
+  );
+  public $brand;
+  public $channel;
+  public $condition;
+  public $contentLanguage;
+  public $gtin;
+  public $id;
+  public $imageLink;
+  public $itemGroupId;
+  public $mpn;
+  public $offerId;
+  protected $priceType = 'Google_Service_ShoppingContent_Price';
+  protected $priceDataType = '';
+  public $shownImage;
+  public $targetCountry;
+  public $title;
+  protected $variantAttributesType = 'Google_Service_ShoppingContent_OrderLineItemProductVariantAttribute';
+  protected $variantAttributesDataType = 'array';
+
+
+  public function setBrand($brand)
+  {
+    $this->brand = $brand;
+  }
+  public function getBrand()
+  {
+    return $this->brand;
+  }
+  public function setChannel($channel)
+  {
+    $this->channel = $channel;
+  }
+  public function getChannel()
+  {
+    return $this->channel;
+  }
+  public function setCondition($condition)
+  {
+    $this->condition = $condition;
+  }
+  public function getCondition()
+  {
+    return $this->condition;
+  }
+  public function setContentLanguage($contentLanguage)
+  {
+    $this->contentLanguage = $contentLanguage;
+  }
+  public function getContentLanguage()
+  {
+    return $this->contentLanguage;
+  }
+  public function setGtin($gtin)
+  {
+    $this->gtin = $gtin;
+  }
+  public function getGtin()
+  {
+    return $this->gtin;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setImageLink($imageLink)
+  {
+    $this->imageLink = $imageLink;
+  }
+  public function getImageLink()
+  {
+    return $this->imageLink;
+  }
+  public function setItemGroupId($itemGroupId)
+  {
+    $this->itemGroupId = $itemGroupId;
+  }
+  public function getItemGroupId()
+  {
+    return $this->itemGroupId;
+  }
+  public function setMpn($mpn)
+  {
+    $this->mpn = $mpn;
+  }
+  public function getMpn()
+  {
+    return $this->mpn;
+  }
+  public function setOfferId($offerId)
+  {
+    $this->offerId = $offerId;
+  }
+  public function getOfferId()
+  {
+    return $this->offerId;
+  }
+  public function setPrice(Google_Service_ShoppingContent_Price $price)
+  {
+    $this->price = $price;
+  }
+  public function getPrice()
+  {
+    return $this->price;
+  }
+  public function setShownImage($shownImage)
+  {
+    $this->shownImage = $shownImage;
+  }
+  public function getShownImage()
+  {
+    return $this->shownImage;
+  }
+  public function setTargetCountry($targetCountry)
+  {
+    $this->targetCountry = $targetCountry;
+  }
+  public function getTargetCountry()
+  {
+    return $this->targetCountry;
+  }
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+  public function getTitle()
+  {
+    return $this->title;
+  }
+  public function setVariantAttributes($variantAttributes)
+  {
+    $this->variantAttributes = $variantAttributes;
+  }
+  public function getVariantAttributes()
+  {
+    return $this->variantAttributes;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderLineItemProductVariantAttribute extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $dimension;
+  public $value;
+
+
+  public function setDimension($dimension)
+  {
+    $this->dimension = $dimension;
+  }
+  public function getDimension()
+  {
+    return $this->dimension;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderLineItemReturnInfo extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $daysToReturn;
+  public $isReturnable;
+  public $policyUrl;
+
+
+  public function setDaysToReturn($daysToReturn)
+  {
+    $this->daysToReturn = $daysToReturn;
+  }
+  public function getDaysToReturn()
+  {
+    return $this->daysToReturn;
+  }
+  public function setIsReturnable($isReturnable)
+  {
+    $this->isReturnable = $isReturnable;
+  }
+  public function getIsReturnable()
+  {
+    return $this->isReturnable;
+  }
+  public function setPolicyUrl($policyUrl)
+  {
+    $this->policyUrl = $policyUrl;
+  }
+  public function getPolicyUrl()
+  {
+    return $this->policyUrl;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderLineItemShippingDetails extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $deliverByDate;
+  protected $methodType = 'Google_Service_ShoppingContent_OrderLineItemShippingDetailsMethod';
+  protected $methodDataType = '';
+  public $shipByDate;
+
+
+  public function setDeliverByDate($deliverByDate)
+  {
+    $this->deliverByDate = $deliverByDate;
+  }
+  public function getDeliverByDate()
+  {
+    return $this->deliverByDate;
+  }
+  public function setMethod(Google_Service_ShoppingContent_OrderLineItemShippingDetailsMethod $method)
+  {
+    $this->method = $method;
+  }
+  public function getMethod()
+  {
+    return $this->method;
+  }
+  public function setShipByDate($shipByDate)
+  {
+    $this->shipByDate = $shipByDate;
+  }
+  public function getShipByDate()
+  {
+    return $this->shipByDate;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderLineItemShippingDetailsMethod extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $carrier;
+  public $maxDaysInTransit;
+  public $methodName;
+  public $minDaysInTransit;
+
+
+  public function setCarrier($carrier)
+  {
+    $this->carrier = $carrier;
+  }
+  public function getCarrier()
+  {
+    return $this->carrier;
+  }
+  public function setMaxDaysInTransit($maxDaysInTransit)
+  {
+    $this->maxDaysInTransit = $maxDaysInTransit;
+  }
+  public function getMaxDaysInTransit()
+  {
+    return $this->maxDaysInTransit;
+  }
+  public function setMethodName($methodName)
+  {
+    $this->methodName = $methodName;
+  }
+  public function getMethodName()
+  {
+    return $this->methodName;
+  }
+  public function setMinDaysInTransit($minDaysInTransit)
+  {
+    $this->minDaysInTransit = $minDaysInTransit;
+  }
+  public function getMinDaysInTransit()
+  {
+    return $this->minDaysInTransit;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderPaymentMethod extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $billingAddressType = 'Google_Service_ShoppingContent_OrderAddress';
+  protected $billingAddressDataType = '';
+  public $expirationMonth;
+  public $expirationYear;
+  public $lastFourDigits;
+  public $phoneNumber;
+  public $type;
+
+
+  public function setBillingAddress(Google_Service_ShoppingContent_OrderAddress $billingAddress)
+  {
+    $this->billingAddress = $billingAddress;
+  }
+  public function getBillingAddress()
+  {
+    return $this->billingAddress;
+  }
+  public function setExpirationMonth($expirationMonth)
+  {
+    $this->expirationMonth = $expirationMonth;
+  }
+  public function getExpirationMonth()
+  {
+    return $this->expirationMonth;
+  }
+  public function setExpirationYear($expirationYear)
+  {
+    $this->expirationYear = $expirationYear;
+  }
+  public function getExpirationYear()
+  {
+    return $this->expirationYear;
+  }
+  public function setLastFourDigits($lastFourDigits)
+  {
+    $this->lastFourDigits = $lastFourDigits;
+  }
+  public function getLastFourDigits()
+  {
+    return $this->lastFourDigits;
+  }
+  public function setPhoneNumber($phoneNumber)
+  {
+    $this->phoneNumber = $phoneNumber;
+  }
+  public function getPhoneNumber()
+  {
+    return $this->phoneNumber;
+  }
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  public function getType()
+  {
+    return $this->type;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderRefund extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $actor;
+  protected $amountType = 'Google_Service_ShoppingContent_Price';
+  protected $amountDataType = '';
+  public $creationDate;
+  public $reason;
+  public $reasonText;
+
+
+  public function setActor($actor)
+  {
+    $this->actor = $actor;
+  }
+  public function getActor()
+  {
+    return $this->actor;
+  }
+  public function setAmount(Google_Service_ShoppingContent_Price $amount)
+  {
+    $this->amount = $amount;
+  }
+  public function getAmount()
+  {
+    return $this->amount;
+  }
+  public function setCreationDate($creationDate)
+  {
+    $this->creationDate = $creationDate;
+  }
+  public function getCreationDate()
+  {
+    return $this->creationDate;
+  }
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+  public function getReason()
+  {
+    return $this->reason;
+  }
+  public function setReasonText($reasonText)
+  {
+    $this->reasonText = $reasonText;
+  }
+  public function getReasonText()
+  {
+    return $this->reasonText;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderReturn extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $actor;
+  public $creationDate;
+  public $quantity;
+  public $reason;
+  public $reasonText;
+
+
+  public function setActor($actor)
+  {
+    $this->actor = $actor;
+  }
+  public function getActor()
+  {
+    return $this->actor;
+  }
+  public function setCreationDate($creationDate)
+  {
+    $this->creationDate = $creationDate;
+  }
+  public function getCreationDate()
+  {
+    return $this->creationDate;
+  }
+  public function setQuantity($quantity)
+  {
+    $this->quantity = $quantity;
+  }
+  public function getQuantity()
+  {
+    return $this->quantity;
+  }
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+  public function getReason()
+  {
+    return $this->reason;
+  }
+  public function setReasonText($reasonText)
+  {
+    $this->reasonText = $reasonText;
+  }
+  public function getReasonText()
+  {
+    return $this->reasonText;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderShipment extends Google_Collection
+{
+  protected $collection_key = 'lineItems';
+  protected $internal_gapi_mappings = array(
+  );
+  public $carrier;
+  public $creationDate;
+  public $deliveryDate;
+  public $id;
+  protected $lineItemsType = 'Google_Service_ShoppingContent_OrderShipmentLineItemShipment';
+  protected $lineItemsDataType = 'array';
+  public $status;
+  public $trackingId;
+
+
+  public function setCarrier($carrier)
+  {
+    $this->carrier = $carrier;
+  }
+  public function getCarrier()
+  {
+    return $this->carrier;
+  }
+  public function setCreationDate($creationDate)
+  {
+    $this->creationDate = $creationDate;
+  }
+  public function getCreationDate()
+  {
+    return $this->creationDate;
+  }
+  public function setDeliveryDate($deliveryDate)
+  {
+    $this->deliveryDate = $deliveryDate;
+  }
+  public function getDeliveryDate()
+  {
+    return $this->deliveryDate;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setLineItems($lineItems)
+  {
+    $this->lineItems = $lineItems;
+  }
+  public function getLineItems()
+  {
+    return $this->lineItems;
+  }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
+  }
+  public function setTrackingId($trackingId)
+  {
+    $this->trackingId = $trackingId;
+  }
+  public function getTrackingId()
+  {
+    return $this->trackingId;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderShipmentLineItemShipment extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $lineItemId;
+  public $quantity;
+
+
+  public function setLineItemId($lineItemId)
+  {
+    $this->lineItemId = $lineItemId;
+  }
+  public function getLineItemId()
+  {
+    return $this->lineItemId;
+  }
+  public function setQuantity($quantity)
+  {
+    $this->quantity = $quantity;
+  }
+  public function getQuantity()
+  {
+    return $this->quantity;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersAcknowledgeRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $operationId;
+
+
+  public function setOperationId($operationId)
+  {
+    $this->operationId = $operationId;
+  }
+  public function getOperationId()
+  {
+    return $this->operationId;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersAcknowledgeResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $executionStatus;
+  public $kind;
+
+
+  public function setExecutionStatus($executionStatus)
+  {
+    $this->executionStatus = $executionStatus;
+  }
+  public function getExecutionStatus()
+  {
+    return $this->executionStatus;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersAdvanceTestOrderResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCancelLineItemRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $lineItemId;
+  public $operationId;
+  public $quantity;
+  public $reason;
+  public $reasonText;
+
+
+  public function setLineItemId($lineItemId)
+  {
+    $this->lineItemId = $lineItemId;
+  }
+  public function getLineItemId()
+  {
+    return $this->lineItemId;
+  }
+  public function setOperationId($operationId)
+  {
+    $this->operationId = $operationId;
+  }
+  public function getOperationId()
+  {
+    return $this->operationId;
+  }
+  public function setQuantity($quantity)
+  {
+    $this->quantity = $quantity;
+  }
+  public function getQuantity()
+  {
+    return $this->quantity;
+  }
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+  public function getReason()
+  {
+    return $this->reason;
+  }
+  public function setReasonText($reasonText)
+  {
+    $this->reasonText = $reasonText;
+  }
+  public function getReasonText()
+  {
+    return $this->reasonText;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCancelLineItemResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $executionStatus;
+  public $kind;
+
+
+  public function setExecutionStatus($executionStatus)
+  {
+    $this->executionStatus = $executionStatus;
+  }
+  public function getExecutionStatus()
+  {
+    return $this->executionStatus;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCancelRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $operationId;
+  public $reason;
+  public $reasonText;
+
+
+  public function setOperationId($operationId)
+  {
+    $this->operationId = $operationId;
+  }
+  public function getOperationId()
+  {
+    return $this->operationId;
+  }
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+  public function getReason()
+  {
+    return $this->reason;
+  }
+  public function setReasonText($reasonText)
+  {
+    $this->reasonText = $reasonText;
+  }
+  public function getReasonText()
+  {
+    return $this->reasonText;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCancelResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $executionStatus;
+  public $kind;
+
+
+  public function setExecutionStatus($executionStatus)
+  {
+    $this->executionStatus = $executionStatus;
+  }
+  public function getExecutionStatus()
+  {
+    return $this->executionStatus;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCreateTestOrderRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $templateName;
+  protected $testOrderType = 'Google_Service_ShoppingContent_TestOrder';
+  protected $testOrderDataType = '';
+
+
+  public function setTemplateName($templateName)
+  {
+    $this->templateName = $templateName;
+  }
+  public function getTemplateName()
+  {
+    return $this->templateName;
+  }
+  public function setTestOrder(Google_Service_ShoppingContent_TestOrder $testOrder)
+  {
+    $this->testOrder = $testOrder;
+  }
+  public function getTestOrder()
+  {
+    return $this->testOrder;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCreateTestOrderResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+  public $orderId;
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setOrderId($orderId)
+  {
+    $this->orderId = $orderId;
+  }
+  public function getOrderId()
+  {
+    return $this->orderId;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCustomBatchRequest extends Google_Collection
+{
+  protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $entriesType = 'Google_Service_ShoppingContent_OrdersCustomBatchRequestEntry';
+  protected $entriesDataType = 'array';
+
+
+  public function setEntries($entries)
+  {
+    $this->entries = $entries;
+  }
+  public function getEntries()
+  {
+    return $this->entries;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCustomBatchRequestEntry extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $batchId;
+  protected $cancelType = 'Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryCancel';
+  protected $cancelDataType = '';
+  protected $cancelLineItemType = 'Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryCancelLineItem';
+  protected $cancelLineItemDataType = '';
+  public $merchantId;
+  public $merchantOrderId;
+  public $method;
+  public $operationId;
+  public $orderId;
+  protected $refundType = 'Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryRefund';
+  protected $refundDataType = '';
+  protected $returnLineItemType = 'Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryReturnLineItem';
+  protected $returnLineItemDataType = '';
+  protected $shipLineItemsType = 'Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryShipLineItems';
+  protected $shipLineItemsDataType = '';
+  protected $updateShipmentType = 'Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryUpdateShipment';
+  protected $updateShipmentDataType = '';
+
+
+  public function setBatchId($batchId)
+  {
+    $this->batchId = $batchId;
+  }
+  public function getBatchId()
+  {
+    return $this->batchId;
+  }
+  public function setCancel(Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryCancel $cancel)
+  {
+    $this->cancel = $cancel;
+  }
+  public function getCancel()
+  {
+    return $this->cancel;
+  }
+  public function setCancelLineItem(Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryCancelLineItem $cancelLineItem)
+  {
+    $this->cancelLineItem = $cancelLineItem;
+  }
+  public function getCancelLineItem()
+  {
+    return $this->cancelLineItem;
+  }
+  public function setMerchantId($merchantId)
+  {
+    $this->merchantId = $merchantId;
+  }
+  public function getMerchantId()
+  {
+    return $this->merchantId;
+  }
+  public function setMerchantOrderId($merchantOrderId)
+  {
+    $this->merchantOrderId = $merchantOrderId;
+  }
+  public function getMerchantOrderId()
+  {
+    return $this->merchantOrderId;
+  }
+  public function setMethod($method)
+  {
+    $this->method = $method;
+  }
+  public function getMethod()
+  {
+    return $this->method;
+  }
+  public function setOperationId($operationId)
+  {
+    $this->operationId = $operationId;
+  }
+  public function getOperationId()
+  {
+    return $this->operationId;
+  }
+  public function setOrderId($orderId)
+  {
+    $this->orderId = $orderId;
+  }
+  public function getOrderId()
+  {
+    return $this->orderId;
+  }
+  public function setRefund(Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryRefund $refund)
+  {
+    $this->refund = $refund;
+  }
+  public function getRefund()
+  {
+    return $this->refund;
+  }
+  public function setReturnLineItem(Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryReturnLineItem $returnLineItem)
+  {
+    $this->returnLineItem = $returnLineItem;
+  }
+  public function getReturnLineItem()
+  {
+    return $this->returnLineItem;
+  }
+  public function setShipLineItems(Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryShipLineItems $shipLineItems)
+  {
+    $this->shipLineItems = $shipLineItems;
+  }
+  public function getShipLineItems()
+  {
+    return $this->shipLineItems;
+  }
+  public function setUpdateShipment(Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryUpdateShipment $updateShipment)
+  {
+    $this->updateShipment = $updateShipment;
+  }
+  public function getUpdateShipment()
+  {
+    return $this->updateShipment;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryCancel extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $reason;
+  public $reasonText;
+
+
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+  public function getReason()
+  {
+    return $this->reason;
+  }
+  public function setReasonText($reasonText)
+  {
+    $this->reasonText = $reasonText;
+  }
+  public function getReasonText()
+  {
+    return $this->reasonText;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryCancelLineItem extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $lineItemId;
+  public $quantity;
+  public $reason;
+  public $reasonText;
+
+
+  public function setLineItemId($lineItemId)
+  {
+    $this->lineItemId = $lineItemId;
+  }
+  public function getLineItemId()
+  {
+    return $this->lineItemId;
+  }
+  public function setQuantity($quantity)
+  {
+    $this->quantity = $quantity;
+  }
+  public function getQuantity()
+  {
+    return $this->quantity;
+  }
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+  public function getReason()
+  {
+    return $this->reason;
+  }
+  public function setReasonText($reasonText)
+  {
+    $this->reasonText = $reasonText;
+  }
+  public function getReasonText()
+  {
+    return $this->reasonText;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryRefund extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $amountType = 'Google_Service_ShoppingContent_Price';
+  protected $amountDataType = '';
+  public $reason;
+  public $reasonText;
+
+
+  public function setAmount(Google_Service_ShoppingContent_Price $amount)
+  {
+    $this->amount = $amount;
+  }
+  public function getAmount()
+  {
+    return $this->amount;
+  }
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+  public function getReason()
+  {
+    return $this->reason;
+  }
+  public function setReasonText($reasonText)
+  {
+    $this->reasonText = $reasonText;
+  }
+  public function getReasonText()
+  {
+    return $this->reasonText;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryReturnLineItem extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $lineItemId;
+  public $quantity;
+  public $reason;
+  public $reasonText;
+
+
+  public function setLineItemId($lineItemId)
+  {
+    $this->lineItemId = $lineItemId;
+  }
+  public function getLineItemId()
+  {
+    return $this->lineItemId;
+  }
+  public function setQuantity($quantity)
+  {
+    $this->quantity = $quantity;
+  }
+  public function getQuantity()
+  {
+    return $this->quantity;
+  }
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+  public function getReason()
+  {
+    return $this->reason;
+  }
+  public function setReasonText($reasonText)
+  {
+    $this->reasonText = $reasonText;
+  }
+  public function getReasonText()
+  {
+    return $this->reasonText;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryShipLineItems extends Google_Collection
+{
+  protected $collection_key = 'lineItems';
+  protected $internal_gapi_mappings = array(
+  );
+  public $carrier;
+  protected $lineItemsType = 'Google_Service_ShoppingContent_OrderShipmentLineItemShipment';
+  protected $lineItemsDataType = 'array';
+  public $shipmentId;
+  public $trackingId;
+
+
+  public function setCarrier($carrier)
+  {
+    $this->carrier = $carrier;
+  }
+  public function getCarrier()
+  {
+    return $this->carrier;
+  }
+  public function setLineItems($lineItems)
+  {
+    $this->lineItems = $lineItems;
+  }
+  public function getLineItems()
+  {
+    return $this->lineItems;
+  }
+  public function setShipmentId($shipmentId)
+  {
+    $this->shipmentId = $shipmentId;
+  }
+  public function getShipmentId()
+  {
+    return $this->shipmentId;
+  }
+  public function setTrackingId($trackingId)
+  {
+    $this->trackingId = $trackingId;
+  }
+  public function getTrackingId()
+  {
+    return $this->trackingId;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryUpdateShipment extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $carrier;
+  public $shipmentId;
+  public $status;
+  public $trackingId;
+
+
+  public function setCarrier($carrier)
+  {
+    $this->carrier = $carrier;
+  }
+  public function getCarrier()
+  {
+    return $this->carrier;
+  }
+  public function setShipmentId($shipmentId)
+  {
+    $this->shipmentId = $shipmentId;
+  }
+  public function getShipmentId()
+  {
+    return $this->shipmentId;
+  }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
+  }
+  public function setTrackingId($trackingId)
+  {
+    $this->trackingId = $trackingId;
+  }
+  public function getTrackingId()
+  {
+    return $this->trackingId;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCustomBatchResponse extends Google_Collection
+{
+  protected $collection_key = 'entries';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $entriesType = 'Google_Service_ShoppingContent_OrdersCustomBatchResponseEntry';
+  protected $entriesDataType = 'array';
+  public $kind;
+
+
+  public function setEntries($entries)
+  {
+    $this->entries = $entries;
+  }
+  public function getEntries()
+  {
+    return $this->entries;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersCustomBatchResponseEntry extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $batchId;
+  protected $errorsType = 'Google_Service_ShoppingContent_Errors';
+  protected $errorsDataType = '';
+  public $executionStatus;
+  public $kind;
+  protected $orderType = 'Google_Service_ShoppingContent_Order';
+  protected $orderDataType = '';
+
+
+  public function setBatchId($batchId)
+  {
+    $this->batchId = $batchId;
+  }
+  public function getBatchId()
+  {
+    return $this->batchId;
+  }
+  public function setErrors(Google_Service_ShoppingContent_Errors $errors)
+  {
+    $this->errors = $errors;
+  }
+  public function getErrors()
+  {
+    return $this->errors;
+  }
+  public function setExecutionStatus($executionStatus)
+  {
+    $this->executionStatus = $executionStatus;
+  }
+  public function getExecutionStatus()
+  {
+    return $this->executionStatus;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setOrder(Google_Service_ShoppingContent_Order $order)
+  {
+    $this->order = $order;
+  }
+  public function getOrder()
+  {
+    return $this->order;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersGetByMerchantOrderIdResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+  protected $orderType = 'Google_Service_ShoppingContent_Order';
+  protected $orderDataType = '';
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setOrder(Google_Service_ShoppingContent_Order $order)
+  {
+    $this->order = $order;
+  }
+  public function getOrder()
+  {
+    return $this->order;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersGetTestOrderTemplateResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+  protected $templateType = 'Google_Service_ShoppingContent_TestOrder';
+  protected $templateDataType = '';
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setTemplate(Google_Service_ShoppingContent_TestOrder $template)
+  {
+    $this->template = $template;
+  }
+  public function getTemplate()
+  {
+    return $this->template;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersListResponse extends Google_Collection
+{
+  protected $collection_key = 'resources';
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+  public $nextPageToken;
+  protected $resourcesType = 'Google_Service_ShoppingContent_Order';
+  protected $resourcesDataType = 'array';
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setResources($resources)
+  {
+    $this->resources = $resources;
+  }
+  public function getResources()
+  {
+    return $this->resources;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersRefundRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $amountType = 'Google_Service_ShoppingContent_Price';
+  protected $amountDataType = '';
+  public $operationId;
+  public $reason;
+  public $reasonText;
+
+
+  public function setAmount(Google_Service_ShoppingContent_Price $amount)
+  {
+    $this->amount = $amount;
+  }
+  public function getAmount()
+  {
+    return $this->amount;
+  }
+  public function setOperationId($operationId)
+  {
+    $this->operationId = $operationId;
+  }
+  public function getOperationId()
+  {
+    return $this->operationId;
+  }
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+  public function getReason()
+  {
+    return $this->reason;
+  }
+  public function setReasonText($reasonText)
+  {
+    $this->reasonText = $reasonText;
+  }
+  public function getReasonText()
+  {
+    return $this->reasonText;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersRefundResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $executionStatus;
+  public $kind;
+
+
+  public function setExecutionStatus($executionStatus)
+  {
+    $this->executionStatus = $executionStatus;
+  }
+  public function getExecutionStatus()
+  {
+    return $this->executionStatus;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersReturnLineItemRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $lineItemId;
+  public $operationId;
+  public $quantity;
+  public $reason;
+  public $reasonText;
+
+
+  public function setLineItemId($lineItemId)
+  {
+    $this->lineItemId = $lineItemId;
+  }
+  public function getLineItemId()
+  {
+    return $this->lineItemId;
+  }
+  public function setOperationId($operationId)
+  {
+    $this->operationId = $operationId;
+  }
+  public function getOperationId()
+  {
+    return $this->operationId;
+  }
+  public function setQuantity($quantity)
+  {
+    $this->quantity = $quantity;
+  }
+  public function getQuantity()
+  {
+    return $this->quantity;
+  }
+  public function setReason($reason)
+  {
+    $this->reason = $reason;
+  }
+  public function getReason()
+  {
+    return $this->reason;
+  }
+  public function setReasonText($reasonText)
+  {
+    $this->reasonText = $reasonText;
+  }
+  public function getReasonText()
+  {
+    return $this->reasonText;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersReturnLineItemResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $executionStatus;
+  public $kind;
+
+
+  public function setExecutionStatus($executionStatus)
+  {
+    $this->executionStatus = $executionStatus;
+  }
+  public function getExecutionStatus()
+  {
+    return $this->executionStatus;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersShipLineItemsRequest extends Google_Collection
+{
+  protected $collection_key = 'lineItems';
+  protected $internal_gapi_mappings = array(
+  );
+  public $carrier;
+  protected $lineItemsType = 'Google_Service_ShoppingContent_OrderShipmentLineItemShipment';
+  protected $lineItemsDataType = 'array';
+  public $operationId;
+  public $shipmentId;
+  public $trackingId;
+
+
+  public function setCarrier($carrier)
+  {
+    $this->carrier = $carrier;
+  }
+  public function getCarrier()
+  {
+    return $this->carrier;
+  }
+  public function setLineItems($lineItems)
+  {
+    $this->lineItems = $lineItems;
+  }
+  public function getLineItems()
+  {
+    return $this->lineItems;
+  }
+  public function setOperationId($operationId)
+  {
+    $this->operationId = $operationId;
+  }
+  public function getOperationId()
+  {
+    return $this->operationId;
+  }
+  public function setShipmentId($shipmentId)
+  {
+    $this->shipmentId = $shipmentId;
+  }
+  public function getShipmentId()
+  {
+    return $this->shipmentId;
+  }
+  public function setTrackingId($trackingId)
+  {
+    $this->trackingId = $trackingId;
+  }
+  public function getTrackingId()
+  {
+    return $this->trackingId;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersShipLineItemsResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $executionStatus;
+  public $kind;
+
+
+  public function setExecutionStatus($executionStatus)
+  {
+    $this->executionStatus = $executionStatus;
+  }
+  public function getExecutionStatus()
+  {
+    return $this->executionStatus;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersUpdateMerchantOrderIdRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $merchantOrderId;
+  public $operationId;
+
+
+  public function setMerchantOrderId($merchantOrderId)
+  {
+    $this->merchantOrderId = $merchantOrderId;
+  }
+  public function getMerchantOrderId()
+  {
+    return $this->merchantOrderId;
+  }
+  public function setOperationId($operationId)
+  {
+    $this->operationId = $operationId;
+  }
+  public function getOperationId()
+  {
+    return $this->operationId;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersUpdateMerchantOrderIdResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $executionStatus;
+  public $kind;
+
+
+  public function setExecutionStatus($executionStatus)
+  {
+    $this->executionStatus = $executionStatus;
+  }
+  public function getExecutionStatus()
+  {
+    return $this->executionStatus;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersUpdateShipmentRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $carrier;
+  public $operationId;
+  public $shipmentId;
+  public $status;
+  public $trackingId;
+
+
+  public function setCarrier($carrier)
+  {
+    $this->carrier = $carrier;
+  }
+  public function getCarrier()
+  {
+    return $this->carrier;
+  }
+  public function setOperationId($operationId)
+  {
+    $this->operationId = $operationId;
+  }
+  public function getOperationId()
+  {
+    return $this->operationId;
+  }
+  public function setShipmentId($shipmentId)
+  {
+    $this->shipmentId = $shipmentId;
+  }
+  public function getShipmentId()
+  {
+    return $this->shipmentId;
+  }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
+  }
+  public function setTrackingId($trackingId)
+  {
+    $this->trackingId = $trackingId;
+  }
+  public function getTrackingId()
+  {
+    return $this->trackingId;
+  }
+}
+
+class Google_Service_ShoppingContent_OrdersUpdateShipmentResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $executionStatus;
+  public $kind;
+
+
+  public function setExecutionStatus($executionStatus)
+  {
+    $this->executionStatus = $executionStatus;
+  }
+  public function getExecutionStatus()
+  {
+    return $this->executionStatus;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
   }
 }
 
@@ -4380,6 +7237,7 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   protected $salePriceType = 'Google_Service_ShoppingContent_Price';
   protected $salePriceDataType = '';
   public $salePriceEffectiveDate;
+  public $sellOnGoogleQuantity;
   protected $shippingType = 'Google_Service_ShoppingContent_ProductShipping';
   protected $shippingDataType = 'array';
   protected $shippingHeightType = 'Google_Service_ShoppingContent_ProductShippingDimension';
@@ -4830,6 +7688,14 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   public function getSalePriceEffectiveDate()
   {
     return $this->salePriceEffectiveDate;
+  }
+  public function setSellOnGoogleQuantity($sellOnGoogleQuantity)
+  {
+    $this->sellOnGoogleQuantity = $sellOnGoogleQuantity;
+  }
+  public function getSellOnGoogleQuantity()
+  {
+    return $this->sellOnGoogleQuantity;
   }
   public function setShipping($shipping)
   {
@@ -5921,6 +8787,365 @@ class Google_Service_ShoppingContent_ProductstatusesListResponse extends Google_
   public function getResources()
   {
     return $this->resources;
+  }
+}
+
+class Google_Service_ShoppingContent_TestOrder extends Google_Collection
+{
+  protected $collection_key = 'lineItems';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $customerType = 'Google_Service_ShoppingContent_TestOrderCustomer';
+  protected $customerDataType = '';
+  public $kind;
+  protected $lineItemsType = 'Google_Service_ShoppingContent_TestOrderLineItem';
+  protected $lineItemsDataType = 'array';
+  protected $paymentMethodType = 'Google_Service_ShoppingContent_TestOrderPaymentMethod';
+  protected $paymentMethodDataType = '';
+  public $predefinedDeliveryAddress;
+  protected $shippingCostType = 'Google_Service_ShoppingContent_Price';
+  protected $shippingCostDataType = '';
+  protected $shippingCostTaxType = 'Google_Service_ShoppingContent_Price';
+  protected $shippingCostTaxDataType = '';
+  public $shippingOption;
+
+
+  public function setCustomer(Google_Service_ShoppingContent_TestOrderCustomer $customer)
+  {
+    $this->customer = $customer;
+  }
+  public function getCustomer()
+  {
+    return $this->customer;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setLineItems($lineItems)
+  {
+    $this->lineItems = $lineItems;
+  }
+  public function getLineItems()
+  {
+    return $this->lineItems;
+  }
+  public function setPaymentMethod(Google_Service_ShoppingContent_TestOrderPaymentMethod $paymentMethod)
+  {
+    $this->paymentMethod = $paymentMethod;
+  }
+  public function getPaymentMethod()
+  {
+    return $this->paymentMethod;
+  }
+  public function setPredefinedDeliveryAddress($predefinedDeliveryAddress)
+  {
+    $this->predefinedDeliveryAddress = $predefinedDeliveryAddress;
+  }
+  public function getPredefinedDeliveryAddress()
+  {
+    return $this->predefinedDeliveryAddress;
+  }
+  public function setShippingCost(Google_Service_ShoppingContent_Price $shippingCost)
+  {
+    $this->shippingCost = $shippingCost;
+  }
+  public function getShippingCost()
+  {
+    return $this->shippingCost;
+  }
+  public function setShippingCostTax(Google_Service_ShoppingContent_Price $shippingCostTax)
+  {
+    $this->shippingCostTax = $shippingCostTax;
+  }
+  public function getShippingCostTax()
+  {
+    return $this->shippingCostTax;
+  }
+  public function setShippingOption($shippingOption)
+  {
+    $this->shippingOption = $shippingOption;
+  }
+  public function getShippingOption()
+  {
+    return $this->shippingOption;
+  }
+}
+
+class Google_Service_ShoppingContent_TestOrderCustomer extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $email;
+  public $explicitMarketingPreference;
+  public $fullName;
+
+
+  public function setEmail($email)
+  {
+    $this->email = $email;
+  }
+  public function getEmail()
+  {
+    return $this->email;
+  }
+  public function setExplicitMarketingPreference($explicitMarketingPreference)
+  {
+    $this->explicitMarketingPreference = $explicitMarketingPreference;
+  }
+  public function getExplicitMarketingPreference()
+  {
+    return $this->explicitMarketingPreference;
+  }
+  public function setFullName($fullName)
+  {
+    $this->fullName = $fullName;
+  }
+  public function getFullName()
+  {
+    return $this->fullName;
+  }
+}
+
+class Google_Service_ShoppingContent_TestOrderLineItem extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $productType = 'Google_Service_ShoppingContent_TestOrderLineItemProduct';
+  protected $productDataType = '';
+  public $quantityOrdered;
+  protected $returnInfoType = 'Google_Service_ShoppingContent_OrderLineItemReturnInfo';
+  protected $returnInfoDataType = '';
+  protected $shippingDetailsType = 'Google_Service_ShoppingContent_OrderLineItemShippingDetails';
+  protected $shippingDetailsDataType = '';
+  protected $unitTaxType = 'Google_Service_ShoppingContent_Price';
+  protected $unitTaxDataType = '';
+
+
+  public function setProduct(Google_Service_ShoppingContent_TestOrderLineItemProduct $product)
+  {
+    $this->product = $product;
+  }
+  public function getProduct()
+  {
+    return $this->product;
+  }
+  public function setQuantityOrdered($quantityOrdered)
+  {
+    $this->quantityOrdered = $quantityOrdered;
+  }
+  public function getQuantityOrdered()
+  {
+    return $this->quantityOrdered;
+  }
+  public function setReturnInfo(Google_Service_ShoppingContent_OrderLineItemReturnInfo $returnInfo)
+  {
+    $this->returnInfo = $returnInfo;
+  }
+  public function getReturnInfo()
+  {
+    return $this->returnInfo;
+  }
+  public function setShippingDetails(Google_Service_ShoppingContent_OrderLineItemShippingDetails $shippingDetails)
+  {
+    $this->shippingDetails = $shippingDetails;
+  }
+  public function getShippingDetails()
+  {
+    return $this->shippingDetails;
+  }
+  public function setUnitTax(Google_Service_ShoppingContent_Price $unitTax)
+  {
+    $this->unitTax = $unitTax;
+  }
+  public function getUnitTax()
+  {
+    return $this->unitTax;
+  }
+}
+
+class Google_Service_ShoppingContent_TestOrderLineItemProduct extends Google_Collection
+{
+  protected $collection_key = 'variantAttributes';
+  protected $internal_gapi_mappings = array(
+  );
+  public $brand;
+  public $channel;
+  public $condition;
+  public $contentLanguage;
+  public $gtin;
+  public $imageLink;
+  public $itemGroupId;
+  public $mpn;
+  public $offerId;
+  protected $priceType = 'Google_Service_ShoppingContent_Price';
+  protected $priceDataType = '';
+  public $targetCountry;
+  public $title;
+  protected $variantAttributesType = 'Google_Service_ShoppingContent_OrderLineItemProductVariantAttribute';
+  protected $variantAttributesDataType = 'array';
+
+
+  public function setBrand($brand)
+  {
+    $this->brand = $brand;
+  }
+  public function getBrand()
+  {
+    return $this->brand;
+  }
+  public function setChannel($channel)
+  {
+    $this->channel = $channel;
+  }
+  public function getChannel()
+  {
+    return $this->channel;
+  }
+  public function setCondition($condition)
+  {
+    $this->condition = $condition;
+  }
+  public function getCondition()
+  {
+    return $this->condition;
+  }
+  public function setContentLanguage($contentLanguage)
+  {
+    $this->contentLanguage = $contentLanguage;
+  }
+  public function getContentLanguage()
+  {
+    return $this->contentLanguage;
+  }
+  public function setGtin($gtin)
+  {
+    $this->gtin = $gtin;
+  }
+  public function getGtin()
+  {
+    return $this->gtin;
+  }
+  public function setImageLink($imageLink)
+  {
+    $this->imageLink = $imageLink;
+  }
+  public function getImageLink()
+  {
+    return $this->imageLink;
+  }
+  public function setItemGroupId($itemGroupId)
+  {
+    $this->itemGroupId = $itemGroupId;
+  }
+  public function getItemGroupId()
+  {
+    return $this->itemGroupId;
+  }
+  public function setMpn($mpn)
+  {
+    $this->mpn = $mpn;
+  }
+  public function getMpn()
+  {
+    return $this->mpn;
+  }
+  public function setOfferId($offerId)
+  {
+    $this->offerId = $offerId;
+  }
+  public function getOfferId()
+  {
+    return $this->offerId;
+  }
+  public function setPrice(Google_Service_ShoppingContent_Price $price)
+  {
+    $this->price = $price;
+  }
+  public function getPrice()
+  {
+    return $this->price;
+  }
+  public function setTargetCountry($targetCountry)
+  {
+    $this->targetCountry = $targetCountry;
+  }
+  public function getTargetCountry()
+  {
+    return $this->targetCountry;
+  }
+  public function setTitle($title)
+  {
+    $this->title = $title;
+  }
+  public function getTitle()
+  {
+    return $this->title;
+  }
+  public function setVariantAttributes($variantAttributes)
+  {
+    $this->variantAttributes = $variantAttributes;
+  }
+  public function getVariantAttributes()
+  {
+    return $this->variantAttributes;
+  }
+}
+
+class Google_Service_ShoppingContent_TestOrderPaymentMethod extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $expirationMonth;
+  public $expirationYear;
+  public $lastFourDigits;
+  public $predefinedBillingAddress;
+  public $type;
+
+
+  public function setExpirationMonth($expirationMonth)
+  {
+    $this->expirationMonth = $expirationMonth;
+  }
+  public function getExpirationMonth()
+  {
+    return $this->expirationMonth;
+  }
+  public function setExpirationYear($expirationYear)
+  {
+    $this->expirationYear = $expirationYear;
+  }
+  public function getExpirationYear()
+  {
+    return $this->expirationYear;
+  }
+  public function setLastFourDigits($lastFourDigits)
+  {
+    $this->lastFourDigits = $lastFourDigits;
+  }
+  public function getLastFourDigits()
+  {
+    return $this->lastFourDigits;
+  }
+  public function setPredefinedBillingAddress($predefinedBillingAddress)
+  {
+    $this->predefinedBillingAddress = $predefinedBillingAddress;
+  }
+  public function getPredefinedBillingAddress()
+  {
+    return $this->predefinedBillingAddress;
+  }
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  public function getType()
+  {
+    return $this->type;
   }
 }
 

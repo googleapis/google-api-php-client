@@ -66,7 +66,27 @@ class Google_Service_SQLAdmin extends Google_Service
         'backupRuns',
         array(
           'methods' => array(
-            'get' => array(
+            'delete' => array(
+              'path' => 'projects/{project}/instances/{instance}/backupRuns/{id}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'id' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
               'path' => 'projects/{project}/instances/{instance}/backupRuns/{id}',
               'httpMethod' => 'GET',
               'parameters' => array(
@@ -285,6 +305,21 @@ class Google_Service_SQLAdmin extends Google_Service
               ),
             ),'export' => array(
               'path' => 'projects/{project}/instances/{instance}/export',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'failover' => array(
+              'path' => 'projects/{project}/instances/{instance}/failover',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'project' => array(
@@ -534,7 +569,22 @@ class Google_Service_SQLAdmin extends Google_Service
         'sslCerts',
         array(
           'methods' => array(
-            'delete' => array(
+            'createEphemeral' => array(
+              'path' => 'projects/{project}/instances/{instance}/createEphemeral',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instance' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
               'path' => 'projects/{project}/instances/{instance}/sslCerts/{sha1Fingerprint}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
@@ -732,6 +782,24 @@ class Google_Service_SQLAdmin extends Google_Service
  */
 class Google_Service_SQLAdmin_BackupRuns_Resource extends Google_Service_Resource
 {
+
+  /**
+   * Deletes the backup taken by a backup run. (backupRuns.delete)
+   *
+   * @param string $project Project ID of the project that contains the instance.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param string $id The ID of the Backup Run to delete. To find a Backup Run
+   * ID, use the list method.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_SQLAdmin_Operation
+   */
+  public function delete($project, $instance, $id, $optParams = array())
+  {
+    $params = array('project' => $project, 'instance' => $instance, 'id' => $id);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_SQLAdmin_Operation");
+  }
 
   /**
    * Retrieves a resource containing information about a backup run.
@@ -986,6 +1054,23 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
     $params = array('project' => $project, 'instance' => $instance, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('export', array($params), "Google_Service_SQLAdmin_Operation");
+  }
+
+  /**
+   * Failover the instance to its failover replica instance. (instances.failover)
+   *
+   * @param string $project ID of the project that contains the read replica.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param Google_InstancesFailoverRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_SQLAdmin_Operation
+   */
+  public function failover($project, $instance, Google_Service_SQLAdmin_InstancesFailoverRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'instance' => $instance, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('failover', array($params), "Google_Service_SQLAdmin_Operation");
   }
 
   /**
@@ -1259,6 +1344,26 @@ class Google_Service_SQLAdmin_Operations_Resource extends Google_Service_Resourc
  */
 class Google_Service_SQLAdmin_SslCerts_Resource extends Google_Service_Resource
 {
+
+  /**
+   * Generates a short-lived X509 certificate containing the provided public key
+   * and signed by a private key specific to the target instance. Users may use
+   * the certificate to authenticate as themselves when connecting to the
+   * database. (sslCerts.createEphemeral)
+   *
+   * @param string $project Project ID of the Cloud SQL project.
+   * @param string $instance Cloud SQL instance ID. This does not include the
+   * project ID.
+   * @param Google_SslCertsCreateEphemeralRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_SQLAdmin_SslCert
+   */
+  public function createEphemeral($project, $instance, Google_Service_SQLAdmin_SslCertsCreateEphemeralRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'instance' => $instance, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('createEphemeral', array($params), "Google_Service_SQLAdmin_SslCert");
+  }
 
   /**
    * Deletes the SSL certificate. The change will not take effect until the
@@ -2159,9 +2264,18 @@ class Google_Service_SQLAdmin_ExportContextSqlExportOptions extends Google_Colle
   protected $collection_key = 'tables';
   protected $internal_gapi_mappings = array(
   );
+  public $schemaOnly;
   public $tables;
 
 
+  public function setSchemaOnly($schemaOnly)
+  {
+    $this->schemaOnly = $schemaOnly;
+  }
+  public function getSchemaOnly()
+  {
+    return $this->schemaOnly;
+  }
   public function setTables($tables)
   {
     $this->tables = $tables;
@@ -2169,6 +2283,32 @@ class Google_Service_SQLAdmin_ExportContextSqlExportOptions extends Google_Colle
   public function getTables()
   {
     return $this->tables;
+  }
+}
+
+class Google_Service_SQLAdmin_FailoverContext extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+  public $settingsVersion;
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setSettingsVersion($settingsVersion)
+  {
+    $this->settingsVersion = $settingsVersion;
+  }
+  public function getSettingsVersion()
+  {
+    return $this->settingsVersion;
   }
 }
 
@@ -2386,6 +2526,24 @@ class Google_Service_SQLAdmin_InstancesExportRequest extends Google_Model
   public function getExportContext()
   {
     return $this->exportContext;
+  }
+}
+
+class Google_Service_SQLAdmin_InstancesFailoverRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $failoverContextType = 'Google_Service_SQLAdmin_FailoverContext';
+  protected $failoverContextDataType = '';
+
+
+  public function setFailoverContext(Google_Service_SQLAdmin_FailoverContext $failoverContext)
+  {
+    $this->failoverContext = $failoverContext;
+  }
+  public function getFailoverContext()
+  {
+    return $this->failoverContext;
   }
 }
 
@@ -2943,11 +3101,20 @@ class Google_Service_SQLAdmin_ReplicaConfiguration extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $failoverTarget;
   public $kind;
   protected $mysqlReplicaConfigurationType = 'Google_Service_SQLAdmin_MySqlReplicaConfiguration';
   protected $mysqlReplicaConfigurationDataType = '';
 
 
+  public function setFailoverTarget($failoverTarget)
+  {
+    $this->failoverTarget = $failoverTarget;
+  }
+  public function getFailoverTarget()
+  {
+    return $this->failoverTarget;
+  }
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -3244,6 +3411,24 @@ class Google_Service_SQLAdmin_SslCertDetail extends Google_Model
   public function getCertPrivateKey()
   {
     return $this->certPrivateKey;
+  }
+}
+
+class Google_Service_SQLAdmin_SslCertsCreateEphemeralRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+        "publicKey" => "public_key",
+  );
+  public $publicKey;
+
+
+  public function setPublicKey($publicKey)
+  {
+    $this->publicKey = $publicKey;
+  }
+  public function getPublicKey()
+  {
+    return $this->publicKey;
   }
 }
 

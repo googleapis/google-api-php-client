@@ -39,7 +39,7 @@ class Google_Service_YouTubeAnalytics extends Google_Service
   /** View and manage your assets and associated content on YouTube. */
   const YOUTUBEPARTNER =
       "https://www.googleapis.com/auth/youtubepartner";
-  /** View YouTube Analytics monetary reports for your YouTube content. */
+  /** View monetary and non-monetary YouTube Analytics reports for your YouTube content. */
   const YT_ANALYTICS_MONETARY_READONLY =
       "https://www.googleapis.com/auth/yt-analytics-monetary.readonly";
   /** View YouTube Analytics reports for your YouTube content. */

@@ -1141,6 +1141,8 @@ class Google_Service_PlusDomains_ActivityActor extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  protected $clientSpecificActorInfoType = 'Google_Service_PlusDomains_ActivityActorClientSpecificActorInfo';
+  protected $clientSpecificActorInfoDataType = '';
   public $displayName;
   public $id;
   protected $imageType = 'Google_Service_PlusDomains_ActivityActorImage';
@@ -1148,8 +1150,18 @@ class Google_Service_PlusDomains_ActivityActor extends Google_Model
   protected $nameType = 'Google_Service_PlusDomains_ActivityActorName';
   protected $nameDataType = '';
   public $url;
+  protected $verificationType = 'Google_Service_PlusDomains_ActivityActorVerification';
+  protected $verificationDataType = '';
 
 
+  public function setClientSpecificActorInfo(Google_Service_PlusDomains_ActivityActorClientSpecificActorInfo $clientSpecificActorInfo)
+  {
+    $this->clientSpecificActorInfo = $clientSpecificActorInfo;
+  }
+  public function getClientSpecificActorInfo()
+  {
+    return $this->clientSpecificActorInfo;
+  }
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -1189,6 +1201,49 @@ class Google_Service_PlusDomains_ActivityActor extends Google_Model
   public function getUrl()
   {
     return $this->url;
+  }
+  public function setVerification(Google_Service_PlusDomains_ActivityActorVerification $verification)
+  {
+    $this->verification = $verification;
+  }
+  public function getVerification()
+  {
+    return $this->verification;
+  }
+}
+
+class Google_Service_PlusDomains_ActivityActorClientSpecificActorInfo extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $youtubeActorInfoType = 'Google_Service_PlusDomains_ActivityActorClientSpecificActorInfoYoutubeActorInfo';
+  protected $youtubeActorInfoDataType = '';
+
+
+  public function setYoutubeActorInfo(Google_Service_PlusDomains_ActivityActorClientSpecificActorInfoYoutubeActorInfo $youtubeActorInfo)
+  {
+    $this->youtubeActorInfo = $youtubeActorInfo;
+  }
+  public function getYoutubeActorInfo()
+  {
+    return $this->youtubeActorInfo;
+  }
+}
+
+class Google_Service_PlusDomains_ActivityActorClientSpecificActorInfoYoutubeActorInfo extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $channelId;
+
+
+  public function setChannelId($channelId)
+  {
+    $this->channelId = $channelId;
+  }
+  public function getChannelId()
+  {
+    return $this->channelId;
   }
 }
 
@@ -1232,6 +1287,23 @@ class Google_Service_PlusDomains_ActivityActorName extends Google_Model
   public function getGivenName()
   {
     return $this->givenName;
+  }
+}
+
+class Google_Service_PlusDomains_ActivityActorVerification extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $adHocVerified;
+
+
+  public function setAdHocVerified($adHocVerified)
+  {
+    $this->adHocVerified = $adHocVerified;
+  }
+  public function getAdHocVerified()
+  {
+    return $this->adHocVerified;
   }
 }
 
@@ -1444,13 +1516,25 @@ class Google_Service_PlusDomains_ActivityObjectActor extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  protected $clientSpecificActorInfoType = 'Google_Service_PlusDomains_ActivityObjectActorClientSpecificActorInfo';
+  protected $clientSpecificActorInfoDataType = '';
   public $displayName;
   public $id;
   protected $imageType = 'Google_Service_PlusDomains_ActivityObjectActorImage';
   protected $imageDataType = '';
   public $url;
+  protected $verificationType = 'Google_Service_PlusDomains_ActivityObjectActorVerification';
+  protected $verificationDataType = '';
 
 
+  public function setClientSpecificActorInfo(Google_Service_PlusDomains_ActivityObjectActorClientSpecificActorInfo $clientSpecificActorInfo)
+  {
+    $this->clientSpecificActorInfo = $clientSpecificActorInfo;
+  }
+  public function getClientSpecificActorInfo()
+  {
+    return $this->clientSpecificActorInfo;
+  }
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -1483,6 +1567,49 @@ class Google_Service_PlusDomains_ActivityObjectActor extends Google_Model
   {
     return $this->url;
   }
+  public function setVerification(Google_Service_PlusDomains_ActivityObjectActorVerification $verification)
+  {
+    $this->verification = $verification;
+  }
+  public function getVerification()
+  {
+    return $this->verification;
+  }
+}
+
+class Google_Service_PlusDomains_ActivityObjectActorClientSpecificActorInfo extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $youtubeActorInfoType = 'Google_Service_PlusDomains_ActivityObjectActorClientSpecificActorInfoYoutubeActorInfo';
+  protected $youtubeActorInfoDataType = '';
+
+
+  public function setYoutubeActorInfo(Google_Service_PlusDomains_ActivityObjectActorClientSpecificActorInfoYoutubeActorInfo $youtubeActorInfo)
+  {
+    $this->youtubeActorInfo = $youtubeActorInfo;
+  }
+  public function getYoutubeActorInfo()
+  {
+    return $this->youtubeActorInfo;
+  }
+}
+
+class Google_Service_PlusDomains_ActivityObjectActorClientSpecificActorInfoYoutubeActorInfo extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $channelId;
+
+
+  public function setChannelId($channelId)
+  {
+    $this->channelId = $channelId;
+  }
+  public function getChannelId()
+  {
+    return $this->channelId;
+  }
 }
 
 class Google_Service_PlusDomains_ActivityObjectActorImage extends Google_Model
@@ -1499,6 +1626,23 @@ class Google_Service_PlusDomains_ActivityObjectActorImage extends Google_Model
   public function getUrl()
   {
     return $this->url;
+  }
+}
+
+class Google_Service_PlusDomains_ActivityObjectActorVerification extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $adHocVerified;
+
+
+  public function setAdHocVerified($adHocVerified)
+  {
+    $this->adHocVerified = $adHocVerified;
+  }
+  public function getAdHocVerified()
+  {
+    return $this->adHocVerified;
   }
 }
 
@@ -2361,13 +2505,25 @@ class Google_Service_PlusDomains_CommentActor extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  protected $clientSpecificActorInfoType = 'Google_Service_PlusDomains_CommentActorClientSpecificActorInfo';
+  protected $clientSpecificActorInfoDataType = '';
   public $displayName;
   public $id;
   protected $imageType = 'Google_Service_PlusDomains_CommentActorImage';
   protected $imageDataType = '';
   public $url;
+  protected $verificationType = 'Google_Service_PlusDomains_CommentActorVerification';
+  protected $verificationDataType = '';
 
 
+  public function setClientSpecificActorInfo(Google_Service_PlusDomains_CommentActorClientSpecificActorInfo $clientSpecificActorInfo)
+  {
+    $this->clientSpecificActorInfo = $clientSpecificActorInfo;
+  }
+  public function getClientSpecificActorInfo()
+  {
+    return $this->clientSpecificActorInfo;
+  }
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -2400,6 +2556,49 @@ class Google_Service_PlusDomains_CommentActor extends Google_Model
   {
     return $this->url;
   }
+  public function setVerification(Google_Service_PlusDomains_CommentActorVerification $verification)
+  {
+    $this->verification = $verification;
+  }
+  public function getVerification()
+  {
+    return $this->verification;
+  }
+}
+
+class Google_Service_PlusDomains_CommentActorClientSpecificActorInfo extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $youtubeActorInfoType = 'Google_Service_PlusDomains_CommentActorClientSpecificActorInfoYoutubeActorInfo';
+  protected $youtubeActorInfoDataType = '';
+
+
+  public function setYoutubeActorInfo(Google_Service_PlusDomains_CommentActorClientSpecificActorInfoYoutubeActorInfo $youtubeActorInfo)
+  {
+    $this->youtubeActorInfo = $youtubeActorInfo;
+  }
+  public function getYoutubeActorInfo()
+  {
+    return $this->youtubeActorInfo;
+  }
+}
+
+class Google_Service_PlusDomains_CommentActorClientSpecificActorInfoYoutubeActorInfo extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $channelId;
+
+
+  public function setChannelId($channelId)
+  {
+    $this->channelId = $channelId;
+  }
+  public function getChannelId()
+  {
+    return $this->channelId;
+  }
 }
 
 class Google_Service_PlusDomains_CommentActorImage extends Google_Model
@@ -2416,6 +2615,23 @@ class Google_Service_PlusDomains_CommentActorImage extends Google_Model
   public function getUrl()
   {
     return $this->url;
+  }
+}
+
+class Google_Service_PlusDomains_CommentActorVerification extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $adHocVerified;
+
+
+  public function setAdHocVerified($adHocVerified)
+  {
+    $this->adHocVerified = $adHocVerified;
+  }
+  public function getAdHocVerified()
+  {
+    return $this->adHocVerified;
   }
 }
 

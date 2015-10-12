@@ -1797,8 +1797,9 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    *
    * @opt_param bool acknowledgeAbuse Whether the user is acknowledging the risk
    * of downloading known malware or other abusive files.
-   * @opt_param bool updateViewedDate Whether to update the view date after
-   * successfully retrieving the file.
+   * @opt_param bool updateViewedDate Deprecated: Use files.update with
+   * modifiedDateBehavior=noChange, updateViewedDate=true and an empty request
+   * body.
    * @opt_param string revisionId Specifies the Revision ID that should be
    * downloaded. Ignored unless alt=media is specified.
    * @opt_param string projection This parameter is deprecated and has no
@@ -2008,8 +2009,9 @@ class Google_Service_Drive_Files_Resource extends Google_Service_Resource
    *
    * @opt_param bool acknowledgeAbuse Whether the user is acknowledging the risk
    * of downloading known malware or other abusive files.
-   * @opt_param bool updateViewedDate Whether to update the view date after
-   * successfully retrieving the file.
+   * @opt_param bool updateViewedDate Deprecated: Use files.update with
+   * modifiedDateBehavior=noChange, updateViewedDate=true and an empty request
+   * body.
    * @opt_param string revisionId Specifies the Revision ID that should be
    * downloaded. Ignored unless alt=media is specified.
    * @opt_param string projection This parameter is deprecated and has no
@@ -2184,8 +2186,7 @@ class Google_Service_Drive_Permissions_Resource extends Google_Service_Resource
   }
 
   /**
-   * Updates a permission. This method supports patch semantics.
-   * (permissions.patch)
+   * Updates a permission using patch semantics. (permissions.patch)
    *
    * @param string $fileId The ID for the file.
    * @param string $permissionId The ID for the permission.

@@ -2119,7 +2119,9 @@ class Google_Service_AdSense_Account extends Google_Collection
 {
   protected $collection_key = 'subAccounts';
   protected $internal_gapi_mappings = array(
+        "creationTime" => "creation_time",
   );
+  public $creationTime;
   public $id;
   public $kind;
   public $name;
@@ -2129,6 +2131,14 @@ class Google_Service_AdSense_Account extends Google_Collection
   public $timezone;
 
 
+  public function setCreationTime($creationTime)
+  {
+    $this->creationTime = $creationTime;
+  }
+  public function getCreationTime()
+  {
+    return $this->creationTime;
+  }
   public function setId($id)
   {
     $this->id = $id;
