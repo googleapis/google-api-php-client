@@ -489,8 +489,12 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       $audience = $this->client->getClassConfig($this, 'client_id');
     }
 
-    return $this->verifySignedJwtWithCerts($id_token, $certs, $audience,
-      array(self::OAUTH2_ISSUER, self::HTTPS_OAUTH2_ISSUER));
+    return $this->verifySignedJwtWithCerts(
+        $id_token,
+        $certs,
+        $audience,
+        array(self::OAUTH2_ISSUER, self::HTTPS_OAUTH2_ISSUER)
+    );
   }
 
   /**
