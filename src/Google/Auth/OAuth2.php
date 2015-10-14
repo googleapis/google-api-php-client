@@ -32,6 +32,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
   const AUTH_TOKEN_LIFETIME_SECS = 300; // five minutes in seconds
   const MAX_TOKEN_LIFETIME_SECS = 86400; // one day in seconds
   const OAUTH2_ISSUER = 'accounts.google.com';
+  const HTTPS_OAUTH2_ISSUER = 'https://accounts.google.com';
 
   /** @var Google_Auth_AssertionCredentials $assertionCredentials */
   private $assertionCredentials;
@@ -488,7 +489,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       $audience = $this->client->getClassConfig($this, 'client_id');
     }
 
-    return $this->verifySignedJwtWithCerts($id_token, $certs, $audience, self::OAUTH2_ISSUER);
+    return $this->verifySignedJwtWithCerts($id_token, $certs, $audience, array(self::OAUTH2_ISSUER, self::HTTPS_OAUTH2_ISSUER));
   }
 
   /**
@@ -509,6 +510,11 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       $issuer = null,
       $max_expiry = null
   ) {
+    // accept multiple issuers with array.
+    $issuers = null;
+    if ($issuer) {
+      $issuers = is_array($issuer) ? $issuer : array($issuer);
+    }
     if (!$max_expiry) {
       // Set the maximum time we will accept a token for.
       $max_expiry = self::MAX_TOKEN_LIFETIME_SECS;
@@ -596,12 +602,12 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
     }
 
     $iss = $payload['iss'];
-    if ($issuer && $iss != $issuer) {
+    if ($issuers && !in_array($iss, $issuers)) {
       throw new Google_Auth_Exception(
           sprintf(
-              "Invalid issuer, %s != %s: %s",
+              "Invalid issuer, %s not in %s: %s",
               $iss,
-              $issuer,
+              "[".implode(",", $issuers)."]",
               $json_body
           )
       );
