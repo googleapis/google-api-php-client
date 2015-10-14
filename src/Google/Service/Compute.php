@@ -50,6 +50,7 @@ class Google_Service_Compute extends Google_Service
       "https://www.googleapis.com/auth/devstorage.read_write";
 
   public $addresses;
+  public $autoscalers;
   public $backendServices;
   public $diskTypes;
   public $disks;
@@ -60,6 +61,8 @@ class Google_Service_Compute extends Google_Service
   public $globalOperations;
   public $httpHealthChecks;
   public $images;
+  public $instanceGroupManagers;
+  public $instanceGroups;
   public $instanceTemplates;
   public $instances;
   public $licenses;
@@ -201,6 +204,159 @@ class Google_Service_Compute extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->autoscalers = new Google_Service_Compute_Autoscalers_Resource(
+        $this,
+        $this->serviceName,
+        'autoscalers',
+        array(
+          'methods' => array(
+            'aggregatedList' => array(
+              'path' => '{project}/aggregated/autoscalers',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'delete' => array(
+              'path' => '{project}/zones/{zone}/autoscalers/{autoscaler}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'autoscaler' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => '{project}/zones/{zone}/autoscalers/{autoscaler}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'autoscaler' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => '{project}/zones/{zone}/autoscalers',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{project}/zones/{zone}/autoscalers',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'patch' => array(
+              'path' => '{project}/zones/{zone}/autoscalers',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'autoscaler' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'update' => array(
+              'path' => '{project}/zones/{zone}/autoscalers',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'autoscaler' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1203,6 +1359,471 @@ class Google_Service_Compute extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->instanceGroupManagers = new Google_Service_Compute_InstanceGroupManagers_Resource(
+        $this,
+        $this->serviceName,
+        'instanceGroupManagers',
+        array(
+          'methods' => array(
+            'abandonInstances' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/abandonInstances',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'aggregatedList' => array(
+              'path' => '{project}/aggregated/instanceGroupManagers',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'delete' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'deleteInstances' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/deleteInstances',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'listManagedInstances' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listManagedInstances',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'recreateInstances' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/recreateInstances',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'resize' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resize',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'size' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                  'required' => true,
+                ),
+              ),
+            ),'setInstanceTemplate' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'setTargetPools' => array(
+              'path' => '{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setTargetPools',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroupManager' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->instanceGroups = new Google_Service_Compute_InstanceGroups_Resource(
+        $this,
+        $this->serviceName,
+        'instanceGroups',
+        array(
+          'methods' => array(
+            'addInstances' => array(
+              'path' => '{project}/zones/{zone}/instanceGroups/{instanceGroup}/addInstances',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroup' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'aggregatedList' => array(
+              'path' => '{project}/aggregated/instanceGroups',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'delete' => array(
+              'path' => '{project}/zones/{zone}/instanceGroups/{instanceGroup}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroup' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => '{project}/zones/{zone}/instanceGroups/{instanceGroup}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroup' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => '{project}/zones/{zone}/instanceGroups',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{project}/zones/{zone}/instanceGroups',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'listInstances' => array(
+              'path' => '{project}/zones/{zone}/instanceGroups/{instanceGroup}/listInstances',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroup' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'removeInstances' => array(
+              'path' => '{project}/zones/{zone}/instanceGroups/{instanceGroup}/removeInstances',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroup' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'setNamedPorts' => array(
+              'path' => '{project}/zones/{zone}/instanceGroups/{instanceGroup}/setNamedPorts',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instanceGroup' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),
@@ -3092,9 +3713,22 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_AddressAggregatedList
    */
@@ -3162,9 +3796,22 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * @param string $region The name of the region for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_AddressList
    */
@@ -3173,6 +3820,174 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
     $params = array('project' => $project, 'region' => $region);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Compute_AddressList");
+  }
+}
+
+/**
+ * The "autoscalers" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $autoscalers = $computeService->autoscalers;
+ *  </code>
+ */
+class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Retrieves the list of autoscalers grouped by scope.
+   * (autoscalers.aggregatedList)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
+   * @return Google_Service_Compute_AutoscalerAggregatedList
+   */
+  public function aggregatedList($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('aggregatedList', array($params), "Google_Service_Compute_AutoscalerAggregatedList");
+  }
+
+  /**
+   * Deletes the specified autoscaler resource. (autoscalers.delete)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $zone Name of the zone scoping this request.
+   * @param string $autoscaler Name of the persistent autoscaler resource to
+   * delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function delete($project, $zone, $autoscaler, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'autoscaler' => $autoscaler);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Returns the specified autoscaler resource. (autoscalers.get)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $zone Name of the zone scoping this request.
+   * @param string $autoscaler Name of the persistent autoscaler resource to
+   * return.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Autoscaler
+   */
+  public function get($project, $zone, $autoscaler, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'autoscaler' => $autoscaler);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_Autoscaler");
+  }
+
+  /**
+   * Creates an autoscaler resource in the specified project using the data
+   * included in the request. (autoscalers.insert)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $zone Name of the zone scoping this request.
+   * @param Google_Autoscaler $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function insert($project, $zone, Google_Service_Compute_Autoscaler $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Retrieves the list of autoscaler resources contained within the specified
+   * zone. (autoscalers.listAutoscalers)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $zone Name of the zone scoping this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
+   * @return Google_Service_Compute_AutoscalerList
+   */
+  public function listAutoscalers($project, $zone, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Compute_AutoscalerList");
+  }
+
+  /**
+   * Updates an autoscaler resource in the specified project using the data
+   * included in the request. This method supports patch semantics.
+   * (autoscalers.patch)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $zone Name of the zone scoping this request.
+   * @param string $autoscaler Name of the autoscaler resource to update.
+   * @param Google_Autoscaler $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function patch($project, $zone, $autoscaler, Google_Service_Compute_Autoscaler $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'autoscaler' => $autoscaler, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Updates an autoscaler resource in the specified project using the data
+   * included in the request. (autoscalers.update)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $zone Name of the zone scoping this request.
+   * @param Google_Autoscaler $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string autoscaler Name of the autoscaler resource to update.
+   * @return Google_Service_Compute_Operation
+   */
+  public function update($project, $zone, Google_Service_Compute_Autoscaler $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_Compute_Operation");
   }
 }
 
@@ -3258,9 +4073,22 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_BackendServiceList
    */
@@ -3324,9 +4152,22 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_DiskTypeAggregatedList
    */
@@ -3361,9 +4202,22 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * @param string $zone The name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_DiskTypeList
    */
@@ -3392,9 +4246,22 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_DiskAggregatedList
    */
@@ -3423,7 +4290,10 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Deletes the specified persistent disk. (disks.delete)
+   * Deletes the specified persistent disk. Deleting a disk removes its data
+   * permanently and is irreversible. However, deleting a disk does not delete any
+   * snapshots previously made from the disk. You must separately delete
+   * snapshots. (disks.delete)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
@@ -3481,9 +4351,22 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * @param string $zone The name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_DiskList
    */
@@ -3559,9 +4442,22 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_FirewallList
    */
@@ -3625,9 +4521,22 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_ForwardingRuleAggregatedList
    */
@@ -3695,9 +4604,22 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * @param string $region Name of the region scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_ForwardingRuleList
    */
@@ -3791,9 +4713,22 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_AddressList
    */
@@ -3869,9 +4804,22 @@ class Google_Service_Compute_GlobalForwardingRules_Resource extends Google_Servi
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_ForwardingRuleList
    */
@@ -3918,9 +4866,22 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_OperationAggregatedList
    */
@@ -3932,10 +4893,10 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
   }
 
   /**
-   * Deletes the specified operation resource. (globalOperations.delete)
+   * Deletes the specified Operations resource. (globalOperations.delete)
    *
    * @param string $project Project ID for this request.
-   * @param string $operation Name of the operation resource to delete.
+   * @param string $operation Name of the Operations resource to delete.
    * @param array $optParams Optional parameters.
    */
   public function delete($project, $operation, $optParams = array())
@@ -3946,10 +4907,10 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
   }
 
   /**
-   * Retrieves the specified operation resource. (globalOperations.get)
+   * Retrieves the specified Operations resource. (globalOperations.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $operation Name of the operation resource to return.
+   * @param string $operation Name of the Operations resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -3961,15 +4922,28 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
   }
 
   /**
-   * Retrieves the list of operation resources contained within the specified
+   * Retrieves the list of Operation resources contained within the specified
    * project. (globalOperations.listGlobalOperations)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_OperationList
    */
@@ -4047,9 +5021,22 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_HttpHealthCheckList
    */
@@ -4175,15 +5162,34 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves the list of image resources available to the specified project.
-   * (images.listImages)
+   * Retrieves the list of private images available to the specified project.
+   * Private images are images you create that belong to your project. This method
+   * does not get any images that belong to other projects, including publicly-
+   * available images, like Debian 7. If you want to get a list of publicly-
+   * available images, use this method to make a request to the respective image
+   * project, such as debian-cloud or windows-cloud.
+   *
+   * See Accessing images for more information. (images.listImages)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_ImageList
    */
@@ -4192,6 +5198,539 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
     $params = array('project' => $project);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Compute_ImageList");
+  }
+}
+
+/**
+ * The "instanceGroupManagers" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $instanceGroupManagers = $computeService->instanceGroupManagers;
+ *  </code>
+ */
+class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Schedules a group action to remove the specified instances from the managed
+   * instance group. Abandoning an instance does not delete the instance, but it
+   * does remove the instance from any target pools that are applied by the
+   * managed instance group. This method reduces the targetSize of the managed
+   * instance group by the number of instances that you abandon. This operation is
+   * marked as DONE when the action is scheduled even if the instances have not
+   * yet been removed from the group. You must separately verify the status of the
+   * abandoning action with the listmanagedinstances method.
+   * (instanceGroupManagers.abandonInstances)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the managed instance group is
+   * located.
+   * @param string $instanceGroupManager The name of the managed instance group.
+   * @param Google_InstanceGroupManagersAbandonInstancesRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function abandonInstances($project, $zone, $instanceGroupManager, Google_Service_Compute_InstanceGroupManagersAbandonInstancesRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('abandonInstances', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Retrieves the list of managed instance groups and groups them by zone.
+   * (instanceGroupManagers.aggregatedList)
+   *
+   * @param string $project The project ID for this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
+   * @return Google_Service_Compute_InstanceGroupManagerAggregatedList
+   */
+  public function aggregatedList($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('aggregatedList', array($params), "Google_Service_Compute_InstanceGroupManagerAggregatedList");
+  }
+
+  /**
+   * Deletes the specified managed instance group and all of the instances in that
+   * group. (instanceGroupManagers.delete)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the managed instance group is
+   * located.
+   * @param string $instanceGroupManager The name of the managed instance group to
+   * delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function delete($project, $zone, $instanceGroupManager, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Schedules a group action to delete the specified instances in the managed
+   * instance group. The instances are also removed from any target pools of which
+   * they were a member. This method reduces the targetSize of the managed
+   * instance group by the number of instances that you delete. This operation is
+   * marked as DONE when the action is scheduled even if the instances are still
+   * being deleted. You must separately verify the status of the deleting action
+   * with the listmanagedinstances method. (instanceGroupManagers.deleteInstances)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the managed instance group is
+   * located.
+   * @param string $instanceGroupManager The name of the managed instance group.
+   * @param Google_InstanceGroupManagersDeleteInstancesRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function deleteInstances($project, $zone, $instanceGroupManager, Google_Service_Compute_InstanceGroupManagersDeleteInstancesRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('deleteInstances', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Returns all of the details about the specified managed instance group.
+   * (instanceGroupManagers.get)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the managed instance group is
+   * located.
+   * @param string $instanceGroupManager The name of the managed instance group.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_InstanceGroupManager
+   */
+  public function get($project, $zone, $instanceGroupManager, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_InstanceGroupManager");
+  }
+
+  /**
+   * Creates a managed instance group using the information that you specify in
+   * the request. After the group is created, it schedules an action to create
+   * instances in the group using the specified instance template. This operation
+   * is marked as DONE when the group is created even if the instances in the
+   * group have not yet been created. You must separately verify the status of the
+   * individual instances with the listmanagedinstances method.
+   * (instanceGroupManagers.insert)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where you want to create the managed
+   * instance group.
+   * @param Google_InstanceGroupManager $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function insert($project, $zone, Google_Service_Compute_InstanceGroupManager $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Retrieves a list of managed instance groups that are contained within the
+   * specified project and zone. (instanceGroupManagers.listInstanceGroupManagers)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the managed instance group is
+   * located.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
+   * @return Google_Service_Compute_InstanceGroupManagerList
+   */
+  public function listInstanceGroupManagers($project, $zone, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Compute_InstanceGroupManagerList");
+  }
+
+  /**
+   * Lists all of the instances in the managed instance group. Each instance in
+   * the list has a currentAction, which indicates the action that the managed
+   * instance group is performing on the instance. For example, if the group is
+   * still creating an instance, the currentAction is CREATING. If a previous
+   * action failed, the list displays the errors for that failed action.
+   * (instanceGroupManagers.listManagedInstances)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the managed instance group is
+   * located.
+   * @param string $instanceGroupManager The name of the managed instance group.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_InstanceGroupManagersListManagedInstancesResponse
+   */
+  public function listManagedInstances($project, $zone, $instanceGroupManager, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager);
+    $params = array_merge($params, $optParams);
+    return $this->call('listManagedInstances', array($params), "Google_Service_Compute_InstanceGroupManagersListManagedInstancesResponse");
+  }
+
+  /**
+   * Schedules a group action to recreate the specified instances in the managed
+   * instance group. The instances are deleted and recreated using the current
+   * instance template for the managed instance group. This operation is marked as
+   * DONE when the action is scheduled even if the instances have not yet been
+   * recreated. You must separately verify the status of the recreating action
+   * with the listmanagedinstances method.
+   * (instanceGroupManagers.recreateInstances)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the managed instance group is
+   * located.
+   * @param string $instanceGroupManager The name of the managed instance group.
+   * @param Google_InstanceGroupManagersRecreateInstancesRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function recreateInstances($project, $zone, $instanceGroupManager, Google_Service_Compute_InstanceGroupManagersRecreateInstancesRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('recreateInstances', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Resizes the managed instance group. If you increase the size, the group
+   * creates new instances using the current instance template. If you decrease
+   * the size, the group deletes instances. The resize operation is marked DONE
+   * when the resize actions are scheduled even if the group has not yet added or
+   * deleted any instances. You must separately verify the status of the creating
+   * or deleting actions with the listmanagedinstances method.
+   * (instanceGroupManagers.resize)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the managed instance group is
+   * located.
+   * @param string $instanceGroupManager The name of the managed instance group.
+   * @param int $size The number of running instances that the managed instance
+   * group should maintain at any given time. The group automatically adds or
+   * removes instances to maintain the number of instances specified by this
+   * parameter.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function resize($project, $zone, $instanceGroupManager, $size, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'size' => $size);
+    $params = array_merge($params, $optParams);
+    return $this->call('resize', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Specifies the instance template to use when creating new instances in this
+   * group. The templates for existing instances in the group do not change unless
+   * you recreate them. (instanceGroupManagers.setInstanceTemplate)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the managed instance group is
+   * located.
+   * @param string $instanceGroupManager The name of the managed instance group.
+   * @param Google_InstanceGroupManagersSetInstanceTemplateRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function setInstanceTemplate($project, $zone, $instanceGroupManager, Google_Service_Compute_InstanceGroupManagersSetInstanceTemplateRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setInstanceTemplate', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Modifies the target pools to which all instances in this managed instance
+   * group are assigned. The target pools automatically apply to all of the
+   * instances in the managed instance group. This operation is marked DONE when
+   * you make the request even if the instances have not yet been added to their
+   * target pools. The change might take some time to apply to all of the
+   * instances in the group depending on the size of the group.
+   * (instanceGroupManagers.setTargetPools)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the managed instance group is
+   * located.
+   * @param string $instanceGroupManager The name of the managed instance group.
+   * @param Google_InstanceGroupManagersSetTargetPoolsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function setTargetPools($project, $zone, $instanceGroupManager, Google_Service_Compute_InstanceGroupManagersSetTargetPoolsRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroupManager' => $instanceGroupManager, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setTargetPools', array($params), "Google_Service_Compute_Operation");
+  }
+}
+
+/**
+ * The "instanceGroups" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $instanceGroups = $computeService->instanceGroups;
+ *  </code>
+ */
+class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Adds a list of instances to the specified instance group. All of the
+   * instances in the instance group must be in the same network/subnetwork. TODO:
+   * Change to comment to state "if IG is load balanced."
+   * (instanceGroups.addInstances)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the instance group is located.
+   * @param string $instanceGroup The name of the instance group where you are
+   * adding instances.
+   * @param Google_InstanceGroupsAddInstancesRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function addInstances($project, $zone, $instanceGroup, Google_Service_Compute_InstanceGroupsAddInstancesRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroup' => $instanceGroup, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('addInstances', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Retrieves the list of instance groups and sorts them by zone.
+   * (instanceGroups.aggregatedList)
+   *
+   * @param string $project The project ID for this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
+   * @return Google_Service_Compute_InstanceGroupAggregatedList
+   */
+  public function aggregatedList($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('aggregatedList', array($params), "Google_Service_Compute_InstanceGroupAggregatedList");
+  }
+
+  /**
+   * Deletes the specified instance group. The instances in the group are not
+   * deleted. (instanceGroups.delete)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the instance group is located.
+   * @param string $instanceGroup The name of the instance group to delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function delete($project, $zone, $instanceGroup, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroup' => $instanceGroup);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Returns the specified instance group resource. (instanceGroups.get)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the instance group is located.
+   * @param string $instanceGroup The name of the instance group.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_InstanceGroup
+   */
+  public function get($project, $zone, $instanceGroup, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroup' => $instanceGroup);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_InstanceGroup");
+  }
+
+  /**
+   * Creates an instance group in the specified project using the parameters that
+   * are included in the request. (instanceGroups.insert)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where you want to create the
+   * instance group.
+   * @param Google_InstanceGroup $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function insert($project, $zone, Google_Service_Compute_InstanceGroup $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Retrieves the list of instance groups that are located in the specified
+   * project and zone. (instanceGroups.listInstanceGroups)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the instance group is located.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
+   * @return Google_Service_Compute_InstanceGroupList
+   */
+  public function listInstanceGroups($project, $zone, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Compute_InstanceGroupList");
+  }
+
+  /**
+   * Lists the instances in the specified instance group.
+   * (instanceGroups.listInstances)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the instance group is located.
+   * @param string $instanceGroup The name of the instance group from which you
+   * want to generate a list of included instances.
+   * @param Google_InstanceGroupsListInstancesRequest $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string maxResults Maximum count of results to be returned.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
+   * @return Google_Service_Compute_InstanceGroupsListInstances
+   */
+  public function listInstances($project, $zone, $instanceGroup, Google_Service_Compute_InstanceGroupsListInstancesRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroup' => $instanceGroup, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('listInstances', array($params), "Google_Service_Compute_InstanceGroupsListInstances");
+  }
+
+  /**
+   * Removes one or more instances from the specified instance group, but does not
+   * delete those instances. (instanceGroups.removeInstances)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the instance group is located.
+   * @param string $instanceGroup The name of the instance group where the
+   * specified instances will be removed.
+   * @param Google_InstanceGroupsRemoveInstancesRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function removeInstances($project, $zone, $instanceGroup, Google_Service_Compute_InstanceGroupsRemoveInstancesRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroup' => $instanceGroup, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('removeInstances', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Sets the named ports for the specified instance group.
+   * (instanceGroups.setNamedPorts)
+   *
+   * @param string $project The project ID for this request.
+   * @param string $zone The name of the zone where the instance group is located.
+   * @param string $instanceGroup The name of the instance group where the named
+   * ports are updated.
+   * @param Google_InstanceGroupsSetNamedPortsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function setNamedPorts($project, $zone, $instanceGroup, Google_Service_Compute_InstanceGroupsSetNamedPortsRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instanceGroup' => $instanceGroup, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setNamedPorts', array($params), "Google_Service_Compute_Operation");
   }
 }
 
@@ -4259,9 +5798,22 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
    * @param string $project The project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_InstanceTemplateList
    */
@@ -4310,9 +5862,22 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_InstanceAggregatedList
    */
@@ -4397,7 +5962,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * Returns the specified instance resource. (instances.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $zone The name of the The name of the zone for this request..
+   * @param string $zone The name of the zone for this request.
    * @param string $instance Name of the instance resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Instance
@@ -4418,7 +5983,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * @param string $instance Name of the instance scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int port Which COM port to retrieve data from.
+   * @opt_param int port Specifies which COM or serial port to retrieve data from.
    * @return Google_Service_Compute_SerialPortOutput
    */
   public function getSerialPortOutput($project, $zone, $instance, $optParams = array())
@@ -4453,9 +6018,22 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * @param string $zone The name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_InstanceList
    */
@@ -4640,9 +6218,22 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_MachineTypeAggregatedList
    */
@@ -4677,9 +6268,22 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * @param string $zone The name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_MachineTypeList
    */
@@ -4755,9 +6359,22 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_NetworkList
    */
@@ -4871,12 +6488,12 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
 {
 
   /**
-   * Deletes the specified region-specific operation resource.
+   * Deletes the specified region-specific Operations resource.
    * (regionOperations.delete)
    *
    * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
-   * @param string $operation Name of the operation resource to delete.
+   * @param string $operation Name of the Operations resource to delete.
    * @param array $optParams Optional parameters.
    */
   public function delete($project, $region, $operation, $optParams = array())
@@ -4887,12 +6504,12 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
   }
 
   /**
-   * Retrieves the specified region-specific operation resource.
+   * Retrieves the specified region-specific Operations resource.
    * (regionOperations.get)
    *
    * @param string $project Project ID for this request.
    * @param string $region Name of the zone scoping this request.
-   * @param string $operation Name of the operation resource to return.
+   * @param string $operation Name of the Operations resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -4904,16 +6521,29 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
   }
 
   /**
-   * Retrieves the list of operation resources contained within the specified
+   * Retrieves the list of Operation resources contained within the specified
    * region. (regionOperations.listRegionOperations)
    *
    * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_OperationList
    */
@@ -4958,9 +6588,22 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_RegionList
    */
@@ -5036,9 +6679,22 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_RouteList
    */
@@ -5062,11 +6718,15 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
 {
 
   /**
-   * Deletes the specified persistent disk snapshot resource. (snapshots.delete)
+   * Deletes the specified Snapshot resource. Keep in mind that deleting a single
+   * snapshot might not necessarily delete all the data on that snapshot. If any
+   * data on the snapshot that is marked for deletion is needed for subsequent
+   * snapshots, the data will be moved to the next corresponding snapshot.
+   *
+   * For more information, see Deleting snaphots. (snapshots.delete)
    *
    * @param string $project Name of the project scoping this request.
-   * @param string $snapshot Name of the persistent disk snapshot resource to
-   * delete.
+   * @param string $snapshot Name of the Snapshot resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -5078,11 +6738,10 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified persistent disk snapshot resource. (snapshots.get)
+   * Returns the specified Snapshot resource. (snapshots.get)
    *
    * @param string $project Name of the project scoping this request.
-   * @param string $snapshot Name of the persistent disk snapshot resource to
-   * return.
+   * @param string $snapshot Name of the Snapshot resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Snapshot
    */
@@ -5094,15 +6753,28 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves the list of persistent disk snapshot resources contained within the
-   * specified project. (snapshots.listSnapshots)
+   * Retrieves the list of Snapshot resources contained within the specified
+   * project. (snapshots.listSnapshots)
    *
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_SnapshotList
    */
@@ -5180,9 +6852,22 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetHttpProxyList
    */
@@ -5229,9 +6914,22 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetInstanceAggregatedList
    */
@@ -5299,9 +6997,22 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * @param string $zone Name of the zone scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetInstanceList
    */
@@ -5367,9 +7078,22 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetPoolAggregatedList
    */
@@ -5456,9 +7180,22 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * @param string $region Name of the region scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetPoolList
    */
@@ -5545,9 +7282,22 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetVpnGatewayAggregatedList
    */
@@ -5617,9 +7367,22 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * @param string $region The name of the region for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_TargetVpnGatewayList
    */
@@ -5695,9 +7458,22 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
    * @param string $project Name of the project scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_UrlMapList
    */
@@ -5778,9 +7554,22 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_VpnTunnelAggregatedList
    */
@@ -5848,9 +7637,22 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * @param string $region The name of the region for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_VpnTunnelList
    */
@@ -5874,12 +7676,12 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
 {
 
   /**
-   * Deletes the specified zone-specific operation resource.
+   * Deletes the specified zone-specific Operations resource.
    * (zoneOperations.delete)
    *
    * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
-   * @param string $operation Name of the operation resource to delete.
+   * @param string $operation Name of the Operations resource to delete.
    * @param array $optParams Optional parameters.
    */
   public function delete($project, $zone, $operation, $optParams = array())
@@ -5890,12 +7692,12 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
   }
 
   /**
-   * Retrieves the specified zone-specific operation resource.
+   * Retrieves the specified zone-specific Operations resource.
    * (zoneOperations.get)
    *
    * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
-   * @param string $operation Name of the operation resource to return.
+   * @param string $operation Name of the Operations resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -5907,16 +7709,29 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
   }
 
   /**
-   * Retrieves the list of operation resources contained within the specified
+   * Retrieves the list of Operation resources contained within the specified
    * zone. (zoneOperations.listZoneOperations)
    *
    * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_OperationList
    */
@@ -5961,9 +7776,22 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string filter Filter expression for filtering listed resources.
-   * @opt_param string pageToken Tag returned by a previous list request when that
-   * list was truncated to maxResults. Used to continue a previous list request.
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @return Google_Service_Compute_ZoneList
    */
@@ -6476,6 +8304,436 @@ class Google_Service_Compute_AttachedDiskInitializeParams extends Google_Model
   public function getSourceImage()
   {
     return $this->sourceImage;
+  }
+}
+
+class Google_Service_Compute_Autoscaler extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $autoscalingPolicyType = 'Google_Service_Compute_AutoscalingPolicy';
+  protected $autoscalingPolicyDataType = '';
+  public $creationTimestamp;
+  public $description;
+  public $id;
+  public $kind;
+  public $name;
+  public $selfLink;
+  public $target;
+  public $zone;
+
+
+  public function setAutoscalingPolicy(Google_Service_Compute_AutoscalingPolicy $autoscalingPolicy)
+  {
+    $this->autoscalingPolicy = $autoscalingPolicy;
+  }
+  public function getAutoscalingPolicy()
+  {
+    return $this->autoscalingPolicy;
+  }
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+  public function setTarget($target)
+  {
+    $this->target = $target;
+  }
+  public function getTarget()
+  {
+    return $this->target;
+  }
+  public function setZone($zone)
+  {
+    $this->zone = $zone;
+  }
+  public function getZone()
+  {
+    return $this->zone;
+  }
+}
+
+class Google_Service_Compute_AutoscalerAggregatedList extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_AutoscalersScopedList';
+  protected $itemsDataType = 'map';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_AutoscalerAggregatedListItems extends Google_Model
+{
+}
+
+class Google_Service_Compute_AutoscalerList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_Autoscaler';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_AutoscalersScopedList extends Google_Collection
+{
+  protected $collection_key = 'autoscalers';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $autoscalersType = 'Google_Service_Compute_Autoscaler';
+  protected $autoscalersDataType = 'array';
+  protected $warningType = 'Google_Service_Compute_AutoscalersScopedListWarning';
+  protected $warningDataType = '';
+
+
+  public function setAutoscalers($autoscalers)
+  {
+    $this->autoscalers = $autoscalers;
+  }
+  public function getAutoscalers()
+  {
+    return $this->autoscalers;
+  }
+  public function setWarning(Google_Service_Compute_AutoscalersScopedListWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+  public function getWarning()
+  {
+    return $this->warning;
+  }
+}
+
+class Google_Service_Compute_AutoscalersScopedListWarning extends Google_Collection
+{
+  protected $collection_key = 'data';
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  protected $dataType = 'Google_Service_Compute_AutoscalersScopedListWarningData';
+  protected $dataDataType = 'array';
+  public $message;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setData($data)
+  {
+    $this->data = $data;
+  }
+  public function getData()
+  {
+    return $this->data;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Compute_AutoscalersScopedListWarningData extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $key;
+  public $value;
+
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+  public function getKey()
+  {
+    return $this->key;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
+class Google_Service_Compute_AutoscalingPolicy extends Google_Collection
+{
+  protected $collection_key = 'customMetricUtilizations';
+  protected $internal_gapi_mappings = array(
+  );
+  public $coolDownPeriodSec;
+  protected $cpuUtilizationType = 'Google_Service_Compute_AutoscalingPolicyCpuUtilization';
+  protected $cpuUtilizationDataType = '';
+  protected $customMetricUtilizationsType = 'Google_Service_Compute_AutoscalingPolicyCustomMetricUtilization';
+  protected $customMetricUtilizationsDataType = 'array';
+  protected $loadBalancingUtilizationType = 'Google_Service_Compute_AutoscalingPolicyLoadBalancingUtilization';
+  protected $loadBalancingUtilizationDataType = '';
+  public $maxNumReplicas;
+  public $minNumReplicas;
+
+
+  public function setCoolDownPeriodSec($coolDownPeriodSec)
+  {
+    $this->coolDownPeriodSec = $coolDownPeriodSec;
+  }
+  public function getCoolDownPeriodSec()
+  {
+    return $this->coolDownPeriodSec;
+  }
+  public function setCpuUtilization(Google_Service_Compute_AutoscalingPolicyCpuUtilization $cpuUtilization)
+  {
+    $this->cpuUtilization = $cpuUtilization;
+  }
+  public function getCpuUtilization()
+  {
+    return $this->cpuUtilization;
+  }
+  public function setCustomMetricUtilizations($customMetricUtilizations)
+  {
+    $this->customMetricUtilizations = $customMetricUtilizations;
+  }
+  public function getCustomMetricUtilizations()
+  {
+    return $this->customMetricUtilizations;
+  }
+  public function setLoadBalancingUtilization(Google_Service_Compute_AutoscalingPolicyLoadBalancingUtilization $loadBalancingUtilization)
+  {
+    $this->loadBalancingUtilization = $loadBalancingUtilization;
+  }
+  public function getLoadBalancingUtilization()
+  {
+    return $this->loadBalancingUtilization;
+  }
+  public function setMaxNumReplicas($maxNumReplicas)
+  {
+    $this->maxNumReplicas = $maxNumReplicas;
+  }
+  public function getMaxNumReplicas()
+  {
+    return $this->maxNumReplicas;
+  }
+  public function setMinNumReplicas($minNumReplicas)
+  {
+    $this->minNumReplicas = $minNumReplicas;
+  }
+  public function getMinNumReplicas()
+  {
+    return $this->minNumReplicas;
+  }
+}
+
+class Google_Service_Compute_AutoscalingPolicyCpuUtilization extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $utilizationTarget;
+
+
+  public function setUtilizationTarget($utilizationTarget)
+  {
+    $this->utilizationTarget = $utilizationTarget;
+  }
+  public function getUtilizationTarget()
+  {
+    return $this->utilizationTarget;
+  }
+}
+
+class Google_Service_Compute_AutoscalingPolicyCustomMetricUtilization extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $metric;
+  public $utilizationTarget;
+  public $utilizationTargetType;
+
+
+  public function setMetric($metric)
+  {
+    $this->metric = $metric;
+  }
+  public function getMetric()
+  {
+    return $this->metric;
+  }
+  public function setUtilizationTarget($utilizationTarget)
+  {
+    $this->utilizationTarget = $utilizationTarget;
+  }
+  public function getUtilizationTarget()
+  {
+    return $this->utilizationTarget;
+  }
+  public function setUtilizationTargetType($utilizationTargetType)
+  {
+    $this->utilizationTargetType = $utilizationTargetType;
+  }
+  public function getUtilizationTargetType()
+  {
+    return $this->utilizationTargetType;
+  }
+}
+
+class Google_Service_Compute_AutoscalingPolicyLoadBalancingUtilization extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $utilizationTarget;
+
+
+  public function setUtilizationTarget($utilizationTarget)
+  {
+    $this->utilizationTarget = $utilizationTarget;
+  }
+  public function getUtilizationTarget()
+  {
+    return $this->utilizationTarget;
   }
 }
 
@@ -8782,6 +11040,987 @@ class Google_Service_Compute_InstanceAggregatedListItems extends Google_Model
 {
 }
 
+class Google_Service_Compute_InstanceGroup extends Google_Collection
+{
+  protected $collection_key = 'namedPorts';
+  protected $internal_gapi_mappings = array(
+  );
+  public $creationTimestamp;
+  public $description;
+  public $fingerprint;
+  public $id;
+  public $kind;
+  public $name;
+  protected $namedPortsType = 'Google_Service_Compute_NamedPort';
+  protected $namedPortsDataType = 'array';
+  public $network;
+  public $selfLink;
+  public $size;
+  public $zone;
+
+
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setFingerprint($fingerprint)
+  {
+    $this->fingerprint = $fingerprint;
+  }
+  public function getFingerprint()
+  {
+    return $this->fingerprint;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setNamedPorts($namedPorts)
+  {
+    $this->namedPorts = $namedPorts;
+  }
+  public function getNamedPorts()
+  {
+    return $this->namedPorts;
+  }
+  public function setNetwork($network)
+  {
+    $this->network = $network;
+  }
+  public function getNetwork()
+  {
+    return $this->network;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+  public function setSize($size)
+  {
+    $this->size = $size;
+  }
+  public function getSize()
+  {
+    return $this->size;
+  }
+  public function setZone($zone)
+  {
+    $this->zone = $zone;
+  }
+  public function getZone()
+  {
+    return $this->zone;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupAggregatedList extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_InstanceGroupsScopedList';
+  protected $itemsDataType = 'map';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupAggregatedListItems extends Google_Model
+{
+}
+
+class Google_Service_Compute_InstanceGroupList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_InstanceGroup';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManager extends Google_Collection
+{
+  protected $collection_key = 'targetPools';
+  protected $internal_gapi_mappings = array(
+  );
+  public $baseInstanceName;
+  public $creationTimestamp;
+  protected $currentActionsType = 'Google_Service_Compute_InstanceGroupManagerActionsSummary';
+  protected $currentActionsDataType = '';
+  public $description;
+  public $fingerprint;
+  public $id;
+  public $instanceGroup;
+  public $instanceTemplate;
+  public $kind;
+  public $name;
+  public $selfLink;
+  public $targetPools;
+  public $targetSize;
+  public $zone;
+
+
+  public function setBaseInstanceName($baseInstanceName)
+  {
+    $this->baseInstanceName = $baseInstanceName;
+  }
+  public function getBaseInstanceName()
+  {
+    return $this->baseInstanceName;
+  }
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+  public function setCurrentActions(Google_Service_Compute_InstanceGroupManagerActionsSummary $currentActions)
+  {
+    $this->currentActions = $currentActions;
+  }
+  public function getCurrentActions()
+  {
+    return $this->currentActions;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setFingerprint($fingerprint)
+  {
+    $this->fingerprint = $fingerprint;
+  }
+  public function getFingerprint()
+  {
+    return $this->fingerprint;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setInstanceGroup($instanceGroup)
+  {
+    $this->instanceGroup = $instanceGroup;
+  }
+  public function getInstanceGroup()
+  {
+    return $this->instanceGroup;
+  }
+  public function setInstanceTemplate($instanceTemplate)
+  {
+    $this->instanceTemplate = $instanceTemplate;
+  }
+  public function getInstanceTemplate()
+  {
+    return $this->instanceTemplate;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+  public function setTargetPools($targetPools)
+  {
+    $this->targetPools = $targetPools;
+  }
+  public function getTargetPools()
+  {
+    return $this->targetPools;
+  }
+  public function setTargetSize($targetSize)
+  {
+    $this->targetSize = $targetSize;
+  }
+  public function getTargetSize()
+  {
+    return $this->targetSize;
+  }
+  public function setZone($zone)
+  {
+    $this->zone = $zone;
+  }
+  public function getZone()
+  {
+    return $this->zone;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManagerActionsSummary extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $abandoning;
+  public $creating;
+  public $deleting;
+  public $none;
+  public $recreating;
+  public $refreshing;
+  public $restarting;
+
+
+  public function setAbandoning($abandoning)
+  {
+    $this->abandoning = $abandoning;
+  }
+  public function getAbandoning()
+  {
+    return $this->abandoning;
+  }
+  public function setCreating($creating)
+  {
+    $this->creating = $creating;
+  }
+  public function getCreating()
+  {
+    return $this->creating;
+  }
+  public function setDeleting($deleting)
+  {
+    $this->deleting = $deleting;
+  }
+  public function getDeleting()
+  {
+    return $this->deleting;
+  }
+  public function setNone($none)
+  {
+    $this->none = $none;
+  }
+  public function getNone()
+  {
+    return $this->none;
+  }
+  public function setRecreating($recreating)
+  {
+    $this->recreating = $recreating;
+  }
+  public function getRecreating()
+  {
+    return $this->recreating;
+  }
+  public function setRefreshing($refreshing)
+  {
+    $this->refreshing = $refreshing;
+  }
+  public function getRefreshing()
+  {
+    return $this->refreshing;
+  }
+  public function setRestarting($restarting)
+  {
+    $this->restarting = $restarting;
+  }
+  public function getRestarting()
+  {
+    return $this->restarting;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManagerAggregatedList extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_InstanceGroupManagersScopedList';
+  protected $itemsDataType = 'map';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManagerAggregatedListItems extends Google_Model
+{
+}
+
+class Google_Service_Compute_InstanceGroupManagerList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_InstanceGroupManager';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManagersAbandonInstancesRequest extends Google_Collection
+{
+  protected $collection_key = 'instances';
+  protected $internal_gapi_mappings = array(
+  );
+  public $instances;
+
+
+  public function setInstances($instances)
+  {
+    $this->instances = $instances;
+  }
+  public function getInstances()
+  {
+    return $this->instances;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManagersDeleteInstancesRequest extends Google_Collection
+{
+  protected $collection_key = 'instances';
+  protected $internal_gapi_mappings = array(
+  );
+  public $instances;
+
+
+  public function setInstances($instances)
+  {
+    $this->instances = $instances;
+  }
+  public function getInstances()
+  {
+    return $this->instances;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManagersListManagedInstancesResponse extends Google_Collection
+{
+  protected $collection_key = 'managedInstances';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $managedInstancesType = 'Google_Service_Compute_ManagedInstance';
+  protected $managedInstancesDataType = 'array';
+
+
+  public function setManagedInstances($managedInstances)
+  {
+    $this->managedInstances = $managedInstances;
+  }
+  public function getManagedInstances()
+  {
+    return $this->managedInstances;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManagersRecreateInstancesRequest extends Google_Collection
+{
+  protected $collection_key = 'instances';
+  protected $internal_gapi_mappings = array(
+  );
+  public $instances;
+
+
+  public function setInstances($instances)
+  {
+    $this->instances = $instances;
+  }
+  public function getInstances()
+  {
+    return $this->instances;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManagersScopedList extends Google_Collection
+{
+  protected $collection_key = 'instanceGroupManagers';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $instanceGroupManagersType = 'Google_Service_Compute_InstanceGroupManager';
+  protected $instanceGroupManagersDataType = 'array';
+  protected $warningType = 'Google_Service_Compute_InstanceGroupManagersScopedListWarning';
+  protected $warningDataType = '';
+
+
+  public function setInstanceGroupManagers($instanceGroupManagers)
+  {
+    $this->instanceGroupManagers = $instanceGroupManagers;
+  }
+  public function getInstanceGroupManagers()
+  {
+    return $this->instanceGroupManagers;
+  }
+  public function setWarning(Google_Service_Compute_InstanceGroupManagersScopedListWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+  public function getWarning()
+  {
+    return $this->warning;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManagersScopedListWarning extends Google_Collection
+{
+  protected $collection_key = 'data';
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  protected $dataType = 'Google_Service_Compute_InstanceGroupManagersScopedListWarningData';
+  protected $dataDataType = 'array';
+  public $message;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setData($data)
+  {
+    $this->data = $data;
+  }
+  public function getData()
+  {
+    return $this->data;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManagersScopedListWarningData extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $key;
+  public $value;
+
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+  public function getKey()
+  {
+    return $this->key;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManagersSetInstanceTemplateRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $instanceTemplate;
+
+
+  public function setInstanceTemplate($instanceTemplate)
+  {
+    $this->instanceTemplate = $instanceTemplate;
+  }
+  public function getInstanceTemplate()
+  {
+    return $this->instanceTemplate;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupManagersSetTargetPoolsRequest extends Google_Collection
+{
+  protected $collection_key = 'targetPools';
+  protected $internal_gapi_mappings = array(
+  );
+  public $fingerprint;
+  public $targetPools;
+
+
+  public function setFingerprint($fingerprint)
+  {
+    $this->fingerprint = $fingerprint;
+  }
+  public function getFingerprint()
+  {
+    return $this->fingerprint;
+  }
+  public function setTargetPools($targetPools)
+  {
+    $this->targetPools = $targetPools;
+  }
+  public function getTargetPools()
+  {
+    return $this->targetPools;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupsAddInstancesRequest extends Google_Collection
+{
+  protected $collection_key = 'instances';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $instancesType = 'Google_Service_Compute_InstanceReference';
+  protected $instancesDataType = 'array';
+
+
+  public function setInstances($instances)
+  {
+    $this->instances = $instances;
+  }
+  public function getInstances()
+  {
+    return $this->instances;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupsListInstances extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_InstanceWithNamedPorts';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupsListInstancesRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $instanceState;
+
+
+  public function setInstanceState($instanceState)
+  {
+    $this->instanceState = $instanceState;
+  }
+  public function getInstanceState()
+  {
+    return $this->instanceState;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupsRemoveInstancesRequest extends Google_Collection
+{
+  protected $collection_key = 'instances';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $instancesType = 'Google_Service_Compute_InstanceReference';
+  protected $instancesDataType = 'array';
+
+
+  public function setInstances($instances)
+  {
+    $this->instances = $instances;
+  }
+  public function getInstances()
+  {
+    return $this->instances;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupsScopedList extends Google_Collection
+{
+  protected $collection_key = 'instanceGroups';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $instanceGroupsType = 'Google_Service_Compute_InstanceGroup';
+  protected $instanceGroupsDataType = 'array';
+  protected $warningType = 'Google_Service_Compute_InstanceGroupsScopedListWarning';
+  protected $warningDataType = '';
+
+
+  public function setInstanceGroups($instanceGroups)
+  {
+    $this->instanceGroups = $instanceGroups;
+  }
+  public function getInstanceGroups()
+  {
+    return $this->instanceGroups;
+  }
+  public function setWarning(Google_Service_Compute_InstanceGroupsScopedListWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+  public function getWarning()
+  {
+    return $this->warning;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupsScopedListWarning extends Google_Collection
+{
+  protected $collection_key = 'data';
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  protected $dataType = 'Google_Service_Compute_InstanceGroupsScopedListWarningData';
+  protected $dataDataType = 'array';
+  public $message;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setData($data)
+  {
+    $this->data = $data;
+  }
+  public function getData()
+  {
+    return $this->data;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupsScopedListWarningData extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $key;
+  public $value;
+
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+  public function getKey()
+  {
+    return $this->key;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
+class Google_Service_Compute_InstanceGroupsSetNamedPortsRequest extends Google_Collection
+{
+  protected $collection_key = 'namedPorts';
+  protected $internal_gapi_mappings = array(
+  );
+  public $fingerprint;
+  protected $namedPortsType = 'Google_Service_Compute_NamedPort';
+  protected $namedPortsDataType = 'array';
+
+
+  public function setFingerprint($fingerprint)
+  {
+    $this->fingerprint = $fingerprint;
+  }
+  public function getFingerprint()
+  {
+    return $this->fingerprint;
+  }
+  public function setNamedPorts($namedPorts)
+  {
+    $this->namedPorts = $namedPorts;
+  }
+  public function getNamedPorts()
+  {
+    return $this->namedPorts;
+  }
+}
+
 class Google_Service_Compute_InstanceList extends Google_Collection
 {
   protected $collection_key = 'items';
@@ -9100,6 +12339,43 @@ class Google_Service_Compute_InstanceTemplateList extends Google_Collection
   public function getSelfLink()
   {
     return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_InstanceWithNamedPorts extends Google_Collection
+{
+  protected $collection_key = 'namedPorts';
+  protected $internal_gapi_mappings = array(
+  );
+  public $instance;
+  protected $namedPortsType = 'Google_Service_Compute_NamedPort';
+  protected $namedPortsDataType = 'array';
+  public $status;
+
+
+  public function setInstance($instance)
+  {
+    $this->instance = $instance;
+  }
+  public function getInstance()
+  {
+    return $this->instance;
+  }
+  public function setNamedPorts($namedPorts)
+  {
+    $this->namedPorts = $namedPorts;
+  }
+  public function getNamedPorts()
+  {
+    return $this->namedPorts;
+  }
+  public function setStatus($status)
+  {
+    $this->status = $status;
+  }
+  public function getStatus()
+  {
+    return $this->status;
   }
 }
 
@@ -9598,6 +12874,132 @@ class Google_Service_Compute_MachineTypesScopedListWarningData extends Google_Mo
   }
 }
 
+class Google_Service_Compute_ManagedInstance extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $currentAction;
+  public $id;
+  public $instance;
+  public $instanceStatus;
+  protected $lastAttemptType = 'Google_Service_Compute_ManagedInstanceLastAttempt';
+  protected $lastAttemptDataType = '';
+
+
+  public function setCurrentAction($currentAction)
+  {
+    $this->currentAction = $currentAction;
+  }
+  public function getCurrentAction()
+  {
+    return $this->currentAction;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setInstance($instance)
+  {
+    $this->instance = $instance;
+  }
+  public function getInstance()
+  {
+    return $this->instance;
+  }
+  public function setInstanceStatus($instanceStatus)
+  {
+    $this->instanceStatus = $instanceStatus;
+  }
+  public function getInstanceStatus()
+  {
+    return $this->instanceStatus;
+  }
+  public function setLastAttempt(Google_Service_Compute_ManagedInstanceLastAttempt $lastAttempt)
+  {
+    $this->lastAttempt = $lastAttempt;
+  }
+  public function getLastAttempt()
+  {
+    return $this->lastAttempt;
+  }
+}
+
+class Google_Service_Compute_ManagedInstanceLastAttempt extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $errorsType = 'Google_Service_Compute_ManagedInstanceLastAttemptErrors';
+  protected $errorsDataType = '';
+
+
+  public function setErrors(Google_Service_Compute_ManagedInstanceLastAttemptErrors $errors)
+  {
+    $this->errors = $errors;
+  }
+  public function getErrors()
+  {
+    return $this->errors;
+  }
+}
+
+class Google_Service_Compute_ManagedInstanceLastAttemptErrors extends Google_Collection
+{
+  protected $collection_key = 'errors';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $errorsType = 'Google_Service_Compute_ManagedInstanceLastAttemptErrorsErrors';
+  protected $errorsDataType = 'array';
+
+
+  public function setErrors($errors)
+  {
+    $this->errors = $errors;
+  }
+  public function getErrors()
+  {
+    return $this->errors;
+  }
+}
+
+class Google_Service_Compute_ManagedInstanceLastAttemptErrorsErrors extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  public $location;
+  public $message;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setLocation($location)
+  {
+    $this->location = $location;
+  }
+  public function getLocation()
+  {
+    return $this->location;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
 class Google_Service_Compute_Metadata extends Google_Collection
 {
   protected $collection_key = 'items';
@@ -9658,6 +13060,32 @@ class Google_Service_Compute_MetadataItems extends Google_Model
   public function getValue()
   {
     return $this->value;
+  }
+}
+
+class Google_Service_Compute_NamedPort extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $name;
+  public $port;
+
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setPort($port)
+  {
+    $this->port = $port;
+  }
+  public function getPort()
+  {
+    return $this->port;
   }
 }
 
@@ -10456,6 +13884,7 @@ class Google_Service_Compute_Project extends Google_Collection
   protected $commonInstanceMetadataDataType = '';
   public $creationTimestamp;
   public $description;
+  public $enabledFeatures;
   public $id;
   public $kind;
   public $name;
@@ -10489,6 +13918,14 @@ class Google_Service_Compute_Project extends Google_Collection
   public function getDescription()
   {
     return $this->description;
+  }
+  public function setEnabledFeatures($enabledFeatures)
+  {
+    $this->enabledFeatures = $enabledFeatures;
+  }
+  public function getEnabledFeatures()
+  {
+    return $this->enabledFeatures;
   }
   public function setId($id)
   {
@@ -12880,16 +16317,14 @@ class Google_Service_Compute_UsageExportLocation extends Google_Model
   }
 }
 
-class Google_Service_Compute_VpnTunnel extends Google_Collection
+class Google_Service_Compute_VpnTunnel extends Google_Model
 {
-  protected $collection_key = 'ikeNetworks';
   protected $internal_gapi_mappings = array(
   );
   public $creationTimestamp;
   public $description;
   public $detailedStatus;
   public $id;
-  public $ikeNetworks;
   public $ikeVersion;
   public $kind;
   public $name;
@@ -12933,14 +16368,6 @@ class Google_Service_Compute_VpnTunnel extends Google_Collection
   public function getId()
   {
     return $this->id;
-  }
-  public function setIkeNetworks($ikeNetworks)
-  {
-    $this->ikeNetworks = $ikeNetworks;
-  }
-  public function getIkeNetworks()
-  {
-    return $this->ikeNetworks;
   }
   public function setIkeVersion($ikeVersion)
   {

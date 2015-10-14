@@ -296,11 +296,20 @@ class Google_Service_DoubleClickBidManager_DownloadLineItemsRequest extends Goog
   protected $collection_key = 'filterIds';
   protected $internal_gapi_mappings = array(
   );
+  public $fileSpec;
   public $filterIds;
   public $filterType;
   public $format;
 
 
+  public function setFileSpec($fileSpec)
+  {
+    $this->fileSpec = $fileSpec;
+  }
+  public function getFileSpec()
+  {
+    return $this->fileSpec;
+  }
   public function setFilterIds($filterIds)
   {
     $this->filterIds = $filterIds;

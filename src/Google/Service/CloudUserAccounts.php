@@ -33,18 +33,15 @@ class Google_Service_CloudUserAccounts extends Google_Service
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
+  /** View your data across Google Cloud Platform services. */
+  const CLOUD_PLATFORM_READ_ONLY =
+      "https://www.googleapis.com/auth/cloud-platform.read-only";
   /** Manage your Google Cloud User Accounts. */
   const CLOUD_USERACCOUNTS =
       "https://www.googleapis.com/auth/cloud.useraccounts";
   /** View your Google Cloud User Accounts. */
   const CLOUD_USERACCOUNTS_READONLY =
       "https://www.googleapis.com/auth/cloud.useraccounts.readonly";
-  /** Manage your Google Compute Accounts. */
-  const COMPUTEACCOUNTS =
-      "https://www.googleapis.com/auth/computeaccounts";
-  /** View your Google Compute Accounts. */
-  const COMPUTEACCOUNTS_READONLY =
-      "https://www.googleapis.com/auth/computeaccounts.readonly";
 
   public $globalAccountsOperations;
   public $groups;
@@ -182,6 +179,21 @@ class Google_Service_CloudUserAccounts extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'getIamPolicy' => array(
+              'path' => '{project}/global/groups/{resource}/getIamPolicy',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'insert' => array(
               'path' => '{project}/global/groups',
               'httpMethod' => 'POST',
@@ -233,6 +245,36 @@ class Google_Service_CloudUserAccounts extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'setIamPolicy' => array(
+              'path' => '{project}/global/groups/{resource}/setIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => '{project}/global/groups/{resource}/testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )
@@ -267,6 +309,10 @@ class Google_Service_CloudUserAccounts extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'login' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
             ),'getLinuxAccountViews' => array(
               'path' => '{project}/zones/{zone}/linuxAccountViews',
@@ -300,10 +346,6 @@ class Google_Service_CloudUserAccounts extends Google_Service
                   'type' => 'integer',
                 ),
                 'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'user' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -358,6 +400,21 @@ class Google_Service_CloudUserAccounts extends Google_Service
                   'required' => true,
                 ),
                 'user' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'getIamPolicy' => array(
+              'path' => '{project}/global/users/{resource}/getIamPolicy',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resource' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -419,6 +476,36 @@ class Google_Service_CloudUserAccounts extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),'setIamPolicy' => array(
+              'path' => '{project}/global/users/{resource}/setIamPolicy',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => '{project}/global/users/{resource}/testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )
@@ -475,20 +562,18 @@ class Google_Service_CloudUserAccounts_GlobalAccountsOperations_Resource extends
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
-   * resources, in the form filter={expression}. Your {expression} must contain
-   * the following: FIELD_NAME COMPARISON_STRING LITERAL_STRING   - FIELD_NAME:
-   * The name of the field you want to compare. The field name must be valid for
-   * the type of resource being filtered. Only atomic field types are supported
-   * (string, number, boolean). Array and object fields are not currently
-   * supported.  - COMPARISON_STRING: The comparison string, either eq (equals) or
-   * ne (not equals).  - LITERAL_STRING: The literal string value to filter to.
-   * The literal value must be valid for the type of field (string, number,
-   * boolean). For string fields, the literal value is interpreted as a regular
-   * expression using RE2 syntax. The literal value must match the entire field.
-   * For example, you can filter by the name of a resource: filter=name ne
-   * example-instance The above filter returns only results whose name field does
-   * not equal example-instance. You can also enclose your literal string in
-   * single, double, or no quotes.
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -571,6 +656,22 @@ class Google_Service_CloudUserAccounts_Groups_Resource extends Google_Service_Re
   }
 
   /**
+   * Gets the access control policy for a resource. May be empty if no such policy
+   * or resource exists. (groups.getIamPolicy)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $resource Name of the resource for this request.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_CloudUserAccounts_Policy
+   */
+  public function getIamPolicy($project, $resource, $optParams = array())
+  {
+    $params = array('project' => $project, 'resource' => $resource);
+    $params = array_merge($params, $optParams);
+    return $this->call('getIamPolicy', array($params), "Google_Service_CloudUserAccounts_Policy");
+  }
+
+  /**
    * Creates a Group resource in the specified project using the data included in
    * the request. (groups.insert)
    *
@@ -594,20 +695,18 @@ class Google_Service_CloudUserAccounts_Groups_Resource extends Google_Service_Re
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
-   * resources, in the form filter={expression}. Your {expression} must contain
-   * the following: FIELD_NAME COMPARISON_STRING LITERAL_STRING   - FIELD_NAME:
-   * The name of the field you want to compare. The field name must be valid for
-   * the type of resource being filtered. Only atomic field types are supported
-   * (string, number, boolean). Array and object fields are not currently
-   * supported.  - COMPARISON_STRING: The comparison string, either eq (equals) or
-   * ne (not equals).  - LITERAL_STRING: The literal string value to filter to.
-   * The literal value must be valid for the type of field (string, number,
-   * boolean). For string fields, the literal value is interpreted as a regular
-   * expression using RE2 syntax. The literal value must match the entire field.
-   * For example, you can filter by the name of a resource: filter=name ne
-   * example-instance The above filter returns only results whose name field does
-   * not equal example-instance. You can also enclose your literal string in
-   * single, double, or no quotes.
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -646,6 +745,40 @@ class Google_Service_CloudUserAccounts_Groups_Resource extends Google_Service_Re
     $params = array_merge($params, $optParams);
     return $this->call('removeMember', array($params), "Google_Service_CloudUserAccounts_Operation");
   }
+
+  /**
+   * Sets the access control policy on the specified resource. Replaces any
+   * existing policy. (groups.setIamPolicy)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $resource Name of the resource for this request.
+   * @param Google_Policy $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_CloudUserAccounts_Policy
+   */
+  public function setIamPolicy($project, $resource, Google_Service_CloudUserAccounts_Policy $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'resource' => $resource, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setIamPolicy', array($params), "Google_Service_CloudUserAccounts_Policy");
+  }
+
+  /**
+   * Returns permissions that a caller has on the specified resource.
+   * (groups.testIamPermissions)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $resource Name of the resource for this request.
+   * @param Google_TestPermissionsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_CloudUserAccounts_TestPermissionsResponse
+   */
+  public function testIamPermissions($project, $resource, Google_Service_CloudUserAccounts_TestPermissionsRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'resource' => $resource, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('testIamPermissions', array($params), "Google_Service_CloudUserAccounts_TestPermissionsResponse");
+  }
 }
 
 /**
@@ -670,6 +803,9 @@ class Google_Service_CloudUserAccounts_Linux_Resource extends Google_Service_Res
    * @param string $instance The fully-qualified URL of the virtual machine
    * requesting the view.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param bool login Whether the view was requested as part of a user-
+   * initiated login.
    * @return Google_Service_CloudUserAccounts_LinuxGetAuthorizedKeysViewResponse
    */
   public function getAuthorizedKeysView($project, $zone, $user, $instance, $optParams = array())
@@ -704,22 +840,18 @@ class Google_Service_CloudUserAccounts_Linux_Resource extends Google_Service_Res
    * nextPageToken returned by a previous list request.
    * @opt_param string maxResults Maximum count of results to be returned.
    * @opt_param string filter Sets a filter expression for filtering listed
-   * resources, in the form filter={expression}. Your {expression} must contain
-   * the following: FIELD_NAME COMPARISON_STRING LITERAL_STRING   - FIELD_NAME:
-   * The name of the field you want to compare. The field name must be valid for
-   * the type of resource being filtered. Only atomic field types are supported
-   * (string, number, boolean). Array and object fields are not currently
-   * supported.  - COMPARISON_STRING: The comparison string, either eq (equals) or
-   * ne (not equals).  - LITERAL_STRING: The literal string value to filter to.
-   * The literal value must be valid for the type of field (string, number,
-   * boolean). For string fields, the literal value is interpreted as a regular
-   * expression using RE2 syntax. The literal value must match the entire field.
-   * For example, you can filter by the name of a resource: filter=name ne
-   * example-instance The above filter returns only results whose name field does
-   * not equal example-instance. You can also enclose your literal string in
-   * single, double, or no quotes.
-   * @opt_param string user If provided, the user requesting the views. If left
-   * blank, the system is requesting the views, instead of a particular user.
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
    * @return Google_Service_CloudUserAccounts_LinuxGetLinuxAccountViewsResponse
    */
   public function getLinuxAccountViews($project, $zone, $instance, $optParams = array())
@@ -789,6 +921,22 @@ class Google_Service_CloudUserAccounts_Users_Resource extends Google_Service_Res
   }
 
   /**
+   * Gets the access control policy for a resource. May be empty if no such policy
+   * or resource exists. (users.getIamPolicy)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $resource Name of the resource for this request.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_CloudUserAccounts_Policy
+   */
+  public function getIamPolicy($project, $resource, $optParams = array())
+  {
+    $params = array('project' => $project, 'resource' => $resource);
+    $params = array_merge($params, $optParams);
+    return $this->call('getIamPolicy', array($params), "Google_Service_CloudUserAccounts_Policy");
+  }
+
+  /**
    * Creates a User resource in the specified project using the data included in
    * the request. (users.insert)
    *
@@ -812,20 +960,18 @@ class Google_Service_CloudUserAccounts_Users_Resource extends Google_Service_Res
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
-   * resources, in the form filter={expression}. Your {expression} must contain
-   * the following: FIELD_NAME COMPARISON_STRING LITERAL_STRING   - FIELD_NAME:
-   * The name of the field you want to compare. The field name must be valid for
-   * the type of resource being filtered. Only atomic field types are supported
-   * (string, number, boolean). Array and object fields are not currently
-   * supported.  - COMPARISON_STRING: The comparison string, either eq (equals) or
-   * ne (not equals).  - LITERAL_STRING: The literal string value to filter to.
-   * The literal value must be valid for the type of field (string, number,
-   * boolean). For string fields, the literal value is interpreted as a regular
-   * expression using RE2 syntax. The literal value must match the entire field.
-   * For example, you can filter by the name of a resource: filter=name ne
-   * example-instance The above filter returns only results whose name field does
-   * not equal example-instance. You can also enclose your literal string in
-   * single, double, or no quotes.
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -866,6 +1012,40 @@ class Google_Service_CloudUserAccounts_Users_Resource extends Google_Service_Res
     $params = array_merge($params, $optParams);
     return $this->call('removePublicKey', array($params), "Google_Service_CloudUserAccounts_Operation");
   }
+
+  /**
+   * Sets the access control policy on the specified resource. Replaces any
+   * existing policy. (users.setIamPolicy)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $resource Name of the resource for this request.
+   * @param Google_Policy $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_CloudUserAccounts_Policy
+   */
+  public function setIamPolicy($project, $resource, Google_Service_CloudUserAccounts_Policy $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'resource' => $resource, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setIamPolicy', array($params), "Google_Service_CloudUserAccounts_Policy");
+  }
+
+  /**
+   * Returns permissions that a caller has on the specified resource.
+   * (users.testIamPermissions)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $resource Name of the resource for this request.
+   * @param Google_TestPermissionsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_CloudUserAccounts_TestPermissionsResponse
+   */
+  public function testIamPermissions($project, $resource, Google_Service_CloudUserAccounts_TestPermissionsRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'resource' => $resource, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('testIamPermissions', array($params), "Google_Service_CloudUserAccounts_TestPermissionsResponse");
+  }
 }
 
 
@@ -877,6 +1057,7 @@ class Google_Service_CloudUserAccounts_AuthorizedKeysView extends Google_Collect
   protected $internal_gapi_mappings = array(
   );
   public $keys;
+  public $sudoer;
 
 
   public function setKeys($keys)
@@ -886,6 +1067,104 @@ class Google_Service_CloudUserAccounts_AuthorizedKeysView extends Google_Collect
   public function getKeys()
   {
     return $this->keys;
+  }
+  public function setSudoer($sudoer)
+  {
+    $this->sudoer = $sudoer;
+  }
+  public function getSudoer()
+  {
+    return $this->sudoer;
+  }
+}
+
+class Google_Service_CloudUserAccounts_Binding extends Google_Collection
+{
+  protected $collection_key = 'members';
+  protected $internal_gapi_mappings = array(
+  );
+  public $members;
+  public $role;
+
+
+  public function setMembers($members)
+  {
+    $this->members = $members;
+  }
+  public function getMembers()
+  {
+    return $this->members;
+  }
+  public function setRole($role)
+  {
+    $this->role = $role;
+  }
+  public function getRole()
+  {
+    return $this->role;
+  }
+}
+
+class Google_Service_CloudUserAccounts_Condition extends Google_Collection
+{
+  protected $collection_key = 'values';
+  protected $internal_gapi_mappings = array(
+  );
+  public $iam;
+  public $op;
+  public $svc;
+  public $sys;
+  public $value;
+  public $values;
+
+
+  public function setIam($iam)
+  {
+    $this->iam = $iam;
+  }
+  public function getIam()
+  {
+    return $this->iam;
+  }
+  public function setOp($op)
+  {
+    $this->op = $op;
+  }
+  public function getOp()
+  {
+    return $this->op;
+  }
+  public function setSvc($svc)
+  {
+    $this->svc = $svc;
+  }
+  public function getSvc()
+  {
+    return $this->svc;
+  }
+  public function setSys($sys)
+  {
+    $this->sys = $sys;
+  }
+  public function getSys()
+  {
+    return $this->sys;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
+  }
+  public function setValues($values)
+  {
+    $this->values = $values;
+  }
+  public function getValues()
+  {
+    return $this->values;
   }
 }
 
@@ -1221,6 +1500,50 @@ class Google_Service_CloudUserAccounts_LinuxUserView extends Google_Model
   public function getUsername()
   {
     return $this->username;
+  }
+}
+
+class Google_Service_CloudUserAccounts_LogConfig extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $counterType = 'Google_Service_CloudUserAccounts_LogConfigCounterOptions';
+  protected $counterDataType = '';
+
+
+  public function setCounter(Google_Service_CloudUserAccounts_LogConfigCounterOptions $counter)
+  {
+    $this->counter = $counter;
+  }
+  public function getCounter()
+  {
+    return $this->counter;
+  }
+}
+
+class Google_Service_CloudUserAccounts_LogConfigCounterOptions extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $field;
+  public $metric;
+
+
+  public function setField($field)
+  {
+    $this->field = $field;
+  }
+  public function getField()
+  {
+    return $this->field;
+  }
+  public function setMetric($metric)
+  {
+    $this->metric = $metric;
+  }
+  public function getMetric()
+  {
+    return $this->metric;
   }
 }
 
@@ -1605,6 +1928,53 @@ class Google_Service_CloudUserAccounts_OperationWarningsData extends Google_Mode
   }
 }
 
+class Google_Service_CloudUserAccounts_Policy extends Google_Collection
+{
+  protected $collection_key = 'rules';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $bindingsType = 'Google_Service_CloudUserAccounts_Binding';
+  protected $bindingsDataType = 'array';
+  public $etag;
+  protected $rulesType = 'Google_Service_CloudUserAccounts_Rule';
+  protected $rulesDataType = 'array';
+  public $version;
+
+
+  public function setBindings($bindings)
+  {
+    $this->bindings = $bindings;
+  }
+  public function getBindings()
+  {
+    return $this->bindings;
+  }
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setRules($rules)
+  {
+    $this->rules = $rules;
+  }
+  public function getRules()
+  {
+    return $this->rules;
+  }
+  public function setVersion($version)
+  {
+    $this->version = $version;
+  }
+  public function getVersion()
+  {
+    return $this->version;
+  }
+}
+
 class Google_Service_CloudUserAccounts_PublicKey extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -1655,6 +2025,116 @@ class Google_Service_CloudUserAccounts_PublicKey extends Google_Model
   public function getKey()
   {
     return $this->key;
+  }
+}
+
+class Google_Service_CloudUserAccounts_Rule extends Google_Collection
+{
+  protected $collection_key = 'permissions';
+  protected $internal_gapi_mappings = array(
+  );
+  public $action;
+  protected $conditionsType = 'Google_Service_CloudUserAccounts_Condition';
+  protected $conditionsDataType = 'array';
+  public $description;
+  public $ins;
+  protected $logConfigsType = 'Google_Service_CloudUserAccounts_LogConfig';
+  protected $logConfigsDataType = 'array';
+  public $notIns;
+  public $permissions;
+
+
+  public function setAction($action)
+  {
+    $this->action = $action;
+  }
+  public function getAction()
+  {
+    return $this->action;
+  }
+  public function setConditions($conditions)
+  {
+    $this->conditions = $conditions;
+  }
+  public function getConditions()
+  {
+    return $this->conditions;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setIns($ins)
+  {
+    $this->ins = $ins;
+  }
+  public function getIns()
+  {
+    return $this->ins;
+  }
+  public function setLogConfigs($logConfigs)
+  {
+    $this->logConfigs = $logConfigs;
+  }
+  public function getLogConfigs()
+  {
+    return $this->logConfigs;
+  }
+  public function setNotIns($notIns)
+  {
+    $this->notIns = $notIns;
+  }
+  public function getNotIns()
+  {
+    return $this->notIns;
+  }
+  public function setPermissions($permissions)
+  {
+    $this->permissions = $permissions;
+  }
+  public function getPermissions()
+  {
+    return $this->permissions;
+  }
+}
+
+class Google_Service_CloudUserAccounts_TestPermissionsRequest extends Google_Collection
+{
+  protected $collection_key = 'permissions';
+  protected $internal_gapi_mappings = array(
+  );
+  public $permissions;
+
+
+  public function setPermissions($permissions)
+  {
+    $this->permissions = $permissions;
+  }
+  public function getPermissions()
+  {
+    return $this->permissions;
+  }
+}
+
+class Google_Service_CloudUserAccounts_TestPermissionsResponse extends Google_Collection
+{
+  protected $collection_key = 'permissions';
+  protected $internal_gapi_mappings = array(
+  );
+  public $permissions;
+
+
+  public function setPermissions($permissions)
+  {
+    $this->permissions = $permissions;
+  }
+  public function getPermissions()
+  {
+    return $this->permissions;
   }
 }
 

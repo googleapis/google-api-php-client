@@ -621,7 +621,14 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   public $numberVotingFor;
   public $office;
   public $primaryParty;
+  public $referendumBallotResponses;
+  public $referendumBrief;
+  public $referendumConStatement;
+  public $referendumEffectOfAbstain;
+  public $referendumPassageThreshold;
+  public $referendumProStatement;
   public $referendumSubtitle;
+  public $referendumText;
   public $referendumTitle;
   public $referendumUrl;
   public $roles;
@@ -711,6 +718,54 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   {
     return $this->primaryParty;
   }
+  public function setReferendumBallotResponses($referendumBallotResponses)
+  {
+    $this->referendumBallotResponses = $referendumBallotResponses;
+  }
+  public function getReferendumBallotResponses()
+  {
+    return $this->referendumBallotResponses;
+  }
+  public function setReferendumBrief($referendumBrief)
+  {
+    $this->referendumBrief = $referendumBrief;
+  }
+  public function getReferendumBrief()
+  {
+    return $this->referendumBrief;
+  }
+  public function setReferendumConStatement($referendumConStatement)
+  {
+    $this->referendumConStatement = $referendumConStatement;
+  }
+  public function getReferendumConStatement()
+  {
+    return $this->referendumConStatement;
+  }
+  public function setReferendumEffectOfAbstain($referendumEffectOfAbstain)
+  {
+    $this->referendumEffectOfAbstain = $referendumEffectOfAbstain;
+  }
+  public function getReferendumEffectOfAbstain()
+  {
+    return $this->referendumEffectOfAbstain;
+  }
+  public function setReferendumPassageThreshold($referendumPassageThreshold)
+  {
+    $this->referendumPassageThreshold = $referendumPassageThreshold;
+  }
+  public function getReferendumPassageThreshold()
+  {
+    return $this->referendumPassageThreshold;
+  }
+  public function setReferendumProStatement($referendumProStatement)
+  {
+    $this->referendumProStatement = $referendumProStatement;
+  }
+  public function getReferendumProStatement()
+  {
+    return $this->referendumProStatement;
+  }
   public function setReferendumSubtitle($referendumSubtitle)
   {
     $this->referendumSubtitle = $referendumSubtitle;
@@ -718,6 +773,14 @@ class Google_Service_CivicInfo_Contest extends Google_Collection
   public function getReferendumSubtitle()
   {
     return $this->referendumSubtitle;
+  }
+  public function setReferendumText($referendumText)
+  {
+    $this->referendumText = $referendumText;
+  }
+  public function getReferendumText()
+  {
+    return $this->referendumText;
   }
   public function setReferendumTitle($referendumTitle)
   {
@@ -840,6 +903,7 @@ class Google_Service_CivicInfo_Election extends Google_Model
   public $electionDay;
   public $id;
   public $name;
+  public $ocdDivisionId;
 
 
   public function setElectionDay($electionDay)
@@ -865,6 +929,14 @@ class Google_Service_CivicInfo_Election extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+  public function setOcdDivisionId($ocdDivisionId)
+  {
+    $this->ocdDivisionId = $ocdDivisionId;
+  }
+  public function getOcdDivisionId()
+  {
+    return $this->ocdDivisionId;
   }
 }
 
@@ -1475,6 +1547,7 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   protected $electionType = 'Google_Service_CivicInfo_Election';
   protected $electionDataType = '';
   public $kind;
+  public $mailOnly;
   protected $normalizedInputType = 'Google_Service_CivicInfo_SimpleAddressType';
   protected $normalizedInputDataType = '';
   protected $otherElectionsType = 'Google_Service_CivicInfo_Election';
@@ -1525,6 +1598,14 @@ class Google_Service_CivicInfo_VoterInfoResponse extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setMailOnly($mailOnly)
+  {
+    $this->mailOnly = $mailOnly;
+  }
+  public function getMailOnly()
+  {
+    return $this->mailOnly;
   }
   public function setNormalizedInput(Google_Service_CivicInfo_SimpleAddressType $normalizedInput)
   {

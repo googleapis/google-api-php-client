@@ -35,6 +35,7 @@ class Google_Service_Container extends Google_Service
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
 
+  public $projects_zones;
   public $projects_zones_clusters;
   public $projects_zones_operations;
   
@@ -52,6 +53,31 @@ class Google_Service_Container extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'container';
 
+    $this->projects_zones = new Google_Service_Container_ProjectsZones_Resource(
+        $this,
+        $this->serviceName,
+        'zones',
+        array(
+          'methods' => array(
+            'getServerconfig' => array(
+              'path' => 'v1/projects/{projectId}/zones/{zone}/serverconfig',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->projects_zones_clusters = new Google_Service_Container_ProjectsZonesClusters_Resource(
         $this,
         $this->serviceName,
@@ -223,6 +249,25 @@ class Google_Service_Container_Projects_Resource extends Google_Service_Resource
  */
 class Google_Service_Container_ProjectsZones_Resource extends Google_Service_Resource
 {
+
+  /**
+   * Returns configuration info about the Container Engine service.
+   * (zones.getServerconfig)
+   *
+   * @param string $projectId The Google Developers Console [project ID or project
+   * number](https://developers.google.com/console/help/new/#projectnumber).
+   * @param string $zone The name of the Google Compute Engine
+   * [zone](/compute/docs/zones#available) to return operations for, or "-" for
+   * all zones.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Container_ServerConfig
+   */
+  public function getServerconfig($projectId, $zone, $optParams = array())
+  {
+    $params = array('projectId' => $projectId, 'zone' => $zone);
+    $params = array_merge($params, $optParams);
+    return $this->call('getServerconfig', array($params), "Google_Service_Container_ServerConfig");
+  }
 }
 
 /**
@@ -240,15 +285,14 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
    * Creates a cluster, consisting of the specified number and type of Google
    * Compute Engine instances, plus a Kubernetes master endpoint. By default, the
    * cluster is created in the project's [default
-   * network]('/compute/docs/networking#networks_1'). One firewall is added for
-   * the cluster. After cluster creation, the cluster creates routes for each node
-   * to allow the containers on that node to communicate with all other instances
-   * in the cluster. Finally, an entry is added to the project's global metadata
+   * network](/compute/docs/networking#networks_1). One firewall is added for the
+   * cluster. After cluster creation, the cluster creates routes for each node to
+   * allow the containers on that node to communicate with all other instances in
+   * the cluster. Finally, an entry is added to the project's global metadata
    * indicating which CIDR range is being used by the cluster. (clusters.create)
    *
-   * @param string $projectId The Google Developers Console [project
-   * ID](https://console.developers.google.com/project) or [project
-   * number](https://developers.google.com/console/help/project-number)
+   * @param string $projectId The Google Developers Console [project ID or project
+   * number](https://developers.google.com/console/help/new/#projectnumber).
    * @param string $zone The name of the Google Compute Engine
    * [zone](/compute/docs/zones#available) in which the cluster resides.
    * @param Google_CreateClusterRequest $postBody
@@ -267,9 +311,8 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
    * Firewalls and routes that were configured during cluster creation are also
    * deleted. (clusters.delete)
    *
-   * @param string $projectId The Google Developers Console [project
-   * ID](https://console.developers.google.com/project) or [project
-   * number](https://developers.google.com/console/help/project-number)
+   * @param string $projectId The Google Developers Console [project ID or project
+   * number](https://developers.google.com/console/help/new/#projectnumber).
    * @param string $zone The name of the Google Compute Engine
    * [zone](/compute/docs/zones#available) in which the cluster resides.
    * @param string $clusterId The name of the cluster to delete.
@@ -286,9 +329,8 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
   /**
    * Gets a specific cluster. (clusters.get)
    *
-   * @param string $projectId The Google Developers Console A [project
-   * ID](https://console.developers.google.com/project) or [project
-   * number](https://developers.google.com/console/help/project-number)
+   * @param string $projectId The Google Developers Console [project ID or project
+   * number](https://developers.google.com/console/help/new/#projectnumber).
    * @param string $zone The name of the Google Compute Engine
    * [zone](/compute/docs/zones#available) in which the cluster resides.
    * @param string $clusterId The name of the cluster to retrieve.
@@ -306,9 +348,8 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
    * Lists all clusters owned by a project in either the specified zone or all
    * zones. (clusters.listProjectsZonesClusters)
    *
-   * @param string $projectId The Google Developers Console [project
-   * ID](https://console.developers.google.com/project) or [project
-   * number](https://developers.google.com/console/help/project-number)
+   * @param string $projectId The Google Developers Console [project ID or project
+   * number](https://developers.google.com/console/help/new/#projectnumber).
    * @param string $zone The name of the Google Compute Engine
    * [zone](/compute/docs/zones#available) in which the cluster resides, or "-"
    * for all zones.
@@ -325,9 +366,8 @@ class Google_Service_Container_ProjectsZonesClusters_Resource extends Google_Ser
   /**
    * Update settings of a specific cluster. (clusters.update)
    *
-   * @param string $projectId The Google Developers Console [project
-   * ID](https://console.developers.google.com/project) or [project
-   * number](https://developers.google.com/console/help/project-number)
+   * @param string $projectId The Google Developers Console [project ID or project
+   * number](https://developers.google.com/console/help/new/#projectnumber).
    * @param string $zone The name of the Google Compute Engine
    * [zone](/compute/docs/zones#available) in which the cluster resides.
    * @param string $clusterId The name of the cluster to upgrade.
@@ -356,9 +396,8 @@ class Google_Service_Container_ProjectsZonesOperations_Resource extends Google_S
   /**
    * Gets the specified operation. (operations.get)
    *
-   * @param string $projectId The Google Developers Console [project
-   * ID](https://console.developers.google.com/project) or [project
-   * number](https://developers.google.com/console/help/project-number)
+   * @param string $projectId The Google Developers Console [project ID or project
+   * number](https://developers.google.com/console/help/new/#projectnumber).
    * @param string $zone The name of the Google Compute Engine
    * [zone](/compute/docs/zones#available) in which the cluster resides.
    * @param string $operationId The server-assigned `name` of the operation.
@@ -376,9 +415,8 @@ class Google_Service_Container_ProjectsZonesOperations_Resource extends Google_S
    * Lists all operations in a project in a specific zone or all zones.
    * (operations.listProjectsZonesOperations)
    *
-   * @param string $projectId The Google Developers Console [project
-   * ID](https://console.developers.google.com/project) or [project
-   * number](https://developers.google.com/console/help/project-number)
+   * @param string $projectId The Google Developers Console [project ID or project
+   * number](https://developers.google.com/console/help/new/#projectnumber).
    * @param string $zone The name of the Google Compute Engine
    * [zone](/compute/docs/zones#available) to return operations for, or "-" for
    * all zones.
@@ -826,6 +864,33 @@ class Google_Service_Container_Operation extends Google_Model
   public function getZone()
   {
     return $this->zone;
+  }
+}
+
+class Google_Service_Container_ServerConfig extends Google_Collection
+{
+  protected $collection_key = 'validNodeVersions';
+  protected $internal_gapi_mappings = array(
+  );
+  public $defaultClusterVersion;
+  public $validNodeVersions;
+
+
+  public function setDefaultClusterVersion($defaultClusterVersion)
+  {
+    $this->defaultClusterVersion = $defaultClusterVersion;
+  }
+  public function getDefaultClusterVersion()
+  {
+    return $this->defaultClusterVersion;
+  }
+  public function setValidNodeVersions($validNodeVersions)
+  {
+    $this->validNodeVersions = $validNodeVersions;
+  }
+  public function getValidNodeVersions()
+  {
+    return $this->validNodeVersions;
   }
 }
 
