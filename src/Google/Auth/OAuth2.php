@@ -32,6 +32,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
   const AUTH_TOKEN_LIFETIME_SECS = 300; // five minutes in seconds
   const MAX_TOKEN_LIFETIME_SECS = 86400; // one day in seconds
   const OAUTH2_ISSUER = 'accounts.google.com';
+  const OAUTH2_ISSUER_HTTPS = 'https://accounts.google.com';
 
   /** @var Google_Auth_AssertionCredentials $assertionCredentials */
   private $assertionCredentials;
@@ -488,7 +489,12 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       $audience = $this->client->getClassConfig($this, 'client_id');
     }
 
-    return $this->verifySignedJwtWithCerts($id_token, $certs, $audience, self::OAUTH2_ISSUER);
+    return $this->verifySignedJwtWithCerts(
+        $id_token,
+        $certs,
+        $audience,
+        array(self::OAUTH2_ISSUER, self::OAUTH2_ISSUER_HTTPS)
+    );
   }
 
   /**
@@ -595,13 +601,15 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       );
     }
 
+    // support HTTP and HTTPS issuers
+    // @see https://developers.google.com/identity/sign-in/web/backend-auth
     $iss = $payload['iss'];
-    if ($issuer && $iss != $issuer) {
+    if ($issuer && !in_array($iss, (array) $issuer)) {
       throw new Google_Auth_Exception(
           sprintf(
-              "Invalid issuer, %s != %s: %s",
+              "Invalid issuer, %s not in %s: %s",
               $iss,
-              $issuer,
+              "[".implode(",", $issuers)."]",
               $json_body
           )
       );
