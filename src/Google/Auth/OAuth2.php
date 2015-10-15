@@ -515,11 +515,6 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       $issuer = null,
       $max_expiry = null
   ) {
-    // accept multiple issuers with array.
-    $issuers = null;
-    if ($issuer) {
-      $issuers = is_array($issuer) ? $issuer : array($issuer);
-    }
     if (!$max_expiry) {
       // Set the maximum time we will accept a token for.
       $max_expiry = self::MAX_TOKEN_LIFETIME_SECS;
@@ -607,7 +602,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
     }
 
     $iss = $payload['iss'];
-    if ($issuers && !in_array($iss, $issuers)) {
+    if ($issuer && !in_array($iss, (array) $issuer)) {
       throw new Google_Auth_Exception(
           sprintf(
               "Invalid issuer, %s not in %s: %s",
