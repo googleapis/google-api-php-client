@@ -32,7 +32,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
   const AUTH_TOKEN_LIFETIME_SECS = 300; // five minutes in seconds
   const MAX_TOKEN_LIFETIME_SECS = 86400; // one day in seconds
   const OAUTH2_ISSUER = 'accounts.google.com';
-  const HTTPS_OAUTH2_ISSUER = 'https://accounts.google.com';
+  const OAUTH2_ISSUER_HTTPS = 'https://accounts.google.com';
 
   /** @var Google_Auth_AssertionCredentials $assertionCredentials */
   private $assertionCredentials;
@@ -493,7 +493,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
         $id_token,
         $certs,
         $audience,
-        array(self::OAUTH2_ISSUER, self::HTTPS_OAUTH2_ISSUER)
+        array(self::OAUTH2_ISSUER, self::OAUTH2_ISSUER_HTTPS)
     );
   }
 
@@ -601,6 +601,8 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
       );
     }
 
+    // support HTTP and HTTPS issuers
+    // @see https://developers.google.com/identity/sign-in/web/backend-auth
     $iss = $payload['iss'];
     if ($issuer && !in_array($iss, (array) $issuer)) {
       throw new Google_Auth_Exception(
