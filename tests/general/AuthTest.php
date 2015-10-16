@@ -178,7 +178,7 @@ PK;
       $id_token,
       $certs,
       "client_id",
-      ['system.gserviceaccount.com', 'https://system.gserviceaccount.com']
+      array('system.gserviceaccount.com', 'https://system.gserviceaccount.com')
     );
     $this->assertEquals(self::USER_ID, $ticket->getUserId());
     // Check that payload and envelope got filled in.
@@ -199,7 +199,7 @@ PK;
         )
     );
 
-    $issuers = ['system.gserviceaccount.com', 'https://system.gserviceaccount.com'];
+    $issuers = array('system.gserviceaccount.com', 'https://system.gserviceaccount.com');
     $this->checkIdTokenFailure($id_token, 'Invalid issuer', $issuers[0]);
     $this->checkIdTokenFailure($id_token, 'Invalid issuer', $issuers);
   }
