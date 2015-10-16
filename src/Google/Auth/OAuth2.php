@@ -609,7 +609,7 @@ class Google_Auth_OAuth2 extends Google_Auth_Abstract
           sprintf(
               "Invalid issuer, %s not in %s: %s",
               $iss,
-              "[".implode(",", $issuers)."]",
+              "[".implode(",", (array) $issuer)."]",
               $json_body
           )
       );

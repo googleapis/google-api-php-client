@@ -149,16 +149,59 @@ PK;
   }
 
   // Checks that the id token fails to verify with the expected message.
-  private function checkIdTokenFailure($id_token, $msg)
+  private function checkIdTokenFailure($id_token, $msg, $issuer = null)
   {
     $certs = $this->getSignonCerts();
     $oauth2 = new Google_Auth_OAuth2($this->getClient());
     try {
-      $oauth2->verifySignedJwtWithCerts($id_token, $certs, "client_id");
+      $oauth2->verifySignedJwtWithCerts($id_token, $certs, "client_id", $issuer);
       $this->fail("Should have thrown for $id_token");
     } catch (Google_Auth_Exception $e) {
       $this->assertContains($msg, $e->getMessage());
     }
+  }
+
+  public function testVerifySignedJwtWithMultipleIssuers()
+  {
+    $id_token = $this->makeSignedJwt(
+        array(
+          "iss" => "system.gserviceaccount.com",
+          "aud" => "client_id",
+          "sub" => self::USER_ID,
+          "iat" => time(),
+          "exp" => time() + 3600
+        )
+    );
+    $certs = $this->getSignonCerts();
+    $oauth2 = new Google_Auth_OAuth2($this->getClient());
+    $ticket = $oauth2->verifySignedJwtWithCerts(
+      $id_token,
+      $certs,
+      "client_id",
+      ['system.gserviceaccount.com', 'https://system.gserviceaccount.com']
+    );
+    $this->assertEquals(self::USER_ID, $ticket->getUserId());
+    // Check that payload and envelope got filled in.
+    $attributes = $ticket->getAttributes();
+    $this->assertEquals("JWT", $attributes["envelope"]["typ"]);
+    $this->assertEquals("client_id", $attributes["payload"]["aud"]);
+  }
+
+  public function testVerifySignedJwtWithBadIssuer()
+  {
+    $id_token = $this->makeSignedJwt(
+        array(
+          "iss" => "fake.gserviceaccount.com",
+          "aud" => "client_id",
+          "sub" => self::USER_ID,
+          "iat" => time(),
+          "exp" => time() + 3600
+        )
+    );
+
+    $issuers = ['system.gserviceaccount.com', 'https://system.gserviceaccount.com'];
+    $this->checkIdTokenFailure($id_token, 'Invalid issuer', $issuers[0]);
+    $this->checkIdTokenFailure($id_token, 'Invalid issuer', $issuers);
   }
 
   public function testVerifySignedJwtWithBadJwt()
