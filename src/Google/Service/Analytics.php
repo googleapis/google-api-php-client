@@ -1753,7 +1753,7 @@ class Google_Service_Analytics extends Google_Service
           )
         )
     );
-    $this->management_webproperties = new Google_Service_Analytics_ManagementWebproperties_Resource(
+    $this->management_webproperties = new Google_Service_Analytics_ManagementWebProperties_Resource(
         $this,
         $this->serviceName,
         'webproperties',
@@ -1836,7 +1836,7 @@ class Google_Service_Analytics extends Google_Service
           )
         )
     );
-    $this->management_webpropertyUserLinks = new Google_Service_Analytics_ManagementWebpropertyUserLinks_Resource(
+    $this->management_webpropertyUserLinks = new Google_Service_Analytics_ManagementWebPropertyUserLinks_Resource(
         $this,
         $this->serviceName,
         'webpropertyUserLinks',
@@ -3527,7 +3527,7 @@ class Google_Service_Analytics_ManagementWebPropertyAdWordsLinks_Resource extend
  *   $webproperties = $analyticsService->webproperties;
  *  </code>
  */
-class Google_Service_Analytics_ManagementWebproperties_Resource extends Google_Service_Resource
+class Google_Service_Analytics_ManagementWebProperties_Resource extends Google_Service_Resource
 {
 
   /**
@@ -3625,7 +3625,7 @@ class Google_Service_Analytics_ManagementWebproperties_Resource extends Google_S
  *   $webpropertyUserLinks = $analyticsService->webpropertyUserLinks;
  *  </code>
  */
-class Google_Service_Analytics_ManagementWebpropertyUserLinks_Resource extends Google_Service_Resource
+class Google_Service_Analytics_ManagementWebPropertyUserLinks_Resource extends Google_Service_Resource
 {
 
   /**
