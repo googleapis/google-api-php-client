@@ -110,6 +110,36 @@ class Google_Http_MediaFileUpload
   }
 
   /**
+   * Send the next part of the file to upload.
+   * @param [$chunk] the next set of bytes to send. If false will used $data passed
+   * at construct time.
+   */
+  public function nextChunk($chunk = false)
+  {
+    $resumeUri = $this->getResumeUri();
+
+    if (false == $chunk) {
+      $chunk = substr($this->data, $this->progress, $this->chunkSize);
+    }
+
+    $lastBytePos = $this->progress + strlen($chunk) - 1;
+    $headers = array(
+      'content-range' => "bytes $this->progress-$lastBytePos/$this->size",
+      'content-length' => strlen($chunk),
+      'expect' => '',
+    );
+
+    $request = new Request(
+        'PUT',
+        $resumeUri,
+        $headers,
+        Stream::factory($chunk)
+    );
+
+    return $this->makePutRequest($request);
+  }
+
+  /**
    * Return the HTTP result code from the last call made.
    * @return int code
    */
@@ -127,14 +157,9 @@ class Google_Http_MediaFileUpload
   * @return false|mixed false when the upload is unfinished or the decoded http response
   *
   */
-  private function makePutRequest(Google_Http_Request $httpRequest)
+  private function makePutRequest(Request $request)
   {
-    if ($this->client->getClassConfig("Google_Http_Request", "enable_gzip_for_uploads")) {
-      $http->setDefaultOption('disable_gzip', false);
-    } else {
-      $http->setDefaultOption('disable_gzip', true);
-    }
-
+    $http = $this->client->getHttpClient();
     $response = $http->send($request);
     $this->httpResultCode = $response->getStatusCode();
 
@@ -164,37 +189,6 @@ class Google_Http_MediaFileUpload
   }
 
   /**
-   * Send the next part of the file to upload.
-   * @param [$chunk] the next set of bytes to send. If false will used $data passed
-   * at construct time.
-   */
-  public function nextChunk($chunk = false)
-  {
-    if (false == $this->resumeUri) {
-      $this->resumeUri = $this->fetchResumeUri();
-    }
-
-    if (false == $chunk) {
-      $chunk = substr($this->data, $this->progress, $this->chunkSize);
-    }
-    $lastBytePos = $this->progress + strlen($chunk) - 1;
-    $headers = array(
-      'content-range' => "bytes $this->progress-$lastBytePos/$this->size",
-      'content-type' => $this->request->getRequestHeader('content-type'),
-      'content-length' => $this->chunkSize,
-      'expect' => '',
-    );
-
-    $httpRequest = new Google_Http_Request(
-        $this->resumeUri,
-        'PUT',
-        $headers,
-        $chunk
-    );
-    return $this->makePutRequest($httpRequest);
-  }
-
-  /**
    * Resume a previously unfinished upload
    * @param $resumeUri the resume-URI of the unfinished, resumable upload.
    */
@@ -210,6 +204,7 @@ class Google_Http_MediaFileUpload
          'PUT',
          $headers
      );
+
      return $this->makePutRequest($httpRequest);
   }
 
@@ -288,7 +283,11 @@ class Google_Http_MediaFileUpload
 
   public function getResumeUri()
   {
-    return ( $this->resumeUri !== null ? $this->resumeUri : $this->fetchResumeUri() );
+    if (is_null($this->resumeUri)) {
+      $this->resumeUri = $this->fetchResumeUri();
+    }
+
+    return $this->resumeUri;
   }
 
   private function fetchResumeUri()

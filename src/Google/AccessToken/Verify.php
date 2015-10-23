@@ -29,6 +29,8 @@ use phpseclib\Math\BigInteger;
 class Google_AccessToken_Verify
 {
   const FEDERATED_SIGNON_CERT_URL = 'https://www.googleapis.com/oauth2/v3/certs';
+  const OAUTH2_ISSUER = 'accounts.google.com';
+  const OAUTH2_ISSUER_HTTPS = 'https://accounts.google.com';
 
   /**
    * @var GuzzleHttp\ClientInterface The http client
@@ -84,13 +86,21 @@ class Google_AccessToken_Verify
             $rsa->getPublicKey(),
             array('RS256')
         );
+
         if (property_exists($payload, 'aud')) {
           if ($audience && $payload->aud != $audience) {
             return false;
           }
         }
 
-        return $payload;
+        // support HTTP and HTTPS issuers
+        // @see https://developers.google.com/identity/sign-in/web/backend-auth
+        $issuers = array(self::OAUTH2_ISSUER, self::OAUTH2_ISSUER_HTTPS);
+        if (!isset($payload->iss) || !in_array($payload->iss, $issuers)) {
+          return false;
+        }
+
+        return (array) $payload;
       } catch (ExpiredException $e) {
         return false;
       } catch (DomainException $e) {

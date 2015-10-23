@@ -154,7 +154,8 @@ class Google_Cache_File implements CacheInterface
     $storageDir = $this->path . '/' . substr(md5($file), 0, 2);
     if ($forWrite && ! is_dir($storageDir)) {
       if (! mkdir($storageDir, 0700, true)) {
-        $this->client->getLogger()->error(
+        $this->log(
+            'error',
             'File cache creation failed',
             array('dir' => $storageDir)
         );

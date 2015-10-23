@@ -1,14 +1,15 @@
 <?php include_once "templates/base.php" ?>
 
-<?php echo pageHeader("PHP Library Examples"); ?>
-
 <?php if (!isWebRequest()): ?>
-  <pre>
-  To view this page on a webserver using PHP 5.4 or above run:
-    php -S localhost:8080
-  </pre>
+  To view this example, run the following command from the root directory of this repository:
+
+    php -S localhost:8080 -t examples/
+
+  And then browse to "localhost:8080" in your web browser
 <?php exit ?>
 <?php endif ?>
+
+<?php echo pageHeader("PHP Library Examples"); ?>
 
 <?php if (isset($_POST['api_key'])): ?>
 <?php setApiKey($_POST['api_key']) ?>

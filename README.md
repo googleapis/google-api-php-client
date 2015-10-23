@@ -23,8 +23,7 @@ See the examples/ directory for examples of the key client features. You can
 view them in your browser by running the php built-in web server.
 
 ```
-$ cd examples/
-$ php -S localhost:8000
+$ php -S localhost:8000 -t examples/
 ```
 
 And then browsing to the host and port you specified

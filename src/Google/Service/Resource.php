@@ -110,10 +110,7 @@ class Google_Service_Resource
         $parameters['postBody'] =
             $this->convertToArrayAndStripNulls($parameters['postBody']);
       }
-      $postBody = json_encode($parameters['postBody']);
-      if ($postBody === false && $parameters['postBody'] !== false) {
-        throw new Google_Exception("JSON encoding failed. Ensure all strings in the request are UTF-8 encoded.");
-      }
+      $postBody = (array) $parameters['postBody'];
       unset($parameters['postBody']);
     }
 

@@ -193,5 +193,4 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
         $this->client->getHttpClient()->getDefaultOption('verify')
     );
   }
-
 }

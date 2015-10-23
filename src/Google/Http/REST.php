@@ -18,6 +18,7 @@
 use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Message\ResponseInterface;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\RequestException;
 
 /**
  * This class implements the RESTful transport of apiServiceRequest()'s
@@ -65,7 +66,15 @@ class Google_Http_REST
    */
   public static function doExecute(ClientInterface $client, RequestInterface $request)
   {
-    $response = $client->send($request);
+    try {
+      $response = $client->send($request);
+    } catch (RequestException $e) {
+      // if Guzzle throws an exception, catch it and handle the response
+      if (!$e->hasResponse()) {
+        throw $e;
+      }
+      $response = $e->getResponse();
+    }
 
     return self::decodeHttpResponse($response, $request);
   }

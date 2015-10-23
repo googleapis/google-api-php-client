@@ -44,8 +44,8 @@ class Google_AccessToken_VerifyTest extends BaseTest
     $data = json_decode(JWT::urlSafeB64Decode($segments[1]));
     $verify = new Google_AccessToken_Verify();
     $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
-    $this->assertTrue(isset($payload->sub));
-    $this->assertTrue(strlen($payload->sub) > 0);
+    $this->assertTrue(isset($payload['sub']));
+    $this->assertTrue(strlen($payload['sub']) > 0);
 
     // TODO: Need to be smart about testing/disabling the
     // caching for this test to make sense. Not sure how to do that
@@ -54,7 +54,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
     $data = json_decode(JWT::urlSafeB64Decode($segments[1]));
     $verify = new Google_AccessToken_Verify();
     $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
-    $this->assertTrue(isset($payload->sub));
-    $this->assertTrue(strlen($payload->sub) > 0);
+    $this->assertTrue(isset($payload['sub']));
+    $this->assertTrue(strlen($payload['sub']) > 0);
   }
 }

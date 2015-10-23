@@ -283,6 +283,62 @@ class Google_ClientTest extends BaseTest
     $this->assertEquals(0, count($listeners));
   }
 
+  public function testApplicationDefaultCredentials()
+  {
+    $client = new Google_Client();
+    $client->setAuthConfig(__DIR__.'/../config/application-default-credentials.json');
+
+    $http = new Client();
+    $client->authorize($http);
+
+    $listeners = $http->getEmitter()->listeners('before');
+
+    $this->assertEquals(1, count($listeners));
+    $this->assertEquals(2, count($listeners[0]));
+    $this->assertInstanceOf('Google\Auth\AuthTokenFetcher', $listeners[0][0]);
+
+    // access the protected $fetcher property
+    $class = new ReflectionClass(get_class($listeners[0][0]));
+    $property = $class->getProperty('fetcher');
+    $property->setAccessible(true);
+    $fetcher = $property->getValue($listeners[0][0]);
+
+    $this->assertInstanceOf('Google\Auth\ServiceAccountCredentials', $fetcher);
+  }
+
+  public function testApplicationDefaultCredentialsWithSubject()
+  {
+    $sub = 'sub123';
+    $client = new Google_Client();
+    $client->setAuthConfig(__DIR__.'/../config/application-default-credentials.json');
+    $client->setSubject($sub);
+
+    $http = new Client();
+    $client->authorize($http);
+
+    $listeners = $http->getEmitter()->listeners('before');
+
+    $this->assertEquals(1, count($listeners));
+    $this->assertEquals(2, count($listeners[0]));
+    $this->assertInstanceOf('Google\Auth\AuthTokenFetcher', $listeners[0][0]);
+
+    // access the protected $fetcher property
+    $class = new ReflectionClass(get_class($listeners[0][0]));
+    $property = $class->getProperty('fetcher');
+    $property->setAccessible(true);
+    $fetcher = $property->getValue($listeners[0][0]);
+
+    $this->assertInstanceOf('Google\Auth\ServiceAccountCredentials', $fetcher);
+
+    // access the protected $auth property
+    $class = new ReflectionClass(get_class($fetcher));
+    $property = $class->getProperty('auth');
+    $property->setAccessible(true);
+    $auth = $property->getValue($fetcher);
+
+    $this->assertEquals($sub, $auth->getSub());
+  }
+
   /**
    * Test that the ID token is properly refreshed.
    */

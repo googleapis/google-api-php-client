@@ -7,7 +7,7 @@
     "license": "Apache-2.0",
     "require": {
         "php": ">=5.4",
-        "google/auth": "v0.2-alpha",
+        "google/auth": "v0.3",
         "monolog/monolog": "^1.17",
         "phpseclib/phpseclib": "~2.0",
         "guzzlehttp/guzzle": "5.2.*"
@@ -28,7 +28,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.1.x-dev"
+            "dev-master": "2.x-dev"
         }
     }
 }
