@@ -3178,6 +3178,7 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   protected $backupConfigurationType = 'Google_Service_SQLAdmin_BackupConfiguration';
   protected $backupConfigurationDataType = '';
   public $crashSafeReplicationEnabled;
+  public $dataDiskSizeGb;
   protected $databaseFlagsType = 'Google_Service_SQLAdmin_DatabaseFlags';
   protected $databaseFlagsDataType = 'array';
   public $databaseReplicationEnabled;
@@ -3223,6 +3224,14 @@ class Google_Service_SQLAdmin_Settings extends Google_Collection
   public function getCrashSafeReplicationEnabled()
   {
     return $this->crashSafeReplicationEnabled;
+  }
+  public function setDataDiskSizeGb($dataDiskSizeGb)
+  {
+    $this->dataDiskSizeGb = $dataDiskSizeGb;
+  }
+  public function getDataDiskSizeGb()
+  {
+    return $this->dataDiskSizeGb;
   }
   public function setDatabaseFlags($databaseFlags)
   {

@@ -60,6 +60,7 @@ class Google_Service_Compute extends Google_Service
   public $globalForwardingRules;
   public $globalOperations;
   public $httpHealthChecks;
+  public $httpsHealthChecks;
   public $images;
   public $instanceGroupManagers;
   public $instanceGroups;
@@ -73,7 +74,9 @@ class Google_Service_Compute extends Google_Service
   public $regions;
   public $routes;
   public $snapshots;
+  public $sslCertificates;
   public $targetHttpProxies;
+  public $targetHttpsProxies;
   public $targetInstances;
   public $targetPools;
   public $targetVpnGateways;
@@ -1269,6 +1272,108 @@ class Google_Service_Compute extends Google_Service
                   'required' => true,
                 ),
                 'httpHealthCheck' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->httpsHealthChecks = new Google_Service_Compute_HttpsHealthChecks_Resource(
+        $this,
+        $this->serviceName,
+        'httpsHealthChecks',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/global/httpsHealthChecks/{httpsHealthCheck}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'httpsHealthCheck' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => '{project}/global/httpsHealthChecks/{httpsHealthCheck}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'httpsHealthCheck' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => '{project}/global/httpsHealthChecks',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{project}/global/httpsHealthChecks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'patch' => array(
+              'path' => '{project}/global/httpsHealthChecks/{httpsHealthCheck}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'httpsHealthCheck' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'update' => array(
+              'path' => '{project}/global/httpsHealthChecks/{httpsHealthCheck}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'httpsHealthCheck' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -2784,6 +2889,78 @@ class Google_Service_Compute extends Google_Service
           )
         )
     );
+    $this->sslCertificates = new Google_Service_Compute_SslCertificates_Resource(
+        $this,
+        $this->serviceName,
+        'sslCertificates',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/global/sslCertificates/{sslCertificate}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'sslCertificate' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => '{project}/global/sslCertificates/{sslCertificate}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'sslCertificate' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => '{project}/global/sslCertificates',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{project}/global/sslCertificates',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->targetHttpProxies = new Google_Service_Compute_TargetHttpProxies_Resource(
         $this,
         $this->serviceName,
@@ -2862,6 +3039,108 @@ class Google_Service_Compute extends Google_Service
                   'required' => true,
                 ),
                 'targetHttpProxy' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->targetHttpsProxies = new Google_Service_Compute_TargetHttpsProxies_Resource(
+        $this,
+        $this->serviceName,
+        'targetHttpsProxies',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => '{project}/global/targetHttpsProxies/{targetHttpsProxy}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'targetHttpsProxy' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => '{project}/global/targetHttpsProxies/{targetHttpsProxy}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'targetHttpsProxy' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => '{project}/global/targetHttpsProxies',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{project}/global/targetHttpsProxies',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+              ),
+            ),'setSslCertificates' => array(
+              'path' => '{project}/targetHttpsProxies/{targetHttpsProxy}/setSslCertificates',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'targetHttpsProxy' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'setUrlMap' => array(
+              'path' => '{project}/targetHttpsProxies/{targetHttpsProxy}/setUrlMap',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'targetHttpsProxy' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -5086,6 +5365,136 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
 }
 
 /**
+ * The "httpsHealthChecks" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $httpsHealthChecks = $computeService->httpsHealthChecks;
+ *  </code>
+ */
+class Google_Service_Compute_HttpsHealthChecks_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Deletes the specified HttpsHealthCheck resource. (httpsHealthChecks.delete)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $httpsHealthCheck Name of the HttpsHealthCheck resource to
+   * delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function delete($project, $httpsHealthCheck, $optParams = array())
+  {
+    $params = array('project' => $project, 'httpsHealthCheck' => $httpsHealthCheck);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Returns the specified HttpsHealthCheck resource. (httpsHealthChecks.get)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $httpsHealthCheck Name of the HttpsHealthCheck resource to
+   * return.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_HttpsHealthCheck
+   */
+  public function get($project, $httpsHealthCheck, $optParams = array())
+  {
+    $params = array('project' => $project, 'httpsHealthCheck' => $httpsHealthCheck);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_HttpsHealthCheck");
+  }
+
+  /**
+   * Creates a HttpsHealthCheck resource in the specified project using the data
+   * included in the request. (httpsHealthChecks.insert)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param Google_HttpsHealthCheck $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function insert($project, Google_Service_Compute_HttpsHealthCheck $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Retrieves the list of HttpsHealthCheck resources available to the specified
+   * project. (httpsHealthChecks.listHttpsHealthChecks)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
+   * @return Google_Service_Compute_HttpsHealthCheckList
+   */
+  public function listHttpsHealthChecks($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Compute_HttpsHealthCheckList");
+  }
+
+  /**
+   * Updates a HttpsHealthCheck resource in the specified project using the data
+   * included in the request. This method supports patch semantics.
+   * (httpsHealthChecks.patch)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $httpsHealthCheck Name of the HttpsHealthCheck resource to
+   * update.
+   * @param Google_HttpsHealthCheck $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function patch($project, $httpsHealthCheck, Google_Service_Compute_HttpsHealthCheck $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'httpsHealthCheck' => $httpsHealthCheck, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Updates a HttpsHealthCheck resource in the specified project using the data
+   * included in the request. (httpsHealthChecks.update)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $httpsHealthCheck Name of the HttpsHealthCheck resource to
+   * update.
+   * @param Google_HttpsHealthCheck $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function update($project, $httpsHealthCheck, Google_Service_Compute_HttpsHealthCheck $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'httpsHealthCheck' => $httpsHealthCheck, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_Compute_Operation");
+  }
+}
+
+/**
  * The "images" collection of methods.
  * Typical usage is:
  *  <code>
@@ -5521,8 +5930,7 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
 
   /**
    * Adds a list of instances to the specified instance group. All of the
-   * instances in the instance group must be in the same network/subnetwork. TODO:
-   * Change to comment to state "if IG is load balanced."
+   * instances in the instance group must be in the same network/subnetwork.
    * (instanceGroups.addInstances)
    *
    * @param string $project The project ID for this request.
@@ -5857,7 +6265,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * (instances.aggregatedList)
+   * Retrieves aggregated list of instance resources. (instances.aggregatedList)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
@@ -6787,6 +7195,97 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
 }
 
 /**
+ * The "sslCertificates" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $sslCertificates = $computeService->sslCertificates;
+ *  </code>
+ */
+class Google_Service_Compute_SslCertificates_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Deletes the specified SslCertificate resource. (sslCertificates.delete)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $sslCertificate Name of the SslCertificate resource to delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function delete($project, $sslCertificate, $optParams = array())
+  {
+    $params = array('project' => $project, 'sslCertificate' => $sslCertificate);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Returns the specified SslCertificate resource. (sslCertificates.get)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $sslCertificate Name of the SslCertificate resource to return.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_SslCertificate
+   */
+  public function get($project, $sslCertificate, $optParams = array())
+  {
+    $params = array('project' => $project, 'sslCertificate' => $sslCertificate);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_SslCertificate");
+  }
+
+  /**
+   * Creates a SslCertificate resource in the specified project using the data
+   * included in the request. (sslCertificates.insert)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param Google_SslCertificate $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function insert($project, Google_Service_Compute_SslCertificate $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Retrieves the list of SslCertificate resources available to the specified
+   * project. (sslCertificates.listSslCertificates)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
+   * @return Google_Service_Compute_SslCertificateList
+   */
+  public function listSslCertificates($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Compute_SslCertificateList");
+  }
+}
+
+/**
  * The "targetHttpProxies" collection of methods.
  * Typical usage is:
  *  <code>
@@ -6891,6 +7390,134 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
   public function setUrlMap($project, $targetHttpProxy, Google_Service_Compute_UrlMapReference $postBody, $optParams = array())
   {
     $params = array('project' => $project, 'targetHttpProxy' => $targetHttpProxy, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setUrlMap', array($params), "Google_Service_Compute_Operation");
+  }
+}
+
+/**
+ * The "targetHttpsProxies" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $targetHttpsProxies = $computeService->targetHttpsProxies;
+ *  </code>
+ */
+class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Deletes the specified TargetHttpsProxy resource. (targetHttpsProxies.delete)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $targetHttpsProxy Name of the TargetHttpsProxy resource to
+   * delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function delete($project, $targetHttpsProxy, $optParams = array())
+  {
+    $params = array('project' => $project, 'targetHttpsProxy' => $targetHttpsProxy);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Returns the specified TargetHttpsProxy resource. (targetHttpsProxies.get)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $targetHttpsProxy Name of the TargetHttpsProxy resource to
+   * return.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_TargetHttpsProxy
+   */
+  public function get($project, $targetHttpsProxy, $optParams = array())
+  {
+    $params = array('project' => $project, 'targetHttpsProxy' => $targetHttpsProxy);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_TargetHttpsProxy");
+  }
+
+  /**
+   * Creates a TargetHttpsProxy resource in the specified project using the data
+   * included in the request. (targetHttpsProxies.insert)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param Google_TargetHttpsProxy $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function insert($project, Google_Service_Compute_TargetHttpsProxy $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Retrieves the list of TargetHttpsProxy resources available to the specified
+   * project. (targetHttpsProxies.listTargetHttpsProxies)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   *
+   * The FIELD_NAME is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The COMPARISON_STRING
+   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field (string, number, boolean). For string fields, the literal value is
+   * interpreted as a regular expression using RE2 syntax. The literal value must
+   * match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
+   * @opt_param string maxResults Maximum count of results to be returned.
+   * @return Google_Service_Compute_TargetHttpsProxyList
+   */
+  public function listTargetHttpsProxies($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Compute_TargetHttpsProxyList");
+  }
+
+  /**
+   * Replaces SslCertificates for TargetHttpsProxy.
+   * (targetHttpsProxies.setSslCertificates)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $targetHttpsProxy Name of the TargetHttpsProxy resource whose
+   * URL map is to be set.
+   * @param Google_TargetHttpsProxiesSetSslCertificatesRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function setSslCertificates($project, $targetHttpsProxy, Google_Service_Compute_TargetHttpsProxiesSetSslCertificatesRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'targetHttpsProxy' => $targetHttpsProxy, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setSslCertificates', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Changes the URL map for TargetHttpsProxy. (targetHttpsProxies.setUrlMap)
+   *
+   * @param string $project Name of the project scoping this request.
+   * @param string $targetHttpsProxy Name of the TargetHttpsProxy resource whose
+   * URL map is to be set.
+   * @param Google_UrlMapReference $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function setUrlMap($project, $targetHttpsProxy, Google_Service_Compute_UrlMapReference $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'targetHttpsProxy' => $targetHttpsProxy, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('setUrlMap', array($params), "Google_Service_Compute_Operation");
   }
@@ -10521,6 +11148,186 @@ class Google_Service_Compute_HttpHealthCheckList extends Google_Collection
   );
   public $id;
   protected $itemsType = 'Google_Service_Compute_HttpHealthCheck';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_HttpsHealthCheck extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $checkIntervalSec;
+  public $creationTimestamp;
+  public $description;
+  public $healthyThreshold;
+  public $host;
+  public $id;
+  public $kind;
+  public $name;
+  public $port;
+  public $requestPath;
+  public $selfLink;
+  public $timeoutSec;
+  public $unhealthyThreshold;
+
+
+  public function setCheckIntervalSec($checkIntervalSec)
+  {
+    $this->checkIntervalSec = $checkIntervalSec;
+  }
+  public function getCheckIntervalSec()
+  {
+    return $this->checkIntervalSec;
+  }
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setHealthyThreshold($healthyThreshold)
+  {
+    $this->healthyThreshold = $healthyThreshold;
+  }
+  public function getHealthyThreshold()
+  {
+    return $this->healthyThreshold;
+  }
+  public function setHost($host)
+  {
+    $this->host = $host;
+  }
+  public function getHost()
+  {
+    return $this->host;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setPort($port)
+  {
+    $this->port = $port;
+  }
+  public function getPort()
+  {
+    return $this->port;
+  }
+  public function setRequestPath($requestPath)
+  {
+    $this->requestPath = $requestPath;
+  }
+  public function getRequestPath()
+  {
+    return $this->requestPath;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+  public function setTimeoutSec($timeoutSec)
+  {
+    $this->timeoutSec = $timeoutSec;
+  }
+  public function getTimeoutSec()
+  {
+    return $this->timeoutSec;
+  }
+  public function setUnhealthyThreshold($unhealthyThreshold)
+  {
+    $this->unhealthyThreshold = $unhealthyThreshold;
+  }
+  public function getUnhealthyThreshold()
+  {
+    return $this->unhealthyThreshold;
+  }
+}
+
+class Google_Service_Compute_HttpsHealthCheckList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_HttpsHealthCheck';
   protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
@@ -14735,6 +15542,141 @@ class Google_Service_Compute_SnapshotList extends Google_Collection
   }
 }
 
+class Google_Service_Compute_SslCertificate extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $certificate;
+  public $creationTimestamp;
+  public $description;
+  public $id;
+  public $kind;
+  public $name;
+  public $privateKey;
+  public $selfLink;
+
+
+  public function setCertificate($certificate)
+  {
+    $this->certificate = $certificate;
+  }
+  public function getCertificate()
+  {
+    return $this->certificate;
+  }
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setPrivateKey($privateKey)
+  {
+    $this->privateKey = $privateKey;
+  }
+  public function getPrivateKey()
+  {
+    return $this->privateKey;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_SslCertificateList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_SslCertificate';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
 class Google_Service_Compute_Tags extends Google_Collection
 {
   protected $collection_key = 'items';
@@ -14840,6 +15782,160 @@ class Google_Service_Compute_TargetHttpProxyList extends Google_Collection
   );
   public $id;
   protected $itemsType = 'Google_Service_Compute_TargetHttpProxy';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_TargetHttpsProxiesSetSslCertificatesRequest extends Google_Collection
+{
+  protected $collection_key = 'sslCertificates';
+  protected $internal_gapi_mappings = array(
+  );
+  public $sslCertificates;
+
+
+  public function setSslCertificates($sslCertificates)
+  {
+    $this->sslCertificates = $sslCertificates;
+  }
+  public function getSslCertificates()
+  {
+    return $this->sslCertificates;
+  }
+}
+
+class Google_Service_Compute_TargetHttpsProxy extends Google_Collection
+{
+  protected $collection_key = 'sslCertificates';
+  protected $internal_gapi_mappings = array(
+  );
+  public $creationTimestamp;
+  public $description;
+  public $id;
+  public $kind;
+  public $name;
+  public $selfLink;
+  public $sslCertificates;
+  public $urlMap;
+
+
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+  public function setSslCertificates($sslCertificates)
+  {
+    $this->sslCertificates = $sslCertificates;
+  }
+  public function getSslCertificates()
+  {
+    return $this->sslCertificates;
+  }
+  public function setUrlMap($urlMap)
+  {
+    $this->urlMap = $urlMap;
+  }
+  public function getUrlMap()
+  {
+    return $this->urlMap;
+  }
+}
+
+class Google_Service_Compute_TargetHttpsProxyList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_TargetHttpsProxy';
   protected $itemsDataType = 'array';
   public $kind;
   public $nextPageToken;
