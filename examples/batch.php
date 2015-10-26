@@ -14,7 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+include_once __DIR__ . '/../vendor/autoload.php';
 include_once "templates/base.php";
+
 echo pageHeader("Batching Queries");
 
 /************************************************
@@ -22,7 +25,6 @@ echo pageHeader("Batching Queries");
   books API again as an example, but this time we
   will batch up two queries into a single call.
  ************************************************/
-require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
 
 /************************************************
   We create the client and set the simple API
@@ -32,51 +34,50 @@ require_once realpath(dirname(__FILE__) . '/../src/Google/autoload.php');
  ************************************************/
 $client = new Google_Client();
 $client->setApplicationName("Client_Library_Examples");
-$apiKey = "<YOUR_API_KEY>"; // Change to your API key.
-// Warn if the API key isn't changed!
-if (strpos($apiKey, "<") !== false) {
+
+// Warn if the API key isn't set.
+if (!$apiKey = getApiKey()) {
   echo missingApiKeyWarning();
   exit;
-} else {
-  $client->setDeveloperKey($apiKey);
+}
+$client->setDeveloperKey($apiKey);
 
-  $service = new Google_Service_Books($client);
+$service = new Google_Service_Books($client);
 
-  /************************************************
-    To actually make the batch call we need to 
-    enable batching on the client - this will apply 
-    globally until we set it to false. This causes
-    call to the service methods to return the query
-    rather than immediately executing.
-   ************************************************/
-  $client->setUseBatch(true);
+/************************************************
+  To actually make the batch call we need to
+  enable batching on the client - this will apply
+  globally until we set it to false. This causes
+  call to the service methods to return the query
+  rather than immediately executing.
+ ************************************************/
+$client->setUseBatch(true);
 
-  /************************************************
-   We then create a batch, and add each query we 
-   want to execute with keys of our choice - these
-   keys will be reflected in the returned array.
-  ************************************************/
-  $batch = new Google_Http_Batch($client);
-  $optParams = array('filter' => 'free-ebooks');
-  $req1 = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
-  $batch->add($req1, "thoreau");
-  $req2 = $service->volumes->listVolumes('George Bernard Shaw', $optParams);
-  $batch->add($req2, "shaw");
+/************************************************
+ We then create a batch, and add each query we
+ want to execute with keys of our choice - these
+ keys will be reflected in the returned array.
+************************************************/
+$batch = new Google_Http_Batch($client);
+$optParams = array('filter' => 'free-ebooks');
+$req1 = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
+$batch->add($req1, "thoreau");
+$req2 = $service->volumes->listVolumes('George Bernard Shaw', $optParams);
+$batch->add($req2, "shaw");
 
-  /************************************************
-    Executing the batch will send all requests off
-    at once.
-   ************************************************/
-  $results = $batch->execute();
+/************************************************
+  Executing the batch will send all requests off
+  at once.
+ ************************************************/
+$results = $batch->execute();
 
-  echo "<h3>Results Of Call 1:</h3>";
-  foreach ($results['response-thoreau'] as $item) {
-    echo $item['volumeInfo']['title'], "<br /> \n";
-  }
-  echo "<h3>Results Of Call 2:</h3>";
-  foreach ($results['response-shaw'] as $item) {
-    echo $item['volumeInfo']['title'], "<br /> \n";
-  }
+echo "<h3>Results Of Call 1:</h3>";
+foreach ($results['response-thoreau'] as $item) {
+  echo $item['volumeInfo']['title'], "<br /> \n";
+}
+echo "<h3>Results Of Call 2:</h3>";
+foreach ($results['response-shaw'] as $item) {
+  echo $item['volumeInfo']['title'], "<br /> \n";
 }
 
 echo pageFooter(__FILE__);

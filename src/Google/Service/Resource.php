@@ -15,10 +15,6 @@
  * limitations under the License.
  */
 
-if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
-}
-
 /**
  * Implements the actual methods/resources of the discovered Google API using magic function
  * calling overloading (__call()), which on call will see if the method name (plus.activities.list)
@@ -114,10 +110,7 @@ class Google_Service_Resource
         $parameters['postBody'] =
             $this->convertToArrayAndStripNulls($parameters['postBody']);
       }
-      $postBody = json_encode($parameters['postBody']);
-      if ($postBody === false && $parameters['postBody'] !== false) {
-        throw new Google_Exception("JSON encoding failed. Ensure all strings in the request are UTF-8 encoded.");
-      }
+      $postBody = (array) $parameters['postBody'];
       unset($parameters['postBody']);
     }
 
@@ -189,55 +182,43 @@ class Google_Service_Resource
         )
     );
 
-    $url = Google_Http_REST::createRequestUri(
-        $this->servicePath,
+    $url = $this->createRequestUri(
         $method['path'],
         $parameters
     );
-    $httpRequest = new Google_Http_Request(
-        $url,
+
+    $http = $this->client->getHttpClient();
+    $this->client->authorize($http);
+
+    // Guzzle 5 cannot locate App Engine certs by default,
+    // so we tell Guzzle where to look
+    if ($this->client->isAppEngine()) {
+      $http->setDefaultOption('verify', '/etc/ca-certificates.crt');
+    }
+
+    $request = $http->createRequest(
         $method['httpMethod'],
-        null,
-        $postBody
+        $url,
+        ['json' => $postBody]
     );
 
-    if ($this->rootUrl) {
-      $httpRequest->setBaseComponent($this->rootUrl);
-    } else {
-      $httpRequest->setBaseComponent($this->client->getBasePath());
-    }
-
-    if ($postBody) {
-      $contentTypeHeader = array();
-      $contentTypeHeader['content-type'] = 'application/json; charset=UTF-8';
-      $httpRequest->setRequestHeaders($contentTypeHeader);
-      $httpRequest->setPostBody($postBody);
-    }
-
-    $httpRequest = $this->client->getAuth()->sign($httpRequest);
-    $httpRequest->setExpectedClass($expected_class);
-
-    if (isset($parameters['data']) &&
-        ($parameters['uploadType']['value'] == 'media' || $parameters['uploadType']['value'] == 'multipart')) {
-      // If we are doing a simple media upload, trigger that as a convenience.
-      $mfu = new Google_Http_MediaFileUpload(
-          $this->client,
-          $httpRequest,
-          isset($parameters['mimeType']) ? $parameters['mimeType']['value'] : 'application/octet-stream',
-          $parameters['data']['value']
-      );
-    }
-
-    if (isset($parameters['alt']) && $parameters['alt']['value'] == 'media') {
-      $httpRequest->enableExpectedRaw();
-    }
-
     if ($this->client->shouldDefer()) {
-      // If we are in batch or upload mode, return the raw request.
-      return $httpRequest;
+      // @TODO find a better way to do this
+      $request->setHeader('X-Php-Expected-Class', $expected_class);
+
+      return $request;
     }
 
-    return $this->client->execute($httpRequest);
+    // support uploads
+    if (isset($parameters['data'])) {
+      $mimeType = isset($parameters['mimeType'])
+        ? $parameters['mimeType']['value']
+        : 'application/octet-stream';
+      $data = $parameters['data']['value'];
+      $upload = new Google_Http_MediaFileUpload($this->client, $request, $mimeType, $data);
+    }
+
+    return $this->client->execute($request, $expected_class);
   }
 
   protected function convertToArrayAndStripNulls($o)
@@ -251,5 +232,54 @@ class Google_Service_Resource
       }
     }
     return $o;
+  }
+
+  /**
+   * Parse/expand request parameters and create a fully qualified
+   * request uri.
+   * @static
+   * @param string $restPath
+   * @param array $params
+   * @return string $requestUrl
+   */
+  public function createRequestUri($restPath, $params)
+  {
+    // code for leading slash
+    $requestUrl = $this->servicePath . $restPath;
+    if ($this->rootUrl) {
+      if ('/' !== substr($this->rootUrl, -1) && '/' !== substr($requestUrl, 0, 1)) {
+        $requestUrl = '/' . $requestUrl;
+      }
+      $requestUrl = $this->rootUrl . $requestUrl;
+    }
+    $uriTemplateVars = array();
+    $queryVars = array();
+    foreach ($params as $paramName => $paramSpec) {
+      if ($paramSpec['type'] == 'boolean') {
+        $paramSpec['value'] = ($paramSpec['value']) ? 'true' : 'false';
+      }
+      if ($paramSpec['location'] == 'path') {
+        $uriTemplateVars[$paramName] = $paramSpec['value'];
+      } else if ($paramSpec['location'] == 'query') {
+        if (isset($paramSpec['repeated']) && is_array($paramSpec['value'])) {
+          foreach ($paramSpec['value'] as $value) {
+            $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($value));
+          }
+        } else {
+          $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($paramSpec['value']));
+        }
+      }
+    }
+
+    if (count($uriTemplateVars)) {
+      $uriTemplateParser = new Google_Utils_UriTemplate();
+      $requestUrl = $uriTemplateParser->parse($requestUrl, $uriTemplateVars);
+    }
+
+    if (count($queryVars)) {
+      $requestUrl .= '?' . implode($queryVars, '&');
+    }
+
+    return $requestUrl;
   }
 }

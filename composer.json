@@ -6,20 +6,29 @@
     "homepage": "http://developers.google.com/api-client-library/php",
     "license": "Apache-2.0",
     "require": {
-        "php": ">=5.2.1"
+        "php": ">=5.4",
+        "google/auth": "v0.3",
+        "monolog/monolog": "^1.17",
+        "phpseclib/phpseclib": "~2.0",
+        "guzzlehttp/guzzle": "5.2.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "3.7.*",
-        "squizlabs/php_codesniffer": "~2.3"
+        "phpunit/phpunit": "~4",
+        "squizlabs/php_codesniffer": "~2.3",
+        "symfony/dom-crawler": "~2.0",
+        "symfony/css-selector": "~2.0"
     },
     "autoload": {
+        "psr-0": {
+            "Google_": "src/"
+        },
         "classmap": [
-            "src/"
+            "src/Google/Service/"
         ]
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.1.x-dev"
+            "dev-master": "2.x-dev"
         }
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /* Ad hoc functions to make the examples marginally prettier.*/
 function isWebRequest()
 {
@@ -7,20 +8,23 @@ function isWebRequest()
 
 function pageHeader($title)
 {
-  $ret = "";
-  if (isWebRequest()) {
-    $ret .= "<!doctype html>
-    <html>
-    <head>
-      <title>" . $title . "</title>
-      <link href='styles/style.css' rel='stylesheet' type='text/css' />
-    </head>
-    <body>\n";
-    if ($_SERVER['PHP_SELF'] != "/index.php") {
-      $ret .= "<p><a href='index.php'>Back</a></p>";
-    }
-    $ret .= "<header><h1>" . $title . "</h1></header>";
+  $ret = "<!doctype html>
+  <html>
+  <head>
+    <title>" . $title . "</title>
+    <link href='styles/style.css' rel='stylesheet' type='text/css' />
+  </head>
+  <body>\n";
+  if ($_SERVER['PHP_SELF'] != "/index.php") {
+    $ret .= "<p><a href='index.php'>Back</a></p>";
   }
+  $ret .= "<header><h1>" . $title . "</h1></header>";
+
+ // Start the session (for storing access tokens and things)
+  if (!headers_sent()) {
+    session_start();
+  }
+
   return $ret;
 }
 
@@ -28,63 +32,110 @@ function pageHeader($title)
 function pageFooter($file = null)
 {
   $ret = "";
-  if (isWebRequest()) {
-    // Echo the code if in an example.
-    if ($file) {
-      $ret .= "<h3>Code:</h3>";
-      $ret .= "<pre class='code'>";
-      $ret .= htmlspecialchars(file_get_contents($file));
-      $ret .= "</pre>";
-    }
-    $ret .= "</html>";
+  if ($file) {
+    $ret .= "<h3>Code:</h3>";
+    $ret .= "<pre class='code'>";
+    $ret .= htmlspecialchars(file_get_contents($file));
+    $ret .= "</pre>";
   }
+  $ret .= "</html>";
+
   return $ret;
 }
 
 function missingApiKeyWarning()
 {
-  $ret = "";
-  if (isWebRequest()) {
-    $ret = "
-      <h3 class='warn'>
-        Warning: You need to set a Simple API Access key from the
-        <a href='http://developers.google.com/console'>Google API console</a>
-      </h3>";
-  } else {
-    $ret = "Warning: You need to set a Simple API Access key from the Google API console:";
-    $ret .= "\nhttp://developers.google.com/console\n";
-  }
+  $ret = "
+    <h3 class='warn'>
+      Warning: You need to set a Simple API Access key from the
+      <a href='http://developers.google.com/console'>Google API console</a>
+    </h3>";
+
   return $ret;
 }
 
 function missingClientSecretsWarning()
 {
-  $ret = "";
-  if (isWebRequest()) {
-    $ret = "
-      <h3 class='warn'>
-        Warning: You need to set Client ID, Client Secret and Redirect URI from the
-        <a href='http://developers.google.com/console'>Google API console</a>
-      </h3>";
-  } else {
-    $ret = "Warning: You need to set Client ID, Client Secret and Redirect URI from the";
-    $ret .= " Google API console:\nhttp://developers.google.com/console\n";
-  }
+  $ret = "
+    <h3 class='warn'>
+      Warning: You need to set Client ID, Client Secret and Redirect URI from the
+      <a href='http://developers.google.com/console'>Google API console</a>
+    </h3>";
+
   return $ret;
 }
 
 function missingServiceAccountDetailsWarning()
 {
-  $ret = "";
-  if (isWebRequest()) {
-    $ret = "
-      <h3 class='warn'>
-        Warning: You need to set Client ID, Email address and the location of the Key from the
-        <a href='http://developers.google.com/console'>Google API console</a>
-      </h3>";
-  } else {
-    $ret = "Warning: You need to set Client ID, Email address and the location of the Key from the";
-    $ret .= " Google API console:\nhttp://developers.google.com/console\n";
-  }
+  $ret = "
+    <h3 class='warn'>
+      Warning: You need download your Service Account Credentials JSON from the
+      <a href='http://developers.google.com/console'>Google API console</a>.
+    </h3>
+    <p>
+      Once downloaded, move them into the root directory of this repository and
+      rename them 'service-account-credentials.json'.
+    </p>
+    <p>
+      In your application, you should set the GOOGLE_APPLICATION_CREDENTIALS environment variable
+      as the path to this file, but in the context of this example we will do this for you.
+    </p>";
+
   return $ret;
+}
+
+function missingOAuth2CredentialsWarning()
+{
+  $ret = "
+    <h3 class='warn'>
+      Warning: You need to set the location of your OAuth2 Client Credentials from the
+      <a href='http://developers.google.com/console'>Google API console</a>.
+    </h3>
+    <p>
+      Once downloaded, move them into the root directory of this repository and
+      rename them 'oauth-credentials.json'.
+    </p>";
+
+  return $ret;
+}
+
+function checkServiceAccountCredentialsFile()
+{
+  // service account creds
+  $application_creds = __DIR__ . '/../../service-account-credentials.json';
+
+  return file_exists($application_creds) ? $application_creds : false;
+}
+
+function getOAuthCredentialsFile()
+{
+  // oauth2 creds
+  $oauth_creds = __DIR__ . '/../../oauth-credentials.json';
+
+  if (file_exists($oauth_creds)) {
+    return $oauth_creds;
+  }
+
+  return false;
+}
+
+function setClientCredentialsFile($apiKey)
+{
+  $file = __DIR__ . '/../../tests/.apiKey';
+  file_put_contents($file, $apiKey);
+}
+
+
+function getApiKey()
+{
+  $file = __DIR__ . '/../../tests/.apiKey';
+  if (file_exists($file)) {
+    return file_get_contents($file);
+  }
+}
+
+function setApiKey($apiKey)
+{
+  $file = __DIR__ . '/../../tests/.apiKey';
+  file_put_contents($file, $apiKey);
 }

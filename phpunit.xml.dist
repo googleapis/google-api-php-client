@@ -4,31 +4,16 @@
          colors="true"
          bootstrap="tests/bootstrap.php">
     <testsuites>
-        <testsuite name="Google YouTube API tests">
-            <directory>tests/youtube</directory>
+        <testsuite name="Google PHP Client Unit Test Suite">
+            <directory>tests/Google</directory>
         </testsuite>
-        <testsuite name="Google Tasks API tests">
-            <directory>tests/tasks</directory>
-        </testsuite>
-        <testsuite name="Google PageSpeed API tests">
-            <directory>tests/pagespeed</directory>
-        </testsuite>
-        <testsuite name="Google UrlShortener API tests">
-            <directory>tests/urlshortener</directory>
-        </testsuite>
-        <testsuite name="Google Plus API tests">
-            <directory>tests/plus</directory>
-        </testsuite>
-        <testsuite name="AdSense Management API tests">
-            <directory>tests/adsense</directory>
-        </testsuite>
-        <testsuite name="Google API PHP Library core component tests">
-            <directory>tests/general</directory>
+        <testsuite name="Google PHP Client Examples Test Suite">
+            <directory>tests/examples</directory>
         </testsuite>
     </testsuites>
     <filter>
-        <blacklist>
-            <directory suffix=".php">tests</directory>
-        </blacklist>
+        <whitelist>
+            <directory suffix=".php">./src/Google</directory>
+        </whitelist>
     </filter>
 </phpunit>
