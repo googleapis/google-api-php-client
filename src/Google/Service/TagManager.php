@@ -1614,9 +1614,9 @@ class Google_Service_TagManager_AccountsContainersVersions_Resource extends Goog
 
   /**
    * Restores a Container Version. This will overwrite the container's current
-   * configuration (including its macros, rules and tags). The operation will not
-   * have any effect on the version that is being served (i.e. the published
-   * version). (versions.restore)
+   * configuration (including its variables, triggers and tags). The operation
+   * will not have any effect on the version that is being served (i.e. the
+   * published version). (versions.restore)
    *
    * @param string $accountId The GTM Account ID.
    * @param string $containerId The GTM Container ID.
