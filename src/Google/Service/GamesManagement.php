@@ -1161,6 +1161,8 @@ class Google_Service_GamesManagement_Player extends Google_Model
   protected $internal_gapi_mappings = array(
   );
   public $avatarImageUrl;
+  public $bannerUrlLandscape;
+  public $bannerUrlPortrait;
   public $displayName;
   protected $experienceInfoType = 'Google_Service_GamesManagement_GamesPlayerExperienceInfoResource';
   protected $experienceInfoDataType = '';
@@ -1180,6 +1182,22 @@ class Google_Service_GamesManagement_Player extends Google_Model
   public function getAvatarImageUrl()
   {
     return $this->avatarImageUrl;
+  }
+  public function setBannerUrlLandscape($bannerUrlLandscape)
+  {
+    $this->bannerUrlLandscape = $bannerUrlLandscape;
+  }
+  public function getBannerUrlLandscape()
+  {
+    return $this->bannerUrlLandscape;
+  }
+  public function setBannerUrlPortrait($bannerUrlPortrait)
+  {
+    $this->bannerUrlPortrait = $bannerUrlPortrait;
+  }
+  public function getBannerUrlPortrait()
+  {
+    return $this->bannerUrlPortrait;
   }
   public function setDisplayName($displayName)
   {
