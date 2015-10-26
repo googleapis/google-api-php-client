@@ -1455,6 +1455,7 @@ class Google_Service_IdentityToolkit_VerifyAssertionResponse extends Google_Coll
   public $lastName;
   public $localId;
   public $needConfirmation;
+  public $needEmail;
   public $nickName;
   public $oauthAccessToken;
   public $oauthAuthorizationCode;
@@ -1619,6 +1620,14 @@ class Google_Service_IdentityToolkit_VerifyAssertionResponse extends Google_Coll
   public function getNeedConfirmation()
   {
     return $this->needConfirmation;
+  }
+  public function setNeedEmail($needEmail)
+  {
+    $this->needEmail = $needEmail;
+  }
+  public function getNeedEmail()
+  {
+    return $this->needEmail;
   }
   public function setNickName($nickName)
   {
