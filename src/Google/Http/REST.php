@@ -91,13 +91,13 @@ class Google_Http_REST
       ResponseInterface $response,
       RequestInterface $request = null
   ) {
-    $result = $response->json();
     $body = (string) $response->getBody();
     $code = $response->getStatusCode();
 
     // retry strategy
     if ((intVal($code)) >= 300) {
       $errors = null;
+      $result = $response->json();
       // Specific check for APIs which don't return error details, such as Blogger.
       if (isset($result['error']) && isset($result['error']['errors'])) {
         $errors = $result['error']['errors'];
@@ -110,6 +110,6 @@ class Google_Http_REST
       return $body;
     }
 
-    return $result;
+    return $response->json();
   }
 }
