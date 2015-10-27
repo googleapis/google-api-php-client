@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+use GuzzleHttp\Message\Request;
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Stream\Stream;
 
@@ -46,6 +47,20 @@ class Google_HTTP_RESTTest extends BaseTest
       $this->assertEquals(array("a" => 1), $decoded);
     }
   }
+
+  public function testDecodeMediaResponse()
+  {
+    $client = $this->getClient();
+
+    $request =  new Request('GET', 'http://www.example.com?alt=media');
+    $headers = array();
+    $stream = Stream::factory('thisisnotvalidjson');
+    $response = new Response(200, $headers, $stream);
+
+    $decoded = $this->rest->decodeHttpResponse($response, $request);
+    $this->assertEquals('thisisnotvalidjson', $decoded);
+  }
+
 
   /** @expectedException Google_Service_Exception */
   public function testDecode500ResponseThrowsException()
