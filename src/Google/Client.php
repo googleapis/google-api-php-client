@@ -27,9 +27,10 @@ use Google\Auth\UserRefreshCredentials;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Collection;
+use GuzzleHttp\Ring\Client\StreamHandler;
 use Psr\Log\LoggerInterface;
 use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
+use Monolog\Handler\StreamHandler as MonologStreamHandler;
 
 /**
  * The Google API Client
@@ -1004,7 +1005,7 @@ class Google_Client
   protected function createDefaultLogger()
   {
     $logger = new Logger('google-api-php-client');
-    $logger->pushHandler(new StreamHandler('php://stderr', Logger::NOTICE));
+    $logger->pushHandler(new MonologStreamHandler('php://stderr', Logger::NOTICE));
 
     return $logger;
   }
@@ -1034,8 +1035,13 @@ class Google_Client
   {
     $options = [
       'base_url' => $this->config->get('base_path'),
-      'defaults' => ['exceptions' => false]
+      'defaults' => ['exceptions' => false],
     ];
+
+    // set StreamHandler on AppEngine by default
+    if ($this->isAppEngine()) {
+      $options['handler']  = new StreamHandler();
+    }
 
     return new Client($options);
   }
