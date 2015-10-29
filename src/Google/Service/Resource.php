@@ -127,9 +127,10 @@ class Google_Service_Resource
     }
 
     $method['parameters'] = array_merge(
-        $method['parameters'],
-        $this->stackParameters
+        $this->stackParameters,
+        $method['parameters']
     );
+    
     foreach ($parameters as $key => $val) {
       if ($key != 'postBody' && ! isset($method['parameters'][$key])) {
         $this->client->getLogger()->error(
