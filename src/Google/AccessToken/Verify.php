@@ -54,6 +54,7 @@ class Google_AccessToken_Verify
 
     $this->http = $http;
     $this->cache = $cache;
+    $this->jwt = $this->getJwtService();
   }
 
   /**
@@ -74,14 +75,14 @@ class Google_AccessToken_Verify
     // Check signature
     $certs = $this->getFederatedSignonCerts();
     foreach ($certs as $cert) {
-      $modulus = new BigInteger(JWT::urlsafeB64Decode($cert['n']), 256);
-      $exponent = new BigInteger(JWT::urlsafeB64Decode($cert['e']), 256);
+      $modulus = new BigInteger($this->jwt->urlsafeB64Decode($cert['n']), 256);
+      $exponent = new BigInteger($this->jwt->urlsafeB64Decode($cert['e']), 256);
 
       $rsa = new RSA();
       $rsa->loadKey(array('n' => $modulus, 'e' => $exponent));
 
       try {
-        $payload = JWT::decode(
+        $payload = $this->jwt->decode(
             $idToken,
             $rsa->getPublicKey(),
             array('RS256')
@@ -184,5 +185,14 @@ class Google_AccessToken_Verify
     }
 
     return $certs['keys'];
+  }
+
+  private function getJwtService()
+  {
+    if (class_exists('\Firebase\JWT\JWT')) {
+      return new \Firebase\JWT\JWT;
+    }
+
+    return new \JWT;
   }
 }

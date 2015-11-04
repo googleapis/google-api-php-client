@@ -33,6 +33,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
   {
     $this->checkToken();
 
+    $jwt = $this->getJwtService();
     $client = $this->getClient();
     $token = $client->getAccessToken();
     if ($client->isAccessTokenExpired()) {
@@ -41,7 +42,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
     $segments = explode('.', $token['id_token']);
     $this->assertEquals(3, count($segments));
     // Extract the client ID in this case as it wont be set on the test client.
-    $data = json_decode(JWT::urlSafeB64Decode($segments[1]));
+    $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
     $verify = new Google_AccessToken_Verify();
     $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
     $this->assertTrue(isset($payload['sub']));
@@ -51,10 +52,19 @@ class Google_AccessToken_VerifyTest extends BaseTest
     // caching for this test to make sense. Not sure how to do that
     // at the moment.
     $client = $this->getClient();
-    $data = json_decode(JWT::urlSafeB64Decode($segments[1]));
+    $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
     $verify = new Google_AccessToken_Verify();
     $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
     $this->assertTrue(isset($payload['sub']));
     $this->assertTrue(strlen($payload['sub']) > 0);
+  }
+
+  private function getJwtService()
+  {
+    if (class_exists('\Firebase\JWT\JWT')) {
+      return new \Firebase\JWT\JWT;
+    }
+
+    return new \JWT;
   }
 }
