@@ -203,6 +203,10 @@ class Google_Service_Resource
         ['json' => $postBody]
     );
 
+    if (isset($parameters['alt']) && $parameters['alt']['value'] == 'media') {
+      $expected_class = null;
+    }
+
     if ($this->client->shouldDefer()) {
       // @TODO find a better way to do this
       $request->setHeader('X-Php-Expected-Class', $expected_class);
@@ -219,10 +223,6 @@ class Google_Service_Resource
       $upload = new Google_Http_MediaFileUpload($this->client, $request, $mimeType, $data);
     }
 
-    if (isset($parameters['alt']) && $parameters['alt']['value'] == 'media') {
-      $expected_class = null;
-    }
-    
     return $this->client->execute($request, $expected_class);
   }
 
