@@ -28,6 +28,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Collection;
 use GuzzleHttp\Ring\Client\StreamHandler;
+use GuzzleHttp\Stream\Stream;
 use Psr\Log\LoggerInterface;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler as MonologStreamHandler;
@@ -196,12 +197,15 @@ class Google_Client
    * @param $assertionCredentials optional.
    * @return void
    */
-  public function fetchAccessTokenWithAssertion()
+  public function fetchAccessTokenWithAssertion(ClientInterface $authHttp = null)
   {
-    if (is_null($this->config->get('signing_key'))) {
-      throw new LogicException(
-          'config parameter "signing_key" must be set to'
-          . ' refresh a token with assertion'
+    if (!$this->isUsingApplicationDefaultCredentials()) {
+      throw new DomainException(
+          'set the JSON service account credentials using'
+          . ' Google_Client::setAuthConfig or set the path to your JSON file'
+          . ' with the "GOOGLE_APPLICATION_CREDENTIALS" environment variable'
+          . ' and call Google_Client::useApplicationDefaultCredentials to'
+          . ' refresh a token with assertion.'
       );
     }
 
@@ -210,17 +214,14 @@ class Google_Client
         'OAuth2 access token refresh with Signed JWT assertion grants.'
     );
 
-    $auth = $this->getOAuth2Service();
-    $auth->setGrantType(OAuth2::JWT_URN);
-    $auth->setAudience(self::OAUTH2_TOKEN_URI);
-    $auth->setScope($this->getScopes());
+    $credentials = $this->createApplicationDefaultCredentials();
 
-    $creds = $auth->fetchAuthToken($this->getHttpClient());
-    if ($creds && isset($creds['access_token'])) {
-      $this->setAccessToken($creds);
+    $accessToken = $credentials->fetchAuthToken($authHttp);
+    if ($accessToken && isset($accessToken['access_token'])) {
+      $this->setAccessToken($accessToken);
     }
 
-    return $creds;
+    return $accessToken;
   }
 
   /**
@@ -339,27 +340,14 @@ class Google_Client
     //   2.  Check for API Key
     //   3a. Check for an Access Token
     //   3b. If access token exists but is expired, try to refresh it
-    if ($this->config->get('use_application_default_credentials')) {
-      $scopes = $this->prepareScopes();
-      if ($sub = $this->config->get('subject')) {
-        // for service account domain-wide authority (impersonating a user)
-        // @see https://developers.google.com/identity/protocols/OAuth2ServiceAccount
-        if (!$creds = CredentialsLoader::fromEnv($scopes)) {
-          $creds = CredentialsLoader::fromWellKnownFile($scopes);
-        }
-        if (!$creds instanceof ServiceAccountCredentials) {
-          throw new DomainException('domain-wide authority requires service account credentials');
-        }
-        $creds->setSub($sub);
-        $subscriber = new AuthTokenFetcher($creds, array(), $this->cache, $authHttp);
-      } else {
-        $subscriber = ApplicationDefaultCredentials::getFetcher(
-            $scopes,
-            $authHttp,
-            array(),
-            $this->cache
-        );
-      }
+    if ($this->isUsingApplicationDefaultCredentials()) {
+      $credentials = $this->createApplicationDefaultCredentials($authHttp);
+      $subscriber = new AuthTokenFetcher(
+          $credentials,
+          [],
+          $this->cache,
+          $authHttp
+      );
       $authIdentifier = 'google_auth';
     } elseif ($key = $this->config->get('developer_key')) {
       // if a developer key is set, authorize using that
@@ -369,9 +357,14 @@ class Google_Client
       $scopes = $this->prepareScopes();
       // add refresh subscriber to request a new token
       if ($this->isAccessTokenExpired() && isset($token['refresh_token'])) {
-        $subscriber = $this->createUserRefreshCredentials(
+        $credentials = $this->createUserRefreshCredentials(
             $scopes,
-            $token['refresh_token'],
+            $token['refresh_token']
+        );
+        $subscriber = new AuthTokenFetcher(
+            $credentials,
+            [],
+            $this->getCache(),
             $authHttp
         );
         $authIdentifier = 'google_auth';
@@ -864,10 +857,11 @@ class Google_Client
       // application default credentials
       $this->useApplicationDefaultCredentials();
 
-      // overwrite APPLICATION_DEFAULT_CREDENTIALS with this config
-      $tmpFile = tempnam(sys_get_temp_dir(), 'appcreds');
-      file_put_contents($tmpFile, json_encode($config));
-      putenv('GOOGLE_APPLICATION_CREDENTIALS='.$tmpFile);
+      // set the information from the config
+      $this->setClientId($config['client_id']);
+      $this->config->set('client_email', $config['client_email']);
+      $this->config->set('signing_key', $config['private_key']);
+      $this->config->set('signing_algorithm', 'HS256');
     } elseif (isset($config[$key])) {
       // old-style
       $this->setClientId($config[$key]['client_id']);
@@ -1060,11 +1054,41 @@ class Google_Client
     return new Client($options);
   }
 
-  private function createUserRefreshCredentials(
-      $scope,
-      $refreshToken,
-      ClientInterface $http = null
-  ) {
+  private function createApplicationDefaultCredentials()
+  {
+    $scopes = $this->prepareScopes();
+    $sub = $this->config->get('subject');
+    $signingKey = $this->config->get('signing_key');
+
+    // create credentials using values supplied in setAuthConfig
+    if ($signingKey) {
+      $serviceAccountCredentials = array(
+        'client_id' => $this->config->get('client_id'),
+        'client_email' => $this->config->get('client_email'),
+        'private_key' => $signingKey,
+        'type' => 'service_account',
+      );
+      $keyStream = Stream::factory(json_encode($serviceAccountCredentials));
+      $credentials = CredentialsLoader::makeCredentials($scopes, $keyStream);
+    } else {
+      $credentials = ApplicationDefaultCredentials::getCredentials($scopes);
+    }
+
+    // for service account domain-wide authority (impersonating a user)
+    // @see https://developers.google.com/identity/protocols/OAuth2ServiceAccount
+    if ($sub) {
+      if (!$credentials instanceof ServiceAccountCredentials) {
+        throw new DomainException('domain-wide authority requires service account credentials');
+      }
+
+      $credentials->setSub($sub);
+    }
+
+    return $credentials;
+  }
+
+  private function createUserRefreshCredentials($scope, $refreshToken)
+  {
     $creds = array_filter(
         array(
           'client_id' => $this->getClientId(),
@@ -1073,11 +1097,6 @@ class Google_Client
         )
     );
 
-    return new AuthTokenFetcher(
-        new UserRefreshCredentials($scope, $creds),
-        [],
-        $this->getCache(),
-        $http
-    );
+    return new UserRefreshCredentials($scope, $creds);
   }
 }

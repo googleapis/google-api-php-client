@@ -386,4 +386,36 @@ class Google_ClientTest extends BaseTest
     $token = $client->getAccessToken();
     $this->assertEquals($token['id_token'], "ID_TOKEN");
   }
+
+  /**
+   * Test fetching an access token with assertion credentials
+   * using "useApplicationDefaultCredentials"
+   */
+  public function testFetchAccessTokenWithAssertionFromEnv()
+  {
+    $this->checkServiceAccountCredentials();
+
+    $client = $this->getClient();
+    $client->useApplicationDefaultCredentials();
+    $token = $client->fetchAccessTokenWithAssertion();
+
+    $this->assertNotNull($token);
+    $this->assertArrayHasKey('access_token', $token);
+  }
+
+  /**
+   * Test fetching an access token with assertion credentials
+   * using "setAuthConfig"
+   */
+  public function testFetchAccessTokenWithAssertionFromFile()
+  {
+    $this->checkServiceAccountCredentials();
+
+    $client = $this->getClient();
+    $client->setAuthConfig(getenv('GOOGLE_APPLICATION_CREDENTIALS'));
+    $token = $client->fetchAccessTokenWithAssertion();
+
+    $this->assertNotNull($token);
+    $this->assertArrayHasKey('access_token', $token);
+  }
 }
