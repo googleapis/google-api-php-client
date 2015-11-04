@@ -18,6 +18,10 @@
  * under the License.
  */
 
+use GuzzleHttp\Message\Request;
+use GuzzleHttp\Message\Response;
+use GuzzleHttp\Stream\Stream;
+
 class Test_Google_Service extends Google_Service
 {
   public function __construct(Google_Client $client)
@@ -192,5 +196,96 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
         '/etc/ca-certificates.crt',
         $this->client->getHttpClient()->getDefaultOption('verify')
     );
+  }
+
+  public function testNoExpectedClassForAltMediaWithHttpSuccess()
+  {
+    // set the "alt" parameter to "media"
+    $arguments = [['alt' => 'media']];
+    $request = new Request('GET', '/?alt=media');
+    $body = Stream::factory('thisisnotvalidjson');
+    $response = new Response(200, [], $body);
+
+    $http = $this->getMockBuilder("GuzzleHttp\Client")
+        ->disableOriginalConstructor()
+        ->getMock();
+    $http->expects($this->once())
+        ->method('send')
+        ->will($this->returnValue($response));
+    $http->expects($this->any())
+        ->method('createRequest')
+        ->will($this->returnValue($request));
+    $client = new Google_Client();
+    $client->setHttpClient($http);
+    $service = new Test_Google_Service($client);
+
+    // set up mock objects
+    $resource = new Google_Service_Resource(
+      $service,
+      "test",
+      "testResource",
+      array("methods" =>
+        array(
+          "testMethod" => array(
+            "parameters" => array(),
+            "path" => "method/path",
+            "httpMethod" => "POST",
+          )
+        )
+      )
+    );
+
+    $expectedClass = 'ThisShouldBeIgnored';
+    $decoded = $resource->call('testMethod', $arguments, $expectedClass);
+    $this->assertEquals('thisisnotvalidjson', $decoded);
+  }
+
+  public function testNoExpectedClassForAltMediaWithHttpFail()
+  {
+    // set the "alt" parameter to "media"
+    $arguments = [['alt' => 'media']];
+    $request = new Request('GET', '/?alt=media');
+    $body = Stream::factory('thisisnotvalidjson');
+    $response = new Response(300, [], $body);
+
+    $http = $this->getMockBuilder("GuzzleHttp\Client")
+        ->disableOriginalConstructor()
+        ->getMock();
+    $http->expects($this->once())
+        ->method('send')
+        ->will($this->returnValue($response));
+    $http->expects($this->any())
+        ->method('createRequest')
+        ->will($this->returnValue(new Request('GET', '/?alt=media')));
+    $http->expects($this->once())
+        ->method('send')
+        ->will($this->returnValue($response));
+    $client = new Google_Client();
+    $client->setHttpClient($http);
+    $service = new Test_Google_Service($client);
+
+    // set up mock objects
+    $resource = new Google_Service_Resource(
+      $service,
+      "test",
+      "testResource",
+      array("methods" =>
+        array(
+          "testMethod" => array(
+            "parameters" => array(),
+            "path" => "method/path",
+            "httpMethod" => "POST",
+          )
+        )
+      )
+    );
+
+    try {
+      $expectedClass = 'ThisShouldBeIgnored';
+      $decoded = $resource->call('testMethod', $arguments, $expectedClass);
+      $this->fail('should have thrown exception');
+    } catch (Google_Service_Exception $e) {
+      $this->assertEquals('thisisnotvalidjson', $e->getMessage());
+    }
   }
 }

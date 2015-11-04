@@ -94,10 +94,13 @@ class Google_Http_REST
     $body = (string) $response->getBody();
     $code = $response->getStatusCode();
 
+    // return raw response when "alt" is "media"
+    $isJson = !($request && 'media' == $request->getQuery()->get('alt'));
+    $result = $isJson ? $response->json() : $body;
+
     // retry strategy
     if ((intVal($code)) >= 300) {
       $errors = null;
-      $result = $response->json();
       // Specific check for APIs which don't return error details, such as Blogger.
       if (isset($result['error']) && isset($result['error']['errors'])) {
         $errors = $result['error']['errors'];
@@ -105,11 +108,6 @@ class Google_Http_REST
       throw new Google_Service_Exception($body, $code, null, $errors);
     }
 
-    // return raw response when "alt" is "media"
-    if ($request && $request->getQuery()->get('alt') == 'media') {
-      return $body;
-    }
-
-    return $response->json();
+    return $result;
   }
 }
