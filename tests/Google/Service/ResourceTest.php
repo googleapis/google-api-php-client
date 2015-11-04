@@ -62,22 +62,26 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
     $this->service = new Test_Google_Service($this->client);
   }
 
-  public function testCallFailure()
-  {
-    $resource = new Google_Service_Resource(
-      $this->service,
-      "test",
-      "testResource",
-      array("methods" =>
-        array(
-          "testMethod" => array(
-            "parameters" => array(),
-            "path" => "method/path",
-            "httpMethod" => "POST",
+  function createResource() {
+    return new Google_Service_Resource(
+        $this->service,
+        "test",
+        "testResource",
+        array("methods" =>
+          array(
+            "testMethod" => array(
+              "parameters" => array(),
+              "path" => "method/path",
+              "httpMethod" => "POST",
+            )
           )
         )
-      )
-    );
+      );
+  }
+
+  public function testCallFailure()
+  {
+    $resource = $this->createResource();
     $this->setExpectedException(
         "Google_Exception",
         "Unknown function: test->testResource->someothermethod()"
@@ -87,42 +91,31 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
 
   public function testCall()
   {
-    $resource = new Google_Service_Resource(
-      $this->service,
-      "test",
-      "testResource",
-      array("methods" =>
-        array(
-          "testMethod" => array(
-            "parameters" => array(),
-            "path" => "method/path",
-            "httpMethod" => "POST",
-          )
-        )
-      )
-    );
+    $resource = $this->createResource();
     $request = $resource->call("testMethod", array(array()));
     $this->assertEquals("https://test.example.com/method/path", $request->getUrl());
     $this->assertEquals("POST", $request->getMethod());
   }
 
+  public function testCallWithExpectedClass()
+  {
+    $resource = $this->createResource();
+    $request = $resource->call("testMethod", array(array()), "Test_Item");
+    $this->assertEquals("Test_Item",
+                        $request->getHeader('X-Php-Expected-Class'));
+  }
+
+  public function testCallWithAltMediaIgnoresExpectedClass()
+  {
+    $resource = $this->createResource();
+    $request = $resource->call("testMethod", array(array("alt" => "media")), "Test_Item");
+    $this->assertEquals(null, $request->getHeader('X-Php-Expected-Class'));
+  }
+
   public function testCallServiceDefinedRoot()
   {
     $this->service->rootUrl = "https://sample.example.com";
-    $resource = new Google_Service_Resource(
-      $this->service,
-      "test",
-      "testResource",
-      array("methods" =>
-        array(
-          "testMethod" => array(
-            "parameters" => array(),
-            "path" => "method/path",
-            "httpMethod" => "POST",
-          )
-        )
-      )
-    );
+    $resource = $this->createResource();
     $request = $resource->call("testMethod", array(array()));
     $this->assertEquals("https://sample.example.com/method/path", $request->getUrl());
     $this->assertEquals("POST", $request->getMethod());
@@ -174,23 +167,10 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
 
   public function testAppEngineSslCerts()
   {
+    $resource = $this->createResource();
     $this->client->expects($this->once())
           ->method("isAppEngine")
           ->will($this->returnValue(true));
-    $resource = new Google_Service_Resource(
-      $this->service,
-      "test",
-      "testResource",
-      array("methods" =>
-        array(
-          "testMethod" => array(
-            "parameters" => array(),
-            "path" => "method/path",
-            "httpMethod" => "POST",
-          )
-        )
-      )
-    );
     $request = $resource->call("testMethod", array(array()));
     $this->assertEquals(
         '/etc/ca-certificates.crt',

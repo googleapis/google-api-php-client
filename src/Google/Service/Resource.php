@@ -203,6 +203,10 @@ class Google_Service_Resource
         ['json' => $postBody]
     );
 
+    if (isset($parameters['alt']) && $parameters['alt']['value'] == 'media') {
+      $expected_class = null;
+    }
+
     if ($this->client->shouldDefer()) {
       // @TODO find a better way to do this
       $request->setHeader('X-Php-Expected-Class', $expected_class);
