@@ -19,6 +19,7 @@ use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Message\ResponseInterface;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\ParseException;
 
 /**
  * This class implements the RESTful transport of apiServiceRequest()'s
@@ -93,10 +94,21 @@ class Google_Http_REST
   ) {
     $body = (string) $response->getBody();
     $code = $response->getStatusCode();
+    $result = null;
 
     // return raw response when "alt" is "media"
     $isJson = !($request && 'media' == $request->getQuery()->get('alt'));
-    $result = $isJson ? $response->json() : $body;
+
+    // set the result to the body if it's not set to anything else
+    if ($isJson) {
+      try {
+        $result = $response->json();
+      } catch (ParseException $e) {
+        $result = $body;
+      }
+    } else {
+      $result = $body;
+    }
 
     // retry strategy
     if ((intVal($code)) >= 300) {
