@@ -61,26 +61,38 @@ class Google_Http_Batch
   {
     $body = '';
     $classes = array();
+    $batchHttpTemplate = <<<EOF
+--%s
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+MIME-Version: 1.0
+Content-ID: %s
+
+%s%s
+%s
+
+
+EOF;
 
     /** @var Google_Http_Request $req */
     foreach ($this->requests as $key => $request) {
-      $request->addHeaders(
-          [
-            'Content-Type' => 'application/http',
-            'Content-Transfer-Encoding' => 'binary',
-            'MIME-Version' => '1.0',
-            'Content-ID' => $key,
-          ]
-      );
-      $body .= "--{$this->boundary}";
-      $body .= Request::getHeadersAsString($request) . "\n\n";
-      $body .= sprintf(
+      $firstLine = sprintf(
           '%s %s HTTP/%s',
           $request->getMethod(),
           $request->getResource(),
           $request->getProtocolVersion()
       );
-      $body .= "\n\n";
+
+      $content = (string) $request->getBody();
+
+      $body .= sprintf(
+          $batchHttpTemplate,
+          $this->boundary,
+          $key,
+          $firstLine,
+          Request::getHeadersAsString($request),
+          $content ? "\n".$content : ''
+      );
 
       $classes['response-' . $key] = $request->getHeader('X-Php-Expected-Class');
     }

@@ -20,20 +20,18 @@
 
 class Google_Http_BatchTest extends BaseTest
 {
-  public $plus;
-
   public function testBatchRequestWithAuth()
   {
     $this->checkToken();
 
     $client = $this->getClient();
     $batch = new Google_Http_Batch($client);
-    $this->plus = new Google_Service_Plus($client);
+    $plus = new Google_Service_Plus($client);
 
     $client->setUseBatch(true);
-    $batch->add($this->plus->people->get('me'), 'key1');
-    $batch->add($this->plus->people->get('me'), 'key2');
-    $batch->add($this->plus->people->get('me'), 'key3');
+    $batch->add($plus->people->get('me'), 'key1');
+    $batch->add($plus->people->get('me'), 'key2');
+    $batch->add($plus->people->get('me'), 'key3');
 
     $result = $batch->execute();
     $this->assertTrue(isset($result['response-key1']));
@@ -45,12 +43,37 @@ class Google_Http_BatchTest extends BaseTest
   {
     $client = $this->getClient();
     $batch = new Google_Http_Batch($client);
-    $this->plus = new Google_Service_Plus($client);
+    $plus = new Google_Service_Plus($client);
 
     $client->setUseBatch(true);
-    $batch->add($this->plus->people->get('+LarryPage'), 'key1');
-    $batch->add($this->plus->people->get('+LarryPage'), 'key2');
-    $batch->add($this->plus->people->get('+LarryPage'), 'key3');
+    $batch->add($plus->people->get('+LarryPage'), 'key1');
+    $batch->add($plus->people->get('+LarryPage'), 'key2');
+    $batch->add($plus->people->get('+LarryPage'), 'key3');
+
+    $result = $batch->execute();
+    $this->assertTrue(isset($result['response-key1']));
+    $this->assertTrue(isset($result['response-key2']));
+    $this->assertTrue(isset($result['response-key3']));
+  }
+
+  public function testBatchRequestWithPostBody()
+  {
+    $this->checkToken();
+
+    $client = $this->getClient();
+    $batch = new Google_Http_Batch($client);
+    $shortener = new Google_Service_Urlshortener($client);
+    $url1 = new Google_Service_Urlshortener_Url;
+    $url2 = new Google_Service_Urlshortener_Url;
+    $url3 = new Google_Service_Urlshortener_Url;
+    $url1->setLongUrl('http://brentertainment.com');
+    $url2->setLongUrl('http://morehazards.com');
+    $url3->setLongUrl('http://github.com/bshaffer');
+
+    $client->setUseBatch(true);
+    $batch->add($shortener->url->insert($url1), 'key1');
+    $batch->add($shortener->url->insert($url2), 'key2');
+    $batch->add($shortener->url->insert($url3), 'key3');
 
     $result = $batch->execute();
     $this->assertTrue(isset($result['response-key1']));
@@ -62,11 +85,11 @@ class Google_Http_BatchTest extends BaseTest
   {
     $client = $this->getClient();
     $batch = new Google_Http_Batch($client);
-    $this->plus = new Google_Service_Plus($client);
+    $plus = new Google_Service_Plus($client);
 
     $client->setUseBatch(true);
-    $batch->add($this->plus->people->get('123456789987654321'), 'key1');
-    $batch->add($this->plus->people->get('+LarryPage'), 'key2');
+    $batch->add($plus->people->get('123456789987654321'), 'key1');
+    $batch->add($plus->people->get('+LarryPage'), 'key2');
 
     $result = $batch->execute();
     $this->assertTrue(isset($result['response-key2']));
