@@ -119,4 +119,14 @@ class Google_HTTP_RESTTest extends BaseTest
     $response = new Response(401, array(), $stream);
     $this->rest->decodeHttpResponse($response);
   }
+
+  /**
+   * @expectedException Google_Service_Exception
+   */
+  public function testNotJson404Error()
+  {
+    $stream = Stream::factory('Not Found');
+    $response = new Response(404, array(), $stream);
+    $this->rest->decodeHttpResponse($response);
+  }
 }
