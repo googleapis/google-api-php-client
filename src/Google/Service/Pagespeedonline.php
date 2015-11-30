@@ -31,10 +31,11 @@
  */
 class Google_Service_Pagespeedonline extends Google_Service
 {
+  const STRATEGY_DESKTOP = 'desktop';
 
+  const STRATEGY_MOBILE = 'mobile';
 
   public $pagespeedapi;
-  
 
   /**
    * Constructs the internal representation of the Pagespeedonline service.
