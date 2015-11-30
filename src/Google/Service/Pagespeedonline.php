@@ -33,7 +33,7 @@ class Google_Service_Pagespeedonline extends Google_Service
 {
 
 
-  public $pagespeedapi;
+  protected $pagespeedapi;
   
 
   /**
@@ -90,6 +90,14 @@ class Google_Service_Pagespeedonline extends Google_Service
           )
         )
     );
+  }
+
+  /**
+   * return Google_Service_Pagespeedonline_Pagespeedapi_Resource
+   */
+  public function getPagespeedapi()
+  {
+    return $this->pagespeedapi;
   }
 }
 
