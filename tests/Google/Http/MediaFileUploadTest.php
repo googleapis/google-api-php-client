@@ -1,7 +1,7 @@
 <?php
 
-use GuzzleHttp\Message\Request;
-use GuzzleHttp\Stream\Stream;
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Request;
 
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -34,6 +34,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
         'image/png',
         base64_decode('data:image/png;base64,a')
     );
+    $request = $media->getRequest();
 
     $this->assertEquals(0, $media->getProgress());
     $this->assertGreaterThan(0, strlen($request->getBody()));
@@ -46,7 +47,6 @@ class Google_Http_MediaFileUploadTest extends BaseTest
 
     // Test resumable upload
     $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', 'a', true);
-    $params = array('mediaUpload' => array('value' => $media));
     $this->assertEquals('resumable', $media->getUploadType(null));
 
     // Test data *only* uploads
@@ -66,20 +66,23 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     // Test data *only* uploads.
     $request = new Request('POST', 'http://www.example.com');
     $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, false);
+    $request = $media->getRequest();
     $this->assertEquals($data, (string) $request->getBody());
 
     // Test resumable (meta data) - we want to send the metadata, not the app data.
     $request = new Request('POST', 'http://www.example.com');
     $reqData = json_encode("hello");
-    $request->setBody(Stream::factory($reqData));
+    $request = $request->withBody(Psr7\stream_for($reqData));
     $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, true);
+    $request = $media->getRequest();
     $this->assertEquals(json_decode($reqData), (string) $request->getBody());
 
     // Test multipart - we are sending encoded meta data and post data
     $request = new Request('POST', 'http://www.example.com');
     $reqData = json_encode("hello");
-    $request->setBody(Stream::factory($reqData));
+    $request = $request->withBody(Psr7\stream_for($reqData));
     $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, false);
+    $request = $media->getRequest();
     $this->assertContains($reqData, (string) $request->getBody());
     $this->assertContains(base64_encode($data), (string) $request->getBody());
   }

@@ -152,7 +152,7 @@ class Google_AccessToken_Verify
     $response = $this->http->get($url);
 
     if ($response->getStatusCode() == 200) {
-      return $response->json();
+      return json_decode((string) $response->getBody(), true);
     }
     throw new Google_Exception(
         sprintf(

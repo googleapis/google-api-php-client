@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 
+use GuzzleHttp\ClientInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
 class BaseTest extends PHPUnit_Framework_TestCase
@@ -41,17 +42,22 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
   private function createClient()
   {
-    $defaults = [
+    $options = [
       'auth' => 'google_auth',
-      'exceptions' => false
+      'exceptions' => false,
     ];
+
     if ($proxy = getenv('HTTP_PROXY')) {
-      $defaults['proxy'] = $proxy;
-      $defaults['verify'] = false;
+      $options['proxy'] = $proxy;
+      $options['verify'] = false;
     }
-    $httpClient = new GuzzleHttp\Client([
-      'defaults' => $defaults,
-    ]);
+
+    // adjust constructor depending on guzzle version
+    if (!$this->isGuzzle6()) {
+      $options = ['defaults' => $options];
+    }
+
+    $httpClient = new GuzzleHttp\Client($options);
 
     $client = new Google_Client();
     $client->setApplicationName('google-api-php-client-tests');
@@ -67,6 +73,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
     if ($this->key) {
       $client->setDeveloperKey($this->key);
     }
+
     list($clientId, $clientSecret) = $this->getClientIdAndSecret();
     $client->setClientId($clientId);
     $client->setClientSecret($clientSecret);
@@ -188,5 +195,26 @@ class BaseTest extends PHPUnit_Framework_TestCase
     }
 
     return false;
+  }
+
+  protected function isGuzzle6()
+  {
+    $version = ClientInterface::VERSION;
+
+    return ('6' === $version[0]);
+  }
+
+  public function onlyGuzzle6()
+  {
+    if (!$this->isGuzzle6()) {
+      $this->markTestSkipped('Guzzle 6 only');
+    }
+  }
+
+  public function onlyGuzzle5()
+  {
+    if ($this->isGuzzle6()) {
+      $this->markTestSkipped('Guzzle 5 only');
+    }
   }
 }
