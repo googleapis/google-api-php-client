@@ -114,7 +114,7 @@ class Google_Http_REST
     if ((intVal($code)) >= 300) {
       $errors = null;
       // Specific check for APIs which don't return error details, such as Blogger.
-      if (isset($result['error']) && isset($result['error']['errors'])) {
+      if (isset($result['error'], $result['error']['errors'])) {
         $errors = $result['error']['errors'];
       }
       throw new Google_Service_Exception($body, $code, null, $errors);
