@@ -30,6 +30,16 @@ class Google_CacheTest extends BaseTest
     $this->getSetDelete($cache);
   }
 
+  public function testFileWithTrailingSlash()
+  {
+    $dir = sys_get_temp_dir() . '/google-api-php-client/tests/';
+    $cache = new Google_Cache_File($dir);
+    $cache->set('foo', 'bar');
+    $this->assertEquals($cache->get('foo'), 'bar');
+
+    $this->getSetDelete($cache);
+  }
+
   public function testNull()
   {
     $cache = new Google_Cache_Null();
