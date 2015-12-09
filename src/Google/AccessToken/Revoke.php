@@ -63,13 +63,13 @@ class Google_AccessToken_Revoke
 
     $body = Psr7\stream_for(http_build_query(array('token' => $tokenString)));
     $request = new Request(
-      'POST',
-      Google_Client::OAUTH2_REVOKE_URI,
-      [
+        'POST',
+        Google_Client::OAUTH2_REVOKE_URI,
+        [
           'Cache-Control' => 'no-store',
           'Content-Type'  => 'application/x-www-form-urlencoded',
-      ],
-      $body
+        ],
+        $body
     );
 
     $httpHandler = HttpHandlerFactory::build($this->http);

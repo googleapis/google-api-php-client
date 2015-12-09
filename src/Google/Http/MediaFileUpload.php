@@ -225,7 +225,7 @@ class Google_Http_MediaFileUpload
 
     $uploadType = $this->getUploadType($meta);
     $request = $request->withUri(
-      Uri::withQueryValue($request->getUri(), 'uploadType', $uploadType)
+        Uri::withQueryValue($request->getUri(), 'uploadType', $uploadType)
     );
 
     $mimeType = $this->mimeType ?

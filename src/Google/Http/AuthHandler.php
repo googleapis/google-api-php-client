@@ -31,12 +31,14 @@ class Google_Http_AuthHandler
     // can use our existing one, but we need to throw exceptions so the error
     // bubbles up.
     if ($this->useMiddleware()) {
-      $authHttp = new Client([
-        'base_uri' => $http->getConfig('base_uri'),
-        'exceptions' => true,
-        'verify' => $http->getConfig('verify'),
-        'proxy' => $http->getConfig('proxy'),
-      ]);
+      $authHttp = new Client(
+          [
+            'base_uri' => $http->getConfig('base_uri'),
+            'exceptions' => true,
+            'verify' => $http->getConfig('verify'),
+            'proxy' => $http->getConfig('proxy'),
+          ]
+      );
       $authHttpHandler = HttpHandlerFactory::build($authHttp);
       $middleware = new AuthTokenMiddleware(
           $credentials,
@@ -50,14 +52,16 @@ class Google_Http_AuthHandler
       $config['auth'] = 'google_auth';
       $http = new Client($config);
     } else {
-      $authHttp = new Client([
-        'base_url' => $http->getBaseUrl(),
-        'defaults' => [
-          'exceptions' => true,
-          'verify' => $http->getDefaultOption('verify'),
-          'proxy' => $http->getDefaultOption('proxy'),
-        ]
-      ]);
+      $authHttp = new Client(
+          [
+            'base_url' => $http->getBaseUrl(),
+            'defaults' => [
+              'exceptions' => true,
+              'verify' => $http->getDefaultOption('verify'),
+              'proxy' => $http->getDefaultOption('proxy'),
+            ]
+          ]
+      );
       $authHttpHandler = HttpHandlerFactory::build($authHttp);
 
       $subscriber = new AuthTokenSubscriber(
