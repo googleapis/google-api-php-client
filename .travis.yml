@@ -24,6 +24,12 @@ php:
   - 7.0
   - hhvm
 
+# Guzzle 6.0 is not compatible with PHP 5.4
+matrix:
+  exclude:
+    - php: 5.4
+      env: GUZZLE_VERSION=~6.0
+
 before_install:
   - composer self-update
 
