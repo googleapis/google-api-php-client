@@ -212,7 +212,7 @@ class Google_Cache_File implements CacheInterface
     return true;
   }
 
-  public function unlock($storageFile)
+  public function unlock()
   {
     if ($this->fh) {
       flock($this->fh, LOCK_UN);
