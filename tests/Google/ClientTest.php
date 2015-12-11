@@ -384,8 +384,11 @@ class Google_ClientTest extends BaseTest
 
   public function testApplicationDefaultCredentials()
   {
+    $this->checkServiceAccountCredentials();
+    $credentialsFile = getenv('GOOGLE_APPLICATION_CREDENTIALS');
+
     $client = new Google_Client();
-    $client->setAuthConfig(__DIR__.'/../config/application-default-credentials.json');
+    $client->setAuthConfig($credentialsFile);
 
     $http = new Client();
     $client->authorize($http);
@@ -396,9 +399,12 @@ class Google_ClientTest extends BaseTest
 
   public function testApplicationDefaultCredentialsWithSubject()
   {
+    $this->checkServiceAccountCredentials();
+    $credentialsFile = getenv('GOOGLE_APPLICATION_CREDENTIALS');
+
     $sub = 'sub123';
     $client = new Google_Client();
-    $client->setAuthConfig(__DIR__.'/../config/application-default-credentials.json');
+    $client->setAuthConfig($credentialsFile);
     $client->setSubject($sub);
 
     $http = new Client();
