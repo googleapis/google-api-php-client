@@ -19,7 +19,7 @@ use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 
-class Google_Task_RunnerTest extends PHPUnit_Framework_TestCase
+class Google_Task_RunnerTest extends BaseTest
 {
   private $client;
 
@@ -630,6 +630,12 @@ class Google_Task_RunnerTest extends PHPUnit_Framework_TestCase
     $http->expects($this->exactly($this->mockedCallsCount))
        ->method('send')
        ->will($this->returnCallback(array($this, 'getNextMockedCall')));
+
+    if ($this->isGuzzle5()) {
+      $http->expects($this->exactly($this->mockedCallsCount))
+       ->method('createRequest')
+       ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/test')));
+    }
 
     return Google_Http_REST::execute($http, $request, '', $this->retryConfig, $this->retryMap);
   }

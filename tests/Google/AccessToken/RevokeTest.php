@@ -45,6 +45,28 @@ class Google_AccessToken_RevokeTest extends BaseTest
             }
         ));
 
+    // adds support for extra "createRequest" step (required for Guzzle 5)
+    if ($this->isGuzzle5()) {
+      $requestToken = null;
+      $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
+      $request->expects($this->exactly(2))
+          ->method('getBody')
+          ->will($this->returnCallback(
+              function () use (&$requestToken) {
+                return 'token='.$requestToken;
+              }));
+      $http->expects($this->exactly(2))
+        ->method('createRequest')
+        ->will($this->returnCallback(
+              function ($method, $url, $params) use (&$requestToken, $request) {
+                parse_str((string) $params['body'], $fields);
+                $requestToken = isset($fields['token']) ? $fields['token'] : null;
+
+                return $request;
+              }
+          ));
+    }
+
     $t = array(
       'access_token' => $accessToken,
       'created' => time(),

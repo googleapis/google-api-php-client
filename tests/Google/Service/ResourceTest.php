@@ -184,9 +184,13 @@ class Google_Service_ResourceTest extends BaseTest
     $http->expects($this->once())
         ->method('send')
         ->will($this->returnValue($response));
-    $http->expects($this->any())
+
+    if ($this->isGuzzle5()) {
+      $http->expects($this->once())
         ->method('createRequest')
-        ->will($this->returnValue($request));
+        ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/?alt=media')));
+    }
+
     $client = new Google_Client();
     $client->setHttpClient($http);
     $service = new Test_Google_Service($client);
@@ -227,12 +231,13 @@ class Google_Service_ResourceTest extends BaseTest
     $http->expects($this->once())
         ->method('send')
         ->will($this->returnValue($response));
-    $http->expects($this->any())
+
+    if ($this->isGuzzle5()) {
+      $http->expects($this->once())
         ->method('createRequest')
-        ->will($this->returnValue(new Request('GET', '/?alt=media')));
-    $http->expects($this->once())
-        ->method('send')
-        ->will($this->returnValue($response));
+        ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/?alt=media')));
+    }
+
     $client = new Google_Client();
     $client->setHttpClient($http);
     $service = new Test_Google_Service($client);

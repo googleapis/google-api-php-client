@@ -229,6 +229,15 @@ class Google_ClientTest extends BaseTest
     $http->expects($this->once())
       ->method('send')
       ->will($this->returnValue($response));
+
+    if ($this->isGuzzle5()) {
+      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/');
+      $http->expects($this->once())
+        ->method('createRequest')
+        ->will($this->returnValue($guzzle5Request));
+    }
+
+
     $client->setHttpClient($http);
     $dr_service = new Google_Service_Drive($client);
     $this->assertInstanceOf('Google_Model', $dr_service->files->listFiles());
@@ -404,13 +413,14 @@ class Google_ClientTest extends BaseTest
    */
   public function testRefreshTokenSetsValues()
   {
+    $token = json_encode(array(
+        'access_token' => 'xyz',
+        'id_token' => 'ID_TOKEN',
+    ));
     $postBody = $this->getMock('Psr\Http\Message\StreamInterface');
     $postBody->expects($this->once())
       ->method('__toString')
-      ->will($this->returnValue(json_encode(array(
-          'access_token' => 'xyz',
-          'id_token' => 'ID_TOKEN',
-        ))));
+      ->will($this->returnValue($token));
     $response = $this->getMock('Psr\Http\Message\ResponseInterface');
     $response->expects($this->once())
       ->method('getBody')
@@ -419,6 +429,14 @@ class Google_ClientTest extends BaseTest
     $http->expects($this->once())
       ->method('send')
       ->will($this->returnValue($response));
+
+    if ($this->isGuzzle5()) {
+      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
+      $http->expects($this->once())
+        ->method('createRequest')
+        ->will($this->returnValue($guzzle5Request));
+    }
+
     $client = $this->getClient();
     $client->setHttpClient($http);
     $client->fetchAccessTokenWithRefreshToken("REFRESH_TOKEN");
@@ -463,7 +481,6 @@ class Google_ClientTest extends BaseTest
    * using "setAuthConfig" and "setSubject" but with user credentials
    *
    * @expectedException GuzzleHttp\Exception\ClientException
-   * @expectedExceptionMessage Invalid impersonation prn email address.
    */
   public function testBadSubjectThrowsException()
   {
@@ -472,6 +489,15 @@ class Google_ClientTest extends BaseTest
     $client = $this->getClient();
     $client->useApplicationDefaultCredentials();
     $client->setSubject('bad-subject');
+
+    $authHandler = new Google_Http_AuthHandler();
+    $authHttp = $authHandler->createAuthHttp($client->getHttpClient());
+
+    // guzzle6 shows the message, guzzle5 does not
+    if ($this->isGuzzle6()) {
+      $this->setExpectedException('GuzzleHttp\Exception\ClientException', 'Invalid impersonation prn email address.');
+    }
+
     $token = $client->fetchAccessTokenWithAssertion();
   }
 }

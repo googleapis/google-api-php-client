@@ -30,16 +30,9 @@ class Google_Http_AuthHandler
     // if we end up needing to make an HTTP request to retrieve credentials, we
     // can use our existing one, but we need to throw exceptions so the error
     // bubbles up.
+    $authHttp = $this->createAuthHttp($http);
+    $authHttpHandler = HttpHandlerFactory::build($authHttp);
     if ($this->useMiddleware()) {
-      $authHttp = new Client(
-          [
-            'base_uri' => $http->getConfig('base_uri'),
-            'exceptions' => true,
-            'verify' => $http->getConfig('verify'),
-            'proxy' => $http->getConfig('proxy'),
-          ]
-      );
-      $authHttpHandler = HttpHandlerFactory::build($authHttp);
       $middleware = new AuthTokenMiddleware(
           $credentials,
           [],
@@ -52,18 +45,6 @@ class Google_Http_AuthHandler
       $config['auth'] = 'google_auth';
       $http = new Client($config);
     } else {
-      $authHttp = new Client(
-          [
-            'base_url' => $http->getBaseUrl(),
-            'defaults' => [
-              'exceptions' => true,
-              'verify' => $http->getDefaultOption('verify'),
-              'proxy' => $http->getDefaultOption('proxy'),
-            ]
-          ]
-      );
-      $authHttpHandler = HttpHandlerFactory::build($authHttp);
-
       $subscriber = new AuthTokenSubscriber(
           $credentials,
           [],
@@ -128,6 +109,31 @@ class Google_Http_AuthHandler
     }
 
     return $http;
+  }
+
+  public function createAuthHttp(ClientInterface $http)
+  {
+    if ($this->useMiddleware()) {
+      return new Client(
+          [
+            'base_uri' => $http->getConfig('base_uri'),
+            'exceptions' => true,
+            'verify' => $http->getConfig('verify'),
+            'proxy' => $http->getConfig('proxy'),
+          ]
+      );
+    }
+
+    return new Client(
+        [
+          'base_url' => $http->getBaseUrl(),
+          'defaults' => [
+            'exceptions' => true,
+            'verify' => $http->getDefaultOption('verify'),
+            'proxy' => $http->getDefaultOption('proxy'),
+          ]
+        ]
+    );
   }
 
   private function useMiddleware()

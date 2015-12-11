@@ -204,6 +204,13 @@ class BaseTest extends PHPUnit_Framework_TestCase
     return ('6' === $version[0]);
   }
 
+  protected function isGuzzle5()
+  {
+    $version = ClientInterface::VERSION;
+
+    return ('5' === $version[0]);
+  }
+
   public function onlyGuzzle6()
   {
     if (!$this->isGuzzle6()) {
@@ -213,7 +220,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
   public function onlyGuzzle5()
   {
-    if ($this->isGuzzle6()) {
+    if (!$this->isGuzzle5()) {
       $this->markTestSkipped('Guzzle 5 only');
     }
   }
