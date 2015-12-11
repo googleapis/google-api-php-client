@@ -8,7 +8,7 @@ env:
     - MEMCACHE_HOST=127.0.0.1
     - MEMCACHE_PORT=11211
   matrix:
-    - GUZZLE_VERSION=5.2.*
+    - GUZZLE_VERSION=~5.2
     - GUZZLE_VERSION=~6.0
 
 sudo: false
