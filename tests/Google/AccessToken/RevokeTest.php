@@ -90,9 +90,15 @@ class Google_AccessToken_RevokeTest extends BaseTest
     $this->assertEquals($refreshToken, $token);
   }
 
-  /** @expectedException PHPUnit_Framework_Error */
   public function testInvalidStringToken()
   {
+    $phpVersion = phpversion();
+    if ('7' === $phpVersion[0]) {
+      // primitive type hints actually throw exceptions in PHP7
+      $this->setExpectedException('TypeError');
+    } else {
+      $this->setExpectedException('PHPUnit_Framework_Error');
+    }
     // Test with string token
     $revoke = new Google_AccessToken_Revoke();
     $revoke->revokeToken('ACCESS_TOKEN');
