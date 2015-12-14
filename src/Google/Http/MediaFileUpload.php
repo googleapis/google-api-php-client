@@ -165,11 +165,11 @@ class Google_Http_MediaFileUpload
 
     if (308 == $this->httpResultCode) {
       // Track the amount uploaded.
-      $range = explode('-', $response->getHeader('range'));
+      $range = explode('-', $response->getHeaderLine('range'));
       $this->progress = $range[1] + 1;
 
       // Allow for changing upload URLs.
-      $location = $response->getHeader('location');
+      $location = $response->getHeaderLine('location');
       if ($location) {
         $this->resumeUri = $location;
       }
@@ -178,8 +178,8 @@ class Google_Http_MediaFileUpload
       return false;
     }
 
-    $result = $response->json();
-    $expectedClass = $this->request->getHeader('X-Php-Expected-Class');
+    $result = json_decode((string) $this->request->getBody(), true);
+    $expectedClass = $this->request->getHeaderLine('X-Php-Expected-Class');
 
     if ($expectedClass) {
       $result = new $expectedClass($result);
@@ -230,7 +230,7 @@ class Google_Http_MediaFileUpload
 
     $mimeType = $this->mimeType ?
         $this->mimeType :
-        $request->getHeader('content-type');
+        $request->getHeaderLine('content-type');
 
     if (self::UPLOAD_RESUMABLE_TYPE == $uploadType) {
       $contentType = $mimeType;
@@ -307,12 +307,12 @@ class Google_Http_MediaFileUpload
         'expect' => '',
       );
       foreach ($headers as $key => $value) {
-        $this->request->setHeader($key, $value);
+        $this->request = $this->request->withHeader($key, $value);
       }
     }
 
     $response = $this->client->getHttpClient()->send($this->request);
-    $location = $response->getHeader('location');
+    $location = $response->getHeaderLine('location');
     $code = $response->getStatusCode();
 
     if (200 == $code && true == $location) {
@@ -320,7 +320,7 @@ class Google_Http_MediaFileUpload
     }
 
     $message = $code;
-    $body = $response->json();
+    $body = json_decode((string) $this->request->getBody(), true);
     if (isset($body['error']['errors'])) {
       $message .= ': ';
       foreach ($body['error']['errors'] as $error) {
