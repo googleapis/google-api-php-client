@@ -68,6 +68,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
         "https://www.googleapis.com/auth/tasks",
         "https://www.googleapis.com/auth/adsense",
         "https://www.googleapis.com/auth/youtube",
+        "https://www.googleapis.com/auth/drive",
     ]);
 
     if ($this->key) {

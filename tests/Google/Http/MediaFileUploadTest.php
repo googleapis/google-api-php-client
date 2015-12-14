@@ -86,4 +86,115 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     $this->assertContains($reqData, (string) $request->getBody());
     $this->assertContains(base64_encode($data), (string) $request->getBody());
   }
+
+  public function testGetResumeUri()
+  {
+    $this->checkToken();
+
+    $client = $this->getClient();
+    $client->addScope("https://www.googleapis.com/auth/drive");
+    $service = new Google_Service_Drive($client);
+    $file = new Google_Service_Drive_DriveFile();
+    $file->title = 'TESTFILE-testGetResumeUri';
+    $chunkSizeBytes = 1 * 1024 * 1024;
+
+    // Call the API with the media upload, defer so it doesn't immediately return.
+    $client->setDefer(true);
+    $request = $service->files->insert($file);
+
+    // Create a media file upload to represent our upload process.
+    $media = new Google_Http_MediaFileUpload(
+      $client,
+      $request,
+      'text/plain',
+      null,
+      true,
+      $chunkSizeBytes
+    );
+
+    // request the resumable url
+    $uri = $media->getResumeUri();
+    $this->assertTrue(is_string($uri));
+
+    // parse the URL
+    $parts = parse_url($uri);
+    $this->assertArrayHasKey('query', $parts);
+
+    // parse the querystring
+    parse_str($parts['query'], $query);
+    $this->assertArrayHasKey('uploadType', $query);
+    $this->assertArrayHasKey('upload_id', $query);
+    $this->assertEquals('resumable', $query['uploadType']);
+  }
+
+  public function testNextChunk()
+  {
+    $this->checkToken();
+
+    $client = $this->getClient();
+    $client->addScope("https://www.googleapis.com/auth/drive");
+    $service = new Google_Service_Drive($client);
+
+    $data = 'foo';
+    $file = new Google_Service_Drive_DriveFile();
+    $file->title = $title = 'TESTFILE-testNextChunk';
+
+    // Call the API with the media upload, defer so it doesn't immediately return.
+    $client->setDefer(true);
+    $request = $service->files->insert($file);
+
+    // Create a media file upload to represent our upload process.
+    $media = new Google_Http_MediaFileUpload(
+      $client,
+      $request,
+      'text/plain',
+      null,
+      true
+    );
+    $media->setFileSize(strlen($data));
+
+    // upload the file
+    $file = $media->nextChunk($data);
+    $this->assertInstanceOf('Google_Service_Drive_DriveFile', $file);
+    $this->assertEquals($title, $file->title);
+
+    // remove the file
+    $client->setDefer(false);
+    $response = $service->files->delete($file->id);
+    $this->assertEquals(204, $response->getStatusCode());
+  }
+
+  public function testNextChunkWithMoreRemaining()
+  {
+    $this->checkToken();
+
+    $client = $this->getClient();
+    $client->addScope("https://www.googleapis.com/auth/drive");
+    $service = new Google_Service_Drive($client);
+
+    $chunkSizeBytes = 262144; // smallest chunk size allowed by APIs
+    $data = str_repeat('.', $chunkSizeBytes+1);
+    $file = new Google_Service_Drive_DriveFile();
+    $file->title = $title = 'TESTFILE-testNextChunkWithMoreRemaining';
+
+    // Call the API with the media upload, defer so it doesn't immediately return.
+    $client->setDefer(true);
+    $request = $service->files->insert($file);
+
+    // Create a media file upload to represent our upload process.
+    $media = new Google_Http_MediaFileUpload(
+      $client,
+      $request,
+      'text/plain',
+      $data,
+      true,
+      $chunkSizeBytes
+    );
+    $media->setFileSize(strlen($data));
+
+    // upload the file
+    $file = $media->nextChunk();
+    // false means we aren't done uploading, which is exactly what we expect!
+    $this->assertFalse($file);
+  }
 }

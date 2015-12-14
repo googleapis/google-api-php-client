@@ -16,6 +16,7 @@
  */
 
 use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\RequestInterface;
 
@@ -159,8 +160,7 @@ class Google_Http_MediaFileUpload
   */
   private function makePutRequest(RequestInterface $request)
   {
-    $http = $this->client->getHttpClient();
-    $response = $http->send($request);
+    $response = $this->client->execute($request);
     $this->httpResultCode = $response->getStatusCode();
 
     if (308 == $this->httpResultCode) {
@@ -178,14 +178,7 @@ class Google_Http_MediaFileUpload
       return false;
     }
 
-    $result = json_decode((string) $this->request->getBody(), true);
-    $expectedClass = $this->request->getHeaderLine('X-Php-Expected-Class');
-
-    if ($expectedClass) {
-      $result = new $expectedClass($result);
-    }
-
-    return $result;
+    return Google_Http_REST::decodeHttpResponse($response, $this->request);
   }
 
   /**
@@ -311,7 +304,7 @@ class Google_Http_MediaFileUpload
       }
     }
 
-    $response = $this->client->getHttpClient()->send($this->request);
+    $response = $this->client->execute($this->request, false);
     $location = $response->getHeaderLine('location');
     $code = $response->getStatusCode();
 

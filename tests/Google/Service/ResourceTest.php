@@ -223,7 +223,7 @@ class Google_Service_ResourceTest extends BaseTest
     $arguments = [['alt' => 'media']];
     $request = new Request('GET', '/?alt=media');
     $body = Psr7\stream_for('thisisnotvalidjson');
-    $response = new Response(300, [], $body);
+    $response = new Response(400, [], $body);
 
     $http = $this->getMockBuilder("GuzzleHttp\Client")
         ->disableOriginalConstructor()

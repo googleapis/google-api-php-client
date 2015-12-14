@@ -755,9 +755,7 @@ class Google_Client
     // this is where most of the grunt work is done
     $http = $this->authorize();
 
-    $response = Google_Http_REST::execute($http, $request, $expectedClass, $this->config['retry']);
-
-    return $response;
+    return Google_Http_REST::execute($http, $request, $expectedClass, $this->config['retry']);
   }
 
   /**

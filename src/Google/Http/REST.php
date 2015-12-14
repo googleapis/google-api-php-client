@@ -115,7 +115,7 @@ class Google_Http_REST
     }
 
     // retry strategy
-    if ((intVal($code)) >= 300) {
+    if ((intVal($code)) >= 400) {
       $errors = null;
       // Specific check for APIs which don't return error details, such as Blogger.
       if (isset($result['error']['errors'])) {
@@ -124,8 +124,13 @@ class Google_Http_REST
       throw new Google_Service_Exception($body, $code, null, $errors);
     }
 
-    $expectedClass = $expectedClass ?: $request->getHeaderLine('X-Php-Expected-Class');
-    if ($expectedClass) {
+    // use "is_null" because "false" is used to explicitly
+    // prevent an expected class from being returned
+    if (is_null($expectedClass) && $request) {
+      $expectedClass = $request->getHeaderLine('X-Php-Expected-Class');
+    }
+
+    if (!empty($expectedClass)) {
       return new $expectedClass($result);
     }
 

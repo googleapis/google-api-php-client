@@ -485,8 +485,6 @@ class Google_ClientTest extends BaseTest
   /**
    * Test fetching an access token with assertion credentials
    * using "setAuthConfig" and "setSubject" but with user credentials
-   *
-   * @expectedException GuzzleHttp\Exception\ClientException
    */
   public function testBadSubjectThrowsException()
   {
@@ -499,11 +497,12 @@ class Google_ClientTest extends BaseTest
     $authHandler = new Google_Http_AuthHandler();
     $authHttp = $authHandler->createAuthHttp($client->getHttpClient());
 
-    // guzzle6 shows the message, guzzle5 does not
-    if ($this->isGuzzle6()) {
-      $this->setExpectedException('GuzzleHttp\Exception\ClientException', 'Invalid impersonation prn email address.');
+    try {
+      $token = $client->fetchAccessTokenWithAssertion($authHttp);
+      $this->fail('no exception thrown');
+    } catch (GuzzleHttp\Exception\ClientException $e) {
+      $response = $e->getResponse();
+      $this->assertContains('Invalid impersonation prn email address', (string) $response->getBody());
     }
-
-    $token = $client->fetchAccessTokenWithAssertion();
   }
 }

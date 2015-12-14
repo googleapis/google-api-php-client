@@ -218,6 +218,9 @@ class Google_Service_Resource
         : 'application/octet-stream';
       $data = $parameters['data']['value'];
       $upload = new Google_Http_MediaFileUpload($this->client, $request, $mimeType, $data);
+
+      // pull down the modified request
+      $request = $upload->getRequest();
     }
 
     // if this is a media type, we will return the raw response
