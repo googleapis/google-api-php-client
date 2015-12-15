@@ -338,8 +338,6 @@ class Google_Client
       $http = $this->getHttpClient();
     }
 
-    $authHandler = new Google_Http_AuthHandler($this->cache);
-
     // These conditionals represent the decision tree for authentication
     //   1.  Check for Application Default Credentials
     //   2.  Check for API Key
@@ -357,6 +355,8 @@ class Google_Client
         );
       }
     }
+
+    $authHandler = $this->getAuthHandler();
 
     if ($credentials) {
       $http = $authHandler->attachCredentials($http, $credentials);
@@ -1052,6 +1052,11 @@ class Google_Client
     }
 
     return $credentials;
+  }
+
+  protected function getAuthHandler()
+  {
+    return Google_AuthHandler_AuthHandlerFactory::build($this->getCache());
   }
 
   private function createUserRefreshCredentials($scope, $refreshToken)

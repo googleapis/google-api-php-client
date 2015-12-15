@@ -494,8 +494,12 @@ class Google_ClientTest extends BaseTest
     $client->useApplicationDefaultCredentials();
     $client->setSubject('bad-subject');
 
-    $authHandler = new Google_Http_AuthHandler();
-    $authHttp = $authHandler->createAuthHttp($client->getHttpClient());
+    $authHandler = Google_AuthHandler_AuthHandlerFactory::build();
+
+    // make this method public for testing purposes
+    $method = new ReflectionMethod($authHandler, 'createAuthHttp');
+    $method->setAccessible(true);
+    $authHttp = $method->invoke($authHandler, $client->getHttpClient());
 
     try {
       $token = $client->fetchAccessTokenWithAssertion($authHttp);
