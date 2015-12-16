@@ -32,11 +32,11 @@ class Google_AuthHandler_AuthHandlerFactory
 
     switch ($version[0]) {
       case '5':
-          return new Google_AuthHandler_Guzzle5AuthHandler($cache);
+        return new Google_AuthHandler_Guzzle5AuthHandler($cache);
       case '6':
-          return new Google_AuthHandler_Guzzle6AuthHandler($cache);
+        return new Google_AuthHandler_Guzzle6AuthHandler($cache);
       default:
-          throw new Exception('Version not supported');
+        throw new Exception('Version not supported');
     }
   }
 }
