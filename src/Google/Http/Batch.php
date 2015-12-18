@@ -20,7 +20,6 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Google\Auth\HttpHandler\HttpHandlerFactory;
 
 /**
  * Class to handle batched requests to the Google API service.

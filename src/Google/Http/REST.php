@@ -18,7 +18,6 @@
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Exception\ParseException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 

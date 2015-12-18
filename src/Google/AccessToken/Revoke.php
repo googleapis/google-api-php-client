@@ -17,7 +17,6 @@
  */
 
 use Google\Auth\HttpHandler\HttpHandlerFactory;
-use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
@@ -39,10 +38,6 @@ class Google_AccessToken_Revoke
    */
   public function __construct(ClientInterface $http = null)
   {
-    if (is_null($http)) {
-      $http = new Client();
-    }
-
     $this->http = $http;
   }
 

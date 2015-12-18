@@ -60,6 +60,22 @@ class Google_AccessToken_VerifyTest extends BaseTest
     $this->assertTrue(strlen($payload['sub']) > 0);
   }
 
+  public function testRetrieveCertsFromLocation()
+  {
+    $client = $this->getClient();
+    $verify = new Google_AccessToken_Verify($client->getHttpClient());
+
+    // make this method public for testing purposes
+    $method = new ReflectionMethod($verify, 'retrieveCertsFromLocation');
+    $method->setAccessible(true);
+    $certs = $method->invoke($verify, Google_AccessToken_Verify::FEDERATED_SIGNON_CERT_URL);
+
+    $this->assertArrayHasKey('keys', $certs);
+    $this->assertEquals(2, count($certs['keys']));
+    $this->assertArrayHasKey('alg', $certs['keys'][0]);
+    $this->assertEquals('RS256', $certs['keys'][0]['alg']);
+  }
+
   private function getJwtService()
   {
     if (class_exists('\Firebase\JWT\JWT')) {

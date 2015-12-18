@@ -16,7 +16,7 @@ class Google_AuthHandler_Guzzle5AuthHandler
 {
   protected $cache;
 
-  public function __construct($cache = null)
+  public function __construct(CacheInterface $cache = null)
   {
     $this->cache = $cache;
   }

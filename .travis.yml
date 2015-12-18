@@ -44,4 +44,5 @@ before_script:
 
 script:
   - vendor/bin/phpunit
-  - if [[ "$TRAVIS_PHP_VERSION" == "5.5" ]]; then vendor/bin/phpcs src --standard=style/ruleset.xml -np; fi
+  - if [[ "$TRAVIS_PHP_VERSION" == "5.4" ]]; then vendor/bin/phpcs src --standard=style/ruleset.xml -np; fi
+

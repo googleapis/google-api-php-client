@@ -8,7 +8,6 @@ use Google\Auth\Middleware\ScopedAccessTokenMiddleware;
 use Google\Auth\Middleware\SimpleMiddleware;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\HandlerStack;
 
 /**
 *
@@ -17,7 +16,7 @@ class Google_AuthHandler_Guzzle6AuthHandler
 {
   protected $cache;
 
-  public function __construct($cache = null)
+  public function __construct(CacheInterface $cache = null)
   {
     $this->cache = $cache;
   }
