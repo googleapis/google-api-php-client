@@ -23,6 +23,8 @@ class examples_idTokenTest extends BaseTest
 {
   public function testIdToken()
   {
+    $this->checkKey();
+
     $crawler = $this->loadExample('idtoken.php');
 
     $nodes = $crawler->filter('h1');

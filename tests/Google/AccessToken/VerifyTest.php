@@ -62,6 +62,8 @@ class Google_AccessToken_VerifyTest extends BaseTest
 
   public function testRetrieveCertsFromLocation()
   {
+    $this->checkToken();
+
     $client = $this->getClient();
     $verify = new Google_AccessToken_Verify($client->getHttpClient());
 
