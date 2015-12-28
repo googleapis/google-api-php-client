@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 
-use GuzzleHttp\Message\Request;
-use GuzzleHttp\Message\Response;
-use GuzzleHttp\Message\RequestInterface;
-use GuzzleHttp\Message\ResponseInterface;
-use GuzzleHttp\Stream\Stream;
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class to handle batched requests to the Google API service.
@@ -79,22 +79,27 @@ EOF;
       $firstLine = sprintf(
           '%s %s HTTP/%s',
           $request->getMethod(),
-          $request->getResource(),
+          $request->getRequestTarget(),
           $request->getProtocolVersion()
       );
 
       $content = (string) $request->getBody();
+
+      $headers = '';
+      foreach ($request->getHeaders() as $name => $values) {
+          $headers .= sprintf("%s:%s\r\n", $name, implode(', ', $values));
+      }
 
       $body .= sprintf(
           $batchHttpTemplate,
           $this->boundary,
           $key,
           $firstLine,
-          Request::getHeadersAsString($request),
+          $headers,
           $content ? "\n".$content : ''
       );
 
-      $classes['response-' . $key] = $request->getHeader('X-Php-Expected-Class');
+      $classes['response-' . $key] = $request->getHeaderLine('X-Php-Expected-Class');
     }
 
     $body .= "--{$this->boundary}--";
@@ -104,23 +109,22 @@ EOF;
       'Content-Type' => sprintf('multipart/mixed; boundary=%s', $this->boundary),
       'Content-Length' => strlen($body),
     );
-    $request = $this->client->getHttpClient()->createRequest(
+
+    $request = new Request(
         'POST',
         $url,
-        [
-        'headers' => $headers,
-        'body' => Stream::factory($body),
-        ]
+        $headers,
+        $body
     );
 
-    $response = $this->client->getHttpClient()->send($request);
+    $response = $this->client->execute($request);
 
     return $this->parseResponse($response, $classes);
   }
 
   public function parseResponse(ResponseInterface $response, $classes = array())
   {
-    $contentType = $response->getHeader('content-type');
+    $contentType = $response->getHeaderLine('content-type');
     $contentType = explode(';', $contentType);
     $boundary = false;
     foreach ($contentType as $part) {
@@ -135,6 +139,7 @@ EOF;
       $body = str_replace("--$boundary--", "--$boundary", $body);
       $parts = explode("--$boundary", $body);
       $responses = array();
+      $requests = array_values($this->requests);
 
       foreach ($parts as $i => $part) {
         $part = trim($part);
@@ -150,7 +155,7 @@ EOF;
           $response = new Response(
               $status,
               $partHeaders,
-              Stream::factory($partBody)
+              Psr7\stream_for($partBody)
           );
 
           // Need content id.
@@ -161,10 +166,7 @@ EOF;
           }
 
           try {
-            $response = Google_Http_REST::decodeHttpResponse($response);
-            if (isset($classes[$key])) {
-              $response = new $classes[$key]($response);
-            }
+            $response = Google_Http_REST::decodeHttpResponse($response, $requests[$i-1]);
           } catch (Google_Service_Exception $e) {
             // Store the exception as the response, so successful responses
             // can be processed.

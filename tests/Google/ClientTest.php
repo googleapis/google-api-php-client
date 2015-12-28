@@ -20,7 +20,7 @@
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Event\RequestEvents;
-use GuzzleHttp\Message\Request;
+use Psr\Http\Message\Request;
 
 class Google_ClientTest extends BaseTest
 {
@@ -37,10 +37,71 @@ class Google_ClientTest extends BaseTest
     $http = new Client();
     $client->authorize($http);
 
-    $listeners = $http->getEmitter()->listeners('before');
-    $this->assertEquals(1, count($listeners));
-    $this->assertEquals(2, count($listeners[0]));
-    $this->assertInstanceOf('Google\Auth\Simple', $listeners[0][0]);
+    $this->checkAuthHandler($http, 'Simple');
+  }
+
+  private function checkAuthHandler($http, $className)
+  {
+    if ($this->isGuzzle6()) {
+      $stack = $http->getConfig('handler');
+      $class = new ReflectionClass(get_class($stack));
+      $property = $class->getProperty('stack');
+      $property->setAccessible(true);
+      $middlewares = $property->getValue($stack);
+      $middleware = array_pop($middlewares);
+
+      if (is_null($className)) {
+        // only the default middlewares have been added
+        $this->assertEquals(3, count($middlewares));
+      } else {
+        $authClass = sprintf('Google\Auth\Middleware\%sMiddleware', $className);
+        $this->assertInstanceOf($authClass, $middleware[0]);
+      }
+    } else {
+      $listeners = $http->getEmitter()->listeners('before');
+
+      if (is_null($className)) {
+        $this->assertEquals(0, count($listeners));
+      } else {
+        $authClass = sprintf('Google\Auth\Subscriber\%sSubscriber', $className);
+        $this->assertEquals(1, count($listeners));
+        $this->assertEquals(2, count($listeners[0]));
+        $this->assertInstanceOf($authClass, $listeners[0][0]);
+      }
+    }
+  }
+
+  private function checkCredentials($http, $fetcherClass, $sub = null)
+  {
+    if ($this->isGuzzle6()) {
+      $stack = $http->getConfig('handler');
+      $class = new ReflectionClass(get_class($stack));
+      $property = $class->getProperty('stack');
+      $property->setAccessible(true);
+      $middlewares = $property->getValue($stack); // Works
+      $middleware = array_pop($middlewares);
+      $auth = $middleware[0];
+    } else {
+      // access the protected $fetcher property
+      $listeners = $http->getEmitter()->listeners('before');
+      $auth = $listeners[0][0];
+    }
+
+    $class = new ReflectionClass(get_class($auth));
+    $property = $class->getProperty('fetcher');
+    $property->setAccessible(true);
+    $fetcher = $property->getValue($auth);
+    $this->assertInstanceOf($fetcherClass, $fetcher);
+
+    if ($sub) {
+      // access the protected $auth property
+      $class = new ReflectionClass(get_class($fetcher));
+      $property = $class->getProperty('auth');
+      $property->setAccessible(true);
+      $auth = $property->getValue($fetcher);
+
+      $this->assertEquals($sub, $auth->getSub());
+    }
   }
 
   public function testSignAccessToken()
@@ -56,10 +117,7 @@ class Google_ClientTest extends BaseTest
     $client->setScopes('test_scope');
     $client->authorize($http);
 
-    $listeners = $http->getEmitter()->listeners('before');
-    $this->assertEquals(1, count($listeners));
-    $this->assertEquals(2, count($listeners[0]));
-    $this->assertInstanceOf('Google\Auth\ScopedAccessToken', $listeners[0][0]);
+    $this->checkAuthHandler($http, 'ScopedAccessToken');
   }
 
   public function testCreateAuthUrl()
@@ -78,14 +136,15 @@ class Google_ClientTest extends BaseTest
 
     $authUrl = $client->createAuthUrl("http://googleapis.com/scope/foo");
     $expected = "https://accounts.google.com/o/oauth2/auth"
-        . "?access_type=offline"
-        . "&approval_prompt=force"
-        . "&login_hint=bob%40example.org"
-        . "&response_type=code"
-        . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
-        . "&state=xyz"
+        . "?response_type=code"
+        . "&access_type=offline"
         . "&client_id=clientId1"
-        . "&redirect_uri=http%3A%2F%2Flocalhost";
+        . "&redirect_uri=http%3A%2F%2Flocalhost"
+        . "&state=xyz"
+        . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
+        . "&approval_prompt=force"
+        . "&login_hint=bob%40example.org";
+
     $this->assertEquals($expected, $authUrl);
 
     // Again with a blank login hint (should remove all traces from authUrl)
@@ -96,16 +155,17 @@ class Google_ClientTest extends BaseTest
     $client->setIncludeGrantedScopes(true);
     $authUrl = $client->createAuthUrl("http://googleapis.com/scope/foo");
     $expected = "https://accounts.google.com/o/oauth2/auth"
-        . "?access_type=offline"
+        . "?response_type=code"
+        . "&access_type=offline"
+        . "&client_id=clientId1"
+        . "&redirect_uri=http%3A%2F%2Flocalhost"
+        . "&state=xyz"
+        . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
         . "&hd=example.com"
         . "&include_granted_scopes=true"
         . "&openid.realm=example.com"
-        . "&prompt=select_account"
-        . "&response_type=code"
-        . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
-        . "&state=xyz"
-        . "&client_id=clientId1"
-        . "&redirect_uri=http%3A%2F%2Flocalhost";
+        . "&prompt=select_account";
+
     $this->assertEquals($expected, $authUrl);
   }
 
@@ -150,34 +210,34 @@ class Google_ClientTest extends BaseTest
     $this->assertEquals(
         ''
         . 'https://accounts.google.com/o/oauth2/auth'
-        . '?access_type=online'
-        . '&approval_prompt=auto'
-        . '&response_type=code'
-        . '&scope=http%3A%2F%2Ftest.com%20scope2'
-        . '&state=xyz'
+        . '?response_type=code'
+        . '&access_type=online'
         . '&client_id=test1'
-        . '&redirect_uri=http%3A%2F%2Flocalhost%2F',
+        . '&redirect_uri=http%3A%2F%2Flocalhost%2F'
+        . '&state=xyz'
+        . '&scope=http%3A%2F%2Ftest.com%20scope2'
+        . '&approval_prompt=auto',
+
         $client->createAuthUrl()
     );
 
-    $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
     $response->expects($this->once())
       ->method('getBody')
-      ->will($this->returnValue($this->getMock('GuzzleHttp\Post\PostBody')));
-    $response->expects($this->once())
-      ->method('json')
-      ->will($this->returnValue($this->getMock('Google_Model')));
-    $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
-    $request->expects($this->once())
-      ->method('getQuery')
-      ->will($this->returnValue($this->getMock('GuzzleHttp\Query')));
+      ->will($this->returnValue($this->getMock('Psr\Http\Message\StreamInterface')));
     $http = $this->getMock('GuzzleHttp\ClientInterface');
-    $http->expects($this->once())
-      ->method('createRequest')
-      ->will($this->returnValue($request));
     $http->expects($this->once())
       ->method('send')
       ->will($this->returnValue($response));
+
+    if ($this->isGuzzle5()) {
+      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/');
+      $http->expects($this->once())
+        ->method('createRequest')
+        ->will($this->returnValue($guzzle5Request));
+    }
+
+
     $client->setHttpClient($http);
     $dr_service = new Google_Service_Drive($client);
     $this->assertInstanceOf('Google_Model', $dr_service->files->listFiles());
@@ -211,11 +271,22 @@ class Google_ClientTest extends BaseTest
   /**
    * @requires extension Memcached
    */
-  public function testAppEngineAutoConfig()
+  public function testAppEngineMemcacheConfig()
   {
     $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
     $client = new Google_Client();
+
     $this->assertInstanceOf('Google_Cache_Memcache', $client->getCache());
+
+    unset($_SERVER['SERVER_SOFTWARE']);
+  }
+
+  public function testAppEngineStreamHandlerConfig()
+  {
+    $this->onlyGuzzle5();
+
+    $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
+    $client = new Google_Client();
 
     // check Stream Handler is used
     $http = $client->getHttpClient();
@@ -230,6 +301,21 @@ class Google_ClientTest extends BaseTest
     $handler = $property->getValue($fsm);
 
     $this->assertInstanceOf('GuzzleHttp\Ring\Client\StreamHandler', $handler);
+
+    unset($_SERVER['SERVER_SOFTWARE']);
+  }
+
+  public function testAppEngineVerifyConfig()
+  {
+    $this->onlyGuzzle5();
+
+    $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
+    $client = new Google_Client();
+
+    $this->assertEquals(
+      '/etc/ca-certificates.crt',
+      $client->getHttpClient()->getDefaultOption('verify')
+    );
 
     unset($_SERVER['SERVER_SOFTWARE']);
   }
@@ -291,67 +377,41 @@ class Google_ClientTest extends BaseTest
     $http = new Client();
     $client->authorize($http);
 
-    $listeners = $http->getEmitter()->listeners('before');
-
     putenv("GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS");
     putenv("HOME=$HOME");
-    $this->assertEquals(0, count($listeners));
+    $this->checkAuthHandler($http, null);
   }
 
   public function testApplicationDefaultCredentials()
   {
+    $this->checkServiceAccountCredentials();
+    $credentialsFile = getenv('GOOGLE_APPLICATION_CREDENTIALS');
+
     $client = new Google_Client();
-    $client->setAuthConfig(__DIR__.'/../config/application-default-credentials.json');
+    $client->setAuthConfig($credentialsFile);
 
     $http = new Client();
     $client->authorize($http);
 
-    $listeners = $http->getEmitter()->listeners('before');
-
-    $this->assertEquals(1, count($listeners));
-    $this->assertEquals(2, count($listeners[0]));
-    $this->assertInstanceOf('Google\Auth\AuthTokenFetcher', $listeners[0][0]);
-
-    // access the protected $fetcher property
-    $class = new ReflectionClass(get_class($listeners[0][0]));
-    $property = $class->getProperty('fetcher');
-    $property->setAccessible(true);
-    $fetcher = $property->getValue($listeners[0][0]);
-
-    $this->assertInstanceOf('Google\Auth\ServiceAccountCredentials', $fetcher);
+    $this->checkAuthHandler($http, 'AuthToken');
+    $this->checkCredentials($http, 'Google\Auth\Credentials\ServiceAccountCredentials');
   }
 
   public function testApplicationDefaultCredentialsWithSubject()
   {
+    $this->checkServiceAccountCredentials();
+    $credentialsFile = getenv('GOOGLE_APPLICATION_CREDENTIALS');
+
     $sub = 'sub123';
     $client = new Google_Client();
-    $client->setAuthConfig(__DIR__.'/../config/application-default-credentials.json');
+    $client->setAuthConfig($credentialsFile);
     $client->setSubject($sub);
 
     $http = new Client();
     $client->authorize($http);
 
-    $listeners = $http->getEmitter()->listeners('before');
-
-    $this->assertEquals(1, count($listeners));
-    $this->assertEquals(2, count($listeners[0]));
-    $this->assertInstanceOf('Google\Auth\AuthTokenFetcher', $listeners[0][0]);
-
-    // access the protected $fetcher property
-    $class = new ReflectionClass(get_class($listeners[0][0]));
-    $property = $class->getProperty('fetcher');
-    $property->setAccessible(true);
-    $fetcher = $property->getValue($listeners[0][0]);
-
-    $this->assertInstanceOf('Google\Auth\ServiceAccountCredentials', $fetcher);
-
-    // access the protected $auth property
-    $class = new ReflectionClass(get_class($fetcher));
-    $property = $class->getProperty('auth');
-    $property->setAccessible(true);
-    $auth = $property->getValue($fetcher);
-
-    $this->assertEquals($sub, $auth->getSub());
+    $this->checkAuthHandler($http, 'AuthToken');
+    $this->checkCredentials($http, 'Google\Auth\Credentials\ServiceAccountCredentials', $sub);
   }
 
   /**
@@ -359,27 +419,30 @@ class Google_ClientTest extends BaseTest
    */
   public function testRefreshTokenSetsValues()
   {
-    $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
-    $request->expects($this->once())
-      ->method('getBody')
-      ->will($this->returnValue($this->getMock('GuzzleHttp\Post\PostBodyInterface')));
-    $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
-    $response->expects($this->once())
-      ->method('json')
-      ->will($this->returnValue(array(
-          'access_token' => 'xyz',
-          'id_token' => 'ID_TOKEN',
-        )));
+    $token = json_encode(array(
+        'access_token' => 'xyz',
+        'id_token' => 'ID_TOKEN',
+    ));
+    $postBody = $this->getMock('Psr\Http\Message\StreamInterface');
+    $postBody->expects($this->once())
+      ->method('__toString')
+      ->will($this->returnValue($token));
+    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
     $response->expects($this->once())
       ->method('getBody')
-      ->will($this->returnValue($this->getMock('GuzzleHttp\Post\PostBody')));
+      ->will($this->returnValue($postBody));
     $http = $this->getMock('GuzzleHttp\ClientInterface');
     $http->expects($this->once())
       ->method('send')
       ->will($this->returnValue($response));
-    $http->expects($this->once())
-      ->method('createRequest')
-      ->will($this->returnValue($request));
+
+    if ($this->isGuzzle5()) {
+      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
+      $http->expects($this->once())
+        ->method('createRequest')
+        ->will($this->returnValue($guzzle5Request));
+    }
+
     $client = $this->getClient();
     $client->setHttpClient($http);
     $client->fetchAccessTokenWithRefreshToken("REFRESH_TOKEN");
@@ -417,5 +480,33 @@ class Google_ClientTest extends BaseTest
 
     $this->assertNotNull($token);
     $this->assertArrayHasKey('access_token', $token);
+  }
+
+  /**
+   * Test fetching an access token with assertion credentials
+   * using "setAuthConfig" and "setSubject" but with user credentials
+   */
+  public function testBadSubjectThrowsException()
+  {
+    $this->checkServiceAccountCredentials();
+
+    $client = $this->getClient();
+    $client->useApplicationDefaultCredentials();
+    $client->setSubject('bad-subject');
+
+    $authHandler = Google_AuthHandler_AuthHandlerFactory::build();
+
+    // make this method public for testing purposes
+    $method = new ReflectionMethod($authHandler, 'createAuthHttp');
+    $method->setAccessible(true);
+    $authHttp = $method->invoke($authHandler, $client->getHttpClient());
+
+    try {
+      $token = $client->fetchAccessTokenWithAssertion($authHttp);
+      $this->fail('no exception thrown');
+    } catch (GuzzleHttp\Exception\ClientException $e) {
+      $response = $e->getResponse();
+      $this->assertContains('Invalid impersonation prn email address', (string) $response->getBody());
+    }
   }
 }
