@@ -16,8 +16,10 @@
  * limitations under the License.
  */
 
-use GuzzleHttp\Client;
+use Google\Auth\HttpHandler\HttpHandlerFactory;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Request;
 
 /**
  * Wrapper around Google Access Tokens which provides convenience functions
@@ -36,10 +38,6 @@ class Google_AccessToken_Revoke
    */
   public function __construct(ClientInterface $http = null)
   {
-    if (is_null($http)) {
-      $http = new Client();
-    }
-
     $this->http = $http;
   }
 
@@ -53,17 +51,25 @@ class Google_AccessToken_Revoke
   public function revokeToken(array $token)
   {
     if (isset($token['refresh_token'])) {
-        $tokenString = $token['refresh_token'];
+      $tokenString = $token['refresh_token'];
     } else {
-        $tokenString = $token['access_token'];
+      $tokenString = $token['access_token'];
     }
 
-    $request = $this->http->createRequest('POST', Google_Client::OAUTH2_REVOKE_URI);
-    $request->addHeader('Cache-Control', 'no-store');
-    $request->addHeader('Content-Type', 'application/x-www-form-urlencoded');
-    $request->getBody()->replaceFields(array('token' => $tokenString));
+    $body = Psr7\stream_for(http_build_query(array('token' => $tokenString)));
+    $request = new Request(
+        'POST',
+        Google_Client::OAUTH2_REVOKE_URI,
+        [
+          'Cache-Control' => 'no-store',
+          'Content-Type'  => 'application/x-www-form-urlencoded',
+        ],
+        $body
+    );
 
-    $response = $this->http->send($request);
+    $httpHandler = HttpHandlerFactory::build($this->http);
+
+    $response = $httpHandler($request);
     if ($response->getStatusCode() == 200) {
       return true;
     }

@@ -1,6 +1,5 @@
 <?php
 
-use GuzzleHttp\Message\Request;
 use GuzzleHttp\Client;
 
 /**
@@ -30,29 +29,43 @@ class Google_AccessToken_RevokeTest extends BaseTest
     $refreshToken = 'REFRESH_TOKEN';
     $token = '';
 
-    $postBody = $this->getMock('GuzzleHttp\Post\PostBodyInterface');
-    $postBody->expects($this->exactly(2))
-      ->method('replaceFields')
-      ->will($this->returnCallback(
-            function ($fields) use (&$token) {
-              $token = isset($fields['token']) ? $fields['token'] : null;
-            }
-        ));
-    $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
-    $request->expects($this->exactly(2))
-      ->method('getBody')
-      ->will($this->returnValue($postBody));
-    $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
     $response->expects($this->exactly(2))
       ->method('getStatusCode')
       ->will($this->returnValue(200));
     $http = $this->getMock('GuzzleHttp\ClientInterface');
     $http->expects($this->exactly(2))
       ->method('send')
-      ->will($this->returnValue($response));
-    $http->expects($this->exactly(2))
-      ->method('createRequest')
-      ->will($this->returnValue($request));
+      ->will($this->returnCallback(
+            function ($request) use (&$token, $response) {
+              parse_str((string) $request->getBody(), $fields);
+              $token = isset($fields['token']) ? $fields['token'] : null;
+
+              return $response;
+            }
+        ));
+
+    // adds support for extra "createRequest" step (required for Guzzle 5)
+    if ($this->isGuzzle5()) {
+      $requestToken = null;
+      $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
+      $request->expects($this->exactly(2))
+          ->method('getBody')
+          ->will($this->returnCallback(
+              function () use (&$requestToken) {
+                return 'token='.$requestToken;
+              }));
+      $http->expects($this->exactly(2))
+        ->method('createRequest')
+        ->will($this->returnCallback(
+              function ($method, $url, $params) use (&$requestToken, $request) {
+                parse_str((string) $params['body'], $fields);
+                $requestToken = isset($fields['token']) ? $fields['token'] : null;
+
+                return $request;
+              }
+          ));
+    }
 
     $t = array(
       'access_token' => $accessToken,
@@ -77,9 +90,15 @@ class Google_AccessToken_RevokeTest extends BaseTest
     $this->assertEquals($refreshToken, $token);
   }
 
-  /** @expectedException PHPUnit_Framework_Error */
   public function testInvalidStringToken()
   {
+    $phpVersion = phpversion();
+    if ('7' === $phpVersion[0]) {
+      // primitive type hints actually throw exceptions in PHP7
+      $this->setExpectedException('TypeError');
+    } else {
+      $this->setExpectedException('PHPUnit_Framework_Error');
+    }
     // Test with string token
     $revoke = new Google_AccessToken_Revoke();
     $revoke->revokeToken('ACCESS_TOKEN');

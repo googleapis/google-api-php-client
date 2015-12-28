@@ -1,6 +1,5 @@
 <?php
 
-use GuzzleHttp\Message\Request;
 use GuzzleHttp\Client;
 
 /**
@@ -35,6 +34,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
 
     $jwt = $this->getJwtService();
     $client = $this->getClient();
+    $http = $client->getHttpClient();
     $token = $client->getAccessToken();
     if ($client->isAccessTokenExpired()) {
       $token = $client->fetchAccessTokenWithRefreshToken();
@@ -43,7 +43,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
     $this->assertEquals(3, count($segments));
     // Extract the client ID in this case as it wont be set on the test client.
     $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
-    $verify = new Google_AccessToken_Verify();
+    $verify = new Google_AccessToken_Verify($http);
     $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
     $this->assertTrue(isset($payload['sub']));
     $this->assertTrue(strlen($payload['sub']) > 0);
@@ -52,11 +52,28 @@ class Google_AccessToken_VerifyTest extends BaseTest
     // caching for this test to make sense. Not sure how to do that
     // at the moment.
     $client = $this->getClient();
+    $http = $client->getHttpClient();
     $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
-    $verify = new Google_AccessToken_Verify();
+    $verify = new Google_AccessToken_Verify($http);
     $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
     $this->assertTrue(isset($payload['sub']));
     $this->assertTrue(strlen($payload['sub']) > 0);
+  }
+
+  public function testRetrieveCertsFromLocation()
+  {
+    $client = $this->getClient();
+    $verify = new Google_AccessToken_Verify($client->getHttpClient());
+
+    // make this method public for testing purposes
+    $method = new ReflectionMethod($verify, 'retrieveCertsFromLocation');
+    $method->setAccessible(true);
+    $certs = $method->invoke($verify, Google_AccessToken_Verify::FEDERATED_SIGNON_CERT_URL);
+
+    $this->assertArrayHasKey('keys', $certs);
+    $this->assertEquals(2, count($certs['keys']));
+    $this->assertArrayHasKey('alg', $certs['keys'][0]);
+    $this->assertEquals('RS256', $certs['keys'][0]['alg']);
   }
 
   private function getJwtService()

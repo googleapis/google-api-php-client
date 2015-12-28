@@ -18,23 +18,23 @@
  * under the License.
  */
 
-use GuzzleHttp\Message\Request;
-use GuzzleHttp\Message\Response;
-use GuzzleHttp\Stream\Stream;
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
 
 class Test_Google_Service extends Google_Service
 {
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->rootUrl = "";
+    $this->rootUrl = "https://test.example.com";
     $this->servicePath = "";
     $this->version = "v1beta1";
     $this->serviceName = "test";
   }
 }
 
-class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
+class Google_Service_ResourceTest extends BaseTest
 {
   private $client;
   private $service;
@@ -56,9 +56,7 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
           ->will($this->returnValue(true));
     $this->client->expects($this->any())
           ->method("getHttpClient")
-          ->will($this->returnValue(new GuzzleHttp\Client([
-              'base_url' => 'https://test.example.com'
-            ])));
+          ->will($this->returnValue(new GuzzleHttp\Client()));
     $this->service = new Test_Google_Service($this->client);
   }
 
@@ -102,7 +100,7 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
       )
     );
     $request = $resource->call("testMethod", array(array()));
-    $this->assertEquals("https://test.example.com/method/path", $request->getUrl());
+    $this->assertEquals("https://test.example.com/method/path", (string) $request->getUri());
     $this->assertEquals("POST", $request->getMethod());
   }
 
@@ -124,7 +122,7 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
       )
     );
     $request = $resource->call("testMethod", array(array()));
-    $this->assertEquals("https://sample.example.com/method/path", $request->getUrl());
+    $this->assertEquals("https://sample.example.com/method/path", (string) $request->getUri());
     $this->assertEquals("POST", $request->getMethod());
   }
 
@@ -172,38 +170,12 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
     $this->assertEquals("http://localhost/plus?u=%40me%2F", $value);
   }
 
-  public function testAppEngineSslCerts()
-  {
-    $this->client->expects($this->once())
-          ->method("isAppEngine")
-          ->will($this->returnValue(true));
-    $resource = new Google_Service_Resource(
-      $this->service,
-      "test",
-      "testResource",
-      array("methods" =>
-        array(
-          "testMethod" => array(
-            "parameters" => array(),
-            "path" => "method/path",
-            "httpMethod" => "POST",
-          )
-        )
-      )
-    );
-    $request = $resource->call("testMethod", array(array()));
-    $this->assertEquals(
-        '/etc/ca-certificates.crt',
-        $this->client->getHttpClient()->getDefaultOption('verify')
-    );
-  }
-
   public function testNoExpectedClassForAltMediaWithHttpSuccess()
   {
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
     $request = new Request('GET', '/?alt=media');
-    $body = Stream::factory('thisisnotvalidjson');
+    $body = Psr7\stream_for('thisisnotvalidjson');
     $response = new Response(200, [], $body);
 
     $http = $this->getMockBuilder("GuzzleHttp\Client")
@@ -212,9 +184,13 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
     $http->expects($this->once())
         ->method('send')
         ->will($this->returnValue($response));
-    $http->expects($this->any())
+
+    if ($this->isGuzzle5()) {
+      $http->expects($this->once())
         ->method('createRequest')
-        ->will($this->returnValue($request));
+        ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/?alt=media')));
+    }
+
     $client = new Google_Client();
     $client->setHttpClient($http);
     $service = new Test_Google_Service($client);
@@ -236,8 +212,9 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
     );
 
     $expectedClass = 'ThisShouldBeIgnored';
-    $decoded = $resource->call('testMethod', $arguments, $expectedClass);
-    $this->assertEquals('thisisnotvalidjson', $decoded);
+    $response = $resource->call('testMethod', $arguments, $expectedClass);
+    $this->assertInstanceOf('Psr\Http\Message\ResponseInterface', $response);
+    $this->assertEquals('thisisnotvalidjson', (string) $response->getBody());
   }
 
   public function testNoExpectedClassForAltMediaWithHttpFail()
@@ -245,8 +222,8 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
     $request = new Request('GET', '/?alt=media');
-    $body = Stream::factory('thisisnotvalidjson');
-    $response = new Response(300, [], $body);
+    $body = Psr7\stream_for('thisisnotvalidjson');
+    $response = new Response(400, [], $body);
 
     $http = $this->getMockBuilder("GuzzleHttp\Client")
         ->disableOriginalConstructor()
@@ -254,12 +231,13 @@ class Google_Service_ResourceTest extends PHPUnit_Framework_TestCase
     $http->expects($this->once())
         ->method('send')
         ->will($this->returnValue($response));
-    $http->expects($this->any())
+
+    if ($this->isGuzzle5()) {
+      $http->expects($this->once())
         ->method('createRequest')
-        ->will($this->returnValue(new Request('GET', '/?alt=media')));
-    $http->expects($this->once())
-        ->method('send')
-        ->will($this->returnValue($response));
+        ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/?alt=media')));
+    }
+
     $client = new Google_Client();
     $client->setHttpClient($http);
     $service = new Test_Google_Service($client);

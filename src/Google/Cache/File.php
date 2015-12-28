@@ -73,7 +73,7 @@ class Google_Cache_File implements CacheInterface
     if ($this->acquireReadLock($storageFile)) {
       if (filesize($storageFile) > 0) {
         $data = fread($this->fh, filesize($storageFile));
-        unserialize($data);
+        $data = unserialize($data);
       } else {
         $this->log(
             'debug',

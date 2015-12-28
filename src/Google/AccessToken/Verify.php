@@ -73,7 +73,7 @@ class Google_AccessToken_Verify
     }
 
     // Check signature
-    $certs = $this->getFederatedSignonCerts();
+    $certs = $this->getFederatedSignOnCerts();
     foreach ($certs as $cert) {
       $modulus = new BigInteger($this->jwt->urlsafeB64Decode($cert['n']), 256);
       $exponent = new BigInteger($this->jwt->urlsafeB64Decode($cert['e']), 256);
@@ -152,7 +152,7 @@ class Google_AccessToken_Verify
     $response = $this->http->get($url);
 
     if ($response->getStatusCode() == 200) {
-      return $response->json();
+      return json_decode((string) $response->getBody(), true);
     }
     throw new Google_Exception(
         sprintf(
