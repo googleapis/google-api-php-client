@@ -201,16 +201,6 @@ class Google_Service_Resource
         $postBody ? json_encode($postBody) : ''
     );
 
-    // if the client is marked for deferring, rather than
-    // execute the request, return the response
-    if ($this->client->shouldDefer()) {
-      // @TODO find a better way to do this
-      $request = $request
-        ->withHeader('X-Php-Expected-Class', $expectedClass);
-
-      return $request;
-    }
-
     // support uploads
     if (isset($parameters['data'])) {
       $mimeType = isset($parameters['mimeType'])
@@ -227,6 +217,16 @@ class Google_Service_Resource
     // rather than using an expected class
     if (isset($parameters['alt']) && $parameters['alt']['value'] == 'media') {
       $expectedClass = null;
+    }
+
+    // if the client is marked for deferring, rather than
+    // execute the request, return the response
+    if ($this->client->shouldDefer()) {
+      // @TODO find a better way to do this
+      $request = $request
+        ->withHeader('X-Php-Expected-Class', $expectedClass);
+
+      return $request;
     }
 
     return $this->client->execute($request, $expectedClass);
