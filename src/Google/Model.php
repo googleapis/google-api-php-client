@@ -98,8 +98,19 @@ class Google_Model implements ArrayAccess
   {
     // Hard initialise simple types, lazy load more complex ones.
     foreach ($array as $key => $val) {
-      if ( !property_exists($this, $this->keyType($key)) &&
-        property_exists($this, $key)) {
+      if (property_exists($this, $this->keyType($key))) {
+        $propertyClass = $this->{$this->keyType($key)};
+        $dataType = $this->{$this->dataType($key)};
+        if ($dataType == 'array' || $dataType == 'map') {
+          $this->$key = array();
+          foreach ($val as $itemKey => $itemVal) {
+            $this->{$key}[$itemKey] = new $propertyClass($itemVal);
+          }
+        } else {
+          $this->$key = new $propertyClass($val);
+        }
+        unset($array[$key]);
+      } elseif (property_exists($this, $key)) {
           $this->$key = $val;
           unset($array[$key]);
       } elseif (property_exists($this, $camelKey = $this->camelCase($key))) {
