@@ -160,7 +160,7 @@ class Google_ModelTest extends BaseTest
     $this->assertFalse(isset($model->foo));
   }
 
-  public function testCollection()
+  public function testCollectionWithItemsFromConstructor()
   {
     $data = json_decode(
         '{
@@ -185,5 +185,52 @@ class Google_ModelTest extends BaseTest
     }
     $this->assertEquals(4, $count);
     $this->assertEquals(1, $collection[0]->id);
+  }
+
+  public function testCollectionWithItemsFromSetter()
+  {
+    $data = json_decode(
+        '{
+           "kind": "calendar#events",
+           "id": "1234566",
+           "etag": "abcdef",
+           "totalItems": 4
+         }',
+        true
+    );
+    $collection = new Google_Service_Calendar_Events($data);
+    $collection->setItems([
+      new Google_Service_Calendar_Event(['id' => 1]),
+      new Google_Service_Calendar_Event(['id' => 2]),
+      new Google_Service_Calendar_Event(['id' => 3]),
+      new Google_Service_Calendar_Event(['id' => 4]),
+    ]);
+    $this->assertEquals(4, count($collection));
+    $count = 0;
+    foreach ($collection as $col) {
+      $count++;
+    }
+    $this->assertEquals(4, $count);
+    $this->assertEquals(1, $collection[0]->id);
+  }
+
+  public function testMapDataType()
+  {
+    $data = json_decode(
+        '{
+            "calendar": {
+              "regular":  { "background": "#FFF", "foreground": "#000" },
+              "inverted": { "background": "#000", "foreground": "#FFF" }
+            }
+         }',
+        true
+    );
+    $collection = new Google_Service_Calendar_Colors($data);
+    $this->assertEquals(2, count($collection->calendar));
+    $this->assertTrue(isset($collection->calendar['regular']));
+    $this->assertTrue(isset($collection->calendar['inverted']));
+    $this->assertInstanceOf('Google_Service_Calendar_ColorDefinition', $collection->calendar['regular']);
+    $this->assertEquals('#FFF', $collection->calendar['regular']->getBackground());
+    $this->assertEquals('#FFF', $collection->calendar['inverted']->getForeground());
   }
 }
