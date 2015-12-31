@@ -233,4 +233,36 @@ class Google_ModelTest extends BaseTest
     $this->assertEquals('#FFF', $collection->calendar['regular']->getBackground());
     $this->assertEquals('#FFF', $collection->calendar['inverted']->getForeground());
   }
+
+  public function testPassingInstanceInConstructor()
+  {
+    $creator = new Google_Service_Calendar_EventCreator();
+    $creator->setDisplayName('Brent Shaffer');
+    $data = [
+        "creator" => $creator
+    ];
+    $event = new Google_Service_Calendar_Event($data);
+    $this->assertInstanceOf('Google_Service_Calendar_EventCreator', $event->getCreator());
+    $this->assertEquals('Brent Shaffer', $event->creator->getDisplayName());
+  }
+
+  public function testPassingInstanceInConstructorForMap()
+  {
+    $regular = new Google_Service_Calendar_ColorDefinition();
+    $regular->setBackground('#FFF');
+    $regular->setForeground('#000');
+    $data = [
+        "calendar" => [
+            "regular" =>  $regular,
+            "inverted" => [ "background" => "#000", "foreground" => "#FFF" ],
+        ]
+    ];
+    $collection = new Google_Service_Calendar_Colors($data);
+    $this->assertEquals(2, count($collection->calendar));
+    $this->assertTrue(isset($collection->calendar['regular']));
+    $this->assertTrue(isset($collection->calendar['inverted']));
+    $this->assertInstanceOf('Google_Service_Calendar_ColorDefinition', $collection->calendar['regular']);
+    $this->assertEquals('#FFF', $collection->calendar['regular']->getBackground());
+    $this->assertEquals('#FFF', $collection->calendar['inverted']->getForeground());
+  }
 }

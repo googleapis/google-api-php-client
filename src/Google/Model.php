@@ -104,8 +104,14 @@ class Google_Model implements ArrayAccess
         if ($dataType == 'array' || $dataType == 'map') {
           $this->$key = array();
           foreach ($val as $itemKey => $itemVal) {
-            $this->{$key}[$itemKey] = new $propertyClass($itemVal);
+            if ($itemVal instanceof $propertyClass) {
+              $this->{$key}[$itemKey] = $itemVal;
+            } else {
+              $this->{$key}[$itemKey] = new $propertyClass($itemVal);
+            }
           }
+        } elseif ($val instanceof $propertyClass) {
+          $this->$key = $val;
         } else {
           $this->$key = new $propertyClass($val);
         }
