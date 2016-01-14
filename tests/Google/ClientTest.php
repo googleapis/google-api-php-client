@@ -312,9 +312,25 @@ class Google_ClientTest extends BaseTest
     $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
     $client = new Google_Client();
 
-    $this->assertEquals(
-      '/etc/ca-certificates.crt',
+    $this->assertFalse(
       $client->getHttpClient()->getDefaultOption('verify')
+    );
+
+    unset($_SERVER['SERVER_SOFTWARE']);
+  }
+
+  public function testAppEngineStreamContextConfig()
+  {
+    $this->onlyGuzzle5();
+
+    $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
+    $client = new Google_Client();
+
+    $this->assertArraySubset(
+      array(
+        'ssl' => null
+      ),
+      $client->getHttpClient()->getDefaultOption('stream_context')
     );
 
     unset($_SERVER['SERVER_SOFTWARE']);
