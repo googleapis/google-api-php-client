@@ -76,7 +76,13 @@ class Google_Http_REST
       if (!$e->hasResponse()) {
         throw $e;
       }
-      $response = $e->getResponse();
+
+      $exceptionResponse = $e->getResponse();
+      if ($exceptionResponse instanceof \GuzzleHttp\Message\ResponseInterface) {
+          $exceptionResponse = $httpHandler->buildPsr7Response($e->getResponse());
+      }
+
+      $response = $exceptionResponse;
     }
 
     return self::decodeHttpResponse($response, $request, $expectedClass);
