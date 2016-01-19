@@ -61,6 +61,8 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
     $client = new Google_Client();
     $client->setApplicationName('google-api-php-client-tests');
+    $client->setRedirectUri("http://localhost:8000");
+    $client->setConfig('access_type', 'offline');
     $client->setHttpClient($httpClient);
     $client->setScopes([
         "https://www.googleapis.com/auth/plus.me",
@@ -110,19 +112,41 @@ class BaseTest extends PHPUnit_Framework_TestCase
   {
     $this->checkClientCredentials();
 
-    $client->setRedirectUri("urn:ietf:wg:oauth:2.0:oob");
-    $client->setConfig('access_type', 'offline');
     $authUrl = $client->createAuthUrl();
 
-    echo "\nPlease enter the auth code:\n";
-    ob_flush();
+    $log = tempnam(sys_get_temp_dir(), 'php_auth_log');
+    $cmd = sprintf(
+      'OAUTH_LOG_FILE=%s php -S localhost:8000 -t %s > /dev/null & echo $!',
+      $log,
+      __DIR__
+    );
+    $pid = exec($cmd);
     `open '$authUrl'`;
-    $authCode = trim(fgets(STDIN));
 
-    if ($accessToken = $client->fetchAccessTokenWithAuthCode($authCode)) {
-      if (isset($accessToken['access_token'])) {
-        return $accessToken;
+    $time = time();
+
+    // break after waiting five minutes
+    while (time() - $time < 300) {
+      if ($file = file_get_contents($log)) {
+        break;
       }
+
+      sleep(1);
+    }
+
+    if ('1' === $file) {
+      $this->markTestSkipped('Failed to retrieve access token');
+    }
+
+    if (!$accessToken = json_decode($file, true)) {
+      $this->markTestSkipped('invalid JSON: ' . $file);
+    }
+
+    // kill the web server
+    `kill $pid`;
+
+    if (isset($accessToken['access_token'])) {
+      return $accessToken;
     }
 
     return false;
