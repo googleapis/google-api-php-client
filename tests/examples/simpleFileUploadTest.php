@@ -23,6 +23,8 @@ class examples_simpleFileUploadTest extends BaseTest
 {
   public function testSimpleFileUpload()
   {
+    $this->checkKey();
+
     $crawler = $this->loadExample('simple-file-upload.php');
 
     $nodes = $crawler->filter('h1');

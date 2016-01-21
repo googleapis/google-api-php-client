@@ -23,6 +23,8 @@ class examples_largeFileUploadTest extends BaseTest
 {
   public function testLargeFileUpload()
   {
+    $this->checkKey();
+
     $crawler = $this->loadExample('large-file-upload.php');
 
     $nodes = $crawler->filter('h1');
