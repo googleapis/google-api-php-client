@@ -33,7 +33,7 @@ use Monolog\Handler\StreamHandler as MonologStreamHandler;
 
 /**
  * The Google API Client
- * http://code.google.com/p/google-api-php-client/
+ * https://github.com/google/google-api-php-client
  */
 class Google_Client
 {
