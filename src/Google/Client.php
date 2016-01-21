@@ -197,7 +197,7 @@ class Google_Client
   /**
    * Fetches a fresh access token with a given assertion token.
    * @param $assertionCredentials optional.
-   * @return void
+   * @return array access token
    */
   public function fetchAccessTokenWithAssertion(ClientInterface $authHttp = null)
   {
