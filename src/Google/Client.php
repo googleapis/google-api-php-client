@@ -327,7 +327,7 @@ class Google_Client
    *
    * @param GuzzleHttp\ClientInterface $http the http client object.
    * @param GuzzleHttp\ClientInterface $authHttp an http client for authentication.
-   * @return void
+   * @return GuzzleHttp\ClientInterface the http client objet
    */
   public function authorize(ClientInterface $http = null, ClientInterface $authHttp = null)
   {
