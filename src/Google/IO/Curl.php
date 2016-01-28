@@ -32,6 +32,9 @@ class Google_IO_Curl extends Google_IO_Abstract
 
   private $options = array();
 
+  /** @var bool $disableProxyWorkaround */
+  private $disableProxyWorkaround;
+
   public function __construct(Google_Client $client)
   {
     if (!extension_loaded('curl')) {
@@ -41,6 +44,11 @@ class Google_IO_Curl extends Google_IO_Abstract
     }
 
     parent::__construct($client);
+
+    $this->disableProxyWorkaround = $this->client->getClassConfig(
+        'Google_IO_Curl',
+        'disable_proxy_workaround'
+    );
   }
 
   /**
@@ -175,6 +183,10 @@ class Google_IO_Curl extends Google_IO_Abstract
    */
   protected function needsQuirk()
   {
+    if ($this->disableProxyWorkaround) {
+      return false;
+    }
+
     $ver = curl_version();
     $versionNum = $ver['version_number'];
     return $versionNum < Google_IO_Curl::NO_QUIRK_VERSION;

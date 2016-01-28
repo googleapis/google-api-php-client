@@ -58,6 +58,10 @@ class Google_Config
         'Google_IO_Abstract' => array(
           'request_timeout_seconds' => 100,
         ),
+        'Google_IO_Curl' => array(
+          'disable_proxy_workaround' => false,
+          'options' => null,
+        ),
         'Google_Logger_Abstract' => array(
           'level' => 'debug',
           'log_format' => "[%datetime%] %level%: %message% %context%\n",
