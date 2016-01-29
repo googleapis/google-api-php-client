@@ -40,6 +40,34 @@ class Google_CacheTest extends BaseTest
     $this->getSetDelete($cache);
   }
 
+  public function testFileWithDefaultMask()
+  {
+    $dir = sys_get_temp_dir() . '/google-api-php-client/tests/';
+    $cache = new Google_Cache_File($dir);
+    $cache->set('foo', 'bar');
+
+    $method = new ReflectionMethod($cache, 'getWriteableCacheFile');
+    $method->setAccessible(true);
+    $filename = $method->invoke($cache, 'foo');
+    $stat = stat($filename);
+
+    $this->assertEquals($stat['mode'] & 0777, 0600);
+  }
+
+  public function testFileWithCustomMask()
+  {
+    $dir = sys_get_temp_dir() . '/google-api-php-client/tests/';
+    $cache = new Google_Cache_File($dir, null, 07);
+    $cache->set('foo', 'bar');
+
+    $method = new ReflectionMethod($cache, 'getWriteableCacheFile');
+    $method->setAccessible(true);
+    $filename = $method->invoke($cache, 'foo');
+    $stat = stat($filename);
+
+    $this->assertEquals($stat['mode'] & 0777, 0660);
+  }
+
   public function testNull()
   {
     $cache = new Google_Cache_Null();
