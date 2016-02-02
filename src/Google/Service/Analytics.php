@@ -7876,7 +7876,8 @@ class Google_Service_Analytics_McfDataRows extends Google_Collection
   {
     return $this->primitiveValue;
   }
-  public function getData(){
+  public function getData()
+  {
     return $this->modelData;
   }
 }
