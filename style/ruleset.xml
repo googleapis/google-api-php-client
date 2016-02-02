@@ -23,6 +23,8 @@
   </properties>
   <!-- Generated libs have some properties that break this! -->
   <exclude-pattern>Service/*.php</exclude-pattern>
+  <!-- exclude autoload functions -->
+  <exclude-pattern>autoload.php</exclude-pattern>
  </rule>
 
  <!-- All PHP files MUST use the Unix LF (linefeed) line ending. -->
