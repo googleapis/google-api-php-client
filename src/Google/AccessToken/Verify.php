@@ -189,10 +189,15 @@ class Google_AccessToken_Verify
 
   private function getJwtService()
   {
+    $jwtClass = 'JWT';
     if (class_exists('\Firebase\JWT\JWT')) {
-      return new \Firebase\JWT\JWT;
+      $jwtClass = 'Firebase\JWT\JWT';
     }
 
-    return new \JWT;
+    // adds 1 second to JWT leeway
+    // @see https://github.com/google/google-api-php-client/issues/827
+    $jwtClass::$leeway = 1;
+
+    return new $jwtClass;
   }
 }
