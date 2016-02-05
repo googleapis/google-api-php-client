@@ -7876,6 +7876,10 @@ class Google_Service_Analytics_McfDataRows extends Google_Collection
   {
     return $this->primitiveValue;
   }
+  public function getData()
+  {
+    return $this->modelData;
+  }
 }
 
 class Google_Service_Analytics_McfDataRowsConversionPathValue extends Google_Model
