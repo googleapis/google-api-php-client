@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -156,13 +154,13 @@ class Google_Service_Prediction extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'predict' => array(
@@ -309,8 +307,8 @@ class Google_Service_Prediction_Trainedmodels_Resource extends Google_Service_Re
    * @param string $project The project associated with the model.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Pagination token.
    * @opt_param string maxResults Maximum number of results to return.
+   * @opt_param string pageToken Pagination token.
    * @return Google_Service_Prediction_PredictionList
    */
   public function listTrainedmodels($project, $optParams = array())
@@ -693,10 +691,6 @@ class Google_Service_Prediction_AnalyzeDataDescriptionOutputFeatureText extends 
   }
 }
 
-class Google_Service_Prediction_AnalyzeErrors extends Google_Model
-{
-}
-
 class Google_Service_Prediction_AnalyzeModelDescription extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -731,18 +725,6 @@ class Google_Service_Prediction_AnalyzeModelDescription extends Google_Model
   {
     return $this->modelinfo;
   }
-}
-
-class Google_Service_Prediction_AnalyzeModelDescriptionConfusionMatrix extends Google_Model
-{
-}
-
-class Google_Service_Prediction_AnalyzeModelDescriptionConfusionMatrixElement extends Google_Model
-{
-}
-
-class Google_Service_Prediction_AnalyzeModelDescriptionConfusionMatrixRowTotals extends Google_Model
-{
 }
 
 class Google_Service_Prediction_Input extends Google_Model
@@ -1058,10 +1040,6 @@ class Google_Service_Prediction_InsertTrainingInstances extends Google_Collectio
   {
     return $this->output;
   }
-}
-
-class Google_Service_Prediction_InsertUtility extends Google_Model
-{
 }
 
 class Google_Service_Prediction_Output extends Google_Collection

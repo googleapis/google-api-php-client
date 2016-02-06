@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -111,13 +109,13 @@ class Google_Service_CloudUserAccounts extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'orderBy' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -217,13 +215,13 @@ class Google_Service_CloudUserAccounts extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'orderBy' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -333,11 +331,7 @@ class Google_Service_CloudUserAccounts extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'orderBy' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
+                'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -345,7 +339,11 @@ class Google_Service_CloudUserAccounts extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'filter' => array(
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -443,13 +441,13 @@ class Google_Service_CloudUserAccounts extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'orderBy' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -574,6 +572,7 @@ class Google_Service_CloudUserAccounts_GlobalAccountsOperations_Resource extends
    * match the entire field.
    *
    * For example, filter=name ne example-instance.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -584,7 +583,6 @@ class Google_Service_CloudUserAccounts_GlobalAccountsOperations_Resource extends
    * returned first.
    *
    * Currently, only sorting by name or creationTimestamp desc is supported.
-   * @opt_param string maxResults Maximum count of results to be returned.
    * @opt_param string pageToken Specifies a page token to use. Use this parameter
    * if you want to list the next page of results. Set pageToken to the
    * nextPageToken returned by a previous list request.
@@ -707,6 +705,7 @@ class Google_Service_CloudUserAccounts_Groups_Resource extends Google_Service_Re
    * match the entire field.
    *
    * For example, filter=name ne example-instance.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -717,7 +716,6 @@ class Google_Service_CloudUserAccounts_Groups_Resource extends Google_Service_Re
    * returned first.
    *
    * Currently, only sorting by name or creationTimestamp desc is supported.
-   * @opt_param string maxResults Maximum count of results to be returned.
    * @opt_param string pageToken Specifies a page token to use. Use this parameter
    * if you want to list the next page of results. Set pageToken to the
    * nextPageToken returned by a previous list request.
@@ -825,20 +823,6 @@ class Google_Service_CloudUserAccounts_Linux_Resource extends Google_Service_Res
    * requesting the views.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string orderBy Sorts list results by a certain order. By default,
-   * results are returned in alphanumerical order based on the resource name.
-   *
-   * You can also sort results in descending order based on the creation timestamp
-   * using orderBy="creationTimestamp desc". This sorts results based on the
-   * creationTimestamp field in reverse chronological order (newest result first).
-   * Use this to sort resources like operations so that the newest operation is
-   * returned first.
-   *
-   * Currently, only sorting by name or creationTimestamp desc is supported.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
    * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
@@ -852,6 +836,20 @@ class Google_Service_CloudUserAccounts_Linux_Resource extends Google_Service_Res
    * match the entire field.
    *
    * For example, filter=name ne example-instance.
+   * @opt_param string maxResults Maximum count of results to be returned.
+   * @opt_param string orderBy Sorts list results by a certain order. By default,
+   * results are returned in alphanumerical order based on the resource name.
+   *
+   * You can also sort results in descending order based on the creation timestamp
+   * using orderBy="creationTimestamp desc". This sorts results based on the
+   * creationTimestamp field in reverse chronological order (newest result first).
+   * Use this to sort resources like operations so that the newest operation is
+   * returned first.
+   *
+   * Currently, only sorting by name or creationTimestamp desc is supported.
+   * @opt_param string pageToken Specifies a page token to use. Use this parameter
+   * if you want to list the next page of results. Set pageToken to the
+   * nextPageToken returned by a previous list request.
    * @return Google_Service_CloudUserAccounts_LinuxGetLinuxAccountViewsResponse
    */
   public function getLinuxAccountViews($project, $zone, $instance, $optParams = array())
@@ -972,6 +970,7 @@ class Google_Service_CloudUserAccounts_Users_Resource extends Google_Service_Res
    * match the entire field.
    *
    * For example, filter=name ne example-instance.
+   * @opt_param string maxResults Maximum count of results to be returned.
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -982,7 +981,6 @@ class Google_Service_CloudUserAccounts_Users_Resource extends Google_Service_Res
    * returned first.
    *
    * Currently, only sorting by name or creationTimestamp desc is supported.
-   * @opt_param string maxResults Maximum count of results to be returned.
    * @opt_param string pageToken Specifies a page token to use. Use this parameter
    * if you want to list the next page of results. Set pageToken to the
    * nextPageToken returned by a previous list request.

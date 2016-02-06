@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -69,29 +67,15 @@ class Google_Service_Playmoviespartner extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pphNames' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'videoIds' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'title' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'altId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'territories' => array(
+                'pphNames' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -101,9 +85,23 @@ class Google_Service_Playmoviespartner extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'pageToken' => array(
+                'title' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'territories' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'altId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'videoIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
                 ),
               ),
             ),
@@ -140,12 +138,20 @@ class Google_Service_Playmoviespartner extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pphNames' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'status' => array(
+                'studioNames' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -154,22 +160,14 @@ class Google_Service_Playmoviespartner extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'studioNames' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'editLevelEidr' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'status' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
                 ),
                 'customId' => array(
                   'location' => 'query',
@@ -214,12 +212,20 @@ class Google_Service_Playmoviespartner extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pphNames' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'status' => array(
+                'studioNames' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -228,18 +234,10 @@ class Google_Service_Playmoviespartner extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'studioNames' => array(
+                'status' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'customId' => array(
                   'location' => 'query',
@@ -265,20 +263,20 @@ class Google_Service_Playmoviespartner extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pphNames' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'name' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'countries' => array(
+                'studioNames' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -287,12 +285,12 @@ class Google_Service_Playmoviespartner extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'studioNames' => array(
+                'countries' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'pageToken' => array(
+                'name' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -372,22 +370,22 @@ class Google_Service_Playmoviespartner_AccountsAvails_Resource extends Google_Se
    * about this field.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize See _List methods rules_ for info about this field.
+   * @opt_param string pageToken See _List methods rules_ for info about this
+   * field.
    * @opt_param string pphNames See _List methods rules_ for info about this
    * field.
-   * @opt_param string videoIds Filter Avails that match any of the given
-   * `video_id`s.
-   * @opt_param int pageSize See _List methods rules_ for info about this field.
+   * @opt_param string studioNames See _List methods rules_ for info about this
+   * field.
    * @opt_param string title Filter Avails that match a case-insensitive substring
    * of the default Title name.
-   * @opt_param string altId Filter Avails that match a case-insensitive, partner-
-   * specific custom id.
    * @opt_param string territories Filter Avails that match (case-insensitive) any
    * of the given country codes, using the "ISO 3166-1 alpha-2" format (examples:
    * "US", "us", "Us").
-   * @opt_param string studioNames See _List methods rules_ for info about this
-   * field.
-   * @opt_param string pageToken See _List methods rules_ for info about this
-   * field.
+   * @opt_param string altId Filter Avails that match a case-insensitive, partner-
+   * specific custom id.
+   * @opt_param string videoIds Filter Avails that match any of the given
+   * `video_id`s.
    * @return Google_Service_Playmoviespartner_ListAvailsResponse
    */
   public function listAccountsAvails($accountId, $optParams = array())
@@ -435,19 +433,19 @@ class Google_Service_Playmoviespartner_AccountsExperienceLocales_Resource extend
    * about this field.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pphNames See _List methods rules_ for info about this
-   * field.
-   * @opt_param string status Filter ExperienceLocales that match one of the given
-   * status.
-   * @opt_param string titleLevelEidr Filter ExperienceLocales that match a given
-   * title-level EIDR.
    * @opt_param int pageSize See _List methods rules_ for info about this field.
-   * @opt_param string studioNames See _List methods rules_ for info about this
-   * field.
    * @opt_param string pageToken See _List methods rules_ for info about this
    * field.
+   * @opt_param string pphNames See _List methods rules_ for info about this
+   * field.
+   * @opt_param string studioNames See _List methods rules_ for info about this
+   * field.
+   * @opt_param string titleLevelEidr Filter ExperienceLocales that match a given
+   * title-level EIDR.
    * @opt_param string editLevelEidr Filter ExperienceLocales that match a given
    * edit-level EIDR.
+   * @opt_param string status Filter ExperienceLocales that match one of the given
+   * status.
    * @opt_param string customId Filter ExperienceLocales that match a case-
    * insensitive, partner-specific custom id.
    * @opt_param string altCutId Filter ExperienceLocales that match a case-
@@ -498,16 +496,16 @@ class Google_Service_Playmoviespartner_AccountsOrders_Resource extends Google_Se
    * about this field.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pphNames See _List methods rules_ for info about this
-   * field.
-   * @opt_param string status Filter Orders that match one of the given status.
-   * @opt_param string name Filter Orders that match a title name (case-
-   * insensitive, sub-string match).
    * @opt_param int pageSize See _List methods rules_ for info about this field.
-   * @opt_param string studioNames See _List methods rules_ for info about this
-   * field.
    * @opt_param string pageToken See _List methods rules_ for info about this
    * field.
+   * @opt_param string pphNames See _List methods rules_ for info about this
+   * field.
+   * @opt_param string studioNames See _List methods rules_ for info about this
+   * field.
+   * @opt_param string name Filter Orders that match a title name (case-
+   * insensitive, sub-string match).
+   * @opt_param string status Filter Orders that match one of the given status.
    * @opt_param string customId Filter Orders that match a case-insensitive,
    * partner-specific custom id.
    * @return Google_Service_Playmoviespartner_ListOrdersResponse
@@ -539,21 +537,21 @@ class Google_Service_Playmoviespartner_AccountsStoreInfos_Resource extends Googl
    * about this field.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize See _List methods rules_ for info about this field.
+   * @opt_param string pageToken See _List methods rules_ for info about this
+   * field.
    * @opt_param string pphNames See _List methods rules_ for info about this
    * field.
-   * @opt_param string name Filter StoreInfos that match a case-insensitive
-   * substring of the default name.
-   * @opt_param int pageSize See _List methods rules_ for info about this field.
-   * @opt_param string countries Filter StoreInfos that match (case-insensitive)
-   * any of the given country codes, using the "ISO 3166-1 alpha-2" format
-   * (examples: "US", "us", "Us").
+   * @opt_param string studioNames See _List methods rules_ for info about this
+   * field.
    * @opt_param string videoId Filter StoreInfos that match a given `video_id`.
    * NOTE: this field is deprecated and will be removed on V2; `video_ids` should
    * be used instead.
-   * @opt_param string studioNames See _List methods rules_ for info about this
-   * field.
-   * @opt_param string pageToken See _List methods rules_ for info about this
-   * field.
+   * @opt_param string countries Filter StoreInfos that match (case-insensitive)
+   * any of the given country codes, using the "ISO 3166-1 alpha-2" format
+   * (examples: "US", "us", "Us").
+   * @opt_param string name Filter StoreInfos that match a case-insensitive
+   * substring of the default name.
    * @opt_param string videoIds Filter StoreInfos that match any of the given
    * `video_id`s.
    * @return Google_Service_Playmoviespartner_ListStoreInfosResponse

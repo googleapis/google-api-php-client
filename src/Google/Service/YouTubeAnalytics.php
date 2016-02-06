@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -191,10 +189,6 @@ class Google_Service_YouTubeAnalytics extends Google_Service
               'path' => 'groups',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'onBehalfOfContentOwner' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'id' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -202,6 +196,14 @@ class Google_Service_YouTubeAnalytics extends Google_Service
                 'mine' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+                'onBehalfOfContentOwner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'update' => array(
@@ -247,6 +249,18 @@ class Google_Service_YouTubeAnalytics extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'currency' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'dimensions' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'filters' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'max-results' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -255,21 +269,9 @@ class Google_Service_YouTubeAnalytics extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'dimensions' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'start-index' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-                'currency' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'filters' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),
@@ -505,6 +507,11 @@ class Google_Service_YouTubeAnalytics_Groups_Resource extends Google_Service_Res
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string id The id parameter specifies a comma-separated list of the
+   * YouTube group ID(s) for the resource(s) that are being retrieved. In a group
+   * resource, the id property specifies the group's YouTube group ID.
+   * @opt_param bool mine Set this parameter's value to true to instruct the API
+   * to only return groups owned by the authenticated user.
    * @opt_param string onBehalfOfContentOwner Note: This parameter is intended
    * exclusively for YouTube content partners.
    *
@@ -517,11 +524,9 @@ class Google_Service_YouTubeAnalytics_Groups_Resource extends Google_Service_Res
    * authentication credentials for each individual channel. The CMS account that
    * the user authenticates with must be linked to the specified YouTube content
    * owner.
-   * @opt_param string id The id parameter specifies a comma-separated list of the
-   * YouTube group ID(s) for the resource(s) that are being retrieved. In a group
-   * resource, the id property specifies the group's YouTube group ID.
-   * @opt_param bool mine Set this parameter's value to true to instruct the API
-   * to only return groups owned by the authenticated user.
+   * @opt_param string pageToken The pageToken parameter identifies a specific
+   * page in the result set that should be returned. In an API response, the
+   * nextPageToken property identifies the next page that can be retrieved.
    * @return Google_Service_YouTubeAnalytics_GroupListResponse
    */
   public function listGroups($optParams = array())
@@ -590,23 +595,15 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
    * report, and see the Metrics document for definitions of those metrics.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param int max-results The maximum number of rows to include in the
-   * response.
-   * @opt_param string sort A comma-separated list of dimensions or metrics that
-   * determine the sort order for YouTube Analytics data. By default the sort
-   * order is ascending. The '-' prefix causes descending sort order.
+   * @opt_param string currency The currency to which financial metrics should be
+   * converted. The default is US Dollar (USD). If the result contains no
+   * financial metrics, this flag will be ignored. Responds with an error if the
+   * specified currency is not recognized.
    * @opt_param string dimensions A comma-separated list of YouTube Analytics
    * dimensions, such as views or ageGroup,gender. See the Available Reports
    * document for a list of the reports that you can retrieve and the dimensions
    * used for those reports. Also see the Dimensions document for definitions of
    * those dimensions.
-   * @opt_param int start-index An index of the first entity to retrieve. Use this
-   * parameter as a pagination mechanism along with the max-results parameter
-   * (one-based, inclusive).
-   * @opt_param string currency The currency to which financial metrics should be
-   * converted. The default is US Dollar (USD). If the result contains no
-   * financial metrics, this flag will be ignored. Responds with an error if the
-   * specified currency is not recognized.
    * @opt_param string filters A list of filters that should be applied when
    * retrieving YouTube Analytics data. The Available Reports document identifies
    * the dimensions that can be used to filter each report, and the Dimensions
@@ -615,6 +612,14 @@ class Google_Service_YouTubeAnalytics_Reports_Resource extends Google_Service_Re
    * satisfy both filters. For example, a filters parameter value of
    * video==dMH0bHeiRNg;country==IT restricts the result set to include data for
    * the given video in Italy.
+   * @opt_param int max-results The maximum number of rows to include in the
+   * response.
+   * @opt_param string sort A comma-separated list of dimensions or metrics that
+   * determine the sort order for YouTube Analytics data. By default the sort
+   * order is ascending. The '-' prefix causes descending sort order.
+   * @opt_param int start-index An index of the first entity to retrieve. Use this
+   * parameter as a pagination mechanism along with the max-results parameter
+   * (one-based, inclusive).
    * @return Google_Service_YouTubeAnalytics_ResultTable
    */
   public function query($ids, $startDate, $endDate, $metrics, $optParams = array())
@@ -1070,6 +1075,7 @@ class Google_Service_YouTubeAnalytics_GroupListResponse extends Google_Collectio
   protected $itemsType = 'Google_Service_YouTubeAnalytics_Group';
   protected $itemsDataType = 'array';
   public $kind;
+  public $nextPageToken;
 
 
   public function setEtag($etag)
@@ -1095,6 +1101,14 @@ class Google_Service_YouTubeAnalytics_GroupListResponse extends Google_Collectio
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
   }
 }
 

@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -75,6 +73,7 @@ class Google_Service_Compute extends Google_Service
   public $routes;
   public $snapshots;
   public $sslCertificates;
+  public $subnetworks;
   public $targetHttpProxies;
   public $targetHttpsProxies;
   public $targetInstances;
@@ -118,13 +117,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'delete' => array(
@@ -200,13 +199,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -232,13 +231,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'delete' => array(
@@ -314,13 +313,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -440,13 +439,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -502,13 +501,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'get' => array(
@@ -549,13 +548,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -581,13 +580,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'createSnapshot' => array(
@@ -687,13 +686,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -759,13 +758,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -821,13 +820,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'delete' => array(
@@ -903,13 +902,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'setTarget' => array(
@@ -995,13 +994,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1067,13 +1066,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'setTarget' => array(
@@ -1114,13 +1113,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'delete' => array(
@@ -1166,13 +1165,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1238,13 +1237,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -1340,13 +1339,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -1457,13 +1456,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1509,13 +1508,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'delete' => array(
@@ -1611,13 +1610,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'listManagedInstances' => array(
@@ -1768,13 +1767,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'delete' => array(
@@ -1850,13 +1849,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'listInstances' => array(
@@ -1878,13 +1877,13 @@ class Google_Service_Compute extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -1994,13 +1993,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -2051,13 +2050,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'attachDisk' => array(
@@ -2232,13 +2231,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'reset' => array(
@@ -2287,6 +2286,26 @@ class Google_Service_Compute extends Google_Service
                 ),
                 'deviceName' => array(
                   'location' => 'query',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'setMachineType' => array(
+              'path' => '{project}/zones/{zone}/instances/{instance}/setMachineType',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'zone' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'instance' => array(
+                  'location' => 'path',
                   'type' => 'string',
                   'required' => true,
                 ),
@@ -2439,13 +2458,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'get' => array(
@@ -2486,13 +2505,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -2558,13 +2577,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -2695,13 +2714,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -2742,13 +2761,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -2814,13 +2833,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -2876,13 +2895,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -2948,13 +2967,127 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->subnetworks = new Google_Service_Compute_Subnetworks_Resource(
+        $this,
+        $this->serviceName,
+        'subnetworks',
+        array(
+          'methods' => array(
+            'aggregatedList' => array(
+              'path' => '{project}/aggregated/subnetworks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'delete' => array(
+              'path' => '{project}/regions/{region}/subnetworks/{subnetwork}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'subnetwork' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => '{project}/regions/{region}/subnetworks/{subnetwork}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'subnetwork' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => '{project}/regions/{region}/subnetworks',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => '{project}/regions/{region}/subnetworks',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'region' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -3020,13 +3153,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'setUrlMap' => array(
@@ -3107,13 +3240,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'setSslCertificates' => array(
@@ -3169,13 +3302,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'delete' => array(
@@ -3251,13 +3384,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -3323,13 +3456,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'delete' => array(
@@ -3425,13 +3558,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'removeHealthCheck' => array(
@@ -3521,13 +3654,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'delete' => array(
@@ -3603,13 +3736,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -3675,13 +3808,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -3752,13 +3885,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'delete' => array(
@@ -3834,13 +3967,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -3911,13 +4044,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -3958,13 +4091,13 @@ class Google_Service_Compute extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -3987,28 +4120,43 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
 {
 
   /**
-   * Retrieves the list of addresses grouped by scope. (addresses.aggregatedList)
+   * Retrieves an aggregated list of addresses. (addresses.aggregatedList)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_AddressAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -4068,8 +4216,8 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves the list of address resources contained within the specified
-   * region. (addresses.listAddresses)
+   * Retrieves a list of address resources contained within the specified region.
+   * (addresses.listAddresses)
    *
    * @param string $project Project ID for this request.
    * @param string $region The name of the region for this request.
@@ -4077,21 +4225,36 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_AddressList
    */
   public function listAddresses($project, $region, $optParams = array())
@@ -4114,29 +4277,43 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
 {
 
   /**
-   * Retrieves the list of autoscalers grouped by scope.
-   * (autoscalers.aggregatedList)
+   * Retrieves an aggregated list of autoscalers. (autoscalers.aggregatedList)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_AutoscalerAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -4149,7 +4326,7 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
   /**
    * Deletes the specified autoscaler resource. (autoscalers.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param string $autoscaler Name of the persistent autoscaler resource to
    * delete.
@@ -4166,7 +4343,7 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
   /**
    * Returns the specified autoscaler resource. (autoscalers.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param string $autoscaler Name of the persistent autoscaler resource to
    * return.
@@ -4184,7 +4361,7 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
    * Creates an autoscaler resource in the specified project using the data
    * included in the request. (autoscalers.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param Google_Autoscaler $postBody
    * @param array $optParams Optional parameters.
@@ -4198,30 +4375,45 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Retrieves the list of autoscaler resources contained within the specified
-   * zone. (autoscalers.listAutoscalers)
+   * Retrieves a list of autoscaler resources contained within the specified zone.
+   * (autoscalers.listAutoscalers)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_AutoscalerList
    */
   public function listAutoscalers($project, $zone, $optParams = array())
@@ -4236,7 +4428,7 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
    * included in the request. This method supports patch semantics.
    * (autoscalers.patch)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param string $autoscaler Name of the autoscaler resource to update.
    * @param Google_Autoscaler $postBody
@@ -4254,7 +4446,7 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
    * Updates an autoscaler resource in the specified project using the data
    * included in the request. (autoscalers.update)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param Google_Autoscaler $postBody
    * @param array $optParams Optional parameters.
@@ -4284,7 +4476,7 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
   /**
    * Deletes the specified BackendService resource. (backendServices.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $backendService Name of the BackendService resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4299,7 +4491,7 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
   /**
    * Returns the specified BackendService resource. (backendServices.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $backendService Name of the BackendService resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_BackendService
@@ -4331,9 +4523,11 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
 
   /**
    * Creates a BackendService resource in the specified project using the data
-   * included in the request. (backendServices.insert)
+   * included in the request. There are several restrictions and guidelines to
+   * keep in mind when creating a backend service. Read  Restrictions and
+   * Guidelines for more information. (backendServices.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_BackendService $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4349,26 +4543,41 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
    * Retrieves the list of BackendService resources available to the specified
    * project. (backendServices.listBackendServices)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_BackendServiceList
    */
   public function listBackendServices($project, $optParams = array())
@@ -4379,10 +4588,12 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
   }
 
   /**
-   * Update the entire content of the BackendService resource. This method
-   * supports patch semantics. (backendServices.patch)
+   * Updates the entire content of the BackendService resource. There are several
+   * restrictions and guidelines to keep in mind when updating a backend service.
+   * Read  Restrictions and Guidelines for more information. This method supports
+   * patch semantics. (backendServices.patch)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $backendService Name of the BackendService resource to update.
    * @param Google_BackendService $postBody
    * @param array $optParams Optional parameters.
@@ -4396,10 +4607,12 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
   }
 
   /**
-   * Update the entire content of the BackendService resource.
+   * Updates the entire content of the BackendService resource. There are several
+   * restrictions and guidelines to keep in mind when updating a backend service.
+   * Read  Restrictions and Guidelines for more information.
    * (backendServices.update)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $backendService Name of the BackendService resource to update.
    * @param Google_BackendService $postBody
    * @param array $optParams Optional parameters.
@@ -4425,7 +4638,7 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
 {
 
   /**
-   * Retrieves the list of disk type resources grouped by scope.
+   * Retrieves an aggregated list of disk type resources.
    * (diskTypes.aggregatedList)
    *
    * @param string $project Project ID for this request.
@@ -4433,21 +4646,36 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_DiskTypeAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -4474,7 +4702,7 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves the list of disk type resources available to the specified project.
+   * Retrieves a list of disk type resources available to the specified project.
    * (diskTypes.listDiskTypes)
    *
    * @param string $project Project ID for this request.
@@ -4483,21 +4711,36 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_DiskTypeList
    */
   public function listDiskTypes($project, $zone, $optParams = array())
@@ -4520,28 +4763,43 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
 {
 
   /**
-   * Retrieves the list of disks grouped by scope. (disks.aggregatedList)
+   * Retrieves an aggregated list of persistent disks. (disks.aggregatedList)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_DiskAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -4552,7 +4810,7 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Creates a snapshot of this disk. (disks.createSnapshot)
+   * Creates a snapshot of a specified persistent disk. (disks.createSnapshot)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
@@ -4623,7 +4881,7 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves the list of persistent disks contained within the specified zone.
+   * Retrieves a list of persistent disks contained within the specified zone.
    * (disks.listDisks)
    *
    * @param string $project Project ID for this request.
@@ -4632,21 +4890,36 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_DiskList
    */
   public function listDisks($project, $zone, $optParams = array())
@@ -4723,21 +4996,36 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_FirewallList
    */
   public function listFirewalls($project, $optParams = array())
@@ -4794,29 +5082,44 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
 {
 
   /**
-   * Retrieves the list of forwarding rules grouped by scope.
+   * Retrieves an aggregated list of forwarding rules.
    * (forwardingRules.aggregatedList)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_ForwardingRuleAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -4829,7 +5132,7 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
   /**
    * Deletes the specified ForwardingRule resource. (forwardingRules.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param string $forwardingRule Name of the ForwardingRule resource to delete.
    * @param array $optParams Optional parameters.
@@ -4845,7 +5148,7 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
   /**
    * Returns the specified ForwardingRule resource. (forwardingRules.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param string $forwardingRule Name of the ForwardingRule resource to return.
    * @param array $optParams Optional parameters.
@@ -4862,7 +5165,7 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * Creates a ForwardingRule resource in the specified project and region using
    * the data included in the request. (forwardingRules.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param Google_ForwardingRule $postBody
    * @param array $optParams Optional parameters.
@@ -4876,30 +5179,45 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
   }
 
   /**
-   * Retrieves the list of ForwardingRule resources available to the specified
+   * Retrieves a list of ForwardingRule resources available to the specified
    * project and region. (forwardingRules.listForwardingRules)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_ForwardingRuleList
    */
   public function listForwardingRules($project, $region, $optParams = array())
@@ -4910,9 +5228,10 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
   }
 
   /**
-   * Changes target url for forwarding rule. (forwardingRules.setTarget)
+   * Changes target URL for forwarding rule. The new target should be of the same
+   * type as the old target. (forwardingRules.setTarget)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param string $forwardingRule Name of the ForwardingRule resource in which
    * target is to be set.
@@ -4986,7 +5305,7 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
   }
 
   /**
-   * Retrieves the list of global address resources.
+   * Retrieves a list of global address resources.
    * (globalAddresses.listGlobalAddresses)
    *
    * @param string $project Project ID for this request.
@@ -4994,21 +5313,36 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_AddressList
    */
   public function listGlobalAddresses($project, $optParams = array())
@@ -5033,7 +5367,7 @@ class Google_Service_Compute_GlobalForwardingRules_Resource extends Google_Servi
   /**
    * Deletes the specified ForwardingRule resource. (globalForwardingRules.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $forwardingRule Name of the ForwardingRule resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -5048,7 +5382,7 @@ class Google_Service_Compute_GlobalForwardingRules_Resource extends Google_Servi
   /**
    * Returns the specified ForwardingRule resource. (globalForwardingRules.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $forwardingRule Name of the ForwardingRule resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_ForwardingRule
@@ -5064,7 +5398,7 @@ class Google_Service_Compute_GlobalForwardingRules_Resource extends Google_Servi
    * Creates a ForwardingRule resource in the specified project and region using
    * the data included in the request. (globalForwardingRules.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_ForwardingRule $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -5077,29 +5411,44 @@ class Google_Service_Compute_GlobalForwardingRules_Resource extends Google_Servi
   }
 
   /**
-   * Retrieves the list of ForwardingRule resources available to the specified
+   * Retrieves a list of ForwardingRule resources available to the specified
    * project. (globalForwardingRules.listGlobalForwardingRules)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_ForwardingRuleList
    */
   public function listGlobalForwardingRules($project, $optParams = array())
@@ -5110,9 +5459,10 @@ class Google_Service_Compute_GlobalForwardingRules_Resource extends Google_Servi
   }
 
   /**
-   * Changes target url for forwarding rule. (globalForwardingRules.setTarget)
+   * Changes target URL for forwarding rule. The new target should be of the same
+   * type as the old target. (globalForwardingRules.setTarget)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $forwardingRule Name of the ForwardingRule resource in which
    * target is to be set.
    * @param Google_TargetReference $postBody
@@ -5139,7 +5489,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
 {
 
   /**
-   * Retrieves the list of all operations grouped by scope.
+   * Retrieves an aggregated list of all operations.
    * (globalOperations.aggregatedList)
    *
    * @param string $project Project ID for this request.
@@ -5147,21 +5497,36 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_OperationAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -5201,7 +5566,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
   }
 
   /**
-   * Retrieves the list of Operation resources contained within the specified
+   * Retrieves a list of Operation resources contained within the specified
    * project. (globalOperations.listGlobalOperations)
    *
    * @param string $project Project ID for this request.
@@ -5209,21 +5574,36 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_OperationList
    */
   public function listGlobalOperations($project, $optParams = array())
@@ -5248,7 +5628,7 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
   /**
    * Deletes the specified HttpHealthCheck resource. (httpHealthChecks.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $httpHealthCheck Name of the HttpHealthCheck resource to
    * delete.
    * @param array $optParams Optional parameters.
@@ -5264,7 +5644,7 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
   /**
    * Returns the specified HttpHealthCheck resource. (httpHealthChecks.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $httpHealthCheck Name of the HttpHealthCheck resource to
    * return.
    * @param array $optParams Optional parameters.
@@ -5281,7 +5661,7 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
    * Creates a HttpHealthCheck resource in the specified project using the data
    * included in the request. (httpHealthChecks.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_HttpHealthCheck $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -5297,26 +5677,41 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
    * Retrieves the list of HttpHealthCheck resources available to the specified
    * project. (httpHealthChecks.listHttpHealthChecks)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_HttpHealthCheckList
    */
   public function listHttpHealthChecks($project, $optParams = array())
@@ -5331,7 +5726,7 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
    * included in the request. This method supports patch semantics.
    * (httpHealthChecks.patch)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $httpHealthCheck Name of the HttpHealthCheck resource to
    * update.
    * @param Google_HttpHealthCheck $postBody
@@ -5349,7 +5744,7 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
    * Updates a HttpHealthCheck resource in the specified project using the data
    * included in the request. (httpHealthChecks.update)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $httpHealthCheck Name of the HttpHealthCheck resource to
    * update.
    * @param Google_HttpHealthCheck $postBody
@@ -5378,7 +5773,7 @@ class Google_Service_Compute_HttpsHealthChecks_Resource extends Google_Service_R
   /**
    * Deletes the specified HttpsHealthCheck resource. (httpsHealthChecks.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $httpsHealthCheck Name of the HttpsHealthCheck resource to
    * delete.
    * @param array $optParams Optional parameters.
@@ -5394,7 +5789,7 @@ class Google_Service_Compute_HttpsHealthChecks_Resource extends Google_Service_R
   /**
    * Returns the specified HttpsHealthCheck resource. (httpsHealthChecks.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $httpsHealthCheck Name of the HttpsHealthCheck resource to
    * return.
    * @param array $optParams Optional parameters.
@@ -5411,7 +5806,7 @@ class Google_Service_Compute_HttpsHealthChecks_Resource extends Google_Service_R
    * Creates a HttpsHealthCheck resource in the specified project using the data
    * included in the request. (httpsHealthChecks.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_HttpsHealthCheck $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -5427,26 +5822,41 @@ class Google_Service_Compute_HttpsHealthChecks_Resource extends Google_Service_R
    * Retrieves the list of HttpsHealthCheck resources available to the specified
    * project. (httpsHealthChecks.listHttpsHealthChecks)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_HttpsHealthCheckList
    */
   public function listHttpsHealthChecks($project, $optParams = array())
@@ -5461,7 +5871,7 @@ class Google_Service_Compute_HttpsHealthChecks_Resource extends Google_Service_R
    * included in the request. This method supports patch semantics.
    * (httpsHealthChecks.patch)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $httpsHealthCheck Name of the HttpsHealthCheck resource to
    * update.
    * @param Google_HttpsHealthCheck $postBody
@@ -5479,7 +5889,7 @@ class Google_Service_Compute_HttpsHealthChecks_Resource extends Google_Service_R
    * Updates a HttpsHealthCheck resource in the specified project using the data
    * included in the request. (httpsHealthChecks.update)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $httpsHealthCheck Name of the HttpsHealthCheck resource to
    * update.
    * @param Google_HttpsHealthCheck $postBody
@@ -5585,21 +5995,36 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_ImageList
    */
   public function listImages($project, $optParams = array())
@@ -5632,7 +6057,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * abandoning action with the listmanagedinstances method.
    * (instanceGroupManagers.abandonInstances)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the managed instance group is
    * located.
    * @param string $instanceGroupManager The name of the managed instance group.
@@ -5651,26 +6076,41 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * Retrieves the list of managed instance groups and groups them by zone.
    * (instanceGroupManagers.aggregatedList)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_InstanceGroupManagerAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -5682,9 +6122,11 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
 
   /**
    * Deletes the specified managed instance group and all of the instances in that
-   * group. (instanceGroupManagers.delete)
+   * group. Note that the instance group must not belong to a backend service.
+   * Read  Deleting an instance group for more information.
+   * (instanceGroupManagers.delete)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the managed instance group is
    * located.
    * @param string $instanceGroupManager The name of the managed instance group to
@@ -5708,7 +6150,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * being deleted. You must separately verify the status of the deleting action
    * with the listmanagedinstances method. (instanceGroupManagers.deleteInstances)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the managed instance group is
    * located.
    * @param string $instanceGroupManager The name of the managed instance group.
@@ -5727,7 +6169,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * Returns all of the details about the specified managed instance group.
    * (instanceGroupManagers.get)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the managed instance group is
    * located.
    * @param string $instanceGroupManager The name of the managed instance group.
@@ -5750,7 +6192,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * individual instances with the listmanagedinstances method.
    * (instanceGroupManagers.insert)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where you want to create the managed
    * instance group.
    * @param Google_InstanceGroupManager $postBody
@@ -5768,28 +6210,43 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * Retrieves a list of managed instance groups that are contained within the
    * specified project and zone. (instanceGroupManagers.listInstanceGroupManagers)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the managed instance group is
    * located.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_InstanceGroupManagerList
    */
   public function listInstanceGroupManagers($project, $zone, $optParams = array())
@@ -5807,7 +6264,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * action failed, the list displays the errors for that failed action.
    * (instanceGroupManagers.listManagedInstances)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the managed instance group is
    * located.
    * @param string $instanceGroupManager The name of the managed instance group.
@@ -5830,7 +6287,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * with the listmanagedinstances method.
    * (instanceGroupManagers.recreateInstances)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the managed instance group is
    * located.
    * @param string $instanceGroupManager The name of the managed instance group.
@@ -5854,7 +6311,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * or deleting actions with the listmanagedinstances method.
    * (instanceGroupManagers.resize)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the managed instance group is
    * located.
    * @param string $instanceGroupManager The name of the managed instance group.
@@ -5877,7 +6334,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * group. The templates for existing instances in the group do not change unless
    * you recreate them. (instanceGroupManagers.setInstanceTemplate)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the managed instance group is
    * located.
    * @param string $instanceGroupManager The name of the managed instance group.
@@ -5901,7 +6358,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * instances in the group depending on the size of the group.
    * (instanceGroupManagers.setTargetPools)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the managed instance group is
    * located.
    * @param string $instanceGroupManager The name of the managed instance group.
@@ -5929,11 +6386,10 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
 {
 
   /**
-   * Adds a list of instances to the specified instance group. All of the
-   * instances in the instance group must be in the same network/subnetwork.
-   * (instanceGroups.addInstances)
+   * Adds a list of instances to the specified instance group. Read  Adding
+   * instances for more information. (instanceGroups.addInstances)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the instance group is located.
    * @param string $instanceGroup The name of the instance group where you are
    * adding instances.
@@ -5952,26 +6408,41 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * Retrieves the list of instance groups and sorts them by zone.
    * (instanceGroups.aggregatedList)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_InstanceGroupAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -5983,9 +6454,10 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
 
   /**
    * Deletes the specified instance group. The instances in the group are not
-   * deleted. (instanceGroups.delete)
+   * deleted. Note that instance group must not belong to a backend service. Read
+   * Deleting an instance group for more information. (instanceGroups.delete)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the instance group is located.
    * @param string $instanceGroup The name of the instance group to delete.
    * @param array $optParams Optional parameters.
@@ -6001,7 +6473,7 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
   /**
    * Returns the specified instance group resource. (instanceGroups.get)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the instance group is located.
    * @param string $instanceGroup The name of the instance group.
    * @param array $optParams Optional parameters.
@@ -6018,7 +6490,7 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * Creates an instance group in the specified project using the parameters that
    * are included in the request. (instanceGroups.insert)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where you want to create the
    * instance group.
    * @param Google_InstanceGroup $postBody
@@ -6036,27 +6508,42 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * Retrieves the list of instance groups that are located in the specified
    * project and zone. (instanceGroups.listInstanceGroups)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the instance group is located.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_InstanceGroupList
    */
   public function listInstanceGroups($project, $zone, $optParams = array())
@@ -6070,30 +6557,45 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * Lists the instances in the specified instance group.
    * (instanceGroups.listInstances)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the instance group is located.
    * @param string $instanceGroup The name of the instance group from which you
    * want to generate a list of included instances.
    * @param Google_InstanceGroupsListInstancesRequest $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string maxResults Maximum count of results to be returned.
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_InstanceGroupsListInstances
    */
   public function listInstances($project, $zone, $instanceGroup, Google_Service_Compute_InstanceGroupsListInstancesRequest $postBody, $optParams = array())
@@ -6107,7 +6609,7 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * Removes one or more instances from the specified instance group, but does not
    * delete those instances. (instanceGroups.removeInstances)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the instance group is located.
    * @param string $instanceGroup The name of the instance group where the
    * specified instances will be removed.
@@ -6126,7 +6628,7 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * Sets the named ports for the specified instance group.
    * (instanceGroups.setNamedPorts)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the instance group is located.
    * @param string $instanceGroup The name of the instance group where the named
    * ports are updated.
@@ -6156,7 +6658,7 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
   /**
    * Deletes the specified instance template. (instanceTemplates.delete)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $instanceTemplate The name of the instance template to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -6171,7 +6673,7 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
   /**
    * Returns the specified instance template resource. (instanceTemplates.get)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param string $instanceTemplate The name of the instance template.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_InstanceTemplate
@@ -6185,9 +6687,12 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
 
   /**
    * Creates an instance template in the specified project using the data that is
-   * included in the request. (instanceTemplates.insert)
+   * included in the request. If you are creating a new template to update an
+   * existing instance group, your new instance template must use the same network
+   * or, if applicable, the same subnetwork as the original template.
+   * (instanceTemplates.insert)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param Google_InstanceTemplate $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -6203,26 +6708,41 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
    * Retrieves a list of instance templates that are contained within the
    * specified project and zone. (instanceTemplates.listInstanceTemplates)
    *
-   * @param string $project The project ID for this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_InstanceTemplateList
    */
   public function listInstanceTemplates($project, $optParams = array())
@@ -6272,21 +6792,36 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_InstanceAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -6314,8 +6849,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * Deletes the specified Instance resource. For more information, see Shutting
-   * down an instance. (instances.delete)
+   * Deletes the specified Instance resource. For more information, see Stopping
+   * or Deleting an Instance. (instances.delete)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
@@ -6428,21 +6963,36 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_InstanceList
    */
   public function listInstances($project, $zone, $optParams = array())
@@ -6486,6 +7036,24 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
     $params = array('project' => $project, 'zone' => $zone, 'instance' => $instance, 'autoDelete' => $autoDelete, 'deviceName' => $deviceName);
     $params = array_merge($params, $optParams);
     return $this->call('setDiskAutoDelete', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Changes the machine type for a stopped instance to the machine type specified
+   * in the request. (instances.setMachineType)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $zone The name of the zone for this request.
+   * @param string $instance Name of the instance scoping this request.
+   * @param Google_InstancesSetMachineTypeRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function setMachineType($project, $zone, $instance, Google_Service_Compute_InstancesSetMachineTypeRequest $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'zone' => $zone, 'instance' => $instance, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('setMachineType', array($params), "Google_Service_Compute_Operation");
   }
 
   /**
@@ -6542,9 +7110,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * This method starts an instance that was stopped using the using the
-   * instances().stop method. For more information, see Restart an instance.
-   * (instances.start)
+   * Starts an instance that was stopped using the using the instances().stop
+   * method. For more information, see Restart an instance. (instances.start)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
@@ -6560,12 +7127,12 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * This method stops a running instance, shutting it down cleanly, and allows
-   * you to restart the instance at a later time. Stopped instances do not incur
-   * per-minute, virtual machine usage charges while they are stopped, but any
-   * resources that the virtual machine is using, such as persistent disks and
-   * static IP addresses,will continue to be charged until they are deleted. For
-   * more information, see Stopping an instance. (instances.stop)
+   * Stops a running instance, shutting it down cleanly, and allows you to restart
+   * the instance at a later time. Stopped instances do not incur per-minute,
+   * virtual machine usage charges while they are stopped, but any resources that
+   * the virtual machine is using, such as persistent disks and static IP
+   * addresses, will continue to be charged until they are deleted. For more
+   * information, see Stopping an instance. (instances.stop)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
@@ -6620,7 +7187,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
 {
 
   /**
-   * Retrieves the list of machine type resources grouped by scope.
+   * Retrieves an aggregated list of machine type resources.
    * (machineTypes.aggregatedList)
    *
    * @param string $project Project ID for this request.
@@ -6628,21 +7195,36 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_MachineTypeAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -6669,7 +7251,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
   }
 
   /**
-   * Retrieves the list of machine type resources available to the specified
+   * Retrieves a list of machine type resources available to the specified
    * project. (machineTypes.listMachineTypes)
    *
    * @param string $project Project ID for this request.
@@ -6678,21 +7260,36 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_MachineTypeList
    */
   public function listMachineTypes($project, $zone, $optParams = array())
@@ -6769,21 +7366,36 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_NetworkList
    */
   public function listNetworks($project, $optParams = array())
@@ -6916,7 +7528,7 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * (regionOperations.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $region Name of the zone scoping this request.
+   * @param string $region Name of the region scoping this request.
    * @param string $operation Name of the Operations resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -6929,7 +7541,7 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
   }
 
   /**
-   * Retrieves the list of Operation resources contained within the specified
+   * Retrieves a list of Operation resources contained within the specified
    * region. (regionOperations.listRegionOperations)
    *
    * @param string $project Project ID for this request.
@@ -6938,21 +7550,36 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_OperationList
    */
   public function listRegionOperations($project, $region, $optParams = array())
@@ -6998,21 +7625,36 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_RegionList
    */
   public function listRegions($project, $optParams = array())
@@ -7037,7 +7679,7 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
   /**
    * Deletes the specified route resource. (routes.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $route Name of the route resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -7052,7 +7694,7 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
   /**
    * Returns the specified route resource. (routes.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $route Name of the route resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Route
@@ -7068,7 +7710,7 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
    * Creates a route resource in the specified project using the data included in
    * the request. (routes.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_Route $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -7084,26 +7726,41 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
    * Retrieves the list of route resources available to the specified project.
    * (routes.listRoutes)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_RouteList
    */
   public function listRoutes($project, $optParams = array())
@@ -7133,7 +7790,7 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
    *
    * For more information, see Deleting snaphots. (snapshots.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $snapshot Name of the Snapshot resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -7148,7 +7805,7 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
   /**
    * Returns the specified Snapshot resource. (snapshots.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $snapshot Name of the Snapshot resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Snapshot
@@ -7164,26 +7821,41 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
    * Retrieves the list of Snapshot resources contained within the specified
    * project. (snapshots.listSnapshots)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_SnapshotList
    */
   public function listSnapshots($project, $optParams = array())
@@ -7208,7 +7880,7 @@ class Google_Service_Compute_SslCertificates_Resource extends Google_Service_Res
   /**
    * Deletes the specified SslCertificate resource. (sslCertificates.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $sslCertificate Name of the SslCertificate resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -7223,7 +7895,7 @@ class Google_Service_Compute_SslCertificates_Resource extends Google_Service_Res
   /**
    * Returns the specified SslCertificate resource. (sslCertificates.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $sslCertificate Name of the SslCertificate resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_SslCertificate
@@ -7239,7 +7911,7 @@ class Google_Service_Compute_SslCertificates_Resource extends Google_Service_Res
    * Creates a SslCertificate resource in the specified project using the data
    * included in the request. (sslCertificates.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_SslCertificate $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -7255,26 +7927,41 @@ class Google_Service_Compute_SslCertificates_Resource extends Google_Service_Res
    * Retrieves the list of SslCertificate resources available to the specified
    * project. (sslCertificates.listSslCertificates)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_SslCertificateList
    */
   public function listSslCertificates($project, $optParams = array())
@@ -7282,6 +7969,163 @@ class Google_Service_Compute_SslCertificates_Resource extends Google_Service_Res
     $params = array('project' => $project);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Compute_SslCertificateList");
+  }
+}
+
+/**
+ * The "subnetworks" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $computeService = new Google_Service_Compute(...);
+ *   $subnetworks = $computeService->subnetworks;
+ *  </code>
+ */
+class Google_Service_Compute_Subnetworks_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Retrieves an aggregated list of subnetworks. (subnetworks.aggregatedList)
+   *
+   * @param string $project Project ID for this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: field_name comparison_string literal_string.
+   *
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
+   * @return Google_Service_Compute_SubnetworkAggregatedList
+   */
+  public function aggregatedList($project, $optParams = array())
+  {
+    $params = array('project' => $project);
+    $params = array_merge($params, $optParams);
+    return $this->call('aggregatedList', array($params), "Google_Service_Compute_SubnetworkAggregatedList");
+  }
+
+  /**
+   * Deletes the specified subnetwork. (subnetworks.delete)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $region Name of the region scoping this request.
+   * @param string $subnetwork Name of the Subnetwork resource to delete.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function delete($project, $region, $subnetwork, $optParams = array())
+  {
+    $params = array('project' => $project, 'region' => $region, 'subnetwork' => $subnetwork);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Returns the specified subnetwork. (subnetworks.get)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $region Name of the region scoping this request.
+   * @param string $subnetwork Name of the Subnetwork resource to return.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Subnetwork
+   */
+  public function get($project, $region, $subnetwork, $optParams = array())
+  {
+    $params = array('project' => $project, 'region' => $region, 'subnetwork' => $subnetwork);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Compute_Subnetwork");
+  }
+
+  /**
+   * Creates a subnetwork in the specified project using the data included in the
+   * request. (subnetworks.insert)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $region Name of the region scoping this request.
+   * @param Google_Subnetwork $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Compute_Operation
+   */
+  public function insert($project, $region, Google_Service_Compute_Subnetwork $postBody, $optParams = array())
+  {
+    $params = array('project' => $project, 'region' => $region, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Compute_Operation");
+  }
+
+  /**
+   * Retrieves a list of subnetworks available to the specified project.
+   * (subnetworks.listSubnetworks)
+   *
+   * @param string $project Project ID for this request.
+   * @param string $region Name of the region scoping this request.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string filter Sets a filter expression for filtering listed
+   * resources, in the form filter={expression}. Your {expression} must be in the
+   * format: field_name comparison_string literal_string.
+   *
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
+   * string value to filter to. The literal value must be valid for the type of
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
+   *
+   * For example, filter=name ne example-instance.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
+   * @return Google_Service_Compute_SubnetworkList
+   */
+  public function listSubnetworks($project, $region, $optParams = array())
+  {
+    $params = array('project' => $project, 'region' => $region);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Compute_SubnetworkList");
   }
 }
 
@@ -7299,7 +8143,7 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
   /**
    * Deletes the specified TargetHttpProxy resource. (targetHttpProxies.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $targetHttpProxy Name of the TargetHttpProxy resource to
    * delete.
    * @param array $optParams Optional parameters.
@@ -7315,7 +8159,7 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
   /**
    * Returns the specified TargetHttpProxy resource. (targetHttpProxies.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $targetHttpProxy Name of the TargetHttpProxy resource to
    * return.
    * @param array $optParams Optional parameters.
@@ -7332,7 +8176,7 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
    * Creates a TargetHttpProxy resource in the specified project using the data
    * included in the request. (targetHttpProxies.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_TargetHttpProxy $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -7348,26 +8192,41 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
    * Retrieves the list of TargetHttpProxy resources available to the specified
    * project. (targetHttpProxies.listTargetHttpProxies)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_TargetHttpProxyList
    */
   public function listTargetHttpProxies($project, $optParams = array())
@@ -7380,7 +8239,7 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
   /**
    * Changes the URL map for TargetHttpProxy. (targetHttpProxies.setUrlMap)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $targetHttpProxy Name of the TargetHttpProxy resource whose URL
    * map is to be set.
    * @param Google_UrlMapReference $postBody
@@ -7409,7 +8268,7 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
   /**
    * Deletes the specified TargetHttpsProxy resource. (targetHttpsProxies.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $targetHttpsProxy Name of the TargetHttpsProxy resource to
    * delete.
    * @param array $optParams Optional parameters.
@@ -7425,7 +8284,7 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
   /**
    * Returns the specified TargetHttpsProxy resource. (targetHttpsProxies.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $targetHttpsProxy Name of the TargetHttpsProxy resource to
    * return.
    * @param array $optParams Optional parameters.
@@ -7442,7 +8301,7 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
    * Creates a TargetHttpsProxy resource in the specified project using the data
    * included in the request. (targetHttpsProxies.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_TargetHttpsProxy $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -7458,26 +8317,41 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
    * Retrieves the list of TargetHttpsProxy resources available to the specified
    * project. (targetHttpsProxies.listTargetHttpsProxies)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_TargetHttpsProxyList
    */
   public function listTargetHttpsProxies($project, $optParams = array())
@@ -7491,9 +8365,9 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
    * Replaces SslCertificates for TargetHttpsProxy.
    * (targetHttpsProxies.setSslCertificates)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $targetHttpsProxy Name of the TargetHttpsProxy resource whose
-   * URL map is to be set.
+   * SSLCertificate is to be set.
    * @param Google_TargetHttpsProxiesSetSslCertificatesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -7508,7 +8382,7 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
   /**
    * Changes the URL map for TargetHttpsProxy. (targetHttpsProxies.setUrlMap)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $targetHttpsProxy Name of the TargetHttpsProxy resource whose
    * URL map is to be set.
    * @param Google_UrlMapReference $postBody
@@ -7535,29 +8409,44 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
 {
 
   /**
-   * Retrieves the list of target instances grouped by scope.
+   * Retrieves an aggregated list of target instances.
    * (targetInstances.aggregatedList)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_TargetInstanceAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -7570,7 +8459,7 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
   /**
    * Deletes the specified TargetInstance resource. (targetInstances.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param string $targetInstance Name of the TargetInstance resource to delete.
    * @param array $optParams Optional parameters.
@@ -7586,7 +8475,7 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
   /**
    * Returns the specified TargetInstance resource. (targetInstances.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param string $targetInstance Name of the TargetInstance resource to return.
    * @param array $optParams Optional parameters.
@@ -7603,7 +8492,7 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * Creates a TargetInstance resource in the specified project and zone using the
    * data included in the request. (targetInstances.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param Google_TargetInstance $postBody
    * @param array $optParams Optional parameters.
@@ -7617,30 +8506,45 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
   }
 
   /**
-   * Retrieves the list of TargetInstance resources available to the specified
+   * Retrieves a list of TargetInstance resources available to the specified
    * project and zone. (targetInstances.listTargetInstances)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_TargetInstanceList
    */
   public function listTargetInstances($project, $zone, $optParams = array())
@@ -7681,7 +8585,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Adds instance url to targetPool. (targetPools.addInstance)
+   * Adds instance URL to targetPool. (targetPools.addInstance)
    *
    * @param string $project
    * @param string $region Name of the region scoping this request.
@@ -7699,29 +8603,43 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Retrieves the list of target pools grouped by scope.
-   * (targetPools.aggregatedList)
+   * Retrieves an aggregated list of target pools. (targetPools.aggregatedList)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_TargetPoolAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -7734,7 +8652,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   /**
    * Deletes the specified TargetPool resource. (targetPools.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param string $targetPool Name of the TargetPool resource to delete.
    * @param array $optParams Optional parameters.
@@ -7750,7 +8668,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   /**
    * Returns the specified TargetPool resource. (targetPools.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param string $targetPool Name of the TargetPool resource to return.
    * @param array $optParams Optional parameters.
@@ -7765,7 +8683,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
 
   /**
    * Gets the most recent health check results for each IP for the given instance
-   * that is referenced by given TargetPool. (targetPools.getHealth)
+   * that is referenced by the given TargetPool. (targetPools.getHealth)
    *
    * @param string $project
    * @param string $region Name of the region scoping this request.
@@ -7786,7 +8704,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * Creates a TargetPool resource in the specified project and region using the
    * data included in the request. (targetPools.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param Google_TargetPool $postBody
    * @param array $optParams Optional parameters.
@@ -7800,30 +8718,45 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Retrieves the list of TargetPool resources available to the specified project
+   * Retrieves a list of TargetPool resources available to the specified project
    * and region. (targetPools.listTargetPools)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_TargetPoolList
    */
   public function listTargetPools($project, $region, $optParams = array())
@@ -7872,7 +8805,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   /**
    * Changes backup pool configurations. (targetPools.setBackup)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param string $targetPool Name of the TargetPool resource for which the
    * backup is to be set.
@@ -7903,7 +8836,7 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
 {
 
   /**
-   * Retrieves the list of target VPN gateways grouped by scope.
+   * Retrieves an aggregated list of target VPN gateways .
    * (targetVpnGateways.aggregatedList)
    *
    * @param string $project Project ID for this request.
@@ -7911,21 +8844,36 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_TargetVpnGatewayAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -7987,7 +8935,7 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
   }
 
   /**
-   * Retrieves the list of TargetVpnGateway resources available to the specified
+   * Retrieves a list of TargetVpnGateway resources available to the specified
    * project and region. (targetVpnGateways.listTargetVpnGateways)
    *
    * @param string $project Project ID for this request.
@@ -7996,21 +8944,36 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_TargetVpnGatewayList
    */
   public function listTargetVpnGateways($project, $region, $optParams = array())
@@ -8035,7 +8998,7 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
   /**
    * Deletes the specified UrlMap resource. (urlMaps.delete)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $urlMap Name of the UrlMap resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -8050,7 +9013,7 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
   /**
    * Returns the specified UrlMap resource. (urlMaps.get)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $urlMap Name of the UrlMap resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_UrlMap
@@ -8066,7 +9029,7 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
    * Creates a UrlMap resource in the specified project using the data included in
    * the request. (urlMaps.insert)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param Google_UrlMap $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -8082,26 +9045,41 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
    * Retrieves the list of UrlMap resources available to the specified project.
    * (urlMaps.listUrlMaps)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_UrlMapList
    */
   public function listUrlMaps($project, $optParams = array())
@@ -8112,10 +9090,10 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
   }
 
   /**
-   * Update the entire content of the UrlMap resource. This method supports patch
+   * Updates the entire content of the UrlMap resource. This method supports patch
    * semantics. (urlMaps.patch)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $urlMap Name of the UrlMap resource to update.
    * @param Google_UrlMap $postBody
    * @param array $optParams Optional parameters.
@@ -8129,9 +9107,9 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
   }
 
   /**
-   * Update the entire content of the UrlMap resource. (urlMaps.update)
+   * Updates the entire content of the UrlMap resource. (urlMaps.update)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $urlMap Name of the UrlMap resource to update.
    * @param Google_UrlMap $postBody
    * @param array $optParams Optional parameters.
@@ -8145,11 +9123,11 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
   }
 
   /**
-   * Run static validation for the UrlMap. In particular, the tests of the
+   * Runs static validation for the UrlMap. In particular, the tests of the
    * provided UrlMap will be run. Calling this method does NOT create the UrlMap.
    * (urlMaps.validate)
    *
-   * @param string $project Name of the project scoping this request.
+   * @param string $project Project ID for this request.
    * @param string $urlMap Name of the UrlMap resource to be validated as.
    * @param Google_UrlMapsValidateRequest $postBody
    * @param array $optParams Optional parameters.
@@ -8175,29 +9153,43 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
 {
 
   /**
-   * Retrieves the list of VPN tunnels grouped by scope.
-   * (vpnTunnels.aggregatedList)
+   * Retrieves an aggregated list of VPN tunnels. (vpnTunnels.aggregatedList)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_VpnTunnelAggregatedList
    */
   public function aggregatedList($project, $optParams = array())
@@ -8257,7 +9249,7 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves the list of VpnTunnel resources contained in the specified project
+   * Retrieves a list of VpnTunnel resources contained in the specified project
    * and region. (vpnTunnels.listVpnTunnels)
    *
    * @param string $project Project ID for this request.
@@ -8266,21 +9258,36 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_VpnTunnelList
    */
   public function listVpnTunnels($project, $region, $optParams = array())
@@ -8336,8 +9343,8 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
   }
 
   /**
-   * Retrieves the list of Operation resources contained within the specified
-   * zone. (zoneOperations.listZoneOperations)
+   * Retrieves a list of Operation resources contained within the specified zone.
+   * (zoneOperations.listZoneOperations)
    *
    * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
@@ -8345,21 +9352,36 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_OperationList
    */
   public function listZoneOperations($project, $zone, $optParams = array())
@@ -8405,21 +9427,36 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
    * For example, filter=name ne example-instance.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * Compute Engine should return. If the number of available results is larger
+   * than maxResults, Compute Engine returns a nextPageToken that can be used to
+   * get the next page of results in subsequent list requests.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_Compute_ZoneList
    */
   public function listZones($project, $optParams = array())
@@ -8628,10 +9665,6 @@ class Google_Service_Compute_AddressAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
-}
-
-class Google_Service_Compute_AddressAggregatedListItems extends Google_Model
-{
 }
 
 class Google_Service_Compute_AddressList extends Google_Collection
@@ -9076,10 +10109,6 @@ class Google_Service_Compute_AutoscalerAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
-}
-
-class Google_Service_Compute_AutoscalerAggregatedListItems extends Google_Model
-{
 }
 
 class Google_Service_Compute_AutoscalerList extends Google_Collection
@@ -9932,10 +10961,6 @@ class Google_Service_Compute_DiskAggregatedList extends Google_Model
   }
 }
 
-class Google_Service_Compute_DiskAggregatedListItems extends Google_Model
-{
-}
-
 class Google_Service_Compute_DiskList extends Google_Collection
 {
   protected $collection_key = 'items';
@@ -10168,10 +11193,6 @@ class Google_Service_Compute_DiskTypeAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
-}
-
-class Google_Service_Compute_DiskTypeAggregatedListItems extends Google_Model
-{
 }
 
 class Google_Service_Compute_DiskTypeList extends Google_Collection
@@ -10766,10 +11787,6 @@ class Google_Service_Compute_ForwardingRuleAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
-}
-
-class Google_Service_Compute_ForwardingRuleAggregatedListItems extends Google_Model
-{
 }
 
 class Google_Service_Compute_ForwardingRuleList extends Google_Collection
@@ -11843,10 +12860,6 @@ class Google_Service_Compute_InstanceAggregatedList extends Google_Model
   }
 }
 
-class Google_Service_Compute_InstanceAggregatedListItems extends Google_Model
-{
-}
-
 class Google_Service_Compute_InstanceGroup extends Google_Collection
 {
   protected $collection_key = 'namedPorts';
@@ -11863,6 +12876,7 @@ class Google_Service_Compute_InstanceGroup extends Google_Collection
   public $network;
   public $selfLink;
   public $size;
+  public $subnetwork;
   public $zone;
 
 
@@ -11946,6 +12960,14 @@ class Google_Service_Compute_InstanceGroup extends Google_Collection
   {
     return $this->size;
   }
+  public function setSubnetwork($subnetwork)
+  {
+    $this->subnetwork = $subnetwork;
+  }
+  public function getSubnetwork()
+  {
+    return $this->subnetwork;
+  }
   public function setZone($zone)
   {
     $this->zone = $zone;
@@ -12008,10 +13030,6 @@ class Google_Service_Compute_InstanceGroupAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
-}
-
-class Google_Service_Compute_InstanceGroupAggregatedListItems extends Google_Model
-{
 }
 
 class Google_Service_Compute_InstanceGroupList extends Google_Collection
@@ -12085,6 +13103,8 @@ class Google_Service_Compute_InstanceGroupManager extends Google_Collection
   public $instanceTemplate;
   public $kind;
   public $name;
+  protected $namedPortsType = 'Google_Service_Compute_NamedPort';
+  protected $namedPortsDataType = 'array';
   public $selfLink;
   public $targetPools;
   public $targetSize;
@@ -12170,6 +13190,14 @@ class Google_Service_Compute_InstanceGroupManager extends Google_Collection
   public function getName()
   {
     return $this->name;
+  }
+  public function setNamedPorts($namedPorts)
+  {
+    $this->namedPorts = $namedPorts;
+  }
+  public function getNamedPorts()
+  {
+    return $this->namedPorts;
   }
   public function setSelfLink($selfLink)
   {
@@ -12328,10 +13356,6 @@ class Google_Service_Compute_InstanceGroupManagerAggregatedList extends Google_M
   {
     return $this->selfLink;
   }
-}
-
-class Google_Service_Compute_InstanceGroupManagerAggregatedListItems extends Google_Model
-{
 }
 
 class Google_Service_Compute_InstanceGroupManagerList extends Google_Collection
@@ -13278,6 +14302,23 @@ class Google_Service_Compute_InstancesScopedListWarningData extends Google_Model
   }
 }
 
+class Google_Service_Compute_InstancesSetMachineTypeRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $machineType;
+
+
+  public function setMachineType($machineType)
+  {
+    $this->machineType = $machineType;
+  }
+  public function getMachineType()
+  {
+    return $this->machineType;
+  }
+}
+
 class Google_Service_Compute_License extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -13511,10 +14552,6 @@ class Google_Service_Compute_MachineTypeAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
-}
-
-class Google_Service_Compute_MachineTypeAggregatedListItems extends Google_Model
-{
 }
 
 class Google_Service_Compute_MachineTypeList extends Google_Collection
@@ -13896,12 +14933,14 @@ class Google_Service_Compute_NamedPort extends Google_Model
   }
 }
 
-class Google_Service_Compute_Network extends Google_Model
+class Google_Service_Compute_Network extends Google_Collection
 {
+  protected $collection_key = 'subnetworks';
   protected $internal_gapi_mappings = array(
         "iPv4Range" => "IPv4Range",
   );
   public $iPv4Range;
+  public $autoCreateSubnetworks;
   public $creationTimestamp;
   public $description;
   public $gatewayIPv4;
@@ -13909,6 +14948,7 @@ class Google_Service_Compute_Network extends Google_Model
   public $kind;
   public $name;
   public $selfLink;
+  public $subnetworks;
 
 
   public function setIPv4Range($iPv4Range)
@@ -13918,6 +14958,14 @@ class Google_Service_Compute_Network extends Google_Model
   public function getIPv4Range()
   {
     return $this->iPv4Range;
+  }
+  public function setAutoCreateSubnetworks($autoCreateSubnetworks)
+  {
+    $this->autoCreateSubnetworks = $autoCreateSubnetworks;
+  }
+  public function getAutoCreateSubnetworks()
+  {
+    return $this->autoCreateSubnetworks;
   }
   public function setCreationTimestamp($creationTimestamp)
   {
@@ -13975,6 +15023,14 @@ class Google_Service_Compute_Network extends Google_Model
   {
     return $this->selfLink;
   }
+  public function setSubnetworks($subnetworks)
+  {
+    $this->subnetworks = $subnetworks;
+  }
+  public function getSubnetworks()
+  {
+    return $this->subnetworks;
+  }
 }
 
 class Google_Service_Compute_NetworkInterface extends Google_Collection
@@ -13987,6 +15043,7 @@ class Google_Service_Compute_NetworkInterface extends Google_Collection
   public $name;
   public $network;
   public $networkIP;
+  public $subnetwork;
 
 
   public function setAccessConfigs($accessConfigs)
@@ -14020,6 +15077,14 @@ class Google_Service_Compute_NetworkInterface extends Google_Collection
   public function getNetworkIP()
   {
     return $this->networkIP;
+  }
+  public function setSubnetwork($subnetwork)
+  {
+    $this->subnetwork = $subnetwork;
+  }
+  public function getSubnetwork()
+  {
+    return $this->subnetwork;
   }
 }
 
@@ -14085,6 +15150,7 @@ class Google_Service_Compute_Operation extends Google_Collection
   );
   public $clientOperationId;
   public $creationTimestamp;
+  public $description;
   public $endTime;
   protected $errorType = 'Google_Service_Compute_OperationError';
   protected $errorDataType = '';
@@ -14124,6 +15190,14 @@ class Google_Service_Compute_Operation extends Google_Collection
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
   }
   public function setEndTime($endTime)
   {
@@ -14339,10 +15413,6 @@ class Google_Service_Compute_OperationAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
-}
-
-class Google_Service_Compute_OperationAggregatedListItems extends Google_Model
-{
 }
 
 class Google_Service_Compute_OperationError extends Google_Collection
@@ -15677,6 +16747,305 @@ class Google_Service_Compute_SslCertificateList extends Google_Collection
   }
 }
 
+class Google_Service_Compute_Subnetwork extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $creationTimestamp;
+  public $description;
+  public $gatewayAddress;
+  public $id;
+  public $ipCidrRange;
+  public $kind;
+  public $name;
+  public $network;
+  public $region;
+  public $selfLink;
+
+
+  public function setCreationTimestamp($creationTimestamp)
+  {
+    $this->creationTimestamp = $creationTimestamp;
+  }
+  public function getCreationTimestamp()
+  {
+    return $this->creationTimestamp;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setGatewayAddress($gatewayAddress)
+  {
+    $this->gatewayAddress = $gatewayAddress;
+  }
+  public function getGatewayAddress()
+  {
+    return $this->gatewayAddress;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setIpCidrRange($ipCidrRange)
+  {
+    $this->ipCidrRange = $ipCidrRange;
+  }
+  public function getIpCidrRange()
+  {
+    return $this->ipCidrRange;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setNetwork($network)
+  {
+    $this->network = $network;
+  }
+  public function getNetwork()
+  {
+    return $this->network;
+  }
+  public function setRegion($region)
+  {
+    $this->region = $region;
+  }
+  public function getRegion()
+  {
+    return $this->region;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_SubnetworkAggregatedList extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_SubnetworksScopedList';
+  protected $itemsDataType = 'map';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_SubnetworkList extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  protected $itemsType = 'Google_Service_Compute_Subnetwork';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+  public $selfLink;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSelfLink($selfLink)
+  {
+    $this->selfLink = $selfLink;
+  }
+  public function getSelfLink()
+  {
+    return $this->selfLink;
+  }
+}
+
+class Google_Service_Compute_SubnetworksScopedList extends Google_Collection
+{
+  protected $collection_key = 'subnetworks';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $subnetworksType = 'Google_Service_Compute_Subnetwork';
+  protected $subnetworksDataType = 'array';
+  protected $warningType = 'Google_Service_Compute_SubnetworksScopedListWarning';
+  protected $warningDataType = '';
+
+
+  public function setSubnetworks($subnetworks)
+  {
+    $this->subnetworks = $subnetworks;
+  }
+  public function getSubnetworks()
+  {
+    return $this->subnetworks;
+  }
+  public function setWarning(Google_Service_Compute_SubnetworksScopedListWarning $warning)
+  {
+    $this->warning = $warning;
+  }
+  public function getWarning()
+  {
+    return $this->warning;
+  }
+}
+
+class Google_Service_Compute_SubnetworksScopedListWarning extends Google_Collection
+{
+  protected $collection_key = 'data';
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  protected $dataType = 'Google_Service_Compute_SubnetworksScopedListWarningData';
+  protected $dataDataType = 'array';
+  public $message;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setData($data)
+  {
+    $this->data = $data;
+  }
+  public function getData()
+  {
+    return $this->data;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+}
+
+class Google_Service_Compute_SubnetworksScopedListWarningData extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $key;
+  public $value;
+
+
+  public function setKey($key)
+  {
+    $this->key = $key;
+  }
+  public function getKey()
+  {
+    return $this->key;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
 class Google_Service_Compute_Tags extends Google_Collection
 {
   protected $collection_key = 'items';
@@ -16127,10 +17496,6 @@ class Google_Service_Compute_TargetInstanceAggregatedList extends Google_Model
   }
 }
 
-class Google_Service_Compute_TargetInstanceAggregatedListItems extends Google_Model
-{
-}
-
 class Google_Service_Compute_TargetInstanceList extends Google_Collection
 {
   protected $collection_key = 'items';
@@ -16447,10 +17812,6 @@ class Google_Service_Compute_TargetPoolAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
-}
-
-class Google_Service_Compute_TargetPoolAggregatedListItems extends Google_Model
-{
 }
 
 class Google_Service_Compute_TargetPoolInstanceHealth extends Google_Collection
@@ -16881,10 +18242,6 @@ class Google_Service_Compute_TargetVpnGatewayAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
-}
-
-class Google_Service_Compute_TargetVpnGatewayAggregatedListItems extends Google_Model
-{
 }
 
 class Google_Service_Compute_TargetVpnGatewayList extends Google_Collection
@@ -17413,8 +18770,9 @@ class Google_Service_Compute_UsageExportLocation extends Google_Model
   }
 }
 
-class Google_Service_Compute_VpnTunnel extends Google_Model
+class Google_Service_Compute_VpnTunnel extends Google_Collection
 {
+  protected $collection_key = 'localTrafficSelector';
   protected $internal_gapi_mappings = array(
   );
   public $creationTimestamp;
@@ -17423,6 +18781,7 @@ class Google_Service_Compute_VpnTunnel extends Google_Model
   public $id;
   public $ikeVersion;
   public $kind;
+  public $localTrafficSelector;
   public $name;
   public $peerIp;
   public $region;
@@ -17480,6 +18839,14 @@ class Google_Service_Compute_VpnTunnel extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setLocalTrafficSelector($localTrafficSelector)
+  {
+    $this->localTrafficSelector = $localTrafficSelector;
+  }
+  public function getLocalTrafficSelector()
+  {
+    return $this->localTrafficSelector;
   }
   public function setName($name)
   {
@@ -17599,10 +18966,6 @@ class Google_Service_Compute_VpnTunnelAggregatedList extends Google_Model
   {
     return $this->selfLink;
   }
-}
-
-class Google_Service_Compute_VpnTunnelAggregatedListItems extends Google_Model
-{
 }
 
 class Google_Service_Compute_VpnTunnelList extends Google_Collection

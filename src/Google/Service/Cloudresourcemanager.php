@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -20,7 +18,7 @@
  *
  * <p>
  * The Google Cloud Resource Manager API provides methods for creating, reading,
- * and updating of project metadata.</p>
+ * and updating project metadata.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -34,6 +32,9 @@ class Google_Service_Cloudresourcemanager extends Google_Service
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
       "https://www.googleapis.com/auth/cloud-platform";
+  /** View your data across Google Cloud Platform services. */
+  const CLOUD_PLATFORM_READ_ONLY =
+      "https://www.googleapis.com/auth/cloud-platform.read-only";
 
   public $organizations;
   public $projects;
@@ -82,17 +83,17 @@ class Google_Service_Cloudresourcemanager extends Google_Service
               'path' => 'v1beta1/organizations',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'filter' => array(
+                'pageSize' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'integer',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageSize' => array(
+                'filter' => array(
                   'location' => 'query',
-                  'type' => 'integer',
+                  'type' => 'string',
                 ),
               ),
             ),'setIamPolicy' => array(
@@ -173,10 +174,6 @@ class Google_Service_Cloudresourcemanager extends Google_Service
               'path' => 'v1beta1/projects',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -184,6 +181,10 @@ class Google_Service_Cloudresourcemanager extends Google_Service
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'setIamPolicy' => array(
@@ -246,7 +247,8 @@ class Google_Service_Cloudresourcemanager_Organizations_Resource extends Google_
 {
 
   /**
-   * Fetches an Organization resource by id. (organizations.get)
+   * Fetches an Organization resource identified by the specified
+   * `organization_id`. (organizations.get)
    *
    * @param string $organizationId The id of the Organization resource to fetch.
    * @param array $optParams Optional parameters.
@@ -260,12 +262,14 @@ class Google_Service_Cloudresourcemanager_Organizations_Resource extends Google_
   }
 
   /**
-   * Gets the access control policy for a Organization resource. May be empty if
+   * Gets the access control policy for an Organization resource. May be empty if
    * no such policy or resource exists. (organizations.getIamPolicy)
    *
-   * @param string $resource REQUIRED: The resource for which policy is being
-   * requested. Resource is usually specified as a path, such as,
-   * `projects/{project}`.
+   * @param string $resource REQUIRED: The resource for which the policy is being
+   * requested. `resource` is usually specified as a path, such as
+   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
+   * this value is resource specific and is specified in the `getIamPolicy`
+   * documentation.
    * @param Google_GetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Cloudresourcemanager_Policy
@@ -278,24 +282,27 @@ class Google_Service_Cloudresourcemanager_Organizations_Resource extends Google_
   }
 
   /**
-   * Query Organization resources. (organizations.listOrganizations)
+   * Lists Organization resources that are visible to the user and satisfy the
+   * specified filter. This method returns Organizations in an unspecified order.
+   * New Organizations do not necessarily appear at the end of the list.
+   * (organizations.listOrganizations)
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize The maximum number of Organizations to return in the
+   * response. This field is optional.
+   * @opt_param string pageToken A pagination token returned from a previous call
+   * to `ListOrganizations` that indicates from where listing should continue.
+   * This field is optional.
    * @opt_param string filter An optional query string used to filter the
-   * Organizations to be return in the response. Filter rules are case-
-   * insensitive. Organizations may be filtered by `owner.directoryCustomerId` or
-   * by `domain`, where the domain is a Google for Work domain, for example:
+   * Organizations to return in the response. Filter rules are case-insensitive.
+   * Organizations may be filtered by `owner.directoryCustomerId` or by `domain`,
+   * where the domain is a Google for Work domain, for example:
    * |Filter|Description| |------|-----------|
    * |owner.directorycustomerid:123456789|Organizations with
    * `owner.directory_customer_id` equal to `123456789`.|
    * |domain:google.com|Organizations corresponding to the domain `google.com`.|
    * This field is optional.
-   * @opt_param string pageToken A pagination token returned from a previous call
-   * to ListOrganizations that indicates from where listing should continue. This
-   * field is optional.
-   * @opt_param int pageSize The maximum number of Organizations to return in the
-   * response. This field is optional.
    * @return Google_Service_Cloudresourcemanager_ListOrganizationsResponse
    */
   public function listOrganizations($optParams = array())
@@ -306,12 +313,14 @@ class Google_Service_Cloudresourcemanager_Organizations_Resource extends Google_
   }
 
   /**
-   * Sets the access control policy on a Organization resource. Replaces any
+   * Sets the access control policy on an Organization resource. Replaces any
    * existing policy. (organizations.setIamPolicy)
    *
-   * @param string $resource REQUIRED: The resource for which policy is being
-   * specified. `resource` is usually specified as a path, such as,
-   * `projects/{project}/zones/{zone}/disks/{disk}`.
+   * @param string $resource REQUIRED: The resource for which the policy is being
+   * specified. `resource` is usually specified as a path, such as
+   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
+   * this value is resource specific and is specified in the `setIamPolicy`
+   * documentation.
    * @param Google_SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Cloudresourcemanager_Policy
@@ -327,9 +336,11 @@ class Google_Service_Cloudresourcemanager_Organizations_Resource extends Google_
    * Returns permissions that a caller has on the specified Organization.
    * (organizations.testIamPermissions)
    *
-   * @param string $resource REQUIRED: The resource for which policy detail is
-   * being requested. `resource` is usually specified as a path, such as,
-   * `projects/{project}`.
+   * @param string $resource REQUIRED: The resource for which the policy detail is
+   * being requested. `resource` is usually specified as a path, such as
+   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
+   * this value is resource specific and is specified in the `testIamPermissions`
+   * documentation.
    * @param Google_TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Cloudresourcemanager_TestIamPermissionsResponse
@@ -342,7 +353,8 @@ class Google_Service_Cloudresourcemanager_Organizations_Resource extends Google_
   }
 
   /**
-   * Updates an Organization resource. (organizations.update)
+   * Updates an Organization resource identified by the specified
+   * `organization_id`. (organizations.update)
    *
    * @param string $organizationId An immutable id for the Organization that is
    * assigned on creation. This should be omitted when creating a new
@@ -371,10 +383,10 @@ class Google_Service_Cloudresourcemanager_Projects_Resource extends Google_Servi
 {
 
   /**
-   * Creates a project resource. Initially, the project resource is owned by its
+   * Creates a Project resource. Initially, the Project resource is owned by its
    * creator exclusively. The creator can later grant permission to others to read
-   * or update the project. Several APIs are activated automatically for the
-   * project, including Google Cloud Storage. (projects.create)
+   * or update the Project. Several APIs are activated automatically for the
+   * Project, including Google Cloud Storage. (projects.create)
    *
    * @param Google_Project $postBody
    * @param array $optParams Optional parameters.
@@ -388,31 +400,20 @@ class Google_Service_Cloudresourcemanager_Projects_Resource extends Google_Servi
   }
 
   /**
-   * Marks the project identified by the specified `project_id` (for example, `my-
-   * project-123`) for deletion. This method will only affect the project if the
-   * following criteria are met: + The project does not have a billing account
-   * associated with it. + The project has a lifecycle state of
-   * [ACTIVE][google.cloudresourcemanager.projects.v1beta1.LifecycleState.ACTIVE].
-   * This method changes the project's lifecycle state from
-   * [ACTIVE][google.cloudresourcemanager.projects.v1beta1.LifecycleState.ACTIVE]
-   * to [DELETE_REQUESTED] [google.cloudresourcemanager.projects.v1beta1.Lifecycle
-   * State.DELETE_REQUESTED]. The deletion starts at an unspecified time, at which
-   * point the lifecycle state changes to [DELETE_IN_PROGRESS] [google.cloudresour
-   * cemanager.projects.v1beta1.LifecycleState.DELETE_IN_PROGRESS]. Until the
-   * deletion completes, you can check the lifecycle state checked by retrieving
-   * the project with [GetProject]
-   * [google.cloudresourcemanager.projects.v1beta1.DeveloperProjects.GetProject],
-   * and the project remains visible to [ListProjects] [google.cloudresourcemanage
-   * r.projects.v1beta1.DeveloperProjects.ListProjects]. However, you cannot
-   * update the project. After the deletion completes, the project is not
-   * retrievable by the [GetProject]
-   * [google.cloudresourcemanager.projects.v1beta1.DeveloperProjects.GetProject]
-   * and [ListProjects]
-   * [google.cloudresourcemanager.projects.v1beta1.DeveloperProjects.ListProjects]
-   * methods. The caller must have modify permissions for this project.
-   * (projects.delete)
+   * Marks the Project identified by the specified `project_id` (for example, `my-
+   * project-123`) for deletion. This method will only affect the Project if the
+   * following criteria are met: + The Project does not have a billing account
+   * associated with it. + The Project has a lifecycle state of ACTIVE. This
+   * method changes the Project's lifecycle state from ACTIVE to DELETE_REQUESTED.
+   * The deletion starts at an unspecified time, at which point the lifecycle
+   * state changes to DELETE_IN_PROGRESS. Until the deletion completes, you can
+   * check the lifecycle state checked by retrieving the Project with GetProject,
+   * and the Project remains visible to ListProjects. However, you cannot update
+   * the project. After the deletion completes, the Project is not retrievable by
+   * the GetProject and ListProjects methods. The caller must have modify
+   * permissions for this Project. (projects.delete)
    *
-   * @param string $projectId The project ID (for example, `foo-bar-123`).
+   * @param string $projectId The Project ID (for example, `foo-bar-123`).
    * Required.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Cloudresourcemanager_Empty
@@ -425,11 +426,11 @@ class Google_Service_Cloudresourcemanager_Projects_Resource extends Google_Servi
   }
 
   /**
-   * Retrieves the project identified by the specified `project_id` (for example,
-   * `my-project-123`). The caller must have read permissions for this project.
+   * Retrieves the Project identified by the specified `project_id` (for example,
+   * `my-project-123`). The caller must have read permissions for this Project.
    * (projects.get)
    *
-   * @param string $projectId The project ID (for example, `my-project-123`).
+   * @param string $projectId The Project ID (for example, `my-project-123`).
    * Required.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Cloudresourcemanager_Project
@@ -442,12 +443,15 @@ class Google_Service_Cloudresourcemanager_Projects_Resource extends Google_Servi
   }
 
   /**
-   * Returns the IAM access control policy for specified project.
+   * Returns the IAM access control policy for the specified Project. Permission
+   * is denied if the policy or the resource does not exist.
    * (projects.getIamPolicy)
    *
-   * @param string $resource REQUIRED: The resource for which policy is being
-   * requested. Resource is usually specified as a path, such as,
-   * `projects/{project}`.
+   * @param string $resource REQUIRED: The resource for which the policy is being
+   * requested. `resource` is usually specified as a path, such as
+   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
+   * this value is resource specific and is specified in the `getIamPolicy`
+   * documentation.
    * @param Google_GetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Cloudresourcemanager_Policy
@@ -460,12 +464,17 @@ class Google_Service_Cloudresourcemanager_Projects_Resource extends Google_Servi
   }
 
   /**
-   * Lists projects that are visible to the user and satisfy the specified filter.
-   * This method returns projects in an unspecified order. New projects do not
+   * Lists Projects that are visible to the user and satisfy the specified filter.
+   * This method returns Projects in an unspecified order. New Projects do not
    * necessarily appear at the end of the list. (projects.listProjects)
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string pageToken A pagination token returned from a previous call
+   * to ListProjects that indicates from where listing should continue. Optional.
+   * @opt_param int pageSize The maximum number of Projects to return in the
+   * response. The server can return fewer Projects than requested. If
+   * unspecified, server picks an appropriate default. Optional.
    * @opt_param string filter An expression for filtering the results of the
    * request. Filter rules are case insensitive. The fields eligible for filtering
    * are: + `name` + `id` + labels.key where *key* is the name of a label Some
@@ -476,13 +485,6 @@ class Google_Service_Cloudresourcemanager_Projects_Resource extends Google_Servi
    * `color`.| |labels.color:red|The project's label `color` has the value `red`.|
    * |labels.color:red label.size:big|The project's label `color` has the value
    * `red` and its label `size` has the value `big`. Optional.
-   * @opt_param string pageToken A pagination token returned from a previous call
-   * to ListProject that indicates from where listing should continue. Note:
-   * pagination is not yet supported; the server ignores this field. Optional.
-   * @opt_param int pageSize The maximum number of Projects to return in the
-   * response. The server can return fewer projects than requested. If
-   * unspecified, server picks an appropriate default. Note: pagination is not yet
-   * supported; the server ignores this field. Optional.
    * @return Google_Service_Cloudresourcemanager_ListProjectsResponse
    */
   public function listProjects($optParams = array())
@@ -493,14 +495,25 @@ class Google_Service_Cloudresourcemanager_Projects_Resource extends Google_Servi
   }
 
   /**
-   * Sets the IAM access control policy for the specified project. We do not
-   * currently support 'domain:' prefixed members in a Binding of a Policy.
-   * Calling this method requires enabling the App Engine Admin API.
-   * (projects.setIamPolicy)
+   * Sets the IAM access control policy for the specified Project. Replaces any
+   * existing policy. The following constraints apply when using `setIamPolicy()`:
+   * + Project currently supports only `user:{emailid}` and
+   * `serviceAccount:{emailid}` members in a `Binding` of a `Policy`. + To be
+   * added as an `owner`, a user must be invited via Cloud Platform console and
+   * must accept the invitation. + Members cannot be added to more than one role
+   * in the same policy. + There must be at least one owner who has accepted the
+   * Terms of Service (ToS) agreement in the policy. Calling `setIamPolicy()` to
+   * to remove the last ToS-accepted owner from the policy will fail. + Calling
+   * this method requires enabling the App Engine Admin API. Note: Removing
+   * service accounts from policies or changing their roles can render services
+   * completely inoperable. It is important to understand how the service account
+   * is being used before removing or updating its roles. (projects.setIamPolicy)
    *
-   * @param string $resource REQUIRED: The resource for which policy is being
-   * specified. `resource` is usually specified as a path, such as,
-   * `projects/{project}/zones/{zone}/disks/{disk}`.
+   * @param string $resource REQUIRED: The resource for which the policy is being
+   * specified. `resource` is usually specified as a path, such as
+   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
+   * this value is resource specific and is specified in the `setIamPolicy`
+   * documentation.
    * @param Google_SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Cloudresourcemanager_Policy
@@ -513,12 +526,14 @@ class Google_Service_Cloudresourcemanager_Projects_Resource extends Google_Servi
   }
 
   /**
-   * Tests the specified permissions against the IAM access control policy for the
-   * specified project. (projects.testIamPermissions)
+   * Returns permissions that a caller has on the specified Project.
+   * (projects.testIamPermissions)
    *
-   * @param string $resource REQUIRED: The resource for which policy detail is
-   * being requested. `resource` is usually specified as a path, such as,
-   * `projects/{project}`.
+   * @param string $resource REQUIRED: The resource for which the policy detail is
+   * being requested. `resource` is usually specified as a path, such as
+   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
+   * this value is resource specific and is specified in the `testIamPermissions`
+   * documentation.
    * @param Google_TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Cloudresourcemanager_TestIamPermissionsResponse
@@ -531,14 +546,11 @@ class Google_Service_Cloudresourcemanager_Projects_Resource extends Google_Servi
   }
 
   /**
-   * Restores the project identified by the specified `project_id` (for example,
-   * `my-project-123`). You can only use this method for a project that has a
-   * lifecycle state of [DELETE_REQUESTED] [google.cloudresourcemanager.projects.v
-   * 1beta1.LifecycleState.DELETE_REQUESTED]. After deletion starts, as indicated
-   * by a lifecycle state of [DELETE_IN_PROGRESS] [google.cloudresourcemanager.pro
-   * jects.v1beta1.LifecycleState.DELETE_IN_PROGRESS], the project cannot be
-   * restored. The caller must have modify permissions for this project.
-   * (projects.undelete)
+   * Restores the Project identified by the specified `project_id` (for example,
+   * `my-project-123`). You can only use this method for a Project that has a
+   * lifecycle state of DELETE_REQUESTED. After deletion starts, as indicated by a
+   * lifecycle state of DELETE_IN_PROGRESS, the Project cannot be restored. The
+   * caller must have modify permissions for this Project. (projects.undelete)
    *
    * @param string $projectId The project ID (for example, `foo-bar-123`).
    * Required.
@@ -553,9 +565,9 @@ class Google_Service_Cloudresourcemanager_Projects_Resource extends Google_Servi
   }
 
   /**
-   * Updates the attributes of the project identified by the specified
+   * Updates the attributes of the Project identified by the specified
    * `project_id` (for example, `my-project-123`). The caller must have modify
-   * permissions for this project. (projects.update)
+   * permissions for this Project. (projects.update)
    *
    * @param string $projectId The project ID (for example, `my-project-123`).
    * Required.
@@ -669,12 +681,21 @@ class Google_Service_Cloudresourcemanager_Organization extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $creationTime;
   public $displayName;
   public $organizationId;
   protected $ownerType = 'Google_Service_Cloudresourcemanager_OrganizationOwner';
   protected $ownerDataType = '';
 
 
+  public function setCreationTime($creationTime)
+  {
+    $this->creationTime = $creationTime;
+  }
+  public function getCreationTime()
+  {
+    return $this->creationTime;
+  }
   public function setDisplayName($displayName)
   {
     $this->displayName = $displayName;
@@ -825,10 +846,6 @@ class Google_Service_Cloudresourcemanager_Project extends Google_Model
   {
     return $this->projectNumber;
   }
-}
-
-class Google_Service_Cloudresourcemanager_ProjectLabels extends Google_Model
-{
 }
 
 class Google_Service_Cloudresourcemanager_ResourceId extends Google_Model

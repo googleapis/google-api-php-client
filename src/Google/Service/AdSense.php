@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -102,13 +100,13 @@ class Google_Service_AdSense extends Google_Service
               'path' => 'accounts',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -130,13 +128,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -207,13 +205,13 @@ class Google_Service_AdSense extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -245,13 +243,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -337,13 +335,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -437,7 +435,16 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'sort' => array(
+                'currency' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'dimension' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -446,23 +453,19 @@ class Google_Service_AdSense extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'metric' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'filter' => array(
+                'sort' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'currency' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'startIndex' => array(
                   'location' => 'query',
@@ -471,11 +474,6 @@ class Google_Service_AdSense extends Google_Service
                 'useTimezoneReporting' => array(
                   'location' => 'query',
                   'type' => 'boolean',
-                ),
-                'dimension' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
                 ),
               ),
             ),
@@ -506,11 +504,11 @@ class Google_Service_AdSense extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'startIndex' => array(
+                'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'maxResults' => array(
+                'startIndex' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
@@ -524,13 +522,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -567,13 +565,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -600,13 +598,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -623,13 +621,13 @@ class Google_Service_AdSense extends Google_Service
               'path' => 'adclients',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -685,13 +683,13 @@ class Google_Service_AdSense extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -718,13 +716,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -790,13 +788,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -827,13 +825,13 @@ class Google_Service_AdSense extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -902,25 +900,7 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'sort' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'locale' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'metric' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'filter' => array(
+                'accountId' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -929,6 +909,34 @@ class Google_Service_AdSense extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'dimension' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'locale' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'metric' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'sort' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
                 'startIndex' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -936,16 +944,6 @@ class Google_Service_AdSense extends Google_Service
                 'useTimezoneReporting' => array(
                   'location' => 'query',
                   'type' => 'boolean',
-                ),
-                'dimension' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'accountId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
                 ),
               ),
             ),
@@ -971,11 +969,11 @@ class Google_Service_AdSense extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'startIndex' => array(
+                'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'maxResults' => array(
+                'startIndex' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
@@ -984,13 +982,13 @@ class Google_Service_AdSense extends Google_Service
               'path' => 'reports/saved',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1017,13 +1015,13 @@ class Google_Service_AdSense extends Google_Service
               'path' => 'savedadstyles',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1045,13 +1043,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1094,11 +1092,11 @@ class Google_Service_AdSense_Accounts_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of accounts to include in the
+   * response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through
    * accounts. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of accounts to include in the
-   * response, used for paging.
    * @return Google_Service_AdSense_Accounts
    */
   public function listAccounts($optParams = array())
@@ -1127,11 +1125,11 @@ class Google_Service_AdSense_AccountsAdclients_Resource extends Google_Service_R
    * @param string $accountId Account for which to list ad clients.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of ad clients to include in the
+   * response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through ad
    * clients. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of ad clients to include in the
-   * response, used for paging.
    * @return Google_Service_AdSense_AdClients
    */
   public function listAccountsAdclients($accountId, $optParams = array())
@@ -1195,11 +1193,11 @@ class Google_Service_AdSense_AccountsAdunits_Resource extends Google_Service_Res
    *
    * @opt_param bool includeInactive Whether to include inactive ad units.
    * Default: true.
+   * @opt_param int maxResults The maximum number of ad units to include in the
+   * response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through ad
    * units. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of ad units to include in the
-   * response, used for paging.
    * @return Google_Service_AdSense_AdUnits
    */
   public function listAccountsAdunits($accountId, $adClientId, $optParams = array())
@@ -1230,11 +1228,11 @@ class Google_Service_AdSense_AccountsAdunitsCustomchannels_Resource extends Goog
    * @param string $adUnitId Ad unit for which to list custom channels.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of custom channels to include in
+   * the response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through custom
    * channels. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of custom channels to include in
-   * the response, used for paging.
    * @return Google_Service_AdSense_CustomChannels
    */
   public function listAccountsAdunitsCustomchannels($accountId, $adClientId, $adUnitId, $optParams = array())
@@ -1325,11 +1323,11 @@ class Google_Service_AdSense_AccountsCustomchannels_Resource extends Google_Serv
    * @param string $adClientId Ad client for which to list custom channels.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of custom channels to include in
+   * the response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through custom
    * channels. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of custom channels to include in
-   * the response, used for paging.
    * @return Google_Service_AdSense_CustomChannels
    */
   public function listAccountsCustomchannels($accountId, $adClientId, $optParams = array())
@@ -1425,22 +1423,22 @@ class Google_Service_AdSense_AccountsReports_Resource extends Google_Service_Res
    * format, inclusive.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string currency Optional currency to use when reporting on
+   * monetary metrics. Defaults to the account's currency if not set.
+   * @opt_param string dimension Dimensions to base the report on.
+   * @opt_param string filter Filters to be run on the report.
+   * @opt_param string locale Optional locale to use for translating report output
+   * to a local language. Defaults to "en_US" if not specified.
+   * @opt_param int maxResults The maximum number of rows of report data to
+   * return.
+   * @opt_param string metric Numeric columns to include in the report.
    * @opt_param string sort The name of a dimension or metric to sort the
    * resulting report on, optionally prefixed with "+" to sort ascending or "-" to
    * sort descending. If no prefix is specified, the column is sorted ascending.
-   * @opt_param string locale Optional locale to use for translating report output
-   * to a local language. Defaults to "en_US" if not specified.
-   * @opt_param string metric Numeric columns to include in the report.
-   * @opt_param int maxResults The maximum number of rows of report data to
-   * return.
-   * @opt_param string filter Filters to be run on the report.
-   * @opt_param string currency Optional currency to use when reporting on
-   * monetary metrics. Defaults to the account's currency if not set.
    * @opt_param int startIndex Index of the first row of report data to return.
    * @opt_param bool useTimezoneReporting Whether the report should be generated
    * in the AdSense account's local timezone. If false default PST/PDT timezone
    * will be used.
-   * @opt_param string dimension Dimensions to base the report on.
    * @return Google_Service_AdSense_AdsenseReportsGenerateResponse
    */
   public function generate($accountId, $startDate, $endDate, $optParams = array())
@@ -1472,9 +1470,9 @@ class Google_Service_AdSense_AccountsReportsSaved_Resource extends Google_Servic
    *
    * @opt_param string locale Optional locale to use for translating report output
    * to a local language. Defaults to "en_US" if not specified.
-   * @opt_param int startIndex Index of the first row of report data to return.
    * @opt_param int maxResults The maximum number of rows of report data to
    * return.
+   * @opt_param int startIndex Index of the first row of report data to return.
    * @return Google_Service_AdSense_AdsenseReportsGenerateResponse
    */
   public function generate($accountId, $savedReportId, $optParams = array())
@@ -1491,11 +1489,11 @@ class Google_Service_AdSense_AccountsReportsSaved_Resource extends Google_Servic
    * @param string $accountId Account to which the saved reports belong.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of saved reports to include in
+   * the response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through saved
    * reports. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of saved reports to include in
-   * the response, used for paging.
    * @return Google_Service_AdSense_SavedReports
    */
   public function listAccountsReportsSaved($accountId, $optParams = array())
@@ -1538,11 +1536,11 @@ class Google_Service_AdSense_AccountsSavedadstyles_Resource extends Google_Servi
    * @param string $accountId Account for which to list saved ad styles.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of saved ad styles to include in
+   * the response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through saved
    * ad styles. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of saved ad styles to include in
-   * the response, used for paging.
    * @return Google_Service_AdSense_SavedAdStyles
    */
   public function listAccountsSavedadstyles($accountId, $optParams = array())
@@ -1571,11 +1569,11 @@ class Google_Service_AdSense_AccountsUrlchannels_Resource extends Google_Service
    * @param string $adClientId Ad client for which to list URL channels.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of URL channels to include in
+   * the response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through URL
    * channels. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of URL channels to include in
-   * the response, used for paging.
    * @return Google_Service_AdSense_UrlChannels
    */
   public function listAccountsUrlchannels($accountId, $adClientId, $optParams = array())
@@ -1602,11 +1600,11 @@ class Google_Service_AdSense_Adclients_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of ad clients to include in the
+   * response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through ad
    * clients. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of ad clients to include in the
-   * response, used for paging.
    * @return Google_Service_AdSense_AdClients
    */
   public function listAdclients($optParams = array())
@@ -1667,11 +1665,11 @@ class Google_Service_AdSense_Adunits_Resource extends Google_Service_Resource
    *
    * @opt_param bool includeInactive Whether to include inactive ad units.
    * Default: true.
+   * @opt_param int maxResults The maximum number of ad units to include in the
+   * response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through ad
    * units. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of ad units to include in the
-   * response, used for paging.
    * @return Google_Service_AdSense_AdUnits
    */
   public function listAdunits($adClientId, $optParams = array())
@@ -1701,11 +1699,11 @@ class Google_Service_AdSense_AdunitsCustomchannels_Resource extends Google_Servi
    * @param string $adUnitId Ad unit for which to list custom channels.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of custom channels to include in
+   * the response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through custom
    * channels. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of custom channels to include in
-   * the response, used for paging.
    * @return Google_Service_AdSense_CustomChannels
    */
   public function listAdunitsCustomchannels($adClientId, $adUnitId, $optParams = array())
@@ -1793,11 +1791,11 @@ class Google_Service_AdSense_Customchannels_Resource extends Google_Service_Reso
    * @param string $adClientId Ad client for which to list custom channels.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of custom channels to include in
+   * the response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through custom
    * channels. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of custom channels to include in
-   * the response, used for paging.
    * @return Google_Service_AdSense_CustomChannels
    */
   public function listCustomchannels($adClientId, $optParams = array())
@@ -1829,11 +1827,11 @@ class Google_Service_AdSense_CustomchannelsAdunits_Resource extends Google_Servi
    *
    * @opt_param bool includeInactive Whether to include inactive ad units.
    * Default: true.
+   * @opt_param int maxResults The maximum number of ad units to include in the
+   * response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through ad
    * units. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of ad units to include in the
-   * response, used for paging.
    * @return Google_Service_AdSense_AdUnits
    */
   public function listCustomchannelsAdunits($adClientId, $customChannelId, $optParams = array())
@@ -1954,23 +1952,23 @@ class Google_Service_AdSense_Reports_Resource extends Google_Service_Resource
    * format, inclusive.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string accountId Accounts upon which to report.
+   * @opt_param string currency Optional currency to use when reporting on
+   * monetary metrics. Defaults to the account's currency if not set.
+   * @opt_param string dimension Dimensions to base the report on.
+   * @opt_param string filter Filters to be run on the report.
+   * @opt_param string locale Optional locale to use for translating report output
+   * to a local language. Defaults to "en_US" if not specified.
+   * @opt_param int maxResults The maximum number of rows of report data to
+   * return.
+   * @opt_param string metric Numeric columns to include in the report.
    * @opt_param string sort The name of a dimension or metric to sort the
    * resulting report on, optionally prefixed with "+" to sort ascending or "-" to
    * sort descending. If no prefix is specified, the column is sorted ascending.
-   * @opt_param string locale Optional locale to use for translating report output
-   * to a local language. Defaults to "en_US" if not specified.
-   * @opt_param string metric Numeric columns to include in the report.
-   * @opt_param int maxResults The maximum number of rows of report data to
-   * return.
-   * @opt_param string filter Filters to be run on the report.
-   * @opt_param string currency Optional currency to use when reporting on
-   * monetary metrics. Defaults to the account's currency if not set.
    * @opt_param int startIndex Index of the first row of report data to return.
    * @opt_param bool useTimezoneReporting Whether the report should be generated
    * in the AdSense account's local timezone. If false default PST/PDT timezone
    * will be used.
-   * @opt_param string dimension Dimensions to base the report on.
-   * @opt_param string accountId Accounts upon which to report.
    * @return Google_Service_AdSense_AdsenseReportsGenerateResponse
    */
   public function generate($startDate, $endDate, $optParams = array())
@@ -2001,9 +1999,9 @@ class Google_Service_AdSense_ReportsSaved_Resource extends Google_Service_Resour
    *
    * @opt_param string locale Optional locale to use for translating report output
    * to a local language. Defaults to "en_US" if not specified.
-   * @opt_param int startIndex Index of the first row of report data to return.
    * @opt_param int maxResults The maximum number of rows of report data to
    * return.
+   * @opt_param int startIndex Index of the first row of report data to return.
    * @return Google_Service_AdSense_AdsenseReportsGenerateResponse
    */
   public function generate($savedReportId, $optParams = array())
@@ -2018,11 +2016,11 @@ class Google_Service_AdSense_ReportsSaved_Resource extends Google_Service_Resour
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of saved reports to include in
+   * the response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through saved
    * reports. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of saved reports to include in
-   * the response, used for paging.
    * @return Google_Service_AdSense_SavedReports
    */
   public function listReportsSaved($optParams = array())
@@ -2064,11 +2062,11 @@ class Google_Service_AdSense_Savedadstyles_Resource extends Google_Service_Resou
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of saved ad styles to include in
+   * the response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through saved
    * ad styles. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of saved ad styles to include in
-   * the response, used for paging.
    * @return Google_Service_AdSense_SavedAdStyles
    */
   public function listSavedadstyles($optParams = array())
@@ -2097,11 +2095,11 @@ class Google_Service_AdSense_Urlchannels_Resource extends Google_Service_Resourc
    * @param string $adClientId Ad client for which to list URL channels.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults The maximum number of URL channels to include in
+   * the response, used for paging.
    * @opt_param string pageToken A continuation token, used to page through URL
    * channels. To retrieve the next page, set this parameter to the value of
    * "nextPageToken" from the previous response.
-   * @opt_param int maxResults The maximum number of URL channels to include in
-   * the response, used for paging.
    * @return Google_Service_AdSense_UrlChannels
    */
   public function listUrlchannels($adClientId, $optParams = array())

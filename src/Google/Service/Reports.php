@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -77,27 +75,11 @@ class Google_Service_Reports extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'startTime' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'actorIpAddress' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'eventName' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'filters' => array(
+                'customerId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -105,7 +87,23 @@ class Google_Service_Reports extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'customerId' => array(
+                'eventName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'filters' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'startTime' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -124,27 +122,11 @@ class Google_Service_Reports extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'startTime' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'actorIpAddress' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'eventName' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'filters' => array(
+                'customerId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -152,7 +134,23 @@ class Google_Service_Reports extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'customerId' => array(
+                'eventName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'filters' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'startTime' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -190,11 +188,11 @@ class Google_Service_Reports extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
+                'customerId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'customerId' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -227,7 +225,11 @@ class Google_Service_Reports extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'parameters' => array(
+                'customerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'filters' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -239,11 +241,7 @@ class Google_Service_Reports extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'filters' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'customerId' => array(
+                'parameters' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -278,20 +276,20 @@ class Google_Service_Reports_Activities_Resource extends Google_Service_Resource
    * be retrieved.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string startTime Return events which occured at or after this
-   * time.
    * @opt_param string actorIpAddress IP Address of host where the event was
    * performed. Supports both IPv4 and IPv6 addresses.
-   * @opt_param int maxResults Number of activity records to be shown in each
-   * page.
+   * @opt_param string customerId Represents the customer for which the data is to
+   * be fetched.
+   * @opt_param string endTime Return events which occured at or before this time.
    * @opt_param string eventName Name of the event being queried.
-   * @opt_param string pageToken Token to specify next page.
    * @opt_param string filters Event parameters in the form [parameter1
    * name][operator][parameter1 value],[parameter2 name][operator][parameter2
    * value],...
-   * @opt_param string endTime Return events which occured at or before this time.
-   * @opt_param string customerId Represents the customer for which the data is to
-   * be fetched.
+   * @opt_param int maxResults Number of activity records to be shown in each
+   * page.
+   * @opt_param string pageToken Token to specify next page.
+   * @opt_param string startTime Return events which occured at or after this
+   * time.
    * @return Google_Service_Reports_Activities
    */
   public function listActivities($userKey, $applicationName, $optParams = array())
@@ -312,20 +310,20 @@ class Google_Service_Reports_Activities_Resource extends Google_Service_Resource
    * @param Google_Channel $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string startTime Return events which occured at or after this
-   * time.
    * @opt_param string actorIpAddress IP Address of host where the event was
    * performed. Supports both IPv4 and IPv6 addresses.
-   * @opt_param int maxResults Number of activity records to be shown in each
-   * page.
+   * @opt_param string customerId Represents the customer for which the data is to
+   * be fetched.
+   * @opt_param string endTime Return events which occured at or before this time.
    * @opt_param string eventName Name of the event being queried.
-   * @opt_param string pageToken Token to specify next page.
    * @opt_param string filters Event parameters in the form [parameter1
    * name][operator][parameter1 value],[parameter2 name][operator][parameter2
    * value],...
-   * @opt_param string endTime Return events which occured at or before this time.
-   * @opt_param string customerId Represents the customer for which the data is to
-   * be fetched.
+   * @opt_param int maxResults Number of activity records to be shown in each
+   * page.
+   * @opt_param string pageToken Token to specify next page.
+   * @opt_param string startTime Return events which occured at or after this
+   * time.
    * @return Google_Service_Reports_Channel
    */
   public function watch($userKey, $applicationName, Google_Service_Reports_Channel $postBody, $optParams = array())
@@ -380,9 +378,9 @@ class Google_Service_Reports_CustomerUsageReports_Resource extends Google_Servic
    * data is to be fetched.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Token to specify next page.
    * @opt_param string customerId Represents the customer for which the data is to
    * be fetched.
+   * @opt_param string pageToken Token to specify next page.
    * @opt_param string parameters Represents the application name, parameter name
    * pairs to fetch in csv as app_name1:param_name1, app_name2:param_name2.
    * @return Google_Service_Reports_UsageReports
@@ -416,15 +414,15 @@ class Google_Service_Reports_UserUsageReport_Resource extends Google_Service_Res
    * data is to be fetched.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string parameters Represents the application name, parameter name
-   * pairs to fetch in csv as app_name1:param_name1, app_name2:param_name2.
+   * @opt_param string customerId Represents the customer for which the data is to
+   * be fetched.
+   * @opt_param string filters Represents the set of filters including parameter
+   * operator value.
    * @opt_param string maxResults Maximum number of results to return. Maximum
    * allowed is 1000
    * @opt_param string pageToken Token to specify next page.
-   * @opt_param string filters Represents the set of filters including parameter
-   * operator value.
-   * @opt_param string customerId Represents the customer for which the data is to
-   * be fetched.
+   * @opt_param string parameters Represents the application name, parameter name
+   * pairs to fetch in csv as app_name1:param_name1, app_name2:param_name2.
    * @return Google_Service_Reports_UsageReports
    */
   public function get($userKey, $date, $optParams = array())
@@ -845,10 +843,6 @@ class Google_Service_Reports_Channel extends Google_Model
   }
 }
 
-class Google_Service_Reports_ChannelParams extends Google_Model
-{
-}
-
 class Google_Service_Reports_UsageReport extends Google_Collection
 {
   protected $collection_key = 'parameters';
@@ -1010,10 +1004,6 @@ class Google_Service_Reports_UsageReportParameters extends Google_Collection
   {
     return $this->stringValue;
   }
-}
-
-class Google_Service_Reports_UsageReportParametersMsgValue extends Google_Model
-{
 }
 
 class Google_Service_Reports_UsageReports extends Google_Collection

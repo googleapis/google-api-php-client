@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -82,7 +80,7 @@ class Google_Service_Partners extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'orderBy' => array(
+                'requestMetadata.userOverrides.ipAddress' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -90,23 +88,11 @@ class Google_Service_Partners extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'requestMetadata.userOverrides.ipAddress' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'requestMetadata.partnersSessionId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'requestMetadata.trafficSource.trafficSubId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'requestMetadata.locale' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'address' => array(
+                'requestMetadata.partnersSessionId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -115,15 +101,27 @@ class Google_Service_Partners extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'currencyCode' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'requestMetadata.trafficSource.trafficSourceId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'requestMetadata.trafficSource.trafficSubId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'view' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'currencyCode' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'address' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -132,7 +130,32 @@ class Google_Service_Partners extends Google_Service
               'path' => 'v2/companies',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'orderBy' => array(
+                'requestMetadata.userOverrides.ipAddress' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'requestMetadata.userOverrides.userId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'requestMetadata.locale' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'requestMetadata.partnersSessionId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'requestMetadata.experimentIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'requestMetadata.trafficSource.trafficSourceId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'requestMetadata.trafficSource.trafficSubId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -140,35 +163,17 @@ class Google_Service_Partners extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'requestMetadata.partnersSessionId' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'maxMonthlyBudget.currencyCode' => array(
+                'companyName' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'maxMonthlyBudget.nanos' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'languageCodes' => array(
+                'view' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
-                ),
-                'minMonthlyBudget.nanos' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'requestMetadata.trafficSource.trafficSubId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'industries' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
                 ),
                 'minMonthlyBudget.currencyCode' => array(
                   'location' => 'query',
@@ -178,58 +183,51 @@ class Google_Service_Partners extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
+                'minMonthlyBudget.nanos' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'maxMonthlyBudget.currencyCode' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'requestMetadata.locale' => array(
+                'maxMonthlyBudget.units' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'requestMetadata.trafficSource.trafficSourceId' => array(
+                'maxMonthlyBudget.nanos' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'integer',
                 ),
-                'companyName' => array(
+                'industries' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-                'address' => array(
-                  'location' => 'query',
-                  'type' => 'string',
+                  'repeated' => true,
                 ),
                 'services' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'requestMetadata.experimentIds' => array(
+                'languageCodes' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
+                ),
+                'address' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'gpsMotivations' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'requestMetadata.userOverrides.ipAddress' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'websiteUrl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'requestMetadata.userOverrides.userId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'view' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxMonthlyBudget.units' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -282,23 +280,19 @@ class Google_Service_Partners extends Google_Service
               'path' => 'v2/userStates',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'requestMetadata.userOverrides.userId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'requestMetadata.userOverrides.ipAddress' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'requestMetadata.partnersSessionId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'requestMetadata.trafficSource.trafficSubId' => array(
+                'requestMetadata.userOverrides.userId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'requestMetadata.locale' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'requestMetadata.partnersSessionId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -308,6 +302,10 @@ class Google_Service_Partners extends Google_Service
                   'repeated' => true,
                 ),
                 'requestMetadata.trafficSource.trafficSourceId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'requestMetadata.trafficSource.trafficSubId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -365,34 +363,34 @@ class Google_Service_Partners_Companies_Resource extends Google_Service_Resource
    * @param string $companyId The ID of the company to retrieve.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string requestMetadata.userOverrides.ipAddress IP address to use
+   * instead of the user's geo-located IP address.
+   * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
+   * impersonate instead of the user's ID.
+   * @opt_param string requestMetadata.locale Locale to use for the current
+   * request.
+   * @opt_param string requestMetadata.partnersSessionId Google Partners session
+   * ID.
+   * @opt_param string requestMetadata.experimentIds Experiment IDs the current
+   * request belongs to.
+   * @opt_param string requestMetadata.trafficSource.trafficSourceId Identifier to
+   * indicate where the traffic comes from. An identifier has multiple letters
+   * created by a team which redirected the traffic to us.
+   * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
+   * identifier to indicate where the traffic comes from. An identifier has
+   * multiple letters created by a team which redirected the traffic to us.
+   * @opt_param string view The view of `Company` resource to be returned. This
+   * must not be `COMPANY_VIEW_UNSPECIFIED`.
    * @opt_param string orderBy How to order addresses within the returned company.
    * Currently, only `address` and `address desc` is supported which will sorted
    * by closest to farthest in distance from given address and farthest to closest
    * distance from given address respectively.
-   * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
-   * impersonate instead of the user's ID.
-   * @opt_param string requestMetadata.userOverrides.ipAddress IP address to use
-   * instead of the user's geo-located IP address.
-   * @opt_param string requestMetadata.partnersSessionId Google Partners session
-   * ID.
-   * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
-   * identifier to indicate where the traffic comes from. An identifier has
-   * multiple letters created by a team which redirected the traffic to us.
-   * @opt_param string requestMetadata.locale Locale to use for the current
-   * request.
-   * @opt_param string address The address to use for sorting the company's
-   * addresses by proximity. If not given, the geo-located address of the request
-   * is used. Used when order_by is set.
-   * @opt_param string requestMetadata.experimentIds Experiment IDs the current
-   * request belongs to.
    * @opt_param string currencyCode If the company's budget is in a different
    * currency code than this one, then the converted budget is converted to this
    * currency code.
-   * @opt_param string requestMetadata.trafficSource.trafficSourceId Identifier to
-   * indicate where the traffic comes from. An identifier has multiple letters
-   * created by a team which redirected the traffic to us.
-   * @opt_param string view The view of `Company` resource to be returned. This
-   * must not be `COMPANY_VIEW_UNSPECIFIED`.
+   * @opt_param string address The address to use for sorting the company's
+   * addresses by proximity. If not given, the geo-located address of the request
+   * is used. Used when order_by is set.
    * @return Google_Service_Partners_GetCompanyResponse
    */
   public function get($companyId, $optParams = array())
@@ -407,67 +405,67 @@ class Google_Service_Partners_Companies_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string orderBy How to order addresses within the returned
-   * companies. Currently, only `address` and `address desc` is supported which
-   * will sorted by closest to farthest in distance from given address and
-   * farthest to closest distance from given address respectively.
+   * @opt_param string requestMetadata.userOverrides.ipAddress IP address to use
+   * instead of the user's geo-located IP address.
+   * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
+   * impersonate instead of the user's ID.
+   * @opt_param string requestMetadata.locale Locale to use for the current
+   * request.
+   * @opt_param string requestMetadata.partnersSessionId Google Partners session
+   * ID.
+   * @opt_param string requestMetadata.experimentIds Experiment IDs the current
+   * request belongs to.
+   * @opt_param string requestMetadata.trafficSource.trafficSourceId Identifier to
+   * indicate where the traffic comes from. An identifier has multiple letters
+   * created by a team which redirected the traffic to us.
+   * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
+   * identifier to indicate where the traffic comes from. An identifier has
+   * multiple letters created by a team which redirected the traffic to us.
    * @opt_param int pageSize Requested page size. Server may return fewer
    * companies than requested. If unspecified, server picks an appropriate
    * default.
-   * @opt_param string requestMetadata.partnersSessionId Google Partners session
-   * ID.
-   * @opt_param string maxMonthlyBudget.currencyCode The 3-letter currency code
+   * @opt_param string pageToken A token identifying a page of results that the
+   * server returns. Typically, this is the value of
+   * `ListCompaniesResponse.next_page_token` returned from the previous call to
+   * ListCompanies.
+   * @opt_param string companyName Company name to search for.
+   * @opt_param string view The view of the `Company` resource to be returned.
+   * This must not be `COMPANY_VIEW_UNSPECIFIED`.
+   * @opt_param string minMonthlyBudget.currencyCode The 3-letter currency code
    * defined in ISO 4217.
-   * @opt_param int maxMonthlyBudget.nanos Number of nano (10^-9) units of the
-   * amount. The value must be between -999,999,999 and +999,999,999 inclusive. If
-   * `units` is positive, `nanos` must be positive or zero. If `units` is zero,
-   * `nanos` can be positive, zero, or negative. If `units` is negative, `nanos`
-   * must be negative or zero. For example $-1.75 is represented as `units`=-1 and
-   * `nanos`=-750,000,000.
-   * @opt_param string languageCodes List of language codes that company can
-   * support. Only primary language subtags are accepted as defined by BCP 47
-   * (IETF BCP 47, "Tags for Identifying Languages").
+   * @opt_param string minMonthlyBudget.units The whole units of the amount. For
+   * example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
    * @opt_param int minMonthlyBudget.nanos Number of nano (10^-9) units of the
    * amount. The value must be between -999,999,999 and +999,999,999 inclusive. If
    * `units` is positive, `nanos` must be positive or zero. If `units` is zero,
    * `nanos` can be positive, zero, or negative. If `units` is negative, `nanos`
    * must be negative or zero. For example $-1.75 is represented as `units`=-1 and
    * `nanos`=-750,000,000.
-   * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
-   * identifier to indicate where the traffic comes from. An identifier has
-   * multiple letters created by a team which redirected the traffic to us.
-   * @opt_param string industries List of industries the company can help with.
-   * @opt_param string minMonthlyBudget.currencyCode The 3-letter currency code
+   * @opt_param string maxMonthlyBudget.currencyCode The 3-letter currency code
    * defined in ISO 4217.
-   * @opt_param string minMonthlyBudget.units The whole units of the amount. For
-   * example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
-   * @opt_param string pageToken A token identifying a page of results that the
-   * server returns. Typically, this is the value of
-   * `ListCompaniesResponse.next_page_token` returned from the previous call to
-   * ListCompanies.
-   * @opt_param string requestMetadata.locale Locale to use for the current
-   * request.
-   * @opt_param string requestMetadata.trafficSource.trafficSourceId Identifier to
-   * indicate where the traffic comes from. An identifier has multiple letters
-   * created by a team which redirected the traffic to us.
-   * @opt_param string companyName Company name to search for.
-   * @opt_param string address The address to use when searching for companies. If
-   * not given, the geo-located address of the request is used.
-   * @opt_param string services List of services the company can help with.
-   * @opt_param string requestMetadata.experimentIds Experiment IDs the current
-   * request belongs to.
-   * @opt_param string gpsMotivations List of reasons for using Google Partner
-   * Search to get companies.
-   * @opt_param string requestMetadata.userOverrides.ipAddress IP address to use
-   * instead of the user's geo-located IP address.
-   * @opt_param string websiteUrl Website URL that will help to find a better
-   * matched company. .
-   * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
-   * impersonate instead of the user's ID.
-   * @opt_param string view The view of the `Company` resource to be returned.
-   * This must not be `COMPANY_VIEW_UNSPECIFIED`.
    * @opt_param string maxMonthlyBudget.units The whole units of the amount. For
    * example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
+   * @opt_param int maxMonthlyBudget.nanos Number of nano (10^-9) units of the
+   * amount. The value must be between -999,999,999 and +999,999,999 inclusive. If
+   * `units` is positive, `nanos` must be positive or zero. If `units` is zero,
+   * `nanos` can be positive, zero, or negative. If `units` is negative, `nanos`
+   * must be negative or zero. For example $-1.75 is represented as `units`=-1 and
+   * `nanos`=-750,000,000.
+   * @opt_param string industries List of industries the company can help with.
+   * @opt_param string services List of services the company can help with.
+   * @opt_param string languageCodes List of language codes that company can
+   * support. Only primary language subtags are accepted as defined by BCP 47
+   * (IETF BCP 47, "Tags for Identifying Languages").
+   * @opt_param string address The address to use when searching for companies. If
+   * not given, the geo-located address of the request is used.
+   * @opt_param string orderBy How to order addresses within the returned
+   * companies. Currently, only `address` and `address desc` is supported which
+   * will sorted by closest to farthest in distance from given address and
+   * farthest to closest distance from given address respectively.
+   * @opt_param string gpsMotivations List of reasons for using Google Partner
+   * Search to get companies.
+   * @opt_param string websiteUrl Website URL that will help to find a better
+   * matched company. .
    * @return Google_Service_Partners_ListCompaniesResponse
    */
   public function listCompanies($optParams = array())
@@ -547,22 +545,22 @@ class Google_Service_Partners_UserStates_Resource extends Google_Service_Resourc
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
-   * impersonate instead of the user's ID.
    * @opt_param string requestMetadata.userOverrides.ipAddress IP address to use
    * instead of the user's geo-located IP address.
-   * @opt_param string requestMetadata.partnersSessionId Google Partners session
-   * ID.
-   * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
-   * identifier to indicate where the traffic comes from. An identifier has
-   * multiple letters created by a team which redirected the traffic to us.
+   * @opt_param string requestMetadata.userOverrides.userId Logged-in user ID to
+   * impersonate instead of the user's ID.
    * @opt_param string requestMetadata.locale Locale to use for the current
    * request.
+   * @opt_param string requestMetadata.partnersSessionId Google Partners session
+   * ID.
    * @opt_param string requestMetadata.experimentIds Experiment IDs the current
    * request belongs to.
    * @opt_param string requestMetadata.trafficSource.trafficSourceId Identifier to
    * indicate where the traffic comes from. An identifier has multiple letters
    * created by a team which redirected the traffic to us.
+   * @opt_param string requestMetadata.trafficSource.trafficSubId Second level
+   * identifier to indicate where the traffic comes from. An identifier has
+   * multiple letters created by a team which redirected the traffic to us.
    * @return Google_Service_Partners_ListUserStatesResponse
    */
   public function listUserStates($optParams = array())
@@ -1235,10 +1233,6 @@ class Google_Service_Partners_LogMessageRequest extends Google_Model
   {
     return $this->requestMetadata;
   }
-}
-
-class Google_Service_Partners_LogMessageRequestClientInfo extends Google_Model
-{
 }
 
 class Google_Service_Partners_LogMessageResponse extends Google_Model

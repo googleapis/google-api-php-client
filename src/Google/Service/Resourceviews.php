@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -111,13 +109,13 @@ class Google_Service_Resourceviews extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -243,13 +241,13 @@ class Google_Service_Resourceviews extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'listResources' => array(
@@ -271,11 +269,11 @@ class Google_Service_Resourceviews extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'listState' => array(
+                'format' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'format' => array(
+                'listState' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -378,10 +376,10 @@ class Google_Service_Resourceviews_ZoneOperations_Resource extends Google_Servic
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
    * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
    * @opt_param string maxResults Optional. Maximum count of results to be
    * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string pageToken Optional. Tag returned by a previous list request
+   * truncated by maxResults. Used to continue a previous list request.
    * @return Google_Service_Resourceviews_OperationList
    */
   public function listZoneOperations($project, $zone, $optParams = array())
@@ -495,11 +493,11 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
    * @param string $zone The zone name of the resource view.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
+   * values are 0 to 5000, inclusive. (Default: 5000)
    * @opt_param string pageToken Specifies a nextPageToken returned by a previous
    * list request. This token can be used to request the next page of results from
    * a previous list request.
-   * @opt_param int maxResults Maximum count of results to be returned. Acceptable
-   * values are 0 to 5000, inclusive. (Default: 5000)
    * @return Google_Service_Resourceviews_ZoneViewsList
    */
   public function listZoneViews($project, $zone, $optParams = array())
@@ -517,11 +515,11 @@ class Google_Service_Resourceviews_ZoneViews_Resource extends Google_Service_Res
    * @param string $resourceView The name of the resource view.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string listState The state of the instance to list. By default, it
-   * lists all instances.
    * @opt_param string format The requested format of the return value. It can be
    * URL or URL_PORT. A JSON object will be included in the response based on the
    * format. The default format is NONE, which results in no JSON in the response.
+   * @opt_param string listState The state of the instance to list. By default, it
+   * lists all instances.
    * @opt_param int maxResults Maximum count of results to be returned. Acceptable
    * values are 0 to 5000, inclusive. (Default: 5000)
    * @opt_param string pageToken Specifies a nextPageToken returned by a previous
@@ -628,10 +626,6 @@ class Google_Service_Resourceviews_ListResourceResponseItem extends Google_Model
   {
     return $this->resource;
   }
-}
-
-class Google_Service_Resourceviews_ListResourceResponseItemEndpoints extends Google_Model
-{
 }
 
 class Google_Service_Resourceviews_Operation extends Google_Collection

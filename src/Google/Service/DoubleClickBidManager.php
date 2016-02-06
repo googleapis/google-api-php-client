@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -35,6 +33,7 @@ class Google_Service_DoubleClickBidManager extends Google_Service
   public $lineitems;
   public $queries;
   public $reports;
+  public $rubicon;
   
 
   /**
@@ -133,6 +132,20 @@ class Google_Service_DoubleClickBidManager extends Google_Service
                   'required' => true,
                 ),
               ),
+            ),
+          )
+        )
+    );
+    $this->rubicon = new Google_Service_DoubleClickBidManager_Rubicon_Resource(
+        $this,
+        $this->serviceName,
+        'rubicon',
+        array(
+          'methods' => array(
+            'notifyproposalchange' => array(
+              'path' => 'rubicon/notifyproposalchange',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),
           )
         )
@@ -288,6 +301,32 @@ class Google_Service_DoubleClickBidManager_Reports_Resource extends Google_Servi
   }
 }
 
+/**
+ * The "rubicon" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $doubleclickbidmanagerService = new Google_Service_DoubleClickBidManager(...);
+ *   $rubicon = $doubleclickbidmanagerService->rubicon;
+ *  </code>
+ */
+class Google_Service_DoubleClickBidManager_Rubicon_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Update proposal upon actions of Rubicon publisher.
+   * (rubicon.notifyproposalchange)
+   *
+   * @param Google_NotifyProposalChangeRequest $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function notifyproposalchange(Google_Service_DoubleClickBidManager_NotifyProposalChangeRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('notifyproposalchange', array($params));
+  }
+}
+
 
 
 
@@ -432,6 +471,114 @@ class Google_Service_DoubleClickBidManager_ListReportsResponse extends Google_Co
   public function getReports()
   {
     return $this->reports;
+  }
+}
+
+class Google_Service_DoubleClickBidManager_Note extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $id;
+  public $message;
+  public $source;
+  public $timestamp;
+  public $username;
+
+
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setMessage($message)
+  {
+    $this->message = $message;
+  }
+  public function getMessage()
+  {
+    return $this->message;
+  }
+  public function setSource($source)
+  {
+    $this->source = $source;
+  }
+  public function getSource()
+  {
+    return $this->source;
+  }
+  public function setTimestamp($timestamp)
+  {
+    $this->timestamp = $timestamp;
+  }
+  public function getTimestamp()
+  {
+    return $this->timestamp;
+  }
+  public function setUsername($username)
+  {
+    $this->username = $username;
+  }
+  public function getUsername()
+  {
+    return $this->username;
+  }
+}
+
+class Google_Service_DoubleClickBidManager_NotifyProposalChangeRequest extends Google_Collection
+{
+  protected $collection_key = 'notes';
+  protected $internal_gapi_mappings = array(
+  );
+  public $action;
+  public $href;
+  public $id;
+  protected $notesType = 'Google_Service_DoubleClickBidManager_Note';
+  protected $notesDataType = 'array';
+  public $token;
+
+
+  public function setAction($action)
+  {
+    $this->action = $action;
+  }
+  public function getAction()
+  {
+    return $this->action;
+  }
+  public function setHref($href)
+  {
+    $this->href = $href;
+  }
+  public function getHref()
+  {
+    return $this->href;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setNotes($notes)
+  {
+    $this->notes = $notes;
+  }
+  public function getNotes()
+  {
+    return $this->notes;
+  }
+  public function setToken($token)
+  {
+    $this->token = $token;
+  }
+  public function getToken()
+  {
+    return $this->token;
   }
 }
 

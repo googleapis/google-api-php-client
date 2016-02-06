@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -188,11 +186,11 @@ class Google_Service_Fitness extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'modifiedTimeMillis' => array(
+                'currentTimeMillis' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'currentTimeMillis' => array(
+                'modifiedTimeMillis' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -307,10 +305,6 @@ class Google_Service_Fitness extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'endTime' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -318,6 +312,10 @@ class Google_Service_Fitness extends Google_Service
                 'includeDeleted' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'startTime' => array(
                   'location' => 'query',
@@ -528,10 +526,10 @@ class Google_Service_Fitness_UsersDataSourcesDatasets_Resource extends Google_Se
    * where startTime and endTime are 64 bit integers.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string modifiedTimeMillis When the operation was performed on the
-   * client.
    * @opt_param string currentTimeMillis The client's current time in milliseconds
    * since epoch.
+   * @opt_param string modifiedTimeMillis When the operation was performed on the
+   * client.
    */
   public function delete($userId, $dataSourceId, $datasetId, $optParams = array())
   {
@@ -669,14 +667,14 @@ class Google_Service_Fitness_UsersSessions_Resource extends Google_Service_Resou
    * indicate the authenticated user. Only me is supported at this time.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The continuation token, which is used to page
-   * through large result sets. To get the next page of results, set this
-   * parameter to the value of nextPageToken from the previous response.
    * @opt_param string endTime An RFC3339 timestamp. Only sessions ending between
    * the start and end times will be included in the response.
    * @opt_param bool includeDeleted If true, deleted sessions will be returned.
    * When set to true, sessions returned in this response will only have an ID and
    * will not have any other fields.
+   * @opt_param string pageToken The continuation token, which is used to page
+   * through large result sets. To get the next page of results, set this
+   * parameter to the value of nextPageToken from the previous response.
    * @opt_param string startTime An RFC3339 timestamp. Only sessions ending
    * between the start and end times will be included in the response.
    * @return Google_Service_Fitness_ListSessionsResponse

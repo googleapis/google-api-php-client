@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -263,7 +261,7 @@ class Google_Service_Mirror extends Google_Service
               'path' => 'timeline',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'orderBy' => array(
+                'bundleId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -275,11 +273,11 @@ class Google_Service_Mirror extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'pageToken' => array(
+                'orderBy' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sourceItemId' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -287,7 +285,7 @@ class Google_Service_Mirror extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'bundleId' => array(
+                'sourceItemId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -705,18 +703,18 @@ class Google_Service_Mirror_Timeline_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string orderBy Controls the order in which timeline items are
-   * returned.
+   * @opt_param string bundleId If provided, only items with the given bundleId
+   * will be returned.
    * @opt_param bool includeDeleted If true, tombstone records for deleted items
    * will be returned.
    * @opt_param string maxResults The maximum number of items to include in the
    * response, used for paging.
+   * @opt_param string orderBy Controls the order in which timeline items are
+   * returned.
    * @opt_param string pageToken Token for the page of results to return.
+   * @opt_param bool pinnedOnly If true, only pinned items will be returned.
    * @opt_param string sourceItemId If provided, only items with the given
    * sourceItemId will be returned.
-   * @opt_param bool pinnedOnly If true, only pinned items will be returned.
-   * @opt_param string bundleId If provided, only items with the given bundleId
-   * will be returned.
    * @return Google_Service_Mirror_TimelineListResponse
    */
   public function listTimeline($optParams = array())

@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -106,13 +104,13 @@ class Google_Service_Storagetransfer extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -178,13 +176,13 @@ class Google_Service_Storagetransfer extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'pause' => array(
@@ -322,8 +320,8 @@ class Google_Service_Storagetransfer_TransferJobs_Resource extends Google_Servic
    * array notation. `project_id` is required. `job_names` and `job_statuses` are
    * optional. The valid values for `job_statuses` are case-insensitive:
    * `ENABLED`, `DISABLED`, and `DELETED`.
-   * @opt_param string pageToken The list page token.
    * @opt_param int pageSize The list page size. The max allowed value is 256.
+   * @opt_param string pageToken The list page token.
    * @return Google_Service_Storagetransfer_ListTransferJobsResponse
    */
   public function listTransferJobs($optParams = array())
@@ -420,8 +418,8 @@ class Google_Service_Storagetransfer_TransferOperations_Resource extends Google_
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter The standard list filter.
-   * @opt_param string pageToken The standard list page token.
    * @opt_param int pageSize The standard list page size.
+   * @opt_param string pageToken The standard list page token.
    * @return Google_Service_Storagetransfer_ListOperationsResponse
    */
   public function listTransferOperations($name, $optParams = array())
@@ -861,14 +859,6 @@ class Google_Service_Storagetransfer_Operation extends Google_Model
   }
 }
 
-class Google_Service_Storagetransfer_OperationMetadata extends Google_Model
-{
-}
-
-class Google_Service_Storagetransfer_OperationResponse extends Google_Model
-{
-}
-
 class Google_Service_Storagetransfer_PauseTransferOperationRequest extends Google_Model
 {
 }
@@ -949,10 +939,6 @@ class Google_Service_Storagetransfer_Status extends Google_Collection
   {
     return $this->message;
   }
-}
-
-class Google_Service_Storagetransfer_StatusDetails extends Google_Model
-{
 }
 
 class Google_Service_Storagetransfer_TimeOfDay extends Google_Model

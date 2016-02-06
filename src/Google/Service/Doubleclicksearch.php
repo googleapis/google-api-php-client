@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -102,11 +100,11 @@ class Google_Service_Doubleclicksearch extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'campaignId' => array(
+                'adId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'adId' => array(
+                'campaignId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -271,8 +269,8 @@ class Google_Service_Doubleclicksearch_Conversion_Resource extends Google_Servic
    * @param array $optParams Optional parameters.
    *
    * @opt_param string adGroupId Numeric ID of the ad group.
-   * @opt_param string campaignId Numeric ID of the campaign.
    * @opt_param string adId Numeric ID of the ad.
+   * @opt_param string campaignId Numeric ID of the campaign.
    * @opt_param string criterionId Numeric ID of the criterion.
    * @return Google_Service_Doubleclicksearch_ConversionList
    */
@@ -1435,10 +1433,6 @@ class Google_Service_Doubleclicksearch_ReportRequestTimeRange extends Google_Mod
   {
     return $this->startDate;
   }
-}
-
-class Google_Service_Doubleclicksearch_ReportRow extends Google_Model
-{
 }
 
 class Google_Service_Doubleclicksearch_SavedColumn extends Google_Model

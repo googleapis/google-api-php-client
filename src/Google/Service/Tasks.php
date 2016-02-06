@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -88,11 +86,11 @@ class Google_Service_Tasks extends Google_Service
               'path' => 'users/@me/lists',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'pageToken' => array(
+                'maxResults' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'maxResults' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -194,15 +192,7 @@ class Google_Service_Tasks extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'dueMax' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'showDeleted' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'updatedMin' => array(
+                'completedMax' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -210,7 +200,19 @@ class Google_Service_Tasks extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'dueMax' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'dueMin' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -218,19 +220,15 @@ class Google_Service_Tasks extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'pageToken' => array(
+                'showDeleted' => array(
                   'location' => 'query',
-                  'type' => 'string',
-                ),
-                'completedMax' => array(
-                  'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
                 'showHidden' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'dueMin' => array(
+                'updatedMin' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -354,10 +352,10 @@ class Google_Service_Tasks_Tasklists_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Token specifying the result page to return.
-   * Optional.
    * @opt_param string maxResults Maximum number of task lists returned on one
    * page. Optional. The default is 100.
+   * @opt_param string pageToken Token specifying the result page to return.
+   * Optional.
    * @return Google_Service_Tasks_TaskLists
    */
   public function listTasklists($optParams = array())
@@ -481,29 +479,29 @@ class Google_Service_Tasks_Tasks_Resource extends Google_Service_Resource
    * @param string $tasklist Task list identifier.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string dueMax Upper bound for a task's due date (as a RFC 3339
-   * timestamp) to filter by. Optional. The default is not to filter by due date.
-   * @opt_param bool showDeleted Flag indicating whether deleted tasks are
-   * returned in the result. Optional. The default is False.
-   * @opt_param string updatedMin Lower bound for a task's last modification time
-   * (as a RFC 3339 timestamp) to filter by. Optional. The default is not to
-   * filter by last modification time.
-   * @opt_param string completedMin Lower bound for a task's completion date (as a
-   * RFC 3339 timestamp) to filter by. Optional. The default is not to filter by
-   * completion date.
-   * @opt_param string maxResults Maximum number of task lists returned on one
-   * page. Optional. The default is 100.
-   * @opt_param bool showCompleted Flag indicating whether completed tasks are
-   * returned in the result. Optional. The default is True.
-   * @opt_param string pageToken Token specifying the result page to return.
-   * Optional.
    * @opt_param string completedMax Upper bound for a task's completion date (as a
    * RFC 3339 timestamp) to filter by. Optional. The default is not to filter by
    * completion date.
-   * @opt_param bool showHidden Flag indicating whether hidden tasks are returned
-   * in the result. Optional. The default is False.
+   * @opt_param string completedMin Lower bound for a task's completion date (as a
+   * RFC 3339 timestamp) to filter by. Optional. The default is not to filter by
+   * completion date.
+   * @opt_param string dueMax Upper bound for a task's due date (as a RFC 3339
+   * timestamp) to filter by. Optional. The default is not to filter by due date.
    * @opt_param string dueMin Lower bound for a task's due date (as a RFC 3339
    * timestamp) to filter by. Optional. The default is not to filter by due date.
+   * @opt_param string maxResults Maximum number of task lists returned on one
+   * page. Optional. The default is 100.
+   * @opt_param string pageToken Token specifying the result page to return.
+   * Optional.
+   * @opt_param bool showCompleted Flag indicating whether completed tasks are
+   * returned in the result. Optional. The default is True.
+   * @opt_param bool showDeleted Flag indicating whether deleted tasks are
+   * returned in the result. Optional. The default is False.
+   * @opt_param bool showHidden Flag indicating whether hidden tasks are returned
+   * in the result. Optional. The default is False.
+   * @opt_param string updatedMin Lower bound for a task's last modification time
+   * (as a RFC 3339 timestamp) to filter by. Optional. The default is not to
+   * filter by last modification time.
    * @return Google_Service_Tasks_Tasks
    */
   public function listTasks($tasklist, $optParams = array())

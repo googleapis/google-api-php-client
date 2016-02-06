@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -136,13 +134,13 @@ class Google_Service_ShoppingContent extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -226,13 +224,13 @@ class Google_Service_ShoppingContent extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -311,13 +309,13 @@ class Google_Service_ShoppingContent extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -363,13 +361,13 @@ class Google_Service_ShoppingContent extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -486,13 +484,13 @@ class Google_Service_ShoppingContent extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -571,13 +569,13 @@ class Google_Service_ShoppingContent extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -761,14 +759,6 @@ class Google_Service_ShoppingContent extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'orderBy' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'placedDateEnd' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'acknowledged' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -777,7 +767,15 @@ class Google_Service_ShoppingContent extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'placedDateEnd' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -942,13 +940,17 @@ class Google_Service_ShoppingContent extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
+                'includeInvalidInsertedItems' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -989,13 +991,17 @@ class Google_Service_ShoppingContent extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
+                'includeInvalidInsertedItems' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1102,9 +1108,9 @@ class Google_Service_ShoppingContent_Accounts_Resource extends Google_Service_Re
    * @param string $merchantId The ID of the managing account.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The token returned by the previous request.
    * @opt_param string maxResults The maximum number of accounts to return in the
    * response, used for paging.
+   * @opt_param string pageToken The token returned by the previous request.
    * @return Google_Service_ShoppingContent_AccountsListResponse
    */
   public function listAccounts($merchantId, $optParams = array())
@@ -1203,9 +1209,9 @@ class Google_Service_ShoppingContent_Accountshipping_Resource extends Google_Ser
    * @param string $merchantId The ID of the managing account.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The token returned by the previous request.
    * @opt_param string maxResults The maximum number of shipping settings to
    * return in the response, used for paging.
+   * @opt_param string pageToken The token returned by the previous request.
    * @return Google_Service_ShoppingContent_AccountshippingListResponse
    */
   public function listAccountshipping($merchantId, $optParams = array())
@@ -1302,9 +1308,9 @@ class Google_Service_ShoppingContent_Accountstatuses_Resource extends Google_Ser
    * @param string $merchantId The ID of the managing account.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The token returned by the previous request.
    * @opt_param string maxResults The maximum number of account statuses to return
    * in the response, used for paging.
+   * @opt_param string pageToken The token returned by the previous request.
    * @return Google_Service_ShoppingContent_AccountstatusesListResponse
    */
   public function listAccountstatuses($merchantId, $optParams = array())
@@ -1366,9 +1372,9 @@ class Google_Service_ShoppingContent_Accounttax_Resource extends Google_Service_
    * @param string $merchantId The ID of the managing account.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The token returned by the previous request.
    * @opt_param string maxResults The maximum number of tax settings to return in
    * the response, used for paging.
+   * @opt_param string pageToken The token returned by the previous request.
    * @return Google_Service_ShoppingContent_AccounttaxListResponse
    */
   public function listAccounttax($merchantId, $optParams = array())
@@ -1500,9 +1506,9 @@ class Google_Service_ShoppingContent_Datafeeds_Resource extends Google_Service_R
    * @param string $merchantId The ID of the managing account.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The token returned by the previous request.
    * @opt_param string maxResults The maximum number of products to return in the
    * response, used for paging.
+   * @opt_param string pageToken The token returned by the previous request.
    * @return Google_Service_ShoppingContent_DatafeedsListResponse
    */
   public function listDatafeeds($merchantId, $optParams = array())
@@ -1598,9 +1604,9 @@ class Google_Service_ShoppingContent_Datafeedstatuses_Resource extends Google_Se
    * @param string $merchantId The ID of the managing account.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The token returned by the previous request.
    * @opt_param string maxResults The maximum number of products to return in the
    * response, used for paging.
+   * @opt_param string pageToken The token returned by the previous request.
    * @return Google_Service_ShoppingContent_DatafeedstatusesListResponse
    */
   public function listDatafeedstatuses($merchantId, $optParams = array())
@@ -1822,14 +1828,6 @@ class Google_Service_ShoppingContent_Orders_Resource extends Google_Service_Reso
    * @param string $merchantId The ID of the managing account.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string orderBy The ordering of the returned list. The only
-   * supported value are placedDate desc and placedDate asc for now, which returns
-   * orders sorted by placement date. "placedDate desc" stands for listing orders
-   * by placement date, from oldest to most recent. "placedDate asc" stands for
-   * listing orders by placement date, from most recent to oldest. In future
-   * releases we'll support other sorting criteria.
-   * @opt_param string placedDateEnd Obtains orders placed before this date
-   * (exclusively), in ISO 8601 format.
    * @opt_param bool acknowledged Obtains orders that match the acknowledgement
    * status. When set to true, obtains orders that have been acknowledged. When
    * false, obtains orders that have not been acknowledged. We recommend using
@@ -1839,7 +1837,15 @@ class Google_Service_ShoppingContent_Orders_Resource extends Google_Service_Reso
    * response, used for paging. The default value is 25 orders per page, and the
    * maximum allowed value is 250 orders per page. Known issue: All List calls
    * will return all Orders without limit regardless of the value of this field.
+   * @opt_param string orderBy The ordering of the returned list. The only
+   * supported value are placedDate desc and placedDate asc for now, which returns
+   * orders sorted by placement date. "placedDate desc" stands for listing orders
+   * by placement date, from oldest to most recent. "placedDate asc" stands for
+   * listing orders by placement date, from most recent to oldest. In future
+   * releases we'll support other sorting criteria.
    * @opt_param string pageToken The token returned by the previous request.
+   * @opt_param string placedDateEnd Obtains orders placed before this date
+   * (exclusively), in ISO 8601 format.
    * @opt_param string placedDateStart Obtains orders placed after this date
    * (inclusively), in ISO 8601 format.
    * @opt_param string statuses Obtains orders that match any of the specified
@@ -2021,9 +2027,12 @@ class Google_Service_ShoppingContent_Products_Resource extends Google_Service_Re
    * @param string $merchantId The ID of the managing account.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The token returned by the previous request.
+   * @opt_param bool includeInvalidInsertedItems Flag to include the invalid
+   * inserted items in the result of the list request. By default the invalid
+   * items are not shown (the default value is false).
    * @opt_param string maxResults The maximum number of products to return in the
    * response, used for paging.
+   * @opt_param string pageToken The token returned by the previous request.
    * @return Google_Service_ShoppingContent_ProductsListResponse
    */
   public function listProducts($merchantId, $optParams = array())
@@ -2083,9 +2092,12 @@ class Google_Service_ShoppingContent_Productstatuses_Resource extends Google_Ser
    * @param string $merchantId The ID of the managing account.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The token returned by the previous request.
+   * @opt_param bool includeInvalidInsertedItems Flag to include the invalid
+   * inserted items in the result of the list request. By default the invalid
+   * items are not shown (the default value is false).
    * @opt_param string maxResults The maximum number of product statuses to return
    * in the response, used for paging.
+   * @opt_param string pageToken The token returned by the previous request.
    * @return Google_Service_ShoppingContent_ProductstatusesListResponse
    */
   public function listProductstatuses($merchantId, $optParams = array())
@@ -4575,12 +4587,43 @@ class Google_Service_ShoppingContent_Errors extends Google_Collection
   }
 }
 
+class Google_Service_ShoppingContent_Installment extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $amountType = 'Google_Service_ShoppingContent_Price';
+  protected $amountDataType = '';
+  public $months;
+
+
+  public function setAmount(Google_Service_ShoppingContent_Price $amount)
+  {
+    $this->amount = $amount;
+  }
+  public function getAmount()
+  {
+    return $this->amount;
+  }
+  public function setMonths($months)
+  {
+    $this->months = $months;
+  }
+  public function getMonths()
+  {
+    return $this->months;
+  }
+}
+
 class Google_Service_ShoppingContent_Inventory extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
   public $availability;
+  protected $installmentType = 'Google_Service_ShoppingContent_Installment';
+  protected $installmentDataType = '';
   public $kind;
+  protected $loyaltyPointsType = 'Google_Service_ShoppingContent_LoyaltyPoints';
+  protected $loyaltyPointsDataType = '';
   protected $priceType = 'Google_Service_ShoppingContent_Price';
   protected $priceDataType = '';
   public $quantity;
@@ -4598,6 +4641,14 @@ class Google_Service_ShoppingContent_Inventory extends Google_Model
   {
     return $this->availability;
   }
+  public function setInstallment(Google_Service_ShoppingContent_Installment $installment)
+  {
+    $this->installment = $installment;
+  }
+  public function getInstallment()
+  {
+    return $this->installment;
+  }
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -4605,6 +4656,14 @@ class Google_Service_ShoppingContent_Inventory extends Google_Model
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setLoyaltyPoints(Google_Service_ShoppingContent_LoyaltyPoints $loyaltyPoints)
+  {
+    $this->loyaltyPoints = $loyaltyPoints;
+  }
+  public function getLoyaltyPoints()
+  {
+    return $this->loyaltyPoints;
   }
   public function setPrice(Google_Service_ShoppingContent_Price $price)
   {
@@ -4790,6 +4849,10 @@ class Google_Service_ShoppingContent_InventorySetRequest extends Google_Model
   protected $internal_gapi_mappings = array(
   );
   public $availability;
+  protected $installmentType = 'Google_Service_ShoppingContent_Installment';
+  protected $installmentDataType = '';
+  protected $loyaltyPointsType = 'Google_Service_ShoppingContent_LoyaltyPoints';
+  protected $loyaltyPointsDataType = '';
   protected $priceType = 'Google_Service_ShoppingContent_Price';
   protected $priceDataType = '';
   public $quantity;
@@ -4806,6 +4869,22 @@ class Google_Service_ShoppingContent_InventorySetRequest extends Google_Model
   public function getAvailability()
   {
     return $this->availability;
+  }
+  public function setInstallment(Google_Service_ShoppingContent_Installment $installment)
+  {
+    $this->installment = $installment;
+  }
+  public function getInstallment()
+  {
+    return $this->installment;
+  }
+  public function setLoyaltyPoints(Google_Service_ShoppingContent_LoyaltyPoints $loyaltyPoints)
+  {
+    $this->loyaltyPoints = $loyaltyPoints;
+  }
+  public function getLoyaltyPoints()
+  {
+    return $this->loyaltyPoints;
   }
   public function setPrice(Google_Service_ShoppingContent_Price $price)
   {
@@ -6039,6 +6118,8 @@ class Google_Service_ShoppingContent_OrdersCancelLineItemRequest extends Google_
 {
   protected $internal_gapi_mappings = array(
   );
+  protected $amountType = 'Google_Service_ShoppingContent_Price';
+  protected $amountDataType = '';
   public $lineItemId;
   public $operationId;
   public $quantity;
@@ -6046,6 +6127,14 @@ class Google_Service_ShoppingContent_OrdersCancelLineItemRequest extends Google_
   public $reasonText;
 
 
+  public function setAmount(Google_Service_ShoppingContent_Price $amount)
+  {
+    $this->amount = $amount;
+  }
+  public function getAmount()
+  {
+    return $this->amount;
+  }
   public function setLineItemId($lineItemId)
   {
     $this->lineItemId = $lineItemId;
@@ -6399,12 +6488,22 @@ class Google_Service_ShoppingContent_OrdersCustomBatchRequestEntryCancelLineItem
 {
   protected $internal_gapi_mappings = array(
   );
+  protected $amountType = 'Google_Service_ShoppingContent_Price';
+  protected $amountDataType = '';
   public $lineItemId;
   public $quantity;
   public $reason;
   public $reasonText;
 
 
+  public function setAmount(Google_Service_ShoppingContent_Price $amount)
+  {
+    $this->amount = $amount;
+  }
+  public function getAmount()
+  {
+    return $this->amount;
+  }
   public function setLineItemId($lineItemId)
   {
     $this->lineItemId = $lineItemId;
@@ -7216,7 +7315,7 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   public $id;
   public $identifierExists;
   public $imageLink;
-  protected $installmentType = 'Google_Service_ShoppingContent_ProductInstallment';
+  protected $installmentType = 'Google_Service_ShoppingContent_Installment';
   protected $installmentDataType = '';
   public $isBundle;
   public $itemGroupId;
@@ -7553,7 +7652,7 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   {
     return $this->imageLink;
   }
-  public function setInstallment(Google_Service_ShoppingContent_ProductInstallment $installment)
+  public function setInstallment(Google_Service_ShoppingContent_Installment $installment)
   {
     $this->installment = $installment;
   }
@@ -7957,33 +8056,6 @@ class Google_Service_ShoppingContent_ProductDestination extends Google_Model
   public function getIntention()
   {
     return $this->intention;
-  }
-}
-
-class Google_Service_ShoppingContent_ProductInstallment extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  protected $amountType = 'Google_Service_ShoppingContent_Price';
-  protected $amountDataType = '';
-  public $months;
-
-
-  public function setAmount(Google_Service_ShoppingContent_Price $amount)
-  {
-    $this->amount = $amount;
-  }
-  public function getAmount()
-  {
-    return $this->amount;
-  }
-  public function setMonths($months)
-  {
-    $this->months = $months;
-  }
-  public function getMonths()
-  {
-    return $this->months;
   }
 }
 

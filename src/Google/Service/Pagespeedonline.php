@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -64,7 +62,7 @@ class Google_Service_Pagespeedonline extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'screenshot' => array(
+                'filter_third_party_resources' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
@@ -77,13 +75,13 @@ class Google_Service_Pagespeedonline extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
+                'screenshot' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'strategy' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-                'filter_third_party_resources' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
                 ),
               ),
             ),
@@ -113,14 +111,14 @@ class Google_Service_Pagespeedonline_Pagespeedapi_Resource extends Google_Servic
    * @param string $url The URL to fetch and analyze
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool screenshot Indicates if binary data containing a screenshot
-   * should be included
+   * @opt_param bool filter_third_party_resources Indicates if third party
+   * resources should be filtered out before PageSpeed analysis.
    * @opt_param string locale The locale used to localize formatted results
    * @opt_param string rule A PageSpeed rule to run; if none are given, all rules
    * are run
+   * @opt_param bool screenshot Indicates if binary data containing a screenshot
+   * should be included
    * @opt_param string strategy The analysis strategy to use
-   * @opt_param bool filter_third_party_resources Indicates if third party
-   * resources should be filtered out before PageSpeed analysis.
    * @return Google_Service_Pagespeedonline_Result
    */
   public function runpagespeed($url, $optParams = array())
@@ -547,10 +545,6 @@ class Google_Service_Pagespeedonline_ResultFormattedResults extends Google_Model
   }
 }
 
-class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResults extends Google_Model
-{
-}
-
 class Google_Service_Pagespeedonline_ResultFormattedResultsRuleResultsElement extends Google_Collection
 {
   protected $collection_key = 'urlBlocks';
@@ -788,10 +782,6 @@ class Google_Service_Pagespeedonline_ResultPageStats extends Google_Model
   {
     return $this->totalRequestBytes;
   }
-}
-
-class Google_Service_Pagespeedonline_ResultRuleGroups extends Google_Model
-{
 }
 
 class Google_Service_Pagespeedonline_ResultRuleGroupsElement extends Google_Model

@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -111,6 +109,10 @@ class Google_Service_CivicInfo extends Google_Service
               'path' => 'representatives',
               'httpMethod' => 'GET',
               'parameters' => array(
+                'address' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'includeOffices' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -124,10 +126,6 @@ class Google_Service_CivicInfo extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'address' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),'representativeInfoByDivision' => array(
@@ -257,6 +255,8 @@ class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_R
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string address The address to look up. May only be specified if
+   * the field ocdId is not given in the URL.
    * @opt_param bool includeOffices Whether to return information about offices
    * and officials. If false, only the top-level district information will be
    * returned.
@@ -266,8 +266,6 @@ class Google_Service_CivicInfo_Representatives_Resource extends Google_Service_R
    * @opt_param string roles A list of office roles to filter by. Only offices
    * fulfilling one of these roles will be returned. Divisions that don't contain
    * a matching office will not be returned.
-   * @opt_param string address The address to look up. May only be specified if
-   * the field ocdId is not given in the URL.
    * @return Google_Service_CivicInfo_RepresentativeInfoResponse
    */
   public function representativeInfoByAddress($optParams = array())
@@ -1370,10 +1368,6 @@ class Google_Service_CivicInfo_RepresentativeInfoData extends Google_Collection
   }
 }
 
-class Google_Service_CivicInfo_RepresentativeInfoDataDivisions extends Google_Model
-{
-}
-
 class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collection
 {
   protected $collection_key = 'officials';
@@ -1430,10 +1424,6 @@ class Google_Service_CivicInfo_RepresentativeInfoResponse extends Google_Collect
   {
     return $this->officials;
   }
-}
-
-class Google_Service_CivicInfo_RepresentativeInfoResponseDivisions extends Google_Model
-{
 }
 
 class Google_Service_CivicInfo_SimpleAddressType extends Google_Model

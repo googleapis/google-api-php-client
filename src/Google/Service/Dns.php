@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -194,10 +192,6 @@ class Google_Service_Dns extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'dnsName' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -205,6 +199,10 @@ class Google_Service_Dns extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -251,13 +249,13 @@ class Google_Service_Dns extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'name' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'name' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -413,13 +411,13 @@ class Google_Service_Dns_ManagedZones_Resource extends Google_Service_Resource
    * @param string $project Identifies the project addressed by this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Optional. A tag returned by a previous list
-   * request that was truncated. Use this parameter to continue a previous list
-   * request.
    * @opt_param string dnsName Restricts the list to return only zones with this
    * domain name.
    * @opt_param int maxResults Optional. Maximum number of results to be returned.
    * If unspecified, the server will decide how many results to return.
+   * @opt_param string pageToken Optional. A tag returned by a previous list
+   * request that was truncated. Use this parameter to continue a previous list
+   * request.
    * @return Google_Service_Dns_ManagedZonesListResponse
    */
   public function listManagedZones($project, $optParams = array())
@@ -476,10 +474,10 @@ class Google_Service_Dns_ResourceRecordSets_Resource extends Google_Service_Reso
    * request. Can be the managed zone name or id.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string name Restricts the list to return only records with this
-   * fully qualified domain name.
    * @opt_param int maxResults Optional. Maximum number of results to be returned.
    * If unspecified, the server will decide how many results to return.
+   * @opt_param string name Restricts the list to return only records with this
+   * fully qualified domain name.
    * @opt_param string pageToken Optional. A tag returned by a previous list
    * request that was truncated. Use this parameter to continue a previous list
    * request.
