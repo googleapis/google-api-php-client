@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -125,13 +123,13 @@ class Google_Service_Licensing extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'listForProductAndSku' => array(
@@ -153,13 +151,13 @@ class Google_Service_Licensing extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -278,10 +276,10 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
    * licenseassignments are queried
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Token to fetch the next page.Optional. By default
-   * server will return first page
    * @opt_param string maxResults Maximum number of campaigns to return at one
    * time. Must be positive. Optional. Default value is 100.
+   * @opt_param string pageToken Token to fetch the next page.Optional. By default
+   * server will return first page
    * @return Google_Service_Licensing_LicenseAssignmentList
    */
   public function listForProduct($productId, $customerId, $optParams = array())
@@ -301,10 +299,10 @@ class Google_Service_Licensing_LicenseAssignments_Resource extends Google_Servic
    * licenseassignments are queried
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Token to fetch the next page.Optional. By default
-   * server will return first page
    * @opt_param string maxResults Maximum number of campaigns to return at one
    * time. Must be positive. Optional. Default value is 100.
+   * @opt_param string pageToken Token to fetch the next page.Optional. By default
+   * server will return first page
    * @return Google_Service_Licensing_LicenseAssignmentList
    */
   public function listForProductAndSku($productId, $skuId, $customerId, $optParams = array())

@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -220,6 +218,10 @@ class Google_Service_Proximitybeacon extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -227,10 +229,6 @@ class Google_Service_Proximitybeacon extends Google_Service
                 'alertFilter' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
                 ),
               ),
             ),
@@ -581,13 +579,13 @@ class Google_Service_Proximitybeacon_BeaconsDiagnostics_Resource extends Google_
    * @param string $beaconName Beacon that the diagnostics are for.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize Specifies the maximum number of results to return.
+   * Defaults to 10. Maximum 1000. Optional.
    * @opt_param string pageToken Requests results that occur after the
    * `page_token`, obtained from the response to a previous request. Optional.
    * @opt_param string alertFilter Requests only beacons that have the given
    * alert. For example, to find beacons that have low batteries use
    * `alert_filter=LOW_BATTERY`.
-   * @opt_param int pageSize Specifies the maximum number of results to return.
-   * Defaults to 10. Maximum 1000. Optional.
    * @return Google_Service_Proximitybeacon_ListDiagnosticsResponse
    */
   public function listBeaconsDiagnostics($beaconName, $optParams = array())
@@ -853,10 +851,6 @@ class Google_Service_Proximitybeacon_BeaconInfo extends Google_Collection
   {
     return $this->description;
   }
-}
-
-class Google_Service_Proximitybeacon_BeaconProperties extends Google_Model
-{
 }
 
 class Google_Service_Proximitybeacon_Date extends Google_Model

@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -19,8 +17,8 @@
  * Service definition for Cloudtrace (v1).
  *
  * <p>
- * The Google Cloud Trace API provides services for reading and writing runtime
- * trace data for Cloud applications.</p>
+ * The Cloud Trace API allows you to send traces to and retrieve traces from
+ * Google Cloud Trace.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -37,7 +35,6 @@ class Google_Service_Cloudtrace extends Google_Service
 
   public $projects;
   public $projects_traces;
-  public $v1;
   
 
   /**
@@ -103,17 +100,13 @@ class Google_Service_Cloudtrace extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'orderBy' => array(
+                'view' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -127,40 +120,11 @@ class Google_Service_Cloudtrace extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'view' => array(
+                'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-              ),
-            ),
-          )
-        )
-    );
-    $this->v1 = new Google_Service_Cloudtrace_V1_Resource(
-        $this,
-        $this->serviceName,
-        'v1',
-        array(
-          'methods' => array(
-            'getDiscovery' => array(
-              'path' => 'v1/discovery',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'labels' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'version' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'args' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'format' => array(
+                'orderBy' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -185,12 +149,14 @@ class Google_Service_Cloudtrace_Projects_Resource extends Google_Service_Resourc
 {
 
   /**
-   * Updates the existing traces specified by PatchTracesRequest and inserts the
-   * new traces. Any existing trace or span fields included in an update are
-   * overwritten by the update, and any additional fields in an update are merged
-   * with the existing trace data. (projects.patchTraces)
+   * Sends new traces to Cloud Trace or updates existing traces. If the ID of a
+   * trace that you send matches that of an existing trace, any fields in the
+   * existing trace and its spans are overwritten by the provided values, and any
+   * new fields provided are merged with the existing trace data. If the ID does
+   * not match, a new trace is created. (projects.patchTraces)
    *
-   * @param string $projectId The project id of the trace to patch.
+   * @param string $projectId ID of the Cloud project where the trace data is
+   * stored.
    * @param Google_Traces $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Cloudtrace_Empty
@@ -215,10 +181,11 @@ class Google_Service_Cloudtrace_ProjectsTraces_Resource extends Google_Service_R
 {
 
   /**
-   * Gets one trace by id. (traces.get)
+   * Gets a single trace by its ID. (traces.get)
    *
-   * @param string $projectId The project id of the trace to return.
-   * @param string $traceId The trace id of the trace to return.
+   * @param string $projectId ID of the Cloud project where the trace data is
+   * stored.
+   * @param string $traceId ID of the trace to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Cloudtrace_Trace
    */
@@ -230,27 +197,32 @@ class Google_Service_Cloudtrace_ProjectsTraces_Resource extends Google_Service_R
   }
 
   /**
-   * List traces matching the filter expression. (traces.listProjectsTraces)
+   * Returns of a list of traces that match the specified filter conditions.
+   * (traces.listProjectsTraces)
    *
-   * @param string $projectId The stringified-version of the project id.
+   * @param string $projectId ID of the Cloud project where the trace data is
+   * stored.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string orderBy The trace field used to establish the order of
-   * traces returned by the ListTraces method. Possible options are: trace_id name
-   * (name field of root span) duration (different between end_time and start_time
-   * fields of root span) start (start_time field of root span) Descending order
-   * can be specified by appending "desc" to the sort field: name desc Only one
-   * sort field is permitted, though this may change in the future.
-   * @opt_param int pageSize Maximum number of topics to return. If not specified
-   * or <= 0, the implementation will select a reasonable value. The implemenation
-   * may always return fewer than the requested page_size.
+   * @opt_param string view Type of data returned for traces in the list.
+   * Optional. Default is `MINIMAL`.
+   * @opt_param int pageSize Maximum number of traces to return. If not specified
+   * or <= 0, the implementation selects a reasonable value. The implementation
+   * may return fewer traces than the requested page size. Optional.
+   * @opt_param string pageToken Token identifying the page of results to return.
+   * If provided, use the value of the `next_page_token` field from a previous
+   * request. Optional.
+   * @opt_param string startTime End of the time interval (inclusive) during which
+   * the trace data was collected from the application.
+   * @opt_param string endTime Start of the time interval (inclusive) during which
+   * the trace data was collected from the application.
    * @opt_param string filter An optional filter for the request.
-   * @opt_param string pageToken The token identifying the page of results to
-   * return from the ListTraces method. If present, this value is should be taken
-   * from the next_page_token field of a previous ListTracesResponse.
-   * @opt_param string startTime End of the time interval (inclusive).
-   * @opt_param string endTime Start of the time interval (exclusive).
-   * @opt_param string view ViewType specifies the projection of the result.
+   * @opt_param string orderBy Field used to sort the returned traces. Optional.
+   * Can be one of the following: * `trace_id` * `name` (`name` field of root span
+   * in the trace) * `duration` (difference between `end_time` and `start_time`
+   * fields of the root span) * `start` (`start_time` field of the root span)
+   * Descending order can be specified by appending `desc` to the sort field (for
+   * example, `name desc`). Only one sort field is permitted.
    * @return Google_Service_Cloudtrace_ListTracesResponse
    */
   public function listProjectsTraces($projectId, $optParams = array())
@@ -258,38 +230,6 @@ class Google_Service_Cloudtrace_ProjectsTraces_Resource extends Google_Service_R
     $params = array('projectId' => $projectId);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Cloudtrace_ListTracesResponse");
-  }
-}
-
-/**
- * The "v1" collection of methods.
- * Typical usage is:
- *  <code>
- *   $cloudtraceService = new Google_Service_Cloudtrace(...);
- *   $v1 = $cloudtraceService->v1;
- *  </code>
- */
-class Google_Service_Cloudtrace_V1_Resource extends Google_Service_Resource
-{
-
-  /**
-   * Returns a discovery document in the specified `format`. The typeurl in the
-   * returned google.protobuf.Any value depends on the requested format.
-   * (v1.getDiscovery)
-   *
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param string labels A list of labels (like visibility) influencing the
-   * scope of the requested doc.
-   * @opt_param string version The API version of the requested discovery doc.
-   * @opt_param string args Any additional arguments.
-   * @opt_param string format The format requested for discovery.
-   */
-  public function getDiscovery($optParams = array())
-  {
-    $params = array();
-    $params = array_merge($params, $optParams);
-    return $this->call('getDiscovery', array($params));
   }
 }
 
@@ -434,10 +374,6 @@ class Google_Service_Cloudtrace_TraceSpan extends Google_Model
   {
     return $this->startTime;
   }
-}
-
-class Google_Service_Cloudtrace_TraceSpanLabels extends Google_Model
-{
 }
 
 class Google_Service_Cloudtrace_Traces extends Google_Collection

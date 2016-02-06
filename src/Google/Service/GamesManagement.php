@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -33,7 +31,7 @@ class Google_Service_GamesManagement extends Google_Service
   /** Share your Google+ profile information and view and manage your game activity. */
   const GAMES =
       "https://www.googleapis.com/auth/games";
-  /** Know your basic profile info and list of people in your circles.. */
+  /** Know the list of people in your circles, your age range, and language. */
   const PLUS_LOGIN =
       "https://www.googleapis.com/auth/plus.login";
 
@@ -117,13 +115,13 @@ class Google_Service_GamesManagement extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -443,10 +441,10 @@ class Google_Service_GamesManagement_Applications_Resource extends Google_Servic
    * developer console.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The token returned by the previous request.
    * @opt_param int maxResults The maximum number of player resources to return in
    * the response, used for paging. For any response, the actual number of player
    * resources returned may be less than the specified maxResults.
+   * @opt_param string pageToken The token returned by the previous request.
    * @return Google_Service_GamesManagement_HiddenPlayerList
    */
   public function listHidden($applicationId, $optParams = array())
@@ -1171,6 +1169,7 @@ class Google_Service_GamesManagement_Player extends Google_Model
   protected $lastPlayedWithDataType = '';
   protected $nameType = 'Google_Service_GamesManagement_PlayerName';
   protected $nameDataType = '';
+  public $originalPlayerId;
   public $playerId;
   public $title;
 
@@ -1238,6 +1237,14 @@ class Google_Service_GamesManagement_Player extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+  public function setOriginalPlayerId($originalPlayerId)
+  {
+    $this->originalPlayerId = $originalPlayerId;
+  }
+  public function getOriginalPlayerId()
+  {
+    return $this->originalPlayerId;
   }
   public function setPlayerId($playerId)
   {

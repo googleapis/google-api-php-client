@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -92,6 +90,10 @@ class Google_Service_Clouddebugger extends Google_Service
                 'waitToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'successOnTimeout' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'update' => array(
@@ -185,7 +187,7 @@ class Google_Service_Clouddebugger extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'stripResults' => array(
+                'includeInactive' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
@@ -193,7 +195,7 @@ class Google_Service_Clouddebugger extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'includeInactive' => array(
+                'stripResults' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
@@ -244,13 +246,13 @@ class Google_Service_Clouddebugger_ControllerDebuggees_Resource extends Google_S
 {
 
   /**
-   * Registers the debuggee with the controller. All agents should call this API
-   * with the same request content to get back the same stable 'debuggee_id'.
-   * Agents should call this API again whenever ListActiveBreakpoints or
-   * UpdateActiveBreakpoint return the error google.rpc.Code.NOT_FOUND. It allows
-   * the server to disable the agent or recover from any registration loss. If the
-   * debuggee is disabled server, the response will have is_disabled' set to true.
-   * (debuggees.register)
+   * Registers the debuggee with the controller service. All agents attached to
+   * the same application should call this method with the same request content to
+   * get back the same stable `debuggee_id`. Agents should call this method again
+   * whenever `google.rpc.Code.NOT_FOUND` is returned from any controller method.
+   * This allows the controller service to disable the agent or recover from any
+   * data loss. If the debuggee is disabled by the server, the response will have
+   * `is_disabled` set to `true`. (debuggees.register)
    *
    * @param Google_RegisterDebuggeeRequest $postBody
    * @param array $optParams Optional parameters.
@@ -276,15 +278,15 @@ class Google_Service_Clouddebugger_ControllerDebuggeesBreakpoints_Resource exten
 {
 
   /**
-   * Returns the list of all active breakpoints for the specified debuggee. The
-   * breakpoint specification (location, condition, and expression fields) is
-   * semantically immutable, although the field values may change. For example, an
-   * agent may update the location line number to reflect the actual line the
-   * breakpoint was set to, but that doesn't change the breakpoint semantics.
-   * Thus, an agent does not need to check if a breakpoint has changed when it
-   * encounters the same breakpoint on a successive call. Moreover, an agent
-   * should remember breakpoints that are complete until the controller removes
-   * them from the active list to avoid setting those breakpoints again.
+   * Returns the list of all active breakpoints for the debuggee. The breakpoint
+   * specification (location, condition, and expression fields) is semantically
+   * immutable, although the field values may change. For example, an agent may
+   * update the location line number to reflect the actual line where the
+   * breakpoint was set, but this doesn't change the breakpoint semantics. This
+   * means that an agent does not need to check if a breakpoint has changed when
+   * it encounters the same breakpoint on a successive call. Moreover, an agent
+   * should remember the breakpoints that are completed until the controller
+   * removes them from the active list to avoid setting those breakpoints again.
    * (breakpoints.listControllerDebuggeesBreakpoints)
    *
    * @param string $debuggeeId Identifies the debuggee.
@@ -293,8 +295,12 @@ class Google_Service_Clouddebugger_ControllerDebuggeesBreakpoints_Resource exten
    * @opt_param string waitToken A wait token that, if specified, blocks the
    * method call until the list of active breakpoints has changed, or a server
    * selected timeout has expired. The value should be set from the last returned
-   * response. The error code google.rpc.Code.ABORTED is returned on wait timeout
-   * (which does not require the agent to re-register with the server)
+   * response.
+   * @opt_param bool successOnTimeout If set to `true`, returns
+   * `google.rpc.Code.OK` status and sets the `wait_expired` response field to
+   * `true` when the server-selected timeout has expired (recommended). If set to
+   * `false`, returns `google.rpc.Code.ABORTED` status when the server-selected
+   * timeout has expired (deprecated).
    * @return Google_Service_Clouddebugger_ListActiveBreakpointsResponse
    */
   public function listControllerDebuggeesBreakpoints($debuggeeId, $optParams = array())
@@ -305,13 +311,13 @@ class Google_Service_Clouddebugger_ControllerDebuggeesBreakpoints_Resource exten
   }
 
   /**
-   * Updates the breakpoint state or mutable fields. The entire Breakpoint
-   * protobuf must be sent back to the controller. Updates to active breakpoint
+   * Updates the breakpoint state or mutable fields. The entire Breakpoint message
+   * must be sent back to the controller service. Updates to active breakpoint
    * fields are only allowed if the new value does not change the breakpoint
-   * specification. Updates to the 'location', 'condition' and 'expression' fields
-   * should not alter the breakpoint semantics. They are restricted to changes
-   * such as canonicalizing a value or snapping the location to the correct line
-   * of code. (breakpoints.update)
+   * specification. Updates to the `location`, `condition` and `expression` fields
+   * should not alter the breakpoint semantics. These may only make changes such
+   * as canonicalizing a value or snapping the location to the correct line of
+   * code. (breakpoints.update)
    *
    * @param string $debuggeeId Identifies the debuggee being debugged.
    * @param string $id Breakpoint identifier, unique in the scope of the debuggee.
@@ -356,10 +362,10 @@ class Google_Service_Clouddebugger_DebuggerDebuggees_Resource extends Google_Ser
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string project Set to the project number of the Google Cloud
-   * Platform to list the debuggees that are part of that project.
-   * @opt_param bool includeInactive When set to true the result includes all
-   * debuggees, otherwise only debugees that are active.
+   * @opt_param string project Project number of a Google Cloud project whose
+   * debuggees to list.
+   * @opt_param bool includeInactive When set to `true`, the result includes all
+   * debuggees. Otherwise, the result includes only debuggees that are active.
    * @return Google_Service_Clouddebugger_ListDebuggeesResponse
    */
   public function listDebuggerDebuggees($optParams = array())
@@ -384,8 +390,8 @@ class Google_Service_Clouddebugger_DebuggerDebuggeesBreakpoints_Resource extends
   /**
    * Deletes the breakpoint from the debuggee. (breakpoints.delete)
    *
-   * @param string $debuggeeId The debuggee id to delete the breakpoint from.
-   * @param string $breakpointId The breakpoint to delete.
+   * @param string $debuggeeId ID of the debuggee whose breakpoint to delete.
+   * @param string $breakpointId ID of the breakpoint to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Clouddebugger_Empty
    */
@@ -399,8 +405,8 @@ class Google_Service_Clouddebugger_DebuggerDebuggeesBreakpoints_Resource extends
   /**
    * Gets breakpoint information. (breakpoints.get)
    *
-   * @param string $debuggeeId The debuggee id to get the breakpoint from.
-   * @param string $breakpointId The breakpoint to get.
+   * @param string $debuggeeId ID of the debuggee whose breakpoint to get.
+   * @param string $breakpointId ID of the breakpoint to get.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Clouddebugger_GetBreakpointResponse
    */
@@ -412,27 +418,28 @@ class Google_Service_Clouddebugger_DebuggerDebuggeesBreakpoints_Resource extends
   }
 
   /**
-   * Lists all breakpoints of the debuggee that the user has access to.
+   * Lists all breakpoints for the debuggee.
    * (breakpoints.listDebuggerDebuggeesBreakpoints)
    *
-   * @param string $debuggeeId The debuggee id to list breakpoint from.
+   * @param string $debuggeeId ID of the debuggee whose breakpoints to list.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool includeAllUsers When set to true the response includes the
-   * list of breakpoints set by any user, otherwise only breakpoints set by the
-   * caller.
-   * @opt_param bool stripResults When set to true the response breakpoints will
-   * be stripped of the results fields: stack_frames, evaluated_expressions and
-   * variable_table.
+   * @opt_param bool includeAllUsers When set to `true`, the response includes the
+   * list of breakpoints set by any user. Otherwise, it includes only breakpoints
+   * set by the caller.
+   * @opt_param bool includeInactive When set to `true`, the response includes
+   * active and inactive breakpoints. Otherwise, it includes only active
+   * breakpoints.
    * @opt_param string action.value Only breakpoints with the specified action
    * will pass the filter.
-   * @opt_param bool includeInactive When set to true the response includes active
-   * and inactive breakpoints, otherwise only active breakpoints are returned.
+   * @opt_param bool stripResults When set to `true`, the response breakpoints are
+   * stripped of the results fields: `stack_frames`, `evaluated_expressions` and
+   * `variable_table`.
    * @opt_param string waitToken A wait token that, if specified, blocks the call
    * until the breakpoints list has changed, or a server selected timeout has
-   * expired. The value should be set from the last response to ListBreakpoints.
-   * The error code ABORTED is returned on wait timeout, which should be called
-   * again with the same wait_token.
+   * expired. The value should be set from the last response. The error code
+   * `google.rpc.Code.ABORTED` (RPC) is returned on wait timeout, which should be
+   * called again with the same `wait_token`.
    * @return Google_Service_Clouddebugger_ListBreakpointsResponse
    */
   public function listDebuggerDebuggeesBreakpoints($debuggeeId, $optParams = array())
@@ -445,7 +452,8 @@ class Google_Service_Clouddebugger_DebuggerDebuggeesBreakpoints_Resource extends
   /**
    * Sets the breakpoint to the debuggee. (breakpoints.set)
    *
-   * @param string $debuggeeId The debuggee id to set the breakpoint to.
+   * @param string $debuggeeId ID of the debuggee where the breakpoint is to be
+   * set.
    * @param Google_Breakpoint $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Clouddebugger_SetBreakpointResponse
@@ -460,6 +468,32 @@ class Google_Service_Clouddebugger_DebuggerDebuggeesBreakpoints_Resource extends
 
 
 
+
+class Google_Service_Clouddebugger_AliasContext extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $kind;
+  public $name;
+
+
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+}
 
 class Google_Service_Clouddebugger_Breakpoint extends Google_Collection
 {
@@ -614,12 +648,22 @@ class Google_Service_Clouddebugger_CloudRepoSourceContext extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  protected $aliasContextType = 'Google_Service_Clouddebugger_AliasContext';
+  protected $aliasContextDataType = '';
   public $aliasName;
   protected $repoIdType = 'Google_Service_Clouddebugger_RepoId';
   protected $repoIdDataType = '';
   public $revisionId;
 
 
+  public function setAliasContext(Google_Service_Clouddebugger_AliasContext $aliasContext)
+  {
+    $this->aliasContext = $aliasContext;
+  }
+  public function getAliasContext()
+  {
+    return $this->aliasContext;
+  }
   public function setAliasName($aliasName)
   {
     $this->aliasName = $aliasName;
@@ -707,6 +751,8 @@ class Google_Service_Clouddebugger_Debuggee extends Google_Collection
   );
   public $agentVersion;
   public $description;
+  protected $extSourceContextsType = 'Google_Service_Clouddebugger_ExtendedSourceContext';
+  protected $extSourceContextsDataType = 'array';
   public $id;
   public $isDisabled;
   public $isInactive;
@@ -734,6 +780,14 @@ class Google_Service_Clouddebugger_Debuggee extends Google_Collection
   public function getDescription()
   {
     return $this->description;
+  }
+  public function setExtSourceContexts($extSourceContexts)
+  {
+    $this->extSourceContexts = $extSourceContexts;
+  }
+  public function getExtSourceContexts()
+  {
+    return $this->extSourceContexts;
   }
   public function setId($id)
   {
@@ -801,12 +855,35 @@ class Google_Service_Clouddebugger_Debuggee extends Google_Collection
   }
 }
 
-class Google_Service_Clouddebugger_DebuggeeLabels extends Google_Model
+class Google_Service_Clouddebugger_Empty extends Google_Model
 {
 }
 
-class Google_Service_Clouddebugger_Empty extends Google_Model
+class Google_Service_Clouddebugger_ExtendedSourceContext extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
+  protected $contextType = 'Google_Service_Clouddebugger_SourceContext';
+  protected $contextDataType = '';
+  public $labels;
+
+
+  public function setContext(Google_Service_Clouddebugger_SourceContext $context)
+  {
+    $this->context = $context;
+  }
+  public function getContext()
+  {
+    return $this->context;
+  }
+  public function setLabels($labels)
+  {
+    $this->labels = $labels;
+  }
+  public function getLabels()
+  {
+    return $this->labels;
+  }
 }
 
 class Google_Service_Clouddebugger_FormatMessage extends Google_Collection
@@ -840,12 +917,22 @@ class Google_Service_Clouddebugger_GerritSourceContext extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  protected $aliasContextType = 'Google_Service_Clouddebugger_AliasContext';
+  protected $aliasContextDataType = '';
   public $aliasName;
   public $gerritProject;
   public $hostUri;
   public $revisionId;
 
 
+  public function setAliasContext(Google_Service_Clouddebugger_AliasContext $aliasContext)
+  {
+    $this->aliasContext = $aliasContext;
+  }
+  public function getAliasContext()
+  {
+    return $this->aliasContext;
+  }
   public function setAliasName($aliasName)
   {
     $this->aliasName = $aliasName;
@@ -932,6 +1019,7 @@ class Google_Service_Clouddebugger_ListActiveBreakpointsResponse extends Google_
   protected $breakpointsType = 'Google_Service_Clouddebugger_Breakpoint';
   protected $breakpointsDataType = 'array';
   public $nextWaitToken;
+  public $waitExpired;
 
 
   public function setBreakpoints($breakpoints)
@@ -949,6 +1037,14 @@ class Google_Service_Clouddebugger_ListActiveBreakpointsResponse extends Google_
   public function getNextWaitToken()
   {
     return $this->nextWaitToken;
+  }
+  public function setWaitExpired($waitExpired)
+  {
+    $this->waitExpired = $waitExpired;
+  }
+  public function getWaitExpired()
+  {
+    return $this->waitExpired;
   }
 }
 
@@ -1296,6 +1392,7 @@ class Google_Service_Clouddebugger_Variable extends Google_Collection
   public $name;
   protected $statusType = 'Google_Service_Clouddebugger_StatusMessage';
   protected $statusDataType = '';
+  public $type;
   public $value;
   public $varTableIndex;
 
@@ -1323,6 +1420,14 @@ class Google_Service_Clouddebugger_Variable extends Google_Collection
   public function getStatus()
   {
     return $this->status;
+  }
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  public function getType()
+  {
+    return $this->type;
   }
   public function setValue($value)
   {

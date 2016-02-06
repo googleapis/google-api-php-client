@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -128,19 +126,7 @@ class Google_Service_Coordinate extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'customerName' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'note' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'assignee' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'customerPhoneNumber' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -148,6 +134,18 @@ class Google_Service_Coordinate extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
+                ),
+                'customerName' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'customerPhoneNumber' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'note' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'list' => array(
@@ -159,21 +157,21 @@ class Google_Service_Coordinate extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'minModifiedTimestampMs' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'minModifiedTimestampMs' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'omitJobChanges' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -190,15 +188,7 @@ class Google_Service_Coordinate extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'customerName' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'title' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'note' => array(
+                'address' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -206,11 +196,16 @@ class Google_Service_Coordinate extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'customerPhoneNumber' => array(
+                'customField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'customerName' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'address' => array(
+                'customerPhoneNumber' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -218,18 +213,21 @@ class Google_Service_Coordinate extends Google_Service
                   'location' => 'query',
                   'type' => 'number',
                 ),
-                'progress' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'lng' => array(
                   'location' => 'query',
                   'type' => 'number',
                 ),
-                'customField' => array(
+                'note' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
+                ),
+                'progress' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'title' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'update' => array(
@@ -246,15 +244,7 @@ class Google_Service_Coordinate extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'customerName' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'title' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'note' => array(
+                'address' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -262,11 +252,16 @@ class Google_Service_Coordinate extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'customerPhoneNumber' => array(
+                'customField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'customerName' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'address' => array(
+                'customerPhoneNumber' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -274,18 +269,21 @@ class Google_Service_Coordinate extends Google_Service
                   'location' => 'query',
                   'type' => 'number',
                 ),
-                'progress' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'lng' => array(
                   'location' => 'query',
                   'type' => 'number',
                 ),
-                'customField' => array(
+                'note' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
+                ),
+                'progress' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'title' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -317,13 +315,13 @@ class Google_Service_Coordinate extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -369,15 +367,15 @@ class Google_Service_Coordinate extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'startTime' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'duration' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'endTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'startTime' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -400,15 +398,15 @@ class Google_Service_Coordinate extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'startTime' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'duration' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'endTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'startTime' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -431,11 +429,11 @@ class Google_Service_Coordinate extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'worker' => array(
+                'dispatcher' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'dispatcher' => array(
+                'worker' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
@@ -533,17 +531,17 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
    * @param Google_Job $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string customerName Customer name
-   * @opt_param string note Job note as newline (Unix) separated string
    * @opt_param string assignee Assignee email address, or empty string to
    * unassign.
-   * @opt_param string customerPhoneNumber Customer phone number
    * @opt_param string customField Sets the value of custom fields. To set a
    * custom field, pass the field id (from /team/teamId/custom_fields), a URL
    * escaped '=' character, and the desired value as a parameter. For example,
    * customField=12%3DAlice. Repeat the parameter for each custom field. Note that
    * '=' cannot appear in the parameter value. Specifying an invalid, or inactive
    * enum field will result in an error 500.
+   * @opt_param string customerName Customer name
+   * @opt_param string customerPhoneNumber Customer phone number
+   * @opt_param string note Job note as newline (Unix) separated string
    * @return Google_Service_Coordinate_Job
    */
   public function insert($teamId, $address, $lat, $lng, $title, Google_Service_Coordinate_Job $postBody, $optParams = array())
@@ -559,12 +557,12 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
    * @param string $teamId Team ID
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string maxResults Maximum number of results to return in one page.
    * @opt_param string minModifiedTimestampMs Minimum time a job was modified in
    * milliseconds since epoch.
-   * @opt_param string pageToken Continuation token
-   * @opt_param string maxResults Maximum number of results to return in one page.
    * @opt_param bool omitJobChanges Whether to omit detail job history
    * information.
+   * @opt_param string pageToken Continuation token
    * @return Google_Service_Coordinate_JobListResponse
    */
   public function listJobs($teamId, $optParams = array())
@@ -583,22 +581,22 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
    * @param Google_Job $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string customerName Customer name
-   * @opt_param string title Job title
-   * @opt_param string note Job note as newline (Unix) separated string
+   * @opt_param string address Job address as newline (Unix) separated string
    * @opt_param string assignee Assignee email address, or empty string to
    * unassign.
-   * @opt_param string customerPhoneNumber Customer phone number
-   * @opt_param string address Job address as newline (Unix) separated string
-   * @opt_param double lat The latitude coordinate of this job's location.
-   * @opt_param string progress Job progress
-   * @opt_param double lng The longitude coordinate of this job's location.
    * @opt_param string customField Sets the value of custom fields. To set a
    * custom field, pass the field id (from /team/teamId/custom_fields), a URL
    * escaped '=' character, and the desired value as a parameter. For example,
    * customField=12%3DAlice. Repeat the parameter for each custom field. Note that
    * '=' cannot appear in the parameter value. Specifying an invalid, or inactive
    * enum field will result in an error 500.
+   * @opt_param string customerName Customer name
+   * @opt_param string customerPhoneNumber Customer phone number
+   * @opt_param double lat The latitude coordinate of this job's location.
+   * @opt_param double lng The longitude coordinate of this job's location.
+   * @opt_param string note Job note as newline (Unix) separated string
+   * @opt_param string progress Job progress
+   * @opt_param string title Job title
    * @return Google_Service_Coordinate_Job
    */
   public function patch($teamId, $jobId, Google_Service_Coordinate_Job $postBody, $optParams = array())
@@ -617,22 +615,22 @@ class Google_Service_Coordinate_Jobs_Resource extends Google_Service_Resource
    * @param Google_Job $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string customerName Customer name
-   * @opt_param string title Job title
-   * @opt_param string note Job note as newline (Unix) separated string
+   * @opt_param string address Job address as newline (Unix) separated string
    * @opt_param string assignee Assignee email address, or empty string to
    * unassign.
-   * @opt_param string customerPhoneNumber Customer phone number
-   * @opt_param string address Job address as newline (Unix) separated string
-   * @opt_param double lat The latitude coordinate of this job's location.
-   * @opt_param string progress Job progress
-   * @opt_param double lng The longitude coordinate of this job's location.
    * @opt_param string customField Sets the value of custom fields. To set a
    * custom field, pass the field id (from /team/teamId/custom_fields), a URL
    * escaped '=' character, and the desired value as a parameter. For example,
    * customField=12%3DAlice. Repeat the parameter for each custom field. Note that
    * '=' cannot appear in the parameter value. Specifying an invalid, or inactive
    * enum field will result in an error 500.
+   * @opt_param string customerName Customer name
+   * @opt_param string customerPhoneNumber Customer phone number
+   * @opt_param double lat The latitude coordinate of this job's location.
+   * @opt_param double lng The longitude coordinate of this job's location.
+   * @opt_param string note Job note as newline (Unix) separated string
+   * @opt_param string progress Job progress
+   * @opt_param string title Job title
    * @return Google_Service_Coordinate_Job
    */
   public function update($teamId, $jobId, Google_Service_Coordinate_Job $postBody, $optParams = array())
@@ -663,8 +661,8 @@ class Google_Service_Coordinate_Location_Resource extends Google_Service_Resourc
    * epoch.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Continuation token
    * @opt_param string maxResults Maximum number of results to return in one page.
+   * @opt_param string pageToken Continuation token
    * @return Google_Service_Coordinate_LocationListResponse
    */
   public function listLocation($teamId, $workerEmail, $startTimestampMs, $optParams = array())
@@ -712,9 +710,9 @@ class Google_Service_Coordinate_Schedule_Resource extends Google_Service_Resourc
    *
    * @opt_param bool allDay Whether the job is scheduled for the whole day. Time
    * of day in start/end times is ignored if this is true.
-   * @opt_param string startTime Scheduled start time in milliseconds since epoch.
    * @opt_param string duration Job duration in milliseconds.
    * @opt_param string endTime Scheduled end time in milliseconds since epoch.
+   * @opt_param string startTime Scheduled start time in milliseconds since epoch.
    * @return Google_Service_Coordinate_Schedule
    */
   public function patch($teamId, $jobId, Google_Service_Coordinate_Schedule $postBody, $optParams = array())
@@ -734,9 +732,9 @@ class Google_Service_Coordinate_Schedule_Resource extends Google_Service_Resourc
    *
    * @opt_param bool allDay Whether the job is scheduled for the whole day. Time
    * of day in start/end times is ignored if this is true.
-   * @opt_param string startTime Scheduled start time in milliseconds since epoch.
    * @opt_param string duration Job duration in milliseconds.
    * @opt_param string endTime Scheduled end time in milliseconds since epoch.
+   * @opt_param string startTime Scheduled start time in milliseconds since epoch.
    * @return Google_Service_Coordinate_Schedule
    */
   public function update($teamId, $jobId, Google_Service_Coordinate_Schedule $postBody, $optParams = array())
@@ -765,10 +763,10 @@ class Google_Service_Coordinate_Team_Resource extends Google_Service_Resource
    *
    * @opt_param bool admin Whether to include teams for which the user has the
    * Admin role.
-   * @opt_param bool worker Whether to include teams for which the user has the
-   * Worker role.
    * @opt_param bool dispatcher Whether to include teams for which the user has
    * the Dispatcher role.
+   * @opt_param bool worker Whether to include teams for which the user has the
+   * Worker role.
    * @return Google_Service_Coordinate_TeamListResponse
    */
   public function listTeam($optParams = array())

@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -104,10 +102,6 @@ class Google_Service_YouTubeReporting extends Google_Service
               'path' => 'v1/jobs',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'onBehalfOfContentOwner' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -115,6 +109,10 @@ class Google_Service_YouTubeReporting extends Google_Service
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -155,10 +153,6 @@ class Google_Service_YouTubeReporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'onBehalfOfContentOwner' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -166,6 +160,14 @@ class Google_Service_YouTubeReporting extends Google_Service
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'createdAfter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -202,10 +204,6 @@ class Google_Service_YouTubeReporting extends Google_Service
               'path' => 'v1/reportTypes',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'onBehalfOfContentOwner' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -213,6 +211,10 @@ class Google_Service_YouTubeReporting extends Google_Service
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -293,15 +295,15 @@ class Google_Service_YouTubeReporting_Jobs_Resource extends Google_Service_Resou
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken A token identifying a page of results the server
-   * should return. Typically, this is the value of
-   * ListReportTypesResponse.next_page_token returned in response to the previous
-   * call to the `ListJobs` method.
    * @opt_param string onBehalfOfContentOwner The content owner's external ID on
    * which behalf the user is acting on. If not set, the user is acting for
    * himself (his own channel).
    * @opt_param int pageSize Requested page size. Server may return fewer jobs
    * than requested. If unspecified, server will pick an appropriate default.
+   * @opt_param string pageToken A token identifying a page of results the server
+   * should return. Typically, this is the value of
+   * ListReportTypesResponse.next_page_token returned in response to the previous
+   * call to the `ListJobs` method.
    * @return Google_Service_YouTubeReporting_ListJobsResponse
    */
   public function listJobs($optParams = array())
@@ -349,16 +351,18 @@ class Google_Service_YouTubeReporting_JobsReports_Resource extends Google_Servic
    * @param string $jobId The ID of the job.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken A token identifying a page of results the server
-   * should return. Typically, this is the value of
-   * ListReportsResponse.next_page_token returned in response to the previous call
-   * to the `ListReports` method.
    * @opt_param string onBehalfOfContentOwner The content owner's external ID on
    * which behalf the user is acting on. If not set, the user is acting for
    * himself (his own channel).
    * @opt_param int pageSize Requested page size. Server may return fewer report
    * types than requested. If unspecified, server will pick an appropriate
    * default.
+   * @opt_param string pageToken A token identifying a page of results the server
+   * should return. Typically, this is the value of
+   * ListReportsResponse.next_page_token returned in response to the previous call
+   * to the `ListReports` method.
+   * @opt_param string createdAfter If set, only reports created after the
+   * specified date/time are returned.
    * @return Google_Service_YouTubeReporting_ListReportsResponse
    */
   public function listJobsReports($jobId, $optParams = array())
@@ -413,16 +417,16 @@ class Google_Service_YouTubeReporting_ReportTypes_Resource extends Google_Servic
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken A token identifying a page of results the server
-   * should return. Typically, this is the value of
-   * ListReportTypesResponse.next_page_token returned in response to the previous
-   * call to the `ListReportTypes` method.
    * @opt_param string onBehalfOfContentOwner The content owner's external ID on
    * which behalf the user is acting on. If not set, the user is acting for
    * himself (his own channel).
    * @opt_param int pageSize Requested page size. Server may return fewer report
    * types than requested. If unspecified, server will pick an appropriate
    * default.
+   * @opt_param string pageToken A token identifying a page of results the server
+   * should return. Typically, this is the value of
+   * ListReportTypesResponse.next_page_token returned in response to the previous
+   * call to the `ListReportTypes` method.
    * @return Google_Service_YouTubeReporting_ListReportTypesResponse
    */
   public function listReportTypes($optParams = array())

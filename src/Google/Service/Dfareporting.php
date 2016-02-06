@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -16,7 +14,7 @@
  */
 
 /**
- * Service definition for Dfareporting (v2.1).
+ * Service definition for Dfareporting (v2.4).
  *
  * <p>
  * Manage your DoubleClick Campaign Manager ad campaigns and reports.</p>
@@ -104,8 +102,9 @@ class Google_Service_Dfareporting extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->servicePath = 'dfareporting/v2.1/';
-    $this->version = 'v2.1';
+    $this->rootUrl = 'https://www.googleapis.com/';
+    $this->servicePath = 'dfareporting/v2.4/';
+    $this->version = 'v2.4';
     $this->serviceName = 'dfareporting';
 
     $this->accountActiveAdSummaries = new Google_Service_Dfareporting_AccountActiveAdSummaries_Resource(
@@ -243,17 +242,9 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
+                'active' => array(
                   'location' => 'query',
-                  'type' => 'string',
-                ),
-                'subaccountId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
                 'ids' => array(
                   'location' => 'query',
@@ -268,7 +259,11 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'userRoleId' => array(
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -276,9 +271,13 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'active' => array(
+                'subaccountId' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type' => 'string',
+                ),
+                'userRoleId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -340,13 +339,9 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
+                'active' => array(
                   'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
                 'ids' => array(
                   'location' => 'query',
@@ -361,13 +356,17 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sortOrder' => array(
+                'searchString' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'active' => array(
+                'sortField' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -439,56 +438,56 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'landingPageIds' => array(
+                'active' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'advertiserId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'archived' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'audienceSegmentIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'overriddenEventTagId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'campaignIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'archived' => array(
+                'compatibility' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type' => 'string',
+                ),
+                'creativeIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
                 ),
                 'creativeOptimizationConfigurationIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'sslCompliant' => array(
+                'creativeType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'dynamicClickTracker' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'sizeIds' => array(
+                'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortOrder' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'type' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'sslRequired' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'creativeIds' => array(
+                'landingPageIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -497,41 +496,15 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'creativeType' => array(
+                'overriddenEventTagId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'placementIds' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'active' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'compatibility' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'advertiserId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'audienceSegmentIds' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -541,9 +514,35 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'dynamicClickTracker' => array(
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sizeIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sslCompliant' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+                'sslRequired' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'type' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
                 ),
               ),
             ),'patch' => array(
@@ -630,14 +629,6 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -648,6 +639,14 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'integer',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -725,7 +724,34 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'status' => array(
+                'advertiserGroupIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'floodlightConfigurationIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'ids' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'includeAdvertisersWithoutGroupsOnly' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'onlyParent' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -733,48 +759,21 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'subaccountId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'includeAdvertisersWithoutGroupsOnly' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
                 'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-                'ids' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'onlyParent' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
                 ),
                 'sortOrder' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'floodlightConfigurationIds' => array(
+                'status' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
                 ),
-                'advertiserGroupIds' => array(
+                'subaccountId' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
                 ),
               ),
             ),'patch' => array(
@@ -861,6 +860,10 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -868,10 +871,6 @@ class Google_Service_Dfareporting extends Google_Service
                 'sortOrder' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
                 ),
               ),
             ),
@@ -928,23 +927,25 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'advertiserGroupIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'advertiserIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
                 'archived' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'searchString' => array(
+                'atLeastOneOptimizationActivity' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
-                'subaccountId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'advertiserIds' => array(
+                'excludedIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -958,31 +959,29 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'excludedIds' => array(
+                'overriddenEventTagId' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
                 ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'advertiserGroupIds' => array(
+                'searchString' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
+                ),
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'sortOrder' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'overriddenEventTagId' => array(
+                'subaccountId' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-                'atLeastOneOptimizationActivity' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
                 ),
               ),
             ),'patch' => array(
@@ -1044,7 +1043,37 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'action' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ids' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'maxChangeTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'minChangeTime' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'objectIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'objectType' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1052,40 +1081,10 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'maxChangeTime' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'userProfileIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'ids' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'objectIds' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'action' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'objectType' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),
@@ -1107,6 +1106,11 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'countryDartIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
                 'dartIds' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -1117,11 +1121,6 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                 ),
                 'regionDartIds' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'countryDartIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -1221,14 +1220,6 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -1239,6 +1230,14 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'integer',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1411,18 +1410,6 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -1431,6 +1418,18 @@ class Google_Service_Dfareporting extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'sortOrder' => array(
                   'location' => 'query',
@@ -1531,14 +1530,6 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'advertiserIds' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -1554,6 +1545,14 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'integer',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1631,14 +1630,6 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'advertiserIds' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -1648,16 +1639,24 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1735,28 +1734,28 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'sizeIds' => array(
+                'active' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'advertiserId' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
                 ),
                 'archived' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'campaignId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sortField' => array(
+                'companionCreativeIds' => array(
                   'location' => 'query',
                   'type' => 'string',
+                  'repeated' => true,
                 ),
-                'renderingIds' => array(
+                'creativeFieldIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -1770,15 +1769,25 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'advertiserId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'studioCreativeId' => array(
+                'renderingIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sizeIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1786,19 +1795,9 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'companionCreativeIds' => array(
+                'studioCreativeId' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
-                ),
-                'active' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'creativeFieldIds' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
                 ),
                 'types' => array(
                   'location' => 'query',
@@ -1850,13 +1849,13 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -1893,18 +1892,10 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'directorySiteIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'ids' => array(
                   'location' => 'query',
@@ -1916,6 +1907,14 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'integer',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1968,29 +1967,29 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'acceptsInStreamVideoPlacements' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'acceptsInterstitialPlacements' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'sortOrder' => array(
+                'acceptsPublisherPaidPlacements' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
-                'searchString' => array(
+                'active' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
                 'countryId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sortField' => array(
+                'dfp_network_code' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-                'acceptsInStreamVideoPlacements' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
                 ),
                 'ids' => array(
                   'location' => 'query',
@@ -2005,19 +2004,19 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'acceptsPublisherPaidPlacements' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
                 'parentId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'active' => array(
+                'searchString' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type' => 'string',
                 ),
-                'dfp_network_code' => array(
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2081,7 +2080,11 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
+                'adId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'advertiserId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2089,39 +2092,35 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sortField' => array(
+                'definitionsOnly' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
                 'enabled' => array(
                   'location' => 'query',
                   'type' => 'boolean',
-                ),
-                'ids' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'advertiserId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'adId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortOrder' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'eventTagTypes' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'definitionsOnly' => array(
+                'ids' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -2183,10 +2182,6 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -2195,11 +2190,15 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sortOrder' => array(
+                'scope' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'scope' => array(
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2277,20 +2276,24 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'advertiserId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'floodlightActivityGroupIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'sortOrder' => array(
+                'floodlightActivityGroupName' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'searchString' => array(
+                'floodlightActivityGroupTagString' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sortField' => array(
+                'floodlightActivityGroupType' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2303,31 +2306,27 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'floodlightActivityGroupName' => array(
+                'maxResults' => array(
                   'location' => 'query',
-                  'type' => 'string',
-                ),
-                'advertiserId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'integer',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'maxResults' => array(
+                'searchString' => array(
                   'location' => 'query',
-                  'type' => 'integer',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'tagString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'floodlightActivityGroupTagString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'floodlightActivityGroupType' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2367,22 +2366,7 @@ class Google_Service_Dfareporting extends Google_Service
         'floodlightActivityGroups',
         array(
           'methods' => array(
-            'delete' => array(
-              'path' => 'userprofiles/{profileId}/floodlightActivityGroups/{id}',
-              'httpMethod' => 'DELETE',
-              'parameters' => array(
-                'profileId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-                'id' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'get' => array(
+            'get' => array(
               'path' => 'userprofiles/{profileId}/floodlightActivityGroups/{id}',
               'httpMethod' => 'GET',
               'parameters' => array(
@@ -2416,11 +2400,7 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
+                'advertiserId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2437,11 +2417,15 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'advertiserId' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2588,19 +2572,23 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'orderId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
                 'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
+                'inPlan' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'orderId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -2611,15 +2599,15 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'inPlan' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
                 'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'type' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2908,14 +2896,9 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'orderId' => array(
+                'approved' => array(
                   'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
                 'ids' => array(
                   'location' => 'query',
@@ -2926,7 +2909,16 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'orderId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'searchString' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -2935,17 +2927,13 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'sortOrder' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'approved' => array(
+                'sortOrder' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -2992,10 +2980,6 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -3009,16 +2993,20 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'siteId' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'sortOrder' => array(
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sortField' => array(
+                'sortOrder' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -3067,7 +3055,7 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'placementStrategyIds' => array(
+                'advertiserIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -3076,9 +3064,10 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'searchString' => array(
+                'campaignIds' => array(
                   'location' => 'query',
                   'type' => 'string',
+                  'repeated' => true,
                 ),
                 'contentCategoryIds' => array(
                   'location' => 'query',
@@ -3090,29 +3079,32 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'advertiserIds' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
                 'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
+                'maxEndDate' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'pageToken' => array(
+                'maxStartDate' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sortOrder' => array(
+                'minEndDate' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'minStartDate' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -3120,20 +3112,32 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'placementStrategyIds' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
                 'pricingTypes' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
+                ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'siteIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'campaignIds' => array(
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -3220,14 +3224,6 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -3238,6 +3234,14 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'integer',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -3290,19 +3294,19 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'tagFormats' => array(
+                'campaignId' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
                 ),
                 'placementIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'campaignId' => array(
+                'tagFormats' => array(
                   'location' => 'query',
                   'type' => 'string',
+                  'repeated' => true,
                 ),
               ),
             ),'get' => array(
@@ -3339,22 +3343,24 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'placementStrategyIds' => array(
+                'advertiserIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'sortOrder' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'archived' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'searchString' => array(
+                'campaignIds' => array(
                   'location' => 'query',
                   'type' => 'string',
+                  'repeated' => true,
+                ),
+                'compatibilities' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
                 ),
                 'contentCategoryIds' => array(
                   'location' => 'query',
@@ -3366,43 +3372,45 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'advertiserIds' => array(
+                'groupIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'paymentSource' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
+                'maxEndDate' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'sizeIds' => array(
+                'maxStartDate' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
+                ),
+                'minEndDate' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'minStartDate' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'compatibilities' => array(
+                'paymentSource' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
                 ),
-                'groupIds' => array(
+                'placementStrategyIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -3412,15 +3420,27 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'siteIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'campaignIds' => array(
+                'sizeIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
+                ),
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -3552,14 +3572,6 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'advertiserIds' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -3575,6 +3587,14 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'integer',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -3702,11 +3722,11 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'name' => array(
+                'active' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
-                'sortField' => array(
+                'floodlightActivityId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -3714,19 +3734,19 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'name' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sortOrder' => array(
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'active' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'floodlightActivityId' => array(
+                'sortOrder' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -3815,10 +3835,6 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -3827,11 +3843,15 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sortOrder' => array(
+                'scope' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'scope' => array(
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortOrder' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -3949,15 +3969,15 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -4010,30 +4030,35 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'acceptsInStreamVideoPlacements' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
                 'acceptsInterstitialPlacements' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'sortOrder' => array(
+                'acceptsPublisherPaidPlacements' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
-                'searchString' => array(
+                'adWordsSite' => array(
                   'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
-                'subaccountId' => array(
+                'approved' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'campaignIds' => array(
                   'location' => 'query',
                   'type' => 'string',
+                  'repeated' => true,
                 ),
                 'directorySiteIds' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'acceptsInStreamVideoPlacements' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
                 ),
                 'ids' => array(
                   'location' => 'query',
@@ -4048,30 +4073,25 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'acceptsPublisherPaidPlacements' => array(
+                'searchString' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type' => 'string',
                 ),
                 'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'adWordsSite' => array(
+                'sortOrder' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type' => 'string',
+                ),
+                'subaccountId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'unmappedSite' => array(
                   'location' => 'query',
                   'type' => 'boolean',
-                ),
-                'approved' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'campaignIds' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
                 ),
               ),
             ),'patch' => array(
@@ -4143,20 +4163,20 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'height' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'iabStandard' => array(
                   'location' => 'query',
                   'type' => 'boolean',
-                ),
-                'width' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
                 ),
                 'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'height' => array(
+                'width' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
@@ -4205,14 +4225,6 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ids' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -4223,6 +4235,14 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'integer',
                 ),
                 'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -4295,7 +4315,19 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'active' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'name' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -4303,21 +4335,9 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'sortOrder' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-                'active' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
                 ),
               ),
             ),
@@ -4478,17 +4498,9 @@ class Google_Service_Dfareporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'searchString' => array(
+                'accountUserRoleOnly' => array(
                   'location' => 'query',
-                  'type' => 'string',
-                ),
-                'subaccountId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sortField' => array(
-                  'location' => 'query',
-                  'type' => 'string',
+                  'type' => 'boolean',
                 ),
                 'ids' => array(
                   'location' => 'query',
@@ -4503,13 +4515,21 @@ class Google_Service_Dfareporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'searchString' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sortField' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'sortOrder' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'accountUserRoleOnly' => array(
+                'subaccountId' => array(
                   'location' => 'query',
-                  'type' => 'boolean',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -4705,6 +4725,11 @@ class Google_Service_Dfareporting_AccountUserProfiles_Resource extends Google_Se
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool active Select only active user profiles.
+   * @opt_param string ids Select only user profiles with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for objects by name, ID or
    * email. Wildcards (*) are allowed. For example, "user profile*2015" will
    * return objects with names like "user profile June 2015", "user profile April
@@ -4712,17 +4737,12 @@ class Google_Service_Dfareporting_AccountUserProfiles_Resource extends Google_Se
    * implicitly at the start and the end of the search string. For example, a
    * search string of "user profile" will match objects with name "my user
    * profile", "user profile 2015", or simply "user profile".
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string subaccountId Select only user profiles with the specified
    * subaccount ID.
-   * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string ids Select only user profiles with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string userRoleId Select only user profiles with the specified
    * user role ID.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param bool active Select only active user profiles.
    * @return Google_Service_Dfareporting_AccountUserProfilesListResponse
    */
   public function listAccountUserProfiles($profileId, $optParams = array())
@@ -4797,6 +4817,12 @@ class Google_Service_Dfareporting_Accounts_Resource extends Google_Service_Resou
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool active Select only active accounts. Don't set this field to
+   * select both active and non-active accounts.
+   * @opt_param string ids Select only accounts with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "account*2015" will return objects
    * with names like "account June 2015", "account April 2015", or simply "account
@@ -4804,13 +4830,7 @@ class Google_Service_Dfareporting_Accounts_Resource extends Google_Service_Resou
    * the end of the search string. For example, a search string of "account" will
    * match objects with name "my account", "account 2015", or simply "account".
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string ids Select only accounts with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param bool active Select only active accounts. Don't set this field to
-   * select both active and non-active accounts.
    * @return Google_Service_Dfareporting_AccountsListResponse
    */
   public function listAccounts($profileId, $optParams = array())
@@ -4900,51 +4920,51 @@ class Google_Service_Dfareporting_Ads_Resource extends Google_Service_Resource
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string landingPageIds Select only ads with these landing page IDs.
-   * @opt_param string overriddenEventTagId Select only ads with this event tag
-   * override ID.
-   * @opt_param string campaignIds Select only ads with these campaign IDs.
+   * @opt_param bool active Select only active ads.
+   * @opt_param string advertiserId Select only ads with this advertiser ID.
    * @opt_param bool archived Select only archived ads.
-   * @opt_param string creativeOptimizationConfigurationIds Select only ads with
-   * these creative optimization configuration IDs.
-   * @opt_param bool sslCompliant Select only ads that are SSL-compliant.
-   * @opt_param string sizeIds Select only ads with these size IDs.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param string type Select only ads with these types.
-   * @opt_param bool sslRequired Select only ads that require SSL.
+   * @opt_param string audienceSegmentIds Select only ads with these audience
+   * segment IDs.
+   * @opt_param string campaignIds Select only ads with these campaign IDs.
+   * @opt_param string compatibility Select default ads with the specified
+   * compatibility. Applicable when type is AD_SERVING_DEFAULT_AD. DISPLAY and
+   * DISPLAY_INTERSTITIAL refer to rendering either on desktop or on mobile
+   * devices for regular or interstitial ads, respectively. APP and
+   * APP_INTERSTITIAL are for rendering in mobile apps. IN_STREAM_VIDEO refers to
+   * rendering an in-stream video ads developed with the VAST standard.
    * @opt_param string creativeIds Select only ads with these creative IDs
    * assigned.
-   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string creativeOptimizationConfigurationIds Select only ads with
+   * these creative optimization configuration IDs.
    * @opt_param string creativeType Select only ads with the specified
    * creativeType.
+   * @opt_param bool dynamicClickTracker Select only dynamic click trackers.
+   * Applicable when type is AD_SERVING_CLICK_TRACKER. If true, select dynamic
+   * click trackers. If false, select static click trackers. Leave unset to select
+   * both.
+   * @opt_param string ids Select only ads with these IDs.
+   * @opt_param string landingPageIds Select only ads with these landing page IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string overriddenEventTagId Select only ads with this event tag
+   * override ID.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string placementIds Select only ads with these placement IDs
    * assigned.
-   * @opt_param bool active Select only active ads.
-   * @opt_param string compatibility Select default ads with the specified
-   * compatibility. Applicable when type is AD_SERVING_DEFAULT_AD. WEB and
-   * WEB_INTERSTITIAL refer to rendering either on desktop or on mobile devices
-   * for regular or interstitial ads, respectively. APP and APP_INTERSTITIAL are
-   * for rendering in mobile apps. IN_STREAM_VIDEO refers to rendering an in-
-   * stream video ads developed with the VAST standard.
-   * @opt_param string advertiserId Select only ads with this advertiser ID.
+   * @opt_param string remarketingListIds Select only ads whose list targeting
+   * expression use these remarketing list IDs.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "ad*2015" will return objects with
    * names like "ad June 2015", "ad April 2015", or simply "ad 2015". Most of the
    * searches also add wildcards implicitly at the start and the end of the search
    * string. For example, a search string of "ad" will match objects with name "my
    * ad", "ad 2015", or simply "ad".
+   * @opt_param string sizeIds Select only ads with these size IDs.
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string audienceSegmentIds Select only ads with these audience
-   * segment IDs.
-   * @opt_param string ids Select only ads with these IDs.
-   * @opt_param string remarketingListIds Select only ads whose list targeting
-   * expression use these remarketing list IDs.
-   * @opt_param bool dynamicClickTracker Select only dynamic click trackers.
-   * Applicable when type is AD_SERVING_CLICK_TRACKER. If true, select dynamic
-   * click trackers. If false, select static click trackers. Leave unset to select
-   * both.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
+   * @opt_param bool sslCompliant Select only ads that are SSL-compliant.
+   * @opt_param bool sslRequired Select only ads that require SSL.
+   * @opt_param string type Select only ads with these types.
    * @return Google_Service_Dfareporting_AdsListResponse
    */
   public function listAds($profileId, $optParams = array())
@@ -5048,6 +5068,10 @@ class Google_Service_Dfareporting_AdvertiserGroups_Resource extends Google_Servi
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string ids Select only advertiser groups with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "advertiser*2015" will return objects
    * with names like "advertiser group June 2015", "advertiser group April 2015",
@@ -5056,10 +5080,6 @@ class Google_Service_Dfareporting_AdvertiserGroups_Resource extends Google_Servi
    * search string of "advertisergroup" will match objects with name "my
    * advertisergroup", "advertisergroup 2015", or simply "advertisergroup".
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string ids Select only advertiser groups with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_AdvertiserGroupsListResponse
    */
@@ -5151,7 +5171,18 @@ class Google_Service_Dfareporting_Advertisers_Resource extends Google_Service_Re
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string status Select only advertisers with the specified status.
+   * @opt_param string advertiserGroupIds Select only advertisers with these
+   * advertiser group IDs.
+   * @opt_param string floodlightConfigurationIds Select only advertisers with
+   * these floodlight configuration IDs.
+   * @opt_param string ids Select only advertisers with these IDs.
+   * @opt_param bool includeAdvertisersWithoutGroupsOnly Select only advertisers
+   * which do not belong to any advertiser group.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param bool onlyParent Select only advertisers which use another
+   * advertiser's floodlight configuration.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "advertiser*2015" will return objects
    * with names like "advertiser June 2015", "advertiser April 2015", or simply
@@ -5159,22 +5190,11 @@ class Google_Service_Dfareporting_Advertisers_Resource extends Google_Service_Re
    * start and the end of the search string. For example, a search string of
    * "advertiser" will match objects with name "my advertiser", "advertiser 2015",
    * or simply "advertiser".
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
+   * @opt_param string status Select only advertisers with the specified status.
    * @opt_param string subaccountId Select only advertisers with these subaccount
    * IDs.
-   * @opt_param bool includeAdvertisersWithoutGroupsOnly Select only advertisers
-   * which do not belong to any advertiser group.
-   * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string ids Select only advertisers with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
-   * @opt_param bool onlyParent Select only advertisers which use another
-   * advertiser's floodlight configuration.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param string floodlightConfigurationIds Select only advertisers with
-   * these floodlight configuration IDs.
-   * @opt_param string advertiserGroupIds Select only advertisers with these
-   * advertiser group IDs.
    * @return Google_Service_Dfareporting_AdvertisersListResponse
    */
   public function listAdvertisers($profileId, $optParams = array())
@@ -5280,10 +5300,10 @@ class Google_Service_Dfareporting_CampaignCreativeAssociations_Resource extends 
    * @param string $campaignId Campaign ID in this association.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param int maxResults Maximum number of results to return.
    * @return Google_Service_Dfareporting_CampaignCreativeAssociationsListResponse
    */
   public function listCampaignCreativeAssociations($profileId, $campaignId, $optParams = array())
@@ -5345,8 +5365,21 @@ class Google_Service_Dfareporting_Campaigns_Resource extends Google_Service_Reso
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string advertiserGroupIds Select only campaigns whose advertisers
+   * belong to these advertiser groups.
+   * @opt_param string advertiserIds Select only campaigns that belong to these
+   * advertisers.
    * @opt_param bool archived Select only archived campaigns. Don't set this field
    * to select both archived and non-archived campaigns.
+   * @opt_param bool atLeastOneOptimizationActivity Select only campaigns that
+   * have at least one optimization activity.
+   * @opt_param string excludedIds Exclude campaigns with these IDs.
+   * @opt_param string ids Select only campaigns with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string overriddenEventTagId Select only campaigns that have
+   * overridden this event tag ID.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for campaigns by name or ID.
    * Wildcards (*) are allowed. For example, "campaign*2015" will return campaigns
    * with names like "campaign June 2015", "campaign April 2015", or simply
@@ -5354,23 +5387,10 @@ class Google_Service_Dfareporting_Campaigns_Resource extends Google_Service_Reso
    * start and the end of the search string. For example, a search string of
    * "campaign" will match campaigns with name "my campaign", "campaign 2015", or
    * simply "campaign".
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string subaccountId Select only campaigns that belong to this
    * subaccount.
-   * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string advertiserIds Select only campaigns that belong to these
-   * advertisers.
-   * @opt_param string ids Select only campaigns with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string excludedIds Exclude campaigns with these IDs.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
-   * @opt_param string advertiserGroupIds Select only campaigns whose advertisers
-   * belong to these advertiser groups.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param string overriddenEventTagId Select only campaigns that have
-   * overridden this event tag ID.
-   * @opt_param bool atLeastOneOptimizationActivity Select only campaigns that
-   * have at least one optimization activity.
    * @return Google_Service_Dfareporting_CampaignsListResponse
    */
   public function listCampaigns($profileId, $optParams = array())
@@ -5445,30 +5465,30 @@ class Google_Service_Dfareporting_ChangeLogs_Resource extends Google_Service_Res
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string minChangeTime Select only change logs whose change time is
-   * before the specified minChangeTime.The time should be formatted as an RFC3339
-   * date/time string. For example, for 10:54 PM on July 18th, 2015, in the
-   * America/New York time zone, the format is "2015-07-18T22:54:00-04:00". In
-   * other words, the year, month, day, the letter T, the hour (24-hour clock
-   * system), minute, second, and then the time zone offset.
-   * @opt_param string searchString Select only change logs whose object ID, user
-   * name, old or new values match the search string.
+   * @opt_param string action Select only change logs with the specified action.
+   * @opt_param string ids Select only change logs with these IDs.
    * @opt_param string maxChangeTime Select only change logs whose change time is
    * before the specified maxChangeTime.The time should be formatted as an RFC3339
    * date/time string. For example, for 10:54 PM on July 18th, 2015, in the
    * America/New York time zone, the format is "2015-07-18T22:54:00-04:00". In
    * other words, the year, month, day, the letter T, the hour (24-hour clock
    * system), minute, second, and then the time zone offset.
-   * @opt_param string userProfileIds Select only change logs with these user
-   * profile IDs.
-   * @opt_param string ids Select only change logs with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string minChangeTime Select only change logs whose change time is
+   * before the specified minChangeTime.The time should be formatted as an RFC3339
+   * date/time string. For example, for 10:54 PM on July 18th, 2015, in the
+   * America/New York time zone, the format is "2015-07-18T22:54:00-04:00". In
+   * other words, the year, month, day, the letter T, the hour (24-hour clock
+   * system), minute, second, and then the time zone offset.
    * @opt_param string objectIds Select only change logs with these object IDs.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
-   * @opt_param string action Select only change logs with the specified action.
    * @opt_param string objectType Select only change logs with the specified
    * object type.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
+   * @opt_param string searchString Select only change logs whose object ID, user
+   * name, old or new values match the search string.
+   * @opt_param string userProfileIds Select only change logs with these user
+   * profile IDs.
    * @return Google_Service_Dfareporting_ChangeLogsListResponse
    */
   public function listChangeLogs($profileId, $optParams = array())
@@ -5496,11 +5516,11 @@ class Google_Service_Dfareporting_Cities_Resource extends Google_Service_Resourc
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string countryDartIds Select only cities from these countries.
    * @opt_param string dartIds Select only cities with these DART IDs.
    * @opt_param string namePrefix Select only cities with names starting with this
    * prefix.
    * @opt_param string regionDartIds Select only cities from these regions.
-   * @opt_param string countryDartIds Select only cities from these countries.
    * @return Google_Service_Dfareporting_CitiesListResponse
    */
   public function listCities($profileId, $optParams = array())
@@ -5614,6 +5634,10 @@ class Google_Service_Dfareporting_ContentCategories_Resource extends Google_Serv
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string ids Select only content categories with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "contentcategory*2015" will return
    * objects with names like "contentcategory June 2015", "contentcategory April
@@ -5622,10 +5646,6 @@ class Google_Service_Dfareporting_ContentCategories_Resource extends Google_Serv
    * example, a search string of "contentcategory" will match objects with name
    * "my contentcategory", "contentcategory 2015", or simply "contentcategory".
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string ids Select only content categories with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_ContentCategoriesListResponse
    */
@@ -5809,13 +5829,13 @@ class Google_Service_Dfareporting_CreativeFieldValues_Resource extends Google_Se
    * value.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string searchString Allows searching for creative field values by
-   * their values. Wildcards (e.g. *) are not allowed.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
-   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string ids Select only creative field values with these IDs.
    * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
+   * @opt_param string searchString Allows searching for creative field values by
+   * their values. Wildcards (e.g. *) are not allowed.
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_CreativeFieldValuesListResponse
    */
@@ -5925,6 +5945,12 @@ class Google_Service_Dfareporting_CreativeFields_Resource extends Google_Service
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string advertiserIds Select only creative fields that belong to
+   * these advertisers.
+   * @opt_param string ids Select only creative fields with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for creative fields by name
    * or ID. Wildcards (*) are allowed. For example, "creativefield*2015" will
    * return creative fields with names like "creativefield June 2015",
@@ -5934,12 +5960,6 @@ class Google_Service_Dfareporting_CreativeFields_Resource extends Google_Service
    * creative fields with the name "my creativefield", "creativefield 2015", or
    * simply "creativefield".
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string advertiserIds Select only creative fields that belong to
-   * these advertisers.
-   * @opt_param string ids Select only creative fields with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_CreativeFieldsListResponse
    */
@@ -6031,6 +6051,14 @@ class Google_Service_Dfareporting_CreativeGroups_Resource extends Google_Service
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string advertiserIds Select only creative groups that belong to
+   * these advertisers.
+   * @opt_param int groupNumber Select only creative groups that belong to this
+   * subgroup.
+   * @opt_param string ids Select only creative groups with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for creative groups by name
    * or ID. Wildcards (*) are allowed. For example, "creativegroup*2015" will
    * return creative groups with names like "creativegroup June 2015",
@@ -6040,14 +6068,6 @@ class Google_Service_Dfareporting_CreativeGroups_Resource extends Google_Service
    * creative groups with the name "my creativegroup", "creativegroup 2015", or
    * simply "creativegroup".
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string advertiserIds Select only creative groups that belong to
-   * these advertisers.
-   * @opt_param int groupNumber Select only creative groups that belong to this
-   * subgroup.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string ids Select only creative groups with these IDs.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_CreativeGroupsListResponse
    */
@@ -6138,9 +6158,22 @@ class Google_Service_Dfareporting_Creatives_Resource extends Google_Service_Reso
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string sizeIds Select only creatives with these size IDs.
+   * @opt_param bool active Select only active creatives. Leave blank to select
+   * active and inactive creatives.
+   * @opt_param string advertiserId Select only creatives with this advertiser ID.
    * @opt_param bool archived Select only archived creatives. Leave blank to
    * select archived and unarchived creatives.
+   * @opt_param string campaignId Select only creatives with this campaign ID.
+   * @opt_param string companionCreativeIds Select only in-stream video creatives
+   * with these companion IDs.
+   * @opt_param string creativeFieldIds Select only creatives with these creative
+   * field IDs.
+   * @opt_param string ids Select only creatives with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
+   * @opt_param string renderingIds Select only creatives with these rendering
+   * IDs.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "creative*2015" will return objects
    * with names like "creative June 2015", "creative April 2015", or simply
@@ -6148,24 +6181,11 @@ class Google_Service_Dfareporting_Creatives_Resource extends Google_Service_Reso
    * start and the end of the search string. For example, a search string of
    * "creative" will match objects with name "my creative", "creative 2015", or
    * simply "creative".
-   * @opt_param string campaignId Select only creatives with this campaign ID.
+   * @opt_param string sizeIds Select only creatives with these size IDs.
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string renderingIds Select only creatives with these rendering
-   * IDs.
-   * @opt_param string ids Select only creatives with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string advertiserId Select only creatives with this advertiser ID.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string studioCreativeId Select only creatives corresponding to
    * this Studio creative ID.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param string companionCreativeIds Select only in-stream video creatives
-   * with these companion IDs.
-   * @opt_param bool active Select only active creatives. Leave blank to select
-   * active and inactive creatives.
-   * @opt_param string creativeFieldIds Select only creatives with these creative
-   * field IDs.
    * @opt_param string types Select only creatives with these creative types.
    * @return Google_Service_Dfareporting_CreativesListResponse
    */
@@ -6228,9 +6248,9 @@ class Google_Service_Dfareporting_DimensionValues_Resource extends Google_Servic
    * @param Google_DimensionValueRequest $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string pageToken The value of the nextToken from the previous
    * result page.
-   * @opt_param int maxResults Maximum number of results to return.
    * @return Google_Service_Dfareporting_DimensionValueList
    */
   public function query($profileId, Google_Service_Dfareporting_DimensionValueRequest $postBody, $optParams = array())
@@ -6274,6 +6294,12 @@ class Google_Service_Dfareporting_DirectorySiteContacts_Resource extends Google_
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string directorySiteIds Select only directory site contacts with
+   * these directory site IDs. This is a required field.
+   * @opt_param string ids Select only directory site contacts with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for objects by name, ID or
    * email. Wildcards (*) are allowed. For example, "directory site contact*2015"
    * will return objects with names like "directory site contact June 2015",
@@ -6282,13 +6308,7 @@ class Google_Service_Dfareporting_DirectorySiteContacts_Resource extends Google_
    * of the search string. For example, a search string of "directory site
    * contact" will match objects with name "my directory site contact", "directory
    * site contact 2015", or simply "directory site contact".
-   * @opt_param string directorySiteIds Select only directory site contacts with
-   * these directory site IDs. This is a required field.
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string ids Select only directory site contacts with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_DirectorySiteContactsListResponse
    */
@@ -6348,9 +6368,22 @@ class Google_Service_Dfareporting_DirectorySites_Resource extends Google_Service
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool acceptsInStreamVideoPlacements This search filter is no
+   * longer supported and will have no effect on the results returned.
    * @opt_param bool acceptsInterstitialPlacements This search filter is no longer
    * supported and will have no effect on the results returned.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
+   * @opt_param bool acceptsPublisherPaidPlacements Select only directory sites
+   * that accept publisher paid placements. This field can be left blank.
+   * @opt_param bool active Select only active directory sites. Leave blank to
+   * retrieve both active and inactive directory sites.
+   * @opt_param string countryId Select only directory sites with this country ID.
+   * @opt_param string dfp_network_code Select only directory sites with this DFP
+   * network code.
+   * @opt_param string ids Select only directory sites with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
+   * @opt_param string parentId Select only directory sites with this parent ID.
    * @opt_param string searchString Allows searching for objects by name, ID or
    * URL. Wildcards (*) are allowed. For example, "directory site*2015" will
    * return objects with names like "directory site June 2015", "directory site
@@ -6358,21 +6391,8 @@ class Google_Service_Dfareporting_DirectorySites_Resource extends Google_Service
    * wildcards implicitly at the start and the end of the search string. For
    * example, a search string of "directory site" will match objects with name "my
    * directory site", "directory site 2015" or simply, "directory site".
-   * @opt_param string countryId Select only directory sites with this country ID.
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param bool acceptsInStreamVideoPlacements This search filter is no
-   * longer supported and will have no effect on the results returned.
-   * @opt_param string ids Select only directory sites with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
-   * @opt_param bool acceptsPublisherPaidPlacements Select only directory sites
-   * that accept publisher paid placements. This field can be left blank.
-   * @opt_param string parentId Select only directory sites with this parent ID.
-   * @opt_param bool active Select only active directory sites. Leave blank to
-   * retrieve both active and inactive directory sites.
-   * @opt_param string dfp_network_code Select only directory sites with this DFP
-   * network code.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_DirectorySitesListResponse
    */
   public function listDirectorySites($profileId, $optParams = array())
@@ -6444,6 +6464,30 @@ class Google_Service_Dfareporting_EventTags_Resource extends Google_Service_Reso
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string adId Select only event tags that belong to this ad.
+   * @opt_param string advertiserId Select only event tags that belong to this
+   * advertiser.
+   * @opt_param string campaignId Select only event tags that belong to this
+   * campaign.
+   * @opt_param bool definitionsOnly Examine only the specified campaign or
+   * advertiser's event tags for matching selector criteria. When set to false,
+   * the parent advertiser and parent campaign of the specified ad or campaign is
+   * examined as well. In addition, when set to false, the status field is
+   * examined as well, along with the enabledByDefault field. This parameter can
+   * not be set to true when adId is specified as ads do not define their own even
+   * tags.
+   * @opt_param bool enabled Select only enabled event tags. What is considered
+   * enabled or disabled depends on the definitionsOnly parameter. When
+   * definitionsOnly is set to true, only the specified advertiser or campaign's
+   * event tags' enabledByDefault field is examined. When definitionsOnly is set
+   * to false, the specified ad or specified campaign's parent advertiser's or
+   * parent campaign's event tags' enabledByDefault and status fields are examined
+   * as well.
+   * @opt_param string eventTagTypes Select only event tags with the specified
+   * event tag types. Event tag types can be used to specify whether to use a
+   * third-party pixel, a third-party JavaScript URL, or a third-party click-
+   * through URL for either impression or click tracking.
+   * @opt_param string ids Select only event tags with these IDs.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "eventtag*2015" will return objects
    * with names like "eventtag June 2015", "eventtag April 2015", or simply
@@ -6451,28 +6495,8 @@ class Google_Service_Dfareporting_EventTags_Resource extends Google_Service_Reso
    * start and the end of the search string. For example, a search string of
    * "eventtag" will match objects with name "my eventtag", "eventtag 2015", or
    * simply "eventtag".
-   * @opt_param string campaignId Select only event tags that belong to this
-   * campaign.
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param bool enabled Select only enabled event tags. When definitionsOnly
-   * is set to true, only the specified advertiser or campaign's event tags'
-   * enabledByDefault field is examined. When definitionsOnly is set to false, the
-   * specified ad or specified campaign's parent advertiser's or parent campaign's
-   * event tags' enabledByDefault and status fields are examined as well.
-   * @opt_param string ids Select only event tags with these IDs.
-   * @opt_param string advertiserId Select only event tags that belong to this
-   * advertiser.
-   * @opt_param string adId Select only event tags that belong to this ad.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param string eventTagTypes Select only event tags with the specified
-   * event tag types. Event tag types can be used to specify whether to use a
-   * third-party pixel, a third-party JavaScript URL, or a third-party click-
-   * through URL for either impression or click tracking.
-   * @opt_param bool definitionsOnly Examine only the specified ad or campaign or
-   * advertiser's event tags for matching selector criteria. When set to false,
-   * the parent advertiser and parent campaign is examined as well. In addition,
-   * when set to false, the status field is examined as well along with the
-   * enabledByDefault field.
    * @return Google_Service_Dfareporting_EventTagsListResponse
    */
   public function listEventTags($profileId, $optParams = array())
@@ -6547,13 +6571,13 @@ class Google_Service_Dfareporting_Files_Resource extends Google_Service_Resource
    * @param string $profileId The DFA profile ID.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string sortField The field by which to sort the list.
    * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string pageToken The value of the nextToken from the previous
    * result page.
-   * @opt_param string sortOrder Order of sorted results, default is 'DESCENDING'.
    * @opt_param string scope The scope that defines which results are returned,
    * default is 'MINE'.
+   * @opt_param string sortField The field by which to sort the list.
+   * @opt_param string sortOrder Order of sorted results, default is 'DESCENDING'.
    * @return Google_Service_Dfareporting_FileList
    */
   public function listFiles($profileId, $optParams = array())
@@ -6643,9 +6667,26 @@ class Google_Service_Dfareporting_FloodlightActivities_Resource extends Google_S
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string advertiserId Select only floodlight activities for the
+   * specified advertiser ID. Must specify either ids, advertiserId, or
+   * floodlightConfigurationId for a non-empty result.
    * @opt_param string floodlightActivityGroupIds Select only floodlight
    * activities with the specified floodlight activity group IDs.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
+   * @opt_param string floodlightActivityGroupName Select only floodlight
+   * activities with the specified floodlight activity group name.
+   * @opt_param string floodlightActivityGroupTagString Select only floodlight
+   * activities with the specified floodlight activity group tag string.
+   * @opt_param string floodlightActivityGroupType Select only floodlight
+   * activities with the specified floodlight activity group type.
+   * @opt_param string floodlightConfigurationId Select only floodlight activities
+   * for the specified floodlight configuration ID. Must specify either ids,
+   * advertiserId, or floodlightConfigurationId for a non-empty result.
+   * @opt_param string ids Select only floodlight activities with the specified
+   * IDs. Must specify either ids, advertiserId, or floodlightConfigurationId for
+   * a non-empty result.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "floodlightactivity*2015" will return
    * objects with names like "floodlightactivity June 2015", "floodlightactivity
@@ -6655,26 +6696,9 @@ class Google_Service_Dfareporting_FloodlightActivities_Resource extends Google_S
    * "my floodlightactivity activity", "floodlightactivity 2015", or simply
    * "floodlightactivity".
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string floodlightConfigurationId Select only floodlight activities
-   * for the specified floodlight configuration ID. Must specify either ids,
-   * advertiserId, or floodlightConfigurationId for a non-empty result.
-   * @opt_param string ids Select only floodlight activities with the specified
-   * IDs. Must specify either ids, advertiserId, or floodlightConfigurationId for
-   * a non-empty result.
-   * @opt_param string floodlightActivityGroupName Select only floodlight
-   * activities with the specified floodlight activity group name.
-   * @opt_param string advertiserId Select only floodlight activities for the
-   * specified advertiser ID. Must specify either ids, advertiserId, or
-   * floodlightConfigurationId for a non-empty result.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
-   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string tagString Select only floodlight activities with the
    * specified tag string.
-   * @opt_param string floodlightActivityGroupTagString Select only floodlight
-   * activities with the specified floodlight activity group tag string.
-   * @opt_param string floodlightActivityGroupType Select only floodlight
-   * activities with the specified floodlight activity group type.
    * @return Google_Service_Dfareporting_FloodlightActivitiesListResponse
    */
   public function listFloodlightActivities($profileId, $optParams = array())
@@ -6729,21 +6753,6 @@ class Google_Service_Dfareporting_FloodlightActivityGroups_Resource extends Goog
 {
 
   /**
-   * Deletes an existing floodlight activity group.
-   * (floodlightActivityGroups.delete)
-   *
-   * @param string $profileId User profile ID associated with this request.
-   * @param string $id Floodlight activity Group ID.
-   * @param array $optParams Optional parameters.
-   */
-  public function delete($profileId, $id, $optParams = array())
-  {
-    $params = array('profileId' => $profileId, 'id' => $id);
-    $params = array_merge($params, $optParams);
-    return $this->call('delete', array($params));
-  }
-
-  /**
    * Gets one floodlight activity group by ID. (floodlightActivityGroups.get)
    *
    * @param string $profileId User profile ID associated with this request.
@@ -6780,6 +6789,18 @@ class Google_Service_Dfareporting_FloodlightActivityGroups_Resource extends Goog
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string advertiserId Select only floodlight activity groups with
+   * the specified advertiser ID. Must specify either advertiserId or
+   * floodlightConfigurationId for a non-empty result.
+   * @opt_param string floodlightConfigurationId Select only floodlight activity
+   * groups with the specified floodlight configuration ID. Must specify either
+   * advertiserId, or floodlightConfigurationId for a non-empty result.
+   * @opt_param string ids Select only floodlight activity groups with the
+   * specified IDs. Must specify either advertiserId or floodlightConfigurationId
+   * for a non-empty result.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "floodlightactivitygroup*2015" will
    * return objects with names like "floodlightactivitygroup June 2015",
@@ -6790,18 +6811,6 @@ class Google_Service_Dfareporting_FloodlightActivityGroups_Resource extends Goog
    * floodlightactivitygroup activity", "floodlightactivitygroup 2015", or simply
    * "floodlightactivitygroup".
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string floodlightConfigurationId Select only floodlight activity
-   * groups with the specified floodlight configuration ID. Must specify either
-   * advertiserId, or floodlightConfigurationId for a non-empty result.
-   * @opt_param string ids Select only floodlight activity groups with the
-   * specified IDs. Must specify either advertiserId or floodlightConfigurationId
-   * for a non-empty result.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string advertiserId Select only floodlight activity groups with
-   * the specified advertiser ID. Must specify either advertiserId or
-   * floodlightConfigurationId for a non-empty result.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string type Select only floodlight activity groups with the
    * specified floodlight activity group type.
@@ -6961,17 +6970,18 @@ class Google_Service_Dfareporting_InventoryItems_Resource extends Google_Service
    * @param string $projectId Project ID for order documents.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string ids Select only inventory items with these IDs.
+   * @opt_param bool inPlan Select only inventory items that are in plan.
+   * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string orderId Select only inventory items that belong to
    * specified orders.
-   * @opt_param string ids Select only inventory items with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
    * @opt_param string siteId Select only inventory items that are associated with
    * these sites.
-   * @opt_param bool inPlan Select only inventory items that are in plan.
    * @opt_param string sortField Field by which to sort the list.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
+   * @opt_param string type Select only inventory items with this type.
    * @return Google_Service_Dfareporting_InventoryItemsListResponse
    */
   public function listInventoryItems($profileId, $projectId, $optParams = array())
@@ -7277,7 +7287,13 @@ class Google_Service_Dfareporting_OrderDocuments_Resource extends Google_Service
    * @param string $projectId Project ID for order documents.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool approved Select only order documents that have been approved
+   * by at least one user.
+   * @opt_param string ids Select only order documents with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string orderId Select only order documents for specified orders.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for order documents by name
    * or ID. Wildcards (*) are allowed. For example, "orderdocument*2015" will
    * return order documents with names like "orderdocument June 2015",
@@ -7286,16 +7302,10 @@ class Google_Service_Dfareporting_OrderDocuments_Resource extends Google_Service
    * string. For example, a search string of "orderdocument" will match order
    * documents with name "my orderdocument", "orderdocument 2015", or simply
    * "orderdocument".
-   * @opt_param string ids Select only order documents with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string siteId Select only order documents that are associated with
    * these sites.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param bool approved Select only order documents that have been approved
-   * by at least one user.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_OrderDocumentsListResponse
    */
   public function listOrderDocuments($profileId, $projectId, $optParams = array())
@@ -7340,20 +7350,20 @@ class Google_Service_Dfareporting_Orders_Resource extends Google_Service_Resourc
    * @param string $projectId Project ID for orders.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string ids Select only orders with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for orders by name or ID.
    * Wildcards (*) are allowed. For example, "order*2015" will return orders with
    * names like "order June 2015", "order April 2015", or simply "order 2015".
    * Most of the searches also add wildcards implicitly at the start and the end
    * of the search string. For example, a search string of "order" will match
    * orders with name "my order", "order 2015", or simply "order".
-   * @opt_param string ids Select only orders with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string siteId Select only orders that are associated with these
    * site IDs.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_OrdersListResponse
    */
   public function listOrders($profileId, $projectId, $optParams = array())
@@ -7412,10 +7422,42 @@ class Google_Service_Dfareporting_PlacementGroups_Resource extends Google_Servic
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string placementStrategyIds Select only placement groups that are
-   * associated with these placement strategies.
+   * @opt_param string advertiserIds Select only placement groups that belong to
+   * these advertisers.
    * @opt_param bool archived Select only archived placements. Don't set this
    * field to select both archived and non-archived placements.
+   * @opt_param string campaignIds Select only placement groups that belong to
+   * these campaigns.
+   * @opt_param string contentCategoryIds Select only placement groups that are
+   * associated with these content categories.
+   * @opt_param string directorySiteIds Select only placement groups that are
+   * associated with these directory sites.
+   * @opt_param string ids Select only placement groups with these IDs.
+   * @opt_param string maxEndDate Select only placements or placement groups whose
+   * end date is on or before the specified maxEndDate. The date should be
+   * formatted as "yyyy-MM-dd".
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string maxStartDate Select only placements or placement groups
+   * whose start date is on or before the specified maxStartDate. The date should
+   * be formatted as "yyyy-MM-dd".
+   * @opt_param string minEndDate Select only placements or placement groups whose
+   * end date is on or after the specified minEndDate. The date should be
+   * formatted as "yyyy-MM-dd".
+   * @opt_param string minStartDate Select only placements or placement groups
+   * whose start date is on or after the specified minStartDate. The date should
+   * be formatted as "yyyy-MM-dd".
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
+   * @opt_param string placementGroupType Select only placement groups belonging
+   * with this group type. A package is a simple group of placements that acts as
+   * a single pricing point for a group of tags. A roadblock is a group of
+   * placements that not only acts as a single pricing point but also assumes that
+   * all the tags in it will be served at the same time. A roadblock requires one
+   * of its assigned placements to be marked as primary for reporting.
+   * @opt_param string placementStrategyIds Select only placement groups that are
+   * associated with these placement strategies.
+   * @opt_param string pricingTypes Select only placement groups with these
+   * pricing types.
    * @opt_param string searchString Allows searching for placement groups by name
    * or ID. Wildcards (*) are allowed. For example, "placement*2015" will return
    * placement groups with names like "placement group June 2015", "placement
@@ -7423,30 +7465,10 @@ class Google_Service_Dfareporting_PlacementGroups_Resource extends Google_Servic
    * wildcards implicitly at the start and the end of the search string. For
    * example, a search string of "placementgroup" will match placement groups with
    * name "my placementgroup", "placementgroup 2015", or simply "placementgroup".
-   * @opt_param string contentCategoryIds Select only placement groups that are
-   * associated with these content categories.
-   * @opt_param string directorySiteIds Select only placement groups that are
-   * associated with these directory sites.
-   * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string advertiserIds Select only placement groups that belong to
-   * these advertisers.
-   * @opt_param string ids Select only placement groups with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param string placementGroupType Select only placement groups belonging
-   * with this group type. A package is a simple group of placements that acts as
-   * a single pricing point for a group of tags. A roadblock is a group of
-   * placements that not only acts as a single pricing point but also assumes that
-   * all the tags in it will be served at the same time. A roadblock requires one
-   * of its assigned placements to be marked as primary for reporting.
-   * @opt_param string pricingTypes Select only placement groups with these
-   * pricing types.
    * @opt_param string siteIds Select only placement groups that are associated
    * with these sites.
-   * @opt_param string campaignIds Select only placement groups that belong to
-   * these campaigns.
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_PlacementGroupsListResponse
    */
   public function listPlacementGroups($profileId, $optParams = array())
@@ -7551,6 +7573,10 @@ class Google_Service_Dfareporting_PlacementStrategies_Resource extends Google_Se
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string ids Select only placement strategies with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "placementstrategy*2015" will return
    * objects with names like "placementstrategy June 2015", "placementstrategy
@@ -7560,10 +7586,6 @@ class Google_Service_Dfareporting_PlacementStrategies_Resource extends Google_Se
    * "my placementstrategy", "placementstrategy 2015", or simply
    * "placementstrategy".
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string ids Select only placement strategies with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_PlacementStrategiesListResponse
    */
@@ -7624,10 +7646,10 @@ class Google_Service_Dfareporting_Placements_Resource extends Google_Service_Res
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string tagFormats Tag formats to generate for these placements.
-   * @opt_param string placementIds Generate tags for these placements.
    * @opt_param string campaignId Generate placements belonging to this campaign.
    * This is a required field.
+   * @opt_param string placementIds Generate tags for these placements.
+   * @opt_param string tagFormats Tag formats to generate for these placements.
    * @return Google_Service_Dfareporting_PlacementsGenerateTagsResponse
    */
   public function generatetags($profileId, $optParams = array())
@@ -7674,11 +7696,46 @@ class Google_Service_Dfareporting_Placements_Resource extends Google_Service_Res
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string placementStrategyIds Select only placements that are
-   * associated with these placement strategies.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
+   * @opt_param string advertiserIds Select only placements that belong to these
+   * advertisers.
    * @opt_param bool archived Select only archived placements. Don't set this
    * field to select both archived and non-archived placements.
+   * @opt_param string campaignIds Select only placements that belong to these
+   * campaigns.
+   * @opt_param string compatibilities Select only placements that are associated
+   * with these compatibilities. DISPLAY and DISPLAY_INTERSTITIAL refer to
+   * rendering either on desktop or on mobile devices for regular or interstitial
+   * ads respectively. APP and APP_INTERSTITIAL are for rendering in mobile
+   * apps.IN_STREAM_VIDEO refers to rendering in in-stream video ads developed
+   * with the VAST standard.
+   * @opt_param string contentCategoryIds Select only placements that are
+   * associated with these content categories.
+   * @opt_param string directorySiteIds Select only placements that are associated
+   * with these directory sites.
+   * @opt_param string groupIds Select only placements that belong to these
+   * placement groups.
+   * @opt_param string ids Select only placements with these IDs.
+   * @opt_param string maxEndDate Select only placements or placement groups whose
+   * end date is on or before the specified maxEndDate. The date should be
+   * formatted as "yyyy-MM-dd".
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string maxStartDate Select only placements or placement groups
+   * whose start date is on or before the specified maxStartDate. The date should
+   * be formatted as "yyyy-MM-dd".
+   * @opt_param string minEndDate Select only placements or placement groups whose
+   * end date is on or after the specified minEndDate. The date should be
+   * formatted as "yyyy-MM-dd".
+   * @opt_param string minStartDate Select only placements or placement groups
+   * whose start date is on or after the specified minStartDate. The date should
+   * be formatted as "yyyy-MM-dd".
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
+   * @opt_param string paymentSource Select only placements with this payment
+   * source.
+   * @opt_param string placementStrategyIds Select only placements that are
+   * associated with these placement strategies.
+   * @opt_param string pricingTypes Select only placements with these pricing
+   * types.
    * @opt_param string searchString Allows searching for placements by name or ID.
    * Wildcards (*) are allowed. For example, "placement*2015" will return
    * placements with names like "placement June 2015", "placement May 2015", or
@@ -7686,35 +7743,12 @@ class Google_Service_Dfareporting_Placements_Resource extends Google_Service_Res
    * at the start and the end of the search string. For example, a search string
    * of "placement" will match placements with name "my placement", "placement
    * 2015", or simply "placement".
-   * @opt_param string contentCategoryIds Select only placements that are
-   * associated with these content categories.
-   * @opt_param string directorySiteIds Select only placements that are associated
-   * with these directory sites.
-   * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string advertiserIds Select only placements that belong to these
-   * advertisers.
-   * @opt_param string paymentSource Select only placements with this payment
-   * source.
-   * @opt_param string ids Select only placements with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string sizeIds Select only placements that are associated with
-   * these sizes.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
-   * @opt_param string compatibilities Select only placements that are associated
-   * with these compatibilities. WEB and WEB_INTERSTITIAL refer to rendering
-   * either on desktop or on mobile devices for regular or interstitial ads
-   * respectively. APP and APP_INTERSTITIAL are for rendering in mobile
-   * apps.IN_STREAM_VIDEO refers to rendering in in-stream video ads developed
-   * with the VAST standard.
-   * @opt_param string groupIds Select only placements that belong to these
-   * placement groups.
-   * @opt_param string pricingTypes Select only placements with these pricing
-   * types.
    * @opt_param string siteIds Select only placements that are associated with
    * these sites.
-   * @opt_param string campaignIds Select only placements that belong to these
-   * campaigns.
+   * @opt_param string sizeIds Select only placements that are associated with
+   * these sizes.
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_PlacementsListResponse
    */
   public function listPlacements($profileId, $optParams = array())
@@ -7871,6 +7905,12 @@ class Google_Service_Dfareporting_Projects_Resource extends Google_Service_Resou
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string advertiserIds Select only projects with these advertiser
+   * IDs.
+   * @opt_param string ids Select only projects with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for projects by name or ID.
    * Wildcards (*) are allowed. For example, "project*2015" will return projects
    * with names like "project June 2015", "project April 2015", or simply "project
@@ -7878,12 +7918,6 @@ class Google_Service_Dfareporting_Projects_Resource extends Google_Service_Resou
    * the end of the search string. For example, a search string of "project" will
    * match projects with name "my project", "project 2015", or simply "project".
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string advertiserIds Select only projects with these advertiser
-   * IDs.
-   * @opt_param string ids Select only projects with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_ProjectsListResponse
    */
@@ -8031,6 +8065,10 @@ class Google_Service_Dfareporting_RemarketingLists_Resource extends Google_Servi
    * advertiser.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool active Select only active or only inactive remarketing lists.
+   * @opt_param string floodlightActivityId Select only remarketing lists that
+   * have this floodlight activity ID.
+   * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string name Allows searching for objects by name or ID. Wildcards
    * (*) are allowed. For example, "remarketing list*2015" will return objects
    * with names like "remarketing list June 2015", "remarketing list April 2015",
@@ -8038,14 +8076,10 @@ class Google_Service_Dfareporting_RemarketingLists_Resource extends Google_Servi
    * implicitly at the start and the end of the search string. For example, a
    * search string of "remarketing list" will match objects with name "my
    * remarketing list", "remarketing list 2015", or simply "remarketing list".
-   * @opt_param string sortField Field by which to sort the list.
-   * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param bool active Select only active or only inactive remarketing lists.
-   * @opt_param string floodlightActivityId Select only remarketing lists that
-   * have this floodlight activity ID.
    * @return Google_Service_Dfareporting_RemarketingListsListResponse
    */
   public function listRemarketingLists($profileId, $advertiserId, $optParams = array())
@@ -8149,13 +8183,13 @@ class Google_Service_Dfareporting_Reports_Resource extends Google_Service_Resour
    * @param string $profileId The DFA user profile ID.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string sortField The field by which to sort the list.
    * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string pageToken The value of the nextToken from the previous
    * result page.
-   * @opt_param string sortOrder Order of sorted results, default is 'DESCENDING'.
    * @opt_param string scope The scope that defines which results are returned,
    * default is 'MINE'.
+   * @opt_param string sortField The field by which to sort the list.
+   * @opt_param string sortOrder Order of sorted results, default is 'DESCENDING'.
    * @return Google_Service_Dfareporting_ReportList
    */
   public function listReports($profileId, $optParams = array())
@@ -8278,10 +8312,10 @@ class Google_Service_Dfareporting_ReportsFiles_Resource extends Google_Service_R
    * @param string $reportId The ID of the parent report.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string sortField The field by which to sort the list.
    * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string pageToken The value of the nextToken from the previous
    * result page.
+   * @opt_param string sortField The field by which to sort the list.
    * @opt_param string sortOrder Order of sorted results, default is 'DESCENDING'.
    * @return Google_Service_Dfareporting_FileList
    */
@@ -8340,32 +8374,32 @@ class Google_Service_Dfareporting_Sites_Resource extends Google_Service_Resource
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool acceptsInStreamVideoPlacements This search filter is no
+   * longer supported and will have no effect on the results returned.
    * @opt_param bool acceptsInterstitialPlacements This search filter is no longer
    * supported and will have no effect on the results returned.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
+   * @opt_param bool acceptsPublisherPaidPlacements Select only sites that accept
+   * publisher paid placements.
+   * @opt_param bool adWordsSite Select only AdWords sites.
+   * @opt_param bool approved Select only approved sites.
+   * @opt_param string campaignIds Select only sites with these campaign IDs.
+   * @opt_param string directorySiteIds Select only sites with these directory
+   * site IDs.
+   * @opt_param string ids Select only sites with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for objects by name, ID or
    * keyName. Wildcards (*) are allowed. For example, "site*2015" will return
    * objects with names like "site June 2015", "site April 2015", or simply "site
    * 2015". Most of the searches also add wildcards implicitly at the start and
    * the end of the search string. For example, a search string of "site" will
    * match objects with name "my site", "site 2015", or simply "site".
-   * @opt_param string subaccountId Select only sites with this subaccount ID.
-   * @opt_param string directorySiteIds Select only sites with these directory
-   * site IDs.
-   * @opt_param bool acceptsInStreamVideoPlacements This search filter is no
-   * longer supported and will have no effect on the results returned.
-   * @opt_param string ids Select only sites with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
-   * @opt_param bool acceptsPublisherPaidPlacements Select only sites that accept
-   * publisher paid placements.
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param bool adWordsSite Select only AdWords sites.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
+   * @opt_param string subaccountId Select only sites with this subaccount ID.
    * @opt_param bool unmappedSite Select only sites that have not been mapped to a
    * directory site.
-   * @opt_param bool approved Select only approved sites.
-   * @opt_param string campaignIds Select only sites with these campaign IDs.
    * @return Google_Service_Dfareporting_SitesListResponse
    */
   public function listSites($profileId, $optParams = array())
@@ -8454,10 +8488,10 @@ class Google_Service_Dfareporting_Sizes_Resource extends Google_Service_Resource
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param bool iabStandard Select only IAB standard sizes.
-   * @opt_param int width Select only sizes with this width.
-   * @opt_param string ids Select only sizes with these IDs.
    * @opt_param int height Select only sizes with this height.
+   * @opt_param bool iabStandard Select only IAB standard sizes.
+   * @opt_param string ids Select only sizes with these IDs.
+   * @opt_param int width Select only sizes with this width.
    * @return Google_Service_Dfareporting_SizesListResponse
    */
   public function listSizes($profileId, $optParams = array())
@@ -8515,6 +8549,10 @@ class Google_Service_Dfareporting_Subaccounts_Resource extends Google_Service_Re
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string ids Select only subaccounts with these IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "subaccount*2015" will return objects
    * with names like "subaccount June 2015", "subaccount April 2015", or simply
@@ -8523,10 +8561,6 @@ class Google_Service_Dfareporting_Subaccounts_Resource extends Google_Service_Re
    * "subaccount" will match objects with name "my subaccount", "subaccount 2015",
    * or simply "subaccount".
    * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string ids Select only subaccounts with these IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @return Google_Service_Dfareporting_SubaccountsListResponse
    */
@@ -8605,6 +8639,9 @@ class Google_Service_Dfareporting_TargetableRemarketingLists_Resource extends Go
    * targetable by these advertisers.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool active Select only active or only inactive targetable
+   * remarketing lists.
+   * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string name Allows searching for objects by name or ID. Wildcards
    * (*) are allowed. For example, "remarketing list*2015" will return objects
    * with names like "remarketing list June 2015", "remarketing list April 2015",
@@ -8612,13 +8649,10 @@ class Google_Service_Dfareporting_TargetableRemarketingLists_Resource extends Go
    * implicitly at the start and the end of the search string. For example, a
    * search string of "remarketing list" will match objects with name "my
    * remarketing list", "remarketing list 2015", or simply "remarketing list".
-   * @opt_param string sortField Field by which to sort the list.
-   * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string pageToken Value of the nextPageToken from the previous
    * result page.
+   * @opt_param string sortField Field by which to sort the list.
    * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param bool active Select only active or only inactive targetable
-   * remarketing lists.
    * @return Google_Service_Dfareporting_TargetableRemarketingListsListResponse
    */
   public function listTargetableRemarketingLists($profileId, $advertiserId, $optParams = array())
@@ -8815,6 +8849,12 @@ class Google_Service_Dfareporting_UserRoles_Resource extends Google_Service_Reso
    * @param string $profileId User profile ID associated with this request.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool accountUserRoleOnly Select only account level user roles not
+   * associated with any specific subaccount.
+   * @opt_param string ids Select only user roles with the specified IDs.
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Value of the nextPageToken from the previous
+   * result page.
    * @opt_param string searchString Allows searching for objects by name or ID.
    * Wildcards (*) are allowed. For example, "userrole*2015" will return objects
    * with names like "userrole June 2015", "userrole April 2015", or simply
@@ -8822,16 +8862,10 @@ class Google_Service_Dfareporting_UserRoles_Resource extends Google_Service_Reso
    * start and the end of the search string. For example, a search string of
    * "userrole" will match objects with name "my userrole", "userrole 2015", or
    * simply "userrole".
+   * @opt_param string sortField Field by which to sort the list.
+   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
    * @opt_param string subaccountId Select only user roles that belong to this
    * subaccount.
-   * @opt_param string sortField Field by which to sort the list.
-   * @opt_param string ids Select only user roles with the specified IDs.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string pageToken Value of the nextPageToken from the previous
-   * result page.
-   * @opt_param string sortOrder Order of sorted results, default is ASCENDING.
-   * @opt_param bool accountUserRoleOnly Select only account level user roles not
-   * associated with any specific subaccount.
    * @return Google_Service_Dfareporting_UserRolesListResponse
    */
   public function listUserRoles($profileId, $optParams = array())
@@ -9536,7 +9570,6 @@ class Google_Service_Dfareporting_Ad extends Google_Collection
 {
   protected $collection_key = 'placementAssignments';
   protected $internal_gapi_mappings = array(
-        "remarketingListExpression" => "remarketing_list_expression",
   );
   public $accountId;
   public $active;
@@ -10031,6 +10064,7 @@ class Google_Service_Dfareporting_Advertiser extends Google_Model
   public $originalFloodlightConfigurationId;
   public $status;
   public $subaccountId;
+  public $suspended;
 
 
   public function setAccountId($accountId)
@@ -10144,6 +10178,14 @@ class Google_Service_Dfareporting_Advertiser extends Google_Model
   public function getSubaccountId()
   {
     return $this->subaccountId;
+  }
+  public function setSuspended($suspended)
+  {
+    $this->suspended = $suspended;
+  }
+  public function getSuspended()
+  {
+    return $this->suspended;
   }
 }
 
@@ -11126,11 +11168,20 @@ class Google_Service_Dfareporting_ClickThroughUrl extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $computedClickThroughUrl;
   public $customClickThroughUrl;
   public $defaultLandingPage;
   public $landingPageId;
 
 
+  public function setComputedClickThroughUrl($computedClickThroughUrl)
+  {
+    $this->computedClickThroughUrl = $computedClickThroughUrl;
+  }
+  public function getComputedClickThroughUrl()
+  {
+    return $this->computedClickThroughUrl;
+  }
   public function setCustomClickThroughUrl($customClickThroughUrl)
   {
     $this->customClickThroughUrl = $customClickThroughUrl;
@@ -11516,6 +11567,7 @@ class Google_Service_Dfareporting_Creative extends Google_Collection
   public $allowScriptAccess;
   public $archived;
   public $artworkType;
+  public $authoringSource;
   public $authoringTool;
   public $autoAdvanceImages;
   public $backgroundColor;
@@ -11562,6 +11614,7 @@ class Google_Service_Dfareporting_Creative extends Google_Collection
   protected $sizeDataType = '';
   public $skippable;
   public $sslCompliant;
+  public $sslOverride;
   public $studioAdvertiserId;
   public $studioCreativeId;
   public $studioTraffickedCreativeId;
@@ -11642,6 +11695,14 @@ class Google_Service_Dfareporting_Creative extends Google_Collection
   public function getArtworkType()
   {
     return $this->artworkType;
+  }
+  public function setAuthoringSource($authoringSource)
+  {
+    $this->authoringSource = $authoringSource;
+  }
+  public function getAuthoringSource()
+  {
+    return $this->authoringSource;
   }
   public function setAuthoringTool($authoringTool)
   {
@@ -11922,6 +11983,14 @@ class Google_Service_Dfareporting_Creative extends Google_Collection
   public function getSslCompliant()
   {
     return $this->sslCompliant;
+  }
+  public function setSslOverride($sslOverride)
+  {
+    $this->sslOverride = $sslOverride;
+  }
+  public function getSslOverride()
+  {
+    return $this->sslOverride;
   }
   public function setStudioAdvertiserId($studioAdvertiserId)
   {
@@ -12640,7 +12709,7 @@ class Google_Service_Dfareporting_CreativeCustomEvent extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
-  public $active;
+  public $advertiserCustomEventId;
   public $advertiserCustomEventName;
   public $advertiserCustomEventType;
   public $artworkLabel;
@@ -12653,13 +12722,13 @@ class Google_Service_Dfareporting_CreativeCustomEvent extends Google_Model
   public $videoReportingId;
 
 
-  public function setActive($active)
+  public function setAdvertiserCustomEventId($advertiserCustomEventId)
   {
-    $this->active = $active;
+    $this->advertiserCustomEventId = $advertiserCustomEventId;
   }
-  public function getActive()
+  public function getAdvertiserCustomEventId()
   {
-    return $this->active;
+    return $this->advertiserCustomEventId;
   }
   public function setAdvertiserCustomEventName($advertiserCustomEventName)
   {
@@ -14306,6 +14375,7 @@ class Google_Service_Dfareporting_EventTag extends Google_Collection
   protected $campaignIdDimensionValueType = 'Google_Service_Dfareporting_DimensionValue';
   protected $campaignIdDimensionValueDataType = '';
   public $enabledByDefault;
+  public $excludeFromAdxRequests;
   public $id;
   public $kind;
   public $name;
@@ -14366,6 +14436,14 @@ class Google_Service_Dfareporting_EventTag extends Google_Collection
   public function getEnabledByDefault()
   {
     return $this->enabledByDefault;
+  }
+  public function setExcludeFromAdxRequests($excludeFromAdxRequests)
+  {
+    $this->excludeFromAdxRequests = $excludeFromAdxRequests;
+  }
+  public function getExcludeFromAdxRequests()
+  {
+    return $this->excludeFromAdxRequests;
   }
   public function setId($id)
   {
@@ -15200,17 +15278,19 @@ class Google_Service_Dfareporting_FloodlightConfiguration extends Google_Collect
   public $id;
   protected $idDimensionValueType = 'Google_Service_Dfareporting_DimensionValue';
   protected $idDimensionValueDataType = '';
+  public $inAppAttributionTrackingEnabled;
   public $kind;
   protected $lookbackConfigurationType = 'Google_Service_Dfareporting_LookbackConfiguration';
   protected $lookbackConfigurationDataType = '';
   public $naturalSearchConversionAttributionOption;
   protected $omnitureSettingsType = 'Google_Service_Dfareporting_OmnitureSettings';
   protected $omnitureSettingsDataType = '';
-  public $sslRequired;
   public $standardVariableTypes;
   public $subaccountId;
   protected $tagSettingsType = 'Google_Service_Dfareporting_TagSettings';
   protected $tagSettingsDataType = '';
+  protected $thirdPartyAuthenticationTokensType = 'Google_Service_Dfareporting_ThirdPartyAuthenticationToken';
+  protected $thirdPartyAuthenticationTokensDataType = 'array';
   protected $userDefinedVariableConfigurationsType = 'Google_Service_Dfareporting_UserDefinedVariableConfiguration';
   protected $userDefinedVariableConfigurationsDataType = 'array';
 
@@ -15279,6 +15359,14 @@ class Google_Service_Dfareporting_FloodlightConfiguration extends Google_Collect
   {
     return $this->idDimensionValue;
   }
+  public function setInAppAttributionTrackingEnabled($inAppAttributionTrackingEnabled)
+  {
+    $this->inAppAttributionTrackingEnabled = $inAppAttributionTrackingEnabled;
+  }
+  public function getInAppAttributionTrackingEnabled()
+  {
+    return $this->inAppAttributionTrackingEnabled;
+  }
   public function setKind($kind)
   {
     $this->kind = $kind;
@@ -15311,14 +15399,6 @@ class Google_Service_Dfareporting_FloodlightConfiguration extends Google_Collect
   {
     return $this->omnitureSettings;
   }
-  public function setSslRequired($sslRequired)
-  {
-    $this->sslRequired = $sslRequired;
-  }
-  public function getSslRequired()
-  {
-    return $this->sslRequired;
-  }
   public function setStandardVariableTypes($standardVariableTypes)
   {
     $this->standardVariableTypes = $standardVariableTypes;
@@ -15342,6 +15422,14 @@ class Google_Service_Dfareporting_FloodlightConfiguration extends Google_Collect
   public function getTagSettings()
   {
     return $this->tagSettings;
+  }
+  public function setThirdPartyAuthenticationTokens($thirdPartyAuthenticationTokens)
+  {
+    $this->thirdPartyAuthenticationTokens = $thirdPartyAuthenticationTokens;
+  }
+  public function getThirdPartyAuthenticationTokens()
+  {
+    return $this->thirdPartyAuthenticationTokens;
   }
   public function setUserDefinedVariableConfigurations($userDefinedVariableConfigurations)
   {
@@ -15603,6 +15691,7 @@ class Google_Service_Dfareporting_InventoryItem extends Google_Collection
   public $rfpId;
   public $siteId;
   public $subaccountId;
+  public $type;
 
 
   public function setAccountId($accountId)
@@ -15756,6 +15845,14 @@ class Google_Service_Dfareporting_InventoryItem extends Google_Collection
   public function getSubaccountId()
   {
     return $this->subaccountId;
+  }
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  public function getType()
+  {
+    return $this->type;
   }
 }
 
@@ -16838,7 +16935,7 @@ class Google_Service_Dfareporting_OrderContact extends Google_Model
 
 class Google_Service_Dfareporting_OrderDocument extends Google_Collection
 {
-  protected $collection_key = 'approvedByUserProfileIds';
+  protected $collection_key = 'lastSentRecipients';
   protected $internal_gapi_mappings = array(
   );
   public $accountId;
@@ -16851,6 +16948,8 @@ class Google_Service_Dfareporting_OrderDocument extends Google_Collection
   public $effectiveDate;
   public $id;
   public $kind;
+  public $lastSentRecipients;
+  public $lastSentTime;
   public $orderId;
   public $projectId;
   public $signed;
@@ -16930,6 +17029,22 @@ class Google_Service_Dfareporting_OrderDocument extends Google_Collection
   public function getKind()
   {
     return $this->kind;
+  }
+  public function setLastSentRecipients($lastSentRecipients)
+  {
+    $this->lastSentRecipients = $lastSentRecipients;
+  }
+  public function getLastSentRecipients()
+  {
+    return $this->lastSentRecipients;
+  }
+  public function setLastSentTime($lastSentTime)
+  {
+    $this->lastSentTime = $lastSentTime;
+  }
+  public function getLastSentTime()
+  {
+    return $this->lastSentTime;
   }
   public function setOrderId($orderId)
   {
@@ -17540,8 +17655,6 @@ class Google_Service_Dfareporting_PlacementGroup extends Google_Collection
   public $primaryPlacementId;
   protected $primaryPlacementIdDimensionValueType = 'Google_Service_Dfareporting_DimensionValue';
   protected $primaryPlacementIdDimensionValueDataType = '';
-  protected $programmaticSettingType = 'Google_Service_Dfareporting_ProgrammaticSetting';
-  protected $programmaticSettingDataType = '';
   public $siteId;
   protected $siteIdDimensionValueType = 'Google_Service_Dfareporting_DimensionValue';
   protected $siteIdDimensionValueDataType = '';
@@ -17731,14 +17844,6 @@ class Google_Service_Dfareporting_PlacementGroup extends Google_Collection
   public function getPrimaryPlacementIdDimensionValue()
   {
     return $this->primaryPlacementIdDimensionValue;
-  }
-  public function setProgrammaticSetting(Google_Service_Dfareporting_ProgrammaticSetting $programmaticSetting)
-  {
-    $this->programmaticSetting = $programmaticSetting;
-  }
-  public function getProgrammaticSetting()
-  {
-    return $this->programmaticSetting;
   }
   public function setSiteId($siteId)
   {
@@ -18417,69 +18522,6 @@ class Google_Service_Dfareporting_PricingSchedulePricingPeriod extends Google_Mo
   public function getUnits()
   {
     return $this->units;
-  }
-}
-
-class Google_Service_Dfareporting_ProgrammaticSetting extends Google_Collection
-{
-  protected $collection_key = 'traffickerEmails';
-  protected $internal_gapi_mappings = array(
-  );
-  public $adxDealIds;
-  public $insertionOrderId;
-  public $insertionOrderIdStatus;
-  public $mediaCostNanos;
-  public $programmatic;
-  public $traffickerEmails;
-
-
-  public function setAdxDealIds($adxDealIds)
-  {
-    $this->adxDealIds = $adxDealIds;
-  }
-  public function getAdxDealIds()
-  {
-    return $this->adxDealIds;
-  }
-  public function setInsertionOrderId($insertionOrderId)
-  {
-    $this->insertionOrderId = $insertionOrderId;
-  }
-  public function getInsertionOrderId()
-  {
-    return $this->insertionOrderId;
-  }
-  public function setInsertionOrderIdStatus($insertionOrderIdStatus)
-  {
-    $this->insertionOrderIdStatus = $insertionOrderIdStatus;
-  }
-  public function getInsertionOrderIdStatus()
-  {
-    return $this->insertionOrderIdStatus;
-  }
-  public function setMediaCostNanos($mediaCostNanos)
-  {
-    $this->mediaCostNanos = $mediaCostNanos;
-  }
-  public function getMediaCostNanos()
-  {
-    return $this->mediaCostNanos;
-  }
-  public function setProgrammatic($programmatic)
-  {
-    $this->programmatic = $programmatic;
-  }
-  public function getProgrammatic()
-  {
-    return $this->programmatic;
-  }
-  public function setTraffickerEmails($traffickerEmails)
-  {
-    $this->traffickerEmails = $traffickerEmails;
-  }
-  public function getTraffickerEmails()
-  {
-    return $this->traffickerEmails;
   }
 }
 
@@ -20333,6 +20375,7 @@ class Google_Service_Dfareporting_SiteSettings extends Google_Model
   protected $lookbackConfigurationDataType = '';
   protected $tagSettingType = 'Google_Service_Dfareporting_TagSetting';
   protected $tagSettingDataType = '';
+  public $videoActiveViewOptOut;
 
 
   public function setActiveViewOptOut($activeViewOptOut)
@@ -20382,6 +20425,14 @@ class Google_Service_Dfareporting_SiteSettings extends Google_Model
   public function getTagSetting()
   {
     return $this->tagSetting;
+  }
+  public function setVideoActiveViewOptOut($videoActiveViewOptOut)
+  {
+    $this->videoActiveViewOptOut = $videoActiveViewOptOut;
+  }
+  public function getVideoActiveViewOptOut()
+  {
+    return $this->videoActiveViewOptOut;
   }
 }
 
@@ -20998,6 +21049,32 @@ class Google_Service_Dfareporting_TechnologyTargeting extends Google_Collection
   public function getPlatformTypes()
   {
     return $this->platformTypes;
+  }
+}
+
+class Google_Service_Dfareporting_ThirdPartyAuthenticationToken extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $name;
+  public $value;
+
+
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
   }
 }
 

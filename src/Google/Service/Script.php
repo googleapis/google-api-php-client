@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -293,14 +291,6 @@ class Google_Service_Script_Operation extends Google_Model
   }
 }
 
-class Google_Service_Script_OperationMetadata extends Google_Model
-{
-}
-
-class Google_Service_Script_OperationResponse extends Google_Model
-{
-}
-
 class Google_Service_Script_ScriptStackTraceElement extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -361,8 +351,4 @@ class Google_Service_Script_Status extends Google_Collection
   {
     return $this->message;
   }
-}
-
-class Google_Service_Script_StatusDetails extends Google_Model
-{
 }

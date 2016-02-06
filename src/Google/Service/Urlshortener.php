@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -78,11 +76,11 @@ class Google_Service_Urlshortener extends Google_Service
               'path' => 'url/history',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'start-token' => array(
+                'projection' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'projection' => array(
+                'start-token' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -141,9 +139,9 @@ class Google_Service_Urlshortener_Url_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string projection Additional information to return.
    * @opt_param string start-token Token for requesting successive pages of
    * results.
-   * @opt_param string projection Additional information to return.
    * @return Google_Service_Urlshortener_UrlHistory
    */
   public function listUrl($optParams = array())

@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -80,6 +78,12 @@ class Google_Service_Directory extends Google_Service
   /** View organization units on your domain. */
   const ADMIN_DIRECTORY_ORGUNIT_READONLY =
       "https://www.googleapis.com/auth/admin.directory.orgunit.readonly";
+  /** View and manage the provisioning of calendar resources on your domain. */
+  const ADMIN_DIRECTORY_RESOURCE_CALENDAR =
+      "https://www.googleapis.com/auth/admin.directory.resource.calendar";
+  /** View calendar resources on your domain. */
+  const ADMIN_DIRECTORY_RESOURCE_CALENDAR_READONLY =
+      "https://www.googleapis.com/auth/admin.directory.resource.calendar.readonly";
   /** Manage delegated admin roles for your domain. */
   const ADMIN_DIRECTORY_ROLEMANAGEMENT =
       "https://www.googleapis.com/auth/admin.directory.rolemanagement";
@@ -121,6 +125,7 @@ class Google_Service_Directory extends Google_Service
   public $notifications;
   public $orgunits;
   public $privileges;
+  public $resources_calendars;
   public $roleAssignments;
   public $roles;
   public $schemas;
@@ -242,7 +247,15 @@ class Google_Service_Directory extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -250,19 +263,11 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
+                'query' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'sortOrder' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'query' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -511,10 +516,6 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'domain' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -522,6 +523,10 @@ class Google_Service_Directory extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
                 'userKey' => array(
                   'location' => 'query',
@@ -652,6 +657,10 @@ class Google_Service_Directory extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -659,10 +668,6 @@ class Google_Service_Directory extends Google_Service
                 'roles' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
                 ),
               ),
             ),'patch' => array(
@@ -763,7 +768,15 @@ class Google_Service_Directory extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -771,19 +784,11 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
+                'query' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'sortOrder' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'query' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -837,7 +842,7 @@ class Google_Service_Directory extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
+                'language' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -845,7 +850,7 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'language' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -941,11 +946,11 @@ class Google_Service_Directory extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'type' => array(
+                'orgUnitPath' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'orgUnitPath' => array(
+                'type' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -997,6 +1002,104 @@ class Google_Service_Directory extends Google_Service
               'httpMethod' => 'GET',
               'parameters' => array(
                 'customer' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->resources_calendars = new Google_Service_Directory_ResourcesCalendars_Resource(
+        $this,
+        $this->serviceName,
+        'calendars',
+        array(
+          'methods' => array(
+            'delete' => array(
+              'path' => 'customer/{customer}/resources/calendars/{calendarResourceId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'calendarResourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'customer/{customer}/resources/calendars/{calendarResourceId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'calendarResourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'insert' => array(
+              'path' => 'customer/{customer}/resources/calendars',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'customer/{customer}/resources/calendars',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'patch' => array(
+              'path' => 'customer/{customer}/resources/calendars/{calendarResourceId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'calendarResourceId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'customer/{customer}/resources/calendars/{calendarResourceId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'customer' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'calendarResourceId' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -1061,19 +1164,19 @@ class Google_Service_Directory extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'userKey' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'roleId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'userKey' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1137,13 +1240,13 @@ class Google_Service_Directory extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -1345,15 +1448,15 @@ class Google_Service_Directory extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'viewType' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'customFieldMask' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'viewType' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1366,11 +1469,11 @@ class Google_Service_Directory extends Google_Service
               'path' => 'users',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'customer' => array(
+                'customFieldMask' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'orderBy' => array(
+                'customer' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1378,15 +1481,7 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'showDeleted' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'customFieldMask' => array(
+                'event' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1394,11 +1489,15 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sortOrder' => array(
+                'projection' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1406,11 +1505,15 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'viewType' => array(
+                'showDeleted' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'event' => array(
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'viewType' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1459,11 +1562,11 @@ class Google_Service_Directory extends Google_Service
               'path' => 'users/watch',
               'httpMethod' => 'POST',
               'parameters' => array(
-                'customer' => array(
+                'customFieldMask' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'orderBy' => array(
+                'customer' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1471,15 +1574,7 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'showDeleted' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'customFieldMask' => array(
+                'event' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1487,11 +1582,15 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
+                'orderBy' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'sortOrder' => array(
+                'projection' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1499,11 +1598,15 @@ class Google_Service_Directory extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'viewType' => array(
+                'showDeleted' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'event' => array(
+                'sortOrder' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'viewType' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1788,15 +1891,15 @@ class Google_Service_Directory_Chromeosdevices_Resource extends Google_Service_R
    * @param string $customerId Immutable id of the Google Apps account
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults Maximum number of results to return. Default is 100
    * @opt_param string orderBy Column to use for sorting results
+   * @opt_param string pageToken Token to specify next page in the list
    * @opt_param string projection Restrict information returned to a set of
    * selected fields.
-   * @opt_param int maxResults Maximum number of results to return. Default is 100
-   * @opt_param string pageToken Token to specify next page in the list
-   * @opt_param string sortOrder Whether to return results in ascending or
-   * descending order. Only of use when orderBy is also used
    * @opt_param string query Search string in the format given at
    * http://support.google.com/chromeos/a/bin/answer.py?hl=en=1698333
+   * @opt_param string sortOrder Whether to return results in ascending or
+   * descending order. Only of use when orderBy is also used
    * @return Google_Service_Directory_ChromeOsDevices
    */
   public function listChromeosdevices($customerId, $optParams = array())
@@ -2105,11 +2208,11 @@ class Google_Service_Directory_Groups_Resource extends Google_Service_Resource
    * @opt_param string customer Immutable id of the Google Apps account. In case
    * of multi-domain, to fetch all groups for a customer, fill this field instead
    * of domain.
-   * @opt_param string pageToken Token to specify next page in the list
    * @opt_param string domain Name of the domain. Fill this field to get groups
    * from only this domain. To return all groups in a multi-domain fill customer
    * field instead.
    * @opt_param int maxResults Maximum number of results to return. Default is 200
+   * @opt_param string pageToken Token to specify next page in the list
    * @opt_param string userKey Email or immutable Id of the user if only those
    * groups are to be listed, the given user is a member of. If Id, it should
    * match with id of user object
@@ -2271,10 +2374,10 @@ class Google_Service_Directory_Members_Resource extends Google_Service_Resource
    * @param string $groupKey Email or immutable Id of the group
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults Maximum number of results to return. Default is 200
    * @opt_param string pageToken Token to specify next page in the list
    * @opt_param string roles Comma separated role values to filter list results
    * on.
-   * @opt_param int maxResults Maximum number of results to return. Default is 200
    * @return Google_Service_Directory_Members
    */
   public function listMembers($groupKey, $optParams = array())
@@ -2387,15 +2490,15 @@ class Google_Service_Directory_Mobiledevices_Resource extends Google_Service_Res
    * @param string $customerId Immutable id of the Google Apps account
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults Maximum number of results to return. Default is 100
    * @opt_param string orderBy Column to use for sorting results
+   * @opt_param string pageToken Token to specify next page in the list
    * @opt_param string projection Restrict information returned to a set of
    * selected fields.
-   * @opt_param int maxResults Maximum number of results to return. Default is 100
-   * @opt_param string pageToken Token to specify next page in the list
-   * @opt_param string sortOrder Whether to return results in ascending or
-   * descending order. Only of use when orderBy is also used
    * @opt_param string query Search string in the format given at
    * http://support.google.com/a/bin/answer.py?hl=en=1408863#search
+   * @opt_param string sortOrder Whether to return results in ascending or
+   * descending order. Only of use when orderBy is also used
    * @return Google_Service_Directory_MobileDevices
    */
   public function listMobiledevices($customerId, $optParams = array())
@@ -2454,12 +2557,12 @@ class Google_Service_Directory_Notifications_Resource extends Google_Service_Res
    * @param string $customer The unique ID for the customer's Google account.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The token to specify the page of results to
-   * retrieve.
-   * @opt_param string maxResults Maximum number of notifications to return per
-   * page. The default is 100.
    * @opt_param string language The ISO 639-1 code of the language notifications
    * are returned in. The default is English (en).
+   * @opt_param string maxResults Maximum number of notifications to return per
+   * page. The default is 100.
+   * @opt_param string pageToken The token to specify the page of results to
+   * retrieve.
    * @return Google_Service_Directory_Notifications
    */
   public function listNotifications($customer, $optParams = array())
@@ -2564,10 +2667,10 @@ class Google_Service_Directory_Orgunits_Resource extends Google_Service_Resource
    * @param string $customerId Immutable id of the Google Apps account
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string type Whether to return all sub-organizations or just
-   * immediate children
    * @opt_param string orgUnitPath the URL-encoded organization unit's path or its
    * Id
+   * @opt_param string type Whether to return all sub-organizations or just
+   * immediate children
    * @return Google_Service_Directory_OrgUnits
    */
   public function listOrgunits($customerId, $optParams = array())
@@ -2639,6 +2742,141 @@ class Google_Service_Directory_Privileges_Resource extends Google_Service_Resour
 }
 
 /**
+ * The "resources" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adminService = new Google_Service_Directory(...);
+ *   $resources = $adminService->resources;
+ *  </code>
+ */
+class Google_Service_Directory_Resources_Resource extends Google_Service_Resource
+{
+}
+
+/**
+ * The "calendars" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adminService = new Google_Service_Directory(...);
+ *   $calendars = $adminService->calendars;
+ *  </code>
+ */
+class Google_Service_Directory_ResourcesCalendars_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Deletes a calendar resource. (calendars.delete)
+   *
+   * @param string $customer The unique ID for the customer's Google account. As
+   * an account administrator, you can also use the my_customer alias to represent
+   * your account's customer ID.
+   * @param string $calendarResourceId The unique ID of the calendar resource to
+   * delete.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($customer, $calendarResourceId, $optParams = array())
+  {
+    $params = array('customer' => $customer, 'calendarResourceId' => $calendarResourceId);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+
+  /**
+   * Retrieves a calendar resource. (calendars.get)
+   *
+   * @param string $customer The unique ID for the customer's Google account. As
+   * an account administrator, you can also use the my_customer alias to represent
+   * your account's customer ID.
+   * @param string $calendarResourceId The unique ID of the calendar resource to
+   * retrieve.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_CalendarResource
+   */
+  public function get($customer, $calendarResourceId, $optParams = array())
+  {
+    $params = array('customer' => $customer, 'calendarResourceId' => $calendarResourceId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_Directory_CalendarResource");
+  }
+
+  /**
+   * Inserts a calendar resource. (calendars.insert)
+   *
+   * @param string $customer The unique ID for the customer's Google account. As
+   * an account administrator, you can also use the my_customer alias to represent
+   * your account's customer ID.
+   * @param Google_CalendarResource $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_CalendarResource
+   */
+  public function insert($customer, Google_Service_Directory_CalendarResource $postBody, $optParams = array())
+  {
+    $params = array('customer' => $customer, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('insert', array($params), "Google_Service_Directory_CalendarResource");
+  }
+
+  /**
+   * Retrieves a list of calendar resources for an account.
+   * (calendars.listResourcesCalendars)
+   *
+   * @param string $customer The unique ID for the customer's Google account. As
+   * an account administrator, you can also use the my_customer alias to represent
+   * your account's customer ID.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Token to specify the next page in the list.
+   * @return Google_Service_Directory_CalendarResources
+   */
+  public function listResourcesCalendars($customer, $optParams = array())
+  {
+    $params = array('customer' => $customer);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Directory_CalendarResources");
+  }
+
+  /**
+   * Updates a calendar resource. This method supports patch semantics.
+   * (calendars.patch)
+   *
+   * @param string $customer The unique ID for the customer's Google account. As
+   * an account administrator, you can also use the my_customer alias to represent
+   * your account's customer ID.
+   * @param string $calendarResourceId The unique ID of the calendar resource to
+   * update.
+   * @param Google_CalendarResource $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_CalendarResource
+   */
+  public function patch($customer, $calendarResourceId, Google_Service_Directory_CalendarResource $postBody, $optParams = array())
+  {
+    $params = array('customer' => $customer, 'calendarResourceId' => $calendarResourceId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_Directory_CalendarResource");
+  }
+
+  /**
+   * Updates a calendar resource. (calendars.update)
+   *
+   * @param string $customer The unique ID for the customer's Google account. As
+   * an account administrator, you can also use the my_customer alias to represent
+   * your account's customer ID.
+   * @param string $calendarResourceId The unique ID of the calendar resource to
+   * update.
+   * @param Google_CalendarResource $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Directory_CalendarResource
+   */
+  public function update($customer, $calendarResourceId, Google_Service_Directory_CalendarResource $postBody, $optParams = array())
+  {
+    $params = array('customer' => $customer, 'calendarResourceId' => $calendarResourceId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_Directory_CalendarResource");
+  }
+}
+
+/**
  * The "roleAssignments" collection of methods.
  * Typical usage is:
  *  <code>
@@ -2700,13 +2938,13 @@ class Google_Service_Directory_RoleAssignments_Resource extends Google_Service_R
    * @param string $customer Immutable ID of the Google Apps account.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int maxResults Maximum number of results to return.
    * @opt_param string pageToken Token to specify the next page in the list.
+   * @opt_param string roleId Immutable ID of a role. If included in the request,
+   * returns only role assignments containing this role ID.
    * @opt_param string userKey The user's primary email address, alias email
    * address, or unique user ID. If included in the request, returns role
    * assignments only for this user.
-   * @opt_param int maxResults Maximum number of results to return.
-   * @opt_param string roleId Immutable ID of a role. If included in the request,
-   * returns only role assignments containing this role ID.
    * @return Google_Service_Directory_RoleAssignments
    */
   public function listRoleAssignments($customer, $optParams = array())
@@ -2778,8 +3016,8 @@ class Google_Service_Directory_Roles_Resource extends Google_Service_Resource
    * @param string $customer Immutable id of the Google Apps account.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Token to specify the next page in the list.
    * @opt_param int maxResults Maximum number of results to return.
+   * @opt_param string pageToken Token to specify the next page in the list.
    * @return Google_Service_Directory_Roles
    */
   public function listRoles($customer, $optParams = array())
@@ -3015,12 +3253,12 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
    * @param string $userKey Email or immutable Id of the user
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string viewType Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC
-   * view of the user.
    * @opt_param string customFieldMask Comma-separated list of schema names. All
    * fields from these schemas are fetched. This should only be set when
    * projection=custom.
    * @opt_param string projection What subset of fields to fetch for this user.
+   * @opt_param string viewType Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC
+   * view of the user.
    * @return Google_Service_Directory_User
    */
   public function get($userKey, $optParams = array())
@@ -3050,31 +3288,31 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string customer Immutable id of the Google Apps account. In case
-   * of multi-domain, to fetch all users for a customer, fill this field instead
-   * of domain.
-   * @opt_param string orderBy Column to use for sorting results
-   * @opt_param string domain Name of the domain. Fill this field to get users
-   * from only this domain. To return all users in a multi-domain fill customer
-   * field instead.
-   * @opt_param string projection What subset of fields to fetch for this user.
-   * @opt_param string showDeleted If set to true retrieves the list of deleted
-   * users. Default is false
    * @opt_param string customFieldMask Comma-separated list of schema names. All
    * fields from these schemas are fetched. This should only be set when
    * projection=custom.
+   * @opt_param string customer Immutable id of the Google Apps account. In case
+   * of multi-domain, to fetch all users for a customer, fill this field instead
+   * of domain.
+   * @opt_param string domain Name of the domain. Fill this field to get users
+   * from only this domain. To return all users in a multi-domain fill customer
+   * field instead.
+   * @opt_param string event Event on which subscription is intended (if
+   * subscribing)
    * @opt_param int maxResults Maximum number of results to return. Default is
    * 100. Max allowed is 500
+   * @opt_param string orderBy Column to use for sorting results
    * @opt_param string pageToken Token to specify next page in the list
-   * @opt_param string sortOrder Whether to return results in ascending or
-   * descending order.
+   * @opt_param string projection What subset of fields to fetch for this user.
    * @opt_param string query Query string search. Should be of the form "".
    * Complete documentation is at https://developers.google.com/admin-
    * sdk/directory/v1/guides/search-users
+   * @opt_param string showDeleted If set to true retrieves the list of deleted
+   * users. Default is false
+   * @opt_param string sortOrder Whether to return results in ascending or
+   * descending order.
    * @opt_param string viewType Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC
    * view of the user.
-   * @opt_param string event Event on which subscription is intended (if
-   * subscribing)
    * @return Google_Service_Directory_Users
    */
   public function listUsers($optParams = array())
@@ -3150,31 +3388,31 @@ class Google_Service_Directory_Users_Resource extends Google_Service_Resource
    * @param Google_Channel $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string customer Immutable id of the Google Apps account. In case
-   * of multi-domain, to fetch all users for a customer, fill this field instead
-   * of domain.
-   * @opt_param string orderBy Column to use for sorting results
-   * @opt_param string domain Name of the domain. Fill this field to get users
-   * from only this domain. To return all users in a multi-domain fill customer
-   * field instead.
-   * @opt_param string projection What subset of fields to fetch for this user.
-   * @opt_param string showDeleted If set to true retrieves the list of deleted
-   * users. Default is false
    * @opt_param string customFieldMask Comma-separated list of schema names. All
    * fields from these schemas are fetched. This should only be set when
    * projection=custom.
+   * @opt_param string customer Immutable id of the Google Apps account. In case
+   * of multi-domain, to fetch all users for a customer, fill this field instead
+   * of domain.
+   * @opt_param string domain Name of the domain. Fill this field to get users
+   * from only this domain. To return all users in a multi-domain fill customer
+   * field instead.
+   * @opt_param string event Event on which subscription is intended (if
+   * subscribing)
    * @opt_param int maxResults Maximum number of results to return. Default is
    * 100. Max allowed is 500
+   * @opt_param string orderBy Column to use for sorting results
    * @opt_param string pageToken Token to specify next page in the list
-   * @opt_param string sortOrder Whether to return results in ascending or
-   * descending order.
+   * @opt_param string projection What subset of fields to fetch for this user.
    * @opt_param string query Query string search. Should be of the form "".
    * Complete documentation is at https://developers.google.com/admin-
    * sdk/directory/v1/guides/search-users
+   * @opt_param string showDeleted If set to true retrieves the list of deleted
+   * users. Default is false
+   * @opt_param string sortOrder Whether to return results in ascending or
+   * descending order.
    * @opt_param string viewType Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC
    * view of the user.
-   * @opt_param string event Event on which subscription is intended (if
-   * subscribing)
    * @return Google_Service_Directory_Channel
    */
   public function watch(Google_Service_Directory_Channel $postBody, $optParams = array())
@@ -3587,6 +3825,123 @@ class Google_Service_Directory_Asps extends Google_Collection
   }
 }
 
+class Google_Service_Directory_CalendarResource extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $etags;
+  public $kind;
+  public $resourceDescription;
+  public $resourceEmail;
+  public $resourceId;
+  public $resourceName;
+  public $resourceType;
+
+
+  public function setEtags($etags)
+  {
+    $this->etags = $etags;
+  }
+  public function getEtags()
+  {
+    return $this->etags;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setResourceDescription($resourceDescription)
+  {
+    $this->resourceDescription = $resourceDescription;
+  }
+  public function getResourceDescription()
+  {
+    return $this->resourceDescription;
+  }
+  public function setResourceEmail($resourceEmail)
+  {
+    $this->resourceEmail = $resourceEmail;
+  }
+  public function getResourceEmail()
+  {
+    return $this->resourceEmail;
+  }
+  public function setResourceId($resourceId)
+  {
+    $this->resourceId = $resourceId;
+  }
+  public function getResourceId()
+  {
+    return $this->resourceId;
+  }
+  public function setResourceName($resourceName)
+  {
+    $this->resourceName = $resourceName;
+  }
+  public function getResourceName()
+  {
+    return $this->resourceName;
+  }
+  public function setResourceType($resourceType)
+  {
+    $this->resourceType = $resourceType;
+  }
+  public function getResourceType()
+  {
+    return $this->resourceType;
+  }
+}
+
+class Google_Service_Directory_CalendarResources extends Google_Collection
+{
+  protected $collection_key = 'items';
+  protected $internal_gapi_mappings = array(
+  );
+  public $etag;
+  protected $itemsType = 'Google_Service_Directory_CalendarResource';
+  protected $itemsDataType = 'array';
+  public $kind;
+  public $nextPageToken;
+
+
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setItems($items)
+  {
+    $this->items = $items;
+  }
+  public function getItems()
+  {
+    return $this->items;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+}
+
 class Google_Service_Directory_Channel extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -3683,10 +4038,6 @@ class Google_Service_Directory_Channel extends Google_Model
   {
     return $this->type;
   }
-}
-
-class Google_Service_Directory_ChannelParams extends Google_Model
-{
 }
 
 class Google_Service_Directory_ChromeOsDevice extends Google_Collection
@@ -6512,14 +6863,6 @@ class Google_Service_Directory_UserAddress extends Google_Model
   {
     return $this->type;
   }
-}
-
-class Google_Service_Directory_UserCustomProperties extends Google_Model
-{
-}
-
-class Google_Service_Directory_UserCustomSchemas extends Google_Model
-{
 }
 
 class Google_Service_Directory_UserEmail extends Google_Model

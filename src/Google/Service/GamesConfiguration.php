@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -97,13 +95,13 @@ class Google_Service_GamesConfiguration extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -200,13 +198,13 @@ class Google_Service_GamesConfiguration extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -302,10 +300,10 @@ class Google_Service_GamesConfiguration_AchievementConfigurations_Resource exten
    * developer console.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The token returned by the previous request.
    * @opt_param int maxResults The maximum number of resource configurations to
    * return in the response, used for paging. For any response, the actual number
    * of resources returned may be less than the specified maxResults.
+   * @opt_param string pageToken The token returned by the previous request.
    * @return Google_Service_GamesConfiguration_AchievementConfigurationListResponse
    */
   public function listAchievementConfigurations($applicationId, $optParams = array())
@@ -441,10 +439,10 @@ class Google_Service_GamesConfiguration_LeaderboardConfigurations_Resource exten
    * developer console.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The token returned by the previous request.
    * @opt_param int maxResults The maximum number of resource configurations to
    * return in the response, used for paging. For any response, the actual number
    * of resources returned may be less than the specified maxResults.
+   * @opt_param string pageToken The token returned by the previous request.
    * @return Google_Service_GamesConfiguration_LeaderboardConfigurationListResponse
    */
   public function listLeaderboardConfigurations($applicationId, $optParams = array())

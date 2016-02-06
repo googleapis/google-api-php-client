@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -74,10 +72,6 @@ class Google_Service_DataTransfer extends Google_Service
               'path' => 'applications',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'customerId' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -85,6 +79,10 @@ class Google_Service_DataTransfer extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -115,7 +113,7 @@ class Google_Service_DataTransfer extends Google_Service
               'path' => 'transfers',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'status' => array(
+                'customerId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -135,7 +133,7 @@ class Google_Service_DataTransfer extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'customerId' => array(
+                'status' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -180,10 +178,10 @@ class Google_Service_DataTransfer_Applications_Resource extends Google_Service_R
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Token to specify next page in the list.
    * @opt_param string customerId Immutable ID of the Google Apps account.
-   * @opt_param string maxResults Maximum number of results to return. Default is
+   * @opt_param int maxResults Maximum number of results to return. Default is
    * 100.
+   * @opt_param string pageToken Token to specify next page in the list.
    * @return Google_Service_DataTransfer_ApplicationsListResponse
    */
   public function listApplications($optParams = array())
@@ -240,13 +238,13 @@ class Google_Service_DataTransfer_Transfers_Resource extends Google_Service_Reso
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string status Status of the transfer.
+   * @opt_param string customerId Immutable ID of the Google Apps account.
    * @opt_param int maxResults Maximum number of results to return. Default is
    * 100.
    * @opt_param string newOwnerUserId Destination user's profile ID.
    * @opt_param string oldOwnerUserId Source user's profile ID.
    * @opt_param string pageToken Token to specify the next page in the list.
-   * @opt_param string customerId Immutable ID of the Google Apps account.
+   * @opt_param string status Status of the transfer.
    * @return Google_Service_DataTransfer_DataTransfersListResponse
    */
   public function listTransfers($optParams = array())

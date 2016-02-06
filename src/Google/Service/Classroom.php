@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -104,21 +102,21 @@ class Google_Service_Classroom extends Google_Service
               'path' => 'v1/courses',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'teacherId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'studentId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'teacherId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'patch' => array(
@@ -189,13 +187,13 @@ class Google_Service_Classroom extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -261,13 +259,13 @@ class Google_Service_Classroom extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -329,13 +327,13 @@ class Google_Service_Classroom extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -386,21 +384,21 @@ class Google_Service_Classroom extends Google_Service
               'path' => 'v1/invitations',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'courseId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'userId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'courseId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -508,21 +506,21 @@ class Google_Service_Classroom_Courses_Resource extends Google_Service_Resource
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string teacherId Restricts returned courses to those having a
-   * teacher with the specified identifier. The identifier can be one of the
-   * following: * the numeric identifier for the user * the email address of the
-   * user * the string literal `"me"`, indicating the requesting user
-   * @opt_param string pageToken nextPageToken value returned from a previous list
-   * call, indicating that the subsequent page of results should be returned. The
-   * list request must be otherwise identical to the one that resulted in this
-   * token.
    * @opt_param string studentId Restricts returned courses to those having a
    * student with the specified identifier. The identifier can be one of the
+   * following: * the numeric identifier for the user * the email address of the
+   * user * the string literal `"me"`, indicating the requesting user
+   * @opt_param string teacherId Restricts returned courses to those having a
+   * teacher with the specified identifier. The identifier can be one of the
    * following: * the numeric identifier for the user * the email address of the
    * user * the string literal `"me"`, indicating the requesting user
    * @opt_param int pageSize Maximum number of items to return. Zero or
    * unspecified indicates that the server may assign a maximum. The server may
    * return fewer than the specified number of results.
+   * @opt_param string pageToken nextPageToken value returned from a previous list
+   * call, indicating that the subsequent page of results should be returned. The
+   * list request must be otherwise identical to the one that resulted in this
+   * token.
    * @return Google_Service_Classroom_ListCoursesResponse
    */
   public function listCourses($optParams = array())
@@ -643,13 +641,13 @@ class Google_Service_Classroom_CoursesAliases_Resource extends Google_Service_Re
    * either the Classroom-assigned identifier or an alias.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize Maximum number of items to return. Zero or
+   * unspecified indicates that the server may assign a maximum. The server may
+   * return fewer than the specified number of results.
    * @opt_param string pageToken nextPageToken value returned from a previous list
    * call, indicating that the subsequent page of results should be returned. The
    * list request must be otherwise identical to the one that resulted in this
    * token.
-   * @opt_param int pageSize Maximum number of items to return. Zero or
-   * unspecified indicates that the server may assign a maximum. The server may
-   * return fewer than the specified number of results.
    * @return Google_Service_Classroom_ListCourseAliasesResponse
    */
   public function listCoursesAliases($courseId, $optParams = array())
@@ -754,12 +752,12 @@ class Google_Service_Classroom_CoursesStudents_Resource extends Google_Service_R
    * either the Classroom-assigned identifier or an alias.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize Maximum number of items to return. Zero means no
+   * maximum. The server may return fewer than the specified number of results.
    * @opt_param string pageToken nextPageToken value returned from a previous list
    * call, indicating that the subsequent page of results should be returned. The
    * list request must be otherwise identical to the one that resulted in this
    * token.
-   * @opt_param int pageSize Maximum number of items to return. Zero means no
-   * maximum. The server may return fewer than the specified number of results.
    * @return Google_Service_Classroom_ListStudentsResponse
    */
   public function listCoursesStudents($courseId, $optParams = array())
@@ -860,12 +858,12 @@ class Google_Service_Classroom_CoursesTeachers_Resource extends Google_Service_R
    * either the Classroom-assigned identifier or an alias.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize Maximum number of items to return. Zero means no
+   * maximum. The server may return fewer than the specified number of results.
    * @opt_param string pageToken nextPageToken value returned from a previous list
    * call, indicating that the subsequent page of results should be returned. The
    * list request must be otherwise identical to the one that resulted in this
    * token.
-   * @opt_param int pageSize Maximum number of items to return. Zero means no
-   * maximum. The server may return fewer than the specified number of results.
    * @return Google_Service_Classroom_ListTeachersResponse
    */
   public function listCoursesTeachers($courseId, $optParams = array())
@@ -974,18 +972,18 @@ class Google_Service_Classroom_Invitations_Resource extends Google_Service_Resou
    *
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string courseId Restricts returned invitations to those for a
-   * course with the specified identifier.
-   * @opt_param string pageToken nextPageToken value returned from a previous list
-   * call, indicating that the subsequent page of results should be returned. The
-   * list request must be otherwise identical to the one that resulted in this
-   * token.
    * @opt_param string userId Restricts returned invitations to those for a
    * specific user. The identifier can be one of the following: * the numeric
    * identifier for the user * the email address of the user * the string literal
    * `"me"`, indicating the requesting user
+   * @opt_param string courseId Restricts returned invitations to those for a
+   * course with the specified identifier.
    * @opt_param int pageSize Maximum number of items to return. Zero means no
    * maximum. The server may return fewer than the specified number of results.
+   * @opt_param string pageToken nextPageToken value returned from a previous list
+   * call, indicating that the subsequent page of results should be returned. The
+   * list request must be otherwise identical to the one that resulted in this
+   * token.
    * @return Google_Service_Classroom_ListInvitationsResponse
    */
   public function listInvitations($optParams = array())

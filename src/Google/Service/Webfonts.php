@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -181,10 +179,6 @@ class Google_Service_Webfonts_Webfont extends Google_Collection
   {
     return $this->version;
   }
-}
-
-class Google_Service_Webfonts_WebfontFiles extends Google_Model
-{
 }
 
 class Google_Service_Webfonts_WebfontList extends Google_Collection

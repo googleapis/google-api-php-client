@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -111,18 +109,18 @@ class Google_Service_Translate extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'source' => array(
+                'cid' => array(
                   'location' => 'query',
                   'type' => 'string',
+                  'repeated' => true,
                 ),
                 'format' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'cid' => array(
+                'source' => array(
                   'location' => 'query',
                   'type' => 'string',
-                  'repeated' => true,
                 ),
               ),
             ),
@@ -208,9 +206,9 @@ class Google_Service_Translate_Translations_Resource extends Google_Service_Reso
    * translated
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string source The source language of the text
-   * @opt_param string format The format of the text
    * @opt_param string cid The customization id for translate
+   * @opt_param string format The format of the text
+   * @opt_param string source The source language of the text
    * @return Google_Service_Translate_TranslationsListResponse
    */
   public function listTranslations($q, $target, $optParams = array())

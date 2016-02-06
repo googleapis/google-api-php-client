@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -19,7 +17,7 @@
  * Service definition for Webmasters (v3).
  *
  * <p>
- * Lets you view Google Webmaster Tools data for your verified sites.</p>
+ * Lets you view Google Search Console data for your verified sites.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -30,10 +28,10 @@
  */
 class Google_Service_Webmasters extends Google_Service
 {
-  /** View and modify Webmaster Tools data for your verified sites. */
+  /** View and manage Search Console data for your verified sites. */
   const WEBMASTERS =
       "https://www.googleapis.com/auth/webmasters";
-  /** View Webmaster Tools data for your verified sites. */
+  /** View Search Console data for your verified sites. */
   const WEBMASTERS_READONLY =
       "https://www.googleapis.com/auth/webmasters.readonly";
 
@@ -209,13 +207,13 @@ class Google_Service_Webmasters extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'platform' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'latestCountsOnly' => array(
                   'location' => 'query',
                   'type' => 'boolean',
+                ),
+                'platform' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -434,7 +432,7 @@ class Google_Service_Webmasters_Sites_Resource extends Google_Service_Resource
 {
 
   /**
-   * Adds a site to the set of the user's sites in Webmaster Tools. (sites.add)
+   * Adds a site to the set of the user's sites in Search Console. (sites.add)
    *
    * @param string $siteUrl The URL of the site to add.
    * @param array $optParams Optional parameters.
@@ -447,7 +445,7 @@ class Google_Service_Webmasters_Sites_Resource extends Google_Service_Resource
   }
 
   /**
-   * Removes a site from the set of the user's Webmaster Tools sites.
+   * Removes a site from the set of the user's Search Console sites.
    * (sites.delete)
    *
    * @param string $siteUrl The URI of the property as defined in Search Console.
@@ -477,7 +475,7 @@ class Google_Service_Webmasters_Sites_Resource extends Google_Service_Resource
   }
 
   /**
-   * Lists the user's Webmaster Tools sites. (sites.listSites)
+   * Lists the user's Search Console sites. (sites.listSites)
    *
    * @param array $optParams Optional parameters.
    * @return Google_Service_Webmasters_SitesListResponse
@@ -511,11 +509,11 @@ class Google_Service_Webmasters_Urlcrawlerrorscounts_Resource extends Google_Ser
    *
    * @opt_param string category The crawl error category. For example:
    * serverError. If not specified, returns results for all categories.
+   * @opt_param bool latestCountsOnly If true, returns only the latest crawl error
+   * counts.
    * @opt_param string platform The user agent type (platform) that made the
    * request. For example: web. If not specified, returns results for all
    * platforms.
-   * @opt_param bool latestCountsOnly If true, returns only the latest crawl error
-   * counts.
    * @return Google_Service_Webmasters_UrlCrawlErrorsCountsQueryResponse
    */
   public function query($siteUrl, $optParams = array())

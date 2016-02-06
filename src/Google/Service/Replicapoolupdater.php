@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -140,13 +138,13 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'listInstanceUpdates' => array(
@@ -168,13 +166,13 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'filter' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -289,13 +287,13 @@ class Google_Service_Replicapoolupdater extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -380,10 +378,10 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
    * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
    * @opt_param string maxResults Optional. Maximum count of results to be
    * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string pageToken Optional. Tag returned by a previous list request
+   * truncated by maxResults. Used to continue a previous list request.
    * @return Google_Service_Replicapoolupdater_RollingUpdateList
    */
   public function listRollingUpdates($project, $zone, $optParams = array())
@@ -403,10 +401,10 @@ class Google_Service_Replicapoolupdater_RollingUpdates_Resource extends Google_S
    * @param string $rollingUpdate The name of the update.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string maxResults Optional. Maximum count of results to be
-   * returned. Maximum value is 500 and default value is 500.
    * @opt_param string filter Optional. Filter expression for filtering listed
    * resources.
+   * @opt_param string maxResults Optional. Maximum count of results to be
+   * returned. Maximum value is 500 and default value is 500.
    * @opt_param string pageToken Optional. Tag returned by a previous list request
    * truncated by maxResults. Used to continue a previous list request.
    * @return Google_Service_Replicapoolupdater_InstanceUpdateList
@@ -513,10 +511,10 @@ class Google_Service_Replicapoolupdater_ZoneOperations_Resource extends Google_S
    *
    * @opt_param string filter Optional. Filter expression for filtering listed
    * resources.
-   * @opt_param string pageToken Optional. Tag returned by a previous list request
-   * truncated by maxResults. Used to continue a previous list request.
    * @opt_param string maxResults Optional. Maximum count of results to be
    * returned. Maximum value is 500 and default value is 500.
+   * @opt_param string pageToken Optional. Tag returned by a previous list request
+   * truncated by maxResults. Used to continue a previous list request.
    * @return Google_Service_Replicapoolupdater_OperationList
    */
   public function listZoneOperations($project, $zone, $optParams = array())

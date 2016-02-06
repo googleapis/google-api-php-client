@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -216,11 +214,11 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'projection' => array(
+                'predefinedDefaultObjectAcl' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'predefinedDefaultObjectAcl' => array(
+                'projection' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -234,6 +232,10 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -246,10 +248,6 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
               ),
             ),'patch' => array(
               'path' => 'b/{bucket}',
@@ -260,15 +258,11 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ifMetagenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'predefinedDefaultObjectAcl' => array(
+                'ifMetagenerationNotMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -276,7 +270,11 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'ifMetagenerationNotMatch' => array(
+                'predefinedDefaultObjectAcl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'projection' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -290,15 +288,11 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ifMetagenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'predefinedDefaultObjectAcl' => array(
+                'ifMetagenerationNotMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -306,7 +300,11 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'ifMetagenerationNotMatch' => array(
+                'predefinedDefaultObjectAcl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'projection' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -591,15 +589,15 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'destinationPredefinedAcl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'ifGenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'ifMetagenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'destinationPredefinedAcl' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -628,35 +626,7 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'ifSourceGenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifGenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifSourceMetagenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifMetagenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sourceGeneration' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'destinationPredefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifSourceGenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifSourceMetagenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -664,11 +634,39 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'ifGenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifMetagenerationMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'ifMetagenerationNotMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'ifSourceGenerationMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifSourceGenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifSourceMetagenerationMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifSourceMetagenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sourceGeneration' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -687,19 +685,19 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'ifGenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'generation' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'ifMetagenerationMatch' => array(
+                'ifGenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'ifGenerationMatch' => array(
+                'ifGenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifMetagenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -722,19 +720,19 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'ifGenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'generation' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'ifMetagenerationMatch' => array(
+                'ifGenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'ifGenerationMatch' => array(
+                'ifGenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifMetagenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -756,11 +754,11 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'predefinedAcl' => array(
+                'contentEncoding' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'projection' => array(
+                'ifGenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -772,19 +770,19 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'contentEncoding' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifGenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'ifMetagenerationNotMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'name' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'predefinedAcl' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'projection' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -798,15 +796,7 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'versions' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'prefix' => array(
+                'delimiter' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -818,9 +808,17 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'delimiter' => array(
+                'prefix' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'versions' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),'patch' => array(
@@ -837,19 +835,7 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'predefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifGenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'generation' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifMetagenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -857,7 +843,19 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'ifGenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifMetagenerationMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'ifMetagenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'predefinedAcl' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -890,43 +888,7 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'ifSourceGenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifGenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'rewriteToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifSourceMetagenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifMetagenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'sourceGeneration' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'destinationPredefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifSourceGenerationMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'maxBytesRewrittenPerCall' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifSourceMetagenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -934,11 +896,47 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'ifGenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifMetagenerationMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'ifMetagenerationNotMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'ifSourceGenerationMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifSourceGenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifSourceMetagenerationMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifSourceMetagenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'maxBytesRewrittenPerCall' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'rewriteToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'sourceGeneration' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -957,19 +955,7 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'predefinedAcl' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifGenerationNotMatch' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'generation' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'ifMetagenerationMatch' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -977,7 +963,19 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'ifGenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'ifMetagenerationMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'ifMetagenerationNotMatch' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'predefinedAcl' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -995,15 +993,7 @@ class Google_Service_Storage extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'projection' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'versions' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
-                'prefix' => array(
+                'delimiter' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -1015,9 +1005,17 @@ class Google_Service_Storage extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'delimiter' => array(
+                'prefix' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'projection' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'versions' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
               ),
             ),
@@ -1203,11 +1201,11 @@ class Google_Service_Storage_Buckets_Resource extends Google_Service_Resource
    *
    * @opt_param string predefinedAcl Apply a predefined set of access controls to
    * this bucket.
+   * @opt_param string predefinedDefaultObjectAcl Apply a predefined set of
+   * default object access controls to this bucket.
    * @opt_param string projection Set of properties to return. Defaults to noAcl,
    * unless the bucket resource specifies acl or defaultObjectAcl properties, when
    * it defaults to full.
-   * @opt_param string predefinedDefaultObjectAcl Apply a predefined set of
-   * default object access controls to this bucket.
    * @return Google_Service_Storage_Bucket
    */
   public function insert($project, Google_Service_Storage_Bucket $postBody, $optParams = array())
@@ -1223,12 +1221,12 @@ class Google_Service_Storage_Buckets_Resource extends Google_Service_Resource
    * @param string $project A valid API project identifier.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string maxResults Maximum number of buckets to return.
    * @opt_param string pageToken A previously-returned page token representing
    * part of the larger set of results to view.
    * @opt_param string prefix Filter results to buckets whose names begin with
    * this prefix.
    * @opt_param string projection Set of properties to return. Defaults to noAcl.
-   * @opt_param string maxResults Maximum number of buckets to return.
    * @return Google_Service_Storage_Buckets
    */
   public function listBuckets($project, $optParams = array())
@@ -1245,17 +1243,17 @@ class Google_Service_Storage_Buckets_Resource extends Google_Service_Resource
    * @param Google_Bucket $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string projection Set of properties to return. Defaults to full.
    * @opt_param string ifMetagenerationMatch Makes the return of the bucket
    * metadata conditional on whether the bucket's current metageneration matches
    * the given value.
-   * @opt_param string predefinedDefaultObjectAcl Apply a predefined set of
-   * default object access controls to this bucket.
-   * @opt_param string predefinedAcl Apply a predefined set of access controls to
-   * this bucket.
    * @opt_param string ifMetagenerationNotMatch Makes the return of the bucket
    * metadata conditional on whether the bucket's current metageneration does not
    * match the given value.
+   * @opt_param string predefinedAcl Apply a predefined set of access controls to
+   * this bucket.
+   * @opt_param string predefinedDefaultObjectAcl Apply a predefined set of
+   * default object access controls to this bucket.
+   * @opt_param string projection Set of properties to return. Defaults to full.
    * @return Google_Service_Storage_Bucket
    */
   public function patch($bucket, Google_Service_Storage_Bucket $postBody, $optParams = array())
@@ -1272,17 +1270,17 @@ class Google_Service_Storage_Buckets_Resource extends Google_Service_Resource
    * @param Google_Bucket $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string projection Set of properties to return. Defaults to full.
    * @opt_param string ifMetagenerationMatch Makes the return of the bucket
    * metadata conditional on whether the bucket's current metageneration matches
    * the given value.
-   * @opt_param string predefinedDefaultObjectAcl Apply a predefined set of
-   * default object access controls to this bucket.
-   * @opt_param string predefinedAcl Apply a predefined set of access controls to
-   * this bucket.
    * @opt_param string ifMetagenerationNotMatch Makes the return of the bucket
    * metadata conditional on whether the bucket's current metageneration does not
    * match the given value.
+   * @opt_param string predefinedAcl Apply a predefined set of access controls to
+   * this bucket.
+   * @opt_param string predefinedDefaultObjectAcl Apply a predefined set of
+   * default object access controls to this bucket.
+   * @opt_param string projection Set of properties to return. Defaults to full.
    * @return Google_Service_Storage_Bucket
    */
   public function update($bucket, Google_Service_Storage_Bucket $postBody, $optParams = array())
@@ -1608,12 +1606,12 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param Google_ComposeRequest $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string destinationPredefinedAcl Apply a predefined set of access
+   * controls to the destination object.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
    * whether the object's current generation matches the given value.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the object's current metageneration matches the given value.
-   * @opt_param string destinationPredefinedAcl Apply a predefined set of access
-   * controls to the destination object.
    * @return Google_Service_Storage_StorageObject
    */
   public function compose($destinationBucket, $destinationObject, Google_Service_Storage_ComposeRequest $postBody, $optParams = array())
@@ -1641,34 +1639,34 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param Google_StorageObject $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string ifSourceGenerationNotMatch Makes the operation conditional
-   * on whether the source object's generation does not match the given value.
+   * @opt_param string destinationPredefinedAcl Apply a predefined set of access
+   * controls to the destination object.
+   * @opt_param string ifGenerationMatch Makes the operation conditional on
+   * whether the destination object's current generation matches the given value.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
    * whether the destination object's current generation does not match the given
+   * value.
+   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
+   * whether the destination object's current metageneration matches the given
+   * value.
+   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
+   * whether the destination object's current metageneration does not match the
+   * given value.
+   * @opt_param string ifSourceGenerationMatch Makes the operation conditional on
+   * whether the source object's generation matches the given value.
+   * @opt_param string ifSourceGenerationNotMatch Makes the operation conditional
+   * on whether the source object's generation does not match the given value.
+   * @opt_param string ifSourceMetagenerationMatch Makes the operation conditional
+   * on whether the source object's current metageneration matches the given
    * value.
    * @opt_param string ifSourceMetagenerationNotMatch Makes the operation
    * conditional on whether the source object's current metageneration does not
    * match the given value.
-   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
-   * whether the destination object's current metageneration matches the given
-   * value.
-   * @opt_param string sourceGeneration If present, selects a specific revision of
-   * the source object (as opposed to the latest version, the default).
-   * @opt_param string destinationPredefinedAcl Apply a predefined set of access
-   * controls to the destination object.
-   * @opt_param string ifSourceGenerationMatch Makes the operation conditional on
-   * whether the source object's generation matches the given value.
-   * @opt_param string ifSourceMetagenerationMatch Makes the operation conditional
-   * on whether the source object's current metageneration matches the given
-   * value.
-   * @opt_param string ifGenerationMatch Makes the operation conditional on
-   * whether the destination object's current generation matches the given value.
-   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
-   * whether the destination object's current metageneration does not match the
-   * given value.
    * @opt_param string projection Set of properties to return. Defaults to noAcl,
    * unless the object resource specifies the acl property, when it defaults to
    * full.
+   * @opt_param string sourceGeneration If present, selects a specific revision of
+   * the source object (as opposed to the latest version, the default).
    * @return Google_Service_Storage_StorageObject
    */
   public function copy($sourceBucket, $sourceObject, $destinationBucket, $destinationObject, Google_Service_Storage_StorageObject $postBody, $optParams = array())
@@ -1688,14 +1686,14 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * encode object names to be path safe, see Encoding URI Path Parts.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string ifGenerationNotMatch Makes the operation conditional on
-   * whether the object's current generation does not match the given value.
    * @opt_param string generation If present, permanently deletes a specific
    * revision of this object (as opposed to the latest version, the default).
-   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
-   * whether the object's current metageneration matches the given value.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
    * whether the object's current generation matches the given value.
+   * @opt_param string ifGenerationNotMatch Makes the operation conditional on
+   * whether the object's current generation does not match the given value.
+   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
+   * whether the object's current metageneration matches the given value.
    * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
    * whether the object's current metageneration does not match the given value.
    */
@@ -1714,14 +1712,14 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * encode object names to be path safe, see Encoding URI Path Parts.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string ifGenerationNotMatch Makes the operation conditional on
-   * whether the object's generation does not match the given value.
    * @opt_param string generation If present, selects a specific revision of this
    * object (as opposed to the latest version, the default).
-   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
-   * whether the object's current metageneration matches the given value.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
    * whether the object's generation matches the given value.
+   * @opt_param string ifGenerationNotMatch Makes the operation conditional on
+   * whether the object's generation does not match the given value.
+   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
+   * whether the object's current metageneration matches the given value.
    * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
    * whether the object's current metageneration does not match the given value.
    * @opt_param string projection Set of properties to return. Defaults to noAcl.
@@ -1742,15 +1740,6 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param Google_StorageObject $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string predefinedAcl Apply a predefined set of access controls to
-   * this object.
-   * @opt_param string projection Set of properties to return. Defaults to noAcl,
-   * unless the object resource specifies the acl property, when it defaults to
-   * full.
-   * @opt_param string ifGenerationNotMatch Makes the operation conditional on
-   * whether the object's current generation does not match the given value.
-   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
-   * whether the object's current metageneration matches the given value.
    * @opt_param string contentEncoding If set, sets the contentEncoding property
    * of the final object to this value. Setting this parameter is equivalent to
    * setting the contentEncoding metadata property. This can be useful when
@@ -1758,12 +1747,21 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * content being uploaded.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
    * whether the object's current generation matches the given value.
+   * @opt_param string ifGenerationNotMatch Makes the operation conditional on
+   * whether the object's current generation does not match the given value.
+   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
+   * whether the object's current metageneration matches the given value.
    * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
    * whether the object's current metageneration does not match the given value.
    * @opt_param string name Name of the object. Required when the object metadata
    * is not otherwise provided. Overrides the object metadata's name value, if
    * any. For information about how to URL encode object names to be path safe,
    * see Encoding URI Path Parts.
+   * @opt_param string predefinedAcl Apply a predefined set of access controls to
+   * this object.
+   * @opt_param string projection Set of properties to return. Defaults to noAcl,
+   * unless the object resource specifies the acl property, when it defaults to
+   * full.
    * @return Google_Service_Storage_StorageObject
    */
   public function insert($bucket, Google_Service_Storage_StorageObject $postBody, $optParams = array())
@@ -1779,21 +1777,21 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param string $bucket Name of the bucket in which to look for objects.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string projection Set of properties to return. Defaults to noAcl.
-   * @opt_param bool versions If true, lists all versions of an object as distinct
-   * results. The default is false. For more information, see Object Versioning.
-   * @opt_param string prefix Filter results to objects whose names begin with
-   * this prefix.
-   * @opt_param string maxResults Maximum number of items plus prefixes to return.
-   * As duplicate prefixes are omitted, fewer total results may be returned than
-   * requested. The default value of this parameter is 1,000 items.
-   * @opt_param string pageToken A previously-returned page token representing
-   * part of the larger set of results to view.
    * @opt_param string delimiter Returns results in a directory-like mode. items
    * will contain only objects whose names, aside from the prefix, do not contain
    * delimiter. Objects whose names, aside from the prefix, contain delimiter will
    * have their name, truncated after the delimiter, returned in prefixes.
    * Duplicate prefixes are omitted.
+   * @opt_param string maxResults Maximum number of items plus prefixes to return.
+   * As duplicate prefixes are omitted, fewer total results may be returned than
+   * requested. The default value of this parameter is 1,000 items.
+   * @opt_param string pageToken A previously-returned page token representing
+   * part of the larger set of results to view.
+   * @opt_param string prefix Filter results to objects whose names begin with
+   * this prefix.
+   * @opt_param string projection Set of properties to return. Defaults to noAcl.
+   * @opt_param bool versions If true, lists all versions of an object as distinct
+   * results. The default is false. For more information, see Object Versioning.
    * @return Google_Service_Storage_Objects
    */
   public function listObjects($bucket, $optParams = array())
@@ -1813,18 +1811,18 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param Google_StorageObject $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string predefinedAcl Apply a predefined set of access controls to
-   * this object.
-   * @opt_param string ifGenerationNotMatch Makes the operation conditional on
-   * whether the object's current generation does not match the given value.
    * @opt_param string generation If present, selects a specific revision of this
    * object (as opposed to the latest version, the default).
-   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
-   * whether the object's current metageneration matches the given value.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
    * whether the object's current generation matches the given value.
+   * @opt_param string ifGenerationNotMatch Makes the operation conditional on
+   * whether the object's current generation does not match the given value.
+   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
+   * whether the object's current metageneration matches the given value.
    * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
    * whether the object's current metageneration does not match the given value.
+   * @opt_param string predefinedAcl Apply a predefined set of access controls to
+   * this object.
    * @opt_param string projection Set of properties to return. Defaults to full.
    * @return Google_Service_Storage_StorageObject
    */
@@ -1852,28 +1850,29 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param Google_StorageObject $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string ifSourceGenerationNotMatch Makes the operation conditional
-   * on whether the source object's generation does not match the given value.
+   * @opt_param string destinationPredefinedAcl Apply a predefined set of access
+   * controls to the destination object.
+   * @opt_param string ifGenerationMatch Makes the operation conditional on
+   * whether the destination object's current generation matches the given value.
    * @opt_param string ifGenerationNotMatch Makes the operation conditional on
    * whether the destination object's current generation does not match the given
    * value.
-   * @opt_param string rewriteToken Include this field (from the previous rewrite
-   * response) on each rewrite request after the first one, until the rewrite
-   * response 'done' flag is true. Calls that provide a rewriteToken can omit all
-   * other request fields, but if included those fields must match the values
-   * provided in the first rewrite request.
-   * @opt_param string ifSourceMetagenerationNotMatch Makes the operation
-   * conditional on whether the source object's current metageneration does not
-   * match the given value.
    * @opt_param string ifMetagenerationMatch Makes the operation conditional on
    * whether the destination object's current metageneration matches the given
    * value.
-   * @opt_param string sourceGeneration If present, selects a specific revision of
-   * the source object (as opposed to the latest version, the default).
-   * @opt_param string destinationPredefinedAcl Apply a predefined set of access
-   * controls to the destination object.
+   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
+   * whether the destination object's current metageneration does not match the
+   * given value.
    * @opt_param string ifSourceGenerationMatch Makes the operation conditional on
    * whether the source object's generation matches the given value.
+   * @opt_param string ifSourceGenerationNotMatch Makes the operation conditional
+   * on whether the source object's generation does not match the given value.
+   * @opt_param string ifSourceMetagenerationMatch Makes the operation conditional
+   * on whether the source object's current metageneration matches the given
+   * value.
+   * @opt_param string ifSourceMetagenerationNotMatch Makes the operation
+   * conditional on whether the source object's current metageneration does not
+   * match the given value.
    * @opt_param string maxBytesRewrittenPerCall The maximum number of bytes that
    * will be rewritten per rewrite request. Most callers shouldn't need to specify
    * this parameter - it is primarily in place to support testing. If specified
@@ -1881,17 +1880,16 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * applies to requests where the source and destination span locations and/or
    * storage classes. Finally, this value must not change across rewrite calls
    * else you'll get an error that the rewriteToken is invalid.
-   * @opt_param string ifSourceMetagenerationMatch Makes the operation conditional
-   * on whether the source object's current metageneration matches the given
-   * value.
-   * @opt_param string ifGenerationMatch Makes the operation conditional on
-   * whether the destination object's current generation matches the given value.
-   * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
-   * whether the destination object's current metageneration does not match the
-   * given value.
    * @opt_param string projection Set of properties to return. Defaults to noAcl,
    * unless the object resource specifies the acl property, when it defaults to
    * full.
+   * @opt_param string rewriteToken Include this field (from the previous rewrite
+   * response) on each rewrite request after the first one, until the rewrite
+   * response 'done' flag is true. Calls that provide a rewriteToken can omit all
+   * other request fields, but if included those fields must match the values
+   * provided in the first rewrite request.
+   * @opt_param string sourceGeneration If present, selects a specific revision of
+   * the source object (as opposed to the latest version, the default).
    * @return Google_Service_Storage_RewriteResponse
    */
   public function rewrite($sourceBucket, $sourceObject, $destinationBucket, $destinationObject, Google_Service_Storage_StorageObject $postBody, $optParams = array())
@@ -1910,18 +1908,18 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param Google_StorageObject $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string predefinedAcl Apply a predefined set of access controls to
-   * this object.
-   * @opt_param string ifGenerationNotMatch Makes the operation conditional on
-   * whether the object's current generation does not match the given value.
    * @opt_param string generation If present, selects a specific revision of this
    * object (as opposed to the latest version, the default).
-   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
-   * whether the object's current metageneration matches the given value.
    * @opt_param string ifGenerationMatch Makes the operation conditional on
    * whether the object's current generation matches the given value.
+   * @opt_param string ifGenerationNotMatch Makes the operation conditional on
+   * whether the object's current generation does not match the given value.
+   * @opt_param string ifMetagenerationMatch Makes the operation conditional on
+   * whether the object's current metageneration matches the given value.
    * @opt_param string ifMetagenerationNotMatch Makes the operation conditional on
    * whether the object's current metageneration does not match the given value.
+   * @opt_param string predefinedAcl Apply a predefined set of access controls to
+   * this object.
    * @opt_param string projection Set of properties to return. Defaults to full.
    * @return Google_Service_Storage_StorageObject
    */
@@ -1939,21 +1937,21 @@ class Google_Service_Storage_Objects_Resource extends Google_Service_Resource
    * @param Google_Channel $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string projection Set of properties to return. Defaults to noAcl.
-   * @opt_param bool versions If true, lists all versions of an object as distinct
-   * results. The default is false. For more information, see Object Versioning.
-   * @opt_param string prefix Filter results to objects whose names begin with
-   * this prefix.
-   * @opt_param string maxResults Maximum number of items plus prefixes to return.
-   * As duplicate prefixes are omitted, fewer total results may be returned than
-   * requested. The default value of this parameter is 1,000 items.
-   * @opt_param string pageToken A previously-returned page token representing
-   * part of the larger set of results to view.
    * @opt_param string delimiter Returns results in a directory-like mode. items
    * will contain only objects whose names, aside from the prefix, do not contain
    * delimiter. Objects whose names, aside from the prefix, contain delimiter will
    * have their name, truncated after the delimiter, returned in prefixes.
    * Duplicate prefixes are omitted.
+   * @opt_param string maxResults Maximum number of items plus prefixes to return.
+   * As duplicate prefixes are omitted, fewer total results may be returned than
+   * requested. The default value of this parameter is 1,000 items.
+   * @opt_param string pageToken A previously-returned page token representing
+   * part of the larger set of results to view.
+   * @opt_param string prefix Filter results to objects whose names begin with
+   * this prefix.
+   * @opt_param string projection Set of properties to return. Defaults to noAcl.
+   * @opt_param bool versions If true, lists all versions of an object as distinct
+   * results. The default is false. For more information, see Object Versioning.
    * @return Google_Service_Storage_Channel
    */
   public function watchAll($bucket, Google_Service_Storage_Channel $postBody, $optParams = array())
@@ -2700,10 +2698,6 @@ class Google_Service_Storage_Channel extends Google_Model
   }
 }
 
-class Google_Service_Storage_ChannelParams extends Google_Model
-{
-}
-
 class Google_Service_Storage_ComposeRequest extends Google_Collection
 {
   protected $collection_key = 'sourceObjects';
@@ -3098,6 +3092,8 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   public $contentLanguage;
   public $contentType;
   public $crc32c;
+  protected $customerEncryptionType = 'Google_Service_Storage_StorageObjectCustomerEncryption';
+  protected $customerEncryptionDataType = '';
   public $etag;
   public $generation;
   public $id;
@@ -3188,6 +3184,14 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   public function getCrc32c()
   {
     return $this->crc32c;
+  }
+  public function setCustomerEncryption(Google_Service_Storage_StorageObjectCustomerEncryption $customerEncryption)
+  {
+    $this->customerEncryption = $customerEncryption;
+  }
+  public function getCustomerEncryption()
+  {
+    return $this->customerEncryption;
   }
   public function setEtag($etag)
   {
@@ -3319,8 +3323,30 @@ class Google_Service_Storage_StorageObject extends Google_Collection
   }
 }
 
-class Google_Service_Storage_StorageObjectMetadata extends Google_Model
+class Google_Service_Storage_StorageObjectCustomerEncryption extends Google_Model
 {
+  protected $internal_gapi_mappings = array(
+  );
+  public $encryptionAlgorithm;
+  public $keySha256;
+
+
+  public function setEncryptionAlgorithm($encryptionAlgorithm)
+  {
+    $this->encryptionAlgorithm = $encryptionAlgorithm;
+  }
+  public function getEncryptionAlgorithm()
+  {
+    return $this->encryptionAlgorithm;
+  }
+  public function setKeySha256($keySha256)
+  {
+    $this->keySha256 = $keySha256;
+  }
+  public function getKeySha256()
+  {
+    return $this->keySha256;
+  }
 }
 
 class Google_Service_Storage_StorageObjectOwner extends Google_Model

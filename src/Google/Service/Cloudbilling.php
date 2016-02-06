@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -73,13 +71,13 @@ class Google_Service_Cloudbilling extends Google_Service
               'path' => 'v1/billingAccounts',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -101,13 +99,13 @@ class Google_Service_Cloudbilling extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -184,12 +182,12 @@ class Google_Service_Cloudbilling_BillingAccounts_Resource extends Google_Servic
    *
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize Requested page size. The maximum page size is 100;
+   * this is also the default.
    * @opt_param string pageToken A token identifying a page of results to return.
    * This should be a `next_page_token` value returned from a previous
    * `ListBillingAccounts` call. If unspecified, the first page of results is
    * returned.
-   * @opt_param int pageSize Requested page size. The maximum page size is 100;
-   * this is also the default.
    * @return Google_Service_Cloudbilling_ListBillingAccountsResponse
    */
   public function listBillingAccounts($optParams = array())
@@ -222,12 +220,12 @@ class Google_Service_Cloudbilling_BillingAccountsProjects_Resource extends Googl
    * `billingAccounts/012345-567890-ABCDEF`.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize Requested page size. The maximum page size is 100;
+   * this is also the default.
    * @opt_param string pageToken A token identifying a page of results to be
    * returned. This should be a `next_page_token` value returned from a previous
    * `ListProjectBillingInfo` call. If unspecified, the first page of results is
    * returned.
-   * @opt_param int pageSize Requested page size. The maximum page size is 100;
-   * this is also the default.
    * @return Google_Service_Cloudbilling_ListProjectBillingInfoResponse
    */
   public function listBillingAccountsProjects($name, $optParams = array())

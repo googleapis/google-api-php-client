@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -353,17 +351,17 @@ class Google_Service_TagManager extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'variableId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
                 'tagId' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
                 'triggerId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'variableId' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -761,6 +759,10 @@ class Google_Service_TagManager extends Google_Service
                   'required' => true,
                 ),
                 'headers' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'includeDeleted' => array(
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
@@ -1224,9 +1226,9 @@ class Google_Service_TagManager_AccountsContainersMoveFolders_Resource extends G
    * @param string $folderId The GTM Folder ID.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string variableId The variables to be moved to the folder.
    * @opt_param string tagId The tags to be moved to the folder.
    * @opt_param string triggerId The triggers to be moved to the folder.
+   * @opt_param string variableId The variables to be moved to the folder.
    */
   public function update($accountId, $containerId, $folderId, $optParams = array())
   {
@@ -1584,6 +1586,8 @@ class Google_Service_TagManager_AccountsContainersVersions_Resource extends Goog
    * @param array $optParams Optional parameters.
    *
    * @opt_param bool headers Retrieve headers only when true.
+   * @opt_param bool includeDeleted Also retrieve deleted (archived) versions when
+   * true.
    * @return Google_Service_TagManager_ListContainerVersionsResponse
    */
   public function listAccountsContainersVersions($accountId, $containerId, $optParams = array())

@@ -1,7 +1,5 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
- *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
@@ -16,14 +14,14 @@
  */
 
 /**
- * Service definition for Pubsub (v1beta1).
+ * Service definition for Pubsub (v1).
  *
  * <p>
  * Provides reliable, many-to-many, asynchronous messaging between applications.</p>
  *
  * <p>
  * For more information about this service, see the API
- * <a href="https://developers.google.com/pubsub/v1beta1" target="_blank">Documentation</a>
+ * <a href="https://cloud.google.com/pubsub/docs" target="_blank">Documentation</a>
  * </p>
  *
  * @author Google, Inc.
@@ -37,8 +35,9 @@ class Google_Service_Pubsub extends Google_Service
   const PUBSUB =
       "https://www.googleapis.com/auth/pubsub";
 
-  public $subscriptions;
-  public $topics;
+  public $projects_subscriptions;
+  public $projects_topics;
+  public $projects_topics_subscriptions;
   
 
   /**
@@ -49,27 +48,39 @@ class Google_Service_Pubsub extends Google_Service
   public function __construct(Google_Client $client)
   {
     parent::__construct($client);
-    $this->rootUrl = 'https://www.googleapis.com/';
-    $this->servicePath = 'pubsub/v1beta1/';
-    $this->version = 'v1beta1';
+    $this->rootUrl = 'https://pubsub.googleapis.com/';
+    $this->servicePath = '';
+    $this->version = 'v1';
     $this->serviceName = 'pubsub';
 
-    $this->subscriptions = new Google_Service_Pubsub_Subscriptions_Resource(
+    $this->projects_subscriptions = new Google_Service_Pubsub_ProjectsSubscriptions_Resource(
         $this,
         $this->serviceName,
         'subscriptions',
         array(
           'methods' => array(
             'acknowledge' => array(
-              'path' => 'subscriptions/acknowledge',
+              'path' => 'v1/{+subscription}:acknowledge',
               'httpMethod' => 'POST',
-              'parameters' => array(),
+              'parameters' => array(
+                'subscription' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'create' => array(
-              'path' => 'subscriptions',
-              'httpMethod' => 'POST',
-              'parameters' => array(),
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'delete' => array(
-              'path' => 'subscriptions/{+subscription}',
+              'path' => 'v1/{+subscription}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'subscription' => array(
@@ -79,7 +90,7 @@ class Google_Service_Pubsub extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'subscriptions/{+subscription}',
+              'path' => 'v1/{+subscription}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'subscription' => array(
@@ -88,55 +99,106 @@ class Google_Service_Pubsub extends Google_Service
                   'required' => true,
                 ),
               ),
-            ),'list' => array(
-              'path' => 'subscriptions',
+            ),'getIamPolicy' => array(
+              'path' => 'v1/{+resource}:getIamPolicy',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'pageToken' => array(
-                  'location' => 'query',
+                'resource' => array(
+                  'location' => 'path',
                   'type' => 'string',
+                  'required' => true,
                 ),
-                'maxResults' => array(
+              ),
+            ),'list' => array(
+              'path' => 'v1/{+project}/subscriptions',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'query' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
               ),
             ),'modifyAckDeadline' => array(
-              'path' => 'subscriptions/modifyAckDeadline',
+              'path' => 'v1/{+subscription}:modifyAckDeadline',
               'httpMethod' => 'POST',
-              'parameters' => array(),
+              'parameters' => array(
+                'subscription' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'modifyPushConfig' => array(
-              'path' => 'subscriptions/modifyPushConfig',
+              'path' => 'v1/{+subscription}:modifyPushConfig',
               'httpMethod' => 'POST',
-              'parameters' => array(),
+              'parameters' => array(
+                'subscription' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'pull' => array(
-              'path' => 'subscriptions/pull',
+              'path' => 'v1/{+subscription}:pull',
               'httpMethod' => 'POST',
-              'parameters' => array(),
-            ),'pullBatch' => array(
-              'path' => 'subscriptions/pullBatch',
+              'parameters' => array(
+                'subscription' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'setIamPolicy' => array(
+              'path' => 'v1/{+resource}:setIamPolicy',
               'httpMethod' => 'POST',
-              'parameters' => array(),
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => 'v1/{+resource}:testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),
           )
         )
     );
-    $this->topics = new Google_Service_Pubsub_Topics_Resource(
+    $this->projects_topics = new Google_Service_Pubsub_ProjectsTopics_Resource(
         $this,
         $this->serviceName,
         'topics',
         array(
           'methods' => array(
             'create' => array(
-              'path' => 'topics',
-              'httpMethod' => 'POST',
-              'parameters' => array(),
+              'path' => 'v1/{+name}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'name' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'delete' => array(
-              'path' => 'topics/{+topic}',
+              'path' => 'v1/{+topic}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'topic' => array(
@@ -146,7 +208,7 @@ class Google_Service_Pubsub extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'topics/{+topic}',
+              'path' => 'v1/{+topic}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'topic' => array(
@@ -155,31 +217,92 @@ class Google_Service_Pubsub extends Google_Service
                   'required' => true,
                 ),
               ),
-            ),'list' => array(
-              'path' => 'topics',
+            ),'getIamPolicy' => array(
+              'path' => 'v1/{+resource}:getIamPolicy',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'pageToken' => array(
-                  'location' => 'query',
+                'resource' => array(
+                  'location' => 'path',
                   'type' => 'string',
+                  'required' => true,
                 ),
-                'maxResults' => array(
+              ),
+            ),'list' => array(
+              'path' => 'v1/{+project}/topics',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'project' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'query' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
               ),
             ),'publish' => array(
-              'path' => 'topics/publish',
+              'path' => 'v1/{+topic}:publish',
               'httpMethod' => 'POST',
-              'parameters' => array(),
-            ),'publishBatch' => array(
-              'path' => 'topics/publishBatch',
+              'parameters' => array(
+                'topic' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'setIamPolicy' => array(
+              'path' => 'v1/{+resource}:setIamPolicy',
               'httpMethod' => 'POST',
-              'parameters' => array(),
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'testIamPermissions' => array(
+              'path' => 'v1/{+resource}:testIamPermissions',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'resource' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->projects_topics_subscriptions = new Google_Service_Pubsub_ProjectsTopicsSubscriptions_Resource(
+        $this,
+        $this->serviceName,
+        'subscriptions',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'v1/{+topic}/subscriptions',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'topic' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
             ),
           )
         )
@@ -189,6 +312,18 @@ class Google_Service_Pubsub extends Google_Service
 
 
 /**
+ * The "projects" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $pubsubService = new Google_Service_Pubsub(...);
+ *   $projects = $pubsubService->projects;
+ *  </code>
+ */
+class Google_Service_Pubsub_Projects_Resource extends Google_Service_Resource
+{
+}
+
+/**
  * The "subscriptions" collection of methods.
  * Typical usage is:
  *  <code>
@@ -196,60 +331,70 @@ class Google_Service_Pubsub extends Google_Service
  *   $subscriptions = $pubsubService->subscriptions;
  *  </code>
  */
-class Google_Service_Pubsub_Subscriptions_Resource extends Google_Service_Resource
+class Google_Service_Pubsub_ProjectsSubscriptions_Resource extends Google_Service_Resource
 {
 
   /**
-   * Acknowledges a particular received message: the Pub/Sub system can remove the
-   * given message from the subscription. Acknowledging a message whose Ack
-   * deadline has expired may succeed, but the message could have been already
-   * redelivered. Acknowledging a message more than once will not result in an
-   * error. This is only used for messages received via pull.
+   * Acknowledges the messages associated with the `ack_ids` in the
+   * `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages
+   * from the subscription. Acknowledging a message whose ack deadline has expired
+   * may succeed, but such a message may be redelivered later. Acknowledging a
+   * message more than once will not result in an error.
    * (subscriptions.acknowledge)
    *
+   * @param string $subscription The subscription whose message is being
+   * acknowledged.
    * @param Google_AcknowledgeRequest $postBody
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Pubsub_Empty
    */
-  public function acknowledge(Google_Service_Pubsub_AcknowledgeRequest $postBody, $optParams = array())
+  public function acknowledge($subscription, Google_Service_Pubsub_AcknowledgeRequest $postBody, $optParams = array())
   {
-    $params = array('postBody' => $postBody);
+    $params = array('subscription' => $subscription, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('acknowledge', array($params));
+    return $this->call('acknowledge', array($params), "Google_Service_Pubsub_Empty");
   }
 
   /**
-   * Creates a subscription on a given topic for a given subscriber. If the
-   * subscription already exists, returns ALREADY_EXISTS. If the corresponding
-   * topic doesn't exist, returns NOT_FOUND.
+   * Creates a subscription to a given topic for a given subscriber. If the
+   * subscription already exists, returns `ALREADY_EXISTS`. If the corresponding
+   * topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the
+   * request, the server will assign a random name for this subscription on the
+   * same project as the topic. (subscriptions.create)
    *
-   * If the name is not provided in the request, the server will assign a random
-   * name for this subscription on the same project as the topic.
-   * (subscriptions.create)
-   *
+   * @param string $name The name of the subscription. It must have the format
+   * `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
+   * start with a letter, and contain only letters (`[A-Za-z]`), numbers
+   * (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus
+   * (`+`) or percent signs (`%`). It must be between 3 and 255 characters in
+   * length, and it must not start with `"goog"`.
    * @param Google_Subscription $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_Subscription
    */
-  public function create(Google_Service_Pubsub_Subscription $postBody, $optParams = array())
+  public function create($name, Google_Service_Pubsub_Subscription $postBody, $optParams = array())
   {
-    $params = array('postBody' => $postBody);
+    $params = array('name' => $name, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('create', array($params), "Google_Service_Pubsub_Subscription");
   }
 
   /**
    * Deletes an existing subscription. All pending messages in the subscription
-   * are immediately dropped. Calls to Pull after deletion will return NOT_FOUND.
-   * (subscriptions.delete)
+   * are immediately dropped. Calls to `Pull` after deletion will return
+   * `NOT_FOUND`. After a subscription is deleted, a new one may be created with
+   * the same name, but the new one has no association with the old subscription,
+   * or its topic unless the same topic is specified. (subscriptions.delete)
    *
    * @param string $subscription The subscription to delete.
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Pubsub_Empty
    */
   public function delete($subscription, $optParams = array())
   {
     $params = array('subscription' => $subscription);
     $params = array_merge($params, $optParams);
-    return $this->call('delete', array($params));
+    return $this->call('delete', array($params), "Google_Service_Pubsub_Empty");
   }
 
   /**
@@ -267,90 +412,142 @@ class Google_Service_Pubsub_Subscriptions_Resource extends Google_Service_Resour
   }
 
   /**
-   * Lists matching subscriptions. (subscriptions.listSubscriptions)
+   * Gets the access control policy for a `resource`. Is empty if the policy or
+   * the resource does not exist. (subscriptions.getIamPolicy)
    *
+   * @param string $resource REQUIRED: The resource for which policy is being
+   * requested. `resource` is usually specified as a path, such as,
+   * `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path
+   * specified in this value is resource specific and is specified in the
+   * documentation for the respective GetIamPolicy rpc.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Pubsub_Policy
+   */
+  public function getIamPolicy($resource, $optParams = array())
+  {
+    $params = array('resource' => $resource);
+    $params = array_merge($params, $optParams);
+    return $this->call('getIamPolicy', array($params), "Google_Service_Pubsub_Policy");
+  }
+
+  /**
+   * Lists matching subscriptions. (subscriptions.listProjectsSubscriptions)
+   *
+   * @param string $project The name of the cloud project that subscriptions
+   * belong to.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The value obtained in the last
-   * ListSubscriptionsResponse for continuation.
-   * @opt_param int maxResults Maximum number of subscriptions to return.
-   * @opt_param string query A valid label query expression.
+   * @opt_param int pageSize Maximum number of subscriptions to return.
+   * @opt_param string pageToken The value returned by the last
+   * `ListSubscriptionsResponse`; indicates that this is a continuation of a prior
+   * `ListSubscriptions` call, and that the system should return the next page of
+   * data.
    * @return Google_Service_Pubsub_ListSubscriptionsResponse
    */
-  public function listSubscriptions($optParams = array())
+  public function listProjectsSubscriptions($project, $optParams = array())
   {
-    $params = array();
+    $params = array('project' => $project);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Pubsub_ListSubscriptionsResponse");
   }
 
   /**
-   * Modifies the Ack deadline for a message received from a pull request.
-   * (subscriptions.modifyAckDeadline)
+   * Modifies the ack deadline for a specific message. This method is useful to
+   * indicate that more time is needed to process a message by the subscriber, or
+   * to make the message available for redelivery if the processing was
+   * interrupted. (subscriptions.modifyAckDeadline)
    *
+   * @param string $subscription The name of the subscription.
    * @param Google_ModifyAckDeadlineRequest $postBody
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Pubsub_Empty
    */
-  public function modifyAckDeadline(Google_Service_Pubsub_ModifyAckDeadlineRequest $postBody, $optParams = array())
+  public function modifyAckDeadline($subscription, Google_Service_Pubsub_ModifyAckDeadlineRequest $postBody, $optParams = array())
   {
-    $params = array('postBody' => $postBody);
+    $params = array('subscription' => $subscription, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('modifyAckDeadline', array($params));
+    return $this->call('modifyAckDeadline', array($params), "Google_Service_Pubsub_Empty");
   }
 
   /**
-   * Modifies the PushConfig for a specified subscription. This method can be used
-   * to suspend the flow of messages to an endpoint by clearing the PushConfig
-   * field in the request. Messages will be accumulated for delivery even if no
-   * push configuration is defined or while the configuration is modified.
+   * Modifies the `PushConfig` for a specified subscription. This may be used to
+   * change a push subscription to a pull one (signified by an empty `PushConfig`)
+   * or vice versa, or change the endpoint URL and other attributes of a push
+   * subscription. Messages will accumulate for delivery continuously through the
+   * call regardless of changes to the `PushConfig`.
    * (subscriptions.modifyPushConfig)
    *
+   * @param string $subscription The name of the subscription.
    * @param Google_ModifyPushConfigRequest $postBody
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Pubsub_Empty
    */
-  public function modifyPushConfig(Google_Service_Pubsub_ModifyPushConfigRequest $postBody, $optParams = array())
+  public function modifyPushConfig($subscription, Google_Service_Pubsub_ModifyPushConfigRequest $postBody, $optParams = array())
   {
-    $params = array('postBody' => $postBody);
+    $params = array('subscription' => $subscription, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('modifyPushConfig', array($params));
+    return $this->call('modifyPushConfig', array($params), "Google_Service_Pubsub_Empty");
   }
 
   /**
-   * Pulls a single message from the server. If return_immediately is true, and no
-   * messages are available in the subscription, this method returns
-   * FAILED_PRECONDITION. The system is free to return an UNAVAILABLE error if no
-   * messages are available in a reasonable amount of time (to reduce system
-   * load). (subscriptions.pull)
+   * Pulls messages from the server. Returns an empty list if there are no
+   * messages available in the backlog. The server may return `UNAVAILABLE` if
+   * there are too many concurrent pull requests pending for the given
+   * subscription. (subscriptions.pull)
    *
+   * @param string $subscription The subscription from which messages should be
+   * pulled.
    * @param Google_PullRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_PullResponse
    */
-  public function pull(Google_Service_Pubsub_PullRequest $postBody, $optParams = array())
+  public function pull($subscription, Google_Service_Pubsub_PullRequest $postBody, $optParams = array())
   {
-    $params = array('postBody' => $postBody);
+    $params = array('subscription' => $subscription, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('pull', array($params), "Google_Service_Pubsub_PullResponse");
   }
 
   /**
-   * Pulls messages from the server. Returns an empty list if there are no
-   * messages available in the backlog. The system is free to return UNAVAILABLE
-   * if there are too many pull requests outstanding for the given subscription.
-   * (subscriptions.pullBatch)
+   * Sets the access control policy on the specified resource. Replaces any
+   * existing policy. (subscriptions.setIamPolicy)
    *
-   * @param Google_PullBatchRequest $postBody
+   * @param string $resource REQUIRED: The resource for which policy is being
+   * specified. `resource` is usually specified as a path, such as,
+   * `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path
+   * specified in this value is resource specific and is specified in the
+   * documentation for the respective SetIamPolicy rpc.
+   * @param Google_SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Pubsub_PullBatchResponse
+   * @return Google_Service_Pubsub_Policy
    */
-  public function pullBatch(Google_Service_Pubsub_PullBatchRequest $postBody, $optParams = array())
+  public function setIamPolicy($resource, Google_Service_Pubsub_SetIamPolicyRequest $postBody, $optParams = array())
   {
-    $params = array('postBody' => $postBody);
+    $params = array('resource' => $resource, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('pullBatch', array($params), "Google_Service_Pubsub_PullBatchResponse");
+    return $this->call('setIamPolicy', array($params), "Google_Service_Pubsub_Policy");
+  }
+
+  /**
+   * Returns permissions that a caller has on the specified resource.
+   * (subscriptions.testIamPermissions)
+   *
+   * @param string $resource REQUIRED: The resource for which policy detail is
+   * being requested. `resource` is usually specified as a path, such as,
+   * `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path
+   * specified in this value is resource specific and is specified in the
+   * documentation for the respective TestIamPermissions rpc.
+   * @param Google_TestIamPermissionsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Pubsub_TestIamPermissionsResponse
+   */
+  public function testIamPermissions($resource, Google_Service_Pubsub_TestIamPermissionsRequest $postBody, $optParams = array())
+  {
+    $params = array('resource' => $resource, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('testIamPermissions', array($params), "Google_Service_Pubsub_TestIamPermissionsResponse");
   }
 }
-
 /**
  * The "topics" collection of methods.
  * Typical usage is:
@@ -359,43 +556,49 @@ class Google_Service_Pubsub_Subscriptions_Resource extends Google_Service_Resour
  *   $topics = $pubsubService->topics;
  *  </code>
  */
-class Google_Service_Pubsub_Topics_Resource extends Google_Service_Resource
+class Google_Service_Pubsub_ProjectsTopics_Resource extends Google_Service_Resource
 {
 
   /**
    * Creates the given topic with the given name. (topics.create)
    *
+   * @param string $name The name of the topic. It must have the format
+   * `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
+   * and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
+   * underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs
+   * (`%`). It must be between 3 and 255 characters in length, and it must not
+   * start with `"goog"`.
    * @param Google_Topic $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_Topic
    */
-  public function create(Google_Service_Pubsub_Topic $postBody, $optParams = array())
+  public function create($name, Google_Service_Pubsub_Topic $postBody, $optParams = array())
   {
-    $params = array('postBody' => $postBody);
+    $params = array('name' => $name, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('create', array($params), "Google_Service_Pubsub_Topic");
   }
 
   /**
-   * Deletes the topic with the given name. Returns NOT_FOUND if the topic does
+   * Deletes the topic with the given name. Returns `NOT_FOUND` if the topic does
    * not exist. After a topic is deleted, a new topic may be created with the same
-   * name. (topics.delete)
+   * name; this is an entirely new topic with none of the old configuration or
+   * subscriptions. Existing subscriptions to this topic are not deleted, but
+   * their `topic` field is set to `_deleted-topic_`. (topics.delete)
    *
    * @param string $topic Name of the topic to delete.
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Pubsub_Empty
    */
   public function delete($topic, $optParams = array())
   {
     $params = array('topic' => $topic);
     $params = array_merge($params, $optParams);
-    return $this->call('delete', array($params));
+    return $this->call('delete', array($params), "Google_Service_Pubsub_Empty");
   }
 
   /**
-   * Gets the configuration of a topic. Since the topic only has the name
-   * attribute, this method is only useful to check the existence of a topic. If
-   * other attributes are added in the future, they will be returned here.
-   * (topics.get)
+   * Gets the configuration of a topic. (topics.get)
    *
    * @param string $topic The name of the topic to get.
    * @param array $optParams Optional parameters.
@@ -409,50 +612,133 @@ class Google_Service_Pubsub_Topics_Resource extends Google_Service_Resource
   }
 
   /**
-   * Lists matching topics. (topics.listTopics)
+   * Gets the access control policy for a `resource`. Is empty if the policy or
+   * the resource does not exist. (topics.getIamPolicy)
    *
+   * @param string $resource REQUIRED: The resource for which policy is being
+   * requested. `resource` is usually specified as a path, such as,
+   * `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path
+   * specified in this value is resource specific and is specified in the
+   * documentation for the respective GetIamPolicy rpc.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Pubsub_Policy
+   */
+  public function getIamPolicy($resource, $optParams = array())
+  {
+    $params = array('resource' => $resource);
+    $params = array_merge($params, $optParams);
+    return $this->call('getIamPolicy', array($params), "Google_Service_Pubsub_Policy");
+  }
+
+  /**
+   * Lists matching topics. (topics.listProjectsTopics)
+   *
+   * @param string $project The name of the cloud project that topics belong to.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken The value obtained in the last ListTopicsResponse
-   * for continuation.
-   * @opt_param int maxResults Maximum number of topics to return.
-   * @opt_param string query A valid label query expression.
+   * @opt_param int pageSize Maximum number of topics to return.
+   * @opt_param string pageToken The value returned by the last
+   * `ListTopicsResponse`; indicates that this is a continuation of a prior
+   * `ListTopics` call, and that the system should return the next page of data.
    * @return Google_Service_Pubsub_ListTopicsResponse
    */
-  public function listTopics($optParams = array())
+  public function listProjectsTopics($project, $optParams = array())
   {
-    $params = array();
+    $params = array('project' => $project);
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Pubsub_ListTopicsResponse");
   }
 
   /**
-   * Adds a message to the topic. Returns NOT_FOUND if the topic does not exist.
-   * (topics.publish)
+   * Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic does
+   * not exist. The message payload must not be empty; it must contain either a
+   * non-empty data field, or at least one attribute. (topics.publish)
    *
+   * @param string $topic The messages in the request will be published on this
+   * topic.
    * @param Google_PublishRequest $postBody
    * @param array $optParams Optional parameters.
+   * @return Google_Service_Pubsub_PublishResponse
    */
-  public function publish(Google_Service_Pubsub_PublishRequest $postBody, $optParams = array())
+  public function publish($topic, Google_Service_Pubsub_PublishRequest $postBody, $optParams = array())
   {
-    $params = array('postBody' => $postBody);
+    $params = array('topic' => $topic, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('publish', array($params));
+    return $this->call('publish', array($params), "Google_Service_Pubsub_PublishResponse");
   }
 
   /**
-   * Adds one or more messages to the topic. Returns NOT_FOUND if the topic does
-   * not exist. (topics.publishBatch)
+   * Sets the access control policy on the specified resource. Replaces any
+   * existing policy. (topics.setIamPolicy)
    *
-   * @param Google_PublishBatchRequest $postBody
+   * @param string $resource REQUIRED: The resource for which policy is being
+   * specified. `resource` is usually specified as a path, such as,
+   * `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path
+   * specified in this value is resource specific and is specified in the
+   * documentation for the respective SetIamPolicy rpc.
+   * @param Google_SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Pubsub_PublishBatchResponse
+   * @return Google_Service_Pubsub_Policy
    */
-  public function publishBatch(Google_Service_Pubsub_PublishBatchRequest $postBody, $optParams = array())
+  public function setIamPolicy($resource, Google_Service_Pubsub_SetIamPolicyRequest $postBody, $optParams = array())
   {
-    $params = array('postBody' => $postBody);
+    $params = array('resource' => $resource, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('publishBatch', array($params), "Google_Service_Pubsub_PublishBatchResponse");
+    return $this->call('setIamPolicy', array($params), "Google_Service_Pubsub_Policy");
+  }
+
+  /**
+   * Returns permissions that a caller has on the specified resource.
+   * (topics.testIamPermissions)
+   *
+   * @param string $resource REQUIRED: The resource for which policy detail is
+   * being requested. `resource` is usually specified as a path, such as,
+   * `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path
+   * specified in this value is resource specific and is specified in the
+   * documentation for the respective TestIamPermissions rpc.
+   * @param Google_TestIamPermissionsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Pubsub_TestIamPermissionsResponse
+   */
+  public function testIamPermissions($resource, Google_Service_Pubsub_TestIamPermissionsRequest $postBody, $optParams = array())
+  {
+    $params = array('resource' => $resource, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('testIamPermissions', array($params), "Google_Service_Pubsub_TestIamPermissionsResponse");
+  }
+}
+
+/**
+ * The "subscriptions" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $pubsubService = new Google_Service_Pubsub(...);
+ *   $subscriptions = $pubsubService->subscriptions;
+ *  </code>
+ */
+class Google_Service_Pubsub_ProjectsTopicsSubscriptions_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Lists the name of the subscriptions for this topic.
+   * (subscriptions.listProjectsTopicsSubscriptions)
+   *
+   * @param string $topic The name of the topic that subscriptions are attached
+   * to.
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param int pageSize Maximum number of subscription names to return.
+   * @opt_param string pageToken The value returned by the last
+   * `ListTopicSubscriptionsResponse`; indicates that this is a continuation of a
+   * prior `ListTopicSubscriptions` call, and that the system should return the
+   * next page of data.
+   * @return Google_Service_Pubsub_ListTopicSubscriptionsResponse
+   */
+  public function listProjectsTopicsSubscriptions($topic, $optParams = array())
+  {
+    $params = array('topic' => $topic);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_Pubsub_ListTopicSubscriptionsResponse");
   }
 }
 
@@ -461,74 +747,61 @@ class Google_Service_Pubsub_Topics_Resource extends Google_Service_Resource
 
 class Google_Service_Pubsub_AcknowledgeRequest extends Google_Collection
 {
-  protected $collection_key = 'ackId';
+  protected $collection_key = 'ackIds';
   protected $internal_gapi_mappings = array(
   );
-  public $ackId;
-  public $subscription;
+  public $ackIds;
 
 
-  public function setAckId($ackId)
+  public function setAckIds($ackIds)
   {
-    $this->ackId = $ackId;
+    $this->ackIds = $ackIds;
   }
-  public function getAckId()
+  public function getAckIds()
   {
-    return $this->ackId;
-  }
-  public function setSubscription($subscription)
-  {
-    $this->subscription = $subscription;
-  }
-  public function getSubscription()
-  {
-    return $this->subscription;
+    return $this->ackIds;
   }
 }
 
-class Google_Service_Pubsub_Label extends Google_Model
+class Google_Service_Pubsub_Binding extends Google_Collection
 {
+  protected $collection_key = 'members';
   protected $internal_gapi_mappings = array(
   );
-  public $key;
-  public $numValue;
-  public $strValue;
+  public $members;
+  public $role;
 
 
-  public function setKey($key)
+  public function setMembers($members)
   {
-    $this->key = $key;
+    $this->members = $members;
   }
-  public function getKey()
+  public function getMembers()
   {
-    return $this->key;
+    return $this->members;
   }
-  public function setNumValue($numValue)
+  public function setRole($role)
   {
-    $this->numValue = $numValue;
+    $this->role = $role;
   }
-  public function getNumValue()
+  public function getRole()
   {
-    return $this->numValue;
+    return $this->role;
   }
-  public function setStrValue($strValue)
-  {
-    $this->strValue = $strValue;
-  }
-  public function getStrValue()
-  {
-    return $this->strValue;
-  }
+}
+
+class Google_Service_Pubsub_Empty extends Google_Model
+{
 }
 
 class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
 {
-  protected $collection_key = 'subscription';
+  protected $collection_key = 'subscriptions';
   protected $internal_gapi_mappings = array(
   );
   public $nextPageToken;
-  protected $subscriptionType = 'Google_Service_Pubsub_Subscription';
-  protected $subscriptionDataType = 'array';
+  protected $subscriptionsType = 'Google_Service_Pubsub_Subscription';
+  protected $subscriptionsDataType = 'array';
 
 
   public function setNextPageToken($nextPageToken)
@@ -539,24 +812,51 @@ class Google_Service_Pubsub_ListSubscriptionsResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  public function setSubscription($subscription)
+  public function setSubscriptions($subscriptions)
   {
-    $this->subscription = $subscription;
+    $this->subscriptions = $subscriptions;
   }
-  public function getSubscription()
+  public function getSubscriptions()
   {
-    return $this->subscription;
+    return $this->subscriptions;
+  }
+}
+
+class Google_Service_Pubsub_ListTopicSubscriptionsResponse extends Google_Collection
+{
+  protected $collection_key = 'subscriptions';
+  protected $internal_gapi_mappings = array(
+  );
+  public $nextPageToken;
+  public $subscriptions;
+
+
+  public function setNextPageToken($nextPageToken)
+  {
+    $this->nextPageToken = $nextPageToken;
+  }
+  public function getNextPageToken()
+  {
+    return $this->nextPageToken;
+  }
+  public function setSubscriptions($subscriptions)
+  {
+    $this->subscriptions = $subscriptions;
+  }
+  public function getSubscriptions()
+  {
+    return $this->subscriptions;
   }
 }
 
 class Google_Service_Pubsub_ListTopicsResponse extends Google_Collection
 {
-  protected $collection_key = 'topic';
+  protected $collection_key = 'topics';
   protected $internal_gapi_mappings = array(
   );
   public $nextPageToken;
-  protected $topicType = 'Google_Service_Pubsub_Topic';
-  protected $topicDataType = 'array';
+  protected $topicsType = 'Google_Service_Pubsub_Topic';
+  protected $topicsDataType = 'array';
 
 
   public function setNextPageToken($nextPageToken)
@@ -567,13 +867,13 @@ class Google_Service_Pubsub_ListTopicsResponse extends Google_Collection
   {
     return $this->nextPageToken;
   }
-  public function setTopic($topic)
+  public function setTopics($topics)
   {
-    $this->topic = $topic;
+    $this->topics = $topics;
   }
-  public function getTopic()
+  public function getTopics()
   {
-    return $this->topic;
+    return $this->topics;
   }
 }
 
@@ -583,9 +883,7 @@ class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Collection
   protected $internal_gapi_mappings = array(
   );
   public $ackDeadlineSeconds;
-  public $ackId;
   public $ackIds;
-  public $subscription;
 
 
   public function setAckDeadlineSeconds($ackDeadlineSeconds)
@@ -596,14 +894,6 @@ class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Collection
   {
     return $this->ackDeadlineSeconds;
   }
-  public function setAckId($ackId)
-  {
-    $this->ackId = $ackId;
-  }
-  public function getAckId()
-  {
-    return $this->ackId;
-  }
   public function setAckIds($ackIds)
   {
     $this->ackIds = $ackIds;
@@ -611,14 +901,6 @@ class Google_Service_Pubsub_ModifyAckDeadlineRequest extends Google_Collection
   public function getAckIds()
   {
     return $this->ackIds;
-  }
-  public function setSubscription($subscription)
-  {
-    $this->subscription = $subscription;
-  }
-  public function getSubscription()
-  {
-    return $this->subscription;
   }
 }
 
@@ -628,7 +910,6 @@ class Google_Service_Pubsub_ModifyPushConfigRequest extends Google_Model
   );
   protected $pushConfigType = 'Google_Service_Pubsub_PushConfig';
   protected $pushConfigDataType = '';
-  public $subscription;
 
 
   public function setPushConfig(Google_Service_Pubsub_PushConfig $pushConfig)
@@ -639,24 +920,52 @@ class Google_Service_Pubsub_ModifyPushConfigRequest extends Google_Model
   {
     return $this->pushConfig;
   }
-  public function setSubscription($subscription)
+}
+
+class Google_Service_Pubsub_Policy extends Google_Collection
+{
+  protected $collection_key = 'bindings';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $bindingsType = 'Google_Service_Pubsub_Binding';
+  protected $bindingsDataType = 'array';
+  public $etag;
+  public $version;
+
+
+  public function setBindings($bindings)
   {
-    $this->subscription = $subscription;
+    $this->bindings = $bindings;
   }
-  public function getSubscription()
+  public function getBindings()
   {
-    return $this->subscription;
+    return $this->bindings;
+  }
+  public function setEtag($etag)
+  {
+    $this->etag = $etag;
+  }
+  public function getEtag()
+  {
+    return $this->etag;
+  }
+  public function setVersion($version)
+  {
+    $this->version = $version;
+  }
+  public function getVersion()
+  {
+    return $this->version;
   }
 }
 
-class Google_Service_Pubsub_PublishBatchRequest extends Google_Collection
+class Google_Service_Pubsub_PublishRequest extends Google_Collection
 {
   protected $collection_key = 'messages';
   protected $internal_gapi_mappings = array(
   );
   protected $messagesType = 'Google_Service_Pubsub_PubsubMessage';
   protected $messagesDataType = 'array';
-  public $topic;
 
 
   public function setMessages($messages)
@@ -667,17 +976,9 @@ class Google_Service_Pubsub_PublishBatchRequest extends Google_Collection
   {
     return $this->messages;
   }
-  public function setTopic($topic)
-  {
-    $this->topic = $topic;
-  }
-  public function getTopic()
-  {
-    return $this->topic;
-  }
 }
 
-class Google_Service_Pubsub_PublishBatchResponse extends Google_Collection
+class Google_Service_Pubsub_PublishResponse extends Google_Collection
 {
   protected $collection_key = 'messageIds';
   protected $internal_gapi_mappings = array(
@@ -695,89 +996,24 @@ class Google_Service_Pubsub_PublishBatchResponse extends Google_Collection
   }
 }
 
-class Google_Service_Pubsub_PublishRequest extends Google_Model
+class Google_Service_Pubsub_PubsubMessage extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
-  protected $messageType = 'Google_Service_Pubsub_PubsubMessage';
-  protected $messageDataType = '';
-  public $topic;
-
-
-  public function setMessage(Google_Service_Pubsub_PubsubMessage $message)
-  {
-    $this->message = $message;
-  }
-  public function getMessage()
-  {
-    return $this->message;
-  }
-  public function setTopic($topic)
-  {
-    $this->topic = $topic;
-  }
-  public function getTopic()
-  {
-    return $this->topic;
-  }
-}
-
-class Google_Service_Pubsub_PubsubEvent extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $deleted;
-  protected $messageType = 'Google_Service_Pubsub_PubsubMessage';
-  protected $messageDataType = '';
-  public $subscription;
-  public $truncated;
-
-
-  public function setDeleted($deleted)
-  {
-    $this->deleted = $deleted;
-  }
-  public function getDeleted()
-  {
-    return $this->deleted;
-  }
-  public function setMessage(Google_Service_Pubsub_PubsubMessage $message)
-  {
-    $this->message = $message;
-  }
-  public function getMessage()
-  {
-    return $this->message;
-  }
-  public function setSubscription($subscription)
-  {
-    $this->subscription = $subscription;
-  }
-  public function getSubscription()
-  {
-    return $this->subscription;
-  }
-  public function setTruncated($truncated)
-  {
-    $this->truncated = $truncated;
-  }
-  public function getTruncated()
-  {
-    return $this->truncated;
-  }
-}
-
-class Google_Service_Pubsub_PubsubMessage extends Google_Collection
-{
-  protected $collection_key = 'label';
-  protected $internal_gapi_mappings = array(
-  );
+  public $attributes;
   public $data;
-  protected $labelType = 'Google_Service_Pubsub_Label';
-  protected $labelDataType = 'array';
   public $messageId;
+  public $publishTime;
 
 
+  public function setAttributes($attributes)
+  {
+    $this->attributes = $attributes;
+  }
+  public function getAttributes()
+  {
+    return $this->attributes;
+  }
   public function setData($data)
   {
     $this->data = $data;
@@ -785,14 +1021,6 @@ class Google_Service_Pubsub_PubsubMessage extends Google_Collection
   public function getData()
   {
     return $this->data;
-  }
-  public function setLabel($label)
-  {
-    $this->label = $label;
-  }
-  public function getLabel()
-  {
-    return $this->label;
   }
   public function setMessageId($messageId)
   {
@@ -802,59 +1030,13 @@ class Google_Service_Pubsub_PubsubMessage extends Google_Collection
   {
     return $this->messageId;
   }
-}
-
-class Google_Service_Pubsub_PullBatchRequest extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $maxEvents;
-  public $returnImmediately;
-  public $subscription;
-
-
-  public function setMaxEvents($maxEvents)
+  public function setPublishTime($publishTime)
   {
-    $this->maxEvents = $maxEvents;
+    $this->publishTime = $publishTime;
   }
-  public function getMaxEvents()
+  public function getPublishTime()
   {
-    return $this->maxEvents;
-  }
-  public function setReturnImmediately($returnImmediately)
-  {
-    $this->returnImmediately = $returnImmediately;
-  }
-  public function getReturnImmediately()
-  {
-    return $this->returnImmediately;
-  }
-  public function setSubscription($subscription)
-  {
-    $this->subscription = $subscription;
-  }
-  public function getSubscription()
-  {
-    return $this->subscription;
-  }
-}
-
-class Google_Service_Pubsub_PullBatchResponse extends Google_Collection
-{
-  protected $collection_key = 'pullResponses';
-  protected $internal_gapi_mappings = array(
-  );
-  protected $pullResponsesType = 'Google_Service_Pubsub_PullResponse';
-  protected $pullResponsesDataType = 'array';
-
-
-  public function setPullResponses($pullResponses)
-  {
-    $this->pullResponses = $pullResponses;
-  }
-  public function getPullResponses()
-  {
-    return $this->pullResponses;
+    return $this->publishTime;
   }
 }
 
@@ -862,10 +1044,18 @@ class Google_Service_Pubsub_PullRequest extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $maxMessages;
   public $returnImmediately;
-  public $subscription;
 
 
+  public function setMaxMessages($maxMessages)
+  {
+    $this->maxMessages = $maxMessages;
+  }
+  public function getMaxMessages()
+  {
+    return $this->maxMessages;
+  }
   public function setReturnImmediately($returnImmediately)
   {
     $this->returnImmediately = $returnImmediately;
@@ -874,23 +1064,60 @@ class Google_Service_Pubsub_PullRequest extends Google_Model
   {
     return $this->returnImmediately;
   }
-  public function setSubscription($subscription)
+}
+
+class Google_Service_Pubsub_PullResponse extends Google_Collection
+{
+  protected $collection_key = 'receivedMessages';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $receivedMessagesType = 'Google_Service_Pubsub_ReceivedMessage';
+  protected $receivedMessagesDataType = 'array';
+
+
+  public function setReceivedMessages($receivedMessages)
   {
-    $this->subscription = $subscription;
+    $this->receivedMessages = $receivedMessages;
   }
-  public function getSubscription()
+  public function getReceivedMessages()
   {
-    return $this->subscription;
+    return $this->receivedMessages;
   }
 }
 
-class Google_Service_Pubsub_PullResponse extends Google_Model
+class Google_Service_Pubsub_PushConfig extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $attributes;
+  public $pushEndpoint;
+
+
+  public function setAttributes($attributes)
+  {
+    $this->attributes = $attributes;
+  }
+  public function getAttributes()
+  {
+    return $this->attributes;
+  }
+  public function setPushEndpoint($pushEndpoint)
+  {
+    $this->pushEndpoint = $pushEndpoint;
+  }
+  public function getPushEndpoint()
+  {
+    return $this->pushEndpoint;
+  }
+}
+
+class Google_Service_Pubsub_ReceivedMessage extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
   public $ackId;
-  protected $pubsubEventType = 'Google_Service_Pubsub_PubsubEvent';
-  protected $pubsubEventDataType = '';
+  protected $messageType = 'Google_Service_Pubsub_PubsubMessage';
+  protected $messageDataType = '';
 
 
   public function setAckId($ackId)
@@ -901,30 +1128,31 @@ class Google_Service_Pubsub_PullResponse extends Google_Model
   {
     return $this->ackId;
   }
-  public function setPubsubEvent(Google_Service_Pubsub_PubsubEvent $pubsubEvent)
+  public function setMessage(Google_Service_Pubsub_PubsubMessage $message)
   {
-    $this->pubsubEvent = $pubsubEvent;
+    $this->message = $message;
   }
-  public function getPubsubEvent()
+  public function getMessage()
   {
-    return $this->pubsubEvent;
+    return $this->message;
   }
 }
 
-class Google_Service_Pubsub_PushConfig extends Google_Model
+class Google_Service_Pubsub_SetIamPolicyRequest extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
-  public $pushEndpoint;
+  protected $policyType = 'Google_Service_Pubsub_Policy';
+  protected $policyDataType = '';
 
 
-  public function setPushEndpoint($pushEndpoint)
+  public function setPolicy(Google_Service_Pubsub_Policy $policy)
   {
-    $this->pushEndpoint = $pushEndpoint;
+    $this->policy = $policy;
   }
-  public function getPushEndpoint()
+  public function getPolicy()
   {
-    return $this->pushEndpoint;
+    return $this->policy;
   }
 }
 
@@ -970,6 +1198,42 @@ class Google_Service_Pubsub_Subscription extends Google_Model
   public function getTopic()
   {
     return $this->topic;
+  }
+}
+
+class Google_Service_Pubsub_TestIamPermissionsRequest extends Google_Collection
+{
+  protected $collection_key = 'permissions';
+  protected $internal_gapi_mappings = array(
+  );
+  public $permissions;
+
+
+  public function setPermissions($permissions)
+  {
+    $this->permissions = $permissions;
+  }
+  public function getPermissions()
+  {
+    return $this->permissions;
+  }
+}
+
+class Google_Service_Pubsub_TestIamPermissionsResponse extends Google_Collection
+{
+  protected $collection_key = 'permissions';
+  protected $internal_gapi_mappings = array(
+  );
+  public $permissions;
+
+
+  public function setPermissions($permissions)
+  {
+    $this->permissions = $permissions;
+  }
+  public function getPermissions()
+  {
+    return $this->permissions;
   }
 }
 
