@@ -24,7 +24,8 @@ echo pageHeader('User Query - URL Shortener');
  * Ensure you've downloaded your oauth credentials
  ************************************************/
 if (!$oauth_credentials = getOAuthCredentialsFile()) {
-  return missingOAuth2CredentialsWarning();
+  echo missingOAuth2CredentialsWarning();
+  return;
 }
 
 /************************************************
@@ -128,5 +129,5 @@ if ($client->getAccessToken() && isset($_GET['url'])) {
   <a href="<?= $_SERVER['PHP_SELF'] ?>">Create another</a>
 <?php endif ?>
 </div>
-<?php
-echo pageFooter(__FILE__);
+
+<?= pageFooter(__FILE__);

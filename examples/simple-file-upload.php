@@ -24,7 +24,8 @@ echo pageHeader("File Upload - Uploading a simple file");
  * Ensure you've downloaded your oauth credentials
  ************************************************/
 if (!$oauth_credentials = getOAuthCredentialsFile()) {
-  return missingOAuth2CredentialsWarning();
+  echo missingOAuth2CredentialsWarning();
+  return;
 }
 
 /************************************************
@@ -88,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
 
   // This is uploading a file directly, with no metadata associated.
   $file = new Google_Service_Drive_DriveFile();
-  $result = $service->files->insert(
+  $result = $service->files->create(
       $file,
       array(
         'data' => file_get_contents(TESTFILE),
@@ -99,8 +100,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
 
   // Now lets try and send the metadata as well using multipart!
   $file = new Google_Service_Drive_DriveFile();
-  $file->setTitle("Hello World!");
-  $result2 = $service->files->insert(
+  $file->setName("Hello World!");
+  $result2 = $service->files->create(
       $file,
       array(
         'data' => file_get_contents(TESTFILE),
@@ -120,8 +121,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
   <div class="shortened">
     <p>Your call was successful! Check your drive for the following files:</p>
     <ul>
-      <li><a href="<?= $result->alternateLink ?>" target="_blank"><?= $result->title ?></a></li>
-      <li><a href="<?= $result2->alternateLink ?>" target="_blank"><?= $result2->title ?></a></li>
+      <li><a href="https://drive.google.com/open?id=<?= $result->id ?>" target="_blank"><?= $result->name ?></a></li>
+      <li><a href="https://drive.google.com/open?id=<?= $result2->id ?>" target="_blank"><?= $result2->name ?></a></li>
     </ul>
   </div>
 <?php else: ?>
@@ -131,4 +132,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
 <?php endif ?>
 </div>
 
-<?php echo pageFooter(__FILE__) ?>
+<?= pageFooter(__FILE__) ?>

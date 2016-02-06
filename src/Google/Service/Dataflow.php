@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
+ * Copyright 2016 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -37,6 +37,7 @@ class Google_Service_Dataflow extends Google_Service
   const USERINFO_EMAIL =
       "https://www.googleapis.com/auth/userinfo.email";
 
+  public $projects;
   public $projects_jobs;
   public $projects_jobs_messages;
   public $projects_jobs_workItems;
@@ -55,6 +56,26 @@ class Google_Service_Dataflow extends Google_Service
     $this->version = 'v1b3';
     $this->serviceName = 'dataflow';
 
+    $this->projects = new Google_Service_Dataflow_Projects_Resource(
+        $this,
+        $this->serviceName,
+        'projects',
+        array(
+          'methods' => array(
+            'workerMessages' => array(
+              'path' => 'v1b3/projects/{projectId}/WorkerMessages',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'projectId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
     $this->projects_jobs = new Google_Service_Dataflow_ProjectsJobs_Resource(
         $this,
         $this->serviceName,
@@ -70,11 +91,11 @@ class Google_Service_Dataflow extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'replaceJobId' => array(
+                'view' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'view' => array(
+                'replaceJobId' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -126,7 +147,7 @@ class Google_Service_Dataflow extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
+                'view' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -134,7 +155,7 @@ class Google_Service_Dataflow extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'view' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -178,6 +199,10 @@ class Google_Service_Dataflow extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'minimumImportance' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
@@ -191,10 +216,6 @@ class Google_Service_Dataflow extends Google_Service
                   'type' => 'string',
                 ),
                 'endTime' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'minimumImportance' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -257,6 +278,21 @@ class Google_Service_Dataflow extends Google_Service
  */
 class Google_Service_Dataflow_Projects_Resource extends Google_Service_Resource
 {
+
+  /**
+   * Send a worker_message to the service. (projects.workerMessages)
+   *
+   * @param string $projectId The project to send the WorkerMessages to.
+   * @param Google_SendWorkerMessagesRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Dataflow_SendWorkerMessagesResponse
+   */
+  public function workerMessages($projectId, Google_Service_Dataflow_SendWorkerMessagesRequest $postBody, $optParams = array())
+  {
+    $params = array('projectId' => $projectId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('workerMessages', array($params), "Google_Service_Dataflow_SendWorkerMessagesResponse");
+  }
 }
 
 /**
@@ -277,9 +313,9 @@ class Google_Service_Dataflow_ProjectsJobs_Resource extends Google_Service_Resou
    * @param Google_Job $postBody
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string view Level of information requested in response.
    * @opt_param string replaceJobId DEPRECATED. This field is now on the Job
    * message.
-   * @opt_param string view Level of information requested in response.
    * @return Google_Service_Dataflow_Job
    */
   public function create($projectId, Google_Service_Dataflow_Job $postBody, $optParams = array())
@@ -331,13 +367,13 @@ class Google_Service_Dataflow_ProjectsJobs_Resource extends Google_Service_Resou
    * @param string $projectId The project which owns the jobs.
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string pageToken Set this to the 'next_page_token' field of a
-   * previous response to request additional results in a long list.
+   * @opt_param string view Level of information requested in response. Default is
+   * SUMMARY.
    * @opt_param int pageSize If there are many jobs, limit response to at most
    * this many. The actual number of jobs returned will be the lesser of
    * max_responses and an unspecified server-defined limit.
-   * @opt_param string view Level of information requested in response. Default is
-   * SUMMARY.
+   * @opt_param string pageToken Set this to the 'next_page_token' field of a
+   * previous response to request additional results in a long list.
    * @return Google_Service_Dataflow_ListJobsResponse
    */
   public function listProjectsJobs($projectId, $optParams = array())
@@ -382,6 +418,8 @@ class Google_Service_Dataflow_ProjectsJobsMessages_Resource extends Google_Servi
    * @param string $jobId The job to get messages about.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param string minimumImportance Filter to only get messages with
+   * importance >= level
    * @opt_param int pageSize If specified, determines the maximum number of
    * messages to return. If unspecified, the service may choose an appropriate
    * default, or may return an arbitrarily large number of results.
@@ -393,8 +431,6 @@ class Google_Service_Dataflow_ProjectsJobsMessages_Resource extends Google_Servi
    * beginning of messages).
    * @opt_param string endTime Return only messages with timestamps < end_time.
    * The default is now (i.e. return up to the latest messages available).
-   * @opt_param string minimumImportance Filter to only get messages with
-   * importance >= level
    * @return Google_Service_Dataflow_ListJobMessagesResponse
    */
   public function listProjectsJobsMessages($projectId, $jobId, $optParams = array())
@@ -485,6 +521,80 @@ class Google_Service_Dataflow_ApproximateProgress extends Google_Model
   public function getRemainingTime()
   {
     return $this->remainingTime;
+  }
+}
+
+class Google_Service_Dataflow_ApproximateReportedProgress extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $consumedParallelismType = 'Google_Service_Dataflow_ReportedParallelism';
+  protected $consumedParallelismDataType = '';
+  public $fractionConsumed;
+  protected $positionType = 'Google_Service_Dataflow_Position';
+  protected $positionDataType = '';
+  protected $remainingParallelismType = 'Google_Service_Dataflow_ReportedParallelism';
+  protected $remainingParallelismDataType = '';
+
+
+  public function setConsumedParallelism(Google_Service_Dataflow_ReportedParallelism $consumedParallelism)
+  {
+    $this->consumedParallelism = $consumedParallelism;
+  }
+  public function getConsumedParallelism()
+  {
+    return $this->consumedParallelism;
+  }
+  public function setFractionConsumed($fractionConsumed)
+  {
+    $this->fractionConsumed = $fractionConsumed;
+  }
+  public function getFractionConsumed()
+  {
+    return $this->fractionConsumed;
+  }
+  public function setPosition(Google_Service_Dataflow_Position $position)
+  {
+    $this->position = $position;
+  }
+  public function getPosition()
+  {
+    return $this->position;
+  }
+  public function setRemainingParallelism(Google_Service_Dataflow_ReportedParallelism $remainingParallelism)
+  {
+    $this->remainingParallelism = $remainingParallelism;
+  }
+  public function getRemainingParallelism()
+  {
+    return $this->remainingParallelism;
+  }
+}
+
+class Google_Service_Dataflow_ApproximateSplitRequest extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $fractionConsumed;
+  protected $positionType = 'Google_Service_Dataflow_Position';
+  protected $positionDataType = '';
+
+
+  public function setFractionConsumed($fractionConsumed)
+  {
+    $this->fractionConsumed = $fractionConsumed;
+  }
+  public function getFractionConsumed()
+  {
+    return $this->fractionConsumed;
+  }
+  public function setPosition(Google_Service_Dataflow_Position $position)
+  {
+    $this->position = $position;
+  }
+  public function getPosition()
+  {
+    return $this->position;
   }
 }
 
@@ -842,22 +952,6 @@ class Google_Service_Dataflow_Environment extends Google_Collection
   }
 }
 
-class Google_Service_Dataflow_EnvironmentInternalExperiments extends Google_Model
-{
-}
-
-class Google_Service_Dataflow_EnvironmentSdkPipelineOptions extends Google_Model
-{
-}
-
-class Google_Service_Dataflow_EnvironmentUserAgent extends Google_Model
-{
-}
-
-class Google_Service_Dataflow_EnvironmentVersion extends Google_Model
-{
-}
-
 class Google_Service_Dataflow_FlattenInstruction extends Google_Collection
 {
   protected $collection_key = 'inputs';
@@ -938,13 +1032,9 @@ class Google_Service_Dataflow_InstructionOutput extends Google_Model
   }
 }
 
-class Google_Service_Dataflow_InstructionOutputCodec extends Google_Model
-{
-}
-
 class Google_Service_Dataflow_Job extends Google_Collection
 {
-  protected $collection_key = 'steps';
+  protected $collection_key = 'tempFiles';
   protected $internal_gapi_mappings = array(
   );
   public $clientRequestId;
@@ -963,6 +1053,7 @@ class Google_Service_Dataflow_Job extends Google_Collection
   public $requestedState;
   protected $stepsType = 'Google_Service_Dataflow_Step';
   protected $stepsDataType = 'array';
+  public $tempFiles;
   public $transformNameMapping;
   public $type;
 
@@ -1071,6 +1162,14 @@ class Google_Service_Dataflow_Job extends Google_Collection
   {
     return $this->steps;
   }
+  public function setTempFiles($tempFiles)
+  {
+    $this->tempFiles = $tempFiles;
+  }
+  public function getTempFiles()
+  {
+    return $this->tempFiles;
+  }
   public function setTransformNameMapping($transformNameMapping)
   {
     $this->transformNameMapping = $transformNameMapping;
@@ -1105,10 +1204,6 @@ class Google_Service_Dataflow_JobExecutionInfo extends Google_Model
   {
     return $this->stages;
   }
-}
-
-class Google_Service_Dataflow_JobExecutionInfoStages extends Google_Model
-{
 }
 
 class Google_Service_Dataflow_JobExecutionStageInfo extends Google_Collection
@@ -1199,10 +1294,6 @@ class Google_Service_Dataflow_JobMetrics extends Google_Collection
   {
     return $this->metrics;
   }
-}
-
-class Google_Service_Dataflow_JobTransformNameMapping extends Google_Model
-{
 }
 
 class Google_Service_Dataflow_KeyRangeDataDiskAssignment extends Google_Model
@@ -1494,10 +1585,6 @@ class Google_Service_Dataflow_MetricStructuredName extends Google_Model
   }
 }
 
-class Google_Service_Dataflow_MetricStructuredNameContext extends Google_Model
-{
-}
-
 class Google_Service_Dataflow_MetricUpdate extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -1705,10 +1792,6 @@ class Google_Service_Dataflow_ParDoInstruction extends Google_Collection
   }
 }
 
-class Google_Service_Dataflow_ParDoInstructionUserFn extends Google_Model
-{
-}
-
 class Google_Service_Dataflow_ParallelInstruction extends Google_Collection
 {
   protected $collection_key = 'outputs';
@@ -1796,13 +1879,16 @@ class Google_Service_Dataflow_ParallelInstruction extends Google_Collection
   }
 }
 
-class Google_Service_Dataflow_PartialGroupByKeyInstruction extends Google_Model
+class Google_Service_Dataflow_PartialGroupByKeyInstruction extends Google_Collection
 {
+  protected $collection_key = 'sideInputs';
   protected $internal_gapi_mappings = array(
   );
   protected $inputType = 'Google_Service_Dataflow_InstructionInput';
   protected $inputDataType = '';
   public $inputElementCodec;
+  protected $sideInputsType = 'Google_Service_Dataflow_SideInputInfo';
+  protected $sideInputsDataType = 'array';
   public $valueCombiningFn;
 
 
@@ -1822,6 +1908,14 @@ class Google_Service_Dataflow_PartialGroupByKeyInstruction extends Google_Model
   {
     return $this->inputElementCodec;
   }
+  public function setSideInputs($sideInputs)
+  {
+    $this->sideInputs = $sideInputs;
+  }
+  public function getSideInputs()
+  {
+    return $this->sideInputs;
+  }
   public function setValueCombiningFn($valueCombiningFn)
   {
     $this->valueCombiningFn = $valueCombiningFn;
@@ -1830,14 +1924,6 @@ class Google_Service_Dataflow_PartialGroupByKeyInstruction extends Google_Model
   {
     return $this->valueCombiningFn;
   }
-}
-
-class Google_Service_Dataflow_PartialGroupByKeyInstructionInputElementCodec extends Google_Model
-{
-}
-
-class Google_Service_Dataflow_PartialGroupByKeyInstructionValueCombiningFn extends Google_Model
-{
 }
 
 class Google_Service_Dataflow_Position extends Google_Model
@@ -2039,6 +2125,70 @@ class Google_Service_Dataflow_ReportWorkItemStatusResponse extends Google_Collec
   }
 }
 
+class Google_Service_Dataflow_ReportedParallelism extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $isInfinite;
+  public $value;
+
+
+  public function setIsInfinite($isInfinite)
+  {
+    $this->isInfinite = $isInfinite;
+  }
+  public function getIsInfinite()
+  {
+    return $this->isInfinite;
+  }
+  public function setValue($value)
+  {
+    $this->value = $value;
+  }
+  public function getValue()
+  {
+    return $this->value;
+  }
+}
+
+class Google_Service_Dataflow_SendWorkerMessagesRequest extends Google_Collection
+{
+  protected $collection_key = 'workerMessages';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $workerMessagesType = 'Google_Service_Dataflow_WorkerMessage';
+  protected $workerMessagesDataType = 'array';
+
+
+  public function setWorkerMessages($workerMessages)
+  {
+    $this->workerMessages = $workerMessages;
+  }
+  public function getWorkerMessages()
+  {
+    return $this->workerMessages;
+  }
+}
+
+class Google_Service_Dataflow_SendWorkerMessagesResponse extends Google_Collection
+{
+  protected $collection_key = 'workerMessageResponses';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $workerMessageResponsesType = 'Google_Service_Dataflow_WorkerMessageResponse';
+  protected $workerMessageResponsesDataType = 'array';
+
+
+  public function setWorkerMessageResponses($workerMessageResponses)
+  {
+    $this->workerMessageResponses = $workerMessageResponses;
+  }
+  public function getWorkerMessageResponses()
+  {
+    return $this->workerMessageResponses;
+  }
+}
+
 class Google_Service_Dataflow_SeqMapTask extends Google_Collection
 {
   protected $collection_key = 'outputInfos';
@@ -2131,10 +2281,6 @@ class Google_Service_Dataflow_SeqMapTaskOutputInfo extends Google_Model
   }
 }
 
-class Google_Service_Dataflow_SeqMapTaskUserFn extends Google_Model
-{
-}
-
 class Google_Service_Dataflow_ShellTask extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -2198,10 +2344,6 @@ class Google_Service_Dataflow_SideInputInfo extends Google_Collection
   }
 }
 
-class Google_Service_Dataflow_SideInputInfoKind extends Google_Model
-{
-}
-
 class Google_Service_Dataflow_Sink extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -2226,14 +2368,6 @@ class Google_Service_Dataflow_Sink extends Google_Model
   {
     return $this->spec;
   }
-}
-
-class Google_Service_Dataflow_SinkCodec extends Google_Model
-{
-}
-
-class Google_Service_Dataflow_SinkSpec extends Google_Model
-{
 }
 
 class Google_Service_Dataflow_Source extends Google_Collection
@@ -2289,14 +2423,6 @@ class Google_Service_Dataflow_Source extends Google_Collection
   {
     return $this->spec;
   }
-}
-
-class Google_Service_Dataflow_SourceBaseSpecs extends Google_Model
-{
-}
-
-class Google_Service_Dataflow_SourceCodec extends Google_Model
-{
 }
 
 class Google_Service_Dataflow_SourceFork extends Google_Model
@@ -2472,10 +2598,6 @@ class Google_Service_Dataflow_SourceOperationResponse extends Google_Model
   {
     return $this->split;
   }
-}
-
-class Google_Service_Dataflow_SourceSpec extends Google_Model
-{
 }
 
 class Google_Service_Dataflow_SourceSplitOptions extends Google_Model
@@ -2659,10 +2781,6 @@ class Google_Service_Dataflow_Status extends Google_Collection
   }
 }
 
-class Google_Service_Dataflow_StatusDetails extends Google_Model
-{
-}
-
 class Google_Service_Dataflow_Step extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -2696,10 +2814,6 @@ class Google_Service_Dataflow_Step extends Google_Model
   {
     return $this->properties;
   }
-}
-
-class Google_Service_Dataflow_StepProperties extends Google_Model
-{
 }
 
 class Google_Service_Dataflow_StreamLocation extends Google_Model
@@ -2820,12 +2934,21 @@ class Google_Service_Dataflow_StreamingSetupTask extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $drain;
   public $receiveWorkPort;
   protected $streamingComputationTopologyType = 'Google_Service_Dataflow_TopologyConfig';
   protected $streamingComputationTopologyDataType = '';
   public $workerHarnessPort;
 
 
+  public function setDrain($drain)
+  {
+    $this->drain = $drain;
+  }
+  public function getDrain()
+  {
+    return $this->drain;
+  }
   public function setReceiveWorkPort($receiveWorkPort)
   {
     $this->receiveWorkPort = $receiveWorkPort;
@@ -3085,6 +3208,7 @@ class Google_Service_Dataflow_TopologyConfig extends Google_Collection
   protected $computationsDataType = 'array';
   protected $dataDiskAssignmentsType = 'Google_Service_Dataflow_DataDiskAssignment';
   protected $dataDiskAssignmentsDataType = 'array';
+  public $forwardingKeyBits;
   public $userStageToComputationNameMap;
 
 
@@ -3104,6 +3228,14 @@ class Google_Service_Dataflow_TopologyConfig extends Google_Collection
   {
     return $this->dataDiskAssignments;
   }
+  public function setForwardingKeyBits($forwardingKeyBits)
+  {
+    $this->forwardingKeyBits = $forwardingKeyBits;
+  }
+  public function getForwardingKeyBits()
+  {
+    return $this->forwardingKeyBits;
+  }
   public function setUserStageToComputationNameMap($userStageToComputationNameMap)
   {
     $this->userStageToComputationNameMap = $userStageToComputationNameMap;
@@ -3112,10 +3244,6 @@ class Google_Service_Dataflow_TopologyConfig extends Google_Collection
   {
     return $this->userStageToComputationNameMap;
   }
-}
-
-class Google_Service_Dataflow_TopologyConfigUserStageToComputationNameMap extends Google_Model
-{
 }
 
 class Google_Service_Dataflow_WorkItem extends Google_Collection
@@ -3268,6 +3396,8 @@ class Google_Service_Dataflow_WorkItemServiceState extends Google_Model
   public $leaseExpireTime;
   public $nextReportIndex;
   public $reportStatusInterval;
+  protected $splitRequestType = 'Google_Service_Dataflow_ApproximateSplitRequest';
+  protected $splitRequestDataType = '';
   protected $suggestedStopPointType = 'Google_Service_Dataflow_ApproximateProgress';
   protected $suggestedStopPointDataType = '';
   protected $suggestedStopPositionType = 'Google_Service_Dataflow_Position';
@@ -3306,6 +3436,14 @@ class Google_Service_Dataflow_WorkItemServiceState extends Google_Model
   {
     return $this->reportStatusInterval;
   }
+  public function setSplitRequest(Google_Service_Dataflow_ApproximateSplitRequest $splitRequest)
+  {
+    $this->splitRequest = $splitRequest;
+  }
+  public function getSplitRequest()
+  {
+    return $this->splitRequest;
+  }
   public function setSuggestedStopPoint(Google_Service_Dataflow_ApproximateProgress $suggestedStopPoint)
   {
     $this->suggestedStopPoint = $suggestedStopPoint;
@@ -3324,10 +3462,6 @@ class Google_Service_Dataflow_WorkItemServiceState extends Google_Model
   }
 }
 
-class Google_Service_Dataflow_WorkItemServiceStateHarnessData extends Google_Model
-{
-}
-
 class Google_Service_Dataflow_WorkItemStatus extends Google_Collection
 {
   protected $collection_key = 'metricUpdates';
@@ -3343,6 +3477,8 @@ class Google_Service_Dataflow_WorkItemStatus extends Google_Collection
   protected $progressType = 'Google_Service_Dataflow_ApproximateProgress';
   protected $progressDataType = '';
   public $reportIndex;
+  protected $reportedProgressType = 'Google_Service_Dataflow_ApproximateReportedProgress';
+  protected $reportedProgressDataType = '';
   public $requestedLeaseDuration;
   protected $sourceForkType = 'Google_Service_Dataflow_SourceFork';
   protected $sourceForkDataType = '';
@@ -3401,6 +3537,14 @@ class Google_Service_Dataflow_WorkItemStatus extends Google_Collection
   {
     return $this->reportIndex;
   }
+  public function setReportedProgress(Google_Service_Dataflow_ApproximateReportedProgress $reportedProgress)
+  {
+    $this->reportedProgress = $reportedProgress;
+  }
+  public function getReportedProgress()
+  {
+    return $this->reportedProgress;
+  }
   public function setRequestedLeaseDuration($requestedLeaseDuration)
   {
     $this->requestedLeaseDuration = $requestedLeaseDuration;
@@ -3443,6 +3587,158 @@ class Google_Service_Dataflow_WorkItemStatus extends Google_Collection
   }
 }
 
+class Google_Service_Dataflow_WorkerHealthReport extends Google_Collection
+{
+  protected $collection_key = 'pods';
+  protected $internal_gapi_mappings = array(
+  );
+  public $pods;
+  public $reportInterval;
+  public $vmIsHealthy;
+  public $vmStartupTime;
+
+
+  public function setPods($pods)
+  {
+    $this->pods = $pods;
+  }
+  public function getPods()
+  {
+    return $this->pods;
+  }
+  public function setReportInterval($reportInterval)
+  {
+    $this->reportInterval = $reportInterval;
+  }
+  public function getReportInterval()
+  {
+    return $this->reportInterval;
+  }
+  public function setVmIsHealthy($vmIsHealthy)
+  {
+    $this->vmIsHealthy = $vmIsHealthy;
+  }
+  public function getVmIsHealthy()
+  {
+    return $this->vmIsHealthy;
+  }
+  public function setVmStartupTime($vmStartupTime)
+  {
+    $this->vmStartupTime = $vmStartupTime;
+  }
+  public function getVmStartupTime()
+  {
+    return $this->vmStartupTime;
+  }
+}
+
+class Google_Service_Dataflow_WorkerHealthReportResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $reportInterval;
+
+
+  public function setReportInterval($reportInterval)
+  {
+    $this->reportInterval = $reportInterval;
+  }
+  public function getReportInterval()
+  {
+    return $this->reportInterval;
+  }
+}
+
+class Google_Service_Dataflow_WorkerMessage extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $labels;
+  public $time;
+  protected $workerHealthReportType = 'Google_Service_Dataflow_WorkerHealthReport';
+  protected $workerHealthReportDataType = '';
+  protected $workerMessageCodeType = 'Google_Service_Dataflow_WorkerMessageCode';
+  protected $workerMessageCodeDataType = '';
+
+
+  public function setLabels($labels)
+  {
+    $this->labels = $labels;
+  }
+  public function getLabels()
+  {
+    return $this->labels;
+  }
+  public function setTime($time)
+  {
+    $this->time = $time;
+  }
+  public function getTime()
+  {
+    return $this->time;
+  }
+  public function setWorkerHealthReport(Google_Service_Dataflow_WorkerHealthReport $workerHealthReport)
+  {
+    $this->workerHealthReport = $workerHealthReport;
+  }
+  public function getWorkerHealthReport()
+  {
+    return $this->workerHealthReport;
+  }
+  public function setWorkerMessageCode(Google_Service_Dataflow_WorkerMessageCode $workerMessageCode)
+  {
+    $this->workerMessageCode = $workerMessageCode;
+  }
+  public function getWorkerMessageCode()
+  {
+    return $this->workerMessageCode;
+  }
+}
+
+class Google_Service_Dataflow_WorkerMessageCode extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $code;
+  public $parameters;
+
+
+  public function setCode($code)
+  {
+    $this->code = $code;
+  }
+  public function getCode()
+  {
+    return $this->code;
+  }
+  public function setParameters($parameters)
+  {
+    $this->parameters = $parameters;
+  }
+  public function getParameters()
+  {
+    return $this->parameters;
+  }
+}
+
+class Google_Service_Dataflow_WorkerMessageResponse extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $workerHealthReportResponseType = 'Google_Service_Dataflow_WorkerHealthReportResponse';
+  protected $workerHealthReportResponseDataType = '';
+
+
+  public function setWorkerHealthReportResponse(Google_Service_Dataflow_WorkerHealthReportResponse $workerHealthReportResponse)
+  {
+    $this->workerHealthReportResponse = $workerHealthReportResponse;
+  }
+  public function getWorkerHealthReportResponse()
+  {
+    return $this->workerHealthReportResponse;
+  }
+}
+
 class Google_Service_Dataflow_WorkerPool extends Google_Collection
 {
   protected $collection_key = 'packages';
@@ -3468,6 +3764,7 @@ class Google_Service_Dataflow_WorkerPool extends Google_Collection
   protected $taskrunnerSettingsType = 'Google_Service_Dataflow_TaskRunnerSettings';
   protected $taskrunnerSettingsDataType = '';
   public $teardownPolicy;
+  public $workerHarnessContainerImage;
   public $zone;
 
 
@@ -3599,6 +3896,14 @@ class Google_Service_Dataflow_WorkerPool extends Google_Collection
   {
     return $this->teardownPolicy;
   }
+  public function setWorkerHarnessContainerImage($workerHarnessContainerImage)
+  {
+    $this->workerHarnessContainerImage = $workerHarnessContainerImage;
+  }
+  public function getWorkerHarnessContainerImage()
+  {
+    return $this->workerHarnessContainerImage;
+  }
   public function setZone($zone)
   {
     $this->zone = $zone;
@@ -3607,14 +3912,6 @@ class Google_Service_Dataflow_WorkerPool extends Google_Collection
   {
     return $this->zone;
   }
-}
-
-class Google_Service_Dataflow_WorkerPoolMetadata extends Google_Model
-{
-}
-
-class Google_Service_Dataflow_WorkerPoolPoolArgs extends Google_Model
-{
 }
 
 class Google_Service_Dataflow_WorkerSettings extends Google_Model

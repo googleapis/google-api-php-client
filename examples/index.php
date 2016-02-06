@@ -6,10 +6,10 @@
     php -S localhost:8080 -t examples/
 
   And then browse to "localhost:8080" in your web browser
-<?php exit ?>
+<?php return ?>
 <?php endif ?>
 
-<?php echo pageHeader("PHP Library Examples"); ?>
+<?= pageHeader("PHP Library Examples"); ?>
 
 <?php if (isset($_POST['api_key'])): ?>
 <?php setApiKey($_POST['api_key']) ?>
@@ -39,4 +39,5 @@
   <li><a href="idtoken.php">An example of verifying and retrieving the id token.</a></li>
   <li><a href="multi-api.php">An example of using multiple APIs.</a></li>
 </ul>
-<?php echo pageFooter(); ?>
+
+<?= pageFooter(); ?>

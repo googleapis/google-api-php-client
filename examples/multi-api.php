@@ -25,7 +25,8 @@ echo pageHeader("User Query - Multiple APIs");
  * Ensure you've downloaded your oauth credentials
  ************************************************/
 if (!$oauth_credentials = getOAuthCredentialsFile()) {
-  return missingOAuth2CredentialsWarning();
+  echo missingOAuth2CredentialsWarning();
+  return;
 }
 
 /************************************************
@@ -89,7 +90,7 @@ $dr_service = new Google_Service_Drive($client);
 if ($client->getAccessToken()) {
   $_SESSION['access_token'] = $client->getAccessToken();
 
-  $dr_results = $dr_service->files->listFiles(array('maxResults' => 10));
+  $dr_results = $dr_service->files->listFiles(array('pageSize' => 10));
 
   $yt_channels = $yt_service->channels->listChannels('contentDetails', array("mine" => true));
   $likePlaylist = $yt_channels[0]->contentDetails->relatedPlaylists->likes;
@@ -107,7 +108,7 @@ if ($client->getAccessToken()) {
 <?php else: ?>
   <h3>Results Of Drive List:</h3>
   <?php foreach ($dr_results as $item): ?>
-    <?= $item->title ?><br />
+    <?= $item->name ?><br />
   <?php endforeach ?>
 
   <h3>Results Of YouTube Likes:</h3>
@@ -118,4 +119,4 @@ if ($client->getAccessToken()) {
   </div>
 </div>
 
-<?php echo pageFooter(__FILE__) ?>
+<?= pageFooter(__FILE__) ?>
