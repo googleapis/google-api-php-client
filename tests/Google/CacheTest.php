@@ -40,6 +40,20 @@ class Google_CacheTest extends BaseTest
     $this->getSetDelete($cache);
   }
 
+  public function testFileDirectoryPermissions()
+  {
+    $dir = sys_get_temp_dir() . '/google-api-php-client/tests/' . rand();
+    $cache = new Google_Cache_File($dir);
+    $cache->set('foo', 'bar');
+
+    $method = new ReflectionMethod($cache, 'getWriteableCacheFile');
+    $method->setAccessible(true);
+    $filename = $method->invoke($cache, 'foo');
+    $stat = stat($dir);
+
+    $this->assertEquals(0777 & ~umask(), $stat['mode'] & 0777);
+  }
+
   public function testFileWithDefaultMask()
   {
     $dir = sys_get_temp_dir() . '/google-api-php-client/tests/';
@@ -51,13 +65,13 @@ class Google_CacheTest extends BaseTest
     $filename = $method->invoke($cache, 'foo');
     $stat = stat($filename);
 
-    $this->assertEquals($stat['mode'] & 0777, 0600);
+    $this->assertEquals(0666 & ~umask(), $stat['mode'] & 0777);
   }
 
   public function testFileWithCustomMask()
   {
     $dir = sys_get_temp_dir() . '/google-api-php-client/tests/';
-    $cache = new Google_Cache_File($dir, null, 07);
+    $cache = new Google_Cache_File($dir, null);
     $cache->set('foo', 'bar');
 
     $method = new ReflectionMethod($cache, 'getWriteableCacheFile');
@@ -65,7 +79,7 @@ class Google_CacheTest extends BaseTest
     $filename = $method->invoke($cache, 'foo');
     $stat = stat($filename);
 
-    $this->assertEquals($stat['mode'] & 0777, 0660);
+    $this->assertEquals(0666 & ~umask(), $stat['mode'] & 0777);
   }
 
   public function testNull()

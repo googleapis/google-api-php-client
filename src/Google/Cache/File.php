@@ -30,7 +30,6 @@ class Google_Cache_File implements CacheInterface
 {
   const MAX_LOCK_RETRIES = 10;
   private $path;
-  private $umask;
   private $fh;
 
   /**
@@ -38,11 +37,10 @@ class Google_Cache_File implements CacheInterface
    */
   private $logger;
 
-  public function __construct($path, LoggerInterface $logger = null, $umask = 077)
+  public function __construct($path, LoggerInterface $logger = null)
   {
     $this->path = $path;
     $this->logger = $logger;
-    $this->umask = $umask;
   }
 
   public function get($key, $expiration = false)
@@ -157,7 +155,7 @@ class Google_Cache_File implements CacheInterface
     // trim the directory separator from the path to prevent double separators
     $storageDir = rtrim($this->path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $dirHash;
     if ($forWrite && ! is_dir($storageDir)) {
-      if (! mkdir($storageDir, 0770 & ~$this->umask, true)) {
+      if (!mkdir($storageDir, 0777, true)) {
         $this->log(
             'error',
             'File cache creation failed',
@@ -201,7 +199,7 @@ class Google_Cache_File implements CacheInterface
       return false;
     }
     if ($type == LOCK_EX) {
-      chmod($storageFile, 0660 & ~$this->umask);
+      chmod($storageFile, 0666 & ~umask());
     }
     $count = 0;
     while (!flock($this->fh, $type | LOCK_NB)) {
