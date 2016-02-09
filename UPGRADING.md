@@ -141,6 +141,24 @@ $user_to_impersonate = 'user@example.org';
 $client->setSubject($user_to_impersonate);
 ```
 
+Additionally, `Google_Client::loadServiceAccountJson` has been removed in favor
+of `Google_Client::setAuthConfig`:
+
+**Before**
+
+```php
+$scopes = [ Google_Service_Books::BOOKS ];
+$client->loadServiceAccountJson('/path/to/service-account.json', $scopes);
+```
+
+**After**
+
+```php
+$scopes = [ Google_Service_Books::BOOKS ];
+$client->setAuthConfig('/path/to/service-account.json');
+$client->setScopes($scopes);
+```
+
 ## `Google_Auth_AppIdentity` has been removed
 
 For App Engine authentication, we now use the underlying [`google/auth`][Google Auth] and
