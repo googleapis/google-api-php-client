@@ -151,11 +151,14 @@ class Google_Cache_File implements CacheInterface
     // use the first 2 characters of the hash as a directory prefix
     // this should prevent slowdowns due to huge directory listings
     // and thus give some basic amount of scalability
-    $dirHash = substr(md5($file), 0, 2);
+    $fileHash = substr(md5($file), 0, 2);
+    $userHash = md5(get_current_user());
+    $dirHash = $fileHash . DIRECTORY_SEPARATOR . $userHash;
+
     // trim the directory separator from the path to prevent double separators
     $storageDir = rtrim($this->path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $dirHash;
     if ($forWrite && ! is_dir($storageDir)) {
-      if (!mkdir($storageDir, 0777, true)) {
+      if (!mkdir($storageDir, 0700, true)) {
         $this->log(
             'error',
             'File cache creation failed',
@@ -199,7 +202,7 @@ class Google_Cache_File implements CacheInterface
       return false;
     }
     if ($type == LOCK_EX) {
-      chmod($storageFile, 0666 & ~umask());
+      chmod($storageFile, 0600);
     }
     $count = 0;
     while (!flock($this->fh, $type | LOCK_NB)) {
