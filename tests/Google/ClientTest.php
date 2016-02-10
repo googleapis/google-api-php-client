@@ -254,6 +254,7 @@ class Google_ClientTest extends BaseTest
 
     $client->setRedirectUri('localhost');
     $client->setConfig('application_name', 'me');
+    $client->setCache(new Google_Cache_Null());
     $this->assertEquals('object', gettype($client->getCache()));
 
     try {
@@ -266,19 +267,6 @@ class Google_ClientTest extends BaseTest
     $token = array('access_token' => 'token');
     $client->setAccessToken($token);
     $this->assertEquals($token, $client->getAccessToken());
-  }
-
-  /**
-   * @requires extension Memcached
-   */
-  public function testAppEngineMemcacheConfig()
-  {
-    $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
-    $client = new Google_Client();
-
-    $this->assertInstanceOf('Google_Cache_Memcache', $client->getCache());
-
-    unset($_SERVER['SERVER_SOFTWARE']);
   }
 
   public function testAppEngineStreamHandlerConfig()

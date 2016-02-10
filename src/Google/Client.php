@@ -929,23 +929,7 @@ class Google_Client
    */
   public function getCache()
   {
-    if (!isset($this->cache)) {
-      $this->cache = $this->createDefaultCache();
-    }
-
     return $this->cache;
-  }
-
-  protected function createDefaultCache()
-  {
-    if ($this->isAppEngine()) {
-      $cache = new Google_Cache_Memcache();
-    } else {
-      $cacheDir = sys_get_temp_dir() . '/google-api-php-client';
-      $cache = new Google_Cache_File($cacheDir);
-    }
-
-    return $cache;
   }
 
   /**
@@ -1056,7 +1040,11 @@ class Google_Client
 
   protected function getAuthHandler()
   {
-    return Google_AuthHandler_AuthHandlerFactory::build($this->getCache());
+    // we intentionally do not use the cache because
+    // the underlying auth library's cache implementation
+    // is broken.
+    // @see https://github.com/google/google-api-php-client/issues/821
+    return Google_AuthHandler_AuthHandlerFactory::build();
   }
 
   private function createUserRefreshCredentials($scope, $refreshToken)
