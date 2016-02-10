@@ -929,23 +929,7 @@ class Google_Client
    */
   public function getCache()
   {
-    if (!isset($this->cache)) {
-      $this->cache = $this->createDefaultCache();
-    }
-
     return $this->cache;
-  }
-
-  protected function createDefaultCache()
-  {
-    if ($this->isAppEngine()) {
-      $cache = new Google_Cache_Memcache();
-    } else {
-      $cacheDir = sys_get_temp_dir() . '/google-api-php-client';
-      $cache = new Google_Cache_File($cacheDir);
-    }
-
-    return $cache;
   }
 
   /**
