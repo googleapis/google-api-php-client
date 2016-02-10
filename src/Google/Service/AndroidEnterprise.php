@@ -1508,7 +1508,7 @@ class Google_Service_AndroidEnterprise_Enterprises_Resource extends Google_Servi
 {
 
   /**
-   * Deletes the binding between the MDM and enterprise. This is now deprecated;
+   * Deletes the binding between the EMM and enterprise. This is now deprecated;
    * use this to unenroll customers that were previously enrolled with the
    * 'insert' call, then enroll them again with the 'enroll' call.
    * (enterprises.delete)
@@ -1524,10 +1524,10 @@ class Google_Service_AndroidEnterprise_Enterprises_Resource extends Google_Servi
   }
 
   /**
-   * Enrolls an enterprise with the calling MDM. (enterprises.enroll)
+   * Enrolls an enterprise with the calling EMM. (enterprises.enroll)
    *
    * @param string $token The token provided by the enterprise to register the
-   * MDM.
+   * EMM.
    * @param Google_Enterprise $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AndroidEnterprise_Enterprise
@@ -1568,11 +1568,11 @@ class Google_Service_AndroidEnterprise_Enterprises_Resource extends Google_Servi
   }
 
   /**
-   * Establishes the binding between the MDM and an enterprise. This is now
+   * Establishes the binding between the EMM and an enterprise. This is now
    * deprecated; use enroll instead. (enterprises.insert)
    *
    * @param string $token The token provided by the enterprise to register the
-   * MDM.
+   * EMM.
    * @param Google_Enterprise $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_AndroidEnterprise_Enterprise
@@ -1600,7 +1600,7 @@ class Google_Service_AndroidEnterprise_Enterprises_Resource extends Google_Servi
   }
 
   /**
-   * Sends a test push notification to validate the MDM integration with the
+   * Sends a test push notification to validate the EMM integration with the
    * Google Cloud Pub/Sub service for this enterprise.
    * (enterprises.sendTestPushNotification)
    *
@@ -1647,7 +1647,7 @@ class Google_Service_AndroidEnterprise_Enterprises_Resource extends Google_Servi
   }
 
   /**
-   * Unenrolls an enterprise from the calling MDM. (enterprises.unenroll)
+   * Unenrolls an enterprise from the calling EMM. (enterprises.unenroll)
    *
    * @param string $enterpriseId The ID of the enterprise.
    * @param array $optParams Optional parameters.
@@ -2335,7 +2335,9 @@ class Google_Service_AndroidEnterprise_Users_Resource extends Google_Service_Res
   /**
    * Generates a token (activation code) to allow this user to configure their
    * work account in the Android Setup Wizard. Revokes any previously generated
-   * token. (users.generateToken)
+   * token.
+   *
+   * This call only works with Google managed accounts. (users.generateToken)
    *
    * @param string $enterpriseId The ID of the enterprise.
    * @param string $userId The ID of the user.
@@ -2381,8 +2383,7 @@ class Google_Service_AndroidEnterprise_Users_Resource extends Google_Service_Res
   }
 
   /**
-   * Looks up a user by email address. This only works for Google managed users.
-   * (users.listUsers)
+   * Looks up a user by their primary email address. (users.listUsers)
    *
    * @param string $enterpriseId The ID of the enterprise.
    * @param string $email The exact primary email address of the user to look up.

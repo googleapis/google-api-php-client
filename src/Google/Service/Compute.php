@@ -4137,7 +4137,8 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -4151,9 +4152,9 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -4216,7 +4217,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves a list of address resources contained within the specified region.
+   * Retrieves a list of addresses contained within the specified region.
    * (addresses.listAddresses)
    *
    * @param string $project Project ID for this request.
@@ -4235,7 +4236,8 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -4249,9 +4251,9 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -4294,7 +4296,8 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -4308,9 +4311,9 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -4394,7 +4397,8 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -4408,9 +4412,9 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -4558,7 +4562,8 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -4572,9 +4577,9 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -4638,8 +4643,7 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
 {
 
   /**
-   * Retrieves an aggregated list of disk type resources.
-   * (diskTypes.aggregatedList)
+   * Retrieves an aggregated list of disk types. (diskTypes.aggregatedList)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
@@ -4656,7 +4660,8 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -4670,9 +4675,9 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -4686,11 +4691,11 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified disk type resource. (diskTypes.get)
+   * Returns the specified disk type. (diskTypes.get)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
-   * @param string $diskType Name of the disk type resource to return.
+   * @param string $diskType Name of the disk type to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_DiskType
    */
@@ -4702,7 +4707,7 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves a list of disk type resources available to the specified project.
+   * Retrieves a list of disk types available to the specified project.
    * (diskTypes.listDiskTypes)
    *
    * @param string $project Project ID for this request.
@@ -4721,7 +4726,8 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -4735,9 +4741,9 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -4780,7 +4786,8 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -4794,9 +4801,9 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -4862,8 +4869,11 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Creates a persistent disk in the specified project using the data included in
-   * the request. (disks.insert)
+   * Creates a persistent disk in the specified project using the data in the
+   * request. You can create a disk with a sourceImage, a sourceSnapshot, or
+   * create an empty 200 GB data disk by omitting all properties. You can also
+   * create a disk that is larger than the default size by specifying the sizeGb
+   * property. (disks.insert)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
@@ -4900,7 +4910,8 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -4914,9 +4925,9 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -4942,10 +4953,10 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
 {
 
   /**
-   * Deletes the specified firewall resource. (firewalls.delete)
+   * Deletes the specified firewall. (firewalls.delete)
    *
    * @param string $project Project ID for this request.
-   * @param string $firewall Name of the firewall resource to delete.
+   * @param string $firewall Name of the firewall rule to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -4957,10 +4968,10 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified firewall resource. (firewalls.get)
+   * Returns the specified firewall. (firewalls.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $firewall Name of the firewall resource to return.
+   * @param string $firewall Name of the firewall rule to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Firewall
    */
@@ -4972,8 +4983,8 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
   }
 
   /**
-   * Creates a firewall resource in the specified project using the data included
-   * in the request. (firewalls.insert)
+   * Creates a firewall rule in the specified project using the data included in
+   * the request. (firewalls.insert)
    *
    * @param string $project Project ID for this request.
    * @param Google_Firewall $postBody
@@ -4988,7 +4999,7 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves the list of firewall resources available to the specified project.
+   * Retrieves the list of firewall rules available to the specified project.
    * (firewalls.listFirewalls)
    *
    * @param string $project Project ID for this request.
@@ -5006,7 +5017,8 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -5020,9 +5032,9 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -5036,11 +5048,11 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
   }
 
   /**
-   * Updates the specified firewall resource with the data included in the
-   * request. This method supports patch semantics. (firewalls.patch)
+   * Updates the specified firewall rule with the data included in the request.
+   * This method supports patch semantics. (firewalls.patch)
    *
    * @param string $project Project ID for this request.
-   * @param string $firewall Name of the firewall resource to update.
+   * @param string $firewall Name of the firewall rule to update.
    * @param Google_Firewall $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -5053,11 +5065,11 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
   }
 
   /**
-   * Updates the specified firewall resource with the data included in the
-   * request. (firewalls.update)
+   * Updates the specified firewall rule with the data included in the request.
+   * (firewalls.update)
    *
    * @param string $project Project ID for this request.
-   * @param string $firewall Name of the firewall resource to update.
+   * @param string $firewall Name of the firewall rule to update.
    * @param Google_Firewall $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -5100,7 +5112,8 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -5114,9 +5127,9 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -5198,7 +5211,8 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -5212,9 +5226,9 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -5305,8 +5319,7 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
   }
 
   /**
-   * Retrieves a list of global address resources.
-   * (globalAddresses.listGlobalAddresses)
+   * Retrieves a list of global addresses. (globalAddresses.listGlobalAddresses)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
@@ -5323,7 +5336,8 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -5337,9 +5351,9 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -5429,7 +5443,8 @@ class Google_Service_Compute_GlobalForwardingRules_Resource extends Google_Servi
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -5443,9 +5458,9 @@ class Google_Service_Compute_GlobalForwardingRules_Resource extends Google_Servi
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -5507,7 +5522,8 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -5521,9 +5537,9 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -5584,7 +5600,8 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -5598,9 +5615,9 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -5692,7 +5709,8 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -5706,9 +5724,9 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -5837,7 +5855,8 @@ class Google_Service_Compute_HttpsHealthChecks_Resource extends Google_Service_R
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -5851,9 +5870,9 @@ class Google_Service_Compute_HttpsHealthChecks_Resource extends Google_Service_R
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -5916,7 +5935,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
 {
 
   /**
-   * Deletes the specified image resource. (images.delete)
+   * Deletes the specified image. (images.delete)
    *
    * @param string $project Project ID for this request.
    * @param string $image Name of the image resource to delete.
@@ -5950,7 +5969,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified image resource. (images.get)
+   * Returns the specified image. (images.get)
    *
    * @param string $project Project ID for this request.
    * @param string $image Name of the image resource to return.
@@ -5965,8 +5984,8 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
   }
 
   /**
-   * Creates an image resource in the specified project using the data included in
-   * the request. (images.insert)
+   * Creates an image in the specified project using the data included in the
+   * request. (images.insert)
    *
    * @param string $project Project ID for this request.
    * @param Google_Image $postBody
@@ -6005,7 +6024,8 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -6019,9 +6039,9 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -6091,7 +6111,8 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -6105,9 +6126,9 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -6227,7 +6248,8 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -6241,9 +6263,9 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -6386,8 +6408,9 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
 {
 
   /**
-   * Adds a list of instances to the specified instance group. Read  Adding
-   * instances for more information. (instanceGroups.addInstances)
+   * Adds a list of instances to the specified instance group. All of the
+   * instances in the instance group must be in the same network/subnetwork. Read
+   * Adding instances for more information. (instanceGroups.addInstances)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the instance group is located.
@@ -6423,7 +6446,8 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -6437,9 +6461,9 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -6524,7 +6548,8 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -6538,9 +6563,9 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -6576,7 +6601,8 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -6590,9 +6616,9 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -6656,7 +6682,11 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
 {
 
   /**
-   * Deletes the specified instance template. (instanceTemplates.delete)
+   * Deletes the specified instance template. If you delete an instance template
+   * that is being referenced from another instance group, the instance group will
+   * not be able to create or recreate virtual machine instances. Deleting an
+   * instance template is permanent and cannot be undone.
+   * (instanceTemplates.delete)
    *
    * @param string $project Project ID for this request.
    * @param string $instanceTemplate The name of the instance template to delete.
@@ -6723,7 +6753,8 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -6737,9 +6768,9 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -6785,7 +6816,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves aggregated list of instance resources. (instances.aggregatedList)
+   * Retrieves aggregated list of instances. (instances.aggregatedList)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
@@ -6802,7 +6833,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -6816,9 +6848,9 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -6836,7 +6868,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
-   * @param string $instance Instance name.
+   * @param string $instance The instance name for this request.
    * @param Google_AttachedDisk $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -6902,7 +6934,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified instance resource. (instances.get)
+   * Returns the specified Instance resource. (instances.get)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
@@ -6954,7 +6986,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves the list of instance resources contained within the specified zone.
+   * Retrieves the list of instances contained within the specified zone.
    * (instances.listInstances)
    *
    * @param string $project Project ID for this request.
@@ -6973,7 +7005,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -6987,9 +7020,9 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -7163,7 +7196,7 @@ class Google_Service_Compute_Licenses_Resource extends Google_Service_Resource
    * Returns the specified license resource. (licenses.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $license Name of the license resource to return.
+   * @param string $license Name of the License resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_License
    */
@@ -7187,8 +7220,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
 {
 
   /**
-   * Retrieves an aggregated list of machine type resources.
-   * (machineTypes.aggregatedList)
+   * Retrieves an aggregated list of machine types. (machineTypes.aggregatedList)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
@@ -7205,7 +7237,8 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -7219,9 +7252,9 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -7235,11 +7268,11 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
   }
 
   /**
-   * Returns the specified machine type resource. (machineTypes.get)
+   * Returns the specified machine type. (machineTypes.get)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
-   * @param string $machineType Name of the machine type resource to return.
+   * @param string $machineType Name of the machine type to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_MachineType
    */
@@ -7251,8 +7284,8 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
   }
 
   /**
-   * Retrieves a list of machine type resources available to the specified
-   * project. (machineTypes.listMachineTypes)
+   * Retrieves a list of machine types available to the specified project.
+   * (machineTypes.listMachineTypes)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
@@ -7270,7 +7303,8 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -7284,9 +7318,9 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -7312,10 +7346,10 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
 {
 
   /**
-   * Deletes the specified network resource. (networks.delete)
+   * Deletes the specified network. (networks.delete)
    *
    * @param string $project Project ID for this request.
-   * @param string $network Name of the network resource to delete.
+   * @param string $network Name of the network to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -7327,10 +7361,10 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified network resource. (networks.get)
+   * Returns the specified network. (networks.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $network Name of the network resource to return.
+   * @param string $network Name of the network to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Network
    */
@@ -7342,8 +7376,8 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Creates a network resource in the specified project using the data included
-   * in the request. (networks.insert)
+   * Creates a network in the specified project using the data included in the
+   * request. (networks.insert)
    *
    * @param string $project Project ID for this request.
    * @param Google_Network $postBody
@@ -7358,7 +7392,7 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves the list of network resources available to the specified project.
+   * Retrieves the list of networks available to the specified project.
    * (networks.listNetworks)
    *
    * @param string $project Project ID for this request.
@@ -7376,7 +7410,8 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -7390,9 +7425,9 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -7512,7 +7547,7 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * (regionOperations.delete)
    *
    * @param string $project Project ID for this request.
-   * @param string $region Name of the region scoping this request.
+   * @param string $region Name of the region for this request.
    * @param string $operation Name of the Operations resource to delete.
    * @param array $optParams Optional parameters.
    */
@@ -7528,7 +7563,7 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * (regionOperations.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $region Name of the region scoping this request.
+   * @param string $region Name of the region for this request.
    * @param string $operation Name of the Operations resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -7545,7 +7580,7 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * region. (regionOperations.listRegionOperations)
    *
    * @param string $project Project ID for this request.
-   * @param string $region Name of the region scoping this request.
+   * @param string $region Name of the region for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
@@ -7560,7 +7595,8 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -7574,9 +7610,9 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -7635,7 +7671,8 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -7649,9 +7686,9 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -7741,7 +7778,8 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -7755,9 +7793,9 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -7836,7 +7874,8 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -7850,9 +7889,9 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -7942,7 +7981,8 @@ class Google_Service_Compute_SslCertificates_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -7956,9 +7996,9 @@ class Google_Service_Compute_SslCertificates_Resource extends Google_Service_Res
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -8001,7 +8041,8 @@ class Google_Service_Compute_Subnetworks_Resource extends Google_Service_Resourc
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -8015,9 +8056,9 @@ class Google_Service_Compute_Subnetworks_Resource extends Google_Service_Resourc
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -8099,7 +8140,8 @@ class Google_Service_Compute_Subnetworks_Resource extends Google_Service_Resourc
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -8113,9 +8155,9 @@ class Google_Service_Compute_Subnetworks_Resource extends Google_Service_Resourc
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -8207,7 +8249,8 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -8221,9 +8264,9 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -8240,8 +8283,8 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
    * Changes the URL map for TargetHttpProxy. (targetHttpProxies.setUrlMap)
    *
    * @param string $project Project ID for this request.
-   * @param string $targetHttpProxy Name of the TargetHttpProxy resource whose URL
-   * map is to be set.
+   * @param string $targetHttpProxy The name of the TargetHttpProxy resource to
+   * set a URL map for.
    * @param Google_UrlMapReference $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -8332,7 +8375,8 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -8346,9 +8390,9 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -8366,8 +8410,8 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
    * (targetHttpsProxies.setSslCertificates)
    *
    * @param string $project Project ID for this request.
-   * @param string $targetHttpsProxy Name of the TargetHttpsProxy resource whose
-   * SSLCertificate is to be set.
+   * @param string $targetHttpsProxy Name of the TargetHttpsProxy resource to set
+   * an SSL certificate for.
    * @param Google_TargetHttpsProxiesSetSslCertificatesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -8427,7 +8471,8 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -8441,9 +8486,9 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -8525,7 +8570,8 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -8539,9 +8585,9 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -8567,12 +8613,11 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
 {
 
   /**
-   * Adds health check URL to targetPool. (targetPools.addHealthCheck)
+   * Adds health check URLs to a target pool. (targetPools.addHealthCheck)
    *
-   * @param string $project
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
-   * @param string $targetPool Name of the TargetPool resource to which
-   * health_check_url is to be added.
+   * @param string $targetPool Name of the target pool to add a health check to.
    * @param Google_TargetPoolsAddHealthCheckRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -8585,12 +8630,12 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Adds instance URL to targetPool. (targetPools.addInstance)
+   * Adds an instance to a target pool. (targetPools.addInstance)
    *
-   * @param string $project
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
-   * @param string $targetPool Name of the TargetPool resource to which
-   * instance_url is to be added.
+   * @param string $targetPool Name of the TargetPool resource to add instances
+   * to.
    * @param Google_TargetPoolsAddInstanceRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -8620,7 +8665,8 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -8634,9 +8680,9 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -8650,7 +8696,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Deletes the specified TargetPool resource. (targetPools.delete)
+   * Deletes the specified target pool. (targetPools.delete)
    *
    * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
@@ -8666,7 +8712,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Returns the specified TargetPool resource. (targetPools.get)
+   * Returns the specified target pool. (targetPools.get)
    *
    * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
@@ -8682,10 +8728,10 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Gets the most recent health check results for each IP for the given instance
-   * that is referenced by the given TargetPool. (targetPools.getHealth)
+   * Gets the most recent health check results for each IP for the instance that
+   * is referenced by the given target pool. (targetPools.getHealth)
    *
-   * @param string $project
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
    * @param string $targetPool Name of the TargetPool resource to which the
    * queried instance belongs.
@@ -8701,8 +8747,8 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Creates a TargetPool resource in the specified project and region using the
-   * data included in the request. (targetPools.insert)
+   * Creates a target pool in the specified project and region using the data
+   * included in the request. (targetPools.insert)
    *
    * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
@@ -8718,8 +8764,8 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Retrieves a list of TargetPool resources available to the specified project
-   * and region. (targetPools.listTargetPools)
+   * Retrieves a list of target pools available to the specified project and
+   * region. (targetPools.listTargetPools)
    *
    * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
@@ -8737,7 +8783,8 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -8751,9 +8798,9 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -8767,12 +8814,12 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Removes health check URL from targetPool. (targetPools.removeHealthCheck)
+   * Removes health check URL from a target pool. (targetPools.removeHealthCheck)
    *
-   * @param string $project
-   * @param string $region Name of the region scoping this request.
-   * @param string $targetPool Name of the TargetPool resource to which
-   * health_check_url is to be removed.
+   * @param string $project Project ID for this request.
+   * @param string $region Name of the region for this request.
+   * @param string $targetPool Name of the target pool to remove health checks
+   * from.
    * @param Google_TargetPoolsRemoveHealthCheckRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -8785,12 +8832,12 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Removes instance URL from targetPool. (targetPools.removeInstance)
+   * Removes instance URL from a target pool. (targetPools.removeInstance)
    *
-   * @param string $project
+   * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
-   * @param string $targetPool Name of the TargetPool resource to which
-   * instance_url is to be removed.
+   * @param string $targetPool Name of the TargetPool resource to remove instances
+   * from.
    * @param Google_TargetPoolsRemoveInstanceRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -8803,17 +8850,16 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Changes backup pool configurations. (targetPools.setBackup)
+   * Changes a backup target pool's configurations. (targetPools.setBackup)
    *
    * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
-   * @param string $targetPool Name of the TargetPool resource for which the
-   * backup is to be set.
+   * @param string $targetPool Name of the TargetPool resource to set a backup
+   * pool for.
    * @param Google_TargetReference $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param float failoverRatio New failoverRatio value for the containing
-   * target pool.
+   * @opt_param float failoverRatio New failoverRatio value for the target pool.
    * @return Google_Service_Compute_Operation
    */
   public function setBackup($project, $region, $targetPool, Google_Service_Compute_TargetReference $postBody, $optParams = array())
@@ -8836,7 +8882,7 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
 {
 
   /**
-   * Retrieves an aggregated list of target VPN gateways .
+   * Retrieves an aggregated list of target VPN gateways.
    * (targetVpnGateways.aggregatedList)
    *
    * @param string $project Project ID for this request.
@@ -8854,7 +8900,8 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -8868,9 +8915,9 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -8884,12 +8931,11 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
   }
 
   /**
-   * Deletes the specified TargetVpnGateway resource. (targetVpnGateways.delete)
+   * Deletes the specified target VPN gateway. (targetVpnGateways.delete)
    *
    * @param string $project Project ID for this request.
    * @param string $region The name of the region for this request.
-   * @param string $targetVpnGateway Name of the TargetVpnGateway resource to
-   * delete.
+   * @param string $targetVpnGateway Name of the target VPN gateway to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -8901,12 +8947,11 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
   }
 
   /**
-   * Returns the specified TargetVpnGateway resource. (targetVpnGateways.get)
+   * Returns the specified target VPN gateway. (targetVpnGateways.get)
    *
    * @param string $project Project ID for this request.
    * @param string $region The name of the region for this request.
-   * @param string $targetVpnGateway Name of the TargetVpnGateway resource to
-   * return.
+   * @param string $targetVpnGateway Name of the target VPN gateway to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_TargetVpnGateway
    */
@@ -8918,8 +8963,8 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
   }
 
   /**
-   * Creates a TargetVpnGateway resource in the specified project and region using
-   * the data included in the request. (targetVpnGateways.insert)
+   * Creates a target VPN gateway in the specified project and region using the
+   * data included in the request. (targetVpnGateways.insert)
    *
    * @param string $project Project ID for this request.
    * @param string $region The name of the region for this request.
@@ -8935,8 +8980,8 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
   }
 
   /**
-   * Retrieves a list of TargetVpnGateway resources available to the specified
-   * project and region. (targetVpnGateways.listTargetVpnGateways)
+   * Retrieves a list of target VPN gateways available to the specified project
+   * and region. (targetVpnGateways.listTargetVpnGateways)
    *
    * @param string $project Project ID for this request.
    * @param string $region The name of the region for this request.
@@ -8954,7 +8999,8 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -8968,9 +9014,9 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -9060,7 +9106,8 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -9074,9 +9121,9 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -9170,7 +9217,8 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -9184,9 +9232,9 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -9268,7 +9316,8 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -9282,9 +9331,9 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -9314,7 +9363,7 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    * (zoneOperations.delete)
    *
    * @param string $project Project ID for this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $zone Name of the zone for this request.
    * @param string $operation Name of the Operations resource to delete.
    * @param array $optParams Optional parameters.
    */
@@ -9330,7 +9379,7 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    * (zoneOperations.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $zone Name of the zone for this request.
    * @param string $operation Name of the Operations resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -9347,7 +9396,7 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    * (zoneOperations.listZoneOperations)
    *
    * @param string $project Project ID for this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $zone Name of the zone for request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
@@ -9362,7 +9411,8 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -9376,9 +9426,9 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.
@@ -9437,7 +9487,8 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances whose name is not equal to example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -9451,9 +9502,9 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
    * expressions are treated as AND expressions meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string pageToken Specifies a page token to use. Set pageToken to
    * the nextPageToken returned by a previous list request to get the next page of
    * results.

@@ -2932,12 +2932,21 @@ class Google_Service_Dataflow_StreamingSetupTask extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $drain;
   public $receiveWorkPort;
   protected $streamingComputationTopologyType = 'Google_Service_Dataflow_TopologyConfig';
   protected $streamingComputationTopologyDataType = '';
   public $workerHarnessPort;
 
 
+  public function setDrain($drain)
+  {
+    $this->drain = $drain;
+  }
+  public function getDrain()
+  {
+    return $this->drain;
+  }
   public function setReceiveWorkPort($receiveWorkPort)
   {
     $this->receiveWorkPort = $receiveWorkPort;
