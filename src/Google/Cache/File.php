@@ -154,11 +154,11 @@ class Google_Cache_File implements CacheInterface
     $fileHash = substr(md5($file), 0, 2);
     $processUser = null;
     if (function_exists('posix_geteuid')) {
-        $processUser = posix_getpwuid(posix_geteuid())['name'];
+      $processUser = posix_getpwuid(posix_geteuid())['name'];
     } elseif (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-        $processUser = get_current_user();
+      $processUser = get_current_user();
     }
-    if ($processUser === null) {
+    if (empty($processUser)) {
       $this->log(
           'error',
           'Process User get failed'
