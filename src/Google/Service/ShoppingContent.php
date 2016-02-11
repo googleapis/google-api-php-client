@@ -5002,6 +5002,8 @@ class Google_Service_ShoppingContent_Order extends Google_Collection
   protected $paymentMethodDataType = '';
   public $paymentStatus;
   public $placedDate;
+  protected $promotionsType = 'Google_Service_ShoppingContent_OrderPromotion';
+  protected $promotionsDataType = 'array';
   protected $refundsType = 'Google_Service_ShoppingContent_OrderRefund';
   protected $refundsDataType = 'array';
   protected $shipmentsType = 'Google_Service_ShoppingContent_OrderShipment';
@@ -5109,6 +5111,14 @@ class Google_Service_ShoppingContent_Order extends Google_Collection
   public function getPlacedDate()
   {
     return $this->placedDate;
+  }
+  public function setPromotions($promotions)
+  {
+    $this->promotions = $promotions;
+  }
+  public function getPromotions()
+  {
+    return $this->promotions;
   }
   public function setRefunds($refunds)
   {
@@ -5837,6 +5847,135 @@ class Google_Service_ShoppingContent_OrderPaymentMethod extends Google_Model
   public function getPhoneNumber()
   {
     return $this->phoneNumber;
+  }
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  public function getType()
+  {
+    return $this->type;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderPromotion extends Google_Collection
+{
+  protected $collection_key = 'benefits';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $benefitsType = 'Google_Service_ShoppingContent_OrderPromotionBenefit';
+  protected $benefitsDataType = 'array';
+  public $effectiveDates;
+  public $genericRedemptionCode;
+  public $id;
+  public $longTitle;
+  public $productApplicability;
+  public $redemptionChannel;
+
+
+  public function setBenefits($benefits)
+  {
+    $this->benefits = $benefits;
+  }
+  public function getBenefits()
+  {
+    return $this->benefits;
+  }
+  public function setEffectiveDates($effectiveDates)
+  {
+    $this->effectiveDates = $effectiveDates;
+  }
+  public function getEffectiveDates()
+  {
+    return $this->effectiveDates;
+  }
+  public function setGenericRedemptionCode($genericRedemptionCode)
+  {
+    $this->genericRedemptionCode = $genericRedemptionCode;
+  }
+  public function getGenericRedemptionCode()
+  {
+    return $this->genericRedemptionCode;
+  }
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
+  public function getId()
+  {
+    return $this->id;
+  }
+  public function setLongTitle($longTitle)
+  {
+    $this->longTitle = $longTitle;
+  }
+  public function getLongTitle()
+  {
+    return $this->longTitle;
+  }
+  public function setProductApplicability($productApplicability)
+  {
+    $this->productApplicability = $productApplicability;
+  }
+  public function getProductApplicability()
+  {
+    return $this->productApplicability;
+  }
+  public function setRedemptionChannel($redemptionChannel)
+  {
+    $this->redemptionChannel = $redemptionChannel;
+  }
+  public function getRedemptionChannel()
+  {
+    return $this->redemptionChannel;
+  }
+}
+
+class Google_Service_ShoppingContent_OrderPromotionBenefit extends Google_Collection
+{
+  protected $collection_key = 'offerIds';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $discountType = 'Google_Service_ShoppingContent_Price';
+  protected $discountDataType = '';
+  public $offerIds;
+  public $subType;
+  protected $taxImpactType = 'Google_Service_ShoppingContent_Price';
+  protected $taxImpactDataType = '';
+  public $type;
+
+
+  public function setDiscount(Google_Service_ShoppingContent_Price $discount)
+  {
+    $this->discount = $discount;
+  }
+  public function getDiscount()
+  {
+    return $this->discount;
+  }
+  public function setOfferIds($offerIds)
+  {
+    $this->offerIds = $offerIds;
+  }
+  public function getOfferIds()
+  {
+    return $this->offerIds;
+  }
+  public function setSubType($subType)
+  {
+    $this->subType = $subType;
+  }
+  public function getSubType()
+  {
+    return $this->subType;
+  }
+  public function setTaxImpact(Google_Service_ShoppingContent_Price $taxImpact)
+  {
+    $this->taxImpact = $taxImpact;
+  }
+  public function getTaxImpact()
+  {
+    return $this->taxImpact;
   }
   public function setType($type)
   {
@@ -7333,6 +7472,7 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   protected $priceType = 'Google_Service_ShoppingContent_Price';
   protected $priceDataType = '';
   public $productType;
+  public $promotionIds;
   protected $salePriceType = 'Google_Service_ShoppingContent_Price';
   protected $salePriceDataType = '';
   public $salePriceEffectiveDate;
@@ -7771,6 +7911,14 @@ class Google_Service_ShoppingContent_Product extends Google_Collection
   public function getProductType()
   {
     return $this->productType;
+  }
+  public function setPromotionIds($promotionIds)
+  {
+    $this->promotionIds = $promotionIds;
+  }
+  public function getPromotionIds()
+  {
+    return $this->promotionIds;
   }
   public function setSalePrice(Google_Service_ShoppingContent_Price $salePrice)
   {
@@ -8864,7 +9012,7 @@ class Google_Service_ShoppingContent_ProductstatusesListResponse extends Google_
 
 class Google_Service_ShoppingContent_TestOrder extends Google_Collection
 {
-  protected $collection_key = 'lineItems';
+  protected $collection_key = 'promotions';
   protected $internal_gapi_mappings = array(
   );
   protected $customerType = 'Google_Service_ShoppingContent_TestOrderCustomer';
@@ -8875,6 +9023,8 @@ class Google_Service_ShoppingContent_TestOrder extends Google_Collection
   protected $paymentMethodType = 'Google_Service_ShoppingContent_TestOrderPaymentMethod';
   protected $paymentMethodDataType = '';
   public $predefinedDeliveryAddress;
+  protected $promotionsType = 'Google_Service_ShoppingContent_OrderPromotion';
+  protected $promotionsDataType = 'array';
   protected $shippingCostType = 'Google_Service_ShoppingContent_Price';
   protected $shippingCostDataType = '';
   protected $shippingCostTaxType = 'Google_Service_ShoppingContent_Price';
@@ -8921,6 +9071,14 @@ class Google_Service_ShoppingContent_TestOrder extends Google_Collection
   public function getPredefinedDeliveryAddress()
   {
     return $this->predefinedDeliveryAddress;
+  }
+  public function setPromotions($promotions)
+  {
+    $this->promotions = $promotions;
+  }
+  public function getPromotions()
+  {
+    return $this->promotions;
   }
   public function setShippingCost(Google_Service_ShoppingContent_Price $shippingCost)
   {

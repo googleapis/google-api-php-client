@@ -879,6 +879,7 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   public $localId;
   public $oobCode;
   public $password;
+  public $photoUrl;
   public $provider;
   public $upgradeToFederatedLogin;
   public $validSince;
@@ -979,6 +980,14 @@ class Google_Service_IdentityToolkit_IdentitytoolkitRelyingpartySetAccountInfoRe
   public function getPassword()
   {
     return $this->password;
+  }
+  public function setPhotoUrl($photoUrl)
+  {
+    $this->photoUrl = $photoUrl;
+  }
+  public function getPhotoUrl()
+  {
+    return $this->photoUrl;
   }
   public function setProvider($provider)
   {
@@ -1450,6 +1459,7 @@ class Google_Service_IdentityToolkit_SetAccountInfoResponse extends Google_Colle
   public $idToken;
   public $kind;
   public $newEmail;
+  public $photoUrl;
   protected $providerUserInfoType = 'Google_Service_IdentityToolkit_SetAccountInfoResponseProviderUserInfo';
   protected $providerUserInfoDataType = 'array';
 
@@ -1493,6 +1503,14 @@ class Google_Service_IdentityToolkit_SetAccountInfoResponse extends Google_Colle
   public function getNewEmail()
   {
     return $this->newEmail;
+  }
+  public function setPhotoUrl($photoUrl)
+  {
+    $this->photoUrl = $photoUrl;
+  }
+  public function getPhotoUrl()
+  {
+    return $this->photoUrl;
   }
   public function setProviderUserInfo($providerUserInfo)
   {
@@ -1716,6 +1734,7 @@ class Google_Service_IdentityToolkit_UserInfoProviderUserInfo extends Google_Mod
   protected $internal_gapi_mappings = array(
   );
   public $displayName;
+  public $email;
   public $federatedId;
   public $photoUrl;
   public $providerId;
@@ -1728,6 +1747,14 @@ class Google_Service_IdentityToolkit_UserInfoProviderUserInfo extends Google_Mod
   public function getDisplayName()
   {
     return $this->displayName;
+  }
+  public function setEmail($email)
+  {
+    $this->email = $email;
+  }
+  public function getEmail()
+  {
+    return $this->email;
   }
   public function setFederatedId($federatedId)
   {
