@@ -160,10 +160,9 @@ class Google_Cache_File implements CacheInterface
     }
     if (empty($processUser)) {
       $this->log(
-          'error',
+          'notice',
           'Process User get failed'
       );
-      throw new Google_Cache_Exception("Could not get process user");
     }
     $userHash = md5($processUser);
     $dirHash = $userHash . DIRECTORY_SEPARATOR . $fileHash;
