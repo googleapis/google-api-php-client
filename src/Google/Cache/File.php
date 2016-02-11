@@ -152,7 +152,20 @@ class Google_Cache_File implements CacheInterface
     // this should prevent slowdowns due to huge directory listings
     // and thus give some basic amount of scalability
     $fileHash = substr(md5($file), 0, 2);
-    $userHash = md5(get_current_user());
+    $processUser = null;
+    if (function_exists('posix_geteuid')) {
+        $processUser = posix_getpwuid(posix_geteuid())['name'];
+    } elseif (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+        $processUser = get_current_user();
+    }
+    if ($processUser === null) {
+      $this->log(
+          'error',
+          'Process User get failed'
+      );
+      throw new Google_Cache_Exception("Could not get process user");
+    }
+    $userHash = md5($processUser);
     $dirHash = $userHash . DIRECTORY_SEPARATOR . $fileHash;
 
     // trim the directory separator from the path to prevent double separators
