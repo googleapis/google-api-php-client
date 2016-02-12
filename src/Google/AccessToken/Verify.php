@@ -72,6 +72,9 @@ class Google_AccessToken_Verify
       throw new LogicException('id_token cannot be null');
     }
 
+    // set phpseclib constants if applicable
+    $this->setPhpsecConstants();
+
     // Check signature
     $certs = $this->getFederatedSignOnCerts();
     foreach ($certs as $cert) {
@@ -199,5 +202,25 @@ class Google_AccessToken_Verify
     $jwtClass::$leeway = 1;
 
     return new $jwtClass;
+  }
+
+  /**
+   * phpseclib calls "phpinfo" by default, which requires special
+   * whitelisting in the AppEngine VM environment. This function
+   * sets constants to bypass the need for phpseclib to check phpinfo
+   *
+   * @see phpseclib/Math/BigInteger
+   * @see https://github.com/GoogleCloudPlatform/getting-started-php/issues/85
+   */
+  private function setPhpsecConstants()
+  {
+    if (filter_var(getenv('GAE_VM'), FILTER_VALIDATE_BOOLEAN)) {
+      if (!defined('MATH_BIGINTEGER_OPENSSL_ENABLED')) {
+        define('MATH_BIGINTEGER_OPENSSL_ENABLED', true);
+      }
+      if (!defined('CRYPT_RSA_MODE')) {
+        define('CRYPT_RSA_MODE', RSA::MODE_OPENSSL);
+      }
+    }
   }
 }
