@@ -40,8 +40,6 @@ $client->setRedirectUri($redirect_uri);
 $client->addScope("https://www.googleapis.com/auth/drive");
 $client->addScope("https://www.googleapis.com/auth/youtube");
 
-$service = new Google_Service_Drive($client);
-
 // add "?logout" to the URL to remove a token from the session
 if (isset($_REQUEST['logout'])) {
   unset($_SESSION['multi-api-token']);
