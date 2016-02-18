@@ -24,7 +24,8 @@ echo pageHeader("Retrieving An Id Token");
  * Ensure you've downloaded your oauth credentials
  ************************************************/
 if (!$oauth_credentials = getOAuthCredentialsFile()) {
-  return missingOAuth2CredentialsWarning();
+  echo missingOAuth2CredentialsWarning();
+  return;
 }
 
 /************************************************
@@ -60,7 +61,7 @@ if (isset($_GET['code'])) {
   $client->setAccessToken($token);
 
   // store in the session also
-  $_SESSION['id_token'] = $token;
+  $_SESSION['id_token_token'] = $token;
 
   // redirect back to the example
   header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
@@ -71,10 +72,10 @@ if (isset($_GET['code'])) {
   requests, else we generate an authentication URL.
  ************************************************/
 if (
-  !empty($_SESSION['id_token'])
-  && isset($_SESSION['id_token']['id_token'])
+  !empty($_SESSION['id_token_token'])
+  && isset($_SESSION['id_token_token']['id_token'])
 ) {
-  $client->setAccessToken($_SESSION['id_token']);
+  $client->setAccessToken($_SESSION['id_token_token']);
 } else {
   $authUrl = $client->createAuthUrl();
 }
@@ -105,4 +106,4 @@ if ($client->getAccessToken()) {
 <?php endif ?>
 </div>
 
-<?php echo pageFooter(__FILE__) ?>
+<?= pageFooter(__FILE__) ?>

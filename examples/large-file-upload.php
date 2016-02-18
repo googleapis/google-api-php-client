@@ -24,7 +24,8 @@ echo pageHeader("File Upload - Uploading a large file");
  * Ensure you've downloaded your oauth credentials
  ************************************************/
 if (!$oauth_credentials = getOAuthCredentialsFile()) {
-  return missingOAuth2CredentialsWarning();
+  echo missingOAuth2CredentialsWarning();
+  return;
 }
 
 /************************************************
@@ -89,12 +90,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
   }
 
   $file = new Google_Service_Drive_DriveFile();
-  $file->title = "Big File";
+  $file->name = "Big File";
   $chunkSizeBytes = 1 * 1024 * 1024;
 
   // Call the API with the media upload, defer so it doesn't immediately return.
   $client->setDefer(true);
-  $request = $service->files->insert($file);
+  $request = $service->files->create($file);
 
   // Create a media file upload to represent our upload process.
   $media = new Google_Http_MediaFileUpload(
@@ -155,7 +156,7 @@ function readVideoChunk ($handle, $chunkSize)
 <?php elseif($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
   <div class="shortened">
     <p>Your call was successful! Check your drive for this file:</p>
-    <p><a href="<?= $result->alternateLink ?>" target="_blank"><?= $result->title ?></a></p>
+    <p><a href="https://drive.google.com/open?id=<?= $result->id ?>" target="_blank"><?= $result->name ?></a></p>
   </div>
 <?php else: ?>
   <form method="POST">
@@ -164,4 +165,4 @@ function readVideoChunk ($handle, $chunkSize)
 <?php endif ?>
 </div>
 
-<?php echo pageFooter(__FILE__) ?>
+<?= pageFooter(__FILE__) ?>

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
+ * Copyright 2016 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -120,13 +120,13 @@ class Google_Service_Pubsub extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'modifyAckDeadline' => array(
@@ -238,13 +238,13 @@ class Google_Service_Pubsub extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),'publish' => array(
@@ -296,13 +296,13 @@ class Google_Service_Pubsub extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'pageSize' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
                 ),
               ),
             ),
@@ -418,8 +418,10 @@ class Google_Service_Pubsub_ProjectsSubscriptions_Resource extends Google_Servic
    * the resource does not exist. (subscriptions.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which policy is being
-   * requested. Resource is usually specified as a path, such as,
-   * `projects/{project}`.
+   * requested. `resource` is usually specified as a path, such as,
+   * `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path
+   * specified in this value is resource specific and is specified in the
+   * documentation for the respective GetIamPolicy rpc.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_Policy
    */
@@ -437,11 +439,11 @@ class Google_Service_Pubsub_ProjectsSubscriptions_Resource extends Google_Servic
    * belong to.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize Maximum number of subscriptions to return.
    * @opt_param string pageToken The value returned by the last
    * `ListSubscriptionsResponse`; indicates that this is a continuation of a prior
    * `ListSubscriptions` call, and that the system should return the next page of
    * data.
-   * @opt_param int pageSize Maximum number of subscriptions to return.
    * @return Google_Service_Pubsub_ListSubscriptionsResponse
    */
   public function listProjectsSubscriptions($project, $optParams = array())
@@ -514,7 +516,9 @@ class Google_Service_Pubsub_ProjectsSubscriptions_Resource extends Google_Servic
    *
    * @param string $resource REQUIRED: The resource for which policy is being
    * specified. `resource` is usually specified as a path, such as,
-   * `projects/{project}/zones/{zone}/disks/{disk}`.
+   * `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path
+   * specified in this value is resource specific and is specified in the
+   * documentation for the respective SetIamPolicy rpc.
    * @param Google_SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_Policy
@@ -532,7 +536,9 @@ class Google_Service_Pubsub_ProjectsSubscriptions_Resource extends Google_Servic
    *
    * @param string $resource REQUIRED: The resource for which policy detail is
    * being requested. `resource` is usually specified as a path, such as,
-   * `projects/{project}`.
+   * `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path
+   * specified in this value is resource specific and is specified in the
+   * documentation for the respective TestIamPermissions rpc.
    * @param Google_TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_TestIamPermissionsResponse
@@ -612,8 +618,10 @@ class Google_Service_Pubsub_ProjectsTopics_Resource extends Google_Service_Resou
    * the resource does not exist. (topics.getIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which policy is being
-   * requested. Resource is usually specified as a path, such as,
-   * `projects/{project}`.
+   * requested. `resource` is usually specified as a path, such as,
+   * `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path
+   * specified in this value is resource specific and is specified in the
+   * documentation for the respective GetIamPolicy rpc.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_Policy
    */
@@ -630,10 +638,10 @@ class Google_Service_Pubsub_ProjectsTopics_Resource extends Google_Service_Resou
    * @param string $project The name of the cloud project that topics belong to.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize Maximum number of topics to return.
    * @opt_param string pageToken The value returned by the last
    * `ListTopicsResponse`; indicates that this is a continuation of a prior
    * `ListTopics` call, and that the system should return the next page of data.
-   * @opt_param int pageSize Maximum number of topics to return.
    * @return Google_Service_Pubsub_ListTopicsResponse
    */
   public function listProjectsTopics($project, $optParams = array())
@@ -667,7 +675,9 @@ class Google_Service_Pubsub_ProjectsTopics_Resource extends Google_Service_Resou
    *
    * @param string $resource REQUIRED: The resource for which policy is being
    * specified. `resource` is usually specified as a path, such as,
-   * `projects/{project}/zones/{zone}/disks/{disk}`.
+   * `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path
+   * specified in this value is resource specific and is specified in the
+   * documentation for the respective SetIamPolicy rpc.
    * @param Google_SetIamPolicyRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_Policy
@@ -685,7 +695,9 @@ class Google_Service_Pubsub_ProjectsTopics_Resource extends Google_Service_Resou
    *
    * @param string $resource REQUIRED: The resource for which policy detail is
    * being requested. `resource` is usually specified as a path, such as,
-   * `projects/{project}`.
+   * `projects/{project}/zones/{zone}/disks/{disk}`. The format for the path
+   * specified in this value is resource specific and is specified in the
+   * documentation for the respective TestIamPermissions rpc.
    * @param Google_TestIamPermissionsRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Pubsub_TestIamPermissionsResponse
@@ -717,11 +729,11 @@ class Google_Service_Pubsub_ProjectsTopicsSubscriptions_Resource extends Google_
    * to.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param int pageSize Maximum number of subscription names to return.
    * @opt_param string pageToken The value returned by the last
    * `ListTopicSubscriptionsResponse`; indicates that this is a continuation of a
    * prior `ListTopicSubscriptions` call, and that the system should return the
    * next page of data.
-   * @opt_param int pageSize Maximum number of subscription names to return.
    * @return Google_Service_Pubsub_ListTopicSubscriptionsResponse
    */
   public function listProjectsTopicsSubscriptions($topic, $optParams = array())
@@ -993,6 +1005,7 @@ class Google_Service_Pubsub_PubsubMessage extends Google_Model
   public $attributes;
   public $data;
   public $messageId;
+  public $publishTime;
 
 
   public function setAttributes($attributes)
@@ -1019,10 +1032,14 @@ class Google_Service_Pubsub_PubsubMessage extends Google_Model
   {
     return $this->messageId;
   }
-}
-
-class Google_Service_Pubsub_PubsubMessageAttributes extends Google_Model
-{
+  public function setPublishTime($publishTime)
+  {
+    $this->publishTime = $publishTime;
+  }
+  public function getPublishTime()
+  {
+    return $this->publishTime;
+  }
 }
 
 class Google_Service_Pubsub_PullRequest extends Google_Model
@@ -1094,10 +1111,6 @@ class Google_Service_Pubsub_PushConfig extends Google_Model
   {
     return $this->pushEndpoint;
   }
-}
-
-class Google_Service_Pubsub_PushConfigAttributes extends Google_Model
-{
 }
 
 class Google_Service_Pubsub_ReceivedMessage extends Google_Model

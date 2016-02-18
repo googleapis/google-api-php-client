@@ -95,12 +95,12 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     $client->addScope("https://www.googleapis.com/auth/drive");
     $service = new Google_Service_Drive($client);
     $file = new Google_Service_Drive_DriveFile();
-    $file->title = 'TESTFILE-testGetResumeUri';
+    $file->name = 'TESTFILE-testGetResumeUri';
     $chunkSizeBytes = 1 * 1024 * 1024;
 
     // Call the API with the media upload, defer so it doesn't immediately return.
     $client->setDefer(true);
-    $request = $service->files->insert($file);
+    $request = $service->files->create($file);
 
     // Create a media file upload to represent our upload process.
     $media = new Google_Http_MediaFileUpload(
@@ -137,11 +137,11 @@ class Google_Http_MediaFileUploadTest extends BaseTest
 
     $data = 'foo';
     $file = new Google_Service_Drive_DriveFile();
-    $file->title = $title = 'TESTFILE-testNextChunk';
+    $file->name = $name = 'TESTFILE-testNextChunk';
 
     // Call the API with the media upload, defer so it doesn't immediately return.
     $client->setDefer(true);
-    $request = $service->files->insert($file);
+    $request = $service->files->create($file);
 
     // Create a media file upload to represent our upload process.
     $media = new Google_Http_MediaFileUpload(
@@ -156,7 +156,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     // upload the file
     $file = $media->nextChunk($data);
     $this->assertInstanceOf('Google_Service_Drive_DriveFile', $file);
-    $this->assertEquals($title, $file->title);
+    $this->assertEquals($name, $file->name);
 
     // remove the file
     $client->setDefer(false);
@@ -175,11 +175,11 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     $chunkSizeBytes = 262144; // smallest chunk size allowed by APIs
     $data = str_repeat('.', $chunkSizeBytes+1);
     $file = new Google_Service_Drive_DriveFile();
-    $file->title = $title = 'TESTFILE-testNextChunkWithMoreRemaining';
+    $file->name = $name = 'TESTFILE-testNextChunkWithMoreRemaining';
 
     // Call the API with the media upload, defer so it doesn't immediately return.
     $client->setDefer(true);
-    $request = $service->files->insert($file);
+    $request = $service->files->create($file);
 
     // Create a media file upload to represent our upload process.
     $media = new Google_Http_MediaFileUpload(

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2010 Google Inc.
+ * Copyright 2016 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -54,9 +54,11 @@ class Google_Service_TagManager extends Google_Service
 
   public $accounts;
   public $accounts_containers;
+  public $accounts_containers_environments;
   public $accounts_containers_folders;
   public $accounts_containers_folders_entities;
   public $accounts_containers_move_folders;
+  public $accounts_containers_reauthorize_environments;
   public $accounts_containers_tags;
   public $accounts_containers_triggers;
   public $accounts_containers_variables;
@@ -181,6 +183,134 @@ class Google_Service_TagManager extends Google_Service
                   'required' => true,
                 ),
                 'containerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'fingerprint' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->accounts_containers_environments = new Google_Service_TagManager_AccountsContainersEnvironments_Resource(
+        $this,
+        $this->serviceName,
+        'environments',
+        array(
+          'methods' => array(
+            'create' => array(
+              'path' => 'accounts/{accountId}/containers/{containerId}/environments',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'containerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
+              'path' => 'accounts/{accountId}/containers/{containerId}/environments/{environmentId}',
+              'httpMethod' => 'DELETE',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'containerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'environmentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'get' => array(
+              'path' => 'accounts/{accountId}/containers/{containerId}/environments/{environmentId}',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'containerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'environmentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'list' => array(
+              'path' => 'accounts/{accountId}/containers/{containerId}/environments',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'containerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'patch' => array(
+              'path' => 'accounts/{accountId}/containers/{containerId}/environments/{environmentId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'containerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'environmentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'fingerprint' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
+            ),'update' => array(
+              'path' => 'accounts/{accountId}/containers/{containerId}/environments/{environmentId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'containerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'environmentId' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -353,11 +483,6 @@ class Google_Service_TagManager extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'variableId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
                 'tagId' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -367,6 +492,41 @@ class Google_Service_TagManager extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
+                ),
+                'variableId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->accounts_containers_reauthorize_environments = new Google_Service_TagManager_AccountsContainersReauthorizeEnvironments_Resource(
+        $this,
+        $this->serviceName,
+        'reauthorize_environments',
+        array(
+          'methods' => array(
+            'update' => array(
+              'path' => 'accounts/{accountId}/containers/{containerId}/reauthorize_environments/{environmentId}',
+              'httpMethod' => 'PUT',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'containerId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'environmentId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
                 ),
               ),
             ),
@@ -764,6 +924,10 @@ class Google_Service_TagManager extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
+                'includeDeleted' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
               ),
             ),'publish' => array(
               'path' => 'accounts/{accountId}/containers/{containerId}/versions/{containerVersionId}/publish',
@@ -1084,6 +1248,121 @@ class Google_Service_TagManager_AccountsContainers_Resource extends Google_Servi
 }
 
 /**
+ * The "environments" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $tagmanagerService = new Google_Service_TagManager(...);
+ *   $environments = $tagmanagerService->environments;
+ *  </code>
+ */
+class Google_Service_TagManager_AccountsContainersEnvironments_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Creates a GTM Environment. (environments.create)
+   *
+   * @param string $accountId The GTM Account ID.
+   * @param string $containerId The GTM Container ID.
+   * @param Google_Environment $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_TagManager_Environment
+   */
+  public function create($accountId, $containerId, Google_Service_TagManager_Environment $postBody, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('create', array($params), "Google_Service_TagManager_Environment");
+  }
+
+  /**
+   * Deletes a GTM Environment. (environments.delete)
+   *
+   * @param string $accountId The GTM Account ID.
+   * @param string $containerId The GTM Container ID.
+   * @param string $environmentId The GTM Environment ID.
+   * @param array $optParams Optional parameters.
+   */
+  public function delete($accountId, $containerId, $environmentId, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'environmentId' => $environmentId);
+    $params = array_merge($params, $optParams);
+    return $this->call('delete', array($params));
+  }
+
+  /**
+   * Gets a GTM Environment. (environments.get)
+   *
+   * @param string $accountId The GTM Account ID.
+   * @param string $containerId The GTM Container ID.
+   * @param string $environmentId The GTM Environment ID.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_TagManager_Environment
+   */
+  public function get($accountId, $containerId, $environmentId, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'environmentId' => $environmentId);
+    $params = array_merge($params, $optParams);
+    return $this->call('get', array($params), "Google_Service_TagManager_Environment");
+  }
+
+  /**
+   * Lists all GTM Environments of a GTM Container.
+   * (environments.listAccountsContainersEnvironments)
+   *
+   * @param string $accountId The GTM Account ID.
+   * @param string $containerId The GTM Container ID.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_TagManager_ListEnvironmentsResponse
+   */
+  public function listAccountsContainersEnvironments($accountId, $containerId, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'containerId' => $containerId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_TagManager_ListEnvironmentsResponse");
+  }
+
+  /**
+   * Updates a GTM Environment. This method supports patch semantics.
+   * (environments.patch)
+   *
+   * @param string $accountId The GTM Account ID.
+   * @param string $containerId The GTM Container ID.
+   * @param string $environmentId The GTM Environment ID.
+   * @param Google_Environment $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string fingerprint When provided, this fingerprint must match the
+   * fingerprint of the environment in storage.
+   * @return Google_Service_TagManager_Environment
+   */
+  public function patch($accountId, $containerId, $environmentId, Google_Service_TagManager_Environment $postBody, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'environmentId' => $environmentId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_TagManager_Environment");
+  }
+
+  /**
+   * Updates a GTM Environment. (environments.update)
+   *
+   * @param string $accountId The GTM Account ID.
+   * @param string $containerId The GTM Container ID.
+   * @param string $environmentId The GTM Environment ID.
+   * @param Google_Environment $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string fingerprint When provided, this fingerprint must match the
+   * fingerprint of the environment in storage.
+   * @return Google_Service_TagManager_Environment
+   */
+  public function update($accountId, $containerId, $environmentId, Google_Service_TagManager_Environment $postBody, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'environmentId' => $environmentId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_TagManager_Environment");
+  }
+}
+/**
  * The "folders" collection of methods.
  * Typical usage is:
  *  <code>
@@ -1222,17 +1501,47 @@ class Google_Service_TagManager_AccountsContainersMoveFolders_Resource extends G
    * @param string $accountId The GTM Account ID.
    * @param string $containerId The GTM Container ID.
    * @param string $folderId The GTM Folder ID.
+   * @param Google_Folder $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string variableId The variables to be moved to the folder.
    * @opt_param string tagId The tags to be moved to the folder.
    * @opt_param string triggerId The triggers to be moved to the folder.
+   * @opt_param string variableId The variables to be moved to the folder.
    */
-  public function update($accountId, $containerId, $folderId, $optParams = array())
+  public function update($accountId, $containerId, $folderId, Google_Service_TagManager_Folder $postBody, $optParams = array())
   {
-    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'folderId' => $folderId);
+    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'folderId' => $folderId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('update', array($params));
+  }
+}
+/**
+ * The "reauthorize_environments" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $tagmanagerService = new Google_Service_TagManager(...);
+ *   $reauthorize_environments = $tagmanagerService->reauthorize_environments;
+ *  </code>
+ */
+class Google_Service_TagManager_AccountsContainersReauthorizeEnvironments_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Re-generates the authorization code for a GTM Environment.
+   * (reauthorize_environments.update)
+   *
+   * @param string $accountId The GTM Account ID.
+   * @param string $containerId The GTM Container ID.
+   * @param string $environmentId The GTM Environment ID.
+   * @param Google_Environment $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_TagManager_Environment
+   */
+  public function update($accountId, $containerId, $environmentId, Google_Service_TagManager_Environment $postBody, $optParams = array())
+  {
+    $params = array('accountId' => $accountId, 'containerId' => $containerId, 'environmentId' => $environmentId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('update', array($params), "Google_Service_TagManager_Environment");
   }
 }
 /**
@@ -1584,6 +1893,8 @@ class Google_Service_TagManager_AccountsContainersVersions_Resource extends Goog
    * @param array $optParams Optional parameters.
    *
    * @opt_param bool headers Retrieve headers only when true.
+   * @opt_param bool includeDeleted Also retrieve deleted (archived) versions when
+   * true.
    * @return Google_Service_TagManager_ListContainerVersionsResponse
    */
   public function listAccountsContainersVersions($accountId, $containerId, $optParams = array())
@@ -2287,6 +2598,122 @@ class Google_Service_TagManager_CreateContainerVersionResponse extends Google_Mo
   }
 }
 
+class Google_Service_TagManager_Environment extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $accountId;
+  public $authorizationCode;
+  public $authorizationTimestampMs;
+  public $containerId;
+  public $containerVersionId;
+  public $description;
+  public $enableDebug;
+  public $environmentId;
+  public $fingerprint;
+  public $name;
+  public $type;
+  public $url;
+
+
+  public function setAccountId($accountId)
+  {
+    $this->accountId = $accountId;
+  }
+  public function getAccountId()
+  {
+    return $this->accountId;
+  }
+  public function setAuthorizationCode($authorizationCode)
+  {
+    $this->authorizationCode = $authorizationCode;
+  }
+  public function getAuthorizationCode()
+  {
+    return $this->authorizationCode;
+  }
+  public function setAuthorizationTimestampMs($authorizationTimestampMs)
+  {
+    $this->authorizationTimestampMs = $authorizationTimestampMs;
+  }
+  public function getAuthorizationTimestampMs()
+  {
+    return $this->authorizationTimestampMs;
+  }
+  public function setContainerId($containerId)
+  {
+    $this->containerId = $containerId;
+  }
+  public function getContainerId()
+  {
+    return $this->containerId;
+  }
+  public function setContainerVersionId($containerVersionId)
+  {
+    $this->containerVersionId = $containerVersionId;
+  }
+  public function getContainerVersionId()
+  {
+    return $this->containerVersionId;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
+  }
+  public function setEnableDebug($enableDebug)
+  {
+    $this->enableDebug = $enableDebug;
+  }
+  public function getEnableDebug()
+  {
+    return $this->enableDebug;
+  }
+  public function setEnvironmentId($environmentId)
+  {
+    $this->environmentId = $environmentId;
+  }
+  public function getEnvironmentId()
+  {
+    return $this->environmentId;
+  }
+  public function setFingerprint($fingerprint)
+  {
+    $this->fingerprint = $fingerprint;
+  }
+  public function getFingerprint()
+  {
+    return $this->fingerprint;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  public function getType()
+  {
+    return $this->type;
+  }
+  public function setUrl($url)
+  {
+    $this->url = $url;
+  }
+  public function getUrl()
+  {
+    return $this->url;
+  }
+}
+
 class Google_Service_TagManager_Folder extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -2462,6 +2889,25 @@ class Google_Service_TagManager_ListContainersResponse extends Google_Collection
   public function getContainers()
   {
     return $this->containers;
+  }
+}
+
+class Google_Service_TagManager_ListEnvironmentsResponse extends Google_Collection
+{
+  protected $collection_key = 'environments';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $environmentsType = 'Google_Service_TagManager_Environment';
+  protected $environmentsDataType = 'array';
+
+
+  public function setEnvironments($environments)
+  {
+    $this->environments = $environments;
+  }
+  public function getEnvironments()
+  {
+    return $this->environments;
   }
 }
 

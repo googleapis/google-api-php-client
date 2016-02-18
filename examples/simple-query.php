@@ -32,7 +32,7 @@ $client->setApplicationName("Client_Library_Examples");
 // Warn if the API key isn't set.
 if (!$apiKey = getApiKey()) {
   echo missingApiKeyWarning();
-  exit;
+  return;
 }
 $client->setDeveloperKey($apiKey);
 
@@ -50,31 +50,35 @@ $service = new Google_Service_Books($client);
 $optParams = array('filter' => 'free-ebooks');
 $results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
 
+ /************************************************
+  This is an example of deferring a call.
+ ***********************************************/
+$client->setDefer(true);
+$optParams = array('filter' => 'free-ebooks');
+$request = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
+$resultsDeferred = $client->execute($request);
+
 /************************************************
-  This call returns a list of volumes, so we
+  These calls returns a list of volumes, so we
   can iterate over them as normal with any
   array.
   Some calls will return a single item which we
   can immediately use. The individual responses
   are typed as Google_Service_Books_Volume, but
   can be treated as an array.
- ***********************************************/
-echo "<h3>Results Of Call:</h3>";
-foreach ($results as $item) {
-  echo $item['volumeInfo']['title'], "<br /> \n";
-}
+ ************************************************/
+?>
 
-/************************************************
-  This is an example of deferring a call.
- ***********************************************/
-$client->setDefer(true);
-$optParams = array('filter' => 'free-ebooks');
-$request = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
-$results = $client->execute($request);
+<h3>Results Of Call:</h3>
+<?php foreach ($results as $item): ?>
+  <?= $item['volumeInfo']['title'] ?>
+  <br />
+<?php endforeach ?>
 
-echo "<h3>Results Of Deferred Call:</h3>";
-foreach ($results as $item) {
-  echo $item['volumeInfo']['title'], "<br /> \n";
-}
+<h3>Results Of Deferred Call:</h3>
+<?php foreach ($resultsDeferred as $item): ?>
+  <?= $item['volumeInfo']['title'] ?>
+  <br />
+<?php endforeach ?>
 
-echo pageFooter(__FILE__);
+<?= pageFooter(__FILE__) ?>

@@ -48,7 +48,7 @@ if ($credentials_file = checkServiceAccountCredentialsFile()) {
   $client->useApplicationDefaultCredentials();
 } else {
   echo missingServiceAccountDetailsWarning();
-  exit;
+  return;
 }
 
 $client->setApplicationName("Client_Library_Examples");
@@ -61,9 +61,12 @@ $service = new Google_Service_Books($client);
  ************************************************/
 $optParams = array('filter' => 'free-ebooks');
 $results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
-echo "<h3>Results Of Call:</h3>";
-foreach ($results as $item) {
-  echo $item['volumeInfo']['title'], "<br /> \n";
-}
+?>
 
-echo pageFooter(__FILE__);
+<h3>Results Of Call:</h3>
+<?php foreach ($results as $item): ?>
+  <?= $item['volumeInfo']['title'] ?>
+  <br />
+<?php endforeach ?>
+
+<?php pageFooter(__FILE__); ?>

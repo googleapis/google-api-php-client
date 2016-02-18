@@ -21,12 +21,33 @@
 
 class examples_simpleFileUploadTest extends BaseTest
 {
-  public function testSimpleFileUpload()
+  public function testSimpleFileUploadNoToken()
   {
+    $this->checkServiceAccountCredentials();
+
     $crawler = $this->loadExample('simple-file-upload.php');
 
     $nodes = $crawler->filter('h1');
     $this->assertEquals(1, count($nodes));
     $this->assertEquals('File Upload - Uploading a simple file', $nodes->first()->text());
+
+    $nodes = $crawler->filter('a.login');
+    $this->assertEquals(1, count($nodes));
+    $this->assertEquals('Connect Me!', $nodes->first()->text());
+  }
+
+  public function testSimpleFileUploadWithToken()
+  {
+    $this->checkToken();
+
+    global $_SESSION;
+    $_SESSION['upload_token'] = $this->getClient()->getAccessToken();
+
+    $crawler = $this->loadExample('simple-file-upload.php');
+
+    $buttonText = 'Click here to upload two small (1MB) test files';
+    $nodes = $crawler->filter('input');
+    $this->assertEquals(1, count($nodes));
+    $this->assertEquals($buttonText, $nodes->first()->attr('value'));
   }
 }
