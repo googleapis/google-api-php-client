@@ -45,7 +45,7 @@ $client->setScopes('email');
  * local access token in this case
  ************************************************/
 if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['id_token']);
+  unset($_SESSION['id_token_token']);
 }
 
 
