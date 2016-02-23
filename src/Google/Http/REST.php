@@ -20,6 +20,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\Response;
 
 /**
  * This class implements the RESTful transport of apiServiceRequest()'s
@@ -77,12 +78,17 @@ class Google_Http_REST
         throw $e;
       }
 
-      $exceptionResponse = $e->getResponse();
-      if ($exceptionResponse instanceof \GuzzleHttp\Message\ResponseInterface) {
-          $exceptionResponse = $httpHandler->buildPsr7Response($e->getResponse());
+      $response = $e->getResponse();
+      // specific checking for Guzzle 5: convert to PSR7 response
+      if ($response instanceof \GuzzleHttp\Message\ResponseInterface) {
+        $response = new Response(
+            $response->getStatusCode(),
+            $response->getHeaders() ?: [],
+            $response->getBody(),
+            $response->getProtocolVersion(),
+            $response->getReasonPhrase()
+        );
       }
-
-      $response = $exceptionResponse;
     }
 
     return self::decodeHttpResponse($response, $request, $expectedClass);
