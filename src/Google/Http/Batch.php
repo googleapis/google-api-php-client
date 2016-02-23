@@ -68,8 +68,8 @@ Content-Transfer-Encoding: binary
 MIME-Version: 1.0
 Content-ID: %s
 
-%s%s
 %s
+%s%s
 
 
 EOF;
