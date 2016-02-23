@@ -86,7 +86,7 @@ $dr_service = new Google_Service_Drive($client);
   and a list of files from Drive.
  ************************************************/
 if ($client->getAccessToken()) {
-  $_SESSION['access_token'] = $client->getAccessToken();
+  $_SESSION['multi-api-token'] = $client->getAccessToken();
 
   $dr_results = $dr_service->files->listFiles(array('pageSize' => 10));
 
