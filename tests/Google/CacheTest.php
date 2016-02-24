@@ -100,6 +100,23 @@ class Google_CacheTest extends BaseTest
     $this->assertEquals($cache->get('foo'), false);
   }
 
+  public function testMemory()
+  {
+    $cache = new Google_Cache_Memory();
+    $cache->set('foo', 'bar');
+    $cache->delete('foo');
+    $this->assertEquals(false, $cache->get('foo'));
+
+    $cache->set('foo.1', 'bar.1');
+    $this->assertEquals($cache->get('foo.1'), 'bar.1');
+
+    $cache->set('foo', 'baz');
+    $this->assertEquals($cache->get('foo'), 'baz');
+
+    $cache->delete('foo');
+    $this->assertEquals($cache->get('foo'), false);
+  }
+
   /**
    * @requires extension Memcache
    */

@@ -929,6 +929,10 @@ class Google_Client
    */
   public function getCache()
   {
+    if (is_null($this->cache)) {
+      $this->cache = new Google_Cache_Memory();
+    }
+
     return $this->cache;
   }
 
@@ -1040,11 +1044,12 @@ class Google_Client
 
   protected function getAuthHandler()
   {
-    // we intentionally do not use the cache because
-    // the underlying auth library's cache implementation
-    // is broken.
+    // Be very careful using the cache, as the underlying auth library's cache
+    // implementation is naive, and the cache keys do not account for user
+    // sessions.
+    //
     // @see https://github.com/google/google-api-php-client/issues/821
-    return Google_AuthHandler_AuthHandlerFactory::build();
+    return Google_AuthHandler_AuthHandlerFactory::build($this->getCache());
   }
 
   private function createUserRefreshCredentials($scope, $refreshToken)
