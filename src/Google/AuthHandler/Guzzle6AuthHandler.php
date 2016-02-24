@@ -36,7 +36,8 @@ class Google_AuthHandler_Guzzle6AuthHandler
     );
 
     $config = $http->getConfig();
-    $config['handler']->push($middleware);
+    $config['handler']->remove('google_auth');
+    $config['handler']->push($middleware, 'google_auth');
     $config['auth'] = 'google_auth';
     $http = new Client($config);
 
@@ -57,7 +58,8 @@ class Google_AuthHandler_Guzzle6AuthHandler
     );
 
     $config = $http->getConfig();
-    $config['handler']->push($middleware);
+    $config['handler']->remove('google_auth');
+    $config['handler']->push($middleware, 'google_auth');
     $config['auth'] = 'scoped';
     $http = new Client($config);
 
@@ -69,7 +71,8 @@ class Google_AuthHandler_Guzzle6AuthHandler
     $middleware = new SimpleMiddleware(['key' => $key]);
 
     $config = $http->getConfig();
-    $config['handler']->push($middleware);
+    $config['handler']->remove('google_auth');
+    $config['handler']->push($middleware, 'google_auth');
     $config['auth'] = 'simple';
     $http = new Client($config);
 
