@@ -106,7 +106,7 @@ class Google_Http_REST
     $result = null;
 
     // return raw response when "alt" is "media"
-    $isJson = !($request && 'media' == $request->getUri()->getQuery('alt'));
+    $isJson = !($request && 'alt=media' == $request->getUri()->getQuery('alt'));
 
     // set the result to the body if it's not set to anything else
     if ($isJson) {
