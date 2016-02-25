@@ -107,7 +107,6 @@ class Google_Http_REST
       RequestInterface $request = null,
       $expectedClass = null
   ) {
-    $body = (string) $response->getBody();
     $code = $response->getStatusCode();
     $result = null;
 
@@ -116,13 +115,12 @@ class Google_Http_REST
 
     // set the result to the body if it's not set to anything else
     if ($isJson) {
+      $body = (string) $response->getBody();
       $result = json_decode($body, true);
       if (null === $result && 0 !== json_last_error()) {
         // in the event of a parse error, return the raw string
         $result = $body;
       }
-    } else {
-      $result = $body;
     }
 
     // retry strategy
