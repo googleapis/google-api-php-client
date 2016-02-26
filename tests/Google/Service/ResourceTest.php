@@ -21,6 +21,7 @@
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\Stream;
 
 class Test_Google_Service extends Google_Service
 {
@@ -31,6 +32,18 @@ class Test_Google_Service extends Google_Service
     $this->servicePath = "";
     $this->version = "v1beta1";
     $this->serviceName = "test";
+  }
+}
+
+class Test_MediaType_Stream extends Stream
+{
+  public $toStringCalled = false;
+
+  public function __toString()
+  {
+    $this->toStringCalled = true;
+
+    return parent::__toString();
   }
 }
 
@@ -263,7 +276,164 @@ class Google_Service_ResourceTest extends BaseTest
       $decoded = $resource->call('testMethod', $arguments, $expectedClass);
       $this->fail('should have thrown exception');
     } catch (Google_Service_Exception $e) {
+      // Alt Media on error should return a safe error
       $this->assertEquals('thisisnotvalidjson', $e->getMessage());
+    }
+  }
+
+  public function testErrorResponseWithVeryLongBody()
+  {
+    // set the "alt" parameter to "media"
+    $arguments = [['alt' => 'media']];
+    $request = new Request('GET', '/?alt=media');
+    $body = Psr7\stream_for('this will be pulled into memory');
+    $response = new Response(400, [], $body);
+
+    $http = $this->getMockBuilder("GuzzleHttp\Client")
+        ->disableOriginalConstructor()
+        ->getMock();
+    $http->expects($this->once())
+        ->method('send')
+        ->will($this->returnValue($response));
+
+    if ($this->isGuzzle5()) {
+      $http->expects($this->once())
+        ->method('createRequest')
+        ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/?alt=media')));
+    }
+
+    $client = new Google_Client();
+    $client->setHttpClient($http);
+    $service = new Test_Google_Service($client);
+
+    // set up mock objects
+    $resource = new Google_Service_Resource(
+      $service,
+      "test",
+      "testResource",
+      array("methods" =>
+        array(
+          "testMethod" => array(
+            "parameters" => array(),
+            "path" => "method/path",
+            "httpMethod" => "POST",
+          )
+        )
+      )
+    );
+
+    try {
+      $expectedClass = 'ThisShouldBeIgnored';
+      $decoded = $resource->call('testMethod', $arguments, $expectedClass);
+      $this->fail('should have thrown exception');
+    } catch (Google_Service_Exception $e) {
+      // empty message - alt=media means no message
+      $this->assertEquals('this will be pulled into memory', $e->getMessage());
+    }
+  }
+
+  public function testSuccessResponseWithVeryLongBody()
+  {
+    // set the "alt" parameter to "media"
+    $arguments = [['alt' => 'media']];
+    $request = new Request('GET', '/?alt=media');
+    $resource = fopen('php://temp', 'r+');
+    $stream = new Test_MediaType_Stream($resource);
+    $response = new Response(200, [], $stream);
+
+    $http = $this->getMockBuilder("GuzzleHttp\Client")
+        ->disableOriginalConstructor()
+        ->getMock();
+    $http->expects($this->once())
+        ->method('send')
+        ->will($this->returnValue($response));
+
+    if ($this->isGuzzle5()) {
+      $http->expects($this->once())
+        ->method('createRequest')
+        ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/?alt=media')));
+    }
+
+    $client = new Google_Client();
+    $client->setHttpClient($http);
+    $service = new Test_Google_Service($client);
+
+    // set up mock objects
+    $resource = new Google_Service_Resource(
+      $service,
+      "test",
+      "testResource",
+      array("methods" =>
+        array(
+          "testMethod" => array(
+            "parameters" => array(),
+            "path" => "method/path",
+            "httpMethod" => "POST",
+          )
+        )
+      )
+    );
+
+    $expectedClass = 'ThisShouldBeIgnored';
+    $response = $resource->call('testMethod', $arguments, $expectedClass);
+
+    $this->assertEquals(200, $response->getStatusCode());
+    $this->assertFalse($stream->toStringCalled);
+  }
+
+  public function testExceptionMessage()
+  {
+    // set the "alt" parameter to "media"
+    $request = new Request('GET', '/');
+    $errors = [ ["domain" => "foo"] ];
+
+    $body = Psr7\stream_for(json_encode([
+      'error' => [
+        'errors' => $errors
+      ]
+    ]));
+
+    $response = new Response(400, [], $body);
+
+    $http = $this->getMockBuilder("GuzzleHttp\Client")
+        ->disableOriginalConstructor()
+        ->getMock();
+    $http->expects($this->once())
+        ->method('send')
+        ->will($this->returnValue($response));
+
+    if ($this->isGuzzle5()) {
+      $http->expects($this->once())
+        ->method('createRequest')
+        ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/?alt=media')));
+    }
+
+    $client = new Google_Client();
+    $client->setHttpClient($http);
+    $service = new Test_Google_Service($client);
+
+    // set up mock objects
+    $resource = new Google_Service_Resource(
+      $service,
+      "test",
+      "testResource",
+      array("methods" =>
+        array(
+          "testMethod" => array(
+            "parameters" => array(),
+            "path" => "method/path",
+            "httpMethod" => "POST",
+          )
+        )
+      )
+    );
+
+    try {
+
+      $decoded = $resource->call('testMethod', array(array()));
+      $this->fail('should have thrown exception');
+    } catch (Google_Service_Exception $e) {
+      $this->assertEquals($errors, $e->getErrors());
     }
   }
 }
