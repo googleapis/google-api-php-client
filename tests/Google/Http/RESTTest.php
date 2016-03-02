@@ -70,6 +70,14 @@ class Google_HTTP_RESTTest extends BaseTest
     $this->rest->decodeHttpResponse($response, $this->request);
   }
 
+  /** @expectedException Google_Service_Exception */
+  public function testExceptionResponse()
+  {
+    $http = new GuzzleHttp\Client();
+
+    $request = new Request('GET', 'http://httpbin.org/status/500');
+    $response = $this->rest->doExecute($http, $request);
+  }
 
   public function testDecodeEmptyResponse()
   {
