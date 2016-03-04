@@ -19,8 +19,8 @@
  * Service definition for YouTubeReporting (v1).
  *
  * <p>
- * An API to schedule reporting jobs and download the resulting bulk data
- * reports about YouTube channels, videos etc. in the form of CSV files.</p>
+ * Schedules reporting jobs and downloads the resulting bulk data reports about
+ * YouTube channels, videos, etc. in the form of CSV files.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -391,7 +391,7 @@ class Google_Service_YouTubeReporting_Media_Resource extends Google_Service_Reso
    * `/v1/media/{+name}?alt=media`. (media.download)
    *
    * @param string $resourceName Name of the media that is being downloaded. See
-   * [][ByteStream.ReadRequest.resource_name].
+   * ByteStream.ReadRequest.resource_name.
    * @param array $optParams Optional parameters.
    * @return Google_Service_YouTubeReporting_Media
    */

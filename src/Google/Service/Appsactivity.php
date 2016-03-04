@@ -546,11 +546,21 @@ class Google_Service_Appsactivity_User extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $isDeleted;
   public $name;
+  public $permissionId;
   protected $photoType = 'Google_Service_Appsactivity_Photo';
   protected $photoDataType = '';
 
 
+  public function setIsDeleted($isDeleted)
+  {
+    $this->isDeleted = $isDeleted;
+  }
+  public function getIsDeleted()
+  {
+    return $this->isDeleted;
+  }
   public function setName($name)
   {
     $this->name = $name;
@@ -558,6 +568,14 @@ class Google_Service_Appsactivity_User extends Google_Model
   public function getName()
   {
     return $this->name;
+  }
+  public function setPermissionId($permissionId)
+  {
+    $this->permissionId = $permissionId;
+  }
+  public function getPermissionId()
+  {
+    return $this->permissionId;
   }
   public function setPhoto(Google_Service_Appsactivity_Photo $photo)
   {

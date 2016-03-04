@@ -32,7 +32,7 @@ class Google_Service_Script extends Google_Service
 {
   /** View and manage your mail. */
   const MAIL_GOOGLE_COM =
-      "https://mail.google.com";
+      "https://mail.google.com/";
   /** Manage your calendars. */
   const WWW_GOOGLE_COM_CALENDAR_FEEDS =
       "https://www.google.com/calendar/feeds";

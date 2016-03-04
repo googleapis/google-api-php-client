@@ -19,8 +19,8 @@
  * Service definition for AdSenseHost (v4.1).
  *
  * <p>
- * Gives AdSense Hosts access to report generation, ad code generation, and
- * publisher management capabilities.</p>
+ * Generates performance reports, generates ad codes, and provides publisher
+ * management capabilities for AdSense Hosts.</p>
  *
  * <p>
  * For more information about this service, see the API

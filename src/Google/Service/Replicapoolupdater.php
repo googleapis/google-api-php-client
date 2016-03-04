@@ -19,8 +19,7 @@
  * Service definition for Replicapoolupdater (v1beta1).
  *
  * <p>
- * The Google Compute Engine Instance Group Updater API provides services for
- * updating groups of Compute Engine Instances.</p>
+ * Updates groups of Compute Engine instances.</p>
  *
  * <p>
  * For more information about this service, see the API

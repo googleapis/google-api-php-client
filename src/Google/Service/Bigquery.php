@@ -973,6 +973,151 @@ class Google_Service_Bigquery_Tables_Resource extends Google_Service_Resource
 
 
 
+class Google_Service_Bigquery_BigtableColumn extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $encoding;
+  public $fieldName;
+  public $onlyReadLatest;
+  public $qualifierEncoded;
+  public $qualifierString;
+  public $type;
+
+
+  public function setEncoding($encoding)
+  {
+    $this->encoding = $encoding;
+  }
+  public function getEncoding()
+  {
+    return $this->encoding;
+  }
+  public function setFieldName($fieldName)
+  {
+    $this->fieldName = $fieldName;
+  }
+  public function getFieldName()
+  {
+    return $this->fieldName;
+  }
+  public function setOnlyReadLatest($onlyReadLatest)
+  {
+    $this->onlyReadLatest = $onlyReadLatest;
+  }
+  public function getOnlyReadLatest()
+  {
+    return $this->onlyReadLatest;
+  }
+  public function setQualifierEncoded($qualifierEncoded)
+  {
+    $this->qualifierEncoded = $qualifierEncoded;
+  }
+  public function getQualifierEncoded()
+  {
+    return $this->qualifierEncoded;
+  }
+  public function setQualifierString($qualifierString)
+  {
+    $this->qualifierString = $qualifierString;
+  }
+  public function getQualifierString()
+  {
+    return $this->qualifierString;
+  }
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  public function getType()
+  {
+    return $this->type;
+  }
+}
+
+class Google_Service_Bigquery_BigtableColumnFamily extends Google_Collection
+{
+  protected $collection_key = 'columns';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $columnsType = 'Google_Service_Bigquery_BigtableColumn';
+  protected $columnsDataType = 'array';
+  public $encoding;
+  public $familyId;
+  public $onlyReadLatest;
+  public $type;
+
+
+  public function setColumns($columns)
+  {
+    $this->columns = $columns;
+  }
+  public function getColumns()
+  {
+    return $this->columns;
+  }
+  public function setEncoding($encoding)
+  {
+    $this->encoding = $encoding;
+  }
+  public function getEncoding()
+  {
+    return $this->encoding;
+  }
+  public function setFamilyId($familyId)
+  {
+    $this->familyId = $familyId;
+  }
+  public function getFamilyId()
+  {
+    return $this->familyId;
+  }
+  public function setOnlyReadLatest($onlyReadLatest)
+  {
+    $this->onlyReadLatest = $onlyReadLatest;
+  }
+  public function getOnlyReadLatest()
+  {
+    return $this->onlyReadLatest;
+  }
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
+  public function getType()
+  {
+    return $this->type;
+  }
+}
+
+class Google_Service_Bigquery_BigtableOptions extends Google_Collection
+{
+  protected $collection_key = 'columnFamilies';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $columnFamiliesType = 'Google_Service_Bigquery_BigtableColumnFamily';
+  protected $columnFamiliesDataType = 'array';
+  public $ignoreUnspecifiedColumnFamilies;
+
+
+  public function setColumnFamilies($columnFamilies)
+  {
+    $this->columnFamilies = $columnFamilies;
+  }
+  public function getColumnFamilies()
+  {
+    return $this->columnFamilies;
+  }
+  public function setIgnoreUnspecifiedColumnFamilies($ignoreUnspecifiedColumnFamilies)
+  {
+    $this->ignoreUnspecifiedColumnFamilies = $ignoreUnspecifiedColumnFamilies;
+  }
+  public function getIgnoreUnspecifiedColumnFamilies()
+  {
+    return $this->ignoreUnspecifiedColumnFamilies;
+  }
+}
+
 class Google_Service_Bigquery_CsvOptions extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -1537,6 +1682,9 @@ class Google_Service_Bigquery_ExternalDataConfiguration extends Google_Collectio
   protected $collection_key = 'sourceUris';
   protected $internal_gapi_mappings = array(
   );
+  public $autodetect;
+  protected $bigtableOptionsType = 'Google_Service_Bigquery_BigtableOptions';
+  protected $bigtableOptionsDataType = '';
   public $compression;
   protected $csvOptionsType = 'Google_Service_Bigquery_CsvOptions';
   protected $csvOptionsDataType = '';
@@ -1548,6 +1696,22 @@ class Google_Service_Bigquery_ExternalDataConfiguration extends Google_Collectio
   public $sourceUris;
 
 
+  public function setAutodetect($autodetect)
+  {
+    $this->autodetect = $autodetect;
+  }
+  public function getAutodetect()
+  {
+    return $this->autodetect;
+  }
+  public function setBigtableOptions(Google_Service_Bigquery_BigtableOptions $bigtableOptions)
+  {
+    $this->bigtableOptions = $bigtableOptions;
+  }
+  public function getBigtableOptions()
+  {
+    return $this->bigtableOptions;
+  }
   public function setCompression($compression)
   {
     $this->compression = $compression;

@@ -45,6 +45,7 @@ class Google_Service_AdExchangeBuyer extends Google_Service
   public $pretargetingConfig;
   public $products;
   public $proposals;
+  public $pubprofiles;
   
 
   /**
@@ -569,6 +570,16 @@ class Google_Service_AdExchangeBuyer extends Google_Service
                   'type' => 'string',
                 ),
               ),
+            ),'setupcomplete' => array(
+              'path' => 'proposals/{proposalId}/setupcomplete',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'proposalId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
             ),'update' => array(
               'path' => 'proposals/{proposalId}/{revisionNumber}/{updateAction}',
               'httpMethod' => 'PUT',
@@ -586,6 +597,26 @@ class Google_Service_AdExchangeBuyer extends Google_Service
                 'updateAction' => array(
                   'location' => 'path',
                   'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),
+          )
+        )
+    );
+    $this->pubprofiles = new Google_Service_AdExchangeBuyer_Pubprofiles_Resource(
+        $this,
+        $this->serviceName,
+        'pubprofiles',
+        array(
+          'methods' => array(
+            'list' => array(
+              'path' => 'publisher/{accountId}/profiles',
+              'httpMethod' => 'GET',
+              'parameters' => array(
+                'accountId' => array(
+                  'location' => 'path',
+                  'type' => 'integer',
                   'required' => true,
                 ),
               ),
@@ -1254,6 +1285,20 @@ class Google_Service_AdExchangeBuyer_Proposals_Resource extends Google_Service_R
   }
 
   /**
+   * Update the given proposal to indicate that setup has been completed.
+   * (proposals.setupcomplete)
+   *
+   * @param string $proposalId The proposal id for which the setup is complete
+   * @param array $optParams Optional parameters.
+   */
+  public function setupcomplete($proposalId, $optParams = array())
+  {
+    $params = array('proposalId' => $proposalId);
+    $params = array_merge($params, $optParams);
+    return $this->call('setupcomplete', array($params));
+  }
+
+  /**
    * Update the given proposal (proposals.update)
    *
    * @param string $proposalId The proposal id to update.
@@ -1271,6 +1316,33 @@ class Google_Service_AdExchangeBuyer_Proposals_Resource extends Google_Service_R
     $params = array('proposalId' => $proposalId, 'revisionNumber' => $revisionNumber, 'updateAction' => $updateAction, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('update', array($params), "Google_Service_AdExchangeBuyer_Proposal");
+  }
+}
+
+/**
+ * The "pubprofiles" collection of methods.
+ * Typical usage is:
+ *  <code>
+ *   $adexchangebuyerService = new Google_Service_AdExchangeBuyer(...);
+ *   $pubprofiles = $adexchangebuyerService->pubprofiles;
+ *  </code>
+ */
+class Google_Service_AdExchangeBuyer_Pubprofiles_Resource extends Google_Service_Resource
+{
+
+  /**
+   * Gets the requested publisher profile(s) by publisher accountId.
+   * (pubprofiles.listPubprofiles)
+   *
+   * @param int $accountId The accountId of the publisher to get profiles for.
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_AdExchangeBuyer_GetPublisherProfilesByAccountIdResponse
+   */
+  public function listPubprofiles($accountId, $optParams = array())
+  {
+    $params = array('accountId' => $accountId);
+    $params = array_merge($params, $optParams);
+    return $this->call('list', array($params), "Google_Service_AdExchangeBuyer_GetPublisherProfilesByAccountIdResponse");
   }
 }
 
@@ -1363,11 +1435,20 @@ class Google_Service_AdExchangeBuyer_AccountBidderLocation extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
+  public $bidProtocol;
   public $maximumQps;
   public $region;
   public $url;
 
 
+  public function setBidProtocol($bidProtocol)
+  {
+    $this->bidProtocol = $bidProtocol;
+  }
+  public function getBidProtocol()
+  {
+    return $this->bidProtocol;
+  }
   public function setMaximumQps($maximumQps)
   {
     $this->maximumQps = $maximumQps;
@@ -2442,6 +2523,50 @@ class Google_Service_AdExchangeBuyer_CreativesList extends Google_Collection
   }
 }
 
+class Google_Service_AdExchangeBuyer_DealServingMetadata extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  protected $dealPauseStatusType = 'Google_Service_AdExchangeBuyer_DealServingMetadataDealPauseStatus';
+  protected $dealPauseStatusDataType = '';
+
+
+  public function setDealPauseStatus(Google_Service_AdExchangeBuyer_DealServingMetadataDealPauseStatus $dealPauseStatus)
+  {
+    $this->dealPauseStatus = $dealPauseStatus;
+  }
+  public function getDealPauseStatus()
+  {
+    return $this->dealPauseStatus;
+  }
+}
+
+class Google_Service_AdExchangeBuyer_DealServingMetadataDealPauseStatus extends Google_Model
+{
+  protected $internal_gapi_mappings = array(
+  );
+  public $hasBuyerPaused;
+  public $hasSellerPaused;
+
+
+  public function setHasBuyerPaused($hasBuyerPaused)
+  {
+    $this->hasBuyerPaused = $hasBuyerPaused;
+  }
+  public function getHasBuyerPaused()
+  {
+    return $this->hasBuyerPaused;
+  }
+  public function setHasSellerPaused($hasSellerPaused)
+  {
+    $this->hasSellerPaused = $hasSellerPaused;
+  }
+  public function getHasSellerPaused()
+  {
+    return $this->hasSellerPaused;
+  }
+}
+
 class Google_Service_AdExchangeBuyer_DealTerms extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -2559,18 +2684,18 @@ class Google_Service_AdExchangeBuyer_DealTermsNonGuaranteedAuctionTerms extends 
   protected $collection_key = 'reservePricePerBuyers';
   protected $internal_gapi_mappings = array(
   );
-  public $privateAuctionId;
+  public $autoOptimizePrivateAuction;
   protected $reservePricePerBuyersType = 'Google_Service_AdExchangeBuyer_PricePerBuyer';
   protected $reservePricePerBuyersDataType = 'array';
 
 
-  public function setPrivateAuctionId($privateAuctionId)
+  public function setAutoOptimizePrivateAuction($autoOptimizePrivateAuction)
   {
-    $this->privateAuctionId = $privateAuctionId;
+    $this->autoOptimizePrivateAuction = $autoOptimizePrivateAuction;
   }
-  public function getPrivateAuctionId()
+  public function getAutoOptimizePrivateAuction()
   {
-    return $this->privateAuctionId;
+    return $this->autoOptimizePrivateAuction;
   }
   public function setReservePricePerBuyers($reservePricePerBuyers)
   {
@@ -2791,6 +2916,7 @@ class Google_Service_AdExchangeBuyer_EditAllOrderDealsResponse extends Google_Co
   );
   protected $dealsType = 'Google_Service_AdExchangeBuyer_MarketplaceDeal';
   protected $dealsDataType = 'array';
+  public $orderRevisionNumber;
 
 
   public function setDeals($deals)
@@ -2800,6 +2926,14 @@ class Google_Service_AdExchangeBuyer_EditAllOrderDealsResponse extends Google_Co
   public function getDeals()
   {
     return $this->deals;
+  }
+  public function setOrderRevisionNumber($orderRevisionNumber)
+  {
+    $this->orderRevisionNumber = $orderRevisionNumber;
+  }
+  public function getOrderRevisionNumber()
+  {
+    return $this->orderRevisionNumber;
   }
 }
 
@@ -2879,6 +3013,25 @@ class Google_Service_AdExchangeBuyer_GetOrdersResponse extends Google_Collection
   }
 }
 
+class Google_Service_AdExchangeBuyer_GetPublisherProfilesByAccountIdResponse extends Google_Collection
+{
+  protected $collection_key = 'profiles';
+  protected $internal_gapi_mappings = array(
+  );
+  protected $profilesType = 'Google_Service_AdExchangeBuyer_PublisherProfileApiProto';
+  protected $profilesDataType = 'array';
+
+
+  public function setProfiles($profiles)
+  {
+    $this->profiles = $profiles;
+  }
+  public function getProfiles()
+  {
+    return $this->profiles;
+  }
+}
+
 class Google_Service_AdExchangeBuyer_MarketplaceDeal extends Google_Collection
 {
   protected $collection_key = 'sharedTargetings';
@@ -2888,7 +3041,10 @@ class Google_Service_AdExchangeBuyer_MarketplaceDeal extends Google_Collection
   protected $buyerPrivateDataDataType = '';
   public $creationTimeMs;
   public $creativePreApprovalPolicy;
+  public $creativeSafeFrameCompatibility;
   public $dealId;
+  protected $dealServingMetadataType = 'Google_Service_AdExchangeBuyer_DealServingMetadata';
+  protected $dealServingMetadataDataType = '';
   protected $deliveryControlType = 'Google_Service_AdExchangeBuyer_DeliveryControl';
   protected $deliveryControlDataType = '';
   public $externalDealId;
@@ -2900,6 +3056,7 @@ class Google_Service_AdExchangeBuyer_MarketplaceDeal extends Google_Collection
   public $name;
   public $productId;
   public $productRevisionNumber;
+  public $programmaticCreativeSource;
   public $proposalId;
   protected $sellerContactsType = 'Google_Service_AdExchangeBuyer_ContactInformation';
   protected $sellerContactsDataType = 'array';
@@ -2935,6 +3092,14 @@ class Google_Service_AdExchangeBuyer_MarketplaceDeal extends Google_Collection
   {
     return $this->creativePreApprovalPolicy;
   }
+  public function setCreativeSafeFrameCompatibility($creativeSafeFrameCompatibility)
+  {
+    $this->creativeSafeFrameCompatibility = $creativeSafeFrameCompatibility;
+  }
+  public function getCreativeSafeFrameCompatibility()
+  {
+    return $this->creativeSafeFrameCompatibility;
+  }
   public function setDealId($dealId)
   {
     $this->dealId = $dealId;
@@ -2942,6 +3107,14 @@ class Google_Service_AdExchangeBuyer_MarketplaceDeal extends Google_Collection
   public function getDealId()
   {
     return $this->dealId;
+  }
+  public function setDealServingMetadata(Google_Service_AdExchangeBuyer_DealServingMetadata $dealServingMetadata)
+  {
+    $this->dealServingMetadata = $dealServingMetadata;
+  }
+  public function getDealServingMetadata()
+  {
+    return $this->dealServingMetadata;
   }
   public function setDeliveryControl(Google_Service_AdExchangeBuyer_DeliveryControl $deliveryControl)
   {
@@ -3022,6 +3195,14 @@ class Google_Service_AdExchangeBuyer_MarketplaceDeal extends Google_Collection
   public function getProductRevisionNumber()
   {
     return $this->productRevisionNumber;
+  }
+  public function setProgrammaticCreativeSource($programmaticCreativeSource)
+  {
+    $this->programmaticCreativeSource = $programmaticCreativeSource;
+  }
+  public function getProgrammaticCreativeSource()
+  {
+    return $this->programmaticCreativeSource;
   }
   public function setProposalId($proposalId)
   {
@@ -3928,6 +4109,8 @@ class Google_Service_AdExchangeBuyer_Product extends Google_Collection
   public $creationTimeMs;
   protected $creatorContactsType = 'Google_Service_AdExchangeBuyer_ContactInformation';
   protected $creatorContactsDataType = 'array';
+  protected $deliveryControlType = 'Google_Service_AdExchangeBuyer_DeliveryControl';
+  protected $deliveryControlDataType = '';
   public $flightEndTimeMs;
   public $flightStartTimeMs;
   public $hasCreatorSignedOff;
@@ -3936,7 +4119,9 @@ class Google_Service_AdExchangeBuyer_Product extends Google_Collection
   protected $labelsType = 'Google_Service_AdExchangeBuyer_MarketplaceLabel';
   protected $labelsDataType = 'array';
   public $lastUpdateTimeMs;
+  public $legacyOfferId;
   public $name;
+  public $privateAuctionId;
   public $productId;
   public $revisionNumber;
   protected $sellerType = 'Google_Service_AdExchangeBuyer_Seller';
@@ -3965,6 +4150,14 @@ class Google_Service_AdExchangeBuyer_Product extends Google_Collection
   public function getCreatorContacts()
   {
     return $this->creatorContacts;
+  }
+  public function setDeliveryControl(Google_Service_AdExchangeBuyer_DeliveryControl $deliveryControl)
+  {
+    $this->deliveryControl = $deliveryControl;
+  }
+  public function getDeliveryControl()
+  {
+    return $this->deliveryControl;
   }
   public function setFlightEndTimeMs($flightEndTimeMs)
   {
@@ -4022,6 +4215,14 @@ class Google_Service_AdExchangeBuyer_Product extends Google_Collection
   {
     return $this->lastUpdateTimeMs;
   }
+  public function setLegacyOfferId($legacyOfferId)
+  {
+    $this->legacyOfferId = $legacyOfferId;
+  }
+  public function getLegacyOfferId()
+  {
+    return $this->legacyOfferId;
+  }
   public function setName($name)
   {
     $this->name = $name;
@@ -4029,6 +4230,14 @@ class Google_Service_AdExchangeBuyer_Product extends Google_Collection
   public function getName()
   {
     return $this->name;
+  }
+  public function setPrivateAuctionId($privateAuctionId)
+  {
+    $this->privateAuctionId = $privateAuctionId;
+  }
+  public function getPrivateAuctionId()
+  {
+    return $this->privateAuctionId;
   }
   public function setProductId($productId)
   {
@@ -4120,7 +4329,9 @@ class Google_Service_AdExchangeBuyer_Proposal extends Google_Collection
   public $lastUpdaterOrCommentorRole;
   public $lastUpdaterRole;
   public $name;
+  public $negotiationId;
   public $originatorRole;
+  public $privateAuctionId;
   public $proposalId;
   public $proposalState;
   public $revisionNumber;
@@ -4243,6 +4454,14 @@ class Google_Service_AdExchangeBuyer_Proposal extends Google_Collection
   {
     return $this->name;
   }
+  public function setNegotiationId($negotiationId)
+  {
+    $this->negotiationId = $negotiationId;
+  }
+  public function getNegotiationId()
+  {
+    return $this->negotiationId;
+  }
   public function setOriginatorRole($originatorRole)
   {
     $this->originatorRole = $originatorRole;
@@ -4250,6 +4469,14 @@ class Google_Service_AdExchangeBuyer_Proposal extends Google_Collection
   public function getOriginatorRole()
   {
     return $this->originatorRole;
+  }
+  public function setPrivateAuctionId($privateAuctionId)
+  {
+    $this->privateAuctionId = $privateAuctionId;
+  }
+  public function getPrivateAuctionId()
+  {
+    return $this->privateAuctionId;
   }
   public function setProposalId($proposalId)
   {
@@ -4298,6 +4525,132 @@ class Google_Service_AdExchangeBuyer_Proposal extends Google_Collection
   public function getSellerContacts()
   {
     return $this->sellerContacts;
+  }
+}
+
+class Google_Service_AdExchangeBuyer_PublisherProfileApiProto extends Google_Collection
+{
+  protected $collection_key = 'topHeadlines';
+  protected $internal_gapi_mappings = array(
+  );
+  public $buyerPitchStatement;
+  public $googlePlusLink;
+  public $isParent;
+  public $kind;
+  public $logoUrl;
+  public $mediaKitLink;
+  public $name;
+  public $overview;
+  public $profileId;
+  public $publisherDomains;
+  public $rateCardInfoLink;
+  public $samplePageLink;
+  public $topHeadlines;
+
+
+  public function setBuyerPitchStatement($buyerPitchStatement)
+  {
+    $this->buyerPitchStatement = $buyerPitchStatement;
+  }
+  public function getBuyerPitchStatement()
+  {
+    return $this->buyerPitchStatement;
+  }
+  public function setGooglePlusLink($googlePlusLink)
+  {
+    $this->googlePlusLink = $googlePlusLink;
+  }
+  public function getGooglePlusLink()
+  {
+    return $this->googlePlusLink;
+  }
+  public function setIsParent($isParent)
+  {
+    $this->isParent = $isParent;
+  }
+  public function getIsParent()
+  {
+    return $this->isParent;
+  }
+  public function setKind($kind)
+  {
+    $this->kind = $kind;
+  }
+  public function getKind()
+  {
+    return $this->kind;
+  }
+  public function setLogoUrl($logoUrl)
+  {
+    $this->logoUrl = $logoUrl;
+  }
+  public function getLogoUrl()
+  {
+    return $this->logoUrl;
+  }
+  public function setMediaKitLink($mediaKitLink)
+  {
+    $this->mediaKitLink = $mediaKitLink;
+  }
+  public function getMediaKitLink()
+  {
+    return $this->mediaKitLink;
+  }
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+  public function getName()
+  {
+    return $this->name;
+  }
+  public function setOverview($overview)
+  {
+    $this->overview = $overview;
+  }
+  public function getOverview()
+  {
+    return $this->overview;
+  }
+  public function setProfileId($profileId)
+  {
+    $this->profileId = $profileId;
+  }
+  public function getProfileId()
+  {
+    return $this->profileId;
+  }
+  public function setPublisherDomains($publisherDomains)
+  {
+    $this->publisherDomains = $publisherDomains;
+  }
+  public function getPublisherDomains()
+  {
+    return $this->publisherDomains;
+  }
+  public function setRateCardInfoLink($rateCardInfoLink)
+  {
+    $this->rateCardInfoLink = $rateCardInfoLink;
+  }
+  public function getRateCardInfoLink()
+  {
+    return $this->rateCardInfoLink;
+  }
+  public function setSamplePageLink($samplePageLink)
+  {
+    $this->samplePageLink = $samplePageLink;
+  }
+  public function getSamplePageLink()
+  {
+    return $this->samplePageLink;
+  }
+  public function setTopHeadlines($topHeadlines)
+  {
+    $this->topHeadlines = $topHeadlines;
+  }
+  public function getTopHeadlines()
+  {
+    return $this->topHeadlines;
   }
 }
 

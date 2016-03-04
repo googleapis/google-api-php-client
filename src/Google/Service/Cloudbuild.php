@@ -16,11 +16,10 @@
  */
 
 /**
- * Service definition for Cloudbuild (v1).
+ * Service definition for CloudBuild (v1).
  *
  * <p>
- * The Google Cloud Container Builder API lets you build container images in the
- * cloud.</p>
+ * Builds container images in the cloud.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -29,7 +28,7 @@
  *
  * @author Google, Inc.
  */
-class Google_Service_Cloudbuild extends Google_Service
+class Google_Service_CloudBuild extends Google_Service
 {
   /** View and manage your data across Google Cloud Platform services. */
   const CLOUD_PLATFORM =
@@ -40,7 +39,7 @@ class Google_Service_Cloudbuild extends Google_Service
   
 
   /**
-   * Constructs the internal representation of the Cloudbuild service.
+   * Constructs the internal representation of the CloudBuild service.
    *
    * @param Google_Client $client
    */
@@ -52,7 +51,7 @@ class Google_Service_Cloudbuild extends Google_Service
     $this->version = 'v1';
     $this->serviceName = 'cloudbuild';
 
-    $this->operations = new Google_Service_Cloudbuild_Operations_Resource(
+    $this->operations = new Google_Service_CloudBuild_Operations_Resource(
         $this,
         $this->serviceName,
         'operations',
@@ -94,7 +93,7 @@ class Google_Service_Cloudbuild extends Google_Service
           )
         )
     );
-    $this->projects_builds = new Google_Service_Cloudbuild_ProjectsBuilds_Resource(
+    $this->projects_builds = new Google_Service_CloudBuild_ProjectsBuilds_Resource(
         $this,
         $this->serviceName,
         'builds',
@@ -170,11 +169,11 @@ class Google_Service_Cloudbuild extends Google_Service
  * The "operations" collection of methods.
  * Typical usage is:
  *  <code>
- *   $cloudbuildService = new Google_Service_Cloudbuild(...);
+ *   $cloudbuildService = new Google_Service_CloudBuild(...);
  *   $operations = $cloudbuildService->operations;
  *  </code>
  */
-class Google_Service_Cloudbuild_Operations_Resource extends Google_Service_Resource
+class Google_Service_CloudBuild_Operations_Resource extends Google_Service_Resource
 {
 
   /**
@@ -184,13 +183,13 @@ class Google_Service_Cloudbuild_Operations_Resource extends Google_Service_Resou
    *
    * @param string $name The name of the operation resource.
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Cloudbuild_Operation
+   * @return Google_Service_CloudBuild_Operation
    */
   public function get($name, $optParams = array())
   {
     $params = array('name' => $name);
     $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Cloudbuild_Operation");
+    return $this->call('get', array($params), "Google_Service_CloudBuild_Operation");
   }
 
   /**
@@ -207,13 +206,13 @@ class Google_Service_Cloudbuild_Operations_Resource extends Google_Service_Resou
    * @opt_param int pageSize The standard list page size.
    * @opt_param string filter The standard list filter.
    * @opt_param string pageToken The standard list page token.
-   * @return Google_Service_Cloudbuild_ListOperationsResponse
+   * @return Google_Service_CloudBuild_ListOperationsResponse
    */
   public function listOperations($name, $optParams = array())
   {
     $params = array('name' => $name);
     $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Cloudbuild_ListOperationsResponse");
+    return $this->call('list', array($params), "Google_Service_CloudBuild_ListOperationsResponse");
   }
 }
 
@@ -221,11 +220,11 @@ class Google_Service_Cloudbuild_Operations_Resource extends Google_Service_Resou
  * The "projects" collection of methods.
  * Typical usage is:
  *  <code>
- *   $cloudbuildService = new Google_Service_Cloudbuild(...);
+ *   $cloudbuildService = new Google_Service_CloudBuild(...);
  *   $projects = $cloudbuildService->projects;
  *  </code>
  */
-class Google_Service_Cloudbuild_Projects_Resource extends Google_Service_Resource
+class Google_Service_CloudBuild_Projects_Resource extends Google_Service_Resource
 {
 }
 
@@ -233,11 +232,11 @@ class Google_Service_Cloudbuild_Projects_Resource extends Google_Service_Resourc
  * The "builds" collection of methods.
  * Typical usage is:
  *  <code>
- *   $cloudbuildService = new Google_Service_Cloudbuild(...);
+ *   $cloudbuildService = new Google_Service_CloudBuild(...);
  *   $builds = $cloudbuildService->builds;
  *  </code>
  */
-class Google_Service_Cloudbuild_ProjectsBuilds_Resource extends Google_Service_Resource
+class Google_Service_CloudBuild_ProjectsBuilds_Resource extends Google_Service_Resource
 {
 
   /**
@@ -247,13 +246,13 @@ class Google_Service_Cloudbuild_ProjectsBuilds_Resource extends Google_Service_R
    * @param string $id ID of the build.
    * @param Google_CancelBuildRequest $postBody
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Cloudbuild_Build
+   * @return Google_Service_CloudBuild_Build
    */
-  public function cancel($projectId, $id, Google_Service_Cloudbuild_CancelBuildRequest $postBody, $optParams = array())
+  public function cancel($projectId, $id, Google_Service_CloudBuild_CancelBuildRequest $postBody, $optParams = array())
   {
     $params = array('projectId' => $projectId, 'id' => $id, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('cancel', array($params), "Google_Service_Cloudbuild_Build");
+    return $this->call('cancel', array($params), "Google_Service_CloudBuild_Build");
   }
 
   /**
@@ -266,13 +265,13 @@ class Google_Service_Cloudbuild_ProjectsBuilds_Resource extends Google_Service_R
    * @param string $projectId ID of the project.
    * @param Google_Build $postBody
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Cloudbuild_Operation
+   * @return Google_Service_CloudBuild_Operation
    */
-  public function create($projectId, Google_Service_Cloudbuild_Build $postBody, $optParams = array())
+  public function create($projectId, Google_Service_CloudBuild_Build $postBody, $optParams = array())
   {
     $params = array('projectId' => $projectId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
-    return $this->call('create', array($params), "Google_Service_Cloudbuild_Operation");
+    return $this->call('create', array($params), "Google_Service_CloudBuild_Operation");
   }
 
   /**
@@ -284,13 +283,13 @@ class Google_Service_Cloudbuild_ProjectsBuilds_Resource extends Google_Service_R
    * @param string $projectId ID of the project.
    * @param string $id ID of the build.
    * @param array $optParams Optional parameters.
-   * @return Google_Service_Cloudbuild_Build
+   * @return Google_Service_CloudBuild_Build
    */
   public function get($projectId, $id, $optParams = array())
   {
     $params = array('projectId' => $projectId, 'id' => $id);
     $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Cloudbuild_Build");
+    return $this->call('get', array($params), "Google_Service_CloudBuild_Build");
   }
 
   /**
@@ -305,20 +304,20 @@ class Google_Service_Cloudbuild_ProjectsBuilds_Resource extends Google_Service_R
    * @opt_param int pageSize Number of results to return in the list.
    * @opt_param string pageToken Token to provide to skip to a particular spot in
    * the list.
-   * @return Google_Service_Cloudbuild_ListBuildsResponse
+   * @return Google_Service_CloudBuild_ListBuildsResponse
    */
   public function listProjectsBuilds($projectId, $optParams = array())
   {
     $params = array('projectId' => $projectId);
     $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Cloudbuild_ListBuildsResponse");
+    return $this->call('list', array($params), "Google_Service_CloudBuild_ListBuildsResponse");
   }
 }
 
 
 
 
-class Google_Service_Cloudbuild_Build extends Google_Collection
+class Google_Service_CloudBuild_Build extends Google_Collection
 {
   protected $collection_key = 'steps';
   protected $internal_gapi_mappings = array(
@@ -329,13 +328,13 @@ class Google_Service_Cloudbuild_Build extends Google_Collection
   public $images;
   public $logsBucket;
   public $projectId;
-  protected $resultsType = 'Google_Service_Cloudbuild_Results';
+  protected $resultsType = 'Google_Service_CloudBuild_Results';
   protected $resultsDataType = '';
-  protected $sourceType = 'Google_Service_Cloudbuild_Source';
+  protected $sourceType = 'Google_Service_CloudBuild_Source';
   protected $sourceDataType = '';
   public $startTime;
   public $status;
-  protected $stepsType = 'Google_Service_Cloudbuild_BuildStep';
+  protected $stepsType = 'Google_Service_CloudBuild_BuildStep';
   protected $stepsDataType = 'array';
   public $timeout;
 
@@ -388,7 +387,7 @@ class Google_Service_Cloudbuild_Build extends Google_Collection
   {
     return $this->projectId;
   }
-  public function setResults(Google_Service_Cloudbuild_Results $results)
+  public function setResults(Google_Service_CloudBuild_Results $results)
   {
     $this->results = $results;
   }
@@ -396,7 +395,7 @@ class Google_Service_Cloudbuild_Build extends Google_Collection
   {
     return $this->results;
   }
-  public function setSource(Google_Service_Cloudbuild_Source $source)
+  public function setSource(Google_Service_CloudBuild_Source $source)
   {
     $this->source = $source;
   }
@@ -438,15 +437,15 @@ class Google_Service_Cloudbuild_Build extends Google_Collection
   }
 }
 
-class Google_Service_Cloudbuild_BuildOperationMetadata extends Google_Model
+class Google_Service_CloudBuild_BuildOperationMetadata extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
-  protected $buildType = 'Google_Service_Cloudbuild_Build';
+  protected $buildType = 'Google_Service_CloudBuild_Build';
   protected $buildDataType = '';
 
 
-  public function setBuild(Google_Service_Cloudbuild_Build $build)
+  public function setBuild(Google_Service_CloudBuild_Build $build)
   {
     $this->build = $build;
   }
@@ -456,7 +455,7 @@ class Google_Service_Cloudbuild_BuildOperationMetadata extends Google_Model
   }
 }
 
-class Google_Service_Cloudbuild_BuildStep extends Google_Collection
+class Google_Service_CloudBuild_BuildStep extends Google_Collection
 {
   protected $collection_key = 'env';
   protected $internal_gapi_mappings = array(
@@ -501,7 +500,7 @@ class Google_Service_Cloudbuild_BuildStep extends Google_Collection
   }
 }
 
-class Google_Service_Cloudbuild_BuiltImage extends Google_Model
+class Google_Service_CloudBuild_BuiltImage extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
@@ -527,16 +526,16 @@ class Google_Service_Cloudbuild_BuiltImage extends Google_Model
   }
 }
 
-class Google_Service_Cloudbuild_CancelBuildRequest extends Google_Model
+class Google_Service_CloudBuild_CancelBuildRequest extends Google_Model
 {
 }
 
-class Google_Service_Cloudbuild_ListBuildsResponse extends Google_Collection
+class Google_Service_CloudBuild_ListBuildsResponse extends Google_Collection
 {
   protected $collection_key = 'builds';
   protected $internal_gapi_mappings = array(
   );
-  protected $buildsType = 'Google_Service_Cloudbuild_Build';
+  protected $buildsType = 'Google_Service_CloudBuild_Build';
   protected $buildsDataType = 'array';
   public $nextPageToken;
 
@@ -559,13 +558,13 @@ class Google_Service_Cloudbuild_ListBuildsResponse extends Google_Collection
   }
 }
 
-class Google_Service_Cloudbuild_ListOperationsResponse extends Google_Collection
+class Google_Service_CloudBuild_ListOperationsResponse extends Google_Collection
 {
   protected $collection_key = 'operations';
   protected $internal_gapi_mappings = array(
   );
   public $nextPageToken;
-  protected $operationsType = 'Google_Service_Cloudbuild_Operation';
+  protected $operationsType = 'Google_Service_CloudBuild_Operation';
   protected $operationsDataType = 'array';
 
 
@@ -587,12 +586,12 @@ class Google_Service_Cloudbuild_ListOperationsResponse extends Google_Collection
   }
 }
 
-class Google_Service_Cloudbuild_Operation extends Google_Model
+class Google_Service_CloudBuild_Operation extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
   public $done;
-  protected $errorType = 'Google_Service_Cloudbuild_Status';
+  protected $errorType = 'Google_Service_CloudBuild_Status';
   protected $errorDataType = '';
   public $metadata;
   public $name;
@@ -607,7 +606,7 @@ class Google_Service_Cloudbuild_Operation extends Google_Model
   {
     return $this->done;
   }
-  public function setError(Google_Service_Cloudbuild_Status $error)
+  public function setError(Google_Service_CloudBuild_Status $error)
   {
     $this->error = $error;
   }
@@ -641,12 +640,12 @@ class Google_Service_Cloudbuild_Operation extends Google_Model
   }
 }
 
-class Google_Service_Cloudbuild_Results extends Google_Collection
+class Google_Service_CloudBuild_Results extends Google_Collection
 {
   protected $collection_key = 'images';
   protected $internal_gapi_mappings = array(
   );
-  protected $imagesType = 'Google_Service_Cloudbuild_BuiltImage';
+  protected $imagesType = 'Google_Service_CloudBuild_BuiltImage';
   protected $imagesDataType = 'array';
 
 
@@ -660,15 +659,15 @@ class Google_Service_Cloudbuild_Results extends Google_Collection
   }
 }
 
-class Google_Service_Cloudbuild_Source extends Google_Model
+class Google_Service_CloudBuild_Source extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );
-  protected $storageSourceType = 'Google_Service_Cloudbuild_StorageSource';
+  protected $storageSourceType = 'Google_Service_CloudBuild_StorageSource';
   protected $storageSourceDataType = '';
 
 
-  public function setStorageSource(Google_Service_Cloudbuild_StorageSource $storageSource)
+  public function setStorageSource(Google_Service_CloudBuild_StorageSource $storageSource)
   {
     $this->storageSource = $storageSource;
   }
@@ -678,7 +677,7 @@ class Google_Service_Cloudbuild_Source extends Google_Model
   }
 }
 
-class Google_Service_Cloudbuild_Status extends Google_Collection
+class Google_Service_CloudBuild_Status extends Google_Collection
 {
   protected $collection_key = 'details';
   protected $internal_gapi_mappings = array(
@@ -714,7 +713,7 @@ class Google_Service_Cloudbuild_Status extends Google_Collection
   }
 }
 
-class Google_Service_Cloudbuild_StorageSource extends Google_Model
+class Google_Service_CloudBuild_StorageSource extends Google_Model
 {
   protected $internal_gapi_mappings = array(
   );

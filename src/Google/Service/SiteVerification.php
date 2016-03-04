@@ -19,7 +19,7 @@
  * Service definition for SiteVerification (v1).
  *
  * <p>
- * Lets you programatically verify ownership of websites or domains with Google.</p>
+ * Verifies ownership of websites or domains with Google.</p>
  *
  * <p>
  * For more information about this service, see the API

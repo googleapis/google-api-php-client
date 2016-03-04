@@ -19,8 +19,7 @@
  * Service definition for AdSense (v1.4).
  *
  * <p>
- * Gives AdSense publishers access to their inventory and the ability to
- * generate reports</p>
+ * Accesses AdSense publishers' inventory and generates performance reports.</p>
  *
  * <p>
  * For more information about this service, see the API

@@ -19,7 +19,8 @@
  * Service definition for CloudUserAccounts (vm_alpha).
  *
  * <p>
- * API for the Google Cloud User Accounts service.</p>
+ * Creates and manages users and groups for accessing Google Compute Engine
+ * virtual machines.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -563,18 +564,34 @@ class Google_Service_CloudUserAccounts_GlobalAccountsOperations_Resource extends
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   * For example, to filter for instances that do not have a name of example-
+   * instance, you would use filter=name ne example-instance.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions, meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -585,9 +602,9 @@ class Google_Service_CloudUserAccounts_GlobalAccountsOperations_Resource extends
    * returned first.
    *
    * Currently, only sorting by name or creationTimestamp desc is supported.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_CloudUserAccounts_OperationList
    */
   public function listGlobalAccountsOperations($project, $optParams = array())
@@ -696,18 +713,34 @@ class Google_Service_CloudUserAccounts_Groups_Resource extends Google_Service_Re
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   * For example, to filter for instances that do not have a name of example-
+   * instance, you would use filter=name ne example-instance.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions, meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -718,9 +751,9 @@ class Google_Service_CloudUserAccounts_Groups_Resource extends Google_Service_Re
    * returned first.
    *
    * Currently, only sorting by name or creationTimestamp desc is supported.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_CloudUserAccounts_GroupList
    */
   public function listGroups($project, $optParams = array())
@@ -827,18 +860,34 @@ class Google_Service_CloudUserAccounts_Linux_Resource extends Google_Service_Res
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   * For example, to filter for instances that do not have a name of example-
+   * instance, you would use filter=name ne example-instance.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions, meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -849,9 +898,9 @@ class Google_Service_CloudUserAccounts_Linux_Resource extends Google_Service_Res
    * returned first.
    *
    * Currently, only sorting by name or creationTimestamp desc is supported.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_CloudUserAccounts_LinuxGetLinuxAccountViewsResponse
    */
   public function getLinuxAccountViews($project, $zone, $instance, $optParams = array())
@@ -961,18 +1010,34 @@ class Google_Service_CloudUserAccounts_Users_Resource extends Google_Service_Res
    *
    * @opt_param string filter Sets a filter expression for filtering listed
    * resources, in the form filter={expression}. Your {expression} must be in the
-   * format: FIELD_NAME COMPARISON_STRING LITERAL_STRING.
+   * format: field_name comparison_string literal_string.
    *
-   * The FIELD_NAME is the name of the field you want to compare. Only atomic
-   * field types are supported (string, number, boolean). The COMPARISON_STRING
-   * must be either eq (equals) or ne (not equals). The LITERAL_STRING is the
+   * The field_name is the name of the field you want to compare. Only atomic
+   * field types are supported (string, number, boolean). The comparison_string
+   * must be either eq (equals) or ne (not equals). The literal_string is the
    * string value to filter to. The literal value must be valid for the type of
-   * field (string, number, boolean). For string fields, the literal value is
-   * interpreted as a regular expression using RE2 syntax. The literal value must
-   * match the entire field.
+   * field you are filtering by (string, number, boolean). For string fields, the
+   * literal value is interpreted as a regular expression using RE2 syntax. The
+   * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
-   * @opt_param string maxResults Maximum count of results to be returned.
+   * For example, to filter for instances that do not have a name of example-
+   * instance, you would use filter=name ne example-instance.
+   *
+   * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
+   * also filter on nested fields. For example, you could filter on instances that
+   * have set the scheduling.automaticRestart field to true. In particular, use
+   * filtering on nested fields to take advantage of instance labels to organize
+   * and filter results based on label values.
+   *
+   * The Beta API also supports filtering on multiple expressions by providing
+   * each separate expression within parentheses. For example,
+   * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
+   * expressions are treated as AND expressions, meaning that resources must match
+   * all expressions to pass the filters.
+   * @opt_param string maxResults The maximum number of results per page that
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -983,9 +1048,9 @@ class Google_Service_CloudUserAccounts_Users_Resource extends Google_Service_Res
    * returned first.
    *
    * Currently, only sorting by name or creationTimestamp desc is supported.
-   * @opt_param string pageToken Specifies a page token to use. Use this parameter
-   * if you want to list the next page of results. Set pageToken to the
-   * nextPageToken returned by a previous list request.
+   * @opt_param string pageToken Specifies a page token to use. Set pageToken to
+   * the nextPageToken returned by a previous list request to get the next page of
+   * results.
    * @return Google_Service_CloudUserAccounts_UserList
    */
   public function listUsers($project, $optParams = array())
@@ -1050,6 +1115,33 @@ class Google_Service_CloudUserAccounts_Users_Resource extends Google_Service_Res
 
 
 
+
+class Google_Service_CloudUserAccounts_AuditConfig extends Google_Collection
+{
+  protected $collection_key = 'exemptedMembers';
+  protected $internal_gapi_mappings = array(
+  );
+  public $exemptedMembers;
+  public $service;
+
+
+  public function setExemptedMembers($exemptedMembers)
+  {
+    $this->exemptedMembers = $exemptedMembers;
+  }
+  public function getExemptedMembers()
+  {
+    return $this->exemptedMembers;
+  }
+  public function setService($service)
+  {
+    $this->service = $service;
+  }
+  public function getService()
+  {
+    return $this->service;
+  }
+}
 
 class Google_Service_CloudUserAccounts_AuthorizedKeysView extends Google_Collection
 {
@@ -1554,6 +1646,7 @@ class Google_Service_CloudUserAccounts_Operation extends Google_Collection
   );
   public $clientOperationId;
   public $creationTimestamp;
+  public $description;
   public $endTime;
   protected $errorType = 'Google_Service_CloudUserAccounts_OperationError';
   protected $errorDataType = '';
@@ -1593,6 +1686,14 @@ class Google_Service_CloudUserAccounts_Operation extends Google_Collection
   public function getCreationTimestamp()
   {
     return $this->creationTimestamp;
+  }
+  public function setDescription($description)
+  {
+    $this->description = $description;
+  }
+  public function getDescription()
+  {
+    return $this->description;
   }
   public function setEndTime($endTime)
   {
@@ -1933,14 +2034,25 @@ class Google_Service_CloudUserAccounts_Policy extends Google_Collection
   protected $collection_key = 'rules';
   protected $internal_gapi_mappings = array(
   );
+  protected $auditConfigsType = 'Google_Service_CloudUserAccounts_AuditConfig';
+  protected $auditConfigsDataType = 'array';
   protected $bindingsType = 'Google_Service_CloudUserAccounts_Binding';
   protected $bindingsDataType = 'array';
   public $etag;
+  public $iamOwned;
   protected $rulesType = 'Google_Service_CloudUserAccounts_Rule';
   protected $rulesDataType = 'array';
   public $version;
 
 
+  public function setAuditConfigs($auditConfigs)
+  {
+    $this->auditConfigs = $auditConfigs;
+  }
+  public function getAuditConfigs()
+  {
+    return $this->auditConfigs;
+  }
   public function setBindings($bindings)
   {
     $this->bindings = $bindings;
@@ -1956,6 +2068,14 @@ class Google_Service_CloudUserAccounts_Policy extends Google_Collection
   public function getEtag()
   {
     return $this->etag;
+  }
+  public function setIamOwned($iamOwned)
+  {
+    $this->iamOwned = $iamOwned;
+  }
+  public function getIamOwned()
+  {
+    return $this->iamOwned;
   }
   public function setRules($rules)
   {
