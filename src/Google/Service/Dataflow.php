@@ -3761,6 +3761,7 @@ class Google_Service_Dataflow_WorkerPool extends Google_Collection
   protected $packagesType = 'Google_Service_Dataflow_Package';
   protected $packagesDataType = 'array';
   public $poolArgs;
+  public $subnetwork;
   protected $taskrunnerSettingsType = 'Google_Service_Dataflow_TaskRunnerSettings';
   protected $taskrunnerSettingsDataType = '';
   public $teardownPolicy;
@@ -3879,6 +3880,14 @@ class Google_Service_Dataflow_WorkerPool extends Google_Collection
   public function getPoolArgs()
   {
     return $this->poolArgs;
+  }
+  public function setSubnetwork($subnetwork)
+  {
+    $this->subnetwork = $subnetwork;
+  }
+  public function getSubnetwork()
+  {
+    return $this->subnetwork;
   }
   public function setTaskrunnerSettings(Google_Service_Dataflow_TaskRunnerSettings $taskrunnerSettings)
   {

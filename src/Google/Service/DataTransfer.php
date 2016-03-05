@@ -19,7 +19,7 @@
  * Service definition for DataTransfer (datatransfer_v1).
  *
  * <p>
- * Admin Data Transfer API lets you transfer user data from one user to another.</p>
+ * Transfers user data from one user to another.</p>
  *
  * <p>
  * For more information about this service, see the API

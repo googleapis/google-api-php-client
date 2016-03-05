@@ -854,8 +854,7 @@ class Google_Service_SQLAdmin_Databases_Resource extends Google_Service_Resource
 {
 
   /**
-   * Deletes a resource containing information about a database inside a Cloud SQL
-   * instance. (databases.delete)
+   * Deletes a database from a Cloud SQL instance. (databases.delete)
    *
    * @param string $project Project ID of the project that contains the instance.
    * @param string $instance Database instance ID. This does not include the
@@ -1002,8 +1001,8 @@ class Google_Service_SQLAdmin_Instances_Resource extends Google_Service_Resource
 {
 
   /**
-   * Creates a Cloud SQL instance as a clone of the source instance.
-   * (instances.cloneInstances)
+   * Creates a Cloud SQL instance as a clone of the source instance. The API is
+   * not ready for Second Generation instances yet. (instances.cloneInstances)
    *
    * @param string $project Project ID of the source as well as the clone Cloud
    * SQL instance.
@@ -1957,9 +1956,10 @@ class Google_Service_SQLAdmin_DatabaseFlags extends Google_Model
 
 class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
 {
-  protected $collection_key = 'replicaNames';
+  protected $collection_key = 'suspensionReason';
   protected $internal_gapi_mappings = array(
   );
+  public $backendType;
   public $currentDiskSize;
   public $databaseVersion;
   public $etag;
@@ -1987,8 +1987,17 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   protected $settingsType = 'Google_Service_SQLAdmin_Settings';
   protected $settingsDataType = '';
   public $state;
+  public $suspensionReason;
 
 
+  public function setBackendType($backendType)
+  {
+    $this->backendType = $backendType;
+  }
+  public function getBackendType()
+  {
+    return $this->backendType;
+  }
   public function setCurrentDiskSize($currentDiskSize)
   {
     $this->currentDiskSize = $currentDiskSize;
@@ -2156,6 +2165,14 @@ class Google_Service_SQLAdmin_DatabaseInstance extends Google_Collection
   public function getState()
   {
     return $this->state;
+  }
+  public function setSuspensionReason($suspensionReason)
+  {
+    $this->suspensionReason = $suspensionReason;
+  }
+  public function getSuspensionReason()
+  {
+    return $this->suspensionReason;
   }
 }
 

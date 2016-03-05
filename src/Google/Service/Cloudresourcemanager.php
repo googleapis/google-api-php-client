@@ -16,7 +16,7 @@
  */
 
 /**
- * Service definition for Cloudresourcemanager (v1beta1).
+ * Service definition for Cloudresourcemanager (v1).
  *
  * <p>
  * The Google Cloud Resource Manager API provides methods for creating, reading,
@@ -38,7 +38,6 @@ class Google_Service_Cloudresourcemanager extends Google_Service
   const CLOUD_PLATFORM_READ_ONLY =
       "https://www.googleapis.com/auth/cloud-platform.read-only";
 
-  public $organizations;
   public $projects;
   
 
@@ -52,98 +51,17 @@ class Google_Service_Cloudresourcemanager extends Google_Service
     parent::__construct($client);
     $this->rootUrl = 'https://cloudresourcemanager.googleapis.com/';
     $this->servicePath = '';
-    $this->version = 'v1beta1';
+    $this->version = 'v1';
     $this->serviceName = 'cloudresourcemanager';
 
-    $this->organizations = new Google_Service_Cloudresourcemanager_Organizations_Resource(
-        $this,
-        $this->serviceName,
-        'organizations',
-        array(
-          'methods' => array(
-            'get' => array(
-              'path' => 'v1beta1/organizations/{organizationId}',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'organizationId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'getIamPolicy' => array(
-              'path' => 'v1beta1/organizations/{resource}:getIamPolicy',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'resource' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'list' => array(
-              'path' => 'v1beta1/organizations',
-              'httpMethod' => 'GET',
-              'parameters' => array(
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-              ),
-            ),'setIamPolicy' => array(
-              'path' => 'v1beta1/organizations/{resource}:setIamPolicy',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'resource' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'testIamPermissions' => array(
-              'path' => 'v1beta1/organizations/{resource}:testIamPermissions',
-              'httpMethod' => 'POST',
-              'parameters' => array(
-                'resource' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),'update' => array(
-              'path' => 'v1beta1/organizations/{organizationId}',
-              'httpMethod' => 'PUT',
-              'parameters' => array(
-                'organizationId' => array(
-                  'location' => 'path',
-                  'type' => 'string',
-                  'required' => true,
-                ),
-              ),
-            ),
-          )
-        )
-    );
     $this->projects = new Google_Service_Cloudresourcemanager_Projects_Resource(
         $this,
         $this->serviceName,
         'projects',
         array(
           'methods' => array(
-            'create' => array(
-              'path' => 'v1beta1/projects',
-              'httpMethod' => 'POST',
-              'parameters' => array(),
-            ),'delete' => array(
-              'path' => 'v1beta1/projects/{projectId}',
+            'delete' => array(
+              'path' => 'v1/projects/{projectId}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
                 'projectId' => array(
@@ -153,7 +71,7 @@ class Google_Service_Cloudresourcemanager extends Google_Service
                 ),
               ),
             ),'get' => array(
-              'path' => 'v1beta1/projects/{projectId}',
+              'path' => 'v1/projects/{projectId}',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'projectId' => array(
@@ -163,7 +81,7 @@ class Google_Service_Cloudresourcemanager extends Google_Service
                 ),
               ),
             ),'getIamPolicy' => array(
-              'path' => 'v1beta1/projects/{resource}:getIamPolicy',
+              'path' => 'v1/projects/{resource}:getIamPolicy',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'resource' => array(
@@ -173,7 +91,7 @@ class Google_Service_Cloudresourcemanager extends Google_Service
                 ),
               ),
             ),'list' => array(
-              'path' => 'v1beta1/projects',
+              'path' => 'v1/projects',
               'httpMethod' => 'GET',
               'parameters' => array(
                 'pageToken' => array(
@@ -190,7 +108,7 @@ class Google_Service_Cloudresourcemanager extends Google_Service
                 ),
               ),
             ),'setIamPolicy' => array(
-              'path' => 'v1beta1/projects/{resource}:setIamPolicy',
+              'path' => 'v1/projects/{resource}:setIamPolicy',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'resource' => array(
@@ -200,7 +118,7 @@ class Google_Service_Cloudresourcemanager extends Google_Service
                 ),
               ),
             ),'testIamPermissions' => array(
-              'path' => 'v1beta1/projects/{resource}:testIamPermissions',
+              'path' => 'v1/projects/{resource}:testIamPermissions',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'resource' => array(
@@ -210,7 +128,7 @@ class Google_Service_Cloudresourcemanager extends Google_Service
                 ),
               ),
             ),'undelete' => array(
-              'path' => 'v1beta1/projects/{projectId}:undelete',
+              'path' => 'v1/projects/{projectId}:undelete',
               'httpMethod' => 'POST',
               'parameters' => array(
                 'projectId' => array(
@@ -220,7 +138,7 @@ class Google_Service_Cloudresourcemanager extends Google_Service
                 ),
               ),
             ),'update' => array(
-              'path' => 'v1beta1/projects/{projectId}',
+              'path' => 'v1/projects/{projectId}',
               'httpMethod' => 'PUT',
               'parameters' => array(
                 'projectId' => array(
@@ -236,142 +154,6 @@ class Google_Service_Cloudresourcemanager extends Google_Service
   }
 }
 
-
-/**
- * The "organizations" collection of methods.
- * Typical usage is:
- *  <code>
- *   $cloudresourcemanagerService = new Google_Service_Cloudresourcemanager(...);
- *   $organizations = $cloudresourcemanagerService->organizations;
- *  </code>
- */
-class Google_Service_Cloudresourcemanager_Organizations_Resource extends Google_Service_Resource
-{
-
-  /**
-   * Fetches an Organization resource identified by the specified
-   * `organization_id`. (organizations.get)
-   *
-   * @param string $organizationId The id of the Organization resource to fetch.
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Cloudresourcemanager_Organization
-   */
-  public function get($organizationId, $optParams = array())
-  {
-    $params = array('organizationId' => $organizationId);
-    $params = array_merge($params, $optParams);
-    return $this->call('get', array($params), "Google_Service_Cloudresourcemanager_Organization");
-  }
-
-  /**
-   * Gets the access control policy for an Organization resource. May be empty if
-   * no such policy or resource exists. (organizations.getIamPolicy)
-   *
-   * @param string $resource REQUIRED: The resource for which the policy is being
-   * requested. `resource` is usually specified as a path, such as
-   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
-   * this value is resource specific and is specified in the `getIamPolicy`
-   * documentation.
-   * @param Google_GetIamPolicyRequest $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Cloudresourcemanager_Policy
-   */
-  public function getIamPolicy($resource, Google_Service_Cloudresourcemanager_GetIamPolicyRequest $postBody, $optParams = array())
-  {
-    $params = array('resource' => $resource, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('getIamPolicy', array($params), "Google_Service_Cloudresourcemanager_Policy");
-  }
-
-  /**
-   * Lists Organization resources that are visible to the user and satisfy the
-   * specified filter. This method returns Organizations in an unspecified order.
-   * New Organizations do not necessarily appear at the end of the list.
-   * (organizations.listOrganizations)
-   *
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param int pageSize The maximum number of Organizations to return in the
-   * response. This field is optional.
-   * @opt_param string pageToken A pagination token returned from a previous call
-   * to `ListOrganizations` that indicates from where listing should continue.
-   * This field is optional.
-   * @opt_param string filter An optional query string used to filter the
-   * Organizations to return in the response. Filter rules are case-insensitive.
-   * Organizations may be filtered by `owner.directoryCustomerId` or by `domain`,
-   * where the domain is a Google for Work domain, for example:
-   * |Filter|Description| |------|-----------|
-   * |owner.directorycustomerid:123456789|Organizations with
-   * `owner.directory_customer_id` equal to `123456789`.|
-   * |domain:google.com|Organizations corresponding to the domain `google.com`.|
-   * This field is optional.
-   * @return Google_Service_Cloudresourcemanager_ListOrganizationsResponse
-   */
-  public function listOrganizations($optParams = array())
-  {
-    $params = array();
-    $params = array_merge($params, $optParams);
-    return $this->call('list', array($params), "Google_Service_Cloudresourcemanager_ListOrganizationsResponse");
-  }
-
-  /**
-   * Sets the access control policy on an Organization resource. Replaces any
-   * existing policy. (organizations.setIamPolicy)
-   *
-   * @param string $resource REQUIRED: The resource for which the policy is being
-   * specified. `resource` is usually specified as a path, such as
-   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
-   * this value is resource specific and is specified in the `setIamPolicy`
-   * documentation.
-   * @param Google_SetIamPolicyRequest $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Cloudresourcemanager_Policy
-   */
-  public function setIamPolicy($resource, Google_Service_Cloudresourcemanager_SetIamPolicyRequest $postBody, $optParams = array())
-  {
-    $params = array('resource' => $resource, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('setIamPolicy', array($params), "Google_Service_Cloudresourcemanager_Policy");
-  }
-
-  /**
-   * Returns permissions that a caller has on the specified Organization.
-   * (organizations.testIamPermissions)
-   *
-   * @param string $resource REQUIRED: The resource for which the policy detail is
-   * being requested. `resource` is usually specified as a path, such as
-   * `projectsprojectzoneszonedisksdisk*`. The format for the path specified in
-   * this value is resource specific and is specified in the `testIamPermissions`
-   * documentation.
-   * @param Google_TestIamPermissionsRequest $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Cloudresourcemanager_TestIamPermissionsResponse
-   */
-  public function testIamPermissions($resource, Google_Service_Cloudresourcemanager_TestIamPermissionsRequest $postBody, $optParams = array())
-  {
-    $params = array('resource' => $resource, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('testIamPermissions', array($params), "Google_Service_Cloudresourcemanager_TestIamPermissionsResponse");
-  }
-
-  /**
-   * Updates an Organization resource identified by the specified
-   * `organization_id`. (organizations.update)
-   *
-   * @param string $organizationId An immutable id for the Organization that is
-   * assigned on creation. This should be omitted when creating a new
-   * Organization. This field is read-only.
-   * @param Google_Organization $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Cloudresourcemanager_Organization
-   */
-  public function update($organizationId, Google_Service_Cloudresourcemanager_Organization $postBody, $optParams = array())
-  {
-    $params = array('organizationId' => $organizationId, 'postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('update', array($params), "Google_Service_Cloudresourcemanager_Organization");
-  }
-}
 
 /**
  * The "projects" collection of methods.
@@ -383,23 +165,6 @@ class Google_Service_Cloudresourcemanager_Organizations_Resource extends Google_
  */
 class Google_Service_Cloudresourcemanager_Projects_Resource extends Google_Service_Resource
 {
-
-  /**
-   * Creates a Project resource. Initially, the Project resource is owned by its
-   * creator exclusively. The creator can later grant permission to others to read
-   * or update the Project. Several APIs are activated automatically for the
-   * Project, including Google Cloud Storage. (projects.create)
-   *
-   * @param Google_Project $postBody
-   * @param array $optParams Optional parameters.
-   * @return Google_Service_Cloudresourcemanager_Project
-   */
-  public function create(Google_Service_Cloudresourcemanager_Project $postBody, $optParams = array())
-  {
-    $params = array('postBody' => $postBody);
-    $params = array_merge($params, $optParams);
-    return $this->call('create', array($params), "Google_Service_Cloudresourcemanager_Project");
-  }
 
   /**
    * Marks the Project identified by the specified `project_id` (for example, `my-
@@ -556,12 +321,13 @@ class Google_Service_Cloudresourcemanager_Projects_Resource extends Google_Servi
    *
    * @param string $projectId The project ID (for example, `foo-bar-123`).
    * Required.
+   * @param Google_UndeleteProjectRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Cloudresourcemanager_Empty
    */
-  public function undelete($projectId, $optParams = array())
+  public function undelete($projectId, Google_Service_Cloudresourcemanager_UndeleteProjectRequest $postBody, $optParams = array())
   {
-    $params = array('projectId' => $projectId);
+    $params = array('projectId' => $projectId, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('undelete', array($params), "Google_Service_Cloudresourcemanager_Empty");
   }
@@ -623,34 +389,6 @@ class Google_Service_Cloudresourcemanager_GetIamPolicyRequest extends Google_Mod
 {
 }
 
-class Google_Service_Cloudresourcemanager_ListOrganizationsResponse extends Google_Collection
-{
-  protected $collection_key = 'organizations';
-  protected $internal_gapi_mappings = array(
-  );
-  public $nextPageToken;
-  protected $organizationsType = 'Google_Service_Cloudresourcemanager_Organization';
-  protected $organizationsDataType = 'array';
-
-
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
-  public function setOrganizations($organizations)
-  {
-    $this->organizations = $organizations;
-  }
-  public function getOrganizations()
-  {
-    return $this->organizations;
-  }
-}
-
 class Google_Service_Cloudresourcemanager_ListProjectsResponse extends Google_Collection
 {
   protected $collection_key = 'projects';
@@ -676,68 +414,6 @@ class Google_Service_Cloudresourcemanager_ListProjectsResponse extends Google_Co
   public function getProjects()
   {
     return $this->projects;
-  }
-}
-
-class Google_Service_Cloudresourcemanager_Organization extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $creationTime;
-  public $displayName;
-  public $organizationId;
-  protected $ownerType = 'Google_Service_Cloudresourcemanager_OrganizationOwner';
-  protected $ownerDataType = '';
-
-
-  public function setCreationTime($creationTime)
-  {
-    $this->creationTime = $creationTime;
-  }
-  public function getCreationTime()
-  {
-    return $this->creationTime;
-  }
-  public function setDisplayName($displayName)
-  {
-    $this->displayName = $displayName;
-  }
-  public function getDisplayName()
-  {
-    return $this->displayName;
-  }
-  public function setOrganizationId($organizationId)
-  {
-    $this->organizationId = $organizationId;
-  }
-  public function getOrganizationId()
-  {
-    return $this->organizationId;
-  }
-  public function setOwner(Google_Service_Cloudresourcemanager_OrganizationOwner $owner)
-  {
-    $this->owner = $owner;
-  }
-  public function getOwner()
-  {
-    return $this->owner;
-  }
-}
-
-class Google_Service_Cloudresourcemanager_OrganizationOwner extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $directoryCustomerId;
-
-
-  public function setDirectoryCustomerId($directoryCustomerId)
-  {
-    $this->directoryCustomerId = $directoryCustomerId;
-  }
-  public function getDirectoryCustomerId()
-  {
-    return $this->directoryCustomerId;
   }
 }
 
@@ -928,4 +604,8 @@ class Google_Service_Cloudresourcemanager_TestIamPermissionsResponse extends Goo
   {
     return $this->permissions;
   }
+}
+
+class Google_Service_Cloudresourcemanager_UndeleteProjectRequest extends Google_Model
+{
 }

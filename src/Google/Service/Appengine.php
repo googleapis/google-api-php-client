@@ -298,6 +298,30 @@ class Google_Service_Appengine extends Google_Service
                   'type' => 'string',
                 ),
               ),
+            ),'patch' => array(
+              'path' => 'v1beta5/apps/{appsId}/services/{servicesId}/versions/{versionsId}',
+              'httpMethod' => 'PATCH',
+              'parameters' => array(
+                'appsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'servicesId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'versionsId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+                'mask' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+              ),
             ),
           )
         )
@@ -562,6 +586,27 @@ class Google_Service_Appengine_AppsServicesVersions_Resource extends Google_Serv
     $params = array_merge($params, $optParams);
     return $this->call('list', array($params), "Google_Service_Appengine_ListVersionsResponse");
   }
+
+  /**
+   * Updates an existing version. Note: UNIMPLEMENTED. (versions.patch)
+   *
+   * @param string $appsId Part of `name`. Name of the resource to update. For
+   * example: "apps/myapp/services/default/versions/1".
+   * @param string $servicesId Part of `name`. See documentation of `appsId`.
+   * @param string $versionsId Part of `name`. See documentation of `appsId`.
+   * @param Google_Version $postBody
+   * @param array $optParams Optional parameters.
+   *
+   * @opt_param string mask Standard field mask for the set of fields to be
+   * updated.
+   * @return Google_Service_Appengine_Version
+   */
+  public function patch($appsId, $servicesId, $versionsId, Google_Service_Appengine_Version $postBody, $optParams = array())
+  {
+    $params = array('appsId' => $appsId, 'servicesId' => $servicesId, 'versionsId' => $versionsId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('patch', array($params), "Google_Service_Appengine_Version");
+  }
 }
 
 
@@ -642,8 +687,11 @@ class Google_Service_Appengine_Application extends Google_Collection
   protected $collection_key = 'dispatchRules';
   protected $internal_gapi_mappings = array(
   );
+  public $authDomain;
   public $codeBucket;
   public $defaultBucket;
+  public $defaultCookieExpiration;
+  public $defaultHostname;
   protected $dispatchRulesType = 'Google_Service_Appengine_UrlDispatchRule';
   protected $dispatchRulesDataType = 'array';
   public $id;
@@ -651,6 +699,14 @@ class Google_Service_Appengine_Application extends Google_Collection
   public $name;
 
 
+  public function setAuthDomain($authDomain)
+  {
+    $this->authDomain = $authDomain;
+  }
+  public function getAuthDomain()
+  {
+    return $this->authDomain;
+  }
   public function setCodeBucket($codeBucket)
   {
     $this->codeBucket = $codeBucket;
@@ -666,6 +722,22 @@ class Google_Service_Appengine_Application extends Google_Collection
   public function getDefaultBucket()
   {
     return $this->defaultBucket;
+  }
+  public function setDefaultCookieExpiration($defaultCookieExpiration)
+  {
+    $this->defaultCookieExpiration = $defaultCookieExpiration;
+  }
+  public function getDefaultCookieExpiration()
+  {
+    return $this->defaultCookieExpiration;
+  }
+  public function setDefaultHostname($defaultHostname)
+  {
+    $this->defaultHostname = $defaultHostname;
+  }
+  public function getDefaultHostname()
+  {
+    return $this->defaultHostname;
   }
   public function setDispatchRules($dispatchRules)
   {

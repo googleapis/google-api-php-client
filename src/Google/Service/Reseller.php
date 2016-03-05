@@ -19,7 +19,7 @@
  * Service definition for Reseller (v1).
  *
  * <p>
- * Lets you create and manage your customers and their subscriptions.</p>
+ * Creates and manages your customers and their subscriptions.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -850,6 +850,7 @@ class Google_Service_Reseller_Subscription extends Google_Collection
   );
   public $billingMethod;
   public $creationTime;
+  public $customerDomain;
   public $customerId;
   public $kind;
   protected $planType = 'Google_Service_Reseller_SubscriptionPlan';
@@ -885,6 +886,14 @@ class Google_Service_Reseller_Subscription extends Google_Collection
   public function getCreationTime()
   {
     return $this->creationTime;
+  }
+  public function setCustomerDomain($customerDomain)
+  {
+    $this->customerDomain = $customerDomain;
+  }
+  public function getCustomerDomain()
+  {
+    return $this->customerDomain;
   }
   public function setCustomerId($customerId)
   {

@@ -6917,6 +6917,7 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   protected $internal_gapi_mappings = array(
   );
   public $country;
+  public $customUrl;
   public $defaultLanguage;
   public $description;
   protected $localizedType = 'Google_Service_YouTube_ChannelLocalization';
@@ -6934,6 +6935,14 @@ class Google_Service_YouTube_ChannelSnippet extends Google_Model
   public function getCountry()
   {
     return $this->country;
+  }
+  public function setCustomUrl($customUrl)
+  {
+    $this->customUrl = $customUrl;
+  }
+  public function getCustomUrl()
+  {
+    return $this->customUrl;
   }
   public function setDefaultLanguage($defaultLanguage)
   {

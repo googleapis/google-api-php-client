@@ -19,7 +19,7 @@
  * Service definition for CloudMonitoring (v2beta2).
  *
  * <p>
- * API for accessing Google Cloud and API monitoring data.</p>
+ * Accesses Google Cloud Monitoring data.</p>
  *
  * <p>
  * For more information about this service, see the API

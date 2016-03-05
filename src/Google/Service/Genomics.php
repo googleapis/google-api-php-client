@@ -526,6 +526,10 @@ class Google_Service_Genomics extends Google_Service
               'path' => 'v1/variants:import',
               'httpMethod' => 'POST',
               'parameters' => array(),
+            ),'merge' => array(
+              'path' => 'v1/variants:merge',
+              'httpMethod' => 'POST',
+              'parameters' => array(),
             ),'patch' => array(
               'path' => 'v1/variants/{variantId}',
               'httpMethod' => 'PATCH',
@@ -1465,6 +1469,27 @@ class Google_Service_Genomics_Variants_Resource extends Google_Service_Resource
   }
 
   /**
+   * Merges the given variants with existing variants. For the definitions of
+   * variants and other genomics resources, see [Fundamentals of Google
+   * Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
+   * Each variant will be merged with an existing variant that matches its
+   * reference sequence, start, end, reference bases, and alternative bases. If no
+   * such variant exists, a new one will be created. When variants are merged, the
+   * call information from the new variant is added to the existing variant, and
+   * other fields (such as key/value pairs) are discarded. (variants.merge)
+   *
+   * @param Google_MergeVariantsRequest $postBody
+   * @param array $optParams Optional parameters.
+   * @return Google_Service_Genomics_Empty
+   */
+  public function merge(Google_Service_Genomics_MergeVariantsRequest $postBody, $optParams = array())
+  {
+    $params = array('postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('merge', array($params), "Google_Service_Genomics_Empty");
+  }
+
+  /**
    * Updates a variant. For the definitions of variants and other genomics
    * resources, see [Fundamentals of Google
    * Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
@@ -1553,10 +1578,11 @@ class Google_Service_Genomics_Variantsets_Resource extends Google_Service_Resour
   }
 
   /**
-   * Deletes the contents of a variant set. The variant set object is not deleted.
-   * For the definitions of variant sets and other genomics resources, see
-   * [Fundamentals of Google Genomics](https://cloud.google.com/genomics
-   * /fundamentals-of-google-genomics) (variantsets.delete)
+   * Deletes a variant set including all variants, call sets, and calls within.
+   * This is not reversible. For the definitions of variant sets and other
+   * genomics resources, see [Fundamentals of Google
+   * Genomics](https://cloud.google.com/genomics/fundamentals-of-google-genomics)
+   * (variantsets.delete)
    *
    * @param string $variantSetId The ID of the variant set to be deleted.
    * @param array $optParams Optional parameters.
@@ -1781,99 +1807,6 @@ class Google_Service_Genomics_CigarUnit extends Google_Model
   }
 }
 
-class Google_Service_Genomics_CloudAuditOptions extends Google_Model
-{
-}
-
-class Google_Service_Genomics_Condition extends Google_Collection
-{
-  protected $collection_key = 'values';
-  protected $internal_gapi_mappings = array(
-  );
-  public $iam;
-  public $op;
-  public $svc;
-  public $sys;
-  public $value;
-  public $values;
-
-
-  public function setIam($iam)
-  {
-    $this->iam = $iam;
-  }
-  public function getIam()
-  {
-    return $this->iam;
-  }
-  public function setOp($op)
-  {
-    $this->op = $op;
-  }
-  public function getOp()
-  {
-    return $this->op;
-  }
-  public function setSvc($svc)
-  {
-    $this->svc = $svc;
-  }
-  public function getSvc()
-  {
-    return $this->svc;
-  }
-  public function setSys($sys)
-  {
-    $this->sys = $sys;
-  }
-  public function getSys()
-  {
-    return $this->sys;
-  }
-  public function setValue($value)
-  {
-    $this->value = $value;
-  }
-  public function getValue()
-  {
-    return $this->value;
-  }
-  public function setValues($values)
-  {
-    $this->values = $values;
-  }
-  public function getValues()
-  {
-    return $this->values;
-  }
-}
-
-class Google_Service_Genomics_CounterOptions extends Google_Model
-{
-  protected $internal_gapi_mappings = array(
-  );
-  public $field;
-  public $metric;
-
-
-  public function setField($field)
-  {
-    $this->field = $field;
-  }
-  public function getField()
-  {
-    return $this->field;
-  }
-  public function setMetric($metric)
-  {
-    $this->metric = $metric;
-  }
-  public function getMetric()
-  {
-    return $this->metric;
-  }
-}
-
 class Google_Service_Genomics_CoverageBucket extends Google_Model
 {
   protected $internal_gapi_mappings = array(
@@ -1899,10 +1832,6 @@ class Google_Service_Genomics_CoverageBucket extends Google_Model
   {
     return $this->range;
   }
-}
-
-class Google_Service_Genomics_DataAccessOptions extends Google_Model
-{
 }
 
 class Google_Service_Genomics_Dataset extends Google_Model
@@ -2383,41 +2312,31 @@ class Google_Service_Genomics_ListOperationsResponse extends Google_Collection
   }
 }
 
-class Google_Service_Genomics_LogConfig extends Google_Model
+class Google_Service_Genomics_MergeVariantsRequest extends Google_Collection
 {
+  protected $collection_key = 'variants';
   protected $internal_gapi_mappings = array(
   );
-  protected $cloudAuditType = 'Google_Service_Genomics_CloudAuditOptions';
-  protected $cloudAuditDataType = '';
-  protected $counterType = 'Google_Service_Genomics_CounterOptions';
-  protected $counterDataType = '';
-  protected $dataAccessType = 'Google_Service_Genomics_DataAccessOptions';
-  protected $dataAccessDataType = '';
+  public $variantSetId;
+  protected $variantsType = 'Google_Service_Genomics_Variant';
+  protected $variantsDataType = 'array';
 
 
-  public function setCloudAudit(Google_Service_Genomics_CloudAuditOptions $cloudAudit)
+  public function setVariantSetId($variantSetId)
   {
-    $this->cloudAudit = $cloudAudit;
+    $this->variantSetId = $variantSetId;
   }
-  public function getCloudAudit()
+  public function getVariantSetId()
   {
-    return $this->cloudAudit;
+    return $this->variantSetId;
   }
-  public function setCounter(Google_Service_Genomics_CounterOptions $counter)
+  public function setVariants($variants)
   {
-    $this->counter = $counter;
+    $this->variants = $variants;
   }
-  public function getCounter()
+  public function getVariants()
   {
-    return $this->counter;
-  }
-  public function setDataAccess(Google_Service_Genomics_DataAccessOptions $dataAccess)
-  {
-    $this->dataAccess = $dataAccess;
-  }
-  public function getDataAccess()
-  {
-    return $this->dataAccess;
+    return $this->variants;
   }
 }
 
@@ -2540,14 +2459,12 @@ class Google_Service_Genomics_OperationMetadata extends Google_Collection
 
 class Google_Service_Genomics_Policy extends Google_Collection
 {
-  protected $collection_key = 'rules';
+  protected $collection_key = 'bindings';
   protected $internal_gapi_mappings = array(
   );
   protected $bindingsType = 'Google_Service_Genomics_Binding';
   protected $bindingsDataType = 'array';
   public $etag;
-  protected $rulesType = 'Google_Service_Genomics_Rule';
-  protected $rulesDataType = 'array';
   public $version;
 
 
@@ -2566,14 +2483,6 @@ class Google_Service_Genomics_Policy extends Google_Collection
   public function getEtag()
   {
     return $this->etag;
-  }
-  public function setRules($rules)
-  {
-    $this->rules = $rules;
-  }
-  public function getRules()
-  {
-    return $this->rules;
   }
   public function setVersion($version)
   {
@@ -3222,80 +3131,6 @@ class Google_Service_Genomics_ReferenceSet extends Google_Collection
   public function getSourceUri()
   {
     return $this->sourceUri;
-  }
-}
-
-class Google_Service_Genomics_Rule extends Google_Collection
-{
-  protected $collection_key = 'permissions';
-  protected $internal_gapi_mappings = array(
-  );
-  public $action;
-  protected $conditionsType = 'Google_Service_Genomics_Condition';
-  protected $conditionsDataType = 'array';
-  public $description;
-  public $in;
-  protected $logConfigType = 'Google_Service_Genomics_LogConfig';
-  protected $logConfigDataType = 'array';
-  public $notIn;
-  public $permissions;
-
-
-  public function setAction($action)
-  {
-    $this->action = $action;
-  }
-  public function getAction()
-  {
-    return $this->action;
-  }
-  public function setConditions($conditions)
-  {
-    $this->conditions = $conditions;
-  }
-  public function getConditions()
-  {
-    return $this->conditions;
-  }
-  public function setDescription($description)
-  {
-    $this->description = $description;
-  }
-  public function getDescription()
-  {
-    return $this->description;
-  }
-  public function setIn($in)
-  {
-    $this->in = $in;
-  }
-  public function getIn()
-  {
-    return $this->in;
-  }
-  public function setLogConfig($logConfig)
-  {
-    $this->logConfig = $logConfig;
-  }
-  public function getLogConfig()
-  {
-    return $this->logConfig;
-  }
-  public function setNotIn($notIn)
-  {
-    $this->notIn = $notIn;
-  }
-  public function getNotIn()
-  {
-    return $this->notIn;
-  }
-  public function setPermissions($permissions)
-  {
-    $this->permissions = $permissions;
-  }
-  public function getPermissions()
-  {
-    return $this->permissions;
   }
 }
 
@@ -3953,7 +3788,9 @@ class Google_Service_Genomics_StreamReadsRequest extends Google_Model
   public $projectId;
   public $readGroupSetId;
   public $referenceName;
+  public $shard;
   public $start;
+  public $totalShards;
 
 
   public function setEnd($end)
@@ -3988,6 +3825,14 @@ class Google_Service_Genomics_StreamReadsRequest extends Google_Model
   {
     return $this->referenceName;
   }
+  public function setShard($shard)
+  {
+    $this->shard = $shard;
+  }
+  public function getShard()
+  {
+    return $this->shard;
+  }
   public function setStart($start)
   {
     $this->start = $start;
@@ -3995,6 +3840,14 @@ class Google_Service_Genomics_StreamReadsRequest extends Google_Model
   public function getStart()
   {
     return $this->start;
+  }
+  public function setTotalShards($totalShards)
+  {
+    $this->totalShards = $totalShards;
+  }
+  public function getTotalShards()
+  {
+    return $this->totalShards;
   }
 }
 

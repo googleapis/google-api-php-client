@@ -19,7 +19,7 @@
  * Service definition for Gmail (v1).
  *
  * <p>
- * The Gmail REST API.</p>
+ * Access Gmail mailboxes including sending user email.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -32,7 +32,7 @@ class Google_Service_Gmail extends Google_Service
 {
   /** View and manage your mail. */
   const MAIL_GOOGLE_COM =
-      "https://mail.google.com";
+      "https://mail.google.com/";
   /** Manage drafts and send emails. */
   const GMAIL_COMPOSE =
       "https://www.googleapis.com/auth/gmail.compose";
@@ -172,6 +172,10 @@ class Google_Service_Gmail extends Google_Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ),
+                'includeSpamTrash' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
                 'maxResults' => array(
                   'location' => 'query',
@@ -343,7 +347,17 @@ class Google_Service_Gmail extends Google_Service
         'messages',
         array(
           'methods' => array(
-            'delete' => array(
+            'batchDelete' => array(
+              'path' => '{userId}/messages/batchDelete',
+              'httpMethod' => 'POST',
+              'parameters' => array(
+                'userId' => array(
+                  'location' => 'path',
+                  'type' => 'string',
+                  'required' => true,
+                ),
+              ),
+            ),'delete' => array(
               'path' => '{userId}/messages/{id}',
               'httpMethod' => 'DELETE',
               'parameters' => array(
@@ -801,6 +815,8 @@ class Google_Service_Gmail_UsersDrafts_Resource extends Google_Service_Resource
    * used to indicate the authenticated user.
    * @param array $optParams Optional parameters.
    *
+   * @opt_param bool includeSpamTrash Include drafts from SPAM and TRASH in the
+   * results.
    * @opt_param string maxResults Maximum number of drafts to return.
    * @opt_param string pageToken Page token to retrieve a specific page of results
    * in the list.
@@ -1010,6 +1026,22 @@ class Google_Service_Gmail_UsersLabels_Resource extends Google_Service_Resource
  */
 class Google_Service_Gmail_UsersMessages_Resource extends Google_Service_Resource
 {
+
+  /**
+   * Deletes many messages by message ID. Provides no guarantees that messages
+   * were not already deleted or even existed at all. (messages.batchDelete)
+   *
+   * @param string $userId The user's email address. The special value me can be
+   * used to indicate the authenticated user.
+   * @param Google_BatchDeleteMessagesRequest $postBody
+   * @param array $optParams Optional parameters.
+   */
+  public function batchDelete($userId, Google_Service_Gmail_BatchDeleteMessagesRequest $postBody, $optParams = array())
+  {
+    $params = array('userId' => $userId, 'postBody' => $postBody);
+    $params = array_merge($params, $optParams);
+    return $this->call('batchDelete', array($params));
+  }
 
   /**
    * Immediately and permanently deletes the specified message. This operation
@@ -1346,6 +1378,24 @@ class Google_Service_Gmail_UsersThreads_Resource extends Google_Service_Resource
 
 
 
+
+class Google_Service_Gmail_BatchDeleteMessagesRequest extends Google_Collection
+{
+  protected $collection_key = 'ids';
+  protected $internal_gapi_mappings = array(
+  );
+  public $ids;
+
+
+  public function setIds($ids)
+  {
+    $this->ids = $ids;
+  }
+  public function getIds()
+  {
+    return $this->ids;
+  }
+}
 
 class Google_Service_Gmail_Draft extends Google_Model
 {

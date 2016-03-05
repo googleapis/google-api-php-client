@@ -296,7 +296,8 @@ class Google_Service_ServiceRegistry_Endpoints_Resource extends Google_Service_R
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances that do not have a name of example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -307,12 +308,12 @@ class Google_Service_ServiceRegistry_Endpoints_Resource extends Google_Service_R
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -412,7 +413,8 @@ class Google_Service_ServiceRegistry_Operations_Resource extends Google_Service_
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, filter=name ne example-instance.
+   * For example, to filter for instances that do not have a name of example-
+   * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
    * also filter on nested fields. For example, you could filter on instances that
@@ -423,12 +425,12 @@ class Google_Service_ServiceRegistry_Operations_Resource extends Google_Service_
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
-   * Compute Engine should return. If the number of available results is larger
-   * than maxResults, Compute Engine returns a nextPageToken that can be used to
-   * get the next page of results in subsequent list requests.
+   * should be returned. If the number of available results is larger than
+   * maxResults, Compute Engine returns a nextPageToken that can be used to get
+   * the next page of results in subsequent list requests.
    * @opt_param string orderBy Sorts list results by a certain order. By default,
    * results are returned in alphanumerical order based on the resource name.
    *
@@ -556,11 +558,10 @@ class Google_Service_ServiceRegistry_Endpoint extends Google_Model
 
 class Google_Service_ServiceRegistry_EndpointEndpointVisibility extends Google_Collection
 {
-  protected $collection_key = 'projects';
+  protected $collection_key = 'networks';
   protected $internal_gapi_mappings = array(
   );
   public $networks;
-  public $projects;
 
 
   public function setNetworks($networks)
@@ -570,14 +571,6 @@ class Google_Service_ServiceRegistry_EndpointEndpointVisibility extends Google_C
   public function getNetworks()
   {
     return $this->networks;
-  }
-  public function setProjects($projects)
-  {
-    $this->projects = $projects;
-  }
-  public function getProjects()
-  {
-    return $this->projects;
   }
 }
 

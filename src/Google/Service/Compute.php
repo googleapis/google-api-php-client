@@ -4139,7 +4139,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -4151,7 +4151,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -4173,7 +4173,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * Deletes the specified address resource. (addresses.delete)
    *
    * @param string $project Project ID for this request.
-   * @param string $region The name of the region for this request.
+   * @param string $region Name of the region for this request.
    * @param string $address Name of the address resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4189,7 +4189,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * Returns the specified address resource. (addresses.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $region The name of the region for this request.
+   * @param string $region Name of the region for this request.
    * @param string $address Name of the address resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Address
@@ -4206,7 +4206,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * in the request. (addresses.insert)
    *
    * @param string $project Project ID for this request.
-   * @param string $region The name of the region for this request.
+   * @param string $region Name of the region for this request.
    * @param Google_Address $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4223,7 +4223,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * (addresses.listAddresses)
    *
    * @param string $project Project ID for this request.
-   * @param string $region The name of the region for this request.
+   * @param string $region Name of the region for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
@@ -4238,7 +4238,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -4250,7 +4250,7 @@ class Google_Service_Compute_Addresses_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -4298,7 +4298,7 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -4310,7 +4310,7 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -4329,12 +4329,11 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Deletes the specified autoscaler resource. (autoscalers.delete)
+   * Deletes the specified autoscaler. (autoscalers.delete)
    *
    * @param string $project Project ID for this request.
-   * @param string $zone Name of the zone scoping this request.
-   * @param string $autoscaler Name of the persistent autoscaler resource to
-   * delete.
+   * @param string $zone Name of the zone for this request.
+   * @param string $autoscaler Name of the autoscaler to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -4346,12 +4345,12 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Returns the specified autoscaler resource. (autoscalers.get)
+   * Returns the specified autoscaler resource. Get a list of available
+   * autoscalers by making a list() request. (autoscalers.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $zone Name of the zone scoping this request.
-   * @param string $autoscaler Name of the persistent autoscaler resource to
-   * return.
+   * @param string $zone Name of the zone for this request.
+   * @param string $autoscaler Name of the autoscaler to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Autoscaler
    */
@@ -4363,11 +4362,11 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Creates an autoscaler resource in the specified project using the data
-   * included in the request. (autoscalers.insert)
+   * Creates an autoscaler in the specified project using the data included in the
+   * request. (autoscalers.insert)
    *
    * @param string $project Project ID for this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $zone Name of the zone for this request.
    * @param Google_Autoscaler $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4380,11 +4379,11 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Retrieves a list of autoscaler resources contained within the specified zone.
+   * Retrieves a list of autoscalers contained within the specified zone.
    * (autoscalers.listAutoscalers)
    *
    * @param string $project Project ID for this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $zone Name of the zone for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
@@ -4399,7 +4398,7 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -4411,7 +4410,7 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -4430,13 +4429,12 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Updates an autoscaler resource in the specified project using the data
-   * included in the request. This method supports patch semantics.
-   * (autoscalers.patch)
+   * Updates an autoscaler in the specified project using the data included in the
+   * request. This method supports patch semantics. (autoscalers.patch)
    *
    * @param string $project Project ID for this request.
-   * @param string $zone Name of the zone scoping this request.
-   * @param string $autoscaler Name of the autoscaler resource to update.
+   * @param string $zone Name of the zone for this request.
+   * @param string $autoscaler Name of the autoscaler to update.
    * @param Google_Autoscaler $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -4449,15 +4447,15 @@ class Google_Service_Compute_Autoscalers_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Updates an autoscaler resource in the specified project using the data
-   * included in the request. (autoscalers.update)
+   * Updates an autoscaler in the specified project using the data included in the
+   * request. (autoscalers.update)
    *
    * @param string $project Project ID for this request.
-   * @param string $zone Name of the zone scoping this request.
+   * @param string $zone Name of the zone for this request.
    * @param Google_Autoscaler $postBody
    * @param array $optParams Optional parameters.
    *
-   * @opt_param string autoscaler Name of the autoscaler resource to update.
+   * @opt_param string autoscaler Name of the autoscaler to update.
    * @return Google_Service_Compute_Operation
    */
   public function update($project, $zone, Google_Service_Compute_Autoscaler $postBody, $optParams = array())
@@ -4495,7 +4493,8 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
   }
 
   /**
-   * Returns the specified BackendService resource. (backendServices.get)
+   * Returns the specified BackendService resource. Get a list of available
+   * backend services by making a list() request. (backendServices.get)
    *
    * @param string $project Project ID for this request.
    * @param string $backendService Name of the BackendService resource to return.
@@ -4564,7 +4563,7 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -4576,7 +4575,7 @@ class Google_Service_Compute_BackendServices_Resource extends Google_Service_Res
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -4662,7 +4661,7 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -4674,7 +4673,7 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -4693,7 +4692,8 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified disk type. (diskTypes.get)
+   * Returns the specified disk type. Get a list of available disk types by making
+   * a list() request. (diskTypes.get)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
@@ -4728,7 +4728,7 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -4740,7 +4740,7 @@ class Google_Service_Compute_DiskTypes_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -4788,7 +4788,7 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -4800,7 +4800,7 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -4855,7 +4855,8 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns a specified persistent disk. (disks.get)
+   * Returns a specified persistent disk. Get a list of available persistent disks
+   * by making a list() request. (disks.get)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
@@ -4912,7 +4913,7 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -4924,7 +4925,7 @@ class Google_Service_Compute_Disks_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -5019,7 +5020,7 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -5031,7 +5032,7 @@ class Google_Service_Compute_Firewalls_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -5114,7 +5115,7 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -5126,7 +5127,7 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -5213,7 +5214,7 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -5225,7 +5226,7 @@ class Google_Service_Compute_ForwardingRules_Resource extends Google_Service_Res
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -5290,7 +5291,8 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
   }
 
   /**
-   * Returns the specified address resource. (globalAddresses.get)
+   * Returns the specified address resource. Get a list of available addresses by
+   * making a list() request. (globalAddresses.get)
    *
    * @param string $project Project ID for this request.
    * @param string $address Name of the address resource to return.
@@ -5338,7 +5340,7 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -5350,7 +5352,7 @@ class Google_Service_Compute_GlobalAddresses_Resource extends Google_Service_Res
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -5396,7 +5398,8 @@ class Google_Service_Compute_GlobalForwardingRules_Resource extends Google_Servi
   }
 
   /**
-   * Returns the specified ForwardingRule resource. (globalForwardingRules.get)
+   * Returns the specified ForwardingRule resource. Get a list of available
+   * forwarding rules by making a list() request. (globalForwardingRules.get)
    *
    * @param string $project Project ID for this request.
    * @param string $forwardingRule Name of the ForwardingRule resource to return.
@@ -5445,7 +5448,7 @@ class Google_Service_Compute_GlobalForwardingRules_Resource extends Google_Servi
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -5457,7 +5460,7 @@ class Google_Service_Compute_GlobalForwardingRules_Resource extends Google_Servi
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -5524,7 +5527,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -5536,7 +5539,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -5569,7 +5572,8 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
   }
 
   /**
-   * Retrieves the specified Operations resource. (globalOperations.get)
+   * Retrieves the specified Operations resource. Get a list of operations by
+   * making a list() request. (globalOperations.get)
    *
    * @param string $project Project ID for this request.
    * @param string $operation Name of the Operations resource to return.
@@ -5602,7 +5606,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -5614,7 +5618,7 @@ class Google_Service_Compute_GlobalOperations_Resource extends Google_Service_Re
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -5661,7 +5665,8 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
   }
 
   /**
-   * Returns the specified HttpHealthCheck resource. (httpHealthChecks.get)
+   * Returns the specified HttpHealthCheck resource. Get a list of available HTTP
+   * health checks by making a list() request. (httpHealthChecks.get)
    *
    * @param string $project Project ID for this request.
    * @param string $httpHealthCheck Name of the HttpHealthCheck resource to
@@ -5711,7 +5716,7 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -5723,7 +5728,7 @@ class Google_Service_Compute_HttpHealthChecks_Resource extends Google_Service_Re
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -5807,7 +5812,8 @@ class Google_Service_Compute_HttpsHealthChecks_Resource extends Google_Service_R
   }
 
   /**
-   * Returns the specified HttpsHealthCheck resource. (httpsHealthChecks.get)
+   * Returns the specified HttpsHealthCheck resource. Get a list of available
+   * HTTPS health checks by making a list() request. (httpsHealthChecks.get)
    *
    * @param string $project Project ID for this request.
    * @param string $httpsHealthCheck Name of the HttpsHealthCheck resource to
@@ -5857,7 +5863,7 @@ class Google_Service_Compute_HttpsHealthChecks_Resource extends Google_Service_R
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -5869,7 +5875,7 @@ class Google_Service_Compute_HttpsHealthChecks_Resource extends Google_Service_R
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -5971,7 +5977,8 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified image. (images.get)
+   * Returns the specified image. Get a list of available images by making a
+   * list() request. (images.get)
    *
    * @param string $project Project ID for this request.
    * @param string $image Name of the image resource to return.
@@ -6026,7 +6033,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -6038,7 +6045,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -6113,7 +6120,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -6125,7 +6132,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -6189,7 +6196,8 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
   }
 
   /**
-   * Returns all of the details about the specified managed instance group.
+   * Returns all of the details about the specified managed instance group. Get a
+   * list of available managed instance groups by making a list() request.
    * (instanceGroupManagers.get)
    *
    * @param string $project Project ID for this request.
@@ -6250,7 +6258,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -6262,7 +6270,7 @@ class Google_Service_Compute_InstanceGroupManagers_Resource extends Google_Servi
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -6448,7 +6456,7 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -6460,7 +6468,7 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -6497,7 +6505,8 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
   }
 
   /**
-   * Returns the specified instance group resource. (instanceGroups.get)
+   * Returns the specified instance group. Get a list of available instance groups
+   * by making a list() request. (instanceGroups.get)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone where the instance group is located.
@@ -6550,7 +6559,7 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -6562,7 +6571,7 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -6603,7 +6612,7 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -6615,7 +6624,7 @@ class Google_Service_Compute_InstanceGroups_Resource extends Google_Service_Reso
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -6703,7 +6712,8 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
   }
 
   /**
-   * Returns the specified instance template resource. (instanceTemplates.get)
+   * Returns the specified instance template. Get a list of available instance
+   * templates by making a list() request. (instanceTemplates.get)
    *
    * @param string $project Project ID for this request.
    * @param string $instanceTemplate The name of the instance template.
@@ -6755,7 +6765,7 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -6767,7 +6777,7 @@ class Google_Service_Compute_InstanceTemplates_Resource extends Google_Service_R
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -6835,7 +6845,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -6847,7 +6857,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -6936,7 +6946,8 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified Instance resource. (instances.get)
+   * Returns the specified Instance resource. Get a list of available instances by
+   * making a list() request. (instances.get)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
@@ -7007,7 +7018,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -7019,7 +7030,7 @@ class Google_Service_Compute_Instances_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -7195,7 +7206,8 @@ class Google_Service_Compute_Licenses_Resource extends Google_Service_Resource
 {
 
   /**
-   * Returns the specified license resource. (licenses.get)
+   * Returns the specified License resource. Get a list of available licenses by
+   * making a list() request. (licenses.get)
    *
    * @param string $project Project ID for this request.
    * @param string $license Name of the License resource to return.
@@ -7239,7 +7251,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -7251,7 +7263,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -7270,7 +7282,8 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
   }
 
   /**
-   * Returns the specified machine type. (machineTypes.get)
+   * Returns the specified machine type. Get a list of available machine types by
+   * making a list() request. (machineTypes.get)
    *
    * @param string $project Project ID for this request.
    * @param string $zone The name of the zone for this request.
@@ -7305,7 +7318,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -7317,7 +7330,7 @@ class Google_Service_Compute_MachineTypes_Resource extends Google_Service_Resour
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -7363,7 +7376,8 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified network. (networks.get)
+   * Returns the specified network. Get a list of available networks by making a
+   * list() request. (networks.get)
    *
    * @param string $project Project ID for this request.
    * @param string $network Name of the network to return.
@@ -7412,7 +7426,7 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -7424,7 +7438,7 @@ class Google_Service_Compute_Networks_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -7455,7 +7469,7 @@ class Google_Service_Compute_Projects_Resource extends Google_Service_Resource
 {
 
   /**
-   * Returns the specified project resource. (projects.get)
+   * Returns the specified Project resource. (projects.get)
    *
    * @param string $project Project ID for this request.
    * @param array $optParams Optional parameters.
@@ -7597,7 +7611,7 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -7609,7 +7623,7 @@ class Google_Service_Compute_RegionOperations_Resource extends Google_Service_Re
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -7640,7 +7654,8 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
 {
 
   /**
-   * Returns the specified region resource. (regions.get)
+   * Returns the specified Region resource. Get a list of available regions by
+   * making a list() request. (regions.get)
    *
    * @param string $project Project ID for this request.
    * @param string $region Name of the region resource to return.
@@ -7673,7 +7688,7 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -7685,7 +7700,7 @@ class Google_Service_Compute_Regions_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -7716,10 +7731,10 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
 {
 
   /**
-   * Deletes the specified route resource. (routes.delete)
+   * Deletes the specified Route resource. (routes.delete)
    *
    * @param string $project Project ID for this request.
-   * @param string $route Name of the route resource to delete.
+   * @param string $route Name of the Route resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
    */
@@ -7731,10 +7746,11 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified route resource. (routes.get)
+   * Returns the specified Route resource. Get a list of available routes by
+   * making a list() request. (routes.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $route Name of the route resource to return.
+   * @param string $route Name of the Route resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Route
    */
@@ -7746,7 +7762,7 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
   }
 
   /**
-   * Creates a route resource in the specified project using the data included in
+   * Creates a Route resource in the specified project using the data included in
    * the request. (routes.insert)
    *
    * @param string $project Project ID for this request.
@@ -7762,7 +7778,7 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves the list of route resources available to the specified project.
+   * Retrieves the list of Route resources available to the specified project.
    * (routes.listRoutes)
    *
    * @param string $project Project ID for this request.
@@ -7780,7 +7796,7 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -7792,7 +7808,7 @@ class Google_Service_Compute_Routes_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -7843,7 +7859,8 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified Snapshot resource. (snapshots.get)
+   * Returns the specified Snapshot resource. Get a list of available snapshots by
+   * making a list() request. (snapshots.get)
    *
    * @param string $project Project ID for this request.
    * @param string $snapshot Name of the Snapshot resource to return.
@@ -7876,7 +7893,7 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -7888,7 +7905,7 @@ class Google_Service_Compute_Snapshots_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -7934,7 +7951,8 @@ class Google_Service_Compute_SslCertificates_Resource extends Google_Service_Res
   }
 
   /**
-   * Returns the specified SslCertificate resource. (sslCertificates.get)
+   * Returns the specified SslCertificate resource. Get a list of available SSL
+   * certificates by making a list() request. (sslCertificates.get)
    *
    * @param string $project Project ID for this request.
    * @param string $sslCertificate Name of the SslCertificate resource to return.
@@ -7983,7 +8001,7 @@ class Google_Service_Compute_SslCertificates_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -7995,7 +8013,7 @@ class Google_Service_Compute_SslCertificates_Resource extends Google_Service_Res
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -8043,7 +8061,7 @@ class Google_Service_Compute_Subnetworks_Resource extends Google_Service_Resourc
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -8055,7 +8073,7 @@ class Google_Service_Compute_Subnetworks_Resource extends Google_Service_Resourc
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -8090,7 +8108,8 @@ class Google_Service_Compute_Subnetworks_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Returns the specified subnetwork. (subnetworks.get)
+   * Returns the specified subnetwork. Get a list of available subnetworks by
+   * making a list() request. (subnetworks.get)
    *
    * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
@@ -8142,7 +8161,7 @@ class Google_Service_Compute_Subnetworks_Resource extends Google_Service_Resourc
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -8154,7 +8173,7 @@ class Google_Service_Compute_Subnetworks_Resource extends Google_Service_Resourc
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -8201,7 +8220,8 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
   }
 
   /**
-   * Returns the specified TargetHttpProxy resource. (targetHttpProxies.get)
+   * Returns the specified TargetHttpProxy resource. Get a list of available
+   * target HTTP proxies by making a list() request. (targetHttpProxies.get)
    *
    * @param string $project Project ID for this request.
    * @param string $targetHttpProxy Name of the TargetHttpProxy resource to
@@ -8251,7 +8271,7 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -8263,7 +8283,7 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -8285,8 +8305,8 @@ class Google_Service_Compute_TargetHttpProxies_Resource extends Google_Service_R
    * Changes the URL map for TargetHttpProxy. (targetHttpProxies.setUrlMap)
    *
    * @param string $project Project ID for this request.
-   * @param string $targetHttpProxy The name of the TargetHttpProxy resource to
-   * set a URL map for.
+   * @param string $targetHttpProxy Name of the TargetHttpProxy to set a URL map
+   * for.
    * @param Google_UrlMapReference $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -8327,7 +8347,8 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
   }
 
   /**
-   * Returns the specified TargetHttpsProxy resource. (targetHttpsProxies.get)
+   * Returns the specified TargetHttpsProxy resource. Get a list of available
+   * target HTTPS proxies by making a list() request. (targetHttpsProxies.get)
    *
    * @param string $project Project ID for this request.
    * @param string $targetHttpsProxy Name of the TargetHttpsProxy resource to
@@ -8377,7 +8398,7 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -8389,7 +8410,7 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -8413,7 +8434,7 @@ class Google_Service_Compute_TargetHttpsProxies_Resource extends Google_Service_
    *
    * @param string $project Project ID for this request.
    * @param string $targetHttpsProxy Name of the TargetHttpsProxy resource to set
-   * an SSL certificate for.
+   * an SslCertificates resource for.
    * @param Google_TargetHttpsProxiesSetSslCertificatesRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -8473,7 +8494,7 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -8485,7 +8506,7 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -8520,7 +8541,8 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
   }
 
   /**
-   * Returns the specified TargetInstance resource. (targetInstances.get)
+   * Returns the specified TargetInstance resource. Get a list of available target
+   * instances by making a list() request. (targetInstances.get)
    *
    * @param string $project Project ID for this request.
    * @param string $zone Name of the zone scoping this request.
@@ -8572,7 +8594,7 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -8584,7 +8606,7 @@ class Google_Service_Compute_TargetInstances_Resource extends Google_Service_Res
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -8667,7 +8689,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -8679,7 +8701,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -8714,7 +8736,8 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
   }
 
   /**
-   * Returns the specified target pool. (targetPools.get)
+   * Returns the specified target pool. Get a list of available target pools by
+   * making a list() request. (targetPools.get)
    *
    * @param string $project Project ID for this request.
    * @param string $region Name of the region scoping this request.
@@ -8785,7 +8808,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -8797,7 +8820,7 @@ class Google_Service_Compute_TargetPools_Resource extends Google_Service_Resourc
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -8902,7 +8925,7 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -8914,7 +8937,7 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -8936,7 +8959,7 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * Deletes the specified target VPN gateway. (targetVpnGateways.delete)
    *
    * @param string $project Project ID for this request.
-   * @param string $region The name of the region for this request.
+   * @param string $region Name of the region for this request.
    * @param string $targetVpnGateway Name of the target VPN gateway to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -8949,10 +8972,11 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
   }
 
   /**
-   * Returns the specified target VPN gateway. (targetVpnGateways.get)
+   * Returns the specified target VPN gateway. Get a list of available target VPN
+   * gateways by making a list() request. (targetVpnGateways.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $region The name of the region for this request.
+   * @param string $region Name of the region for this request.
    * @param string $targetVpnGateway Name of the target VPN gateway to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_TargetVpnGateway
@@ -8969,7 +8993,7 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * data included in the request. (targetVpnGateways.insert)
    *
    * @param string $project Project ID for this request.
-   * @param string $region The name of the region for this request.
+   * @param string $region Name of the region for this request.
    * @param Google_TargetVpnGateway $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -8986,7 +9010,7 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * and region. (targetVpnGateways.listTargetVpnGateways)
    *
    * @param string $project Project ID for this request.
-   * @param string $region The name of the region for this request.
+   * @param string $region Name of the region for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
@@ -9001,7 +9025,7 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -9013,7 +9037,7 @@ class Google_Service_Compute_TargetVpnGateways_Resource extends Google_Service_R
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -9059,7 +9083,8 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified UrlMap resource. (urlMaps.get)
+   * Returns the specified UrlMap resource. Get a list of available URL maps by
+   * making a list() request. (urlMaps.get)
    *
    * @param string $project Project ID for this request.
    * @param string $urlMap Name of the UrlMap resource to return.
@@ -9108,7 +9133,7 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -9120,7 +9145,7 @@ class Google_Service_Compute_UrlMaps_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -9219,7 +9244,7 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -9231,7 +9256,7 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -9253,7 +9278,7 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * Deletes the specified VpnTunnel resource. (vpnTunnels.delete)
    *
    * @param string $project Project ID for this request.
-   * @param string $region The name of the region for this request.
+   * @param string $region Name of the region for this request.
    * @param string $vpnTunnel Name of the VpnTunnel resource to delete.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -9266,10 +9291,11 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
   }
 
   /**
-   * Returns the specified VpnTunnel resource. (vpnTunnels.get)
+   * Returns the specified VpnTunnel resource. Get a list of available VPN tunnels
+   * by making a list() request. (vpnTunnels.get)
    *
    * @param string $project Project ID for this request.
-   * @param string $region The name of the region for this request.
+   * @param string $region Name of the region for this request.
    * @param string $vpnTunnel Name of the VpnTunnel resource to return.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_VpnTunnel
@@ -9286,7 +9312,7 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * data included in the request. (vpnTunnels.insert)
    *
    * @param string $project Project ID for this request.
-   * @param string $region The name of the region for this request.
+   * @param string $region Name of the region for this request.
    * @param Google_VpnTunnel $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_Compute_Operation
@@ -9303,7 +9329,7 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * and region. (vpnTunnels.listVpnTunnels)
    *
    * @param string $project Project ID for this request.
-   * @param string $region The name of the region for this request.
+   * @param string $region Name of the region for this request.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string filter Sets a filter expression for filtering listed
@@ -9318,7 +9344,7 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -9330,7 +9356,7 @@ class Google_Service_Compute_VpnTunnels_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -9413,7 +9439,7 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -9425,7 +9451,7 @@ class Google_Service_Compute_ZoneOperations_Resource extends Google_Service_Reso
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than
@@ -9456,7 +9482,8 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
 {
 
   /**
-   * Returns the specified zone resource. (zones.get)
+   * Returns the specified Zone resource. Get a list of available zones by making
+   * a list() request. (zones.get)
    *
    * @param string $project Project ID for this request.
    * @param string $zone Name of the zone resource to return.
@@ -9471,7 +9498,7 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
   }
 
   /**
-   * Retrieves the list of zone resources available to the specified project.
+   * Retrieves the list of Zone resources available to the specified project.
    * (zones.listZones)
    *
    * @param string $project Project ID for this request.
@@ -9489,7 +9516,7 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
    * literal value is interpreted as a regular expression using RE2 syntax. The
    * literal value must match the entire field.
    *
-   * For example, to filter for instances whose name is not equal to example-
+   * For example, to filter for instances that do not have a name of example-
    * instance, you would use filter=name ne example-instance.
    *
    * Compute Engine Beta API Only: If you use filtering in the Beta API, you can
@@ -9501,7 +9528,7 @@ class Google_Service_Compute_Zones_Resource extends Google_Service_Resource
    * The Beta API also supports filtering on multiple expressions by providing
    * each separate expression within parentheses. For example,
    * (scheduling.automaticRestart eq true) (zone eq us-central1-f). Multiple
-   * expressions are treated as AND expressions meaning that resources must match
+   * expressions are treated as AND expressions, meaning that resources must match
    * all expressions to pass the filters.
    * @opt_param string maxResults The maximum number of results per page that
    * should be returned. If the number of available results is larger than

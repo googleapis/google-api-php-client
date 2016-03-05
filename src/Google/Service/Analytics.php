@@ -19,7 +19,7 @@
  * Service definition for Analytics (v3).
  *
  * <p>
- * View and manage your Google Analytics data</p>
+ * Views and manages your Google Analytics data.</p>
  *
  * <p>
  * For more information about this service, see the API
@@ -3139,9 +3139,11 @@ class Google_Service_Analytics_ManagementProfiles_Resource extends Google_Servic
   /**
    * Gets a view (profile) to which the user has access. (profiles.get)
    *
-   * @param string $accountId Account ID to retrieve the goal for.
-   * @param string $webPropertyId Web property ID to retrieve the goal for.
-   * @param string $profileId View (Profile) ID to retrieve the goal for.
+   * @param string $accountId Account ID to retrieve the view (profile) for.
+   * @param string $webPropertyId Web property ID to retrieve the view (profile)
+   * for.
+   * @param string $profileId View (Profile) ID to retrieve the view (profile)
+   * for.
    * @param array $optParams Optional parameters.
    * @return Google_Service_Analytics_Profile
    */

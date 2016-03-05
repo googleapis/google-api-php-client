@@ -19,7 +19,9 @@
  * Service definition for Webfonts (v1).
  *
  * <p>
- * The Google Fonts Developer API.</p>
+ * Accesses the metadata for all families served by Google Fonts, providing a
+ * list of families currently available (including available styles and a list
+ * of supported script subsets).</p>
  *
  * <p>
  * For more information about this service, see the API
