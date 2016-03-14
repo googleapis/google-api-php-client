@@ -8,6 +8,7 @@
     "require": {
         "php": ">=5.4",
         "google/auth": "0.7",
+        "google/apiclient-services": "*@dev",
         "firebase/php-jwt": "~2.0|~3.0",
         "monolog/monolog": "^1.17",
         "phpseclib/phpseclib": "~2.0",
