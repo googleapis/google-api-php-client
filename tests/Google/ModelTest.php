@@ -91,13 +91,12 @@ class Google_ModelTest extends BaseTest
 
   public function testVariantTypes()
   {
-    $feature = new Google_Service_MapsEngine_Feature();
-    $geometry = new Google_Service_MapsEngine_GeoJsonPoint();
-    $geometry->setCoordinates(array(1, 0));
-    $feature->setGeometry($geometry);
-    $data = json_decode(json_encode($feature->toSimpleObject()), true);
-    $this->assertEquals('Point', $data['geometry']['type']);
-    $this->assertEquals(1, $data['geometry']['coordinates'][0]);
+    $file = new Google_Service_Drive_DriveFile();
+    $metadata = new Google_Service_Drive_DriveFileImageMediaMetadata();
+    $metadata->setCameraMake('Pokémon Snap');
+    $file->setImageMediaMetadata($metadata);
+    $data = json_decode(json_encode($file->toSimpleObject()), true);
+    $this->assertEquals('Pokémon Snap', $data['imageMediaMetadata']['cameraMake']);
   }
 
   public function testOddMappingNames()
