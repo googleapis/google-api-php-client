@@ -663,7 +663,8 @@ class Google_Client
   public function verifyIdToken($idToken = null)
   {
     $tokenVerifier = new Google_AccessToken_Verify(
-        $this->getHttpClient()
+        $this->getHttpClient(),
+        $this->getCache()
     );
 
     if (is_null($idToken)) {
