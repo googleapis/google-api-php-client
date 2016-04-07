@@ -16,6 +16,7 @@
  * limitations under the License.
  */
 
+use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
 use Google\Auth\CacheInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -106,6 +107,8 @@ class Google_AccessToken_Verify
 
         return (array) $payload;
       } catch (ExpiredException $e) {
+        return false;
+      } catch (ExpiredExceptionV3 $e) {
         return false;
       } catch (DomainException $e) {
         // continue
