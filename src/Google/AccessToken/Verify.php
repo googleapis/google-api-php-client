@@ -16,6 +16,7 @@
  * limitations under the License.
  */
 
+use Firebase\JWT\ExpiredException;
 use Google\Auth\CacheInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
