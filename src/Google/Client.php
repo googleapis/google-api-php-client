@@ -129,6 +129,9 @@ class Google_Client
           // Task Runner retry configuration
           // @see Google_Task_Runner
           'retry' => array(),
+
+          // cache config for downstream auth caching
+          'cache_config' => [],
         ],
         $config
     );
@@ -359,7 +362,12 @@ class Google_Client
     $authHandler = $this->getAuthHandler();
 
     if ($credentials) {
-      $http = $authHandler->attachCredentials($http, $credentials);
+      // create a callback to update the client when we request a new access token
+      $client = $this;
+      $callback = function ($key, $value) use ($client) {
+        $client->setAccessToken($value);
+      };
+      $http = $authHandler->attachCredentials($http, $credentials, $callback);
     } elseif ($token) {
       $http = $authHandler->attachToken($http, $token, (array) $scopes);
     } elseif ($key = $this->config['developer_key']) {
@@ -938,6 +946,14 @@ class Google_Client
   }
 
   /**
+   * @return Google\Auth\CacheInterface Cache implementation
+   */
+  public function setCacheConfig(array $cacheConfig)
+  {
+    $this->config['cache_config'] = $cacheConfig;
+  }
+
+  /**
    * Set the Logger object
    * @param Psr\Log\LoggerInterface $logger
    */
@@ -1050,7 +1066,7 @@ class Google_Client
     // sessions.
     //
     // @see https://github.com/google/google-api-php-client/issues/821
-    return Google_AuthHandler_AuthHandlerFactory::build($this->getCache());
+    return Google_AuthHandler_AuthHandlerFactory::build($this->getCache(), $this->config['cache_config']);
   }
 
   private function createUserRefreshCredentials($scope, $refreshToken)
