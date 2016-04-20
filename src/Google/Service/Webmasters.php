@@ -734,6 +734,7 @@ class Google_Service_Webmasters_SearchAnalyticsQueryRequest extends Google_Colle
   public $dimensions;
   public $endDate;
   public $rowLimit;
+  public $startRow;
   public $searchType;
   public $startDate;
 
@@ -777,6 +778,14 @@ class Google_Service_Webmasters_SearchAnalyticsQueryRequest extends Google_Colle
   public function getRowLimit()
   {
     return $this->rowLimit;
+  }
+  public function setStartRow($startRow)
+  {
+    $this->startRow = $startRow;
+  }
+  public function getStartRow()
+  {
+    return $this->startRow;
   }
   public function setSearchType($searchType)
   {
