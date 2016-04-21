@@ -1,5 +1,5 @@
 {
-    "name": "catalisio/google-apiclient",
+    "name": "catalisio/google-api-php-client",
     "type": "library",
     "description": "Client library for Google APIs",
     "keywords": ["google"],
