@@ -13,8 +13,8 @@
         "monolog/monolog": "^1.17",
         "phpseclib/phpseclib": "~2.0",
         "guzzlehttp/guzzle": "~5.2|~6.0",
-        "guzzlehttp/psr7": "1.2.*",
-        "psr/http-message": "1.0.*"
+        "guzzlehttp/psr7": "^1.2",
+        "psr/http-message": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~4",
