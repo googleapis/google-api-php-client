@@ -75,6 +75,11 @@ class Google_Client
   private $logger;
 
   /**
+   * @var Google\Auth\FetchAuthTokenInterface
+   */
+  private $lastCredentials;
+
+  /**
    * @var boolean $deferExecution
    */
   private $deferExecution = false;
@@ -360,6 +365,7 @@ class Google_Client
 
     if ($credentials) {
       $http = $authHandler->attachCredentials($http, $credentials);
+      $this->lastCredentials = $credentials;
     } elseif ($token) {
       $http = $authHandler->attachToken($http, $token, (array) $scopes);
     } elseif ($key = $this->config['developer_key']) {
@@ -985,6 +991,13 @@ class Google_Client
     }
 
     return $this->http;
+  }
+
+  public function getLastReceivedToken()
+  {
+    if ($this->lastCredentials) {
+      return $this->lastCredentials->getLastReceivedToken();
+    }
   }
 
   protected function createDefaultHttpClient()

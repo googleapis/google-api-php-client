@@ -403,6 +403,29 @@ class Google_ClientTest extends BaseTest
   }
 
   /**
+   * Test after authentication the last received token can be retrieved
+   */
+  public function testGetLastReceivedToken()
+  {
+    $this->checkServiceAccountCredentials();
+
+    // create a NEW client
+    $client = new Google_Client();
+    $client->setScopes(["https://www.googleapis.com/auth/plus.me"]);
+    $client->setAuthConfig(getenv('GOOGLE_APPLICATION_CREDENTIALS'));
+    $this->assertNull($client->getLastReceivedToken());
+
+    $http = $client->authorize();
+    $response = $http->get('https://www.googleapis.com/plus/v1/people/me');
+
+    $token = $client->getLastReceivedToken();
+
+    $this->assertNotNull($token);
+    $this->assertArrayHasKey('access_token', $token);
+    $this->assertArrayHasKey('expires_at', $token);
+  }
+
+  /**
    * Test that the ID token is properly refreshed.
    */
   public function testRefreshTokenSetsValues()
