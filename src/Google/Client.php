@@ -16,7 +16,6 @@
  */
 
 use Google\Auth\ApplicationDefaultCredentials;
-use Google\Auth\CacheInterface;
 use Google\Auth\CredentialsLoader;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\OAuth2;
@@ -26,6 +25,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Ring\Client\StreamHandler;
 use GuzzleHttp\Psr7;
+use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Log\LoggerInterface;
 use Monolog\Logger;
@@ -55,7 +55,7 @@ class Google_Client
   private $http;
 
   /**
-   * @var Google\Auth\CacheInterface $cache
+   * @var Psr\Cache\CacheItemPoolInterface $cache
    */
   private $cache;
 
@@ -129,6 +129,9 @@ class Google_Client
           // Task Runner retry configuration
           // @see Google_Task_Runner
           'retry' => array(),
+
+          // cache config for downstream auth caching
+          'cache_config' => [],
         ],
         $config
     );
@@ -918,23 +921,27 @@ class Google_Client
 
   /**
    * Set the Cache object
-   * @param Google\Auth\CacheInterface $cache
+   * @param Psr\Cache\CacheItemPoolInterface $cache
    */
-  public function setCache(CacheInterface $cache)
+  public function setCache(CacheItemPoolInterface $cache)
   {
     $this->cache = $cache;
   }
 
   /**
-   * @return Google\Auth\CacheInterface Cache implementation
+   * @return Psr\Cache\CacheItemPoolInterface Cache implementation
    */
   public function getCache()
   {
-    if (is_null($this->cache)) {
-      $this->cache = new Google_Cache_Memory();
-    }
-
     return $this->cache;
+  }
+
+  /**
+   * @return Google\Auth\CacheInterface Cache implementation
+   */
+  public function setCacheConfig(array $cacheConfig)
+  {
+    $this->config['cache_config'] = $cacheConfig;
   }
 
   /**
@@ -1050,7 +1057,7 @@ class Google_Client
     // sessions.
     //
     // @see https://github.com/google/google-api-php-client/issues/821
-    return Google_AuthHandler_AuthHandlerFactory::build($this->getCache());
+    return Google_AuthHandler_AuthHandlerFactory::build($this->getCache(), $this->config['cache_config']);
   }
 
   private function createUserRefreshCredentials($scope, $refreshToken)

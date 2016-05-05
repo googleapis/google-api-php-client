@@ -98,7 +98,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
     $certs = $method->invoke($verify, Google_AccessToken_Verify::FEDERATED_SIGNON_CERT_URL);
 
     $this->assertArrayHasKey('keys', $certs);
-    $this->assertEquals(2, count($certs['keys']));
+    $this->assertGreaterThan(1, count($certs['keys']));
     $this->assertArrayHasKey('alg', $certs['keys'][0]);
     $this->assertEquals('RS256', $certs['keys'][0]['alg']);
   }

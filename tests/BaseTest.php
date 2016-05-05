@@ -17,6 +17,8 @@
 
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\DomCrawler\Crawler;
+use Stash\Driver\FileSystem;
+use Stash\Pool;
 
 class BaseTest extends PHPUnit_Framework_TestCase
 {
@@ -37,7 +39,8 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
   public function getCache()
   {
-    return new Google_Cache_File(sys_get_temp_dir().'/google-api-php-client-tests');
+    $path = sys_get_temp_dir().'/google-api-php-client-tests';
+    return new Pool(new FileSystem(['path' => $path]));
   }
 
   private function createClient()
@@ -87,12 +90,14 @@ class BaseTest extends PHPUnit_Framework_TestCase
   {
     $client = $this->getClient();
     $cache = $client->getCache();
+    $cacheItem = $cache->getItem('access_token');
 
-    if (!$token = $cache->get('access_token')) {
+    if (!$token = $cacheItem->get()) {
       if (!$token = $this->tryToGetAnAccessToken($client)) {
         return $this->markTestSkipped("Test requires access token");
       }
-      $cache->set('access_token', $token);
+      $cacheItem->set($token);
+      $cache->save($cacheItem);
     }
 
     $client->setAccessToken($token);

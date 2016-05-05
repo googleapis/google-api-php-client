@@ -1,6 +1,5 @@
 <?php
 
-use Google\Auth\CacheInterface;
 use Google\Auth\CredentialsLoader;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\Subscriber\AuthTokenSubscriber;
@@ -8,6 +7,7 @@ use Google\Auth\Subscriber\ScopedAccessTokenSubscriber;
 use Google\Auth\Subscriber\SimpleSubscriber;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use Psr\Cache\CacheItemPoolInterface;
 
 /**
 *
@@ -15,10 +15,12 @@ use GuzzleHttp\ClientInterface;
 class Google_AuthHandler_Guzzle5AuthHandler
 {
   protected $cache;
+  protected $cacheConfig;
 
-  public function __construct(CacheInterface $cache = null)
+  public function __construct(CacheItemPoolInterface $cache = null, array $cacheConfig = [])
   {
     $this->cache = $cache;
+    $this->cacheConfig = $cacheConfig;
   }
 
   public function attachCredentials(ClientInterface $http, CredentialsLoader $credentials)
@@ -30,7 +32,7 @@ class Google_AuthHandler_Guzzle5AuthHandler
     $authHttpHandler = HttpHandlerFactory::build($authHttp);
     $subscriber = new AuthTokenSubscriber(
         $credentials,
-        [],
+        $this->cacheConfig,
         $this->cache,
         $authHttpHandler
     );

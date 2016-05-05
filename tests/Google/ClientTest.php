@@ -254,7 +254,7 @@ class Google_ClientTest extends BaseTest
 
     $client->setRedirectUri('localhost');
     $client->setConfig('application_name', 'me');
-    $client->setCache(new Google_Cache_Null());
+    $client->setCache($this->getMock('Psr\Cache\CacheItemPoolInterface'));
     $this->assertEquals('object', gettype($client->getCache()));
 
     try {
