@@ -132,6 +132,10 @@ class Google_Client
 
           // cache config for downstream auth caching
           'cache_config' => [],
+
+          // function to be called when an access token is fetched
+          // follows the signature function ($cacheKey, $accessToken)
+          'token_callback' => null,
         ],
         $config
     );
@@ -362,7 +366,8 @@ class Google_Client
     $authHandler = $this->getAuthHandler();
 
     if ($credentials) {
-      $http = $authHandler->attachCredentials($http, $credentials);
+      $callback = $this->config['token_callback'];
+      $http = $authHandler->attachCredentials($http, $credentials, $callback);
     } elseif ($token) {
       $http = $authHandler->attachToken($http, $token, (array) $scopes);
     } elseif ($key = $this->config['developer_key']) {
@@ -607,6 +612,7 @@ class Google_Client
   {
     $this->config['hd'] = $hd;
   }
+
   /**
    * Set the prompt hint. Valid values are none, consent and select_account.
    * If no value is specified and the user has not previously authorized
@@ -617,6 +623,7 @@ class Google_Client
   {
     $this->config['prompt'] = $prompt;
   }
+
   /**
    * openid.realm is a parameter from the OpenID 2.0 protocol, not from OAuth
    * 2.0. It is used in OpenID 2.0 requests to signify the URL-space for which
@@ -627,6 +634,7 @@ class Google_Client
   {
     $this->config['openid.realm'] = $realm;
   }
+
   /**
    * If this is provided with the value true, and the authorization request is
    * granted, the authorization will include any previous authorizations
@@ -636,6 +644,15 @@ class Google_Client
   public function setIncludeGrantedScopes($include)
   {
     $this->config['include_granted_scopes'] = $include;
+  }
+
+  /**
+   * sets function to be called when an access token is fetched
+   * @param callable $tokenCallback - function ($cacheKey, $accessToken)
+   */
+  public function setTokenCallback(callable $tokenCallback)
+  {
+    $this->config['token_callback'] = $tokenCallback;
   }
 
   /**
@@ -1057,7 +1074,10 @@ class Google_Client
     // sessions.
     //
     // @see https://github.com/google/google-api-php-client/issues/821
-    return Google_AuthHandler_AuthHandlerFactory::build($this->getCache(), $this->config['cache_config']);
+    return Google_AuthHandler_AuthHandlerFactory::build(
+        $this->getCache(),
+        $this->config['cache_config']
+    );
   }
 
   private function createUserRefreshCredentials($scope, $refreshToken)

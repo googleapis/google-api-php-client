@@ -37,9 +37,9 @@ class BaseTest extends PHPUnit_Framework_TestCase
     return $this->client;
   }
 
-  public function getCache()
+  public function getCache($path = null)
   {
-    $path = sys_get_temp_dir().'/google-api-php-client-tests';
+    $path = $path ?: sys_get_temp_dir().'/google-api-php-client-tests';
     return new Pool(new FileSystem(['path' => $path]));
   }
 

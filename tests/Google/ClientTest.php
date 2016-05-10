@@ -497,4 +497,50 @@ class Google_ClientTest extends BaseTest
       $this->assertContains('Invalid impersonation prn email address', (string) $response->getBody());
     }
   }
+
+  public function testTokenCallback()
+  {
+    $this->checkToken();
+
+    $client = $this->getClient();
+    $accessToken = $client->getAccessToken();
+
+    if (!isset($accessToken['refresh_token'])) {
+      $this->markTestSkipped('Refresh Token required');
+    }
+
+    // make the auth library think the token is expired
+    $accessToken['expires_in'] = 0;
+    $cache = $client->getCache();
+    $path = sys_get_temp_dir().'/google-api-php-client-tests-'.time();
+    $client->setCache($this->getCache($path));
+    $client->setAccessToken($accessToken);
+
+    // create the callback function
+    $phpunit = $this;
+    $called = false;
+    $callback = function ($key, $value) use ($client, $cache, $phpunit, &$called) {
+      // go back to the previous cache
+      $client->setCache($cache);
+
+      // assert the expected keys and values
+      $phpunit->assertContains('https---www.googleapis.com-auth-', $key);
+      $phpunit->assertNotNull($value);
+      $called = true;
+    };
+
+    // set the token callback to the client
+    $client->setTokenCallback($callback);
+
+    // make a silly request to obtain a new token
+    $http = $client->authorize();
+    $http->get('https://www.googleapis.com/books/v1/volumes?q=Voltaire');
+    $newToken = $client->getAccessToken();
+
+    // go back to the previous cache
+    // (in case callback wasn't called)
+    $client->setCache($cache);
+
+    $this->assertTrue($called);
+  }
 }
