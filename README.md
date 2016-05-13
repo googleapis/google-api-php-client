@@ -62,7 +62,7 @@ $ php -S localhost:8000 -t examples/
 And then browsing to the host and port you specified
 (in the above example, `http://localhost:8000`).
 
-```PHP
+```php
 // include your composer dependencies
 require_once 'vendor/autoload.php';
 
@@ -79,6 +79,33 @@ foreach ($results as $item) {
 }
 ```
 
+### Caching ###
+
+It is recommended to use another caching library to improve performance. This can be done by passing a [PSR-6](http://www.php-fig.org/psr/psr-6/) compatible library to the client:
+
+```php
+$cache = new Stash\Pool(new Stash\Driver\FileSystem);
+$client->setCache($cache);
+```
+
+In this example we use [StashPHP](http://www.stashphp.com/). Add this to your project with composer:
+
+```
+composer require tedivm/stash
+```
+
+### Updating Tokens ###
+
+When using [Refresh Tokens](https://developers.google.com/identity/protocols/OAuth2InstalledApp#refresh) or [Service Account Credentials](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#overview), it may be useful to perform some action when a new access token is granted. To do this, pass a callable to the `setTokenCallback` method on the client:
+
+```php
+$logger = new Monolog\Logger;
+$tokenCallback = function ($cacheKey, $accessToken) use ($logger) {
+  $logger->debug(sprintf('new access token received at cache key %s', $cacheKey));
+};
+$client->setTokenCallback($tokenCallback);
+```
+
 ### Service Specific Examples ###
 
 YouTube: https://github.com/youtube/api-samples/tree/master/php
@@ -87,9 +114,9 @@ YouTube: https://github.com/youtube/api-samples/tree/master/php
 
 ### What do I do if something isn't working? ###
 
-For support with the library the best place to ask is via the  google-api-php-client tag on StackOverflow: http://stackoverflow.com/questions/tagged/google-api-php-client
+For support with the library the best place to ask is via the google-api-php-client tag on StackOverflow: http://stackoverflow.com/questions/tagged/google-api-php-client
 
-If there is a specific bug with the library, please file a issue in the Github issues tracker, including a (minimal) example of the failing code and any specific errors retrieved. Feature requests can also be filed, as long as they are core library requests, and not-API specific: for those, refer to the documentation for the individual APIs for the best place to file requests. Please try to provide a clear statement of the problem that the feature would address.
+If there is a specific bug with the library, please [file a issue](/Google/google-api-php-client/issues) in the Github issues tracker, including an example of the failing code and any specific errors retrieved. Feature requests can also be filed, as long as they are core library requests, and not-API specific: for those, refer to the documentation for the individual APIs for the best place to file requests. Please try to provide a clear statement of the problem that the feature would address.
 
 ### How do I contribute? ###
 
