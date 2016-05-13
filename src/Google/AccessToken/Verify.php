@@ -17,11 +17,13 @@
  */
 
 use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
-use Google\Auth\CacheInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use phpseclib\Crypt\RSA;
 use phpseclib\Math\BigInteger;
+use Psr\Cache\CacheItemPoolInterface;
+use Stash\Driver\FileSystem;
+use Stash\Pool;
 
 /**
  * Wrapper around Google Access Tokens which provides convenience functions
@@ -39,7 +41,7 @@ class Google_AccessToken_Verify
   private $http;
 
   /**
-   * @var Google\Auth\CacheInterface cache class
+   * @var Psr\Cache\CacheItemPoolInterface cache class
    */
   private $cache;
 
@@ -47,10 +49,14 @@ class Google_AccessToken_Verify
    * Instantiates the class, but does not initiate the login flow, leaving it
    * to the discretion of the caller.
    */
-  public function __construct(ClientInterface $http = null, CacheInterface $cache = null)
+  public function __construct(ClientInterface $http = null, CacheItemPoolInterface $cache = null)
   {
     if (is_null($http)) {
       $http = new Client();
+    }
+
+    if (is_null($cache) && class_exists('Stash\Pool')) {
+      $cache = new Pool(new FileSystem);
     }
 
     $this->http = $http;
@@ -120,18 +126,7 @@ class Google_AccessToken_Verify
 
   private function getCache()
   {
-    if (!$this->cache) {
-      $this->cache = $this->createDefaultCache();
-    }
-
     return $this->cache;
-  }
-
-  private function createDefaultCache()
-  {
-    return new Google_Cache_File(
-        sys_get_temp_dir().'/google-api-php-client'
-    );
   }
 
   /**
@@ -174,14 +169,22 @@ class Google_AccessToken_Verify
   // are PEM encoded certificates.
   private function getFederatedSignOnCerts()
   {
-    $cache = $this->getCache();
+    $certs = null;
+    if ($cache = $this->getCache()) {
+      $cacheItem = $cache->getItem('federated_signon_certs_v3', 3600);
+      $certs = $cacheItem->get();
+    }
 
-    if (!$certs = $cache->get('federated_signon_certs_v3', 3600)) {
+
+    if (!$certs) {
       $certs = $this->retrieveCertsFromLocation(
           self::FEDERATED_SIGNON_CERT_URL
       );
 
-      $cache->set('federated_signon_certs_v3', $certs);
+      if ($cache) {
+        $cacheItem->set($certs);
+        $cache->save($cacheItem);
+      }
     }
 
     if (!isset($certs['keys'])) {
@@ -200,9 +203,11 @@ class Google_AccessToken_Verify
       $jwtClass = 'Firebase\JWT\JWT';
     }
 
-    // adds 1 second to JWT leeway
-    // @see https://github.com/google/google-api-php-client/issues/827
-    $jwtClass::$leeway = 1;
+    if (property_exists($jwtClass, 'leeway')) {
+      // adds 1 second to JWT leeway
+      // @see https://github.com/google/google-api-php-client/issues/827
+      $jwtClass::$leeway = 1;
+    }
 
     return new $jwtClass;
   }

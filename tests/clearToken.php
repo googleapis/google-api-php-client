@@ -2,7 +2,8 @@
 
 include_once __DIR__ . '/bootstrap.php';
 $test = new BaseTest();
-print_r($test->getCache()->get('access_token'));
-$test->getCache()->delete('access_token');
+$cacheItem = $test->getCache()->getItem('access_token');
+print_r($cacheItem->get());
+$test->getCache()->deleteItem('access_token');
 
 echo "SUCCESS\n";
