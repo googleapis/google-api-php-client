@@ -13,9 +13,7 @@
         "squizlabs/php_codesniffer": "~2.3"
     },
     "autoload": {
-        "classmap": [
-            "src/"
-        ]
+        "files": ["src/Google/autoload.php"]
     },
     "extra": {
         "branch-alias": {
