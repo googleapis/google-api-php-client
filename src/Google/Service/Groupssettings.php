@@ -177,6 +177,7 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   public $sendMessageDenyNotification;
   public $showInGroupDirectory;
   public $spamModerationLevel;
+  public $whoCanAdd;
   public $whoCanContactOwner;
   public $whoCanInvite;
   public $whoCanJoin;
@@ -353,6 +354,14 @@ class Google_Service_Groupssettings_Groups extends Google_Model
   public function getSpamModerationLevel()
   {
     return $this->spamModerationLevel;
+  }
+  public function setWhoCanAdd($whoCanAdd)
+  {
+    $this->whoCanAdd = $whoCanAdd;
+  }
+  public function getWhoAdd()
+  {
+    return $this->whoCanAdd;
   }
   public function setWhoCanContactOwner($whoCanContactOwner)
   {
