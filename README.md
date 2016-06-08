@@ -2,8 +2,6 @@
 
 # Google APIs Client Library for PHP #
 
-> ### NOTE: If you arrived here from `developers.google.com`, you should be using the [v1-branch](https://github.com/google/google-api-php-client/tree/v1-master) of this repo
-
 ## Description ##
 The Google API Client Library enables you to work with Google APIs such as Google+, Drive, or YouTube on your server.
 
@@ -29,7 +27,7 @@ composer installed.
 Once composer is installed, execute the following command in your project root to install this library:
 
 ```sh
-composer require google/apiclient:^2.0.0@RC
+composer require google/apiclient:^2.0
 ```
 
 Finally, be sure to include the autoloader:
