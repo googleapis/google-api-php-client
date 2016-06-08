@@ -1048,8 +1048,7 @@ class Google_Client
         'private_key' => $signingKey,
         'type' => 'service_account',
       );
-      $keyStream = Psr7\stream_for(json_encode($serviceAccountCredentials));
-      $credentials = CredentialsLoader::makeCredentials($scopes, $keyStream);
+      $credentials = CredentialsLoader::makeCredentials($scopes, $serviceAccountCredentials);
     } else {
       $credentials = ApplicationDefaultCredentials::getCredentials($scopes);
     }
