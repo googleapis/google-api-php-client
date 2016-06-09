@@ -1,6 +1,5 @@
 .DS_Store
 phpunit.xml
-composer.lock
 vendor
 examples/testfile-small.txt
 examples/testfile.txt
