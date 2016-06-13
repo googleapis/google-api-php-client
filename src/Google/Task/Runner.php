@@ -15,10 +15,6 @@
  * limitations under the License.
  */
 
-if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
-}
-
 /**
  * A task runner with exponential backoff support.
  *
@@ -26,6 +22,10 @@ if (!class_exists('Google_Client')) {
  */
 class Google_Task_Runner
 {
+  const TASK_RETRY_NEVER = 0;
+  const TASK_RETRY_ONCE = 1;
+  const TASK_RETRY_ALWAYS = -1;
+
   /**
    * @var integer $maxDelay The max time (in seconds) to wait before a retry.
    */
@@ -56,11 +56,6 @@ class Google_Task_Runner
   private $maxAttempts = 1;
 
   /**
-   * @var Google_Client $client The current API client.
-   */
-  private $client;
-
-  /**
    * @var string $name The name of the current task (used for logging).
    */
   private $name;
@@ -74,22 +69,35 @@ class Google_Task_Runner
   private $arguments;
 
   /**
+   * @var array $retryMap Map of errors with retry counts.
+   */
+  protected $retryMap = [
+    '500' => self::TASK_RETRY_ALWAYS,
+    '503' => self::TASK_RETRY_ALWAYS,
+    'rateLimitExceeded' => self::TASK_RETRY_ALWAYS,
+    'userRateLimitExceeded' => self::TASK_RETRY_ALWAYS,
+    6  => self::TASK_RETRY_ALWAYS,  // CURLE_COULDNT_RESOLVE_HOST
+    7  => self::TASK_RETRY_ALWAYS,  // CURLE_COULDNT_CONNECT
+    28 => self::TASK_RETRY_ALWAYS,  // CURLE_OPERATION_TIMEOUTED
+    35 => self::TASK_RETRY_ALWAYS,  // CURLE_SSL_CONNECT_ERROR
+    52 => self::TASK_RETRY_ALWAYS   // CURLE_GOT_NOTHING
+  ];
+
+  /**
    * Creates a new task runner with exponential backoff support.
    *
-   * @param Google_Client $client The current API client
+   * @param array $config The task runner config
    * @param string $name The name of the current task (used for logging)
    * @param callable $action The task to run and possibly retry
    * @param array $arguments The task arguments
    * @throws Google_Task_Exception when misconfigured
    */
   public function __construct(
-      Google_Client $client,
+      $config,
       $name,
       $action,
       array $arguments = array()
   ) {
-    $config = (array) $client->getClassConfig('Google_Task_Runner');
-
     if (isset($config['initial_delay'])) {
       if ($config['initial_delay'] < 0) {
         throw new Google_Task_Exception(
@@ -146,7 +154,6 @@ class Google_Task_Runner
     }
 
     $this->name = $name;
-    $this->client = $client;
     $this->action = $action;
     $this->arguments = $arguments;
   }
@@ -156,7 +163,7 @@ class Google_Task_Runner
    *
    * @return boolean
    */
-  public function canAttmpt()
+  public function canAttempt()
   {
     return $this->attempts < $this->maxAttempts;
   }
@@ -172,10 +179,13 @@ class Google_Task_Runner
     while ($this->attempt()) {
       try {
         return call_user_func_array($this->action, $this->arguments);
-      } catch (Google_Task_Retryable $exception) {
-        $allowedRetries = $exception->allowedRetries();
+      } catch (Google_Service_Exception $exception) {
+        $allowedRetries = $this->allowedRetries(
+            $exception->getCode(),
+            $exception->getErrors()
+        );
 
-        if (!$this->canAttmpt() || !$allowedRetries) {
+        if (!$this->canAttempt() || !$allowedRetries) {
           throw $exception;
         }
 
@@ -200,7 +210,7 @@ class Google_Task_Runner
    */
   public function attempt()
   {
-    if (!$this->canAttmpt()) {
+    if (!$this->canAttempt()) {
       return false;
     }
 
@@ -218,15 +228,6 @@ class Google_Task_Runner
   private function backOff()
   {
     $delay = $this->getDelay();
-
-    $this->client->getLogger()->debug(
-        'Retrying task with backoff',
-        array(
-            'request' => $this->name,
-            'retry' => $this->attempts,
-            'backoff_seconds' => $delay
-        )
-    );
 
     usleep($delay * 1000000);
   }
@@ -253,5 +254,31 @@ class Google_Task_Runner
   private function getJitter()
   {
     return $this->jitter * 2 * mt_rand() / mt_getrandmax() - $this->jitter;
+  }
+
+  /**
+   * Gets the number of times the associated task can be retried.
+   *
+   * NOTE: -1 is returned if the task can be retried indefinitely
+   *
+   * @return integer
+   */
+  public function allowedRetries($code, $errors = array())
+  {
+    if (isset($this->retryMap[$code])) {
+      return $this->retryMap[$code];
+    }
+
+    if (!empty($errors) && isset($errors[0]['reason']) &&
+        isset($this->retryMap[$errors[0]['reason']])) {
+      return $this->retryMap[$errors[0]['reason']];
+    }
+
+    return 0;
+  }
+
+  public function setRetryMap($retryMap)
+  {
+    $this->retryMap = $retryMap;
   }
 }

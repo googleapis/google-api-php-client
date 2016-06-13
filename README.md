@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/google/google-api-php-client.svg)](https://travis-ci.org/google/google-api-php-client)
+[![Build Status](https://travis-ci.org/google/google-api-php-client.svg?branch=master)](https://travis-ci.org/google/google-api-php-client)
 
 # Google APIs Client Library for PHP #
 
@@ -9,37 +9,99 @@ The Google API Client Library enables you to work with Google APIs such as Googl
 This library is in Beta. We're comfortable enough with the stability and features of the library that we want you to build real production applications on it. We will make an effort to support the public and protected surface of the library and maintain backwards compatibility in the future. While we are still in Beta, we reserve the right to make incompatible changes. If we do remove some functionality (typically because better functionality exists or if the feature proved infeasible), our intention is to deprecate and provide ample time for developers to update their code.
 
 ## Requirements ##
-* [PHP 5.2.1 or higher](http://www.php.net/)
-* [PHP JSON extension](http://php.net/manual/en/book.json.php)
-
-*Note*: some features (service accounts and id token verification) require PHP 5.3.0 and above due to cryptographic algorithm requirements. 
+* [PHP 5.4.0 or higher](http://www.php.net/)
 
 ## Developer Documentation ##
 http://developers.google.com/api-client-library/php
 
 ## Installation ##
 
-For the latest installation and setup instructions, see [the documentation](https://developers.google.com/api-client-library/php/start/installation).
+You can use **Composer** or simply **Download the Release**
+
+### Composer
+
+The preferred method is via [composer](https://getcomposer.org). Follow the
+[installation instructions](https://getcomposer.org/doc/00-intro.md) if you do not already have
+composer installed.
+
+Once composer is installed, execute the following command in your project root to install this library:
+
+```sh
+composer require google/apiclient:^2.0
+```
+
+Finally, be sure to include the autoloader:
+
+```php
+require_once '/path/to/your-project/vendor/autoload.php';
+```
+
+### Download the Release
+
+If you abhor using composer, you can download the package in its entirety. The [Releases](https://github.com/google/google-api-php-client/releases) page lists all stable versions. Download any file
+with the name `google-api-php-client-[RELEASE_NAME].zip` for a package including this library and its dependencies.
+
+Uncompress the zip file you download, and include the autoloader in your project:
+
+```php
+require_once '/path/to/google-api-php-client/vendor/autoload.php';
+```
+
+For additional installation and setup instructions, see [the documentation](https://developers.google.com/api-client-library/php/start/installation).
 
 ## Basic Example ##
-See the examples/ directory for examples of the key client features.
-```PHP
-<?php
+See the examples/ directory for examples of the key client features. You can
+view them in your browser by running the php built-in web server.
 
-  require_once 'google-api-php-client/src/Google/autoload.php'; // or wherever autoload.php is located
-  
-  $client = new Google_Client();
-  $client->setApplicationName("Client_Library_Examples");
-  $client->setDeveloperKey("YOUR_APP_KEY");
-  
-  $service = new Google_Service_Books($client);
-  $optParams = array('filter' => 'free-ebooks');
-  $results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
+```
+$ php -S localhost:8000 -t examples/
+```
 
-  foreach ($results as $item) {
-    echo $item['volumeInfo']['title'], "<br /> \n";
-  }
-  
+And then browsing to the host and port you specified
+(in the above example, `http://localhost:8000`).
+
+```php
+// include your composer dependencies
+require_once 'vendor/autoload.php';
+
+$client = new Google_Client();
+$client->setApplicationName("Client_Library_Examples");
+$client->setDeveloperKey("YOUR_APP_KEY");
+
+$service = new Google_Service_Books($client);
+$optParams = array('filter' => 'free-ebooks');
+$results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
+
+foreach ($results as $item) {
+  echo $item['volumeInfo']['title'], "<br /> \n";
+}
+```
+
+### Caching ###
+
+It is recommended to use another caching library to improve performance. This can be done by passing a [PSR-6](http://www.php-fig.org/psr/psr-6/) compatible library to the client:
+
+```php
+$cache = new Stash\Pool(new Stash\Driver\FileSystem);
+$client->setCache($cache);
+```
+
+In this example we use [StashPHP](http://www.stashphp.com/). Add this to your project with composer:
+
+```
+composer require tedivm/stash
+```
+
+### Updating Tokens ###
+
+When using [Refresh Tokens](https://developers.google.com/identity/protocols/OAuth2InstalledApp#refresh) or [Service Account Credentials](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#overview), it may be useful to perform some action when a new access token is granted. To do this, pass a callable to the `setTokenCallback` method on the client:
+
+```php
+$logger = new Monolog\Logger;
+$tokenCallback = function ($cacheKey, $accessToken) use ($logger) {
+  $logger->debug(sprintf('new access token received at cache key %s', $cacheKey));
+};
+$client->setTokenCallback($tokenCallback);
 ```
 
 ### Service Specific Examples ###
@@ -50,15 +112,15 @@ YouTube: https://github.com/youtube/api-samples/tree/master/php
 
 ### What do I do if something isn't working? ###
 
-For support with the library the best place to ask is via the  google-api-php-client tag on StackOverflow: http://stackoverflow.com/questions/tagged/google-api-php-client
+For support with the library the best place to ask is via the google-api-php-client tag on StackOverflow: http://stackoverflow.com/questions/tagged/google-api-php-client
 
-If there is a specific bug with the library, please file a issue in the Github issues tracker, including a (minimal) example of the failing code and any specific errors retrieved. Feature requests can also be filed, as long as they are core library requests, and not-API specific: for those, refer to the documentation for the individual APIs for the best place to file requests. Please try to provide a clear statement of the problem that the feature would address.
+If there is a specific bug with the library, please [file a issue](/Google/google-api-php-client/issues) in the Github issues tracker, including an example of the failing code and any specific errors retrieved. Feature requests can also be filed, as long as they are core library requests, and not-API specific: for those, refer to the documentation for the individual APIs for the best place to file requests. Please try to provide a clear statement of the problem that the feature would address.
 
 ### How do I contribute? ###
 
 We accept contributions via Github Pull Requests, but all contributors need to be covered by the standard Google Contributor License Agreement. You can find links, and more instructions, in the documentation: https://developers.google.com/api-client-library/php/contribute
 
-### I want an example of X! ### 
+### I want an example of X! ###
 
 If X is a feature of the library, file away! If X is an example of using a specific service, the best place to go is to the teams for those specific APIs - our preference is to link to their examples rather than add them to the library, as they can then pin to specific versions of the library. If you have any examples for other APIs, let us know and we will happily add a link to the README above!
 
@@ -68,7 +130,7 @@ When we started working on the 1.0.0 branch we knew there were several fundament
 
 ### Why does Google_..._Service have weird names? ###
 
-The _Service classes are generally automatically generated from the API discovery documents: https://developers.google.com/discovery/. Sometimes new features are added to APIs with unusual names, which can cause some unexpected or non-standard style naming in the PHP classes. 
+The _Service classes are generally automatically generated from the API discovery documents: https://developers.google.com/discovery/. Sometimes new features are added to APIs with unusual names, which can cause some unexpected or non-standard style naming in the PHP classes.
 
 ### How do I deal with non-JSON response types? ###
 
@@ -80,18 +142,26 @@ $opt_params = array(
 );
 ```
 
-## Notes For Distributors ##
+### How do I set a field to null? ###
 
-To avoid clashes with the autoloader, its best to update the function inside autoload.php to `google_api_php_client_autoload_MyProject`.
+The library strips out nulls from the objects sent to the Google APIs as its the default value of all of the uninitialised properties. To work around this, set the field you want to null to Google_Model::NULL_VALUE. This is a placeholder that will be replaced with a true null when sent over the wire.
 
 ## Code Quality ##
 
-Run the PHPUnit tests with PHPUnit. You can configure and API key and token in BaseTest.php to run all calls, but this will require some setup on the Google Developer Console.
+Run the PHPUnit tests with PHPUnit. You can configure an API key and token in BaseTest.php to run all calls, but this will require some setup on the Google Developer Console.
 
     phpunit tests/
 
-Copy the ruleset.xml in style/ into a new directory named GAPI/ in your
-/usr/share/php/PHP/CodeSniffer/Standards (or appropriate equivalent directory),
-and run code sniffs with:
+### Coding Style
 
-        phpcs --standard=GAPI src/
+To check for coding style violations, run
+
+```
+vendor/bin/phpcs src --standard=style/ruleset.xml -np
+```
+
+To automatically fix (fixable) coding style violations, run
+
+```
+vendor/bin/phpcbf src --standard=style/ruleset.xml
+```

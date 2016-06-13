@@ -15,9 +15,7 @@
  * limitations under the License.
  */
 
-if (!class_exists('Google_Client')) {
-  require_once dirname(__FILE__) . '/../autoload.php';
-}
+use GuzzleHttp\Psr7\Request;
 
 /**
  * Implements the actual methods/resources of the discovered Google API using magic function
@@ -33,7 +31,6 @@ class Google_Service_Resource
       'fields' => array('type' => 'string', 'location' => 'query'),
       'trace' => array('type' => 'string', 'location' => 'query'),
       'userIp' => array('type' => 'string', 'location' => 'query'),
-      'userip' => array('type' => 'string', 'location' => 'query'),
       'quotaUser' => array('type' => 'string', 'location' => 'query'),
       'data' => array('type' => 'string', 'location' => 'body'),
       'mimeType' => array('type' => 'string', 'location' => 'header'),
@@ -42,14 +39,17 @@ class Google_Service_Resource
       'prettyPrint' => array('type' => 'string', 'location' => 'query'),
   );
 
-  /** @var Google_Service $service */
-  private $service;
+  /** @var string $rootUrl */
+  private $rootUrl;
 
   /** @var Google_Client $client */
   private $client;
 
   /** @var string $serviceName */
   private $serviceName;
+
+  /** @var string $servicePath */
+  private $servicePath;
 
   /** @var string $resourceName */
   private $resourceName;
@@ -59,24 +59,25 @@ class Google_Service_Resource
 
   public function __construct($service, $serviceName, $resourceName, $resource)
   {
-    $this->service = $service;
+    $this->rootUrl = $service->rootUrl;
     $this->client = $service->getClient();
+    $this->servicePath = $service->servicePath;
     $this->serviceName = $serviceName;
     $this->resourceName = $resourceName;
-    $this->methods = isset($resource['methods']) ?
+    $this->methods = is_array($resource) && isset($resource['methods']) ?
         $resource['methods'] :
         array($resourceName => $resource);
   }
 
   /**
-   * TODO(ianbarber): This function needs simplifying.
+   * TODO: This function needs simplifying.
    * @param $name
    * @param $arguments
-   * @param $expected_class - optional, the expected class name
-   * @return Google_Http_Request|expected_class
+   * @param $expectedClass - optional, the expected class name
+   * @return Google_Http_Request|expectedClass
    * @throws Google_Exception
    */
-  public function call($name, $arguments, $expected_class = null)
+  public function call($name, $arguments, $expectedClass = null)
   {
     if (! isset($this->methods[$name])) {
       $this->client->getLogger()->error(
@@ -111,11 +112,11 @@ class Google_Service_Resource
         $parameters['postBody'] =
             $this->convertToArrayAndStripNulls($parameters['postBody']);
       }
-      $postBody = json_encode($parameters['postBody']);
+      $postBody = (array) $parameters['postBody'];
       unset($parameters['postBody']);
     }
 
-    // TODO(ianbarber): optParams here probably should have been
+    // TODO: optParams here probably should have been
     // handled already - this may well be redundant code.
     if (isset($parameters['optParams'])) {
       $optParams = $parameters['optParams'];
@@ -128,9 +129,10 @@ class Google_Service_Resource
     }
 
     $method['parameters'] = array_merge(
-        $method['parameters'],
-        $this->stackParameters
+        $this->stackParameters,
+        $method['parameters']
     );
+
     foreach ($parameters as $key => $val) {
       if ($key != 'postBody' && ! isset($method['parameters'][$key])) {
         $this->client->getLogger()->error(
@@ -173,8 +175,6 @@ class Google_Service_Resource
       }
     }
 
-    $servicePath = $this->service->servicePath;
-
     $this->client->getLogger()->info(
         'Service Call',
         array(
@@ -185,50 +185,51 @@ class Google_Service_Resource
         )
     );
 
-    $url = Google_Http_REST::createRequestUri(
-        $servicePath,
+    // build the service uri
+    $url = $this->createRequestUri(
         $method['path'],
         $parameters
     );
-    $httpRequest = new Google_Http_Request(
-        $url,
+
+    // NOTE: because we're creating the request by hand,
+    // and because the service has a rootUrl property
+    // the "base_uri" of the Http Client is not accounted for
+    $request = new Request(
         $method['httpMethod'],
-        null,
-        $postBody
+        $url,
+        ['content-type' => 'application/json'],
+        $postBody ? json_encode($postBody) : ''
     );
-    $httpRequest->setBaseComponent($this->client->getBasePath());
 
-    if ($postBody) {
-      $contentTypeHeader = array();
-      $contentTypeHeader['content-type'] = 'application/json; charset=UTF-8';
-      $httpRequest->setRequestHeaders($contentTypeHeader);
-      $httpRequest->setPostBody($postBody);
+    // support uploads
+    if (isset($parameters['data'])) {
+      $mimeType = isset($parameters['mimeType'])
+        ? $parameters['mimeType']['value']
+        : 'application/octet-stream';
+      $data = $parameters['data']['value'];
+      $upload = new Google_Http_MediaFileUpload($this->client, $request, $mimeType, $data);
+
+      // pull down the modified request
+      $request = $upload->getRequest();
     }
 
-    $httpRequest = $this->client->getAuth()->sign($httpRequest);
-    $httpRequest->setExpectedClass($expected_class);
-
-    if (isset($parameters['data']) &&
-        ($parameters['uploadType']['value'] == 'media' || $parameters['uploadType']['value'] == 'multipart')) {
-      // If we are doing a simple media upload, trigger that as a convenience.
-      $mfu = new Google_Http_MediaFileUpload(
-          $this->client,
-          $httpRequest,
-          isset($parameters['mimeType']) ? $parameters['mimeType']['value'] : 'application/octet-stream',
-          $parameters['data']['value']
-      );
-    }
-
+    // if this is a media type, we will return the raw response
+    // rather than using an expected class
     if (isset($parameters['alt']) && $parameters['alt']['value'] == 'media') {
-      $httpRequest->enableExpectedRaw();
+      $expectedClass = null;
     }
 
+    // if the client is marked for deferring, rather than
+    // execute the request, return the response
     if ($this->client->shouldDefer()) {
-      // If we are in batch or upload mode, return the raw request.
-      return $httpRequest;
+      // @TODO find a better way to do this
+      $request = $request
+        ->withHeader('X-Php-Expected-Class', $expectedClass);
+
+      return $request;
     }
 
-    return $this->client->execute($httpRequest);
+    return $this->client->execute($request, $expectedClass);
   }
 
   protected function convertToArrayAndStripNulls($o)
@@ -242,5 +243,54 @@ class Google_Service_Resource
       }
     }
     return $o;
+  }
+
+  /**
+   * Parse/expand request parameters and create a fully qualified
+   * request uri.
+   * @static
+   * @param string $restPath
+   * @param array $params
+   * @return string $requestUrl
+   */
+  public function createRequestUri($restPath, $params)
+  {
+    // code for leading slash
+    $requestUrl = $this->servicePath . $restPath;
+    if ($this->rootUrl) {
+      if ('/' !== substr($this->rootUrl, -1) && '/' !== substr($requestUrl, 0, 1)) {
+        $requestUrl = '/' . $requestUrl;
+      }
+      $requestUrl = $this->rootUrl . $requestUrl;
+    }
+    $uriTemplateVars = array();
+    $queryVars = array();
+    foreach ($params as $paramName => $paramSpec) {
+      if ($paramSpec['type'] == 'boolean') {
+        $paramSpec['value'] = ($paramSpec['value']) ? 'true' : 'false';
+      }
+      if ($paramSpec['location'] == 'path') {
+        $uriTemplateVars[$paramName] = $paramSpec['value'];
+      } else if ($paramSpec['location'] == 'query') {
+        if (isset($paramSpec['repeated']) && is_array($paramSpec['value'])) {
+          foreach ($paramSpec['value'] as $value) {
+            $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($value));
+          }
+        } else {
+          $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($paramSpec['value']));
+        }
+      }
+    }
+
+    if (count($uriTemplateVars)) {
+      $uriTemplateParser = new Google_Utils_UriTemplate();
+      $requestUrl = $uriTemplateParser->parse($requestUrl, $uriTemplateVars);
+    }
+
+    if (count($queryVars)) {
+      $requestUrl .= '?' . implode($queryVars, '&');
+    }
+
+    return $requestUrl;
   }
 }
