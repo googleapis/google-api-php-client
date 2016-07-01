@@ -123,7 +123,7 @@ class Google_Http_REST
     $body = self::decodeBody($response, $request);
 
     if ($expectedClass = self::determineExpectedClass($expectedClass, $request)) {
-      $json = json_decode($body, true);
+      $json = json_decode(preg_replace('/\\\u([0-9a-z]{4})/', '&#x$1;', $body), true);
 
       return new $expectedClass($json);
     }
