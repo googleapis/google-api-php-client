@@ -83,27 +83,37 @@ foreach ($results as $item) {
 
 > An example of this can be seen in [`examples/simple-file-upload.php`](examples/simple-file-upload.php).
 
-**NOTE:** If you are using Google App Engine or Google Compute Engine, you can skip steps 1-3, as Application Default Credentials are included automatically when `useApplicationDefaultCredentials` is called.
-
 1. Follow the instructions to [Create Web Application Credentials](https://developers.google.com/api-client-library/php/auth/web-app#creatingcred)
 1. Download the JSON credentials
-1. Set the path to these credentials using the `GOOGLE_APPLICATION_CREDENTIALS` environment variable:
-
-    ```php
-    putenv('GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json');
-    ```
-
-1. Tell the Google client to use your service account credentials to authenticate:
+1. Set the path to these credentials using `Google_Client::setAuthConfig`:
 
     ```php
     $client = new Google_Client();
-    $client->useApplicationDefaultCredentials();
+    $client->setAuthConfig('/path/to/client_credentials.json');
     ```
 
-1. If you have delegated domain-wide access to the service account and you want to impersonate a user account, specify the email address of the user account using the method setSubject:
+1. Set the scopes required for the API you are going to call
 
     ```php
-    $   client->setSubject($user_to_impersonate);
+    $client->addScope(Google_Service_Drive::DRIVE);
+    ```
+
+1. Set your application's redirect URI
+
+    ```php
+    // Your redirect URI can be any registered URI, but in this example
+    // we redirect back to this same page
+    $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+    $client->setRedirectUri($redirect_uri);
+    ```
+
+1. In the script handling the redirect URI, exchange the authorization code for an access token:
+
+    ```php
+    if (isset($_GET['code'])) {
+        $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+        $client->setAccessToken($token);
+    }
     ```
 
 ### Authentication with Service Accounts ###
@@ -189,7 +199,7 @@ $request = new Google_Service_Datastore_RunQueryRequest(['query' => $query]);
 $response = $datastore->projects->runQuery('YOUR_DATASET_ID', $request);
 ```
 
-However, as each property of the JSON API has a corresponding generated class, the above code could also be written lile this:
+However, as each property of the JSON API has a corresponding generated class, the above code could also be written like this:
 
 ```php
 // create the datastore service class
