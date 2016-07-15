@@ -30,11 +30,11 @@ class Google_AccessToken_RevokeTest extends BaseTest
     $token = '';
 
     $response = $this->getMock('Psr\Http\Message\ResponseInterface');
-    $response->expects($this->exactly(2))
+    $response->expects($this->exactly(3))
       ->method('getStatusCode')
       ->will($this->returnValue(200));
     $http = $this->getMock('GuzzleHttp\ClientInterface');
-    $http->expects($this->exactly(2))
+    $http->expects($this->exactly(3))
       ->method('send')
       ->will($this->returnCallback(
             function ($request) use (&$token, $response) {
@@ -49,13 +49,13 @@ class Google_AccessToken_RevokeTest extends BaseTest
     if ($this->isGuzzle5()) {
       $requestToken = null;
       $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
-      $request->expects($this->exactly(2))
+      $request->expects($this->exactly(3))
           ->method('getBody')
           ->will($this->returnCallback(
               function () use (&$requestToken) {
                 return 'token='.$requestToken;
               }));
-      $http->expects($this->exactly(2))
+      $http->expects($this->exactly(3))
         ->method('createRequest')
         ->will($this->returnCallback(
               function ($method, $url, $params) use (&$requestToken, $request) {
@@ -88,19 +88,11 @@ class Google_AccessToken_RevokeTest extends BaseTest
     );
     $this->assertTrue($revoke->revokeToken($t));
     $this->assertEquals($refreshToken, $token);
-  }
 
-  public function testInvalidStringToken()
-  {
-    $phpVersion = phpversion();
-    if ('7' === $phpVersion[0]) {
-      // primitive type hints actually throw exceptions in PHP7
-      $this->setExpectedException('TypeError');
-    } else {
-      $this->setExpectedException('PHPUnit_Framework_Error');
-    }
-    // Test with string token
-    $revoke = new Google_AccessToken_Revoke();
-    $revoke->revokeToken('ACCESS_TOKEN');
+    // Test with token string.
+    $revoke = new Google_AccessToken_Revoke($http);
+    $t = $accessToken;
+    $this->assertTrue($revoke->revokeToken($t));
+    $this->assertEquals($accessToken, $token);
   }
 }
