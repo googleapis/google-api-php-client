@@ -175,7 +175,7 @@ $client->getAuth()
 **After**
 
 ```php
-$client->useDefaultApplicationCredentials();
+$client->useApplicationDefaultCredentials();
 $client->addScope('https://www.googleapis.com/auth/sqlservice.admin');
 ```
 
