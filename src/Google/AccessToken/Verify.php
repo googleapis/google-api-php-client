@@ -22,6 +22,7 @@ use GuzzleHttp\ClientInterface;
 use phpseclib\Crypt\RSA;
 use phpseclib\Math\BigInteger;
 use Psr\Cache\CacheItemPoolInterface;
+use Google\Auth\Cache\MemoryCacheItemPool;
 use Stash\Driver\FileSystem;
 use Stash\Pool;
 
@@ -55,8 +56,12 @@ class Google_AccessToken_Verify
       $http = new Client();
     }
 
-    if (is_null($cache) && class_exists('Stash\Pool')) {
-      $cache = new Pool(new FileSystem);
+    if (is_null($cache)) {
+      if (class_exists('Stash\Pool')) {
+        $cache = new Pool(new FileSystem);
+      } else {
+        $cache = new MemoryCacheItemPool;
+      }
     }
 
     $this->http = $http;

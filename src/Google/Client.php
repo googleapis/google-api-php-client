@@ -16,6 +16,7 @@
  */
 
 use Google\Auth\ApplicationDefaultCredentials;
+use Google\Auth\Cache\MemoryCacheItemPool;
 use Google\Auth\CredentialsLoader;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\OAuth2;
@@ -950,6 +951,10 @@ class Google_Client
    */
   public function getCache()
   {
+    if (!$this->cache) {
+      $this->cache = $this->createDefaultCache();
+    }
+
     return $this->cache;
   }
 
@@ -988,6 +993,18 @@ class Google_Client
     $logger->pushHandler(new MonologStreamHandler('php://stderr', Logger::NOTICE));
 
     return $logger;
+  }
+
+  protected function createDefaultCache()
+  {
+    // use filesystem cache by default if tedivm/stash exists
+    if (class_exists('Stash\Pool')) {
+      $cache = new Stash\Pool(new Stash\Driver\FileSystem);
+    } else {
+      $cache = new MemoryCacheItemPool;
+    }
+
+    return $cache;
   }
 
   /**
