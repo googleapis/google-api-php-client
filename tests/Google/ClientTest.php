@@ -243,6 +243,26 @@ class Google_ClientTest extends BaseTest
     $this->assertInstanceOf('Google_Model', $dr_service->files->listFiles());
   }
 
+  public function testDefaultLogger()
+  {
+    $client = new Google_Client();
+    $logger = $client->getLogger();
+    $this->assertInstanceOf('Monolog\Logger', $logger);
+    $handler = $logger->popHandler();
+    $this->assertInstanceOf('Monolog\Handler\StreamHandler', $handler);
+  }
+
+  public function testDefaultLoggerAppEngine()
+  {
+    $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
+    $client = new Google_Client();
+    $logger = $client->getLogger();
+    $this->assertInstanceOf('Monolog\Logger', $logger);
+    $handler = $logger->popHandler();
+    $this->assertInstanceOf('Monolog\Handler\SyslogHandler', $handler);
+    unset($_SERVER['SERVER_SOFTWARE']);
+  }
+
   public function testSettersGetters()
   {
     $client = new Google_Client();
