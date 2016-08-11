@@ -2,6 +2,7 @@
 
 use Google\Auth\CredentialsLoader;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
+use Google\Auth\FetchAuthTokenCache;
 use Google\Auth\Subscriber\AuthTokenSubscriber;
 use Google\Auth\Subscriber\ScopedAccessTokenSubscriber;
 use Google\Auth\Subscriber\SimpleSubscriber;
@@ -28,6 +29,14 @@ class Google_AuthHandler_Guzzle5AuthHandler
       CredentialsLoader $credentials,
       callable $tokenCallback = null
   ) {
+    // use the provided cache
+    if ($this->cache) {
+      $credentials = new FetchAuthTokenCache(
+        $credentials,
+        $this->cacheConfig,
+        $this->cache
+      );
+    }
     // if we end up needing to make an HTTP request to retrieve credentials, we
     // can use our existing one, but we need to throw exceptions so the error
     // bubbles up.
@@ -35,8 +44,6 @@ class Google_AuthHandler_Guzzle5AuthHandler
     $authHttpHandler = HttpHandlerFactory::build($authHttp);
     $subscriber = new AuthTokenSubscriber(
         $credentials,
-        $this->cacheConfig,
-        $this->cache,
         $authHttpHandler,
         $tokenCallback
     );
@@ -56,7 +63,7 @@ class Google_AuthHandler_Guzzle5AuthHandler
     $subscriber = new ScopedAccessTokenSubscriber(
         $tokenFunc,
         $scopes,
-        [],
+        $this->cacheConfig,
         $this->cache
     );
 
