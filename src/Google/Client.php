@@ -66,7 +66,7 @@ class Google_Client
   private $token;
 
   /**
-   * @var Google_Config $config
+   * @var array $config
    */
   private $config;
 
@@ -87,9 +87,9 @@ class Google_Client
   /**
    * Construct the Google Client.
    *
-   * @param $config Google_Config or string for the ini file to load
+   * @param array $config
    */
-  public function __construct($config = array())
+  public function __construct(array $config = array())
   {
     $this->config = array_merge(
         [
