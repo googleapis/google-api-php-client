@@ -32,9 +32,9 @@ class Google_AuthHandler_Guzzle6AuthHandler
     // use the provided cache
     if ($this->cache) {
       $credentials = new FetchAuthTokenCache(
-        $credentials,
-        $this->cacheConfig,
-        $this->cache
+          $credentials,
+          $this->cacheConfig,
+          $this->cache
       );
     }
     // if we end up needing to make an HTTP request to retrieve credentials, we
