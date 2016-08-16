@@ -31,6 +31,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Log\LoggerInterface;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler as MonologStreamHandler;
+use Monolog\Handler\SyslogHandler as MonologSyslogHandler;
 
 /**
  * The Google API Client
@@ -990,7 +991,12 @@ class Google_Client
   protected function createDefaultLogger()
   {
     $logger = new Logger('google-api-php-client');
-    $logger->pushHandler(new MonologStreamHandler('php://stderr', Logger::NOTICE));
+    if ($this->isAppEngine()) {
+      $handler = new MonologSyslogHandler('app', LOG_USER, Logger::NOTICE);
+    } else {
+      $handler = new MonologStreamHandler('php://stderr', Logger::NOTICE);
+    }
+    $logger->pushHandler($handler);
 
     return $logger;
   }
