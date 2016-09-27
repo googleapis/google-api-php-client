@@ -182,7 +182,7 @@ class Google_Service_Gmail extends Google_Service
                 'q' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),                
+                )
               ),
             ),'send' => array(
               'path' => '{userId}/drafts/send',
