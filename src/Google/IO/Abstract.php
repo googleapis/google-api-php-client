@@ -267,7 +267,7 @@ abstract class Google_IO_Abstract
         // Subtract the proxy header size unless the cURL bug prior to 7.30.0
         // is present which prevented the proxy header size from being taken into
         // account.
-        if (!$this->needsQuirk()) {
+        if ($this->needsQuirk()) {
           $headerSize -= strlen($established_header);
         }
         break;
