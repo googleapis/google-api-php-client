@@ -23,7 +23,7 @@
         "cache/filesystem-adapter": "^0.3.2"
     },
     "suggest": {
-        "phpfastcache/phpfastcache": "For caching certs and tokens (using Google_Client::setCache)"
+        "cache/filesystem-adapter": "For caching certs and tokens (using Google_Client::setCache)"
     },
     "autoload": {
         "psr-0": {
