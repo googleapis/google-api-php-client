@@ -46,6 +46,7 @@ class Google_CacheTest extends BaseTest
 
   public function testFileCache()
   {
+    $this->onlyPhp55AndAbove();
     $this->checkServiceAccountCredentials();
 
     $client = new Google_Client();
