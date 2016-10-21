@@ -17,9 +17,9 @@
 
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\DomCrawler\Crawler;
-use phpFastCache\CacheManager;
-// use Stash\Driver\FileSystem;
-// use Stash\Pool;
+use League\Flysystem\Adapter\Local;
+use League\Flysystem\Filesystem;
+use Cache\Adapter\Filesystem\FilesystemCachePool;
 
 class BaseTest extends PHPUnit_Framework_TestCase
 {
@@ -27,7 +27,6 @@ class BaseTest extends PHPUnit_Framework_TestCase
   private $client;
   private $memcacheHost;
   private $memcachePort;
-  private static $cache;
   protected $testDir = __DIR__;
 
   public function getClient()
@@ -41,14 +40,11 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
   public function getCache($path = null)
   {
-    $path = $path ?: sys_get_temp_dir().'/google-api-php-client-tests';
-    if (self::$cache) {
-      $config = self::$cache->getConfig();
-      if ($config['path'] == $path) {
-        return self::$cache;
-      }
-    }
-    return self::$cache = CacheManager::Files(['path' => $path]);
+    $path = $path ?: sys_get_temp_dir().'/google-api-php-client-tests/';
+    $filesystemAdapter = new Local($path);
+    $filesystem        = new Filesystem($filesystemAdapter);
+
+    return new FilesystemCachePool($filesystem);
   }
 
   private function createClient()
