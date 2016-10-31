@@ -80,15 +80,7 @@ class Google_Service_Resource
   public function call($name, $arguments, $expectedClass = null)
   {
     if (! isset($this->methods[$name])) {
-      $this->client->getLogger()->error(
-          'Service method unknown',
-          array(
-              'service' => $this->serviceName,
-              'resource' => $this->resourceName,
-              'method' => $name
-          )
-      );
-
+      $this->logServiceError('Service method unknown', $name);
       throw new Google_Exception(
           "Unknown function: " .
           "{$this->serviceName}->{$this->resourceName}->{$name}()"
@@ -135,15 +127,7 @@ class Google_Service_Resource
 
     foreach ($parameters as $key => $val) {
       if ($key != 'postBody' && ! isset($method['parameters'][$key])) {
-        $this->client->getLogger()->error(
-            'Service parameter unknown',
-            array(
-                'service' => $this->serviceName,
-                'resource' => $this->resourceName,
-                'method' => $name,
-                'parameter' => $key
-            )
-        );
+        $this->logServiceError('Service parameter unknown', $name, $key);        
         throw new Google_Exception("($name) unknown parameter: '$key'");
       }
     }
@@ -153,15 +137,7 @@ class Google_Service_Resource
           $paramSpec['required'] &&
           ! isset($parameters[$paramName])
       ) {
-        $this->client->getLogger()->error(
-            'Service parameter missing',
-            array(
-                'service' => $this->serviceName,
-                'resource' => $this->resourceName,
-                'method' => $name,
-                'parameter' => $paramName
-            )
-        );
+		$this->logServiceError('Service parameter missing', $name, $paramName);
         throw new Google_Exception("($name) missing required param: '$paramName'");
       }
       if (isset($parameters[$paramName])) {
@@ -174,16 +150,8 @@ class Google_Service_Resource
         unset($parameters[$paramName]);
       }
     }
-
-    $this->client->getLogger()->info(
-        'Service Call',
-        array(
-            'service' => $this->serviceName,
-            'resource' => $this->resourceName,
-            'method' => $name,
-            'arguments' => $parameters,
-        )
-    );
+    
+	$this->logServiceInfo('Service Call', $name, $paramName);
 
     // build the service uri
     $url = $this->createRequestUri(
@@ -232,6 +200,37 @@ class Google_Service_Resource
     return $this->client->execute($request, $expectedClass);
   }
 
+  private function logServiceError($txt, $name, $parameter=null)
+  {
+    $array = array(
+        'service' => $this->serviceName,
+        'resource' => $this->resourceName,
+        'method' => $name,
+        'parameter' => $parameter
+    );
+    if($parameter){
+        $array['parameter'] = $parameter;
+    }
+    $this->client->getLogger()->error(
+        $txt,
+        $array
+    ); 
+  }
+  
+  private function logServiceInfo($txt, $name, $parameters)
+  {
+    $array  = array(
+            'service' => $this->serviceName,
+            'resource' => $this->resourceName,
+            'method' => $name,
+            'arguments' => $parameters,
+        );
+    $this->client->getLogger()->info(
+        $txt,
+        $array
+    );
+  }
+  
   protected function convertToArrayAndStripNulls($o)
   {
     $o = (array) $o;

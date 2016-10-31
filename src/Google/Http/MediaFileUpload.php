@@ -289,7 +289,6 @@ class Google_Http_MediaFileUpload
 
   private function fetchResumeUri()
   {
-    $result = null;
     $body = $this->request->getBody();
     if ($body) {
       $headers = array(
