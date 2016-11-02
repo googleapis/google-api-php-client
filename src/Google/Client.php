@@ -1003,14 +1003,7 @@ class Google_Client
 
   protected function createDefaultCache()
   {
-    // use filesystem cache by default if tedivm/stash exists
-    if (class_exists('Stash\Pool')) {
-      $cache = new Stash\Pool(new Stash\Driver\FileSystem);
-    } else {
-      $cache = new MemoryCacheItemPool;
-    }
-
-    return $cache;
+    return new MemoryCacheItemPool;
   }
 
   /**

@@ -527,6 +527,7 @@ class Google_ClientTest extends BaseTest
 
   public function testTokenCallback()
   {
+    $this->onlyPhp55AndAbove();
     $this->checkToken();
 
     $client = $this->getClient();

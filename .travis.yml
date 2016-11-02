@@ -34,6 +34,7 @@ before_install:
   - composer self-update
 
 install:
+  - if [[ "$TRAVIS_PHP_VERSION" == "5.4" ]]; then composer remove --dev cache/filesystem-adapter; fi
   - composer install
   - composer require guzzlehttp/guzzle:$GUZZLE_VERSION
 

@@ -57,11 +57,7 @@ class Google_AccessToken_Verify
     }
 
     if (is_null($cache)) {
-      if (class_exists('Stash\Pool')) {
-        $cache = new Pool(new FileSystem);
-      } else {
-        $cache = new MemoryCacheItemPool;
-      }
+      $cache = new MemoryCacheItemPool;
     }
 
     $this->http = $http;

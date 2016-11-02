@@ -17,8 +17,9 @@
 
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\DomCrawler\Crawler;
-use Stash\Driver\FileSystem;
-use Stash\Pool;
+use League\Flysystem\Adapter\Local;
+use League\Flysystem\Filesystem;
+use Cache\Adapter\Filesystem\FilesystemCachePool;
 
 class BaseTest extends PHPUnit_Framework_TestCase
 {
@@ -39,8 +40,11 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
   public function getCache($path = null)
   {
-    $path = $path ?: sys_get_temp_dir().'/google-api-php-client-tests';
-    return new Pool(new FileSystem(['path' => $path]));
+    $path = $path ?: sys_get_temp_dir().'/google-api-php-client-tests/';
+    $filesystemAdapter = new Local($path);
+    $filesystem        = new Filesystem($filesystemAdapter);
+
+    return new FilesystemCachePool($filesystem);
   }
 
   private function createClient()
@@ -81,7 +85,10 @@ class BaseTest extends PHPUnit_Framework_TestCase
     list($clientId, $clientSecret) = $this->getClientIdAndSecret();
     $client->setClientId($clientId);
     $client->setClientSecret($clientSecret);
-    $client->setCache($this->getCache());
+    if (version_compare(PHP_VERSION, '5.5', '>=')) {
+      $client->setCache($this->getCache());
+    }
+
 
     return $client;
   }
@@ -221,6 +228,13 @@ class BaseTest extends PHPUnit_Framework_TestCase
   {
     if (!$this->isGuzzle6()) {
       $this->markTestSkipped('Guzzle 6 only');
+    }
+  }
+
+  public function onlyPhp55AndAbove()
+  {
+    if (version_compare(PHP_VERSION, '5.5', '<')) {
+      $this->markTestSkipped('PHP 5.5 and above only');
     }
   }
 

@@ -20,10 +20,10 @@
         "squizlabs/php_codesniffer": "~2.3",
         "symfony/dom-crawler": "~2.1",
         "symfony/css-selector": "~2.1",
-        "tedivm/stash": "^0.14.1"
+        "cache/filesystem-adapter": "^0.3.2"
     },
     "suggest": {
-        "tedivm/stash": "For caching certs and tokens (using Google_Client::setCache)"
+        "cache/filesystem-adapter": "For caching certs and tokens (using Google_Client::setCache)"
     },
     "autoload": {
         "psr-0": {
