@@ -831,7 +831,7 @@ class Google_Client
    * This structure should match the file downloaded from
    * the "Download JSON" button on in the Google Developer
    * Console.
-   * @param string|array $json the configuration json
+   * @param string|array $config the configuration json
    * @throws Google_Exception
    */
   public function setAuthConfig($config)
