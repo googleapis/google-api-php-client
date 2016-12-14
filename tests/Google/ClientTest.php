@@ -499,6 +499,22 @@ class Google_ClientTest extends BaseTest
 
   /**
    * Test fetching an access token with assertion credentials
+   * populates the "created" field
+   */
+  public function testFetchAccessTokenWithAssertionAddsCreated()
+  {
+    $this->checkServiceAccountCredentials();
+
+    $client = $this->getClient();
+    $client->useApplicationDefaultCredentials();
+    $token = $client->fetchAccessTokenWithAssertion();
+
+    $this->assertNotNull($token);
+    $this->assertArrayHasKey('created', $token);
+  }
+
+  /**
+   * Test fetching an access token with assertion credentials
    * using "setAuthConfig" and "setSubject" but with user credentials
    */
   public function testBadSubjectThrowsException()
