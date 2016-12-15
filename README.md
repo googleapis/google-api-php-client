@@ -11,6 +11,9 @@ This library is in Beta. We're comfortable enough with the stability and feature
 ## Requirements ##
 * [PHP 5.4.0 or higher](http://www.php.net/)
 
+## Google Cloud Platform APIs
+If you're looking to call the **Google Cloud Platform** APIs, you will want to use the [Google Cloud PHP](https://github.com/googlecloudplatform/google-cloud-php) library instead of this one.
+
 ## Developer Documentation ##
 http://developers.google.com/api-client-library/php
 
