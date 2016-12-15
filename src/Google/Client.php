@@ -228,12 +228,13 @@ class Google_Client
     $credentials = $this->createApplicationDefaultCredentials();
 
     $httpHandler = HttpHandlerFactory::build($authHttp);
-    $accessToken = $credentials->fetchAuthToken($httpHandler);
-    if ($accessToken && isset($accessToken['access_token'])) {
-      $this->setAccessToken($accessToken);
+    $creds = $credentials->fetchAuthToken($httpHandler);
+    if ($creds && isset($creds['access_token'])) {
+      $creds['created'] = time();
+      $this->setAccessToken($creds);
     }
 
-    return $accessToken;
+    return $creds;
   }
 
   /**
