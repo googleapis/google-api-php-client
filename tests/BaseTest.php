@@ -25,8 +25,6 @@ class BaseTest extends PHPUnit_Framework_TestCase
 {
   private $key;
   private $client;
-  private $memcacheHost;
-  private $memcachePort;
   protected $testDir = __DIR__;
 
   public function getClient()
