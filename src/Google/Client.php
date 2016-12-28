@@ -336,10 +336,9 @@ class Google_Client
    * set in the Google API Client object
    *
    * @param GuzzleHttp\ClientInterface $http the http client object.
-   * @param GuzzleHttp\ClientInterface $authHttp an http client for authentication.
    * @return GuzzleHttp\ClientInterface the http client object
    */
-  public function authorize(ClientInterface $http = null, ClientInterface $authHttp = null)
+  public function authorize(ClientInterface $http = null)
   {
     $credentials = null;
     $token = null;
