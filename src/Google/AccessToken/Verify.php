@@ -19,8 +19,6 @@
 use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use phpseclib\Crypt\RSA;
-use phpseclib\Math\BigInteger;
 use Psr\Cache\CacheItemPoolInterface;
 use Google\Auth\Cache\MemoryCacheItemPool;
 use Stash\Driver\FileSystem;
@@ -86,10 +84,12 @@ class Google_AccessToken_Verify
     // Check signature
     $certs = $this->getFederatedSignOnCerts();
     foreach ($certs as $cert) {
-      $modulus = new BigInteger($this->jwt->urlsafeB64Decode($cert['n']), 256);
-      $exponent = new BigInteger($this->jwt->urlsafeB64Decode($cert['e']), 256);
+      $bigIntClass = $this->getBigIntClass();
+      $rsaClass = $this->getRsaClass();
+      $modulus = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['n']), 256);
+      $exponent = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['e']), 256);
 
-      $rsa = new RSA();
+      $rsa = new $rsaClass();
       $rsa->loadKey(array('n' => $modulus, 'e' => $exponent));
 
       try {
@@ -213,6 +213,37 @@ class Google_AccessToken_Verify
     return new $jwtClass;
   }
 
+  private function getRsaClass()
+  {
+    if (class_exists('phpseclib\Crypt\RSA')) {
+      return 'phpseclib\Crypt\RSA';
+    }
+
+    return 'Crypt_RSA';
+  }
+
+  private function getBigIntClass()
+  {
+    if (class_exists('phpseclib\Math\BigInteger')) {
+      return 'phpseclib\Math\BigInteger';
+    }
+
+    return 'Math_BigInteger';
+  }
+
+  private function getOpenSslConstant()
+  {
+    if (class_exists('phpseclib\Crypt\RSA')) {
+      return 'phpseclib\Crypt\RSA::MODE_OPENSSL';
+    }
+
+    if (class_exists('Crypt_RSA')) {
+      return 'CRYPT_RSA_MODE_OPENSSL';
+    }
+
+    throw new \Exception('Cannot find RSA class');
+  }
+
   /**
    * phpseclib calls "phpinfo" by default, which requires special
    * whitelisting in the AppEngine VM environment. This function
@@ -228,7 +259,7 @@ class Google_AccessToken_Verify
         define('MATH_BIGINTEGER_OPENSSL_ENABLED', true);
       }
       if (!defined('CRYPT_RSA_MODE')) {
-        define('CRYPT_RSA_MODE', RSA::MODE_OPENSSL);
+        define('CRYPT_RSA_MODE', constant($this->getOpenSslConstant()));
       }
     }
   }
