@@ -8,8 +8,8 @@ env:
     - MEMCACHE_HOST=127.0.0.1
     - MEMCACHE_PORT=11211
   matrix:
-    - GUZZLE_VERSION=~5.2
-    - GUZZLE_VERSION=~6.0
+    - COMPOSER_CMD="composer install"
+    - COMPOSER_CMD="composer update --prefer-lowest"
 
 sudo: false
 
@@ -35,8 +35,7 @@ before_install:
 
 install:
   - if [[ "$TRAVIS_PHP_VERSION" == "5.4" ]]; then composer remove --dev cache/filesystem-adapter; fi
-  - composer install
-  - composer require guzzlehttp/guzzle:$GUZZLE_VERSION
+  - $(echo $COMPOSER_CMD)
 
 before_script:
   - phpenv version-name | grep ^5.[34] && echo "extension=apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ; true
