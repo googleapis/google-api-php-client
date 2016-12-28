@@ -7,9 +7,7 @@ env:
   global:
     - MEMCACHE_HOST=127.0.0.1
     - MEMCACHE_PORT=11211
-  matrix:
-    - GUZZLE_VERSION=~5.2
-    - GUZZLE_VERSION=~6.0
+    - COMPOSER_CMD="composer install"
 
 sudo: false
 
@@ -22,21 +20,21 @@ php:
   - 5.5
   - 5.6
   - 7.0
-  - hhvm
+  - 7.1
 
-# Guzzle 6.0 is not compatible with PHP 5.4
+# Test lowest dependencies on PHP 5.4
+# (Guzzle 5.2, phpseclib 0.3)
 matrix:
-  exclude:
+  include:
     - php: 5.4
-      env: GUZZLE_VERSION=~6.0
+      env: COMPOSER_CMD="composer update --prefer-lowest" RUN_PHP_CS=true
 
 before_install:
   - composer self-update
 
 install:
   - if [[ "$TRAVIS_PHP_VERSION" == "5.4" ]]; then composer remove --dev cache/filesystem-adapter; fi
-  - composer install
-  - composer require guzzlehttp/guzzle:$GUZZLE_VERSION
+  - $(echo $COMPOSER_CMD)
 
 before_script:
   - phpenv version-name | grep ^5.[34] && echo "extension=apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ; true
@@ -44,5 +42,5 @@ before_script:
 
 script:
   - vendor/bin/phpunit
-  - if [[ "$TRAVIS_PHP_VERSION" == "5.4" ]]; then vendor/bin/phpcs src --standard=style/ruleset.xml -np; fi
+  - if [[ "$RUN_PHP_CS" == "true" ]]; then vendor/bin/phpcs src --standard=style/ruleset.xml -np; fi
 

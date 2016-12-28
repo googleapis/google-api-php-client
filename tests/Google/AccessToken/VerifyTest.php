@@ -47,7 +47,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
     $openSslEnable = constant('MATH_BIGINTEGER_OPENSSL_ENABLED');
     $rsaMode = constant('CRYPT_RSA_MODE');
     $this->assertEquals(true, $openSslEnable);
-    $this->assertEquals(phpseclib\Crypt\RSA::MODE_OPENSSL, $rsaMode);
+    $this->assertEquals(constant($this->getOpenSslConstant()), $rsaMode);
   }
 
   /**
@@ -110,5 +110,16 @@ class Google_AccessToken_VerifyTest extends BaseTest
     }
 
     return new \JWT;
+  }
+
+  private function getOpenSslConstant()
+  {
+    if (class_exists('phpseclib\Crypt\RSA')) {
+      return 'phpseclib\Crypt\RSA::MODE_OPENSSL';
+    }
+
+    if (class_exists('Crypt_RSA')) {
+      return 'CRYPT_RSA_MODE_OPENSSL';
+    }
   }
 }
