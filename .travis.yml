@@ -7,9 +7,7 @@ env:
   global:
     - MEMCACHE_HOST=127.0.0.1
     - MEMCACHE_PORT=11211
-  matrix:
     - COMPOSER_CMD="composer install"
-    - COMPOSER_CMD="composer update --prefer-lowest"
 
 sudo: false
 
@@ -24,11 +22,12 @@ php:
   - 7.0
   - hhvm
 
-# Guzzle 6.0 is not compatible with PHP 5.4
+# Test lowest dependencies on PHP 5.4
+# (Guzzle 5.2, phpseclib 0.3)
 matrix:
-  exclude:
+  include:
     - php: 5.4
-      env: GUZZLE_VERSION=~6.0
+      env: COMPOSER_CMD="composer update --prefer-lowest"
 
 before_install:
   - composer self-update
