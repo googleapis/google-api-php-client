@@ -462,7 +462,82 @@ class Google_ClientTest extends BaseTest
     $client->setHttpClient($http);
     $client->fetchAccessTokenWithRefreshToken("REFRESH_TOKEN");
     $token = $client->getAccessToken();
-    $this->assertEquals($token['id_token'], "ID_TOKEN");
+    $this->assertEquals("ID_TOKEN", $token['id_token']);
+  }
+
+  /**
+   * Test that the Refresh Token is set when refreshed.
+   */
+  public function testRefreshTokenIsSetOnRefresh()
+  {
+    $refreshToken = 'REFRESH_TOKEN';
+    $token = json_encode(array(
+        'access_token' => 'xyz',
+        'id_token' => 'ID_TOKEN',
+    ));
+    $postBody = $this->getMock('Psr\Http\Message\StreamInterface');
+    $postBody->expects($this->once())
+      ->method('__toString')
+      ->will($this->returnValue($token));
+    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+    $response->expects($this->once())
+      ->method('getBody')
+      ->will($this->returnValue($postBody));
+    $http = $this->getMock('GuzzleHttp\ClientInterface');
+    $http->expects($this->once())
+      ->method('send')
+      ->will($this->returnValue($response));
+
+    if ($this->isGuzzle5()) {
+      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
+      $http->expects($this->once())
+        ->method('createRequest')
+        ->will($this->returnValue($guzzle5Request));
+    }
+
+    $client = $this->getClient();
+    $client->setHttpClient($http);
+    $client->fetchAccessTokenWithRefreshToken($refreshToken);
+    $token = $client->getAccessToken();
+    $this->assertEquals($refreshToken, $token['refresh_token']);
+  }
+
+  /**
+   * Test that the Refresh Token is not set when a new refresh token is returned.
+   */
+  public function testRefreshTokenIsNotSetWhenNewRefreshTokenIsReturned()
+  {
+    $refreshToken = 'REFRESH_TOKEN';
+    $token = json_encode(array(
+        'access_token' => 'xyz',
+        'id_token' => 'ID_TOKEN',
+        'refresh_token' => 'NEW_REFRESH_TOKEN'
+    ));
+    $postBody = $this->getMock('Psr\Http\Message\StreamInterface');
+    $postBody->expects($this->once())
+      ->method('__toString')
+      ->will($this->returnValue($token));
+    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+    $response->expects($this->once())
+      ->method('getBody')
+      ->will($this->returnValue($postBody));
+    $http = $this->getMock('GuzzleHttp\ClientInterface');
+    $http->expects($this->once())
+      ->method('send')
+      ->will($this->returnValue($response));
+
+    if ($this->isGuzzle5()) {
+      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
+      $http->expects($this->once())
+        ->method('createRequest')
+        ->will($this->returnValue($guzzle5Request));
+    }
+
+    $client = $this->getClient();
+    $client->setHttpClient($http);
+    $client->fetchAccessTokenWithRefreshToken($refreshToken);
+    $token = $client->getAccessToken();
+    $this->assertEquals('NEW_REFRESH_TOKEN', $token['refresh_token']);
   }
 
   /**
