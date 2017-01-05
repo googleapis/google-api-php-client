@@ -6,7 +6,7 @@
     "homepage": "http://developers.google.com/api-client-library/php",
     "license": "Apache-2.0",
     "require": {
-        "php": ">=5.4",
+        "php": ">=5.6",
         "google/auth": "^0.11",
         "google/apiclient-services": "^0.8",
         "firebase/php-jwt": "~2.0|~3.0|~4.0",
@@ -16,7 +16,7 @@
         "guzzlehttp/psr7": "^1.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4",
+        "phpunit/phpunit": "^5.7",
         "squizlabs/php_codesniffer": "~2.3",
         "symfony/dom-crawler": "~2.1",
         "symfony/css-selector": "~2.1",
