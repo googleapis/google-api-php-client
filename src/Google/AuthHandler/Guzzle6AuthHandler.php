@@ -2,6 +2,7 @@
 
 use Google\Auth\CredentialsLoader;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
+use Google\Auth\FetchAuthTokenCache;
 use Google\Auth\Middleware\AuthTokenMiddleware;
 use Google\Auth\Middleware\ScopedAccessTokenMiddleware;
 use Google\Auth\Middleware\SimpleMiddleware;
@@ -28,6 +29,14 @@ class Google_AuthHandler_Guzzle6AuthHandler
       CredentialsLoader $credentials,
       callable $tokenCallback = null
   ) {
+    // use the provided cache
+    if ($this->cache) {
+      $credentials = new FetchAuthTokenCache(
+          $credentials,
+          $this->cacheConfig,
+          $this->cache
+      );
+    }
     // if we end up needing to make an HTTP request to retrieve credentials, we
     // can use our existing one, but we need to throw exceptions so the error
     // bubbles up.
@@ -35,8 +44,6 @@ class Google_AuthHandler_Guzzle6AuthHandler
     $authHttpHandler = HttpHandlerFactory::build($authHttp);
     $middleware = new AuthTokenMiddleware(
         $credentials,
-        $this->cacheConfig,
-        $this->cache,
         $authHttpHandler,
         $tokenCallback
     );
@@ -59,7 +66,7 @@ class Google_AuthHandler_Guzzle6AuthHandler
     $middleware = new ScopedAccessTokenMiddleware(
         $tokenFunc,
         $scopes,
-        [],
+        $this->cacheConfig,
         $this->cache
     );
 

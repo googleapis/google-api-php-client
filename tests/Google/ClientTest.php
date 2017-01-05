@@ -90,7 +90,13 @@ class Google_ClientTest extends BaseTest
     $class = new ReflectionClass(get_class($auth));
     $property = $class->getProperty('fetcher');
     $property->setAccessible(true);
-    $fetcher = $property->getValue($auth);
+    $cacheFetcher = $property->getValue($auth);
+    $this->assertInstanceOf('Google\Auth\FetchAuthTokenCache', $cacheFetcher);
+
+    $class = new ReflectionClass(get_class($cacheFetcher));
+    $property = $class->getProperty('fetcher');
+    $property->setAccessible(true);
+    $fetcher = $property->getValue($cacheFetcher);
     $this->assertInstanceOf($fetcherClass, $fetcher);
 
     if ($sub) {
@@ -241,6 +247,27 @@ class Google_ClientTest extends BaseTest
     $client->setHttpClient($http);
     $dr_service = new Google_Service_Drive($client);
     $this->assertInstanceOf('Google_Model', $dr_service->files->listFiles());
+  }
+
+  public function testDefaultLogger()
+  {
+    $client = new Google_Client();
+    $logger = $client->getLogger();
+    $this->assertInstanceOf('Monolog\Logger', $logger);
+    $handler = $logger->popHandler();
+    $this->assertInstanceOf('Monolog\Handler\StreamHandler', $handler);
+  }
+
+  public function testDefaultLoggerAppEngine()
+  {
+    $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
+    $client = new Google_Client();
+    $logger = $client->getLogger();
+    $handler = $logger->popHandler();
+    unset($_SERVER['SERVER_SOFTWARE']);
+
+    $this->assertInstanceOf('Monolog\Logger', $logger);
+    $this->assertInstanceOf('Monolog\Handler\SyslogHandler', $handler);
   }
 
   public function testSettersGetters()
@@ -472,6 +499,22 @@ class Google_ClientTest extends BaseTest
 
   /**
    * Test fetching an access token with assertion credentials
+   * populates the "created" field
+   */
+  public function testFetchAccessTokenWithAssertionAddsCreated()
+  {
+    $this->checkServiceAccountCredentials();
+
+    $client = $this->getClient();
+    $client->useApplicationDefaultCredentials();
+    $token = $client->fetchAccessTokenWithAssertion();
+
+    $this->assertNotNull($token);
+    $this->assertArrayHasKey('created', $token);
+  }
+
+  /**
+   * Test fetching an access token with assertion credentials
    * using "setAuthConfig" and "setSubject" but with user credentials
    */
   public function testBadSubjectThrowsException()
@@ -500,6 +543,7 @@ class Google_ClientTest extends BaseTest
 
   public function testTokenCallback()
   {
+    $this->onlyPhp55AndAbove();
     $this->checkToken();
 
     $client = $this->getClient();
