@@ -272,6 +272,9 @@ class Google_Client
     $creds = $auth->fetchAuthToken($httpHandler);
     if ($creds && isset($creds['access_token'])) {
       $creds['created'] = time();
+      if (!isset($creds['refresh_token'])) {
+        $creds['refresh_token'] = $refreshToken;
+      }
       $this->setAccessToken($creds);
     }
 
