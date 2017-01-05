@@ -29,11 +29,11 @@ class Google_AccessToken_RevokeTest extends BaseTest
     $refreshToken = 'REFRESH_TOKEN';
     $token = '';
 
-    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+    $response = $this->createMock('Psr\Http\Message\ResponseInterface');
     $response->expects($this->exactly(3))
       ->method('getStatusCode')
       ->will($this->returnValue(200));
-    $http = $this->getMock('GuzzleHttp\ClientInterface');
+    $http = $this->createMock('GuzzleHttp\ClientInterface');
     $http->expects($this->exactly(3))
       ->method('send')
       ->will($this->returnCallback(
@@ -48,7 +48,7 @@ class Google_AccessToken_RevokeTest extends BaseTest
     // adds support for extra "createRequest" step (required for Guzzle 5)
     if ($this->isGuzzle5()) {
       $requestToken = null;
-      $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
+      $request = $this->createMock('GuzzleHttp\Message\RequestInterface');
       $request->expects($this->exactly(3))
           ->method('getBody')
           ->will($this->returnCallback(

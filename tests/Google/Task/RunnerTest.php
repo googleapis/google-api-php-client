@@ -626,7 +626,7 @@ class Google_Task_RunnerTest extends BaseTest
   private function makeRequest()
   {
     $request = new Request('GET', '/test');
-    $http = $this->getMock('GuzzleHttp\ClientInterface');
+    $http = $this->createMock('GuzzleHttp\ClientInterface');
     $http->expects($this->exactly($this->mockedCallsCount))
        ->method('send')
        ->will($this->returnCallback(array($this, 'getNextMockedCall')));

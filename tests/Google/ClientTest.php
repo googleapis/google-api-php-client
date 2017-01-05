@@ -227,11 +227,11 @@ class Google_ClientTest extends BaseTest
         $client->createAuthUrl()
     );
 
-    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+    $response = $this->createMock('Psr\Http\Message\ResponseInterface');
     $response->expects($this->once())
       ->method('getBody')
-      ->will($this->returnValue($this->getMock('Psr\Http\Message\StreamInterface')));
-    $http = $this->getMock('GuzzleHttp\ClientInterface');
+      ->will($this->returnValue($this->createMock('Psr\Http\Message\StreamInterface')));
+    $http = $this->createMock('GuzzleHttp\ClientInterface');
     $http->expects($this->once())
       ->method('send')
       ->will($this->returnValue($response));
@@ -281,7 +281,7 @@ class Google_ClientTest extends BaseTest
 
     $client->setRedirectUri('localhost');
     $client->setConfig('application_name', 'me');
-    $client->setCache($this->getMock('Psr\Cache\CacheItemPoolInterface'));
+    $client->setCache($this->createMock('Psr\Cache\CacheItemPoolInterface'));
     $this->assertEquals('object', gettype($client->getCache()));
 
     try {
@@ -438,15 +438,15 @@ class Google_ClientTest extends BaseTest
         'access_token' => 'xyz',
         'id_token' => 'ID_TOKEN',
     ));
-    $postBody = $this->getMock('Psr\Http\Message\StreamInterface');
+    $postBody = $this->createMock('Psr\Http\Message\StreamInterface');
     $postBody->expects($this->once())
       ->method('__toString')
       ->will($this->returnValue($token));
-    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+    $response = $this->createMock('Psr\Http\Message\ResponseInterface');
     $response->expects($this->once())
       ->method('getBody')
       ->will($this->returnValue($postBody));
-    $http = $this->getMock('GuzzleHttp\ClientInterface');
+    $http = $this->createMock('GuzzleHttp\ClientInterface');
     $http->expects($this->once())
       ->method('send')
       ->will($this->returnValue($response));
