@@ -694,7 +694,7 @@ class Google_Client
     $tokenVerifier = new Google_AccessToken_Verify(
         $this->getHttpClient(),
         $this->getCache(),
-        $this->jwt
+        $this->config['jwt']
     );
 
     if (is_null($idToken)) {
