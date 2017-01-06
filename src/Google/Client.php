@@ -138,6 +138,10 @@ class Google_Client
           // function to be called when an access token is fetched
           // follows the signature function ($cacheKey, $accessToken)
           'token_callback' => null,
+
+          // Service class used in Google_Client::verifyIdToken.
+          // Explicitly pass this in to avoid setting JWT::$leeway
+          'jwt' => null,
         ],
         $config
     );
@@ -689,7 +693,8 @@ class Google_Client
   {
     $tokenVerifier = new Google_AccessToken_Verify(
         $this->getHttpClient(),
-        $this->getCache()
+        $this->getCache(),
+        $this->jwt
     );
 
     if (is_null($idToken)) {

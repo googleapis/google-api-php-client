@@ -48,8 +48,11 @@ class Google_AccessToken_Verify
    * Instantiates the class, but does not initiate the login flow, leaving it
    * to the discretion of the caller.
    */
-  public function __construct(ClientInterface $http = null, CacheItemPoolInterface $cache = null)
-  {
+  public function __construct(
+      ClientInterface $http = null,
+      CacheItemPoolInterface $cache = null,
+      $jwt = null
+  ) {
     if (is_null($http)) {
       $http = new Client();
     }
@@ -60,7 +63,7 @@ class Google_AccessToken_Verify
 
     $this->http = $http;
     $this->cache = $cache;
-    $this->jwt = $this->getJwtService();
+    $this->jwt = $jwt ?: $this->getJwtService();
   }
 
   /**

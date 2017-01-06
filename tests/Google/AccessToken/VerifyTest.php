@@ -87,6 +87,33 @@ class Google_AccessToken_VerifyTest extends BaseTest
     $this->assertTrue(strlen($payload['sub']) > 0);
   }
 
+  /**
+   * Most of the logic for ID token validation is in AuthTest -
+   * this is just a general check to ensure we verify a valid
+   * id token if one exists.
+   */
+  public function testLeewayIsUnchangedWhenPassingInJwt()
+  {
+    $this->checkToken();
+
+    $jwt = $this->getJwtService();
+    // set arbitrary leeway so we can check this later
+    $jwt::$leeway = $leeway = 1.5;
+    $client = $this->getClient();
+    $token = $client->getAccessToken();
+    if ($client->isAccessTokenExpired()) {
+      $token = $client->fetchAccessTokenWithRefreshToken();
+    }
+    $segments = explode('.', $token['id_token']);
+    $this->assertEquals(3, count($segments));
+    // Extract the client ID in this case as it wont be set on the test client.
+    $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
+    $verify = new Google_AccessToken_Verify($client->getHttpClient(), null, $jwt);
+    $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
+    // verify the leeway is set as it was
+    $this->assertEquals($leeway, $jwt::$leeway);
+  }
+
   public function testRetrieveCertsFromLocation()
   {
     $client = $this->getClient();
