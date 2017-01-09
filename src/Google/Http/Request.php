@@ -416,7 +416,7 @@ class Google_Http_Request
   {
     $str = '';
     $path = parse_url($this->getUrl(), PHP_URL_PATH) . "?" .
-        http_build_query($this->queryParams);
+        http_build_query($this->queryParams, '', '&');
     $str .= $this->getRequestMethod() . ' ' . $path . " HTTP/1.1\n";
 
     foreach ($this->getRequestHeaders() as $key => $val) {
