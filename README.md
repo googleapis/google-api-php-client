@@ -343,7 +343,7 @@ $opt_params = array(
 
 ### How do I set a field to null? ###
 
-The library strips out nulls from the objects sent to the Google APIs as its the default value of all of the uninitialised properties. To work around this, set the field you want to null to `Google_Model::NULL_VALUE`. This is a placeholder that will be replaced with a true null when sent over the wire.
+The library strips out nulls from the objects sent to the Google APIs as its the default value of all of the uninitialized properties. To work around this, set the field you want to null to `Google_Model::NULL_VALUE`. This is a placeholder that will be replaced with a true null when sent over the wire.
 
 ## Code Quality ##
 
