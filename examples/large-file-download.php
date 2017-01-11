@@ -18,7 +18,7 @@
 include_once __DIR__ . '/../vendor/autoload.php';
 include_once "templates/base.php";
 
-echo pageHeader("File Upload - Uploading a large file");
+echo pageHeader("File Download - Downloading a large file");
 
 /*************************************************
  * Ensure you've downloaded your oauth credentials
@@ -30,7 +30,7 @@ if (!$oauth_credentials = getOAuthCredentialsFile()) {
 
 /************************************************
  * The redirect URI is to the current page, e.g:
- * http://localhost:8080/large-file-upload.php
+ * http://localhost:8080/large-file-download.php
  ************************************************/
 $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 
@@ -39,11 +39,6 @@ $client->setAuthConfig($oauth_credentials);
 $client->setRedirectUri($redirect_uri);
 $client->addScope("https://www.googleapis.com/auth/drive");
 $service = new Google_Service_Drive($client);
-
-// add "?logout" to the URL to remove a token from the session
-if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['upload_token']);
-}
 
 /************************************************
  * If we have a code back from the OAuth 2.0 flow,
@@ -74,77 +69,60 @@ if (!empty($_SESSION['upload_token'])) {
 }
 
 /************************************************
- * If we're signed in then lets try to upload our
+ * If we're signed in then lets try to download our
  * file.
  ************************************************/
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
-  /************************************************
-   * We'll setup an empty 20MB file to upload.
-   ************************************************/
-  DEFINE("TESTFILE", 'testfile.txt');
-  if (!file_exists(TESTFILE)) {
-    $fh = fopen(TESTFILE, 'w');
-    fseek($fh, 1024*1024*20);
-    fwrite($fh, "!", 1);
-    fclose($fh);
+if ($client->getAccessToken()) {
+  // Check for "Big File" and include the file ID and size
+  $files = $service->files->listFiles([
+    'q' => "name='Big File'",
+    'fields' => 'files(id,size)'
+  ]);
+
+  if (count($files) == 0) {
+    echo "
+      <h3 class='warn'>
+        Before you can use this sample, you need to
+        <a href='/large-file-upload.php'>upload a large file to Drive</a>.
+      </h3>";
+    return;
   }
 
-  $file = new Google_Service_Drive_DriveFile();
-  $file->name = "Big File";
-  $chunkSizeBytes = 1 * 1024 * 1024;
+  // If this is a POST, download the file
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Determine the file's size and ID
+    $fileId = $files[0]->id;
+    $fileSize = intval($files[0]->size);
 
-  // Call the API with the media upload, defer so it doesn't immediately return.
-  $client->setDefer(true);
-  $request = $service->files->create($file);
+    // Get the authorized Guzzle HTTP client
+    $http = $client->authorize();
 
-  // Create a media file upload to represent our upload process.
-  $media = new Google_Http_MediaFileUpload(
-      $client,
-      $request,
-      'text/plain',
-      null,
-      true,
-      $chunkSizeBytes
-  );
-  $media->setFileSize(filesize(TESTFILE));
+    // Open a file for writing
+    $fp = fopen('Big File (downloaded)', 'w');
 
-  // Upload the various chunks. $status will be false until the process is
-  // complete.
-  $status = false;
-  $handle = fopen(TESTFILE, "rb");
-  while (!$status && !feof($handle)) {
-    // read until you get $chunkSizeBytes from TESTFILE
-    // fread will never return more than 8192 bytes if the stream is read buffered and it does not represent a plain file
-    // An example of a read buffered file is when reading from a URL
-    $chunk = readVideoChunk($handle, $chunkSizeBytes);
-    $status = $media->nextChunk($chunk);
-  }
+    // Download in 1 MB chunks
+    $chunkSizeBytes = 1 * 1024 * 1024;
+    $chunkStart = 0;
 
-  // The final value of $status will be the data from the API for the object
-  // that has been uploaded.
-  $result = false;
-  if ($status != false) {
-    $result = $status;
-  }
-
-  fclose($handle);
-}
-
-function readVideoChunk ($handle, $chunkSize)
-{
-    $byteCount = 0;
-    $giantChunk = "";
-    while (!feof($handle)) {
-        // fread will never return more than 8192 bytes if the stream is read buffered and it does not represent a plain file
-        $chunk = fread($handle, 8192);
-        $byteCount += strlen($chunk);
-        $giantChunk .= $chunk;
-        if ($byteCount >= $chunkSize)
-        {
-            return $giantChunk;
-        }
+    // Iterate over each chunk and write it to our file
+    while ($chunkStart < $fileSize) {
+      $chunkEnd = $chunkStart + $chunkSizeBytes;
+      $response = $http->request(
+        'GET',
+        sprintf('/drive/v3/files/%s', $fileId),
+        [
+          'query' => ['alt' => 'media'],
+          'headers' => [
+            'Range' => sprintf('bytes=%s-%s', $chunkStart, $chunkEnd)
+          ]
+        ]
+      );
+      $chunkStart = $chunkEnd + 1;
+      fwrite($fp, $response->getBody()->getContents());
     }
-    return $giantChunk;
+    // close the file pointer
+    fclose($fp);
+  }
 }
 ?>
 
@@ -155,13 +133,12 @@ function readVideoChunk ($handle, $chunkSize)
   </div>
 <?php elseif($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
   <div class="shortened">
-    <p>Your call was successful! Check your drive for this file:</p>
-    <p><a href="https://drive.google.com/open?id=<?= $result->id ?>" target="_blank"><?= $result->name ?></a></p>
-    <p>Now try <a href="/large-file-download.php">downloading a large file from Drive</a>.
+    <p>Your call was successful! Check your filesystem for the file:</p>
+    <p><code><?= __DIR__ . DIRECTORY_SEPARATOR ?>Big File (downloaded)</code></p>
   </div>
 <?php else: ?>
   <form method="POST">
-    <input type="submit" value="Click here to upload a large (20MB) test file" />
+    <input type="submit" value="Click here to download a large (20MB) test file" />
   </form>
 <?php endif ?>
 </div>
