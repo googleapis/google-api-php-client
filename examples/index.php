@@ -36,6 +36,7 @@
   <li><a href="service-account.php">A query using the service account functionality.</a></li>
   <li><a href="simple-file-upload.php">An example of a small file upload.</a></li>
   <li><a href="large-file-upload.php">An example of a large file upload.</a></li>
+  <li><a href="large-file-download.php">An example of a large file download.</a></li>
   <li><a href="idtoken.php">An example of verifying and retrieving the id token.</a></li>
   <li><a href="multi-api.php">An example of using multiple APIs.</a></li>
 </ul>

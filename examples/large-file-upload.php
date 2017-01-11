@@ -157,6 +157,7 @@ function readVideoChunk ($handle, $chunkSize)
   <div class="shortened">
     <p>Your call was successful! Check your drive for this file:</p>
     <p><a href="https://drive.google.com/open?id=<?= $result->id ?>" target="_blank"><?= $result->name ?></a></p>
+    <p>Now try <a href="/large-file-download.php">downloading a large file from Drive</a>.
   </div>
 <?php else: ?>
   <form method="POST">
