@@ -122,6 +122,9 @@ if ($client->getAccessToken()) {
     }
     // close the file pointer
     fclose($fp);
+
+    // redirect back to this example
+    header('Location: ' . filter_var($redirect_uri . '?downloaded', FILTER_SANITIZE_URL));
   }
 }
 ?>
@@ -131,7 +134,7 @@ if ($client->getAccessToken()) {
   <div class="request">
     <a class='login' href='<?= $authUrl ?>'>Connect Me!</a>
   </div>
-<?php elseif($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
+<?php elseif(isset($_GET['downloaded'])): ?>
   <div class="shortened">
     <p>Your call was successful! Check your filesystem for the file:</p>
     <p><code><?= __DIR__ . DIRECTORY_SEPARATOR ?>Big File (downloaded)</code></p>
