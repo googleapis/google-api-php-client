@@ -163,6 +163,7 @@ class Google_Client
    *
    * @param $code string code from accounts.google.com
    * @return array access token
+   * @deprecated
    */
   public function authenticate($code)
   {
@@ -201,6 +202,7 @@ class Google_Client
    * alias for fetchAccessTokenWithAssertion
    *
    * @return array access token
+   * @deprecated
    */
   public function refreshTokenWithAssertion()
   {
@@ -828,6 +830,7 @@ class Google_Client
    *
    * @param string $file the configuration file
    * @throws Google_Exception
+   * @deprecated
    */
   public function setAuthConfigFile($file)
   {
