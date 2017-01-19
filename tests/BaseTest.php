@@ -87,7 +87,6 @@ class BaseTest extends PHPUnit_Framework_TestCase
       $client->setCache($this->getCache());
     }
 
-
     return $client;
   }
 
