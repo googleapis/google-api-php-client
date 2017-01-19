@@ -179,7 +179,7 @@ Using this library, the same call would look something like this:
 
 ```php
 // create the datastore service class
-$datastore = new Google_Service_Datastore($client)
+$datastore = new Google_Service_Datastore($client);
 
 // build the query - this maps directly to the JSON
 $query = new Google_Service_Datastore_Query([
@@ -206,7 +206,7 @@ However, as each property of the JSON API has a corresponding generated class, t
 
 ```php
 // create the datastore service class
-$datastore = new Google_Service_Datastore($client)
+$datastore = new Google_Service_Datastore($client);
 
 // build the query
 $request = new Google_Service_Datastore_RunQueryRequest();
