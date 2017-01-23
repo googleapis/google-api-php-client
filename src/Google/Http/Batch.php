@@ -47,10 +47,10 @@ class Google_Http_Batch
   private $batchPath;
 
   public function __construct(
-    Google_Client $client,
-    $boundary = false,
-    $rootUrl = null,
-    $batchPath = null
+      Google_Client $client,
+      $boundary = false,
+      $rootUrl = null,
+      $batchPath = null
   ) {
     $this->client = $client;
     $this->boundary = $boundary ?: mt_rand();
