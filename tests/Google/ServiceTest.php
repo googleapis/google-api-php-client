@@ -31,8 +31,30 @@ class TestModel extends Google_Model
   }
 }
 
+class TestService extends Google_Service
+{
+  public $batchPath = 'batch/test';
+}
+
 class Google_ServiceTest extends PHPUnit_Framework_TestCase
 {
+  public function testCreateBatch()
+  {
+    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+    $client = $this->getMock('Google_Client');
+    $client
+      ->expects($this->once())
+      ->method('execute')
+      ->with($this->callback(function ($request) {
+        $this->assertEquals('/batch/test', $request->getRequestTarget());
+        return $request;
+      }))
+      ->will($this->returnValue($response));
+    $model = new TestService($client);
+    $batch = $model->createBatch();
+    $this->assertInstanceOf('Google_Http_Batch', $batch);
+    $batch->execute();
+  }
 
   public function testModel()
   {

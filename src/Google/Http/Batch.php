@@ -42,10 +42,20 @@ class Google_Http_Batch
   /** @var Google_Client */
   private $client;
 
-  public function __construct(Google_Client $client)
-  {
+  private $rootUrl;
+
+  private $batchPath;
+
+  public function __construct(
+      Google_Client $client,
+      $boundary = false,
+      $rootUrl = null,
+      $batchPath = null
+  ) {
     $this->client = $client;
-    $this->boundary = mt_rand();
+    $this->boundary = $boundary ?: mt_rand();
+    $this->rootUrl = rtrim($rootUrl ?: $this->client->getConfig('base_path'), '/');
+    $this->batchPath = $batchPath ?: self::BATCH_PATH;
   }
 
   public function add(RequestInterface $request, $key = false)
@@ -104,7 +114,7 @@ EOF;
 
     $body .= "--{$this->boundary}--";
     $body = trim($body);
-    $url = Google_Client::API_BASE_PATH . '/' . self::BATCH_PATH;
+    $url = $this->rootUrl . '/' . $this->batchPath;
     $headers = array(
       'Content-Type' => sprintf('multipart/mixed; boundary=%s', $this->boundary),
       'Content-Length' => strlen($body),
