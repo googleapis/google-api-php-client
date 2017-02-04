@@ -6,7 +6,6 @@
     "homepage": "http://developers.google.com/api-client-library/php",
     "license": "Apache-2.0",
     "require": {
-        "google/apiclient": "1.0.*",
         "php": ">=5.4",
         "google/auth": "^0.11",
         "google/apiclient-services": "^0.9",
