@@ -110,7 +110,7 @@ class Google_Http_REST
     $code = $response->getStatusCode();
 
     // retry strategy
-    if ((intVal($code)) >= 400) {
+    if ((intVal($code)) >= 500) {
       // if we errored out, it should be safe to grab the response body
       $body = (string) $response->getBody();
 
