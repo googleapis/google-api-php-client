@@ -366,7 +366,7 @@ class Google_Client
     } elseif ($token = $this->getAccessToken()) {
       $scopes = $this->prepareScopes();
       // add refresh subscriber to request a new token
-      if ($this->isAccessTokenExpired() && isset($token['refresh_token'])) {
+      if (isset($token['refresh_token']) && $this->isAccessTokenExpired()) {
         $credentials = $this->createUserRefreshCredentials(
             $scopes,
             $token['refresh_token']

@@ -192,8 +192,7 @@ class Google_Model implements ArrayAccess
    */
   private function getMappedName($key)
   {
-    if (isset($this->internal_gapi_mappings) &&
-        isset($this->internal_gapi_mappings[$key])) {
+    if (isset($this->internal_gapi_mappings, $this->internal_gapi_mappings[$key])) {
       $key = $this->internal_gapi_mappings[$key];
     }
     return $key;

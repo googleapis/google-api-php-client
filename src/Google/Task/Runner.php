@@ -264,8 +264,7 @@ class Google_Task_Runner
       return $this->retryMap[$code];
     }
 
-    if (!empty($errors) && isset($errors[0]['reason']) &&
-        isset($this->retryMap[$errors[0]['reason']])) {
+    if (!empty($errors) && isset($errors[0]['reason'], $this->retryMap[$errors[0]['reason']])) {
       return $this->retryMap[$errors[0]['reason']];
     }
 

@@ -72,10 +72,7 @@ class Google_AccessToken_Revoke
     $httpHandler = HttpHandlerFactory::build($this->http);
 
     $response = $httpHandler($request);
-    if ($response->getStatusCode() == 200) {
-      return true;
-    }
 
-    return false;
+    return $response->getStatusCode() == 200;
   }
 }
