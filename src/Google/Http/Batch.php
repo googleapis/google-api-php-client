@@ -138,7 +138,7 @@ EOF;
     $contentType = explode(';', $contentType);
     $boundary = false;
     foreach ($contentType as $part) {
-      $part = (explode('=', $part, 2));
+      $part = explode('=', $part, 2);
       if (isset($part[0]) && 'boundary' == trim($part[0])) {
         $boundary = $part[1];
       }
