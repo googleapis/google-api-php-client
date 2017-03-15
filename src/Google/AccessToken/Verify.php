@@ -53,11 +53,11 @@ class Google_AccessToken_Verify
       CacheItemPoolInterface $cache = null,
       $jwt = null
   ) {
-    if (is_null($http)) {
+    if (null === $http) {
       $http = new Client();
     }
 
-    if (is_null($cache)) {
+    if (null === $cache) {
       $cache = new MemoryCacheItemPool;
     }
 

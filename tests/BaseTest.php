@@ -139,8 +139,8 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
   private function getClientIdAndSecret()
   {
-    $clientId = getenv('GCLOUD_CLIENT_ID') ? getenv('GCLOUD_CLIENT_ID') : null;
-    $clientSecret = getenv('GCLOUD_CLIENT_SECRET') ? getenv('GCLOUD_CLIENT_SECRET') : null;
+    $clientId = getenv('GCLOUD_CLIENT_ID') ?: null;
+    $clientSecret = getenv('GCLOUD_CLIENT_SECRET') ?: null;
 
     return array($clientId, $clientSecret);
   }
@@ -182,7 +182,7 @@ class BaseTest extends PHPUnit_Framework_TestCase
 
   public function loadKey()
   {
-    if (file_exists($f = dirname(__FILE__) . DIRECTORY_SEPARATOR . '.apiKey')) {
+    if (file_exists($f = __DIR__ . DIRECTORY_SEPARATOR . '.apiKey')) {
       return file_get_contents($f);
     }
   }

@@ -262,7 +262,7 @@ class Google_Client
    */
   public function fetchAccessTokenWithRefreshToken($refreshToken = null)
   {
-    if (is_null($refreshToken)) {
+    if (null === $refreshToken) {
       if (!isset($this->token['refresh_token'])) {
         throw new LogicException(
             'refresh token must be passed in or set as part of setAccessToken'
@@ -352,7 +352,7 @@ class Google_Client
     $credentials = null;
     $token = null;
     $scopes = null;
-    if (is_null($http)) {
+    if (null === $http) {
       $http = $this->getHttpClient();
     }
 
@@ -598,7 +598,7 @@ class Google_Client
   public function setRequestVisibleActions($requestVisibleActions)
   {
     if (is_array($requestVisibleActions)) {
-      $requestVisibleActions = join(" ", $requestVisibleActions);
+      $requestVisibleActions = implode(" ", $requestVisibleActions);
     }
     $this->config['request_visible_actions'] = $requestVisibleActions;
   }
@@ -699,7 +699,7 @@ class Google_Client
         $this->config['jwt']
     );
 
-    if (is_null($idToken)) {
+    if (null === $idToken) {
       $token = $this->getAccessToken();
       if (!isset($token['id_token'])) {
         throw new LogicException(
@@ -1031,7 +1031,7 @@ class Google_Client
    */
   public function getHttpClient()
   {
-    if (is_null($this->http)) {
+    if (null === $this->http) {
       $this->http = $this->createDefaultHttpClient();
     }
 

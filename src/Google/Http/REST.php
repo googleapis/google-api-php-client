@@ -51,7 +51,7 @@ class Google_Http_REST
         array($client, $request, $expectedClass)
     );
 
-    if (!is_null($retryMap)) {
+    if (null !== $retryMap) {
       $runner->setRetryMap($retryMap);
     }
 
@@ -149,7 +149,7 @@ class Google_Http_REST
     }
 
     // if we don't have a request, we just use what's passed in
-    if (is_null($request)) {
+    if (null === $request) {
       return $expectedClass;
     }
 

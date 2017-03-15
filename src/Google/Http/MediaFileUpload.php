@@ -221,8 +221,7 @@ class Google_Http_MediaFileUpload
         Uri::withQueryValue($request->getUri(), 'uploadType', $uploadType)
     );
 
-    $mimeType = $this->mimeType ?
-        $this->mimeType :
+    $mimeType = $this->mimeType ?:
         $request->getHeaderLine('content-type');
 
     if (self::UPLOAD_RESUMABLE_TYPE == $uploadType) {
@@ -233,7 +232,7 @@ class Google_Http_MediaFileUpload
       $postBody = $this->data;
     } else if (self::UPLOAD_MULTIPART_TYPE == $uploadType) {
       // This is a multipart/related upload.
-      $boundary = $this->boundary ? $this->boundary : mt_rand();
+      $boundary = $this->boundary ?: mt_rand();
       $boundary = str_replace('"', '', $boundary);
       $contentType = 'multipart/related; boundary=' . $boundary;
       $related = "--$boundary\r\n";
@@ -280,7 +279,7 @@ class Google_Http_MediaFileUpload
 
   public function getResumeUri()
   {
-    if (is_null($this->resumeUri)) {
+    if (null === $this->resumeUri) {
       $this->resumeUri = $this->fetchResumeUri();
     }
 
