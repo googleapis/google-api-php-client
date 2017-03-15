@@ -221,8 +221,7 @@ class Google_Http_MediaFileUpload
         Uri::withQueryValue($request->getUri(), 'uploadType', $uploadType)
     );
 
-    $mimeType = $this->mimeType ?:
-        $request->getHeaderLine('content-type');
+    $mimeType = $this->mimeType ?: $request->getHeaderLine('content-type');
 
     if (self::UPLOAD_RESUMABLE_TYPE == $uploadType) {
       $contentType = $mimeType;
