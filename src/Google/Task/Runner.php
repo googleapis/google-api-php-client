@@ -56,10 +56,6 @@ class Google_Task_Runner
   private $maxAttempts = 1;
 
   /**
-   * @var string $name The name of the current task (used for logging).
-   */
-  private $name;
-  /**
    * @var callable $action The task to run and possibly retry.
    */
   private $action;
@@ -153,7 +149,6 @@ class Google_Task_Runner
         );
     }
 
-    $this->name = $name;
     $this->action = $action;
     $this->arguments = $arguments;
   }

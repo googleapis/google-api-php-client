@@ -170,10 +170,6 @@ EOF;
 
           // Need content id.
           $key = $headers['content-id'];
-          $class = '';
-          if (!empty($this->expected_classes[$key])) {
-            $class = $this->expected_classes[$key];
-          }
 
           try {
             $response = Google_Http_REST::decodeHttpResponse($response, $requests[$i-1]);
