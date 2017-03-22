@@ -138,7 +138,7 @@ EOF;
     $contentType = explode(';', $contentType);
     $boundary = false;
     foreach ($contentType as $part) {
-      $part = (explode('=', $part, 2));
+      $part = explode('=', $part, 2);
       if (isset($part[0]) && 'boundary' == trim($part[0])) {
         $boundary = $part[1];
       }
@@ -170,10 +170,6 @@ EOF;
 
           // Need content id.
           $key = $headers['content-id'];
-          $class = '';
-          if (!empty($this->expected_classes[$key])) {
-            $class = $this->expected_classes[$key];
-          }
 
           try {
             $response = Google_Http_REST::decodeHttpResponse($response, $requests[$i-1]);

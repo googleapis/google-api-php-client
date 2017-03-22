@@ -56,10 +56,6 @@ class Google_Task_Runner
   private $maxAttempts = 1;
 
   /**
-   * @var string $name The name of the current task (used for logging).
-   */
-  private $name;
-  /**
    * @var callable $action The task to run and possibly retry.
    */
   private $action;
@@ -153,7 +149,6 @@ class Google_Task_Runner
         );
     }
 
-    $this->name = $name;
     $this->action = $action;
     $this->arguments = $arguments;
   }
@@ -269,8 +264,10 @@ class Google_Task_Runner
       return $this->retryMap[$code];
     }
 
-    if (!empty($errors) && isset($errors[0]['reason']) &&
-        isset($this->retryMap[$errors[0]['reason']])) {
+    if (
+        !empty($errors) &&
+        isset($errors[0]['reason'], $this->retryMap[$errors[0]['reason']])
+    ) {
       return $this->retryMap[$errors[0]['reason']];
     }
 

@@ -50,7 +50,7 @@ class Google_ClientTest extends BaseTest
       $middlewares = $property->getValue($stack);
       $middleware = array_pop($middlewares);
 
-      if (is_null($className)) {
+      if (null === $className) {
         // only the default middlewares have been added
         $this->assertEquals(3, count($middlewares));
       } else {
@@ -60,7 +60,7 @@ class Google_ClientTest extends BaseTest
     } else {
       $listeners = $http->getEmitter()->listeners('before');
 
-      if (is_null($className)) {
+      if (null === $className) {
         $this->assertEquals(0, count($listeners));
       } else {
         $authClass = sprintf('Google\Auth\Subscriber\%sSubscriber', $className);

@@ -267,7 +267,7 @@ class Google_Service_Resource
     $queryVars = array();
     foreach ($params as $paramName => $paramSpec) {
       if ($paramSpec['type'] == 'boolean') {
-        $paramSpec['value'] = ($paramSpec['value']) ? 'true' : 'false';
+        $paramSpec['value'] = $paramSpec['value'] ? 'true' : 'false';
       }
       if ($paramSpec['location'] == 'path') {
         $uriTemplateVars[$paramName] = $paramSpec['value'];
