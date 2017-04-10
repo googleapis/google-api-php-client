@@ -115,7 +115,7 @@ if ($client->getAccessToken() && isset($_GET['url'])) {
     <a class='login' href='<?= $authUrl ?>'>Connect Me!</a>
   </div>
 <?php elseif (empty($short)): ?>
-  <form id="url" method="GET" action="<?= $_SERVER['PHP_SELF'] ?>">
+  <form id="url" method="GET" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <input name="url" class="url" type="text">
     <input type="submit" value="Shorten">
   </form>
@@ -126,7 +126,7 @@ if ($client->getAccessToken() && isset($_GET['url'])) {
   <div class="shortened">
     <pre><?php var_export($short) ?></pre>
   </div>
-  <a href="<?= $_SERVER['PHP_SELF'] ?>">Create another</a>
+  <a href="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">Create another</a>
 <?php endif ?>
 </div>
 
