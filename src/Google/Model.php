@@ -162,7 +162,7 @@ class Google_Model implements ArrayAccess
     foreach ($props as $member) {
       $name = $member->getName();
       $result = $this->getSimpleValue($this->$name);
-      if ($result !== null) {
+      if (!property_exists($this, 'id') || $result !== null) {
         $name = $this->getMappedName($name);
         $object->$name = $this->nullPlaceholderCheck($result);
       }
