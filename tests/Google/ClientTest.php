@@ -320,21 +320,6 @@ class Google_ClientTest extends BaseTest
     unset($_SERVER['SERVER_SOFTWARE']);
   }
 
-  public function testAppEngineVerifyConfig()
-  {
-    $this->onlyGuzzle5();
-
-    $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
-    $client = new Google_Client();
-
-    $this->assertEquals(
-      '/etc/ca-certificates.crt',
-      $client->getHttpClient()->getDefaultOption('verify')
-    );
-
-    unset($_SERVER['SERVER_SOFTWARE']);
-  }
-
   public function testJsonConfig()
   {
     // Device config

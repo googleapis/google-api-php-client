@@ -1048,7 +1048,6 @@ class Google_Client
       if ($this->isAppEngine()) {
         // set StreamHandler on AppEngine by default
         $options['handler']  = new StreamHandler();
-        $options['defaults']['verify'] = '/etc/ca-certificates.crt';
       }
     } else {
       // guzzle 6
