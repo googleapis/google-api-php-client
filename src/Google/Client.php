@@ -1048,7 +1048,12 @@ class Google_Client
       if ($this->isAppEngine()) {
         // set StreamHandler on AppEngine by default
         $options['handler']  = new StreamHandler();
-        $options['defaults']['verify'] = '/etc/ca-certificates.crt';
+        // we overwrite this but guzzle will do a lot of unneeded work if this is not set to false
+        $options['defaults']['verify'] = false;
+        // set ssl stream_context options to null as the AppEngine proxy takes care about this for us
+        $options['defaults']['stream_context'] = array(
+            'ssl' => null
+        );
       }
     } else {
       // guzzle 6
