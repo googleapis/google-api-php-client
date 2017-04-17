@@ -117,8 +117,7 @@ $client->useApplicationDefaultCredentials();
 > Note: P12s are deprecated in favor of service account JSON, which can be generated in the
 > Credentials section of Google Developer Console.
 
-In order to impersonate a user, call `setSubject` when your service account
-credentials are being used.
+## In order to impersonate a user, call `setSubject` when your service account credentials are being used.
 
 **Before**
 
