@@ -60,7 +60,13 @@ $service = new Google_Service_Urlshortener($client);
  * local access token in this case
  ************************************************/
 if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['access_token']);
+  if (validateCsrfToken()) {
+    unset($_SESSION['access_token']);
+    unset($_SESSION['csrf_token']);
+  } else {
+    $invalidCsrf = true;
+    generateCsrfToken();
+  }
 }
 
 /************************************************
@@ -76,6 +82,9 @@ if (isset($_GET['code'])) {
 
   // store in the session also
   $_SESSION['access_token'] = $token;
+
+  // generate and store a new csrf token
+  generateCsrfToken();
 
   // redirect back to the example
   header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
@@ -101,12 +110,30 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
   might happen here is the access token itself is
   refreshed if the application has offline access.
  ************************************************/
-if ($client->getAccessToken() && isset($_GET['url'])) {
-  $url = new Google_Service_Urlshortener_Url();
-  $url->longUrl = $_GET['url'];
-  $short = $service->url->insert($url);
-  $_SESSION['access_token'] = $client->getAccessToken();
+if ($client->getAccessToken() && isset($_REQUEST['url'])) {
+  if (validateCsrfToken()) {
+    $url = new Google_Service_Urlshortener_Url();
+    $url->longUrl = $_REQUEST['url'];
+    $short = $service->url->insert($url);
+    $_SESSION['access_token'] = $client->getAccessToken();
+  } else {
+    $invalidCsrf = true;
+    generateCsrfToken();
+  }
 }
+
+function generateCsrfToken()
+{
+  $_SESSION['csrf_token'] = bin2hex(openssl_random_pseudo_bytes(32));
+}
+
+function validateCsrfToken()
+{
+  return isset($_REQUEST['csrf_token'])
+      && isset($_SESSION['csrf_token'])
+      && $_REQUEST['csrf_token'] === $_SESSION['csrf_token'];
+}
+
 ?>
 
 <div class="box">
@@ -115,18 +142,28 @@ if ($client->getAccessToken() && isset($_GET['url'])) {
     <a class='login' href='<?= $authUrl ?>'>Connect Me!</a>
   </div>
 <?php elseif (empty($short)): ?>
-  <form id="url" method="GET" action="<?= $_SERVER['PHP_SELF'] ?>">
+  <form id="url" method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <input name="url" class="url" type="text">
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>" />
     <input type="submit" value="Shorten">
   </form>
-  <a class='logout' href='?logout'>Logout</a>
+  <form id="logout" method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+    <input type="hidden" name="logout" value="" />
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>" />
+    <input type="submit" value="Logout">
+  </form>
 <?php else: ?>
   You created a short link! <br />
   <a href="<?= $short['id'] ?>"><?= $short['id'] ?></a>
   <div class="shortened">
     <pre><?php var_export($short) ?></pre>
   </div>
-  <a href="<?= $_SERVER['PHP_SELF'] ?>">Create another</a>
+  <a href="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">Create another</a>
+<?php endif ?>
+<?php if (isset($invalidCsrf) && $invalidCsrf): ?>
+  <div class="csrf" style="color:red">
+    Invalid request. Please try again. <br />
+  </div>
 <?php endif ?>
 </div>
 
