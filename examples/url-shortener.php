@@ -60,13 +60,8 @@ $service = new Google_Service_Urlshortener($client);
  * local access token in this case
  ************************************************/
 if (isset($_REQUEST['logout'])) {
-  if (validateCsrfToken()) {
-    unset($_SESSION['access_token']);
-    unset($_SESSION['csrf_token']);
-  } else {
-    $invalidCsrf = true;
-    generateCsrfToken();
-  }
+  unset($_SESSION['access_token']);
+  unset($_SESSION['csrf_token']);
 }
 
 /************************************************
@@ -82,9 +77,6 @@ if (isset($_GET['code'])) {
 
   // store in the session also
   $_SESSION['access_token'] = $token;
-
-  // generate and store a new csrf token
-  generateCsrfToken();
 
   // redirect back to the example
   header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
@@ -111,27 +103,14 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
   refreshed if the application has offline access.
  ************************************************/
 if ($client->getAccessToken() && isset($_REQUEST['url'])) {
-  if (validateCsrfToken()) {
-    $url = new Google_Service_Urlshortener_Url();
-    $url->longUrl = $_REQUEST['url'];
-    $short = $service->url->insert($url);
-    $_SESSION['access_token'] = $client->getAccessToken();
-  } else {
-    $invalidCsrf = true;
-    generateCsrfToken();
+  if (!validateCsrfToken()) {
+    echo invalidCsrfTokenWarning();
+    return;
   }
-}
-
-function generateCsrfToken()
-{
-  $_SESSION['csrf_token'] = bin2hex(openssl_random_pseudo_bytes(32));
-}
-
-function validateCsrfToken()
-{
-  return isset($_REQUEST['csrf_token'])
-      && isset($_SESSION['csrf_token'])
-      && $_REQUEST['csrf_token'] === $_SESSION['csrf_token'];
+  $url = new Google_Service_Urlshortener_Url();
+  $url->longUrl = $_REQUEST['url'];
+  $short = $service->url->insert($url);
+  $_SESSION['access_token'] = $client->getAccessToken();
 }
 
 ?>
@@ -144,7 +123,7 @@ function validateCsrfToken()
 <?php elseif (empty($short)): ?>
   <form id="url" method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <input name="url" class="url" type="text">
-    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>" />
+    <input type="hidden" name="csrf_token" value="<?php echo getCsrfToken() ?>" />
     <input type="submit" value="Shorten">
   </form>
   <form id="logout" method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
@@ -159,11 +138,6 @@ function validateCsrfToken()
     <pre><?php var_export($short) ?></pre>
   </div>
   <a href="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">Create another</a>
-<?php endif ?>
-<?php if (isset($invalidCsrf) && $invalidCsrf): ?>
-  <div class="csrf" style="color:red">
-    Invalid request. Please try again. <br />
-  </div>
 <?php endif ?>
 </div>
 
