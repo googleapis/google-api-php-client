@@ -61,6 +61,7 @@ $service = new Google_Service_Urlshortener($client);
  ************************************************/
 if (isset($_REQUEST['logout'])) {
   unset($_SESSION['access_token']);
+  unset($_SESSION['csrf_token']);
 }
 
 /************************************************
@@ -101,12 +102,17 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
   might happen here is the access token itself is
   refreshed if the application has offline access.
  ************************************************/
-if ($client->getAccessToken() && isset($_GET['url'])) {
+if ($client->getAccessToken() && isset($_REQUEST['url'])) {
+  if (!validateCsrfToken()) {
+    echo invalidCsrfTokenWarning();
+    return;
+  }
   $url = new Google_Service_Urlshortener_Url();
-  $url->longUrl = $_GET['url'];
+  $url->longUrl = $_REQUEST['url'];
   $short = $service->url->insert($url);
   $_SESSION['access_token'] = $client->getAccessToken();
 }
+
 ?>
 
 <div class="box">
@@ -115,18 +121,23 @@ if ($client->getAccessToken() && isset($_GET['url'])) {
     <a class='login' href='<?= $authUrl ?>'>Connect Me!</a>
   </div>
 <?php elseif (empty($short)): ?>
-  <form id="url" method="GET" action="<?= $_SERVER['PHP_SELF'] ?>">
+  <form id="url" method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <input name="url" class="url" type="text">
+    <input type="hidden" name="csrf_token" value="<?php echo getCsrfToken() ?>" />
     <input type="submit" value="Shorten">
   </form>
-  <a class='logout' href='?logout'>Logout</a>
+  <form id="logout" method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+    <input type="hidden" name="logout" value="" />
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>" />
+    <input type="submit" value="Logout">
+  </form>
 <?php else: ?>
   You created a short link! <br />
   <a href="<?= $short['id'] ?>"><?= $short['id'] ?></a>
   <div class="shortened">
     <pre><?php var_export($short) ?></pre>
   </div>
-  <a href="<?= $_SERVER['PHP_SELF'] ?>">Create another</a>
+  <a href="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">Create another</a>
 <?php endif ?>
 </div>
 

@@ -99,12 +99,38 @@ function missingOAuth2CredentialsWarning()
   return $ret;
 }
 
+function invalidCsrfTokenWarning()
+{
+  $ret = "
+    <h3 class='warn'>
+      The CSRF token is invalid, your session probably expired. Please refresh the page.
+    </h3>";
+
+  return $ret;
+}
+
 function checkServiceAccountCredentialsFile()
 {
   // service account creds
   $application_creds = __DIR__ . '/../../service-account-credentials.json';
 
   return file_exists($application_creds) ? $application_creds : false;
+}
+
+function getCsrfToken()
+{
+  if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(openssl_random_pseudo_bytes(32));
+  }
+
+  return $_SESSION['csrf_token'];
+}
+
+function validateCsrfToken()
+{
+  return isset($_REQUEST['csrf_token'])
+      && isset($_SESSION['csrf_token'])
+      && $_REQUEST['csrf_token'] === $_SESSION['csrf_token'];
 }
 
 function getOAuthCredentialsFile()
