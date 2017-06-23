@@ -277,6 +277,9 @@ class Google_Service_Resource
             $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($value));
           }
         } else {
+          if(is_array($paramSpec['value'])) {
+            $paramSpec['value'] = array_shift($paramSpec['value']);
+          }
           $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($paramSpec['value']));
         }
       }
