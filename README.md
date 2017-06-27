@@ -115,7 +115,6 @@ foreach ($results as $item) {
     ```php
     if (isset($_GET['code'])) {
         $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-        $client->setAccessToken($token);
     }
     ```
 
