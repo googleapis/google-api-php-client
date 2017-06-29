@@ -165,8 +165,11 @@ class Google_Http_MediaFileUpload
 
     if (308 == $this->httpResultCode) {
       // Track the amount uploaded.
-      $range = explode('-', $response->getHeaderLine('range'));
-      $this->progress = $range[1] + 1;
+      $range = $response->getHeaderLine('range');
+      if ($range) {
+        $range_array = explode('-', $range);
+        $this->progress = $range_array[1] + 1;
+      }
 
       // Allow for changing upload URLs.
       $location = $response->getHeaderLine('location');
