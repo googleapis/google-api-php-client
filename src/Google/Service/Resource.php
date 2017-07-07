@@ -272,7 +272,7 @@ class Google_Service_Resource
       if ($paramSpec['location'] == 'path') {
         $uriTemplateVars[$paramName] = $paramSpec['value'];
       } else if ($paramSpec['location'] == 'query') {
-        if (isset($paramSpec['repeated']) && is_array($paramSpec['value'])) {
+        if (is_array($paramSpec['value'])) {
           foreach ($paramSpec['value'] as $value) {
             $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($value));
           }
