@@ -17,6 +17,7 @@
  */
 
 use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
+use Firebase\JWT\SignatureInvalidException;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Psr\Cache\CacheItemPoolInterface;
@@ -120,6 +121,8 @@ class Google_AccessToken_Verify
         return false;
       } catch (ExpiredExceptionV3 $e) {
         return false;
+      } catch (SignatureInvalidException $e) {
+        // continue
       } catch (DomainException $e) {
         // continue
       }
