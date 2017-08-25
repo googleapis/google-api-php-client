@@ -255,13 +255,13 @@ class Google_Service_Resource
    */
   public function createRequestUri($restPath, $params)
   {
-    // Override the default servicePath address if the $restPath use a / 
+    // Override the default servicePath address if the $restPath use a /
     if ('/' == substr($restPath, 0, 1)) {
       $requestUrl = substr($restPath, 1);
     } else {
-      $requestUrl = $this->servicePath . $restPath;      
+      $requestUrl = $this->servicePath . $restPath;
     }
-    
+
     // code for leading slash
     $requestUrl = $this->servicePath . $restPath;
     if ($this->rootUrl) {
