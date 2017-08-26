@@ -263,7 +263,6 @@ class Google_Service_Resource
     }
 
     // code for leading slash
-    $requestUrl = $this->servicePath . $restPath;
     if ($this->rootUrl) {
       if ('/' !== substr($this->rootUrl, -1) && '/' !== substr($requestUrl, 0, 1)) {
         $requestUrl = '/' . $requestUrl;
