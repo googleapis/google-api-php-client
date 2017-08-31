@@ -8,12 +8,13 @@
     "repositories": [
         {
             "type": "git",
-            "url": "https://github.com/gnosis7bit/google-api-php-client-services.git"
+            "url": "https://github.com/gnosis7bit/apiclient-services"
         }
     ],
     "require": {
         "php": ">=5.4",
         "google/auth": "^1.0",
+        "google/apiclient-services": "dev-hotfix",
         "firebase/php-jwt": "~2.0|~3.0|~4.0|~5.0",
         "monolog/monolog": "^1.17",
         "phpseclib/phpseclib": "~0.3.10|~2.0",
