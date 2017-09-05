@@ -456,6 +456,9 @@ class Google_Client
   {
     if (!$this->token) {
       return true;
+    } elseif (!isset($this->token['expires_in'])) {
+      // There is no timestamp as a sign of the offline token.
+      return false;
     }
 
     $created = 0;
