@@ -456,6 +456,8 @@ class Google_Client
   {
     if (!$this->token) {
       return true;
+    } elseif (!isset($this->token['expires_in'])) {
+      return false;
     }
 
     $created = 0;
