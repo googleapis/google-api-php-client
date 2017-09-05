@@ -454,7 +454,8 @@ class Google_Client
    */
   public function isAccessTokenExpired()
   {
-    if (!$this->token) {
+    // The access token does not exist, or there is no timestamp as a sign of the offline token.
+    if (!$this->token || !isset($this->token['expires_in'])) {
       return true;
     }
 
