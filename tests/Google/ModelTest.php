@@ -264,4 +264,18 @@ class Google_ModelTest extends BaseTest
     $this->assertEquals('#FFF', $collection->calendar['regular']->getBackground());
     $this->assertEquals('#FFF', $collection->calendar['inverted']->getForeground());
   }
+
+  /**
+   * @see https://github.com/google/google-api-php-client/issues/1308
+   */
+  public function testKeyTypePropertyConflict()
+  {
+    $data = [
+        "duration" => 0,
+        "durationType" => "unknown",
+    ];
+    $creativeAsset = new Google_Service_Dfareporting_CreativeAsset($data);
+    $this->assertEquals(0, $creativeAsset->getDuration());
+    $this->assertEquals('unknown', $creativeAsset->getDurationType());
+  }
 }
