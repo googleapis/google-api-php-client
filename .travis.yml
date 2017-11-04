@@ -16,18 +16,9 @@ cache:
     - $HOME/.composer/cache
 
 php:
-  - 5.4
-  - 5.5
   - 5.6
   - 7.0
   - 7.1
-
-# Test lowest dependencies on PHP 5.4
-# (Guzzle 5.2, phpseclib 0.3)
-matrix:
-  include:
-    - php: 5.4
-      env: COMPOSER_CMD="composer update --prefer-lowest" RUN_PHP_CS=true
 
 before_install:
   - composer self-update
@@ -43,4 +34,3 @@ before_script:
 script:
   - vendor/bin/phpunit
   - if [[ "$RUN_PHP_CS" == "true" ]]; then vendor/bin/phpcs src --standard=style/ruleset.xml -np; fi
-
