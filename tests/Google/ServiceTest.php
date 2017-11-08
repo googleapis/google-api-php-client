@@ -18,6 +18,8 @@
  * under the License.
  */
 
+use PHPUnit\Framework\TestCase;
+
 class TestModel extends Google_Model
 {
   public function mapTypes($array)
@@ -36,7 +38,7 @@ class TestService extends Google_Service
   public $batchPath = 'batch/test';
 }
 
-class Google_ServiceTest extends PHPUnit_Framework_TestCase
+class Google_ServiceTest extends TestCase
 {
   public function testCreateBatch()
   {
