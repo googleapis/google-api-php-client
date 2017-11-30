@@ -28,7 +28,7 @@ class examples_urlShortenerTest extends BaseTest
     $crawler = $this->loadExample('url-shortener.php');
 
     $nodes = $crawler->filter('h1');
-    $this->assertEquals(1, count($nodes));
+    $this->assertCount(1, $nodes);
     $this->assertEquals('User Query - URL Shortener', $nodes->first()->text());
   }
 }

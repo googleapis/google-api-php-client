@@ -28,11 +28,11 @@ class examples_idTokenTest extends BaseTest
     $crawler = $this->loadExample('idtoken.php');
 
     $nodes = $crawler->filter('h1');
-    $this->assertEquals(1, count($nodes));
+    $this->assertCount(1, $nodes);
     $this->assertEquals('Retrieving An Id Token', $nodes->first()->text());
 
     $nodes = $crawler->filter('a.login');
-    $this->assertEquals(1, count($nodes));
+    $this->assertCount(1, $nodes);
     $this->assertEquals('Connect Me!', $nodes->first()->text());
   }
 }
