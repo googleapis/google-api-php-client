@@ -31,7 +31,7 @@ class examples_simpleQueryTest extends BaseTest
     $this->assertEquals(20, count($nodes));
 
     $nodes = $crawler->filter('h1');
-    $this->assertEquals(1, count($nodes));
+    $this->assertCount(1, $nodes);
     $this->assertEquals('Simple API Access', $nodes->first()->text());
   }
 }

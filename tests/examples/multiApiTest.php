@@ -28,7 +28,7 @@ class examples_multiApiTest extends BaseTest
     $crawler = $this->loadExample('multi-api.php');
 
     $nodes = $crawler->filter('h1');
-    $this->assertEquals(1, count($nodes));
+    $this->assertCount(1, $nodes);
     $this->assertEquals('User Query - Multiple APIs', $nodes->first()->text());
   }
 }
