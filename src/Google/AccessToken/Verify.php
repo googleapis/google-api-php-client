@@ -178,7 +178,7 @@ class Google_AccessToken_Verify
   {
     $certs = null;
     if ($cache = $this->getCache()) {
-      $cacheItem = $cache->getItem('federated_signon_certs_v3', 3600);
+      $cacheItem = $cache->getItem('federated_signon_certs_v3');
       $certs = $cacheItem->get();
     }
 
@@ -189,6 +189,7 @@ class Google_AccessToken_Verify
       );
 
       if ($cache) {
+        $cacheItem->expiresAt(new DateTime('+1 hour'));
         $cacheItem->set($certs);
         $cache->save($cacheItem);
       }
