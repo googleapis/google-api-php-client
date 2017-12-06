@@ -59,7 +59,7 @@ class Google_Service_TasksTest extends BaseTest
     }
 
     $tasksArray = $tasks->listTasks($list['id']);
-    $this->assertTrue(count($tasksArray) > 1);
+    $this->assertGreaterThan(1, count($tasksArray));
     foreach ($tasksArray['items'] as $task) {
       $this->assertIsTask($task);
     }
