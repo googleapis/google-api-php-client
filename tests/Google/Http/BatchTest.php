@@ -36,9 +36,10 @@ class Google_Http_BatchTest extends BaseTest
     $batch->add($plus->people->get('me'), 'key3');
 
     $result = $batch->execute();
-    $this->assertTrue(isset($result['response-key1']));
-    $this->assertTrue(isset($result['response-key2']));
-    $this->assertTrue(isset($result['response-key3']));
+    $this->assertArrayHasKey('response-key1', $result);
+    $this->assertArrayHasKey('response-key2', $result);
+    $this->assertArrayHasKey('response-key3', $result);
+
   }
 
   public function testBatchRequest()
@@ -53,9 +54,9 @@ class Google_Http_BatchTest extends BaseTest
     $batch->add($plus->people->get('+LarryPage'), 'key3');
 
     $result = $batch->execute();
-    $this->assertTrue(isset($result['response-key1']));
-    $this->assertTrue(isset($result['response-key2']));
-    $this->assertTrue(isset($result['response-key3']));
+    $this->assertArrayHasKey('response-key1', $result);
+    $this->assertArrayHasKey('response-key2', $result);
+    $this->assertArrayHasKey('response-key3', $result);
   }
 
   public function testBatchRequestWithPostBody()
@@ -78,9 +79,9 @@ class Google_Http_BatchTest extends BaseTest
     $batch->add($shortener->url->insert($url3), 'key3');
 
     $result = $batch->execute();
-    $this->assertTrue(isset($result['response-key1']));
-    $this->assertTrue(isset($result['response-key2']));
-    $this->assertTrue(isset($result['response-key3']));
+    $this->assertArrayHasKey('response-key1', $result);
+    $this->assertArrayHasKey('response-key2', $result);
+    $this->assertArrayHasKey('response-key3', $result);
   }
 
   public function testInvalidBatchRequest()
@@ -94,7 +95,7 @@ class Google_Http_BatchTest extends BaseTest
     $batch->add($plus->people->get('+LarryPage'), 'key2');
 
     $result = $batch->execute();
-    $this->assertTrue(isset($result['response-key2']));
+    $this->assertArrayHasKey('response-key2', $result);
     $this->assertInstanceOf(
         'Google_Service_Exception',
         $result['response-key1']

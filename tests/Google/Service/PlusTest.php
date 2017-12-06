@@ -58,12 +58,12 @@ class Google_Service_PlusTest extends BaseTest
   {
     // assertArrayHasKey uses array_key_exists, which is not great:
     // it doesn't understand SPL ArrayAccess
-    $this->assertTrue(isset($item['actor']));
+    $this->assertArrayHasKey('actor', $item);
     $this->assertInstanceOf('Google_Service_Plus_ActivityActor', $item->actor);
     $this->assertTrue(isset($item['actor']['displayName']));
     $this->assertTrue(isset($item['actor']->url));
-    $this->assertTrue(isset($item['object']));
-    $this->assertTrue(isset($item['access']));
-    $this->assertTrue(isset($item['provider']));
+    $this->assertArrayHasKey('object', $item);
+    $this->assertArrayHasKey('access', $item);
+    $this->assertArrayHasKey('provider', $item);
   }
 }

@@ -28,7 +28,7 @@ class examples_serviceAccountTest extends BaseTest
     $crawler = $this->loadExample('service-account.php');
 
     $nodes = $crawler->filter('br');
-    $this->assertEquals(10, count($nodes));
+    $this->assertCount(10, $nodes);
     $this->assertContains('Life of Henry David Thoreau', $crawler->text());
   }
 }

@@ -114,7 +114,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
 
     // request the resumable url
     $uri = $media->getResumeUri();
-    $this->assertTrue(is_string($uri));
+    $this->assertInternalType('string', $uri);
 
     // parse the URL
     $parts = parse_url($uri);
