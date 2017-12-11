@@ -763,7 +763,7 @@ class Google_Client
   }
 
   /**
-   * @return string
+   * @return string|null
    * @visible For Testing
    */
   public function prepareScopes()
