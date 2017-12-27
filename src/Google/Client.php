@@ -784,7 +784,7 @@ class Google_Client
     // call the authorize method
     // this is where most of the grunt work is done
     // if this is an emulator connection, skip oauth
-    if (getenv("PUBSUB_EMULATOR_HOST") || getenv("DATASTORE_EMULATOR_HOST")) {
+    if (getenv("PUBSUB_EMULATOR_HOST") && ($request->getUri()->getHost() == "pubsub.googleapis.com")) {
       $http = $this->getHttpClient();
     } else {
       $http = $this->authorize();
