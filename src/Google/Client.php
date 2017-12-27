@@ -783,8 +783,12 @@ class Google_Client
 
     // call the authorize method
     // this is where most of the grunt work is done
-    $http = $this->authorize();
-
+    // if this is an emulator connection, skip oauth
+    if (getenv("PUBSUB_EMULATOR_HOST") && ($request->getUri()->getHost() == "pubsub.googleapis.com")) {
+      $http = $this->getHttpClient();
+    } else {
+      $http = $this->authorize();
+    }
     return Google_Http_REST::execute($http, $request, $expectedClass, $this->config['retry']);
   }
 
