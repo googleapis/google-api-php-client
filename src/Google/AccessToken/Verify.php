@@ -94,7 +94,7 @@ class Google_AccessToken_Verify
       $exponent = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['e']), 256);
 
       $rsa = new $rsaClass();
-      $rsa->loadKey(array('n' => $modulus, 'e' => $exponent));
+      $rsa->load(array('n' => $modulus, 'e' => $exponent));
 
       try {
         $payload = $this->jwt->decode(
