@@ -18,6 +18,8 @@
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Message\Response as Guzzle5Response;
+use GuzzleHttp\Stream\Stream as Guzzle5Stream;
 
 class Google_Task_RunnerTest extends BaseTest
 {
@@ -655,8 +657,13 @@ class Google_Task_RunnerTest extends BaseTest
       throw $current;
     }
 
-    $stream = Psr7\stream_for($current['body']);
-    $response = new Response($current['code'], $current['headers'], $stream);
+    if ($this->isGuzzle5()) {
+      $stream = Guzzle5Stream::factory($current['body']);
+      $response = new Guzzle5Response($current['code'], $current['headers'], $stream);
+    } else {
+      $stream = Psr7\stream_for($current['body']);
+      $response = new Response($current['code'], $current['headers'], $stream);
+    }
 
     return $response;
   }
