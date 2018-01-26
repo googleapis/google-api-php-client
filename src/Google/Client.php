@@ -25,7 +25,6 @@ use Google\Auth\Credentials\UserRefreshCredentials;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Ring\Client\StreamHandler;
-use GuzzleHttp\Psr7;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Log\LoggerInterface;
@@ -211,7 +210,7 @@ class Google_Client
 
   /**
    * Fetches a fresh access token with a given assertion token.
-   * @param $assertionCredentials optional.
+   * @param ClientInterface $authHttp optional.
    * @return array access token
    */
   public function fetchAccessTokenWithAssertion(ClientInterface $authHttp = null)
@@ -441,11 +440,16 @@ class Google_Client
     return $this->token;
   }
 
+  /**
+   * @return string|null
+   */
   public function getRefreshToken()
   {
     if (isset($this->token['refresh_token'])) {
       return $this->token['refresh_token'];
     }
+
+    return null;
   }
 
   /**
@@ -480,6 +484,9 @@ class Google_Client
     return ($created + ($this->token['expires_in'] - 30)) < time();
   }
 
+  /**
+   * @deprecated See UPGRADING.md for more information
+   */
   public function getAuth()
   {
     throw new BadMethodCallException(
@@ -487,6 +494,9 @@ class Google_Client
     );
   }
 
+  /**
+   * @deprecated See UPGRADING.md for more information
+   */
   public function setAuth($auth)
   {
     throw new BadMethodCallException(
@@ -753,7 +763,7 @@ class Google_Client
   }
 
   /**
-   * @return array
+   * @return string|null
    * @visible For Testing
    */
   public function prepareScopes()
@@ -886,7 +896,7 @@ class Google_Client
   /**
    * Use when the service account has been delegated domain wide access.
    *
-   * @param string subject an email address account to impersonate
+   * @param string $subject an email address account to impersonate
    */
   public function setSubject($subject)
   {
@@ -968,7 +978,7 @@ class Google_Client
   }
 
   /**
-   * @return Google\Auth\CacheInterface Cache implementation
+   * @param array $cacheConfig
    */
   public function setCacheConfig(array $cacheConfig)
   {
