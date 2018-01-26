@@ -23,8 +23,82 @@ use GuzzleHttp\Client;
 
 class Google_AccessToken_RevokeTest extends BaseTest
 {
-  public function testRevokeAccess()
+  public function testRevokeAccessGuzzle5()
   {
+    $this->onlyGuzzle5();
+
+    $accessToken = 'ACCESS_TOKEN';
+    $refreshToken = 'REFRESH_TOKEN';
+    $token = '';
+
+    $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+    $response->expects($this->exactly(3))
+      ->method('getStatusCode')
+      ->will($this->returnValue(200));
+    $http = $this->getMock('GuzzleHttp\ClientInterface');
+    $http->expects($this->exactly(3))
+      ->method('send')
+      ->will($this->returnCallback(
+            function ($request) use (&$token, $response) {
+              parse_str((string) $request->getBody(), $fields);
+              $token = isset($fields['token']) ? $fields['token'] : null;
+
+              return $response;
+            }
+        ));
+
+    $requestToken = null;
+    $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
+    $request->expects($this->exactly(3))
+        ->method('getBody')
+        ->will($this->returnCallback(
+            function () use (&$requestToken) {
+              return 'token='.$requestToken;
+            }));
+    $http->expects($this->exactly(3))
+      ->method('createRequest')
+      ->will($this->returnCallback(
+            function ($method, $url, $params) use (&$requestToken, $request) {
+              parse_str((string) $params['body'], $fields);
+              $requestToken = isset($fields['token']) ? $fields['token'] : null;
+
+              return $request;
+            }
+        ));
+
+    $t = array(
+      'access_token' => $accessToken,
+      'created' => time(),
+      'expires_in' => '3600'
+    );
+
+    // Test with access token.
+    $revoke = new Google_AccessToken_Revoke($http);
+    $this->assertTrue($revoke->revokeToken($t));
+    $this->assertEquals($accessToken, $token);
+
+    // Test with refresh token.
+    $revoke = new Google_AccessToken_Revoke($http);
+    $t = array(
+      'access_token' => $accessToken,
+      'refresh_token' => $refreshToken,
+      'created' => time(),
+      'expires_in' => '3600'
+    );
+    $this->assertTrue($revoke->revokeToken($t));
+    $this->assertEquals($refreshToken, $token);
+
+    // Test with token string.
+    $revoke = new Google_AccessToken_Revoke($http);
+    $t = $accessToken;
+    $this->assertTrue($revoke->revokeToken($t));
+    $this->assertEquals($accessToken, $token);
+  }
+
+  public function testRevokeAccessGuzzle6()
+  {
+    $this->onlyGuzzle6();
+
     $accessToken = 'ACCESS_TOKEN';
     $refreshToken = 'REFRESH_TOKEN';
     $token = '';
@@ -44,28 +118,6 @@ class Google_AccessToken_RevokeTest extends BaseTest
               return $response;
             }
         ));
-
-    // adds support for extra "createRequest" step (required for Guzzle 5)
-    if ($this->isGuzzle5()) {
-      $requestToken = null;
-      $request = $this->getMock('GuzzleHttp\Message\RequestInterface');
-      $request->expects($this->exactly(3))
-          ->method('getBody')
-          ->will($this->returnCallback(
-              function () use (&$requestToken) {
-                return 'token='.$requestToken;
-              }));
-      $http->expects($this->exactly(3))
-        ->method('createRequest')
-        ->will($this->returnCallback(
-              function ($method, $url, $params) use (&$requestToken, $request) {
-                parse_str((string) $params['body'], $fields);
-                $requestToken = isset($fields['token']) ? $fields['token'] : null;
-
-                return $request;
-              }
-          ));
-    }
 
     $t = array(
       'access_token' => $accessToken,
