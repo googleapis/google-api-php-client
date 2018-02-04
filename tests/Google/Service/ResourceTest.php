@@ -141,8 +141,12 @@ class Google_Service_ResourceTest extends BaseTest
     $this->assertEquals("POST", $request->getMethod());
   }
   
-  /* Some Google Service (Google_Service_Directory_Resource_Channels and Google_Service_Reports_Resource_Channels) use a different servicePath value that should override 
-  the default servicePath value, it's represented by a / before the resource path. All other Services have no / before the path*/
+ /**
+  * Some Google Service (Google_Service_Directory_Resource_Channels and 
+  * Google_Service_Reports_Resource_Channels) use a different servicePath value 
+  * that should override the default servicePath value, it's represented by a / 
+  * before the resource path. All other Services have no / before the path
+  */
   public function testCreateRequestUriForASelfDefinedServicePath()
   {
     $this->service->servicePath = '/admin/directory/v1/';
