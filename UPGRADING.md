@@ -244,9 +244,9 @@ $client->revokeToken($token);
 $client->isAccessTokenExpired();
 ```
 
-## PHP 5.4 is now the minimum supported PHP version
+## PHP 5.6 is now the minimum supported PHP version
 
-This was previously `PHP 5.2`. If you still need to use PHP 5.2, please continue to use
+This was previously `PHP 5.2`. If you still need to use PHP 5.5 or older, please continue to use
 the [v1-master](https://github.com/google/google-api-php-client/tree/v1-master) branch.
 
 ## Guzzle and PSR-7 are used for HTTP Requests
