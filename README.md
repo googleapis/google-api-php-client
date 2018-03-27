@@ -9,7 +9,7 @@ This client library is supported but in maintenance mode only.  We are fixing ne
 The Google API Client Library enables you to work with Google APIs such as Google+, Drive, or YouTube on your server.
 
 ## Requirements ##
-* [PHP 5.4.0 or higher](http://www.php.net/)
+* [PHP 5.6.0 or higher](http://www.php.net/)
 
 ## Google Cloud Platform APIs
 If you're looking to call the **Google Cloud Platform** APIs, you will want to use the [Google Cloud PHP](https://github.com/googlecloudplatform/google-cloud-php) library instead of this one.
