@@ -121,6 +121,11 @@ foreach ($results as $item) {
 
 > An example of this can be seen in [`examples/service-account.php`](examples/service-account.php).
 
+Some APIs
+(such as the [YouTube Data API](https://developers.google.com/youtube/v3/)) do
+not support service accounts. Check with the specific API documentation if API
+calls return unexpected 401 or 403 errors.
+
 1. Follow the instructions to [Create a Service Account](https://developers.google.com/api-client-library/php/auth/service-accounts#creatinganaccount)
 1. Download the JSON credentials
 1. Set the path to these credentials using the `GOOGLE_APPLICATION_CREDENTIALS` environment variable:
