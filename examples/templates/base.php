@@ -1,16 +1,16 @@
 <?php
-
 /* Ad hoc functions to make the examples marginally prettier.*/
 function isWebRequest()
 {
   return isset($_SERVER['HTTP_USER_AGENT']);
 }
 
-function pageHeader($title)
+function pageHeader(string $title)
 {
-  $ret = "<!doctype html>
-  <html>
+  $ret = "<!DOCTYPE html>
+  <html lang='en'>
   <head>
+    <meta charset='utf-8'>
     <title>" . $title . "</title>
     <link href='styles/style.css' rel='stylesheet' type='text/css' />
   </head>
