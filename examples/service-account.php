@@ -47,7 +47,7 @@ if ($credentials_file = checkServiceAccountCredentialsFile()) {
   // use the application default credentials
   $client->useApplicationDefaultCredentials();
 } else {
-  echo missingServiceAccountDetailsWarning();
+  echo Warning::missingServiceAccountDetailsWarning();
   return;
 }
 

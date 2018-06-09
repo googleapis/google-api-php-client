@@ -24,7 +24,7 @@ echo pageHeader("File Upload - Uploading a simple file");
  * Ensure you've downloaded your oauth credentials
  ************************************************/
 if (!$oauth_credentials = getOAuthCredentialsFile()) {
-  echo missingOAuth2CredentialsWarning();
+  echo Warning::missingOAuth2CredentialsWarning();
   return;
 }
 
