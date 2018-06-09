@@ -24,7 +24,7 @@ echo pageHeader('User Query - URL Shortener');
  * Ensure you've downloaded your oauth credentials
  ************************************************/
 if (!$oauth_credentials = getOAuthCredentialsFile()) {
-  echo missingOAuth2CredentialsWarning();
+  echo Warning::missingOAuth2CredentialsWarning();
   return;
 }
 
@@ -104,7 +104,7 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
  ************************************************/
 if ($client->getAccessToken() && isset($_REQUEST['url'])) {
   if (!validateCsrfToken()) {
-    echo invalidCsrfTokenWarning();
+    echo Warning::invalidCsrfTokenWarning();
     return;
   }
   $url = new Google_Service_Urlshortener_Url();
