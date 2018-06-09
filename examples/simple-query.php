@@ -31,7 +31,7 @@ $client->setApplicationName("Client_Library_Examples");
 
 // Warn if the API key isn't set.
 if (!$apiKey = getApiKey()) {
-  echo missingApiKeyWarning();
+  echo Warning::missingApiKeyWarning();
   return;
 }
 $client->setDeveloperKey($apiKey);
