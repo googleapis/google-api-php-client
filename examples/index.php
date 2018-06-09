@@ -22,8 +22,8 @@
 <div class="api-key">
   <strong>You have not entered your API key</strong>
   <form method="post">
-    API Key:<input type="text" name="api_key" />
-    <input type="submit" />
+    API Key:<input type="text" name="api_key" required/>
+    <input type="submit" value="Submit"/>
   </form>
   <em>This can be found in the <a href="http://developers.google.com/console" target="_blank">Google API Console</em>
 </div>
@@ -41,4 +41,4 @@
   <li><a href="multi-api.php">An example of using multiple APIs.</a></li>
 </ul>
 
-<?= pageFooter(); ?>
+<?php echo pageFooter(); ?>
