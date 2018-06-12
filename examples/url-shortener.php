@@ -118,27 +118,27 @@ if ($client->getAccessToken() && isset($_REQUEST['url'])) {
 <div class="box">
 <?php if (isset($authUrl)): ?>
   <div class="request">
-    <a class='login' href='<?= $authUrl ?>'>Connect Me!</a>
+    <a class='login' href='<?php echo $authUrl ?>'>Connect Me!</a>
   </div>
 <?php elseif (empty($short)): ?>
-  <form id="url" method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+  <form id="url" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <input name="url" class="url" type="text">
     <input type="hidden" name="csrf_token" value="<?php echo getCsrfToken() ?>" />
     <input type="submit" value="Shorten">
   </form>
-  <form id="logout" method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+  <form id="logout" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <input type="hidden" name="logout" value="" />
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>" />
     <input type="submit" value="Logout">
   </form>
 <?php else: ?>
   You created a short link! <br />
-  <a href="<?= $short['id'] ?>"><?= $short['id'] ?></a>
+  <a href="<?php echo $short['id'] ?>"><?php echo $short['id'] ?></a>
   <div class="shortened">
     <pre><?php var_export($short) ?></pre>
   </div>
-  <a href="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">Create another</a>
+  <a href="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">Create another</a>
 <?php endif ?>
 </div>
 
-<?= pageFooter(__FILE__);
+<?php echo pageFooter(__FILE__);

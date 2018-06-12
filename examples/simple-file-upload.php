@@ -115,14 +115,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
 <div class="box">
 <?php if (isset($authUrl)): ?>
   <div class="request">
-    <a class='login' href='<?= $authUrl ?>'>Connect Me!</a>
+    <a class='login' href='<?php echo $authUrl; ?>'>Connect Me!</a>
   </div>
 <?php elseif($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
   <div class="shortened">
     <p>Your call was successful! Check your drive for the following files:</p>
     <ul>
-      <li><a href="https://drive.google.com/open?id=<?= $result->id ?>" target="_blank"><?= $result->name ?></a></li>
-      <li><a href="https://drive.google.com/open?id=<?= $result2->id ?>" target="_blank"><?= $result2->name ?></a></li>
+      <li><a href="https://drive.google.com/open?id=<?php echo $result->id; ?>" target="_blank"><?php echo $result->name; ?></a></li>
+      <li><a href="https://drive.google.com/open?id=<?php echo $result2->id; ?>" target="_blank"><?php echo $result2->name; ?></a></li>
     </ul>
   </div>
 <?php else: ?>
@@ -132,4 +132,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
 <?php endif ?>
 </div>
 
-<?= pageFooter(__FILE__) ?>
+<?php echo pageFooter(__FILE__); ?>
