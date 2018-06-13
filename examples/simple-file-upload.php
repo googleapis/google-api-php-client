@@ -80,7 +80,7 @@ if (!empty($_SESSION['upload_token'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
   // We'll setup an empty 1MB file to upload.
   DEFINE("TESTFILE", 'testfile-small.txt');
-  if (!file_exists(TESTFILE)) {
+  if (!is_file(TESTFILE)) {
     $fh = fopen(TESTFILE, 'w');
     fseek($fh, 1024 * 1024);
     fwrite($fh, "!", 1);
