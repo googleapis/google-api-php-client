@@ -28,7 +28,7 @@ class examples_batchTest extends BaseTest
     $crawler = $this->loadExample('batch.php');
 
     $nodes = $crawler->filter('br');
-    $this->assertEquals(20, count($nodes));
+    $this->assertCount(20, $nodes);
     $this->assertContains('Life of Henry David Thoreau', $crawler->text());
     $this->assertContains('George Bernard Shaw His Life and Works', $crawler->text());
   }

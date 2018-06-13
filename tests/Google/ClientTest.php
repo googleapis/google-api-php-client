@@ -52,7 +52,7 @@ class Google_ClientTest extends BaseTest
 
       if (null === $className) {
         // only the default middlewares have been added
-        $this->assertEquals(3, count($middlewares));
+        $this->assertCount(3, $middlewares);
       } else {
         $authClass = sprintf('Google\Auth\Middleware\%sMiddleware', $className);
         $this->assertInstanceOf($authClass, $middleware[0]);
@@ -61,11 +61,11 @@ class Google_ClientTest extends BaseTest
       $listeners = $http->getEmitter()->listeners('before');
 
       if (null === $className) {
-        $this->assertEquals(0, count($listeners));
+        $this->assertCount(0, $listeners);
       } else {
         $authClass = sprintf('Google\Auth\Subscriber\%sSubscriber', $className);
-        $this->assertEquals(1, count($listeners));
-        $this->assertEquals(2, count($listeners[0]));
+        $this->assertCount(1, $listeners);
+        $this->assertCount(2, $listeners[0]);
         $this->assertInstanceOf($authClass, $listeners[0][0]);
       }
     }
@@ -180,7 +180,7 @@ class Google_ClientTest extends BaseTest
     $client = new Google_Client();
 
     $scopes = $client->prepareScopes();
-    $this->assertEquals(null, $scopes);
+    $this->assertNull($scopes);
   }
 
   public function testNoAuthIsNull()
@@ -192,6 +192,8 @@ class Google_ClientTest extends BaseTest
 
   public function testPrepareService()
   {
+    $this->onlyGuzzle6();
+
     $client = new Google_Client();
     $client->setScopes(array("scope1", "scope2"));
     $scopes = $client->prepareScopes();
@@ -242,7 +244,6 @@ class Google_ClientTest extends BaseTest
         ->method('createRequest')
         ->will($this->returnValue($guzzle5Request));
     }
-
 
     $client->setHttpClient($http);
     $dr_service = new Google_Service_Drive($client);
@@ -442,7 +443,11 @@ class Google_ClientTest extends BaseTest
     $postBody->expects($this->once())
       ->method('__toString')
       ->will($this->returnValue($token));
-    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+    if ($this->isGuzzle5()) {
+      $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+    } else {
+      $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+    }
     $response->expects($this->once())
       ->method('getBody')
       ->will($this->returnValue($postBody));
@@ -479,7 +484,11 @@ class Google_ClientTest extends BaseTest
     $postBody->expects($this->once())
       ->method('__toString')
       ->will($this->returnValue($token));
-    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+    if ($this->isGuzzle5()) {
+      $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+    } else {
+      $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+    }
     $response->expects($this->once())
       ->method('getBody')
       ->will($this->returnValue($postBody));
@@ -517,7 +526,11 @@ class Google_ClientTest extends BaseTest
     $postBody->expects($this->once())
       ->method('__toString')
       ->will($this->returnValue($token));
-    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+    if ($this->isGuzzle5()) {
+      $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+    } else {
+      $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+    }
     $response->expects($this->once())
       ->method('getBody')
       ->will($this->returnValue($postBody));

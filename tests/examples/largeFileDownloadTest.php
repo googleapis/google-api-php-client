@@ -27,11 +27,11 @@ class examples_largeFileDownloadTest extends BaseTest
     $crawler = $this->loadExample('large-file-download.php');
 
     $nodes = $crawler->filter('h1');
-    $this->assertEquals(1, count($nodes));
+    $this->assertCount(1, $nodes);
     $this->assertEquals('File Download - Downloading a large file', $nodes->first()->text());
 
     $nodes = $crawler->filter('a.login');
-    $this->assertEquals(1, count($nodes));
+    $this->assertCount(1, $nodes);
     $this->assertEquals('Connect Me!', $nodes->first()->text());
   }
 
@@ -46,7 +46,7 @@ class examples_largeFileDownloadTest extends BaseTest
 
     $buttonText = 'Click here to download a large (20MB) test file';
     $nodes = $crawler->filter('input');
-    $this->assertEquals(1, count($nodes));
+    $this->assertCount(1, $nodes);
     $this->assertEquals($buttonText, $nodes->first()->attr('value'));
   }
 }

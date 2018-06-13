@@ -2,20 +2,16 @@
 
 # Google APIs Client Library for PHP #
 
-## Library maintenance
-This client library is supported but in maintenance mode only.  We are fixing necessary bugs and adding essential features to ensure this library continues to meet your needs for accessing Google APIs.  Non-critical issues will be closed.  Any issue may be reopened if it is causing ongoing problems.
-
-## Description ##
 The Google API Client Library enables you to work with Google APIs such as Google+, Drive, or YouTube on your server.
 
-## Beta ##
-This library is in Beta. We're comfortable enough with the stability and features of the library that we want you to build real production applications on it. We will make an effort to support the public and protected surface of the library and maintain backwards compatibility in the future. While we are still in Beta, we reserve the right to make incompatible changes.
+These client libraries are officially supported by Google.  However, the libraries are considered complete and are in maintenance mode. This means that we will address critical bugs and security issues but will not add any new features.
+
+## Google Cloud Platform
+
+For Google Cloud Platform APIs such as Datastore, Cloud Storage or Pub/Sub, we recommend using [GoogleCloudPlatform/google-cloud-php](https://github.com/GoogleCloudPlatform/google-cloud-php) which is under active development.
 
 ## Requirements ##
 * [PHP 5.4.0 or higher](http://www.php.net/)
-
-## Google Cloud Platform APIs
-If you're looking to call the **Google Cloud Platform** APIs, you will want to use the [Google Cloud PHP](https://github.com/googlecloudplatform/google-cloud-php) library instead of this one.
 
 ## Developer Documentation ##
 http://developers.google.com/api-client-library/php
@@ -124,6 +120,11 @@ foreach ($results as $item) {
 ### Authentication with Service Accounts ###
 
 > An example of this can be seen in [`examples/service-account.php`](examples/service-account.php).
+
+Some APIs
+(such as the [YouTube Data API](https://developers.google.com/youtube/v3/)) do
+not support service accounts. Check with the specific API documentation if API
+calls return unexpected 401 or 403 errors.
 
 1. Follow the instructions to [Create a Service Account](https://developers.google.com/api-client-library/php/auth/service-accounts#creatinganaccount)
 1. Download the JSON credentials

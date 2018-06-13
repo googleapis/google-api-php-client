@@ -18,6 +18,8 @@
  * under the License.
  */
 
+use PHPUnit\Framework\TestCase;
+
 class TestModel extends Google_Model
 {
   public function mapTypes($array)
@@ -36,7 +38,7 @@ class TestService extends Google_Service
   public $batchPath = 'batch/test';
 }
 
-class Google_ServiceTest extends PHPUnit_Framework_TestCase
+class Google_ServiceTest extends TestCase
 {
   public function testCreateBatch()
   {
@@ -83,15 +85,15 @@ class Google_ServiceTest extends PHPUnit_Framework_TestCase
     $this->assertEquals('asdf', $model->name);
     $this->assertEquals('z', $model->gender);
 
-    $this->assertEquals(false, $model->isAssociativeArray(""));
-    $this->assertEquals(false, $model->isAssociativeArray(false));
-    $this->assertEquals(false, $model->isAssociativeArray(null));
-    $this->assertEquals(false, $model->isAssociativeArray(array()));
-    $this->assertEquals(false, $model->isAssociativeArray(array(1, 2)));
-    $this->assertEquals(false, $model->isAssociativeArray(array(1 => 2)));
+    $this->assertFalse($model->isAssociativeArray(""));
+    $this->assertFalse($model->isAssociativeArray(false));
+    $this->assertFalse($model->isAssociativeArray(null));
+    $this->assertFalse($model->isAssociativeArray(array()));
+    $this->assertFalse($model->isAssociativeArray(array(1, 2)));
+    $this->assertFalse($model->isAssociativeArray(array(1 => 2)));
 
-    $this->assertEquals(true, $model->isAssociativeArray(array('test' => 'a')));
-    $this->assertEquals(true, $model->isAssociativeArray(array("a", "b" => 2)));
+    $this->assertTrue($model->isAssociativeArray(array('test' => 'a')));
+    $this->assertTrue($model->isAssociativeArray(array("a", "b" => 2)));
   }
 
   /**

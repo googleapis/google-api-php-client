@@ -138,9 +138,9 @@ class Google_ModelTest extends BaseTest
     $this->assertArrayHasKey("publicE", $data['publicG'][0]);
     $this->assertArrayNotHasKey("publicF", $data['publicG'][0]);
     $this->assertEquals("hello", $data['publicG'][1]);
-    $this->assertEquals(false, $data['publicG'][2]);
+    $this->assertFalse($data['publicG'][2]);
     $this->assertArrayNotHasKey("data", $data);
-    $this->assertEquals(false, $data['publicH']);
+    $this->assertFalse($data['publicH']);
     $this->assertEquals(0, $data['publicI']);
   }
 
@@ -177,7 +177,7 @@ class Google_ModelTest extends BaseTest
         true
     );
     $collection = new Google_Service_Calendar_Events($data);
-    $this->assertEquals(4, count($collection));
+    $this->assertCount(4, $collection);
     $count = 0;
     foreach ($collection as $col) {
       $count++;
@@ -204,7 +204,7 @@ class Google_ModelTest extends BaseTest
       new Google_Service_Calendar_Event(['id' => 3]),
       new Google_Service_Calendar_Event(['id' => 4]),
     ]);
-    $this->assertEquals(4, count($collection));
+    $this->assertCount(4, $collection);
     $count = 0;
     foreach ($collection as $col) {
       $count++;
@@ -225,7 +225,7 @@ class Google_ModelTest extends BaseTest
         true
     );
     $collection = new Google_Service_Calendar_Colors($data);
-    $this->assertEquals(2, count($collection->calendar));
+    $this->assertCount(2, $collection->calendar);
     $this->assertTrue(isset($collection->calendar['regular']));
     $this->assertTrue(isset($collection->calendar['inverted']));
     $this->assertInstanceOf('Google_Service_Calendar_ColorDefinition', $collection->calendar['regular']);
@@ -257,11 +257,25 @@ class Google_ModelTest extends BaseTest
         ]
     ];
     $collection = new Google_Service_Calendar_Colors($data);
-    $this->assertEquals(2, count($collection->calendar));
+    $this->assertCount(2, $collection->calendar);
     $this->assertTrue(isset($collection->calendar['regular']));
     $this->assertTrue(isset($collection->calendar['inverted']));
     $this->assertInstanceOf('Google_Service_Calendar_ColorDefinition', $collection->calendar['regular']);
     $this->assertEquals('#FFF', $collection->calendar['regular']->getBackground());
     $this->assertEquals('#FFF', $collection->calendar['inverted']->getForeground());
+  }
+
+  /**
+   * @see https://github.com/google/google-api-php-client/issues/1308
+   */
+  public function testKeyTypePropertyConflict()
+  {
+    $data = [
+        "duration" => 0,
+        "durationType" => "unknown",
+    ];
+    $creativeAsset = new Google_Service_Dfareporting_CreativeAsset($data);
+    $this->assertEquals(0, $creativeAsset->getDuration());
+    $this->assertEquals('unknown', $creativeAsset->getDurationType());
   }
 }

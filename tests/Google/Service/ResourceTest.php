@@ -22,6 +22,8 @@ use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Stream;
+use GuzzleHttp\Message\Response as Guzzle5Response;
+use GuzzleHttp\Stream\Stream as Guzzle5Stream;
 
 class Test_Google_Service extends Google_Service
 {
@@ -138,12 +140,39 @@ class Google_Service_ResourceTest extends BaseTest
     $this->assertEquals("https://sample.example.com/method/path", (string) $request->getUri());
     $this->assertEquals("POST", $request->getMethod());
   }
-
+  
+ /**
+  * Some Google Service (Google_Service_Directory_Resource_Channels and 
+  * Google_Service_Reports_Resource_Channels) use a different servicePath value 
+  * that should override the default servicePath value, it's represented by a / 
+  * before the resource path. All other Services have no / before the path
+  */
+  public function testCreateRequestUriForASelfDefinedServicePath()
+  {
+    $this->service->servicePath = '/admin/directory/v1/';
+    $resource = new Google_Service_Resource(
+    $this->service,
+      'test',
+      'testResource',
+      array("methods" =>
+        array(
+          'testMethod' => array(
+            'parameters' => array(),
+            'path' => '/admin/directory_v1/watch/stop',
+            'httpMethod' => 'POST',
+          )
+        )
+      )
+    );
+    $request = $resource->call('testMethod', array(array()));
+    $this->assertEquals('https://test.example.com/admin/directory_v1/watch/stop', (string) $request->getUri());
+  }
+  
   public function testCreateRequestUri()
   {
-    $restPath = "/plus/{u}";
+    $restPath = "plus/{u}";
     $service = new Google_Service($this->client);
-    $service->servicePath = "http://localhost";
+    $service->servicePath = "http://localhost/";
     $resource = new Google_Service_Resource($service, 'test', 'testResource', array());
 
     // Test Path
@@ -159,7 +188,7 @@ class Google_Service_ResourceTest extends BaseTest
     $params['u']['type'] = 'string';
     $params['u']['location'] = 'query';
     $params['u']['value'] = 'me';
-    $value = $resource->createRequestUri('/plus', $params);
+    $value = $resource->createRequestUri('plus', $params);
     $this->assertEquals("http://localhost/plus?u=me", $value);
 
     // Test Booleans
@@ -171,7 +200,7 @@ class Google_Service_ResourceTest extends BaseTest
     $this->assertEquals("http://localhost/plus/true", $value);
 
     $params['u']['location'] = 'query';
-    $value = $resource->createRequestUri('/plus', $params);
+    $value = $resource->createRequestUri('plus', $params);
     $this->assertEquals("http://localhost/plus?u=true", $value);
 
     // Test encoding
@@ -179,7 +208,7 @@ class Google_Service_ResourceTest extends BaseTest
     $params['u']['type'] = 'string';
     $params['u']['location'] = 'query';
     $params['u']['value'] = '@me/';
-    $value = $resource->createRequestUri('/plus', $params);
+    $value = $resource->createRequestUri('plus', $params);
     $this->assertEquals("http://localhost/plus?u=%40me%2F", $value);
   }
 
@@ -188,8 +217,13 @@ class Google_Service_ResourceTest extends BaseTest
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
     $request = new Request('GET', '/?alt=media');
-    $body = Psr7\stream_for('thisisnotvalidjson');
-    $response = new Response(200, [], $body);
+    if ($this->isGuzzle5()) {
+      $body = Guzzle5Stream::factory('thisisnotvalidjson');
+      $response = new Guzzle5Response(200, [], $body);
+    } else {
+      $body = Psr7\stream_for('thisisnotvalidjson');
+      $response = new Response(200, [], $body);
+    }
 
     $http = $this->getMockBuilder("GuzzleHttp\Client")
         ->disableOriginalConstructor()
@@ -235,8 +269,13 @@ class Google_Service_ResourceTest extends BaseTest
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
     $request = new Request('GET', '/?alt=media');
-    $body = Psr7\stream_for('thisisnotvalidjson');
-    $response = new Response(400, [], $body);
+    if ($this->isGuzzle5()) {
+      $body = Guzzle5Stream::factory('thisisnotvalidjson');
+      $response = new Guzzle5Response(400, [], $body);
+    } else {
+      $body = Psr7\stream_for('thisisnotvalidjson');
+      $response = new Response(400, [], $body);
+    }
 
     $http = $this->getMockBuilder("GuzzleHttp\Client")
         ->disableOriginalConstructor()
@@ -286,8 +325,13 @@ class Google_Service_ResourceTest extends BaseTest
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
     $request = new Request('GET', '/?alt=media');
-    $body = Psr7\stream_for('this will be pulled into memory');
-    $response = new Response(400, [], $body);
+    if ($this->isGuzzle5()) {
+      $body = Guzzle5Stream::factory('this will be pulled into memory');
+      $response = new Guzzle5Response(400, [], $body);
+    } else {
+      $body = Psr7\stream_for('this will be pulled into memory');
+      $response = new Response(400, [], $body);
+    }
 
     $http = $this->getMockBuilder("GuzzleHttp\Client")
         ->disableOriginalConstructor()
@@ -334,6 +378,8 @@ class Google_Service_ResourceTest extends BaseTest
 
   public function testSuccessResponseWithVeryLongBody()
   {
+    $this->onlyGuzzle6();
+
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
     $request = new Request('GET', '/?alt=media');
@@ -347,12 +393,6 @@ class Google_Service_ResourceTest extends BaseTest
     $http->expects($this->once())
         ->method('send')
         ->will($this->returnValue($response));
-
-    if ($this->isGuzzle5()) {
-      $http->expects($this->once())
-        ->method('createRequest')
-        ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/?alt=media')));
-    }
 
     $client = new Google_Client();
     $client->setHttpClient($http);
@@ -386,14 +426,18 @@ class Google_Service_ResourceTest extends BaseTest
     // set the "alt" parameter to "media"
     $request = new Request('GET', '/');
     $errors = [ ["domain" => "foo"] ];
-
-    $body = Psr7\stream_for(json_encode([
+    $content = json_encode([
       'error' => [
         'errors' => $errors
       ]
-    ]));
-
-    $response = new Response(400, [], $body);
+    ]);
+    if ($this->isGuzzle5()) {
+      $body = Guzzle5Stream::factory($content);
+      $response = new Guzzle5Response(400, [], $body);
+    } else {
+      $body = Psr7\stream_for($content);
+      $response = new Response(400, [], $body);
+    }
 
     $http = $this->getMockBuilder("GuzzleHttp\Client")
         ->disableOriginalConstructor()

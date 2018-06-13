@@ -28,10 +28,10 @@ class examples_simpleQueryTest extends BaseTest
     $crawler = $this->loadExample('simple-query.php');
 
     $nodes = $crawler->filter('br');
-    $this->assertEquals(20, count($nodes));
+    $this->assertCount(20, $nodes);
 
     $nodes = $crawler->filter('h1');
-    $this->assertEquals(1, count($nodes));
+    $this->assertCount(1, $nodes);
     $this->assertEquals('Simple API Access', $nodes->first()->text());
   }
 }

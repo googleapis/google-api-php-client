@@ -46,7 +46,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
 
     $openSslEnable = constant('MATH_BIGINTEGER_OPENSSL_ENABLED');
     $rsaMode = constant('CRYPT_RSA_MODE');
-    $this->assertEquals(true, $openSslEnable);
+    $this->assertTrue($openSslEnable);
     $this->assertEquals(constant($this->getOpenSslConstant()), $rsaMode);
   }
 
@@ -67,13 +67,13 @@ class Google_AccessToken_VerifyTest extends BaseTest
       $token = $client->fetchAccessTokenWithRefreshToken();
     }
     $segments = explode('.', $token['id_token']);
-    $this->assertEquals(3, count($segments));
+    $this->assertCount(3, $segments);
     // Extract the client ID in this case as it wont be set on the test client.
     $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
     $verify = new Google_AccessToken_Verify($http);
     $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
-    $this->assertTrue(isset($payload['sub']));
-    $this->assertTrue(strlen($payload['sub']) > 0);
+    $this->assertArrayHasKey('sub', $payload);
+    $this->assertGreaterThan(0, strlen($payload['sub']));
 
     // TODO: Need to be smart about testing/disabling the
     // caching for this test to make sense. Not sure how to do that
@@ -83,8 +83,8 @@ class Google_AccessToken_VerifyTest extends BaseTest
     $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
     $verify = new Google_AccessToken_Verify($http);
     $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
-    $this->assertTrue(isset($payload['sub']));
-    $this->assertTrue(strlen($payload['sub']) > 0);
+    $this->assertArrayHasKey('sub', $payload);
+    $this->assertGreaterThan(0, strlen($payload['sub']));
   }
 
   /**
@@ -105,7 +105,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
       $token = $client->fetchAccessTokenWithRefreshToken();
     }
     $segments = explode('.', $token['id_token']);
-    $this->assertEquals(3, count($segments));
+    $this->assertCount(3, $segments);
     // Extract the client ID in this case as it wont be set on the test client.
     $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
     $verify = new Google_AccessToken_Verify($client->getHttpClient(), null, $jwt);

@@ -28,11 +28,11 @@ class examples_largeFileUploadTest extends BaseTest
     $crawler = $this->loadExample('large-file-upload.php');
 
     $nodes = $crawler->filter('h1');
-    $this->assertEquals(1, count($nodes));
+    $this->assertCount(1, $nodes);
     $this->assertEquals('File Upload - Uploading a large file', $nodes->first()->text());
 
     $nodes = $crawler->filter('a.login');
-    $this->assertEquals(1, count($nodes));
+    $this->assertCount(1, $nodes);
     $this->assertEquals('Connect Me!', $nodes->first()->text());
   }
 }
