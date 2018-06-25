@@ -58,7 +58,6 @@ if (isset($_REQUEST['logout'])) {
  ************************************************/
 if (isset($_GET['code'])) {
   $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-  $client->setAccessToken($token);
 
   // store in the session also
   $_SESSION['id_token_token'] = $token;
