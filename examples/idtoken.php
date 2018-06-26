@@ -64,6 +64,7 @@ if (isset($_GET['code'])) {
 
   // redirect back to the example
   header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+  return;
 }
 
 /************************************************
