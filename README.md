@@ -265,14 +265,21 @@ $response = $httpClient->get('https://www.googleapis.com/plus/v1/people/me');
 It is recommended to use another caching library to improve performance. This can be done by passing a [PSR-6](http://www.php-fig.org/psr/psr-6/) compatible library to the client:
 
 ```php
-$cache = new Stash\Pool(new Stash\Driver\FileSystem);
+use League\Flysystem\Adapter\Local;
+use League\Flysystem\Filesystem;
+use Cache\Adapter\Filesystem\FilesystemCachePool;
+
+$filesystemAdapter = new Local(__DIR__.'/');
+$filesystem        = new Filesystem($filesystemAdapter);
+
+$cache = new FilesystemCachePool($filesystem);
 $client->setCache($cache);
 ```
 
-In this example we use [StashPHP](http://www.stashphp.com/). Add this to your project with composer:
+In this example we use [PHP Cache](http://www.php-cache.com/). Add this to your project with composer:
 
 ```
-composer require tedivm/stash
+composer require cache/filesystem-adapter
 ```
 
 ### Updating Tokens ###
