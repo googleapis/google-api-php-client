@@ -17,18 +17,18 @@
 
 class Google_Service_PagespeedonlineTest extends BaseTest
 {
-  public function testPageSpeed()
-  {
-    $this->checkToken();
-    $service = new Google_Service_Pagespeedonline($this->getClient());
-    $psapi = $service->pagespeedapi;
-    $result = $psapi->runpagespeed('http://code.google.com');
-    $this->assertArrayHasKey('kind', $result);
-    $this->assertArrayHasKey('id', $result);
-    $this->assertArrayHasKey('responseCode', $result);
-    $this->assertArrayHasKey('title', $result);
-    $this->assertArrayHasKey('score', $result->ruleGroups['SPEED']);
-    $this->assertInstanceOf('Google_Service_Pagespeedonline_ResultPageStats', $result->pageStats);
-    $this->assertArrayHasKey('minor', $result['version']);
-  }
+    public function testPageSpeed()
+    {
+        $this->checkToken();
+        $service = new Google_Service_Pagespeedonline($this->getClient());
+        $psapi = $service->pagespeedapi;
+        $result = $psapi->runpagespeed('http://code.google.com');
+        $this->assertArrayHasKey('kind', $result);
+        $this->assertArrayHasKey('id', $result);
+        $this->assertArrayHasKey('responseCode', $result);
+        $this->assertArrayHasKey('title', $result);
+        $this->assertArrayHasKey('score', $result->ruleGroups['SPEED']);
+        $this->assertInstanceOf('Google_Service_Pagespeedonline_ResultPageStats', $result->pageStats);
+        $this->assertArrayHasKey('minor', $result['version']);
+    }
 }

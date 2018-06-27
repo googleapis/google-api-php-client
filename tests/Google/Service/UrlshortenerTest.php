@@ -17,28 +17,28 @@
 
 class Google_Service_UrlshortenerTest extends BaseTest
 {
-  public function testUrlShort()
-  {
-    $this->checkKey();
+    public function testUrlShort()
+    {
+        $this->checkKey();
 
-    $service = new Google_Service_Urlshortener($this->getClient());
-    $url = new Google_Service_Urlshortener_Url();
-    $url->longUrl = "http://google.com";
+        $service = new Google_Service_Urlshortener($this->getClient());
+        $url = new Google_Service_Urlshortener_Url();
+        $url->longUrl = "http://google.com";
 
-    $shortUrl = $service->url->insert($url);
-    $this->assertEquals('urlshortener#url', $shortUrl['kind']);
-    $this->assertEquals('http://google.com/', $shortUrl['longUrl']);
-  }
+        $shortUrl = $service->url->insert($url);
+        $this->assertEquals('urlshortener#url', $shortUrl['kind']);
+        $this->assertEquals('http://google.com/', $shortUrl['longUrl']);
+    }
 
-  public function testEmptyJsonResponse()
-  {
-    $this->checkKey();
+    public function testEmptyJsonResponse()
+    {
+        $this->checkKey();
 
-    $service = new Google_Service_Urlshortener($this->getClient());
+        $service = new Google_Service_Urlshortener($this->getClient());
 
-    $optParams = array('fields' => '');
-    $resp = $service->url->get('http://goo.gl/KkHq8', $optParams);
+        $optParams = array('fields' => '');
+        $resp = $service->url->get('http://goo.gl/KkHq8', $optParams);
 
-    $this->assertEquals("", $resp->longUrl);
-  }
+        $this->assertEquals("", $resp->longUrl);
+    }
 }
