@@ -9,9 +9,9 @@
 $file = __DIR__ . '/../../vendor/autoload.php';
 
 if (!file_exists($file)) {
-  $exception = 'This library must be installed via composer or by downloading the full package.';
-  $exception .= ' See the instructions at https://github.com/google/google-api-php-client#installation.';
-  throw new Exception($exception);
+    $exception = 'This library must be installed via composer or by downloading the full package.';
+    $exception .= ' See the instructions at https://github.com/google/google-api-php-client#installation.';
+    throw new Exception($exception);
 }
 
 $error = 'google-api-php-client\'s autoloader was moved to vendor/autoload.php in 2.0.0. This ';

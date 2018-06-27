@@ -24,8 +24,8 @@ echo pageHeader('User Query - URL Shortener');
  * Ensure you've downloaded your oauth credentials
  ************************************************/
 if (!$oauth_credentials = getOAuthCredentialsFile()) {
-  echo missingOAuth2CredentialsWarning();
-  return;
+    echo missingOAuth2CredentialsWarning();
+    return;
 }
 
 /************************************************
@@ -60,8 +60,8 @@ $service = new Google_Service_Urlshortener($client);
  * local access token in this case
  ************************************************/
 if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['access_token']);
-  unset($_SESSION['csrf_token']);
+    unset($_SESSION['access_token']);
+    unset($_SESSION['csrf_token']);
 }
 
 /************************************************
@@ -72,14 +72,14 @@ if (isset($_REQUEST['logout'])) {
  * bundle in the session, and redirect to ourself.
  ************************************************/
 if (isset($_GET['code'])) {
-  $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-  $client->setAccessToken($token);
+    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    $client->setAccessToken($token);
 
   // store in the session also
-  $_SESSION['access_token'] = $token;
+    $_SESSION['access_token'] = $token;
 
   // redirect back to the example
-  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+    header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
 }
 
 /************************************************
@@ -87,9 +87,9 @@ if (isset($_GET['code'])) {
   requests, else we generate an authentication URL.
  ************************************************/
 if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
-  $client->setAccessToken($_SESSION['access_token']);
+    $client->setAccessToken($_SESSION['access_token']);
 } else {
-  $authUrl = $client->createAuthUrl();
+    $authUrl = $client->createAuthUrl();
 }
 
 /************************************************
@@ -103,24 +103,24 @@ if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
   refreshed if the application has offline access.
  ************************************************/
 if ($client->getAccessToken() && isset($_REQUEST['url'])) {
-  if (!validateCsrfToken()) {
-    echo invalidCsrfTokenWarning();
-    return;
-  }
-  $url = new Google_Service_Urlshortener_Url();
-  $url->longUrl = $_REQUEST['url'];
-  $short = $service->url->insert($url);
-  $_SESSION['access_token'] = $client->getAccessToken();
+    if (!validateCsrfToken()) {
+        echo invalidCsrfTokenWarning();
+        return;
+    }
+    $url = new Google_Service_Urlshortener_Url();
+    $url->longUrl = $_REQUEST['url'];
+    $short = $service->url->insert($url);
+    $_SESSION['access_token'] = $client->getAccessToken();
 }
 
 ?>
 
 <div class="box">
-<?php if (isset($authUrl)): ?>
+<?php if (isset($authUrl)) : ?>
   <div class="request">
     <a class='login' href='<?= $authUrl ?>'>Connect Me!</a>
   </div>
-<?php elseif (empty($short)): ?>
+<?php elseif (empty($short)) : ?>
   <form id="url" method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
     <input name="url" class="url" type="text">
     <input type="hidden" name="csrf_token" value="<?php echo getCsrfToken() ?>" />
@@ -131,7 +131,7 @@ if ($client->getAccessToken() && isset($_REQUEST['url'])) {
     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>" />
     <input type="submit" value="Logout">
   </form>
-<?php else: ?>
+<?php else : ?>
   You created a short link! <br />
   <a href="<?= $short['id'] ?>"><?= $short['id'] ?></a>
   <div class="shortened">

@@ -21,14 +21,14 @@
 
 class examples_serviceAccountTest extends BaseTest
 {
-  public function testServiceAccount()
-  {
-    $this->checkServiceAccountCredentials();
+    public function testServiceAccount()
+    {
+        $this->checkServiceAccountCredentials();
 
-    $crawler = $this->loadExample('service-account.php');
+        $crawler = $this->loadExample('service-account.php');
 
-    $nodes = $crawler->filter('br');
-    $this->assertCount(10, $nodes);
-    $this->assertContains('Life of Henry David Thoreau', $crawler->text());
-  }
+        $nodes = $crawler->filter('br');
+        $this->assertCount(10, $nodes);
+        $this->assertContains('Life of Henry David Thoreau', $crawler->text());
+    }
 }

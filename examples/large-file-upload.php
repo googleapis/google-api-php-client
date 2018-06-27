@@ -24,8 +24,8 @@ echo pageHeader("File Upload - Uploading a large file");
  * Ensure you've downloaded your oauth credentials
  ************************************************/
 if (!$oauth_credentials = getOAuthCredentialsFile()) {
-  echo missingOAuth2CredentialsWarning();
-  return;
+    echo missingOAuth2CredentialsWarning();
+    return;
 }
 
 /************************************************
@@ -42,7 +42,7 @@ $service = new Google_Service_Drive($client);
 
 // add "?logout" to the URL to remove a token from the session
 if (isset($_REQUEST['logout'])) {
-  unset($_SESSION['upload_token']);
+    unset($_SESSION['upload_token']);
 }
 
 /************************************************
@@ -53,24 +53,24 @@ if (isset($_REQUEST['logout'])) {
  * bundle in the session, and redirect to ourself.
  ************************************************/
 if (isset($_GET['code'])) {
-  $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-  $client->setAccessToken($token);
+    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    $client->setAccessToken($token);
 
   // store in the session also
-  $_SESSION['upload_token'] = $token;
+    $_SESSION['upload_token'] = $token;
 
   // redirect back to the example
-  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+    header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
 }
 
 // set the access token as part of the client
 if (!empty($_SESSION['upload_token'])) {
-  $client->setAccessToken($_SESSION['upload_token']);
-  if ($client->isAccessTokenExpired()) {
-    unset($_SESSION['upload_token']);
-  }
+    $client->setAccessToken($_SESSION['upload_token']);
+    if ($client->isAccessTokenExpired()) {
+        unset($_SESSION['upload_token']);
+    }
 } else {
-  $authUrl = $client->createAuthUrl();
+    $authUrl = $client->createAuthUrl();
 }
 
 /************************************************
@@ -81,56 +81,56 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
   /************************************************
    * We'll setup an empty 20MB file to upload.
    ************************************************/
-  DEFINE("TESTFILE", 'testfile.txt');
-  if (!file_exists(TESTFILE)) {
-    $fh = fopen(TESTFILE, 'w');
-    fseek($fh, 1024*1024*20);
-    fwrite($fh, "!", 1);
-    fclose($fh);
-  }
+    DEFINE("TESTFILE", 'testfile.txt');
+    if (!file_exists(TESTFILE)) {
+        $fh = fopen(TESTFILE, 'w');
+        fseek($fh, 1024*1024*20);
+        fwrite($fh, "!", 1);
+        fclose($fh);
+    }
 
-  $file = new Google_Service_Drive_DriveFile();
-  $file->name = "Big File";
-  $chunkSizeBytes = 1 * 1024 * 1024;
+    $file = new Google_Service_Drive_DriveFile();
+    $file->name = "Big File";
+    $chunkSizeBytes = 1 * 1024 * 1024;
 
   // Call the API with the media upload, defer so it doesn't immediately return.
-  $client->setDefer(true);
-  $request = $service->files->create($file);
+    $client->setDefer(true);
+    $request = $service->files->create($file);
 
   // Create a media file upload to represent our upload process.
-  $media = new Google_Http_MediaFileUpload(
-      $client,
-      $request,
-      'text/plain',
-      null,
-      true,
-      $chunkSizeBytes
-  );
-  $media->setFileSize(filesize(TESTFILE));
+    $media = new Google_Http_MediaFileUpload(
+        $client,
+        $request,
+        'text/plain',
+        null,
+        true,
+        $chunkSizeBytes
+    );
+    $media->setFileSize(filesize(TESTFILE));
 
   // Upload the various chunks. $status will be false until the process is
   // complete.
-  $status = false;
-  $handle = fopen(TESTFILE, "rb");
-  while (!$status && !feof($handle)) {
-    // read until you get $chunkSizeBytes from TESTFILE
-    // fread will never return more than 8192 bytes if the stream is read buffered and it does not represent a plain file
-    // An example of a read buffered file is when reading from a URL
-    $chunk = readVideoChunk($handle, $chunkSizeBytes);
-    $status = $media->nextChunk($chunk);
-  }
+    $status = false;
+    $handle = fopen(TESTFILE, "rb");
+    while (!$status && !feof($handle)) {
+      // read until you get $chunkSizeBytes from TESTFILE
+      // fread will never return more than 8192 bytes if the stream is read buffered and it does not represent a plain file
+      // An example of a read buffered file is when reading from a URL
+        $chunk = readVideoChunk($handle, $chunkSizeBytes);
+        $status = $media->nextChunk($chunk);
+    }
 
   // The final value of $status will be the data from the API for the object
   // that has been uploaded.
-  $result = false;
-  if ($status != false) {
-    $result = $status;
-  }
+    $result = false;
+    if ($status != false) {
+        $result = $status;
+    }
 
-  fclose($handle);
+    fclose($handle);
 }
 
-function readVideoChunk ($handle, $chunkSize)
+function readVideoChunk($handle, $chunkSize)
 {
     $byteCount = 0;
     $giantChunk = "";
@@ -139,8 +139,7 @@ function readVideoChunk ($handle, $chunkSize)
         $chunk = fread($handle, 8192);
         $byteCount += strlen($chunk);
         $giantChunk .= $chunk;
-        if ($byteCount >= $chunkSize)
-        {
+        if ($byteCount >= $chunkSize) {
             return $giantChunk;
         }
     }
@@ -149,17 +148,17 @@ function readVideoChunk ($handle, $chunkSize)
 ?>
 
 <div class="box">
-<?php if (isset($authUrl)): ?>
+<?php if (isset($authUrl)) : ?>
   <div class="request">
     <a class='login' href='<?= $authUrl ?>'>Connect Me!</a>
   </div>
-<?php elseif($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
+<?php elseif ($_SERVER['REQUEST_METHOD'] == 'POST') : ?>
   <div class="shortened">
     <p>Your call was successful! Check your drive for this file:</p>
     <p><a href="https://drive.google.com/open?id=<?= $result->id ?>" target="_blank"><?= $result->name ?></a></p>
     <p>Now try <a href="/large-file-download.php">downloading a large file from Drive</a>.
   </div>
-<?php else: ?>
+<?php else : ?>
   <form method="POST">
     <input type="submit" value="Click here to upload a large (20MB) test file" />
   </form>

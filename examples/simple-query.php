@@ -31,8 +31,8 @@ $client->setApplicationName("Client_Library_Examples");
 
 // Warn if the API key isn't set.
 if (!$apiKey = getApiKey()) {
-  echo missingApiKeyWarning();
-  return;
+    echo missingApiKeyWarning();
+    return;
 }
 $client->setDeveloperKey($apiKey);
 
@@ -70,14 +70,14 @@ $resultsDeferred = $client->execute($request);
 ?>
 
 <h3>Results Of Call:</h3>
-<?php foreach ($results as $item): ?>
-  <?= $item['volumeInfo']['title'] ?>
+<?php foreach ($results as $item) : ?>
+    <?= $item['volumeInfo']['title'] ?>
   <br />
 <?php endforeach ?>
 
 <h3>Results Of Deferred Call:</h3>
-<?php foreach ($resultsDeferred as $item): ?>
-  <?= $item['volumeInfo']['title'] ?>
+<?php foreach ($resultsDeferred as $item) : ?>
+    <?= $item['volumeInfo']['title'] ?>
   <br />
 <?php endforeach ?>
 

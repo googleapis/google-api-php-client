@@ -21,14 +21,14 @@
 
 class examples_urlShortenerTest extends BaseTest
 {
-  public function testUrlShortener()
-  {
-    $this->checkKey();
+    public function testUrlShortener()
+    {
+        $this->checkKey();
 
-    $crawler = $this->loadExample('url-shortener.php');
+        $crawler = $this->loadExample('url-shortener.php');
 
-    $nodes = $crawler->filter('h1');
-    $this->assertCount(1, $nodes);
-    $this->assertEquals('User Query - URL Shortener', $nodes->first()->text());
-  }
+        $nodes = $crawler->filter('h1');
+        $this->assertCount(1, $nodes);
+        $this->assertEquals('User Query - URL Shortener', $nodes->first()->text());
+    }
 }

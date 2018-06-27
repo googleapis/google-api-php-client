@@ -42,13 +42,13 @@ $client = new Google_Client();
 
 if ($credentials_file = checkServiceAccountCredentialsFile()) {
   // set the location manually
-  $client->setAuthConfig($credentials_file);
+    $client->setAuthConfig($credentials_file);
 } elseif (getenv('GOOGLE_APPLICATION_CREDENTIALS')) {
   // use the application default credentials
-  $client->useApplicationDefaultCredentials();
+    $client->useApplicationDefaultCredentials();
 } else {
-  echo missingServiceAccountDetailsWarning();
-  return;
+    echo missingServiceAccountDetailsWarning();
+    return;
 }
 
 $client->setApplicationName("Client_Library_Examples");
@@ -64,8 +64,8 @@ $results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
 ?>
 
 <h3>Results Of Call:</h3>
-<?php foreach ($results as $item): ?>
-  <?= $item['volumeInfo']['title'] ?>
+<?php foreach ($results as $item) : ?>
+    <?= $item['volumeInfo']['title'] ?>
   <br />
 <?php endforeach ?>
 
