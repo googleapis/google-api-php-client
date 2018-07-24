@@ -122,7 +122,7 @@ if ($client->getAccessToken() && isset($_REQUEST['url'])) {
   </div>
 <?php elseif (empty($short)): ?>
   <form id="url" method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-    <input name="url" class="url" type="text">
+    <input name="url" class="url" type="text" placeholder="URL" required>
     <input type="hidden" name="csrf_token" value="<?php echo getCsrfToken() ?>" />
     <input type="submit" value="Shorten">
   </form>
