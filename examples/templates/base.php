@@ -165,3 +165,11 @@ function setApiKey($apiKey)
   $file = __DIR__ . '/../../tests/.apiKey';
   file_put_contents($file, $apiKey);
 }
+
+function submitButton($name, $value) {
+	$type   = 'type="submit"';
+	$name   = 'name="'. $name. '"';
+	$value  = 'value="'. $value. '"';
+	
+	return "<input $type $name $value>";
+}

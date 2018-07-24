@@ -29,16 +29,26 @@
 </div>
 <?php endif ?>
 
+<h3>Using API Keys</h3>
 <ul>
   <li><a href="simple-query.php">A query using simple API access</a></li>
+  <li><a href="text-to-speech.php">Cloud Text-To-Speech</a></li>
+</ul>
+
+<h3>Using OAuth 2.0 Access</h3>
+<ul>
   <li><a href="url-shortener.php">Authorize a url shortener, using OAuth 2.0 authentication.</a></li>
   <li><a href="batch.php">An example of combining multiple calls into a batch request</a></li>
-  <li><a href="service-account.php">A query using the service account functionality.</a></li>
   <li><a href="simple-file-upload.php">An example of a small file upload.</a></li>
   <li><a href="large-file-upload.php">An example of a large file upload.</a></li>
   <li><a href="large-file-download.php">An example of a large file download.</a></li>
   <li><a href="idtoken.php">An example of verifying and retrieving the id token.</a></li>
   <li><a href="multi-api.php">An example of using multiple APIs.</a></li>
+</ul>
+
+<h3>Using Service Accounts</h3>
+<ul>
+  <li><a href="service-account.php">A query using the service account functionality.</a></li>
 </ul>
 
 <?= pageFooter(); ?>
