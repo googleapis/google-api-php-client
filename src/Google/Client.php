@@ -130,7 +130,7 @@ class Google_Client
           // Task Runner retry configuration
           // @see Google_Task_Runner
           'retry' => array(),
-          'retryMap' => null
+          'retryMap' => null,
 
           // cache config for downstream auth caching
           'cache_config' => [],
