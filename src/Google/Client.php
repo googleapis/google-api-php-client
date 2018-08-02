@@ -803,7 +803,6 @@ class Google_Client
         $this->config['retry'],
         $this->config['retry_map']
     );
-    
   }
 
   /**
