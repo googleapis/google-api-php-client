@@ -797,11 +797,11 @@ class Google_Client
     $http = $this->authorize();
 
     return Google_Http_REST::execute(
-    $http,
-    $request,
-    $expectedClass,
-    $this->config['retry'],
-    $this->config['retry_map']
+        $http,
+        $request,
+        $expectedClass,
+        $this->config['retry'],
+        $this->config['retry_map']
     );
     
   }
