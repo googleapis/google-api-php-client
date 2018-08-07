@@ -130,6 +130,7 @@ class Google_Client
           // Task Runner retry configuration
           // @see Google_Task_Runner
           'retry' => array(),
+          'retry_map' => null,
 
           // cache config for downstream auth caching
           'cache_config' => [],
@@ -795,7 +796,13 @@ class Google_Client
     // this is where most of the grunt work is done
     $http = $this->authorize();
 
-    return Google_Http_REST::execute($http, $request, $expectedClass, $this->config['retry']);
+    return Google_Http_REST::execute(
+        $http,
+        $request,
+        $expectedClass,
+        $this->config['retry'],
+        $this->config['retry_map']
+    );
   }
 
   /**
