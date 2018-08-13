@@ -123,7 +123,7 @@ class BaseTest extends TestCase
     $client->setRedirectUri("urn:ietf:wg:oauth:2.0:oob");
     $client->setConfig('access_type', 'offline');
     $authUrl = $client->createAuthUrl();
-
+    echo "\nGo to: $authUrl\n";
     echo "\nPlease enter the auth code:\n";
     ob_flush();
     `open '$authUrl'`;

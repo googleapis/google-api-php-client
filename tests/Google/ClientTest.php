@@ -342,7 +342,7 @@ class Google_ClientTest extends BaseTest
     $client = new Google_Client();
     $device =
     '{"installed":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret"'.
-    ':"N0aHCBT1qX1VAcF5J1pJAn6S","token_uri":"https://accounts.google.com/o/oauth2/token",'.
+    ':"N0aHCBT1qX1VAcF5J1pJAn6S","token_uri":"https://oauth2.googleapis.com/token",'.
     '"client_email":"","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","oob"],"client_x509_cert_url"'.
     ':"","client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":'.
     '"https://www.googleapis.com/oauth2/v1/certs"}}';
@@ -355,7 +355,7 @@ class Google_ClientTest extends BaseTest
     // Web config
     $client = new Google_Client();
     $web = '{"web":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret"' .
-      ':"lpoubuib8bj-Fmke_YhhyHGgXc","token_uri":"https://accounts.google.com/o/oauth2/token"' .
+      ':"lpoubuib8bj-Fmke_YhhyHGgXc","token_uri":"https://oauth2.googleapis.com/token"' .
       ',"client_email":"123456789@developer.gserviceaccount.com","client_x509_cert_url":'.
       '"https://www.googleapis.com/robot/v1/metadata/x509/123456789@developer.gserviceaccount.com"'.
       ',"client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":'.
