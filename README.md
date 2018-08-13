@@ -29,7 +29,7 @@ composer installed.
 Once composer is installed, execute the following command in your project root to install this library:
 
 ```sh
-composer require google/apiclient:^2.0
+composer require google/apiclient:"^2.0"
 ```
 
 Finally, be sure to include the autoloader:
