@@ -699,7 +699,7 @@ class Google_Client
    * @return array|false Returns the token payload as an array if the verification was
    * successful, false otherwise.
    */
-  public function verifyIdToken($idToken = null)
+  public function verifyIdToken($idToken = null, array $proxy = [])
   {
     $tokenVerifier = new Google_AccessToken_Verify(
         $this->getHttpClient(),
@@ -719,7 +719,8 @@ class Google_Client
 
     return $tokenVerifier->verifyIdToken(
         $idToken,
-        $this->getClientId()
+        $this->getClientId(),
+        $proxy
     );
   }
 

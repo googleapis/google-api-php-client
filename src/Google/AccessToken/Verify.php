@@ -76,7 +76,7 @@ class Google_AccessToken_Verify
    * @param $audience
    * @return array the token payload, if successful
    */
-  public function verifyIdToken($idToken, $audience = null)
+  public function verifyIdToken($idToken, $audience = null, array $proxy = [])
   {
     if (empty($idToken)) {
       throw new LogicException('id_token cannot be null');
@@ -86,7 +86,7 @@ class Google_AccessToken_Verify
     $this->setPhpsecConstants();
 
     // Check signature
-    $certs = $this->getFederatedSignOnCerts();
+    $certs = $this->getFederatedSignOnCerts($proxy);
     foreach ($certs as $cert) {
       $bigIntClass = $this->getBigIntClass();
       $rsaClass = $this->getRsaClass();
@@ -143,7 +143,7 @@ class Google_AccessToken_Verify
    * @throws Google_Exception
    * @return array certificates
    */
-  private function retrieveCertsFromLocation($url)
+  private function retrieveCertsFromLocation($url, array $proxy = [])
   {
     // If we're retrieving a local file, just grab it.
     if (0 !== strpos($url, 'http')) {
@@ -157,7 +157,7 @@ class Google_AccessToken_Verify
       return json_decode($file, true);
     }
 
-    $response = $this->http->get($url);
+    $response = $this->http->get($url, $proxy);
 
     if ($response->getStatusCode() == 200) {
       return json_decode((string) $response->getBody(), true);
@@ -174,7 +174,7 @@ class Google_AccessToken_Verify
   // Gets federated sign-on certificates to use for verifying identity tokens.
   // Returns certs as array structure, where keys are key ids, and values
   // are PEM encoded certificates.
-  private function getFederatedSignOnCerts()
+  private function getFederatedSignOnCerts(array $proxy = [])
   {
     $certs = null;
     if ($cache = $this->getCache()) {
@@ -185,7 +185,8 @@ class Google_AccessToken_Verify
 
     if (!$certs) {
       $certs = $this->retrieveCertsFromLocation(
-          self::FEDERATED_SIGNON_CERT_URL
+          self::FEDERATED_SIGNON_CERT_URL,
+          $proxy
       );
 
       if ($cache) {
