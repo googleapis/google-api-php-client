@@ -58,13 +58,13 @@ if (isset($_REQUEST['logout'])) {
  ************************************************/
 if (isset($_GET['code'])) {
   $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-  $client->setAccessToken($token);
 
   // store in the session also
   $_SESSION['id_token_token'] = $token;
 
   // redirect back to the example
   header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+  return;
 }
 
 /************************************************

@@ -38,10 +38,10 @@ use Monolog\Handler\SyslogHandler as MonologSyslogHandler;
  */
 class Google_Client
 {
-  const LIBVER = "2.2.1";
+  const LIBVER = "2.2.2";
   const USER_AGENT_SUFFIX = "google-api-php-client/";
-  const OAUTH2_REVOKE_URI = 'https://accounts.google.com/o/oauth2/revoke';
-  const OAUTH2_TOKEN_URI = 'https://www.googleapis.com/oauth2/v4/token';
+  const OAUTH2_REVOKE_URI = 'https://oauth2.googleapis.com/revoke';
+  const OAUTH2_TOKEN_URI = 'https://oauth2.googleapis.com/token';
   const OAUTH2_AUTH_URL = 'https://accounts.google.com/o/oauth2/auth';
   const API_BASE_PATH = 'https://www.googleapis.com';
 
@@ -130,6 +130,7 @@ class Google_Client
           // Task Runner retry configuration
           // @see Google_Task_Runner
           'retry' => array(),
+          'retry_map' => null,
 
           // cache config for downstream auth caching
           'cache_config' => [],
@@ -729,13 +730,13 @@ class Google_Client
   /**
    * Set the scopes to be requested. Must be called before createAuthUrl().
    * Will remove any previously configured scopes.
-   * @param array $scopes, ie: array('https://www.googleapis.com/auth/plus.login',
+   * @param string|array $scope_or_scopes, ie: array('https://www.googleapis.com/auth/plus.login',
    * 'https://www.googleapis.com/auth/moderator')
    */
-  public function setScopes($scopes)
+  public function setScopes($scope_or_scopes)
   {
     $this->requestedScopes = array();
-    $this->addScope($scopes);
+    $this->addScope($scope_or_scopes);
   }
 
   /**
@@ -799,7 +800,13 @@ class Google_Client
     // this is where most of the grunt work is done
     $http = $this->authorize();
 
-    return Google_Http_REST::execute($http, $request, $expectedClass, $this->config['retry']);
+    return Google_Http_REST::execute(
+        $http,
+        $request,
+        $expectedClass,
+        $this->config['retry'],
+        $this->config['retry_map']
+    );
   }
 
   /**

@@ -21,9 +21,9 @@
 <?php if (!getApiKey()): ?>
 <div class="api-key">
   <strong>You have not entered your API key</strong>
-  <form method="post">
-    API Key:<input type="text" name="api_key" />
-    <input type="submit" />
+  <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+    API Key:<input type="text" name="api_key" placeholder="API-Key" required/>
+    <input type="submit" value="Set API-Key"/>
   </form>
   <em>This can be found in the <a href="http://developers.google.com/console" target="_blank">Google API Console</em>
 </div>
