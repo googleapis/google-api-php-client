@@ -6,13 +6,6 @@ The Google API Client Library enables you to work with Google APIs such as Googl
 
 These client libraries are officially supported by Google.  However, the libraries are considered complete and are in maintenance mode. This means that we will address critical bugs and security issues but will not add any new features.
 
-## Google Cloud Platform
-
-For Google Cloud Platform APIs such as Datastore, Cloud Storage or Pub/Sub, we recommend using [GoogleCloudPlatform/google-cloud-php](https://github.com/GoogleCloudPlatform/google-cloud-php) which is under active development.
-
-## Requirements ##
-* [PHP 5.4.0 or higher](http://www.php.net/)
-
 ## Developer Documentation ##
 http://developers.google.com/api-client-library/php
 
