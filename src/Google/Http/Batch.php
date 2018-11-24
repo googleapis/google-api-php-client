@@ -128,6 +128,7 @@ EOF;
     );
 
     $response = $this->client->execute($request);
+    $this->requests = array();
 
     return $this->parseResponse($response, $classes);
   }
