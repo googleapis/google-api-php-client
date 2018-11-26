@@ -224,7 +224,7 @@ class Google_ClientTest extends BaseTest
         . '&redirect_uri=http%3A%2F%2Flocalhost%2F'
         . '&state=xyz'
         . '&scope=http%3A%2F%2Ftest.com%20scope2'
-        . '&approval_prompt=consent',
+        . '&approval_prompt=auto',
 
         $client->createAuthUrl()
     );
