@@ -445,6 +445,9 @@ class Google_ClientTest extends BaseTest
       ->will($this->returnValue($token));
     if ($this->isGuzzle5()) {
       $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+      $response->expects($this->once())
+        ->method('getStatusCode')
+        ->will($this->returnValue(200));
     } else {
       $response = $this->getMock('Psr\Http\Message\ResponseInterface');
     }
@@ -486,6 +489,9 @@ class Google_ClientTest extends BaseTest
       ->will($this->returnValue($token));
     if ($this->isGuzzle5()) {
       $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+      $response->expects($this->once())
+        ->method('getStatusCode')
+        ->will($this->returnValue(200));
     } else {
       $response = $this->getMock('Psr\Http\Message\ResponseInterface');
     }
@@ -528,6 +534,9 @@ class Google_ClientTest extends BaseTest
       ->will($this->returnValue($token));
     if ($this->isGuzzle5()) {
       $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
+      $response->expects($this->once())
+        ->method('getStatusCode')
+        ->will($this->returnValue(200));
     } else {
       $response = $this->getMock('Psr\Http\Message\ResponseInterface');
     }
