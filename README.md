@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/google/google-api-php-client.svg?branch=master)](https://travis-ci.org/google/google-api-php-client)
+[![Build Status](https://travis-ci.org/googleapis/google-api-php-client.svg?branch=master)](https://travis-ci.org/googleapis/google-api-php-client)
 
 # Google APIs Client Library for PHP #
 
@@ -319,7 +319,7 @@ YouTube: https://github.com/youtube/api-samples/tree/master/php
 
 ## How Do I Contribute? ##
 
-Please see the [contributing](CONTRIBUTING.md) page for more information. In particular, we love pull requests - but please make sure to sign the [contributor license agreement](https://developers.google.com/api-client-library/php/contribute).
+Please see the [contributing](.github/CONTRIBUTING.md) page for more information. In particular, we love pull requests - but please make sure to sign the [contributor license agreement](https://developers.google.com/api-client-library/php/contribute).
 
 ## Frequently Asked Questions ##
 
