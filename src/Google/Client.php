@@ -125,7 +125,7 @@ class Google_Client
           'login_hint' => '',
           'request_visible_actions' => '',
           'access_type' => 'online',
-          'approval_prompt' => 'consent',
+          'approval_prompt' => 'auto',
 
           // Task Runner retry configuration
           // @see Google_Task_Runner
@@ -569,9 +569,8 @@ class Google_Client
 
   /**
    * @param string $approvalPrompt Possible values for approval_prompt include:
-   *  {@code "none"} Do not display any authentication or consent screens. Must not be specified with other values.
-   *  {@code "consent"} Prompt the user for consent.
-   *  {@code "select_account"} Prompt the user to select an account.
+   *  {@code "force"} to force the approval UI to appear.
+   *  {@code "auto"} to request auto-approval when possible. (This is the default value)
    */
   public function setApprovalPrompt($approvalPrompt)
   {
@@ -638,6 +637,9 @@ class Google_Client
    * If no value is specified and the user has not previously authorized
    * access, then the user is shown a consent screen.
    * @param $prompt string
+   *  {@code "none"} Do not display any authentication or consent screens. Must not be specified with other values.
+   *  {@code "consent"} Prompt the user for consent.
+   *  {@code "select_account"} Prompt the user to select an account.
    */
   public function setPrompt($prompt)
   {
