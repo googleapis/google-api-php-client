@@ -180,7 +180,7 @@ class Google_Task_Runner
             $exception->getErrors()
         );
 
-        if (!$this->canAttempt() || 0 !== $allowedRetries) {
+        if (!$this->canAttempt() || 0 === $allowedRetries) {
           throw $exception;
         }
 
