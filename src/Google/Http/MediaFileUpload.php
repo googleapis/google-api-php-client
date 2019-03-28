@@ -229,7 +229,7 @@ class Google_Http_MediaFileUpload
     if (self::UPLOAD_RESUMABLE_TYPE == $uploadType) {
       $contentType = $mimeType;
       $postBody = is_string($meta) ? $meta : json_encode($meta);
-    } else if (self::UPLOAD_MEDIA_TYPE == $uploadType) {
+    } elseif (self::UPLOAD_MEDIA_TYPE == $uploadType) {
       $contentType = $mimeType;
       $postBody = $this->data;
     } else if (self::UPLOAD_MULTIPART_TYPE == $uploadType) {
@@ -247,7 +247,6 @@ class Google_Http_MediaFileUpload
       $related .= "--$boundary--";
       $postBody = $related;
     }
-
     $request = $request->withBody(Psr7\stream_for($postBody));
 
     if (isset($contentType) && $contentType) {

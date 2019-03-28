@@ -106,7 +106,7 @@ class Google_Service_Resource
         // to use the smart method to create a simple object for
         // for JSONification.
         $parameters['postBody'] = $parameters['postBody']->toSimpleObject();
-      } else if (is_object($parameters['postBody'])) {
+      } elseif (is_object($parameters['postBody'])) {
         // If the post body is another kind of object, we will try and
         // wrangle it into a sensible format.
         $parameters['postBody'] =
@@ -277,7 +277,7 @@ class Google_Service_Resource
       }
       if ($paramSpec['location'] == 'path') {
         $uriTemplateVars[$paramName] = $paramSpec['value'];
-      } else if ($paramSpec['location'] == 'query') {
+      } elseif ($paramSpec['location'] == 'query') {
         if (is_array($paramSpec['value'])) {
           foreach ($paramSpec['value'] as $value) {
             $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($value));

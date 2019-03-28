@@ -275,7 +275,7 @@ class Google_Utils_UriTemplateTest extends BaseTest
           $output = $cases[1];
           if ($output == false) {
             continue; // skipping negative tests for now
-          } else if (is_array($output)) {
+          } elseif (is_array($output)) {
             $response = $urit->parse($input, $testsets['variables']);
             $this->assertContains(
                 $response,

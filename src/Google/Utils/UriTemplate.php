@@ -250,7 +250,7 @@ class Google_Utils_UriTemplate
           }
           break;
       }
-    } else if ($tag_empty) {
+    } elseif ($tag_empty) {
       // If we are just indicating empty values with their key name, return that.
       return $key;
     } else {

@@ -73,7 +73,7 @@ class Google_Model implements ArrayAccess
         } else {
           $this->modelData[$key] = new $keyType($val);
         }
-      } else if (is_array($val)) {
+      } elseif (is_array($val)) {
         $arrayObject = array();
         foreach ($val as $arrayIndex => $arrayItem) {
           $arrayObject[$arrayIndex] = new $keyType($arrayItem);
@@ -176,7 +176,7 @@ class Google_Model implements ArrayAccess
   {
     if ($value instanceof Google_Model) {
       return $value->toSimpleObject();
-    } else if (is_array($value)) {
+    } elseif (is_array($value)) {
       $return = array();
       foreach ($value as $key => $a_value) {
         $a_value = $this->getSimpleValue($a_value);

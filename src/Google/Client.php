@@ -750,7 +750,7 @@ class Google_Client
   {
     if (is_string($scope_or_scopes) && !in_array($scope_or_scopes, $this->requestedScopes)) {
       $this->requestedScopes[] = $scope_or_scopes;
-    } else if (is_array($scope_or_scopes)) {
+    } elseif (is_array($scope_or_scopes)) {
       foreach ($scope_or_scopes as $scope) {
         $this->addScope($scope);
       }
