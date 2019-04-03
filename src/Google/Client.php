@@ -681,7 +681,7 @@ class Google_Client
    * Revoke an OAuth2 access token or refresh token. This method will revoke the current access
    * token, if a token isn't provided.
    *
-   * @param string|null $token The token (access token or a refresh token) that should be revoked.
+   * @param string|array|null $token The token (access token or a refresh token) that should be revoked.
    * @return boolean Returns True if the revocation was successful, otherwise False.
    */
   public function revokeToken($token = null)
