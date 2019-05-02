@@ -16,18 +16,16 @@
  * limitations under the License.
  */
 
+use Firebase\JWT\BeforeValidException;
 use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
 use Firebase\JWT\SignatureInvalidException;
+use Google\Auth\Cache\MemoryCacheItemPool;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Psr\Cache\CacheItemPoolInterface;
-use Google\Auth\Cache\MemoryCacheItemPool;
-use Stash\Driver\FileSystem;
-use Stash\Pool;
 
 /**
  * Wrapper around Google Access Tokens which provides convenience functions
- *
  */
 class Google_AccessToken_Verify
 {
@@ -73,8 +71,11 @@ class Google_AccessToken_Verify
    * The audience parameter can be used to control which id tokens are
    * accepted.  By default, the id token must have been issued to this OAuth2 client.
    *
+   * @param string $idToken
    * @param $audience
-   * @return array the token payload, if successful
+   * @return array|bool the token payload, if successful, or false if unsuccessful.
+   * @throws LogicException If the token is empty.
+   * @throws UnexpectedValueException If the token is invalid.
    */
   public function verifyIdToken($idToken, $audience = null)
   {
@@ -118,12 +119,14 @@ class Google_AccessToken_Verify
 
         return (array) $payload;
       } catch (ExpiredException $e) {
-        return false;
+        // continue
       } catch (ExpiredExceptionV3 $e) {
-        return false;
+        // continue
       } catch (SignatureInvalidException $e) {
         // continue
       } catch (DomainException $e) {
+        // continue
+      } catch (BeforeValidException $e) {
         // continue
       }
     }
