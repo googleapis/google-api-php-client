@@ -867,7 +867,7 @@ class Google_Client
   {
     if (is_string($config)) {
       if (!file_exists($config)) {
-        throw new InvalidArgumentException('file does not exist');
+        throw new InvalidArgumentException(sprintf('file "%s" does not exist', $config));
       }
 
       $json = file_get_contents($config);
