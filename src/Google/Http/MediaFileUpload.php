@@ -317,7 +317,7 @@ class Google_Http_MediaFileUpload
     if (isset($body['error']['errors'])) {
       $message .= ': ';
       foreach ($body['error']['errors'] as $error) {
-        $message .= "{$error[domain]}, {$error[message]};";
+        $message .= "{$error['domain']}, {$error['message']};";
       }
       $message = rtrim($message, ';');
     }

@@ -23,6 +23,10 @@ use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class to handle batched requests to the Google API service.
+ *
+ * Note that calls to `Google_Http_Batch::execute()` do not clear the queued
+ * requests. To start a new batch, be sure to create a new instance of this
+ * class.
  */
 class Google_Http_Batch
 {
