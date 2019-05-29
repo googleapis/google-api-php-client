@@ -19,8 +19,10 @@
  */
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Event\RequestEvents;
-use Psr\Http\Message\Request;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
+use Prophecy\Argument;
+use Psr\Http\Message\RequestInterface;
 
 class Google_ClientTest extends BaseTest
 {
@@ -683,5 +685,22 @@ class Google_ClientTest extends BaseTest
     $client->setCache($cache);
 
     $this->assertTrue($called);
+  }
+
+  public function testExecuteWithFormat()
+  {
+    $client = new Google_Client([
+      'api_format_v2' => true
+    ]);
+
+    $guzzle = $this->prophesize(Client::class);
+    $guzzle->send(Argument::that(function (RequestInterface $request) {
+      return $request->getHeaderLine('X-GOOG-API-FORMAT-VERSION') === '2';
+    }), [])->shouldBeCalled()->willReturn(new Response(200, [], null));
+
+    $client->setHttpClient($guzzle->reveal());
+
+    $request = new Request('POST', 'http://foo.bar/');
+    $client->execute($request);
   }
 }
