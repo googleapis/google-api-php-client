@@ -27,52 +27,60 @@ use GuzzleHttp\Psr7\Request;
  */
 class Google_AccessToken_Revoke
 {
-  /**
-   * @var GuzzleHttp\ClientInterface The http client
-   */
-  private $http;
+    /**
+     * HTTP Ok Status Response
+     * https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+     * @var Integer
+     */
+    const HTTP_OK_STATUS = 200;
 
-  /**
-   * Instantiates the class, but does not initiate the login flow, leaving it
-   * to the discretion of the caller.
-   */
-  public function __construct(ClientInterface $http = null)
-  {
-    $this->http = $http;
-  }
+    /**
+     * @var GuzzleHttp\ClientInterface The http client
+     */
+    private $http;
 
-  /**
-   * Revoke an OAuth2 access token or refresh token. This method will revoke the current access
-   * token, if a token isn't provided.
-   *
-   * @param string|array $token The token (access token or a refresh token) that should be revoked.
-   * @return boolean Returns True if the revocation was successful, otherwise False.
-   */
-  public function revokeToken($token)
-  {
-    if (is_array($token)) {
-      if (isset($token['refresh_token'])) {
-        $token = $token['refresh_token'];
-      } else {
-        $token = $token['access_token'];
-      }
+    /**
+     * Instantiates the class, but does not initiate the login flow, leaving it
+     * to the discretion of the caller.
+     */
+    public function __construct(ClientInterface $http = null)
+    {
+        $this->http = $http;
     }
 
-    $body = Psr7\stream_for(http_build_query(array('token' => $token)));
-    $request = new Request(
-        'POST',
-        Google_Client::OAUTH2_REVOKE_URI,
-        [
-          'Cache-Control' => 'no-store',
-          'Content-Type'  => 'application/x-www-form-urlencoded',
-        ],
-        $body
-    );
+    /**
+     * Revoke an OAuth2 access token or refresh token. This method will revoke the current access
+     * token, if a token isn't provided.
+     *
+     * @param string|array $token The token (access token or a refresh token) that should be revoked.
+     *
+     * @return boolean Returns True if the revocation was successful, otherwise False.
+     */
+    public function revokeToken($token)
+    {
+        if (is_array($token)) {
+            if (isset($token['refresh_token'])) {
+                $token = $token['refresh_token'];
+            } else {
+                $token = $token['access_token'];
+            }
+        }
 
-    $httpHandler = HttpHandlerFactory::build($this->http);
+        $body    = Psr7\stream_for(http_build_query(array('token' => $token)));
+        $request = new Request(
+            'POST',
+            Google_Client::OAUTH2_REVOKE_URI,
+            [
+                'Cache-Control' => 'no-store',
+                'Content-Type'  => 'application/x-www-form-urlencoded',
+            ],
+            $body
+        );
 
-    $response = $httpHandler($request);
+        $httpHandler = HttpHandlerFactory::build($this->http);
 
-    return $response->getStatusCode() == 200;
-  }
+        $response = $httpHandler($request);
+
+        return $response->getStatusCode() == self::HTTP_OK_STATUS;
+    }
 }
