@@ -15,139 +15,139 @@ use Psr\Cache\CacheItemPoolInterface;
  */
 class Google_AuthHandler_Guzzle6AuthHandler
 {
-    /**
-     * @var CacheItemPoolInterface
-     */
-    protected $cache;
+  /**
+   * @var CacheItemPoolInterface
+   */
+  protected $cache;
 
-    /**
-     * @var array
-     */
-    protected $cacheConfig;
+  /**
+   * @var array
+   */
+  protected $cacheConfig;
 
-    /**
-     * Google Authentication handler for Guzzle 6
-     *
-     * @param CacheItemPoolInterface|null $cache
-     * @param array $cacheConfig
-     */
-    public function __construct(CacheItemPoolInterface $cache = null, array $cacheConfig = [])
-    {
-        $this->cache       = $cache;
-        $this->cacheConfig = $cacheConfig;
+  /**
+   * Google Authentication handler for Guzzle 6
+   *
+   * @param CacheItemPoolInterface|null $cache
+   * @param array $cacheConfig
+   */
+  public function __construct(CacheItemPoolInterface $cache = null, array $cacheConfig = [])
+  {
+    $this->cache       = $cache;
+    $this->cacheConfig = $cacheConfig;
+  }
+
+  /**
+   * Attach credential to the request
+   *
+   * @param ClientInterface $http
+   * @param CredentialsLoader $credentials
+   * @param callable|null $tokenCallback
+   *
+   * @return Client|ClientInterface
+   */
+  public function attachCredentials(
+    ClientInterface $http,
+    CredentialsLoader $credentials,
+    callable $tokenCallback = null
+  )
+  {
+    // use the provided cache
+    if ($this->cache) {
+      $credentials = new FetchAuthTokenCache(
+        $credentials,
+        $this->cacheConfig,
+        $this->cache
+      );
     }
+    // if we end up needing to make an HTTP request to retrieve credentials, we
+    // can use our existing one, but we need to throw exceptions so the error
+    // bubbles up.
+    $authHttp        = $this->createAuthHttp($http);
+    $authHttpHandler = HttpHandlerFactory::build($authHttp);
+    $middleware      = new AuthTokenMiddleware(
+      $credentials,
+      $authHttpHandler,
+      $tokenCallback
+    );
 
-    /**
-     * Attach credential to the request
-     *
-     * @param ClientInterface $http
-     * @param CredentialsLoader $credentials
-     * @param callable|null $tokenCallback
-     *
-     * @return Client|ClientInterface
-     */
-    public function attachCredentials(
-        ClientInterface $http,
-        CredentialsLoader $credentials,
-        callable $tokenCallback = null
-    )
-    {
-        // use the provided cache
-        if ($this->cache) {
-            $credentials = new FetchAuthTokenCache(
-                $credentials,
-                $this->cacheConfig,
-                $this->cache
-            );
-        }
-        // if we end up needing to make an HTTP request to retrieve credentials, we
-        // can use our existing one, but we need to throw exceptions so the error
-        // bubbles up.
-        $authHttp        = $this->createAuthHttp($http);
-        $authHttpHandler = HttpHandlerFactory::build($authHttp);
-        $middleware      = new AuthTokenMiddleware(
-            $credentials,
-            $authHttpHandler,
-            $tokenCallback
-        );
+    $config = $http->getConfig();
+    $config['handler']->remove('google_auth');
+    $config['handler']->push($middleware, 'google_auth');
+    $config['auth'] = 'google_auth';
+    $http           = new Client($config);
 
-        $config = $http->getConfig();
-        $config['handler']->remove('google_auth');
-        $config['handler']->push($middleware, 'google_auth');
-        $config['auth'] = 'google_auth';
-        $http           = new Client($config);
+    return $http;
+  }
 
-        return $http;
-    }
+  /**
+   * Set the token to the request
+   *
+   * @param ClientInterface $http
+   * @param array $token
+   * @param array $scopes
+   *
+   * @return Client|ClientInterface
+   */
+  public function attachToken(ClientInterface $http, array $token, array $scopes)
+  {
+    $tokenFunc = function ($scopes) use ($token) {
+      return $token['access_token'];
+    };
 
-    /**
-     * Set the token to the request
-     *
-     * @param ClientInterface $http
-     * @param array $token
-     * @param array $scopes
-     *
-     * @return Client|ClientInterface
-     */
-    public function attachToken(ClientInterface $http, array $token, array $scopes)
-    {
-        $tokenFunc = function ($scopes) use ($token) {
-            return $token['access_token'];
-        };
+    $middleware = new ScopedAccessTokenMiddleware(
+      $tokenFunc,
+      $scopes,
+      $this->cacheConfig,
+      $this->cache
+    );
 
-        $middleware = new ScopedAccessTokenMiddleware(
-            $tokenFunc,
-            $scopes,
-            $this->cacheConfig,
-            $this->cache
-        );
+    $config = $http->getConfig();
+    $config['handler']->remove('google_auth');
+    $config['handler']->push($middleware, 'google_auth');
+    $config['auth'] = 'scoped';
+    $http           = new Client($config);
 
-        $config = $http->getConfig();
-        $config['handler']->remove('google_auth');
-        $config['handler']->push($middleware, 'google_auth');
-        $config['auth'] = 'scoped';
-        $http           = new Client($config);
+    return $http;
+  }
 
-        return $http;
-    }
+  /**
+   * Set auth Key
+   *
+   * @param ClientInterface $http
+   * @param $key
+   *
+   * @return Client|ClientInterface
+   */
+  public function attachKey(ClientInterface $http, $key)
+  {
+    $middleware = new SimpleMiddleware(['key' => $key]);
 
-    /**
-     * Set auth Key
-     *
-     * @param ClientInterface $http
-     * @param $key
-     *
-     * @return Client|ClientInterface
-     */
-    public function attachKey(ClientInterface $http, $key)
-    {
-        $middleware = new SimpleMiddleware(['key' => $key]);
+    $config = $http->getConfig();
+    $config['handler']->remove('google_auth');
+    $config['handler']->push($middleware, 'google_auth');
+    $config['auth'] = 'simple';
+    $http           = new Client($config);
 
-        $config = $http->getConfig();
-        $config['handler']->remove('google_auth');
-        $config['handler']->push($middleware, 'google_auth');
-        $config['auth'] = 'simple';
-        $http           = new Client($config);
+    return $http;
+  }
 
-        return $http;
-    }
-
-    /**
-     * Create Authentication HTTP
-     *
-     * @param ClientInterface $http
-     *
-     * @return Client
-     */
-    private function createAuthHttp(ClientInterface $http)
-    {
-        return new Client(
-            [
-                'base_uri'   => $http->getConfig('base_uri'),
-                'exceptions' => true,
-                'verify'     => $http->getConfig('verify'),
-                'proxy'      => $http->getConfig('proxy'),
-            ]
-        );
-    }
+  /**
+   * Create Authentication HTTP
+   *
+   * @param ClientInterface $http
+   *
+   * @return Client
+   */
+  private function createAuthHttp(ClientInterface $http)
+  {
+    return new Client(
+      [
+        'base_uri'   => $http->getConfig('base_uri'),
+        'exceptions' => true,
+        'verify'     => $http->getConfig('verify'),
+        'proxy'      => $http->getConfig('proxy'),
+      ]
+    );
+  }
 }

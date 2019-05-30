@@ -31,277 +31,277 @@ use Stash\Pool;
  */
 class Google_AccessToken_Verify
 {
-    const FEDERATED_SIGNON_CERT_URL = 'https://www.googleapis.com/oauth2/v3/certs';
-    const OAUTH2_ISSUER = 'accounts.google.com';
-    const OAUTH2_ISSUER_HTTPS = 'https://accounts.google.com';
+  const FEDERATED_SIGNON_CERT_URL = 'https://www.googleapis.com/oauth2/v3/certs';
+  const OAUTH2_ISSUER = 'accounts.google.com';
+  const OAUTH2_ISSUER_HTTPS = 'https://accounts.google.com';
 
-    /**
-     * @var GuzzleHttp\ClientInterface The http client
-     */
-    private $http;
+  /**
+   * @var GuzzleHttp\ClientInterface The http client
+   */
+  private $http;
 
-    /**
-     * @var Psr\Cache\CacheItemPoolInterface cache class
-     */
-    private $cache;
+  /**
+   * @var Psr\Cache\CacheItemPoolInterface cache class
+   */
+  private $cache;
 
-    /**
-     * Instantiates the class, but does not initiate the login flow, leaving it
-     * to the discretion of the caller.
-     *
-     * @param ClientInterface|null $http
-     * @param CacheItemPoolInterface|null $cache
-     * @param null $jwt
-     */
-    public function __construct(
-        ClientInterface $http = null,
-        CacheItemPoolInterface $cache = null,
-        $jwt = null
-    )
-    {
-        if (null === $http) {
-            $http = new Client();
-        }
-
-        if (null === $cache) {
-            $cache = new MemoryCacheItemPool;
-        }
-
-        $this->http  = $http;
-        $this->cache = $cache;
-        $this->jwt   = $jwt ?: $this->getJwtService();
+  /**
+   * Instantiates the class, but does not initiate the login flow, leaving it
+   * to the discretion of the caller.
+   *
+   * @param ClientInterface|null $http
+   * @param CacheItemPoolInterface|null $cache
+   * @param null $jwt
+   */
+  public function __construct(
+    ClientInterface $http = null,
+    CacheItemPoolInterface $cache = null,
+    $jwt = null
+  )
+  {
+    if (null === $http) {
+      $http = new Client();
     }
 
-    /**
-     * Verifies an id token and returns the authenticated apiLoginTicket.
-     * Throws an exception if the id token is not valid.
-     * The audience parameter can be used to control which id tokens are
-     * accepted.  By default, the id token must have been issued to this OAuth2 client.
-     *
-     * @param $idToken
-     * @param null $audience
-     *
-     * @return array|bool
-     */
-    public function verifyIdToken($idToken, $audience = null)
-    {
-        if (empty($idToken)) {
-            throw new LogicException('id_token cannot be null');
-        }
-
-        // set phpseclib constants if applicable
-        $this->setPhpsecConstants();
-
-        // Check signature
-        $certs = $this->getFederatedSignOnCerts();
-        foreach ($certs as $cert) {
-            $bigIntClass = $this->getBigIntClass();
-            $rsaClass    = $this->getRsaClass();
-            $modulus     = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['n']), 256);
-            $exponent    = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['e']), 256);
-
-            $rsa = new $rsaClass();
-            $rsa->loadKey(array('n' => $modulus, 'e' => $exponent));
-
-            try {
-                $payload = $this->jwt->decode(
-                    $idToken,
-                    $rsa->getPublicKey(),
-                    array('RS256')
-                );
-
-                if (property_exists($payload, 'aud')) {
-                    if ($audience && $payload->aud != $audience) {
-                        return false;
-                    }
-                }
-
-                // support HTTP and HTTPS issuers
-                // @see https://developers.google.com/identity/sign-in/web/backend-auth
-                $issuers = array(self::OAUTH2_ISSUER, self::OAUTH2_ISSUER_HTTPS);
-                if (!isset($payload->iss) || !in_array($payload->iss, $issuers)) {
-                    return false;
-                }
-
-                return (array)$payload;
-            } catch (ExpiredException $e) {
-                return false;
-            } catch (ExpiredExceptionV3 $e) {
-                return false;
-            } catch (SignatureInvalidException $e) {
-                // continue
-            } catch (DomainException $e) {
-                // continue
-            }
-        }
-
-        return false;
+    if (null === $cache) {
+      $cache = new MemoryCacheItemPool;
     }
 
-    /**
-     * Retrieve cache Item Pool
-     *
-     * @return MemoryCacheItemPool|CacheItemPoolInterface
-     */
-    private function getCache()
-    {
-        return $this->cache;
+    $this->http  = $http;
+    $this->cache = $cache;
+    $this->jwt   = $jwt ?: $this->getJwtService();
+  }
+
+  /**
+   * Verifies an id token and returns the authenticated apiLoginTicket.
+   * Throws an exception if the id token is not valid.
+   * The audience parameter can be used to control which id tokens are
+   * accepted.  By default, the id token must have been issued to this OAuth2 client.
+   *
+   * @param $idToken
+   * @param null $audience
+   *
+   * @return array|bool
+   */
+  public function verifyIdToken($idToken, $audience = null)
+  {
+    if (empty($idToken)) {
+      throw new LogicException('id_token cannot be null');
     }
 
-    /**
-     * Retrieve and cache a certificates file.
-     *
-     * @param $url string location
-     *
-     * @return array certificates
-     * @throws Google_Exception
-     */
-    private function retrieveCertsFromLocation($url)
-    {
-        // If we're retrieving a local file, just grab it.
-        if (0 !== strpos($url, 'http')) {
-            if (!$file = file_get_contents($url)) {
-                throw new Google_Exception(
-                    "Failed to retrieve verification certificates: '" .
-                    $url . "'."
-                );
-            }
+    // set phpseclib constants if applicable
+    $this->setPhpsecConstants();
 
-            return json_decode($file, true);
-        }
+    // Check signature
+    $certs = $this->getFederatedSignOnCerts();
+    foreach ($certs as $cert) {
+      $bigIntClass = $this->getBigIntClass();
+      $rsaClass    = $this->getRsaClass();
+      $modulus     = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['n']), 256);
+      $exponent    = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['e']), 256);
 
-        $response = $this->http->get($url);
+      $rsa = new $rsaClass();
+      $rsa->loadKey(array('n' => $modulus, 'e' => $exponent));
 
-        if ($response->getStatusCode() == 200) {
-            return json_decode((string)$response->getBody(), true);
-        }
-        throw new Google_Exception(
-            sprintf(
-                'Failed to retrieve verification certificates: "%s".',
-                $response->getBody()->getContents()
-            ),
-            $response->getStatusCode()
+      try {
+        $payload = $this->jwt->decode(
+          $idToken,
+          $rsa->getPublicKey(),
+          array('RS256')
         );
+
+        if (property_exists($payload, 'aud')) {
+          if ($audience && $payload->aud != $audience) {
+            return false;
+          }
+        }
+
+        // support HTTP and HTTPS issuers
+        // @see https://developers.google.com/identity/sign-in/web/backend-auth
+        $issuers = array(self::OAUTH2_ISSUER, self::OAUTH2_ISSUER_HTTPS);
+        if (!isset($payload->iss) || !in_array($payload->iss, $issuers)) {
+          return false;
+        }
+
+        return (array)$payload;
+      } catch (ExpiredException $e) {
+        return false;
+      } catch (ExpiredExceptionV3 $e) {
+        return false;
+      } catch (SignatureInvalidException $e) {
+        // continue
+      } catch (DomainException $e) {
+        // continue
+      }
     }
 
-    // Gets federated sign-on certificates to use for verifying identity tokens.
-    // Returns certs as array structure, where keys are key ids, and values
-    // are PEM encoded certificates.
-    private function getFederatedSignOnCerts()
-    {
-        $certs = null;
-        if ($cache = $this->getCache()) {
-            $cacheItem = $cache->getItem('federated_signon_certs_v3');
-            $certs     = $cacheItem->get();
-        }
+    return false;
+  }
 
+  /**
+   * Retrieve cache Item Pool
+   *
+   * @return MemoryCacheItemPool|CacheItemPoolInterface
+   */
+  private function getCache()
+  {
+    return $this->cache;
+  }
 
-        if (!$certs) {
-            $certs = $this->retrieveCertsFromLocation(
-                self::FEDERATED_SIGNON_CERT_URL
-            );
+  /**
+   * Retrieve and cache a certificates file.
+   *
+   * @param $url string location
+   *
+   * @return array certificates
+   * @throws Google_Exception
+   */
+  private function retrieveCertsFromLocation($url)
+  {
+    // If we're retrieving a local file, just grab it.
+    if (0 !== strpos($url, 'http')) {
+      if (!$file = file_get_contents($url)) {
+        throw new Google_Exception(
+          "Failed to retrieve verification certificates: '" .
+          $url . "'."
+        );
+      }
 
-            if ($cache) {
-                $cacheItem->expiresAt(new DateTime('+1 hour'));
-                $cacheItem->set($certs);
-                $cache->save($cacheItem);
-            }
-        }
-
-        if (!isset($certs['keys'])) {
-            throw new InvalidArgumentException(
-                'federated sign-on certs expects "keys" to be set'
-            );
-        }
-
-        return $certs['keys'];
+      return json_decode($file, true);
     }
 
-    /**
-     * Get Json Web Token Service
-     *
-     * @return mixed
-     */
-    private function getJwtService()
-    {
-        $jwtClass = 'JWT';
-        if (class_exists('\Firebase\JWT\JWT')) {
-            $jwtClass = 'Firebase\JWT\JWT';
-        }
+    $response = $this->http->get($url);
 
-        if (property_exists($jwtClass, 'leeway') && $jwtClass::$leeway < 1) {
-            // Ensures JWT leeway is at least 1
-            // @see https://github.com/google/google-api-php-client/issues/827
-            $jwtClass::$leeway = 1;
-        }
+    if ($response->getStatusCode() == 200) {
+      return json_decode((string)$response->getBody(), true);
+    }
+    throw new Google_Exception(
+      sprintf(
+        'Failed to retrieve verification certificates: "%s".',
+        $response->getBody()->getContents()
+      ),
+      $response->getStatusCode()
+    );
+  }
 
-        return new $jwtClass;
+  // Gets federated sign-on certificates to use for verifying identity tokens.
+  // Returns certs as array structure, where keys are key ids, and values
+  // are PEM encoded certificates.
+  private function getFederatedSignOnCerts()
+  {
+    $certs = null;
+    if ($cache = $this->getCache()) {
+      $cacheItem = $cache->getItem('federated_signon_certs_v3');
+      $certs     = $cacheItem->get();
     }
 
-    /**
-     * Get RSA Encryption Class
-     *
-     * @return string
-     */
-    private function getRsaClass()
-    {
-        if (class_exists('phpseclib\Crypt\RSA')) {
-            return 'phpseclib\Crypt\RSA';
-        }
 
-        return 'Crypt_RSA';
+    if (!$certs) {
+      $certs = $this->retrieveCertsFromLocation(
+        self::FEDERATED_SIGNON_CERT_URL
+      );
+
+      if ($cache) {
+        $cacheItem->expiresAt(new DateTime('+1 hour'));
+        $cacheItem->set($certs);
+        $cache->save($cacheItem);
+      }
     }
 
-    /**
-     * Get BigInteger Class
-     *
-     * @return string
-     */
-    private function getBigIntClass()
-    {
-        if (class_exists('phpseclib\Math\BigInteger')) {
-            return 'phpseclib\Math\BigInteger';
-        }
-
-        return 'Math_BigInteger';
+    if (!isset($certs['keys'])) {
+      throw new InvalidArgumentException(
+        'federated sign-on certs expects "keys" to be set'
+      );
     }
 
-    /**
-     * Get RSA Mode SSL
-     *
-     * @return string
-     * @throws Exception
-     */
-    private function getOpenSslConstant()
-    {
-        if (class_exists('phpseclib\Crypt\RSA')) {
-            return 'phpseclib\Crypt\RSA::MODE_OPENSSL';
-        }
+    return $certs['keys'];
+  }
 
-        if (class_exists('Crypt_RSA')) {
-            return 'CRYPT_RSA_MODE_OPENSSL';
-        }
-
-        throw new \Exception('Cannot find RSA class');
+  /**
+   * Get Json Web Token Service
+   *
+   * @return mixed
+   */
+  private function getJwtService()
+  {
+    $jwtClass = 'JWT';
+    if (class_exists('\Firebase\JWT\JWT')) {
+      $jwtClass = 'Firebase\JWT\JWT';
     }
 
-    /**
-     * phpseclib calls "phpinfo" by default, which requires special
-     * whitelisting in the AppEngine VM environment. This function
-     * sets constants to bypass the need for phpseclib to check phpinfo
-     *
-     * @see phpseclib/Math/BigInteger
-     * @see https://github.com/GoogleCloudPlatform/getting-started-php/issues/85
-     */
-    private function setPhpsecConstants()
-    {
-        if (filter_var(getenv('GAE_VM'), FILTER_VALIDATE_BOOLEAN)) {
-            if (!defined('MATH_BIGINTEGER_OPENSSL_ENABLED')) {
-                define('MATH_BIGINTEGER_OPENSSL_ENABLED', true);
-            }
-            if (!defined('CRYPT_RSA_MODE')) {
-                define('CRYPT_RSA_MODE', constant($this->getOpenSslConstant()));
-            }
-        }
+    if (property_exists($jwtClass, 'leeway') && $jwtClass::$leeway < 1) {
+      // Ensures JWT leeway is at least 1
+      // @see https://github.com/google/google-api-php-client/issues/827
+      $jwtClass::$leeway = 1;
     }
+
+    return new $jwtClass;
+  }
+
+  /**
+   * Get RSA Encryption Class
+   *
+   * @return string
+   */
+  private function getRsaClass()
+  {
+    if (class_exists('phpseclib\Crypt\RSA')) {
+      return 'phpseclib\Crypt\RSA';
+    }
+
+    return 'Crypt_RSA';
+  }
+
+  /**
+   * Get BigInteger Class
+   *
+   * @return string
+   */
+  private function getBigIntClass()
+  {
+    if (class_exists('phpseclib\Math\BigInteger')) {
+      return 'phpseclib\Math\BigInteger';
+    }
+
+    return 'Math_BigInteger';
+  }
+
+  /**
+   * Get RSA Mode SSL
+   *
+   * @return string
+   * @throws Exception
+   */
+  private function getOpenSslConstant()
+  {
+    if (class_exists('phpseclib\Crypt\RSA')) {
+      return 'phpseclib\Crypt\RSA::MODE_OPENSSL';
+    }
+
+    if (class_exists('Crypt_RSA')) {
+      return 'CRYPT_RSA_MODE_OPENSSL';
+    }
+
+    throw new \Exception('Cannot find RSA class');
+  }
+
+  /**
+   * phpseclib calls "phpinfo" by default, which requires special
+   * whitelisting in the AppEngine VM environment. This function
+   * sets constants to bypass the need for phpseclib to check phpinfo
+   *
+   * @see phpseclib/Math/BigInteger
+   * @see https://github.com/GoogleCloudPlatform/getting-started-php/issues/85
+   */
+  private function setPhpsecConstants()
+  {
+    if (filter_var(getenv('GAE_VM'), FILTER_VALIDATE_BOOLEAN)) {
+      if (!defined('MATH_BIGINTEGER_OPENSSL_ENABLED')) {
+        define('MATH_BIGINTEGER_OPENSSL_ENABLED', true);
+      }
+      if (!defined('CRYPT_RSA_MODE')) {
+        define('CRYPT_RSA_MODE', constant($this->getOpenSslConstant()));
+      }
+    }
+  }
 }
