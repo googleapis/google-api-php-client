@@ -11,3 +11,9 @@
 
 1. Point your browser to the host and port you specified, i.e `http://localhost:8000`.
 
+## G Suite OAuth Samples
+
+G Suite APIs such as Slides, Sheets, and Drive use 3-legged OAuth authentification.
+Samples using OAuth can be found here:
+
+https://github.com/gsuitedevs/php-samples
