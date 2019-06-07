@@ -689,11 +689,13 @@ class Google_ClientTest extends BaseTest
 
   public function testExecuteWithFormat()
   {
+    $this->onlyGuzzle6();
+
     $client = new Google_Client([
       'api_format_v2' => true
     ]);
 
-    $guzzle = $this->prophesize(Client::class);
+    $guzzle = $this->prophesize('Google_Client');
     $guzzle->send(Argument::that(function (RequestInterface $request) {
       return $request->getHeaderLine('X-GOOG-API-FORMAT-VERSION') === '2';
     }), [])->shouldBeCalled()->willReturn(new Response(200, [], null));
