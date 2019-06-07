@@ -31,7 +31,6 @@
 
 <ul>
   <li><a href="simple-query.php">A query using simple API access</a></li>
-  <li><a href="url-shortener.php">Authorize a url shortener, using OAuth 2.0 authentication.</a></li>
   <li><a href="batch.php">An example of combining multiple calls into a batch request</a></li>
   <li><a href="service-account.php">A query using the service account functionality.</a></li>
   <li><a href="simple-file-upload.php">An example of a small file upload.</a></li>

@@ -26,7 +26,7 @@ class examples_indexTest extends BaseTest
     $crawler = $this->loadExample('index.php');
 
     $nodes = $crawler->filter('li');
-    $this->assertCount(9, $nodes);
+    $this->assertCount(8, $nodes);
     $this->assertEquals('A query using simple API access', $nodes->first()->text());
   }
 }
