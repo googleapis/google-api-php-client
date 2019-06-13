@@ -695,12 +695,14 @@ class Google_ClientTest extends BaseTest
       'api_format_v2' => true
     ]);
 
-    $guzzle = $this->prophesize('Google_Client');
-    $guzzle->send(Argument::that(function (RequestInterface $request) {
-      return $request->getHeaderLine('X-GOOG-API-FORMAT-VERSION') === '2';
-    }), [])->shouldBeCalled()->willReturn(new Response(200, [], null));
+    $guzzle = $this->getMock('GuzzleHttp\Client');
+    $guzzle->expects($this->once())
+      ->method('send')
+      ->with($this->callback(function (RequestInterface $request) {
+        return $request->getHeaderLine('X-GOOG-API-FORMAT-VERSION') === '2';
+      }))->will($this->returnValue(new Response(200, [], null)));
 
-    $client->setHttpClient($guzzle->reveal());
+    $client->setHttpClient($guzzle);
 
     $request = new Request('POST', 'http://foo.bar/');
     $client->execute($request);
