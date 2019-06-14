@@ -801,10 +801,10 @@ class Google_Client
     );
 
     if ($this->config['api_format_v2']) {
-      $request = $request->withHeader(
-        'X-GOOG-API-FORMAT-VERSION',
-        2
-      );
+        $request = $request->withHeader(
+            'X-GOOG-API-FORMAT-VERSION',
+            2
+        );
     }
 
     // call the authorize method
