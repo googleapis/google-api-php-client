@@ -142,6 +142,10 @@ class Google_Client
           // Service class used in Google_Client::verifyIdToken.
           // Explicitly pass this in to avoid setting JWT::$leeway
           'jwt' => null,
+
+          // Setting api_format_v2 will return more detailed error messages
+          // from certain APIs.
+          'api_format_v2' => false
         ],
         $config
     );
@@ -796,6 +800,13 @@ class Google_Client
         . $this->getLibraryVersion()
     );
 
+    if ($this->config['api_format_v2']) {
+        $request = $request->withHeader(
+            'X-GOOG-API-FORMAT-VERSION',
+            2
+        );
+    }
+
     // call the authorize method
     // this is where most of the grunt work is done
     $http = $this->authorize();
@@ -1054,6 +1065,18 @@ class Google_Client
     }
 
     return $this->http;
+  }
+
+  /**
+   * Set the API format version.
+   *
+   * `true` will use V2, which may return more useful error messages.
+   *
+   * @param bool $value
+   */
+  public function setApiFormatV2($value)
+  {
+    $this->config['api_format_v2'] = (bool) $value;
   }
 
   protected function createDefaultHttpClient()

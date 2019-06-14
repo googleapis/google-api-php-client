@@ -1,4 +1,5 @@
 language: php
+dist: trusty
 
 services:
   - memcached
@@ -44,4 +45,3 @@ before_script:
 script:
   - vendor/bin/phpunit
   - if [[ "$RUN_PHP_CS" == "true" ]]; then vendor/bin/phpcs src --standard=style/ruleset.xml -np; fi
-
