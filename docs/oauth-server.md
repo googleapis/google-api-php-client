@@ -65,35 +65,42 @@ Your application now has the authority to make API calls as users in your domain
 
 After you have obtained the client email address and private key from the Developers Console, set the path to these credentials in the `GOOGLE_APPLICATION_CREDENTIALS` environment variable ( **Note:** This is not required in the App Engine environment):
 
-putenv('GOOGLE\_APPLICATION\_CREDENTIALS=/path/to/service-account.json');
+```php
+putenv('GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json');
+```
 
 Call the `useApplicationDefaultCredentials` to use your service account credentials to authenticate:
 
-$client \=  new  Google\_Client();  
-$client\->useApplicationDefaultCredentials();
+```php
+$client = new Google_Client();
+$client->useApplicationDefaultCredentials();
+```
 
 If you have delegated domain-wide access to the service account and you want to impersonate a user account, specify the email address of the user account using the method `setSubject`:
 
-$client\->setSubject($user\_to\_impersonate);
+```php
+$client->setSubject($user_to_impersonate);
+```
 
 Use the authorized `Google_Client` object to call Google APIs in your application.
 
-[](#top_of_page)Calling Google APIs
------------------------------------
+## Calling Google APIs
 
 Use the authorized `Google_Client` object to call Google APIs by completing the following steps:
 
 1.  Build a service object for the API that you want to call, providing the authorized `Google_Client` object. For example, to call the Cloud SQL Administration API:
     
-    $sqladmin \=  new  Google\_Service\_SQLAdmin($client);
+    ```php
+    $sqladmin = new Google_Service_SQLAdmin($client);
+    ```
     
 2.  Make requests to the API service using the [interface provided by the service object](https://devsite.googleplex.com/api-client-library/php/start/get_started#build). For example, to list the instances of Cloud SQL databases in the examinable-example-123 project:
     
-    $response \= $sqladmin\->instances\->listInstances('examinable-example-123')->getItems();
-    
+    ```php
+    $response = $sqladmin->instances->listInstances('examinable-example-123')->getItems();
+    ```
 
-[](#top_of_page)Complete example
---------------------------------
+## Complete example
 
 The following example prints a JSON-formatted list of Cloud SQL instances in a project.
 
@@ -101,25 +108,37 @@ To run this example:
 
 1.  Create a new directory and change to it. For example:
     
+    ```sh
     mkdir ~/php-oauth2-example
     cd ~/php-oauth2-example
+    ```
     
 2.  Install the [Google API Client Library](https://github.com/google/google-api-php-client) for PHP using [Composer](https://getcomposer.org):
     
+    ```sh
     composer require google/apiclient:^2.0
+    ```
     
 3.  Create the file sqlinstances.php with the content below.
 4.  Run the example from the command line:
     
+    ```
     php ~/php-oauth2-example/sqlinstances.php
-    
+    ```
 
 ### sqlinstances.php
 
-<?php  
-  
-require\_once \_\_DIR\_\_.'/vendor/autoload.php';  
-  
-putenv('GOOGLE\_APPLICATION\_CREDENTIALS=/path/to/service-account.json');$client \=  new  Google\_Client();  
-$client\->useApplicationDefaultCredentials();$sqladmin \=  new  Google\_Service\_SQLAdmin($client);$response \= $sqladmin\->instances \->listInstances('examinable-example-123')->getItems();  
-echo json\_encode($response)  .  "\\n";
+```php
+<?php
+
+require_once __DIR__.'/vendor/autoload.php';
+
+putenv('GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json');
+$client = new Google_Client();
+$client->useApplicationDefaultCredentials();
+
+$sqladmin = new Google_Service_SQLAdmin($client);
+$response = $sqladmin->instances
+    ->listInstances('examinable-example-123')->getItems();
+echo json_encode($response) . "\n";
+```
