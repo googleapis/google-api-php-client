@@ -14,7 +14,8 @@ For Google Cloud Platform APIs such as Datastore, Cloud Storage or Pub/Sub, we r
 * [PHP 5.4.0 or higher](http://www.php.net/)
 
 ## Developer Documentation ##
-http://developers.google.com/api-client-library/php
+
+The [docs folder](docs/) provides detailed guides for using this library.
 
 ## Installation ##
 
