@@ -50,7 +50,7 @@ Uncompress the zip file you download, and include the autoloader in your project
 require_once '/path/to/google-api-php-client/vendor/autoload.php';
 ```
 
-For additional installation and setup instructions, see [the documentation](https://developers.google.com/api-client-library/php/start/installation).
+For additional installation and setup instructions, see [the documentation](docs/).
 
 ## Examples ##
 See the [`examples/`](examples) directory for examples of the key client features. You can
@@ -86,7 +86,7 @@ foreach ($results as $item) {
 
 > An example of this can be seen in [`examples/simple-file-upload.php`](examples/simple-file-upload.php).
 
-1. Follow the instructions to [Create Web Application Credentials](https://developers.google.com/api-client-library/php/auth/web-app#creatingcred)
+1. Follow the instructions to [Create Web Application Credentials](docs/oauth-web.md#create-authorization-credentials)
 1. Download the JSON credentials
 1. Set the path to these credentials using `Google_Client::setAuthConfig`:
 
@@ -127,7 +127,7 @@ Some APIs
 not support service accounts. Check with the specific API documentation if API
 calls return unexpected 401 or 403 errors.
 
-1. Follow the instructions to [Create a Service Account](https://developers.google.com/api-client-library/php/auth/service-accounts#creatinganaccount)
+1. Follow the instructions to [Create a Service Account](docs/oauth-server.md#creating-a-service-account)
 1. Download the JSON credentials
 1. Set the path to these credentials using the `GOOGLE_APPLICATION_CREDENTIALS` environment variable:
 
@@ -341,7 +341,7 @@ YouTube: https://github.com/youtube/api-samples/tree/master/php
 
 ## How Do I Contribute? ##
 
-Please see the [contributing](.github/CONTRIBUTING.md) page for more information. In particular, we love pull requests - but please make sure to sign the [contributor license agreement](https://developers.google.com/api-client-library/php/contribute).
+Please see the [contributing](.github/CONTRIBUTING.md) page for more information. In particular, we love pull requests - but please make sure to sign the contributor license agreement.
 
 ## Frequently Asked Questions ##
 
