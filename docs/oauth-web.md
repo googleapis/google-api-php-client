@@ -4,7 +4,7 @@ This document explains how web server applications use the Google API Client Lib
 
 This OAuth 2.0 flow is specifically for user authorization. It is designed for applications that can store confidential information and maintain state. A properly authorized web server application can access an API while the user interacts with the application or after the user has left the application.
 
-Web server applications frequently also use [service accounts](https://developers.google.com/api-client-library/php/auth/service-accounts) to authorize API requests, particularly when calling Cloud APIs to access project-based data rather than user-specific data. Web server applications can use service accounts in conjunction with user authorization.
+Web server applications frequently also use [service accounts](oauth-server.md) to authorize API requests, particularly when calling Cloud APIs to access project-based data rather than user-specific data. Web server applications can use service accounts in conjunction with user authorization.
 
 ## Prerequisites
 
