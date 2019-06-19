@@ -4,17 +4,17 @@ The Google APIs Client Library for PHP supports using OAuth 2.0 for server-to-se
 
 Typically, an application uses a service account when the application uses Google APIs to work with its own data rather than a user's data. For example, an application that uses [Google Cloud Datastore](https://cloud.google.com/datastore/) for data persistence would use a service account to authenticate its calls to the Google Cloud Datastore API.
 
-If you have a Google Apps domain—if you use [Google Apps for Work](https://www.google.com/work/apps/business/), for example—an administrator of the Google Apps domain can authorize an application to access user data on behalf of users in the Google Apps domain. For example, an application that uses the [Google Calendar API](https://developers.google.com/google-apps/calendar/) to add events to the calendars of all users in a Google Apps domain would use a service account to access the Google Calendar API on behalf of users. Authorizing a service account to access data on behalf of users in a domain is sometimes referred to as "delegating domain-wide authority" to a service account.
+If you have a G Suite domain—if you use [G Suite Business](https://gsuite.google.com), for example—an administrator of the G Suite domain can authorize an application to access user data on behalf of users in the G Suite domain. For example, an application that uses the [Google Calendar API](https://developers.google.com/google-apps/calendar/) to add events to the calendars of all users in a G Suite domain would use a service account to access the Google Calendar API on behalf of users. Authorizing a service account to access data on behalf of users in a domain is sometimes referred to as "delegating domain-wide authority" to a service account.
 
-> **Note:** When you use [Google Apps Marketplace](https://www.google.com/enterprise/marketplace/) to install an application for your domain, the required permissions are automatically granted to the application. You do not need to manually authorize the service accounts that the application uses.
+> **Note:** When you use [G Suite Marketplace](https://www.google.com/enterprise/marketplace/) to install an application for your domain, the required permissions are automatically granted to the application. You do not need to manually authorize the service accounts that the application uses.
 
-> **Note:** Although you can use service accounts in applications that run from a Google Apps domain, service accounts are not members of your Google Apps account and aren't subject to domain policies set by Google Apps administrators. For example, a policy set in the Google Apps admin console to restrict the ability of Apps end users to share documents outside of the domain would not apply to service accounts.
+> **Note:** Although you can use service accounts in applications that run from a G Suite domain, service accounts are not members of your G Suite account and aren't subject to domain policies set by G Suite administrators. For example, a policy set in the G Suite admin console to restrict the ability of Apps end users to share documents outside of the domain would not apply to service accounts.
 
 This document describes how an application can complete the server-to-server OAuth 2.0 flow by using the Google APIs Client Library for PHP.
 
 ## Overview
 
-To support server-to-server interactions, first create a service account for your project in the Developers Console. If you want to access user data for users in your Google Apps domain, then delegate domain-wide access to the service account.
+To support server-to-server interactions, first create a service account for your project in the Developers Console. If you want to access user data for users in your G Suite domain, then delegate domain-wide access to the service account.
 
 Then, your application prepares to make authorized API calls by using the service account's credentials to request an access token from the OAuth 2.0 auth server.
 
@@ -34,7 +34,7 @@ If your application doesn't run on Google App Engine or Google Compute Engine, y
 
 1.  Open the [**Service accounts** section](https://console.developers.google.com/permissions/serviceaccounts?project=_) of the Developers Console's **Permissions** page.
 2.  Click **Create service account**.
-3.  In the **Create service account** window, type a name for the service account and select **Furnish a new private key**. If you want to [grant Google Apps domain-wide authority](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#delegatingauthority) to the service account, also select **Enable Google Apps Domain-wide Delegation**. Then, click **Create**.
+3.  In the **Create service account** window, type a name for the service account and select **Furnish a new private key**. If you want to [grant G Suite domain-wide authority](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#delegatingauthority) to the service account, also select **Enable G Suite Domain-wide Delegation**. Then, click **Create**.
 
 Your new public/private key pair is generated and downloaded to your machine; it serves as the only copy of this key. You are responsible for storing it securely.
 
@@ -46,11 +46,11 @@ Take note of the service account's email address and store the service account's
 
 ### Delegating domain-wide authority to the service account
 
-If your application runs in a Google Apps domain and accesses user data, the service account that you created needs to be granted access to the user data that you want to access.
+If your application runs in a G Suite domain and accesses user data, the service account that you created needs to be granted access to the user data that you want to access.
 
-The following steps must be performed by an administrator of the Google Apps domain:
+The following steps must be performed by an administrator of the G Suite domain:
 
-1.  Go to your Google Apps domain’s [Admin console](http://admin.google.com).
+1.  Go to your G Suite domain’s [Admin console](http://admin.google.com).
 2.  Select **Security** from the list of controls. If you don't see **Security** listed, select **More controls** from the gray bar at the bottom of the page, then select **Security** from the list of controls. If you can't see the controls, make sure you're signed in as an administrator for the domain.
 3.  Select **Advanced settings** from the list of options.
 4.  Select **Manage third party OAuth Client access** in the **Authentication** section.
