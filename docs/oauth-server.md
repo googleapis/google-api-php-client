@@ -38,7 +38,7 @@ If your application doesn't run on Google App Engine or Google Compute Engine, y
 
 Your new public/private key pair is generated and downloaded to your machine; it serves as the only copy of this key. You are responsible for storing it securely.
 
-You can return to the [Developers Console](https://console.developers.google.com/) at any time to view the client ID, email address, and public key fingerprints, or to generate additional public/private key pairs. For more details about service account credentials in the Developers Console, see [Service accounts](https://devsite.googleplex.com/console/help/service-accounts) in the Developers Console help file.
+You can return to the [Developers Console](https://console.developers.google.com/) at any time to view the client ID, email address, and public key fingerprints, or to generate additional public/private key pairs. For more details about service account credentials in the Developers Console, see [Service accounts](https://developers.google.com/console/help/service-accounts) in the Developers Console help file.
 
 Take note of the service account's email address and store the service account's private key file in a location accessible to your application. Your application needs them to make authorized API calls.
 
@@ -94,7 +94,7 @@ Use the authorized `Google_Client` object to call Google APIs by completing the 
     $sqladmin = new Google_Service_SQLAdmin($client);
     ```
     
-2.  Make requests to the API service using the [interface provided by the service object](https://devsite.googleplex.com/api-client-library/php/start/get_started#build). For example, to list the instances of Cloud SQL databases in the examinable-example-123 project:
+2.  Make requests to the API service using the [interface provided by the service object](https://developers.google.com/api-client-library/php/start/get_started#build). For example, to list the instances of Cloud SQL databases in the examinable-example-123 project:
     
     ```php
     $response = $sqladmin->instances->listInstances('examinable-example-123')->getItems();

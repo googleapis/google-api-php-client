@@ -20,14 +20,14 @@ These API calls do not access any private user data. Your application must authe
 
 #### Important concepts
 
-*   **API key**: To authenticate your application, use an [API key](/console/help/#WhatIsKey) for your Google Cloud Console project. Every simple access call your application makes must include this key.
+*   **API key**: To authenticate your application, use an [API key](https://cloud.google.com/docs/authentication/api-keys) for your Google Cloud Console project. Every simple access call your application makes must include this key.
     
 > **Warning**: Keep your API key private. If someone obtains your key, they could use it to consume your quota or incur charges against your Google Cloud project.
     
 
 ### 2. Authorized API access (OAuth 2.0)
 
-These API calls access private user data. Before you can call them, the user that has access to the private data must grant your application access. Therefore, your application must be authenticated, the user must grant access for your application, and the user must be authenticated in order to grant that access. All of this is accomplished with [OAuth 2.0](/accounts/docs/OAuth2) and libraries written for it.
+These API calls access private user data. Before you can call them, the user that has access to the private data must grant your application access. Therefore, your application must be authenticated, the user must grant access for your application, and the user must be authenticated in order to grant that access. All of this is accomplished with [OAuth 2.0](https://developers.google.com/identity/protocols/OAuth2) and libraries written for it.
 
 #### Important concepts
 
@@ -40,7 +40,7 @@ These API calls access private user data. Before you can call them, the user tha
     
     *   Web application client IDs
     *   Installed application client IDs
-    *   [Service Account](/accounts/docs/OAuth2ServiceAccount) client IDs
+    *   [Service Account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount) client IDs
     
     > **Warning**: Keep your client secret private. If someone obtains your client secret, they could use it to consume your quota, incur charges against your Google Cloud project, and request access to user data.
     

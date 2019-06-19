@@ -26,7 +26,7 @@ Any application that uses OAuth 2.0 to access Google APIs must have authorizatio
       
     For testing, you can specify URIs that refer to the local machine, such as `http://localhost:8080`. With that in mind, please note that all of the examples in this document use `http://localhost:8080` as the redirect URI.  
       
-    We recommend that you [design your app's auth endpoints](#protectauthcode) so that your application does not expose authorization codes to other resources on the page.
+    We recommend that you design your app's auth endpoints so that your application does not expose authorization codes to other resources on the page.
 
 After creating your credentials, download the **client_secret.json** file from the API Console. Securely store the file in a location that only your application can access.
 
@@ -38,7 +38,7 @@ Scopes enable your application to only request access to the resources that it n
 
 Before you start implementing OAuth 2.0 authorization, we recommend that you identify the scopes that your app will need permission to access.
 
-We also recommend that your application request access to authorization scopes via an [incremental authorization](#incrementalAuth) process, in which your application requests access to user data in context. This best practice helps users to more easily understand why your application needs the access it is requesting.
+We also recommend that your application request access to authorization scopes via an [incremental authorization](#incremental-authorization) process, in which your application requests access to user data in context. This best practice helps users to more easily understand why your application needs the access it is requesting.
 
 The [OAuth 2.0 API Scopes](https://developers.google.com/identity/protocols/googlescopes) document contains a full list of scopes that you might use to access Google APIs.
 
@@ -75,7 +75,7 @@ Your first step is to create the authorization request. That request sets parame
 
 The code snippet below creates a `Google_Client()` object, which defines the parameters in the authorization request.
 
-That object uses information from your **client_secret.json** file to identify your application. (See [creating authorization credentials](#creatingcred) for more about that file.) The object also identifies the scopes that your application is requesting permission to access and the URL to your application's auth endpoint, which will handle the response from Google's OAuth 2.0 server. Finally, the code sets the optional access_type and include_granted_scopes parameters.
+That object uses information from your **client_secret.json** file to identify your application. The object also identifies the scopes that your application is requesting permission to access and the URL to your application's auth endpoint, which will handle the response from Google's OAuth 2.0 server. Finally, the code sets the optional access_type and include_granted_scopes parameters.
 
 For example, this code requests read-only, offline access to a user's Google Drive:
 
@@ -123,7 +123,7 @@ $client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
 
 The [OAuth 2.0 API Scopes](https://developers.google.com/identity/protocols/googlescopes) document provides a full list of scopes that you might use to access Google APIs.  
   
-We recommend that your application request access to authorization scopes in context whenever possible. By requesting access to user data in context, via [incremental authorization](#incrementalAuth), you help users to more easily understand why your application needs the access it is requesting.
+We recommend that your application request access to authorization scopes in context whenever possible. By requesting access to user data in context, via [incremental authorization](#Incremental-authorization), you help users to more easily understand why your application needs the access it is requesting.
 
 ##### `access_type`
 
@@ -151,7 +151,7 @@ $client->setState($sample_passthrough_value);
 
 ##### `include_granted_scopes`
 
-**Optional**. Enables applications to use incremental authorization to request access to additional scopes in context. If you set this parameter's value to `true` and the authorization request is granted, then the new access token will also cover any scopes to which the user previously granted the application access. See the [incremental authorization](#incrementalAuth) section for examples.  
+**Optional**. Enables applications to use incremental authorization to request access to additional scopes in context. If you set this parameter's value to `true` and the authorization request is granted, then the new access token will also cover any scopes to which the user previously granted the application access. See the [incremental authorization](#Incremental-authorization) section for examples.  
   
 To set this value in PHP, call the `setIncludeGrantedScopes` function:
 
@@ -197,7 +197,7 @@ Prompt the user to select an account.
 
 ### Step 2: Redirect to Google's OAuth 2.0 server
 
-Redirect the user to Google's OAuth 2.0 server to initiate the authentication and authorization process. Typically, this occurs when your application first needs to access the user's data. In the case of [incremental authorization](#incrementalAuth), this step also occurs when your application first needs to access additional resources that it does not yet have permission to access.
+Redirect the user to Google's OAuth 2.0 server to initiate the authentication and authorization process. Typically, this occurs when your application first needs to access the user's data. In the case of [incremental authorization](#incremental-authorization), this step also occurs when your application first needs to access additional resources that it does not yet have permission to access.
 
 1.  Generate a URL to request access from Google's OAuth 2.0 server:
     
@@ -287,7 +287,7 @@ Use the access token to call Google APIs by completing the following steps:
     $drive = new Google_Service_Drive($client);
     ```
     
-3.  Make requests to the API service using the [interface provided by the service object](https://developers.google.com/api-client-library/php/start/get_started#build). For example, to list the files in the authenticated user's Google Drive:
+3.  Make requests to the API service using the [interface provided by the service object](start.md). For example, to list the files in the authenticated user's Google Drive:
     
     ```php
     $files = $drive->files->listFiles(array())->getItems();
@@ -385,7 +385,7 @@ The following rules apply to an access token obtained from an incremental author
 *   The combined authorization includes all scopes that the user granted to the API project even if the grants were requested from different clients. For example, if a user granted access to one scope using an application's desktop client and then granted another scope to the same application via a mobile client, the combined authorization would include both scopes.
 *   If you revoke a token that represents a combined authorization, access to all of that authorization's scopes on behalf of the associated user are revoked simultaneously.
 
-The example for [setting authorization parameters](#creatingclient) demonstrates how to ensure authorization requests follow this best practice. The code snippet below also shows the code that you need to add to use incremental authorization.
+The example for [setting authorization parameters](#Step-1-Set-authorization-parameters) demonstrates how to ensure authorization requests follow this best practice. The code snippet below also shows the code that you need to add to use incremental authorization.
 
 ```php
 $client->setIncludeGrantedScopes(true);
@@ -395,7 +395,7 @@ $client->setIncludeGrantedScopes(true);
 
 Access tokens periodically expire. You can refresh an access token without prompting the user for permission (including when the user is not present) if you requested offline access to the scopes associated with the token.
 
-If you use a Google API Client Library, the [client object](#creatingclient) refreshes the access token as needed as long as you configure that object for offline access.
+If you use a Google API Client Library, the [client object](#Step-1-Set-authorization-parameters) refreshes the access token as needed as long as you configure that object for offline access.
 
 Requesting offline access is a requirement for any application that needs to access a Google API when the user is not present. For example, an app that performs backup services or executes actions at predetermined times needs to be able to refresh its access token when the user is not present. The default style of access is called `online`.
 
