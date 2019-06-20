@@ -94,7 +94,7 @@ Use the authorized `Google_Client` object to call Google APIs by completing the 
     $sqladmin = new Google_Service_SQLAdmin($client);
     ```
     
-2.  Make requests to the API service using the [interface provided by the service object](https://developers.google.com/api-client-library/php/start/get_started#build). For example, to list the instances of Cloud SQL databases in the examinable-example-123 project:
+2.  Make requests to the API service using the [interface provided by the service object](https://github.com/googleapis/google-api-php-client/blob/master/docs/start.md#build-the-service-object). For example, to list the instances of Cloud SQL databases in the examinable-example-123 project:
     
     ```php
     $response = $sqladmin->instances->listInstances('examinable-example-123')->getItems();
