@@ -153,8 +153,10 @@ class Google_Http_REST
       return $expectedClass;
     }
 
-    // return what we have in the request header if one was not supplied
-    return $expectedClass ?: $request->getHeaderLine('X-Php-Expected-Class');
+    // If the request is a deferred request, get the expected class from it.
+    return !$expectedClass && $request instanceof Google_Http_DeferredRequest
+      ? $request->getExpectedClass()
+      : $expectedClass;
   }
 
   private static function getResponseErrors($body)

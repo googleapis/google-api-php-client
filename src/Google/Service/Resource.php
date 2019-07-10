@@ -194,7 +194,10 @@ class Google_Service_Resource
     // NOTE: because we're creating the request by hand,
     // and because the service has a rootUrl property
     // the "base_uri" of the Http Client is not accounted for
-    $request = new Request(
+    $requestClass = $this->client->shouldDefer()
+      ? 'Google_Http_DeferredRequest'
+      : 'Request';
+    $request = new $requestClass(
         $method['httpMethod'],
         $url,
         ['content-type' => 'application/json'],
@@ -221,10 +224,8 @@ class Google_Service_Resource
 
     // if the client is marked for deferring, rather than
     // execute the request, return the response
-    if ($this->client->shouldDefer()) {
-      // @TODO find a better way to do this
-      $request = $request
-        ->withHeader('X-Php-Expected-Class', $expectedClass);
+    if ($request instanceof Google_Http_DeferredRequest) {
+      $request->setExpectedClass($expectedClass);
 
       return $request;
     }
