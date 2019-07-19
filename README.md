@@ -6,6 +6,8 @@ The Google API Client Library enables you to work with Google APIs such as Googl
 
 These client libraries are officially supported by Google.  However, the libraries are considered complete and are in maintenance mode. This means that we will address critical bugs and security issues but will not add any new features.
 
+**NOTE** The actively maintained (v2) version of this client requires PHP 5.4 or above. If you require support for PHP 5.2 or 5.3, use the v1 branch.
+
 ## Google Cloud Platform
 
 For Google Cloud Platform APIs such as Datastore, Cloud Storage or Pub/Sub, we recommend using [GoogleCloudPlatform/google-cloud-php](https://github.com/googleapis/google-cloud-php) which is under active development.
@@ -354,10 +356,6 @@ If there is a specific bug with the library, please [file a issue](https://githu
 ### I want an example of X! ###
 
 If X is a feature of the library, file away! If X is an example of using a specific service, the best place to go is to the teams for those specific APIs - our preference is to link to their examples rather than add them to the library, as they can then pin to specific versions of the library. If you have any examples for other APIs, let us know and we will happily add a link to the README above!
-
-### Why do you still support 5.2? ###
-
-When we started working on the 1.0.0 branch we knew there were several fundamental issues to fix with the 0.6 releases of the library. At that time we looked at the usage of the library, and other related projects, and determined that there was still a large and active base of PHP 5.2 installs. You can see this in statistics such as the PHP versions chart in the WordPress stats: https://wordpress.org/about/stats/. We will keep looking at the types of usage we see, and try to take advantage of newer PHP features where possible.
 
 ### Why does Google_..._Service have weird names? ###
 
