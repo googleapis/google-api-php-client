@@ -416,6 +416,17 @@ class Google_Client
   }
 
   /**
+   * Set the access token used for requests.
+   *
+   * Note that at the time requests are sent, tokens are cached. A token will be
+   * cached for each combination of service and authentication scopes. If a
+   * cache pool is not provided, creating a new instance of the client will
+   * allow modification of access tokens. If a persistent cache pool is
+   * provided, in order to change the access token, you must clear the cached
+   * token by calling `$client->getCache()->clear()`. (Use caution in this case,
+   * as calling `clear()` will remove all cache items, including any items not
+   * related to Google API PHP Client.)
+   *
    * @param string|array $token
    * @throws InvalidArgumentException
    */
