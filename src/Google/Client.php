@@ -423,7 +423,9 @@ class Google_Client
    * cache pool is not provided, creating a new instance of the client will
    * allow modification of access tokens. If a persistent cache pool is
    * provided, in order to change the access token, you must clear the cached
-   * token by calling `$client->getCache()->clear()`.
+   * token by calling `$client->getCache()->clear()`. (Use caution in this case,
+   * as calling `clear()` will remove all cache items, including any items not
+   * related to Google API PHP Client.)
    *
    * @param string|array $token
    * @throws InvalidArgumentException
