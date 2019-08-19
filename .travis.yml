@@ -23,13 +23,17 @@ php:
   - 7.0
   - 7.1
   - 7.2
+  - 7.3
+  - 7.4snapshot
 
 # Test lowest dependencies on PHP 5.4
 # (Guzzle 5.2, phpseclib 0.3)
 matrix:
   include:
     - php: 5.4
-      env: COMPOSER_CMD="composer update --prefer-lowest" RUN_PHP_CS=true
+      env: COMPOSER_CMD="composer update phpseclib/phpseclib guzzlehttp/guzzle guzzlehttp/psr7 --prefer-lowest" RUN_PHP_CS=true
+  allow_failures:
+    - php: 7.4snapshot
 
 before_install:
   - composer self-update
@@ -44,4 +48,4 @@ before_script:
 
 script:
   - vendor/bin/phpunit
-  - if [[ "$RUN_PHP_CS" == "true" ]]; then vendor/bin/phpcs src --standard=style/ruleset.xml -np; fi
+  - if [[ "$RUN_PHP_CS" == "true" ]]; then vendor/bin/phpcs src -np; fi
