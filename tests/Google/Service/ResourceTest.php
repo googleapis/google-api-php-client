@@ -60,9 +60,8 @@ class Google_Service_ResourceTest extends BaseTest
     $this->client = $this->getMockBuilder("Google_Client")
           ->disableOriginalConstructor()
           ->getMock();
-    $this->logger = $this->getMockBuilder("Monolog\Logger")
-          ->disableOriginalConstructor()
-          ->getMock();
+    $logger = $this->prophesize("Monolog\Logger");
+    $this->logger = $logger->reveal();
     $this->client->expects($this->any())
           ->method("getLogger")
           ->will($this->returnValue($this->logger));
@@ -140,11 +139,11 @@ class Google_Service_ResourceTest extends BaseTest
     $this->assertEquals("https://sample.example.com/method/path", (string) $request->getUri());
     $this->assertEquals("POST", $request->getMethod());
   }
-  
+
  /**
-  * Some Google Service (Google_Service_Directory_Resource_Channels and 
-  * Google_Service_Reports_Resource_Channels) use a different servicePath value 
-  * that should override the default servicePath value, it's represented by a / 
+  * Some Google Service (Google_Service_Directory_Resource_Channels and
+  * Google_Service_Reports_Resource_Channels) use a different servicePath value
+  * that should override the default servicePath value, it's represented by a /
   * before the resource path. All other Services have no / before the path
   */
   public function testCreateRequestUriForASelfDefinedServicePath()
@@ -167,7 +166,7 @@ class Google_Service_ResourceTest extends BaseTest
     $request = $resource->call('testMethod', array(array()));
     $this->assertEquals('https://test.example.com/admin/directory_v1/watch/stop', (string) $request->getUri());
   }
-  
+
   public function testCreateRequestUri()
   {
     $restPath = "plus/{u}";
