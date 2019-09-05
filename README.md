@@ -43,7 +43,7 @@ require_once '/path/to/your-project/vendor/autoload.php';
 
 ### Download the Release
 
-If you abhor using composer, you can download the package in its entirety. The [Releases](https://github.com/googleapis/google-api-php-client/releases) page lists all stable versions. Download any file
+If you prefer not to use composer, you can download the package in its entirety. The [Releases](https://github.com/googleapis/google-api-php-client/releases) page lists all stable versions. Download any file
 with the name `google-api-php-client-[RELEASE_NAME].zip` for a package including this library and its dependencies.
 
 Uncompress the zip file you download, and include the autoloader in your project:
@@ -351,7 +351,7 @@ Please see the [contributing](.github/CONTRIBUTING.md) page for more information
 
 For support with the library the best place to ask is via the google-api-php-client tag on StackOverflow: https://stackoverflow.com/questions/tagged/google-api-php-client
 
-If there is a specific bug with the library, please [file a issue](https://github.com/googleapis/google-api-php-client/issues) in the GitHub issues tracker, including an example of the failing code and any specific errors retrieved. Feature requests can also be filed, as long as they are core library requests, and not-API specific: for those, refer to the documentation for the individual APIs for the best place to file requests. Please try to provide a clear statement of the problem that the feature would address.
+If there is a specific bug with the library, please [file an issue](https://github.com/googleapis/google-api-php-client/issues) in the GitHub issues tracker, including an example of the failing code and any specific errors retrieved. Feature requests can also be filed, as long as they are core library requests, and not-API specific: for those, refer to the documentation for the individual APIs for the best place to file requests. Please try to provide a clear statement of the problem that the feature would address.
 
 ### I want an example of X! ###
 
