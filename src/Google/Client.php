@@ -15,22 +15,23 @@
  * limitations under the License.
  */
 
+use Google\Auth\AccessToken;
 use Google\Auth\ApplicationDefaultCredentials;
 use Google\Auth\Cache\MemoryCacheItemPool;
+use Google\Auth\Credentials\ServiceAccountCredentials;
+use Google\Auth\Credentials\UserRefreshCredentials;
 use Google\Auth\CredentialsLoader;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\OAuth2;
-use Google\Auth\Credentials\ServiceAccountCredentials;
-use Google\Auth\Credentials\UserRefreshCredentials;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Ring\Client\StreamHandler;
+use Monolog\Handler\StreamHandler as MonologStreamHandler;
+use Monolog\Handler\SyslogHandler as MonologSyslogHandler;
+use Monolog\Logger;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Log\LoggerInterface;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler as MonologStreamHandler;
-use Monolog\Handler\SyslogHandler as MonologSyslogHandler;
 
 /**
  * The Google API Client
@@ -74,6 +75,11 @@ class Google_Client
    * @var Psr\Log\LoggerInterface $logger
    */
   private $logger;
+
+  /**
+   * @var AccessToken|null
+   */
+  private $tokenVerifier;
 
   /**
    * @var boolean $deferExecution
@@ -701,11 +707,8 @@ class Google_Client
    */
   public function revokeToken($token = null)
   {
-    $tokenRevoker = new Google_AccessToken_Revoke(
-        $this->getHttpClient()
-    );
-
-    return $tokenRevoker->revokeToken($token ?: $this->getAccessToken());
+    return $this->getTokenUtility()
+      ->revokeToken($token ?: $this->getAccessToken());
   }
 
   /**
@@ -720,11 +723,7 @@ class Google_Client
    */
   public function verifyIdToken($idToken = null)
   {
-    $tokenVerifier = new Google_AccessToken_Verify(
-        $this->getHttpClient(),
-        $this->getCache(),
-        $this->config['jwt']
-    );
+    $tokenVerifier = $this->getTokenUtility();
 
     if (null === $idToken) {
       $token = $this->getAccessToken();
@@ -736,10 +735,9 @@ class Google_Client
       $idToken = $token['id_token'];
     }
 
-    return $tokenVerifier->verifyIdToken(
-        $idToken,
-        $this->getClientId()
-    );
+    return $tokenVerifier->verify($idToken, [
+        'audience' => $this->getClientId()
+    ]);
   }
 
   /**
@@ -1181,5 +1179,15 @@ class Google_Client
     );
 
     return new UserRefreshCredentials($scope, $creds);
+  }
+
+  private function getTokenUtility()
+  {
+    if (!$this->tokenVerifier) {
+      $http = HttpHandlerFactory::build($this->getHttpClient());
+      $this->tokenVerifier = new AccessToken($http, $this->getCache());
+    }
+
+    return $this->tokenVerifier;
   }
 }
