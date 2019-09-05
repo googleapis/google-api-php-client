@@ -4,6 +4,7 @@
 /.travis.yml export-ignore
 /examples export-ignore
 /phpunit.xml.dist export-ignore
+/phpcs.xml.dist export-ignore
 /style export-ignore
 /tests export-ignore
 /UPGRADING.md export-ignore
