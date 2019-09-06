@@ -15,11 +15,12 @@
  * limitations under the License.
  */
 
+use GuzzleHttp\Message\Response as Guzzle5Response;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\Message\Response as Guzzle5Response;
 use GuzzleHttp\Stream\Stream as Guzzle5Stream;
+use Prophecy\Argument;
 
 class Google_Task_RunnerTest extends BaseTest
 {
@@ -628,18 +629,23 @@ class Google_Task_RunnerTest extends BaseTest
   private function makeRequest()
   {
     $request = new Request('GET', '/test');
-    $http = $this->getMock('GuzzleHttp\ClientInterface');
-    $http->expects($this->exactly($this->mockedCallsCount))
-       ->method('send')
-       ->will($this->returnCallback(array($this, 'getNextMockedCall')));
+    $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
     if ($this->isGuzzle5()) {
-      $http->expects($this->exactly($this->mockedCallsCount))
-       ->method('createRequest')
-       ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/test')));
+      $http->createRequest(Argument::any(), Argument::any(), Argument::any())
+          ->shouldBeCalledTimes($this->mockedCallsCount)
+          ->willReturn(new GuzzleHttp\Message\Request('GET', '/test'));
+
+      $http->send(Argument::type('GuzzleHttp\Message\Request'))
+          ->shouldBeCalledTimes($this->mockedCallsCount)
+          ->will([$this, 'getNextMockedCall']);
+    } else {
+      $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+          ->shouldBeCalledTimes($this->mockedCallsCount)
+          ->will([$this, 'getNextMockedCall']);
     }
 
-    return Google_Http_REST::execute($http, $request, '', $this->retryConfig, $this->retryMap);
+    return Google_Http_REST::execute($http->reveal(), $request, '', $this->retryConfig, $this->retryMap);
   }
 
   /**
@@ -728,19 +734,15 @@ class Google_Task_RunnerTest extends BaseTest
       $task->setRetryMap($this->retryMap);
     }
 
-    $exception = $this->getMockBuilder('Google_Service_Exception')
-      // HHVM blows up unless this is set
-      // @see https://github.com/sebastianbergmann/phpunit-mock-objects/issues/207
-      ->setMethods(array('setTraceOptions'))
-      ->disableOriginalConstructor()
-      ->getMock();
+    $exception = $this->prophesize('Google_Service_Exception');
+
     $exceptionCount = 0;
     $exceptionCalls = array();
 
     for ($i = 0; $i < $this->mockedCallsCount; $i++) {
       if (is_int($this->mockedCalls[$i])) {
         $exceptionCalls[$exceptionCount++] = $this->mockedCalls[$i];
-        $this->mockedCalls[$i] = $exception;
+        $this->mockedCalls[$i] = $exception->reveal();
       }
     }
 

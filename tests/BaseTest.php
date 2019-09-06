@@ -242,4 +242,18 @@ class BaseTest extends TestCase
       $this->markTestSkipped('Guzzle 5 only');
     }
   }
+
+  protected function getGuzzle5ResponseMock()
+  {
+    $response = $this->prophesize('GuzzleHttp\Message\ResponseInterface');
+    $response->getStatusCode()
+        ->willReturn(200);
+
+    $response->getHeaders()->willReturn([]);
+    $response->getBody()->willReturn('');
+    $response->getProtocolVersion()->willReturn('');
+    $response->getReasonPhrase()->willReturn('');
+
+    return $response;
+  }
 }
