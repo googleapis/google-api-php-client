@@ -67,9 +67,11 @@ class Google_Http_MediaFileUpload
   private $httpResultCode;
 
   /**
-   * @param $mimeType string
-   * @param $data string The bytes you want to upload.
-   * @param $resumable bool
+   * @param Google_Client $client
+   * @param RequestInterface $request
+   * @param string $mimeType
+   * @param string $data The bytes you want to upload.
+   * @param bool $resumable
    * @param bool $chunkSize File will be uploaded in chunks of this many bytes.
    * only used if resumable=True
    */
