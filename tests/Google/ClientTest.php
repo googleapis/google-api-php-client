@@ -707,4 +707,45 @@ class Google_ClientTest extends BaseTest
     $request = new Request('POST', 'http://foo.bar/');
     $client->execute($request);
   }
+
+  public function testExecuteSetsCorrectHeaders()
+  {
+    $this->onlyGuzzle6();
+
+    $client = new Google_Client();
+    $guzzle = $this->getMock('GuzzleHttp\Client');
+    $guzzle->expects($this->once())
+      ->method('send')
+      ->with(
+        $this->callback(
+          function (RequestInterface $request) {
+            $userAgent = sprintf(
+              '%s%s',
+              Google_Client::USER_AGENT_SUFFIX,
+              Google_Client::LIBVER
+            );
+            $xGoogApiClient = sprintf(
+              'gl-php/%s gdcl/%s',
+              phpversion(),
+              Google_Client::LIBVER
+            );
+
+            if ($request->getHeaderLine('User-Agent') !== $userAgent) {
+              return false;
+            }
+
+            if ($request->getHeaderLine('x-goog-api-client') !== $xGoogApiClient) {
+              return false;
+            }
+
+            return true;
+          }
+        )
+      )->will($this->returnValue(new Response(200, [], null)));
+
+    $client->setHttpClient($guzzle);
+
+    $request = new Request('POST', 'http://foo.bar/');
+    $client->execute($request);
+  }
 }
