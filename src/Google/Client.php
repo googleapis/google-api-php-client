@@ -804,12 +804,24 @@ class Google_Client
    */
   public function execute(RequestInterface $request, $expectedClass = null)
   {
-    $request = $request->withHeader(
-        'User-Agent',
-        $this->config['application_name']
-        . " " . self::USER_AGENT_SUFFIX
-        . $this->getLibraryVersion()
-    );
+    $request = $request
+        ->withHeader(
+            'User-Agent',
+            sprintf(
+                '%s %s%s',
+                $this->config['application_name'],
+                self::USER_AGENT_SUFFIX,
+                $this->getLibraryVersion()
+            )
+        )
+        ->withHeader(
+            'x-goog-api-client',
+            sprintf(
+                'gl-php/%s gdcl/%s',
+                phpversion(),
+                $this->getLibraryVersion()
+            )
+        );
 
     if ($this->config['api_format_v2']) {
         $request = $request->withHeader(
