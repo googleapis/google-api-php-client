@@ -35,9 +35,6 @@ matrix:
   allow_failures:
     - php: 7.4snapshot
 
-before_install:
-  - composer self-update
-
 install:
   - if [[ "$TRAVIS_PHP_VERSION" == "5.4" ]]; then composer remove --dev cache/filesystem-adapter; fi
   - $(echo $COMPOSER_CMD)
