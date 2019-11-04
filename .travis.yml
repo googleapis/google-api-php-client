@@ -10,8 +10,6 @@ env:
     - MEMCACHE_PORT=11211
     - COMPOSER_CMD="composer install"
 
-sudo: false
-
 cache:
   directories:
     - $HOME/.composer/cache
