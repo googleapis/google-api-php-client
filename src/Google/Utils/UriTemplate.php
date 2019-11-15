@@ -68,11 +68,11 @@ class Google_Utils_UriTemplate
    */
   private function resolveNextSection($string, $parameters)
   {
-    $start = strpos($string, "{");
+    $start = \strpos($string, "{");
     if ($start === false) {
       return $string;
     }
-    $end = strpos($string, "}");
+    $end = \strpos($string, "}");
     if ($end === false) {
       return $string;
     }
@@ -83,13 +83,13 @@ class Google_Utils_UriTemplate
   private function replace($string, $start, $end, $parameters)
   {
     // We know a data block will have {} round it, so we can strip that.
-    $data = substr($string, $start + 1, $end - $start - 1);
+    $data = \substr($string, $start + 1, $end - $start - 1);
 
     // If the first character is one of the reserved operators, it effects
     // the processing of the stream.
     if (isset($this->operators[$data[0]])) {
       $op = $this->operators[$data[0]];
-      $data = substr($data, 1);
+      $data = \substr($data, 1);
       $prefix = "";
       $prefix_on_missing = false;
 
@@ -142,7 +142,7 @@ class Google_Utils_UriTemplate
       $data = $this->replaceVars($data, $parameters);
     }
     // This is chops out the {...} and replaces with the new section.
-    return substr($string, 0, $start) . $data . substr($string, $end + 1);
+    return \substr($string, 0, $start) . $data . \substr($string, $end + 1);
   }
 
   private function replaceVars(
@@ -154,7 +154,7 @@ class Google_Utils_UriTemplate
       $tag_empty = false,
       $combine_on_empty = true
   ) {
-    if (strpos($section, ",") === false) {
+    if (\strpos($section, ",") === false) {
       // If we only have a single value, we can immediately process.
       return $this->combine(
           $section,
@@ -169,7 +169,7 @@ class Google_Utils_UriTemplate
       // If we have multiple values, we need to split and loop over them.
       // Each is treated individually, then glued together with the
       // separator character.
-      $vars = explode(",", $section);
+      $vars = \explode(",", $section);
       return $this->combineList(
           $vars,
           $sep,
@@ -197,14 +197,14 @@ class Google_Utils_UriTemplate
     $value = false;
 
     // Check for length restriction.
-    if (strpos($key, ":") !== false) {
-      list($key, $length) = explode(":", $key);
+    if (\strpos($key, ":") !== false) {
+      list($key, $length) = \explode(":", $key);
     }
 
     // Check for explode parameter.
-    if ($key[strlen($key) - 1] == "*") {
+    if ($key[\strlen($key) - 1] == "*") {
       $explode = true;
-      $key = substr($key, 0, -1);
+      $key = \substr($key, 0, -1);
       $skip_final_combine = true;
     }
 
@@ -227,7 +227,7 @@ class Google_Utils_UriTemplate
               $values[$pkey] = $pvalue;
             }
           }
-          $value = implode($list_sep, $values);
+          $value = \implode($list_sep, $values);
           if ($value == '') {
             return '';
           }
@@ -244,7 +244,7 @@ class Google_Utils_UriTemplate
               $values[] = $pvalue;
             }
           }
-          $value = implode($list_sep, $values);
+          $value = \implode($list_sep, $values);
           if ($value == '') {
             return false;
           }
@@ -259,7 +259,7 @@ class Google_Utils_UriTemplate
     }
 
     if ($reserved) {
-      $value = str_replace($this->reservedEncoded, $this->reserved, $value);
+      $value = \str_replace($this->reservedEncoded, $this->reserved, $value);
     }
 
     // If we do not need to include the key name, we just return the raw
@@ -277,9 +277,9 @@ class Google_Utils_UriTemplate
    */
   private function getDataType($data)
   {
-    if (is_array($data)) {
-      reset($data);
-      if (key($data) !== 0) {
+    if (\is_array($data)) {
+      \reset($data);
+      if (\key($data) !== 0) {
         return self::TYPE_MAP;
       }
       return self::TYPE_LIST;
@@ -316,7 +316,7 @@ class Google_Utils_UriTemplate
       }
       $ret[] = $response;
     }
-    return implode($sep, $ret);
+    return \implode($sep, $ret);
   }
 
   /**
@@ -325,9 +325,9 @@ class Google_Utils_UriTemplate
   private function getValue($value, $length)
   {
     if ($length) {
-      $value = substr($value, 0, $length);
+      $value = \substr($value, 0, $length);
     }
-    $value = rawurlencode($value);
+    $value = \rawurlencode($value);
     return $value;
   }
 }

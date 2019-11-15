@@ -32,12 +32,12 @@ class Google_Http_MediaFileUploadTest extends BaseTest
         $client,
         $request,
         'image/png',
-        base64_decode('data:image/png;base64,a')
+        \base64_decode('data:image/png;base64,a')
     );
     $request = $media->getRequest();
 
     $this->assertEquals(0, $media->getProgress());
-    $this->assertGreaterThan(0, strlen($request->getBody()));
+    $this->assertGreaterThan(0, \strlen($request->getBody()));
   }
 
   public function testGetUploadType()
@@ -71,20 +71,20 @@ class Google_Http_MediaFileUploadTest extends BaseTest
 
     // Test resumable (meta data) - we want to send the metadata, not the app data.
     $request = new Request('POST', 'http://www.example.com');
-    $reqData = json_encode("hello");
+    $reqData = \json_encode("hello");
     $request = $request->withBody(Psr7\stream_for($reqData));
     $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, true);
     $request = $media->getRequest();
-    $this->assertEquals(json_decode($reqData), (string) $request->getBody());
+    $this->assertEquals(\json_decode($reqData), (string) $request->getBody());
 
     // Test multipart - we are sending encoded meta data and post data
     $request = new Request('POST', 'http://www.example.com');
-    $reqData = json_encode("hello");
+    $reqData = \json_encode("hello");
     $request = $request->withBody(Psr7\stream_for($reqData));
     $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, false);
     $request = $media->getRequest();
     $this->assertContains($reqData, (string) $request->getBody());
-    $this->assertContains(base64_encode($data), (string) $request->getBody());
+    $this->assertContains(\base64_encode($data), (string) $request->getBody());
   }
 
   public function testGetResumeUri()
@@ -117,11 +117,11 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     $this->assertInternalType('string', $uri);
 
     // parse the URL
-    $parts = parse_url($uri);
+    $parts = \parse_url($uri);
     $this->assertArrayHasKey('query', $parts);
 
     // parse the querystring
-    parse_str($parts['query'], $query);
+    \parse_str($parts['query'], $query);
     $this->assertArrayHasKey('uploadType', $query);
     $this->assertArrayHasKey('upload_id', $query);
     $this->assertEquals('resumable', $query['uploadType']);
@@ -151,7 +151,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
       null,
       true
     );
-    $media->setFileSize(strlen($data));
+    $media->setFileSize(\strlen($data));
 
     // upload the file
     $file = $media->nextChunk($data);
@@ -173,7 +173,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     $service = new Google_Service_Drive($client);
 
     $chunkSizeBytes = 262144; // smallest chunk size allowed by APIs
-    $data = str_repeat('.', $chunkSizeBytes+1);
+    $data = \str_repeat('.', $chunkSizeBytes+1);
     $file = new Google_Service_Drive_DriveFile();
     $file->name = $name = 'TESTFILE-testNextChunkWithMoreRemaining';
 
@@ -190,7 +190,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
       true,
       $chunkSizeBytes
     );
-    $media->setFileSize(strlen($data));
+    $media->setFileSize(\strlen($data));
 
     // upload the file
     $file = $media->nextChunk();

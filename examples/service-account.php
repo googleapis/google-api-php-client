@@ -43,7 +43,7 @@ $client = new Google_Client();
 if ($credentials_file = checkServiceAccountCredentialsFile()) {
   // set the location manually
   $client->setAuthConfig($credentials_file);
-} elseif (getenv('GOOGLE_APPLICATION_CREDENTIALS')) {
+} elseif (\getenv('GOOGLE_APPLICATION_CREDENTIALS')) {
   // use the application default credentials
   $client->useApplicationDefaultCredentials();
 } else {

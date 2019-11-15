@@ -61,7 +61,7 @@ if (isset($_GET['code'])) {
   $_SESSION['multi-api-token'] = $token;
 
   // redirect back to the example
-  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+  \header('Location: ' . \filter_var($redirect_uri, FILTER_SANITIZE_URL));
 }
 
 // set the access token as part of the client

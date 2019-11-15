@@ -55,26 +55,26 @@ class Google_ModelTest extends BaseTest
 
   public function testIntentionalNulls()
   {
-    $data = json_decode($this->calendarData, true);
+    $data = \json_decode($this->calendarData, true);
     $event = new Google_Service_Calendar_Event($data);
-    $obj = json_decode(json_encode($event->toSimpleObject()), true);
+    $obj = \json_decode(\json_encode($event->toSimpleObject()), true);
     $this->assertArrayHasKey('date', $obj['start']);
     $this->assertArrayNotHasKey('dateTime', $obj['start']);
     $date = new Google_Service_Calendar_EventDateTime();
     $date->setDate(Google_Model::NULL_VALUE);
     $event->setStart($date);
-    $obj = json_decode(json_encode($event->toSimpleObject()), true);
+    $obj = \json_decode(\json_encode($event->toSimpleObject()), true);
     $this->assertNull($obj['start']['date']);
     $this->assertArrayHasKey('date', $obj['start']);
     $this->assertArrayNotHasKey('dateTime', $obj['start']);
   }
   public function testModelMutation()
   {
-    $data = json_decode($this->calendarData, true);
+    $data = \json_decode($this->calendarData, true);
     $event = new Google_Service_Calendar_Event($data);
     $date = new Google_Service_Calendar_EventDateTime();
-    date_default_timezone_set('UTC');
-    $dateString = Date("c");
+    \date_default_timezone_set('UTC');
+    $dateString = \Date("c");
     $summary = "hello";
     $date->setDate($dateString);
     $event->setStart($date);
@@ -95,7 +95,7 @@ class Google_ModelTest extends BaseTest
     $metadata = new Google_Service_Drive_DriveFileImageMediaMetadata();
     $metadata->setCameraMake('Pokémon Snap');
     $file->setImageMediaMetadata($metadata);
-    $data = json_decode(json_encode($file->toSimpleObject()), true);
+    $data = \json_decode(\json_encode($file->toSimpleObject()), true);
     $this->assertEquals('Pokémon Snap', $data['imageMediaMetadata']['cameraMake']);
   }
 
@@ -109,7 +109,7 @@ class Google_ModelTest extends BaseTest
     $creative->setClickThroughUrl(array('http://somedomain.com'));
     $creative->setWidth(100);
     $creative->setHeight(100);
-    $data = json_decode(json_encode($creative->toSimpleObject()), true);
+    $data = \json_decode(\json_encode($creative->toSimpleObject()), true);
     $this->assertEquals($data['HTMLSnippet'], "<p>Foo!</p>");
     $this->assertEquals($data['width'], 100);
     $this->assertEquals($data['height'], 100);
@@ -130,8 +130,8 @@ class Google_ModelTest extends BaseTest
     $model->publicG = array($model3, "hello", false);
     $model->publicH = false;
     $model->publicI = 0;
-    $string = json_encode($model->toSimpleObject());
-    $data = json_decode($string, true);
+    $string = \json_encode($model->toSimpleObject());
+    $data = \json_decode($string, true);
     $this->assertEquals(12345, $data['publicB']['publicC']);
     $this->assertEquals("This is a string", $data['publicA']);
     $this->assertArrayNotHasKey("publicD", $data['publicB']);
@@ -161,7 +161,7 @@ class Google_ModelTest extends BaseTest
 
   public function testCollectionWithItemsFromConstructor()
   {
-    $data = json_decode(
+    $data = \json_decode(
         '{
            "kind": "calendar#events",
            "id": "1234566",
@@ -188,7 +188,7 @@ class Google_ModelTest extends BaseTest
 
   public function testCollectionWithItemsFromSetter()
   {
-    $data = json_decode(
+    $data = \json_decode(
         '{
            "kind": "calendar#events",
            "id": "1234566",
@@ -215,7 +215,7 @@ class Google_ModelTest extends BaseTest
 
   public function testMapDataType()
   {
-    $data = json_decode(
+    $data = \json_decode(
         '{
             "calendar": {
               "regular":  { "background": "#FFF", "foreground": "#000" },

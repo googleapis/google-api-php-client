@@ -102,17 +102,17 @@ class Google_ServiceTest extends TestCase
   public function testIncludes($class)
   {
     $this->assertTrue(
-        class_exists($class),
-        sprintf('Failed asserting class %s exists.', $class)
+        \class_exists($class),
+        \sprintf('Failed asserting class %s exists.', $class)
     );
   }
 
   public function serviceProvider()
   {
     $classes = array();
-    $path = dirname(dirname(__DIR__)) . '/src/Google/Service';
-    foreach (glob($path . "/*.php") as $file) {
-      $classes[] = array('Google_Service_' . basename($file, '.php'));
+    $path = \dirname(\dirname(__DIR__)) . '/src/Google/Service';
+    foreach (\glob($path . "/*.php") as $file) {
+      $classes[] = array('Google_Service_' . \basename($file, '.php'));
     }
 
     return $classes;

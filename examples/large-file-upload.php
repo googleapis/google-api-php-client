@@ -60,7 +60,7 @@ if (isset($_GET['code'])) {
   $_SESSION['upload_token'] = $token;
 
   // redirect back to the example
-  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+  \header('Location: ' . \filter_var($redirect_uri, FILTER_SANITIZE_URL));
 }
 
 // set the access token as part of the client
@@ -81,12 +81,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
   /************************************************
    * We'll setup an empty 20MB file to upload.
    ************************************************/
-  DEFINE("TESTFILE", 'testfile.txt');
-  if (!file_exists(TESTFILE)) {
-    $fh = fopen(TESTFILE, 'w');
-    fseek($fh, 1024*1024*20);
-    fwrite($fh, "!", 1);
-    fclose($fh);
+  \DEFINE("TESTFILE", 'testfile.txt');
+  if (!\file_exists(TESTFILE)) {
+    $fh = \fopen(TESTFILE, 'w');
+    \fseek($fh, 1024*1024*20);
+    \fwrite($fh, "!", 1);
+    \fclose($fh);
   }
 
   $file = new Google_Service_Drive_DriveFile();
@@ -106,13 +106,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
       true,
       $chunkSizeBytes
   );
-  $media->setFileSize(filesize(TESTFILE));
+  $media->setFileSize(\filesize(TESTFILE));
 
   // Upload the various chunks. $status will be false until the process is
   // complete.
   $status = false;
-  $handle = fopen(TESTFILE, "rb");
-  while (!$status && !feof($handle)) {
+  $handle = \fopen(TESTFILE, "rb");
+  while (!$status && !\feof($handle)) {
     // read until you get $chunkSizeBytes from TESTFILE
     // fread will never return more than 8192 bytes if the stream is read buffered and it does not represent a plain file
     // An example of a read buffered file is when reading from a URL
@@ -127,17 +127,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
     $result = $status;
   }
 
-  fclose($handle);
+  \fclose($handle);
 }
 
 function readVideoChunk ($handle, $chunkSize)
 {
     $byteCount = 0;
     $giantChunk = "";
-    while (!feof($handle)) {
+    while (!\feof($handle)) {
         // fread will never return more than 8192 bytes if the stream is read buffered and it does not represent a plain file
-        $chunk = fread($handle, 8192);
-        $byteCount += strlen($chunk);
+        $chunk = \fread($handle, 8192);
+        $byteCount += \strlen($chunk);
         $giantChunk .= $chunk;
         if ($byteCount >= $chunkSize)
         {

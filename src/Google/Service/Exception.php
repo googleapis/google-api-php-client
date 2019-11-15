@@ -39,7 +39,7 @@ class Google_Service_Exception extends Google_Exception
       Exception $previous = null,
       $errors = array()
   ) {
-    if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
+    if (\version_compare(PHP_VERSION, '5.3.0') >= 0) {
       parent::__construct($message, $code, $previous);
     } else {
       parent::__construct($message, $code);

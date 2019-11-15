@@ -63,7 +63,7 @@ if (isset($_GET['code'])) {
   $_SESSION['id_token_token'] = $token;
 
   // redirect back to the example
-  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+  \header('Location: ' . \filter_var($redirect_uri, FILTER_SANITIZE_URL));
   return;
 }
 
@@ -101,7 +101,7 @@ if ($client->getAccessToken()) {
 <?php else: ?>
   <div class="data">
     <p>Here is the data from your Id Token:</p>
-    <pre><?php var_export($token_data) ?></pre>
+    <pre><?php \var_export($token_data) ?></pre>
   </div>
 <?php endif ?>
 </div>

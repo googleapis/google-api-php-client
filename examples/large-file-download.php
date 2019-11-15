@@ -55,7 +55,7 @@ if (isset($_GET['code'])) {
   $_SESSION['upload_token'] = $token;
 
   // redirect back to the example
-  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+  \header('Location: ' . \filter_var($redirect_uri, FILTER_SANITIZE_URL));
 }
 
 // set the access token as part of the client
@@ -79,7 +79,7 @@ if ($client->getAccessToken()) {
     'fields' => 'files(id,size)'
   ]);
 
-  if (count($files) == 0) {
+  if (\count($files) == 0) {
     echo "
       <h3 class='warn'>
         Before you can use this sample, you need to
@@ -92,13 +92,13 @@ if ($client->getAccessToken()) {
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Determine the file's size and ID
     $fileId = $files[0]->id;
-    $fileSize = intval($files[0]->size);
+    $fileSize = \intval($files[0]->size);
 
     // Get the authorized Guzzle HTTP client
     $http = $client->authorize();
 
     // Open a file for writing
-    $fp = fopen('Big File (downloaded)', 'w');
+    $fp = \fopen('Big File (downloaded)', 'w');
 
     // Download in 1 MB chunks
     $chunkSizeBytes = 1 * 1024 * 1024;
@@ -109,22 +109,22 @@ if ($client->getAccessToken()) {
       $chunkEnd = $chunkStart + $chunkSizeBytes;
       $response = $http->request(
         'GET',
-        sprintf('/drive/v3/files/%s', $fileId),
+        \sprintf('/drive/v3/files/%s', $fileId),
         [
           'query' => ['alt' => 'media'],
           'headers' => [
-            'Range' => sprintf('bytes=%s-%s', $chunkStart, $chunkEnd)
+            'Range' => \sprintf('bytes=%s-%s', $chunkStart, $chunkEnd)
           ]
         ]
       );
       $chunkStart = $chunkEnd + 1;
-      fwrite($fp, $response->getBody()->getContents());
+      \fwrite($fp, $response->getBody()->getContents());
     }
     // close the file pointer
-    fclose($fp);
+    \fclose($fp);
 
     // redirect back to this example
-    header('Location: ' . filter_var($redirect_uri . '?downloaded', FILTER_SANITIZE_URL));
+    \header('Location: ' . \filter_var($redirect_uri . '?downloaded', FILTER_SANITIZE_URL));
   }
 }
 ?>

@@ -417,11 +417,11 @@ class Google_Task_RunnerTest extends BaseTest
     $config = array('initial_delay' => .001, 'max_delay' => .01);
 
     return array(
-        array(array_merge($config, array('retries' => 1)), .001),
-        array(array_merge($config, array('retries' => 2)), .0015),
-        array(array_merge($config, array('retries' => 3)), .00225),
-        array(array_merge($config, array('retries' => 4)), .00375),
-        array(array_merge($config, array('retries' => 5)), .005625)
+        array(\array_merge($config, array('retries' => 1)), .001),
+        array(\array_merge($config, array('retries' => 2)), .0015),
+        array(\array_merge($config, array('retries' => 3)), .00225),
+        array(\array_merge($config, array('retries' => 4)), .00375),
+        array(\array_merge($config, array('retries' => 5)), .005625)
     );
   }
 
@@ -501,12 +501,12 @@ class Google_Task_RunnerTest extends BaseTest
       $callback,
       $delta = 0.0
   ) {
-    $time = microtime(true);
+    $time = \microtime(true);
 
-    call_user_func($callback);
+    \call_user_func($callback);
 
     self::assertThat(
-        microtime(true) - $time,
+        \microtime(true) - $time,
         self::logicalOr(
             self::greaterThan($expected),
             self::equalTo($expected, $delta)
@@ -576,7 +576,7 @@ class Google_Task_RunnerTest extends BaseTest
     $this->mockedCalls[$this->mockedCallsCount++] = array(
         'code' => (string) $code,
         'headers' => $headers,
-        'body' => is_string($body) ? $body : json_encode($body)
+        'body' => \is_string($body) ? $body : \json_encode($body)
     );
 
     return $this;
@@ -738,7 +738,7 @@ class Google_Task_RunnerTest extends BaseTest
     $exceptionCalls = array();
 
     for ($i = 0; $i < $this->mockedCallsCount; $i++) {
-      if (is_int($this->mockedCalls[$i])) {
+      if (\is_int($this->mockedCalls[$i])) {
         $exceptionCalls[$exceptionCount++] = $this->mockedCalls[$i];
         $this->mockedCalls[$i] = $exception;
       }

@@ -91,7 +91,7 @@ class Google_Client
    */
   public function __construct(array $config = array())
   {
-    $this->config = array_merge(
+    $this->config = \array_merge(
         [
           'application_name' => '',
 
@@ -183,7 +183,7 @@ class Google_Client
    */
   public function fetchAccessTokenWithAuthCode($code)
   {
-    if (strlen($code) == 0) {
+    if (\strlen($code) == 0) {
       throw new InvalidArgumentException("Invalid code");
     }
 
@@ -194,7 +194,7 @@ class Google_Client
     $httpHandler = HttpHandlerFactory::build($this->getHttpClient());
     $creds = $auth->fetchAuthToken($httpHandler);
     if ($creds && isset($creds['access_token'])) {
-      $creds['created'] = time();
+      $creds['created'] = \time();
       $this->setAccessToken($creds);
     }
 
@@ -240,7 +240,7 @@ class Google_Client
     $httpHandler = HttpHandlerFactory::build($authHttp);
     $creds = $credentials->fetchAuthToken($httpHandler);
     if ($creds && isset($creds['access_token'])) {
-      $creds['created'] = time();
+      $creds['created'] = \time();
       $this->setAccessToken($creds);
     }
 
@@ -281,7 +281,7 @@ class Google_Client
     $httpHandler = HttpHandlerFactory::build($this->getHttpClient());
     $creds = $auth->fetchAuthToken($httpHandler);
     if ($creds && isset($creds['access_token'])) {
-      $creds['created'] = time();
+      $creds['created'] = \time();
       if (!isset($creds['refresh_token'])) {
         $creds['refresh_token'] = $refreshToken;
       }
@@ -303,8 +303,8 @@ class Google_Client
     if (empty($scope)) {
       $scope = $this->prepareScopes();
     }
-    if (is_array($scope)) {
-      $scope = implode(' ', $scope);
+    if (\is_array($scope)) {
+      $scope = \implode(' ', $scope);
     }
 
     // only accept one of prompt or approval_prompt
@@ -315,9 +315,9 @@ class Google_Client
     // include_granted_scopes should be string "true", string "false", or null
     $includeGrantedScopes = $this->config['include_granted_scopes'] === null
       ? null
-      : var_export($this->config['include_granted_scopes'], true);
+      : \var_export($this->config['include_granted_scopes'], true);
 
-    $params = array_filter(
+    $params = \array_filter(
         [
           'access_type' => $this->config['access_type'],
           'approval_prompt' => $approvalPrompt,
@@ -335,7 +335,7 @@ class Google_Client
     // If the list of scopes contains plus.login, add request_visible_actions
     // to auth URL.
     $rva = $this->config['request_visible_actions'];
-    if (strlen($rva) > 0 && false !== strpos($scope, 'plus.login')) {
+    if (\strlen($rva) > 0 && false !== \strpos($scope, 'plus.login')) {
         $params['request_visible_actions'] = $rva;
     }
 
@@ -432,8 +432,8 @@ class Google_Client
    */
   public function setAccessToken($token)
   {
-    if (is_string($token)) {
-      if ($json = json_decode($token, true)) {
+    if (\is_string($token)) {
+      if ($json = \json_decode($token, true)) {
         $token = $json;
       } else {
         // assume $token is just the token string
@@ -487,9 +487,9 @@ class Google_Client
       // using this for convenience to save a round trip request
       // to the Google API server
       $idToken = $this->token['id_token'];
-      if (substr_count($idToken, '.') == 2) {
-        $parts = explode('.', $idToken);
-        $payload = json_decode(base64_decode($parts[1]), true);
+      if (\substr_count($idToken, '.') == 2) {
+        $parts = \explode('.', $idToken);
+        $payload = \json_decode(\base64_decode($parts[1]), true);
         if ($payload && isset($payload['iat'])) {
           $created = $payload['iat'];
         }
@@ -497,7 +497,7 @@ class Google_Client
     }
 
     // If the token is set to expire in the next 30 seconds.
-    return ($created + ($this->token['expires_in'] - 30)) < time();
+    return ($created + ($this->token['expires_in'] - 30)) < \time();
   }
 
   /**
@@ -620,8 +620,8 @@ class Google_Client
    */
   public function setRequestVisibleActions($requestVisibleActions)
   {
-    if (is_array($requestVisibleActions)) {
-      $requestVisibleActions = implode(" ", $requestVisibleActions);
+    if (\is_array($requestVisibleActions)) {
+      $requestVisibleActions = \implode(" ", $requestVisibleActions);
     }
     $this->config['request_visible_actions'] = $requestVisibleActions;
   }
@@ -763,9 +763,9 @@ class Google_Client
    */
   public function addScope($scope_or_scopes)
   {
-    if (is_string($scope_or_scopes) && !in_array($scope_or_scopes, $this->requestedScopes)) {
+    if (\is_string($scope_or_scopes) && !\in_array($scope_or_scopes, $this->requestedScopes)) {
       $this->requestedScopes[] = $scope_or_scopes;
-    } else if (is_array($scope_or_scopes)) {
+    } else if (\is_array($scope_or_scopes)) {
       foreach ($scope_or_scopes as $scope) {
         $this->addScope($scope);
       }
@@ -792,7 +792,7 @@ class Google_Client
       return null;
     }
 
-    return implode(' ', $this->requestedScopes);
+    return \implode(' ', $this->requestedScopes);
   }
 
   /**
@@ -807,7 +807,7 @@ class Google_Client
     $request = $request
         ->withHeader(
             'User-Agent',
-            sprintf(
+            \sprintf(
                 '%s %s%s',
                 $this->config['application_name'],
                 self::USER_AGENT_SUFFIX,
@@ -816,9 +816,9 @@ class Google_Client
         )
         ->withHeader(
             'x-goog-api-client',
-            sprintf(
+            \sprintf(
                 'gl-php/%s gdcl/%s',
-                phpversion(),
+                \phpversion(),
                 $this->getLibraryVersion()
             )
         );
@@ -863,7 +863,7 @@ class Google_Client
   public function isAppEngine()
   {
     return (isset($_SERVER['SERVER_SOFTWARE']) &&
-        strpos($_SERVER['SERVER_SOFTWARE'], 'Google App Engine') !== false);
+        \strpos($_SERVER['SERVER_SOFTWARE'], 'Google App Engine') !== false);
   }
 
   public function setConfig($name, $value)
@@ -899,14 +899,14 @@ class Google_Client
    */
   public function setAuthConfig($config)
   {
-    if (is_string($config)) {
-      if (!file_exists($config)) {
-        throw new InvalidArgumentException(sprintf('file "%s" does not exist', $config));
+    if (\is_string($config)) {
+      if (!\file_exists($config)) {
+        throw new InvalidArgumentException(\sprintf('file "%s" does not exist', $config));
       }
 
-      $json = file_get_contents($config);
+      $json = \file_get_contents($config);
 
-      if (!$config = json_decode($json, true)) {
+      if (!$config = \json_decode($json, true)) {
         throw new LogicException('invalid json for auth config');
       }
     }
@@ -1172,7 +1172,7 @@ class Google_Client
 
   private function createUserRefreshCredentials($scope, $refreshToken)
   {
-    $creds = array_filter(
+    $creds = \array_filter(
         array(
           'client_id' => $this->getClientId(),
           'client_secret' => $this->getClientSecret(),

@@ -143,7 +143,7 @@ class Google_Task_Runner
       $this->maxAttempts += $config['retries'];
     }
 
-    if (!is_callable($action)) {
+    if (!\is_callable($action)) {
         throw new Google_Task_Exception(
             'Task argument `$action` must be a valid callable.'
         );
@@ -173,7 +173,7 @@ class Google_Task_Runner
   {
     while ($this->attempt()) {
       try {
-        return call_user_func_array($this->action, $this->arguments);
+        return \call_user_func_array($this->action, $this->arguments);
       } catch (Google_Service_Exception $exception) {
         $allowedRetries = $this->allowedRetries(
             $exception->getCode(),
@@ -185,7 +185,7 @@ class Google_Task_Runner
         }
 
         if ($allowedRetries > 0) {
-          $this->maxAttempts = min(
+          $this->maxAttempts = \min(
               $this->maxAttempts,
               $this->attempts + $allowedRetries
           );
@@ -224,7 +224,7 @@ class Google_Task_Runner
   {
     $delay = $this->getDelay();
 
-    usleep($delay * 1000000);
+    \usleep($delay * 1000000);
   }
 
   /**
@@ -235,9 +235,9 @@ class Google_Task_Runner
   private function getDelay()
   {
     $jitter = $this->getJitter();
-    $factor = $this->attempts > 1 ? $this->factor + $jitter : 1 + abs($jitter);
+    $factor = $this->attempts > 1 ? $this->factor + $jitter : 1 + \abs($jitter);
 
-    return $this->delay = min($this->maxDelay, $this->delay * $factor);
+    return $this->delay = \min($this->maxDelay, $this->delay * $factor);
   }
 
   /**
@@ -248,7 +248,7 @@ class Google_Task_Runner
    */
   private function getJitter()
   {
-    return $this->jitter * 2 * mt_rand() / mt_getrandmax() - $this->jitter;
+    return $this->jitter * 2 * \mt_rand() / \mt_getrandmax() - $this->jitter;
   }
 
   /**

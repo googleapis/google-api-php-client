@@ -50,7 +50,7 @@ class Google_AccessToken_Revoke
    */
   public function revokeToken($token)
   {
-    if (is_array($token)) {
+    if (\is_array($token)) {
       if (isset($token['refresh_token'])) {
         $token = $token['refresh_token'];
       } else {
@@ -58,7 +58,7 @@ class Google_AccessToken_Revoke
       }
     }
 
-    $body = Psr7\stream_for(http_build_query(array('token' => $token)));
+    $body = Psr7\stream_for(\http_build_query(array('token' => $token)));
     $request = new Request(
         'POST',
         Google_Client::OAUTH2_REVOKE_URI,

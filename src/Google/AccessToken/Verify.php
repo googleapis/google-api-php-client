@@ -103,7 +103,7 @@ class Google_AccessToken_Verify
             array('RS256')
         );
 
-        if (property_exists($payload, 'aud')) {
+        if (\property_exists($payload, 'aud')) {
           if ($audience && $payload->aud != $audience) {
             return false;
           }
@@ -112,7 +112,7 @@ class Google_AccessToken_Verify
         // support HTTP and HTTPS issuers
         // @see https://developers.google.com/identity/sign-in/web/backend-auth
         $issuers = array(self::OAUTH2_ISSUER, self::OAUTH2_ISSUER_HTTPS);
-        if (!isset($payload->iss) || !in_array($payload->iss, $issuers)) {
+        if (!isset($payload->iss) || !\in_array($payload->iss, $issuers)) {
           return false;
         }
 
@@ -146,24 +146,24 @@ class Google_AccessToken_Verify
   private function retrieveCertsFromLocation($url)
   {
     // If we're retrieving a local file, just grab it.
-    if (0 !== strpos($url, 'http')) {
-      if (!$file = file_get_contents($url)) {
+    if (0 !== \strpos($url, 'http')) {
+      if (!$file = \file_get_contents($url)) {
         throw new Google_Exception(
             "Failed to retrieve verification certificates: '" .
             $url . "'."
         );
       }
 
-      return json_decode($file, true);
+      return \json_decode($file, true);
     }
 
     $response = $this->http->get($url);
 
     if ($response->getStatusCode() == 200) {
-      return json_decode((string) $response->getBody(), true);
+      return \json_decode((string) $response->getBody(), true);
     }
     throw new Google_Exception(
-        sprintf(
+        \sprintf(
             'Failed to retrieve verification certificates: "%s".',
             $response->getBody()->getContents()
         ),
@@ -207,11 +207,11 @@ class Google_AccessToken_Verify
   private function getJwtService()
   {
     $jwtClass = 'JWT';
-    if (class_exists('\Firebase\JWT\JWT')) {
+    if (\class_exists('\Firebase\JWT\JWT')) {
       $jwtClass = 'Firebase\JWT\JWT';
     }
 
-    if (property_exists($jwtClass, 'leeway') && $jwtClass::$leeway < 1) {
+    if (\property_exists($jwtClass, 'leeway') && $jwtClass::$leeway < 1) {
       // Ensures JWT leeway is at least 1
       // @see https://github.com/google/google-api-php-client/issues/827
       $jwtClass::$leeway = 1;
@@ -222,7 +222,7 @@ class Google_AccessToken_Verify
 
   private function getRsaClass()
   {
-    if (class_exists('phpseclib\Crypt\RSA')) {
+    if (\class_exists('phpseclib\Crypt\RSA')) {
       return 'phpseclib\Crypt\RSA';
     }
 
@@ -231,7 +231,7 @@ class Google_AccessToken_Verify
 
   private function getBigIntClass()
   {
-    if (class_exists('phpseclib\Math\BigInteger')) {
+    if (\class_exists('phpseclib\Math\BigInteger')) {
       return 'phpseclib\Math\BigInteger';
     }
 
@@ -240,11 +240,11 @@ class Google_AccessToken_Verify
 
   private function getOpenSslConstant()
   {
-    if (class_exists('phpseclib\Crypt\RSA')) {
+    if (\class_exists('phpseclib\Crypt\RSA')) {
       return 'phpseclib\Crypt\RSA::MODE_OPENSSL';
     }
 
-    if (class_exists('Crypt_RSA')) {
+    if (\class_exists('Crypt_RSA')) {
       return 'CRYPT_RSA_MODE_OPENSSL';
     }
 
@@ -261,12 +261,12 @@ class Google_AccessToken_Verify
    */
   private function setPhpsecConstants()
   {
-    if (filter_var(getenv('GAE_VM'), FILTER_VALIDATE_BOOLEAN)) {
-      if (!defined('MATH_BIGINTEGER_OPENSSL_ENABLED')) {
-        define('MATH_BIGINTEGER_OPENSSL_ENABLED', true);
+    if (\filter_var(\getenv('GAE_VM'), FILTER_VALIDATE_BOOLEAN)) {
+      if (!\defined('MATH_BIGINTEGER_OPENSSL_ENABLED')) {
+        \define('MATH_BIGINTEGER_OPENSSL_ENABLED', true);
       }
-      if (!defined('CRYPT_RSA_MODE')) {
-        define('CRYPT_RSA_MODE', constant($this->getOpenSslConstant()));
+      if (!\defined('CRYPT_RSA_MODE')) {
+        \define('CRYPT_RSA_MODE', \constant($this->getOpenSslConstant()));
       }
     }
   }

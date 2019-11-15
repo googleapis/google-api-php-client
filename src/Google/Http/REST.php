@@ -46,8 +46,8 @@ class Google_Http_REST
   ) {
     $runner = new Google_Task_Runner(
         $config,
-        sprintf('%s %s', $request->getMethod(), (string) $request->getUri()),
-        array(get_class(), 'doExecute'),
+        \sprintf('%s %s', $request->getMethod(), (string) $request->getUri()),
+        array(\get_class(), 'doExecute'),
         array($client, $request, $expectedClass)
     );
 
@@ -110,7 +110,7 @@ class Google_Http_REST
     $code = $response->getStatusCode();
 
     // retry strategy
-    if (intVal($code) >= 400) {
+    if (\intVal($code) >= 400) {
       // if we errored out, it should be safe to grab the response body
       $body = (string) $response->getBody();
 
@@ -123,7 +123,7 @@ class Google_Http_REST
     $body = self::decodeBody($response, $request);
 
     if ($expectedClass = self::determineExpectedClass($expectedClass, $request)) {
-      $json = json_decode($body, true);
+      $json = \json_decode($body, true);
 
       return new $expectedClass($json);
     }
@@ -159,7 +159,7 @@ class Google_Http_REST
 
   private static function getResponseErrors($body)
   {
-    $json = json_decode($body, true);
+    $json = \json_decode($body, true);
 
     if (isset($json['error']['errors'])) {
       return $json['error']['errors'];
@@ -171,7 +171,7 @@ class Google_Http_REST
   private static function isAltMedia(RequestInterface $request = null)
   {
     if ($request && $qs = $request->getUri()->getQuery()) {
-      parse_str($qs, $query);
+      \parse_str($qs, $query);
       if (isset($query['alt']) && $query['alt'] == 'media') {
         return true;
       }

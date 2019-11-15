@@ -109,7 +109,7 @@ class Google_Service_AdSenseTest extends BaseTest
             $account['id'],
             $adClient['id']
         );
-        if (array_key_exists('items', $adUnits)) {
+        if (\array_key_exists('items', $adUnits)) {
           $adUnit = $this->getRandomElementFromArray($adUnits['items']);
           $this->checkAdUnitElement($adUnit);
           break 2;
@@ -151,7 +151,7 @@ class Google_Service_AdSenseTest extends BaseTest
                 $account['id'],
                 $adClient['id']
             );
-        if (array_key_exists('items', $customChannels)) {
+        if (\array_key_exists('items', $customChannels)) {
           $customChannel =
               $this->getRandomElementFromArray($customChannels['items']);
           $this->checkCustomChannelElement($customChannel);
@@ -195,7 +195,7 @@ class Google_Service_AdSenseTest extends BaseTest
       foreach ($adClients['items'] as $adClient) {
         $adUnits =
             $this->adsense->accounts_adunits->listAccountsAdunits($account['id'], $adClient['id']);
-        if (array_key_exists('items', $adUnits)) {
+        if (\array_key_exists('items', $adUnits)) {
           foreach ($adUnits['items'] as $adUnit) {
             $customChannels =
                 $this->adsense->accounts_adunits_customchannels->listAccountsAdunitsCustomchannels(
@@ -229,7 +229,7 @@ class Google_Service_AdSenseTest extends BaseTest
                 $account['id'],
                 $adClient['id']
             );
-        if (array_key_exists('items', $customChannels)) {
+        if (\array_key_exists('items', $customChannels)) {
           foreach ($customChannels['items'] as $customChannel) {
             $adUnits =
                 $this->adsense->accounts_customchannels_adunits->listAccountsCustomchannelsAdunits(
@@ -272,7 +272,7 @@ class Google_Service_AdSenseTest extends BaseTest
     $adClients = $this->adsense->adclients->listAdclients();
     foreach ($adClients['items'] as $adClient) {
       $adUnits = $this->adsense->adunits->listAdunits($adClient['id']);
-      if (array_key_exists('items', $adUnits)) {
+      if (\array_key_exists('items', $adUnits)) {
         $adUnit = $this->getRandomElementFromArray($adUnits['items']);
         $this->checkAdUnitElement($adUnit);
         break 1;
@@ -289,7 +289,7 @@ class Google_Service_AdSenseTest extends BaseTest
     $adClients = $this->adsense->adclients->listAdclients();
     foreach ($adClients['items'] as $adClient) {
       $adUnits = $this->adsense->adunits->listAdunits($adClient['id']);
-      if (array_key_exists('items', $adUnits)) {
+      if (\array_key_exists('items', $adUnits)) {
         foreach ($adUnits['items'] as $adUnit) {
           $customChannels =
               $this->adsense->adunits_customchannels->listAdunitsCustomchannels(
@@ -324,7 +324,7 @@ class Google_Service_AdSenseTest extends BaseTest
     $adClients = $this->adsense->adclients->listAdclients();
     foreach ($adClients['items'] as $adClient) {
       $customChannels = $this->adsense->customchannels->listCustomchannels($adClient['id']);
-      if (array_key_exists('items', $customChannels)) {
+      if (\array_key_exists('items', $customChannels)) {
         $customChannel = $this->getRandomElementFromArray($customChannels['items']);
         $this->checkCustomChannelElement($customChannel);
         break 1;
@@ -341,7 +341,7 @@ class Google_Service_AdSenseTest extends BaseTest
     $adClients = $this->adsense->adclients->listAdclients();
     foreach ($adClients['items'] as $adClient) {
       $customChannels = $this->adsense->customchannels->listCustomchannels($adClient['id']);
-      if (array_key_exists('items', $customChannels)) {
+      if (\array_key_exists('items', $customChannels)) {
         foreach ($customChannels['items'] as $customChannel) {
           $adUnits =
               $this->adsense->customchannels_adunits->listCustomchannelsAdunits(
@@ -402,7 +402,7 @@ class Google_Service_AdSenseTest extends BaseTest
   {
     $this->assertArrayHasKey('kind', $adUnits);
     $this->assertEquals($adUnits['kind'], 'adsense#adUnits');
-    if (array_key_exists('items', $adUnits)) {
+    if (\array_key_exists('items', $adUnits)) {
       foreach ($adUnits['items'] as $adUnit) {
         $this->checkAdUnitElement($adUnit);
       }
@@ -422,7 +422,7 @@ class Google_Service_AdSenseTest extends BaseTest
   {
     $this->assertArrayHasKey('kind', $customChannels);
     $this->assertEquals($customChannels['kind'], 'adsense#customChannels');
-    if (array_key_exists('items', $customChannels)) {
+    if (\array_key_exists('items', $customChannels)) {
       foreach ($customChannels['items'] as $customChannel) {
         $this->checkCustomChannelElement($customChannel);
       }
@@ -441,7 +441,7 @@ class Google_Service_AdSenseTest extends BaseTest
   {
     $this->assertArrayHasKey('kind', $urlChannels);
     $this->assertEquals($urlChannels['kind'], 'adsense#urlChannels');
-    if (array_key_exists('items', $urlChannels)) {
+    if (\array_key_exists('items', $urlChannels)) {
       foreach ($urlChannels['items'] as $urlChannel) {
         $this->assertArrayHasKey('kind', $urlChannel);
         $this->assertArrayHasKey('id', $urlChannel);
@@ -465,12 +465,12 @@ class Google_Service_AdSenseTest extends BaseTest
     $this->assertArrayHasKey('kind', $report);
     $this->assertEquals($report['kind'], 'adsense#report');
     $this->assertArrayHasKey('totalMatchedRows', $report);
-    $this->assertGreaterThan(0, count($report->headers));
+    $this->assertGreaterThan(0, \count($report->headers));
     foreach ($report['headers'] as $header) {
       $this->assertArrayHasKey('name', $header);
       $this->assertArrayHasKey('type', $header);
     }
-    if (array_key_exists('items', $report)) {
+    if (\array_key_exists('items', $report)) {
       foreach ($report['items'] as $row) {
         $this->assertCount(4, $row);
       }
@@ -481,7 +481,7 @@ class Google_Service_AdSenseTest extends BaseTest
 
   private function getRandomElementFromArray($array)
   {
-    $elementKey = array_rand($array);
+    $elementKey = \array_rand($array);
     return $array[$elementKey];
   }
 }

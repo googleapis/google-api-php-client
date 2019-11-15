@@ -64,7 +64,7 @@ class Google_Service_Resource
     $this->servicePath = $service->servicePath;
     $this->serviceName = $serviceName;
     $this->resourceName = $resourceName;
-    $this->methods = is_array($resource) && isset($resource['methods']) ?
+    $this->methods = \is_array($resource) && isset($resource['methods']) ?
         $resource['methods'] :
         array($resourceName => $resource);
   }
@@ -106,7 +106,7 @@ class Google_Service_Resource
         // to use the smart method to create a simple object for
         // for JSONification.
         $parameters['postBody'] = $parameters['postBody']->toSimpleObject();
-      } else if (is_object($parameters['postBody'])) {
+      } else if (\is_object($parameters['postBody'])) {
         // If the post body is another kind of object, we will try and
         // wrangle it into a sensible format.
         $parameters['postBody'] =
@@ -121,14 +121,14 @@ class Google_Service_Resource
     if (isset($parameters['optParams'])) {
       $optParams = $parameters['optParams'];
       unset($parameters['optParams']);
-      $parameters = array_merge($parameters, $optParams);
+      $parameters = \array_merge($parameters, $optParams);
     }
 
     if (!isset($method['parameters'])) {
       $method['parameters'] = array();
     }
 
-    $method['parameters'] = array_merge(
+    $method['parameters'] = \array_merge(
         $this->stackParameters,
         $method['parameters']
     );
@@ -198,7 +198,7 @@ class Google_Service_Resource
         $method['httpMethod'],
         $url,
         ['content-type' => 'application/json'],
-        $postBody ? json_encode($postBody) : ''
+        $postBody ? \json_encode($postBody) : ''
     );
 
     // support uploads
@@ -238,7 +238,7 @@ class Google_Service_Resource
     foreach ($o as $k => $v) {
       if ($v === null) {
         unset($o[$k]);
-      } elseif (is_object($v) || is_array($v)) {
+      } elseif (\is_object($v) || \is_array($v)) {
         $o[$k] = $this->convertToArrayAndStripNulls($o[$k]);
       }
     }
@@ -256,15 +256,15 @@ class Google_Service_Resource
   public function createRequestUri($restPath, $params)
   {
     // Override the default servicePath address if the $restPath use a /
-    if ('/' == substr($restPath, 0, 1)) {
-      $requestUrl = substr($restPath, 1);
+    if ('/' == \substr($restPath, 0, 1)) {
+      $requestUrl = \substr($restPath, 1);
     } else {
       $requestUrl = $this->servicePath . $restPath;
     }
 
     // code for leading slash
     if ($this->rootUrl) {
-      if ('/' !== substr($this->rootUrl, -1) && '/' !== substr($requestUrl, 0, 1)) {
+      if ('/' !== \substr($this->rootUrl, -1) && '/' !== \substr($requestUrl, 0, 1)) {
         $requestUrl = '/' . $requestUrl;
       }
       $requestUrl = $this->rootUrl . $requestUrl;
@@ -278,23 +278,23 @@ class Google_Service_Resource
       if ($paramSpec['location'] == 'path') {
         $uriTemplateVars[$paramName] = $paramSpec['value'];
       } else if ($paramSpec['location'] == 'query') {
-        if (is_array($paramSpec['value'])) {
+        if (\is_array($paramSpec['value'])) {
           foreach ($paramSpec['value'] as $value) {
-            $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($value));
+            $queryVars[] = $paramName . '=' . \rawurlencode(\rawurldecode($value));
           }
         } else {
-          $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($paramSpec['value']));
+          $queryVars[] = $paramName . '=' . \rawurlencode(\rawurldecode($paramSpec['value']));
         }
       }
     }
 
-    if (count($uriTemplateVars)) {
+    if (\count($uriTemplateVars)) {
       $uriTemplateParser = new Google_Utils_UriTemplate();
       $requestUrl = $uriTemplateParser->parse($requestUrl, $uriTemplateVars);
     }
 
-    if (count($queryVars)) {
-      $requestUrl .= '?' . implode('&', $queryVars);
+    if (\count($queryVars)) {
+      $requestUrl .= '?' . \implode('&', $queryVars);
     }
 
     return $requestUrl;

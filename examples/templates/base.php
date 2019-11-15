@@ -21,8 +21,8 @@ function pageHeader($title)
   $ret .= "<header><h1>" . $title . "</h1></header>";
 
  // Start the session (for storing access tokens and things)
-  if (!headers_sent()) {
-    session_start();
+  if (!\headers_sent()) {
+    \session_start();
   }
 
   return $ret;
@@ -35,7 +35,7 @@ function pageFooter($file = null)
   if ($file) {
     $ret .= "<h3>Code:</h3>";
     $ret .= "<pre class='code'>";
-    $ret .= htmlspecialchars(file_get_contents($file));
+    $ret .= \htmlspecialchars(\file_get_contents($file));
     $ret .= "</pre>";
   }
   $ret .= "</html>";
@@ -114,13 +114,13 @@ function checkServiceAccountCredentialsFile()
   // service account creds
   $application_creds = __DIR__ . '/../../service-account-credentials.json';
 
-  return file_exists($application_creds) ? $application_creds : false;
+  return \file_exists($application_creds) ? $application_creds : false;
 }
 
 function getCsrfToken()
 {
   if (!isset($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(openssl_random_pseudo_bytes(32));
+    $_SESSION['csrf_token'] = \bin2hex(\openssl_random_pseudo_bytes(32));
   }
 
   return $_SESSION['csrf_token'];
@@ -138,7 +138,7 @@ function getOAuthCredentialsFile()
   // oauth2 creds
   $oauth_creds = __DIR__ . '/../../oauth-credentials.json';
 
-  if (file_exists($oauth_creds)) {
+  if (\file_exists($oauth_creds)) {
     return $oauth_creds;
   }
 
@@ -148,20 +148,20 @@ function getOAuthCredentialsFile()
 function setClientCredentialsFile($apiKey)
 {
   $file = __DIR__ . '/../../tests/.apiKey';
-  file_put_contents($file, $apiKey);
+  \file_put_contents($file, $apiKey);
 }
 
 
 function getApiKey()
 {
   $file = __DIR__ . '/../../tests/.apiKey';
-  if (file_exists($file)) {
-    return file_get_contents($file);
+  if (\file_exists($file)) {
+    return \file_get_contents($file);
   }
 }
 
 function setApiKey($apiKey)
 {
   $file = __DIR__ . '/../../tests/.apiKey';
-  file_put_contents($file, $apiKey);
+  \file_put_contents($file, $apiKey);
 }

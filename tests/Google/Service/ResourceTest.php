@@ -382,7 +382,7 @@ class Google_Service_ResourceTest extends BaseTest
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
     $request = new Request('GET', '/?alt=media');
-    $resource = fopen('php://temp', 'r+');
+    $resource = \fopen('php://temp', 'r+');
     $stream = new Test_MediaType_Stream($resource);
     $response = new Response(200, [], $stream);
 
@@ -425,7 +425,7 @@ class Google_Service_ResourceTest extends BaseTest
     // set the "alt" parameter to "media"
     $request = new Request('GET', '/');
     $errors = [ ["domain" => "foo"] ];
-    $content = json_encode([
+    $content = \json_encode([
       'error' => [
         'errors' => $errors
       ]

@@ -40,7 +40,7 @@ class Google_AccessToken_RevokeTest extends BaseTest
       ->method('send')
       ->will($this->returnCallback(
             function ($request) use (&$token, $response) {
-              parse_str((string) $request->getBody(), $fields);
+              \parse_str((string) $request->getBody(), $fields);
               $token = isset($fields['token']) ? $fields['token'] : null;
 
               return $response;
@@ -59,7 +59,7 @@ class Google_AccessToken_RevokeTest extends BaseTest
       ->method('createRequest')
       ->will($this->returnCallback(
             function ($method, $url, $params) use (&$requestToken, $request) {
-              parse_str((string) $params['body'], $fields);
+              \parse_str((string) $params['body'], $fields);
               $requestToken = isset($fields['token']) ? $fields['token'] : null;
 
               return $request;
@@ -68,7 +68,7 @@ class Google_AccessToken_RevokeTest extends BaseTest
 
     $t = array(
       'access_token' => $accessToken,
-      'created' => time(),
+      'created' => \time(),
       'expires_in' => '3600'
     );
 
@@ -82,7 +82,7 @@ class Google_AccessToken_RevokeTest extends BaseTest
     $t = array(
       'access_token' => $accessToken,
       'refresh_token' => $refreshToken,
-      'created' => time(),
+      'created' => \time(),
       'expires_in' => '3600'
     );
     $this->assertTrue($revoke->revokeToken($t));
@@ -112,7 +112,7 @@ class Google_AccessToken_RevokeTest extends BaseTest
       ->method('send')
       ->will($this->returnCallback(
             function ($request) use (&$token, $response) {
-              parse_str((string) $request->getBody(), $fields);
+              \parse_str((string) $request->getBody(), $fields);
               $token = isset($fields['token']) ? $fields['token'] : null;
 
               return $response;
@@ -121,7 +121,7 @@ class Google_AccessToken_RevokeTest extends BaseTest
 
     $t = array(
       'access_token' => $accessToken,
-      'created' => time(),
+      'created' => \time(),
       'expires_in' => '3600'
     );
 
@@ -135,7 +135,7 @@ class Google_AccessToken_RevokeTest extends BaseTest
     $t = array(
       'access_token' => $accessToken,
       'refresh_token' => $refreshToken,
-      'created' => time(),
+      'created' => \time(),
       'expires_in' => '3600'
     );
     $this->assertTrue($revoke->revokeToken($t));

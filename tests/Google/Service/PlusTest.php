@@ -40,7 +40,7 @@ class Google_Service_PlusTest extends BaseTest
         ->listActivities("118051310819094153327", "public");
 
     $this->assertArrayHasKey('kind', $activities);
-    $this->assertGreaterThan(0, count($activities));
+    $this->assertGreaterThan(0, \count($activities));
 
     // Test a variety of access methods.
     $this->assertItem($activities['items'][0]);
@@ -51,7 +51,7 @@ class Google_Service_PlusTest extends BaseTest
     }
 
     // Test deeper type transformations
-    $this->assertGreaterThan(0, strlen($activities[0]->actor->displayName));
+    $this->assertGreaterThan(0, \strlen($activities[0]->actor->displayName));
   }
 
   public function assertItem($item)

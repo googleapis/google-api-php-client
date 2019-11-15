@@ -39,7 +39,7 @@ class BaseTest extends TestCase
 
   public function getCache($path = null)
   {
-    $path = $path ?: sys_get_temp_dir().'/google-api-php-client-tests/';
+    $path = $path ?: \sys_get_temp_dir().'/google-api-php-client-tests/';
     $filesystemAdapter = new Local($path);
     $filesystem        = new Filesystem($filesystemAdapter);
 
@@ -53,7 +53,7 @@ class BaseTest extends TestCase
       'exceptions' => false,
     ];
 
-    if ($proxy = getenv('HTTP_PROXY')) {
+    if ($proxy = \getenv('HTTP_PROXY')) {
       $options['proxy'] = $proxy;
       $options['verify'] = false;
     }
@@ -84,7 +84,7 @@ class BaseTest extends TestCase
     list($clientId, $clientSecret) = $this->getClientIdAndSecret();
     $client->setClientId($clientId);
     $client->setClientSecret($clientSecret);
-    if (version_compare(PHP_VERSION, '5.5', '>=')) {
+    if (\version_compare(PHP_VERSION, '5.5', '>=')) {
       $client->setCache($this->getCache());
     }
 
@@ -125,9 +125,9 @@ class BaseTest extends TestCase
     $authUrl = $client->createAuthUrl();
     echo "\nGo to: $authUrl\n";
     echo "\nPlease enter the auth code:\n";
-    ob_flush();
+    \ob_flush();
     `open '$authUrl'`;
-    $authCode = trim(fgets(STDIN));
+    $authCode = \trim(\fgets(STDIN));
 
     if ($accessToken = $client->fetchAccessTokenWithAuthCode($authCode)) {
       if (isset($accessToken['access_token'])) {
@@ -140,8 +140,8 @@ class BaseTest extends TestCase
 
   private function getClientIdAndSecret()
   {
-    $clientId = getenv('GCLOUD_CLIENT_ID') ?: null;
-    $clientSecret = getenv('GCLOUD_CLIENT_SECRET') ?: null;
+    $clientId = \getenv('GCLOUD_CLIENT_ID') ?: null;
+    $clientSecret = \getenv('GCLOUD_CLIENT_SECRET') ?: null;
 
     return array($clientId, $clientSecret);
   }
@@ -156,7 +156,7 @@ class BaseTest extends TestCase
 
   public function checkServiceAccountCredentials()
   {
-    if (!$f = getenv('GOOGLE_APPLICATION_CREDENTIALS')) {
+    if (!$f = \getenv('GOOGLE_APPLICATION_CREDENTIALS')) {
       $skip = "This test requires the GOOGLE_APPLICATION_CREDENTIALS environment variable to be set\n"
         . "see https://developers.google.com/accounts/docs/application-default-credentials";
       $this->markTestSkipped($skip);
@@ -164,7 +164,7 @@ class BaseTest extends TestCase
       return false;
     }
 
-    if (!file_exists($f)) {
+    if (!\file_exists($f)) {
       $this->markTestSkipped('invalid path for GOOGLE_APPLICATION_CREDENTIALS');
     }
 
@@ -175,7 +175,7 @@ class BaseTest extends TestCase
   {
     $this->key = $this->loadKey();
 
-    if (!strlen($this->key)) {
+    if (!\strlen($this->key)) {
       $this->markTestSkipped("Test requires api key\nYou can create one in your developer console");
       return false;
     }
@@ -183,8 +183,8 @@ class BaseTest extends TestCase
 
   public function loadKey()
   {
-    if (file_exists($f = __DIR__ . DIRECTORY_SEPARATOR . '.apiKey')) {
-      return file_get_contents($f);
+    if (\file_exists($f = __DIR__ . DIRECTORY_SEPARATOR . '.apiKey')) {
+      return \file_get_contents($f);
     }
   }
 
@@ -197,10 +197,10 @@ class BaseTest extends TestCase
 
     // include the file and return an HTML crawler
     $file = __DIR__ . '/../examples/' . $example;
-    if (is_file($file)) {
-        ob_start();
+    if (\is_file($file)) {
+        \ob_start();
         include $file;
-        $html = ob_get_clean();
+        $html = \ob_get_clean();
 
         return new Crawler($html);
     }
@@ -231,7 +231,7 @@ class BaseTest extends TestCase
 
   public function onlyPhp55AndAbove()
   {
-    if (version_compare(PHP_VERSION, '5.5', '<')) {
+    if (\version_compare(PHP_VERSION, '5.5', '<')) {
       $this->markTestSkipped('PHP 5.5 and above only');
     }
   }

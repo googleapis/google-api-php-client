@@ -60,7 +60,7 @@ if (isset($_GET['code'])) {
   $_SESSION['upload_token'] = $token;
 
   // redirect back to the example
-  header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));
+  \header('Location: ' . \filter_var($redirect_uri, FILTER_SANITIZE_URL));
 }
 
 // set the access token as part of the client
@@ -79,12 +79,12 @@ if (!empty($_SESSION['upload_token'])) {
  ************************************************/
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
   // We'll setup an empty 1MB file to upload.
-  DEFINE("TESTFILE", 'testfile-small.txt');
-  if (!file_exists(TESTFILE)) {
-    $fh = fopen(TESTFILE, 'w');
-    fseek($fh, 1024 * 1024);
-    fwrite($fh, "!", 1);
-    fclose($fh);
+  \DEFINE("TESTFILE", 'testfile-small.txt');
+  if (!\file_exists(TESTFILE)) {
+    $fh = \fopen(TESTFILE, 'w');
+    \fseek($fh, 1024 * 1024);
+    \fwrite($fh, "!", 1);
+    \fclose($fh);
   }
 
   // This is uploading a file directly, with no metadata associated.
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
   $result = $service->files->create(
       $file,
       array(
-        'data' => file_get_contents(TESTFILE),
+        'data' => \file_get_contents(TESTFILE),
         'mimeType' => 'application/octet-stream',
         'uploadType' => 'media'
       )
@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
   $result2 = $service->files->create(
       $file,
       array(
-        'data' => file_get_contents(TESTFILE),
+        'data' => \file_get_contents(TESTFILE),
         'mimeType' => 'application/octet-stream',
         'uploadType' => 'multipart'
       )

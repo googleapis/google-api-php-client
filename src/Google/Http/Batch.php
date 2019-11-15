@@ -57,15 +57,15 @@ class Google_Http_Batch
       $batchPath = null
   ) {
     $this->client = $client;
-    $this->boundary = $boundary ?: mt_rand();
-    $this->rootUrl = rtrim($rootUrl ?: $this->client->getConfig('base_path'), '/');
+    $this->boundary = $boundary ?: \mt_rand();
+    $this->rootUrl = \rtrim($rootUrl ?: $this->client->getConfig('base_path'), '/');
     $this->batchPath = $batchPath ?: self::BATCH_PATH;
   }
 
   public function add(RequestInterface $request, $key = false)
   {
     if (false == $key) {
-      $key = mt_rand();
+      $key = \mt_rand();
     }
 
     $this->requests[$key] = $request;
@@ -90,7 +90,7 @@ EOF;
 
     /** @var Google_Http_Request $req */
     foreach ($this->requests as $key => $request) {
-      $firstLine = sprintf(
+      $firstLine = \sprintf(
           '%s %s HTTP/%s',
           $request->getMethod(),
           $request->getRequestTarget(),
@@ -101,10 +101,10 @@ EOF;
 
       $headers = '';
       foreach ($request->getHeaders() as $name => $values) {
-          $headers .= sprintf("%s:%s\r\n", $name, implode(', ', $values));
+          $headers .= \sprintf("%s:%s\r\n", $name, \implode(', ', $values));
       }
 
-      $body .= sprintf(
+      $body .= \sprintf(
           $batchHttpTemplate,
           $this->boundary,
           $key,
@@ -117,11 +117,11 @@ EOF;
     }
 
     $body .= "--{$this->boundary}--";
-    $body = trim($body);
+    $body = \trim($body);
     $url = $this->rootUrl . '/' . $this->batchPath;
     $headers = array(
-      'Content-Type' => sprintf('multipart/mixed; boundary=%s', $this->boundary),
-      'Content-Length' => strlen($body),
+      'Content-Type' => \sprintf('multipart/mixed; boundary=%s', $this->boundary),
+      'Content-Length' => \strlen($body),
     );
 
     $request = new Request(
@@ -139,30 +139,30 @@ EOF;
   public function parseResponse(ResponseInterface $response, $classes = array())
   {
     $contentType = $response->getHeaderLine('content-type');
-    $contentType = explode(';', $contentType);
+    $contentType = \explode(';', $contentType);
     $boundary = false;
     foreach ($contentType as $part) {
-      $part = explode('=', $part, 2);
-      if (isset($part[0]) && 'boundary' == trim($part[0])) {
+      $part = \explode('=', $part, 2);
+      if (isset($part[0]) && 'boundary' == \trim($part[0])) {
         $boundary = $part[1];
       }
     }
 
     $body = (string) $response->getBody();
     if (!empty($body)) {
-      $body = str_replace("--$boundary--", "--$boundary", $body);
-      $parts = explode("--$boundary", $body);
+      $body = \str_replace("--$boundary--", "--$boundary", $body);
+      $parts = \explode("--$boundary", $body);
       $responses = array();
-      $requests = array_values($this->requests);
+      $requests = \array_values($this->requests);
 
       foreach ($parts as $i => $part) {
-        $part = trim($part);
+        $part = \trim($part);
         if (!empty($part)) {
-          list($rawHeaders, $part) = explode("\r\n\r\n", $part, 2);
+          list($rawHeaders, $part) = \explode("\r\n\r\n", $part, 2);
           $headers = $this->parseRawHeaders($rawHeaders);
 
-          $status = substr($part, 0, strpos($part, "\n"));
-          $status = explode(" ", $status);
+          $status = \substr($part, 0, \strpos($part, "\n"));
+          $status = \explode(" ", $status);
           $status = $status[1];
 
           list($partHeaders, $partBody) = $this->parseHttpResponse($part, false);
@@ -196,11 +196,11 @@ EOF;
   private function parseRawHeaders($rawHeaders)
   {
     $headers = array();
-    $responseHeaderLines = explode("\r\n", $rawHeaders);
+    $responseHeaderLines = \explode("\r\n", $rawHeaders);
     foreach ($responseHeaderLines as $headerLine) {
-      if ($headerLine && strpos($headerLine, ':') !== false) {
-        list($header, $value) = explode(': ', $headerLine, 2);
-        $header = strtolower($header);
+      if ($headerLine && \strpos($headerLine, ':') !== false) {
+        list($header, $value) = \explode(': ', $headerLine, 2);
+        $header = \strtolower($header);
         if (isset($headers[$header])) {
           $headers[$header] .= "\n" . $value;
         } else {
@@ -222,9 +222,9 @@ EOF;
   {
     // check proxy header
     foreach (self::$CONNECTION_ESTABLISHED_HEADERS as $established_header) {
-      if (stripos($respData, $established_header) !== false) {
+      if (\stripos($respData, $established_header) !== false) {
         // existed, remove it
-        $respData = str_ireplace($established_header, '', $respData);
+        $respData = \str_ireplace($established_header, '', $respData);
         // Subtract the proxy header size unless the cURL bug prior to 7.30.0
         // is present which prevented the proxy header size from being taken into
         // account.
@@ -237,10 +237,10 @@ EOF;
     }
 
     if ($headerSize) {
-      $responseBody = substr($respData, $headerSize);
-      $responseHeaders = substr($respData, 0, $headerSize);
+      $responseBody = \substr($respData, $headerSize);
+      $responseHeaders = \substr($respData, 0, $headerSize);
     } else {
-      $responseSegments = explode("\r\n\r\n", $respData, 2);
+      $responseSegments = \explode("\r\n\r\n", $respData, 2);
       $responseHeaders = $responseSegments[0];
       $responseBody = isset($responseSegments[1]) ? $responseSegments[1] :
                                                     null;

@@ -267,15 +267,15 @@ class Google_Utils_UriTemplateTest extends BaseTest
     $location = "../../uritemplate-test/*.json";
 
     $urit = new Google_Utils_UriTemplate();
-    foreach (glob($location) as $file) {
-      $test = json_decode(file_get_contents($file), true);
+    foreach (\glob($location) as $file) {
+      $test = \json_decode(\file_get_contents($file), true);
       foreach ($test as $title => $testsets) {
         foreach ($testsets['testcases'] as $cases) {
           $input = $cases[0];
           $output = $cases[1];
           if ($output == false) {
             continue; // skipping negative tests for now
-          } else if (is_array($output)) {
+          } else if (\is_array($output)) {
             $response = $urit->parse($input, $testsets['variables']);
             $this->assertContains(
                 $response,

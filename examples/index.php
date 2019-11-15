@@ -21,7 +21,7 @@
 <?php if (!getApiKey()): ?>
 <div class="api-key">
   <strong>You have not entered your API key</strong>
-  <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+  <form action="<?= \htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
     API Key:<input type="text" name="api_key" placeholder="API-Key" required/>
     <input type="submit" value="Set API-Key"/>
   </form>

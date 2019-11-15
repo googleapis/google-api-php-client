@@ -46,17 +46,17 @@ class Google_ClientTest extends BaseTest
   {
     if ($this->isGuzzle6()) {
       $stack = $http->getConfig('handler');
-      $class = new ReflectionClass(get_class($stack));
+      $class = new ReflectionClass(\get_class($stack));
       $property = $class->getProperty('stack');
       $property->setAccessible(true);
       $middlewares = $property->getValue($stack);
-      $middleware = array_pop($middlewares);
+      $middleware = \array_pop($middlewares);
 
       if (null === $className) {
         // only the default middlewares have been added
         $this->assertCount(3, $middlewares);
       } else {
-        $authClass = sprintf('Google\Auth\Middleware\%sMiddleware', $className);
+        $authClass = \sprintf('Google\Auth\Middleware\%sMiddleware', $className);
         $this->assertInstanceOf($authClass, $middleware[0]);
       }
     } else {
@@ -65,7 +65,7 @@ class Google_ClientTest extends BaseTest
       if (null === $className) {
         $this->assertCount(0, $listeners);
       } else {
-        $authClass = sprintf('Google\Auth\Subscriber\%sSubscriber', $className);
+        $authClass = \sprintf('Google\Auth\Subscriber\%sSubscriber', $className);
         $this->assertCount(1, $listeners);
         $this->assertCount(2, $listeners[0]);
         $this->assertInstanceOf($authClass, $listeners[0][0]);
@@ -77,11 +77,11 @@ class Google_ClientTest extends BaseTest
   {
     if ($this->isGuzzle6()) {
       $stack = $http->getConfig('handler');
-      $class = new ReflectionClass(get_class($stack));
+      $class = new ReflectionClass(\get_class($stack));
       $property = $class->getProperty('stack');
       $property->setAccessible(true);
       $middlewares = $property->getValue($stack); // Works
-      $middleware = array_pop($middlewares);
+      $middleware = \array_pop($middlewares);
       $auth = $middleware[0];
     } else {
       // access the protected $fetcher property
@@ -89,13 +89,13 @@ class Google_ClientTest extends BaseTest
       $auth = $listeners[0][0];
     }
 
-    $class = new ReflectionClass(get_class($auth));
+    $class = new ReflectionClass(\get_class($auth));
     $property = $class->getProperty('fetcher');
     $property->setAccessible(true);
     $cacheFetcher = $property->getValue($auth);
     $this->assertInstanceOf('Google\Auth\FetchAuthTokenCache', $cacheFetcher);
 
-    $class = new ReflectionClass(get_class($cacheFetcher));
+    $class = new ReflectionClass(\get_class($cacheFetcher));
     $property = $class->getProperty('fetcher');
     $property->setAccessible(true);
     $fetcher = $property->getValue($cacheFetcher);
@@ -103,7 +103,7 @@ class Google_ClientTest extends BaseTest
 
     if ($sub) {
       // access the protected $auth property
-      $class = new ReflectionClass(get_class($fetcher));
+      $class = new ReflectionClass(\get_class($fetcher));
       $property = $class->getProperty('auth');
       $property->setAccessible(true);
       $auth = $property->getValue($fetcher);
@@ -120,7 +120,7 @@ class Google_ClientTest extends BaseTest
     $client->setAccessToken([
       'access_token' => 'test_token',
       'expires_in'   => 3600,
-      'created'      => time(),
+      'created'      => \time(),
     ]);
     $client->setScopes('test_scope');
     $client->authorize($http);
@@ -285,7 +285,7 @@ class Google_ClientTest extends BaseTest
     $client->setRedirectUri('localhost');
     $client->setConfig('application_name', 'me');
     $client->setCache($this->getMock('Psr\Cache\CacheItemPoolInterface'));
-    $this->assertEquals('object', gettype($client->getCache()));
+    $this->assertEquals('object', \gettype($client->getCache()));
 
     try {
       $client->setAccessToken(null);
@@ -308,12 +308,12 @@ class Google_ClientTest extends BaseTest
 
     // check Stream Handler is used
     $http = $client->getHttpClient();
-    $class = new ReflectionClass(get_class($http));
+    $class = new ReflectionClass(\get_class($http));
     $property = $class->getProperty('fsm');
     $property->setAccessible(true);
     $fsm = $property->getValue($http);
 
-    $class = new ReflectionClass(get_class($fsm));
+    $class = new ReflectionClass(\get_class($fsm));
     $property = $class->getProperty('handler');
     $property->setAccessible(true);
     $handler = $property->getValue($fsm);
@@ -348,7 +348,7 @@ class Google_ClientTest extends BaseTest
     '"client_email":"","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","oob"],"client_x509_cert_url"'.
     ':"","client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":'.
     '"https://www.googleapis.com/oauth2/v1/certs"}}';
-    $dObj = json_decode($device, true);
+    $dObj = \json_decode($device, true);
     $client->setAuthConfig($dObj);
     $this->assertEquals($client->getClientId(), $dObj['installed']['client_id']);
     $this->assertEquals($client->getClientSecret(), $dObj['installed']['client_secret']);
@@ -362,7 +362,7 @@ class Google_ClientTest extends BaseTest
       '"https://www.googleapis.com/robot/v1/metadata/x509/123456789@developer.gserviceaccount.com"'.
       ',"client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":'.
       '"https://www.googleapis.com/oauth2/v1/certs"}}';
-    $wObj = json_decode($web, true);
+    $wObj = \json_decode($web, true);
     $client->setAuthConfig($wObj);
     $this->assertEquals($client->getClientId(), $wObj['web']['client_id']);
     $this->assertEquals($client->getClientSecret(), $wObj['web']['client_secret']);
@@ -371,7 +371,7 @@ class Google_ClientTest extends BaseTest
 
   public function testIniConfig()
   {
-    $config = parse_ini_file($this->testDir . "/config/test.ini");
+    $config = \parse_ini_file($this->testDir . "/config/test.ini");
     $client = new Google_Client($config);
 
     $this->assertEquals('My Test application', $client->getConfig('application_name'));
@@ -388,22 +388,22 @@ class Google_ClientTest extends BaseTest
     $client->setDeveloperKey(null);
 
     // unset application credentials
-    $GOOGLE_APPLICATION_CREDENTIALS = getenv('GOOGLE_APPLICATION_CREDENTIALS');
-    $HOME = getenv('HOME');
-    putenv('GOOGLE_APPLICATION_CREDENTIALS=');
-    putenv('HOME='.sys_get_temp_dir());
+    $GOOGLE_APPLICATION_CREDENTIALS = \getenv('GOOGLE_APPLICATION_CREDENTIALS');
+    $HOME = \getenv('HOME');
+    \putenv('GOOGLE_APPLICATION_CREDENTIALS=');
+    \putenv('HOME='.\sys_get_temp_dir());
     $http = new Client();
     $client->authorize($http);
 
-    putenv("GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS");
-    putenv("HOME=$HOME");
+    \putenv("GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS");
+    \putenv("HOME=$HOME");
     $this->checkAuthHandler($http, null);
   }
 
   public function testApplicationDefaultCredentials()
   {
     $this->checkServiceAccountCredentials();
-    $credentialsFile = getenv('GOOGLE_APPLICATION_CREDENTIALS');
+    $credentialsFile = \getenv('GOOGLE_APPLICATION_CREDENTIALS');
 
     $client = new Google_Client();
     $client->setAuthConfig($credentialsFile);
@@ -418,7 +418,7 @@ class Google_ClientTest extends BaseTest
   public function testApplicationDefaultCredentialsWithSubject()
   {
     $this->checkServiceAccountCredentials();
-    $credentialsFile = getenv('GOOGLE_APPLICATION_CREDENTIALS');
+    $credentialsFile = \getenv('GOOGLE_APPLICATION_CREDENTIALS');
 
     $sub = 'sub123';
     $client = new Google_Client();
@@ -437,7 +437,7 @@ class Google_ClientTest extends BaseTest
    */
   public function testRefreshTokenSetsValues()
   {
-    $token = json_encode(array(
+    $token = \json_encode(array(
         'access_token' => 'xyz',
         'id_token' => 'ID_TOKEN',
     ));
@@ -481,7 +481,7 @@ class Google_ClientTest extends BaseTest
   public function testRefreshTokenIsSetOnRefresh()
   {
     $refreshToken = 'REFRESH_TOKEN';
-    $token = json_encode(array(
+    $token = \json_encode(array(
         'access_token' => 'xyz',
         'id_token' => 'ID_TOKEN',
     ));
@@ -525,7 +525,7 @@ class Google_ClientTest extends BaseTest
   public function testRefreshTokenIsNotSetWhenNewRefreshTokenIsReturned()
   {
     $refreshToken = 'REFRESH_TOKEN';
-    $token = json_encode(array(
+    $token = \json_encode(array(
         'access_token' => 'xyz',
         'id_token' => 'ID_TOKEN',
         'refresh_token' => 'NEW_REFRESH_TOKEN'
@@ -589,7 +589,7 @@ class Google_ClientTest extends BaseTest
     $this->checkServiceAccountCredentials();
 
     $client = $this->getClient();
-    $client->setAuthConfig(getenv('GOOGLE_APPLICATION_CREDENTIALS'));
+    $client->setAuthConfig(\getenv('GOOGLE_APPLICATION_CREDENTIALS'));
     $token = $client->fetchAccessTokenWithAssertion();
 
     $this->assertNotNull($token);
@@ -655,7 +655,7 @@ class Google_ClientTest extends BaseTest
     // make the auth library think the token is expired
     $accessToken['expires_in'] = 0;
     $cache = $client->getCache();
-    $path = sys_get_temp_dir().'/google-api-php-client-tests-'.time();
+    $path = \sys_get_temp_dir().'/google-api-php-client-tests-'.\time();
     $client->setCache($this->getCache($path));
     $client->setAccessToken($accessToken);
 
@@ -719,14 +719,14 @@ class Google_ClientTest extends BaseTest
       ->with(
         $this->callback(
           function (RequestInterface $request) {
-            $userAgent = sprintf(
+            $userAgent = \sprintf(
               '%s%s',
               Google_Client::USER_AGENT_SUFFIX,
               Google_Client::LIBVER
             );
-            $xGoogApiClient = sprintf(
+            $xGoogApiClient = \sprintf(
               'gl-php/%s gdcl/%s',
-              phpversion(),
+              \phpversion(),
               Google_Client::LIBVER
             );
 

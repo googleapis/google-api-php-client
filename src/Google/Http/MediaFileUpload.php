@@ -122,13 +122,13 @@ class Google_Http_MediaFileUpload
     $resumeUri = $this->getResumeUri();
 
     if (false == $chunk) {
-      $chunk = substr($this->data, $this->progress, $this->chunkSize);
+      $chunk = \substr($this->data, $this->progress, $this->chunkSize);
     }
 
-    $lastBytePos = $this->progress + strlen($chunk) - 1;
+    $lastBytePos = $this->progress + \strlen($chunk) - 1;
     $headers = array(
       'content-range' => "bytes $this->progress-$lastBytePos/$this->size",
-      'content-length' => strlen($chunk),
+      'content-length' => \strlen($chunk),
       'expect' => '',
     );
 
@@ -169,7 +169,7 @@ class Google_Http_MediaFileUpload
       // Track the amount uploaded.
       $range = $response->getHeaderLine('range');
       if ($range) {
-        $range_array = explode('-', $range);
+        $range_array = \explode('-', $range);
         $this->progress = $range_array[1] + 1;
       }
 
@@ -219,7 +219,7 @@ class Google_Http_MediaFileUpload
     $contentType = false;
 
     $meta = (string) $request->getBody();
-    $meta = is_string($meta) ? json_decode($meta, true) : $meta;
+    $meta = \is_string($meta) ? \json_decode($meta, true) : $meta;
 
     $uploadType = $this->getUploadType($meta);
     $request = $request->withUri(
@@ -230,22 +230,22 @@ class Google_Http_MediaFileUpload
 
     if (self::UPLOAD_RESUMABLE_TYPE == $uploadType) {
       $contentType = $mimeType;
-      $postBody = is_string($meta) ? $meta : json_encode($meta);
+      $postBody = \is_string($meta) ? $meta : \json_encode($meta);
     } else if (self::UPLOAD_MEDIA_TYPE == $uploadType) {
       $contentType = $mimeType;
       $postBody = $this->data;
     } else if (self::UPLOAD_MULTIPART_TYPE == $uploadType) {
       // This is a multipart/related upload.
-      $boundary = $this->boundary ?: mt_rand();
-      $boundary = str_replace('"', '', $boundary);
+      $boundary = $this->boundary ?: \mt_rand();
+      $boundary = \str_replace('"', '', $boundary);
       $contentType = 'multipart/related; boundary=' . $boundary;
       $related = "--$boundary\r\n";
       $related .= "Content-Type: application/json; charset=UTF-8\r\n";
-      $related .= "\r\n" . json_encode($meta) . "\r\n";
+      $related .= "\r\n" . \json_encode($meta) . "\r\n";
       $related .= "--$boundary\r\n";
       $related .= "Content-Type: $mimeType\r\n";
       $related .= "Content-Transfer-Encoding: base64\r\n";
-      $related .= "\r\n" . base64_encode($this->data) . "\r\n";
+      $related .= "\r\n" . \base64_encode($this->data) . "\r\n";
       $related .= "--$boundary--";
       $postBody = $related;
     }
@@ -315,13 +315,13 @@ class Google_Http_MediaFileUpload
     }
 
     $message = $code;
-    $body = json_decode((string) $this->request->getBody(), true);
+    $body = \json_decode((string) $this->request->getBody(), true);
     if (isset($body['error']['errors'])) {
       $message .= ': ';
       foreach ($body['error']['errors'] as $error) {
         $message .= "{$error['domain']}, {$error['message']};";
       }
-      $message = rtrim($message, ';');
+      $message = \rtrim($message, ';');
     }
 
     $error = "Failed to start the resumable upload (HTTP {$message})";
@@ -332,7 +332,7 @@ class Google_Http_MediaFileUpload
 
   private function transformToUploadUrl()
   {
-    $parts = parse_url((string) $this->request->getUri());
+    $parts = \parse_url((string) $this->request->getUri());
     if (!isset($parts['path'])) {
       $parts['path'] = '';
     }

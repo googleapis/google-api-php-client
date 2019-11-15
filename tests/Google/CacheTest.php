@@ -53,7 +53,7 @@ class Google_CacheTest extends BaseTest
     $client->useApplicationDefaultCredentials();
     $client->setScopes(['https://www.googleapis.com/auth/drive.readonly']);
     // filecache with new cache dir
-    $cache = $this->getCache(sys_get_temp_dir() . '/cloud-samples-tests-php-cache-test/');
+    $cache = $this->getCache(\sys_get_temp_dir() . '/cloud-samples-tests-php-cache-test/');
     $client->setCache($cache);
 
     $token1 = null;
@@ -77,7 +77,7 @@ class Google_CacheTest extends BaseTest
     $files = $service->files->listFiles();
     $this->assertInstanceOf('Google_Service_Drive_FileList', $files);
 
-    sleep(1);
+    \sleep(1);
 
     // make sure the token expires
     $client = new Google_Client();
