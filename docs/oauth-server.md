@@ -28,10 +28,6 @@ If your application runs on Google App Engine, a service account is set up autom
 
 If your application doesn't run on Google App Engine or Google Compute Engine, you must obtain these credentials in the Google Developers Console. To generate service-account credentials, or to view the public credentials that you've already generated, do the following:
 
-If your application runs on Google App Engine, a service account is set up automatically when you create your project.
-
-If your application doesn't run on Google App Engine or Google Compute Engine, you must obtain these credentials in the Google Developers Console. To generate service-account credentials, or to view the public credentials that you've already generated, do the following:
-
 1.  Open the [**Service accounts** section](https://console.developers.google.com/permissions/serviceaccounts?project=_) of the Developers Console's **Permissions** page.
 2.  Click **Create service account**.
 3.  In the **Create service account** window, type a name for the service account and select **Furnish a new private key**. If you want to [grant G Suite domain-wide authority](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#delegatingauthority) to the service account, also select **Enable G Suite Domain-wide Delegation**. Then, click **Create**.
