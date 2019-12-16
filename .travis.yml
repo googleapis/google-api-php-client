@@ -24,7 +24,7 @@ php:
   - 7.1
   - 7.2
   - 7.3
-  - 7.4snapshot
+  - 7.4
 
 # Test lowest dependencies on PHP 5.4
 # (Guzzle 5.2, phpseclib 0.3)
