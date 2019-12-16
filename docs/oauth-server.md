@@ -28,10 +28,6 @@ If your application runs on Google App Engine, a service account is set up autom
 
 If your application doesn't run on Google App Engine or Google Compute Engine, you must obtain these credentials in the Google Developers Console. To generate service-account credentials, or to view the public credentials that you've already generated, do the following:
 
-If your application runs on Google App Engine, a service account is set up automatically when you create your project.
-
-If your application doesn't run on Google App Engine or Google Compute Engine, you must obtain these credentials in the Google Developers Console. To generate service-account credentials, or to view the public credentials that you've already generated, do the following:
-
 1.  Open the [**Service accounts** section](https://console.developers.google.com/permissions/serviceaccounts?project=_) of the Developers Console's **Permissions** page.
 2.  Click **Create service account**.
 3.  In the **Create service account** window, type a name for the service account and select **Furnish a new private key**. If you want to [grant G Suite domain-wide authority](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#delegatingauthority) to the service account, also select **Enable G Suite Domain-wide Delegation**. Then, click **Create**.
@@ -89,13 +85,13 @@ Use the authorized `Google_Client` object to call Google APIs in your applicatio
 Use the authorized `Google_Client` object to call Google APIs by completing the following steps:
 
 1.  Build a service object for the API that you want to call, providing the authorized `Google_Client` object. For example, to call the Cloud SQL Administration API:
-    
+
     ```php
     $sqladmin = new Google_Service_SQLAdmin($client);
     ```
-    
+
 2.  Make requests to the API service using the [interface provided by the service object](https://github.com/googleapis/google-api-php-client/blob/master/docs/start.md#build-the-service-object). For example, to list the instances of Cloud SQL databases in the examinable-example-123 project:
-    
+
     ```php
     $response = $sqladmin->instances->listInstances('examinable-example-123')->getItems();
     ```
@@ -107,21 +103,21 @@ The following example prints a JSON-formatted list of Cloud SQL instances in a p
 To run this example:
 
 1.  Create a new directory and change to it. For example:
-    
+
     ```sh
     mkdir ~/php-oauth2-example
     cd ~/php-oauth2-example
     ```
-    
+
 2.  Install the [Google API Client Library](https://github.com/google/google-api-php-client) for PHP using [Composer](https://getcomposer.org):
-    
+
     ```sh
     composer require google/apiclient:^2.0
     ```
-    
+
 3.  Create the file sqlinstances.php with the content below.
 4.  Run the example from the command line:
-    
+
     ```
     php ~/php-oauth2-example/sqlinstances.php
     ```
