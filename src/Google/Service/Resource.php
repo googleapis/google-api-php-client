@@ -182,6 +182,7 @@ class Google_Service_Resource
             'resource' => $this->resourceName,
             'method' => $name,
             'arguments' => $parameters,
+            'postBody' => $postBody,
         )
     );
 
