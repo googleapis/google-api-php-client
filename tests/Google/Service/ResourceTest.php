@@ -18,12 +18,13 @@
  * under the License.
  */
 
+use GuzzleHttp\Message\Response as Guzzle5Response;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Stream;
-use GuzzleHttp\Message\Response as Guzzle5Response;
 use GuzzleHttp\Stream\Stream as Guzzle5Stream;
+use Prophecy\Argument;
 
 class Test_Google_Service extends Google_Service
 {
@@ -53,27 +54,24 @@ class Google_Service_ResourceTest extends BaseTest
 {
   private $client;
   private $service;
-  private $logger;
 
   public function setUp()
   {
-    $this->client = $this->getMockBuilder("Google_Client")
-          ->disableOriginalConstructor()
-          ->getMock();
+    $this->client = $this->prophesize("Google_Client");
+
     $logger = $this->prophesize("Monolog\Logger");
-    $this->logger = $logger->reveal();
-    $this->client->expects($this->any())
-          ->method("getLogger")
-          ->will($this->returnValue($this->logger));
-    $this->client->expects($this->any())
-          ->method("shouldDefer")
-          ->will($this->returnValue(true));
-    $this->client->expects($this->any())
-          ->method("getHttpClient")
-          ->will($this->returnValue(new GuzzleHttp\Client()));
-    $this->service = new Test_Google_Service($this->client);
+
+    $this->client->getLogger()->willReturn($logger->reveal());
+    $this->client->shouldDefer()->willReturn(true);
+    $this->client->getHttpClient()->willReturn(new GuzzleHttp\Client());
+
+    $this->service = new Test_Google_Service($this->client->reveal());
   }
 
+  /**
+   * @expectedException Google_Exception
+   * @expectedExceptionMessage Unknown function: test->testResource->someothermethod()
+   */
   public function testCallFailure()
   {
     $resource = new Google_Service_Resource(
@@ -89,10 +87,6 @@ class Google_Service_ResourceTest extends BaseTest
           )
         )
       )
-    );
-    $this->setExpectedException(
-        "Google_Exception",
-        "Unknown function: test->testResource->someothermethod()"
     );
     $resource->call("someothermethod", array());
   }
@@ -170,7 +164,7 @@ class Google_Service_ResourceTest extends BaseTest
   public function testCreateRequestUri()
   {
     $restPath = "plus/{u}";
-    $service = new Google_Service($this->client);
+    $service = new Google_Service($this->client->reveal());
     $service->servicePath = "http://localhost/";
     $resource = new Google_Service_Resource($service, 'test', 'testResource', array());
 
@@ -216,29 +210,30 @@ class Google_Service_ResourceTest extends BaseTest
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
     $request = new Request('GET', '/?alt=media');
+
+    $http = $this->prophesize("GuzzleHttp\Client");
+
     if ($this->isGuzzle5()) {
       $body = Guzzle5Stream::factory('thisisnotvalidjson');
       $response = new Guzzle5Response(200, [], $body);
+
+      $http->createRequest(Argument::any(), Argument::any(), Argument::any())
+          ->willReturn(new GuzzleHttp\Message\Request('GET', '/?alt=media'));
+
+      $http->send(Argument::type('GuzzleHttp\Message\Request'))
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response);
     } else {
       $body = Psr7\stream_for('thisisnotvalidjson');
       $response = new Response(200, [], $body);
-    }
 
-    $http = $this->getMockBuilder("GuzzleHttp\Client")
-        ->disableOriginalConstructor()
-        ->getMock();
-    $http->expects($this->once())
-        ->method('send')
-        ->will($this->returnValue($response));
-
-    if ($this->isGuzzle5()) {
-      $http->expects($this->once())
-        ->method('createRequest')
-        ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/?alt=media')));
+      $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response);
     }
 
     $client = new Google_Client();
-    $client->setHttpClient($http);
+    $client->setHttpClient($http->reveal());
     $service = new Test_Google_Service($client);
 
     // set up mock objects
@@ -268,29 +263,30 @@ class Google_Service_ResourceTest extends BaseTest
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
     $request = new Request('GET', '/?alt=media');
+
+    $http = $this->prophesize("GuzzleHttp\Client");
+
     if ($this->isGuzzle5()) {
       $body = Guzzle5Stream::factory('thisisnotvalidjson');
       $response = new Guzzle5Response(400, [], $body);
+
+      $http->createRequest(Argument::any(), Argument::any(), Argument::any())
+          ->willReturn(new GuzzleHttp\Message\Request('GET', '/?alt=media'));
+
+      $http->send(Argument::type('GuzzleHttp\Message\Request'))
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response);
     } else {
       $body = Psr7\stream_for('thisisnotvalidjson');
       $response = new Response(400, [], $body);
-    }
 
-    $http = $this->getMockBuilder("GuzzleHttp\Client")
-        ->disableOriginalConstructor()
-        ->getMock();
-    $http->expects($this->once())
-        ->method('send')
-        ->will($this->returnValue($response));
-
-    if ($this->isGuzzle5()) {
-      $http->expects($this->once())
-        ->method('createRequest')
-        ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/?alt=media')));
+      $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response);
     }
 
     $client = new Google_Client();
-    $client->setHttpClient($http);
+    $client->setHttpClient($http->reveal());
     $service = new Test_Google_Service($client);
 
     // set up mock objects
@@ -324,29 +320,30 @@ class Google_Service_ResourceTest extends BaseTest
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
     $request = new Request('GET', '/?alt=media');
+
+    $http = $this->prophesize("GuzzleHttp\Client");
+
     if ($this->isGuzzle5()) {
       $body = Guzzle5Stream::factory('this will be pulled into memory');
       $response = new Guzzle5Response(400, [], $body);
+
+      $http->createRequest(Argument::any(), Argument::any(), Argument::any())
+          ->willReturn(new GuzzleHttp\Message\Request('GET', '/?alt=media'));
+
+      $http->send(Argument::type('GuzzleHttp\Message\Request'))
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response);
     } else {
       $body = Psr7\stream_for('this will be pulled into memory');
       $response = new Response(400, [], $body);
-    }
 
-    $http = $this->getMockBuilder("GuzzleHttp\Client")
-        ->disableOriginalConstructor()
-        ->getMock();
-    $http->expects($this->once())
-        ->method('send')
-        ->will($this->returnValue($response));
-
-    if ($this->isGuzzle5()) {
-      $http->expects($this->once())
-        ->method('createRequest')
-        ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/?alt=media')));
+      $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response);
     }
 
     $client = new Google_Client();
-    $client->setHttpClient($http);
+    $client->setHttpClient($http->reveal());
     $service = new Test_Google_Service($client);
 
     // set up mock objects
@@ -386,15 +383,13 @@ class Google_Service_ResourceTest extends BaseTest
     $stream = new Test_MediaType_Stream($resource);
     $response = new Response(200, [], $stream);
 
-    $http = $this->getMockBuilder("GuzzleHttp\Client")
-        ->disableOriginalConstructor()
-        ->getMock();
-    $http->expects($this->once())
-        ->method('send')
-        ->will($this->returnValue($response));
+    $http = $this->prophesize("GuzzleHttp\Client");
+    $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+        ->shouldBeCalledTimes(1)
+        ->willReturn($response);
 
     $client = new Google_Client();
-    $client->setHttpClient($http);
+    $client->setHttpClient($http->reveal());
     $service = new Test_Google_Service($client);
 
     // set up mock objects
@@ -430,29 +425,30 @@ class Google_Service_ResourceTest extends BaseTest
         'errors' => $errors
       ]
     ]);
+
+    $http = $this->prophesize("GuzzleHttp\Client");
+
     if ($this->isGuzzle5()) {
       $body = Guzzle5Stream::factory($content);
       $response = new Guzzle5Response(400, [], $body);
+
+      $http->createRequest(Argument::any(), Argument::any(), Argument::any())
+          ->willReturn(new GuzzleHttp\Message\Request('GET', '/?alt=media'));
+
+      $http->send(Argument::type('GuzzleHttp\Message\Request'))
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response);
     } else {
       $body = Psr7\stream_for($content);
       $response = new Response(400, [], $body);
-    }
 
-    $http = $this->getMockBuilder("GuzzleHttp\Client")
-        ->disableOriginalConstructor()
-        ->getMock();
-    $http->expects($this->once())
-        ->method('send')
-        ->will($this->returnValue($response));
-
-    if ($this->isGuzzle5()) {
-      $http->expects($this->once())
-        ->method('createRequest')
-        ->will($this->returnValue(new GuzzleHttp\Message\Request('GET', '/?alt=media')));
+      $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response);
     }
 
     $client = new Google_Client();
-    $client->setHttpClient($http);
+    $client->setHttpClient($http->reveal());
     $service = new Test_Google_Service($client);
 
     // set up mock objects

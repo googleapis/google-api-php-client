@@ -26,7 +26,7 @@ Follow [the instructions in the README](https://github.com/google/google-api-php
 
 ### What to do with the files
 
-After obtaining the files, include the autloader. If you used Composer, your require statement will look like this:
+After obtaining the files, include the autoloader. If you used Composer, your require statement will look like this:
 
 ```php
 require_once '/path/to/your-project/vendor/autoload.php';

@@ -231,23 +231,23 @@ class Google_ClientTest extends BaseTest
         $client->createAuthUrl()
     );
 
-    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
-    $response->expects($this->once())
-      ->method('getBody')
-      ->will($this->returnValue($this->getMock('Psr\Http\Message\StreamInterface')));
-    $http = $this->getMock('GuzzleHttp\ClientInterface');
-    $http->expects($this->once())
-      ->method('send')
-      ->will($this->returnValue($response));
+    $stream = $this->prophesize('GuzzleHttp\Psr7\Stream');
+    $stream->__toString()->willReturn('');
 
-    if ($this->isGuzzle5()) {
-      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/');
-      $http->expects($this->once())
-        ->method('createRequest')
-        ->will($this->returnValue($guzzle5Request));
-    }
+    $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
+    $response->getBody()
+        ->shouldBeCalledTimes(1)
+        ->willReturn($stream->reveal());
 
-    $client->setHttpClient($http);
+    $response->getStatusCode()->willReturn(200);
+
+    $http = $this->prophesize('GuzzleHttp\ClientInterface');
+
+    $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+        ->shouldBeCalledTimes(1)
+        ->willReturn($response->reveal());
+
+    $client->setHttpClient($http->reveal());
     $dr_service = new Google_Service_Drive($client);
     $this->assertInstanceOf('Google_Model', $dr_service->files->listFiles());
   }
@@ -284,8 +284,10 @@ class Google_ClientTest extends BaseTest
 
     $client->setRedirectUri('localhost');
     $client->setConfig('application_name', 'me');
-    $client->setCache($this->getMock('Psr\Cache\CacheItemPoolInterface'));
-    $this->assertEquals('object', gettype($client->getCache()));
+
+    $cache = $this->prophesize('Psr\Cache\CacheItemPoolInterface');
+    $client->setCache($cache->reveal());
+    $this->assertInstanceOf('Psr\Cache\CacheItemPoolInterface', $client->getCache());
 
     try {
       $client->setAccessToken(null);
@@ -437,39 +439,49 @@ class Google_ClientTest extends BaseTest
    */
   public function testRefreshTokenSetsValues()
   {
-    $token = json_encode(array(
+    $token = json_encode([
         'access_token' => 'xyz',
         'id_token' => 'ID_TOKEN',
-    ));
-    $postBody = $this->getMock('Psr\Http\Message\StreamInterface');
-    $postBody->expects($this->once())
-      ->method('__toString')
-      ->will($this->returnValue($token));
+    ]);
+    $postBody = $this->prophesize('GuzzleHttp\Psr7\Stream');
+    $postBody->__toString()
+        ->shouldBeCalledTimes(1)
+        ->willReturn($token);
+
     if ($this->isGuzzle5()) {
-      $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
-      $response->expects($this->once())
-        ->method('getStatusCode')
-        ->will($this->returnValue(200));
+      $response = $this->getGuzzle5ResponseMock();
+      $response->getStatusCode()
+          ->shouldBeCalledTimes(1)
+          ->willReturn(200);
     } else {
-      $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+      $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
     }
-    $response->expects($this->once())
-      ->method('getBody')
-      ->will($this->returnValue($postBody));
-    $http = $this->getMock('GuzzleHttp\ClientInterface');
-    $http->expects($this->once())
-      ->method('send')
-      ->will($this->returnValue($response));
+
+    $response->getBody()
+        ->shouldBeCalledTimes(1)
+        ->willReturn($postBody->reveal());
+
+    $response->hasHeader('Content-Type')->willReturn(false);
+
+    $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
     if ($this->isGuzzle5()) {
       $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
-      $http->expects($this->once())
-        ->method('createRequest')
-        ->will($this->returnValue($guzzle5Request));
+      $http->createRequest(Argument::any(), Argument::any(), Argument::any())
+          ->shouldBeCalledTimes(1)
+          ->willReturn($guzzle5Request);
+
+      $http->send(Argument::type('GuzzleHttp\Message\Request'))
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response->reveal());
+    } else {
+      $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response->reveal());
     }
 
     $client = $this->getClient();
-    $client->setHttpClient($http);
+    $client->setHttpClient($http->reveal());
     $client->fetchAccessTokenWithRefreshToken("REFRESH_TOKEN");
     $token = $client->getAccessToken();
     $this->assertEquals("ID_TOKEN", $token['id_token']);
@@ -485,35 +497,44 @@ class Google_ClientTest extends BaseTest
         'access_token' => 'xyz',
         'id_token' => 'ID_TOKEN',
     ));
-    $postBody = $this->getMock('Psr\Http\Message\StreamInterface');
-    $postBody->expects($this->once())
-      ->method('__toString')
-      ->will($this->returnValue($token));
+    $postBody = $this->prophesize('Psr\Http\Message\StreamInterface');
+    $postBody->__toString()
+        ->shouldBeCalledTimes(1)
+        ->willReturn($token);
+
     if ($this->isGuzzle5()) {
-      $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
-      $response->expects($this->once())
-        ->method('getStatusCode')
-        ->will($this->returnValue(200));
+      $response = $this->getGuzzle5ResponseMock();
+      $response->getStatusCode()
+          ->shouldBeCalledTimes(1)
+          ->willReturn(200);
     } else {
-      $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+      $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
     }
-    $response->expects($this->once())
-      ->method('getBody')
-      ->will($this->returnValue($postBody));
-    $http = $this->getMock('GuzzleHttp\ClientInterface');
-    $http->expects($this->once())
-      ->method('send')
-      ->will($this->returnValue($response));
+
+    $response->getBody()
+        ->shouldBeCalledTimes(1)
+        ->willReturn($postBody->reveal());
+
+    $response->hasHeader('Content-Type')->willReturn(false);
+
+    $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
     if ($this->isGuzzle5()) {
       $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
-      $http->expects($this->once())
-        ->method('createRequest')
-        ->will($this->returnValue($guzzle5Request));
+      $http->createRequest(Argument::any(), Argument::any(), Argument::any())
+          ->willReturn($guzzle5Request);
+
+      $http->send(Argument::type('GuzzleHttp\Message\Request'))
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response->reveal());
+    } else {
+      $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response->reveal());
     }
 
     $client = $this->getClient();
-    $client->setHttpClient($http);
+    $client->setHttpClient($http->reveal());
     $client->fetchAccessTokenWithRefreshToken($refreshToken);
     $token = $client->getAccessToken();
     $this->assertEquals($refreshToken, $token['refresh_token']);
@@ -530,35 +551,41 @@ class Google_ClientTest extends BaseTest
         'id_token' => 'ID_TOKEN',
         'refresh_token' => 'NEW_REFRESH_TOKEN'
     ));
-    $postBody = $this->getMock('Psr\Http\Message\StreamInterface');
-    $postBody->expects($this->once())
-      ->method('__toString')
-      ->will($this->returnValue($token));
+
+    $postBody = $this->prophesize('GuzzleHttp\Psr7\Stream');
+    $postBody->__toString()
+        ->wilLReturn($token);
+
     if ($this->isGuzzle5()) {
-      $response = $this->getMock('GuzzleHttp\Message\ResponseInterface');
-      $response->expects($this->once())
-        ->method('getStatusCode')
-        ->will($this->returnValue(200));
+      $response = $this->getGuzzle5ResponseMock();
+      $response->getStatusCode()
+          ->willReturn(200);
     } else {
-      $response = $this->getMock('Psr\Http\Message\ResponseInterface');
+      $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
     }
-    $response->expects($this->once())
-      ->method('getBody')
-      ->will($this->returnValue($postBody));
-    $http = $this->getMock('GuzzleHttp\ClientInterface');
-    $http->expects($this->once())
-      ->method('send')
-      ->will($this->returnValue($response));
+
+    $response->getBody()
+        ->willReturn($postBody->reveal());
+
+    $response->hasHeader('Content-Type')->willReturn(false);
+
+    $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
     if ($this->isGuzzle5()) {
       $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
-      $http->expects($this->once())
-        ->method('createRequest')
-        ->will($this->returnValue($guzzle5Request));
+      $http->createRequest(Argument::any(), Argument::any(), Argument::any())
+          ->willReturn($guzzle5Request);
+
+      $http->send(Argument::type('GuzzleHttp\Message\Request'))
+          ->willReturn($response->reveal());
+    } else {
+      $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+          ->shouldBeCalledTimes(1)
+          ->willReturn($response->reveal());
     }
 
     $client = $this->getClient();
-    $client->setHttpClient($http);
+    $client->setHttpClient($http->reveal());
     $client->fetchAccessTokenWithRefreshToken($refreshToken);
     $token = $client->getAccessToken();
     $this->assertEquals('NEW_REFRESH_TOKEN', $token['refresh_token']);
@@ -695,14 +722,15 @@ class Google_ClientTest extends BaseTest
       'api_format_v2' => true
     ]);
 
-    $guzzle = $this->getMock('GuzzleHttp\Client');
-    $guzzle->expects($this->once())
-      ->method('send')
-      ->with($this->callback(function (RequestInterface $request) {
-        return $request->getHeaderLine('X-GOOG-API-FORMAT-VERSION') === '2';
-      }))->will($this->returnValue(new Response(200, [], null)));
+    $guzzle = $this->prophesize('GuzzleHttp\Client');
+    $guzzle->send(Argument::allOf(
+        Argument::type('Psr\Http\Message\RequestInterface'),
+        Argument::that(function (RequestInterface $request) {
+            return $request->getHeaderLine('X-GOOG-API-FORMAT-VERSION') === '2';
+        })
+      ), [])->willReturn(new Response(200, [], null));
 
-    $client->setHttpClient($guzzle);
+    $client->setHttpClient($guzzle->reveal());
 
     $request = new Request('POST', 'http://foo.bar/');
     $client->execute($request);
@@ -713,37 +741,32 @@ class Google_ClientTest extends BaseTest
     $this->onlyGuzzle6();
 
     $client = new Google_Client();
-    $guzzle = $this->getMock('GuzzleHttp\Client');
-    $guzzle->expects($this->once())
-      ->method('send')
-      ->with(
-        $this->callback(
-          function (RequestInterface $request) {
-            $userAgent = sprintf(
-              '%s%s',
-              Google_Client::USER_AGENT_SUFFIX,
-              Google_Client::LIBVER
-            );
-            $xGoogApiClient = sprintf(
-              'gl-php/%s gdcl/%s',
-              phpversion(),
-              Google_Client::LIBVER
-            );
 
-            if ($request->getHeaderLine('User-Agent') !== $userAgent) {
-              return false;
-            }
+    $guzzle = $this->prophesize('GuzzleHttp\Client');
+    $guzzle->send(Argument::that(function (RequestInterface $request) {
+      $userAgent = sprintf(
+        '%s%s',
+        Google_Client::USER_AGENT_SUFFIX,
+        Google_Client::LIBVER
+      );
+      $xGoogApiClient = sprintf(
+        'gl-php/%s gdcl/%s',
+        phpversion(),
+        Google_Client::LIBVER
+      );
 
-            if ($request->getHeaderLine('x-goog-api-client') !== $xGoogApiClient) {
-              return false;
-            }
+      if ($request->getHeaderLine('User-Agent') !== $userAgent) {
+        return false;
+      }
 
-            return true;
-          }
-        )
-      )->will($this->returnValue(new Response(200, [], null)));
+      if ($request->getHeaderLine('x-goog-api-client') !== $xGoogApiClient) {
+        return false;
+      }
 
-    $client->setHttpClient($guzzle);
+      return true;
+    }), [])->shouldBeCalledTimes(1)->willReturn(new Response(200, [], null));
+
+    $client->setHttpClient($guzzle->reveal());
 
     $request = new Request('POST', 'http://foo.bar/');
     $client->execute($request);
