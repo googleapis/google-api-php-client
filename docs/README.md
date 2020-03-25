@@ -1,4 +1,4 @@
-# Google API Client LIbrary for PHP Docs
+# Google API Client Library for PHP Docs
 
 The Google API Client Library for PHP offers simple, flexible access to many Google APIs.
 

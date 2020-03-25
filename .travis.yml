@@ -22,7 +22,7 @@ php:
   - 7.1
   - 7.2
   - 7.3
-  - 7.4snapshot
+  - 7.4
 
 # Test lowest dependencies on PHP 5.4
 # (Guzzle 5.2, phpseclib 0.3)
@@ -30,8 +30,6 @@ matrix:
   include:
     - php: 5.4
       env: COMPOSER_CMD="composer update phpseclib/phpseclib guzzlehttp/guzzle guzzlehttp/psr7 --prefer-lowest" RUN_PHP_CS=true
-  allow_failures:
-    - php: 7.4snapshot
 
 before_install:
   - composer self-update
@@ -39,10 +37,6 @@ before_install:
 install:
   - if [[ "$TRAVIS_PHP_VERSION" == "5.4" ]]; then composer remove --dev cache/filesystem-adapter; fi
   - $(echo $COMPOSER_CMD)
-
-before_script:
-  - phpenv version-name | grep ^5.[34] && echo "extension=apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ; true
-  - phpenv version-name | grep ^5.[34] && echo "apc.enable_cli=1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini ; true
 
 script:
   - vendor/bin/phpunit

@@ -19,6 +19,7 @@
  */
 
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 
 class TestModel extends Google_Model
 {
@@ -42,17 +43,20 @@ class Google_ServiceTest extends TestCase
 {
   public function testCreateBatch()
   {
-    $response = $this->getMock('Psr\Http\Message\ResponseInterface');
-    $client = $this->getMock('Google_Client');
-    $client
-      ->expects($this->once())
-      ->method('execute')
-      ->with($this->callback(function ($request) {
+    $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
+    $client = $this->prophesize('Google_Client');
+
+    $client->execute(Argument::allOf(
+      Argument::type('Psr\Http\Message\RequestInterface'),
+      Argument::that(function ($request) {
         $this->assertEquals('/batch/test', $request->getRequestTarget());
         return $request;
-      }))
-      ->will($this->returnValue($response));
-    $model = new TestService($client);
+      })
+    ), Argument::any())->willReturn($response->reveal());
+
+    $client->getConfig('base_path')->willReturn('');
+
+    $model = new TestService($client->reveal());
     $batch = $model->createBatch();
     $this->assertInstanceOf('Google_Http_Batch', $batch);
     $batch->execute();
