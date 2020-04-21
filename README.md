@@ -41,6 +41,18 @@ Finally, be sure to include the autoloader:
 require_once '/path/to/your-project/vendor/autoload.php';
 ```
 
+This library relies on `google/apiclient-services`. That library provides up-to-date API wrappers for a large number of Google APIs. In order that users may make use of the latest API clients, this library does not pin to a specific version of `google/apiclient-services`. **In order to prevent the accidental installation of API wrappers with breaking changes**, it is highly recommended that you pin to the latest version yourself prior to using this library in production.
+
+If you're installing this library for authentication or other purposes which do not require the API wrappers, you may prevent their installation by adding the following to your project's `composer.json` file:
+
+```json
+{
+    "provide": {
+        "google/apiclient-services": "*"
+    }
+}
+```
+
 ### Download the Release
 
 If you prefer not to use composer, you can download the package in its entirety. The [Releases](https://github.com/googleapis/google-api-php-client/releases) page lists all stable versions. Download any file
