@@ -175,7 +175,7 @@ $client->setLoginHint('timmerman@google.com');
 
 **Optional**. A space-delimited, case-sensitive list of prompts to present the user. If you don't specify this parameter, the user will be prompted only the first time your app requests access.
 
-To set this value in PHP, call the `setApprovalPrompt` function:
+To set this value in PHP, call the `setPrompt` function:
 
 ```php
 $client->setPrompt('consent');
