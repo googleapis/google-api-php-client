@@ -47,8 +47,8 @@ If you're installing this library for authentication or other purposes which do 
 
 ```json
 {
-    "provide": {
-        "google/apiclient-services": "*"
+    "replace": {
+        "google/apiclient-services": "self.version"
     }
 }
 ```
