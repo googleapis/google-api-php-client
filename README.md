@@ -41,6 +41,8 @@ Finally, be sure to include the autoloader:
 require_once '/path/to/your-project/vendor/autoload.php';
 ```
 
+This library relies on `google/apiclient-services`. That library provides up-to-date API wrappers for a large number of Google APIs. In order that users may make use of the latest API clients, this library does not pin to a specific version of `google/apiclient-services`. **In order to prevent the accidental installation of API wrappers with breaking changes**, it is highly recommended that you pin to the latest version yourself prior to using this library in production.
+
 ### Download the Release
 
 If you prefer not to use composer, you can download the package in its entirety. The [Releases](https://github.com/googleapis/google-api-php-client/releases) page lists all stable versions. Download any file
@@ -241,6 +243,8 @@ The method used is a matter of preference, but *it will be very difficult to use
 ### Making HTTP Requests Directly ###
 
 If Google Authentication is desired for external applications, or a Google API is not available yet in this library, HTTP requests can be made directly.
+
+If you are installing this client only to authenticate your own HTTP client requests, you should use [`google/auth`](https://github.com/googleapis/google-auth-library-php#call-the-apis) instead.
 
 The `authorize` method returns an authorized [Guzzle Client](http://docs.guzzlephp.org/), so any request made using the client will contain the corresponding authorization.
 
