@@ -1161,15 +1161,15 @@ class Google_Client
         'quota_project' => $this->config['quota_project'],
       );
       $credentials = CredentialsLoader::makeCredentials(
-        $scopes,
-        $serviceAccountCredentials
+          $scopes,
+          $serviceAccountCredentials
       );
     } else {
       $credentials = ApplicationDefaultCredentials::getCredentials(
-        $scopes,
-        null,
-        null,
-        $this->config['quota_project']
+          $scopes,
+          null,
+          null,
+          $this->config['quota_project']
       );
     }
 
