@@ -308,20 +308,23 @@ setting the Guzzle `GuzzleHttp\ClientInterface` object.
     1. Automatically refreshes access tokens if one is set and the access token is expired
  - Removed `Google_Config`
  - Removed `Google_Utils`
- - [`Google\Auth\CacheInterface`][Google Auth CacheInterface] is used for all caching. As a result:
+ - [`PSR-6`][PSR 6] cache is used for all caching. As a result:
     1. Removed `Google_Cache_Abstract`
     1. Classes `Google_Cache_Apc`, `Google_Cache_File`, `Google_Cache_Memcache`, and
     `Google_Cache_Null` now implement `Google\Auth\CacheInterface`.
+    1. Google Auth provides simple [caching utilities][Google Auth Cache] which
+   are used by default unless you provide alternatives.
  - Removed `$boundary` constructor argument for `Google_Http_MediaFileUpload`
 
-[PSR 3]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md
+[PSR 3]: https://www.php-fig.org/psr/psr-3/
+[PSR 6]: https://www.php-fig.org/psr/psr-6/
 [Guzzle 5]: https://github.com/guzzle/guzzle
 [Guzzle 6]: http://docs.guzzlephp.org/en/latest/psr7.html
 [Monolog]: https://github.com/Seldaek/monolog
 [Google Auth]: https://github.com/google/google-auth-library-php
+[Google Auth Cache]: https://github.com/googleapis/google-auth-library-php/tree/master/src/Cache
 [Google Auth GCE]: https://github.com/google/google-auth-library-php/blob/master/src/GCECredentials.php
 [Google Auth OAuth2]: https://github.com/google/google-auth-library-php/blob/master/src/OAuth2.php
 [Google Auth Simple]: https://github.com/google/google-auth-library-php/blob/master/src/Simple.php
 [Google Auth AppIdentity]: https://github.com/google/google-auth-library-php/blob/master/src/AppIdentityCredentials.php
-[Google Auth CacheInterface]: https://github.com/google/google-auth-library-php/blob/master/src/CacheInterface.php
 [Firebase JWT]: https://github.com/firebase/php-jwt
