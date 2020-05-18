@@ -811,5 +811,10 @@ class Google_ClientTest extends BaseTest
       'quota_project' => 'some-quota-project'
     ]);
     $this->assertEquals('some-quota-project', $client->getConfig('quota_project'));
+    // Test quota project in google/auth dependency
+    $method = new ReflectionMethod($client, 'createApplicationDefaultCredentials');
+    $method->setAccessible(true);
+    $credentials = $method->invoke($client);
+    $this->assertEquals('some-quota-project', $credentials->getQuotaProject());
   }
 }

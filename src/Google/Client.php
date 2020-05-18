@@ -1169,6 +1169,7 @@ class Google_Client
           $scopes,
           null,
           null,
+          null,
           $this->config['quota_project']
       );
     }
