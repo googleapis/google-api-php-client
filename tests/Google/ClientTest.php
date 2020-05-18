@@ -771,4 +771,50 @@ class Google_ClientTest extends BaseTest
     $request = new Request('POST', 'http://foo.bar/');
     $client->execute($request);
   }
+
+  public function testClientOptions()
+  {
+    // Test credential file
+    $tmpCreds = [
+      'type' => 'service_account',
+      'client_id' => 'foo',
+      'client_email' => '',
+      'private_key' => ''
+    ];
+    $tmpCredFile = tempnam(sys_get_temp_dir(), 'creds') . '.json';
+    file_put_contents($tmpCredFile, json_encode($tmpCreds));
+    $client = new Google_Client([
+      'credentials' => $tmpCredFile
+    ]);
+    $this->assertEquals('foo', $client->getClientId());
+
+    // Test credentials array
+    $client = new Google_Client([
+      'credentials' => $tmpCredFile
+    ]);
+    $this->assertEquals('foo', $client->getClientId());
+
+    // Test singular scope
+    $client = new Google_Client([
+      'scopes' => 'a-scope'
+    ]);
+    $this->assertEquals(['a-scope'], $client->getScopes());
+
+    // Test multiple scopes
+    $client = new Google_Client([
+      'scopes' => ['one-scope', 'two-scope']
+    ]);
+    $this->assertEquals(['one-scope', 'two-scope'], $client->getScopes());
+
+    // Test quota project
+    $client = new Google_Client([
+      'quota_project' => 'some-quota-project'
+    ]);
+    $this->assertEquals('some-quota-project', $client->getConfig('quota_project'));
+    // Test quota project in google/auth dependency
+    $method = new ReflectionMethod($client, 'createApplicationDefaultCredentials');
+    $method->setAccessible(true);
+    $credentials = $method->invoke($client);
+    $this->assertEquals('some-quota-project', $credentials->getQuotaProject());
+  }
 }

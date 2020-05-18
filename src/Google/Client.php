@@ -102,6 +102,16 @@ class Google_Client
           // https://developers.google.com/console
           'client_id' => '',
           'client_secret' => '',
+
+          // Path to JSON credentials or an array representing those credentials
+          // @see Google_Client::setAuthConfig
+          'credentials' => null,
+          // @see Google_Client::setScopes
+          'scopes' => null,
+          // Sets X-Goog-User-Project, which specifies a user project to bill
+          // for access charges associated with the request
+          'quota_project' => null,
+
           'redirect_uri' => null,
           'state' => null,
 
@@ -149,6 +159,16 @@ class Google_Client
         ],
         $config
     );
+
+    if (!is_null($this->config['credentials'])) {
+      $this->setAuthConfig($this->config['credentials']);
+      unset($this->config['credentials']);
+    }
+
+    if (!is_null($this->config['scopes'])) {
+      $this->setScopes($this->config['scopes']);
+      unset($this->config['scopes']);
+    }
   }
 
   /**
@@ -1138,10 +1158,20 @@ class Google_Client
         'client_email' => $this->config['client_email'],
         'private_key' => $signingKey,
         'type' => 'service_account',
+        'quota_project' => $this->config['quota_project'],
       );
-      $credentials = CredentialsLoader::makeCredentials($scopes, $serviceAccountCredentials);
+      $credentials = CredentialsLoader::makeCredentials(
+          $scopes,
+          $serviceAccountCredentials
+      );
     } else {
-      $credentials = ApplicationDefaultCredentials::getCredentials($scopes);
+      $credentials = ApplicationDefaultCredentials::getCredentials(
+          $scopes,
+          null,
+          null,
+          null,
+          $this->config['quota_project']
+      );
     }
 
     // for service account domain-wide authority (impersonating a user)
