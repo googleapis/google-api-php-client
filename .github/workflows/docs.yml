@@ -20,9 +20,15 @@ jobs:
             timeout_minutes: 10
             max_attempts: 3
             command: composer config repositories.sami vcs https://${{ secrets.GITHUB_TOKEN }}@github.com/jdpedrie/sami.git && composer require sami/sami:v4.2 && git reset --hard HEAD
-        - name: Generate and Push Documentation
+        - name: Generate Documentation
           uses: docker://php:7.3-cli
           env:
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           with:
             entrypoint: ./.github/actions/docs/entrypoint.sh
+        - name: Deploy 🚀
+          uses: JamesIves/github-pages-deploy-action@releases/v3
+          with:
+            ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+            BRANCH: gh-pages
+            FOLDER: .docs
