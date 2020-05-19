@@ -24,8 +24,7 @@ jobs:
           uses: docker://php:7.3-cli
           env:
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          with:
-            entrypoint: ./.github/actions/docs/entrypoint.sh
+          run: php vendor/bin/sami.php update .github/actions/docs/sami.php
         - name: Deploy 🚀
           uses: JamesIves/github-pages-deploy-action@releases/v3
           with:
