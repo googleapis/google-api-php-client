@@ -18,4 +18,4 @@ echo ${composerargs}
 php $(dirname $0)/retry.php "php composer.phar update $composerargs"
 
 echo "---Running unit tests ---"
-vendor/bin/phpunit
+vendor/bin/phpunit -v

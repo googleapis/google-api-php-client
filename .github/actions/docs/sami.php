@@ -5,7 +5,7 @@ use Sami\Sami;
 use Sami\Version\GitVersionCollection;
 use Symfony\Component\Finder\Finder;
 
-$projectRoot = __DIR__ . '/../../..';
+$projectRoot = realpath(__DIR__ . '/../../..');
 
 $iterator = Finder::create()
     ->files()
