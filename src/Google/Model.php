@@ -21,7 +21,7 @@
  * http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5
  *
  */
-class Google_Model implements ArrayAccess
+class Google_Model implements \ArrayAccess
 {
   /**
    * If you need to specify a NULL JSON value, use Google_Model::NULL_VALUE
