@@ -1,0 +1,66 @@
+name: Add Release Assets
+
+on:
+    release:
+        types: [published]
+
+jobs:
+    asset:
+        runs-on: ${{ matrix.operating-system }}
+        strategy:
+            matrix:
+                operating-system: [ ubuntu-latest ]
+                php: [ "5.4", "5.6", "7.0", "7.4" ]
+
+        name: Upload Release Assets
+        steps:
+            - uses: olegtarasov/get-tag@v2
+              id: tagName
+
+            - uses: octokit/request-action@v2.x
+              id: getLatestRelease
+              with:
+                route: GET /repos/:repository/releases/tags/:tag
+                repository: ${{ github.repository }}
+                tag: ${{ steps.tagName.outputs.tag }}
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                php-version: ${{ matrix.php }}
+
+            - name: Install Dependencies
+              uses: nick-invision/retry@v1
+              with:
+                timeout_minutes: 10
+                max_attempts: 3
+                command: composer remove --dev cache/filesystem-adapter && composer install --no-dev --prefer-dist
+
+            - name: Create Archive
+              run: |
+                zip -r ${fileName} . &&
+                zip -d ${fileName} ".git*" &&
+                zip -d ${fileName} "tests*" &&
+                zip -d ${fileName} "docs*" &&
+                zip -d ${fileName} ".travis.yml" &&
+                zip -d ${fileName} "phpcs.xml.dist" &&
+                zip -d ${fileName} "phpunit.xml.dist" &&
+                zip -d ${fileName} "tests*" &&
+                zip -d ${fileName} "examples*"
+              env:
+                fileName: google-api-php-client-${{ steps.tagName.outputs.tag }}-PHP${{ matrix.php }}.zip
+
+            - name: Upload Release Archive
+              uses: actions/upload-release-asset@v1
+              env:
+                GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+              with:
+                upload_url: ${{ fromJson(steps.getLatestRelease.outputs.data).upload_url }}
+                asset_path: ./google-api-php-client-${{ steps.tagName.outputs.tag }}-PHP${{ matrix.php }}.zip
+                asset_name: google-api-php-client-${{ steps.tagName.outputs.tag }}-PHP${{ matrix.php }}.zip
+                asset_content_type: application/zip
