@@ -1124,7 +1124,7 @@ class Google_Client
 
   protected function createDefaultHttpClient()
   {
-      $guzzleVersion = null;
+    $guzzleVersion = null;
     if (defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
       $guzzleVersion = ClientInterface::MAJOR_VERSION;
     } elseif (defined('\GuzzleHttp\ClientInterface::VERSION')) {
