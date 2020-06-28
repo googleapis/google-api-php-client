@@ -29,11 +29,11 @@ class Google_AuthHandler_AuthHandlerFactory
   public static function build($cache = null, array $cacheConfig = [])
   {
       $guzzleVersion = null;
-      if (defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
-          $guzzleVersion = ClientInterface::MAJOR_VERSION;
-      } elseif (defined('\GuzzleHttp\ClientInterface::VERSION')) {
-          $guzzleVersion = (int) substr(ClientInterface::VERSION, 0, 1);
-      }
+    if (defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
+      $guzzleVersion = ClientInterface::MAJOR_VERSION;
+    } elseif (defined('\GuzzleHttp\ClientInterface::VERSION')) {
+      $guzzleVersion = (int) substr(ClientInterface::VERSION, 0, 1);
+    }
 
     switch ($guzzleVersion) {
       case 5:
