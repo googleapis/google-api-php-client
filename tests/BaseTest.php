@@ -59,7 +59,7 @@ class BaseTest extends TestCase
     }
 
     // adjust constructor depending on guzzle version
-    if (!$this->isGuzzle6()) {
+    if ($this->isGuzzle5()) {
       $options = ['defaults' => $options];
     }
 
@@ -208,8 +208,20 @@ class BaseTest extends TestCase
     return false;
   }
 
+  protected function isGuzzle7()
+  {
+    if (!defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
+      return false;
+    }
+
+    return (7 === ClientInterface::MAJOR_VERSION);
+  }
+
   protected function isGuzzle6()
   {
+    if (!defined('\GuzzleHttp\ClientInterface::VERSION')) {
+      return false;
+    }
     $version = ClientInterface::VERSION;
 
     return ('6' === $version[0]);
@@ -217,6 +229,10 @@ class BaseTest extends TestCase
 
   protected function isGuzzle5()
   {
+    if (!defined('\GuzzleHttp\ClientInterface::VERSION')) {
+      return false;
+    }
+
     $version = ClientInterface::VERSION;
 
     return ('5' === $version[0]);
