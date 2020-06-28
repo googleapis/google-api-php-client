@@ -1131,16 +1131,16 @@ class Google_Client
       $guzzleVersion = (int)substr(ClientInterface::VERSION, 0, 1);
     }
 
-      $options = ['exceptions' => false];
+    $options = ['exceptions' => false];
     if (5 === $guzzleVersion) {
       $options = [
-          'base_url' => $this->config['base_path'],
-          'defaults' => $options,
+        'base_url' => $this->config['base_path'],
+        'defaults' => $options,
       ];
       if ($this->isAppEngine()) {
-          // set StreamHandler on AppEngine by default
-          $options['handler'] = new StreamHandler();
-          $options['defaults']['verify'] = '/etc/ca-certificates.crt';
+        // set StreamHandler on AppEngine by default
+        $options['handler'] = new StreamHandler();
+        $options['defaults']['verify'] = '/etc/ca-certificates.crt';
       }
     } elseif (6 === $guzzleVersion || 7 === $guzzleVersion) {
       // guzzle 6 or 7
@@ -1149,7 +1149,7 @@ class Google_Client
       throw new LogicException('Could not find support version of Guzzle.');
     }
 
-      return new Client($options);
+    return new Client($options);
   }
 
   private function createApplicationDefaultCredentials()
