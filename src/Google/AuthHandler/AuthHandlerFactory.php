@@ -28,7 +28,7 @@ class Google_AuthHandler_AuthHandlerFactory
    */
   public static function build($cache = null, array $cacheConfig = [])
   {
-      $guzzleVersion = null;
+    $guzzleVersion = null;
     if (defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
       $guzzleVersion = ClientInterface::MAJOR_VERSION;
     } elseif (defined('\GuzzleHttp\ClientInterface::VERSION')) {
@@ -39,8 +39,9 @@ class Google_AuthHandler_AuthHandlerFactory
       case 5:
         return new Google_AuthHandler_Guzzle5AuthHandler($cache, $cacheConfig);
       case 6:
-      case 7:
         return new Google_AuthHandler_Guzzle6AuthHandler($cache, $cacheConfig);
+      case 7:
+        return new Google_AuthHandler_Guzzle7AuthHandler($cache, $cacheConfig);
       default:
         throw new Exception('Version not supported');
     }
