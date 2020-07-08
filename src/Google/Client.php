@@ -1146,7 +1146,7 @@ class Google_Client
       // guzzle 6 or 7
       $options['base_uri'] = $this->config['base_path'];
     } else {
-      throw new LogicException('Could not find support version of Guzzle.');
+      throw new LogicException('Could not find supported version of Guzzle.');
     }
 
     return new Client($options);
