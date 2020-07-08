@@ -5,9 +5,6 @@
     "keywords": ["google"],
     "homepage": "http://developers.google.com/api-client-library/php",
     "license": "Apache-2.0",
-    "repositories": [
-        { "type": "vcs", "url": "https://github.com/jeromegamez/google-auth-library-php"}
-    ],
     "require": {
         "php": ">=5.4",
         "google/auth": "^1.10",
