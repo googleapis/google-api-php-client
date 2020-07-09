@@ -373,7 +373,7 @@ class Google_ClientTest extends BaseTest
 
   public function testIniConfig()
   {
-    $config = parse_ini_file($this->testDir . "/config/test.ini");
+    $config = parse_ini_file(__DIR__ . '/../config/test.ini');
     $client = new Google_Client($config);
 
     $this->assertEquals('My Test application', $client->getConfig('application_name'));
@@ -663,7 +663,7 @@ class Google_ClientTest extends BaseTest
       $this->fail('no exception thrown');
     } catch (GuzzleHttp\Exception\ClientException $e) {
       $response = $e->getResponse();
-      $this->assertContains('Invalid impersonation prn email address', (string) $response->getBody());
+      $this->assertContains('Invalid impersonation', (string) $response->getBody());
     }
   }
 
@@ -690,13 +690,13 @@ class Google_ClientTest extends BaseTest
     $phpunit = $this;
     $called = false;
     $callback = function ($key, $value) use ($client, $cache, $phpunit, &$called) {
-      // go back to the previous cache
-      $client->setCache($cache);
-
       // assert the expected keys and values
-      $phpunit->assertContains('https---www.googleapis.com-auth-', $key);
+      $phpunit->assertNotNull($key);
       $phpunit->assertNotNull($value);
       $called = true;
+
+      // go back to the previous cache
+      $client->setCache($cache);
     };
 
     // set the token callback to the client

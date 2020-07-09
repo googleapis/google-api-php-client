@@ -29,7 +29,7 @@ class examples_batchTest extends BaseTest
 
     $nodes = $crawler->filter('br');
     $this->assertCount(20, $nodes);
-    $this->assertContains('Life of Henry David Thoreau', $crawler->text());
+    $this->assertContains('Walden', $crawler->text());
     $this->assertContains('George Bernard Shaw His Life and Works', $crawler->text());
   }
 }
