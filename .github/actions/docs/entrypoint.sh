@@ -4,6 +4,10 @@ apt-get update
 apt-get install -y git
 git reset --hard HEAD
 
+# Required so sami.php is available for previous versions
+cp .github/actions/docs/sami.php.dist .github/actions/docs/sami.php
+
+# Run the docs generation command
 php vendor/bin/sami.php update .github/actions/docs/sami.php
 
 cd ./.docs
