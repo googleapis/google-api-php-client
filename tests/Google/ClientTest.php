@@ -44,7 +44,7 @@ class Google_ClientTest extends BaseTest
 
   private function checkAuthHandler($http, $className)
   {
-    if ($this->isGuzzle6()) {
+    if ($this->isGuzzle6() || $this->isGuzzle7()) {
       $stack = $http->getConfig('handler');
       $class = new ReflectionClass(get_class($stack));
       $property = $class->getProperty('stack');
@@ -75,7 +75,7 @@ class Google_ClientTest extends BaseTest
 
   private function checkCredentials($http, $fetcherClass, $sub = null)
   {
-    if ($this->isGuzzle6()) {
+    if ($this->isGuzzle6() || $this->isGuzzle7()) {
       $stack = $http->getConfig('handler');
       $class = new ReflectionClass(get_class($stack));
       $property = $class->getProperty('stack');
