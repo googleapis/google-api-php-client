@@ -1124,22 +1124,29 @@ class Google_Client
 
   protected function createDefaultHttpClient()
   {
-    $options = ['exceptions' => false];
+    $guzzleVersion = null;
+    if (defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
+      $guzzleVersion = ClientInterface::MAJOR_VERSION;
+    } elseif (defined('\GuzzleHttp\ClientInterface::VERSION')) {
+      $guzzleVersion = (int)substr(ClientInterface::VERSION, 0, 1);
+    }
 
-    $version = ClientInterface::VERSION;
-    if ('5' === $version[0]) {
+    $options = ['exceptions' => false];
+    if (5 === $guzzleVersion) {
       $options = [
         'base_url' => $this->config['base_path'],
         'defaults' => $options,
       ];
       if ($this->isAppEngine()) {
         // set StreamHandler on AppEngine by default
-        $options['handler']  = new StreamHandler();
+        $options['handler'] = new StreamHandler();
         $options['defaults']['verify'] = '/etc/ca-certificates.crt';
       }
-    } else {
-      // guzzle 6
+    } elseif (6 === $guzzleVersion || 7 === $guzzleVersion) {
+      // guzzle 6 or 7
       $options['base_uri'] = $this->config['base_path'];
+    } else {
+      throw new LogicException('Could not find supported version of Guzzle.');
     }
 
     return new Client($options);
