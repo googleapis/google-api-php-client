@@ -30,7 +30,8 @@ class Google_Task_Composer
       Filesystem $filesystem = null
   ) {
     $extra = $event->getComposer()->getPackage()->getExtra();
-    $servicesToKeep = $extra['google/apiclient-services'] ?? [];
+    $servicesToKeep = isset($extra['google/apiclient-services']) ?
+      $extra['google/apiclient-services'] : [];
     if ($servicesToKeep) {
       $serviceDir = sprintf(
           '%s/google/apiclient-services/src/Google/Service',
