@@ -61,6 +61,12 @@ class Google_Task_Composer
         ->depth('== 0');
 
     foreach ($servicesToKeep as $service) {
+      if (!preg_match('/^[a-zA-Z0-9]*$/', $service)) {
+        throw new \InvalidArgumentException(sprintf(
+          'Invalid Google service name "%s"',
+          $service
+        ));
+      }
       try {
         $finder->in($serviceDir . '/' . $service);
       } catch (\InvalidArgumentException $e) {
