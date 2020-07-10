@@ -29,9 +29,11 @@ class Google_Task_Composer
         $extra = $event->getComposer()->getPackage()->getExtra();
         $servicesToKeep = $extra['google/apiclient-services'] ?? [];
         if ($servicesToKeep) {
-            $vendorDir = $event->getComposer()->getConfig()->get('vendor-dir');
-            $serviceDir = $vendorDir . '/google/apiclient-services/src/Google/Service';
-            self::verifyServicesToKeep($serviceDir, $servicesToKeep, $event->getIO());
+            $serviceDir = sprintf(
+                '%s/google/apiclient-services/src/Google/Service',
+                $event->getComposer()->getConfig()->get('vendor-dir')
+            );
+            self::verifyServicesToKeep($serviceDir, $servicesToKeep);
             $finder = self::getServicesToRemove($serviceDir, $servicesToKeep);
             $filesystem = new Filesystem();
             if (0 !== $count = count($finder)) {
@@ -47,10 +49,12 @@ class Google_Task_Composer
         }
     }
 
+    /**
+     * @throws InvalidArgumentException when the service doesn't exist
+     */
     private static function verifyServicesToKeep(
         $serviceDir,
-        array $servicesToKeep,
-        IOInterface $io
+        array $servicesToKeep
     ) {
         $finder = (new Finder())
             ->directories()
@@ -60,7 +64,7 @@ class Google_Task_Composer
             try {
                 $finder->in($serviceDir . '/' . $service);
             } catch (\InvalidArgumentException $e) {
-                $io->write(sprintf(
+                throw new \InvalidArgumentException(sprintf(
                     'Google service "%s" does not exist', $service
                 ));
             }
