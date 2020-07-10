@@ -21,8 +21,14 @@ use Symfony\Component\Finder\Finder;
 
 class Google_Task_Composer
 {
-  public static function cleanup(Event $event)
-  {
+  /**
+   * @param Event $event Composer event passed in for any script method
+   * @param FilesystemInterface $filesystem Optional. Used for testing.
+   */
+  public static function cleanup(
+    Event $event,
+    Filesystem $filesystem = null
+  ) {
     $extra = $event->getComposer()->getPackage()->getExtra();
     $servicesToKeep = $extra['google/apiclient-services'] ?? [];
     if ($servicesToKeep) {
@@ -32,7 +38,7 @@ class Google_Task_Composer
       );
       self::verifyServicesToKeep($serviceDir, $servicesToKeep);
       $finder = self::getServicesToRemove($serviceDir, $servicesToKeep);
-      $filesystem = new Filesystem();
+      $filesystem = $filesystem ?: new Filesystem();
       if (0 !== $count = count($finder)) {
         $event->getIO()->write(
             sprintf(
