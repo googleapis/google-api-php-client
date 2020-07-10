@@ -73,7 +73,8 @@ class Google_AccessToken_Verify
    * The audience parameter can be used to control which id tokens are
    * accepted.  By default, the id token must have been issued to this OAuth2 client.
    *
-   * @param $audience
+   * @param string $idToken the ID token in JWT format
+   * @param string $audience Optional. The audience to verify against JWt "aud"
    * @return array the token payload, if successful
    */
   public function verifyIdToken($idToken, $audience = null)

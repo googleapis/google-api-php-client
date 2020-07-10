@@ -1,0 +1,28 @@
+name: Generate Documentation
+on:
+    push:
+        branches:
+            - master
+        tags:
+            - "*"
+
+jobs:
+    docs:
+        name: "Generate Project Documentation"
+        runs-on: ubuntu-16.04
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+        - name: Install Dependencies
+          uses: nick-invision/retry@v1
+          with:
+            timeout_minutes: 10
+            max_attempts: 3
+            command: composer config repositories.sami vcs https://${{ secrets.GITHUB_TOKEN }}@github.com/jdpedrie/sami.git && composer require sami/sami:dev-master && git reset --hard HEAD
+        - name: Generate and Push Documentation
+          uses: docker://php:7.3-cli
+          env:
+            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          with:
+            entrypoint: ./.github/actions/docs/entrypoint.sh
