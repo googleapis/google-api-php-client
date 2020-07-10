@@ -25,10 +25,5 @@ class Google_Service_PagespeedonlineTest extends BaseTest
     $result = $psapi->runpagespeed('http://code.google.com');
     $this->assertArrayHasKey('kind', $result);
     $this->assertArrayHasKey('id', $result);
-    $this->assertArrayHasKey('responseCode', $result);
-    $this->assertArrayHasKey('title', $result);
-    $this->assertArrayHasKey('score', $result->ruleGroups['SPEED']);
-    $this->assertInstanceOf('Google_Service_Pagespeedonline_ResultPageStats', $result->pageStats);
-    $this->assertArrayHasKey('minor', $result['version']);
   }
 }

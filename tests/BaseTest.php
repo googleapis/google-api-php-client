@@ -26,7 +26,6 @@ class BaseTest extends TestCase
 {
   private $key;
   private $client;
-  protected $testDir = __DIR__;
 
   public function getClient()
   {
@@ -140,21 +139,21 @@ class BaseTest extends TestCase
 
   private function getClientIdAndSecret()
   {
-    $clientId = getenv('GCLOUD_CLIENT_ID') ?: null;
-    $clientSecret = getenv('GCLOUD_CLIENT_SECRET') ?: null;
+    $clientId = getenv('GOOGLE_CLIENT_ID') ?: null;
+    $clientSecret = getenv('GOOGLE_CLIENT_SECRET') ?: null;
 
     return array($clientId, $clientSecret);
   }
 
-  public function checkClientCredentials()
+  protected function checkClientCredentials()
   {
     list($clientId, $clientSecret) = $this->getClientIdAndSecret();
     if (!($clientId && $clientSecret)) {
-      $this->markTestSkipped("Test requires GCLOUD_CLIENT_ID and GCLOUD_CLIENT_SECRET to be set");
+      $this->markTestSkipped("Test requires GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET to be set");
     }
   }
 
-  public function checkServiceAccountCredentials()
+  protected function checkServiceAccountCredentials()
   {
     if (!$f = getenv('GOOGLE_APPLICATION_CREDENTIALS')) {
       $skip = "This test requires the GOOGLE_APPLICATION_CREDENTIALS environment variable to be set\n"
@@ -171,21 +170,17 @@ class BaseTest extends TestCase
     return true;
   }
 
-  public function checkKey()
+  protected function checkKey()
   {
-    $this->key = $this->loadKey();
-
-    if (!strlen($this->key)) {
-      $this->markTestSkipped("Test requires api key\nYou can create one in your developer console");
-      return false;
+    if (file_exists($apiKeyFile = __DIR__ . DIRECTORY_SEPARATOR . '.apiKey')) {
+      $apiKey = file_get_contents($apiKeyFile);
+    } elseif (!$apiKey = getenv('GOOGLE_API_KEY')) {
+      $this->markTestSkipped(
+        "Test requires api key\nYou can create one in your developer console"
+      );
+      file_put_contents($apiKeyFile, $apiKey);
     }
-  }
-
-  public function loadKey()
-  {
-    if (file_exists($f = __DIR__ . DIRECTORY_SEPARATOR . '.apiKey')) {
-      return file_get_contents($f);
-    }
+    $this->key = $apiKey;
   }
 
   protected function loadExample($example)

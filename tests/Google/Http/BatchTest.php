@@ -59,6 +59,23 @@ class Google_Http_BatchTest extends BaseTest
     $this->assertArrayHasKey('response-key3', $result);
   }
 
+  public function testBatchRequestWithBooksApi()
+  {
+    $client = $this->getClient();
+    $batch = new Google_Http_Batch($client);
+    $plus = new Google_Service_Plus($client);
+
+    $client->setUseBatch(true);
+    $batch->add($plus->people->get('+LarryPage'), 'key1');
+    $batch->add($plus->people->get('+LarryPage'), 'key2');
+    $batch->add($plus->people->get('+LarryPage'), 'key3');
+
+    $result = $batch->execute();
+    $this->assertArrayHasKey('response-key1', $result);
+    $this->assertArrayHasKey('response-key2', $result);
+    $this->assertArrayHasKey('response-key3', $result);
+  }
+
   public function testBatchRequestWithPostBody()
   {
     $this->checkToken();
