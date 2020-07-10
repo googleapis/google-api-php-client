@@ -24,63 +24,68 @@ use Symfony\Component\Finder\Finder;
 
 class Google_Task_Composer
 {
-    public static function cleanup(Event $event)
-    {
-        $extra = $event->getComposer()->getPackage()->getExtra();
-        $servicesToKeep = $extra['google/apiclient-services'] ?? [];
-        if ($servicesToKeep) {
-            $serviceDir = sprintf(
-                '%s/google/apiclient-services/src/Google/Service',
-                $event->getComposer()->getConfig()->get('vendor-dir')
-            );
-            self::verifyServicesToKeep($serviceDir, $servicesToKeep);
-            $finder = self::getServicesToRemove($serviceDir, $servicesToKeep);
-            $filesystem = new Filesystem();
-            if (0 !== $count = count($finder)) {
-                $event->getIO()->write(sprintf(
-                    'Removing %s google services', $count
-                ));
-                foreach ($finder as $file) {
-                    $realpath = $file->getRealPath();
-                    $filesystem->remove($realpath);
-                    $filesystem->remove($realpath . '.php');
-                }
-            }
+  public static function cleanup(Event $event)
+  {
+    $extra = $event->getComposer()->getPackage()->getExtra();
+    $servicesToKeep = $extra['google/apiclient-services'] ?? [];
+    if ($servicesToKeep) {
+      $serviceDir = sprintf(
+          '%s/google/apiclient-services/src/Google/Service',
+          $event->getComposer()->getConfig()->get('vendor-dir')
+      );
+      self::verifyServicesToKeep($serviceDir, $servicesToKeep);
+      $finder = self::getServicesToRemove($serviceDir, $servicesToKeep);
+      $filesystem = new Filesystem();
+      if (0 !== $count = count($finder)) {
+        $event->getIO()->write(
+            sprintf(
+                'Removing %s google services',
+                $count
+            )
+        );
+        foreach ($finder as $file) {
+          $realpath = $file->getRealPath();
+          $filesystem->remove($realpath);
+          $filesystem->remove($realpath . '.php');
         }
+      }
     }
+  }
 
     /**
      * @throws InvalidArgumentException when the service doesn't exist
      */
-    private static function verifyServicesToKeep(
-        $serviceDir,
-        array $servicesToKeep
-    ) {
-        $finder = (new Finder())
-            ->directories()
-            ->depth('== 0');
+  private static function verifyServicesToKeep(
+      $serviceDir,
+      array $servicesToKeep
+  ) {
+    $finder = (new Finder())
+        ->directories()
+        ->depth('== 0');
 
-        foreach ($servicesToKeep as $service) {
-            try {
-                $finder->in($serviceDir . '/' . $service);
-            } catch (\InvalidArgumentException $e) {
-                throw new \InvalidArgumentException(sprintf(
-                    'Google service "%s" does not exist', $service
-                ));
-            }
-        }
+    foreach ($servicesToKeep as $service) {
+      try {
+        $finder->in($serviceDir . '/' . $service);
+      } catch (\InvalidArgumentException $e) {
+        throw new \InvalidArgumentException(
+            sprintf(
+                'Google service "%s" does not exist',
+                $service
+            )
+        );
+      }
     }
+  }
 
-    private static function getServicesToRemove(
-        $serviceDir,
-        array $servicesToKeep
-    ) {
-        // find all files in the current directory
-        return (new Finder())
-            ->directories()
-            ->depth('== 0')
-            ->in($serviceDir)
-            ->exclude($servicesToKeep)
-        ;
-    }
+  private static function getServicesToRemove(
+      $serviceDir,
+      array $servicesToKeep
+  ) {
+    // find all files in the current directory
+    return (new Finder())
+        ->directories()
+        ->depth('== 0')
+        ->in($serviceDir)
+        ->exclude($servicesToKeep);
+  }
 }
