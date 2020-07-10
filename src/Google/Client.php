@@ -765,8 +765,11 @@ class Google_Client
   /**
    * Set the scopes to be requested. Must be called before createAuthUrl().
    * Will remove any previously configured scopes.
-   * @param string|array $scope_or_scopes, ie: array('https://www.googleapis.com/auth/plus.login',
-   * 'https://www.googleapis.com/auth/moderator')
+   * @param string|array $scope_or_scopes, ie:
+   *    array(
+   *        'https://www.googleapis.com/auth/plus.login',
+   *        'https://www.googleapis.com/auth/moderator'
+   *    );
    */
   public function setScopes($scope_or_scopes)
   {
@@ -819,6 +822,7 @@ class Google_Client
    * Helper method to execute deferred HTTP requests.
    *
    * @param $request Psr\Http\Message\RequestInterface|Google_Http_Batch
+   * @param string $expectedClass
    * @throws Google_Exception
    * @return object of the type of the expected class or Psr\Http\Message\ResponseInterface.
    */

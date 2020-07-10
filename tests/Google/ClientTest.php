@@ -772,6 +772,9 @@ class Google_ClientTest extends BaseTest
     $client->execute($request);
   }
 
+  /**
+   * @runInSeparateProcess
+   */
   public function testClientOptions()
   {
     // Test credential file
@@ -812,6 +815,7 @@ class Google_ClientTest extends BaseTest
     ]);
     $this->assertEquals('some-quota-project', $client->getConfig('quota_project'));
     // Test quota project in google/auth dependency
+    putenv('GOOGLE_APPLICATION_CREDENTIALS='.$tmpCredFile);
     $method = new ReflectionMethod($client, 'createApplicationDefaultCredentials');
     $method->setAccessible(true);
     $credentials = $method->invoke($client);

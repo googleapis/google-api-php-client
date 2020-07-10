@@ -1,4 +1,5 @@
 .DS_Store
+.github/actions/docs/sami.php
 phpunit.xml
 phpcs.xml
 composer.lock
