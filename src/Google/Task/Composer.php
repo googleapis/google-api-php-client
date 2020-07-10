@@ -16,11 +16,8 @@
  */
 
 use Composer\Script\Event;
-use Composer\IO\IOInterface;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
-
 
 class Google_Task_Composer
 {
@@ -52,9 +49,9 @@ class Google_Task_Composer
     }
   }
 
-    /**
-     * @throws InvalidArgumentException when the service doesn't exist
-     */
+  /**
+   * @throws InvalidArgumentException when the service doesn't exist
+   */
   private static function verifyServicesToKeep(
       $serviceDir,
       array $servicesToKeep
