@@ -103,8 +103,11 @@ class Google_Task_ComposerTest extends BaseTest
             ->disableOriginalConstructor()
              ->setMethods(['remove'])
             ->getMock();
-        $mockFS->method('remove')
-            ->withConsecutive(...$consecutive);
+
+        call_user_func_array(
+            [$mockFS->method('remove'), 'withConsecutive'],
+            $consecutive
+        );
 
         return $mockFS;
     }
