@@ -26,8 +26,8 @@ class Google_Task_Composer
    * @param FilesystemInterface $filesystem Optional. Used for testing.
    */
   public static function cleanup(
-    Event $event,
-    Filesystem $filesystem = null
+      Event $event,
+      Filesystem $filesystem = null
   ) {
     $extra = $event->getComposer()->getPackage()->getExtra();
     $servicesToKeep = $extra['google/apiclient-services'] ?? [];
