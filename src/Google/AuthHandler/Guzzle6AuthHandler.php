@@ -1,6 +1,6 @@
 <?php
 
-namespace Google\AuthHandler;
+namespace Google\ApiClient\AuthHandler;
 
 use Google\Auth\CredentialsLoader;
 use Google\Auth\HttpHandler\HttpHandlerFactory;

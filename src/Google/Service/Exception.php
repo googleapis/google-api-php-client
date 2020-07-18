@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-namespace Google\Service;
+namespace Google\ApiClient\Service;
 
 class Google_Service_Exception extends Google_Exception
 {

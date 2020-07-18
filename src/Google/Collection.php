@@ -4,7 +4,7 @@ if (!class_exists('Google_Client')) {
   require_once __DIR__ . '/autoload.php';
 }
 
-namespace Google;
+namespace Google\ApiClient;
 
 
 /**

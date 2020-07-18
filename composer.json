@@ -32,7 +32,7 @@
             "Google_": "src/"
         },
         "psr-4": {
-            "Google\\": "src/"
+            "Google\\APIClient": "src/"
         },
         "classmap": [
             "src/Google/Service/"

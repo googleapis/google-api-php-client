@@ -1,6 +1,6 @@
 <?php
 
-namespace Google\AuthHandler;
+namespace Google\ApiClient\AuthHandler;
 
 /**
  * Copyright 2020 Google LLC

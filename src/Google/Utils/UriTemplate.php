@@ -20,7 +20,7 @@
  * @see http://tools.ietf.org/html/rfc6570
  */
 
-namespace Google\Utils;
+namespace Google\ApiClient\Utils;
 
 class Google_Utils_UriTemplate
 {

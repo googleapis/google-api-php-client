@@ -19,7 +19,7 @@
  * Interface for checking how many times a given task can be retried following
  * a failure.
  */
-namespace Google\Task;
+namespace Google\ApiClient\Task;
 
 interface Google_Task_Retryable
 {

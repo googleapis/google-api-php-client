@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-namespace Google\Task;
+namespace Google\ApiClient\Task;
 
 /**
  * A task runner with exponential backoff support.

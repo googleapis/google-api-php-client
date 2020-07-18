@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-namespace Google\Task;
+namespace Google\ApiClient\Task;
 
 class Google_Task_Exception extends Google_Exception
 {

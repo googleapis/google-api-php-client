@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-namespace Google\AccessToken;
+namespace Google\ApiClient\AccessToken;
 
 use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
 use Firebase\JWT\SignatureInvalidException;

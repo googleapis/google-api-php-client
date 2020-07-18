@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-namespace Google\Service;
+namespace Google\ApiClient\Service;
 
 use GuzzleHttp\Psr7\Request;
 

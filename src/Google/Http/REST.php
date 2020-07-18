@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-namespace Google\Http;
+namespace Google\ApiClient\Http;
 
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use GuzzleHttp\ClientInterface;

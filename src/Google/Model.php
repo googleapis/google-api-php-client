@@ -22,7 +22,7 @@
  *
  */
 
-namespace Google;
+namespace Google\ApiClient;
 
 class Google_Model implements ArrayAccess
 {

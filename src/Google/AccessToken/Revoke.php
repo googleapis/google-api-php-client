@@ -17,7 +17,7 @@
  */
 
 
-namespace Google\AccessToken;
+namespace Google\ApiClient\AccessToken;
 
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use GuzzleHttp\ClientInterface;
