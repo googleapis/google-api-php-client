@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+namespace Google\Service;
+
 use GuzzleHttp\Psr7\Request;
 
 /**

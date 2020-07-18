@@ -16,6 +16,9 @@
  * limitations under the License.
  */
 
+
+namespace Google\AccessToken;
+
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7;

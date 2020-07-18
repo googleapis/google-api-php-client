@@ -15,6 +15,10 @@
  * limitations under the License.
  */
 
+namespace Google;
+
+
+
 use Google\Auth\ApplicationDefaultCredentials;
 use Google\Auth\Cache\MemoryCacheItemPool;
 use Google\Auth\CredentialsLoader;

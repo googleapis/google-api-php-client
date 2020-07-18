@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+namespace Google\Http;
+
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;

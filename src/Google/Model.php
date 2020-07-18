@@ -21,6 +21,9 @@
  * http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5
  *
  */
+
+namespace Google;
+
 class Google_Model implements ArrayAccess
 {
   /**

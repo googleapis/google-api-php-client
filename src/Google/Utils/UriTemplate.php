@@ -19,6 +19,9 @@
  * Implementation of levels 1-3 of the URI Template spec.
  * @see http://tools.ietf.org/html/rfc6570
  */
+
+namespace Google\Utils;
+
 class Google_Utils_UriTemplate
 {
   const TYPE_MAP = "1";

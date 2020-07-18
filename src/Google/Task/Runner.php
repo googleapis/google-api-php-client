@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+namespace Google\Task;
+
 /**
  * A task runner with exponential backoff support.
  *

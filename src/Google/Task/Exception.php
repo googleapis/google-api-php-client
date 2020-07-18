@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+namespace Google\Task;
+
 class Google_Task_Exception extends Google_Exception
 {
 }

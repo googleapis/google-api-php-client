@@ -1,5 +1,7 @@
 <?php
 
+namespace Google\AuthHandler;
+
 use Google\Auth\CredentialsLoader;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\FetchAuthTokenCache;

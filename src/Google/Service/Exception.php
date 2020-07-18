@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+namespace Google\Service;
+
 class Google_Service_Exception extends Google_Exception
 {
   /**

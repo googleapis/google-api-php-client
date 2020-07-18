@@ -19,6 +19,8 @@
  * Interface for checking how many times a given task can be retried following
  * a failure.
  */
+namespace Google\Task;
+
 interface Google_Task_Retryable
 {
 }

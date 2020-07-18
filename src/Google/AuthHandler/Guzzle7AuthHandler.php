@@ -1,4 +1,7 @@
 <?php
+
+namespace Google\AuthHandler;
+
 /**
  * Copyright 2020 Google LLC
  *

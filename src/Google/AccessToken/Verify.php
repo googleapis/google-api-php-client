@@ -16,6 +16,8 @@
  * limitations under the License.
  */
 
+namespace Google\AccessToken;
+
 use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
 use Firebase\JWT\SignatureInvalidException;
 use GuzzleHttp\Client;

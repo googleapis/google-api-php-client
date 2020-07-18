@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+namespace Google\Http;
+
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;

@@ -31,6 +31,9 @@
         "psr-0": {
             "Google_": "src/"
         },
+        "psr-4": {
+            "Google\\": "src/"
+        },
         "classmap": [
             "src/Google/Service/"
         ]
