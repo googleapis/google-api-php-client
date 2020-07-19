@@ -44,14 +44,13 @@ jobs:
             - name: Create Archive
               run: |
                 zip -r ${fileName} . &&
-                zip -d ${fileName} ".git*" &&
-                zip -d ${fileName} "tests*" &&
-                zip -d ${fileName} "docs*" &&
-                zip -d ${fileName} ".travis.yml" &&
-                zip -d ${fileName} "phpcs.xml.dist" &&
-                zip -d ${fileName} "phpunit.xml.dist" &&
-                zip -d ${fileName} "tests*" &&
-                zip -d ${fileName} "examples*"
+                zip -d ${fileName} ".git*" || true &&
+                zip -d ${fileName} "tests*" || true &&
+                zip -d ${fileName} "docs*" || true &&
+                zip -d ${fileName} "phpcs.xml.dist" || true &&
+                zip -d ${fileName} "phpunit.xml.dist" || true &&
+                zip -d ${fileName} "tests*" || true &&
+                zip -d ${fileName} "examples*" || true
               env:
                 fileName: google-api-php-client-${{ steps.tagName.outputs.tag }}-PHP${{ matrix.php }}.zip
 
