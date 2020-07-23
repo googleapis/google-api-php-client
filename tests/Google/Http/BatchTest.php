@@ -44,6 +44,7 @@ class Google_Http_BatchTest extends BaseTest
 
   public function testBatchRequest()
   {
+    $this->checkKey();
     $client = $this->getClient();
     $plus = new Google_Service_Plus($client);
     $batch = $plus->createBatch();
@@ -60,6 +61,7 @@ class Google_Http_BatchTest extends BaseTest
 
   public function testBatchRequestWithBooksApi()
   {
+    $this->checkKey();
     $client = $this->getClient();
     $plus = new Google_Service_Plus($client);
     $batch = $plus->createBatch();
@@ -101,6 +103,7 @@ class Google_Http_BatchTest extends BaseTest
 
   public function testInvalidBatchRequest()
   {
+    $this->checkKey();
     $client = $this->getClient();
     $plus = new Google_Service_Plus($client);
 
