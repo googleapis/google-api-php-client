@@ -70,19 +70,22 @@ you want to keep in `composer.json`:
 This example will remove all services other than "Drive" and "YouTube" when
 `composer update` or a fresh `composer install` is run.
 
-This command performs an exact match on the service name, so to keep
-`YouTubeReporting` and `YouTubeAnalytics` as well, you'd do so with the
-following configuration:
+**IMPORTANT**: If you add any services back in `composer.json`, you will need to
+remove the `vendor/google/apiclient-services` directory explicity for the
+change you made to have effect:
+
+```sh
+rm -r vendor/google/apiclient-services
+composer update
+```
+
+**NOTE**: This command performs an exact match on the service name, so to keep
+`YouTubeReporting` and `YouTubeAnalytics` as well, you'd need to add each of
+them explicitly:
 
 ```json
 {
-    "require": {
-        "google/apiclient": "^2.7",
-        "google/apiclient-services": "^0.7",
-    },
-    "scripts": {
-        "post-update-cmd": "Google_Task_Composer::cleanup"
-    },
+    //...
     "extra": {
         "google/apiclient-services": [
             "Drive",
@@ -92,15 +95,6 @@ following configuration:
         ]
     }
 }
-```
-
-**IMPORTANT**: If you add any services back in `composer.json`, you will need to
-remove the `vendor/google/apiclient-services` directory explicity for the
-change you made to have effect:
-
-```sh
-rm -r vendor/google/apiclient-services
-composer update
 ```
 
 ### Download the Release
