@@ -114,7 +114,7 @@ class Google_Http_MediaFileUpload
 
   /**
    * Send the next part of the file to upload.
-   * @param bool $chunk Optional. The next set of bytes to send. If false will
+   * @param string|bool $chunk Optional. The next set of bytes to send. If false will
    * use $data passed at construct time.
    */
   public function nextChunk($chunk = false)
