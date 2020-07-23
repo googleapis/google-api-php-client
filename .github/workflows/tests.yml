@@ -27,39 +27,65 @@ jobs:
                 command: composer install
             - name: Run Script
               run: vendor/bin/phpunit
-    # use dockerfiles for oooooolllllldddd versions of php, setup-php times out for those.
+
     test_php55:
-        name: "PHP 5.5 Unit Test"
         runs-on: ubuntu-latest
+        name: PHP 5.5 Unit Test
         steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Run Unit Tests
-          uses: docker://php:5.5-cli
-          with:
-            entrypoint: ./.github/actions/unittest/entrypoint.sh
+            - uses: actions/checkout@v2
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                php-version: 5.5
+            - name: Install Dependencies
+              uses: nick-invision/retry@v1
+              with:
+                timeout_minutes: 10
+                max_attempts: 3
+                command: composer install
+            - name: Run Script
+              run: vendor/bin/phpunit
+
     test_php54:
-        name: "PHP 5.4 Unit Test"
         runs-on: ubuntu-latest
+        name: PHP 5.4 Unit Test
         steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Run Unit Tests
-          uses: docker://php:5.4-cli
-          with:
-            entrypoint: ./.github/actions/unittest/entrypoint.sh
+            - uses: actions/checkout@v2
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                php-version: 5.4
+            - name: Remove cache library
+              run: composer remove --dev cache/filesystem-adapter
+            - name: Install Dependencies
+              uses: nick-invision/retry@v1
+              with:
+                timeout_minutes: 10
+                max_attempts: 3
+                command: composer update
+            - name: Run Script
+              run: vendor/bin/phpunit
+
     test_php54_lowest:
-        name: "PHP 5.4 Unit Test Prefer Lowest"
         runs-on: ubuntu-latest
+        name: "PHP 5.4 Unit Test (with `--prefer-lowest`)"
         steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Run Unit Tests
-          uses: docker://php:5.4-cli
-          env:
-            composerargs: "--prefer-lowest"
-          with:
-            entrypoint: ./.github/actions/unittest/entrypoint.sh
+            - uses: actions/checkout@v2
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                php-version: 5.4
+            - name: Remove cache library
+              run: composer remove --dev cache/filesystem-adapter
+            - name: Install Dependencies
+              uses: nick-invision/retry@v1
+              with:
+                timeout_minutes: 10
+                max_attempts: 3
+                command: composer update --prefer-lowest
+            - name: Run Script
+              run: vendor/bin/phpunit
+
     style:
         runs-on: ubuntu-latest
         name: PHP Style Check
