@@ -29,13 +29,14 @@ class Google_Task_Composer
       Event $event,
       Filesystem $filesystem = null
   ) {
-    $extra = $event->getComposer()->getPackage()->getExtra();
+    $composer = $event->getComposer();
+    $extra = $composer->getPackage()->getExtra();
     $servicesToKeep = isset($extra['google/apiclient-services']) ?
       $extra['google/apiclient-services'] : [];
     if ($servicesToKeep) {
       $serviceDir = sprintf(
           '%s/google/apiclient-services/src/Google/Service',
-          $event->getComposer()->getConfig()->get('vendor-dir')
+          $composer->getConfig()->get('vendor-dir')
       );
       self::verifyServicesToKeep($serviceDir, $servicesToKeep);
       $finder = self::getServicesToRemove($serviceDir, $servicesToKeep);

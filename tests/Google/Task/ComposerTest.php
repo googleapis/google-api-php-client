@@ -94,22 +94,14 @@ class Google_Task_ComposerTest extends BaseTest
 
     private function createMockFilesystem(array $files, $serviceDir)
     {
-        $consecutive = [];
+        $mockFilesystem = $this->prophesize('Symfony\Component\Filesystem\Filesystem');
         foreach ($files as $filename) {
             $file = new \SplFileInfo($serviceDir . $filename);
-            $consecutive[] = [$this->equalTo($file->getRealPath())];
+            $mockFilesystem->remove($file->getRealPath())
+                ->shouldBeCalledTimes(1);
         }
-        $mockFS = $this->getMockBuilder('Symfony\Component\Filesystem\Filesystem')
-            ->disableOriginalConstructor()
-             ->setMethods(['remove'])
-            ->getMock();
 
-        call_user_func_array(
-            [$mockFS->method('remove'), 'withConsecutive'],
-            $consecutive
-        );
-
-        return $mockFS;
+        return $mockFilesystem->reveal();
     }
 
     private function createMockEvent(
@@ -117,41 +109,39 @@ class Google_Task_ComposerTest extends BaseTest
         $vendorDir = '',
         $print = null
     ) {
-        $mockPackage = $this->getMockBuilder('Composer\Package\RootPackage')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $mockPackage->method('getExtra')
-            ->will($this->returnValue([
-                'google/apiclient-services' => $servicesToKeep
-            ]));
+        $mockPackage = $this->prophesize('Composer\Package\RootPackage');
+        $mockPackage->getExtra()
+            ->shouldBeCalledTimes(1)
+            ->willReturn(['google/apiclient-services' => $servicesToKeep]);
 
-        $mockConfig = $this->getMockBuilder('Composer\Config')->getMock();
-        $mockConfig->method('get')
-            ->will($this->returnValue($vendorDir));
+        $mockConfig = $this->prophesize('Composer\Config');
+        $mockConfig->get('vendor-dir')
+            ->shouldBeCalledTimes(1)
+            ->willReturn($vendorDir);
 
-        $mockComposer = $this->getMockBuilder('Composer\Composer')->getMock();
-        $mockComposer->method('getPackage')
-            ->will($this->returnValue($mockPackage));
-        $mockComposer->method('getConfig')
-            ->will($this->returnValue($mockConfig));
+        $mockComposer = $this->prophesize('Composer\Composer');
+        $mockComposer->getPackage()
+            ->shouldBeCalledTimes(1)
+            ->willReturn($mockPackage->reveal());
+        $mockComposer->getConfig()
+            ->shouldBeCalledTimes(1)
+            ->willReturn($mockConfig->reveal());
 
-        $mockEvent = $this->getMockBuilder('Composer\Script\Event')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $mockEvent->method('getComposer')
-            ->will($this->returnValue($mockComposer));
+        $mockEvent = $this->prophesize('Composer\Script\Event');
+        $mockEvent->getComposer()
+            ->shouldBeCalledTimes(1)
+            ->willReturn($mockComposer);
 
         if ($print) {
-            $mockIO = $this->getMockBuilder('Composer\IO\ConsoleIO')
-                ->disableOriginalConstructor()
-                ->getMock();
-            $mockIO->method('write')
-                ->with($print);
+            $mockIO = $this->prophesize('Composer\IO\ConsoleIO');
+            $mockIO->write($print)
+                ->shouldBeCalledTimes(1);
 
-            $mockEvent->method('getIO')
-                ->will($this->returnValue($mockIO));
+            $mockEvent->getIO()
+                ->shouldBeCalledTimes(1)
+                ->willReturn($mockIO->reveal());
         }
 
-        return $mockEvent;
+        return $mockEvent->reveal();
     }
 }
