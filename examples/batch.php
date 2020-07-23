@@ -58,7 +58,11 @@ $client->setUseBatch(true);
  want to execute with keys of our choice - these
  keys will be reflected in the returned array.
 ************************************************/
+
+// NOTE: Some services use `$service->createBatch();` instead of
+// `new Google_Http_Batch($client);`
 $batch = new Google_Http_Batch($client);
+
 $optParams = array('filter' => 'free-ebooks');
 $optParams['q'] = 'Henry David Thoreau';
 $req1 = $service->volumes->listVolumes($optParams);
