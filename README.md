@@ -85,7 +85,6 @@ them explicitly:
 
 ```json
 {
-    //...
     "extra": {
         "google/apiclient-services": [
             "Drive",
