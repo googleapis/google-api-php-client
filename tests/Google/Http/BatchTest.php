@@ -44,11 +44,11 @@ class Google_Http_BatchTest extends BaseTest
 
   public function testBatchRequest()
   {
+    $this->checkKey();
     $client = $this->getClient();
-    $batch = new Google_Http_Batch($client);
     $plus = new Google_Service_Plus($client);
+    $batch = $plus->createBatch();
 
-    $client->setUseBatch(true);
     $batch->add($plus->people->get('+LarryPage'), 'key1');
     $batch->add($plus->people->get('+LarryPage'), 'key2');
     $batch->add($plus->people->get('+LarryPage'), 'key3');
@@ -61,11 +61,11 @@ class Google_Http_BatchTest extends BaseTest
 
   public function testBatchRequestWithBooksApi()
   {
+    $this->checkKey();
     $client = $this->getClient();
-    $batch = new Google_Http_Batch($client);
     $plus = new Google_Service_Plus($client);
+    $batch = $plus->createBatch();
 
-    $client->setUseBatch(true);
     $batch->add($plus->people->get('+LarryPage'), 'key1');
     $batch->add($plus->people->get('+LarryPage'), 'key2');
     $batch->add($plus->people->get('+LarryPage'), 'key3');
@@ -81,8 +81,9 @@ class Google_Http_BatchTest extends BaseTest
     $this->checkToken();
 
     $client = $this->getClient();
-    $batch = new Google_Http_Batch($client);
     $shortener = new Google_Service_Urlshortener($client);
+    $batch = $shortener->createBatch();
+
     $url1 = new Google_Service_Urlshortener_Url;
     $url2 = new Google_Service_Urlshortener_Url;
     $url3 = new Google_Service_Urlshortener_Url;
@@ -90,7 +91,6 @@ class Google_Http_BatchTest extends BaseTest
     $url2->setLongUrl('http://morehazards.com');
     $url3->setLongUrl('http://github.com/bshaffer');
 
-    $client->setUseBatch(true);
     $batch->add($shortener->url->insert($url1), 'key1');
     $batch->add($shortener->url->insert($url2), 'key2');
     $batch->add($shortener->url->insert($url3), 'key3');
@@ -103,11 +103,12 @@ class Google_Http_BatchTest extends BaseTest
 
   public function testInvalidBatchRequest()
   {
+    $this->checkKey();
     $client = $this->getClient();
-    $batch = new Google_Http_Batch($client);
     $plus = new Google_Service_Plus($client);
 
-    $client->setUseBatch(true);
+    $batch = $plus->createBatch();
+
     $batch->add($plus->people->get('123456789987654321'), 'key1');
     $batch->add($plus->people->get('+LarryPage'), 'key2');
 
