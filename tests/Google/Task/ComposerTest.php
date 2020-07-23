@@ -144,4 +144,63 @@ class Google_Task_ComposerTest extends BaseTest
 
         return $mockEvent->reveal();
     }
+
+    public function testE2E()
+    {
+        $composerJson = json_encode([
+            'require' => [
+                'google/apiclient' => 'dev-add-composer-cleanup'
+            ],
+            'scripts' => [
+                'post-update-cmd' => 'Google_Task_Composer::cleanup'
+            ],
+            'extra' => [
+                'google/apiclient-services' => [
+                    'Drive',
+                    'YouTube'
+                ]
+            ]
+        ]);
+
+        $tmpDir = sys_get_temp_dir() . '/test-' . rand();
+        $serviceDir = $tmpDir . '/vendor/google/apiclient-services/src/Google/Service';
+
+        mkdir($tmpDir);
+        file_put_contents($tmpDir . '/composer.json', $composerJson);
+        passthru('composer install -d ' . $tmpDir);
+
+        $this->assertFileExists($serviceDir . '/Drive.php');
+        $this->assertFileExists($serviceDir . '/Drive');
+        $this->assertFileExists($serviceDir . '/YouTube.php');
+        $this->assertFileExists($serviceDir . '/YouTube');
+        $this->assertFileNotExists($serviceDir . '/YouTubeReporting.php');
+        $this->assertFileNotExists($serviceDir . '/YouTubeReporting');
+
+        $composerJson = json_encode([
+            'require' => [
+                'google/apiclient' => 'dev-add-composer-cleanup'
+            ],
+            'scripts' => [
+                'post-update-cmd' => 'Google_Task_Composer::cleanup'
+            ],
+            'extra' => [
+                'google/apiclient-services' => [
+                    'Drive',
+                    'YouTube',
+                    'YouTubeReporting',
+                ]
+            ]
+        ]);
+
+        file_put_contents($tmpDir . '/composer.json', $composerJson);
+        passthru('rm -r ' . $tmpDir . '/vendor/google/apiclient-services');
+        passthru('composer update -d ' . $tmpDir);
+
+        $this->assertFileExists($serviceDir . '/Drive.php');
+        $this->assertFileExists($serviceDir . '/Drive');
+        $this->assertFileExists($serviceDir . '/YouTube.php');
+        $this->assertFileExists($serviceDir . '/YouTube');
+        $this->assertFileExists($serviceDir . '/YouTubeReporting.php');
+        $this->assertFileExists($serviceDir . '/YouTubeReporting');
+    }
 }

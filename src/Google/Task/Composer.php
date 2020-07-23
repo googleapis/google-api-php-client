@@ -82,7 +82,7 @@ class Google_Task_Composer
       } catch (\InvalidArgumentException $e) {
         throw new \InvalidArgumentException(
             sprintf(
-                'Google service "%s" does not exist',
+                'Google service "%s" does not exist or was removed previously',
                 $service
             )
         );
