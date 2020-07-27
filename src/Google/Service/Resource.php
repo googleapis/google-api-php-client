@@ -77,7 +77,7 @@ class Google_Service_Resource
    * @return Google_Http_Request|expectedClass
    * @throws Google_Exception
    */
-  public function call($name, $arguments, $expectedClass = null)
+  public function call($name, $arguments, $expectedClass = null, $contentType = 'application/json')
   {
     if (! isset($this->methods[$name])) {
       $this->client->getLogger()->error(
@@ -197,7 +197,7 @@ class Google_Service_Resource
     $request = new Request(
         $method['httpMethod'],
         $url,
-        ['content-type' => 'application/json'],
+        ['content-type' => $contentType],
         $postBody ? json_encode($postBody) : ''
     );
 
