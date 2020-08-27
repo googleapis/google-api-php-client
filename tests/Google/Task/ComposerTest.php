@@ -149,7 +149,7 @@ class Google_Task_ComposerTest extends BaseTest
     {
         $composerJson = json_encode([
             'require' => [
-                'google/apiclient' => 'dev-add-composer-cleanup'
+                'google/apiclient' => 'dev-master'
             ],
             'scripts' => [
                 'post-update-cmd' => 'Google_Task_Composer::cleanup'
@@ -178,7 +178,7 @@ class Google_Task_ComposerTest extends BaseTest
 
         $composerJson = json_encode([
             'require' => [
-                'google/apiclient' => 'dev-add-composer-cleanup'
+                'google/apiclient' => 'dev-master'
             ],
             'scripts' => [
                 'post-update-cmd' => 'Google_Task_Composer::cleanup'
