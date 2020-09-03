@@ -1169,7 +1169,7 @@ class Google_Client
         'client_email' => $this->config['client_email'],
         'private_key' => $signingKey,
         'type' => 'service_account',
-        'quota_project' => $this->config['quota_project'],
+        'quota_project_id' => $this->config['quota_project'],
       );
       $credentials = CredentialsLoader::makeCredentials(
           $scopes,
