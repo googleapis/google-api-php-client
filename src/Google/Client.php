@@ -169,6 +169,18 @@ class Google_Client
       $this->setScopes($this->config['scopes']);
       unset($this->config['scopes']);
     }
+
+    // Set a default token callback to update the in-memory access token
+    if (is_null($this->config['token_callback'])) {
+      $this->config['token_callback'] = function ($cacheKey, $newAccessToken) {
+        $this->setAccessToken(
+            [
+              'access_token' => $newAccessToken,
+              'created' => time(),
+            ]
+        );
+      };
+    }
   }
 
   /**
