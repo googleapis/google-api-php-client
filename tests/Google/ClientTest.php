@@ -714,6 +714,36 @@ class Google_ClientTest extends BaseTest
     $this->assertTrue($called);
   }
 
+  public function testDefaultTokenCallback()
+  {
+    $this->onlyPhp55AndAbove();
+    $this->checkToken();
+
+    $client = $this->getClient();
+    $accessToken = $client->getAccessToken();
+
+    if (!isset($accessToken['refresh_token'])) {
+      $this->markTestSkipped('Refresh Token required');
+    }
+
+    // make the auth library think the token is expired
+    $accessToken['expires_in'] = 0;
+    $client->setAccessToken($accessToken);
+
+    // make a silly request to obtain a new token (it's ok if it fails)
+    $http = $client->authorize();
+    try {
+      $http->get('https://www.googleapis.com/books/v1/volumes?q=Voltaire');
+    } catch (Exception $e) {}
+
+    // Assert the in-memory token has been updated
+    $newToken = $client->getAccessToken();
+    $this->assertNotEquals(
+      $accessToken['access_token'],
+      $newToken['access_token']
+    );
+  }
+
   public function testExecuteWithFormat()
   {
     $this->onlyGuzzle6();
