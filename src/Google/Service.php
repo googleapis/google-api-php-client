@@ -35,9 +35,10 @@ class Google_Service
     } elseif (is_array($clientOrConfig) || is_null($clientOrConfig)) {
       $this->client = new Google_Client($clientOrConfig ?: array());
     } else {
-      throw new InvalidArgumentException(
-        'constructor must be array or instance of Google_Client'
-      );
+      $errorMessage = 'constructor must be array or instance of Google_Client';
+      throw class_exists('TypeError')
+        ? new TypeError($errorMessage)
+        : new InvalidArgumentException($errorMessage);
     }
   }
 

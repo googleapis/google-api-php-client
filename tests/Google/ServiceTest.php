@@ -134,5 +134,20 @@ class Google_ServiceTest extends TestCase
     $service = new TestService();
     $this->assertInstanceOf('Google_Client', $service->getClient());
   }
+
+  public function testInvalidConstructor()
+  {
+    $e = null;
+    try {
+      $service = new TestService('foo');
+    } catch (TypeError $e) {
+    } catch (InvalidArgumentException $e) {
+    }
+    if (class_exists('TypeError')) {
+      $this->assertInstanceOf('TypeError', $e);
+    } else {
+      $this->assertInstanceOf('InvalidArgumentException', $e);
+    }
+  }
 }
 
