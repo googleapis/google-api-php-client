@@ -121,4 +121,18 @@ class Google_ServiceTest extends TestCase
 
     return $classes;
   }
+
+  public function testConfigConstructor()
+  {
+    $clientId = 'test-client-id';
+    $service = new TestService(['client_id' => $clientId]);
+    $this->assertEquals($clientId, $service->getClient()->getClientId());
+  }
+
+  public function testNoConstructor()
+  {
+    $service = new TestService();
+    $this->assertInstanceOf('Google_Client', $service->getClient());
+  }
 }
+
