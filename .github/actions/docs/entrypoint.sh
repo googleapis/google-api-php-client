@@ -7,6 +7,10 @@ git reset --hard HEAD
 # Required so sami.php is available for previous versions
 cp .github/actions/docs/sami.php.dist .github/actions/docs/sami.php
 
+# Create the directories
+mkdir .docs
+mkdir .cache
+
 # Run the docs generation command
 php vendor/bin/sami.php update .github/actions/docs/sami.php
 
