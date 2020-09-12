@@ -22,6 +22,7 @@ use Google\AccessToken\Verify;
 use Google\Auth\ApplicationDefaultCredentials;
 use Google\Auth\Cache\MemoryCacheItemPool;
 use Google\Auth\CredentialsLoader;
+use Google\Auth\FetchAuthTokenCache;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\OAuth2;
 use Google\Auth\Credentials\ServiceAccountCredentials;
@@ -278,9 +279,8 @@ class Client
         'OAuth2 access token refresh with Signed JWT assertion grants.'
     );
 
-    $credentials = $this->createApplicationDefaultCredentials();
-
     $httpHandler = HttpHandlerFactory::build($authHttp);
+    $credentials = $this->createApplicationDefaultCredentials();
     $creds = $credentials->fetchAuthToken($httpHandler);
     if ($creds && isset($creds['access_token'])) {
       $creds['created'] = time();
@@ -399,9 +399,8 @@ class Client
     $credentials = null;
     $token = null;
     $scopes = null;
-    if (null === $http) {
-      $http = $this->getHttpClient();
-    }
+    $http = $http ?: $this->getHttpClient();
+    $authHandler = $this->getAuthHandler();
 
     // These conditionals represent the decision tree for authentication
     //   1.  Check for Application Default Credentials
@@ -410,6 +409,11 @@ class Client
     //   3b. If access token exists but is expired, try to refresh it
     if ($this->isUsingApplicationDefaultCredentials()) {
       $credentials = $this->createApplicationDefaultCredentials();
+      $http = $authHandler->attachCredentialsCache(
+          $http,
+          $credentials,
+          $this->config['token_callback']
+      );
     } elseif ($token = $this->getAccessToken()) {
       $scopes = $this->prepareScopes();
       // add refresh subscriber to request a new token
@@ -418,21 +422,17 @@ class Client
             $scopes,
             $token['refresh_token']
         );
+        $http = $authHandler->attachCredentials(
+            $http,
+            $credentials,
+            $this->config['token_callback']
+        );
+      } else {
+        $http = $authHandler->attachToken($http, $token, (array) $scopes);
       }
-    }
-
-    $authHandler = $this->getAuthHandler();
-
-    if ($credentials) {
-      $callback = $this->config['token_callback'];
-      $http = $authHandler->attachCredentials($http, $credentials, $callback);
-    } elseif ($token) {
-      $http = $authHandler->attachToken($http, $token, (array) $scopes);
     } elseif ($key = $this->config['developer_key']) {
       $http = $authHandler->attachKey($http, $key);
     }
-
-    return $http;
   }
 
   /**
@@ -1199,11 +1199,14 @@ class Client
           $serviceAccountCredentials
       );
     } else {
+      // When $sub is provided, we cannot pass cache classes to ::getCredentials
+      // because FetchAuthTokenCache::setSub does not exist.
+      // The result is when $sub is provided, calls to ::onGce are not cached.
       $credentials = ApplicationDefaultCredentials::getCredentials(
           $scopes,
           null,
-          null,
-          null,
+          $sub ? null : $this->config['cache_config'],
+          $sub ? null : $this->getCache(),
           $this->config['quota_project']
       );
     }
@@ -1218,11 +1221,15 @@ class Client
       $credentials->setSub($sub);
     }
 
-    return new FetchAuthTokenCache(
-      $creds,
-      $this->config['cache_config'],
-      $this->getCache()
-    );
+    // If we are not using FetchAuthTokenCache yet, create it now
+    if (!$credentials instanceof FetchAuthTokenCache) {
+      $credentials = new FetchAuthTokenCache(
+          $credentials,
+          $this->config['cache_config'],
+          $this->getCache()
+      );
+    }
+    return $credentials;
   }
 
   protected function getAuthHandler()
