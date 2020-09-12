@@ -287,9 +287,8 @@ class Client
         'OAuth2 access token refresh with Signed JWT assertion grants.'
     );
 
-    $credentials = $this->createApplicationDefaultCredentials();
-
     $httpHandler = HttpHandlerFactory::build($authHttp);
+    $credentials = $this->createApplicationDefaultCredentials();
     $creds = $credentials->fetchAuthToken($httpHandler);
     if ($creds && isset($creds['access_token'])) {
       $creds['created'] = time();
@@ -442,8 +441,6 @@ class Client
     } elseif ($key = $this->config['developer_key']) {
       $http = $authHandler->attachKey($http, $key);
     }
-
-    return $http;
   }
 
   /**
