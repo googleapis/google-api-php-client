@@ -441,6 +441,8 @@ class Client
     } elseif ($key = $this->config['developer_key']) {
       $http = $authHandler->attachKey($http, $key);
     }
+
+    return $http;
   }
 
   /**
