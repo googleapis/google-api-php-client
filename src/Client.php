@@ -433,6 +433,8 @@ class Client
     } elseif ($key = $this->config['developer_key']) {
       $http = $authHandler->attachKey($http, $key);
     }
+
+    return $http;
   }
 
   /**
@@ -1179,6 +1181,9 @@ class Client
     return new GuzzleClient($options);
   }
 
+  /**
+   * @return FetchAuthTokenCache
+   */
   private function createApplicationDefaultCredentials()
   {
     $scopes = $this->prepareScopes();
