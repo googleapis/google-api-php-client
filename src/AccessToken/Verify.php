@@ -28,7 +28,9 @@ use Google\Exception as GoogleException;
 use Stash\Driver\FileSystem;
 use Stash\Pool;
 use DateTime;
+use DomainException;
 use Exception;
+use ExpiredException; // Firebase v2
 use LogicException;
 
 /**
