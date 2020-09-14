@@ -796,7 +796,7 @@ class Google_ClientTest extends BaseTest
   /** @runInSeparateProcess */
   public function testFetchAccessTokenWithAssertionCache()
   {
-    putenv('GOOGLE_APPLICATION_CREDENTIALS=');
+    $this->checkServiceAccountCredentials();
     $cachedValue = ['access_token' => '2/abcdef1234567890'];
     $mockCacheItem = $this->prophesize('Psr\Cache\CacheItemInterface');
     $mockCacheItem->isHit()
