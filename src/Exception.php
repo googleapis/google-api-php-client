@@ -15,6 +15,10 @@
  * limitations under the License.
  */
 
-class Google_Exception extends Exception
+namespace Google;
+
+use Exception as BaseException;
+
+class Exception extends BaseException
 {
 }

@@ -15,10 +15,12 @@
  * limitations under the License.
  */
 
+namespace Google\Task;
+
 /**
  * Interface for checking how many times a given task can be retried following
  * a failure.
  */
-interface Google_Task_Retryable
+interface Retryable
 {
 }
