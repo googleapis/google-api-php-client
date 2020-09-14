@@ -254,6 +254,13 @@ class BaseTest extends TestCase
     }
   }
 
+  public function onlyGuzzle6Or7()
+  {
+    if (!$this->isGuzzle6() && !$this->isGuzzle7()) {
+      $this->markTestSkipped('Guzzle 6 or 7 only');
+    }
+  }
+
   protected function getGuzzle5ResponseMock()
   {
     $response = $this->prophesize('GuzzleHttp\Message\ResponseInterface');
