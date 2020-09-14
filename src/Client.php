@@ -153,6 +153,9 @@ class Client
           'retry' => array(),
           'retry_map' => null,
 
+          // Cache class implementing Psr\Cache\CacheItemPoolInterface.
+          // Defaults to Google\Auth\Cache\MemoryCacheItemPool.
+          'cache' => null,
           // cache config for downstream auth caching
           'cache_config' => [],
 
@@ -192,6 +195,11 @@ class Client
             ]
         );
       };
+    }
+
+    if (!is_null($this->config['cache'])) {
+      $this->setCache($this->config['cache']);
+      unset($this->config['cache']);
     }
   }
 
