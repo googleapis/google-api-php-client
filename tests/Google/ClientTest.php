@@ -194,7 +194,7 @@ class Google_ClientTest extends BaseTest
 
   public function testPrepareService()
   {
-    $this->onlyGuzzle6();
+    $this->onlyGuzzle6Or7();
 
     $client = new Google_Client();
     $client->setScopes(array("scope1", "scope2"));
@@ -746,7 +746,7 @@ class Google_ClientTest extends BaseTest
 
   public function testExecuteWithFormat()
   {
-    $this->onlyGuzzle6();
+    $this->onlyGuzzle6Or7();
 
     $client = new Google_Client([
       'api_format_v2' => true
@@ -768,7 +768,7 @@ class Google_ClientTest extends BaseTest
 
   public function testExecuteSetsCorrectHeaders()
   {
-    $this->onlyGuzzle6();
+    $this->onlyGuzzle6Or7();
 
     $client = new Google_Client();
 
