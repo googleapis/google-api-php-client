@@ -836,6 +836,7 @@ class Google_ClientTest extends BaseTest
     }
 
     putenv('HOME=');
+    putenv('GOOGLE_APPLICATION_CREDENTIALS=');
     $prefix = 'test_prefix_';
     $cacheConfig = ['gce_prefix' => $prefix];
 
@@ -857,8 +858,10 @@ class Google_ClientTest extends BaseTest
     $client->authorize();
   }
 
+  /** @runInSeparateProcess */
   public function testFetchAccessTokenWithAssertionCache()
   {
+    putenv('GOOGLE_APPLICATION_CREDENTIALS=');
     $cachedValue = ['access_token' => '2/abcdef1234567890'];
     $mockCacheItem = $this->prophesize('Psr\Cache\CacheItemInterface');
     $mockCacheItem->isHit()
