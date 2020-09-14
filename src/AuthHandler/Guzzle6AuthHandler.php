@@ -1,19 +1,21 @@
 <?php
 
+namespace Google\AuthHandler;
+
 use Google\Auth\CredentialsLoader;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\FetchAuthTokenCache;
-use Google\Auth\Subscriber\AuthTokenSubscriber;
-use Google\Auth\Subscriber\ScopedAccessTokenSubscriber;
-use Google\Auth\Subscriber\SimpleSubscriber;
+use Google\Auth\Middleware\AuthTokenMiddleware;
+use Google\Auth\Middleware\ScopedAccessTokenMiddleware;
+use Google\Auth\Middleware\SimpleMiddleware;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Psr\Cache\CacheItemPoolInterface;
 
 /**
-*
+* This supports Guzzle 6
 */
-class Google_AuthHandler_Guzzle5AuthHandler
+class Guzzle6AuthHandler
 {
   protected $cache;
   protected $cacheConfig;
@@ -42,14 +44,17 @@ class Google_AuthHandler_Guzzle5AuthHandler
     // bubbles up.
     $authHttp = $this->createAuthHttp($http);
     $authHttpHandler = HttpHandlerFactory::build($authHttp);
-    $subscriber = new AuthTokenSubscriber(
+    $middleware = new AuthTokenMiddleware(
         $credentials,
         $authHttpHandler,
         $tokenCallback
     );
 
-    $http->setDefaultOption('auth', 'google_auth');
-    $http->getEmitter()->attach($subscriber);
+    $config = $http->getConfig();
+    $config['handler']->remove('google_auth');
+    $config['handler']->push($middleware, 'google_auth');
+    $config['auth'] = 'google_auth';
+    $http = new Client($config);
 
     return $http;
   }
@@ -60,25 +65,31 @@ class Google_AuthHandler_Guzzle5AuthHandler
       return $token['access_token'];
     };
 
-    $subscriber = new ScopedAccessTokenSubscriber(
+    $middleware = new ScopedAccessTokenMiddleware(
         $tokenFunc,
         $scopes,
         $this->cacheConfig,
         $this->cache
     );
 
-    $http->setDefaultOption('auth', 'scoped');
-    $http->getEmitter()->attach($subscriber);
+    $config = $http->getConfig();
+    $config['handler']->remove('google_auth');
+    $config['handler']->push($middleware, 'google_auth');
+    $config['auth'] = 'scoped';
+    $http = new Client($config);
 
     return $http;
   }
 
   public function attachKey(ClientInterface $http, $key)
   {
-    $subscriber = new SimpleSubscriber(['key' => $key]);
+    $middleware = new SimpleMiddleware(['key' => $key]);
 
-    $http->setDefaultOption('auth', 'simple');
-    $http->getEmitter()->attach($subscriber);
+    $config = $http->getConfig();
+    $config['handler']->remove('google_auth');
+    $config['handler']->push($middleware, 'google_auth');
+    $config['auth'] = 'simple';
+    $http = new Client($config);
 
     return $http;
   }
@@ -87,12 +98,10 @@ class Google_AuthHandler_Guzzle5AuthHandler
   {
     return new Client(
         [
-          'base_url' => $http->getBaseUrl(),
-          'defaults' => [
-            'exceptions' => true,
-            'verify' => $http->getDefaultOption('verify'),
-            'proxy' => $http->getDefaultOption('proxy'),
-          ]
+          'base_uri' => $http->getConfig('base_uri'),
+          'http_errors' => true,
+          'verify' => $http->getConfig('verify'),
+          'proxy' => $http->getConfig('proxy'),
         ]
     );
   }

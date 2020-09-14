@@ -15,7 +15,11 @@
  * limitations under the License.
  */
 
-class Google_Service
+namespace Google;
+
+use Google\Http\Batch;
+
+class Service
 {
   public $batchPath;
   public $rootUrl;
@@ -25,9 +29,6 @@ class Google_Service
   public $resource;
   private $client;
 
-  /**
-   * @param Google_Client|array $clientOrConfig Optional
-   */
   public function __construct($clientOrConfig = [])
   {
     if ($clientOrConfig instanceof Google_Client) {
@@ -44,8 +45,8 @@ class Google_Service
   }
 
   /**
-   * Return the associated Google_Client class.
-   * @return Google_Client
+   * Return the associated Google\Client class.
+   * @return Google\Client
    */
   public function getClient()
   {
@@ -59,7 +60,7 @@ class Google_Service
    */
   public function createBatch()
   {
-    return new Google_Http_Batch(
+    return new Batch(
         $this->client,
         false,
         $this->rootUrl,
