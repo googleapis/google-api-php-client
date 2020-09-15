@@ -100,9 +100,9 @@ class Google_AccessToken_RevokeTest extends BaseTest
         $this->assertEquals($accessToken, $token);
     }
 
-    public function testRevokeAccessGuzzle6()
+    public function testRevokeAccessGuzzle6Or7()
     {
-        $this->onlyGuzzle6();
+        $this->onlyGuzzle6Or7();
 
         $accessToken = 'ACCESS_TOKEN';
         $refreshToken = 'REFRESH_TOKEN';

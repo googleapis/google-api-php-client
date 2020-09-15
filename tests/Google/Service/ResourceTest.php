@@ -374,7 +374,7 @@ class Google_Service_ResourceTest extends BaseTest
 
   public function testSuccessResponseWithVeryLongBody()
   {
-    $this->onlyGuzzle6();
+    $this->onlyGuzzle6Or7();
 
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
