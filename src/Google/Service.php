@@ -33,7 +33,7 @@ class Google_Service
     if ($clientOrConfig instanceof Google_Client) {
       $this->client = $clientOrConfig;
     } elseif (is_array($clientOrConfig)) {
-      $this->client = new Google_Client($clientOrConfig ?: array());
+      $this->client = new Google_Client($clientOrConfig ?: []);
     } else {
       $errorMessage = 'constructor must be array or instance of Google_Client';
       throw class_exists('TypeError')
