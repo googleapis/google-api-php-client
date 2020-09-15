@@ -28,7 +28,7 @@ class Google_Service
   /**
    * @param Google_Client|array $clientOrConfig Optional
    */
-  public function __construct($clientOrConfig = array())
+  public function __construct($clientOrConfig = [])
   {
     if ($clientOrConfig instanceof Google_Client) {
       $this->client = $clientOrConfig;
