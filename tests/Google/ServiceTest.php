@@ -141,13 +141,17 @@ class Google_ServiceTest extends TestCase
     try {
       $service = new TestService('foo');
     } catch (TypeError $e) {
-    } catch (InvalidArgumentException $e) {
+    } catch (\ErrorException $e) {
     }
     if (class_exists('TypeError')) {
       $this->assertInstanceOf('TypeError', $e);
     } else {
-      $this->assertInstanceOf('InvalidArgumentException', $e);
+      $this->assertInstanceOf('ErrorException', $e);
     }
+    $this->assertEquals(
+      'constructor must be array or instance of Google_Client',
+      $e->getMessage()
+    );
   }
 }
 
