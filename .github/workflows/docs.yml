@@ -26,3 +26,9 @@ jobs:
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           with:
             entrypoint: ./.github/actions/docs/entrypoint.sh
+        - name: Deploy 🚀
+          uses: JamesIves/github-pages-deploy-action@releases/v3
+          with:
+            ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+            BRANCH: gh-pages
+            FOLDER: .docs
