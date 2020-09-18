@@ -176,6 +176,7 @@ class Google_Client
         $this->setAccessToken(
             [
               'access_token' => $newAccessToken,
+              'expires_in' => 3600, // Google default
               'created' => time(),
             ]
         );
