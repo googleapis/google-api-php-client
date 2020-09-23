@@ -100,28 +100,6 @@ class Google_ServiceTest extends TestCase
     $this->assertTrue($model->isAssociativeArray(array("a", "b" => 2)));
   }
 
-  /**
-   * @dataProvider serviceProvider
-   */
-  public function testIncludes($class)
-  {
-    $this->assertTrue(
-        class_exists($class),
-        sprintf('Failed asserting class %s exists.', $class)
-    );
-  }
-
-  public function serviceProvider()
-  {
-    $classes = array();
-    $path = dirname(dirname(__DIR__)) . '/src/Google/Service';
-    foreach (glob($path . "/*.php") as $file) {
-      $classes[] = array('Google_Service_' . basename($file, '.php'));
-    }
-
-    return $classes;
-  }
-
   public function testConfigConstructor()
   {
     $clientId = 'test-client-id';
@@ -147,7 +125,7 @@ class Google_ServiceTest extends TestCase
 
     $this->assertInstanceOf('TypeError', $e);
     $this->assertEquals(
-      'constructor must be array or instance of Google_Client',
+      'constructor must be array or instance of Google\Client',
       $e->getMessage()
     );
   }
@@ -166,7 +144,7 @@ class Google_ServiceTest extends TestCase
     $service = new TestService('foo');
 
     $this->assertEquals(
-      'constructor must be array or instance of Google_Client',
+      'constructor must be array or instance of Google\Client',
       self::$errorMessage
     );
   }

@@ -18,6 +18,7 @@
 namespace Google;
 
 use Google\Http\Batch;
+use TypeError;
 
 class Service
 {
@@ -31,12 +32,12 @@ class Service
 
   public function __construct($clientOrConfig = [])
   {
-    if ($clientOrConfig instanceof Google_Client) {
+    if ($clientOrConfig instanceof Client) {
       $this->client = $clientOrConfig;
     } elseif (is_array($clientOrConfig)) {
-      $this->client = new Google_Client($clientOrConfig ?: []);
+      $this->client = new Client($clientOrConfig ?: []);
     } else {
-      $errorMessage = 'constructor must be array or instance of Google_Client';
+      $errorMessage = 'constructor must be array or instance of Google\Client';
       if (class_exists('TypeError')) {
         throw new TypeError($errorMessage);
       }
