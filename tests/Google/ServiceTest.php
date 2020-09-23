@@ -135,23 +135,42 @@ class Google_ServiceTest extends TestCase
     $this->assertInstanceOf('Google_Client', $service->getClient());
   }
 
-  public function testInvalidConstructor()
+  public function testInvalidConstructorPhp7Plus()
   {
-    $e = null;
+    if (!class_exists('TypeError')) {
+      $this->markTestSkipped('PHP 7+ only');
+    }
+
     try {
       $service = new TestService('foo');
-    } catch (TypeError $e) {
-    } catch (\ErrorException $e) {
-    }
-    if (class_exists('TypeError')) {
-      $this->assertInstanceOf('TypeError', $e);
-    } else {
-      $this->assertInstanceOf('ErrorException', $e);
-    }
+    } catch (TypeError $e) {}
+
+    $this->assertInstanceOf('TypeError', $e);
     $this->assertEquals(
       'constructor must be array or instance of Google_Client',
       $e->getMessage()
     );
   }
-}
 
+  private static $errorMessage;
+
+  /** @runInSeparateProcess */
+  public function testInvalidConstructorPhp5()
+  {
+    set_error_handler('Google_ServiceTest::handlePhp5Error');
+
+    $service = new TestService('foo');
+
+    $this->assertEquals(
+      'constructor must be array or instance of Google_Client',
+      self::$errorMessage
+    );
+  }
+
+  public static function handlePhp5Error($errno, $errstr, $errfile, $errline)
+  {
+    self::assertEquals(E_USER_ERROR, $errno);
+    self::$errorMessage = $errstr;
+    return true;
+  }
+}
