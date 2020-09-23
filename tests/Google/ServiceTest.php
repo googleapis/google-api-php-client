@@ -157,6 +157,10 @@ class Google_ServiceTest extends TestCase
   /** @runInSeparateProcess */
   public function testInvalidConstructorPhp5()
   {
+    if (class_exists('TypeError')) {
+      $this->markTestSkipped('PHP 5 only');
+    }
+
     set_error_handler('Google_ServiceTest::handlePhp5Error');
 
     $service = new TestService('foo');
