@@ -38,7 +38,7 @@ use Monolog\Handler\SyslogHandler as MonologSyslogHandler;
  */
 class Google_Client
 {
-  const LIBVER = "2.7.1";
+  const LIBVER = "2.7.2";
   const USER_AGENT_SUFFIX = "google-api-php-client/";
   const OAUTH2_REVOKE_URI = 'https://oauth2.googleapis.com/revoke';
   const OAUTH2_TOKEN_URI = 'https://oauth2.googleapis.com/token';
@@ -176,6 +176,7 @@ class Google_Client
         $this->setAccessToken(
             [
               'access_token' => $newAccessToken,
+              'expires_in' => 3600, // Google default
               'created' => time(),
             ]
         );
