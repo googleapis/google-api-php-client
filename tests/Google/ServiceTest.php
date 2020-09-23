@@ -121,4 +121,60 @@ class Google_ServiceTest extends TestCase
 
     return $classes;
   }
+
+  public function testConfigConstructor()
+  {
+    $clientId = 'test-client-id';
+    $service = new TestService(['client_id' => $clientId]);
+    $this->assertEquals($clientId, $service->getClient()->getClientId());
+  }
+
+  public function testNoConstructor()
+  {
+    $service = new TestService();
+    $this->assertInstanceOf('Google_Client', $service->getClient());
+  }
+
+  public function testInvalidConstructorPhp7Plus()
+  {
+    if (!class_exists('TypeError')) {
+      $this->markTestSkipped('PHP 7+ only');
+    }
+
+    try {
+      $service = new TestService('foo');
+    } catch (TypeError $e) {}
+
+    $this->assertInstanceOf('TypeError', $e);
+    $this->assertEquals(
+      'constructor must be array or instance of Google_Client',
+      $e->getMessage()
+    );
+  }
+
+  private static $errorMessage;
+
+  /** @runInSeparateProcess */
+  public function testInvalidConstructorPhp5()
+  {
+    if (class_exists('TypeError')) {
+      $this->markTestSkipped('PHP 5 only');
+    }
+
+    set_error_handler('Google_ServiceTest::handlePhp5Error');
+
+    $service = new TestService('foo');
+
+    $this->assertEquals(
+      'constructor must be array or instance of Google_Client',
+      self::$errorMessage
+    );
+  }
+
+  public static function handlePhp5Error($errno, $errstr, $errfile, $errline)
+  {
+    self::assertEquals(E_USER_ERROR, $errno);
+    self::$errorMessage = $errstr;
+    return true;
+  }
 }

@@ -25,9 +25,22 @@ class Google_Service
   public $resource;
   private $client;
 
-  public function __construct(Google_Client $client)
+  /**
+   * @param Google_Client|array $clientOrConfig Optional
+   */
+  public function __construct($clientOrConfig = [])
   {
-    $this->client = $client;
+    if ($clientOrConfig instanceof Google_Client) {
+      $this->client = $clientOrConfig;
+    } elseif (is_array($clientOrConfig)) {
+      $this->client = new Google_Client($clientOrConfig ?: []);
+    } else {
+      $errorMessage = 'constructor must be array or instance of Google_Client';
+      if (class_exists('TypeError')) {
+        throw new TypeError($errorMessage);
+      }
+      trigger_error($errorMessage, E_USER_ERROR);
+    }
   }
 
   /**
