@@ -45,6 +45,7 @@
                                             <option value="../v2.6.0/index.html" data-version="v2.6.0">v2.6.0</option>
                                             <option value="../v2.7.0/index.html" data-version="v2.7.0">v2.7.0</option>
                                             <option value="../v2.7.1/index.html" data-version="v2.7.1">v2.7.1</option>
+                                            <option value="../v2.7.2/index.html" data-version="v2.7.2">v2.7.2</option>
                                             <option value="../master/index.html" data-version="master">master branch</option>
                                     </select>
             </form>
@@ -168,7 +169,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(<a href="Google_Client.html">Google_Client</a> $client)
+                    <a href="#method___construct">__construct</a>(<a href="Google_Client.html">Google_Client</a>|array $clientOrConfig = [])
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -202,9 +203,9 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/master/src/Google/Service.php#L28">line 28</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/master/src/Google/Service.php#L31">line 31</a></div>
         <code>                    
-    <strong>__construct</strong>(<a href="Google_Client.html">Google_Client</a> $client)
+    <strong>__construct</strong>(<a href="Google_Client.html">Google_Client</a>|array $clientOrConfig = [])
         </code>
     </h3>
     <div class="details">
@@ -216,9 +217,9 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="Google_Client.html">Google_Client</a></td>
-                <td>$client</td>
-                <td></td>
+                <td><a href="Google_Client.html">Google_Client</a>|array</td>
+                <td>$clientOrConfig</td>
+                <td>Optional</td>
             </tr>
             </table>
 
@@ -231,7 +232,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getClient">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/master/src/Google/Service.php#L37">line 37</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/master/src/Google/Service.php#L50">line 50</a></div>
         <code>                    <a href="Google_Client.html">Google_Client</a>
     <strong>getClient</strong>()
         </code>
@@ -261,7 +262,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_createBatch">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/master/src/Google/Service.php#L47">line 47</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/master/src/Google/Service.php#L60">line 60</a></div>
         <code>                    <a href="Google_Http_Batch.html">Google_Http_Batch</a>
     <strong>createBatch</strong>()
         </code>
