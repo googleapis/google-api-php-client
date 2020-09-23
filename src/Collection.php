@@ -1,5 +1,7 @@
 <?php
 
+namespace Google;
+
 /**
  * Extension to the regular Google\Model that automatically
  * exposes the items array for iteration, so you can just
