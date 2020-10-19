@@ -1162,6 +1162,9 @@ class Google_Client
     } elseif (6 === $guzzleVersion || 7 === $guzzleVersion) {
       // guzzle 6 or 7
       $options['base_uri'] = $this->config['base_path'];
+
+      $options['http_errors'] = $options['exceptions'];
+      unset($options['exceptions']);
     } else {
       throw new LogicException('Could not find supported version of Guzzle.');
     }
