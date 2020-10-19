@@ -310,9 +310,9 @@ class Google_ClientTest extends BaseTest
           $this->assertFalse($client->getHttpClient()->getConfig()['http_errors']);
       }
       if ($this->isGuzzle5()) {
-          $this->assertArrayHasKey('exceptions', $client->getHttpClient()->getConfig());
-          $this->assertArrayNotHasKey('http_errors', $client->getHttpClient()->getConfig());
-          $this->assertFalse($client->getHttpClient()->getConfig()['exceptions']);
+          $this->assertArrayHasKey('exceptions', $client->getHttpClient()->getDefaultOption());
+          $this->assertArrayNotHasKey('http_errors', $client->getHttpClient()->getDefaultOption());
+          $this->assertFalse($client->getHttpClient()->getDefaultOption()['exceptions']);
       }
   }
 
