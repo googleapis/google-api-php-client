@@ -70,7 +70,7 @@ $resultsDeferred = $client->execute($request);
   array.
   Some calls will return a single item which we
   can immediately use. The individual responses
-  are typed as Google\Service\Books_Volume, but
+  are typed as Google\Service\Books\Volume, but
   can be treated as an array.
  ************************************************/
 ?>
