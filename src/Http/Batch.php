@@ -15,6 +15,11 @@
  * limitations under the License.
  */
 
+namespace Google\Http;
+
+use Google\Client;
+use Google\Http\REST;
+use Google\Service\Exception as GoogleServiceException;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
@@ -24,11 +29,11 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * Class to handle batched requests to the Google API service.
  *
- * Note that calls to `Google_Http_Batch::execute()` do not clear the queued
+ * Note that calls to `Google\Http\Batch::execute()` do not clear the queued
  * requests. To start a new batch, be sure to create a new instance of this
  * class.
  */
-class Google_Http_Batch
+class Batch
 {
   const BATCH_PATH = 'batch';
 
@@ -43,7 +48,7 @@ class Google_Http_Batch
   /** @var array service requests to be executed. */
   private $requests = array();
 
-  /** @var Google_Client */
+  /** @var Client */
   private $client;
 
   private $rootUrl;
@@ -51,7 +56,7 @@ class Google_Http_Batch
   private $batchPath;
 
   public function __construct(
-      Google_Client $client,
+      Client $client,
       $boundary = false,
       $rootUrl = null,
       $batchPath = null
@@ -88,7 +93,7 @@ Content-ID: %s
 
 EOF;
 
-    /** @var Google_Http_Request $req */
+    /** @var Google\Http\Request $req */
     foreach ($this->requests as $key => $request) {
       $firstLine = sprintf(
           '%s %s HTTP/%s',
@@ -176,8 +181,8 @@ EOF;
           $key = $headers['content-id'];
 
           try {
-            $response = Google_Http_REST::decodeHttpResponse($response, $requests[$i-1]);
-          } catch (Google_Service_Exception $e) {
+            $response = REST::decodeHttpResponse($response, $requests[$i-1]);
+          } catch (GoogleServiceException $e) {
             // Store the exception as the response, so successful responses
             // can be processed.
             $response = $e;

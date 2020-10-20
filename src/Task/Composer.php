@@ -15,11 +15,14 @@
  * the License.
  */
 
+namespace Google\Task;
+
 use Composer\Script\Event;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
+use InvalidArgumentException;
 
-class Google_Task_Composer
+class Composer
 {
   /**
    * @param Event $event Composer event passed in for any script method
@@ -70,7 +73,7 @@ class Google_Task_Composer
 
     foreach ($servicesToKeep as $service) {
       if (!preg_match('/^[a-zA-Z0-9]*$/', $service)) {
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             sprintf(
                 'Invalid Google service name "%s"',
                 $service
@@ -79,8 +82,8 @@ class Google_Task_Composer
       }
       try {
         $finder->in($serviceDir . '/' . $service);
-      } catch (\InvalidArgumentException $e) {
-        throw new \InvalidArgumentException(
+      } catch (InvalidArgumentException $e) {
+        throw new InvalidArgumentException(
             sprintf(
                 'Google service "%s" does not exist or was removed previously',
                 $service

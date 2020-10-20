@@ -15,7 +15,12 @@
  * limitations under the License.
  */
 
+namespace Google\Http;
+
 use Google\Auth\HttpHandler\HttpHandlerFactory;
+use Google\Client;
+use Google\Task\Runner;
+use Google\Service\Exception as GoogleServiceException;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
@@ -25,19 +30,19 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * This class implements the RESTful transport of apiServiceRequest()'s
  */
-class Google_Http_REST
+class REST
 {
   /**
    * Executes a Psr\Http\Message\RequestInterface and (if applicable) automatically retries
    * when errors occur.
    *
-   * @param Google_Client $client
+   * @param Google\Client $client
    * @param Psr\Http\Message\RequestInterface $req
    * @param string $expectedClass
    * @param array $config
    * @param array $retryMap
    * @return array decoded result
-   * @throws Google_Service_Exception on server side error (ie: not authenticated,
+   * @throws Google\Service\Exception on server side error (ie: not authenticated,
    *  invalid or malformed post body, invalid url)
    */
   public static function execute(
@@ -47,7 +52,7 @@ class Google_Http_REST
       $config = array(),
       $retryMap = null
   ) {
-    $runner = new Google_Task_Runner(
+    $runner = new Runner(
         $config,
         sprintf('%s %s', $request->getMethod(), (string) $request->getUri()),
         array(get_class(), 'doExecute'),
@@ -64,11 +69,11 @@ class Google_Http_REST
   /**
    * Executes a Psr\Http\Message\RequestInterface
    *
-   * @param Google_Client $client
+   * @param Google\Client $client
    * @param Psr\Http\Message\RequestInterface $request
    * @param string $expectedClass
    * @return array decoded result
-   * @throws Google_Service_Exception on server side error (ie: not authenticated,
+   * @throws Google\Service\Exception on server side error (ie: not authenticated,
    *  invalid or malformed post body, invalid url)
    */
   public static function doExecute(ClientInterface $client, RequestInterface $request, $expectedClass = null)
@@ -101,7 +106,7 @@ class Google_Http_REST
   /**
    * Decode an HTTP Response.
    * @static
-   * @throws Google_Service_Exception
+   * @throws Google\Service\Exception
    * @param Psr\Http\Message\RequestInterface $response The http response to be decoded.
    * @param Psr\Http\Message\ResponseInterface $response
    * @param string $expectedClass
@@ -120,7 +125,7 @@ class Google_Http_REST
       $body = (string) $response->getBody();
 
       // Check if we received errors, and add those to the Exception for convenience
-      throw new Google_Service_Exception($body, $code, null, self::getResponseErrors($body));
+      throw new GoogleServiceException($body, $code, null, self::getResponseErrors($body));
     }
 
     // Ensure we only pull the entire body into memory if the request is not

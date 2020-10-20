@@ -15,6 +15,10 @@
  * limitations under the License.
  */
 
+namespace Google;
+
+use Google\AccessToken\Revoke;
+use Google\AccessToken\Verify;
 use Google\Auth\ApplicationDefaultCredentials;
 use Google\Auth\Cache\MemoryCacheItemPool;
 use Google\Auth\CredentialsLoader;
@@ -22,7 +26,9 @@ use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\OAuth2;
 use Google\Auth\Credentials\ServiceAccountCredentials;
 use Google\Auth\Credentials\UserRefreshCredentials;
-use GuzzleHttp\Client;
+use Google\AuthHandler\AuthHandlerFactory;
+use Google\Http\REST;
+use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Ring\Client\StreamHandler;
 use Psr\Cache\CacheItemPoolInterface;
@@ -31,12 +37,16 @@ use Psr\Log\LoggerInterface;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler as MonologStreamHandler;
 use Monolog\Handler\SyslogHandler as MonologSyslogHandler;
+use BadMethodCallException;
+use DomainException;
+use InvalidArgumentException;
+use LogicException;
 
 /**
  * The Google API Client
  * https://github.com/google/google-api-php-client
  */
-class Google_Client
+class Client
 {
   const LIBVER = "2.7.2";
   const USER_AGENT_SUFFIX = "google-api-php-client/";
@@ -104,9 +114,9 @@ class Google_Client
           'client_secret' => '',
 
           // Path to JSON credentials or an array representing those credentials
-          // @see Google_Client::setAuthConfig
+          // @see Google\Client::setAuthConfig
           'credentials' => null,
-          // @see Google_Client::setScopes
+          // @see Google\Client::setScopes
           'scopes' => null,
           // Sets X-Goog-User-Project, which specifies a user project to bill
           // for access charges associated with the request
@@ -138,7 +148,7 @@ class Google_Client
           'approval_prompt' => 'auto',
 
           // Task Runner retry configuration
-          // @see Google_Task_Runner
+          // @see Google\Task\Runner
           'retry' => array(),
           'retry_map' => null,
 
@@ -149,7 +159,7 @@ class Google_Client
           // follows the signature function ($cacheKey, $accessToken)
           'token_callback' => null,
 
-          // Service class used in Google_Client::verifyIdToken.
+          // Service class used in Google\Client::verifyIdToken.
           // Explicitly pass this in to avoid setting JWT::$leeway
           'jwt' => null,
 
@@ -256,9 +266,9 @@ class Google_Client
     if (!$this->isUsingApplicationDefaultCredentials()) {
       throw new DomainException(
           'set the JSON service account credentials using'
-          . ' Google_Client::setAuthConfig or set the path to your JSON file'
+          . ' Google\Client::setAuthConfig or set the path to your JSON file'
           . ' with the "GOOGLE_APPLICATION_CREDENTIALS" environment variable'
-          . ' and call Google_Client::useApplicationDefaultCredentials to'
+          . ' and call Google\Client::useApplicationDefaultCredentials to'
           . ' refresh a token with assertion.'
       );
     }
@@ -734,9 +744,7 @@ class Google_Client
    */
   public function revokeToken($token = null)
   {
-    $tokenRevoker = new Google_AccessToken_Revoke(
-        $this->getHttpClient()
-    );
+    $tokenRevoker = new Revoke($this->getHttpClient());
 
     return $tokenRevoker->revokeToken($token ?: $this->getAccessToken());
   }
@@ -753,7 +761,7 @@ class Google_Client
    */
   public function verifyIdToken($idToken = null)
   {
-    $tokenVerifier = new Google_AccessToken_Verify(
+    $tokenVerifier = new Verify(
         $this->getHttpClient(),
         $this->getCache(),
         $this->config['jwt']
@@ -834,9 +842,9 @@ class Google_Client
   /**
    * Helper method to execute deferred HTTP requests.
    *
-   * @param $request Psr\Http\Message\RequestInterface|Google_Http_Batch
+   * @param $request Psr\Http\Message\RequestInterface|Google\Http\Batch
    * @param string $expectedClass
-   * @throws Google_Exception
+   * @throws Google\Exception
    * @return object of the type of the expected class or Psr\Http\Message\ResponseInterface.
    */
   public function execute(RequestInterface $request, $expectedClass = null)
@@ -871,7 +879,7 @@ class Google_Client
     // this is where most of the grunt work is done
     $http = $this->authorize();
 
-    return Google_Http_REST::execute(
+    return REST::execute(
         $http,
         $request,
         $expectedClass,
@@ -918,7 +926,7 @@ class Google_Client
    * alias for setAuthConfig
    *
    * @param string $file the configuration file
-   * @throws Google_Exception
+   * @throws Google\Exception
    * @deprecated
    */
   public function setAuthConfigFile($file)
@@ -932,7 +940,7 @@ class Google_Client
    * the "Download JSON" button on in the Google Developer
    * Console.
    * @param string|array $config the configuration json
-   * @throws Google_Exception
+   * @throws Google\Exception
    */
   public function setAuthConfig($config)
   {
@@ -1168,7 +1176,7 @@ class Google_Client
       throw new LogicException('Could not find supported version of Guzzle.');
     }
 
-    return new Client($options);
+    return new GuzzleClient($options);
   }
 
   private function createApplicationDefaultCredentials()
@@ -1220,7 +1228,7 @@ class Google_Client
     // sessions.
     //
     // @see https://github.com/google/google-api-php-client/issues/821
-    return Google_AuthHandler_AuthHandlerFactory::build(
+    return AuthHandlerFactory::build(
         $this->getCache(),
         $this->config['cache_config']
     );

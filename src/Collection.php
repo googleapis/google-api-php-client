@@ -1,11 +1,13 @@
 <?php
 
+namespace Google;
+
 /**
- * Extension to the regular Google_Model that automatically
+ * Extension to the regular Google\Model that automatically
  * exposes the items array for iteration, so you can just
  * iterate over the object rather than a reference inside.
  */
-class Google_Collection extends Google_Model implements Iterator, Countable
+class Collection extends Model implements \Iterator, \Countable
 {
   protected $collection_key = 'items';
 

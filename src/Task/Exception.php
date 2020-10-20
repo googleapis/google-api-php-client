@@ -1,12 +1,12 @@
 <?php
-/**
- * Copyright 2020 Google LLC
+/*
+ * Copyright 2014 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,9 +15,10 @@
  * limitations under the License.
  */
 
-/**
-* This supports Guzzle 7
-*/
-class Google_AuthHandler_Guzzle7AuthHandler extends Google_AuthHandler_Guzzle6AuthHandler
+namespace Google\Task;
+
+use Google\Exception as GoogleException;
+
+class Exception extends GoogleException
 {
 }
