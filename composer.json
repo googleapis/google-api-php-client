@@ -26,7 +26,7 @@
         "composer/composer": "^1.10"
     },
     "suggest": {
-        "cache/filesystem-adapter": "For caching certs and tokens (using Google_Client::setCache)"
+        "cache/filesystem-adapter": "For caching certs and tokens (using Google\\Client::setCache)"
     },
     "autoload": {
         "psr-4": {
