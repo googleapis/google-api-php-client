@@ -829,36 +829,6 @@ class Google_ClientTest extends BaseTest
   }
 
   /** @runInSeparateProcess */
-  public function testOnGceCacheAndCacheOptions()
-  {
-    if (!class_exists('Google\Auth\GCECache')) {
-      $this->markTestSkipped('Requires google/auth >= 1.12');
-    }
-
-    putenv('HOME=');
-    putenv('GOOGLE_APPLICATION_CREDENTIALS=');
-    $prefix = 'test_prefix_';
-    $cacheConfig = ['gce_prefix' => $prefix];
-
-    $mockCacheItem = $this->prophesize('Psr\Cache\CacheItemInterface');
-    $mockCacheItem->isHit()
-        ->willReturn(true);
-    $mockCacheItem->get()
-        ->shouldBeCalledTimes(1)
-        ->willReturn(true);
-
-    $mockCache = $this->prophesize('Psr\Cache\CacheItemPoolInterface');
-    $mockCache->getItem($prefix . Google\Auth\GCECache::GCE_CACHE_KEY)
-        ->shouldBeCalledTimes(1)
-        ->willReturn($mockCacheItem->reveal());
-
-    $client = new Google_Client(['cache_config' => $cacheConfig]);
-    $client->setCache($mockCache->reveal());
-    $client->useApplicationDefaultCredentials();
-    $client->authorize();
-  }
-
-  /** @runInSeparateProcess */
   public function testFetchAccessTokenWithAssertionCache()
   {
     $this->checkServiceAccountCredentials();
