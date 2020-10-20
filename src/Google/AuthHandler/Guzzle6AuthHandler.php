@@ -97,7 +97,7 @@ class Google_AuthHandler_Guzzle6AuthHandler
     return new Client(
         [
           'base_uri' => $http->getConfig('base_uri'),
-          'exceptions' => true,
+          'http_errors' => true,
           'verify' => $http->getConfig('verify'),
           'proxy' => $http->getConfig('proxy'),
         ]

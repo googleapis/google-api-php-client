@@ -301,6 +301,21 @@ class Google_ClientTest extends BaseTest
     $this->assertEquals($token, $client->getAccessToken());
   }
 
+  public function testDefaultConfigOptions()
+  {
+      $client = new Google_Client();
+      if ($this->isGuzzle6() || $this->isGuzzle7()) {
+          $this->assertArrayHasKey('http_errors', $client->getHttpClient()->getConfig());
+          $this->assertArrayNotHasKey('exceptions', $client->getHttpClient()->getConfig());
+          $this->assertFalse($client->getHttpClient()->getConfig()['http_errors']);
+      }
+      if ($this->isGuzzle5()) {
+          $this->assertArrayHasKey('exceptions', $client->getHttpClient()->getDefaultOption());
+          $this->assertArrayNotHasKey('http_errors', $client->getHttpClient()->getDefaultOption());
+          $this->assertFalse($client->getHttpClient()->getDefaultOption()['exceptions']);
+      }
+  }
+
   public function testAppEngineStreamHandlerConfig()
   {
     $this->onlyGuzzle5();
