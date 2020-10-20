@@ -34,11 +34,11 @@ if (!$oauth_credentials = getOAuthCredentialsFile()) {
  ************************************************/
 $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 
-$client = new Google_Client();
+$client = new Google\Client();
 $client->setAuthConfig($oauth_credentials);
 $client->setRedirectUri($redirect_uri);
 $client->addScope("https://www.googleapis.com/auth/drive");
-$service = new Google_Service_Drive($client);
+$service = new Google\Service\Drive($client);
 
 // add "?logout" to the URL to remove a token from the session
 if (isset($_REQUEST['logout'])) {
@@ -48,7 +48,7 @@ if (isset($_REQUEST['logout'])) {
 /************************************************
  * If we have a code back from the OAuth 2.0 flow,
  * we need to exchange that with the
- * Google_Client::fetchAccessTokenWithAuthCode()
+ * Google\Client::fetchAccessTokenWithAuthCode()
  * function. We store the resultant access token
  * bundle in the session, and redirect to ourself.
  ************************************************/
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
   }
 
   // This is uploading a file directly, with no metadata associated.
-  $file = new Google_Service_Drive_DriveFile();
+  $file = new Google\Service\Drive\DriveFile();
   $result = $service->files->create(
       $file,
       array(
@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
   );
 
   // Now lets try and send the metadata as well using multipart!
-  $file = new Google_Service_Drive_DriveFile();
+  $file = new Google\Service\Drive\DriveFile();
   $file->setName("Hello World!");
   $result2 = $service->files->create(
       $file,

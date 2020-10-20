@@ -6,7 +6,7 @@ When calling APIs that do not access private user data, you can use simple API k
 
 ## Using API Keys
 
-To use API keys, call the `setDeveloperKey()` method of the `Google_Client` object before making any API calls. For example:
+To use API keys, call the `setDeveloperKey()` method of the `Google\Client` object before making any API calls. For example:
 
 ```php
 $client->setDeveloperKey($api_key);

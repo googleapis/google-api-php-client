@@ -35,7 +35,7 @@ if (!$oauth_credentials = getOAuthCredentialsFile()) {
  ************************************************/
 $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 
-$client = new Google_Client();
+$client = new Google\Client();
 $client->setAuthConfig($oauth_credentials);
 $client->setRedirectUri($redirect_uri);
 $client->addScope("https://www.googleapis.com/auth/drive");
@@ -49,7 +49,7 @@ if (isset($_REQUEST['logout'])) {
 /************************************************
  * If we have a code back from the OAuth 2.0 flow,
  * we need to exchange that with the
- * Google_Client::fetchAccessTokenWithAuthCode()
+ * Google\Client::fetchAccessTokenWithAuthCode()
  * function. We store the resultant access token
  * bundle in the session, and redirect to ourself.
  ************************************************/
@@ -78,8 +78,8 @@ if (!empty($_SESSION['multi-api-token'])) {
   We are going to create both YouTube and Drive
   services, and query both.
  ************************************************/
-$yt_service = new Google_Service_YouTube($client);
-$dr_service = new Google_Service_Drive($client);
+$yt_service = new Google\Service\YouTube($client);
+$dr_service = new Google\Service\Drive($client);
 
 /************************************************
   If we're signed in, retrieve channels from YouTube

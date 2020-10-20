@@ -34,16 +34,16 @@ if (!$oauth_credentials = getOAuthCredentialsFile()) {
  ************************************************/
 $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 
-$client = new Google_Client();
+$client = new Google\Client();
 $client->setAuthConfig($oauth_credentials);
 $client->setRedirectUri($redirect_uri);
 $client->addScope("https://www.googleapis.com/auth/drive");
-$service = new Google_Service_Drive($client);
+$service = new Google\Service\Drive($client);
 
 /************************************************
  * If we have a code back from the OAuth 2.0 flow,
  * we need to exchange that with the
- * Google_Client::fetchAccessTokenWithAuthCode()
+ * Google\Client::fetchAccessTokenWithAuthCode()
  * function. We store the resultant access token
  * bundle in the session, and redirect to ourself.
  ************************************************/
