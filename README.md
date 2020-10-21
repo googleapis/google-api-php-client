@@ -135,7 +135,7 @@ $client = new Google\Client();
 $client->setApplicationName("Client_Library_Examples");
 $client->setDeveloperKey("YOUR_APP_KEY");
 
-$service = new Google\Service\Books($client);
+$service = new Google_Service_Books($client);
 $optParams = array(
   'filter' => 'free-ebooks',
   'q' => 'Henry David Thoreau'
@@ -163,7 +163,7 @@ foreach ($results->getItems() as $item) {
 1. Set the scopes required for the API you are going to call
 
     ```php
-    $client->addScope(Google\Service\Drive::DRIVE);
+    $client->addScope(Google_Service_Drive::DRIVE);
     ```
 
 1. Set your application's redirect URI
@@ -210,7 +210,7 @@ calls return unexpected 401 or 403 errors.
 1. Set the scopes required for the API you are going to call
 
     ```php
-    $client->addScope(Google\Service\Drive::DRIVE);
+    $client->addScope(Google_Service_Drive::DRIVE);
     ```
 
 1. If you have delegated domain-wide access to the service account and you want to impersonate a user account, specify the email address of the user account using the method setSubject:
@@ -247,13 +247,11 @@ POST https://datastore.googleapis.com/v1beta3/projects/YOUR_PROJECT_ID:runQuery?
 Using this library, the same call would look something like this:
 
 ```php
-use Google\Service\Datastore;
-
 // create the datastore service class
-$datastore = new Datastore($client);
+$datastore = new Google_Service_Datastore($client);
 
 // build the query - this maps directly to the JSON
-$query = new Datastore\Query([
+$query = new Google_Service_Datastore_Query([
     'kind' => [
         [
             'name' => 'Book',
@@ -269,30 +267,28 @@ $query = new Datastore\Query([
 ]);
 
 // build the request and response
-$request = new Datastore\RunQueryRequest(['query' => $query]);
+$request = new Google_Service_Datastore_RunQueryRequest(['query' => $query]);
 $response = $datastore->projects->runQuery('YOUR_DATASET_ID', $request);
 ```
 
 However, as each property of the JSON API has a corresponding generated class, the above code could also be written like this:
 
 ```php
-use Google\Service\Datastore;
-
 // create the datastore service class
-$datastore = new Datastore($client);
+$datastore = new Google_Service_Datastore($client);
 
 // build the query
-$request = new Datastore\RunQueryRequest();
-$query = new Datastore\Query();
+$request = new Google_Service_Datastore_RunQueryRequest();
+$query = new Google_Service_Datastore_Query();
 //   - set the order
-$order = new Datastore\PropertyOrder();
+$order = new Google_Service_Datastore_PropertyOrder();
 $order->setDirection('descending');
-$property = new Datastore\PropertyReference();
+$property = new Google_Service_Datastore_PropertyReference();
 $property->setName('title');
 $order->setProperty($property);
 $query->setOrder([$order]);
 //   - set the kinds
-$kind = new Datastore\KindExpression();
+$kind = new Google_Service_Datastore_KindExpression();
 $kind->setName('Book');
 $query->setKinds([$kind]);
 //   - set the limit
@@ -323,7 +319,7 @@ $client = new Google\Client();
  * Application Default Credentials.
  */
 $client->useApplicationDefaultCredentials();
-$client->addScope(Google\Service\Plus::PLUS_ME);
+$client->addScope(Google_Service_Plus::PLUS_ME);
 
 // returns a Guzzle HTTP Client
 $httpClient = $client->authorize();
