@@ -26,7 +26,7 @@ echo pageHeader("Simple API Access");
   setDeveloperKey, the request may still succeed
   using the anonymous quota.
  ************************************************/
-$client = new Google_Client();
+$client = new Google\Client();
 $client->setApplicationName("Client_Library_Examples");
 
 // Warn if the API key isn't set.

@@ -52,7 +52,7 @@ This library relies on `google/apiclient-services`. That library provides up-to-
 
 There are over 200 Google API services. The chances are good that you will not
 want them all. In order to avoid shipping these dependencies with your code,
-you can run the `Google_Task_Composer::cleanup` task and specify the services
+you can run the `Google\Task\Composer::cleanup` task and specify the services
 you want to keep in `composer.json`:
 
 ```json
@@ -61,7 +61,7 @@ you want to keep in `composer.json`:
         "google/apiclient": "^2.7"
     },
     "scripts": {
-        "post-update-cmd": "Google_Task_Composer::cleanup"
+        "post-update-cmd": "Google\\Task\\Composer::cleanup"
     },
     "extra": {
         "google/apiclient-services": [
@@ -131,7 +131,7 @@ And then browsing to the host and port you specified
 // include your composer dependencies
 require_once 'vendor/autoload.php';
 
-$client = new Google_Client();
+$client = new Google\Client();
 $client->setApplicationName("Client_Library_Examples");
 $client->setDeveloperKey("YOUR_APP_KEY");
 
@@ -153,10 +153,10 @@ foreach ($results->getItems() as $item) {
 
 1. Follow the instructions to [Create Web Application Credentials](docs/oauth-web.md#create-authorization-credentials)
 1. Download the JSON credentials
-1. Set the path to these credentials using `Google_Client::setAuthConfig`:
+1. Set the path to these credentials using `Google\Client::setAuthConfig`:
 
     ```php
-    $client = new Google_Client();
+    $client = new Google\Client();
     $client->setAuthConfig('/path/to/client_credentials.json');
     ```
 
@@ -203,7 +203,7 @@ calls return unexpected 401 or 403 errors.
 1. Tell the Google client to use your service account credentials to authenticate:
 
     ```php
-    $client = new Google_Client();
+    $client = new Google\Client();
     $client->useApplicationDefaultCredentials();
     ```
 
@@ -311,7 +311,7 @@ The `authorize` method returns an authorized [Guzzle Client](http://docs.guzzlep
 
 ```php
 // create the Google client
-$client = new Google_Client();
+$client = new Google\Client();
 
 /**
  * Set your method for authentication. Depending on the API, This could be
@@ -355,7 +355,7 @@ composer require cache/filesystem-adapter
 When using [Refresh Tokens](https://developers.google.com/identity/protocols/OAuth2InstalledApp#offline) or [Service Account Credentials](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#overview), it may be useful to perform some action when a new access token is granted. To do this, pass a callable to the `setTokenCallback` method on the client:
 
 ```php
-$logger = new Monolog\Logger;
+$logger = new Monolog\Logger();
 $tokenCallback = function ($cacheKey, $accessToken) use ($logger) {
   $logger->debug(sprintf('new access token received at cache key %s', $cacheKey));
 };
@@ -373,7 +373,7 @@ $httpClient = new GuzzleHttp\Client([
     'verify' => false, // otherwise HTTPS requests will fail.
 ]);
 
-$client = new Google_Client();
+$client = new Google\Client();
 $client->setHttpClient($httpClient);
 ```
 
@@ -396,7 +396,7 @@ $httpClient = new Client([
     ]
 ]);
 
-$client = new Google_Client();
+$client = new Google\Client();
 $client->setHttpClient($httpClient);
 ```
 
@@ -438,7 +438,7 @@ $opt_params = array(
 
 ### How do I set a field to null? ###
 
-The library strips out nulls from the objects sent to the Google APIs as its the default value of all of the uninitialized properties. To work around this, set the field you want to null to `Google_Model::NULL_VALUE`. This is a placeholder that will be replaced with a true null when sent over the wire.
+The library strips out nulls from the objects sent to the Google APIs as its the default value of all of the uninitialized properties. To work around this, set the field you want to null to `Google\Model::NULL_VALUE`. This is a placeholder that will be replaced with a true null when sent over the wire.
 
 ## Code Quality ##
 
