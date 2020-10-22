@@ -73,14 +73,14 @@ The list below quickly summarizes these steps:
 
 Your first step is to create the authorization request. That request sets parameters that identify your application and define the permissions that the user will be asked to grant to your application.
 
-The code snippet below creates a `Google_Client()` object, which defines the parameters in the authorization request.
+The code snippet below creates a `Google\Client()` object, which defines the parameters in the authorization request.
 
 That object uses information from your **client_secret.json** file to identify your application. The object also identifies the scopes that your application is requesting permission to access and the URL to your application's auth endpoint, which will handle the response from Google's OAuth 2.0 server. Finally, the code sets the optional access_type and include_granted_scopes parameters.
 
 For example, this code requests read-only, offline access to a user's Google Drive:
 
 ```php
-$client = new Google_Client();
+$client = new Google\Client();
 $client->setAuthConfig('client_secret.json');
 $client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
 $client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
@@ -97,7 +97,7 @@ The request specifies the following information:
 **Required**. The client ID for your application. You can find this value in the [API Console](https://console.developers.google.com/). In PHP, call the `setAuthConfig` function to load authorization credentials from a **client_secret.json** file.
 
 ```php
-$client = new Google_Client();
+$client = new Google\Client();
 $client->setAuthConfig('client_secret.json');
 ```
 
@@ -275,13 +275,13 @@ $access_token = $client->getAccessToken();
 
 Use the access token to call Google APIs by completing the following steps:
 
-1.  If you need to apply an access token to a new `Google_Client` object—for example, if you stored the access token in a user session—use the `setAccessToken` method:
+1.  If you need to apply an access token to a new `Google\Client` object—for example, if you stored the access token in a user session—use the `setAccessToken` method:
 
     ```php
     $client->setAccessToken($access_token);
     ```
 
-2.  Build a service object for the API that you want to call. You build a a service object by providing an authorized `Google_Client` object to the constructor for the API you want to call. For example, to call the Drive API:
+2.  Build a service object for the API that you want to call. You build a a service object by providing an authorized `Google\Client` object to the constructor for the API you want to call. For example, to call the Drive API:
 
     ```php
     $drive = new Google_Service_Drive($client);
@@ -329,7 +329,7 @@ require_once __DIR__.'/vendor/autoload.php';
 
 session_start();
 
-$client = new Google_Client();
+$client = new Google\Client();
 $client->setAuthConfig('client_secrets.json');
 $client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
 
@@ -352,7 +352,7 @@ require_once __DIR__.'/vendor/autoload.php';
 
 session_start();
 
-$client = new Google_Client();
+$client = new Google\Client();
 $client->setAuthConfigFile('client_secrets.json');
 $client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
 $client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);

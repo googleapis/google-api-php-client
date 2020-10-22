@@ -68,7 +68,7 @@ putenv('GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json');
 Call the `useApplicationDefaultCredentials` to use your service account credentials to authenticate:
 
 ```php
-$client = new Google_Client();
+$client = new Google\Client();
 $client->useApplicationDefaultCredentials();
 ```
 
@@ -78,20 +78,20 @@ If you have delegated domain-wide access to the service account and you want to 
 $client->setSubject($user_to_impersonate);
 ```
 
-Use the authorized `Google_Client` object to call Google APIs in your application.
+Use the authorized `Google\Client` object to call Google APIs in your application.
 
 ## Calling Google APIs
 
-Use the authorized `Google_Client` object to call Google APIs by completing the following steps:
+Use the authorized `Google\Client` object to call Google APIs by completing the following steps:
 
-1.  Build a service object for the API that you want to call, providing the authorized `Google_Client` object. For example, to call the Cloud SQL Administration API:
-    
+1.  Build a service object for the API that you want to call, providing the authorized `Google\Client` object. For example, to call the Cloud SQL Administration API:
+
     ```php
     $sqladmin = new Google_Service_SQLAdmin($client);
     ```
-    
+
 2.  Make requests to the API service using the [interface provided by the service object](https://github.com/googleapis/google-api-php-client/blob/master/docs/start.md#build-the-service-object). For example, to list the instances of Cloud SQL databases in the examinable-example-123 project:
-    
+
     ```php
     $response = $sqladmin->instances->listInstances('examinable-example-123')->getItems();
     ```
@@ -103,21 +103,21 @@ The following example prints a JSON-formatted list of Cloud SQL instances in a p
 To run this example:
 
 1.  Create a new directory and change to it. For example:
-    
+
     ```sh
     mkdir ~/php-oauth2-example
     cd ~/php-oauth2-example
     ```
-    
+
 2.  Install the [Google API Client Library](https://github.com/google/google-api-php-client) for PHP using [Composer](https://getcomposer.org):
-    
+
     ```sh
     composer require google/apiclient:^2.0
     ```
-    
+
 3.  Create the file sqlinstances.php with the content below.
 4.  Run the example from the command line:
-    
+
     ```
     php ~/php-oauth2-example/sqlinstances.php
     ```
@@ -130,7 +130,7 @@ To run this example:
 require_once __DIR__.'/vendor/autoload.php';
 
 putenv('GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json');
-$client = new Google_Client();
+$client = new Google\Client();
 $client->useApplicationDefaultCredentials();
 
 $sqladmin = new Google_Service_SQLAdmin($client);

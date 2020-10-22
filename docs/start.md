@@ -21,9 +21,9 @@ These API calls do not access any private user data. Your application must authe
 #### Important concepts
 
 *   **API key**: To authenticate your application, use an [API key](https://cloud.google.com/docs/authentication/api-keys) for your Google Cloud Console project. Every simple access call your application makes must include this key.
-    
+
 > **Warning**: Keep your API key private. If someone obtains your key, they could use it to consume your quota or incur charges against your Google Cloud project.
-    
+
 
 ### 2. Authorized API access (OAuth 2.0)
 
@@ -33,17 +33,17 @@ These API calls access private user data. Before you can call them, the user tha
 
 *   **Scope**: Each API defines one or more scopes that declare a set of operations permitted. For example, an API might have read-only and read-write scopes. When your application requests access to user data, the request must include one or more scopes. The user needs to approve the scope of access your application is requesting.
 *   **Refresh and access tokens**: When a user grants your application access, the OAuth 2.0 authorization server provides your application with refresh and access tokens. These tokens are only valid for the scope requested. Your application uses access tokens to authorize API calls. Access tokens expire, but refresh tokens do not. Your application can use a refresh token to acquire a new access token.
-    
+
     > **Warning**: Keep refresh and access tokens private. If someone obtains your tokens, they could use them to access private user data.
-    
+
 *   **Client ID and client secret**: These strings uniquely identify your application and are used to acquire tokens. They are created for your Google Cloud project on the [API Access pane](https://code.google.com/apis/console#:access) of the Google Cloud. There are three types of client IDs, so be sure to get the correct type for your application:
-    
+
     *   Web application client IDs
     *   Installed application client IDs
     *   [Service Account](https://developers.google.com/identity/protocols/OAuth2ServiceAccount) client IDs
-    
+
     > **Warning**: Keep your client secret private. If someone obtains your client secret, they could use it to consume your quota, incur charges against your Google Cloud project, and request access to user data.
-    
+
 
 ## Building and calling a service
 
@@ -54,16 +54,16 @@ This section described how to build an API-specific service object, make calls t
 The client object is the primary container for classes and configuration in the library.
 
 ```php
-$client = new Google_Client();
+$client = new Google\Client();
 $client->setApplicationName("My Application");
 $client->setDeveloperKey("MY_SIMPLE_API_KEY");
-```      
+```
 
 ### Build the service object
 
-Services are called through queries to service specific objects. These are created by constructing the service object, and passing an instance of `Google_Client` to it. `Google_Client` contains the IO, authentication and other classes required by the service to function, and the service informs the client which scopes it uses to provide a default when authenticating a user.
+Services are called through queries to service specific objects. These are created by constructing the service object, and passing an instance of `Google\Client` to it. `Google\Client` contains the IO, authentication and other classes required by the service to function, and the service informs the client which scopes it uses to provide a default when authenticating a user.
 
-```php 
+```php
 $service = new Google_Service_Books($client);
 ```
 
@@ -71,20 +71,20 @@ $service = new Google_Service_Books($client);
 
 Each API provides resources and methods, usually in a chain. These can be accessed from the service object in the form `$service->resource->method(args)`. Most method require some arguments, then accept a final parameter of an array containing optional parameters. For example, with the Google Books API, we can make a call to list volumes matching a certain string, and add an optional _filter_ parameter.
 
-```php 
+```php
 $optParams = array('filter' => 'free-ebooks');
 $results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
-```      
+```
 
 ### Handling the result
 
 There are two main types of response - items and collections of items. Each can be accessed either as an object or as an array. Collections implement the `Iterator` interface so can be used in foreach and other constructs.
 
-```php 
+```php
 foreach ($results as $item) {
   echo $item['volumeInfo']['title'], "<br /> \n";
 }
-```     
+```
 
 ## Google App Engine support
 

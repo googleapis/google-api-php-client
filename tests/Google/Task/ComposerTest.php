@@ -152,7 +152,7 @@ class Google_Task_ComposerTest extends BaseTest
                 'google/apiclient' => 'dev-master'
             ],
             'scripts' => [
-                'post-update-cmd' => 'Google_Task_Composer::cleanup'
+                'post-update-cmd' => 'Google\Task\Composer::cleanup'
             ],
             'extra' => [
                 'google/apiclient-services' => [
@@ -181,7 +181,7 @@ class Google_Task_ComposerTest extends BaseTest
                 'google/apiclient' => 'dev-master'
             ],
             'scripts' => [
-                'post-update-cmd' => 'Google_Task_Composer::cleanup'
+                'post-update-cmd' => 'Google\Task\Composer::cleanup'
             ],
             'extra' => [
                 'google/apiclient-services' => [

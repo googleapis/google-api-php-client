@@ -26,7 +26,7 @@ $result = $service->files->insert($file, array(
   'data' => file_get_contents("path/to/file"),
   'mimeType' => 'application/octet-stream',
   'uploadType' => 'multipart'
-)); 
+));
 ```
 
 ## Resumable File Upload
@@ -43,7 +43,7 @@ $client->setDefer(true);
 $request = $service->files->insert($file);
 
 // Create a media file upload to represent our upload process.
-$media = new Google_Http_MediaFileUpload(
+$media = new Google\Http\MediaFileUpload(
   $client,
   $request,
   'text/plain',

@@ -25,7 +25,7 @@ echo pageHeader("Service Account Access");
   account.
  ************************************************/
 
-$client = new Google_Client();
+$client = new Google\Client();
 
 /************************************************
   ATTENTION: Fill in these values, or make sure you

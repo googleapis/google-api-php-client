@@ -57,7 +57,7 @@ class Service
   /**
    * Create a new HTTP Batch handler for this service
    *
-   * @return Google_Http_Batch
+   * @return Google\Http\Batch
    */
   public function createBatch()
   {
