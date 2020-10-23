@@ -763,6 +763,71 @@ class Google_ClientTest extends BaseTest
     $this->assertFalse($client->isAccessTokenExpired());
   }
 
+  /** @runInSeparateProcess */
+  public function testOnGceCacheAndCacheOptions()
+  {
+    if (!class_exists('Google\Auth\GCECache')) {
+      $this->markTestSkipped('Requires google/auth >= 1.12');
+    }
+
+    putenv('HOME=');
+    putenv('GOOGLE_APPLICATION_CREDENTIALS=');
+    $prefix = 'test_prefix_';
+    $cacheConfig = ['gce_prefix' => $prefix];
+
+    $mockCacheItem = $this->prophesize('Psr\Cache\CacheItemInterface');
+    $mockCacheItem->isHit()
+        ->willReturn(true);
+    $mockCacheItem->get()
+        ->shouldBeCalledTimes(1)
+        ->willReturn(true);
+
+    $mockCache = $this->prophesize('Psr\Cache\CacheItemPoolInterface');
+    $mockCache->getItem($prefix . Google\Auth\GCECache::GCE_CACHE_KEY)
+        ->shouldBeCalledTimes(1)
+        ->willReturn($mockCacheItem->reveal());
+
+    $client = new Google_Client(['cache_config' => $cacheConfig]);
+    $client->setCache($mockCache->reveal());
+    $client->useApplicationDefaultCredentials();
+    $client->authorize();
+  }
+
+  /** @runInSeparateProcess */
+  public function testFetchAccessTokenWithAssertionCache()
+  {
+    $this->checkServiceAccountCredentials();
+    $cachedValue = ['access_token' => '2/abcdef1234567890'];
+    $mockCacheItem = $this->prophesize('Psr\Cache\CacheItemInterface');
+    $mockCacheItem->isHit()
+        ->shouldBeCalledTimes(1)
+        ->willReturn(true);
+    $mockCacheItem->get()
+        ->shouldBeCalledTimes(1)
+        ->willReturn($cachedValue);
+
+    $mockCache = $this->prophesize('Psr\Cache\CacheItemPoolInterface');
+    $mockCache->getItem(Argument::any())
+        ->shouldBeCalledTimes(1)
+        ->willReturn($mockCacheItem->reveal());
+
+    $client = new Google_Client();
+    $client->setCache($mockCache->reveal());
+    $client->useApplicationDefaultCredentials();
+    $token = $client->fetchAccessTokenWithAssertion();
+    $this->assertArrayHasKey('access_token', $token);
+    $this->assertEquals($cachedValue['access_token'], $token['access_token']);
+  }
+
+  public function testCacheClientOption()
+  {
+    $mockCache = $this->prophesize('Psr\Cache\CacheItemPoolInterface');
+    $client = new Google_Client([
+      'cache' => $mockCache->reveal()
+    ]);
+    $this->assertEquals($mockCache->reveal(), $client->getCache());
+  }
+
   public function testExecuteWithFormat()
   {
     $this->onlyGuzzle6Or7();
