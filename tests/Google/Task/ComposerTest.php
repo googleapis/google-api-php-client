@@ -207,5 +207,26 @@ class Google_Task_ComposerTest extends BaseTest
         $this->assertFileExists($serviceDir . '/YouTube');
         $this->assertFileExists($serviceDir . '/YouTubeReporting.php');
         $this->assertFileExists($serviceDir . '/YouTubeReporting');
+
+        // Test BC Task name
+        $composer['scripts']['post-update-cmd'] = 'Google_Task_Composer::cleanup';
+        $composerJson = json_encode($composer + [
+            'extra' => [
+                'google/apiclient-services' => [
+                    'Drive',
+                ]
+            ]
+        ]);
+
+        file_put_contents($tmpDir . '/composer.json', $composerJson);
+        passthru('rm -r ' . $tmpDir . '/vendor/google/apiclient-services');
+        passthru('composer update -d ' . $tmpDir);
+
+        $this->assertFileExists($serviceDir . '/Drive.php');
+        $this->assertFileExists($serviceDir . '/Drive');
+        $this->assertFileNotExists($serviceDir . '/YouTube.php');
+        $this->assertFileNotExists($serviceDir . '/YouTube');
+        $this->assertFileNotExists($serviceDir . '/YouTubeReporting.php');
+        $this->assertFileNotExists($serviceDir . '/YouTubeReporting');
     }
 }
