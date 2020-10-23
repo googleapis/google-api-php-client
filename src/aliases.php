@@ -32,4 +32,5 @@ foreach ($classMap as $class => $alias) {
  * the autoloader.
  */
 class Google_Task_Composer extends \Google\Task\Composer
-{}
+{
+}
