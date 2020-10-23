@@ -147,13 +147,25 @@ class Google_Task_ComposerTest extends BaseTest
 
     public function testE2E()
     {
-        $composerJson = json_encode([
+        $composer = [
+            'repositories' => [
+                [
+                    'type' => 'path',
+                    'url' => __DIR__ . '/../../..',
+                    'options' => [
+                        'symlink' => false
+                    ]
+                ]
+            ],
             'require' => [
                 'google/apiclient' => 'dev-master'
             ],
             'scripts' => [
                 'post-update-cmd' => 'Google\Task\Composer::cleanup'
             ],
+        ];
+
+        $composerJson = json_encode($composer + [
             'extra' => [
                 'google/apiclient-services' => [
                     'Drive',
@@ -163,12 +175,11 @@ class Google_Task_ComposerTest extends BaseTest
         ]);
 
         $tmpDir = sys_get_temp_dir() . '/test-' . rand();
-        $serviceDir = $tmpDir . '/vendor/google/apiclient-services/src/Google/Service';
-
         mkdir($tmpDir);
         file_put_contents($tmpDir . '/composer.json', $composerJson);
         passthru('composer install -d ' . $tmpDir);
 
+        $serviceDir = $tmpDir . '/vendor/google/apiclient-services/src/Google/Service';
         $this->assertFileExists($serviceDir . '/Drive.php');
         $this->assertFileExists($serviceDir . '/Drive');
         $this->assertFileExists($serviceDir . '/YouTube.php');
@@ -176,13 +187,7 @@ class Google_Task_ComposerTest extends BaseTest
         $this->assertFileNotExists($serviceDir . '/YouTubeReporting.php');
         $this->assertFileNotExists($serviceDir . '/YouTubeReporting');
 
-        $composerJson = json_encode([
-            'require' => [
-                'google/apiclient' => 'dev-master'
-            ],
-            'scripts' => [
-                'post-update-cmd' => 'Google\Task\Composer::cleanup'
-            ],
+        $composerJson = json_encode($composer + [
             'extra' => [
                 'google/apiclient-services' => [
                     'Drive',
