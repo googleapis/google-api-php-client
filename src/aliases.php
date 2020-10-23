@@ -14,7 +14,6 @@ $classMap = [
     'Google\\Http\\Batch' => 'Google_Http_Batch',
     'Google\\Http\\MediaFileUpload' => 'Google_Http_MediaFileUpload',
     'Google\\Http\\REST' => 'Google_Http_REST',
-    'Google\\Task\\Composer' => 'Google_Task_Composer',
     'Google\\Task\\Retryable' => 'Google_Task_Retryable',
     'Google\\Task\\Exception' => 'Google_Task_Exception',
     'Google\\Task\\Runner' => 'Google_Task_Runner',
@@ -26,4 +25,12 @@ $classMap = [
 
 foreach ($classMap as $class => $alias) {
     class_alias($class, $alias);
+}
+
+/**
+ * This class needs to be defined explicitly as scripts must be recognized by
+ * the autoloader.
+ */
+class Google_Task_Composer extends \Google\Task\Composer
+{
 }

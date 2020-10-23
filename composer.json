@@ -34,6 +34,9 @@
         },
         "files": [
             "src/aliases.php"
+        ],
+        "classmap": [
+            "src/aliases.php"
         ]
     },
     "extra": {
