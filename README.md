@@ -61,7 +61,7 @@ you want to keep in `composer.json`:
         "google/apiclient": "^2.7"
     },
     "scripts": {
-        "post-update-cmd": "Google\\Task\\Composer::cleanup"
+        "post-update-cmd": "Google_Task_Composer::cleanup"
     },
     "extra": {
         "google/apiclient-services": [
