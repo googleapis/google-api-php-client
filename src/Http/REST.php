@@ -67,7 +67,7 @@ class REST
   }
 
   /**
-   * Executes a RequestInterface
+   * Executes a Psr\Http\Message\RequestInterface
    *
    * @param Client $client
    * @param RequestInterface $request
