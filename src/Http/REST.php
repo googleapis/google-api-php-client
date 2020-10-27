@@ -36,13 +36,13 @@ class REST
    * Executes a Psr\Http\Message\RequestInterface and (if applicable) automatically retries
    * when errors occur.
    *
-   * @param Google\Client $client
-   * @param Psr\Http\Message\RequestInterface $req
+   * @param Client $client
+   * @param RequestInterface $req
    * @param string $expectedClass
    * @param array $config
    * @param array $retryMap
    * @return array decoded result
-   * @throws Google\Service\Exception on server side error (ie: not authenticated,
+   * @throws \Google\Service\Exception on server side error (ie: not authenticated,
    *  invalid or malformed post body, invalid url)
    */
   public static function execute(
@@ -69,11 +69,11 @@ class REST
   /**
    * Executes a Psr\Http\Message\RequestInterface
    *
-   * @param Google\Client $client
-   * @param Psr\Http\Message\RequestInterface $request
+   * @param Client $client
+   * @param RequestInterface $request
    * @param string $expectedClass
    * @return array decoded result
-   * @throws Google\Service\Exception on server side error (ie: not authenticated,
+   * @throws \Google\Service\Exception on server side error (ie: not authenticated,
    *  invalid or malformed post body, invalid url)
    */
   public static function doExecute(ClientInterface $client, RequestInterface $request, $expectedClass = null)
@@ -106,9 +106,9 @@ class REST
   /**
    * Decode an HTTP Response.
    * @static
-   * @throws Google\Service\Exception
-   * @param Psr\Http\Message\RequestInterface $response The http response to be decoded.
-   * @param Psr\Http\Message\ResponseInterface $response
+   * @throws \Google\Service\Exception
+   * @param RequestInterface $response The http response to be decoded.
+   * @param ResponseInterface $response
    * @param string $expectedClass
    * @return mixed|null
    */

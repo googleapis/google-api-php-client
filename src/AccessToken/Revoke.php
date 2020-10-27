@@ -31,7 +31,7 @@ use GuzzleHttp\Psr7\Request;
 class Revoke
 {
   /**
-   * @var GuzzleHttp\ClientInterface The http client
+   * @var ClientInterface The http client
    */
   private $http;
 

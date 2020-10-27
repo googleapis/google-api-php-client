@@ -48,7 +48,7 @@ class Resource
   /** @var string $rootUrl */
   private $rootUrl;
 
-  /** @var Google\Client $client */
+  /** @var \Google\Client $client */
   private $client;
 
   /** @var string $serviceName */
@@ -80,8 +80,8 @@ class Resource
    * @param $name
    * @param $arguments
    * @param $expectedClass - optional, the expected class name
-   * @return Google\Http\Request|expectedClass
-   * @throws Google\Exception
+   * @return Request|$expectedClass
+   * @throws \Google\Exception
    */
   public function call($name, $arguments, $expectedClass = null)
   {

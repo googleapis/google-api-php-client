@@ -937,7 +937,7 @@ class Client
    * alias for setAuthConfig
    *
    * @param string $file the configuration file
-   * @throws Google\Exception
+   * @throws \Google\Exception
    * @deprecated
    */
   public function setAuthConfigFile($file)
@@ -951,7 +951,7 @@ class Client
    * the "Download JSON" button on in the Google Developer
    * Console.
    * @param string|array $config the configuration json
-   * @throws Google\Exception
+   * @throws \Google\Exception
    */
   public function setAuthConfig($config)
   {
@@ -1067,7 +1067,7 @@ class Client
   }
 
   /**
-   * @return CacheItemPoolInterface Cache implementation
+   * @return CacheItemPoolInterface
    */
   public function getCache()
   {
@@ -1096,7 +1096,7 @@ class Client
   }
 
   /**
-   * @return LoggerInterface implementation
+   * @return LoggerInterface
    */
   public function getLogger()
   {
@@ -1135,7 +1135,7 @@ class Client
   }
 
   /**
-   * @return ClientInterface implementation
+   * @return ClientInterface
    */
   public function getHttpClient()
   {

@@ -44,12 +44,12 @@ class Verify
   const OAUTH2_ISSUER_HTTPS = 'https://accounts.google.com';
 
   /**
-   * @var GuzzleHttp\ClientInterface The http client
+   * @var ClientInterface The http client
    */
   private $http;
 
   /**
-   * @var Psr\Cache\CacheItemPoolInterface cache class
+   * @var CacheItemPoolInterface cache class
    */
   private $cache;
 
@@ -149,7 +149,7 @@ class Verify
    * Retrieve and cache a certificates file.
    *
    * @param $url string location
-   * @throws GoogleException
+   * @throws \Google\Exception
    * @return array certificates
    */
   private function retrieveCertsFromLocation($url)

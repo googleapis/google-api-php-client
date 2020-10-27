@@ -56,10 +56,10 @@ class MediaFileUpload
   /** @var int $progress */
   private $progress;
 
-  /** @var Google\Client */
+  /** @var Client */
   private $client;
 
-  /** @var Psr\Http\Message\RequestInterface */
+  /** @var RequestInterface */
   private $request;
 
   /** @var string */
@@ -160,7 +160,7 @@ class MediaFileUpload
   * Sends a PUT-Request to google drive and parses the response,
   * setting the appropiate variables from the response()
   *
-  * @param Google\Http\Request $httpRequest the Reuqest which will be send
+  * @param RequestInterface $request the Request which will be send
   *
   * @return false|mixed false when the upload is unfinished or the decoded http response
   *
@@ -212,7 +212,7 @@ class MediaFileUpload
   }
 
   /**
-   * @return Psr\Http\Message\RequestInterface $request
+   * @return RequestInterface
    * @visible for testing
    */
   private function process()

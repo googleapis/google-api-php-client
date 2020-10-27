@@ -32,7 +32,7 @@ class Exception extends GoogleException
    *
    * @param string $message
    * @param int $code
-   * @param Exception|null $previous
+   * @param \Exception|null $previous
    * @param [{string, string}] errors List of errors returned in an HTTP
    * response.  Defaults to [].
    */
