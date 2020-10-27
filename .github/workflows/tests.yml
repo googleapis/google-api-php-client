@@ -56,7 +56,7 @@ jobs:
               with:
                 php-version: 5.4
             - name: Remove cache library
-              run: composer remove --dev cache/filesystem-adapter
+              run: composer remove --dev --no-update cache/filesystem-adapter
             - name: Install Dependencies
               uses: nick-invision/retry@v1
               with:
@@ -76,7 +76,7 @@ jobs:
               with:
                 php-version: 5.4
             - name: Remove cache library
-              run: composer remove --dev cache/filesystem-adapter
+              run: composer remove --dev --no-update cache/filesystem-adapter
             - name: Install Dependencies
               uses: nick-invision/retry@v1
               with:
@@ -94,7 +94,7 @@ jobs:
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                php-version: "7.4"
+                php-version: "7.3"
             - name: Install Dependencies
               uses: nick-invision/retry@v1
               with:

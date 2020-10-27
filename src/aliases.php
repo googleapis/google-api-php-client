@@ -1,5 +1,11 @@
 <?php
 
+if (class_exists('Google_Client')) {
+    // Prevent error with preloading in PHP 7.4
+    // @see https://github.com/googleapis/google-api-php-client/issues/1976
+    return;
+}
+
 $classMap = [
     'Google\\Client' => 'Google_Client',
     'Google\\Service' => 'Google_Service',
