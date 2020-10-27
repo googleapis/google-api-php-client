@@ -57,17 +57,17 @@ class Client
   const API_BASE_PATH = 'https://www.googleapis.com';
 
   /**
-   * @var Google\Auth\OAuth2 $auth
+   * @var OAuth2 $auth
    */
   private $auth;
 
   /**
-   * @var GuzzleHttp\ClientInterface $http
+   * @var ClientInterface $http
    */
   private $http;
 
   /**
-   * @var Psr\Cache\CacheItemPoolInterface $cache
+   * @var CacheItemPoolInterface $cache
    */
   private $cache;
 
@@ -82,7 +82,7 @@ class Client
   private $config;
 
   /**
-   * @var Psr\Log\LoggerInterface $logger
+   * @var LoggerInterface $logger
    */
   private $logger;
 
@@ -400,8 +400,8 @@ class Client
    * Adds auth listeners to the HTTP client based on the credentials
    * set in the Google API Client object
    *
-   * @param GuzzleHttp\ClientInterface $http the http client object.
-   * @return GuzzleHttp\ClientInterface the http client object
+   * @param ClientInterface $http the http client object.
+   * @return ClientInterface the http client object
    */
   public function authorize(ClientInterface $http = null)
   {
@@ -853,9 +853,9 @@ class Client
   /**
    * Helper method to execute deferred HTTP requests.
    *
-   * @param $request Psr\Http\Message\RequestInterface|Google\Http\Batch
+   * @param $request RequestInterface|\Google\Http\Batch
    * @param string $expectedClass
-   * @throws Google\Exception
+   * @throws \Google\Exception
    * @return object of the type of the expected class or Psr\Http\Message\ResponseInterface.
    */
   public function execute(RequestInterface $request, $expectedClass = null)
@@ -1025,7 +1025,7 @@ class Client
   }
 
   /**
-   * @return Google\Auth\OAuth2 implementation
+   * @return OAuth2 implementation
    */
   public function getOAuth2Service()
   {
@@ -1059,7 +1059,7 @@ class Client
 
   /**
    * Set the Cache object
-   * @param Psr\Cache\CacheItemPoolInterface $cache
+   * @param CacheItemPoolInterface $cache
    */
   public function setCache(CacheItemPoolInterface $cache)
   {
@@ -1067,7 +1067,7 @@ class Client
   }
 
   /**
-   * @return Psr\Cache\CacheItemPoolInterface Cache implementation
+   * @return CacheItemPoolInterface Cache implementation
    */
   public function getCache()
   {
@@ -1088,7 +1088,7 @@ class Client
 
   /**
    * Set the Logger object
-   * @param Psr\Log\LoggerInterface $logger
+   * @param LoggerInterface $logger
    */
   public function setLogger(LoggerInterface $logger)
   {
@@ -1096,7 +1096,7 @@ class Client
   }
 
   /**
-   * @return Psr\Log\LoggerInterface implementation
+   * @return LoggerInterface implementation
    */
   public function getLogger()
   {
@@ -1127,7 +1127,7 @@ class Client
 
   /**
    * Set the Http Client object
-   * @param GuzzleHttp\ClientInterface $http
+   * @param ClientInterface $http
    */
   public function setHttpClient(ClientInterface $http)
   {
@@ -1135,7 +1135,7 @@ class Client
   }
 
   /**
-   * @return GuzzleHttp\ClientInterface implementation
+   * @return ClientInterface implementation
    */
   public function getHttpClient()
   {
