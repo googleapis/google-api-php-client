@@ -158,11 +158,12 @@ class Google_Task_ComposerTest extends BaseTest
                 ]
             ],
             'require' => [
-                'google/apiclient' => 'dev-master'
+                'google/apiclient' => '*'
             ],
             'scripts' => [
                 'post-update-cmd' => 'Google\Task\Composer::cleanup'
             ],
+            'minimum-stability' => 'dev',
         ];
 
         $composerJson = json_encode($composer + [
