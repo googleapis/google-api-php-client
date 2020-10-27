@@ -26,7 +26,7 @@ class Composer
 {
   /**
    * @param Event $event Composer event passed in for any script method
-   * @param FilesystemInterface $filesystem Optional. Used for testing.
+   * @param Filesystem $filesystem Optional. Used for testing.
    */
   public static function cleanup(
       Event $event,

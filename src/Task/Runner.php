@@ -91,7 +91,7 @@ class Runner
    * @param string $name The name of the current task (used for logging)
    * @param callable $action The task to run and possibly retry
    * @param array $arguments The task arguments
-   * @throws Google\Task\Exception when misconfigured
+   * @throws \Google\Task\Exception when misconfigured
    */
   public function __construct(
       $config,
@@ -172,7 +172,7 @@ class Runner
    * Runs the task and (if applicable) automatically retries when errors occur.
    *
    * @return mixed
-   * @throws Google\Task\Retryable on failure when no retries are available.
+   * @throws \Google\Service\Exception on failure when no retries are available.
    */
   public function run()
   {

@@ -93,7 +93,7 @@ Content-ID: %s
 
 EOF;
 
-    /** @var Google\Http\Request $req */
+    /** @var RequestInterface $req */
     foreach ($this->requests as $key => $request) {
       $firstLine = sprintf(
           '%s %s HTTP/%s',

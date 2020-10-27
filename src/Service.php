@@ -47,7 +47,7 @@ class Service
 
   /**
    * Return the associated Google\Client class.
-   * @return Google\Client
+   * @return \Google\Client
    */
   public function getClient()
   {
@@ -57,7 +57,7 @@ class Service
   /**
    * Create a new HTTP Batch handler for this service
    *
-   * @return Google\Http\Batch
+   * @return Batch
    */
   public function createBatch()
   {
