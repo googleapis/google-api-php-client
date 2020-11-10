@@ -1,6 +1,6 @@
 <?php
 
-if (class_exists('Google_Client')) {
+if (class_exists('Google_Client', false)) {
     // Prevent error with preloading in PHP 7.4
     // @see https://github.com/googleapis/google-api-php-client/issues/1976
     return;
