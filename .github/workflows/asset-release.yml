@@ -39,7 +39,7 @@ jobs:
               with:
                 timeout_minutes: 10
                 max_attempts: 3
-                command: composer remove --dev cache/filesystem-adapter && composer install --no-dev --prefer-dist
+                command: composer remove --no-update --dev cache/filesystem-adapter && composer install --no-dev --prefer-dist
 
             - name: Create Archive
               run: |
