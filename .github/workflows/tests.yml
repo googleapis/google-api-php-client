@@ -43,6 +43,8 @@ jobs:
                 timeout_minutes: 10
                 max_attempts: 3
                 command: composer install
+            - name: Run PHPUnit Patches
+              run: sh .github/apply-phpunit-patches.sh
             - name: Run Script
               run: vendor/bin/phpunit
 
@@ -63,6 +65,8 @@ jobs:
                 timeout_minutes: 10
                 max_attempts: 3
                 command: composer update
+            - name: Run PHPUnit Patches
+              run: sh .github/apply-phpunit-patches.sh
             - name: Run Script
               run: vendor/bin/phpunit
 
@@ -83,6 +87,8 @@ jobs:
                 timeout_minutes: 10
                 max_attempts: 3
                 command: composer update --prefer-lowest
+            - name: Run PHPUnit Patches
+              run: sh .github/apply-phpunit-patches.sh
             - name: Run Script
               run: vendor/bin/phpunit
 
