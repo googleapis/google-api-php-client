@@ -19,7 +19,7 @@ class Google_Service_YouTubeTest extends BaseTest
 {
   /** @var Google_Service_YouTube */
   public $youtube;
-  public function setUp()
+  public function setUp(): void
   {
     $this->checkToken();
     $this->youtube = new Google_Service_YouTube($this->getClient());

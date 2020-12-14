@@ -32,7 +32,7 @@ class Google_Task_RunnerTest extends BaseTest
   private $retryMap;
   private $retryConfig;
 
-  protected function setUp()
+  protected function setUp(): void
   {
     $this->client = new Google_Client();
   }
