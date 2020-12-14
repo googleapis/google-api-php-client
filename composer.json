@@ -6,7 +6,7 @@
     "homepage": "http://developers.google.com/api-client-library/php",
     "license": "Apache-2.0",
     "require": {
-        "php": "^5.4|^7.0|^8.0",
+        "php": "^5.6|^7.0|^8.0",
         "google/auth": "^1.10",
         "google/apiclient-services": "~0.13",
         "firebase/php-jwt": "~2.0||~3.0||~4.0||~5.0",

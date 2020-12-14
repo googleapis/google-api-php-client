@@ -5,9 +5,6 @@ branchProtectionRules:
 - pattern: master
   isAdminEnforced: true
   requiredStatusCheckContexts:
-    - 'PHP 5.4 Unit Test'
-    - 'PHP 5.4 Unit Test (with `--prefer-lowest`)'
-    - 'PHP 5.5 Unit Test'
     - 'PHP 5.6 Unit Test'
     - 'PHP 7.0 Unit Test'
     - 'PHP 7.1 Unit Test'
