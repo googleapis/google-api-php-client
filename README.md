@@ -11,14 +11,14 @@ The Google API Client Library enables you to work with Google APIs such as Gmail
 
 These client libraries are officially supported by Google.  However, the libraries are considered complete and are in maintenance mode. This means that we will address critical bugs and security issues but will not add any new features.
 
-**NOTE** The actively maintained (v2) version of this client requires PHP 5.4 or above. If you require support for PHP 5.2 or 5.3, use the v1 branch.
+**NOTE** The actively maintained (v2) version of this client requires PHP 5.6 or above. If you require support for PHP 5.2 or 5.3, use the v1 branch.
 
 ## Google Cloud Platform
 
 For Google Cloud Platform APIs such as Datastore, Cloud Storage or Pub/Sub, we recommend using [GoogleCloudPlatform/google-cloud-php](https://github.com/googleapis/google-cloud-php) which is under active development.
 
 ## Requirements ##
-* [PHP 5.4.0 or higher](https://www.php.net/)
+* [PHP 5.6.0 or higher](https://www.php.net/)
 
 ## Developer Documentation ##
 
