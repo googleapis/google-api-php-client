@@ -288,15 +288,15 @@ class Google_Task_RunnerTest extends BaseTest
    */
   public function testBadTaskConfig($config, $message)
   {
-      $this->expectException('Google_Task_Exception');
-      $this->expectExceptionMessage($message);
-      $this->setRetryConfig($config);
+    $this->expectException('Google_Task_Exception');
+    $this->expectExceptionMessage($message);
+    $this->setRetryConfig($config);
 
-      new Google_Task_Runner(
-          $this->retryConfig,
-          '',
-          array($this, 'testBadTaskConfig')
-      );
+    new Google_Task_Runner(
+        $this->retryConfig,
+        '',
+        array($this, 'testBadTaskConfig')
+    );
   }
 
   /**
