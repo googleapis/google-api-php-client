@@ -31,6 +31,9 @@ jobs:
                 timeout_minutes: 10
                 max_attempts: 3
                 command: composer update ${{ matrix.composer-flags }}
+            - if: ${{ matrix.php == '8.0' || matrix.composer-flags == '--prefer-lowest' }}
+              name: Fix guzzle/ringphp dependency
+              run: composer update guzzlehttp/ringphp
             - if: ${{ matrix.php == '5.6' || matrix.php == '7.0' || matrix.php == '7.1' }}
               name: Run PHPUnit Patches
               run: sh .github/apply-phpunit-patches.sh
