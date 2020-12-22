@@ -139,6 +139,10 @@ class Google_AccessToken_VerifyTest extends BaseTest
 
   private function getOpenSslConstant()
   {
+    if (class_exists('phpseclib3\Crypt\AES')) {
+      return 'phpseclib3\Crypt\AES::ENGINE_OPENSSL';
+    }
+
     if (class_exists('phpseclib\Crypt\RSA')) {
       return 'phpseclib\Crypt\RSA::MODE_OPENSSL';
     }
