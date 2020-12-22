@@ -31,7 +31,7 @@ jobs:
                 timeout_minutes: 10
                 max_attempts: 3
                 command: composer update ${{ matrix.composer-flags }}
-            - if: ${{ contains(['5.6', '7.0', '7.1', '7.2'], matrix.php) }}
+            - if: ${{ matrix.php == '5.6' || matrix.php == '7.0' || matrix.php == '7.1' || matrix.php == '7.2'}}
               name: Run PHPUnit Patches
               run: sh .github/apply-phpunit-patches.sh
             - name: Run Script
