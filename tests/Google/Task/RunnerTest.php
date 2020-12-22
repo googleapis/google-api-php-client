@@ -32,7 +32,7 @@ class Google_Task_RunnerTest extends BaseTest
   private $retryMap;
   private $retryConfig;
 
-  protected function setUp()
+  protected function setUp(): void
   {
     $this->client = new Google_Client();
   }
@@ -288,7 +288,8 @@ class Google_Task_RunnerTest extends BaseTest
    */
   public function testBadTaskConfig($config, $message)
   {
-    $this->setExpectedException('Google_Task_Exception', $message);
+    $this->expectException('Google_Task_Exception');
+    $this->expectExceptionMessage($message);
     $this->setRetryConfig($config);
 
     new Google_Task_Runner(

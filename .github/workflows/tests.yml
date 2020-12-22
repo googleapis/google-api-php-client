@@ -1,18 +1,15 @@
 name: Test Suite
-on:
-  push:
-    branches:
-      - master
-  pull_request:
+on: [push, pull_request]
 
 jobs:
     test:
-        runs-on: ${{matrix.operating-system}}
+        runs-on: ${{ matrix.operating-system }}
         strategy:
+            fail-fast: false
             matrix:
                 operating-system: [ ubuntu-latest ]
-                php: [ "5.6", "7.0", "7.1", "7.2", "7.3", "7.4" ]
-        name: PHP ${{matrix.php }} Unit Test
+                php: [ "5.6", "7.0", "7.1", "7.2", "7.3", "7.4", "8.0" ]
+        name: PHP ${{ matrix.php }} Unit Test
         steps:
             - uses: actions/checkout@v2
             - name: Setup PHP
@@ -25,64 +22,9 @@ jobs:
                 timeout_minutes: 10
                 max_attempts: 3
                 command: composer install
-            - name: Run Script
-              run: vendor/bin/phpunit
-
-    test_php55:
-        runs-on: ubuntu-latest
-        name: PHP 5.5 Unit Test
-        steps:
-            - uses: actions/checkout@v2
-            - name: Setup PHP
-              uses: shivammathur/setup-php@v2
-              with:
-                php-version: 5.5
-            - name: Install Dependencies
-              uses: nick-invision/retry@v1
-              with:
-                timeout_minutes: 10
-                max_attempts: 3
-                command: composer install
-            - name: Run Script
-              run: vendor/bin/phpunit
-
-    test_php54:
-        runs-on: ubuntu-latest
-        name: PHP 5.4 Unit Test
-        steps:
-            - uses: actions/checkout@v2
-            - name: Setup PHP
-              uses: shivammathur/setup-php@v2
-              with:
-                php-version: 5.4
-            - name: Remove cache library
-              run: composer remove --dev --no-update cache/filesystem-adapter
-            - name: Install Dependencies
-              uses: nick-invision/retry@v1
-              with:
-                timeout_minutes: 10
-                max_attempts: 3
-                command: composer update
-            - name: Run Script
-              run: vendor/bin/phpunit
-
-    test_php54_lowest:
-        runs-on: ubuntu-latest
-        name: "PHP 5.4 Unit Test (with `--prefer-lowest`)"
-        steps:
-            - uses: actions/checkout@v2
-            - name: Setup PHP
-              uses: shivammathur/setup-php@v2
-              with:
-                php-version: 5.4
-            - name: Remove cache library
-              run: composer remove --dev --no-update cache/filesystem-adapter
-            - name: Install Dependencies
-              uses: nick-invision/retry@v1
-              with:
-                timeout_minutes: 10
-                max_attempts: 3
-                command: composer update --prefer-lowest
+            - if: ${{ matrix.php == '5.6' || matrix.php == '7.0' || matrix.php == '7.1' }}
+              name: Run PHPUnit Patches
+              run: sh .github/apply-phpunit-patches.sh
             - name: Run Script
               run: vendor/bin/phpunit
 
