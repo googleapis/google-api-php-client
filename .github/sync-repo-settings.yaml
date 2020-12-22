@@ -6,12 +6,14 @@ branchProtectionRules:
   isAdminEnforced: true
   requiredStatusCheckContexts:
     - 'PHP 5.6 Unit Test'
+    - 'PHP 5.6 --prefer-lowest Unit Test'
     - 'PHP 7.0 Unit Test'
     - 'PHP 7.1 Unit Test'
     - 'PHP 7.2 Unit Test'
     - 'PHP 7.3 Unit Test'
     - 'PHP 7.4 Unit Test'
     - 'PHP 8.0 Unit Test'
+    - 'PHP 8.0 --prefer-lowest Unit Test'
     - 'PHP Style Check'
     - 'cla/google'
   requiredApprovingReviewCount: 1

@@ -11,12 +11,12 @@
         "google/apiclient-services": "~0.13",
         "firebase/php-jwt": "~2.0||~3.0||~4.0||~5.0",
         "monolog/monolog": "^1.17|^2.0",
-        "phpseclib/phpseclib": "~0.3.10||~2.0",
-        "guzzlehttp/guzzle": "~5.3.1||~6.0||~7.0",
+        "phpseclib/phpseclib": "~2.0",
+        "guzzlehttp/guzzle": "~5.3.3||~6.0||~7.0",
         "guzzlehttp/psr7": "^1.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.0||^8.5",
+        "phpunit/phpunit": "^5.7||^8.5.13",
         "squizlabs/php_codesniffer": "~2.3",
         "symfony/dom-crawler": "~2.1",
         "symfony/css-selector": "~2.1",

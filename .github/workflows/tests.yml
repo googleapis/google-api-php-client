@@ -1,15 +1,24 @@
 name: Test Suite
-on: [push, pull_request]
+on:
+    push:
+        branches:
+            - master
+    pull_request:
 
 jobs:
     test:
-        runs-on: ${{ matrix.operating-system }}
+        runs-on: ubuntu-latest
         strategy:
             fail-fast: false
             matrix:
-                operating-system: [ ubuntu-latest ]
                 php: [ "5.6", "7.0", "7.1", "7.2", "7.3", "7.4", "8.0" ]
-        name: PHP ${{ matrix.php }} Unit Test
+                composer-flags: [""]
+                include:
+                  - php: "5.6"
+                    composer-flags: "--prefer-lowest"
+                  - php: "8.0"
+                    composer-flags: "--prefer-lowest"
+        name: PHP ${{ matrix.php }} ${{ matrix.composer-flags }} Unit Test
         steps:
             - uses: actions/checkout@v2
             - name: Setup PHP
@@ -21,7 +30,10 @@ jobs:
               with:
                 timeout_minutes: 10
                 max_attempts: 3
-                command: composer install
+                command: composer update ${{ matrix.composer-flags }}
+            - if: ${{ matrix.php == '8.0' || matrix.composer-flags == '--prefer-lowest' }}
+              name: Update guzzlehttp/ringphp dependency
+              run: composer update guzzlehttp/ringphp
             - if: ${{ matrix.php == '5.6' || matrix.php == '7.0' || matrix.php == '7.1' }}
               name: Run PHPUnit Patches
               run: sh .github/apply-phpunit-patches.sh
