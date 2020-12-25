@@ -15,10 +15,10 @@ jobs:
                 composer-flags: [""]
                 include:
                   - php: "5.6"
-                    composer-flags: "--prefer-lowest"
+                    composer-flags: "--prefer-lowest "
                   - php: "8.0"
-                    composer-flags: "--prefer-lowest"
-        name: PHP ${{ matrix.php }} ${{ matrix.composer-flags }} Unit Test
+                    composer-flags: "--prefer-lowest "
+        name: PHP ${{ matrix.php }} ${{ matrix.composer-flags }}Unit Test
         steps:
             - uses: actions/checkout@v2
             - name: Setup PHP
