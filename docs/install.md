@@ -4,7 +4,7 @@ This page contains information about installing the Google APIs Client Library f
 
 ## Requirements
 
-* PHP version 5.4 or greater.
+* PHP version 5.6 or greater.
 
 ## Obtaining the client library
 

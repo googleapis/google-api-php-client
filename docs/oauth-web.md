@@ -50,7 +50,7 @@ To run any of the code samples in this document, you'll need a Google account, a
 
 To run the PHP code samples in this document, you'll need:
 
-*   PHP 5.4 or greater with the command-line interface (CLI) and JSON extension installed.
+*   PHP 5.6 or greater with the command-line interface (CLI) and JSON extension installed.
 *   The [Composer](https://getcomposer.org/) dependency management tool.
 *   The Google APIs Client Library for PHP:
     ```sh
@@ -315,7 +315,7 @@ To run this example:
     ```
 
 4.  Create the files `index.php` and `oauth2callback.php` with the content below.
-5.  Run the example with a web server configured to serve PHP. If you use PHP 5.4 or newer, you can use PHP's built-in test web server:
+5.  Run the example with a web server configured to serve PHP. If you use PHP 5.6 or newer, you can use PHP's built-in test web server:
 
     ```sh
     php -S localhost:8080 ~/php-oauth2-example
