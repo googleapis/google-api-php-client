@@ -14,8 +14,9 @@ jobs:
 
         name: Upload Release Assets
         steps:
-            - uses: olegtarasov/get-tag@v2
-              id: tagName
+            - id: getTag
+              name: Get Tag
+              run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
 
             - uses: octokit/request-action@v2.x
               id: getLatestRelease
