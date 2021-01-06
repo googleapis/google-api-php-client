@@ -22,6 +22,8 @@ use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
 use Firebase\JWT\SignatureInvalidException;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use phpseclib3\Crypt\PublicKeyLoader;
+use phpseclib3\Crypt\RSA\PublicKey;
 use Psr\Cache\CacheItemPoolInterface;
 use Google\Auth\Cache\MemoryCacheItemPool;
 use Google\Exception as GoogleException;
@@ -97,18 +99,10 @@ class Verify
     // Check signature
     $certs = $this->getFederatedSignOnCerts();
     foreach ($certs as $cert) {
-      $bigIntClass = $this->getBigIntClass();
-      $rsaClass = $this->getRsaClass();
-      $modulus = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['n']), 256);
-      $exponent = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['e']), 256);
-
-      $rsa = new $rsaClass();
-      $rsa->loadKey(array('n' => $modulus, 'e' => $exponent));
-
       try {
         $payload = $this->jwt->decode(
             $idToken,
-            $rsa->getPublicKey(),
+            $this->getPublicKey($cert),
             array('RS256')
         );
 
@@ -229,8 +223,33 @@ class Verify
     return new $jwtClass;
   }
 
+  private function getPublicKey($cert)
+  {
+    $bigIntClass = $this->getBigIntClass();
+    $modulus = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['n']), 256);
+    $exponent = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['e']), 256);
+    $component = array('n' => $modulus, 'e' => $exponent);
+
+    if (class_exists('phpseclib3\Crypt\RSA\PublicKey')) {
+      /** @var PublicKey $loader */
+      $loader = PublicKeyLoader::load($component);
+
+      return $loader->toString('PKCS8');
+    }
+
+    $rsaClass = $this->getRsaClass();
+    $rsa = new $rsaClass();
+    $rsa->loadKey($component);
+
+    return $rsa->getPublicKey();
+  }
+
   private function getRsaClass()
   {
+    if (class_exists('phpseclib3\Crypt\RSA')) {
+      return 'phpseclib3\Crypt\RSA';
+    }
+
     if (class_exists('phpseclib\Crypt\RSA')) {
       return 'phpseclib\Crypt\RSA';
     }
@@ -240,6 +259,10 @@ class Verify
 
   private function getBigIntClass()
   {
+    if (class_exists('phpseclib3\Math\BigInteger')) {
+      return 'phpseclib3\Math\BigInteger';
+    }
+
     if (class_exists('phpseclib\Math\BigInteger')) {
       return 'phpseclib\Math\BigInteger';
     }
@@ -249,6 +272,10 @@ class Verify
 
   private function getOpenSslConstant()
   {
+    if (class_exists('phpseclib3\Crypt\AES')) {
+      return 'phpseclib3\Crypt\AES::ENGINE_OPENSSL';
+    }
+
     if (class_exists('phpseclib\Crypt\RSA')) {
       return 'phpseclib\Crypt\RSA::MODE_OPENSSL';
     }

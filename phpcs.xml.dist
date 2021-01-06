@@ -10,11 +10,6 @@
  <!-- PHP code MUST use only UTF-8 without BOM. -->
  <rule ref="Generic.Files.ByteOrderMark"/>
 
- <!-- Check for cross-version support for PHP 5.4 and higher. -->
- <rule ref="PHPCompatibility">
-  <config name="testVersion" value="5.4-"/>
- </rule>
-
  <!-- Check for duplicated class names -->
  <rule ref="Generic.Classes.DuplicateClassName" />
 

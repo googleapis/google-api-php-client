@@ -55,7 +55,7 @@ class Google_Service_ResourceTest extends BaseTest
   private $client;
   private $service;
 
-  public function setUp()
+  public function setUp(): void
   {
     $this->client = $this->prophesize("Google_Client");
 

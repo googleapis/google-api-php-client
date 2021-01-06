@@ -26,7 +26,7 @@ class Google_HTTP_RESTTest extends BaseTest
    */
   private $rest;
 
-  public function setUp()
+  public function setUp(): void
   {
     $this->rest = new Google_Http_REST();
     $this->request = new Request('GET', '/');
