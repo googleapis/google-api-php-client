@@ -21,7 +21,7 @@ jobs:
             max_attempts: 3
             command: composer config repositories.sami vcs https://${{ secrets.GITHUB_TOKEN }}@github.com/jdpedrie/sami.git && composer require sami/sami:dev-master && git reset --hard HEAD
         - name: Generate and Push Documentation
-          uses: docker://php:7.3-cli
+          uses: docker://php:7.0-cli
           env:
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           with:
