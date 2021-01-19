@@ -1,7 +1,7 @@
 #!/bin/sh -l
 
 apt-get update
-apt-get install -y git
+apt-get install -y git wget
 git reset --hard HEAD
 
 # Create the directories
