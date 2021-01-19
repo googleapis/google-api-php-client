@@ -8,5 +8,7 @@ git reset --hard HEAD
 mkdir .docs
 mkdir .cache
 
+wget https://github.com/jdpedrie/Sami/releases/download/v4.3.0/sami.phar
+
 # Run the docs generation command
-php vendor/bin/sami.php update .github/actions/docs/sami.php
+php sami.phar update .github/actions/docs/sami.php
