@@ -59,7 +59,7 @@ if (\false) {
   class Google_Service_Exception extends \Google\Service\Exception {}
   class Google_Service_Resource extends \Google\Service\Resource {}
   class Google_Task_Exception extends \Google\Task\Exception {}
-  class Google_Task_Retryable extends \Google\Task\Retryable {}
+  interface Google_Task_Retryable extends \Google\Task\Retryable {}
   class Google_Task_Runner extends \Google\Task\Runner {}
   class Google_Utils_UriTemplate extends \Google\Utils\UriTemplate {}
 }
