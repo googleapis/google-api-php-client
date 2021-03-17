@@ -13,7 +13,12 @@ These client libraries are officially supported by Google.  However, the librari
 
 ## Google Cloud Platform
 
-For Google Cloud Platform APIs such as Datastore, Cloud Storage or Pub/Sub, we recommend using [GoogleCloudPlatform/google-cloud-php](https://github.com/googleapis/google-cloud-php) which is under active development.
+For Google Cloud Platform APIs such as [Datastore][cloud-datastore], [Cloud Storage][cloud-storage], [Pub/Sub][cloud-pubsub], and [Compute Engine][cloud-compute], we recommend using the Google Cloud client libraries. For a complete list of supported Google Cloud client libraries, see [googleapis/google-cloud-php](https://github.com/googleapis/google-cloud-php).
+
+[cloud-datastore]: https://github.com/googleapis/google-cloud-php-datastore
+[cloud-pubsub]: https://github.com/googleapis/google-cloud-php-pubsub
+[cloud-storage]: https://github.com/googleapis/google-cloud-php-storage
+[cloud-compute]: https://github.com/googleapis/google-cloud-php-compute
 
 ## Requirements ##
 * [PHP 5.6.0 or higher](https://www.php.net/)
