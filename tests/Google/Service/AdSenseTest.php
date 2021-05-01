@@ -18,7 +18,7 @@
 class Google_Service_AdSenseTest extends BaseTest
 {
   public $adsense;
-  public function setUp()
+  public function setUp(): void
   {
     $this->checkToken();
     $this->adsense = new Google_Service_AdSense($this->getClient());

@@ -49,7 +49,7 @@ use LogicException;
  */
 class Client
 {
-  const LIBVER = "2.8.3";
+  const LIBVER = "2.9.1";
   const USER_AGENT_SUFFIX = "google-api-php-client/";
   const OAUTH2_REVOKE_URI = 'https://oauth2.googleapis.com/revoke';
   const OAUTH2_TOKEN_URI = 'https://oauth2.googleapis.com/token';

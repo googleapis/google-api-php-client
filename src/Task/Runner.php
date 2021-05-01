@@ -81,7 +81,8 @@ class Runner
     7  => self::TASK_RETRY_ALWAYS,  // CURLE_COULDNT_CONNECT
     28 => self::TASK_RETRY_ALWAYS,  // CURLE_OPERATION_TIMEOUTED
     35 => self::TASK_RETRY_ALWAYS,  // CURLE_SSL_CONNECT_ERROR
-    52 => self::TASK_RETRY_ALWAYS   // CURLE_GOT_NOTHING
+    52 => self::TASK_RETRY_ALWAYS,  // CURLE_GOT_NOTHING
+    'lighthouseError' => self::TASK_RETRY_NEVER
   ];
 
   /**

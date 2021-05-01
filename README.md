@@ -11,14 +11,17 @@ The Google API Client Library enables you to work with Google APIs such as Gmail
 
 These client libraries are officially supported by Google.  However, the libraries are considered complete and are in maintenance mode. This means that we will address critical bugs and security issues but will not add any new features.
 
-**NOTE** The actively maintained (v2) version of this client requires PHP 5.4 or above. If you require support for PHP 5.2 or 5.3, use the v1 branch.
-
 ## Google Cloud Platform
 
-For Google Cloud Platform APIs such as Datastore, Cloud Storage or Pub/Sub, we recommend using [GoogleCloudPlatform/google-cloud-php](https://github.com/googleapis/google-cloud-php) which is under active development.
+For Google Cloud Platform APIs such as [Datastore][cloud-datastore], [Cloud Storage][cloud-storage], [Pub/Sub][cloud-pubsub], and [Compute Engine][cloud-compute], we recommend using the Google Cloud client libraries. For a complete list of supported Google Cloud client libraries, see [googleapis/google-cloud-php](https://github.com/googleapis/google-cloud-php).
+
+[cloud-datastore]: https://github.com/googleapis/google-cloud-php-datastore
+[cloud-pubsub]: https://github.com/googleapis/google-cloud-php-pubsub
+[cloud-storage]: https://github.com/googleapis/google-cloud-php-storage
+[cloud-compute]: https://github.com/googleapis/google-cloud-php-compute
 
 ## Requirements ##
-* [PHP 5.4.0 or higher](https://www.php.net/)
+* [PHP 5.6.0 or higher](https://www.php.net/)
 
 ## Developer Documentation ##
 
@@ -218,6 +221,19 @@ calls return unexpected 401 or 403 errors.
     ```php
     $client->setSubject($user_to_impersonate);
     ```
+
+#### How to use a specific JSON key
+
+If you want to a specific JSON key instead of using `GOOGLE_APPLICATION_CREDENTIALS` environment variable, you can do this:
+
+```php
+$jsonKey = [
+   'type' => 'service_account',
+   // ...
+];
+$client = new Google\Client();
+$client->setAuthConfig($jsonKey);
+```
 
 ### Making Requests ###
 

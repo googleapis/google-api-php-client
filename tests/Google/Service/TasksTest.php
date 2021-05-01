@@ -20,7 +20,7 @@ class Google_Service_TasksTest extends BaseTest
   /** @var Google_TasksService */
   public $taskService;
 
-  public function setUp()
+  public function setUp(): void
   {
     $this->checkToken();
     $this->taskService = new Google_Service_Tasks($this->getClient());
