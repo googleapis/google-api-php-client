@@ -23,7 +23,7 @@
         "cache/filesystem-adapter": "^0.3.2|^1.1",
         "phpcompatibility/php-compatibility": "^9.2",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-        "composer/composer": "^1.10"
+        "composer/composer": "^1.10.22"
     },
     "suggest": {
         "cache/filesystem-adapter": "For caching certs and tokens (using Google\\Client::setCache)"
