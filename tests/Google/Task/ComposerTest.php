@@ -248,10 +248,8 @@ class Google_Task_ComposerTest extends BaseTest
         $this->assertArrayNotHasKey('Google_Service_YouTube', $classmap);
     }
 
-    private function runComposerInstall(
-        array $composerConfig,
-        string $dir = null
-    ) {
+    private function runComposerInstall(array $composerConfig, $dir = null)
+    {
         $composerJson = json_encode($composerConfig);
 
         if (is_null($dir)) {
