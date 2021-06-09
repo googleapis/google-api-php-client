@@ -40,7 +40,7 @@ composer installed.
 Once composer is installed, execute the following command in your project root to install this library:
 
 ```sh
-composer require google/apiclient:"^2.7"
+composer require google/apiclient:"^2.9"
 ```
 
 Finally, be sure to include the autoloader:
@@ -61,7 +61,7 @@ you want to keep in `composer.json`:
 ```json
 {
     "require": {
-        "google/apiclient": "^2.7"
+        "google/apiclient": "^2.9"
     },
     "scripts": {
         "post-update-cmd": "Google\\Task\\Composer::cleanup"
