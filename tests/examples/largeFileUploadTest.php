@@ -21,6 +21,9 @@
 
 class examples_largeFileUploadTest extends BaseTest
 {
+  /**
+   * @runInSeparateProcess
+   */
   public function testLargeFileUpload()
   {
     $this->checkServiceAccountCredentials();

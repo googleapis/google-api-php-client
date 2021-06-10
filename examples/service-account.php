@@ -59,11 +59,11 @@ $service = new Google_Service_Books($client);
   We're just going to make the same call as in the
   simple query as an example.
  ************************************************/
+$query = 'Henry David Thoreau';
 $optParams = array(
-  'q' => 'Henry David Thoreau',
   'filter' => 'free-ebooks',
 );
-$results = $service->volumes->listVolumes($optParams);
+$results = $service->volumes->listVolumes($query, $optParams);
 ?>
 
 <h3>Results Of Call:</h3>

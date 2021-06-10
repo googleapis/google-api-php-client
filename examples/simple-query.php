@@ -47,21 +47,21 @@ $service = new Google_Service_Books($client);
   (the query), and an array of named optional
   parameters.
  ************************************************/
+$query = 'Henry David Thoreau';
 $optParams = array(
-  'q' => 'Henry David Thoreau',
   'filter' => 'free-ebooks',
 );
-$results = $service->volumes->listVolumes($optParams);
+$results = $service->volumes->listVolumes($query, $optParams);
 
  /************************************************
   This is an example of deferring a call.
  ***********************************************/
 $client->setDefer(true);
+$query = 'Henry David Thoreau';
 $optParams = array(
-  'q' => 'Henry David Thoreau',
   'filter' => 'free-ebooks',
 );
-$request = $service->volumes->listVolumes($optParams);
+$request = $service->volumes->listVolumes($query, $optParams);
 $resultsDeferred = $client->execute($request);
 
 /************************************************
