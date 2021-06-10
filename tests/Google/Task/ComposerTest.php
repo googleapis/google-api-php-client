@@ -175,7 +175,7 @@ class Google_Task_ComposerTest extends BaseTest
             ]
         ]);
 
-        $serviceDir = $dir . '/vendor/google/apiclient-services/src/Google/Service';
+        $serviceDir = $dir . '/vendor/google/apiclient-services/src';
         $this->assertFileExists($serviceDir . '/Drive.php');
         $this->assertFileExists($serviceDir . '/Drive');
         $this->assertFileExists($serviceDir . '/YouTube.php');
@@ -218,7 +218,7 @@ class Google_Task_ComposerTest extends BaseTest
         $composerConfig['scripts']['pre-autoload-dump'] = 'Google_Task_Composer::cleanup';
 
         $dir = $this->runComposerInstall($composerConfig);
-        $serviceDir = $dir . '/vendor/google/apiclient-services/src/Google/Service';
+        $serviceDir = $dir . '/vendor/google/apiclient-services/src';
 
         $this->assertFileExists($serviceDir . '/Drive.php');
         $this->assertFileExists($serviceDir . '/Drive');
@@ -244,8 +244,8 @@ class Google_Task_ComposerTest extends BaseTest
         $classmap = require_once $dir . '/vendor/composer/autoload_classmap.php';
 
         // Verify removed services do not show up in the classmap
-        $this->assertArrayHasKey('Google_Service_Drive', $classmap);
-        $this->assertArrayNotHasKey('Google_Service_YouTube', $classmap);
+        $this->assertArrayHasKey('Google\Service\Drive', $classmap);
+        $this->assertArrayNotHasKey('Google\Service\YouTube', $classmap);
     }
 
     private function runComposerInstall(array $composerConfig, $dir = null)
