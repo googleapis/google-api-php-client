@@ -20,6 +20,9 @@
 
 class examples_largeFileDownloadTest extends BaseTest
 {
+  /**
+   * @runInSeparateProcess
+   */
   public function testSimpleFileDownloadNoToken()
   {
     $this->checkServiceAccountCredentials();

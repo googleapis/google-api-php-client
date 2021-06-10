@@ -21,6 +21,9 @@
 
 class examples_simpleFileUploadTest extends BaseTest
 {
+  /**
+   * @runInSeparateProcess
+   */
   public function testSimpleFileUploadNoToken()
   {
     $this->checkServiceAccountCredentials();
