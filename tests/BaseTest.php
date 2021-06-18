@@ -276,15 +276,4 @@ class BaseTest extends TestCase
 
     return $response;
   }
-
-  public static function assertContains(
-    string $haystack,
-    string $needle,
-    string $message = ''
-  ) {
-    if (method_exists(TestCase::class, 'assertContains')) {
-      return parent::assertContains($haystack, $needle, $message);
-    }
-    return parent::assertContans($haystack, $needle, $message);
-  }
 }
