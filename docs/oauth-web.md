@@ -82,7 +82,7 @@ For example, this code requests read-only, offline access to a user's Google Dri
 ```php
 $client = new Google\Client();
 $client->setAuthConfig('client_secret.json');
-$client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
+$client->addScope(Google\Service\Drive::DRIVE_METADATA_READONLY);
 $client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
 $client->setAccessType('offline');        // offline access
 $client->setIncludeGrantedScopes(true);   // incremental auth
@@ -118,7 +118,7 @@ $client->setRedirectUri('http://localhost:8080/oauth2callback.php');
 Scopes enable your application to only request access to the resources that it needs while also enabling users to control the amount of access that they grant to your application. Thus, there is an inverse relationship between the number of scopes requested and the likelihood of obtaining user consent. To set this value in PHP, call the `addScope` function:
 
 ```php
-$client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
+$client->addScope(Google\Service\Drive::DRIVE_METADATA_READONLY);
 ```
 
 The [OAuth 2.0 API Scopes](https://developers.google.com/identity/protocols/googlescopes) document provides a full list of scopes that you might use to access Google APIs.
@@ -284,7 +284,7 @@ Use the access token to call Google APIs by completing the following steps:
 2.  Build a service object for the API that you want to call. You build a a service object by providing an authorized `Google\Client` object to the constructor for the API you want to call. For example, to call the Drive API:
 
     ```php
-    $drive = new Google_Service_Drive($client);
+    $drive = new Google\Service\Drive($client);
     ```
 
 3.  Make requests to the API service using the [interface provided by the service object](start.md). For example, to list the files in the authenticated user's Google Drive:
@@ -331,11 +331,11 @@ session_start();
 
 $client = new Google\Client();
 $client->setAuthConfig('client_secrets.json');
-$client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
+$client->addScope(Google\Service\Drive::DRIVE_METADATA_READONLY);
 
 if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
   $client->setAccessToken($_SESSION['access_token']);
-  $drive = new Google_Service_Drive($client);
+  $drive = new Google\Service\Drive($client);
   $files = $drive->files->listFiles(array())->getItems();
   echo json_encode($files);
 } else {
@@ -355,7 +355,7 @@ session_start();
 $client = new Google\Client();
 $client->setAuthConfigFile('client_secrets.json');
 $client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
-$client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
+$client->addScope(Google\Service\Drive::DRIVE_METADATA_READONLY);
 
 if (! isset($_GET['code'])) {
   $auth_url = $client->createAuthUrl();

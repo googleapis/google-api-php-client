@@ -19,7 +19,11 @@
  * under the License.
  */
 
-class examples_idTokenTest extends BaseTest
+namespace Google\Tests\Examples;
+
+use Google\Tests\BaseTest;
+
+class idTokenTest extends BaseTest
 {
   public function testIdToken()
   {

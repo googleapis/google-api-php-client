@@ -19,7 +19,11 @@
  * under the License.
  */
 
-class examples_serviceAccountTest extends BaseTest
+namespace Google\Tests\Examples;
+
+use Google\Tests\BaseTest;
+
+class serviceAccountTest extends BaseTest
 {
   public function testServiceAccount()
   {

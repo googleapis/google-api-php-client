@@ -15,15 +15,20 @@
  * limitations under the License.
  */
 
-class Google_Service_TasksTest extends BaseTest
+namespace Google\Tests\Service;
+
+use Google\Service\Tasks;
+use Google\Tests\BaseTest;
+
+class TasksTest extends BaseTest
 {
-  /** @var Google_TasksService */
+  /** @var Tasks */
   public $taskService;
 
   public function setUp(): void
   {
     $this->checkToken();
-    $this->taskService = new Google_Service_Tasks($this->getClient());
+    $this->taskService = new Tasks($this->getClient());
   }
 
   public function testInsertTask()
@@ -67,7 +72,7 @@ class Google_Service_TasksTest extends BaseTest
 
   private function createTaskList($name)
   {
-    $list = new Google_Service_Tasks_TaskList();
+    $list = new Tasks\TaskList();
     $list->title = $name;
     return $this->taskService->tasklists->insert($list);
   }
@@ -75,7 +80,7 @@ class Google_Service_TasksTest extends BaseTest
   private function createTask($title, $listId)
   {
     $tasks = $this->taskService->tasks;
-    $task = new Google_Service_Tasks_Task();
+    $task = new Tasks\Task();
     $task->title = $title;
     return $tasks->insert($listId, $task);
   }

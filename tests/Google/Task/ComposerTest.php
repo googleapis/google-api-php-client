@@ -15,7 +15,14 @@
  * limitations under the License.
  */
 
-class Google_Task_ComposerTest extends BaseTest
+namespace Google\Tests\Task;
+
+use Google\Tests\BaseTest;
+use Google\Task\Composer;
+use Symfony\Component\Filesystem\Filesystem;
+use InvalidArgumentException;
+
+class ComposerTest extends BaseTest
 {
     private static $composerBaseConfig = [
         'repositories' => [
@@ -36,47 +43,43 @@ class Google_Task_ComposerTest extends BaseTest
         'minimum-stability' => 'dev',
     ];
 
-    /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage Google service "Foo" does not exist
-     */
     public function testInvalidServiceName()
     {
-        Google_Task_Composer::cleanup($this->createMockEvent(['Foo']));
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Google service "Foo" does not exist');
+
+        Composer::cleanup($this->createMockEvent(['Foo']));
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage Invalid Google service name "../YouTube"
-     */
     public function testRelatePathServiceName()
     {
-        Google_Task_Composer::cleanup($this->createMockEvent(['../YouTube']));
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid Google service name "../YouTube"');
+
+        Composer::cleanup($this->createMockEvent(['../YouTube']));
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage Google service "" does not exist
-     */
     public function testEmptyServiceName()
     {
-        Google_Task_Composer::cleanup($this->createMockEvent(['']));
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Google service "" does not exist');
+
+        Composer::cleanup($this->createMockEvent(['']));
     }
 
-    /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage Invalid Google service name "YouTube*"
-     */
     public function testWildcardServiceName()
     {
-        Google_Task_Composer::cleanup($this->createMockEvent(['YouTube*']));
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid Google service name "YouTube*"');
+
+        Composer::cleanup($this->createMockEvent(['YouTube*']));
     }
 
     public function testRemoveServices()
     {
         $vendorDir = sys_get_temp_dir() . '/rand-' . rand();
         $serviceDir = sprintf(
-            '%s/google/apiclient-services/src/Google/Service/',
+            '%s/google/apiclient-services/src/',
             $vendorDir
         );
         $dirs = [
@@ -100,7 +103,7 @@ class Google_Task_ComposerTest extends BaseTest
             touch($serviceDir . $file);
         }
         $print = 'Removing 2 google services';
-        Google_Task_Composer::cleanup(
+        Composer::cleanup(
             $this->createMockEvent(['ServiceToKeep'], $vendorDir, $print),
             $this->createMockFilesystem([
                 'ServiceToDelete2',
@@ -113,7 +116,7 @@ class Google_Task_ComposerTest extends BaseTest
 
     private function createMockFilesystem(array $files, $serviceDir)
     {
-        $mockFilesystem = $this->prophesize('Symfony\Component\Filesystem\Filesystem');
+        $mockFilesystem = $this->prophesize(Filesystem::class);
         foreach ($files as $filename) {
             $file = new \SplFileInfo($serviceDir . $filename);
             $mockFilesystem->remove($file->getRealPath())
@@ -175,7 +178,7 @@ class Google_Task_ComposerTest extends BaseTest
             ]
         ]);
 
-        $serviceDir = $dir . '/vendor/google/apiclient-services/src/Google/Service';
+        $serviceDir = $dir . '/vendor/google/apiclient-services/src';
         $this->assertFileExists($serviceDir . '/Drive.php');
         $this->assertFileExists($serviceDir . '/Drive');
         $this->assertFileExists($serviceDir . '/YouTube.php');
@@ -218,7 +221,7 @@ class Google_Task_ComposerTest extends BaseTest
         $composerConfig['scripts']['pre-autoload-dump'] = 'Google_Task_Composer::cleanup';
 
         $dir = $this->runComposerInstall($composerConfig);
-        $serviceDir = $dir . '/vendor/google/apiclient-services/src/Google/Service';
+        $serviceDir = $dir . '/vendor/google/apiclient-services/src';
 
         $this->assertFileExists($serviceDir . '/Drive.php');
         $this->assertFileExists($serviceDir . '/Drive');
@@ -244,8 +247,8 @@ class Google_Task_ComposerTest extends BaseTest
         $classmap = require_once $dir . '/vendor/composer/autoload_classmap.php';
 
         // Verify removed services do not show up in the classmap
-        $this->assertArrayHasKey('Google_Service_Drive', $classmap);
-        $this->assertArrayNotHasKey('Google_Service_YouTube', $classmap);
+        $this->assertArrayHasKey('Google\Service\Drive', $classmap);
+        $this->assertArrayNotHasKey('Google\Service\YouTube', $classmap);
     }
 
     private function runComposerInstall(array $composerConfig, $dir = null)

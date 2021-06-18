@@ -18,10 +18,14 @@
  * under the License.
  */
 
-use GuzzleHttp\Client;
-use Google\Auth\Cache\MemoryCacheItemPool;
+namespace Google\Tests;
 
-class Google_CacheTest extends BaseTest
+use Google\Client;
+use Google\Auth\Cache\MemoryCacheItemPool;
+use Google\Service\Drive;
+use DateTime;
+
+class CacheTest extends BaseTest
 {
   public function testInMemoryCache()
   {
@@ -39,7 +43,7 @@ class Google_CacheTest extends BaseTest
     }
 
     /* Make a service call */
-    $service = new Google_Service_Drive($client);
+    $service = new Drive($client);
     $files = $service->files->listFiles();
     $this->assertInstanceOf('Google_Service_Drive_FileList', $files);
   }
@@ -49,7 +53,7 @@ class Google_CacheTest extends BaseTest
     $this->onlyPhp55AndAbove();
     $this->checkServiceAccountCredentials();
 
-    $client = new Google_Client();
+    $client = new Client();
     $client->useApplicationDefaultCredentials();
     $client->setScopes(['https://www.googleapis.com/auth/drive.readonly']);
     // filecache with new cache dir
@@ -73,14 +77,14 @@ class Google_CacheTest extends BaseTest
     }
 
     /* Make a service call */
-    $service = new Google_Service_Drive($client);
+    $service = new Drive($client);
     $files = $service->files->listFiles();
-    $this->assertInstanceOf('Google_Service_Drive_FileList', $files);
+    $this->assertInstanceOf(Drive\FileList::class, $files);
 
-    sleep(1);
+    sleep(2);
 
     // make sure the token expires
-    $client = new Google_Client();
+    $client = new Client();
     $client->useApplicationDefaultCredentials();
     $client->setScopes(['https://www.googleapis.com/auth/drive.readonly']);
     $client->setCache($cache);
@@ -90,9 +94,9 @@ class Google_CacheTest extends BaseTest
     });
 
     /* Make another service call */
-    $service = new Google_Service_Drive($client);
+    $service = new Drive($client);
     $files = $service->files->listFiles();
-    $this->assertInstanceOf('Google_Service_Drive_FileList', $files);
+    $this->assertInstanceOf(Drive\FileList::class, $files);
 
     $this->assertNotEquals($token1, $token2);
   }

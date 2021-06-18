@@ -18,17 +18,31 @@
  * under the License.
  */
 
-use GuzzleHttp\Client;
+namespace Google\Tests;
+
+use Google\Client;
+use Google\Service\Drive;
+use Google\AuthHandler\AuthHandlerFactory;
+use Google\Auth\FetchAuthTokenCache;
+use Google\Auth\GCECache;
+use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Exception\ClientException;
 use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
+use Psr\Cache\CacheItemInterface;
+use Psr\Cache\CacheItemPoolInterface;
+use ReflectionClass;
+use ReflectionMethod;
+use InvalidArgumentException;
+use Exception;
 
-class Google_ClientTest extends BaseTest
+class ClientTest extends BaseTest
 {
   public function testClientConstructor()
   {
-    $this->assertInstanceOf('Google_Client', $this->getClient());
+    $this->assertInstanceOf(Client::class, $this->getClient());
   }
 
   public function testSignAppKey()
@@ -36,7 +50,7 @@ class Google_ClientTest extends BaseTest
     $client = $this->getClient();
     $client->setDeveloperKey('devKey');
 
-    $http = new Client();
+    $http = new GuzzleClient();
     $client->authorize($http);
 
     $this->checkAuthHandler($http, 'Simple');
@@ -93,7 +107,7 @@ class Google_ClientTest extends BaseTest
     $property = $class->getProperty('fetcher');
     $property->setAccessible(true);
     $cacheFetcher = $property->getValue($auth);
-    $this->assertInstanceOf('Google\Auth\FetchAuthTokenCache', $cacheFetcher);
+    $this->assertInstanceOf(FetchAuthTokenCache::class, $cacheFetcher);
 
     $class = new ReflectionClass(get_class($cacheFetcher));
     $property = $class->getProperty('fetcher');
@@ -116,7 +130,7 @@ class Google_ClientTest extends BaseTest
   {
     $client = $this->getClient();
 
-    $http = new Client();
+    $http = new GuzzleClient();
     $client->setAccessToken([
       'access_token' => 'test_token',
       'expires_in'   => 3600,
@@ -179,7 +193,7 @@ class Google_ClientTest extends BaseTest
 
   public function testPrepareNoScopes()
   {
-    $client = new Google_Client();
+    $client = new Client();
 
     $scopes = $client->prepareScopes();
     $this->assertNull($scopes);
@@ -187,7 +201,7 @@ class Google_ClientTest extends BaseTest
 
   public function testNoAuthIsNull()
   {
-    $client = new Google_Client();
+    $client = new Client();
 
     $this->assertNull($client->getAccessToken());
   }
@@ -196,7 +210,7 @@ class Google_ClientTest extends BaseTest
   {
     $this->onlyGuzzle6Or7();
 
-    $client = new Google_Client();
+    $client = new Client();
     $client->setScopes(array("scope1", "scope2"));
     $scopes = $client->prepareScopes();
     $this->assertEquals("scope1 scope2", $scopes);
@@ -248,13 +262,13 @@ class Google_ClientTest extends BaseTest
         ->willReturn($response->reveal());
 
     $client->setHttpClient($http->reveal());
-    $dr_service = new Google_Service_Drive($client);
-    $this->assertInstanceOf('Google_Model', $dr_service->files->listFiles());
+    $dr_service = new Drive($client);
+    $this->assertInstanceOf('Google\Model', $dr_service->files->listFiles());
   }
 
   public function testDefaultLogger()
   {
-    $client = new Google_Client();
+    $client = new Client();
     $logger = $client->getLogger();
     $this->assertInstanceOf('Monolog\Logger', $logger);
     $handler = $logger->popHandler();
@@ -264,7 +278,7 @@ class Google_ClientTest extends BaseTest
   public function testDefaultLoggerAppEngine()
   {
     $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
-    $client = new Google_Client();
+    $client = new Client();
     $logger = $client->getLogger();
     $handler = $logger->popHandler();
     unset($_SERVER['SERVER_SOFTWARE']);
@@ -275,7 +289,7 @@ class Google_ClientTest extends BaseTest
 
   public function testSettersGetters()
   {
-    $client = new Google_Client();
+    $client = new Client();
     $client->setClientId("client1");
     $client->setClientSecret('client1secret');
     $client->setState('1');
@@ -285,9 +299,9 @@ class Google_ClientTest extends BaseTest
     $client->setRedirectUri('localhost');
     $client->setConfig('application_name', 'me');
 
-    $cache = $this->prophesize('Psr\Cache\CacheItemPoolInterface');
+    $cache = $this->prophesize(CacheItemPoolInterface::class);
     $client->setCache($cache->reveal());
-    $this->assertInstanceOf('Psr\Cache\CacheItemPoolInterface', $client->getCache());
+    $this->assertInstanceOf(CacheItemPoolInterface::class, $client->getCache());
 
     try {
       $client->setAccessToken(null);
@@ -303,7 +317,7 @@ class Google_ClientTest extends BaseTest
 
   public function testDefaultConfigOptions()
   {
-      $client = new Google_Client();
+      $client = new Client();
       if ($this->isGuzzle6() || $this->isGuzzle7()) {
           $this->assertArrayHasKey('http_errors', $client->getHttpClient()->getConfig());
           $this->assertArrayNotHasKey('exceptions', $client->getHttpClient()->getConfig());
@@ -321,7 +335,7 @@ class Google_ClientTest extends BaseTest
     $this->onlyGuzzle5();
 
     $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
-    $client = new Google_Client();
+    $client = new Client();
 
     // check Stream Handler is used
     $http = $client->getHttpClient();
@@ -345,7 +359,7 @@ class Google_ClientTest extends BaseTest
     $this->onlyGuzzle5();
 
     $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
-    $client = new Google_Client();
+    $client = new Client();
 
     $this->assertEquals(
       '/etc/ca-certificates.crt',
@@ -358,7 +372,7 @@ class Google_ClientTest extends BaseTest
   public function testJsonConfig()
   {
     // Device config
-    $client = new Google_Client();
+    $client = new Client();
     $device =
     '{"installed":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret"'.
     ':"N0aHCBT1qX1VAcF5J1pJAn6S","token_uri":"https://oauth2.googleapis.com/token",'.
@@ -372,7 +386,7 @@ class Google_ClientTest extends BaseTest
     $this->assertEquals($client->getRedirectUri(), $dObj['installed']['redirect_uris'][0]);
 
     // Web config
-    $client = new Google_Client();
+    $client = new Client();
     $web = '{"web":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret"' .
       ':"lpoubuib8bj-Fmke_YhhyHGgXc","token_uri":"https://oauth2.googleapis.com/token"' .
       ',"client_email":"123456789@developer.gserviceaccount.com","client_x509_cert_url":'.
@@ -389,7 +403,7 @@ class Google_ClientTest extends BaseTest
   public function testIniConfig()
   {
     $config = parse_ini_file(__DIR__ . '/../config/test.ini');
-    $client = new Google_Client($config);
+    $client = new Client($config);
 
     $this->assertEquals('My Test application', $client->getConfig('application_name'));
     $this->assertEquals(
@@ -401,7 +415,7 @@ class Google_ClientTest extends BaseTest
   public function testNoAuth()
   {
     /** @var $noAuth Google_Auth_Simple */
-    $client = new Google_Client();
+    $client = new Client();
     $client->setDeveloperKey(null);
 
     // unset application credentials
@@ -409,7 +423,7 @@ class Google_ClientTest extends BaseTest
     $HOME = getenv('HOME');
     putenv('GOOGLE_APPLICATION_CREDENTIALS=');
     putenv('HOME='.sys_get_temp_dir());
-    $http = new Client();
+    $http = new GuzzleClient();
     $client->authorize($http);
 
     putenv("GOOGLE_APPLICATION_CREDENTIALS=$GOOGLE_APPLICATION_CREDENTIALS");
@@ -422,10 +436,10 @@ class Google_ClientTest extends BaseTest
     $this->checkServiceAccountCredentials();
     $credentialsFile = getenv('GOOGLE_APPLICATION_CREDENTIALS');
 
-    $client = new Google_Client();
+    $client = new Client();
     $client->setAuthConfig($credentialsFile);
 
-    $http = new Client();
+    $http = new GuzzleClient();
     $client->authorize($http);
 
     $this->checkAuthHandler($http, 'AuthToken');
@@ -438,11 +452,11 @@ class Google_ClientTest extends BaseTest
     $credentialsFile = getenv('GOOGLE_APPLICATION_CREDENTIALS');
 
     $sub = 'sub123';
-    $client = new Google_Client();
+    $client = new Client();
     $client->setAuthConfig($credentialsFile);
     $client->setSubject($sub);
 
-    $http = new Client();
+    $http = new GuzzleClient();
     $client->authorize($http);
 
     $this->checkAuthHandler($http, 'AuthToken');
@@ -481,7 +495,7 @@ class Google_ClientTest extends BaseTest
     $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
     if ($this->isGuzzle5()) {
-      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
+      $guzzle5Request = new \GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
       $http->createRequest(Argument::any(), Argument::any(), Argument::any())
           ->shouldBeCalledTimes(1)
           ->willReturn($guzzle5Request);
@@ -535,7 +549,7 @@ class Google_ClientTest extends BaseTest
     $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
     if ($this->isGuzzle5()) {
-      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
+      $guzzle5Request = new \GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
       $http->createRequest(Argument::any(), Argument::any(), Argument::any())
           ->willReturn($guzzle5Request);
 
@@ -587,7 +601,7 @@ class Google_ClientTest extends BaseTest
     $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
     if ($this->isGuzzle5()) {
-      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
+      $guzzle5Request = new \GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
       $http->createRequest(Argument::any(), Argument::any(), Argument::any())
           ->willReturn($guzzle5Request);
 
@@ -666,7 +680,7 @@ class Google_ClientTest extends BaseTest
     $client->useApplicationDefaultCredentials();
     $client->setSubject('bad-subject');
 
-    $authHandler = Google_AuthHandler_AuthHandlerFactory::build();
+    $authHandler = AuthHandlerFactory::build();
 
     // make this method public for testing purposes
     $method = new ReflectionMethod($authHandler, 'createAuthHttp');
@@ -676,7 +690,7 @@ class Google_ClientTest extends BaseTest
     try {
       $token = $client->fetchAccessTokenWithAssertion($authHttp);
       $this->fail('no exception thrown');
-    } catch (GuzzleHttp\Exception\ClientException $e) {
+    } catch (ClientException $e) {
       $response = $e->getResponse();
       $this->assertContains('Invalid impersonation', (string) $response->getBody());
     }
@@ -766,7 +780,7 @@ class Google_ClientTest extends BaseTest
   /** @runInSeparateProcess */
   public function testOnGceCacheAndCacheOptions()
   {
-    if (!class_exists('Google\Auth\GCECache')) {
+    if (!class_exists(GCECache::class)) {
       $this->markTestSkipped('Requires google/auth >= 1.12');
     }
 
@@ -775,19 +789,19 @@ class Google_ClientTest extends BaseTest
     $prefix = 'test_prefix_';
     $cacheConfig = ['gce_prefix' => $prefix];
 
-    $mockCacheItem = $this->prophesize('Psr\Cache\CacheItemInterface');
+    $mockCacheItem = $this->prophesize(CacheItemInterface::class);
     $mockCacheItem->isHit()
         ->willReturn(true);
     $mockCacheItem->get()
         ->shouldBeCalledTimes(1)
         ->willReturn(true);
 
-    $mockCache = $this->prophesize('Psr\Cache\CacheItemPoolInterface');
-    $mockCache->getItem($prefix . Google\Auth\GCECache::GCE_CACHE_KEY)
+    $mockCache = $this->prophesize(CacheItemPoolInterface::class);
+    $mockCache->getItem($prefix . GCECache::GCE_CACHE_KEY)
         ->shouldBeCalledTimes(1)
         ->willReturn($mockCacheItem->reveal());
 
-    $client = new Google_Client(['cache_config' => $cacheConfig]);
+    $client = new Client(['cache_config' => $cacheConfig]);
     $client->setCache($mockCache->reveal());
     $client->useApplicationDefaultCredentials();
     $client->authorize();
@@ -798,7 +812,7 @@ class Google_ClientTest extends BaseTest
   {
     $this->checkServiceAccountCredentials();
     $cachedValue = ['access_token' => '2/abcdef1234567890'];
-    $mockCacheItem = $this->prophesize('Psr\Cache\CacheItemInterface');
+    $mockCacheItem = $this->prophesize(CacheItemInterface::class);
     $mockCacheItem->isHit()
         ->shouldBeCalledTimes(1)
         ->willReturn(true);
@@ -806,12 +820,12 @@ class Google_ClientTest extends BaseTest
         ->shouldBeCalledTimes(1)
         ->willReturn($cachedValue);
 
-    $mockCache = $this->prophesize('Psr\Cache\CacheItemPoolInterface');
+    $mockCache = $this->prophesize(CacheItemPoolInterface::class);
     $mockCache->getItem(Argument::any())
         ->shouldBeCalledTimes(1)
         ->willReturn($mockCacheItem->reveal());
 
-    $client = new Google_Client();
+    $client = new Client();
     $client->setCache($mockCache->reveal());
     $client->useApplicationDefaultCredentials();
     $token = $client->fetchAccessTokenWithAssertion();
@@ -821,8 +835,8 @@ class Google_ClientTest extends BaseTest
 
   public function testCacheClientOption()
   {
-    $mockCache = $this->prophesize('Psr\Cache\CacheItemPoolInterface');
-    $client = new Google_Client([
+    $mockCache = $this->prophesize(CacheItemPoolInterface::class);
+    $client = new Client([
       'cache' => $mockCache->reveal()
     ]);
     $this->assertEquals($mockCache->reveal(), $client->getCache());
@@ -832,17 +846,20 @@ class Google_ClientTest extends BaseTest
   {
     $this->onlyGuzzle6Or7();
 
-    $client = new Google_Client([
+    $client = new Client([
       'api_format_v2' => true
     ]);
 
     $guzzle = $this->prophesize('GuzzleHttp\Client');
-    $guzzle->send(Argument::allOf(
+    $guzzle
+      ->send(Argument::allOf(
         Argument::type('Psr\Http\Message\RequestInterface'),
         Argument::that(function (RequestInterface $request) {
             return $request->getHeaderLine('X-GOOG-API-FORMAT-VERSION') === '2';
         })
-      ), [])->willReturn(new Response(200, [], null));
+      ), [])
+      ->shouldBeCalled()
+      ->willReturn(new Response(200, [], null));
 
     $client->setHttpClient($guzzle->reveal());
 
@@ -854,19 +871,19 @@ class Google_ClientTest extends BaseTest
   {
     $this->onlyGuzzle6Or7();
 
-    $client = new Google_Client();
+    $client = new Client();
 
     $guzzle = $this->prophesize('GuzzleHttp\Client');
     $guzzle->send(Argument::that(function (RequestInterface $request) {
       $userAgent = sprintf(
         '%s%s',
-        Google_Client::USER_AGENT_SUFFIX,
-        Google_Client::LIBVER
+        Client::USER_AGENT_SUFFIX,
+        Client::LIBVER
       );
       $xGoogApiClient = sprintf(
         'gl-php/%s gdcl/%s',
         phpversion(),
-        Google_Client::LIBVER
+        Client::LIBVER
       );
 
       if ($request->getHeaderLine('User-Agent') !== $userAgent) {
@@ -900,31 +917,31 @@ class Google_ClientTest extends BaseTest
     ];
     $tmpCredFile = tempnam(sys_get_temp_dir(), 'creds') . '.json';
     file_put_contents($tmpCredFile, json_encode($tmpCreds));
-    $client = new Google_Client([
+    $client = new Client([
       'credentials' => $tmpCredFile
     ]);
     $this->assertEquals('foo', $client->getClientId());
 
     // Test credentials array
-    $client = new Google_Client([
+    $client = new Client([
       'credentials' => $tmpCredFile
     ]);
     $this->assertEquals('foo', $client->getClientId());
 
     // Test singular scope
-    $client = new Google_Client([
+    $client = new Client([
       'scopes' => 'a-scope'
     ]);
     $this->assertEquals(['a-scope'], $client->getScopes());
 
     // Test multiple scopes
-    $client = new Google_Client([
+    $client = new Client([
       'scopes' => ['one-scope', 'two-scope']
     ]);
     $this->assertEquals(['one-scope', 'two-scope'], $client->getScopes());
 
     // Test quota project
-    $client = new Google_Client([
+    $client = new Client([
       'quota_project' => 'some-quota-project'
     ]);
     $this->assertEquals('some-quota-project', $client->getConfig('quota_project'));

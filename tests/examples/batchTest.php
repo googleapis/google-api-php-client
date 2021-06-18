@@ -19,7 +19,11 @@
  * under the License.
  */
 
-class examples_batchTest extends BaseTest
+namespace Google\Tests\Examples;
+
+use Google\Tests\BaseTest;
+
+class batchTest extends BaseTest
 {
   public function testBatch()
   {

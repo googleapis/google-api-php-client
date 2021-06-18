@@ -15,6 +15,10 @@
  * limitations under the License.
  */
 
+namespace Google\Tests;
+
+use Google\Client;
+use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\DomCrawler\Crawler;
 use League\Flysystem\Adapter\Local;
@@ -62,14 +66,12 @@ class BaseTest extends TestCase
       $options = ['defaults' => $options];
     }
 
-    $httpClient = new GuzzleHttp\Client($options);
+    $httpClient = new GuzzleClient($options);
 
-    $client = new Google_Client();
+    $client = new Client();
     $client->setApplicationName('google-api-php-client-tests');
     $client->setHttpClient($httpClient);
     $client->setScopes([
-        "https://www.googleapis.com/auth/plus.me",
-        "https://www.googleapis.com/auth/urlshortener",
         "https://www.googleapis.com/auth/tasks",
         "https://www.googleapis.com/auth/adsense",
         "https://www.googleapis.com/auth/youtube",
@@ -115,7 +117,7 @@ class BaseTest extends TestCase
     return true;
   }
 
-  public function tryToGetAnAccessToken(Google_Client $client)
+  public function tryToGetAnAccessToken(Client $client)
   {
     $this->checkClientCredentials();
 

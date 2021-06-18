@@ -19,7 +19,11 @@
  * under the License.
  */
 
-class examples_multiApiTest extends BaseTest
+namespace Google\Tests\Examples;
+
+use Google\Tests\BaseTest;
+
+class multiApiTest extends BaseTest
 {
   public function testMultiApi()
   {

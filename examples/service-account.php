@@ -53,7 +53,7 @@ if ($credentials_file = checkServiceAccountCredentialsFile()) {
 
 $client->setApplicationName("Client_Library_Examples");
 $client->setScopes(['https://www.googleapis.com/auth/books']);
-$service = new Google_Service_Books($client);
+$service = new Google\Service\Books($client);
 
 /************************************************
   We're just going to make the same call as in the

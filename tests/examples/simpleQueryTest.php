@@ -19,7 +19,11 @@
  * under the License.
  */
 
-class examples_simpleQueryTest extends BaseTest
+namespace Google\Tests\Examples;
+
+use Google\Tests\BaseTest;
+
+class simpleQueryTest extends BaseTest
 {
   public function testSimpleQuery()
   {

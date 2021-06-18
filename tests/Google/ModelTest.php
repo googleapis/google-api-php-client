@@ -18,7 +18,15 @@
  * under the License.
  */
 
-class Google_ModelTest extends BaseTest
+namespace Google\Tests;
+
+use Google\Model;
+use Google\Service\AdExchangeBuyer;
+use Google\Service\Calendar;
+use Google\Service\Dfareporting;
+use Google\Service\Drive;
+
+class ModelTest extends BaseTest
 {
   private $calendarData =  '{
          "kind": "calendar#event",
@@ -56,12 +64,12 @@ class Google_ModelTest extends BaseTest
   public function testIntentionalNulls()
   {
     $data = json_decode($this->calendarData, true);
-    $event = new Google_Service_Calendar_Event($data);
+    $event = new Calendar\Event($data);
     $obj = json_decode(json_encode($event->toSimpleObject()), true);
     $this->assertArrayHasKey('date', $obj['start']);
     $this->assertArrayNotHasKey('dateTime', $obj['start']);
-    $date = new Google_Service_Calendar_EventDateTime();
-    $date->setDate(Google_Model::NULL_VALUE);
+    $date = new Calendar\EventDateTime();
+    $date->setDate(Model::NULL_VALUE);
     $event->setStart($date);
     $obj = json_decode(json_encode($event->toSimpleObject()), true);
     $this->assertNull($obj['start']['date']);
@@ -71,8 +79,8 @@ class Google_ModelTest extends BaseTest
   public function testModelMutation()
   {
     $data = json_decode($this->calendarData, true);
-    $event = new Google_Service_Calendar_Event($data);
-    $date = new Google_Service_Calendar_EventDateTime();
+    $event = new Calendar\Event($data);
+    $date = new Calendar\EventDateTime();
     date_default_timezone_set('UTC');
     $dateString = Date("c");
     $summary = "hello";
@@ -85,14 +93,14 @@ class Google_ModelTest extends BaseTest
     $this->assertEquals($dateString, $simpleEvent->end->date);
     $this->assertEquals($summary, $simpleEvent->summary);
 
-    $event2 = new Google_Service_Calendar_Event();
+    $event2 = new Calendar\Event();
     $this->assertNull($event2->getStart());
   }
 
   public function testVariantTypes()
   {
-    $file = new Google_Service_Drive_DriveFile();
-    $metadata = new Google_Service_Drive_DriveFileImageMediaMetadata();
+    $file = new Drive\DriveFile();
+    $metadata = new Drive\DriveFileImageMediaMetadata();
     $metadata->setCameraMake('Pokémon Snap');
     $file->setImageMediaMetadata($metadata);
     $data = json_decode(json_encode($file->toSimpleObject()), true);
@@ -101,7 +109,7 @@ class Google_ModelTest extends BaseTest
 
   public function testOddMappingNames()
   {
-    $creative = new Google_Service_AdExchangeBuyer_Creative();
+    $creative = new AdExchangeBuyer\Creative();
     $creative->setAccountId('12345');
     $creative->setBuyerCreativeId('12345');
     $creative->setAdvertiserName('Hi');
@@ -118,13 +126,13 @@ class Google_ModelTest extends BaseTest
 
   public function testJsonStructure()
   {
-    $model = new Google_Model();
+    $model = new Model();
     $model->publicA = "This is a string";
-    $model2 = new Google_Model();
+    $model2 = new Model();
     $model2->publicC = 12345;
     $model2->publicD = null;
     $model->publicB = $model2;
-    $model3 = new Google_Model();
+    $model3 = new Model();
     $model3->publicE = 54321;
     $model3->publicF = null;
     $model->publicG = array($model3, "hello", false);
@@ -146,14 +154,14 @@ class Google_ModelTest extends BaseTest
 
   public function testIssetPropertyOnModel()
   {
-    $model = new Google_Model();
+    $model = new Model();
     $model['foo'] = 'bar';
     $this->assertTrue(isset($model->foo));
   }
 
   public function testUnsetPropertyOnModel()
   {
-    $model = new Google_Model();
+    $model = new Model();
     $model['foo'] = 'bar';
     unset($model->foo);
     $this->assertFalse(isset($model->foo));
@@ -176,7 +184,7 @@ class Google_ModelTest extends BaseTest
          }',
         true
     );
-    $collection = new Google_Service_Calendar_Events($data);
+    $collection = new Calendar\Events($data);
     $this->assertCount(4, $collection);
     $count = 0;
     foreach ($collection as $col) {
@@ -197,12 +205,12 @@ class Google_ModelTest extends BaseTest
          }',
         true
     );
-    $collection = new Google_Service_Calendar_Events($data);
+    $collection = new Calendar\Events($data);
     $collection->setItems([
-      new Google_Service_Calendar_Event(['id' => 1]),
-      new Google_Service_Calendar_Event(['id' => 2]),
-      new Google_Service_Calendar_Event(['id' => 3]),
-      new Google_Service_Calendar_Event(['id' => 4]),
+      new Calendar\Event(['id' => 1]),
+      new Calendar\Event(['id' => 2]),
+      new Calendar\Event(['id' => 3]),
+      new Calendar\Event(['id' => 4]),
     ]);
     $this->assertCount(4, $collection);
     $count = 0;
@@ -224,30 +232,30 @@ class Google_ModelTest extends BaseTest
          }',
         true
     );
-    $collection = new Google_Service_Calendar_Colors($data);
+    $collection = new Calendar\Colors($data);
     $this->assertCount(2, $collection->calendar);
     $this->assertTrue(isset($collection->calendar['regular']));
     $this->assertTrue(isset($collection->calendar['inverted']));
-    $this->assertInstanceOf('Google_Service_Calendar_ColorDefinition', $collection->calendar['regular']);
+    $this->assertInstanceOf(Calendar\ColorDefinition::class, $collection->calendar['regular']);
     $this->assertEquals('#FFF', $collection->calendar['regular']->getBackground());
     $this->assertEquals('#FFF', $collection->calendar['inverted']->getForeground());
   }
 
   public function testPassingInstanceInConstructor()
   {
-    $creator = new Google_Service_Calendar_EventCreator();
+    $creator = new Calendar\EventCreator();
     $creator->setDisplayName('Brent Shaffer');
     $data = [
         "creator" => $creator
     ];
-    $event = new Google_Service_Calendar_Event($data);
-    $this->assertInstanceOf('Google_Service_Calendar_EventCreator', $event->getCreator());
+    $event = new Calendar\Event($data);
+    $this->assertInstanceOf(Calendar\EventCreator::class, $event->getCreator());
     $this->assertEquals('Brent Shaffer', $event->creator->getDisplayName());
   }
 
   public function testPassingInstanceInConstructorForMap()
   {
-    $regular = new Google_Service_Calendar_ColorDefinition();
+    $regular = new Calendar\ColorDefinition();
     $regular->setBackground('#FFF');
     $regular->setForeground('#000');
     $data = [
@@ -256,11 +264,11 @@ class Google_ModelTest extends BaseTest
             "inverted" => [ "background" => "#000", "foreground" => "#FFF" ],
         ]
     ];
-    $collection = new Google_Service_Calendar_Colors($data);
+    $collection = new Calendar\Colors($data);
     $this->assertCount(2, $collection->calendar);
     $this->assertTrue(isset($collection->calendar['regular']));
     $this->assertTrue(isset($collection->calendar['inverted']));
-    $this->assertInstanceOf('Google_Service_Calendar_ColorDefinition', $collection->calendar['regular']);
+    $this->assertInstanceOf(Calendar\ColorDefinition::class, $collection->calendar['regular']);
     $this->assertEquals('#FFF', $collection->calendar['regular']->getBackground());
     $this->assertEquals('#FFF', $collection->calendar['inverted']->getForeground());
   }
@@ -274,7 +282,7 @@ class Google_ModelTest extends BaseTest
         "duration" => 0,
         "durationType" => "unknown",
     ];
-    $creativeAsset = new Google_Service_Dfareporting_CreativeAsset($data);
+    $creativeAsset = new Dfareporting\CreativeAsset($data);
     $this->assertEquals(0, $creativeAsset->getDuration());
     $this->assertEquals('unknown', $creativeAsset->getDurationType());
   }

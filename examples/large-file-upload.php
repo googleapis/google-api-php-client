@@ -38,7 +38,7 @@ $client = new Google\Client();
 $client->setAuthConfig($oauth_credentials);
 $client->setRedirectUri($redirect_uri);
 $client->addScope("https://www.googleapis.com/auth/drive");
-$service = new Google_Service_Drive($client);
+$service = new Google\Service\Drive($client);
 
 // add "?logout" to the URL to remove a token from the session
 if (isset($_REQUEST['logout'])) {
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
     fclose($fh);
   }
 
-  $file = new Google_Service_Drive_DriveFile();
+  $file = new Google\Service\Drive\DriveFile();
   $file->name = "Big File";
   $chunkSizeBytes = 1 * 1024 * 1024;
 

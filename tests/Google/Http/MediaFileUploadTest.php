@@ -1,8 +1,5 @@
 <?php
 
-use GuzzleHttp\Psr7;
-use GuzzleHttp\Psr7\Request;
-
 /**
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -22,13 +19,21 @@ use GuzzleHttp\Psr7\Request;
  * under the License.
  */
 
-class Google_Http_MediaFileUploadTest extends BaseTest
+namespace Google\Tests\Http;
+
+use Google\Tests\BaseTest;
+use Google\Http\MediaFileUpload;
+use Google\Service\Drive;
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Request;
+
+class MediaFileUploadTest extends BaseTest
 {
   public function testMediaFile()
   {
     $client = $this->getClient();
     $request = new Request('POST', 'http://www.example.com');
-    $media = new Google_Http_MediaFileUpload(
+    $media = new MediaFileUpload(
         $client,
         $request,
         'image/png',
@@ -46,15 +51,15 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     $request = new Request('POST', 'http://www.example.com');
 
     // Test resumable upload
-    $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', 'a', true);
+    $media = new MediaFileUpload($client, $request, 'image/png', 'a', true);
     $this->assertEquals('resumable', $media->getUploadType(null));
 
     // Test data *only* uploads
-    $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', 'a', false);
+    $media = new MediaFileUpload($client, $request, 'image/png', 'a', false);
     $this->assertEquals('media', $media->getUploadType(null));
 
     // Test multipart uploads
-    $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', 'a', false);
+    $media = new MediaFileUpload($client, $request, 'image/png', 'a', false);
     $this->assertEquals('multipart', $media->getUploadType(array('a' => 'b')));
   }
 
@@ -65,7 +70,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
 
     // Test data *only* uploads.
     $request = new Request('POST', 'http://www.example.com');
-    $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, false);
+    $media = new MediaFileUpload($client, $request, 'image/png', $data, false);
     $request = $media->getRequest();
     $this->assertEquals($data, (string) $request->getBody());
 
@@ -73,7 +78,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     $request = new Request('POST', 'http://www.example.com');
     $reqData = json_encode("hello");
     $request = $request->withBody(Psr7\stream_for($reqData));
-    $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, true);
+    $media = new MediaFileUpload($client, $request, 'image/png', $data, true);
     $request = $media->getRequest();
     $this->assertEquals(json_decode($reqData), (string) $request->getBody());
 
@@ -81,7 +86,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     $request = new Request('POST', 'http://www.example.com');
     $reqData = json_encode("hello");
     $request = $request->withBody(Psr7\stream_for($reqData));
-    $media = new Google_Http_MediaFileUpload($client, $request, 'image/png', $data, false);
+    $media = new MediaFileUpload($client, $request, 'image/png', $data, false);
     $request = $media->getRequest();
     $this->assertContains($reqData, (string) $request->getBody());
     $this->assertContains(base64_encode($data), (string) $request->getBody());
@@ -93,8 +98,8 @@ class Google_Http_MediaFileUploadTest extends BaseTest
 
     $client = $this->getClient();
     $client->addScope("https://www.googleapis.com/auth/drive");
-    $service = new Google_Service_Drive($client);
-    $file = new Google_Service_Drive_DriveFile();
+    $service = new Drive($client);
+    $file = new Drive\DriveFile();
     $file->name = 'TESTFILE-testGetResumeUri';
     $chunkSizeBytes = 1 * 1024 * 1024;
 
@@ -103,7 +108,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     $request = $service->files->create($file);
 
     // Create a media file upload to represent our upload process.
-    $media = new Google_Http_MediaFileUpload(
+    $media = new MediaFileUpload(
       $client,
       $request,
       'text/plain',
@@ -114,7 +119,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
 
     // request the resumable url
     $uri = $media->getResumeUri();
-    $this->assertInternalType('string', $uri);
+    $this->assertIsString($uri);
 
     // parse the URL
     $parts = parse_url($uri);
@@ -133,10 +138,10 @@ class Google_Http_MediaFileUploadTest extends BaseTest
 
     $client = $this->getClient();
     $client->addScope("https://www.googleapis.com/auth/drive");
-    $service = new Google_Service_Drive($client);
+    $service = new Drive($client);
 
     $data = 'foo';
-    $file = new Google_Service_Drive_DriveFile();
+    $file = new Drive\DriveFile();
     $file->name = $name = 'TESTFILE-testNextChunk';
 
     // Call the API with the media upload, defer so it doesn't immediately return.
@@ -144,7 +149,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     $request = $service->files->create($file);
 
     // Create a media file upload to represent our upload process.
-    $media = new Google_Http_MediaFileUpload(
+    $media = new MediaFileUpload(
       $client,
       $request,
       'text/plain',
@@ -155,7 +160,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
 
     // upload the file
     $file = $media->nextChunk($data);
-    $this->assertInstanceOf('Google_Service_Drive_DriveFile', $file);
+    $this->assertInstanceOf(Drive\DriveFile::class, $file);
     $this->assertEquals($name, $file->name);
 
     // remove the file
@@ -170,11 +175,11 @@ class Google_Http_MediaFileUploadTest extends BaseTest
 
     $client = $this->getClient();
     $client->addScope("https://www.googleapis.com/auth/drive");
-    $service = new Google_Service_Drive($client);
+    $service = new Drive($client);
 
     $chunkSizeBytes = 262144; // smallest chunk size allowed by APIs
     $data = str_repeat('.', $chunkSizeBytes+1);
-    $file = new Google_Service_Drive_DriveFile();
+    $file = new Drive\DriveFile();
     $file->name = $name = 'TESTFILE-testNextChunkWithMoreRemaining';
 
     // Call the API with the media upload, defer so it doesn't immediately return.
@@ -182,7 +187,7 @@ class Google_Http_MediaFileUploadTest extends BaseTest
     $request = $service->files->create($file);
 
     // Create a media file upload to represent our upload process.
-    $media = new Google_Http_MediaFileUpload(
+    $media = new MediaFileUpload(
       $client,
       $request,
       'text/plain',

@@ -15,20 +15,26 @@
  * limitations under the License.
  */
 
+namespace Google\Tests\Http;
+
+use Google\Http\REST;
+use Google\Service\Exception as ServiceException;
+use Google\Tests\BaseTest;
+use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 
-class Google_HTTP_RESTTest extends BaseTest
+class RESTTest extends BaseTest
 {
   /**
-   * @var Google_Http_REST $rest
+   * @var REST $rest
    */
   private $rest;
 
   public function setUp(): void
   {
-    $this->rest = new Google_Http_REST();
+    $this->rest = new REST();
     $this->request = new Request('GET', '/');
   }
 
@@ -63,17 +69,17 @@ class Google_HTTP_RESTTest extends BaseTest
   }
 
 
-  /** @expectedException Google_Service_Exception */
   public function testDecode500ResponseThrowsException()
   {
+    $this->expectException(ServiceException::class);
     $response = new Response(500);
     $this->rest->decodeHttpResponse($response, $this->request);
   }
 
-  /** @expectedException Google_Service_Exception */
   public function testExceptionResponse()
   {
-    $http = new GuzzleHttp\Client();
+    $this->expectException(ServiceException::class);
+    $http = new GuzzleClient();
 
     $request = new Request('GET', 'http://httpbin.org/status/500');
     $response = $this->rest->doExecute($http, $request);
@@ -87,11 +93,9 @@ class Google_HTTP_RESTTest extends BaseTest
     $this->assertEquals('{}', (string) $decoded->getBody());
   }
 
-  /**
-   * @expectedException Google_Service_Exception
-   */
   public function testBadErrorFormatting()
   {
+    $this->expectException(ServiceException::class);
     $stream = Psr7\stream_for(
         '{
          "error": {
@@ -104,11 +108,9 @@ class Google_HTTP_RESTTest extends BaseTest
     $this->rest->decodeHttpResponse($response, $this->request);
   }
 
-  /**
-   * @expectedException Google_Service_Exception
-   */
   public function tesProperErrorFormatting()
   {
+    $this->expectException(ServiceException::class);
     $stream = Psr7\stream_for(
         '{
           error: {
@@ -129,11 +131,9 @@ class Google_HTTP_RESTTest extends BaseTest
     $this->rest->decodeHttpResponse($response, $this->request);
   }
 
-  /**
-   * @expectedException Google_Service_Exception
-   */
   public function testNotJson404Error()
   {
+    $this->expectException(ServiceException::class);
     $stream = Psr7\stream_for('Not Found');
     $response = new Response(404, array(), $stream);
     $this->rest->decodeHttpResponse($response, $this->request);

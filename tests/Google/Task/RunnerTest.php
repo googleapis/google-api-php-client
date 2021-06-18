@@ -15,14 +15,24 @@
  * limitations under the License.
  */
 
+namespace Google\Tests\Task;
+
+use Google\Client;
+use Google\Task\Runner;
+use Google\Tests\BaseTest;
+use Google\Http\Request as GoogleRequest;
+use Google\Http\REST;
+use Google\Service\Exception as ServiceException;
+use Google\Task\Exception as TaskException;
 use GuzzleHttp\Message\Response as Guzzle5Response;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Stream\Stream as Guzzle5Stream;
 use Prophecy\Argument;
+use Exception;
 
-class Google_Task_RunnerTest extends BaseTest
+class RunnerTest extends BaseTest
 {
   private $client;
 
@@ -34,36 +44,37 @@ class Google_Task_RunnerTest extends BaseTest
 
   protected function setUp(): void
   {
-    $this->client = new Google_Client();
+    $this->client = new Client();
   }
 
   /**
    * @dataProvider defaultRestErrorProvider
-   * @expectedException Google_Service_Exception
    */
   public function testRestRetryOffByDefault($errorCode, $errorBody = '{}')
   {
+    $this->expectException(ServiceException::class);
     $this->setNextResponse($errorCode, $errorBody)->makeRequest();
   }
 
   /**
    * @dataProvider defaultRestErrorProvider
-   * @expectedException Google_Service_Exception
    */
   public function testOneRestRetryWithError($errorCode, $errorBody = '{}')
   {
+    $this->expectException(ServiceException::class);
     $this->setRetryConfig(array('retries' => 1));
     $this->setNextResponses(2, $errorCode, $errorBody)->makeRequest();
   }
 
   /**
    * @dataProvider defaultRestErrorProvider
-   * @expectedException Google_Service_Exception
    */
   public function testMultipleRestRetriesWithErrors(
       $errorCode,
       $errorBody = '{}'
   ) {
+    $this->expectException(ServiceException::class);
+
     $this->setRetryConfig(array('retries' => 5));
     $this->setNextResponses(6, $errorCode, $errorBody)->makeRequest();
   }
@@ -98,12 +109,13 @@ class Google_Task_RunnerTest extends BaseTest
 
   /**
    * @dataProvider defaultRestErrorProvider
-   * @expectedException Google_Service_Exception
    */
   public function testCustomRestRetryMapReplacesDefaults(
       $errorCode,
       $errorBody = '{}'
   ) {
+    $this->expectException(ServiceException::class);
+
     $this->setRetryMap(array());
 
     $this->setRetryConfig(array('retries' => 5));
@@ -113,7 +125,7 @@ class Google_Task_RunnerTest extends BaseTest
   public function testCustomRestRetryMapAddsNewHandlers()
   {
     $this->setRetryMap(
-        array('403' => Google_Task_Runner::TASK_RETRY_ALWAYS)
+        array('403' => Runner::TASK_RETRY_ALWAYS)
     );
 
     $this->setRetryConfig(array('retries' => 5));
@@ -125,11 +137,12 @@ class Google_Task_RunnerTest extends BaseTest
   }
 
   /**
-   * @expectedException Google_Service_Exception
    * @dataProvider customLimitsProvider
    */
   public function testCustomRestRetryMapWithCustomLimits($limit)
   {
+    $this->expectException(ServiceException::class);
+
     $this->setRetryMap(
         array('403' => $limit)
     );
@@ -157,20 +170,22 @@ class Google_Task_RunnerTest extends BaseTest
   /**
    * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
-   * @expectedException Google_Service_Exception
    */
   public function testCurlRetryOffByDefault($errorCode, $errorMessage = '')
   {
+    $this->expectException(ServiceException::class);
+
     $this->setNextResponseThrows($errorMessage, $errorCode)->makeRequest();
   }
 
   /**
    * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
-   * @expectedException Google_Service_Exception
    */
   public function testOneCurlRetryWithError($errorCode, $errorMessage = '')
   {
+    $this->expectException(ServiceException::class);
+
     $this->setRetryConfig(array('retries' => 1));
     $this->setNextResponsesThrow(2, $errorMessage, $errorCode)->makeRequest();
   }
@@ -178,12 +193,13 @@ class Google_Task_RunnerTest extends BaseTest
   /**
    * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
-   * @expectedException Google_Service_Exception
    */
   public function testMultipleCurlRetriesWithErrors(
       $errorCode,
       $errorMessage = ''
   ) {
+    $this->expectException(ServiceException::class);
+
     $this->setRetryConfig(array('retries' => 5));
     $this->setNextResponsesThrow(6, $errorMessage, $errorCode)->makeRequest();
   }
@@ -221,12 +237,13 @@ class Google_Task_RunnerTest extends BaseTest
   /**
    * @requires extension curl
    * @dataProvider defaultCurlErrorProvider
-   * @expectedException Google_Service_Exception
    */
   public function testCustomCurlRetryMapReplacesDefaults(
       $errorCode,
       $errorMessage = ''
   ) {
+    $this->expectException(ServiceException::class);
+
     $this->setRetryMap(array());
 
     $this->setRetryConfig(array('retries' => 5));
@@ -239,7 +256,7 @@ class Google_Task_RunnerTest extends BaseTest
   public function testCustomCurlRetryMapAddsNewHandlers()
   {
     $this->setRetryMap(
-        array(CURLE_COULDNT_RESOLVE_PROXY => Google_Task_Runner::TASK_RETRY_ALWAYS)
+        array(CURLE_COULDNT_RESOLVE_PROXY => Runner::TASK_RETRY_ALWAYS)
     );
 
     $this->setRetryConfig(array('retries' => 5));
@@ -252,11 +269,12 @@ class Google_Task_RunnerTest extends BaseTest
 
   /**
    * @requires extension curl
-   * @expectedException Google_Service_Exception
    * @dataProvider customLimitsProvider
    */
   public function testCustomCurlRetryMapWithCustomLimits($limit)
   {
+    $this->expectException(ServiceException::class);
+
     $this->setRetryMap(
         array(CURLE_COULDNT_RESOLVE_PROXY => $limit)
     );
@@ -288,11 +306,11 @@ class Google_Task_RunnerTest extends BaseTest
    */
   public function testBadTaskConfig($config, $message)
   {
-    $this->expectException('Google_Task_Exception');
+    $this->expectException(TaskException::class);
     $this->expectExceptionMessage($message);
     $this->setRetryConfig($config);
 
-    new Google_Task_Runner(
+    new Runner(
         $this->retryConfig,
         '',
         array($this, 'testBadTaskConfig')
@@ -300,48 +318,45 @@ class Google_Task_RunnerTest extends BaseTest
   }
 
   /**
-   * @expectedException Google_Task_Exception
    * @expectedExceptionMessage must be a valid callable
    */
   public function testBadTaskCallback()
   {
+    $this->expectException(TaskException::class);
     $config = [];
-    new Google_Task_Runner($config, '', 5);
+    new Runner($config, '', 5);
   }
 
-  /**
-   * @expectedException Google_Service_Exception
-   */
   public function testTaskRetryOffByDefault()
   {
-    $this->setNextTaskAllowedRetries(Google_Task_Runner::TASK_RETRY_ALWAYS)
+    $this->expectException(ServiceException::class);
+
+    $this->setNextTaskAllowedRetries(Runner::TASK_RETRY_ALWAYS)
          ->runTask();
   }
 
-  /**
-   * @expectedException Google_Service_Exception
-   */
   public function testOneTaskRetryWithError()
   {
+    $this->expectException(ServiceException::class);
+
     $this->setRetryConfig(array('retries' => 1));
-    $this->setNextTasksAllowedRetries(2, Google_Task_Runner::TASK_RETRY_ALWAYS)
+    $this->setNextTasksAllowedRetries(2, Runner::TASK_RETRY_ALWAYS)
          ->runTask();
   }
 
-  /**
-   * @expectedException Google_Service_Exception
-   */
   public function testMultipleTaskRetriesWithErrors()
   {
+    $this->expectException(ServiceException::class);
+
     $this->setRetryConfig(array('retries' => 5));
-    $this->setNextTasksAllowedRetries(6, Google_Task_Runner::TASK_RETRY_ALWAYS)
+    $this->setNextTasksAllowedRetries(6, Runner::TASK_RETRY_ALWAYS)
          ->runTask();
   }
 
   public function testOneTaskRetryWithSuccess()
   {
     $this->setRetryConfig(array('retries' => 1));
-    $result = $this->setNextTaskAllowedRetries(Google_Task_Runner::TASK_RETRY_ALWAYS)
+    $result = $this->setNextTaskAllowedRetries(Runner::TASK_RETRY_ALWAYS)
                    ->setNextTaskReturnValue('success')
                    ->runTask();
 
@@ -351,7 +366,7 @@ class Google_Task_RunnerTest extends BaseTest
   public function testMultipleTaskRetriesWithSuccess()
   {
     $this->setRetryConfig(array('retries' => 5));
-    $result = $this->setNextTasksAllowedRetries(2, Google_Task_Runner::TASK_RETRY_ALWAYS)
+    $result = $this->setNextTasksAllowedRetries(2, Runner::TASK_RETRY_ALWAYS)
                    ->setNextTaskReturnValue('success')
                    ->runTask();
 
@@ -359,11 +374,12 @@ class Google_Task_RunnerTest extends BaseTest
   }
 
   /**
-   * @expectedException Google_Service_Exception
    * @dataProvider customLimitsProvider
    */
   public function testTaskRetryWithCustomLimits($limit)
   {
+    $this->expectException(ServiceException::class);
+
     $this->setRetryConfig(array('retries' => 5));
     $this->setNextTasksAllowedRetries($limit + 1, $limit)
          ->runTask();
@@ -388,9 +404,9 @@ class Google_Task_RunnerTest extends BaseTest
   public function testTaskWithManualRetries()
   {
     $this->setRetryConfig(array('retries' => 2));
-    $this->setNextTasksAllowedRetries(2, Google_Task_Runner::TASK_RETRY_ALWAYS);
+    $this->setNextTasksAllowedRetries(2, Runner::TASK_RETRY_ALWAYS);
 
-    $task = new Google_Task_Runner(
+    $task = new Runner(
         $this->retryConfig,
         '',
         array($this, 'runNextTask')
@@ -435,8 +451,8 @@ class Google_Task_RunnerTest extends BaseTest
   public function customLimitsProvider()
   {
     return array(
-        array(Google_Task_Runner::TASK_RETRY_NEVER),
-        array(Google_Task_Runner::TASK_RETRY_ONCE),
+        array(Runner::TASK_RETRY_NEVER),
+        array(Runner::TASK_RETRY_ONCE),
     );
   }
 
@@ -612,7 +628,7 @@ class Google_Task_RunnerTest extends BaseTest
    */
   private function setNextResponseThrows($message, $code)
   {
-    $this->mockedCalls[$this->mockedCallsCount++] = new Google_Service_Exception(
+    $this->mockedCalls[$this->mockedCallsCount++] = new ServiceException(
         $message,
         $code,
         null,
@@ -635,7 +651,7 @@ class Google_Task_RunnerTest extends BaseTest
     if ($this->isGuzzle5()) {
       $http->createRequest(Argument::any(), Argument::any(), Argument::any())
           ->shouldBeCalledTimes($this->mockedCallsCount)
-          ->willReturn(new GuzzleHttp\Message\Request('GET', '/test'));
+          ->willReturn(new \GuzzleHttp\Message\Request('GET', '/test'));
 
       $http->send(Argument::type('GuzzleHttp\Message\Request'))
           ->shouldBeCalledTimes($this->mockedCallsCount)
@@ -646,15 +662,15 @@ class Google_Task_RunnerTest extends BaseTest
           ->will([$this, 'getNextMockedCall']);
     }
 
-    return Google_Http_REST::execute($http->reveal(), $request, '', $this->retryConfig, $this->retryMap);
+    return REST::execute($http->reveal(), $request, '', $this->retryConfig, $this->retryMap);
   }
 
   /**
    * Gets the next mocked response.
    *
-   * @param Google_Http_Request $request The mocked request
+   * @param GoogleRequest $request The mocked request
    *
-   * @return Google_Http_Request
+   * @return GoogleRequest
    */
   public function getNextMockedCall($request)
   {
@@ -725,7 +741,7 @@ class Google_Task_RunnerTest extends BaseTest
    */
   private function runTask()
   {
-    $task = new Google_Task_Runner(
+    $task = new Runner(
         $this->retryConfig,
         '',
         array($this, 'runNextTask')
@@ -735,7 +751,7 @@ class Google_Task_RunnerTest extends BaseTest
       $task->setRetryMap($this->retryMap);
     }
 
-    $exception = $this->prophesize('Google_Service_Exception');
+    $exception = $this->prophesize(ServiceException::class);
 
     $exceptionCount = 0;
     $exceptionCalls = array();

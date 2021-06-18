@@ -64,7 +64,7 @@ $client->setDeveloperKey("MY_SIMPLE_API_KEY");
 Services are called through queries to service specific objects. These are created by constructing the service object, and passing an instance of `Google\Client` to it. `Google\Client` contains the IO, authentication and other classes required by the service to function, and the service informs the client which scopes it uses to provide a default when authenticating a user.
 
 ```php
-$service = new Google_Service_Books($client);
+$service = new Google\Service\Books($client);
 ```
 
 ### Calling an API

@@ -18,104 +18,49 @@
  * under the License.
  */
 
+namespace Google\Tests\Http;
+
+use Google\Tests\BaseTest;
+use Google\Http\Batch;
+use Google\Service\Books;
+use Google\Service\Storage;
+use Google\Service\Exception as ServiceException;
 use GuzzleHttp\Psr7;
 
-class Google_Http_BatchTest extends BaseTest
+class BatchTest extends BaseTest
 {
-  public function testBatchRequestWithAuth()
-  {
-    $this->checkToken();
-
-    $client = $this->getClient();
-    $batch = new Google_Http_Batch($client);
-    $plus = new Google_Service_Plus($client);
-
-    $client->setUseBatch(true);
-    $batch->add($plus->people->get('me'), 'key1');
-    $batch->add($plus->people->get('me'), 'key2');
-    $batch->add($plus->people->get('me'), 'key3');
-
-    $result = $batch->execute();
-    $this->assertArrayHasKey('response-key1', $result);
-    $this->assertArrayHasKey('response-key2', $result);
-    $this->assertArrayHasKey('response-key3', $result);
-
-  }
-
   public function testBatchRequest()
   {
     $this->checkKey();
     $client = $this->getClient();
-    $plus = new Google_Service_Plus($client);
-    $batch = $plus->createBatch();
+    $client->setUseBatch(true);
+    $books = new Books($client);
+    $batch = $books->createBatch();
 
-    $batch->add($plus->people->get('+LarryPage'), 'key1');
-    $batch->add($plus->people->get('+LarryPage'), 'key2');
-    $batch->add($plus->people->get('+LarryPage'), 'key3');
-
-    $result = $batch->execute();
-    $this->assertArrayHasKey('response-key1', $result);
-    $this->assertArrayHasKey('response-key2', $result);
-    $this->assertArrayHasKey('response-key3', $result);
-  }
-
-  public function testBatchRequestWithBooksApi()
-  {
-    $this->checkKey();
-    $client = $this->getClient();
-    $plus = new Google_Service_Plus($client);
-    $batch = $plus->createBatch();
-
-    $batch->add($plus->people->get('+LarryPage'), 'key1');
-    $batch->add($plus->people->get('+LarryPage'), 'key2');
-    $batch->add($plus->people->get('+LarryPage'), 'key3');
+    $batch->add($books->volumes->listVolumes('Henry David Thoreau'), 'key1');
+    $batch->add($books->volumes->listVolumes('Edgar Allen Poe'), 'key2');
 
     $result = $batch->execute();
     $this->assertArrayHasKey('response-key1', $result);
     $this->assertArrayHasKey('response-key2', $result);
-    $this->assertArrayHasKey('response-key3', $result);
-  }
-
-  public function testBatchRequestWithPostBody()
-  {
-    $this->checkToken();
-
-    $client = $this->getClient();
-    $shortener = new Google_Service_Urlshortener($client);
-    $batch = $shortener->createBatch();
-
-    $url1 = new Google_Service_Urlshortener_Url;
-    $url2 = new Google_Service_Urlshortener_Url;
-    $url3 = new Google_Service_Urlshortener_Url;
-    $url1->setLongUrl('http://brentertainment.com');
-    $url2->setLongUrl('http://morehazards.com');
-    $url3->setLongUrl('http://github.com/bshaffer');
-
-    $batch->add($shortener->url->insert($url1), 'key1');
-    $batch->add($shortener->url->insert($url2), 'key2');
-    $batch->add($shortener->url->insert($url3), 'key3');
-
-    $result = $batch->execute();
-    $this->assertArrayHasKey('response-key1', $result);
-    $this->assertArrayHasKey('response-key2', $result);
-    $this->assertArrayHasKey('response-key3', $result);
   }
 
   public function testInvalidBatchRequest()
   {
     $this->checkKey();
     $client = $this->getClient();
-    $plus = new Google_Service_Plus($client);
+    $client->setUseBatch(true);
+    $books = new Books($client);
+    $batch = $books->createBatch();
 
-    $batch = $plus->createBatch();
-
-    $batch->add($plus->people->get('123456789987654321'), 'key1');
-    $batch->add($plus->people->get('+LarryPage'), 'key2');
+    $batch->add($books->volumes->listVolumes(false), 'key1');
+    $batch->add($books->volumes->listVolumes('Edgar Allen Poe'), 'key2');
 
     $result = $batch->execute();
+    $this->assertArrayHasKey('response-key1', $result);
     $this->assertArrayHasKey('response-key2', $result);
     $this->assertInstanceOf(
-        'Google_Service_Exception',
+        ServiceException::class,
         $result['response-key1']
     );
   }
@@ -123,7 +68,7 @@ class Google_Http_BatchTest extends BaseTest
   public function testMediaFileBatch()
   {
     $client = $this->getClient();
-    $storage = new Google_Service_Storage($client);
+    $storage = new Storage($client);
     $bucket = 'testbucket';
     $stream = Psr7\stream_for("testbucket-text");
     $params = [
@@ -132,7 +77,7 @@ class Google_Http_BatchTest extends BaseTest
     ];
 
     // Metadata object for new Google Cloud Storage object
-    $obj = new Google_Service_Storage_StorageObject();
+    $obj = new Storage\StorageObject();
     $obj->contentType = "text/plain";
 
     // Batch Upload
