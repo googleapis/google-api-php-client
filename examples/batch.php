@@ -59,22 +59,22 @@ $client->setUseBatch(true);
  keys will be reflected in the returned array.
 ************************************************/
 
-// NOTE: Some services use `$service->createBatch();` instead of
-// `new Google\Http\Batch($client);`
-$batch = new Google\Http\Batch($client);
+// NOTE: Some services use `new Google\Http\Batch($client);` instead
+$batch = $service->createBatch();
 
+$query = 'Henry David Thoreau';
 $optParams = array('filter' => 'free-ebooks');
-$optParams['q'] = 'Henry David Thoreau';
-$req1 = $service->volumes->listVolumes($optParams);
+$req1 = $service->volumes->listVolumes($query, $optParams);
 $batch->add($req1, "thoreau");
-$optParams['q'] = 'George Bernard Shaw';
-$req2 = $service->volumes->listVolumes($optParams);
+$query = 'George Bernard Shaw';
+$req2 = $service->volumes->listVolumes($query, $optParams);
 $batch->add($req2, "shaw");
 
 /************************************************
   Executing the batch will send all requests off
   at once.
  ************************************************/
+
 $results = $batch->execute();
 ?>
 
