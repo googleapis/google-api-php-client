@@ -651,7 +651,7 @@ class RunnerTest extends BaseTest
     if ($this->isGuzzle5()) {
       $http->createRequest(Argument::any(), Argument::any(), Argument::any())
           ->shouldBeCalledTimes($this->mockedCallsCount)
-          ->willReturn(new GuzzleHttp\Message\Request('GET', '/test'));
+          ->willReturn(new \GuzzleHttp\Message\Request('GET', '/test'));
 
       $http->send(Argument::type('GuzzleHttp\Message\Request'))
           ->shouldBeCalledTimes($this->mockedCallsCount)

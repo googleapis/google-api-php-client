@@ -225,7 +225,7 @@ class ResourceTest extends BaseTest
       $response = new Guzzle5Response(200, [], $body);
 
       $http->createRequest(Argument::any(), Argument::any(), Argument::any())
-          ->willReturn(new GuzzleHttp\Message\Request('GET', '/?alt=media'));
+          ->willReturn(new \GuzzleHttp\Message\Request('GET', '/?alt=media'));
 
       $http->send(Argument::type('GuzzleHttp\Message\Request'))
           ->shouldBeCalledTimes(1)
@@ -278,7 +278,7 @@ class ResourceTest extends BaseTest
       $response = new Guzzle5Response(400, [], $body);
 
       $http->createRequest(Argument::any(), Argument::any(), Argument::any())
-          ->willReturn(new GuzzleHttp\Message\Request('GET', '/?alt=media'));
+          ->willReturn(new \GuzzleHttp\Message\Request('GET', '/?alt=media'));
 
       $http->send(Argument::type('GuzzleHttp\Message\Request'))
           ->shouldBeCalledTimes(1)
@@ -335,7 +335,7 @@ class ResourceTest extends BaseTest
       $response = new Guzzle5Response(400, [], $body);
 
       $http->createRequest(Argument::any(), Argument::any(), Argument::any())
-          ->willReturn(new GuzzleHttp\Message\Request('GET', '/?alt=media'));
+          ->willReturn(new \GuzzleHttp\Message\Request('GET', '/?alt=media'));
 
       $http->send(Argument::type('GuzzleHttp\Message\Request'))
           ->shouldBeCalledTimes(1)
@@ -440,7 +440,7 @@ class ResourceTest extends BaseTest
       $response = new Guzzle5Response(400, [], $body);
 
       $http->createRequest(Argument::any(), Argument::any(), Argument::any())
-          ->willReturn(new GuzzleHttp\Message\Request('GET', '/?alt=media'));
+          ->willReturn(new \GuzzleHttp\Message\Request('GET', '/?alt=media'));
 
       $http->send(Argument::type('GuzzleHttp\Message\Request'))
           ->shouldBeCalledTimes(1)

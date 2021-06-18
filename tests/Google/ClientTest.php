@@ -495,7 +495,7 @@ class ClientTest extends BaseTest
     $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
     if ($this->isGuzzle5()) {
-      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
+      $guzzle5Request = new \GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
       $http->createRequest(Argument::any(), Argument::any(), Argument::any())
           ->shouldBeCalledTimes(1)
           ->willReturn($guzzle5Request);
@@ -549,7 +549,7 @@ class ClientTest extends BaseTest
     $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
     if ($this->isGuzzle5()) {
-      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
+      $guzzle5Request = new \GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
       $http->createRequest(Argument::any(), Argument::any(), Argument::any())
           ->willReturn($guzzle5Request);
 
@@ -601,7 +601,7 @@ class ClientTest extends BaseTest
     $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
     if ($this->isGuzzle5()) {
-      $guzzle5Request = new GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
+      $guzzle5Request = new \GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
       $http->createRequest(Argument::any(), Argument::any(), Argument::any())
           ->willReturn($guzzle5Request);
 
