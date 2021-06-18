@@ -692,7 +692,7 @@ class ClientTest extends BaseTest
       $this->fail('no exception thrown');
     } catch (ClientException $e) {
       $response = $e->getResponse();
-      $this->assertStringContainsString('Invalid impersonation', (string) $response->getBody());
+      $this->assertContains('Invalid impersonation', (string) $response->getBody());
     }
   }
 

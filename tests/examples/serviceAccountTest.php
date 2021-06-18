@@ -33,6 +33,6 @@ class serviceAccountTest extends BaseTest
 
     $nodes = $crawler->filter('br');
     $this->assertCount(10, $nodes);
-    $this->assertStringContainsString('Walden', $crawler->text());
+    $this->assertContains('Walden', $crawler->text());
   }
 }
