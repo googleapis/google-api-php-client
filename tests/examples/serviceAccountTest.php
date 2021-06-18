@@ -19,7 +19,11 @@
  * under the License.
  */
 
-class examples_serviceAccountTest extends BaseTest
+namespace Google\Tests\Examples;
+
+use Google\Tests\BaseTest;
+
+class serviceAccountTest extends BaseTest
 {
   public function testServiceAccount()
   {
@@ -29,6 +33,6 @@ class examples_serviceAccountTest extends BaseTest
 
     $nodes = $crawler->filter('br');
     $this->assertCount(10, $nodes);
-    $this->assertContains('Walden', $crawler->text());
+    $this->assertStringContainsString('Walden', $crawler->text());
   }
 }

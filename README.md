@@ -138,12 +138,12 @@ $client = new Google\Client();
 $client->setApplicationName("Client_Library_Examples");
 $client->setDeveloperKey("YOUR_APP_KEY");
 
-$service = new Google_Service_Books($client);
-$optParams = array(
+$service = new Google\Service\Books($client);
+$query = 'Henry David Thoreau';
+$optParams = [
   'filter' => 'free-ebooks',
-  'q' => 'Henry David Thoreau'
-);
-$results = $service->volumes->listVolumes($optParams);
+];
+$results = $service->volumes->listVolumes($query, $optParams);
 
 foreach ($results->getItems() as $item) {
   echo $item['volumeInfo']['title'], "<br /> \n";
@@ -166,7 +166,7 @@ foreach ($results->getItems() as $item) {
 1. Set the scopes required for the API you are going to call
 
     ```php
-    $client->addScope(Google_Service_Drive::DRIVE);
+    $client->addScope(Google\Service\Drive::DRIVE);
     ```
 
 1. Set your application's redirect URI
@@ -213,7 +213,7 @@ calls return unexpected 401 or 403 errors.
 1. Set the scopes required for the API you are going to call
 
     ```php
-    $client->addScope(Google_Service_Drive::DRIVE);
+    $client->addScope(Google\Service\Drive::DRIVE);
     ```
 
 1. If you have delegated domain-wide access to the service account and you want to impersonate a user account, specify the email address of the user account using the method setSubject:
@@ -264,10 +264,10 @@ Using this library, the same call would look something like this:
 
 ```php
 // create the datastore service class
-$datastore = new Google_Service_Datastore($client);
+$datastore = new Google\Service\Datastore($client);
 
 // build the query - this maps directly to the JSON
-$query = new Google_Service_Datastore_Query([
+$query = new Google\Service\Datastore\Query([
     'kind' => [
         [
             'name' => 'Book',
@@ -283,7 +283,7 @@ $query = new Google_Service_Datastore_Query([
 ]);
 
 // build the request and response
-$request = new Google_Service_Datastore_RunQueryRequest(['query' => $query]);
+$request = new Google\Service\Datastore\RunQueryRequest(['query' => $query]);
 $response = $datastore->projects->runQuery('YOUR_DATASET_ID', $request);
 ```
 
@@ -291,20 +291,20 @@ However, as each property of the JSON API has a corresponding generated class, t
 
 ```php
 // create the datastore service class
-$datastore = new Google_Service_Datastore($client);
+$datastore = new Google\Service\Datastore($client);
 
 // build the query
-$request = new Google_Service_Datastore_RunQueryRequest();
-$query = new Google_Service_Datastore_Query();
+$request = new Google\Service\Datastore_RunQueryRequest();
+$query = new Google\Service\Datastore\Query();
 //   - set the order
-$order = new Google_Service_Datastore_PropertyOrder();
+$order = new Google\Service\Datastore_PropertyOrder();
 $order->setDirection('descending');
-$property = new Google_Service_Datastore_PropertyReference();
+$property = new Google\Service\Datastore\PropertyReference();
 $property->setName('title');
 $order->setProperty($property);
 $query->setOrder([$order]);
 //   - set the kinds
-$kind = new Google_Service_Datastore_KindExpression();
+$kind = new Google\Service\Datastore\KindExpression();
 $kind->setName('Book');
 $query->setKinds([$kind]);
 //   - set the limit
@@ -335,7 +335,7 @@ $client = new Google\Client();
  * Application Default Credentials.
  */
 $client->useApplicationDefaultCredentials();
-$client->addScope(Google_Service_Plus::PLUS_ME);
+$client->addScope(Google\Service\Plus::PLUS_ME);
 
 // returns a Guzzle HTTP Client
 $httpClient = $client->authorize();
@@ -438,9 +438,9 @@ If there is a specific bug with the library, please [file an issue](https://gith
 
 If X is a feature of the library, file away! If X is an example of using a specific service, the best place to go is to the teams for those specific APIs - our preference is to link to their examples rather than add them to the library, as they can then pin to specific versions of the library. If you have any examples for other APIs, let us know and we will happily add a link to the README above!
 
-### Why does Google_..._Service have weird names? ###
+### Why do some Google\Service classes have weird names? ###
 
-The _Service classes are generally automatically generated from the API discovery documents: https://developers.google.com/discovery/. Sometimes new features are added to APIs with unusual names, which can cause some unexpected or non-standard style naming in the PHP classes.
+The _Google\Service_ classes are generally automatically generated from the API discovery documents: https://developers.google.com/discovery/. Sometimes new features are added to APIs with unusual names, which can cause some unexpected or non-standard style naming in the PHP classes.
 
 ### How do I deal with non-JSON response types? ###
 

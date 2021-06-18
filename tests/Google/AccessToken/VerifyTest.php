@@ -19,7 +19,13 @@
  * under the License.
  */
 
-class Google_AccessToken_VerifyTest extends BaseTest
+namespace Google\Tests\AccessToken;
+
+use Google\AccessToken\Verify;
+use Google\Tests\BaseTest;
+use ReflectionMethod;
+
+class VerifyTest extends BaseTest
 {
   /**
    * This test needs to run before the other verify tests,
@@ -28,7 +34,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
   public function testPhpsecConstants()
   {
     $client = $this->getClient();
-    $verify = new Google_AccessToken_Verify($client->getHttpClient());
+    $verify = new Verify($client->getHttpClient());
 
     // set these to values that will be changed
     if (defined('MATH_BIGINTEGER_OPENSSL_ENABLED') || defined('CRYPT_RSA_MODE')) {
@@ -68,7 +74,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
     $this->assertCount(3, $segments);
     // Extract the client ID in this case as it wont be set on the test client.
     $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
-    $verify = new Google_AccessToken_Verify($http);
+    $verify = new Verify($http);
     $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
     $this->assertArrayHasKey('sub', $payload);
     $this->assertGreaterThan(0, strlen($payload['sub']));
@@ -79,7 +85,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
     $client = $this->getClient();
     $http = $client->getHttpClient();
     $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
-    $verify = new Google_AccessToken_Verify($http);
+    $verify = new Verify($http);
     $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
     $this->assertArrayHasKey('sub', $payload);
     $this->assertGreaterThan(0, strlen($payload['sub']));
@@ -106,7 +112,7 @@ class Google_AccessToken_VerifyTest extends BaseTest
     $this->assertCount(3, $segments);
     // Extract the client ID in this case as it wont be set on the test client.
     $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
-    $verify = new Google_AccessToken_Verify($client->getHttpClient(), null, $jwt);
+    $verify = new Verify($client->getHttpClient(), null, $jwt);
     $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
     // verify the leeway is set as it was
     $this->assertEquals($leeway, $jwt::$leeway);
@@ -115,12 +121,12 @@ class Google_AccessToken_VerifyTest extends BaseTest
   public function testRetrieveCertsFromLocation()
   {
     $client = $this->getClient();
-    $verify = new Google_AccessToken_Verify($client->getHttpClient());
+    $verify = new Verify($client->getHttpClient());
 
     // make this method public for testing purposes
     $method = new ReflectionMethod($verify, 'retrieveCertsFromLocation');
     $method->setAccessible(true);
-    $certs = $method->invoke($verify, Google_AccessToken_Verify::FEDERATED_SIGNON_CERT_URL);
+    $certs = $method->invoke($verify, Verify::FEDERATED_SIGNON_CERT_URL);
 
     $this->assertArrayHasKey('keys', $certs);
     $this->assertGreaterThan(1, count($certs['keys']));

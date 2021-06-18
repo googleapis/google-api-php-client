@@ -1,6 +1,6 @@
 # Standard Parameters
 
-Many API methods include support for certain optional parameters. In addition to these there are several standard parameters that can be applied to any API call. These are defined in the `Google_Service_Resource` class.
+Many API methods include support for certain optional parameters. In addition to these there are several standard parameters that can be applied to any API call. These are defined in the `Google\Service\Resource` class.
 
 ## Parameters
 

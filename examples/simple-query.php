@@ -36,7 +36,7 @@ if (!$apiKey = getApiKey()) {
 }
 $client->setDeveloperKey($apiKey);
 
-$service = new Google_Service_Books($client);
+$service = new Google\Service\Books($client);
 
 /************************************************
   We make a call to our service, which will
@@ -70,7 +70,7 @@ $resultsDeferred = $client->execute($request);
   array.
   Some calls will return a single item which we
   can immediately use. The individual responses
-  are typed as Google_Service_Books_Volume, but
+  are typed as Google\Service\Books_Volume, but
   can be treated as an array.
  ************************************************/
 ?>

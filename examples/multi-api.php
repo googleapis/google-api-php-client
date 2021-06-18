@@ -78,8 +78,8 @@ if (!empty($_SESSION['multi-api-token'])) {
   We are going to create both YouTube and Drive
   services, and query both.
  ************************************************/
-$yt_service = new Google_Service_YouTube($client);
-$dr_service = new Google_Service_Drive($client);
+$yt_service = new Google\Service\YouTube($client);
+$dr_service = new Google\Service\Drive($client);
 
 /************************************************
   If we're signed in, retrieve channels from YouTube

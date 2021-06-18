@@ -18,10 +18,18 @@
  * under the License.
  */
 
+namespace Google\Tests;
+
+use Google\Client;
+use Google\Model;
+use Google\Service;
+use Google\Http\Batch;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 
-class TestModel extends Google_Model
+class TestModel extends Model
 {
   public function mapTypes($array)
   {
@@ -34,20 +42,22 @@ class TestModel extends Google_Model
   }
 }
 
-class TestService extends Google_Service
+class TestService extends Service
 {
   public $batchPath = 'batch/test';
 }
 
-class Google_ServiceTest extends TestCase
+class ServiceTest extends TestCase
 {
+  private static $errorMessage;
+
   public function testCreateBatch()
   {
-    $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
-    $client = $this->prophesize('Google_Client');
+    $response = $this->prophesize(ResponseInterface::class);
+    $client = $this->prophesize(Client::class);
 
     $client->execute(Argument::allOf(
-      Argument::type('Psr\Http\Message\RequestInterface'),
+      Argument::type(RequestInterface::class),
       Argument::that(function ($request) {
         $this->assertEquals('/batch/test', $request->getRequestTarget());
         return $request;
@@ -58,7 +68,7 @@ class Google_ServiceTest extends TestCase
 
     $model = new TestService($client->reveal());
     $batch = $model->createBatch();
-    $this->assertInstanceOf('Google_Http_Batch', $batch);
+    $this->assertInstanceOf(Batch::class, $batch);
     $batch->execute();
   }
 
@@ -110,7 +120,7 @@ class Google_ServiceTest extends TestCase
   public function testNoConstructor()
   {
     $service = new TestService();
-    $this->assertInstanceOf('Google_Client', $service->getClient());
+    $this->assertInstanceOf(Client::class, $service->getClient());
   }
 
   public function testInvalidConstructorPhp7Plus()
@@ -121,7 +131,7 @@ class Google_ServiceTest extends TestCase
 
     try {
       $service = new TestService('foo');
-    } catch (TypeError $e) {}
+    } catch (\TypeError $e) {}
 
     $this->assertInstanceOf('TypeError', $e);
     $this->assertEquals(
@@ -130,8 +140,6 @@ class Google_ServiceTest extends TestCase
     );
   }
 
-  private static $errorMessage;
-
   /** @runInSeparateProcess */
   public function testInvalidConstructorPhp5()
   {
@@ -139,7 +147,7 @@ class Google_ServiceTest extends TestCase
       $this->markTestSkipped('PHP 5 only');
     }
 
-    set_error_handler('Google_ServiceTest::handlePhp5Error');
+    set_error_handler('Google\Tests\ServiceTest::handlePhp5Error');
 
     $service = new TestService('foo');
 

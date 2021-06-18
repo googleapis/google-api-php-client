@@ -42,7 +42,7 @@ if (!$apiKey = getApiKey()) {
 }
 $client->setDeveloperKey($apiKey);
 
-$service = new Google_Service_Books($client);
+$service = new Google\Service\Books($client);
 
 /************************************************
   To actually make the batch call we need to

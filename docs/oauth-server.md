@@ -87,7 +87,7 @@ Use the authorized `Google\Client` object to call Google APIs by completing the 
 1.  Build a service object for the API that you want to call, providing the authorized `Google\Client` object. For example, to call the Cloud SQL Administration API:
 
     ```php
-    $sqladmin = new Google_Service_SQLAdmin($client);
+    $sqladmin = new Google\Service\SQLAdmin($client);
     ```
 
 2.  Make requests to the API service using the [interface provided by the service object](https://github.com/googleapis/google-api-php-client/blob/master/docs/start.md#build-the-service-object). For example, to list the instances of Cloud SQL databases in the examinable-example-123 project:
@@ -133,7 +133,7 @@ putenv('GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json');
 $client = new Google\Client();
 $client->useApplicationDefaultCredentials();
 
-$sqladmin = new Google_Service_SQLAdmin($client);
+$sqladmin = new Google\Service\SQLAdmin($client);
 $response = $sqladmin->instances
     ->listInstances('examinable-example-123')->getItems();
 echo json_encode($response) . "\n";

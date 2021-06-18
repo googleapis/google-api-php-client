@@ -19,7 +19,11 @@
  * under the License.
  */
 
-class examples_simpleFileUploadTest extends BaseTest
+namespace Google\Tests\Examples;
+
+use Google\Tests\BaseTest;
+
+class simpleFileUploadTest extends BaseTest
 {
   /**
    * @runInSeparateProcess

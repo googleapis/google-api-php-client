@@ -19,7 +19,11 @@
  * under the License.
  */
 
-class examples_indexTest extends BaseTest
+namespace Google\Tests\Examples;
+
+use Google\Tests\BaseTest;
+
+class indexTest extends BaseTest
 {
   public function testIndex()
   {

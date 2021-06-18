@@ -18,14 +18,19 @@
  * under the License.
  */
 
-class Google_Utils_UriTemplateTest extends BaseTest
+namespace Google\Tests\Utils;
+
+use Google\Tests\BaseTest;
+use Google\Utils\UriTemplate;
+
+class UriTemplateTest extends BaseTest
 {
   public function testLevelOne()
   {
     $var = "value";
     $hello = "Hello World!";
 
-    $urit = new Google_Utils_UriTemplate();
+    $urit = new UriTemplate();
     $this->assertEquals(
         "value",
         $urit->parse("{var}", array("var" => $var))
@@ -42,7 +47,7 @@ class Google_Utils_UriTemplateTest extends BaseTest
     $hello = "Hello World!";
     $path = "/foo/bar";
 
-    $urit = new Google_Utils_UriTemplate();
+    $urit = new UriTemplate();
     $this->assertEquals(
         "value",
         $urit->parse("{+var}", array("var" => $var))
@@ -78,7 +83,7 @@ class Google_Utils_UriTemplateTest extends BaseTest
     $x = "1024";
     $y = "768";
 
-    $urit = new Google_Utils_UriTemplate();
+    $urit = new UriTemplate();
     $this->assertEquals(
         "map?1024,768",
         $urit->parse("map?{x,y}", array("x" => $x, "y" => $y))
@@ -219,7 +224,7 @@ class Google_Utils_UriTemplateTest extends BaseTest
 
     );
 
-    $urit = new Google_Utils_UriTemplate();
+    $urit = new UriTemplate();
 
     foreach ($tests as $input => $output) {
       $this->assertEquals($output, $urit->parse($input, $values), $input . " failed");
@@ -230,7 +235,7 @@ class Google_Utils_UriTemplateTest extends BaseTest
   {
     $var = "value";
     $hello = "Hello World!";
-    $urit = new Google_Utils_UriTemplate();
+    $urit = new UriTemplate();
     $this->assertEquals(
         "http://www.google.com/Hello%20World!?var=value",
         $urit->parse(
@@ -264,9 +269,9 @@ class Google_Utils_UriTemplateTest extends BaseTest
    */
   public function testAgainstStandardTests()
   {
-    $location = "../../uritemplate-test/*.json";
+    $location = __DIR__ . "/../../uritemplate-test/*.json";
 
-    $urit = new Google_Utils_UriTemplate();
+    $urit = new UriTemplate();
     foreach (glob($location) as $file) {
       $test = json_decode(file_get_contents($file), true);
       foreach ($test as $title => $testsets) {
