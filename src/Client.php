@@ -856,7 +856,7 @@ class Client
    * @param $request RequestInterface|\Google\Http\Batch
    * @param string $expectedClass
    * @throws \Google\Exception
-   * @return $expectedClass|ResponseInterface|array
+   * @return mixed|$expectedClass|ResponseInterface
    */
   public function execute(RequestInterface $request, $expectedClass = null)
   {
