@@ -35,9 +35,12 @@ jobs:
                 timeout_minutes: 10
                 max_attempts: 3
                 command: composer update ${{ matrix.composer-flags }}
-            - if: ${{ matrix.php == '8.0' || matrix.php == '8.1' || matrix.composer-flags == '--prefer-lowest' }}
+            - if: ${{ ( matrix.php == '8.0' || matrix.composer-flags == '--prefer-lowest' ) && matrix.php != '8.1' }}
               name: Update guzzlehttp/ringphp dependency
               run: composer update guzzlehttp/ringphp
+            - if: ${{ matrix.php == '8.1' }}
+              name: Update guzzlehttp/ringphp dependency
+              run: composer update guzzlehttp/ringphp --ignore-platform-reqs
             - name: Run Script
               continue-on-error: ${{ matrix.php == '8.1' }}
               run: vendor/bin/phpunit
