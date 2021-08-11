@@ -24,7 +24,8 @@ use Google\Client;
 use Google\Model;
 use Google\Service;
 use Google\Http\Batch;
-use PHPUnit\Framework\TestCase;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -50,6 +51,8 @@ class TestService extends Service
 class ServiceTest extends TestCase
 {
   private static $errorMessage;
+
+  use ProphecyTrait;
 
   public function testCreateBatch()
   {
