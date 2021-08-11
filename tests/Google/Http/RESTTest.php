@@ -32,7 +32,7 @@ class RESTTest extends BaseTest
    */
   private $rest;
 
-  public function set_up(): void
+  public function set_up()
   {
     $this->rest = new REST();
     $this->request = new Request('GET', '/');
