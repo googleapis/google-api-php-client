@@ -42,7 +42,7 @@ class RunnerTest extends BaseTest
   private $retryMap;
   private $retryConfig;
 
-  protected function setUp(): void
+  protected function set_up(): void
   {
     $this->client = new Client();
   }
