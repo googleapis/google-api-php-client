@@ -11,12 +11,14 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [ "5.6", "7.0", "7.1", "7.2", "7.3", "7.4", "8.0" ]
+                php: [ "5.6", "7.0", "7.1", "7.2", "7.3", "7.4", "8.0", "8.1" ]
                 composer-flags: [""]
                 include:
                   - php: "5.6"
                     composer-flags: "--prefer-lowest "
                   - php: "8.0"
+                    composer-flags: "--prefer-lowest "
+                  - php: "8.1"
                     composer-flags: "--prefer-lowest "
         name: PHP ${{ matrix.php }} ${{ matrix.composer-flags }}Unit Test
         steps:
@@ -35,6 +37,7 @@ jobs:
               name: Update guzzlehttp/ringphp dependency
               run: composer update guzzlehttp/ringphp
             - name: Run Script
+              continue-on-error: ${{ matrix.php == '8.1' }}
               run: vendor/bin/phpunit
 
     style:
