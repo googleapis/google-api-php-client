@@ -33,7 +33,7 @@ jobs:
                 timeout_minutes: 10
                 max_attempts: 3
                 command: composer update ${{ matrix.composer-flags }}
-            - if: ${{ matrix.php == '8.0' || matrix.composer-flags == '--prefer-lowest' }}
+            - if: ${{ matrix.php == '8.0' || matrix.php == '8.1' || matrix.composer-flags == '--prefer-lowest' }}
               name: Update guzzlehttp/ringphp dependency
               run: composer update guzzlehttp/ringphp
             - name: Run Script
