@@ -25,11 +25,14 @@ use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use Cache\Adapter\Filesystem\FilesystemCachePool;
 use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class BaseTest extends TestCase
 {
   private $key;
   private $client;
+
+  use ProphecyTrait;
 
   public function getClient()
   {
