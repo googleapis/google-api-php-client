@@ -86,8 +86,8 @@ class BatchTest extends BaseTest
     /** @var \GuzzleHttp\Psr7\Request $request */
     $request = $storage->objects->insert($bucket, $obj, $params);
 
-    $this->assertContains('multipart/related', $request->getHeaderLine('content-type'));
-    $this->assertContains('/upload/', $request->getUri()->getPath());
-    $this->assertContains('uploadType=multipart', $request->getUri()->getQuery());
+    $this->assertStringContainsString('multipart/related', $request->getHeaderLine('content-type'));
+    $this->assertStringContainsString('/upload/', $request->getUri()->getPath());
+    $this->assertStringContainsString('uploadType=multipart', $request->getUri()->getQuery());
   }
 }
