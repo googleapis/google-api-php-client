@@ -51,7 +51,7 @@ class TestMediaTypeStream extends Stream
 {
   public $toStringCalled = false;
 
-  public function __toString()
+  public function __toString():string
   {
     $this->toStringCalled = true;
 
@@ -231,7 +231,7 @@ class ResourceTest extends BaseTest
           ->shouldBeCalledTimes(1)
           ->willReturn($response);
     } else {
-      $body = Psr7\stream_for('thisisnotvalidjson');
+      $body = Psr7\Utils::streamFor('thisisnotvalidjson');
       $response = new Response(200, [], $body);
 
       $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
@@ -284,7 +284,7 @@ class ResourceTest extends BaseTest
           ->shouldBeCalledTimes(1)
           ->willReturn($response);
     } else {
-      $body = Psr7\stream_for('thisisnotvalidjson');
+      $body = Psr7\Utils::streamFor('thisisnotvalidjson');
       $response = new Response(400, [], $body);
 
       $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
@@ -341,7 +341,7 @@ class ResourceTest extends BaseTest
           ->shouldBeCalledTimes(1)
           ->willReturn($response);
     } else {
-      $body = Psr7\stream_for('this will be pulled into memory');
+      $body = Psr7\Utils::streamFor('this will be pulled into memory');
       $response = new Response(400, [], $body);
 
       $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
@@ -446,7 +446,7 @@ class ResourceTest extends BaseTest
           ->shouldBeCalledTimes(1)
           ->willReturn($response);
     } else {
-      $body = Psr7\stream_for($content);
+      $body = Psr7\Utils::streamFor($content);
       $response = new Response(400, [], $body);
 
       $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])

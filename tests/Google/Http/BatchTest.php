@@ -70,7 +70,7 @@ class BatchTest extends BaseTest
     $client = $this->getClient();
     $storage = new Storage($client);
     $bucket = 'testbucket';
-    $stream = Psr7\stream_for("testbucket-text");
+    $stream = Psr7\Utils::streamFor("testbucket-text");
     $params = [
         'data' => $stream,
         'mimeType' => 'text/plain',

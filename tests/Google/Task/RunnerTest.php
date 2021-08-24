@@ -684,7 +684,7 @@ class RunnerTest extends BaseTest
       $stream = Guzzle5Stream::factory($current['body']);
       $response = new Guzzle5Response($current['code'], $current['headers'], $stream);
     } else {
-      $stream = Psr7\stream_for($current['body']);
+      $stream = Psr7\Utils::streamFor($current['body']);
       $response = new Response($current['code'], $current['headers'], $stream);
     }
 

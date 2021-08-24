@@ -47,7 +47,7 @@ class RESTTest extends BaseTest
 
     foreach (array(200, 201) as $code) {
       $headers = array('foo', 'bar');
-      $stream = Psr7\stream_for('{"a": 1}');
+      $stream = Psr7\Utils::streamFor('{"a": 1}');
       $response = new Response($code, $headers, $stream);
 
       $decoded = $this->rest->decodeHttpResponse($response, $this->request);
@@ -61,7 +61,7 @@ class RESTTest extends BaseTest
 
     $request =  new Request('GET', 'http://www.example.com?alt=media');
     $headers = array();
-    $stream = Psr7\stream_for('thisisnotvalidjson');
+    $stream = Psr7\Utils::streamFor('thisisnotvalidjson');
     $response = new Response(200, $headers, $stream);
 
     $decoded = $this->rest->decodeHttpResponse($response, $request);
@@ -87,7 +87,7 @@ class RESTTest extends BaseTest
 
   public function testDecodeEmptyResponse()
   {
-    $stream = Psr7\stream_for('{}');
+    $stream = Psr7\Utils::streamFor('{}');
     $response = new Response(200, array(), $stream);
     $decoded = $this->rest->decodeHttpResponse($response, $this->request);
     $this->assertEquals('{}', (string) $decoded->getBody());
@@ -96,7 +96,7 @@ class RESTTest extends BaseTest
   public function testBadErrorFormatting()
   {
     $this->expectException(ServiceException::class);
-    $stream = Psr7\stream_for(
+    $stream = Psr7\Utils::streamFor(
         '{
          "error": {
           "code": 500,
@@ -111,7 +111,7 @@ class RESTTest extends BaseTest
   public function tesProperErrorFormatting()
   {
     $this->expectException(ServiceException::class);
-    $stream = Psr7\stream_for(
+    $stream = Psr7\Utils::streamFor(
         '{
           error: {
            errors: [
@@ -134,7 +134,7 @@ class RESTTest extends BaseTest
   public function testNotJson404Error()
   {
     $this->expectException(ServiceException::class);
-    $stream = Psr7\stream_for('Not Found');
+    $stream = Psr7\Utils::streamFor('Not Found');
     $response = new Response(404, array(), $stream);
     $this->rest->decodeHttpResponse($response, $this->request);
   }
