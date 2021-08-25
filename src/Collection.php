@@ -54,6 +54,7 @@ class Collection extends Model implements \Iterator, \Countable
     return count($this->{$this->collection_key});
   }
 
+  #[\ReturnTypeWillChange]
   public function offsetExists($offset)
   {
     if (!is_numeric($offset)) {
@@ -62,6 +63,7 @@ class Collection extends Model implements \Iterator, \Countable
     return isset($this->{$this->collection_key}[$offset]);
   }
 
+  #[\ReturnTypeWillChange]
   public function offsetGet($offset)
   {
     if (!is_numeric($offset)) {
@@ -71,6 +73,7 @@ class Collection extends Model implements \Iterator, \Countable
     return $this->{$this->collection_key}[$offset];
   }
 
+  #[\ReturnTypeWillChange]
   public function offsetSet($offset, $value)
   {
     if (!is_numeric($offset)) {
@@ -79,6 +82,7 @@ class Collection extends Model implements \Iterator, \Countable
     $this->{$this->collection_key}[$offset] = $value;
   }
 
+  #[\ReturnTypeWillChange]
   public function offsetUnset($offset)
   {
     if (!is_numeric($offset)) {
