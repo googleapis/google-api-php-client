@@ -7,3 +7,4 @@ examples/testfile-small.txt
 examples/testfile.txt
 tests/.apiKey
 .phpunit.result.cache
+.idea/
