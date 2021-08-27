@@ -80,7 +80,7 @@ class Resource
    * @param $name
    * @param $arguments
    * @param $expectedClass - optional, the expected class name
-   * @return Request|$expectedClass
+   * @return mixed|$expectedClass|ResponseInterface|RequestInterface
    * @throws \Google\Exception
    */
   public function call($name, $arguments, $expectedClass = null)
