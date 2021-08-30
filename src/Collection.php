@@ -11,6 +11,7 @@ class Collection extends Model implements \Iterator, \Countable
 {
   protected $collection_key = 'items';
 
+  #[ReturnTypeWillChange]
   public function rewind()
   {
     if (isset($this->{$this->collection_key})
@@ -19,6 +20,7 @@ class Collection extends Model implements \Iterator, \Countable
     }
   }
 
+  #[ReturnTypeWillChange]
   public function current()
   {
     $this->coerceType($this->key());
@@ -27,6 +29,7 @@ class Collection extends Model implements \Iterator, \Countable
     }
   }
 
+  #[ReturnTypeWillChange]
   public function key()
   {
     if (isset($this->{$this->collection_key})
@@ -35,17 +38,20 @@ class Collection extends Model implements \Iterator, \Countable
     }
   }
 
+  #[ReturnTypeWillChange]
   public function next()
   {
     return next($this->{$this->collection_key});
   }
 
+  #[ReturnTypeWillChange]
   public function valid()
   {
     $key = $this->key();
     return $key !== null && $key !== false;
   }
 
+  #[ReturnTypeWillChange]
   public function count()
   {
     if (!isset($this->{$this->collection_key})) {
@@ -54,6 +60,7 @@ class Collection extends Model implements \Iterator, \Countable
     return count($this->{$this->collection_key});
   }
 
+  #[ReturnTypeWillChange]
   public function offsetExists($offset)
   {
     if (!is_numeric($offset)) {
@@ -62,6 +69,7 @@ class Collection extends Model implements \Iterator, \Countable
     return isset($this->{$this->collection_key}[$offset]);
   }
 
+  #[ReturnTypeWillChange]
   public function offsetGet($offset)
   {
     if (!is_numeric($offset)) {
@@ -71,18 +79,20 @@ class Collection extends Model implements \Iterator, \Countable
     return $this->{$this->collection_key}[$offset];
   }
 
+  #[ReturnTypeWillChange]
   public function offsetSet($offset, $value)
   {
     if (!is_numeric($offset)) {
-      return parent::offsetSet($offset, $value);
+      parent::offsetSet($offset, $value);
     }
     $this->{$this->collection_key}[$offset] = $value;
   }
 
+  #[ReturnTypeWillChange]
   public function offsetUnset($offset)
   {
     if (!is_numeric($offset)) {
-      return parent::offsetUnset($offset);
+      parent::offsetUnset($offset);
     }
     unset($this->{$this->collection_key}[$offset]);
   }
