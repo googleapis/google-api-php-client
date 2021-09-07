@@ -41,7 +41,7 @@ class REST
    * @param string $expectedClass
    * @param array $config
    * @param array $retryMap
-   * @return array decoded result
+   * @return mixed decoded result
    * @throws \Google\Service\Exception on server side error (ie: not authenticated,
    *  invalid or malformed post body, invalid url)
    */
