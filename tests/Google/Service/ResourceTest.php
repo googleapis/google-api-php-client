@@ -51,7 +51,7 @@ class TestMediaTypeStream extends Stream
 {
   public $toStringCalled = false;
 
-  public function __toString():string
+  public function __toString()
   {
     $this->toStringCalled = true;
 
