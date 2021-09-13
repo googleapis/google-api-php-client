@@ -47,16 +47,30 @@ class TestService extends \Google\Service
   }
 }
 
-class TestMediaTypeStream extends Stream
-{
-  public $toStringCalled = false;
+if(version_compare(PHP_VERSION,'7.2.0','>=')&&version_compare(PHP_VERSION,'8.0.0','<')) {
+    class TestMediaTypeStream extends Stream
+    {
+        public $toStringCalled = false;
 
-  public function __toString()
-  {
-    $this->toStringCalled = true;
+        public function __toString():string
+        {
+            $this->toStringCalled = true;
 
-    return parent::__toString();
-  }
+            return parent::__toString();
+        }
+    }
+} else {
+    class TestMediaTypeStream extends Stream
+    {
+        public $toStringCalled = false;
+
+        public function __toString()
+        {
+            $this->toStringCalled = true;
+
+            return parent::__toString();
+        }
+    }
 }
 
 class ResourceTest extends BaseTest
