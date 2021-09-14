@@ -47,24 +47,30 @@ class TestService extends \Google\Service
   }
 }
 
-if(version_compare(PHP_VERSION,'7.2.0','>=')&&version_compare(PHP_VERSION,'8.0.0','<')) {
+
+// if php version is lower than 7.2, then psr7 v1 is installed,
+// so __toString() return is not explicitly typed in parent class
+if(version_compare(PHP_VERSION,'7.2.0','<')) {
     class TestMediaTypeStream extends Stream
     {
         public $toStringCalled = false;
 
-        public function __toString():string
+        public function __toString()
         {
             $this->toStringCalled = true;
 
             return parent::__toString();
         }
     }
+// version is gte 7.2, so psr7 version can be:
+// * v2, so __toString() return is typed
+// * v1, so we can safely override __toString() to make it return string
 } else {
     class TestMediaTypeStream extends Stream
     {
         public $toStringCalled = false;
 
-        public function __toString()
+        public function __toString():string
         {
             $this->toStringCalled = true;
 
