@@ -84,6 +84,8 @@ There are two main types of response - items and collections of items. Each can 
 foreach ($results as $item) {
   echo $item['volumeInfo']['title'], "<br /> \n";
 }
+
+**Properties are hydrated according to the value in the Response. If a property is not present in the Response it will be set to null. Some fields won't be in the Response if you didn't ask for them in the Request using the `fields` property. Therefore, watchout for null properties, maybe they have a value already but are null because they're not present in the Response.**
 ```
 
 ## Google App Engine support
