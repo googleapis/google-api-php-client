@@ -10,7 +10,7 @@
         "google/auth": "^1.10",
         "google/apiclient-services": "~0.200",
         "firebase/php-jwt": "~2.0||~3.0||~4.0||~5.0",
-        "monolog/monolog": "^1.17|^2.0",
+        "monolog/monolog": "^1.17||^2.0",
         "phpseclib/phpseclib": "~2.0||^3.0.2",
         "guzzlehttp/guzzle": "~5.3.3||~6.0||~7.0",
         "guzzlehttp/psr7": "^1.7||^2.0.0"
