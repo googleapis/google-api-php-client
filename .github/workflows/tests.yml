@@ -11,7 +11,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [ "5.6", "7.0", "7.1", "7.2", "7.3", "7.4", "8.0" ]
+                php: [ "5.6", "7.0", "7.1", "7.2", "7.3", "7.4", "8.0", "8.1" ]
                 composer-flags: [""]
                 include:
                   - php: "5.6"
@@ -19,9 +19,7 @@ jobs:
                   - php: "8.0"
                     composer-flags: "--prefer-lowest "
                   - php: "8.1"
-                    composer-flags: "--ignore-platform-reqs "
-                  - php: "8.1"
-                    composer-flags: "--ignore-platform-reqs --prefer-lowest "
+                    composer-flags: "--prefer-lowest "
         name: PHP ${{ matrix.php }} ${{ matrix.composer-flags }}Unit Test
         steps:
             - uses: actions/checkout@v2
@@ -45,7 +43,6 @@ jobs:
               name: Update phpunit/phpunit dependency
               run: composer update phpunit/phpunit phpspec/prophecy-phpunit --with-dependencies --ignore-platform-reqs
             - name: Run Script
-              continue-on-error: ${{ matrix.php == '8.1' }}
               run: vendor/bin/phpunit
 
     style:

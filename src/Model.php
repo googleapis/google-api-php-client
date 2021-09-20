@@ -253,11 +253,13 @@ class Model implements \ArrayAccess
     }
   }
 
+  #[\ReturnTypeWillChange]
   public function offsetExists($offset)
   {
     return isset($this->$offset) || isset($this->modelData[$offset]);
   }
 
+  #[\ReturnTypeWillChange]
   public function offsetGet($offset)
   {
     return isset($this->$offset) ?
@@ -265,6 +267,7 @@ class Model implements \ArrayAccess
         $this->__get($offset);
   }
 
+  #[\ReturnTypeWillChange]
   public function offsetSet($offset, $value)
   {
     if (property_exists($this, $offset)) {
@@ -275,6 +278,7 @@ class Model implements \ArrayAccess
     }
   }
 
+  #[\ReturnTypeWillChange]
   public function offsetUnset($offset)
   {
     unset($this->modelData[$offset]);
