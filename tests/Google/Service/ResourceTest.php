@@ -375,7 +375,7 @@ class ResourceTest extends BaseTest
     $arguments = [['alt' => 'media']];
     $stream = $this->prophesize(Stream::class);
     $stream->__toString()
-        ->shouldNotBeCalled(1);
+        ->shouldNotBeCalled();
     $response = new Response(200, [], $stream->reveal());
 
     $http = $this->prophesize("GuzzleHttp\Client");
