@@ -47,18 +47,6 @@ class TestService extends \Google\Service
   }
 }
 
-class TestMediaTypeStream extends Stream
-{
-  public $toStringCalled = false;
-
-  public function __toString()
-  {
-    $this->toStringCalled = true;
-
-    return parent::__toString();
-  }
-}
-
 class ResourceTest extends BaseTest
 {
   private $client;
@@ -231,7 +219,7 @@ class ResourceTest extends BaseTest
           ->shouldBeCalledTimes(1)
           ->willReturn($response);
     } else {
-      $body = Psr7\stream_for('thisisnotvalidjson');
+      $body = Psr7\Utils::streamFor('thisisnotvalidjson');
       $response = new Response(200, [], $body);
 
       $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
@@ -284,7 +272,7 @@ class ResourceTest extends BaseTest
           ->shouldBeCalledTimes(1)
           ->willReturn($response);
     } else {
-      $body = Psr7\stream_for('thisisnotvalidjson');
+      $body = Psr7\Utils::streamFor('thisisnotvalidjson');
       $response = new Response(400, [], $body);
 
       $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
@@ -341,7 +329,7 @@ class ResourceTest extends BaseTest
           ->shouldBeCalledTimes(1)
           ->willReturn($response);
     } else {
-      $body = Psr7\stream_for('this will be pulled into memory');
+      $body = Psr7\Utils::streamFor('this will be pulled into memory');
       $response = new Response(400, [], $body);
 
       $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
@@ -385,10 +373,10 @@ class ResourceTest extends BaseTest
 
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
-    $request = new Request('GET', '/?alt=media');
-    $resource = fopen('php://temp', 'r+');
-    $stream = new TestMediaTypeStream($resource);
-    $response = new Response(200, [], $stream);
+    $stream = $this->prophesize(Stream::class);
+    $stream->__toString()
+        ->shouldNotBeCalled();
+    $response = new Response(200, [], $stream->reveal());
 
     $http = $this->prophesize("GuzzleHttp\Client");
     $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
@@ -419,7 +407,7 @@ class ResourceTest extends BaseTest
     $response = $resource->call('testMethod', $arguments, $expectedClass);
 
     $this->assertEquals(200, $response->getStatusCode());
-    $this->assertFalse($stream->toStringCalled);
+    // $this->assertFalse($stream->toStringCalled);
   }
 
   public function testExceptionMessage()
@@ -446,7 +434,7 @@ class ResourceTest extends BaseTest
           ->shouldBeCalledTimes(1)
           ->willReturn($response);
     } else {
-      $body = Psr7\stream_for($content);
+      $body = Psr7\Utils::streamFor($content);
       $response = new Response(400, [], $body);
 
       $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])

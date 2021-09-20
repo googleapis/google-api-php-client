@@ -141,7 +141,7 @@ class MediaFileUpload
         'PUT',
         $resumeUri,
         $headers,
-        Psr7\stream_for($chunk)
+        Psr7\Utils::streamFor($chunk)
     );
 
     return $this->makePutRequest($request);
@@ -255,7 +255,7 @@ class MediaFileUpload
       $postBody = $related;
     }
 
-    $request = $request->withBody(Psr7\stream_for($postBody));
+    $request = $request->withBody(Psr7\Utils::streamFor($postBody));
 
     if (isset($contentType) && $contentType) {
       $request = $request->withHeader('content-type', $contentType);
