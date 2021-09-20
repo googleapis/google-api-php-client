@@ -47,38 +47,6 @@ class TestService extends \Google\Service
   }
 }
 
-
-// if php version is lower than 7.2, then psr7 v1 is installed,
-// so __toString() return is not explicitly typed in parent class
-if(version_compare(PHP_VERSION,'7.2.0','<')) {
-    class TestMediaTypeStream extends Stream
-    {
-        public $toStringCalled = false;
-
-        public function __toString()
-        {
-            $this->toStringCalled = true;
-
-            return parent::__toString();
-        }
-    }
-// version is gte 7.2, so psr7 version can be:
-// * v2, so __toString() return is typed
-// * v1, so we can safely override __toString() to make it return string
-} else {
-    class TestMediaTypeStream extends Stream
-    {
-        public $toStringCalled = false;
-
-        public function __toString():string
-        {
-            $this->toStringCalled = true;
-
-            return parent::__toString();
-        }
-    }
-}
-
 class ResourceTest extends BaseTest
 {
   private $client;
@@ -405,10 +373,10 @@ class ResourceTest extends BaseTest
 
     // set the "alt" parameter to "media"
     $arguments = [['alt' => 'media']];
-    $request = new Request('GET', '/?alt=media');
-    $resource = fopen('php://temp', 'r+');
-    $stream = new TestMediaTypeStream($resource);
-    $response = new Response(200, [], $stream);
+    $stream = $this->prophesize(Stream::class);
+    $stream->__toString()
+        ->shouldNotBeCalled(1);
+    $response = new Response(200, [], $stream->reveal());
 
     $http = $this->prophesize("GuzzleHttp\Client");
     $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
@@ -439,7 +407,7 @@ class ResourceTest extends BaseTest
     $response = $resource->call('testMethod', $arguments, $expectedClass);
 
     $this->assertEquals(200, $response->getStatusCode());
-    $this->assertFalse($stream->toStringCalled);
+    // $this->assertFalse($stream->toStringCalled);
   }
 
   public function testExceptionMessage()
