@@ -64,7 +64,7 @@ class ResourceTest extends BaseTest
   private $client;
   private $service;
 
-  public function setUp(): void
+  public function set_up()
   {
     $this->client = $this->prophesize(Client::class);
 

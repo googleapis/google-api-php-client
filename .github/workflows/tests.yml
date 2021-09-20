@@ -18,6 +18,10 @@ jobs:
                     composer-flags: "--prefer-lowest "
                   - php: "8.0"
                     composer-flags: "--prefer-lowest "
+                  - php: "8.1"
+                    composer-flags: "--ignore-platform-reqs "
+                  - php: "8.1"
+                    composer-flags: "--ignore-platform-reqs --prefer-lowest "
         name: PHP ${{ matrix.php }} ${{ matrix.composer-flags }}Unit Test
         steps:
             - uses: actions/checkout@v2
@@ -31,13 +35,17 @@ jobs:
                 timeout_minutes: 10
                 max_attempts: 3
                 command: composer update ${{ matrix.composer-flags }}
-            - if: ${{ matrix.php == '8.0' || matrix.composer-flags == '--prefer-lowest' }}
+            - if: ${{ matrix.php == '8.0' || ( matrix.composer-flags == '--prefer-lowest' && matrix.php != '8.1' ) }}
               name: Update guzzlehttp/ringphp dependency
               run: composer update guzzlehttp/ringphp
-            - if: ${{ matrix.php == '5.6' || matrix.php == '7.0' || matrix.php == '7.1' }}
-              name: Run PHPUnit Patches
-              run: sh .github/apply-phpunit-patches.sh
+            - if: ${{ matrix.php == '8.1' }}
+              name: Update guzzlehttp/ringphp dependency
+              run: composer update guzzlehttp/ringphp --ignore-platform-reqs
+            - if: ${{ matrix.php == '8.1' }}
+              name: Update phpunit/phpunit dependency
+              run: composer update phpunit/phpunit phpspec/prophecy-phpunit --with-dependencies --ignore-platform-reqs
             - name: Run Script
+              continue-on-error: ${{ matrix.php == '8.1' }}
               run: vendor/bin/phpunit
 
     style:
