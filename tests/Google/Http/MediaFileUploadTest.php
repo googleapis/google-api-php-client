@@ -88,8 +88,8 @@ class MediaFileUploadTest extends BaseTest
     $request = $request->withBody(Psr7\stream_for($reqData));
     $media = new MediaFileUpload($client, $request, 'image/png', $data, false);
     $request = $media->getRequest();
-    $this->assertContains($reqData, (string) $request->getBody());
-    $this->assertContains(base64_encode($data), (string) $request->getBody());
+    $this->assertStringContainsString($reqData, (string) $request->getBody());
+    $this->assertStringContainsString(base64_encode($data), (string) $request->getBody());
   }
 
   public function testGetResumeUri()

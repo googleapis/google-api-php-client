@@ -270,9 +270,14 @@ class UriTemplateTest extends BaseTest
   public function testAgainstStandardTests()
   {
     $location = __DIR__ . "/../../uritemplate-test/*.json";
+    $files = glob($location);
+
+    if (!$files) {
+        $this->markTestSkipped('No JSON files provided');
+    }
 
     $urit = new UriTemplate();
-    foreach (glob($location) as $file) {
+    foreach ($files as $file) {
       $test = json_decode(file_get_contents($file), true);
       foreach ($test as $title => $testsets) {
         foreach ($testsets['testcases'] as $cases) {
