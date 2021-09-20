@@ -77,7 +77,7 @@ class MediaFileUploadTest extends BaseTest
     // Test resumable (meta data) - we want to send the metadata, not the app data.
     $request = new Request('POST', 'http://www.example.com');
     $reqData = json_encode("hello");
-    $request = $request->withBody(Psr7\stream_for($reqData));
+    $request = $request->withBody(Psr7\Utils::streamFor($reqData));
     $media = new MediaFileUpload($client, $request, 'image/png', $data, true);
     $request = $media->getRequest();
     $this->assertEquals(json_decode($reqData), (string) $request->getBody());
@@ -85,7 +85,7 @@ class MediaFileUploadTest extends BaseTest
     // Test multipart - we are sending encoded meta data and post data
     $request = new Request('POST', 'http://www.example.com');
     $reqData = json_encode("hello");
-    $request = $request->withBody(Psr7\stream_for($reqData));
+    $request = $request->withBody(Psr7\Utils::streamFor($reqData));
     $media = new MediaFileUpload($client, $request, 'image/png', $data, false);
     $request = $media->getRequest();
     $this->assertStringContainsString($reqData, (string) $request->getBody());
