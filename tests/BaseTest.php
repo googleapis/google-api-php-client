@@ -24,12 +24,25 @@ use Symfony\Component\DomCrawler\Crawler;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use Cache\Adapter\Filesystem\FilesystemCachePool;
-use PHPUnit\Framework\TestCase;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+
+if (trait_exists('\Prophecy\PhpUnit\ProphecyTrait')) {
+  trait BaseTestTrait
+    {
+    use \Prophecy\PhpUnit\ProphecyTrait;
+  }
+} else {
+  trait BaseTestTrait
+    {
+  }
+}
 
 class BaseTest extends TestCase
 {
   private $key;
   private $client;
+
+  use BaseTestTrait;
 
   public function getClient()
   {
@@ -71,12 +84,14 @@ class BaseTest extends TestCase
     $client = new Client();
     $client->setApplicationName('google-api-php-client-tests');
     $client->setHttpClient($httpClient);
-    $client->setScopes([
+    $client->setScopes(
+        [
         "https://www.googleapis.com/auth/tasks",
         "https://www.googleapis.com/auth/adsense",
         "https://www.googleapis.com/auth/youtube",
         "https://www.googleapis.com/auth/drive",
-    ]);
+        ]
+    );
 
     if ($this->key) {
       $client->setDeveloperKey($this->key);
@@ -178,7 +193,7 @@ class BaseTest extends TestCase
       $apiKey = file_get_contents($apiKeyFile);
     } elseif (!$apiKey = getenv('GOOGLE_API_KEY')) {
       $this->markTestSkipped(
-        "Test requires api key\nYou can create one in your developer console"
+          "Test requires api key\nYou can create one in your developer console"
       );
       file_put_contents($apiKeyFile, $apiKey);
     }

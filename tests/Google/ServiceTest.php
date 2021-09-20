@@ -24,7 +24,7 @@ use Google\Client;
 use Google\Model;
 use Google\Service;
 use Google\Http\Batch;
-use PHPUnit\Framework\TestCase;
+use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -47,22 +47,40 @@ class TestService extends Service
   public $batchPath = 'batch/test';
 }
 
+if (trait_exists('\Prophecy\PhpUnit\ProphecyTrait')) {
+  trait ServiceTestTrait
+    {
+    use \Prophecy\PhpUnit\ProphecyTrait;
+  }
+} else {
+  trait ServiceTestTrait
+    {
+  }
+}
+
 class ServiceTest extends TestCase
 {
   private static $errorMessage;
+
+  use ServiceTestTrait;
 
   public function testCreateBatch()
   {
     $response = $this->prophesize(ResponseInterface::class);
     $client = $this->prophesize(Client::class);
 
-    $client->execute(Argument::allOf(
-      Argument::type(RequestInterface::class),
-      Argument::that(function ($request) {
-        $this->assertEquals('/batch/test', $request->getRequestTarget());
-        return $request;
-      })
-    ), Argument::any())->willReturn($response->reveal());
+    $client->execute(
+        Argument::allOf(
+            Argument::type(RequestInterface::class),
+            Argument::that(
+                function ($request) {
+                  $this->assertEquals('/batch/test', $request->getRequestTarget());
+                  return $request;
+                }
+            )
+        ),
+        Argument::any()
+    )->willReturn($response->reveal());
 
     $client->getConfig('base_path')->willReturn('');
 
@@ -131,12 +149,14 @@ class ServiceTest extends TestCase
 
     try {
       $service = new TestService('foo');
-    } catch (\TypeError $e) {}
+    } catch (\TypeError $e) {
+
+    }
 
     $this->assertInstanceOf('TypeError', $e);
     $this->assertEquals(
-      'constructor must be array or instance of Google\Client',
-      $e->getMessage()
+        'constructor must be array or instance of Google\Client',
+        $e->getMessage()
     );
   }
 
@@ -152,8 +172,8 @@ class ServiceTest extends TestCase
     $service = new TestService('foo');
 
     $this->assertEquals(
-      'constructor must be array or instance of Google\Client',
-      self::$errorMessage
+        'constructor must be array or instance of Google\Client',
+        self::$errorMessage
     );
   }
 

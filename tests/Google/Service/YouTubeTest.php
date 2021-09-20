@@ -24,7 +24,7 @@ class YouTubeTest extends BaseTest
 {
   /** @var YouTube */
   public $youtube;
-  public function setUp(): void
+  public function set_up()
   {
     $this->checkToken();
     $this->youtube = new YouTube($this->getClient());
