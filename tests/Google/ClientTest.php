@@ -774,6 +774,12 @@ class ClientTest extends BaseTest
       $newToken['access_token']
     );
 
+    // Assert refresh token remains
+    $this->assertEquals(
+      $accessToken['refresh_token'],
+      $newToken['refresh_token']
+    );
+
     $this->assertFalse($client->isAccessTokenExpired());
   }
 

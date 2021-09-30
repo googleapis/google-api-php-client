@@ -188,11 +188,14 @@ class Client
     if (is_null($this->config['token_callback'])) {
       $this->config['token_callback'] = function ($cacheKey, $newAccessToken) {
         $this->setAccessToken(
-            [
-              'access_token' => $newAccessToken,
-              'expires_in' => 3600, // Google default
-              'created' => time(),
-            ]
+            array_merge(
+                $this->getAccessToken(),
+                [
+                  'access_token' => $newAccessToken,
+                  'expires_in' => 3600, // Google default
+                  'created' => time(),
+                ]
+            )
         );
       };
     }
