@@ -134,6 +134,12 @@ class Client
           // fetch the ApplicationDefaultCredentials, if applicable
           // @see https://developers.google.com/identity/protocols/application-default-credentials
           'use_application_default_credentials' => false,
+
+          // More efficient way to call the APIs as it removes a network call
+          // to the OAuth2 token endpoint. Not available for all services.
+          // @see https://google.aip.dev/auth/4111
+          'use_self_signed_jwt' => false,
+
           'signing_key' => null,
           'signing_algorithm' => null,
           'subject' => null,
@@ -467,6 +473,29 @@ class Client
   public function isUsingApplicationDefaultCredentials()
   {
     return $this->config['use_application_default_credentials'];
+  }
+
+  /**
+   * Set the configuration to call the APIs using Self Signed JWTs.
+   * This is more efficient as it removes a network call to the OAuth2 token
+   * endpoint, but it is not available for all services.
+   *
+   * @see https://google.aip.dev/auth/4111
+   * @param boolean $useSelfSignedJwt
+   */
+  public function useSelfSignedJwt($useSelfSignedJwt = true)
+  {
+    $this->config['use_self_signed_jwt'] = $useSelfSignedJwt;
+  }
+
+  /**
+   * To determine whether or not the service is using self-signed JWTs.
+   *
+   * @see https://google.aip.dev/auth/4111
+   */
+  public function isUsingSelfSignedJwt()
+  {
+    return $this->config['use_self_signed_jwt'];
   }
 
   /**
@@ -1233,6 +1262,13 @@ class Client
       }
 
       $credentials->setSub($sub);
+    }
+
+    if ($credentials instanceof ServiceAccountCredentials && $this->useSelfSignedJwt()) {
+      // tell the credentials to sign scopes into Self-Signed JWTs instead of
+      // calling the OAuth2 token endpoint
+      // @see https://google.aip.dev/auth/4111#scope-vs-audience
+      $credentials->useJwtAccessWithScope();
     }
 
     // If we are not using FetchAuthTokenCache yet, create it now
