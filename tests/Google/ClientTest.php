@@ -952,4 +952,46 @@ class ClientTest extends BaseTest
     $credentials = $method->invoke($client);
     $this->assertEquals('some-quota-project', $credentials->getQuotaProject());
   }
+
+  public function testUseSelfSignedJwtOption()
+  {
+    $this->onlyGuzzle6Or7();
+
+    $client = new Client(['use_self_signed_jwt' => true]);
+    $this->assertTrue($client->getConfig('use_self_signed_jwt'));
+    $this->assertTrue($client->isUsingSelfSignedJwt());
+
+    $client = new Client();
+    $client->useSelfSignedJwt();
+    $this->assertTrue($client->getConfig('use_self_signed_jwt'));
+    $this->assertTrue($client->isUsingSelfSignedJwt());
+
+    $client = new Client([
+      'credentials' => [
+        'type' => 'service_account',
+        'client_id' => 'test',
+        'client_email' => '123@abc.com',
+        'private_key' => openssl_pkey_new(),
+      ],
+      'scopes' => 'abc 123',
+      'use_self_signed_jwt' => true,
+    ]);
+
+    // We only need to ensure "send" isn't called because the google/auth
+    // library invokes "send" for fetching auth tokens.
+    $httpClient = $this->prophesize('GuzzleHttp\ClientInterface');
+    $httpClient->send(Argument::any(), Argument::any())
+      ->shouldNotBeCalled();
+
+    $token = $client->fetchAccessTokenWithAssertion($httpClient->reveal());
+    $this->assertNotNull($token);
+    $this->assertArrayHasKey('access_token', $token);
+
+    // Assert the token is a JWT with the proper scopes
+    $parts = explode('.', $token['access_token']);
+    $this->assertCount(3, $parts);
+    $payload = json_decode(base64_decode($parts[1]), true);
+    $this->assertArrayHasKey('scope', $payload);
+    $this->assertEquals('abc 123', $payload['scope']);
+  }
 }

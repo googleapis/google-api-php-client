@@ -1264,7 +1264,7 @@ class Client
       $credentials->setSub($sub);
     }
 
-    if ($credentials instanceof ServiceAccountCredentials && $this->useSelfSignedJwt()) {
+    if ($credentials instanceof ServiceAccountCredentials && $this->isUsingSelfSignedJwt()) {
       // tell the credentials to sign scopes into Self-Signed JWTs instead of
       // calling the OAuth2 token endpoint
       // @see https://google.aip.dev/auth/4111#scope-vs-audience
