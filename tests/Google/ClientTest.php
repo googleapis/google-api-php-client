@@ -959,12 +959,12 @@ class ClientTest extends BaseTest
 
     $client = new Client(['use_jwt_with_scope' => true]);
     $this->assertTrue($client->getConfig('use_jwt_with_scope'));
-    $this->assertTrue($client->useJwtWithScope());
+    $this->assertTrue($client->isUsingJwtWithScope());
 
     $client = new Client();
     $client->useJwtWithScope();
     $this->assertTrue($client->getConfig('use_jwt_with_scope'));
-    $this->assertTrue($client->useJwtWithScope());
+    $this->assertTrue($client->isUsingJwtWithScope());
 
     $client = new Client([
       'credentials' => [
