@@ -953,18 +953,18 @@ class ClientTest extends BaseTest
     $this->assertEquals('some-quota-project', $credentials->getQuotaProject());
   }
 
-  public function testUseSelfSignedJwtOption()
+  public function testUseJwtWithScopeOption()
   {
     $this->onlyGuzzle6Or7();
 
-    $client = new Client(['use_self_signed_jwt' => true]);
-    $this->assertTrue($client->getConfig('use_self_signed_jwt'));
-    $this->assertTrue($client->isUsingSelfSignedJwt());
+    $client = new Client(['use_jwt_with_scope' => true]);
+    $this->assertTrue($client->getConfig('use_jwt_with_scope'));
+    $this->assertTrue($client->useJwtWithScope());
 
     $client = new Client();
-    $client->useSelfSignedJwt();
-    $this->assertTrue($client->getConfig('use_self_signed_jwt'));
-    $this->assertTrue($client->isUsingSelfSignedJwt());
+    $client->useJwtWithScope();
+    $this->assertTrue($client->getConfig('use_jwt_with_scope'));
+    $this->assertTrue($client->useJwtWithScope());
 
     $client = new Client([
       'credentials' => [
@@ -974,7 +974,7 @@ class ClientTest extends BaseTest
         'private_key' => openssl_pkey_new(),
       ],
       'scopes' => 'abc 123',
-      'use_self_signed_jwt' => true,
+      'use_jwt_with_scope' => true,
     ]);
 
     // We only need to ensure "send" isn't called because the google/auth

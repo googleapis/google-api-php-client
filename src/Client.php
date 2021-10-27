@@ -138,7 +138,7 @@ class Client
           // More efficient way to call the APIs as it removes a network call
           // to the OAuth2 token endpoint. Not available for all services.
           // @see https://google.aip.dev/auth/4111
-          'use_self_signed_jwt' => false,
+          'use_jwt_with_scope' => false,
 
           'signing_key' => null,
           'signing_algorithm' => null,
@@ -481,11 +481,11 @@ class Client
    * endpoint, but it is not available for all services.
    *
    * @see https://google.aip.dev/auth/4111
-   * @param boolean $useSelfSignedJwt
+   * @param boolean $useJwtWithScope
    */
-  public function useSelfSignedJwt($useSelfSignedJwt = true)
+  public function useJwtWithScope($useJwtWithScope = true)
   {
-    $this->config['use_self_signed_jwt'] = $useSelfSignedJwt;
+    $this->config['use_jwt_with_scope'] = $useJwtWithScope;
   }
 
   /**
@@ -493,9 +493,9 @@ class Client
    *
    * @see https://google.aip.dev/auth/4111
    */
-  public function isUsingSelfSignedJwt()
+  public function isUsingJwtWithScope()
   {
-    return $this->config['use_self_signed_jwt'];
+    return $this->config['use_jwt_with_scope'];
   }
 
   /**
@@ -1264,7 +1264,7 @@ class Client
       $credentials->setSub($sub);
     }
 
-    if ($credentials instanceof ServiceAccountCredentials && $this->isUsingSelfSignedJwt()) {
+    if ($credentials instanceof ServiceAccountCredentials && $this->isUsingJwtWithScope()) {
       // tell the credentials to sign scopes into Self-Signed JWTs instead of
       // calling the OAuth2 token endpoint
       // @see https://google.aip.dev/auth/4111#scope-vs-audience
