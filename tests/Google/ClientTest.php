@@ -952,4 +952,57 @@ class ClientTest extends BaseTest
     $credentials = $method->invoke($client);
     $this->assertEquals('some-quota-project', $credentials->getQuotaProject());
   }
+
+  public function testCredentialsLoaderOption()
+  {
+    $this->onlyGuzzle6Or7();
+
+    $middleware = null;
+    $credentials = $this->prophesize('Google\Auth\CredentialsLoader');
+    $credentials->getCacheKey()
+        ->willReturn('cache-key');
+
+    $client = new Client(['credentials' => $credentials->reveal()]);
+
+    $handler = $this->prophesize('GuzzleHttp\HandlerStack');
+    $handler->remove('google_auth')
+      ->shouldBeCalledOnce();
+    $handler->push(Argument::any(), 'google_auth')
+      ->shouldBeCalledOnce()
+      ->will(function($args) use (&$middleware) {
+        $middleware = $args[0];
+      });
+
+    // We only need to ensure "send" isn't called because the google/auth
+    // library invokes "send" for fetching auth tokens.
+    $httpClient = $this->prophesize('GuzzleHttp\ClientInterface');
+    $httpClient->getConfig()
+      ->shouldBeCalledOnce()
+      ->willReturn(['handler' => $handler->reveal()]);
+    $httpClient->getConfig('base_uri')
+      ->shouldBeCalledOnce();
+    $httpClient->getConfig('verify')
+      ->shouldBeCalledOnce();
+    $httpClient->getConfig('proxy')
+      ->shouldBeCalledOnce();
+    $httpClient->send(Argument::any(), Argument::any())
+      ->shouldNotBeCalled();
+
+    $credentials->fetchAuthToken(Argument::any())
+      ->shouldBeCalledOnce()
+      ->willReturn(['access_token' => 'abc']);
+
+    $http = $client->authorize($httpClient->reveal());
+
+    $this->assertNotNull($middleware);
+    $callable = $middleware(function ($req, $res) use (&$request) {
+      $request = $req; // test later
+    });
+    $callable(new Request('GET', '/fake-uri'), ['auth' => 'google_auth']);
+
+    $this->assertNotNull($middleware);
+    $authHeader = $request->getHeaderLine('authorization');
+    $this->assertNotNull($authHeader);
+    $this->assertEquals('Bearer abc', $authHeader);
+  }
 }
