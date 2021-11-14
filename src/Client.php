@@ -425,7 +425,7 @@ class Client
     //   3b. If access token exists but is expired, try to refresh it
     //   4.  Check for API Key
     if ($this->credentials) {
-        return $authHandler->attachCredentials(
+      return $authHandler->attachCredentials(
           $http,
           $this->credentials,
           $this->config['token_callback']
