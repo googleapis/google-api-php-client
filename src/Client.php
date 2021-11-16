@@ -169,7 +169,10 @@ class Client
 
           // Setting api_format_v2 will return more detailed error messages
           // from certain APIs.
-          'api_format_v2' => false
+          'api_format_v2' => false,
+          
+          // Setting additional guzzle options for the default http client
+          'guzzle_options' => [],
         ],
         $config
     );
@@ -1186,6 +1189,11 @@ class Client
     } else {
       throw new LogicException('Could not find supported version of Guzzle.');
     }
+
+    $options = array_merge(
+      $options,
+      $this->config['guzzle_options'],
+    );
 
     return new GuzzleClient($options);
   }
