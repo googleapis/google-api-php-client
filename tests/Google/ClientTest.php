@@ -953,14 +953,19 @@ class ClientTest extends BaseTest
     $this->assertEquals('some-quota-project', $credentials->getQuotaProject());
   }
 
-  public function testCredentialsLoaderOption()
+  public function testCredentialsOptionWithCredentialsLoader()
   {
     $this->onlyGuzzle6Or7();
 
-    $middleware = null;
+    $request = null;
     $credentials = $this->prophesize('Google\Auth\CredentialsLoader');
     $credentials->getCacheKey()
         ->willReturn('cache-key');
+
+    // Ensure the access token provided by our credentials loader is used
+    $credentials->fetchAuthToken(Argument::any())
+      ->shouldBeCalledOnce()
+      ->willReturn(['access_token' => 'abc']);
 
     $client = new Client(['credentials' => $credentials->reveal()]);
 
@@ -969,12 +974,14 @@ class ClientTest extends BaseTest
       ->shouldBeCalledOnce();
     $handler->push(Argument::any(), 'google_auth')
       ->shouldBeCalledOnce()
-      ->will(function($args) use (&$middleware) {
+      ->will(function($args) use (&$request) {
         $middleware = $args[0];
+        $callable = $middleware(function ($req, $res) use (&$request) {
+          $request = $req; // test later
+        });
+        $callable(new Request('GET', '/fake-uri'), ['auth' => 'google_auth']);
       });
 
-    // We only need to ensure "send" isn't called because the google/auth
-    // library invokes "send" for fetching auth tokens.
     $httpClient = $this->prophesize('GuzzleHttp\ClientInterface');
     $httpClient->getConfig()
       ->shouldBeCalledOnce()
@@ -988,19 +995,9 @@ class ClientTest extends BaseTest
     $httpClient->send(Argument::any(), Argument::any())
       ->shouldNotBeCalled();
 
-    $credentials->fetchAuthToken(Argument::any())
-      ->shouldBeCalledOnce()
-      ->willReturn(['access_token' => 'abc']);
-
     $http = $client->authorize($httpClient->reveal());
 
-    $this->assertNotNull($middleware);
-    $callable = $middleware(function ($req, $res) use (&$request) {
-      $request = $req; // test later
-    });
-    $callable(new Request('GET', '/fake-uri'), ['auth' => 'google_auth']);
-
-    $this->assertNotNull($middleware);
+    $this->assertNotNull($request);
     $authHeader = $request->getHeaderLine('authorization');
     $this->assertNotNull($authHeader);
     $this->assertEquals('Bearer abc', $authHeader);
