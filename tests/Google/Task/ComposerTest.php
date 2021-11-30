@@ -183,8 +183,8 @@ class ComposerTest extends BaseTest
         $this->assertFileExists($serviceDir . '/Drive');
         $this->assertFileExists($serviceDir . '/YouTube.php');
         $this->assertFileExists($serviceDir . '/YouTube');
-        $this->assertFileNotExists($serviceDir . '/YouTubeReporting.php');
-        $this->assertFileNotExists($serviceDir . '/YouTubeReporting');
+        $this->assertFileDoesNotExist($serviceDir . '/YouTubeReporting.php');
+        $this->assertFileDoesNotExist($serviceDir . '/YouTubeReporting');
 
         // Remove the "apiclient-services" directory, which is required to
         // update the cleanup command.
@@ -225,10 +225,10 @@ class ComposerTest extends BaseTest
 
         $this->assertFileExists($serviceDir . '/Drive.php');
         $this->assertFileExists($serviceDir . '/Drive');
-        $this->assertFileNotExists($serviceDir . '/YouTube.php');
-        $this->assertFileNotExists($serviceDir . '/YouTube');
-        $this->assertFileNotExists($serviceDir . '/YouTubeReporting.php');
-        $this->assertFileNotExists($serviceDir . '/YouTubeReporting');
+        $this->assertFileDoesNotExist($serviceDir . '/YouTube.php');
+        $this->assertFileDoesNotExist($serviceDir . '/YouTube');
+        $this->assertFileDoesNotExist($serviceDir . '/YouTubeReporting.php');
+        $this->assertFileDoesNotExist($serviceDir . '/YouTubeReporting');
     }
 
     public function testE2EOptimized()
