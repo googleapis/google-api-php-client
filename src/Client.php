@@ -87,6 +87,11 @@ class Client
   private $logger;
 
   /**
+   * @var CredentialsLoader $credentials
+   */
+  private $credentials;
+
+  /**
    * @var boolean $deferExecution
    */
   private $deferExecution = false;
@@ -114,8 +119,9 @@ class Client
           'client_id' => '',
           'client_secret' => '',
 
-          // Path to JSON credentials or an array representing those credentials
-          // @see Google\Client::setAuthConfig
+          // Can be a path to JSON credentials or an array representing those
+          // credentials (@see Google\Client::setAuthConfig), or an instance of
+          // Google\Auth\CredentialsLoader.
           'credentials' => null,
           // @see Google\Client::setScopes
           'scopes' => null,
@@ -175,7 +181,11 @@ class Client
     );
 
     if (!is_null($this->config['credentials'])) {
-      $this->setAuthConfig($this->config['credentials']);
+      if ($this->config['credentials'] instanceof CredentialsLoader) {
+        $this->credentials = $this->config['credentials'];
+      } else {
+        $this->setAuthConfig($this->config['credentials']);
+      }
       unset($this->config['credentials']);
     }
 
@@ -405,25 +415,33 @@ class Client
    */
   public function authorize(ClientInterface $http = null)
   {
-    $credentials = null;
-    $token = null;
-    $scopes = null;
     $http = $http ?: $this->getHttpClient();
     $authHandler = $this->getAuthHandler();
 
     // These conditionals represent the decision tree for authentication
-    //   1.  Check for Application Default Credentials
-    //   2.  Check for API Key
+    //   1.  Check if a Google\Auth\CredentialsLoader instance has been supplied via the "credentials" option
+    //   2.  Check for Application Default Credentials
     //   3a. Check for an Access Token
     //   3b. If access token exists but is expired, try to refresh it
+    //   4.  Check for API Key
+    if ($this->credentials) {
+      return $authHandler->attachCredentials(
+          $http,
+          $this->credentials,
+          $this->config['token_callback']
+      );
+    }
+
     if ($this->isUsingApplicationDefaultCredentials()) {
       $credentials = $this->createApplicationDefaultCredentials();
-      $http = $authHandler->attachCredentialsCache(
+      return $authHandler->attachCredentialsCache(
           $http,
           $credentials,
           $this->config['token_callback']
       );
-    } elseif ($token = $this->getAccessToken()) {
+    }
+
+    if ($token = $this->getAccessToken()) {
       $scopes = $this->prepareScopes();
       // add refresh subscriber to request a new token
       if (isset($token['refresh_token']) && $this->isAccessTokenExpired()) {
@@ -431,16 +449,18 @@ class Client
             $scopes,
             $token['refresh_token']
         );
-        $http = $authHandler->attachCredentials(
+        return $authHandler->attachCredentials(
             $http,
             $credentials,
             $this->config['token_callback']
         );
-      } else {
-        $http = $authHandler->attachToken($http, $token, (array) $scopes);
       }
-    } elseif ($key = $this->config['developer_key']) {
-      $http = $authHandler->attachKey($http, $key);
+
+      return $authHandler->attachToken($http, $token, (array) $scopes);
+    }
+
+    if ($key = $this->config['developer_key']) {
+      return $authHandler->attachKey($http, $key);
     }
 
     return $http;
@@ -1233,6 +1253,13 @@ class Client
       }
 
       $credentials->setSub($sub);
+    }
+
+    if ($credentials instanceof ServiceAccountCredentials && $this->isUsingJwtWithScope()) {
+      // tell the credentials to sign scopes into Self-Signed JWTs instead of
+      // calling the OAuth2 token endpoint
+      // @see https://google.aip.dev/auth/4111#scope-vs-audience
+      $credentials->useJwtAccessWithScope();
     }
 
     // If we are not using FetchAuthTokenCache yet, create it now
