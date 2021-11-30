@@ -3,7 +3,7 @@
 # Google APIs Client Library for PHP #
 
 <dl>
-  <dt>Reference Docs</dt><dd><a href="https://googleapis.github.io/google-api-php-client/master/">https://googleapis.github.io/google-api-php-client/master/</a></dd>
+  <dt>Reference Docs</dt><dd><a href="https://googleapis.github.io/google-api-php-client/main/">https://googleapis.github.io/google-api-php-client/main/</a></dd>
   <dt>License</dt><dd>Apache 2.0</dd>
 </dl>
 
