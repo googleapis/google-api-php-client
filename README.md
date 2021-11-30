@@ -446,7 +446,7 @@ The _Google\Service_ classes are generally automatically generated from the API 
 
 Some services return XML or similar by default, rather than JSON, which is what the library supports. You can request a JSON response by adding an 'alt' argument to optional params that is normally the last argument to a method call:
 
-```
+```php
 $opt_params = array(
   'alt' => "json"
 );
