@@ -2,7 +2,7 @@ name: Generate Documentation
 on:
     push:
         branches:
-            - master
+            - main
         tags:
             - "*"
 
