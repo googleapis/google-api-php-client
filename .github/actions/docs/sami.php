@@ -18,7 +18,7 @@ $versions = GitVersionCollection::create($projectRoot)
     ->addFromTags(function($tag) {
         return 0 === strpos($tag, 'v2.') && false === strpos($tag, 'RC');
     })
-    ->add('master', 'master branch');
+    ->add('main', 'main branch');
 
 return new Sami($iterator, [
     'title' => 'Google APIs Client Library for PHP API Reference',
