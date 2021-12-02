@@ -49,7 +49,7 @@ use LogicException;
  */
 class Client
 {
-  const LIBVER = "2.12.0";
+  const LIBVER = "2.12.1";
   const USER_AGENT_SUFFIX = "google-api-php-client/";
   const OAUTH2_REVOKE_URI = 'https://oauth2.googleapis.com/revoke';
   const OAUTH2_TOKEN_URI = 'https://oauth2.googleapis.com/token';
@@ -1253,13 +1253,6 @@ class Client
       }
 
       $credentials->setSub($sub);
-    }
-
-    if ($credentials instanceof ServiceAccountCredentials && $this->isUsingJwtWithScope()) {
-      // tell the credentials to sign scopes into Self-Signed JWTs instead of
-      // calling the OAuth2 token endpoint
-      // @see https://google.aip.dev/auth/4111#scope-vs-audience
-      $credentials->useJwtAccessWithScope();
     }
 
     // If we are not using FetchAuthTokenCache yet, create it now
