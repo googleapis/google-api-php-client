@@ -318,55 +318,10 @@ class ClientTest extends BaseTest
   public function testDefaultConfigOptions()
   {
       $client = new Client();
-      if ($this->isGuzzle6() || $this->isGuzzle7()) {
-          $this->assertArrayHasKey('http_errors', $client->getHttpClient()->getConfig());
-          $this->assertArrayNotHasKey('exceptions', $client->getHttpClient()->getConfig());
-          $this->assertFalse($client->getHttpClient()->getConfig()['http_errors']);
-      }
-      if ($this->isGuzzle5()) {
-          $this->assertArrayHasKey('exceptions', $client->getHttpClient()->getDefaultOption());
-          $this->assertArrayNotHasKey('http_errors', $client->getHttpClient()->getDefaultOption());
-          $this->assertFalse($client->getHttpClient()->getDefaultOption()['exceptions']);
-      }
-  }
 
-  public function testAppEngineStreamHandlerConfig()
-  {
-    $this->onlyGuzzle5();
-
-    $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
-    $client = new Client();
-
-    // check Stream Handler is used
-    $http = $client->getHttpClient();
-    $class = new ReflectionClass(get_class($http));
-    $property = $class->getProperty('fsm');
-    $property->setAccessible(true);
-    $fsm = $property->getValue($http);
-
-    $class = new ReflectionClass(get_class($fsm));
-    $property = $class->getProperty('handler');
-    $property->setAccessible(true);
-    $handler = $property->getValue($fsm);
-
-    $this->assertInstanceOf('GuzzleHttp\Ring\Client\StreamHandler', $handler);
-
-    unset($_SERVER['SERVER_SOFTWARE']);
-  }
-
-  public function testAppEngineVerifyConfig()
-  {
-    $this->onlyGuzzle5();
-
-    $_SERVER['SERVER_SOFTWARE'] = 'Google App Engine';
-    $client = new Client();
-
-    $this->assertEquals(
-      '/etc/ca-certificates.crt',
-      $client->getHttpClient()->getDefaultOption('verify')
-    );
-
-    unset($_SERVER['SERVER_SOFTWARE']);
+        $this->assertArrayHasKey('http_errors', $client->getHttpClient()->getConfig());
+        $this->assertArrayNotHasKey('exceptions', $client->getHttpClient()->getConfig());
+        $this->assertFalse($client->getHttpClient()->getConfig()['http_errors']);
   }
 
   public function testJsonConfig()
@@ -477,14 +432,7 @@ class ClientTest extends BaseTest
         ->shouldBeCalledTimes(1)
         ->willReturn($token);
 
-    if ($this->isGuzzle5()) {
-      $response = $this->getGuzzle5ResponseMock();
-      $response->getStatusCode()
-          ->shouldBeCalledTimes(1)
-          ->willReturn(200);
-    } else {
-      $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
-    }
+    $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
 
     $response->getBody()
         ->shouldBeCalledTimes(1)
@@ -494,20 +442,9 @@ class ClientTest extends BaseTest
 
     $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
-    if ($this->isGuzzle5()) {
-      $guzzle5Request = new \GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
-      $http->createRequest(Argument::any(), Argument::any(), Argument::any())
-          ->shouldBeCalledTimes(1)
-          ->willReturn($guzzle5Request);
-
-      $http->send(Argument::type('GuzzleHttp\Message\Request'))
-          ->shouldBeCalledTimes(1)
-          ->willReturn($response->reveal());
-    } else {
-      $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
-          ->shouldBeCalledTimes(1)
-          ->willReturn($response->reveal());
-    }
+    $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+        ->shouldBeCalledTimes(1)
+        ->willReturn($response->reveal());
 
     $client = $this->getClient();
     $client->setHttpClient($http->reveal());
@@ -531,14 +468,7 @@ class ClientTest extends BaseTest
         ->shouldBeCalledTimes(1)
         ->willReturn($token);
 
-    if ($this->isGuzzle5()) {
-      $response = $this->getGuzzle5ResponseMock();
-      $response->getStatusCode()
-          ->shouldBeCalledTimes(1)
-          ->willReturn(200);
-    } else {
-      $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
-    }
+    $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
 
     $response->getBody()
         ->shouldBeCalledTimes(1)
@@ -548,19 +478,9 @@ class ClientTest extends BaseTest
 
     $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
-    if ($this->isGuzzle5()) {
-      $guzzle5Request = new \GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
-      $http->createRequest(Argument::any(), Argument::any(), Argument::any())
-          ->willReturn($guzzle5Request);
-
-      $http->send(Argument::type('GuzzleHttp\Message\Request'))
-          ->shouldBeCalledTimes(1)
-          ->willReturn($response->reveal());
-    } else {
-      $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
-          ->shouldBeCalledTimes(1)
-          ->willReturn($response->reveal());
-    }
+    $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+        ->shouldBeCalledTimes(1)
+        ->willReturn($response->reveal());
 
     $client = $this->getClient();
     $client->setHttpClient($http->reveal());
@@ -585,13 +505,7 @@ class ClientTest extends BaseTest
     $postBody->__toString()
         ->wilLReturn($token);
 
-    if ($this->isGuzzle5()) {
-      $response = $this->getGuzzle5ResponseMock();
-      $response->getStatusCode()
-          ->willReturn(200);
-    } else {
-      $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
-    }
+    $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
 
     $response->getBody()
         ->willReturn($postBody->reveal());
@@ -600,18 +514,9 @@ class ClientTest extends BaseTest
 
     $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
-    if ($this->isGuzzle5()) {
-      $guzzle5Request = new \GuzzleHttp\Message\Request('POST', '/', ['body' => $token]);
-      $http->createRequest(Argument::any(), Argument::any(), Argument::any())
-          ->willReturn($guzzle5Request);
-
-      $http->send(Argument::type('GuzzleHttp\Message\Request'))
-          ->willReturn($response->reveal());
-    } else {
-      $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
-          ->shouldBeCalledTimes(1)
-          ->willReturn($response->reveal());
-    }
+    $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+        ->shouldBeCalledTimes(1)
+        ->willReturn($response->reveal());
 
     $client = $this->getClient();
     $client->setHttpClient($http->reveal());
@@ -698,7 +603,6 @@ class ClientTest extends BaseTest
 
   public function testTokenCallback()
   {
-    $this->onlyPhp55AndAbove();
     $this->checkToken();
 
     $client = $this->getClient();
@@ -747,7 +651,6 @@ class ClientTest extends BaseTest
 
   public function testDefaultTokenCallback()
   {
-    $this->onlyPhp55AndAbove();
     $this->checkToken();
 
     $client = $this->getClient();
