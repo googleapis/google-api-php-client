@@ -74,11 +74,6 @@ class BaseTest extends TestCase
       $options['verify'] = false;
     }
 
-    // adjust constructor depending on guzzle version
-    if ($this->isGuzzle5()) {
-      $options = ['defaults' => $options];
-    }
-
     $httpClient = new GuzzleClient($options);
 
     $client = new Client();
@@ -239,17 +234,6 @@ class BaseTest extends TestCase
     return ('6' === $version[0]);
   }
 
-  protected function isGuzzle5()
-  {
-    if (!defined('\GuzzleHttp\ClientInterface::VERSION')) {
-      return false;
-    }
-
-    $version = ClientInterface::VERSION;
-
-    return ('5' === $version[0]);
-  }
-
   public function onlyGuzzle6()
   {
     if (!$this->isGuzzle6()) {
@@ -264,31 +248,10 @@ class BaseTest extends TestCase
     }
   }
 
-  public function onlyGuzzle5()
-  {
-    if (!$this->isGuzzle5()) {
-      $this->markTestSkipped('Guzzle 5 only');
-    }
-  }
-
   public function onlyGuzzle6Or7()
   {
     if (!$this->isGuzzle6() && !$this->isGuzzle7()) {
       $this->markTestSkipped('Guzzle 6 or 7 only');
     }
-  }
-
-  protected function getGuzzle5ResponseMock()
-  {
-    $response = $this->prophesize('GuzzleHttp\Message\ResponseInterface');
-    $response->getStatusCode()
-        ->willReturn(200);
-
-    $response->getHeaders()->willReturn([]);
-    $response->getBody()->willReturn('');
-    $response->getProtocolVersion()->willReturn('');
-    $response->getReasonPhrase()->willReturn('');
-
-    return $response;
   }
 }

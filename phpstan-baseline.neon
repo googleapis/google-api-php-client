@@ -1,0 +1,72 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Caught class ExpiredException not found\\.$#"
+			count: 1
+			path: src/AccessToken/Verify.php
+
+		-
+			message: "#^Instantiated class Google\\\\AccessToken\\\\InvalidArgumentException not found\\.$#"
+			count: 1
+			path: src/AccessToken/Verify.php
+
+		-
+			message: "#^Instantiated class JWT not found\\.$#"
+			count: 1
+			path: src/AccessToken/Verify.php
+
+		-
+			message: "#^Access to undefined constant GuzzleHttp\\\\ClientInterface\\:\\:VERSION\\.$#"
+			count: 1
+			path: src/AuthHandler/AuthHandlerFactory.php
+
+		-
+			message: "#^Access to undefined constant GuzzleHttp\\\\ClientInterface\\:\\:VERSION\\.$#"
+			count: 1
+			path: src/Client.php
+
+		-
+			message: "#^Instantiated class GuzzleHttp\\\\Ring\\\\Client\\\\StreamHandler not found\\.$#"
+			count: 1
+			path: src/Client.php
+
+		-
+			message: "#^Variable \\$contentType in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: src/Http/MediaFileUpload.php
+
+		-
+			message: "#^Constructor of class Google\\\\Task\\\\Runner has an unused parameter \\$name\\.$#"
+			count: 1
+			path: src/Task/Runner.php
+
+		-
+			message: "#^Access to undefined constant GuzzleHttp\\\\ClientInterface\\:\\:VERSION\\.$#"
+			count: 1
+			path: tests/BaseTest.php
+
+		-
+			message: "#^Instantiated class JWT not found\\.$#"
+			count: 1
+			path: tests/Google/AccessToken/VerifyTest.php
+
+		-
+			message: "#^Access to an undefined property Google\\\\Tests\\\\Service\\\\TestService\\:\\:\\$serviceName\\.$#"
+			count: 1
+			path: tests/Google/Service/ResourceTest.php
+
+		-
+			message: "#^Result of method Google\\\\Model\\:\\:mapTypes\\(\\) \\(void\\) is used\\.$#"
+			count: 1
+			path: tests/Google/ServiceTest.php
+
+		-
+			message: "#^Variable \\$e might not be defined\\.$#"
+			count: 2
+			path: tests/Google/ServiceTest.php
+
+		-
+			message: "#^Instantiated class BaseTest not found\\.$#"
+			count: 1
+			path: tests/clearToken.php
+

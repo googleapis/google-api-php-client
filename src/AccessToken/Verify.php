@@ -19,6 +19,7 @@
 namespace Google\AccessToken;
 
 use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
+use Firebase\JWT\JWT;
 use Firebase\JWT\SignatureInvalidException;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -56,6 +57,11 @@ class Verify
   private $cache;
 
   /**
+   * @var JWT|mixed
+   */
+  private $jwt;
+
+    /**
    * Instantiates the class, but does not initiate the login flow, leaving it
    * to the discretion of the caller.
    */
@@ -85,7 +91,7 @@ class Verify
    *
    * @param string $idToken the ID token in JWT format
    * @param string $audience Optional. The audience to verify against JWt "aud"
-   * @return array the token payload, if successful
+   * @return array|false the token payload, if successful
    */
   public function verifyIdToken($idToken, $audience = null)
   {

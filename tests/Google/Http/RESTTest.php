@@ -31,6 +31,10 @@ class RESTTest extends BaseTest
    * @var REST $rest
    */
   private $rest;
+  /**
+   * @var Request
+   */
+  private $request;
 
   public function set_up()
   {
