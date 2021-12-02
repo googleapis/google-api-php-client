@@ -1255,13 +1255,6 @@ class Client
       $credentials->setSub($sub);
     }
 
-    if ($credentials instanceof ServiceAccountCredentials && $this->isUsingJwtWithScope()) {
-      // tell the credentials to sign scopes into Self-Signed JWTs instead of
-      // calling the OAuth2 token endpoint
-      // @see https://google.aip.dev/auth/4111#scope-vs-audience
-      $credentials->useJwtAccessWithScope();
-    }
-
     // If we are not using FetchAuthTokenCache yet, create it now
     if (!$credentials instanceof FetchAuthTokenCache) {
       $credentials = new FetchAuthTokenCache(
