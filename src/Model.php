@@ -320,9 +320,8 @@ class Model implements \ArrayAccess
    */
   private function camelCase($value)
   {
-    $value = ucwords(str_replace(array('-', '_'), ' ', $value));
-    $value = str_replace(' ', '', $value);
-    $value[0] = strtolower($value[0]);
+    $value = str_replace(['-', '_', ' ', '.'], '', ucwords('.' . $value, '-_ '));
+    
     return $value;
   }
 }
