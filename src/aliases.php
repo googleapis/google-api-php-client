@@ -7,7 +7,8 @@ if (!class_exists('Google_Client')) {
             new RecursiveDirectoryIterator(
                 __DIR__,
                 RecursiveDirectoryIterator::UNIX_PATHS
-            )
+            ),
+            RecursiveIteratorIterator::LEAVES_ONLY
         ),
         '/((?:[A-Z][a-zA-Z\d]+\/)*[A-Z][a-zA-Z\d]+)\.php$/',
         RegexIterator::GET_MATCH,
