@@ -3,7 +3,7 @@
 # Google APIs Client Library for PHP #
 
 <dl>
-  <dt>Reference Docs</dt><dd><a href="https://googleapis.github.io/google-api-php-client/master/">https://googleapis.github.io/google-api-php-client/master/</a></dd>
+  <dt>Reference Docs</dt><dd><a href="https://googleapis.github.io/google-api-php-client/main/">https://googleapis.github.io/google-api-php-client/main/</a></dd>
   <dt>License</dt><dd>Apache 2.0</dd>
 </dl>
 
@@ -40,7 +40,7 @@ composer installed.
 Once composer is installed, execute the following command in your project root to install this library:
 
 ```sh
-composer require google/apiclient:^2.11
+composer require google/apiclient:^2.12.1
 ```
 
 Finally, be sure to include the autoloader:
@@ -61,7 +61,7 @@ you want to keep in `composer.json`:
 ```json
 {
     "require": {
-        "google/apiclient": "^2.11"
+        "google/apiclient": "^2.12.1"
     },
     "scripts": {
         "pre-autoload-dump": "Google\\Task\\Composer::cleanup"
@@ -446,7 +446,7 @@ The _Google\Service_ classes are generally automatically generated from the API 
 
 Some services return XML or similar by default, rather than JSON, which is what the library supports. You can request a JSON response by adding an 'alt' argument to optional params that is normally the last argument to a method call:
 
-```
+```php
 $opt_params = array(
   'alt' => "json"
 );
