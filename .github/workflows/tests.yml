@@ -31,9 +31,9 @@ jobs:
                 timeout_minutes: 10
                 max_attempts: 3
                 command: composer update ${{ matrix.composer-flags }}
-            - if: ${{ matrix.php == '8.1' }}
-              name: Update phpunit/phpunit dependency
-              run: composer update phpunit/phpunit phpspec/prophecy-phpunit --with-dependencies --ignore-platform-reqs
+            - if: ${{ matrix.php == '8.0' && matrix.composer-flags == '--prefer-lowest' }}
+              name: Update guzzlehttp/ringphp dependency
+              run: composer update guzzlehttp/ringphp
             - name: Run Script
               run: vendor/bin/phpunit
 
