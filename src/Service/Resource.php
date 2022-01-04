@@ -286,10 +286,12 @@ class Resource
       } else if ($paramSpec['location'] == 'query') {
         if (is_array($paramSpec['value'])) {
           foreach ($paramSpec['value'] as $value) {
-            $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($value));
+            if(!isset($queryVars[$paramName]))
+                $queryVars[$paramName] = rawurlencode(rawurldecode($value));
           }
         } else {
-          $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($paramSpec['value']));
+          if(!isset($queryVars[$paramName]))
+            $queryVars[$paramName] = rawurlencode(rawurldecode($paramSpec['value']));
         }
       }
     }
