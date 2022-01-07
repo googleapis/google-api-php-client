@@ -96,15 +96,38 @@ class ResourceTest extends BaseTest
                 "methods" => [
                     "testMethod" => [
                         "parameters" => [],
-                            "path" => "method/path",
-                            "httpMethod" => "POST",
-                        ]
+                        "path" => "method/path",
+                        "httpMethod" => "POST",
+                    ]
                 ]
             ]
         );
         $request = $resource->call("testMethod", [[]]);
         $this->assertEquals("https://test.example.com/method/path", (string) $request->getUri());
         $this->assertEquals("POST", $request->getMethod());
+        $this->assertFalse($request->hasHeader('Content-Type'));
+    }
+
+    public function testCallWithPostBody()
+    {
+        $resource = new GoogleResource(
+            $this->service,
+            "test",
+            "testResource",
+            [
+                "methods" => [
+                    "testMethod" => [
+                        "parameters" => [],
+                        "path" => "method/path",
+                        "httpMethod" => "POST",
+                    ]
+                ]
+            ]
+        );
+        $request = $resource->call("testMethod", [['postBody' => ['foo' => 'bar']]]);
+        $this->assertEquals("https://test.example.com/method/path", (string) $request->getUri());
+        $this->assertEquals("POST", $request->getMethod());
+        $this->assertTrue($request->hasHeader('Content-Type'));
     }
 
     public function testCallServiceDefinedRoot()
@@ -130,11 +153,11 @@ class ResourceTest extends BaseTest
     }
 
     /**
-  * Some Google Service (Google\Service\Directory\Resource\Channels and
-  * Google\Service\Reports\Resource\Channels) use a different servicePath value
-  * that should override the default servicePath value, it's represented by a /
-  * before the resource path. All other Services have no / before the path
-  */
+     * Some Google Service (Google\Service\Directory\Resource\Channels and
+     * Google\Service\Reports\Resource\Channels) use a different servicePath value
+     * that should override the default servicePath value, it's represented by a /
+     * before the resource path. All other Services have no / before the path
+     */
     public function testCreateRequestUriForASelfDefinedServicePath()
     {
         $this->service->servicePath = '/admin/directory/v1/';
