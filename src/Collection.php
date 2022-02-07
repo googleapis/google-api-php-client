@@ -11,6 +11,7 @@ class Collection extends Model implements \Iterator, \Countable
 {
   protected $collection_key = 'items';
 
+  /** @return void */
   #[\ReturnTypeWillChange]
   public function rewind()
   {
@@ -20,6 +21,7 @@ class Collection extends Model implements \Iterator, \Countable
     }
   }
 
+  /** @return mixed */
   #[\ReturnTypeWillChange]
   public function current()
   {
@@ -29,6 +31,7 @@ class Collection extends Model implements \Iterator, \Countable
     }
   }
 
+  /** @return mixed */
   #[\ReturnTypeWillChange]
   public function key()
   {
@@ -38,12 +41,14 @@ class Collection extends Model implements \Iterator, \Countable
     }
   }
 
+  /** @return void */
   #[\ReturnTypeWillChange]
   public function next()
   {
     return next($this->{$this->collection_key});
   }
 
+  /** @return bool */
   #[\ReturnTypeWillChange]
   public function valid()
   {
@@ -51,6 +56,7 @@ class Collection extends Model implements \Iterator, \Countable
     return $key !== null && $key !== false;
   }
 
+  /** @return int */
   #[\ReturnTypeWillChange]
   public function count()
   {
@@ -60,6 +66,7 @@ class Collection extends Model implements \Iterator, \Countable
     return count($this->{$this->collection_key});
   }
 
+  /** @return bool */
   public function offsetExists($offset)
   {
     if (!is_numeric($offset)) {
@@ -68,6 +75,7 @@ class Collection extends Model implements \Iterator, \Countable
     return isset($this->{$this->collection_key}[$offset]);
   }
 
+  /** @return mixed */
   public function offsetGet($offset)
   {
     if (!is_numeric($offset)) {
@@ -77,6 +85,7 @@ class Collection extends Model implements \Iterator, \Countable
     return $this->{$this->collection_key}[$offset];
   }
 
+  /** @return void */
   public function offsetSet($offset, $value)
   {
     if (!is_numeric($offset)) {
@@ -85,6 +94,7 @@ class Collection extends Model implements \Iterator, \Countable
     $this->{$this->collection_key}[$offset] = $value;
   }
 
+  /** @return void */
   public function offsetUnset($offset)
   {
     if (!is_numeric($offset)) {
