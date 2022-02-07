@@ -79,7 +79,7 @@ This example will remove all services other than "Drive" and "YouTube" when
 `composer update` or a fresh `composer install` is run.
 
 **IMPORTANT**: If you add any services back in `composer.json`, you will need to
-remove the `vendor/google/apiclient-services` directory explicity for the
+remove the `vendor/google/apiclient-services` directory explicitly for the
 change you made to have effect:
 
 ```sh
@@ -454,7 +454,7 @@ $opt_params = array(
 
 ### How do I set a field to null? ###
 
-The library strips out nulls from the objects sent to the Google APIs as its the default value of all of the uninitialized properties. To work around this, set the field you want to null to `Google\Model::NULL_VALUE`. This is a placeholder that will be replaced with a true null when sent over the wire.
+The library strips out nulls from the objects sent to the Google APIs as it is the default value of all of the uninitialized properties. To work around this, set the field you want to null to `Google\Model::NULL_VALUE`. This is a placeholder that will be replaced with a true null when sent over the wire.
 
 ## Code Quality ##
 
