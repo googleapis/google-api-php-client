@@ -519,7 +519,7 @@ class Client
     if ($token == null) {
       throw new InvalidArgumentException('invalid json token');
     }
-    if (!isset($token['access_token'])) {
+    if (!isset($token['access_token'], $token['expires_in'])) {
       throw new InvalidArgumentException("Invalid token format");
     }
     $this->token = $token;
