@@ -13,7 +13,7 @@
         "monolog/monolog": "^1.17||^2.0",
         "phpseclib/phpseclib": "~2.0||^3.0.2",
         "guzzlehttp/guzzle": "~5.3.3||~6.0||~7.0",
-        "guzzlehttp/psr7": "^1.7||^2.0.0"
+        "guzzlehttp/psr7": "^1.8.4||^2.2.1"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "~2.3",
