@@ -519,7 +519,7 @@ class Client
     if ($token == null) {
       throw new InvalidArgumentException('invalid json token');
     }
-    if (!isset($token['access_token'], $token['expires_in'])) {
+    if (!isset($token['access_token'])) {
       throw new InvalidArgumentException("Invalid token format");
     }
     $this->token = $token;
@@ -568,6 +568,10 @@ class Client
           $created = $payload['iat'];
         }
       }
+    }
+    if (!isset($this->token['expires_in'])) {
+      // if the token does not have an "expires_in", then it's considered expired
+      return true;
     }
 
     // If the token is set to expire in the next 30 seconds.

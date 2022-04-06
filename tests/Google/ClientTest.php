@@ -317,12 +317,12 @@ class ClientTest extends BaseTest
 
   public function testSetAccessTokenValidation()
   {
-      $this->expectException(InvalidArgumentException::class);
-      $this->expectExceptionMessage("Invalid token format");
       $client = new Client();
       $client->setAccessToken([
-          'access_token' => 'token'
+          'access_token' => 'token',
+          'created' => time()
       ]);
+      self::assertEquals(true, $client->isAccessTokenExpired());
   }
 
   public function testDefaultConfigOptions()
