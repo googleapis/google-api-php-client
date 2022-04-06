@@ -315,6 +315,16 @@ class ClientTest extends BaseTest
     $this->assertEquals($token, $client->getAccessToken());
   }
 
+  public function testSetAccessTokenValidation()
+  {
+      $client = new Client();
+      $client->setAccessToken([
+          'access_token' => 'token',
+          'created' => time()
+      ]);
+      self::assertEquals(true, $client->isAccessTokenExpired());
+  }
+
   public function testDefaultConfigOptions()
   {
       $client = new Client();
