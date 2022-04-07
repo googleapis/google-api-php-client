@@ -28,8 +28,6 @@ use phpseclib3\Crypt\RSA\PublicKey;
 use Psr\Cache\CacheItemPoolInterface;
 use Google\Auth\Cache\MemoryCacheItemPool;
 use Google\Exception as GoogleException;
-use Stash\Driver\FileSystem;
-use Stash\Pool;
 use DateTime;
 use DomainException;
 use Exception;
