@@ -22,6 +22,7 @@ use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
 use Firebase\JWT\SignatureInvalidException;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use InvalidArgumentException;
 use phpseclib3\Crypt\PublicKeyLoader;
 use phpseclib3\Crypt\RSA\PublicKey;
 use Psr\Cache\CacheItemPoolInterface;
