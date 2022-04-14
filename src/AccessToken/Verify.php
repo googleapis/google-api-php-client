@@ -19,6 +19,7 @@
 namespace Google\AccessToken;
 
 use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
+use Firebase\JWT\Key;
 use Firebase\JWT\SignatureInvalidException;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -100,9 +101,8 @@ class Verify
     foreach ($certs as $cert) {
       try {
         $payload = $this->jwt->decode(
-            $idToken,
-            $this->getPublicKey($cert),
-            array('RS256')
+          $idToken,
+          new Key($this->getPublicKey($cert), 'RS256')
         );
 
         if (property_exists($payload, 'aud')) {
