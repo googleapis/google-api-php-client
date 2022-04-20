@@ -2,6 +2,7 @@
 
 apt-get update
 apt-get install -y git wget
+git checkout main
 git reset --hard HEAD
 
 # Create the directories
