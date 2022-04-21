@@ -77,10 +77,12 @@ class Resource
 
     /**
      * TODO: This function needs simplifying.
-     * @param $name
-     * @param $arguments
-     * @param $expectedClass - optional, the expected class name
-     * @return mixed|$expectedClass|ResponseInterface|RequestInterface
+     *
+     * @template T
+     * @param string $name
+     * @param array $arguments
+     * @param class-string<T> $expectedClass - optional, the expected class name
+     * @return mixed|T|ResponseInterface|RequestInterface
      * @throws \Google\Exception
      */
     public function call($name, $arguments, $expectedClass = null)

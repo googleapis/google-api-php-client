@@ -54,4 +54,18 @@ jobs:
                 command: composer install
             - name: Run Script
               run: vendor/bin/phpcs src tests examples --standard=phpcs.xml.dist -nps
+    staticanalysis:
+        runs-on: ubuntu-latest
+        name: PHPStan Static Analysis
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                php-version: '8.0'
+            - name: Run Script
+              run: |
+                composer install
+                composer global require phpstan/phpstan
+                ~/.composer/vendor/bin/phpstan analyse
 

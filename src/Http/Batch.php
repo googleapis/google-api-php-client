@@ -93,7 +93,7 @@ Content-ID: %s
 
 EOF;
 
-        /** @var RequestInterface $req */
+        /** @var RequestInterface $request */
         foreach ($this->requests as $key => $request) {
             $firstLine = sprintf(
                 '%s %s HTTP/%s',
@@ -126,7 +126,7 @@ EOF;
         $url = $this->rootUrl . '/' . $this->batchPath;
         $headers = array(
             'Content-Type' => sprintf('multipart/mixed; boundary=%s', $this->boundary),
-            'Content-Length' => strlen($body),
+            'Content-Length' => (string) strlen($body),
         );
 
         $request = new Request(
@@ -170,9 +170,9 @@ EOF;
                     $status = explode(" ", $status);
                     $status = $status[1];
 
-                    list($partHeaders, $partBody) = $this->parseHttpResponse($part, false);
+                    list($partHeaders, $partBody) = $this->parseHttpResponse($part, 0);
                     $response = new Response(
-                        $status,
+                        (int) $status,
                         $partHeaders,
                         Psr7\Utils::streamFor($partBody)
                     );
@@ -219,8 +219,8 @@ EOF;
     /**
      * Used by the IO lib and also the batch processing.
      *
-     * @param $respData
-     * @param $headerSize
+     * @param string $respData
+     * @param int $headerSize
      * @return array
      */
     private function parseHttpResponse($respData, $headerSize)

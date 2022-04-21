@@ -56,6 +56,11 @@ class Verify
     private $cache;
 
     /**
+     * @var \Firebase\JWT\JWT
+    */
+    public $jwt;
+
+    /**
      * Instantiates the class, but does not initiate the login flow, leaving it
      * to the discretion of the caller.
      */
@@ -85,7 +90,7 @@ class Verify
      *
      * @param string $idToken the ID token in JWT format
      * @param string $audience Optional. The audience to verify against JWt "aud"
-     * @return array the token payload, if successful
+     * @return array|false the token payload, if successful
      */
     public function verifyIdToken($idToken, $audience = null)
     {
@@ -124,7 +129,7 @@ class Verify
                 }
 
                 return (array) $payload;
-            } catch (ExpiredException $e) {
+            } catch (ExpiredException $e) { // @phpstan-ignore-line
                 return false;
             } catch (ExpiredExceptionV3 $e) {
                 return false;
@@ -146,7 +151,7 @@ class Verify
     /**
      * Retrieve and cache a certificates file.
      *
-     * @param $url string location
+     * @param string $url location
      * @throws \Google\Exception
      * @return array certificates
      */
@@ -164,6 +169,7 @@ class Verify
             return json_decode($file, true);
         }
 
+        // @phpstan-ignore-next-line
         $response = $this->http->get($url);
 
         if ($response->getStatusCode() == 200) {
@@ -224,6 +230,7 @@ class Verify
             $jwtClass::$leeway = 1;
         }
 
+        // @phpstan-ignore-next-line
         return new $jwtClass;
     }
 

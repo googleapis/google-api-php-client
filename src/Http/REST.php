@@ -36,8 +36,8 @@ class REST
      * Executes a Psr\Http\Message\RequestInterface and (if applicable) automatically retries
      * when errors occur.
      *
-     * @param Client $client
-     * @param RequestInterface $req
+     * @param ClientInterface $client
+     * @param RequestInterface $request
      * @param string $expectedClass
      * @param array $config
      * @param array $retryMap
@@ -69,7 +69,7 @@ class REST
     /**
      * Executes a Psr\Http\Message\RequestInterface
      *
-     * @param Client $client
+     * @param ClientInterface $client
      * @param RequestInterface $request
      * @param string $expectedClass
      * @return array decoded result
@@ -89,7 +89,10 @@ class REST
 
             $response = $e->getResponse();
             // specific checking for Guzzle 5: convert to PSR7 response
-            if ($response instanceof \GuzzleHttp\Message\ResponseInterface) {
+            if (
+                interface_exists('\GuzzleHttp\Message\ResponseInterface')
+                && $response instanceof \GuzzleHttp\Message\ResponseInterface
+            ) {
                 $response = new Response(
                     $response->getStatusCode(),
                     $response->getHeaders() ?: [],

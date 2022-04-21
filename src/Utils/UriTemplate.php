@@ -28,7 +28,7 @@ class UriTemplate
     const TYPE_SCALAR = "4";
 
     /**
-     * @var $operators array
+     * @var array $operators
      * These are valid at the start of a template block to
      * modify the way in which the variables inside are
      * processed.
@@ -44,7 +44,7 @@ class UriTemplate
     );
 
     /**
-     * @var reserved array
+     * @var array<string>
      * These are the characters which should not be URL encoded in reserved
      * strings.
      */

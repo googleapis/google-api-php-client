@@ -63,7 +63,7 @@ class MediaFileUpload
     private $request;
 
     /** @var string */
-    private $boundary;
+    private $boundary; // @phpstan-ignore-line
 
     /**
    * Result code from last HTTP call
@@ -77,7 +77,7 @@ class MediaFileUpload
      * @param string $mimeType
      * @param string $data The bytes you want to upload.
      * @param bool $resumable
-     * @param bool $chunkSize File will be uploaded in chunks of this many bytes.
+     * @param int $chunkSize File will be uploaded in chunks of this many bytes.
      * only used if resumable=True
      */
     public function __construct(
@@ -86,7 +86,7 @@ class MediaFileUpload
         $mimeType,
         $data,
         $resumable = false,
-        $chunkSize = false
+        $chunkSize = 0
     ) {
         $this->client = $client;
         $this->request = $request;
@@ -101,7 +101,7 @@ class MediaFileUpload
 
     /**
      * Set the size of the file that is being uploaded.
-     * @param $size - int file size in bytes
+     * @param int $size - int file size in bytes
      */
     public function setFileSize($size)
     {
@@ -133,7 +133,7 @@ class MediaFileUpload
         $lastBytePos = $this->progress + strlen($chunk) - 1;
         $headers = array(
             'content-range' => "bytes $this->progress-$lastBytePos/$this->size",
-            'content-length' => strlen($chunk),
+            'content-length' => (string) strlen($chunk),
             'expect' => '',
         );
 
@@ -175,7 +175,7 @@ class MediaFileUpload
             $range = $response->getHeaderLine('range');
             if ($range) {
                 $range_array = explode('-', $range);
-                $this->progress = $range_array[1] + 1;
+                $this->progress = ((int) $range_array[1]) + 1;
             }
 
             // Allow for changing upload URLs.
@@ -193,14 +193,14 @@ class MediaFileUpload
 
     /**
      * Resume a previously unfinished upload
-     * @param $resumeUri the resume-URI of the unfinished, resumable upload.
+     * @param string $resumeUri the resume-URI of the unfinished, resumable upload.
      */
     public function resume($resumeUri)
     {
         $this->resumeUri = $resumeUri;
         $headers = array(
             'content-range' => "bytes */$this->size",
-            'content-length' => 0,
+            'content-length' => '0',
         );
         $httpRequest = new Request(
             'PUT',
@@ -222,8 +222,7 @@ class MediaFileUpload
         $postBody = '';
         $contentType = false;
 
-        $meta = (string) $request->getBody();
-        $meta = is_string($meta) ? json_decode($meta, true) : $meta;
+        $meta = json_decode((string) $request->getBody(), true);
 
         $uploadType = $this->getUploadType($meta);
         $request = $request->withUri(
@@ -256,7 +255,7 @@ class MediaFileUpload
 
         $request = $request->withBody(Psr7\Utils::streamFor($postBody));
 
-        if (isset($contentType) && $contentType) {
+        if ($contentType) {
             $request = $request->withHeader('content-type', $contentType);
         }
 
@@ -268,7 +267,7 @@ class MediaFileUpload
      * - resumable (UPLOAD_RESUMABLE_TYPE)
      * - media (UPLOAD_MEDIA_TYPE)
      * - multipart (UPLOAD_MULTIPART_TYPE)
-     * @param $meta
+     * @param string|false $meta
      * @return string
      * @visible for testing
      */
@@ -297,20 +296,18 @@ class MediaFileUpload
     private function fetchResumeUri()
     {
         $body = $this->request->getBody();
-        if ($body) {
-            $headers = array(
-                'content-type' => 'application/json; charset=UTF-8',
-                'content-length' => $body->getSize(),
-                'x-upload-content-type' => $this->mimeType,
-                'x-upload-content-length' => $this->size,
-                'expect' => '',
-            );
-            foreach ($headers as $key => $value) {
-                $this->request = $this->request->withHeader($key, $value);
-            }
+        $headers = array(
+            'content-type' => 'application/json; charset=UTF-8',
+            'content-length' => $body->getSize(),
+            'x-upload-content-type' => $this->mimeType,
+            'x-upload-content-length' => $this->size,
+            'expect' => '',
+        );
+        foreach ($headers as $key => $value) {
+            $this->request = $this->request->withHeader($key, $value);
         }
 
-        $response = $this->client->execute($this->request, false);
+        $response = $this->client->execute($this->request, null);
         $location = $response->getHeaderLine('location');
         $code = $response->getStatusCode();
 

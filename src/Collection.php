@@ -45,7 +45,7 @@ class Collection extends Model implements \Iterator, \Countable
         }
     }
 
-    /** @return void */
+    /** @return mixed */
     #[\ReturnTypeWillChange]
     public function next()
     {
@@ -71,6 +71,7 @@ class Collection extends Model implements \Iterator, \Countable
     }
 
     /** @return bool */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         if (!is_numeric($offset)) {
@@ -90,6 +91,7 @@ class Collection extends Model implements \Iterator, \Countable
     }
 
     /** @return void */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (!is_numeric($offset)) {
@@ -99,6 +101,7 @@ class Collection extends Model implements \Iterator, \Countable
     }
 
     /** @return void */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         if (!is_numeric($offset)) {
