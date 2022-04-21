@@ -1,6 +1,6 @@
 <?php include_once "templates/base.php" ?>
 
-<?php if (!isWebRequest()): ?>
+<?php if (!isWebRequest()) : ?>
   To view this example, run the following command from the root directory of this repository:
 
     php -S localhost:8080 -t examples/
@@ -11,14 +11,14 @@
 
 <?= pageHeader("PHP Library Examples"); ?>
 
-<?php if (isset($_POST['api_key'])): ?>
+<?php if (isset($_POST['api_key'])) : ?>
 <?php setApiKey($_POST['api_key']) ?>
 <span class="warn">
   API Key set!
 </span>
 <?php endif ?>
 
-<?php if (!getApiKey()): ?>
+<?php if (!getApiKey()) : ?>
 <div class="api-key">
   <strong>You have not entered your API key</strong>
   <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
@@ -40,4 +40,4 @@
   <li><a href="multi-api.php">An example of using multiple APIs.</a></li>
 </ul>
 
-<?= pageFooter(); ?>
+<?= pageFooter();
