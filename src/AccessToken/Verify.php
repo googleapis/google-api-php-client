@@ -169,10 +169,7 @@ class Verify
             return json_decode($file, true);
         }
 
-        // @TODO remove this once we drop support for Guzzle 5
-        if (!method_exists($this->http, 'get')) {
-            throw new LogicException('HTTP must implement method "get"');
-        }
+        // @phpstan-ignore-next-line
         $response = $this->http->get($url);
 
         if ($response->getStatusCode() == 200) {
