@@ -99,39 +99,39 @@ class UriTemplate
                 case "reserved":
                     // Reserved means certain characters should not be URL encoded
                     $data = $this->replaceVars($data, $parameters, ",", null, true);
-                break;
+                    break;
                 case "fragment":
                     // Comma separated with fragment prefix. Bare values only.
                     $prefix = "#";
                     $prefix_on_missing = true;
                     $data = $this->replaceVars($data, $parameters, ",", null, true);
-                break;
+                    break;
                 case "segments":
                     // Slash separated data. Bare values only.
                     $prefix = "/";
                     $data =$this->replaceVars($data, $parameters, "/");
-                break;
+                    break;
                 case "dotprefix":
                     // Dot separated data. Bare values only.
                     $prefix = ".";
                     $prefix_on_missing = true;
                     $data = $this->replaceVars($data, $parameters, ".");
-                break;
+                    break;
                 case "semicolon":
                     // Semicolon prefixed and separated. Uses the key name
                     $prefix = ";";
                     $data = $this->replaceVars($data, $parameters, ";", "=", false, true, false);
-                break;
+                    break;
                 case "form":
                     // Standard URL format. Uses the key name
                     $prefix = "?";
                     $data = $this->replaceVars($data, $parameters, "&", "=");
-                break;
+                    break;
                 case "continuation":
                     // Standard URL, but with leading ampersand. Uses key name.
                     $prefix = "&";
                     $data = $this->replaceVars($data, $parameters, "&", "=");
-                break;
+                    break;
             }
 
             // Add the initial prefix character if data is valid.
@@ -218,7 +218,7 @@ class UriTemplate
             switch ($data_type) {
                 case self::TYPE_SCALAR:
                     $value = $this->getValue($parameters[$key], $length);
-                break;
+                    break;
                 case self::TYPE_LIST:
                     $values = array();
                     foreach ($parameters[$key] as $pkey => $pvalue) {
@@ -233,7 +233,7 @@ class UriTemplate
                     if ($value == '') {
                         return '';
                     }
-                break;
+                    break;
                 case self::TYPE_MAP:
                     $values = array();
                     foreach ($parameters[$key] as $pkey => $pvalue) {
@@ -250,7 +250,7 @@ class UriTemplate
                     if ($value == '') {
                         return false;
                     }
-                break;
+                    break;
             }
         } else if ($tag_empty) {
             // If we are just indicating empty values with their key name, return that.

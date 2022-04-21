@@ -114,7 +114,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
     $handle = fopen(TESTFILE, "rb");
     while (!$status && !feof($handle)) {
         // read until you get $chunkSizeBytes from TESTFILE
-        // fread will never return more than 8192 bytes if the stream is read buffered and it does not represent a plain file
+        // fread will never return more than 8192 bytes if the stream is read
+        // buffered and it does not represent a plain file
         // An example of a read buffered file is when reading from a URL
         $chunk = readVideoChunk($handle, $chunkSizeBytes);
         $status = $media->nextChunk($chunk);
@@ -135,7 +136,8 @@ function readVideoChunk($handle, $chunkSize)
     $byteCount = 0;
     $giantChunk = "";
     while (!feof($handle)) {
-        // fread will never return more than 8192 bytes if the stream is read buffered and it does not represent a plain file
+        // fread will never return more than 8192 bytes if the stream is read
+        // buffered and it does not represent a plain file
         $chunk = fread($handle, 8192);
         $byteCount += strlen($chunk);
         $giantChunk .= $chunk;

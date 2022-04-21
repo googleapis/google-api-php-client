@@ -197,18 +197,17 @@ class MediaFileUpload
      */
     public function resume($resumeUri)
     {
-         $this->resumeUri = $resumeUri;
-         $headers = array(
+        $this->resumeUri = $resumeUri;
+        $headers = array(
             'content-range' => "bytes */$this->size",
             'content-length' => 0,
-         );
-         $httpRequest = new Request(
-             'PUT',
-             $this->resumeUri,
-             $headers
-         );
-
-         return $this->makePutRequest($httpRequest);
+        );
+        $httpRequest = new Request(
+            'PUT',
+            $this->resumeUri,
+            $headers
+        );
+        return $this->makePutRequest($httpRequest);
     }
 
     /**

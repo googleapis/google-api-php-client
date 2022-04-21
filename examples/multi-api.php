@@ -106,12 +106,12 @@ if ($client->getAccessToken()) {
 <?php else : ?>
   <h3>Results Of Drive List:</h3>
     <?php foreach ($dr_results as $item) : ?>
-    <?= $item->name ?><br />
+        <?= $item->name ?><br />
     <?php endforeach ?>
 
   <h3>Results Of YouTube Likes:</h3>
     <?php foreach ($yt_results as $item) : ?>
-    <?= $item['snippet']['title'] ?><br />
+        <?= $item['snippet']['title'] ?><br />
     <?php endforeach ?>
 <?php endif ?>
   </div>

@@ -21,8 +21,8 @@
   <properties>
    <property name="strict" value="false"/>
   </properties>
-  <!-- Generated libs have some properties that break this! -->
-  <exclude-pattern>Service/*.php</exclude-pattern>
+  <!-- Tests have some properties that break this! -->
+  <exclude-pattern>*Test.php</exclude-pattern>
  </rule>
 
  <!-- All PHP files MUST use the Unix LF (linefeed) line ending. -->
@@ -161,9 +161,5 @@
  <rule ref="Generic.ControlStructures.InlineControlStructure"/>
 
  <!-- The case statement MUST be indented once from switch, and the break keyword (or other terminating keyword) MUST be indented at the same level as the case body. There MUST be a comment such as // no break when fall-through is intentional in a non-empty case body. -->
- <rule ref="PSR2.ControlStructures.SwitchDeclaration" >
-   <properties>
-    <property name="indent" value="2" />
-   </properties>
-  </rule>
+ <rule ref="PSR2.ControlStructures.SwitchDeclaration" />
 </ruleset>

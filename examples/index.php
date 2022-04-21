@@ -1,21 +1,21 @@
 <?php include_once "templates/base.php" ?>
 
 <?php if (!isWebRequest()) : ?>
-  To view this example, run the following command from the root directory of this repository:
+    To view this example, run the following command from the root directory of this repository:
 
-    php -S localhost:8080 -t examples/
+        php -S localhost:8080 -t examples/
 
-  And then browse to "localhost:8080" in your web browser
-<?php return ?>
+    And then browse to "localhost:8080" in your web browser
+    <?php return ?>
 <?php endif ?>
 
 <?= pageHeader("PHP Library Examples"); ?>
 
 <?php if (isset($_POST['api_key'])) : ?>
-<?php setApiKey($_POST['api_key']) ?>
-<span class="warn">
-  API Key set!
-</span>
+    <?php setApiKey($_POST['api_key']) ?>
+    <span class="warn">
+    API Key set!
+    </span>
 <?php endif ?>
 
 <?php if (!getApiKey()) : ?>
