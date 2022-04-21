@@ -23,7 +23,6 @@ use Firebase\JWT\SignatureInvalidException;
 use Firebase\JWT\Key;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Psr7\Request;
 use InvalidArgumentException;
 use phpseclib3\Crypt\PublicKeyLoader;
 use phpseclib3\Crypt\RSA\PublicKey;
@@ -170,8 +169,11 @@ class Verify
             return json_decode($file, true);
         }
 
-        $request = new Request('GET', $url);
-        $response = $this->http->send($request);
+        // @TODO remove this once we drop support for Guzzle 5
+        if (!method_exists($this->http, 'get')) {
+            throw new LogicException('HTTP must implement method "get"');
+        }
+        $response = $this->http->get($url);
 
         if ($response->getStatusCode() == 200) {
             return json_decode((string) $response->getBody(), true);
