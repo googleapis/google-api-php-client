@@ -42,24 +42,24 @@ class Google_Task_Composer extends \Google\Task\Composer
 }
 
 if (\false) {
-  class Google_AccessToken_Revoke extends \Google\AccessToken\Revoke {}
-  class Google_AccessToken_Verify extends \Google\AccessToken\Verify {}
-  class Google_AuthHandler_AuthHandlerFactory extends \Google\AuthHandler\AuthHandlerFactory {}
-  class Google_AuthHandler_Guzzle5AuthHandler extends \Google\AuthHandler\Guzzle5AuthHandler {}
-  class Google_AuthHandler_Guzzle6AuthHandler extends \Google\AuthHandler\Guzzle6AuthHandler {}
-  class Google_AuthHandler_Guzzle7AuthHandler extends \Google\AuthHandler\Guzzle7AuthHandler {}
-  class Google_Client extends \Google\Client {}
-  class Google_Collection extends \Google\Collection {}
-  class Google_Exception extends \Google\Exception {}
-  class Google_Http_Batch extends \Google\Http\Batch {}
-  class Google_Http_MediaFileUpload extends \Google\Http\MediaFileUpload {}
-  class Google_Http_REST extends \Google\Http\REST {}
-  class Google_Model extends \Google\Model {}
-  class Google_Service extends \Google\Service {}
-  class Google_Service_Exception extends \Google\Service\Exception {}
-  class Google_Service_Resource extends \Google\Service\Resource {}
-  class Google_Task_Exception extends \Google\Task\Exception {}
-  interface Google_Task_Retryable extends \Google\Task\Retryable {}
-  class Google_Task_Runner extends \Google\Task\Runner {}
-  class Google_Utils_UriTemplate extends \Google\Utils\UriTemplate {}
+    class Google_AccessToken_Revoke extends \Google\AccessToken\Revoke {}
+    class Google_AccessToken_Verify extends \Google\AccessToken\Verify {}
+    class Google_AuthHandler_AuthHandlerFactory extends \Google\AuthHandler\AuthHandlerFactory {}
+    class Google_AuthHandler_Guzzle5AuthHandler extends \Google\AuthHandler\Guzzle5AuthHandler {}
+    class Google_AuthHandler_Guzzle6AuthHandler extends \Google\AuthHandler\Guzzle6AuthHandler {}
+    class Google_AuthHandler_Guzzle7AuthHandler extends \Google\AuthHandler\Guzzle7AuthHandler {}
+    class Google_Client extends \Google\Client {}
+    class Google_Collection extends \Google\Collection {}
+    class Google_Exception extends \Google\Exception {}
+    class Google_Http_Batch extends \Google\Http\Batch {}
+    class Google_Http_MediaFileUpload extends \Google\Http\MediaFileUpload {}
+    class Google_Http_REST extends \Google\Http\REST {}
+    class Google_Model extends \Google\Model {}
+    class Google_Service extends \Google\Service {}
+    class Google_Service_Exception extends \Google\Service\Exception {}
+    class Google_Service_Resource extends \Google\Service\Resource {}
+    class Google_Task_Exception extends \Google\Task\Exception {}
+    interface Google_Task_Retryable extends \Google\Task\Retryable {}
+    class Google_Task_Runner extends \Google\Task\Runner {}
+    class Google_Utils_UriTemplate extends \Google\Utils\UriTemplate {}
 }
