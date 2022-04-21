@@ -41,6 +41,7 @@ class Google_Task_Composer extends \Google\Task\Composer
 {
 }
 
+/** @phpstan-ignore-next-line */
 if (\false) {
     class Google_AccessToken_Revoke extends \Google\AccessToken\Revoke {}
     class Google_AccessToken_Verify extends \Google\AccessToken\Verify {}

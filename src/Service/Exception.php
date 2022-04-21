@@ -32,8 +32,8 @@ class Exception extends GoogleException
      *
      * @param string $message
      * @param int $code
-     * @param \Exception|null $previous
-     * @param [{string, string}] errors List of errors returned in an HTTP
+     * @param Exception|null $previous
+     * @param array<string,string> $errors List of errors returned in an HTTP
      * response.  Defaults to [].
      */
     public function __construct(
@@ -62,7 +62,7 @@ class Exception extends GoogleException
      *   "location": "Authorization",
      * }
      *
-     * @return [{string, string}] List of errors return in an HTTP response or [].
+     * @return array<string,string> List of errors return in an HTTP response or [].
      */
     public function getErrors()
     {

@@ -43,6 +43,7 @@ use BadMethodCallException;
 use DomainException;
 use InvalidArgumentException;
 use LogicException;
+use UnexpectedValueException;
 
 /**
  * The Google API Client
@@ -58,7 +59,7 @@ class Client
     const API_BASE_PATH = 'https://www.googleapis.com';
 
     /**
-     * @var OAuth2 $auth
+     * @var ?OAuth2 $auth
      */
     private $auth;
 
@@ -68,7 +69,7 @@ class Client
     private $http;
 
     /**
-     * @var CacheItemPoolInterface $cache
+     * @var ?CacheItemPoolInterface $cache
      */
     private $cache;
 
@@ -83,12 +84,12 @@ class Client
     private $config;
 
     /**
-     * @var LoggerInterface $logger
+     * @var ?LoggerInterface $logger
      */
     private $logger;
 
     /**
-     * @var CredentialsLoader $credentials
+     * @var ?CredentialsLoader $credentials
      */
     private $credentials;
 
@@ -225,7 +226,7 @@ class Client
      * For backwards compatibility
      * alias for fetchAccessTokenWithAuthCode
      *
-     * @param $code string code from accounts.google.com
+     * @param string $code string code from accounts.google.com
      * @return array access token
      * @deprecated
      */
@@ -238,7 +239,7 @@ class Client
      * Attempt to exchange a code for an valid authentication token.
      * Helper wrapped around the OAuth 2.0 implementation.
      *
-     * @param $code string code from accounts.google.com
+     * @param string $code code from accounts.google.com
      * @return array access token
      */
     public function fetchAccessTokenWithAuthCode($code)
@@ -714,7 +715,7 @@ class Client
      * Set the hd (hosted domain) parameter streamlines the login process for
      * Google Apps hosted accounts. By including the domain of the user, you
      * restrict sign-in to accounts at that domain.
-     * @param $hd string - the domain to use.
+     * @param string $hd the domain to use.
      */
     public function setHostedDomain($hd)
     {
@@ -725,7 +726,7 @@ class Client
      * Set the prompt hint. Valid values are none, consent and select_account.
      * If no value is specified and the user has not previously authorized
      * access, then the user is shown a consent screen.
-     * @param $prompt string
+     * @param string $prompt
      *  {@code "none"} Do not display any authentication or consent screens. Must not be specified with other values.
      *  {@code "consent"} Prompt the user for consent.
      *  {@code "select_account"} Prompt the user to select an account.
@@ -739,7 +740,7 @@ class Client
      * openid.realm is a parameter from the OpenID 2.0 protocol, not from OAuth
      * 2.0. It is used in OpenID 2.0 requests to signify the URL-space for which
      * an authentication request is valid.
-     * @param $realm string - the URL-space to use.
+     * @param string $realm the URL-space to use.
      */
     public function setOpenidRealm($realm)
     {
@@ -750,7 +751,7 @@ class Client
      * If this is provided with the value true, and the authorization request is
      * granted, the authorization will include any previous authorizations
      * granted to this user/application combination for other scopes.
-     * @param $include boolean - the URL-space to use.
+     * @param bool $include the URL-space to use.
      */
     public function setIncludeGrantedScopes($include)
     {
@@ -834,7 +835,7 @@ class Client
      * Will append any scopes not previously requested to the scope parameter.
      * A single string will be treated as a scope to request. An array of strings
      * will each be appended.
-     * @param $scope_or_scopes string|array e.g. "profile"
+     * @param string|string[] $scope_or_scopes e.g. "profile"
      */
     public function addScope($scope_or_scopes)
     {
@@ -873,10 +874,11 @@ class Client
     /**
      * Helper method to execute deferred HTTP requests.
      *
-     * @param $request RequestInterface|\Google\Http\Batch
-     * @param string $expectedClass
+     * @template T
+     * @param RequestInterface $request
+     * @param class-string<T> $expectedClass
      * @throws \Google\Exception
-     * @return mixed|$expectedClass|ResponseInterface
+     * @return mixed|T|ResponseInterface
      */
     public function execute(RequestInterface $request, $expectedClass = null)
     {
@@ -902,7 +904,7 @@ class Client
         if ($this->config['api_format_v2']) {
             $request = $request->withHeader(
                 'X-GOOG-API-FORMAT-VERSION',
-                2
+                '2'
             );
         }
 
@@ -1182,6 +1184,7 @@ class Client
         if (defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
             $guzzleVersion = ClientInterface::MAJOR_VERSION;
         } elseif (defined('\GuzzleHttp\ClientInterface::VERSION')) {
+            // @phpstan-ignore-next-line
             $guzzleVersion = (int)substr(ClientInterface::VERSION, 0, 1);
         }
 
@@ -1191,9 +1194,11 @@ class Client
                 'defaults' => ['exceptions' => false],
             ];
             if ($this->isAppEngine()) {
-                // set StreamHandler on AppEngine by default
-                $options['handler'] = new StreamHandler();
-                $options['defaults']['verify'] = '/etc/ca-certificates.crt';
+                if (class_exists(StreamHandler::class)) {
+                    // set StreamHandler on AppEngine by default
+                    $options['handler'] = new StreamHandler();
+                    $options['defaults']['verify'] = '/etc/ca-certificates.crt';
+                }
             }
         } elseif (6 === $guzzleVersion || 7 === $guzzleVersion) {
             // guzzle 6 or 7

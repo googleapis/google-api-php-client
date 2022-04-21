@@ -98,7 +98,7 @@ class Runner
      * @param array $arguments The task arguments
      * @throws \Google\Task\Exception when misconfigured
      */
-    public function __construct(
+    public function __construct( // @phpstan-ignore-line
         $config,
         $name,
         $action,
@@ -241,7 +241,7 @@ class Runner
     /**
      * Gets the delay (in seconds) for the current backoff period.
      *
-     * @return float
+     * @return int
      */
     private function getDelay()
     {

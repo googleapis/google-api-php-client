@@ -1,0 +1,8 @@
+parameters:
+    treatPhpDocTypesAsCertain: false
+    level: 5
+    paths:
+    - src
+    excludePaths:
+    - src/AuthHandler/Guzzle5AuthHandler.php
+
