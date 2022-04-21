@@ -37,8 +37,8 @@ $client->setApplicationName("Client_Library_Examples");
 
 // Warn if the API key isn't set.
 if (!$apiKey = getApiKey()) {
-  echo missingApiKeyWarning();
-  return;
+    echo missingApiKeyWarning();
+    return;
 }
 $client->setDeveloperKey($apiKey);
 
@@ -79,15 +79,15 @@ $results = $batch->execute();
 ?>
 
 <h3>Results Of Call 1:</h3>
-<?php foreach ($results['response-thoreau'] as $item): ?>
-  <?= $item['volumeInfo']['title'] ?>
+<?php foreach ($results['response-thoreau'] as $item) : ?>
+    <?= $item['volumeInfo']['title'] ?>
   <br />
 <?php endforeach ?>
 
 <h3>Results Of Call 2:</h3>
-<?php foreach ($results['response-shaw'] as $item): ?>
-  <?= $item['volumeInfo']['title'] ?>
+<?php foreach ($results['response-shaw'] as $item) : ?>
+    <?= $item['volumeInfo']['title'] ?>
   <br />
 <?php endforeach ?>
 
-<?= pageFooter(__FILE__) ?>
+<?= pageFooter(__FILE__)

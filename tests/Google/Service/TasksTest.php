@@ -22,74 +22,74 @@ use Google\Tests\BaseTest;
 
 class TasksTest extends BaseTest
 {
-  /** @var Tasks */
-  public $taskService;
+    /** @var Tasks */
+    public $taskService;
 
-  public function set_up()
-  {
-    $this->checkToken();
-    $this->taskService = new Tasks($this->getClient());
-  }
-
-  public function testInsertTask()
-  {
-    $list = $this->createTaskList('List: ' . __METHOD__);
-    $task = $this->createTask('Task: '.__METHOD__, $list->id);
-    $this->assertIsTask($task);
-  }
-
-  /**
-   * @depends testInsertTask
-   */
-  public function testGetTask()
-  {
-    $tasks = $this->taskService->tasks;
-    $list = $this->createTaskList('List: ' . __METHOD__);
-    $task = $this->createTask('Task: '. __METHOD__, $list['id']);
-
-    $task = $tasks->get($list['id'], $task['id']);
-    $this->assertIsTask($task);
-  }
-
-  /**
-   * @depends testInsertTask
-   */
-  public function testListTask()
-  {
-    $tasks = $this->taskService->tasks;
-    $list = $this->createTaskList('List: ' . __METHOD__);
-
-    for ($i=0; $i<4; $i++) {
-      $this->createTask("Task: $i ".__METHOD__, $list['id']);
+    public function set_up()
+    {
+        $this->checkToken();
+        $this->taskService = new Tasks($this->getClient());
     }
 
-    $tasksArray = $tasks->listTasks($list['id']);
-    $this->assertGreaterThan(1, count($tasksArray));
-    foreach ($tasksArray['items'] as $task) {
-      $this->assertIsTask($task);
+    public function testInsertTask()
+    {
+        $list = $this->createTaskList('List: ' . __METHOD__);
+        $task = $this->createTask('Task: '.__METHOD__, $list->id);
+        $this->assertIsTask($task);
     }
-  }
 
-  private function createTaskList($name)
-  {
-    $list = new Tasks\TaskList();
-    $list->title = $name;
-    return $this->taskService->tasklists->insert($list);
-  }
+    /**
+     * @depends testInsertTask
+     */
+    public function testGetTask()
+    {
+        $tasks = $this->taskService->tasks;
+        $list = $this->createTaskList('List: ' . __METHOD__);
+        $task = $this->createTask('Task: '. __METHOD__, $list['id']);
 
-  private function createTask($title, $listId)
-  {
-    $tasks = $this->taskService->tasks;
-    $task = new Tasks\Task();
-    $task->title = $title;
-    return $tasks->insert($listId, $task);
-  }
+        $task = $tasks->get($list['id'], $task['id']);
+        $this->assertIsTask($task);
+    }
 
-  private function assertIsTask($task)
-  {
-    $this->assertArrayHasKey('title', $task);
-    $this->assertArrayHasKey('kind', $task);
-    $this->assertArrayHasKey('id', $task);
-    $this->assertArrayHasKey('position', $task);
-  }
+    /**
+     * @depends testInsertTask
+     */
+    public function testListTask()
+    {
+        $tasks = $this->taskService->tasks;
+        $list = $this->createTaskList('List: ' . __METHOD__);
+
+        for ($i=0; $i<4; $i++) {
+            $this->createTask("Task: $i ".__METHOD__, $list['id']);
+        }
+
+        $tasksArray = $tasks->listTasks($list['id']);
+        $this->assertGreaterThan(1, count($tasksArray));
+        foreach ($tasksArray['items'] as $task) {
+            $this->assertIsTask($task);
+        }
+    }
+
+    private function createTaskList($name)
+    {
+        $list = new Tasks\TaskList();
+        $list->title = $name;
+        return $this->taskService->tasklists->insert($list);
+    }
+
+    private function createTask($title, $listId)
+    {
+        $tasks = $this->taskService->tasks;
+        $task = new Tasks\Task();
+        $task->title = $title;
+        return $tasks->insert($listId, $task);
+    }
+
+    private function assertIsTask($task)
+    {
+        $this->assertArrayHasKey('title', $task);
+        $this->assertArrayHasKey('kind', $task);
+        $this->assertArrayHasKey('id', $task);
+        $this->assertArrayHasKey('position', $task);
+    }
 }

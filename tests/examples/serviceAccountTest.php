@@ -25,14 +25,14 @@ use Google\Tests\BaseTest;
 
 class serviceAccountTest extends BaseTest
 {
-  public function testServiceAccount()
-  {
-    $this->checkServiceAccountCredentials();
+    public function testServiceAccount()
+    {
+        $this->checkServiceAccountCredentials();
 
-    $crawler = $this->loadExample('service-account.php');
+        $crawler = $this->loadExample('service-account.php');
 
-    $nodes = $crawler->filter('br');
-    $this->assertCount(10, $nodes);
-    $this->assertContains('Walden', $crawler->text());
-  }
+        $nodes = $crawler->filter('br');
+        $this->assertCount(10, $nodes);
+        $this->assertContains('Walden', $crawler->text());
+    }
 }

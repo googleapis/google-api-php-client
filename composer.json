@@ -16,12 +16,11 @@
         "guzzlehttp/psr7": "^1.8.4||^2.2.1"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "~2.3",
+        "squizlabs/php_codesniffer": "^3.0",
         "symfony/dom-crawler": "~2.1",
         "symfony/css-selector": "~2.1",
         "cache/filesystem-adapter": "^0.3.2|^1.1",
         "phpcompatibility/php-compatibility": "^9.2",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
         "composer/composer": "^1.10.22",
         "yoast/phpunit-polyfills": "^1.0",
         "phpspec/prophecy-phpunit": "^1.1||^2.0",

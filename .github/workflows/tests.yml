@@ -53,4 +53,5 @@ jobs:
                 max_attempts: 3
                 command: composer install
             - name: Run Script
-              run: vendor/bin/phpcs src --standard=phpcs.xml.dist -np
+              run: vendor/bin/phpcs src tests examples --standard=phpcs.xml.dist -nps
+

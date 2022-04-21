@@ -21,8 +21,8 @@
   <properties>
    <property name="strict" value="false"/>
   </properties>
-  <!-- Generated libs have some properties that break this! -->
-  <exclude-pattern>Service/*.php</exclude-pattern>
+  <!-- Tests have some properties that break this! -->
+  <exclude-pattern>*Test.php</exclude-pattern>
  </rule>
 
  <!-- All PHP files MUST use the Unix LF (linefeed) line ending. -->
@@ -67,10 +67,10 @@
  <!-- There MUST NOT be more than one statement per line. -->
  <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 
- <!-- Code MUST use an indent of 2 spaces, and MUST NOT use tabs for indenting. -->
+ <!-- Code MUST use an indent of 4 spaces, and MUST NOT use tabs for indenting. -->
  <rule ref="Generic.WhiteSpace.ScopeIndent">
   <properties>
-   <property name="indent" value="2" />
+   <property name="indent" value="4" />
   </properties>
  </rule>
  <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
@@ -128,8 +128,14 @@
  <rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
  <rule ref="PEAR.Functions.FunctionCallSignature">
   <properties>
-   <property name="allowMultipleArguments" value="false"/>
+   <property name="allowMultipleArguments" value="true"/>
   </properties>
+ </rule>
+ <rule ref="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket">
+  <severity>0</severity>
+ </rule>
+ <rule ref="PEAR.Functions.FunctionCallSignature.CloseBracketLine">
+  <severity>0</severity>
  </rule>
 
  <!-- The general style rules for control structures are as follows:
@@ -155,9 +161,5 @@
  <rule ref="Generic.ControlStructures.InlineControlStructure"/>
 
  <!-- The case statement MUST be indented once from switch, and the break keyword (or other terminating keyword) MUST be indented at the same level as the case body. There MUST be a comment such as // no break when fall-through is intentional in a non-empty case body. -->
- <rule ref="PSR2.ControlStructures.SwitchDeclaration" >
-   <properties>
-    <property name="indent" value="2" />
-   </properties>
-  </rule>
+ <rule ref="PSR2.ControlStructures.SwitchDeclaration" />
 </ruleset>
