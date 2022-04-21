@@ -34,6 +34,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Ring\Client\StreamHandler;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler as MonologStreamHandler;
@@ -568,6 +569,10 @@ class Client
           $created = $payload['iat'];
         }
       }
+    }
+    if (!isset($this->token['expires_in'])) {
+      // if the token does not have an "expires_in", then it's considered expired
+      return true;
     }
 
     // If the token is set to expire in the next 30 seconds.

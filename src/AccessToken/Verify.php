@@ -20,15 +20,15 @@ namespace Google\AccessToken;
 
 use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
 use Firebase\JWT\SignatureInvalidException;
+use Firebase\JWT\Key;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use InvalidArgumentException;
 use phpseclib3\Crypt\PublicKeyLoader;
 use phpseclib3\Crypt\RSA\PublicKey;
 use Psr\Cache\CacheItemPoolInterface;
 use Google\Auth\Cache\MemoryCacheItemPool;
 use Google\Exception as GoogleException;
-use Stash\Driver\FileSystem;
-use Stash\Pool;
 use DateTime;
 use DomainException;
 use Exception;
@@ -100,11 +100,15 @@ class Verify
     $certs = $this->getFederatedSignOnCerts();
     foreach ($certs as $cert) {
       try {
-        $payload = $this->jwt->decode(
-            $idToken,
-            $this->getPublicKey($cert),
-            array('RS256')
-        );
+        $args = [$idToken];
+        $publicKey = $this->getPublicKey($cert);
+        if (class_exists(Key::class)) {
+            $args[] = new Key($publicKey, 'RS256');
+        } else {
+            $args[] = $publicKey;
+            $args[] = ['RS256'];
+        }
+        $payload = \call_user_func_array([$this->jwt, 'decode'], $args);
 
         if (property_exists($payload, 'aud')) {
           if ($audience && $payload->aud != $audience) {
