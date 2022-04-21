@@ -149,6 +149,19 @@
             </table>
 
     
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_jwt">
+                                                                                <abbr title="Firebase\JWT\JWT">JWT</abbr>
+                </td>
+                <td>$jwt</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="Google/AccessToken/Verify.html#property_jwt"><abbr title="Google\AccessToken\Verify">Verify</abbr></a></small></td>
+            </tr>
+            </table>
+
     
             <h2>Methods</h2>
 
@@ -166,7 +179,7 @@ to the discretion of the caller.</p>                </div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    array
+                    array|false
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_verifyIdToken">verifyIdToken</a>(string $idToken, string $audience = null)
@@ -182,7 +195,7 @@ to the discretion of the caller.</p>                </div>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">in <a href="Google/AccessToken/Verify.html#method___construct"><abbr title="Google\AccessToken\Verify">Verify</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/AccessToken/Verify.php#L62">line 62</a></div>
+        <div class="location">in <a href="Google/AccessToken/Verify.html#method___construct"><abbr title="Google\AccessToken\Verify">Verify</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/AccessToken/Verify.php#L67">line 67</a></div>
         <code>                    
     <strong>__construct</strong>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $http = null, <abbr title="Psr\Cache\CacheItemPoolInterface">CacheItemPoolInterface</abbr> $cache = null, $jwt = null)
         </code>
@@ -224,8 +237,8 @@ to the discretion of the caller.</p>                                            
             </div>
                     <div class="method-item">
                     <h3 id="method_verifyIdToken">
-        <div class="location">in <a href="Google/AccessToken/Verify.html#method_verifyIdToken"><abbr title="Google\AccessToken\Verify">Verify</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/AccessToken/Verify.php#L90">line 90</a></div>
-        <code>                    array
+        <div class="location">in <a href="Google/AccessToken/Verify.html#method_verifyIdToken"><abbr title="Google\AccessToken\Verify">Verify</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/AccessToken/Verify.php#L95">line 95</a></div>
+        <code>                    array|false
     <strong>verifyIdToken</strong>(string $idToken, string $audience = null)
         </code>
     </h3>
@@ -258,7 +271,7 @@ accepted.  By default, the id token must have been issued to this OAuth2 client.
 
                     <table class="table table-condensed">
         <tr>
-            <td>array</td>
+            <td>array|false</td>
             <td>the token payload, if successful</td>
         </tr>
     </table>

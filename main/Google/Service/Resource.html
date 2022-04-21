@@ -150,10 +150,10 @@ is available in this service, and if so construct an apiHttpRequest representing
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    mixed|<abbr title="Google\Service\$expectedClass">$expectedClass</abbr>|<abbr title="Google\Service\ResponseInterface">ResponseInterface</abbr>|<abbr title="Google\Service\RequestInterface">RequestInterface</abbr>
+                    mixed|<abbr title="Google\Service\T">T</abbr>|<abbr title="Google\Service\ResponseInterface">ResponseInterface</abbr>|<abbr title="Google\Service\RequestInterface">RequestInterface</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_call">call</a>($name, $arguments, $expectedClass = null)
+                    <a href="#method_call">call</a>(string $name, array $arguments, <abbr title="Google\Service\class-string<T>">class-string<T></abbr> $expectedClass = null)
         
                                             <p>TODO: This function needs simplifying.</p>                </div>
                 <div class="col-md-2"></div>
@@ -232,9 +232,9 @@ request uri.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_call">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Service/Resource.php#L86">line 86</a></div>
-        <code>                    mixed|<abbr title="Google\Service\$expectedClass">$expectedClass</abbr>|<abbr title="Google\Service\ResponseInterface">ResponseInterface</abbr>|<abbr title="Google\Service\RequestInterface">RequestInterface</abbr>
-    <strong>call</strong>($name, $arguments, $expectedClass = null)
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Service/Resource.php#L88">line 88</a></div>
+        <code>                    mixed|<abbr title="Google\Service\T">T</abbr>|<abbr title="Google\Service\ResponseInterface">ResponseInterface</abbr>|<abbr title="Google\Service\RequestInterface">RequestInterface</abbr>
+    <strong>call</strong>(string $name, array $arguments, <abbr title="Google\Service\class-string<T>">class-string<T></abbr> $expectedClass = null)
         </code>
     </h3>
     <div class="details">
@@ -248,17 +248,17 @@ request uri.</p>                </div>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$name</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>array</td>
                 <td>$arguments</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td><abbr title="Google\Service\class-string<T>">class-string<T></abbr></td>
                 <td>$expectedClass</td>
                 <td><ul>
 <li>optional, the expected class name</li>
@@ -272,7 +272,7 @@ request uri.</p>                </div>
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed|<abbr title="Google\Service\$expectedClass">$expectedClass</abbr>|<abbr title="Google\Service\ResponseInterface">ResponseInterface</abbr>|<abbr title="Google\Service\RequestInterface">RequestInterface</abbr></td>
+            <td>mixed|<abbr title="Google\Service\T">T</abbr>|<abbr title="Google\Service\ResponseInterface">ResponseInterface</abbr>|<abbr title="Google\Service\RequestInterface">RequestInterface</abbr></td>
             <td></td>
         </tr>
     </table>
@@ -294,7 +294,7 @@ request uri.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_convertToArrayAndStripNulls">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Service/Resource.php#L239">line 239</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Service/Resource.php#L241">line 241</a></div>
         <code>            protected        
     <strong>convertToArrayAndStripNulls</strong>($o)
         </code>
@@ -323,7 +323,7 @@ request uri.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_createRequestUri">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Service/Resource.php#L260">line 260</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Service/Resource.php#L262">line 262</a></div>
         <code>                    string
     <strong>createRequestUri</strong>(string $restPath, array $params)
         </code>

@@ -158,7 +158,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(<a href="Google/Client.html"><abbr title="Google\Client">Client</abbr></a> $client, <abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, string $mimeType, string $data, bool $resumable = false, bool $chunkSize = false)
+                    <a href="#method___construct">__construct</a>(<a href="Google/Client.html"><abbr title="Google\Client">Client</abbr></a> $client, <abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, string $mimeType, string $data, bool $resumable = false, int $chunkSize = 0)
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -169,7 +169,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_setFileSize">setFileSize</a>($size)
+                    <a href="#method_setFileSize">setFileSize</a>(int $size)
         
                                             <p>Set the size of the file that is being uploaded.</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;<a href="Google/Http/MediaFileUpload.html#method_setFileSize"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a></small></div>
@@ -209,7 +209,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_resume">resume</a>($resumeUri)
+                    <a href="#method_resume">resume</a>(string $resumeUri)
         
                                             <p>Resume a previously unfinished upload</p>                </div>
                 <div class="col-md-2"><small>from&nbsp;<a href="Google/Http/MediaFileUpload.html#method_resume"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a></small></div>
@@ -219,7 +219,7 @@
                     string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getUploadType">getUploadType</a>($meta)
+                    <a href="#method_getUploadType">getUploadType</a>(string|false $meta)
         
                                             <p>Valid upload types:
 - resumable (UPLOAD_RESUMABLE_TYPE)
@@ -270,7 +270,7 @@
                     <h3 id="method___construct">
         <div class="location">in <a href="Google/Http/MediaFileUpload.html#method___construct"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/MediaFileUpload.php#L83">line 83</a></div>
         <code>                    
-    <strong>__construct</strong>(<a href="Google/Client.html"><abbr title="Google\Client">Client</abbr></a> $client, <abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, string $mimeType, string $data, bool $resumable = false, bool $chunkSize = false)
+    <strong>__construct</strong>(<a href="Google/Client.html"><abbr title="Google\Client">Client</abbr></a> $client, <abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, string $mimeType, string $data, bool $resumable = false, int $chunkSize = 0)
         </code>
     </h3>
     <div class="details">
@@ -307,7 +307,7 @@
                 <td></td>
             </tr>
                     <tr>
-                <td>bool</td>
+                <td>int</td>
                 <td>$chunkSize</td>
                 <td>File will be uploaded in chunks of this many bytes.
 only used if resumable=True</td>
@@ -325,7 +325,7 @@ only used if resumable=True</td>
                     <h3 id="method_setFileSize">
         <div class="location">in <a href="Google/Http/MediaFileUpload.html#method_setFileSize"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/MediaFileUpload.php#L106">line 106</a></div>
         <code>                    
-    <strong>setFileSize</strong>($size)
+    <strong>setFileSize</strong>(int $size)
         </code>
     </h3>
     <div class="details">
@@ -339,7 +339,7 @@ only used if resumable=True</td>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>int</td>
                 <td>$size</td>
                 <td><ul>
 <li>int file size in bytes</li>
@@ -451,7 +451,7 @@ use $data passed at construct time.</td>
                     <h3 id="method_resume">
         <div class="location">in <a href="Google/Http/MediaFileUpload.html#method_resume"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/MediaFileUpload.php#L198">line 198</a></div>
         <code>                    
-    <strong>resume</strong>($resumeUri)
+    <strong>resume</strong>(string $resumeUri)
         </code>
     </h3>
     <div class="details">
@@ -465,7 +465,7 @@ use $data passed at construct time.</td>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$resumeUri</td>
                 <td>the resume-URI of the unfinished, resumable upload.</td>
             </tr>
@@ -480,9 +480,9 @@ use $data passed at construct time.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getUploadType">
-        <div class="location">in <a href="Google/Http/MediaFileUpload.html#method_getUploadType"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/MediaFileUpload.php#L275">line 275</a></div>
+        <div class="location">in <a href="Google/Http/MediaFileUpload.html#method_getUploadType"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/MediaFileUpload.php#L274">line 274</a></div>
         <code>                    string
-    <strong>getUploadType</strong>($meta)
+    <strong>getUploadType</strong>(string|false $meta)
         </code>
     </h3>
     <div class="details">
@@ -499,7 +499,7 @@ use $data passed at construct time.</td>
 
                     <table class="table table-condensed">
                     <tr>
-                <td></td>
+                <td>string|false</td>
                 <td>$meta</td>
                 <td></td>
             </tr>
@@ -523,7 +523,7 @@ use $data passed at construct time.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getResumeUri">
-        <div class="location">in <a href="Google/Http/MediaFileUpload.html#method_getResumeUri"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/MediaFileUpload.php#L288">line 288</a></div>
+        <div class="location">in <a href="Google/Http/MediaFileUpload.html#method_getResumeUri"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/MediaFileUpload.php#L287">line 287</a></div>
         <code>                    
     <strong>getResumeUri</strong>()
         </code>
@@ -542,7 +542,7 @@ use $data passed at construct time.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_setChunkSize">
-        <div class="location">in <a href="Google/Http/MediaFileUpload.html#method_setChunkSize"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/MediaFileUpload.php#L348">line 348</a></div>
+        <div class="location">in <a href="Google/Http/MediaFileUpload.html#method_setChunkSize"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/MediaFileUpload.php#L345">line 345</a></div>
         <code>                    
     <strong>setChunkSize</strong>($chunkSize)
         </code>
@@ -571,7 +571,7 @@ use $data passed at construct time.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getRequest">
-        <div class="location">in <a href="Google/Http/MediaFileUpload.html#method_getRequest"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/MediaFileUpload.php#L353">line 353</a></div>
+        <div class="location">in <a href="Google/Http/MediaFileUpload.html#method_getRequest"><abbr title="Google\Http\MediaFileUpload">MediaFileUpload</abbr></a> at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/MediaFileUpload.php#L350">line 350</a></div>
         <code>                    
     <strong>getRequest</strong>()
         </code>

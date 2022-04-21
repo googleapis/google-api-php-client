@@ -140,7 +140,7 @@
                     static&nbsp;mixed
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_execute">execute</a>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $client, <abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, $expectedClass = null, $config = array(), $retryMap = null)
+                    <a href="#method_execute">execute</a>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $client, <abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, string $expectedClass = null, array $config = array(), array $retryMap = null)
         
                                             <p>Executes a Psr\Http\Message\RequestInterface and (if applicable) automatically retries
 when errors occur.</p>                </div>
@@ -176,7 +176,7 @@ when errors occur.</p>                </div>
                     <h3 id="method_execute">
         <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/REST.php#L48">line 48</a></div>
         <code>        static            mixed
-    <strong>execute</strong>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $client, <abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, $expectedClass = null, $config = array(), $retryMap = null)
+    <strong>execute</strong>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $client, <abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, string $expectedClass = null, array $config = array(), array $retryMap = null)
         </code>
     </h3>
     <div class="details">
@@ -201,17 +201,17 @@ when errors occur.</p>                                                </div>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>string</td>
                 <td>$expectedClass</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>array</td>
                 <td>$config</td>
                 <td></td>
             </tr>
                     <tr>
-                <td></td>
+                <td>array</td>
                 <td>$retryMap</td>
                 <td></td>
             </tr>
@@ -305,7 +305,7 @@ when errors occur.</p>                                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_decodeHttpResponse">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/REST.php#L115">line 115</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Http/REST.php#L118">line 118</a></div>
         <code>        static            mixed|null
     <strong>decodeHttpResponse</strong>(<abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr> $response, <abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request = null, $expectedClass = null)
         </code>
