@@ -34,6 +34,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Ring\Client\StreamHandler;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler as MonologStreamHandler;
