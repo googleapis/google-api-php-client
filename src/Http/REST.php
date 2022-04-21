@@ -89,16 +89,17 @@ class REST
 
             $response = $e->getResponse();
             // specific checking for Guzzle 5: convert to PSR7 response
-            if (class_exists('\GuzzleHttp\Message\ResponseInterface')) {
-                if ($response instanceof \GuzzleHttp\Message\ResponseInterface) {
-                    $response = new Response(
-                        $response->getStatusCode(),
-                        $response->getHeaders() ?: [],
-                        $response->getBody(),
-                        $response->getProtocolVersion(),
-                        $response->getReasonPhrase()
-                    );
-                }
+            if (
+                interface_exists('\GuzzleHttp\Message\ResponseInterface')
+                && $response instanceof \GuzzleHttp\Message\ResponseInterface
+            ) {
+                $response = new Response(
+                    $response->getStatusCode(),
+                    $response->getHeaders() ?: [],
+                    $response->getBody(),
+                    $response->getProtocolVersion(),
+                    $response->getReasonPhrase()
+                );
             }
         }
 
