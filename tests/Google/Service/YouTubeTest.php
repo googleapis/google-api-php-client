@@ -22,62 +22,62 @@ use Google\Tests\BaseTest;
 
 class YouTubeTest extends BaseTest
 {
-  /** @var YouTube */
-  public $youtube;
-  public function set_up()
-  {
-    $this->checkToken();
-    $this->youtube = new YouTube($this->getClient());
-  }
+    /** @var YouTube */
+    public $youtube;
+    public function set_up()
+    {
+        $this->checkToken();
+        $this->youtube = new YouTube($this->getClient());
+    }
 
-  public function testMissingFieldsAreNull()
-  {
-    $parts = "id,brandingSettings";
-    $opts = array("mine" => true);
-    $channels = $this->youtube->channels->listChannels($parts, $opts);
+    public function testMissingFieldsAreNull()
+    {
+        $parts = "id,brandingSettings";
+        $opts = array("mine" => true);
+        $channels = $this->youtube->channels->listChannels($parts, $opts);
 
-    $newChannel = new YouTube\Channel();
-    $newChannel->setId( $channels[0]->getId());
-    $newChannel->setBrandingSettings($channels[0]->getBrandingSettings());
+        $newChannel = new YouTube\Channel();
+        $newChannel->setId($channels[0]->getId());
+        $newChannel->setBrandingSettings($channels[0]->getBrandingSettings());
 
-    $simpleOriginal = $channels[0]->toSimpleObject();
-    $simpleNew = $newChannel->toSimpleObject();
+        $simpleOriginal = $channels[0]->toSimpleObject();
+        $simpleNew = $newChannel->toSimpleObject();
 
-    $this->assertObjectHasAttribute('etag', $simpleOriginal);
-    $this->assertObjectNotHasAttribute('etag', $simpleNew);
+        $this->assertObjectHasAttribute('etag', $simpleOriginal);
+        $this->assertObjectNotHasAttribute('etag', $simpleNew);
 
-    $owner_details = new YouTube\ChannelContentOwnerDetails();
-    $owner_details->setTimeLinked("123456789");
-    $o_channel = new YouTube\Channel();
-    $o_channel->setContentOwnerDetails($owner_details);
-    $simpleManual = $o_channel->toSimpleObject();
-    $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);
-    $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
+        $owner_details = new YouTube\ChannelContentOwnerDetails();
+        $owner_details->setTimeLinked("123456789");
+        $o_channel = new YouTube\Channel();
+        $o_channel->setContentOwnerDetails($owner_details);
+        $simpleManual = $o_channel->toSimpleObject();
+        $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);
+        $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
 
-    $owner_details = new YouTube\ChannelContentOwnerDetails();
-    $owner_details->timeLinked = "123456789";
-    $o_channel = new YouTube\Channel();
-    $o_channel->setContentOwnerDetails($owner_details);
-    $simpleManual = $o_channel->toSimpleObject();
+        $owner_details = new YouTube\ChannelContentOwnerDetails();
+        $owner_details->timeLinked = "123456789";
+        $o_channel = new YouTube\Channel();
+        $o_channel->setContentOwnerDetails($owner_details);
+        $simpleManual = $o_channel->toSimpleObject();
 
-    $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);
-    $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
+        $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);
+        $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
 
-    $owner_details = new YouTube\ChannelContentOwnerDetails();
-    $owner_details['timeLinked'] = "123456789";
-    $o_channel = new YouTube\Channel();
-    $o_channel->setContentOwnerDetails($owner_details);
-    $simpleManual = $o_channel->toSimpleObject();
+        $owner_details = new YouTube\ChannelContentOwnerDetails();
+        $owner_details['timeLinked'] = "123456789";
+        $o_channel = new YouTube\Channel();
+        $o_channel->setContentOwnerDetails($owner_details);
+        $simpleManual = $o_channel->toSimpleObject();
 
-    $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);
-    $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
+        $this->assertObjectHasAttribute('timeLinked', $simpleManual->contentOwnerDetails);
+        $this->assertObjectNotHasAttribute('contentOwner', $simpleManual->contentOwnerDetails);
 
-    $ping = new YouTube\ChannelConversionPing();
-    $ping->setContext("hello");
-    $pings = new YouTube\ChannelConversionPings();
-    $pings->setPings(array($ping));
-    $simplePings = $pings->toSimpleObject();
-    $this->assertObjectHasAttribute('context', $simplePings->pings[0]);
-    $this->assertObjectNotHasAttribute('conversionUrl', $simplePings->pings[0]);
-  }
+        $ping = new YouTube\ChannelConversionPing();
+        $ping->setContext("hello");
+        $pings = new YouTube\ChannelConversionPings();
+        $pings->setPings(array($ping));
+        $simplePings = $pings->toSimpleObject();
+        $this->assertObjectHasAttribute('context', $simplePings->pings[0]);
+        $this->assertObjectNotHasAttribute('conversionUrl', $simplePings->pings[0]);
+    }
 }

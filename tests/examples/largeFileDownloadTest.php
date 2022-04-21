@@ -24,36 +24,36 @@ use Google\Tests\BaseTest;
 
 class largeFileDownloadTest extends BaseTest
 {
-  /**
+    /**
    * @runInSeparateProcess
    */
-  public function testSimpleFileDownloadNoToken()
-  {
-    $this->checkServiceAccountCredentials();
+    public function testSimpleFileDownloadNoToken()
+    {
+        $this->checkServiceAccountCredentials();
 
-    $crawler = $this->loadExample('large-file-download.php');
+        $crawler = $this->loadExample('large-file-download.php');
 
-    $nodes = $crawler->filter('h1');
-    $this->assertCount(1, $nodes);
-    $this->assertEquals('File Download - Downloading a large file', $nodes->first()->text());
+        $nodes = $crawler->filter('h1');
+        $this->assertCount(1, $nodes);
+        $this->assertEquals('File Download - Downloading a large file', $nodes->first()->text());
 
-    $nodes = $crawler->filter('a.login');
-    $this->assertCount(1, $nodes);
-    $this->assertEquals('Connect Me!', $nodes->first()->text());
-  }
+        $nodes = $crawler->filter('a.login');
+        $this->assertCount(1, $nodes);
+        $this->assertEquals('Connect Me!', $nodes->first()->text());
+    }
 
-  public function testSimpleFileDownloadWithToken()
-  {
-    $this->checkToken();
+    public function testSimpleFileDownloadWithToken()
+    {
+        $this->checkToken();
 
-    global $_SESSION;
-    $_SESSION['upload_token'] = $this->getClient()->getAccessToken();
+        global $_SESSION;
+        $_SESSION['upload_token'] = $this->getClient()->getAccessToken();
 
-    $crawler = $this->loadExample('large-file-download.php');
+        $crawler = $this->loadExample('large-file-download.php');
 
-    $buttonText = 'Click here to download a large (20MB) test file';
-    $nodes = $crawler->filter('input');
-    $this->assertCount(1, $nodes);
-    $this->assertEquals($buttonText, $nodes->first()->attr('value'));
-  }
+        $buttonText = 'Click here to download a large (20MB) test file';
+        $nodes = $crawler->filter('input');
+        $this->assertCount(1, $nodes);
+        $this->assertEquals($buttonText, $nodes->first()->attr('value'));
+    }
 }

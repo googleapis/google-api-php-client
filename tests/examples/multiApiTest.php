@@ -25,14 +25,14 @@ use Google\Tests\BaseTest;
 
 class multiApiTest extends BaseTest
 {
-  public function testMultiApi()
-  {
-    $this->checkKey();
+    public function testMultiApi()
+    {
+        $this->checkKey();
 
-    $crawler = $this->loadExample('multi-api.php');
+        $crawler = $this->loadExample('multi-api.php');
 
-    $nodes = $crawler->filter('h1');
-    $this->assertCount(1, $nodes);
-    $this->assertEquals('User Query - Multiple APIs', $nodes->first()->text());
-  }
+        $nodes = $crawler->filter('h1');
+        $this->assertCount(1, $nodes);
+        $this->assertEquals('User Query - Multiple APIs', $nodes->first()->text());
+    }
 }

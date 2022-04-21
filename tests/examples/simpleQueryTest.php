@@ -25,17 +25,17 @@ use Google\Tests\BaseTest;
 
 class simpleQueryTest extends BaseTest
 {
-  public function testSimpleQuery()
-  {
-    $this->checkKey();
+    public function testSimpleQuery()
+    {
+        $this->checkKey();
 
-    $crawler = $this->loadExample('simple-query.php');
+        $crawler = $this->loadExample('simple-query.php');
 
-    $nodes = $crawler->filter('br');
-    $this->assertCount(20, $nodes);
+        $nodes = $crawler->filter('br');
+        $this->assertCount(20, $nodes);
 
-    $nodes = $crawler->filter('h1');
-    $this->assertCount(1, $nodes);
-    $this->assertEquals('Simple API Access', $nodes->first()->text());
-  }
+        $nodes = $crawler->filter('h1');
+        $this->assertCount(1, $nodes);
+        $this->assertEquals('Simple API Access', $nodes->first()->text());
+    }
 }
