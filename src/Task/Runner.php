@@ -98,11 +98,12 @@ class Runner
      * @param array $arguments The task arguments
      * @throws \Google\Task\Exception when misconfigured
      */
-    public function __construct( // @phpstan-ignore-line
+    // @phpstan-ignore-next-line
+    public function __construct(
         $config,
         $name,
         $action,
-        array $arguments = array()
+        array $arguments = []
     ) {
         if (isset($config['initial_delay'])) {
             if ($config['initial_delay'] < 0) {
@@ -269,7 +270,7 @@ class Runner
      *
      * @return integer
      */
-    public function allowedRetries($code, $errors = array())
+    public function allowedRetries($code, $errors = [])
     {
         if (isset($this->retryMap[$code])) {
             return $this->retryMap[$code];

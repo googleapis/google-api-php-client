@@ -18,7 +18,6 @@
 namespace Google\Http;
 
 use Google\Client;
-use Google\Http\REST;
 use Google\Service\Exception as GoogleServiceException;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
@@ -37,16 +36,16 @@ class Batch
 {
     const BATCH_PATH = 'batch';
 
-    private static $CONNECTION_ESTABLISHED_HEADERS = array(
+    private static $CONNECTION_ESTABLISHED_HEADERS = [
         "HTTP/1.0 200 Connection established\r\n\r\n",
         "HTTP/1.1 200 Connection established\r\n\r\n",
-    );
+    ];
 
     /** @var string Multipart Boundary. */
     private $boundary;
 
     /** @var array service requests to be executed. */
-    private $requests = array();
+    private $requests = [];
 
     /** @var Client */
     private $client;
@@ -79,7 +78,7 @@ class Batch
     public function execute()
     {
         $body = '';
-        $classes = array();
+        $classes = [];
         $batchHttpTemplate = <<<EOF
 --%s
 Content-Type: application/http
@@ -115,7 +114,7 @@ EOF;
                 $key,
                 $firstLine,
                 $headers,
-                $content ? "\n".$content : ''
+                $content ? "\n" . $content : ''
             );
 
             $classes['response-' . $key] = $request->getHeaderLine('X-Php-Expected-Class');
@@ -124,10 +123,10 @@ EOF;
         $body .= "--{$this->boundary}--";
         $body = trim($body);
         $url = $this->rootUrl . '/' . $this->batchPath;
-        $headers = array(
+        $headers = [
             'Content-Type' => sprintf('multipart/mixed; boundary=%s', $this->boundary),
             'Content-Length' => (string) strlen($body),
-        );
+        ];
 
         $request = new Request(
             'POST',
@@ -141,7 +140,7 @@ EOF;
         return $this->parseResponse($response, $classes);
     }
 
-    public function parseResponse(ResponseInterface $response, $classes = array())
+    public function parseResponse(ResponseInterface $response, $classes = [])
     {
         $contentType = $response->getHeaderLine('content-type');
         $contentType = explode(';', $contentType);
@@ -157,7 +156,7 @@ EOF;
         if (!empty($body)) {
             $body = str_replace("--$boundary--", "--$boundary", $body);
             $parts = explode("--$boundary", $body);
-            $responses = array();
+            $responses = [];
             $requests = array_values($this->requests);
 
             foreach ($parts as $i => $part) {
@@ -200,7 +199,7 @@ EOF;
 
     private function parseRawHeaders($rawHeaders)
     {
-        $headers = array();
+        $headers = [];
         $responseHeaderLines = explode("\r\n", $rawHeaders);
         foreach ($responseHeaderLines as $headerLine) {
             if ($headerLine && strpos($headerLine, ':') !== false) {
@@ -252,6 +251,6 @@ EOF;
 
         $responseHeaders = $this->parseRawHeaders($responseHeaders);
 
-        return array($responseHeaders, $responseBody);
+        return [$responseHeaders, $responseBody];
     }
 }

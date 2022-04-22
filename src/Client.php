@@ -17,32 +17,32 @@
 
 namespace Google;
 
+use BadMethodCallException;
+use DomainException;
 use Google\AccessToken\Revoke;
 use Google\AccessToken\Verify;
 use Google\Auth\ApplicationDefaultCredentials;
 use Google\Auth\Cache\MemoryCacheItemPool;
+use Google\Auth\Credentials\ServiceAccountCredentials;
+use Google\Auth\Credentials\UserRefreshCredentials;
 use Google\Auth\CredentialsLoader;
 use Google\Auth\FetchAuthTokenCache;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\OAuth2;
-use Google\Auth\Credentials\ServiceAccountCredentials;
-use Google\Auth\Credentials\UserRefreshCredentials;
 use Google\AuthHandler\AuthHandlerFactory;
 use Google\Http\REST;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Ring\Client\StreamHandler;
+use InvalidArgumentException;
+use LogicException;
+use Monolog\Handler\StreamHandler as MonologStreamHandler;
+use Monolog\Handler\SyslogHandler as MonologSyslogHandler;
+use Monolog\Logger;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler as MonologStreamHandler;
-use Monolog\Handler\SyslogHandler as MonologSyslogHandler;
-use BadMethodCallException;
-use DomainException;
-use InvalidArgumentException;
-use LogicException;
 use UnexpectedValueException;
 
 /**
@@ -107,7 +107,7 @@ class Client
      *
      * @param array $config
      */
-    public function __construct(array $config = array())
+    public function __construct(array $config = [])
     {
         $this->config = array_merge([
             'application_name' => '',
@@ -157,7 +157,7 @@ class Client
 
             // Task Runner retry configuration
             // @see Google\Task\Runner
-            'retry' => array(),
+            'retry' => [],
             'retry_map' => null,
 
             // Cache class implementing Psr\Cache\CacheItemPoolInterface.
@@ -185,7 +185,7 @@ class Client
             } else {
                 $this->setAuthConfig($this->config['credentials']);
             }
-                unset($this->config['credentials']);
+            unset($this->config['credentials']);
         }
 
         if (!is_null($this->config['scopes'])) {
@@ -446,11 +446,11 @@ class Client
                     $scopes,
                     $token['refresh_token']
                 );
-                    return $authHandler->attachCredentials(
-                        $http,
-                        $credentials,
-                        $this->config['token_callback']
-                    );
+                return $authHandler->attachCredentials(
+                    $http,
+                    $credentials,
+                    $this->config['token_callback']
+                );
             }
 
             return $authHandler->attachToken($http, $token, (array) $scopes);
@@ -508,9 +508,9 @@ class Client
                 $token = $json;
             } else {
                 // assume $token is just the token string
-                $token = array(
+                $token = [
                     'access_token' => $token,
-                );
+                ];
             }
         }
         if ($token == null) {
@@ -826,7 +826,7 @@ class Client
      */
     public function setScopes($scope_or_scopes)
     {
-        $this->requestedScopes = array();
+        $this->requestedScopes = [];
         $this->addScope($scope_or_scopes);
     }
 
@@ -1142,7 +1142,7 @@ class Client
 
     protected function createDefaultCache()
     {
-        return new MemoryCacheItemPool;
+        return new MemoryCacheItemPool();
     }
 
     /**
@@ -1224,13 +1224,13 @@ class Client
 
         // create credentials using values supplied in setAuthConfig
         if ($signingKey) {
-            $serviceAccountCredentials = array(
+            $serviceAccountCredentials = [
                 'client_id' => $this->config['client_id'],
                 'client_email' => $this->config['client_email'],
                 'private_key' => $signingKey,
                 'type' => 'service_account',
                 'quota_project_id' => $this->config['quota_project'],
-            );
+            ];
             $credentials = CredentialsLoader::makeCredentials(
                 $scopes,
                 $serviceAccountCredentials
@@ -1284,13 +1284,11 @@ class Client
 
     private function createUserRefreshCredentials($scope, $refreshToken)
     {
-        $creds = array_filter(
-            array(
+        $creds = array_filter([
             'client_id' => $this->getClientId(),
             'client_secret' => $this->getClientSecret(),
             'refresh_token' => $refreshToken,
-            )
-        );
+        ]);
 
         return new UserRefreshCredentials($scope, $creds);
     }

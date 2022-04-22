@@ -18,22 +18,22 @@
 
 namespace Google\AccessToken;
 
-use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
-use Firebase\JWT\SignatureInvalidException;
-use Firebase\JWT\Key;
-use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
-use InvalidArgumentException;
-use phpseclib3\Crypt\PublicKeyLoader;
-use phpseclib3\Crypt\RSA\PublicKey;
-use Psr\Cache\CacheItemPoolInterface;
-use Google\Auth\Cache\MemoryCacheItemPool;
-use Google\Exception as GoogleException;
 use DateTime;
 use DomainException;
 use Exception;
-use ExpiredException; // Firebase v2
+use ExpiredException;
+use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
+use Firebase\JWT\Key;
+use Firebase\JWT\SignatureInvalidException;
+use Google\Auth\Cache\MemoryCacheItemPool;
+use Google\Exception as GoogleException;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+use InvalidArgumentException;
 use LogicException;
+use phpseclib3\Crypt\PublicKeyLoader;
+use phpseclib3\Crypt\RSA\PublicKey; // Firebase v2
+use Psr\Cache\CacheItemPoolInterface;
 
 /**
  * Wrapper around Google Access Tokens which provides convenience functions
@@ -74,7 +74,7 @@ class Verify
         }
 
         if (null === $cache) {
-            $cache = new MemoryCacheItemPool;
+            $cache = new MemoryCacheItemPool();
         }
 
         $this->http = $http;
@@ -123,7 +123,7 @@ class Verify
 
                 // support HTTP and HTTPS issuers
                 // @see https://developers.google.com/identity/sign-in/web/backend-auth
-                $issuers = array(self::OAUTH2_ISSUER, self::OAUTH2_ISSUER_HTTPS);
+                $issuers = [self::OAUTH2_ISSUER, self::OAUTH2_ISSUER_HTTPS];
                 if (!isset($payload->iss) || !in_array($payload->iss, $issuers)) {
                     return false;
                 }
@@ -231,7 +231,7 @@ class Verify
         }
 
         // @phpstan-ignore-next-line
-        return new $jwtClass;
+        return new $jwtClass();
     }
 
     private function getPublicKey($cert)
@@ -239,7 +239,7 @@ class Verify
         $bigIntClass = $this->getBigIntClass();
         $modulus = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['n']), 256);
         $exponent = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['e']), 256);
-        $component = array('n' => $modulus, 'e' => $exponent);
+        $component = ['n' => $modulus, 'e' => $exponent];
 
         if (class_exists('phpseclib3\Crypt\RSA\PublicKey')) {
             /** @var PublicKey $loader */

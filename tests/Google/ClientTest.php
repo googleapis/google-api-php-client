@@ -211,24 +211,24 @@ class ClientTest extends BaseTest
         $this->onlyGuzzle6Or7();
 
         $client = new Client();
-        $client->setScopes(array("scope1", "scope2"));
+        $client->setScopes(["scope1", "scope2"]);
         $scopes = $client->prepareScopes();
         $this->assertEquals("scope1 scope2", $scopes);
 
-        $client->setScopes(array("", "scope2"));
+        $client->setScopes(["", "scope2"]);
         $scopes = $client->prepareScopes();
         $this->assertEquals(" scope2", $scopes);
 
         $client->setScopes("scope2");
         $client->addScope("scope3");
-        $client->addScope(array("scope4", "scope5"));
+        $client->addScope(["scope4", "scope5"]);
         $scopes = $client->prepareScopes();
         $this->assertEquals("scope2 scope3 scope4 scope5", $scopes);
 
         $client->setClientId('test1');
         $client->setRedirectUri('http://localhost/');
         $client->setState('xyz');
-        $client->setScopes(array("http://test.com", "scope2"));
+        $client->setScopes(["http://test.com", "scope2"]);
         $scopes = $client->prepareScopes();
         $this->assertEquals("http://test.com scope2", $scopes);
         $this->assertEquals(
@@ -309,7 +309,7 @@ class ClientTest extends BaseTest
             $this->assertEquals('invalid json token', $e->getMessage());
         }
 
-        $token = array('access_token' => 'token');
+        $token = ['access_token' => 'token'];
         $client->setAccessToken($token);
         $this->assertEquals($token, $client->getAccessToken());
     }
@@ -531,10 +531,10 @@ class ClientTest extends BaseTest
     public function testRefreshTokenIsSetOnRefresh()
     {
         $refreshToken = 'REFRESH_TOKEN';
-        $token = json_encode(array(
+        $token = json_encode([
             'access_token' => 'xyz',
             'id_token' => 'ID_TOKEN',
-        ));
+        ]);
         $postBody = $this->prophesize('Psr\Http\Message\StreamInterface');
         $postBody->__toString()
             ->shouldBeCalledTimes(1)
@@ -584,11 +584,11 @@ class ClientTest extends BaseTest
     public function testRefreshTokenIsNotSetWhenNewRefreshTokenIsReturned()
     {
         $refreshToken = 'REFRESH_TOKEN';
-        $token = json_encode(array(
+        $token = json_encode([
             'access_token' => 'xyz',
             'id_token' => 'ID_TOKEN',
             'refresh_token' => 'NEW_REFRESH_TOKEN'
-        ));
+        ]);
 
         $postBody = $this->prophesize('GuzzleHttp\Psr7\Stream');
         $postBody->__toString()

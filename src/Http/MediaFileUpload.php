@@ -18,7 +18,6 @@
 namespace Google\Http;
 
 use Google\Client;
-use Google\Http\REST;
 use Google\Exception as GoogleException;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
@@ -131,11 +130,11 @@ class MediaFileUpload
         }
 
         $lastBytePos = $this->progress + strlen($chunk) - 1;
-        $headers = array(
+        $headers = [
             'content-range' => "bytes $this->progress-$lastBytePos/$this->size",
             'content-length' => (string) strlen($chunk),
             'expect' => '',
-        );
+        ];
 
         $request = new Request(
             'PUT',
@@ -198,10 +197,10 @@ class MediaFileUpload
     public function resume($resumeUri)
     {
         $this->resumeUri = $resumeUri;
-        $headers = array(
+        $headers = [
             'content-range' => "bytes */$this->size",
             'content-length' => '0',
-        );
+        ];
         $httpRequest = new Request(
             'PUT',
             $this->resumeUri,
@@ -234,10 +233,10 @@ class MediaFileUpload
         if (self::UPLOAD_RESUMABLE_TYPE == $uploadType) {
             $contentType = $mimeType;
             $postBody = is_string($meta) ? $meta : json_encode($meta);
-        } else if (self::UPLOAD_MEDIA_TYPE == $uploadType) {
+        } elseif (self::UPLOAD_MEDIA_TYPE == $uploadType) {
             $contentType = $mimeType;
             $postBody = $this->data;
-        } else if (self::UPLOAD_MULTIPART_TYPE == $uploadType) {
+        } elseif (self::UPLOAD_MULTIPART_TYPE == $uploadType) {
             // This is a multipart/related upload.
             $boundary = $this->boundary ?: mt_rand();
             $boundary = str_replace('"', '', $boundary);
@@ -296,13 +295,13 @@ class MediaFileUpload
     private function fetchResumeUri()
     {
         $body = $this->request->getBody();
-        $headers = array(
+        $headers = [
             'content-type' => 'application/json; charset=UTF-8',
             'content-length' => $body->getSize(),
             'x-upload-content-type' => $this->mimeType,
             'x-upload-content-length' => $this->size,
             'expect' => '',
-        );
+        ];
         foreach ($headers as $key => $value) {
             $this->request = $this->request->withHeader($key, $value);
         }

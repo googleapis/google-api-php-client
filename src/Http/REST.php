@@ -18,9 +18,8 @@
 namespace Google\Http;
 
 use Google\Auth\HttpHandler\HttpHandlerFactory;
-use Google\Client;
-use Google\Task\Runner;
 use Google\Service\Exception as GoogleServiceException;
+use Google\Task\Runner;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
@@ -49,14 +48,14 @@ class REST
         ClientInterface $client,
         RequestInterface $request,
         $expectedClass = null,
-        $config = array(),
+        $config = [],
         $retryMap = null
     ) {
         $runner = new Runner(
             $config,
             sprintf('%s %s', $request->getMethod(), (string) $request->getUri()),
-            array(get_class(), 'doExecute'),
-            array($client, $request, $expectedClass)
+            [get_class(), 'doExecute'],
+            [$client, $request, $expectedClass]
         );
 
         if (null !== $retryMap) {

@@ -35,9 +35,9 @@ class Model implements \ArrayAccess
      * instead - it will be replaced when converting to JSON with a real null.
      */
     const NULL_VALUE = "{}gapi-php-null";
-    protected $internal_gapi_mappings = array();
-    protected $modelData = array();
-    protected $processed = array();
+    protected $internal_gapi_mappings = [];
+    protected $modelData = [];
+    protected $processed = [];
 
     /**
      * Polymorphic - accepts a variable number of arguments dependent
@@ -66,7 +66,7 @@ class Model implements \ArrayAccess
             if (isset($this->modelData[$key])) {
                 $val = $this->modelData[$key];
             } elseif ($keyDataType == 'array' || $keyDataType == 'map') {
-                $val = array();
+                $val = [];
             } else {
                 $val = null;
             }
@@ -80,8 +80,8 @@ class Model implements \ArrayAccess
                 } else {
                     $this->modelData[$key] = new $keyType($val);
                 }
-            } else if (is_array($val)) {
-                $arrayObject = array();
+            } elseif (is_array($val)) {
+                $arrayObject = [];
                 foreach ($val as $arrayIndex => $arrayItem) {
                     $arrayObject[$arrayIndex] = new $keyType($arrayItem);
                 }
@@ -106,7 +106,7 @@ class Model implements \ArrayAccess
             if ($keyType = $this->keyType($key)) {
                 $dataType = $this->dataType($key);
                 if ($dataType == 'array' || $dataType == 'map') {
-                    $this->$key = array();
+                    $this->$key = [];
                     foreach ($val as $itemKey => $itemVal) {
                         if ($itemVal instanceof $keyType) {
                             $this->{$key}[$itemKey] = $itemVal;
@@ -183,8 +183,8 @@ class Model implements \ArrayAccess
     {
         if ($value instanceof Model) {
             return $value->toSimpleObject();
-        } else if (is_array($value)) {
-            $return = array();
+        } elseif (is_array($value)) {
+            $return = [];
             foreach ($value as $key => $a_value) {
                 $a_value = $this->getSimpleValue($a_value);
                 if ($a_value !== null) {
@@ -324,7 +324,7 @@ class Model implements \ArrayAccess
    */
     private function camelCase($value)
     {
-        $value = ucwords(str_replace(array('-', '_'), ' ', $value));
+        $value = ucwords(str_replace(['-', '_'], ' ', $value));
         $value = str_replace(' ', '', $value);
         $value[0] = strtolower($value[0]);
         return $value;

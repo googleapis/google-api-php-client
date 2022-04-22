@@ -17,9 +17,9 @@
 
 namespace Google\Service;
 
-use Google\Model;
-use Google\Http\MediaFileUpload;
 use Google\Exception as GoogleException;
+use Google\Http\MediaFileUpload;
+use Google\Model;
 use Google\Utils\UriTemplate;
 use GuzzleHttp\Psr7\Request;
 
@@ -32,18 +32,18 @@ use GuzzleHttp\Psr7\Request;
 class Resource
 {
     // Valid query parameters that work, but don't appear in discovery.
-    private $stackParameters = array(
-        'alt' => array('type' => 'string', 'location' => 'query'),
-        'fields' => array('type' => 'string', 'location' => 'query'),
-        'trace' => array('type' => 'string', 'location' => 'query'),
-        'userIp' => array('type' => 'string', 'location' => 'query'),
-        'quotaUser' => array('type' => 'string', 'location' => 'query'),
-        'data' => array('type' => 'string', 'location' => 'body'),
-        'mimeType' => array('type' => 'string', 'location' => 'header'),
-        'uploadType' => array('type' => 'string', 'location' => 'query'),
-        'mediaUpload' => array('type' => 'complex', 'location' => 'query'),
-        'prettyPrint' => array('type' => 'string', 'location' => 'query'),
-    );
+    private $stackParameters = [
+        'alt' => ['type' => 'string', 'location' => 'query'],
+        'fields' => ['type' => 'string', 'location' => 'query'],
+        'trace' => ['type' => 'string', 'location' => 'query'],
+        'userIp' => ['type' => 'string', 'location' => 'query'],
+        'quotaUser' => ['type' => 'string', 'location' => 'query'],
+        'data' => ['type' => 'string', 'location' => 'body'],
+        'mimeType' => ['type' => 'string', 'location' => 'header'],
+        'uploadType' => ['type' => 'string', 'location' => 'query'],
+        'mediaUpload' => ['type' => 'complex', 'location' => 'query'],
+        'prettyPrint' => ['type' => 'string', 'location' => 'query'],
+    ];
 
     /** @var string $rootUrl */
     private $rootUrl;
@@ -72,7 +72,7 @@ class Resource
         $this->resourceName = $resourceName;
         $this->methods = is_array($resource) && isset($resource['methods']) ?
         $resource['methods'] :
-        array($resourceName => $resource);
+        [$resourceName => $resource];
     }
 
     /**
@@ -90,11 +90,11 @@ class Resource
         if (! isset($this->methods[$name])) {
             $this->client->getLogger()->error(
                 'Service method unknown',
-                array(
+                [
                     'service' => $this->serviceName,
                     'resource' => $this->resourceName,
                     'method' => $name
-                )
+                ]
             );
 
             throw new GoogleException(
@@ -114,7 +114,7 @@ class Resource
                 // to use the smart method to create a simple object for
                 // for JSONification.
                 $parameters['postBody'] = $parameters['postBody']->toSimpleObject();
-            } else if (is_object($parameters['postBody'])) {
+            } elseif (is_object($parameters['postBody'])) {
                 // If the post body is another kind of object, we will try and
                 // wrangle it into a sensible format.
                 $parameters['postBody'] =
@@ -133,7 +133,7 @@ class Resource
         }
 
         if (!isset($method['parameters'])) {
-            $method['parameters'] = array();
+            $method['parameters'] = [];
         }
 
         $method['parameters'] = array_merge(
@@ -145,12 +145,12 @@ class Resource
             if ($key != 'postBody' && !isset($method['parameters'][$key])) {
                 $this->client->getLogger()->error(
                     'Service parameter unknown',
-                    array(
+                    [
                         'service' => $this->serviceName,
                         'resource' => $this->resourceName,
                         'method' => $name,
                         'parameter' => $key
-                    )
+                    ]
                 );
                 throw new GoogleException("($name) unknown parameter: '$key'");
             }
@@ -164,12 +164,12 @@ class Resource
             ) {
                 $this->client->getLogger()->error(
                     'Service parameter missing',
-                    array(
+                    [
                         'service' => $this->serviceName,
                         'resource' => $this->resourceName,
                         'method' => $name,
                         'parameter' => $paramName
-                    )
+                    ]
                 );
                 throw new GoogleException("($name) missing required param: '$paramName'");
             }
@@ -186,12 +186,12 @@ class Resource
 
         $this->client->getLogger()->info(
             'Service Call',
-            array(
+            [
                 'service' => $this->serviceName,
                 'resource' => $this->resourceName,
                 'method' => $name,
                 'arguments' => $parameters,
-            )
+            ]
         );
 
         // build the service uri
@@ -275,15 +275,15 @@ class Resource
             }
             $requestUrl = $this->rootUrl . $requestUrl;
         }
-        $uriTemplateVars = array();
-        $queryVars = array();
+        $uriTemplateVars = [];
+        $queryVars = [];
         foreach ($params as $paramName => $paramSpec) {
             if ($paramSpec['type'] == 'boolean') {
                 $paramSpec['value'] = $paramSpec['value'] ? 'true' : 'false';
             }
             if ($paramSpec['location'] == 'path') {
                 $uriTemplateVars[$paramName] = $paramSpec['value'];
-            } else if ($paramSpec['location'] == 'query') {
+            } elseif ($paramSpec['location'] == 'query') {
                 if (is_array($paramSpec['value'])) {
                     foreach ($paramSpec['value'] as $value) {
                         $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($value));

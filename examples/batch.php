@@ -63,7 +63,7 @@ $client->setUseBatch(true);
 $batch = $service->createBatch();
 
 $query = 'Henry David Thoreau';
-$optParams = array('filter' => 'free-ebooks');
+$optParams = ['filter' => 'free-ebooks'];
 $req1 = $service->volumes->listVolumes($query, $optParams);
 $batch->add($req1, "thoreau");
 $query = 'George Bernard Shaw';

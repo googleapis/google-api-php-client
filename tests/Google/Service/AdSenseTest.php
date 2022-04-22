@@ -458,12 +458,12 @@ class AdSenseTest extends BaseTest
 
     private function getReportOptParams()
     {
-        return array(
-            'metric' => array('PAGE_VIEWS', 'AD_REQUESTS'),
-            'dimension' => array ('DATE', 'AD_CLIENT_ID'),
-            'sort' => array('DATE'),
-            'filter' => array('COUNTRY_NAME==United States'),
-        );
+        return [
+            'metric' => ['PAGE_VIEWS', 'AD_REQUESTS'],
+            'dimension' =>  ['DATE', 'AD_CLIENT_ID'],
+            'sort' => ['DATE'],
+            'filter' => ['COUNTRY_NAME==United States'],
+        ];
     }
 
     private function checkReport($report)

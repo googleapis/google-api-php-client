@@ -38,7 +38,7 @@ class RunnerTest extends BaseTest
 
     private $mockedCallsCount = 0;
     private $currentMockedCall = 0;
-    private $mockedCalls = array();
+    private $mockedCalls = [];
     private $retryMap;
     private $retryConfig;
 
@@ -62,7 +62,7 @@ class RunnerTest extends BaseTest
     public function testOneRestRetryWithError($errorCode, $errorBody = '{}')
     {
         $this->expectException(ServiceException::class);
-        $this->setRetryConfig(array('retries' => 1));
+        $this->setRetryConfig(['retries' => 1]);
         $this->setNextResponses(2, $errorCode, $errorBody)->makeRequest();
     }
 
@@ -75,7 +75,7 @@ class RunnerTest extends BaseTest
     ) {
         $this->expectException(ServiceException::class);
 
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $this->setNextResponses(6, $errorCode, $errorBody)->makeRequest();
     }
 
@@ -84,7 +84,7 @@ class RunnerTest extends BaseTest
    */
     public function testOneRestRetryWithSuccess($errorCode, $errorBody = '{}')
     {
-        $this->setRetryConfig(array('retries' => 1));
+        $this->setRetryConfig(['retries' => 1]);
         $result = $this->setNextResponse($errorCode, $errorBody)
                    ->setNextResponse(200, '{"success": true}')
                    ->makeRequest();
@@ -99,7 +99,7 @@ class RunnerTest extends BaseTest
         $errorCode,
         $errorBody = '{}'
     ) {
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $result = $this->setNextResponses(2, $errorCode, $errorBody)
                    ->setNextResponse(200, '{"success": true}')
                    ->makeRequest();
@@ -116,19 +116,19 @@ class RunnerTest extends BaseTest
     ) {
         $this->expectException(ServiceException::class);
 
-        $this->setRetryMap(array());
+        $this->setRetryMap([]);
 
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $this->setNextResponse($errorCode, $errorBody)->makeRequest();
     }
 
     public function testCustomRestRetryMapAddsNewHandlers()
     {
         $this->setRetryMap(
-            array('403' => Runner::TASK_RETRY_ALWAYS)
+            ['403' => Runner::TASK_RETRY_ALWAYS]
         );
 
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $result = $this->setNextResponses(2, 403)
                    ->setNextResponse(200, '{"success": true}')
                    ->makeRequest();
@@ -144,10 +144,10 @@ class RunnerTest extends BaseTest
         $this->expectException(ServiceException::class);
 
         $this->setRetryMap(
-            array('403' => $limit)
+            ['403' => $limit]
         );
 
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $this->setNextResponses($limit + 1, 403)->makeRequest();
     }
 
@@ -162,7 +162,7 @@ class RunnerTest extends BaseTest
 
         $this->assertTaskTimeGreaterThanOrEqual(
             $minTime,
-            array($this, 'makeRequest'),
+            [$this, 'makeRequest'],
             $config['initial_delay'] / 10
         );
     }
@@ -186,7 +186,7 @@ class RunnerTest extends BaseTest
     {
         $this->expectException(ServiceException::class);
 
-        $this->setRetryConfig(array('retries' => 1));
+        $this->setRetryConfig(['retries' => 1]);
         $this->setNextResponsesThrow(2, $errorMessage, $errorCode)->makeRequest();
     }
 
@@ -200,7 +200,7 @@ class RunnerTest extends BaseTest
     ) {
         $this->expectException(ServiceException::class);
 
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $this->setNextResponsesThrow(6, $errorMessage, $errorCode)->makeRequest();
     }
 
@@ -210,7 +210,7 @@ class RunnerTest extends BaseTest
    */
     public function testOneCurlRetryWithSuccess($errorCode, $errorMessage = '')
     {
-        $this->setRetryConfig(array('retries' => 1));
+        $this->setRetryConfig(['retries' => 1]);
         $result = $this->setNextResponseThrows($errorMessage, $errorCode)
                    ->setNextResponse(200, '{"success": true}')
                    ->makeRequest();
@@ -226,7 +226,7 @@ class RunnerTest extends BaseTest
         $errorCode,
         $errorMessage = ''
     ) {
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $result = $this->setNextResponsesThrow(2, $errorMessage, $errorCode)
                    ->setNextResponse(200, '{"success": true}')
                    ->makeRequest();
@@ -244,9 +244,9 @@ class RunnerTest extends BaseTest
     ) {
         $this->expectException(ServiceException::class);
 
-        $this->setRetryMap(array());
+        $this->setRetryMap([]);
 
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $this->setNextResponseThrows($errorMessage, $errorCode)->makeRequest();
     }
 
@@ -256,10 +256,10 @@ class RunnerTest extends BaseTest
     public function testCustomCurlRetryMapAddsNewHandlers()
     {
         $this->setRetryMap(
-            array(CURLE_COULDNT_RESOLVE_PROXY => Runner::TASK_RETRY_ALWAYS)
+            [CURLE_COULDNT_RESOLVE_PROXY => Runner::TASK_RETRY_ALWAYS]
         );
 
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $result = $this->setNextResponsesThrow(2, '', CURLE_COULDNT_RESOLVE_PROXY)
                    ->setNextResponse(200, '{"success": true}')
                    ->makeRequest();
@@ -276,10 +276,10 @@ class RunnerTest extends BaseTest
         $this->expectException(ServiceException::class);
 
         $this->setRetryMap(
-            array(CURLE_COULDNT_RESOLVE_PROXY => $limit)
+            [CURLE_COULDNT_RESOLVE_PROXY => $limit]
         );
 
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $this->setNextResponsesThrow($limit + 1, '', CURLE_COULDNT_RESOLVE_PROXY)
          ->makeRequest();
     }
@@ -296,7 +296,7 @@ class RunnerTest extends BaseTest
 
         $this->assertTaskTimeGreaterThanOrEqual(
             $minTime,
-            array($this, 'makeRequest'),
+            [$this, 'makeRequest'],
             $config['initial_delay'] / 10
         );
     }
@@ -313,7 +313,7 @@ class RunnerTest extends BaseTest
         new Runner(
             $this->retryConfig,
             '',
-            array($this, 'testBadTaskConfig')
+            [$this, 'testBadTaskConfig']
         );
     }
 
@@ -339,7 +339,7 @@ class RunnerTest extends BaseTest
     {
         $this->expectException(ServiceException::class);
 
-        $this->setRetryConfig(array('retries' => 1));
+        $this->setRetryConfig(['retries' => 1]);
         $this->setNextTasksAllowedRetries(2, Runner::TASK_RETRY_ALWAYS)
          ->runTask();
     }
@@ -348,14 +348,14 @@ class RunnerTest extends BaseTest
     {
         $this->expectException(ServiceException::class);
 
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $this->setNextTasksAllowedRetries(6, Runner::TASK_RETRY_ALWAYS)
          ->runTask();
     }
 
     public function testOneTaskRetryWithSuccess()
     {
-        $this->setRetryConfig(array('retries' => 1));
+        $this->setRetryConfig(['retries' => 1]);
         $result = $this->setNextTaskAllowedRetries(Runner::TASK_RETRY_ALWAYS)
                    ->setNextTaskReturnValue('success')
                    ->runTask();
@@ -365,7 +365,7 @@ class RunnerTest extends BaseTest
 
     public function testMultipleTaskRetriesWithSuccess()
     {
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $result = $this->setNextTasksAllowedRetries(2, Runner::TASK_RETRY_ALWAYS)
                    ->setNextTaskReturnValue('success')
                    ->runTask();
@@ -380,7 +380,7 @@ class RunnerTest extends BaseTest
     {
         $this->expectException(ServiceException::class);
 
-        $this->setRetryConfig(array('retries' => 5));
+        $this->setRetryConfig(['retries' => 5]);
         $this->setNextTasksAllowedRetries($limit + 1, $limit)
          ->runTask();
     }
@@ -396,20 +396,20 @@ class RunnerTest extends BaseTest
 
         $this->assertTaskTimeGreaterThanOrEqual(
             $minTime,
-            array($this, 'runTask'),
+            [$this, 'runTask'],
             $config['initial_delay'] / 10
         );
     }
 
     public function testTaskWithManualRetries()
     {
-        $this->setRetryConfig(array('retries' => 2));
+        $this->setRetryConfig(['retries' => 2]);
         $this->setNextTasksAllowedRetries(2, Runner::TASK_RETRY_ALWAYS);
 
         $task = new Runner(
             $this->retryConfig,
             '',
-            array($this, 'runNextTask')
+            [$this, 'runNextTask']
         );
 
         $this->assertTrue($task->canAttempt());
@@ -432,15 +432,15 @@ class RunnerTest extends BaseTest
    */
     public function timeoutProvider()
     {
-        $config = array('initial_delay' => .001, 'max_delay' => .01);
+        $config = ['initial_delay' => .001, 'max_delay' => .01];
 
-        return array(
-        array(array_merge($config, array('retries' => 1)), .001),
-        array(array_merge($config, array('retries' => 2)), .0015),
-        array(array_merge($config, array('retries' => 3)), .00225),
-        array(array_merge($config, array('retries' => 4)), .00375),
-        array(array_merge($config, array('retries' => 5)), .005625)
-        );
+        return [
+            [array_merge($config, ['retries' => 1]), .001],
+            [array_merge($config, ['retries' => 2]), .0015],
+            [array_merge($config, ['retries' => 3]), .00225],
+            [array_merge($config, ['retries' => 4]), .00375],
+            [array_merge($config, ['retries' => 5]), .005625]
+        ];
     }
 
     /**
@@ -450,10 +450,10 @@ class RunnerTest extends BaseTest
    */
     public function customLimitsProvider()
     {
-        return array(
-        array(Runner::TASK_RETRY_NEVER),
-        array(Runner::TASK_RETRY_ONCE),
-        );
+        return [
+            [Runner::TASK_RETRY_NEVER],
+            [Runner::TASK_RETRY_ONCE],
+        ];
     }
 
     /**
@@ -463,13 +463,13 @@ class RunnerTest extends BaseTest
    */
     public function badTaskConfigProvider()
     {
-        return array(
-        array(array('initial_delay' => -1), 'must not be negative'),
-        array(array('max_delay' => 0), 'must be greater than 0'),
-        array(array('factor' => 0), 'must be greater than 0'),
-        array(array('jitter' => 0), 'must be greater than 0'),
-        array(array('retries' => -1), 'must not be negative')
-        );
+        return [
+            [['initial_delay' => -1], 'must not be negative'],
+            [['max_delay' => 0], 'must be greater than 0'],
+            [['factor' => 0], 'must be greater than 0'],
+            [['jitter' => 0], 'must be greater than 0'],
+            [['retries' => -1], 'must not be negative']
+        ];
     }
 
     /**
@@ -479,12 +479,12 @@ class RunnerTest extends BaseTest
    */
     public function defaultRestErrorProvider()
     {
-        return array(
-        array(500),
-        array(503),
-        array(403, '{"error":{"errors":[{"reason":"rateLimitExceeded"}]}}'),
-        array(403, '{"error":{"errors":[{"reason":"userRateLimitExceeded"}]}}'),
-        );
+        return [
+            [500],
+            [503],
+            [403, '{"error":{"errors":[{"reason":"rateLimitExceeded"}]}}'],
+            [403, '{"error":{"errors":[{"reason":"userRateLimitExceeded"}]}}'],
+        ];
     }
 
     /**
@@ -494,13 +494,13 @@ class RunnerTest extends BaseTest
    */
     public function defaultCurlErrorProvider()
     {
-        return array(
-        array(6),  // CURLE_COULDNT_RESOLVE_HOST
-        array(7),  // CURLE_COULDNT_CONNECT
-        array(28), // CURLE_OPERATION_TIMEOUTED
-        array(35), // CURLE_SSL_CONNECT_ERROR
-        array(52), // CURLE_GOT_NOTHING
-        );
+        return [
+            [6],  // CURLE_COULDNT_RESOLVE_HOST
+            [7],  // CURLE_COULDNT_CONNECT
+            [28], // CURLE_OPERATION_TIMEOUTED
+            [35], // CURLE_SSL_CONNECT_ERROR
+            [52], // CURLE_GOT_NOTHING
+        ];
     }
 
     /**
@@ -539,13 +539,13 @@ class RunnerTest extends BaseTest
    */
     private function setRetryConfig(array $config)
     {
-        $config += array(
-        'initial_delay' => .0001,
-        'max_delay' => .001,
-        'factor' => 2,
-        'jitter' => .5,
-        'retries' => 1
-        );
+        $config += [
+            'initial_delay' => .0001,
+            'max_delay' => .001,
+            'factor' => 2,
+            'jitter' => .5,
+            'retries' => 1
+        ];
         $this->retryConfig = $config;
     }
 
@@ -568,7 +568,7 @@ class RunnerTest extends BaseTest
         $count,
         $code = '200',
         $body = '{}',
-        array $headers = array()
+        array $headers = []
     ) {
         while ($count-- > 0) {
             $this->setNextResponse($code, $body, $headers);
@@ -589,13 +589,13 @@ class RunnerTest extends BaseTest
     private function setNextResponse(
         $code = '200',
         $body = '{}',
-        array $headers = array()
+        array $headers = []
     ) {
-        $this->mockedCalls[$this->mockedCallsCount++] = array(
-        'code' => (string) $code,
-        'headers' => $headers,
-        'body' => is_string($body) ? $body : json_encode($body)
-        );
+        $this->mockedCalls[$this->mockedCallsCount++] = [
+            'code' => (string) $code,
+            'headers' => $headers,
+            'body' => is_string($body) ? $body : json_encode($body)
+        ];
 
         return $this;
     }
@@ -632,7 +632,7 @@ class RunnerTest extends BaseTest
             $message,
             $code,
             null,
-            array()
+            []
         );
 
         return $this;
@@ -744,7 +744,7 @@ class RunnerTest extends BaseTest
         $task = new Runner(
             $this->retryConfig,
             '',
-            array($this, 'runNextTask')
+            [$this, 'runNextTask']
         );
 
         if (null !== $this->retryMap) {
@@ -754,7 +754,7 @@ class RunnerTest extends BaseTest
         $exception = $this->prophesize(ServiceException::class);
 
         $exceptionCount = 0;
-        $exceptionCalls = array();
+        $exceptionCalls = [];
 
         for ($i = 0; $i < $this->mockedCallsCount; $i++) {
             if (is_int($this->mockedCalls[$i])) {

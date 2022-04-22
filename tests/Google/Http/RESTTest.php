@@ -45,8 +45,8 @@ class RESTTest extends BaseTest
         $decoded = $this->rest->decodeHttpResponse($response, $this->request);
         $this->assertEquals($response, $decoded);
 
-        foreach (array(200, 201) as $code) {
-            $headers = array('foo', 'bar');
+        foreach ([200, 201] as $code) {
+            $headers = ['foo', 'bar'];
             $stream = Psr7\Utils::streamFor('{"a": 1}');
             $response = new Response($code, $headers, $stream);
 
@@ -60,7 +60,7 @@ class RESTTest extends BaseTest
         $client = $this->getClient();
 
         $request =  new Request('GET', 'http://www.example.com?alt=media');
-        $headers = array();
+        $headers = [];
         $stream = Psr7\Utils::streamFor('thisisnotvalidjson');
         $response = new Response(200, $headers, $stream);
 
@@ -88,7 +88,7 @@ class RESTTest extends BaseTest
     public function testDecodeEmptyResponse()
     {
         $stream = Psr7\Utils::streamFor('{}');
-        $response = new Response(200, array(), $stream);
+        $response = new Response(200, [], $stream);
         $decoded = $this->rest->decodeHttpResponse($response, $this->request);
         $this->assertEquals('{}', (string) $decoded->getBody());
     }
@@ -104,7 +104,7 @@ class RESTTest extends BaseTest
                 }
             }'
         );
-        $response = new Response(500, array(), $stream);
+        $response = new Response(500, [], $stream);
         $this->rest->decodeHttpResponse($response, $this->request);
     }
 
@@ -128,7 +128,7 @@ class RESTTest extends BaseTest
                 }
             }'
         );
-        $response = new Response(401, array(), $stream);
+        $response = new Response(401, [], $stream);
         $this->rest->decodeHttpResponse($response, $this->request);
     }
 
@@ -136,7 +136,7 @@ class RESTTest extends BaseTest
     {
         $this->expectException(ServiceException::class);
         $stream = Psr7\Utils::streamFor('Not Found');
-        $response = new Response(404, array(), $stream);
+        $response = new Response(404, [], $stream);
         $this->rest->decodeHttpResponse($response, $this->request);
     }
 }

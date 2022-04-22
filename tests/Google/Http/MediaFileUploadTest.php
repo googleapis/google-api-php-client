@@ -60,7 +60,7 @@ class MediaFileUploadTest extends BaseTest
 
         // Test multipart uploads
         $media = new MediaFileUpload($client, $request, 'image/png', 'a', false);
-        $this->assertEquals('multipart', $media->getUploadType(array('a' => 'b')));
+        $this->assertEquals('multipart', $media->getUploadType(['a' => 'b']));
     }
 
     public function testProcess()

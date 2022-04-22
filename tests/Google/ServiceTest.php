@@ -94,38 +94,34 @@ class ServiceTest extends TestCase
     {
         $model = new TestModel();
 
-        $model->mapTypes(
-            array(
+        $model->mapTypes([
             'name' => 'asdf',
             'gender' => 'z',
-            )
-        );
+        ]);
         $this->assertEquals('asdf', $model->name);
         $this->assertEquals('z', $model->gender);
-        $model->mapTypes(
-            array(
-                '__infoType' => 'Google_Model',
-                '__infoDataType' => 'map',
-                'info' => array (
-                    'location' => 'mars',
-                    'timezone' => 'mst',
-                ),
-                'name' => 'asdf',
-                'gender' => 'z',
-            )
-        );
+        $model->mapTypes([
+            '__infoType' => 'Google_Model',
+            '__infoDataType' => 'map',
+            'info' =>  [
+                'location' => 'mars',
+                'timezone' => 'mst',
+            ],
+            'name' => 'asdf',
+            'gender' => 'z',
+        ]);
         $this->assertEquals('asdf', $model->name);
         $this->assertEquals('z', $model->gender);
 
         $this->assertFalse($model->isAssociativeArray(""));
         $this->assertFalse($model->isAssociativeArray(false));
         $this->assertFalse($model->isAssociativeArray(null));
-        $this->assertFalse($model->isAssociativeArray(array()));
-        $this->assertFalse($model->isAssociativeArray(array(1, 2)));
-        $this->assertFalse($model->isAssociativeArray(array(1 => 2)));
+        $this->assertFalse($model->isAssociativeArray([]));
+        $this->assertFalse($model->isAssociativeArray([1, 2]));
+        $this->assertFalse($model->isAssociativeArray([1 => 2]));
 
-        $this->assertTrue($model->isAssociativeArray(array('test' => 'a')));
-        $this->assertTrue($model->isAssociativeArray(array("a", "b" => 2)));
+        $this->assertTrue($model->isAssociativeArray(['test' => 'a']));
+        $this->assertTrue($model->isAssociativeArray(["a", "b" => 2]));
     }
 
     public function testConfigConstructor()
