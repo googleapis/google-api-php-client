@@ -447,10 +447,10 @@ class Client
                     $token['refresh_token']
                 );
                 return $authHandler->attachCredentials(
-                        $http,
-                        $credentials,
-                        $this->config['token_callback']
-                    );
+                    $http,
+                    $credentials,
+                    $this->config['token_callback']
+                );
             }
 
             return $authHandler->attachToken($http, $token, (array) $scopes);
