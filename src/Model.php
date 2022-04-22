@@ -80,7 +80,7 @@ class Model implements \ArrayAccess
                 } else {
                     $this->modelData[$key] = new $keyType($val);
                 }
-            } else if (is_array($val)) {
+            } elseif (is_array($val)) {
                 $arrayObject = [];
                 foreach ($val as $arrayIndex => $arrayItem) {
                     $arrayObject[$arrayIndex] = new $keyType($arrayItem);
@@ -183,7 +183,7 @@ class Model implements \ArrayAccess
     {
         if ($value instanceof Model) {
             return $value->toSimpleObject();
-        } else if (is_array($value)) {
+        } elseif (is_array($value)) {
             $return = [];
             foreach ($value as $key => $a_value) {
                 $a_value = $this->getSimpleValue($a_value);

@@ -17,9 +17,8 @@
 
 namespace Google\AuthHandler;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
 use Exception;
+use GuzzleHttp\ClientInterface;
 
 class AuthHandlerFactory
 {

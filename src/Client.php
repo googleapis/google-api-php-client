@@ -17,32 +17,32 @@
 
 namespace Google;
 
+use BadMethodCallException;
+use DomainException;
 use Google\AccessToken\Revoke;
 use Google\AccessToken\Verify;
 use Google\Auth\ApplicationDefaultCredentials;
 use Google\Auth\Cache\MemoryCacheItemPool;
+use Google\Auth\Credentials\ServiceAccountCredentials;
+use Google\Auth\Credentials\UserRefreshCredentials;
 use Google\Auth\CredentialsLoader;
 use Google\Auth\FetchAuthTokenCache;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\OAuth2;
-use Google\Auth\Credentials\ServiceAccountCredentials;
-use Google\Auth\Credentials\UserRefreshCredentials;
 use Google\AuthHandler\AuthHandlerFactory;
 use Google\Http\REST;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Ring\Client\StreamHandler;
+use InvalidArgumentException;
+use LogicException;
+use Monolog\Handler\StreamHandler as MonologStreamHandler;
+use Monolog\Handler\SyslogHandler as MonologSyslogHandler;
+use Monolog\Logger;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler as MonologStreamHandler;
-use Monolog\Handler\SyslogHandler as MonologSyslogHandler;
-use BadMethodCallException;
-use DomainException;
-use InvalidArgumentException;
-use LogicException;
 use UnexpectedValueException;
 
 /**
@@ -185,7 +185,7 @@ class Client
             } else {
                 $this->setAuthConfig($this->config['credentials']);
             }
-                unset($this->config['credentials']);
+            unset($this->config['credentials']);
         }
 
         if (!is_null($this->config['scopes'])) {
@@ -446,7 +446,7 @@ class Client
                     $scopes,
                     $token['refresh_token']
                 );
-                    return $authHandler->attachCredentials(
+                return $authHandler->attachCredentials(
                         $http,
                         $credentials,
                         $this->config['token_callback']
@@ -1142,7 +1142,7 @@ class Client
 
     protected function createDefaultCache()
     {
-        return new MemoryCacheItemPool;
+        return new MemoryCacheItemPool();
     }
 
     /**

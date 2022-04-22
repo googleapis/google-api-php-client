@@ -3,8 +3,8 @@
 namespace Google\AuthHandler;
 
 use Google\Auth\CredentialsLoader;
-use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\FetchAuthTokenCache;
+use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\Subscriber\AuthTokenSubscriber;
 use Google\Auth\Subscriber\ScopedAccessTokenSubscriber;
 use Google\Auth\Subscriber\SimpleSubscriber;

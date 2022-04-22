@@ -18,7 +18,6 @@
 namespace Google\Http;
 
 use Google\Client;
-use Google\Http\REST;
 use Google\Service\Exception as GoogleServiceException;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
@@ -115,7 +114,7 @@ EOF;
                 $key,
                 $firstLine,
                 $headers,
-                $content ? "\n".$content : ''
+                $content ? "\n" . $content : ''
             );
 
             $classes['response-' . $key] = $request->getHeaderLine('X-Php-Expected-Class');

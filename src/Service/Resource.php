@@ -17,9 +17,9 @@
 
 namespace Google\Service;
 
-use Google\Model;
-use Google\Http\MediaFileUpload;
 use Google\Exception as GoogleException;
+use Google\Http\MediaFileUpload;
+use Google\Model;
 use Google\Utils\UriTemplate;
 use GuzzleHttp\Psr7\Request;
 
@@ -114,7 +114,7 @@ class Resource
                 // to use the smart method to create a simple object for
                 // for JSONification.
                 $parameters['postBody'] = $parameters['postBody']->toSimpleObject();
-            } else if (is_object($parameters['postBody'])) {
+            } elseif (is_object($parameters['postBody'])) {
                 // If the post body is another kind of object, we will try and
                 // wrangle it into a sensible format.
                 $parameters['postBody'] =
@@ -283,7 +283,7 @@ class Resource
             }
             if ($paramSpec['location'] == 'path') {
                 $uriTemplateVars[$paramName] = $paramSpec['value'];
-            } else if ($paramSpec['location'] == 'query') {
+            } elseif ($paramSpec['location'] == 'query') {
                 if (is_array($paramSpec['value'])) {
                     foreach ($paramSpec['value'] as $value) {
                         $queryVars[] = $paramName . '=' . rawurlencode(rawurldecode($value));

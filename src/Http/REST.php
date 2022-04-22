@@ -18,9 +18,8 @@
 namespace Google\Http;
 
 use Google\Auth\HttpHandler\HttpHandlerFactory;
-use Google\Client;
-use Google\Task\Runner;
 use Google\Service\Exception as GoogleServiceException;
+use Google\Task\Runner;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;

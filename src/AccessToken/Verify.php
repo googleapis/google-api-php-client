@@ -18,22 +18,22 @@
 
 namespace Google\AccessToken;
 
-use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
-use Firebase\JWT\SignatureInvalidException;
-use Firebase\JWT\Key;
-use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
-use InvalidArgumentException;
-use phpseclib3\Crypt\PublicKeyLoader;
-use phpseclib3\Crypt\RSA\PublicKey;
-use Psr\Cache\CacheItemPoolInterface;
-use Google\Auth\Cache\MemoryCacheItemPool;
-use Google\Exception as GoogleException;
 use DateTime;
 use DomainException;
 use Exception;
-use ExpiredException; // Firebase v2
+use ExpiredException;
+use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
+use Firebase\JWT\Key;
+use Firebase\JWT\SignatureInvalidException;
+use Google\Auth\Cache\MemoryCacheItemPool;
+use Google\Exception as GoogleException;
+use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
+use InvalidArgumentException;
 use LogicException;
+use phpseclib3\Crypt\PublicKeyLoader;
+use phpseclib3\Crypt\RSA\PublicKey; // Firebase v2
+use Psr\Cache\CacheItemPoolInterface;
 
 /**
  * Wrapper around Google Access Tokens which provides convenience functions
@@ -74,7 +74,7 @@ class Verify
         }
 
         if (null === $cache) {
-            $cache = new MemoryCacheItemPool;
+            $cache = new MemoryCacheItemPool();
         }
 
         $this->http = $http;
@@ -231,7 +231,7 @@ class Verify
         }
 
         // @phpstan-ignore-next-line
-        return new $jwtClass;
+        return new $jwtClass();
     }
 
     private function getPublicKey($cert)

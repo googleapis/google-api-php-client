@@ -50,7 +50,7 @@ class UriTemplate
      */
     private $reserved = [
         "=", ",", "!", "@", "|", ":", "/", "?", "#",
-        "[", "]",'$', "&", "'", "(", ")", "*", "+", ";"
+        "[", "]", '$', "&", "'", "(", ")", "*", "+", ";"
     ];
     private $reservedEncoded = [
         "%3D", "%2C", "%21", "%40", "%7C", "%3A", "%2F", "%3F",
@@ -138,7 +138,6 @@ class UriTemplate
             if ($data || ($data !== false && $prefix_on_missing)) {
                 $data = $prefix . $data;
             }
-
         } else {
             // If no operator we replace with the defaults.
             $data = $this->replaceVars($data, $parameters);
@@ -252,7 +251,7 @@ class UriTemplate
                     }
                     break;
             }
-        } else if ($tag_empty) {
+        } elseif ($tag_empty) {
             // If we are just indicating empty values with their key name, return that.
             return $key;
         } else {
@@ -314,7 +313,7 @@ class UriTemplate
                 $combine_on_empty
             );
             if ($response === false) {
-                  continue;
+                continue;
             }
             $ret[] = $response;
         }
