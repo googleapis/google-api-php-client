@@ -48,9 +48,9 @@ $service = new Google\Service\Books($client);
   parameters.
  ************************************************/
 $query = 'Henry David Thoreau';
-$optParams = array(
+$optParams = [
     'filter' => 'free-ebooks',
-);
+];
 $results = $service->volumes->listVolumes($query, $optParams);
 
  /************************************************
@@ -58,9 +58,9 @@ $results = $service->volumes->listVolumes($query, $optParams);
  ***********************************************/
 $client->setDefer(true);
 $query = 'Henry David Thoreau';
-$optParams = array(
+$optParams = [
     'filter' => 'free-ebooks',
-);
+];
 $request = $service->volumes->listVolumes($query, $optParams);
 $resultsDeferred = $client->execute($request);
 

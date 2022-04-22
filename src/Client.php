@@ -107,7 +107,7 @@ class Client
      *
      * @param array $config
      */
-    public function __construct(array $config = array())
+    public function __construct(array $config = [])
     {
         $this->config = array_merge([
             'application_name' => '',
@@ -157,7 +157,7 @@ class Client
 
             // Task Runner retry configuration
             // @see Google\Task\Runner
-            'retry' => array(),
+            'retry' => [],
             'retry_map' => null,
 
             // Cache class implementing Psr\Cache\CacheItemPoolInterface.
@@ -508,9 +508,9 @@ class Client
                 $token = $json;
             } else {
                 // assume $token is just the token string
-                $token = array(
+                $token = [
                     'access_token' => $token,
-                );
+                ];
             }
         }
         if ($token == null) {
@@ -826,7 +826,7 @@ class Client
      */
     public function setScopes($scope_or_scopes)
     {
-        $this->requestedScopes = array();
+        $this->requestedScopes = [];
         $this->addScope($scope_or_scopes);
     }
 
@@ -1224,13 +1224,13 @@ class Client
 
         // create credentials using values supplied in setAuthConfig
         if ($signingKey) {
-            $serviceAccountCredentials = array(
+            $serviceAccountCredentials = [
                 'client_id' => $this->config['client_id'],
                 'client_email' => $this->config['client_email'],
                 'private_key' => $signingKey,
                 'type' => 'service_account',
                 'quota_project_id' => $this->config['quota_project'],
-            );
+            ];
             $credentials = CredentialsLoader::makeCredentials(
                 $scopes,
                 $serviceAccountCredentials
@@ -1284,13 +1284,11 @@ class Client
 
     private function createUserRefreshCredentials($scope, $refreshToken)
     {
-        $creds = array_filter(
-            array(
+        $creds = array_filter([
             'client_id' => $this->getClientId(),
             'client_secret' => $this->getClientSecret(),
             'refresh_token' => $refreshToken,
-            )
-        );
+        ]);
 
         return new UserRefreshCredentials($scope, $creds);
     }

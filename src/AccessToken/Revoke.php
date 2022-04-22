@@ -61,7 +61,7 @@ class Revoke
             }
         }
 
-        $body = Psr7\Utils::streamFor(http_build_query(array('token' => $token)));
+        $body = Psr7\Utils::streamFor(http_build_query(['token' => $token]));
         $request = new Request(
             'POST',
             Client::OAUTH2_REVOKE_URI,

@@ -33,11 +33,11 @@ class UriTemplateTest extends BaseTest
         $urit = new UriTemplate();
         $this->assertEquals(
             "value",
-            $urit->parse("{var}", array("var" => $var))
+            $urit->parse("{var}", ["var" => $var])
         );
         $this->assertEquals(
             "Hello%20World%21",
-            $urit->parse("{hello}", array("hello" => $hello))
+            $urit->parse("{hello}", ["hello" => $hello])
         );
     }
 
@@ -50,27 +50,27 @@ class UriTemplateTest extends BaseTest
         $urit = new UriTemplate();
         $this->assertEquals(
             "value",
-            $urit->parse("{+var}", array("var" => $var))
+            $urit->parse("{+var}", ["var" => $var])
         );
         $this->assertEquals(
             "Hello%20World!",
-            $urit->parse("{+hello}", array("hello" => $hello))
+            $urit->parse("{+hello}", ["hello" => $hello])
         );
         $this->assertEquals(
             "/foo/bar/here",
-            $urit->parse("{+path}/here", array("path" => $path))
+            $urit->parse("{+path}/here", ["path" => $path])
         );
         $this->assertEquals(
             "here?ref=/foo/bar",
-            $urit->parse("here?ref={+path}", array("path" => $path))
+            $urit->parse("here?ref={+path}", ["path" => $path])
         );
         $this->assertEquals(
             "X#value",
-            $urit->parse("X{#var}", array("var" => $var))
+            $urit->parse("X{#var}", ["var" => $var])
         );
         $this->assertEquals(
             "X#Hello%20World!",
-            $urit->parse("X{#hello}", array("hello" => $hello))
+            $urit->parse("X{#hello}", ["hello" => $hello])
         );
     }
 
@@ -86,97 +86,97 @@ class UriTemplateTest extends BaseTest
         $urit = new UriTemplate();
         $this->assertEquals(
             "map?1024,768",
-            $urit->parse("map?{x,y}", array("x" => $x, "y" => $y))
+            $urit->parse("map?{x,y}", ["x" => $x, "y" => $y])
         );
         $this->assertEquals(
             "1024,Hello%20World%21,768",
-            $urit->parse("{x,hello,y}", array("x" => $x, "y" => $y, "hello" => $hello))
+            $urit->parse("{x,hello,y}", ["x" => $x, "y" => $y, "hello" => $hello])
         );
 
         $this->assertEquals(
             "1024,Hello%20World!,768",
-            $urit->parse("{+x,hello,y}", array("x" => $x, "y" => $y, "hello" => $hello))
+            $urit->parse("{+x,hello,y}", ["x" => $x, "y" => $y, "hello" => $hello])
         );
         $this->assertEquals(
             "/foo/bar,1024/here",
-            $urit->parse("{+path,x}/here", array("x" => $x, "path" => $path))
+            $urit->parse("{+path,x}/here", ["x" => $x, "path" => $path])
         );
 
         $this->assertEquals(
             "#1024,Hello%20World!,768",
-            $urit->parse("{#x,hello,y}", array("x" => $x, "y" => $y, "hello" => $hello))
+            $urit->parse("{#x,hello,y}", ["x" => $x, "y" => $y, "hello" => $hello])
         );
         $this->assertEquals(
             "#/foo/bar,1024/here",
-            $urit->parse("{#path,x}/here", array("x" => $x, "path" => $path))
+            $urit->parse("{#path,x}/here", ["x" => $x, "path" => $path])
         );
 
         $this->assertEquals(
             "X.value",
-            $urit->parse("X{.var}", array("var" => $var))
+            $urit->parse("X{.var}", ["var" => $var])
         );
         $this->assertEquals(
             "X.1024.768",
-            $urit->parse("X{.x,y}", array("x" => $x, "y" => $y))
+            $urit->parse("X{.x,y}", ["x" => $x, "y" => $y])
         );
 
         $this->assertEquals(
             "X.value",
-            $urit->parse("X{.var}", array("var" => $var))
+            $urit->parse("X{.var}", ["var" => $var])
         );
         $this->assertEquals(
             "X.1024.768",
-            $urit->parse("X{.x,y}", array("x" => $x, "y" => $y))
+            $urit->parse("X{.x,y}", ["x" => $x, "y" => $y])
         );
 
         $this->assertEquals(
             "/value",
-            $urit->parse("{/var}", array("var" => $var))
+            $urit->parse("{/var}", ["var" => $var])
         );
         $this->assertEquals(
             "/value/1024/here",
-            $urit->parse("{/var,x}/here", array("x" => $x, "var" => $var))
+            $urit->parse("{/var,x}/here", ["x" => $x, "var" => $var])
         );
 
         $this->assertEquals(
             ";x=1024;y=768",
-            $urit->parse("{;x,y}", array("x" => $x, "y" => $y))
+            $urit->parse("{;x,y}", ["x" => $x, "y" => $y])
         );
         $this->assertEquals(
             ";x=1024;y=768;empty",
-            $urit->parse("{;x,y,empty}", array("x" => $x, "y" => $y, "empty" => $empty))
+            $urit->parse("{;x,y,empty}", ["x" => $x, "y" => $y, "empty" => $empty])
         );
 
         $this->assertEquals(
             "?x=1024&y=768",
-            $urit->parse("{?x,y}", array("x" => $x, "y" => $y))
+            $urit->parse("{?x,y}", ["x" => $x, "y" => $y])
         );
         $this->assertEquals(
             "?x=1024&y=768&empty=",
-            $urit->parse("{?x,y,empty}", array("x" => $x, "y" => $y, "empty" => $empty))
+            $urit->parse("{?x,y,empty}", ["x" => $x, "y" => $y, "empty" => $empty])
         );
 
         $this->assertEquals(
             "?fixed=yes&x=1024",
-            $urit->parse("?fixed=yes{&x}", array("x" => $x, "y" => $y))
+            $urit->parse("?fixed=yes{&x}", ["x" => $x, "y" => $y])
         );
         $this->assertEquals(
             "&x=1024&y=768&empty=",
-            $urit->parse("{&x,y,empty}", array("x" => $x, "y" => $y, "empty" => $empty))
+            $urit->parse("{&x,y,empty}", ["x" => $x, "y" => $y, "empty" => $empty])
         );
     }
 
     public function testLevelFour()
     {
-        $values = array(
+        $values = [
             'var'   => "value",
             'hello' => "Hello World!",
             'path'  => "/foo/bar",
-            'list'  => array("red", "green", "blue"),
-            'keys'  => array("semi" => ";", "dot" => ".", "comma" => ","),
-        );
+            'list'  => ["red", "green", "blue"],
+            'keys'  => ["semi" => ";", "dot" => ".", "comma" => ","],
+        ];
 
-        $tests = array(
+        $tests = [
             "{var:3}" => "val",
             "{var:30}" => "value",
             "{list}" => "red,green,blue",
@@ -221,7 +221,7 @@ class UriTemplateTest extends BaseTest
             "{&keys*}" => "&semi=%3B&dot=.&comma=%2C",
             "find{?list*}" => "find?list=red&list=green&list=blue",
             "www{.list*}" => "www.red.green.blue"
-        );
+        ];
 
         $urit = new UriTemplate();
 
@@ -239,15 +239,15 @@ class UriTemplateTest extends BaseTest
             "http://www.google.com/Hello%20World!?var=value",
             $urit->parse(
                 "http://www.google.com/{+hello}{?var}",
-                array("var" => $var, "hello" => $hello)
+                ["var" => $var, "hello" => $hello]
             )
         );
-        $params = array(
+        $params = [
             "playerId" => "me",
             "leaderboardId" => "CgkIhcG1jYEbEAIQAw",
             "timeSpan" => "ALL_TIME",
             "other" => "irrelevant"
-        );
+        ];
         $this->assertEquals(
             "players/me/leaderboards/CgkIhcG1jYEbEAIQAw/scores/ALL_TIME",
             $urit->parse(

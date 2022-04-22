@@ -91,11 +91,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
     $file = new Google\Service\Drive\DriveFile();
     $result = $service->files->create(
         $file,
-        array(
+        [
             'data' => file_get_contents(TESTFILE),
             'mimeType' => 'application/octet-stream',
             'uploadType' => 'media'
-        )
+        ]
     );
 
     // Now lets try and send the metadata as well using multipart!
@@ -103,11 +103,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
     $file->setName("Hello World!");
     $result2 = $service->files->create(
         $file,
-        array(
+        [
             'data' => file_get_contents(TESTFILE),
             'mimeType' => 'application/octet-stream',
             'uploadType' => 'multipart'
-        )
+        ]
     );
 }
 ?>

@@ -33,7 +33,7 @@ class YouTubeTest extends BaseTest
     public function testMissingFieldsAreNull()
     {
         $parts = "id,brandingSettings";
-        $opts = array("mine" => true);
+        $opts = ["mine" => true];
         $channels = $this->youtube->channels->listChannels($parts, $opts);
 
         $newChannel = new YouTube\Channel();
@@ -75,7 +75,7 @@ class YouTubeTest extends BaseTest
         $ping = new YouTube\ChannelConversionPing();
         $ping->setContext("hello");
         $pings = new YouTube\ChannelConversionPings();
-        $pings->setPings(array($ping));
+        $pings->setPings([$ping]);
         $simplePings = $pings->toSimpleObject();
         $this->assertObjectHasAttribute('context', $simplePings->pings[0]);
         $this->assertObjectNotHasAttribute('conversionUrl', $simplePings->pings[0]);

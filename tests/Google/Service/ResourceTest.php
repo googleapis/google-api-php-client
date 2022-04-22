@@ -73,17 +73,17 @@ class ResourceTest extends BaseTest
             $this->service,
             "test",
             "testResource",
-            array(
-                "methods" => array(
-                    "testMethod" => array(
-                        "parameters" => array(),
+            [
+                "methods" => [
+                    "testMethod" => [
+                        "parameters" => [],
                         "path" => "method/path",
                         "httpMethod" => "POST",
-                    )
-                )
-            )
+                    ]
+                ]
+            ]
         );
-        $resource->call("someothermethod", array());
+        $resource->call("someothermethod", []);
     }
 
     public function testCall()
@@ -92,17 +92,17 @@ class ResourceTest extends BaseTest
             $this->service,
             "test",
             "testResource",
-            array(
-                "methods" => array(
-                    "testMethod" => array(
-                        "parameters" => array(),
+            [
+                "methods" => [
+                    "testMethod" => [
+                        "parameters" => [],
                             "path" => "method/path",
                             "httpMethod" => "POST",
-                        )
-                )
-            )
+                        ]
+                ]
+            ]
         );
-        $request = $resource->call("testMethod", array(array()));
+        $request = $resource->call("testMethod", [[]]);
         $this->assertEquals("https://test.example.com/method/path", (string) $request->getUri());
         $this->assertEquals("POST", $request->getMethod());
     }
@@ -114,17 +114,17 @@ class ResourceTest extends BaseTest
             $this->service,
             "test",
             "testResource",
-            array(
-                "methods" => array(
-                    "testMethod" => array(
-                        "parameters" => array(),
+            [
+                "methods" => [
+                    "testMethod" => [
+                        "parameters" => [],
                         "path" => "method/path",
                         "httpMethod" => "POST",
-                    )
-                )
-            )
+                    ]
+                ]
+            ]
         );
-        $request = $resource->call("testMethod", array(array()));
+        $request = $resource->call("testMethod", [[]]);
         $this->assertEquals("https://sample.example.com/method/path", (string) $request->getUri());
         $this->assertEquals("POST", $request->getMethod());
     }
@@ -142,17 +142,17 @@ class ResourceTest extends BaseTest
             $this->service,
             'test',
             'testResource',
-            array(
-                "methods" => array(
-                    'testMethod' => array(
-                        'parameters' => array(),
+            [
+                "methods" => [
+                    'testMethod' => [
+                        'parameters' => [],
                         'path' => '/admin/directory_v1/watch/stop',
                         'httpMethod' => 'POST',
-                    )
-                )
-            )
+                    ]
+                ]
+            ]
         );
-        $request = $resource->call('testMethod', array(array()));
+        $request = $resource->call('testMethod', [[]]);
         $this->assertEquals('https://test.example.com/admin/directory_v1/watch/stop', (string) $request->getUri());
     }
 
@@ -161,10 +161,10 @@ class ResourceTest extends BaseTest
         $restPath = "plus/{u}";
         $service = new GoogleService($this->client->reveal());
         $service->servicePath = "http://localhost/";
-        $resource = new GoogleResource($service, 'test', 'testResource', array());
+        $resource = new GoogleResource($service, 'test', 'testResource', []);
 
         // Test Path
-        $params = array();
+        $params = [];
         $params['u']['type'] = 'string';
         $params['u']['location'] = 'path';
         $params['u']['value'] = 'me';
@@ -172,7 +172,7 @@ class ResourceTest extends BaseTest
         $this->assertEquals("http://localhost/plus/me", $value);
 
         // Test Query
-        $params = array();
+        $params = [];
         $params['u']['type'] = 'string';
         $params['u']['location'] = 'query';
         $params['u']['value'] = 'me';
@@ -180,7 +180,7 @@ class ResourceTest extends BaseTest
         $this->assertEquals("http://localhost/plus?u=me", $value);
 
         // Test Booleans
-        $params = array();
+        $params = [];
         $params['u']['type'] = 'boolean';
         $params['u']['location'] = 'path';
         $params['u']['value'] = '1';
@@ -192,7 +192,7 @@ class ResourceTest extends BaseTest
         $this->assertEquals("http://localhost/plus?u=true", $value);
 
         // Test encoding
-        $params = array();
+        $params = [];
         $params['u']['type'] = 'string';
         $params['u']['location'] = 'query';
         $params['u']['value'] = '@me/';
@@ -236,15 +236,15 @@ class ResourceTest extends BaseTest
             $service,
             "test",
             "testResource",
-            array(
-                "methods" => array(
-                    "testMethod" => array(
-                        "parameters" => array(),
+            [
+                "methods" => [
+                    "testMethod" => [
+                        "parameters" => [],
                         "path" => "method/path",
                         "httpMethod" => "POST",
-                    )
-                )
-            )
+                    ]
+                ]
+            ]
         );
 
         $expectedClass = 'ThisShouldBeIgnored';
@@ -289,15 +289,15 @@ class ResourceTest extends BaseTest
             $service,
             "test",
             "testResource",
-            array(
-                "methods" => array(
-                    "testMethod" => array(
-                        "parameters" => array(),
+            [
+                "methods" => [
+                    "testMethod" => [
+                        "parameters" => [],
                         "path" => "method/path",
                         "httpMethod" => "POST",
-                    )
-                )
-            )
+                    ]
+                ]
+            ]
         );
 
         try {
@@ -346,15 +346,15 @@ class ResourceTest extends BaseTest
             $service,
             "test",
             "testResource",
-            array(
-                "methods" => array(
-                    "testMethod" => array(
-                        "parameters" => array(),
+            [
+                "methods" => [
+                    "testMethod" => [
+                        "parameters" => [],
                         "path" => "method/path",
                         "httpMethod" => "POST",
-                    )
-                )
-            )
+                    ]
+                ]
+            ]
         );
 
         try {
@@ -392,15 +392,15 @@ class ResourceTest extends BaseTest
             $service,
             "test",
             "testResource",
-            array(
-                "methods" => array(
-                    "testMethod" => array(
-                        "parameters" => array(),
+            [
+                "methods" => [
+                    "testMethod" => [
+                        "parameters" => [],
                         "path" => "method/path",
                         "httpMethod" => "POST",
-                    )
-                )
-            )
+                    ]
+                ]
+            ]
         );
 
         $expectedClass = 'ThisShouldBeIgnored';
@@ -451,20 +451,20 @@ class ResourceTest extends BaseTest
             $service,
             "test",
             "testResource",
-            array(
-                "methods" => array(
-                    "testMethod" => array(
-                        "parameters" => array(),
+            [
+                "methods" => [
+                    "testMethod" => [
+                        "parameters" => [],
                         "path" => "method/path",
                         "httpMethod" => "POST",
-                    )
-                )
-            )
+                    ]
+                ]
+            ]
         );
 
         try {
 
-            $decoded = $resource->call('testMethod', array(array()));
+            $decoded = $resource->call('testMethod', [[]]);
             $this->fail('should have thrown exception');
         } catch (ServiceException $e) {
             $this->assertEquals($errors, $e->getErrors());

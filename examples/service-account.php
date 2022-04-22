@@ -60,9 +60,9 @@ $service = new Google\Service\Books($client);
   simple query as an example.
  ************************************************/
 $query = 'Henry David Thoreau';
-$optParams = array(
+$optParams = [
     'filter' => 'free-ebooks',
-);
+];
 $results = $service->volumes->listVolumes($query, $optParams);
 ?>
 

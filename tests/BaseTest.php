@@ -159,7 +159,7 @@ class BaseTest extends TestCase
         $clientId = getenv('GOOGLE_CLIENT_ID') ?: null;
         $clientSecret = getenv('GOOGLE_CLIENT_SECRET') ?: null;
 
-        return array($clientId, $clientSecret);
+        return [$clientId, $clientSecret];
     }
 
     protected function checkClientCredentials()

@@ -33,30 +33,30 @@ class UriTemplate
      * modify the way in which the variables inside are
      * processed.
      */
-    private $operators = array(
-      "+" => "reserved",
-      "/" => "segments",
-      "." => "dotprefix",
-      "#" => "fragment",
-      ";" => "semicolon",
-      "?" => "form",
-      "&" => "continuation"
-    );
+    private $operators = [
+        "+" => "reserved",
+        "/" => "segments",
+        "." => "dotprefix",
+        "#" => "fragment",
+        ";" => "semicolon",
+        "?" => "form",
+        "&" => "continuation"
+    ];
 
     /**
      * @var array<string>
      * These are the characters which should not be URL encoded in reserved
      * strings.
      */
-    private $reserved = array(
-      "=", ",", "!", "@", "|", ":", "/", "?", "#",
-      "[", "]",'$', "&", "'", "(", ")", "*", "+", ";"
-    );
-    private $reservedEncoded = array(
-    "%3D", "%2C", "%21", "%40", "%7C", "%3A", "%2F", "%3F",
-    "%23", "%5B", "%5D", "%24", "%26", "%27", "%28", "%29",
-    "%2A", "%2B", "%3B"
-    );
+    private $reserved = [
+        "=", ",", "!", "@", "|", ":", "/", "?", "#",
+        "[", "]",'$', "&", "'", "(", ")", "*", "+", ";"
+    ];
+    private $reservedEncoded = [
+        "%3D", "%2C", "%21", "%40", "%7C", "%3A", "%2F", "%3F",
+        "%23", "%5B", "%5D", "%24", "%26", "%27", "%28", "%29",
+        "%2A", "%2B", "%3B"
+    ];
 
     public function parse($string, array $parameters)
     {
@@ -220,7 +220,7 @@ class UriTemplate
                     $value = $this->getValue($parameters[$key], $length);
                     break;
                 case self::TYPE_LIST:
-                    $values = array();
+                    $values = [];
                     foreach ($parameters[$key] as $pkey => $pvalue) {
                         $pvalue = $this->getValue($pvalue, $length);
                         if ($combine && $explode) {
@@ -235,7 +235,7 @@ class UriTemplate
                     }
                     break;
                 case self::TYPE_MAP:
-                    $values = array();
+                    $values = [];
                     foreach ($parameters[$key] as $pkey => $pvalue) {
                         $pvalue = $this->getValue($pvalue, $length);
                         if ($explode) {
@@ -302,7 +302,7 @@ class UriTemplate
         $tag_empty,
         $combine_on_empty
     ) {
-        $ret = array();
+        $ret = [];
         foreach ($vars as $var) {
             $response = $this->combine(
                 $var,

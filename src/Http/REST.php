@@ -49,14 +49,14 @@ class REST
         ClientInterface $client,
         RequestInterface $request,
         $expectedClass = null,
-        $config = array(),
+        $config = [],
         $retryMap = null
     ) {
         $runner = new Runner(
             $config,
             sprintf('%s %s', $request->getMethod(), (string) $request->getUri()),
-            array(get_class(), 'doExecute'),
-            array($client, $request, $expectedClass)
+            [get_class(), 'doExecute'],
+            [$client, $request, $expectedClass]
         );
 
         if (null !== $retryMap) {

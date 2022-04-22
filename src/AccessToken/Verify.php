@@ -123,7 +123,7 @@ class Verify
 
                 // support HTTP and HTTPS issuers
                 // @see https://developers.google.com/identity/sign-in/web/backend-auth
-                $issuers = array(self::OAUTH2_ISSUER, self::OAUTH2_ISSUER_HTTPS);
+                $issuers = [self::OAUTH2_ISSUER, self::OAUTH2_ISSUER_HTTPS];
                 if (!isset($payload->iss) || !in_array($payload->iss, $issuers)) {
                     return false;
                 }
@@ -239,7 +239,7 @@ class Verify
         $bigIntClass = $this->getBigIntClass();
         $modulus = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['n']), 256);
         $exponent = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['e']), 256);
-        $component = array('n' => $modulus, 'e' => $exponent);
+        $component = ['n' => $modulus, 'e' => $exponent];
 
         if (class_exists('phpseclib3\Crypt\RSA\PublicKey')) {
             /** @var PublicKey $loader */

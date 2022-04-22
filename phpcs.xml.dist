@@ -64,6 +64,9 @@
   <severity>0</severity>
  </rule>
 
+ <!-- Require arrays to be defined by [] instead of array(). -->
+ <rule ref="Generic.Arrays.DisallowLongArraySyntax" />
+
  <!-- There MUST NOT be more than one statement per line. -->
  <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 

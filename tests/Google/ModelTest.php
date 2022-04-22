@@ -114,7 +114,7 @@ class ModelTest extends BaseTest
         $creative->setBuyerCreativeId('12345');
         $creative->setAdvertiserName('Hi');
         $creative->setHTMLSnippet("<p>Foo!</p>");
-        $creative->setClickThroughUrl(array('http://somedomain.com'));
+        $creative->setClickThroughUrl(['http://somedomain.com']);
         $creative->setWidth(100);
         $creative->setHeight(100);
         $data = json_decode(json_encode($creative->toSimpleObject()), true);
@@ -135,7 +135,7 @@ class ModelTest extends BaseTest
         $model3 = new Model();
         $model3->publicE = 54321;
         $model3->publicF = null;
-        $model->publicG = array($model3, "hello", false);
+        $model->publicG = [$model3, "hello", false];
         $model->publicH = false;
         $model->publicI = 0;
         $string = json_encode($model->toSimpleObject());

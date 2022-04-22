@@ -131,11 +131,11 @@ class MediaFileUpload
         }
 
         $lastBytePos = $this->progress + strlen($chunk) - 1;
-        $headers = array(
+        $headers = [
             'content-range' => "bytes $this->progress-$lastBytePos/$this->size",
             'content-length' => (string) strlen($chunk),
             'expect' => '',
-        );
+        ];
 
         $request = new Request(
             'PUT',
@@ -198,10 +198,10 @@ class MediaFileUpload
     public function resume($resumeUri)
     {
         $this->resumeUri = $resumeUri;
-        $headers = array(
+        $headers = [
             'content-range' => "bytes */$this->size",
             'content-length' => '0',
-        );
+        ];
         $httpRequest = new Request(
             'PUT',
             $this->resumeUri,
@@ -296,13 +296,13 @@ class MediaFileUpload
     private function fetchResumeUri()
     {
         $body = $this->request->getBody();
-        $headers = array(
+        $headers = [
             'content-type' => 'application/json; charset=UTF-8',
             'content-length' => $body->getSize(),
             'x-upload-content-type' => $this->mimeType,
             'x-upload-content-length' => $this->size,
             'expect' => '',
-        );
+        ];
         foreach ($headers as $key => $value) {
             $this->request = $this->request->withHeader($key, $value);
         }

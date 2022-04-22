@@ -88,13 +88,13 @@ $dr_service = new Google\Service\Drive($client);
 if ($client->getAccessToken()) {
     $_SESSION['multi-api-token'] = $client->getAccessToken();
 
-    $dr_results = $dr_service->files->listFiles(array('pageSize' => 10));
+    $dr_results = $dr_service->files->listFiles(['pageSize' => 10]);
 
-    $yt_channels = $yt_service->channels->listChannels('contentDetails', array("mine" => true));
+    $yt_channels = $yt_service->channels->listChannels('contentDetails', ["mine" => true]);
     $likePlaylist = $yt_channels[0]->contentDetails->relatedPlaylists->likes;
     $yt_results = $yt_service->playlistItems->listPlaylistItems(
         "snippet",
-        array("playlistId" => $likePlaylist)
+        ["playlistId" => $likePlaylist]
     );
 }
 ?>

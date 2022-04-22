@@ -24,7 +24,7 @@ class Exception extends GoogleException
     /**
      * Optional list of errors returned in a JSON body of an HTTP error response.
      */
-    protected $errors = array();
+    protected $errors = [];
 
     /**
      * Override default constructor to add the ability to set $errors and a retry
@@ -40,7 +40,7 @@ class Exception extends GoogleException
         $message,
         $code = 0,
         Exception $previous = null,
-        $errors = array()
+        $errors = []
     ) {
         if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
             parent::__construct($message, $code, $previous);
