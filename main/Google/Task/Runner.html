@@ -179,9 +179,10 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(array $config, string $name, callable $action, array $arguments = array())
+                    <a href="#method___construct">__construct</a>($config, $name, $action, array $arguments = [])
         
-                                            <p>Creates a new task runner with exponential backoff support.</p>                </div>
+                                            <p class="no-description">No description</p>
+                                    </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -220,7 +221,7 @@ loop.</p>                </div>
                     integer
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_allowedRetries">allowedRetries</a>($code, $errors = array())
+                    <a href="#method_allowedRetries">allowedRetries</a>($code, $errors = [])
         
                                             <p>Gets the number of times the associated task can be retried.</p>                </div>
                 <div class="col-md-2"></div>
@@ -244,54 +245,43 @@ loop.</p>                </div>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Task/Runner.php#L101">line 101</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Task/Runner.php#L102">line 102</a></div>
         <code>                    
-    <strong>__construct</strong>(array $config, string $name, callable $action, array $arguments = array())
+    <strong>__construct</strong>($config, $name, $action, array $arguments = [])
         </code>
     </h3>
     <div class="details">
             
     
 
-                    <div class="method-description">
-                                    <p>Creates a new task runner with exponential backoff support.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>array</td>
+                <td></td>
                 <td>$config</td>
-                <td>The task runner config</td>
+                <td></td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td></td>
                 <td>$name</td>
-                <td>The name of the current task (used for logging)</td>
+                <td></td>
             </tr>
                     <tr>
-                <td>callable</td>
+                <td></td>
                 <td>$action</td>
-                <td>The task to run and possibly retry</td>
+                <td></td>
             </tr>
                     <tr>
                 <td>array</td>
                 <td>$arguments</td>
-                <td>The task arguments</td>
+                <td></td>
             </tr>
             </table>
 
             
             
-                            <h4>Exceptions</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td><a href="../../Google/Task/Exception.html"><abbr title="Google\Task\Exception">Exception</abbr></a></td>
-                <td>when misconfigured</td>
-            </tr>
-            </table>
-
             
                     </div>
     </div>
@@ -299,7 +289,7 @@ loop.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_canAttempt">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Task/Runner.php#L171">line 171</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Task/Runner.php#L172">line 172</a></div>
         <code>                    boolean
     <strong>canAttempt</strong>()
         </code>
@@ -329,7 +319,7 @@ loop.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_run">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Task/Runner.php#L182">line 182</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Task/Runner.php#L183">line 183</a></div>
         <code>                    mixed
     <strong>run</strong>()
         </code>
@@ -368,7 +358,7 @@ loop.</p>                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_attempt">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Task/Runner.php#L216">line 216</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Task/Runner.php#L217">line 217</a></div>
         <code>                    boolean
     <strong>attempt</strong>()
         </code>
@@ -400,9 +390,9 @@ accordance to the backoff configurations before running the task.</p>           
             </div>
                     <div class="method-item">
                     <h3 id="method_allowedRetries">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Task/Runner.php#L272">line 272</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Task/Runner.php#L273">line 273</a></div>
         <code>                    integer
-    <strong>allowedRetries</strong>($code, $errors = array())
+    <strong>allowedRetries</strong>($code, $errors = [])
         </code>
     </h3>
     <div class="details">
@@ -445,7 +435,7 @@ accordance to the backoff configurations before running the task.</p>           
             </div>
                     <div class="method-item">
                     <h3 id="method_setRetryMap">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Task/Runner.php#L288">line 288</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Task/Runner.php#L289">line 289</a></div>
         <code>                    
     <strong>setRetryMap</strong>($retryMap)
         </code>
