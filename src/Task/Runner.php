@@ -236,7 +236,7 @@ class Runner
     {
         $delay = $this->getDelay();
 
-        usleep($delay * 1000000);
+        usleep((int) ($delay * 1000000));
     }
 
     /**
