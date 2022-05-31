@@ -28,8 +28,8 @@ use GuzzleHttp\Psr7\Response;
 class RESTTest extends BaseTest
 {
     /**
-   * @var REST $rest
-   */
+     * @var REST $rest
+     */
     private $rest;
 
     public function set_up()
