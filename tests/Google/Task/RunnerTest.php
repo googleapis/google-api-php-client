@@ -48,8 +48,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @dataProvider defaultRestErrorProvider
-   */
+     * @dataProvider defaultRestErrorProvider
+     */
     public function testRestRetryOffByDefault($errorCode, $errorBody = '{}')
     {
         $this->expectException(ServiceException::class);
@@ -57,8 +57,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @dataProvider defaultRestErrorProvider
-   */
+     * @dataProvider defaultRestErrorProvider
+     */
     public function testOneRestRetryWithError($errorCode, $errorBody = '{}')
     {
         $this->expectException(ServiceException::class);
@@ -67,8 +67,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @dataProvider defaultRestErrorProvider
-   */
+     * @dataProvider defaultRestErrorProvider
+     */
     public function testMultipleRestRetriesWithErrors(
         $errorCode,
         $errorBody = '{}'
@@ -80,8 +80,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @dataProvider defaultRestErrorProvider
-   */
+     * @dataProvider defaultRestErrorProvider
+     */
     public function testOneRestRetryWithSuccess($errorCode, $errorBody = '{}')
     {
         $this->setRetryConfig(['retries' => 1]);
@@ -93,8 +93,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @dataProvider defaultRestErrorProvider
-   */
+     * @dataProvider defaultRestErrorProvider
+     */
     public function testMultipleRestRetriesWithSuccess(
         $errorCode,
         $errorBody = '{}'
@@ -108,8 +108,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @dataProvider defaultRestErrorProvider
-   */
+     * @dataProvider defaultRestErrorProvider
+     */
     public function testCustomRestRetryMapReplacesDefaults(
         $errorCode,
         $errorBody = '{}'
@@ -137,8 +137,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @dataProvider customLimitsProvider
-   */
+     * @dataProvider customLimitsProvider
+     */
     public function testCustomRestRetryMapWithCustomLimits($limit)
     {
         $this->expectException(ServiceException::class);
@@ -152,8 +152,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @dataProvider timeoutProvider
-   */
+     * @dataProvider timeoutProvider
+     */
     public function testRestTimeouts($config, $minTime)
     {
         $this->setRetryConfig($config);
@@ -168,9 +168,9 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @requires extension curl
-   * @dataProvider defaultCurlErrorProvider
-   */
+     * @requires extension curl
+     * @dataProvider defaultCurlErrorProvider
+     */
     public function testCurlRetryOffByDefault($errorCode, $errorMessage = '')
     {
         $this->expectException(ServiceException::class);
@@ -179,9 +179,9 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @requires extension curl
-   * @dataProvider defaultCurlErrorProvider
-   */
+     * @requires extension curl
+     * @dataProvider defaultCurlErrorProvider
+     */
     public function testOneCurlRetryWithError($errorCode, $errorMessage = '')
     {
         $this->expectException(ServiceException::class);
@@ -191,9 +191,9 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @requires extension curl
-   * @dataProvider defaultCurlErrorProvider
-   */
+     * @requires extension curl
+     * @dataProvider defaultCurlErrorProvider
+     */
     public function testMultipleCurlRetriesWithErrors(
         $errorCode,
         $errorMessage = ''
@@ -205,9 +205,9 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @requires extension curl
-   * @dataProvider defaultCurlErrorProvider
-   */
+     * @requires extension curl
+     * @dataProvider defaultCurlErrorProvider
+     */
     public function testOneCurlRetryWithSuccess($errorCode, $errorMessage = '')
     {
         $this->setRetryConfig(['retries' => 1]);
@@ -219,9 +219,9 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @requires extension curl
-   * @dataProvider defaultCurlErrorProvider
-   */
+     * @requires extension curl
+     * @dataProvider defaultCurlErrorProvider
+     */
     public function testMultipleCurlRetriesWithSuccess(
         $errorCode,
         $errorMessage = ''
@@ -235,9 +235,9 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @requires extension curl
-   * @dataProvider defaultCurlErrorProvider
-   */
+     * @requires extension curl
+     * @dataProvider defaultCurlErrorProvider
+     */
     public function testCustomCurlRetryMapReplacesDefaults(
         $errorCode,
         $errorMessage = ''
@@ -251,8 +251,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @requires extension curl
-   */
+     * @requires extension curl
+     */
     public function testCustomCurlRetryMapAddsNewHandlers()
     {
         $this->setRetryMap(
@@ -268,9 +268,9 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @requires extension curl
-   * @dataProvider customLimitsProvider
-   */
+     * @requires extension curl
+     * @dataProvider customLimitsProvider
+     */
     public function testCustomCurlRetryMapWithCustomLimits($limit)
     {
         $this->expectException(ServiceException::class);
@@ -285,9 +285,9 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @requires extension curl
-   * @dataProvider timeoutProvider
-   */
+     * @requires extension curl
+     * @dataProvider timeoutProvider
+     */
     public function testCurlTimeouts($config, $minTime)
     {
         $this->setRetryConfig($config);
@@ -302,8 +302,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @dataProvider badTaskConfigProvider
-   */
+     * @dataProvider badTaskConfigProvider
+     */
     public function testBadTaskConfig($config, $message)
     {
         $this->expectException(TaskException::class);
@@ -318,8 +318,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @expectedExceptionMessage must be a valid callable
-   */
+     * @expectedExceptionMessage must be a valid callable
+     */
     public function testBadTaskCallback()
     {
         $this->expectException(TaskException::class);
@@ -374,8 +374,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @dataProvider customLimitsProvider
-   */
+     * @dataProvider customLimitsProvider
+     */
     public function testTaskRetryWithCustomLimits($limit)
     {
         $this->expectException(ServiceException::class);
@@ -386,8 +386,8 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * @dataProvider timeoutProvider
-   */
+     * @dataProvider timeoutProvider
+     */
     public function testTaskTimeouts($config, $minTime)
     {
         $this->setRetryConfig($config);
@@ -426,10 +426,10 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Provider for backoff configurations and expected minimum runtimes.
-   *
-   * @return array
-   */
+     * Provider for backoff configurations and expected minimum runtimes.
+     *
+     * @return array
+     */
     public function timeoutProvider()
     {
         $config = ['initial_delay' => .001, 'max_delay' => .01];
@@ -444,10 +444,10 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Provider for custom retry limits.
-   *
-   * @return array
-   */
+     * Provider for custom retry limits.
+     *
+     * @return array
+     */
     public function customLimitsProvider()
     {
         return [
@@ -457,10 +457,10 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Provider for invalid task configurations.
-   *
-   * @return array
-   */
+     * Provider for invalid task configurations.
+     *
+     * @return array
+     */
     public function badTaskConfigProvider()
     {
         return [
@@ -473,10 +473,10 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Provider for the default REST errors.
-   *
-   * @return array
-   */
+     * Provider for the default REST errors.
+     *
+     * @return array
+     */
     public function defaultRestErrorProvider()
     {
         return [
@@ -488,10 +488,10 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Provider for the default cURL errors.
-   *
-   * @return array
-   */
+     * Provider for the default cURL errors.
+     *
+     * @return array
+     */
     public function defaultCurlErrorProvider()
     {
         return [
@@ -504,16 +504,16 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Assert the minimum amount of time required to run a task.
-   *
-   * NOTE: Intentionally crude for brevity.
-   *
-   * @param float $expected The expected minimum execution time
-   * @param callable $callback The task to time
-   * @param float $delta Allowable relative error
-   *
-   * @throws PHPUnit_Framework_ExpectationFailedException
-   */
+     * Assert the minimum amount of time required to run a task.
+     *
+     * NOTE: Intentionally crude for brevity.
+     *
+     * @param float $expected The expected minimum execution time
+     * @param callable $callback The task to time
+     * @param float $delta Allowable relative error
+     *
+     * @throws PHPUnit_Framework_ExpectationFailedException
+     */
     public static function assertTaskTimeGreaterThanOrEqual(
         $expected,
         $callback,
@@ -533,10 +533,10 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Sets the task runner configurations.
-   *
-   * @param array $config The task runner configurations
-   */
+     * Sets the task runner configurations.
+     *
+     * @param array $config The task runner configurations
+     */
     private function setRetryConfig(array $config)
     {
         $config += [
@@ -555,15 +555,15 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Sets the next responses.
-   *
-   * @param integer $count The number of responses
-   * @param string $code The response code
-   * @param string $body The response body
-   * @param array $headers The response headers
-   *
-   * @return TaskTest
-   */
+     * Sets the next responses.
+     *
+     * @param integer $count The number of responses
+     * @param string $code The response code
+     * @param string $body The response body
+     * @param array $headers The response headers
+     *
+     * @return TaskTest
+     */
     private function setNextResponses(
         $count,
         $code = '200',
@@ -578,14 +578,14 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Sets the next response.
-   *
-   * @param string $code The response code
-   * @param string $body The response body
-   * @param array $headers The response headers
-   *
-   * @return TaskTest
-   */
+     * Sets the next response.
+     *
+     * @param string $code The response code
+     * @param string $body The response body
+     * @param array $headers The response headers
+     *
+     * @return TaskTest
+     */
     private function setNextResponse(
         $code = '200',
         $body = '{}',
@@ -601,14 +601,14 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Forces the next responses to throw an IO exception.
-   *
-   * @param integer $count The number of responses
-   * @param string $message The exception messages
-   * @param string $code The exception code
-   *
-   * @return TaskTest
-   */
+     * Forces the next responses to throw an IO exception.
+     *
+     * @param integer $count The number of responses
+     * @param string $message The exception messages
+     * @param string $code The exception code
+     *
+     * @return TaskTest
+     */
     private function setNextResponsesThrow($count, $message, $code)
     {
         while ($count-- > 0) {
@@ -619,13 +619,13 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Forces the next response to throw an IO exception.
-   *
-   * @param string $message The exception messages
-   * @param string $code The exception code
-   *
-   * @return TaskTest
-   */
+     * Forces the next response to throw an IO exception.
+     *
+     * @param string $message The exception messages
+     * @param string $code The exception code
+     *
+     * @return TaskTest
+     */
     private function setNextResponseThrows($message, $code)
     {
         $this->mockedCalls[$this->mockedCallsCount++] = new ServiceException(
@@ -639,10 +639,10 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Runs the defined request.
-   *
-   * @return array
-   */
+     * Runs the defined request.
+     *
+     * @return array
+     */
     private function makeRequest()
     {
         $request = new Request('GET', '/test');
@@ -666,12 +666,12 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Gets the next mocked response.
-   *
-   * @param GoogleRequest $request The mocked request
-   *
-   * @return GoogleRequest
-   */
+     * Gets the next mocked response.
+     *
+     * @param GoogleRequest $request The mocked request
+     *
+     * @return GoogleRequest
+     */
     public function getNextMockedCall($request)
     {
         $current = $this->mockedCalls[$this->currentMockedCall++];
@@ -692,12 +692,12 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Sets the next task return value.
-   *
-   * @param mixed $value The next return value
-   *
-   * @return TaskTest
-   */
+     * Sets the next task return value.
+     *
+     * @param mixed $value The next return value
+     *
+     * @return TaskTest
+     */
     private function setNextTaskReturnValue($value)
     {
         $this->mockedCalls[$this->mockedCallsCount++] = $value;
@@ -705,12 +705,12 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Sets the next exception `allowedRetries()` return value.
-   *
-   * @param boolean $allowedRetries The next `allowedRetries()` return value.
-   *
-   * @return TaskTest
-   */
+     * Sets the next exception `allowedRetries()` return value.
+     *
+     * @param boolean $allowedRetries The next `allowedRetries()` return value.
+     *
+     * @return TaskTest
+     */
     private function setNextTaskAllowedRetries($allowedRetries)
     {
         $this->mockedCalls[$this->mockedCallsCount++] = $allowedRetries;
@@ -718,13 +718,13 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Sets multiple exception `allowedRetries()` return value.
-   *
-   * @param integer $count The number of `allowedRetries()` return values.
-   * @param boolean $allowedRetries The `allowedRetries()` return value.
-   *
-   * @return TaskTest
-   */
+     * Sets multiple exception `allowedRetries()` return value.
+     *
+     * @param integer $count The number of `allowedRetries()` return values.
+     * @param boolean $allowedRetries The `allowedRetries()` return value.
+     *
+     * @return TaskTest
+     */
     private function setNextTasksAllowedRetries($count, $allowedRetries)
     {
         while ($count-- > 0) {
@@ -735,10 +735,10 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Runs the defined task.
-   *
-   * @return mixed
-   */
+     * Runs the defined task.
+     *
+     * @return mixed
+     */
     private function runTask()
     {
         $task = new Runner(
@@ -769,10 +769,10 @@ class RunnerTest extends BaseTest
     }
 
     /**
-   * Gets the next task return value.
-   *
-   * @return mixed
-   */
+     * Gets the next task return value.
+     *
+     * @return mixed
+     */
     public function runNextTask()
     {
         $current = $this->mockedCalls[$this->currentMockedCall++];

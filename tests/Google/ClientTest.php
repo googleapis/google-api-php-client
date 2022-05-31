@@ -249,16 +249,16 @@ class ClientTest extends BaseTest
 
         $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
         $response->getBody()
-        ->shouldBeCalledTimes(1)
-        ->willReturn($stream->reveal());
+            ->shouldBeCalledTimes(1)
+            ->willReturn($stream->reveal());
 
         $response->getStatusCode()->willReturn(200);
 
         $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
         $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
-        ->shouldBeCalledTimes(1)
-        ->willReturn($response->reveal());
+            ->shouldBeCalledTimes(1)
+            ->willReturn($response->reveal());
 
         $client->setHttpClient($http->reveal());
         $dr_service = new Drive($client);
