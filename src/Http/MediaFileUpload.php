@@ -306,7 +306,7 @@ class MediaFileUpload
             $this->request = $this->request->withHeader($key, $value);
         }
 
-        $response = $this->client->execute($this->request, null);
+        $response = $this->client->execute($this->request, false);
         $location = $response->getHeaderLine('location');
         $code = $response->getStatusCode();
 

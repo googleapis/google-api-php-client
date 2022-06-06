@@ -876,7 +876,7 @@ class Client
      *
      * @template T
      * @param RequestInterface $request
-     * @param class-string<T> $expectedClass
+     * @param class-string<T>|false|null $expectedClass
      * @throws \Google\Exception
      * @return mixed|T|ResponseInterface
      */
