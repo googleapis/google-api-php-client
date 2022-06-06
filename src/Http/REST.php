@@ -35,12 +35,13 @@ class REST
      * Executes a Psr\Http\Message\RequestInterface and (if applicable) automatically retries
      * when errors occur.
      *
+     * @template T
      * @param ClientInterface $client
      * @param RequestInterface $request
-     * @param string $expectedClass
+     * @param class-string<T>|false|null $expectedClass
      * @param array $config
      * @param array $retryMap
-     * @return mixed decoded result
+     * @return mixed|T|null
      * @throws \Google\Service\Exception on server side error (ie: not authenticated,
      *  invalid or malformed post body, invalid url)
      */
@@ -68,10 +69,11 @@ class REST
     /**
      * Executes a Psr\Http\Message\RequestInterface
      *
+     * @template T
      * @param ClientInterface $client
      * @param RequestInterface $request
-     * @param string $expectedClass
-     * @return array decoded result
+     * @param class-string<T>|false|null $expectedClass
+     * @return mixed|T|null
      * @throws \Google\Service\Exception on server side error (ie: not authenticated,
      *  invalid or malformed post body, invalid url)
      */
@@ -108,11 +110,13 @@ class REST
     /**
      * Decode an HTTP Response.
      * @static
-     * @throws \Google\Service\Exception
+     *
+     * @template T
      * @param RequestInterface $response The http response to be decoded.
      * @param ResponseInterface $response
-     * @param string $expectedClass
-     * @return mixed|null
+     * @param class-string<T>|false|null $expectedClass
+     * @return mixed|T|null
+     * @throws \Google\Service\Exception
      */
     public static function decodeHttpResponse(
         ResponseInterface $response,
