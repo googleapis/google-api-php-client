@@ -51,7 +51,7 @@ use UnexpectedValueException;
  */
 class Client
 {
-    const LIBVER = "2.12.5";
+    const LIBVER = "2.12.6";
     const USER_AGENT_SUFFIX = "google-api-php-client/";
     const OAUTH2_REVOKE_URI = 'https://oauth2.googleapis.com/revoke';
     const OAUTH2_TOKEN_URI = 'https://oauth2.googleapis.com/token';
@@ -876,7 +876,7 @@ class Client
      *
      * @template T
      * @param RequestInterface $request
-     * @param class-string<T> $expectedClass
+     * @param class-string<T>|false|null $expectedClass
      * @throws \Google\Exception
      * @return mixed|T|ResponseInterface
      */
