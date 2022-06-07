@@ -33,7 +33,7 @@ class Exception extends GoogleException
      * @param string $message
      * @param int $code
      * @param Exception|null $previous
-     * @param array<string,string> $errors List of errors returned in an HTTP
+     * @param array<array<string,string>> $errors List of errors returned in an HTTP
      * response.  Defaults to [].
      */
     public function __construct(
@@ -54,15 +54,17 @@ class Exception extends GoogleException
     /**
      * An example of the possible errors returned.
      *
-     * {
-     *   "domain": "global",
-     *   "reason": "authError",
-     *   "message": "Invalid Credentials",
-     *   "locationType": "header",
-     *   "location": "Authorization",
-     * }
+     * [
+     *   {
+     *     "domain": "global",
+     *     "reason": "authError",
+     *     "message": "Invalid Credentials",
+     *     "locationType": "header",
+     *     "location": "Authorization",
+     *   }
+     * ]
      *
-     * @return array<string,string> List of errors return in an HTTP response or [].
+     * @return array<array<string,string>> List of errors return in an HTTP response or [].
      */
     public function getErrors()
     {
