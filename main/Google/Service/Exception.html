@@ -62,6 +62,7 @@
                                             <option value="../../../v2.12.3/index.html" data-version="v2.12.3">v2.12.3</option>
                                             <option value="../../../v2.12.4/index.html" data-version="v2.12.4">v2.12.4</option>
                                             <option value="../../../v2.12.5/index.html" data-version="v2.12.5">v2.12.5</option>
+                                            <option value="../../../v2.12.6/index.html" data-version="v2.12.6">v2.12.6</option>
                                             <option value="../../../main/index.html" data-version="main">main branch</option>
                                     </select>
             </form>
@@ -152,7 +153,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(string $message, int $code = 0, <a href="../../Google/Service/Exception.html"><abbr title="Google\Service\Exception">Exception</abbr></a> $previous = null, <abbr title="Google\Service\array<string,string>">array<string,string></abbr> $errors = [])
+                    <a href="#method___construct">__construct</a>(string $message, int $code = 0, <a href="../../Google/Service/Exception.html"><abbr title="Google\Service\Exception">Exception</abbr></a> $previous = null, <abbr title="Google\Service\array<array<string,string>>">array<array<string,string>></abbr> $errors = [])
         
                                             <p>Override default constructor to add the ability to set $errors and a retry
 map.</p>                </div>
@@ -160,7 +161,7 @@ map.</p>                </div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <abbr title="Google\Service\array<string,string>">array<string,string></abbr>
+                    <abbr title="Google\Service\array<array<string,string>>">array<array<string,string>></abbr>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getErrors">getErrors</a>()
@@ -178,7 +179,7 @@ map.</p>                </div>
                     <h3 id="method___construct">
         <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Service/Exception.php#L39">line 39</a></div>
         <code>                    
-    <strong>__construct</strong>(string $message, int $code = 0, <a href="../../Google/Service/Exception.html"><abbr title="Google\Service\Exception">Exception</abbr></a> $previous = null, <abbr title="Google\Service\array<string,string>">array<string,string></abbr> $errors = [])
+    <strong>__construct</strong>(string $message, int $code = 0, <a href="../../Google/Service/Exception.html"><abbr title="Google\Service\Exception">Exception</abbr></a> $previous = null, <abbr title="Google\Service\array<array<string,string>>">array<array<string,string>></abbr> $errors = [])
         </code>
     </h3>
     <div class="details">
@@ -208,7 +209,7 @@ map.</p>                                                </div>
                 <td></td>
             </tr>
                     <tr>
-                <td><abbr title="Google\Service\array<string,string>">array<string,string></abbr></td>
+                <td><abbr title="Google\Service\array<array<string,string>>">array<array<string,string>></abbr></td>
                 <td>$errors</td>
                 <td>List of errors returned in an HTTP
 response.  Defaults to [].</td>
@@ -224,8 +225,8 @@ response.  Defaults to [].</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_getErrors">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Service/Exception.php#L67">line 67</a></div>
-        <code>                    <abbr title="Google\Service\array<string,string>">array<string,string></abbr>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Service/Exception.php#L69">line 69</a></div>
+        <code>                    <abbr title="Google\Service\array<array<string,string>>">array<array<string,string>></abbr>
     <strong>getErrors</strong>()
         </code>
     </h3>
@@ -234,20 +235,22 @@ response.  Defaults to [].</td>
     
 
                     <div class="method-description">
-                                    <p>An example of the possible errors returned.</p>                    <p>{
-  "domain": "global",
-  "reason": "authError",
-  "message": "Invalid Credentials",
-  "locationType": "header",
-  "location": "Authorization",
-}</p>                            </div>
+                                    <p>An example of the possible errors returned.</p>                    <p>[
+  {
+    "domain": "global",
+    "reason": "authError",
+    "message": "Invalid Credentials",
+    "locationType": "header",
+    "location": "Authorization",
+  }
+]</p>                            </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><abbr title="Google\Service\array<string,string>">array<string,string></abbr></td>
+            <td><abbr title="Google\Service\array<array<string,string>>">array<array<string,string>></abbr></td>
             <td>List of errors return in an HTTP response or [].</td>
         </tr>
     </table>
