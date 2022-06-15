@@ -10,3 +10,4 @@
 /style export-ignore
 /tests export-ignore
 /UPGRADING.md export-ignore
+/phpstan.neon.dist export-ignore
