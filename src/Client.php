@@ -386,6 +386,7 @@ class Client
             'login_hint' => $this->config['login_hint'],
             'openid.realm' => $this->config['openid.realm'],
             'prompt' => $this->config['prompt'],
+            'redirect_uri' => $this->config['redirect_uri'],
             'response_type' => 'code',
             'scope' => $scope,
             'state' => $this->config['state'],
