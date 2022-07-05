@@ -115,6 +115,7 @@ class Client
             // Don't change these unless you're working against a special development
             // or testing environment.
             'base_path' => self::API_BASE_PATH,
+            'http_options' => null,
 
             // https://developers.google.com/console
             'client_id' => '',
@@ -1209,6 +1210,10 @@ class Client
             ];
         } else {
             throw new LogicException('Could not find supported version of Guzzle.');
+        }
+
+        if (!is_null($this->config['http_options'])) {
+            $options = array_merge($options, $this->config['http_options']);
         }
 
         return new GuzzleClient($options);
