@@ -9,7 +9,7 @@
 
 The Google API Client Library enables you to work with Google APIs such as Gmail, Drive or YouTube on your server.
 
-These client libraries are officially supported by Google.  However, the libraries are considered complete and are in maintenance mode. This means that we will address critical bugs and security issues but will not add any new features.
+These client libraries are officially supported by Google. However, the libraries are considered complete and are in maintenance mode. This means that we will address critical bugs and security issues but will not add any new features.
 
 ## Google Cloud Platform
 

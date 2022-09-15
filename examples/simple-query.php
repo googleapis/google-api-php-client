@@ -87,4 +87,4 @@ $resultsDeferred = $client->execute($request);
   <br />
 <?php endforeach ?>
 
-<?= pageFooter(__FILE__)
+<?= pageFooter(__FILE__);
