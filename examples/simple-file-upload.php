@@ -132,4 +132,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $client->getAccessToken()) {
 <?php endif ?>
 </div>
 
-<?= pageFooter(__FILE__)
+<?= pageFooter(__FILE__);

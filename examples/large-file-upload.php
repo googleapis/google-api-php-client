@@ -167,4 +167,4 @@ function readVideoChunk($handle, $chunkSize)
 <?php endif ?>
 </div>
 
-<?= pageFooter(__FILE__)
+<?= pageFooter(__FILE__);

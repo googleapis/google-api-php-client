@@ -106,4 +106,4 @@ if ($client->getAccessToken()) {
 <?php endif ?>
 </div>
 
-<?= pageFooter(__FILE__)
+<?= pageFooter(__FILE__);
