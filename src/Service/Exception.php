@@ -33,8 +33,8 @@ class Exception extends GoogleException
      * @param string $message
      * @param int $code
      * @param Exception|null $previous
-     * @param array<array<string,string>> $errors List of errors returned in an HTTP
-     * response.  Defaults to [].
+     * @param array<array<string,string>>|null $errors List of errors returned in an HTTP
+     * response or null.  Defaults to [].
      */
     public function __construct(
         $message,
@@ -64,7 +64,7 @@ class Exception extends GoogleException
      *   }
      * ]
      *
-     * @return array<array<string,string>> List of errors return in an HTTP response or [].
+     * @return array<array<string,string>>|null List of errors returned in an HTTP response or null.
      */
     public function getErrors()
     {

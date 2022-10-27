@@ -203,7 +203,7 @@ class Resource
         $request = new Request(
             $method['httpMethod'],
             $url,
-            ['content-type' => 'application/json'],
+            $postBody ? ['content-type' => 'application/json'] : [],
             $postBody ? json_encode($postBody) : ''
         );
 

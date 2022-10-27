@@ -1015,4 +1015,20 @@ class ClientTest extends BaseTest
         $this->assertNotNull($authHeader);
         $this->assertEquals('Bearer abc', $authHeader);
     }
+
+    public function testSetNewRedirectUri()
+    {
+        $client = new Client();
+        $redirectUri1 = 'https://foo.com/test1';
+        $client->setRedirectUri($redirectUri1);
+
+        $authUrl1 = $client->createAuthUrl();
+        $this->assertStringContainsString(urlencode($redirectUri1), $authUrl1);
+
+        $redirectUri2 = 'https://foo.com/test2';
+        $client->setRedirectUri($redirectUri2);
+
+        $authUrl2 = $client->createAuthUrl();
+        $this->assertStringContainsString(urlencode($redirectUri2), $authUrl2);
+    }
 }
