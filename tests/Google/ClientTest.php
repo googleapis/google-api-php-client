@@ -157,7 +157,7 @@ class ClientTest extends BaseTest
         $client->setLoginHint('bob@example.org');
 
         $authUrl = $client->createAuthUrl("http://googleapis.com/scope/foo");
-        $expected = "https://accounts.google.com/o/oauth2/auth"
+        $expected = "https://accounts.google.com/o/oauth2/v2/auth"
             . "?response_type=code"
             . "&access_type=offline"
             . "&client_id=clientId1"
@@ -176,7 +176,7 @@ class ClientTest extends BaseTest
         $client->setPrompt('select_account');
         $client->setIncludeGrantedScopes(true);
         $authUrl = $client->createAuthUrl("http://googleapis.com/scope/foo");
-        $expected = "https://accounts.google.com/o/oauth2/auth"
+        $expected = "https://accounts.google.com/o/oauth2/v2/auth"
             . "?response_type=code"
             . "&access_type=offline"
             . "&client_id=clientId1"
@@ -233,7 +233,7 @@ class ClientTest extends BaseTest
         $this->assertEquals("http://test.com scope2", $scopes);
         $this->assertEquals(
             ''
-            . 'https://accounts.google.com/o/oauth2/auth'
+            . 'https://accounts.google.com/o/oauth2/v2/auth'
             . '?response_type=code'
             . '&access_type=online'
             . '&client_id=test1'
@@ -383,7 +383,7 @@ class ClientTest extends BaseTest
         // Device config
         $client = new Client();
         $device =
-            '{"installed":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret"'.
+            '{"installed":{"auth_uri":"https://accounts.google.com/o/oauth2/v2/auth","client_secret"'.
             ':"N0aHCBT1qX1VAcF5J1pJAn6S","token_uri":"https://oauth2.googleapis.com/token",'.
             '"client_email":"","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","oob"],"client_x509_cert_url"'.
             ':"","client_id":"123456789.apps.googleusercontent.com","auth_provider_x509_cert_url":'.
@@ -396,7 +396,7 @@ class ClientTest extends BaseTest
 
         // Web config
         $client = new Client();
-        $web = '{"web":{"auth_uri":"https://accounts.google.com/o/oauth2/auth","client_secret"' .
+        $web = '{"web":{"auth_uri":"https://accounts.google.com/o/oauth2/v2/auth","client_secret"' .
             ':"lpoubuib8bj-Fmke_YhhyHGgXc","token_uri":"https://oauth2.googleapis.com/token"' .
             ',"client_email":"123456789@developer.gserviceaccount.com","client_x509_cert_url":'.
             '"https://www.googleapis.com/robot/v1/metadata/x509/123456789@developer.gserviceaccount.com"'.
