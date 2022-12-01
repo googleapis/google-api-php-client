@@ -37,8 +37,29 @@ class Composer
         $servicesToKeep = isset($extra['google/apiclient-services'])
             ? $extra['google/apiclient-services']
             : [];
+        $vendorDir = $composer->getConfig()->get('vendor-dir');
+
+        $count = self::cleanupServices($vendorDir, $servicesToKeep, $filesystem);
+
+        if ($count !== 0) {
+            $event->getIO()->write(
+                sprintf('Removing %s google services', $count)
+            );
+        }
+    }
+
+    /**
+     * @param string[] $servicesToKeep list of services to keep
+     * @param Filesystem $filesystem Optional. Used for testing.
+     *
+     * @return int
+     */
+    public static function cleanupServices(
+        string $vendorDir,
+        array $servicesToKeep,
+        Filesystem $filesystem = null
+    ) {
         if ($servicesToKeep) {
-            $vendorDir = $composer->getConfig()->get('vendor-dir');
             $serviceDir = sprintf(
                 '%s/google/apiclient-services/src/Google/Service',
                 $vendorDir
@@ -54,16 +75,17 @@ class Composer
             $finder = self::getServicesToRemove($serviceDir, $servicesToKeep);
             $filesystem = $filesystem ?: new Filesystem();
             if (0 !== $count = count($finder)) {
-                $event->getIO()->write(
-                    sprintf('Removing %s google services', $count)
-                );
                 foreach ($finder as $file) {
                     $realpath = $file->getRealPath();
                     $filesystem->remove($realpath);
                     $filesystem->remove($realpath . '.php');
                 }
+
+                return $count;
             }
         }
+
+        return 0;
     }
 
     /**
