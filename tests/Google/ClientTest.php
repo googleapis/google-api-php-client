@@ -997,14 +997,8 @@ class ClientTest extends BaseTest
 
         $httpClient = $this->prophesize('GuzzleHttp\ClientInterface');
         $httpClient->getConfig()
-            ->shouldBeCalledOnce()
+            ->shouldBeCalled()
             ->willReturn(['handler' => $handler->reveal()]);
-        $httpClient->getConfig('base_uri')
-            ->shouldBeCalledOnce();
-        $httpClient->getConfig('verify')
-            ->shouldBeCalledOnce();
-        $httpClient->getConfig('proxy')
-            ->shouldBeCalledOnce();
         $httpClient->send(Argument::any(), Argument::any())
             ->shouldNotBeCalled();
 
