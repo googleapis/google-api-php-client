@@ -34,7 +34,6 @@ class AuthHandlerFactory
         if (defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
             $guzzleVersion = ClientInterface::MAJOR_VERSION;
         } elseif (defined('\GuzzleHttp\ClientInterface::VERSION')) {
-            // @phpstan-ignore-next-line
             $guzzleVersion = (int) substr(ClientInterface::VERSION, 0, 1);
         }
 
