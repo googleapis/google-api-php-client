@@ -74,9 +74,9 @@ class Guzzle6AuthHandler
             return $token['access_token'];
         };
 
-        // Set the cache prefix to the token, to ensure setting a new token
-        // results in a cache-miss. Note: Supplying a custom "cache_prefix" will
-        // bust this behavior.
+        // Derive a cache prefix from the token, to ensure setting a new token
+        // results in a cache-miss.
+        // Note: Supplying a custom "cache_prefix" will bust this behavior.
         $cacheConfig = $this->cacheConfig;
         if (!isset($cacheConfig['cache_prefix']) && isset($token['access_token'])) {
             $tokenPart = substr($token['access_token'], -10);
