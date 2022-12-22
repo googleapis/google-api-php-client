@@ -79,8 +79,8 @@ class Guzzle6AuthHandler
         // bust this behavior.
         $cacheConfig = $this->cacheConfig;
         if (!isset($cacheConfig['cache_prefix']) && isset($token['access_token'])) {
-            $b64Token = base64_encode($token['access_token']);
-            $cacheConfig['prefix'] = substr($b64Token, -10);
+            $tokenPart = substr($token['access_token'], -10);
+            $cacheConfig['prefix'] = crc32($tokenPart);
         }
 
         $middleware = new ScopedAccessTokenMiddleware(
