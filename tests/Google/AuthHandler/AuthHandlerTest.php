@@ -26,9 +26,6 @@ use Google\AuthHandler\AuthHandlerFactory;
 use Google\Auth\Cache\MemoryCacheItemPool;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UriInterface;
 use Google\Tests\BaseTest;
 
 class AuthHandlerTest extends BaseTest
@@ -37,37 +34,34 @@ class AuthHandlerTest extends BaseTest
     {
         $this->onlyGuzzle6Or7();
 
+        $client = new Client();
         $cache = new MemoryCacheItemPool();
         $authHandler = AuthHandlerFactory::build($cache);
         $scopes = ['scope1', 'scope2'];
-        $token1 = ['access_token' => '1234'];
-        $token2 = ['access_token' => '5678'];
 
+        // Attach the first token to the HTTP client
         $http1 = $authHandler->attachToken(
-            new Client(),
-            $token1,
+            $client,
+            ['access_token' => '1234'],
             $scopes
         );
 
-        // Call our middleware
+        // Call our middleware and verify the token is set
         $scopedMiddleware = $this->getGoogleAuthMiddleware($http1);
-        $callable = $scopedMiddleware(function ($request) { return $request; });
-        $request = $callable(new Request('GET', '/'), ['auth' => 'scoped']);
+        $request = $scopedMiddleware(new Request('GET', '/'), ['auth' => 'scoped']);
         $this->assertEquals(['Bearer 1234'], $request->getHeader('Authorization'));
 
-        // try with a new token
+        // Attach a new token to the HTTP client
         $http2 = $authHandler->attachToken(
-            new Client(),
-            $token2,
+            $client,
+            ['access_token' => '5678'],
             $scopes
         );
 
-        // Call our middleware
+        // Call our middleware and verify the NEW token is set
         $scopedMiddleware = $this->getGoogleAuthMiddleware($http2);
-        $callable = $scopedMiddleware(function ($request) { return $request; });
-        $request = $callable(new Request('GET', '/'), ['auth' => 'scoped']);
+        $request = $scopedMiddleware(new Request('GET', '/'), ['auth' => 'scoped']);
         $this->assertEquals(['Bearer 5678'], $request->getHeader('Authorization'));
-
     }
 
     private function getGoogleAuthMiddleware(Client $http)
@@ -77,9 +71,14 @@ class AuthHandlerTest extends BaseTest
         $reflectionMethod = new \ReflectionMethod($handler, 'findByName');
         $reflectionMethod->setAccessible(true);
         $authMiddlewareIdx = $reflectionMethod->invoke($handler, 'google_auth');
+
         $reflectionProperty = new \ReflectionProperty($handler, 'stack');
         $reflectionProperty->setAccessible(true);
         $stack = $reflectionProperty->getValue($handler);
-        return $stack[$authMiddlewareIdx][0];
+
+        $callable = $stack[$authMiddlewareIdx][0];
+        return $callable(function ($request) {
+            return $request;
+        });
     }
 }
