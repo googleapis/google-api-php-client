@@ -12,7 +12,7 @@ jobs:
           uses: actions/checkout@v2
         - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
         - name: Install Dependencies
-          uses: nick-invision/retry@v1
+          uses: nick-invision/retry@v2
           with:
             timeout_minutes: 10
             max_attempts: 3
