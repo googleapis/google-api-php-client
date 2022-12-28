@@ -81,6 +81,7 @@ class Collection extends Model implements \Iterator, \Countable
     }
 
     /** @return mixed */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         if (!is_numeric($offset)) {
