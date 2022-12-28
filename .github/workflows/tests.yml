@@ -4,33 +4,44 @@ on: [push, pull_request]
 
 jobs:
     test:
-        runs-on: ubuntu-latest
+        runs-on: ${{ matrix.os }}
         strategy:
             fail-fast: false
             matrix:
+                os: [ubuntu-latest]
                 php: [ "5.6", "7.0", "7.1", "7.2", "7.3", "7.4", "8.0", "8.1", "8.2" ]
                 composer-flags: [""]
+                stability: [prefer-lowest, prefer-stable]
                 include:
                   - php: "5.6"
                     composer-flags: "--prefer-lowest "
                   - php: "8.0"
                     composer-flags: "--prefer-lowest "
-        name: PHP ${{ matrix.php }} ${{ matrix.composer-flags }}Unit Test
+
+        name: PHP ${{ matrix.php }} ${{ matrix.stability }} - ${{ matrix.os }}
+
         steps:
-            - uses: actions/checkout@v2
+            - name: Checkout code
+            - uses: actions/checkout@v3
+
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                php-version: ${{ matrix.php }}
+                  php-version: ${{ matrix.php }}
+                  extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+                  coverage: none
+
             - name: Install Dependencies
               uses: nick-invision/retry@v1
               with:
                 timeout_minutes: 10
                 max_attempts: 3
-                command: composer update ${{ matrix.composer-flags }}
-            - if: ${{ matrix.php == '8.0' && matrix.composer-flags == '--prefer-lowest ' }}
+                command: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
+
+            - if: ${{ matrix.php == '8.0' && matrix.stability == '--prefer-lowest ' }}
               name: Update guzzlehttp/ringphp dependency
               run: composer update guzzlehttp/ringphp
+
             - name: Run Script
               run: vendor/bin/phpunit
 
@@ -38,11 +49,11 @@ jobs:
         runs-on: ubuntu-latest
         name: PHP Style Check
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                php-version: "7.3"
+                php-version: "8.1"
             - name: Install Dependencies
               uses: nick-invision/retry@v1
               with:
@@ -55,7 +66,7 @@ jobs:
         runs-on: ubuntu-latest
         name: PHPStan Static Analysis
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Install PHP
               uses: shivammathur/setup-php@v2
               with:
