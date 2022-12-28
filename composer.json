@@ -24,7 +24,7 @@
         "composer/composer": "^1.10.22",
         "yoast/phpunit-polyfills": "^1.0",
         "phpspec/prophecy-phpunit": "^1.1||^2.0",
-        "phpunit/phpunit": "^5.7.21 || ^6.0 || ^7.0 || ^8.0 || ^9.0"
+        "phpunit/phpunit": "^5.7.21 || ^6.0 || ^7.5.20 || ^8.5.23 || ^9.0"
     },
     "suggest": {
         "cache/filesystem-adapter": "For caching certs and tokens (using Google\\Client::setCache)"
