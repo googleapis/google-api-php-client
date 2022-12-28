@@ -32,7 +32,7 @@ jobs:
                 max_attempts: 3
                 command: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
-            - if: ${{ matrix.php == '8.0' && matrix.stability == 'prefer-lowest' }}
+            - if: ${{ matrix.stability == 'prefer-lowest' }}
               name: Update guzzlehttp/ringphp dependency
               run: composer update guzzlehttp/ringphp
 
