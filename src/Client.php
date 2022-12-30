@@ -372,6 +372,9 @@ class Client
         $approvalPrompt = $this->config['prompt']
             ? null
             : $this->config['approval_prompt'];
+        // If $approvalPrompt is "force" and no prompt is set, use "consent"
+        $prompt = $this->config['prompt']
+            ?: ($approvalPrompt == 'force' ? 'consent' : null);
 
         // include_granted_scopes should be string "true", string "false", or null
         $includeGrantedScopes = $this->config['include_granted_scopes'] === null
@@ -380,12 +383,11 @@ class Client
 
         $params = array_filter([
             'access_type' => $this->config['access_type'],
-            'approval_prompt' => $approvalPrompt,
             'hd' => $this->config['hd'],
             'include_granted_scopes' => $includeGrantedScopes,
             'login_hint' => $this->config['login_hint'],
             'openid.realm' => $this->config['openid.realm'],
-            'prompt' => $this->config['prompt'],
+            'prompt' => $prompt,
             'redirect_uri' => $this->config['redirect_uri'],
             'response_type' => 'code',
             'scope' => $scope,
@@ -659,6 +661,7 @@ class Client
     }
 
     /**
+     * @deprecated setting approval_prompt to "force" now results in "prompt" beint set to "consent"
      * @param string $approvalPrompt Possible values for approval_prompt include:
      *  {@code "force"} to force the approval UI to appear.
      *  {@code "auto"} to request auto-approval when possible. (This is the default value)

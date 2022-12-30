@@ -152,7 +152,7 @@ class ClientTest extends BaseTest
         $client->setDeveloperKey('devKey');
         $client->setState('xyz');
         $client->setAccessType('offline');
-        $client->setApprovalPrompt('force');
+        $client->setPrompt('consent');
         $client->setRequestVisibleActions('http://foo');
         $client->setLoginHint('bob@example.org');
 
@@ -164,8 +164,8 @@ class ClientTest extends BaseTest
             . "&redirect_uri=http%3A%2F%2Flocalhost"
             . "&state=xyz"
             . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
-            . "&approval_prompt=force"
-            . "&login_hint=bob%40example.org";
+            . "&login_hint=bob%40example.org"
+            . "&prompt=consent";
 
         $this->assertEquals($expected, $authUrl);
 
@@ -292,7 +292,7 @@ class ClientTest extends BaseTest
         $client->setClientId("client1");
         $client->setClientSecret('client1secret');
         $client->setState('1');
-        $client->setApprovalPrompt('force');
+        $client->setPrompt('consent');
         $client->setAccessType('offline');
 
         $client->setRedirectUri('localhost');
@@ -1024,5 +1024,29 @@ class ClientTest extends BaseTest
 
         $authUrl2 = $client->createAuthUrl();
         $this->assertStringContainsString(urlencode($redirectUri2), $authUrl2);
+    }
+
+    public function testSetPromptConsentFromDeprecatedApprovalPromptForce()
+    {
+        // default values are unchanged
+        $client = new Client(['redirect_uri' => 'https://123']);
+        $this->assertStringNotContainsString('approval_prompt=', $client->createAuthUrl());
+        $this->assertStringNotContainsString('prompt=', $client->createAuthUrl());
+
+        // setting approval_prompt to force sets prompt to consent
+        $client->setApprovalPrompt('force');
+        $this->assertStringNotContainsString('approval_prompt=', $client->createAuthUrl());
+        $this->assertStringContainsString('prompt=consent', $client->createAuthUrl());
+
+        // setting prompt explicitly overrides approval_prompt force
+        $client->setPrompt('auto');
+        $this->assertStringNotContainsString('approval_prompt=', $client->createAuthUrl());
+        $this->assertStringContainsString('prompt=auto', $client->createAuthUrl());
+
+        // setting approval_prompt to something else does not set prompt
+        $client->setPrompt('');
+        $client->setApprovalPrompt('auto');
+        $this->assertStringNotContainsString('approval_prompt=', $client->createAuthUrl());
+        $this->assertStringNotContainsString('prompt=', $client->createAuthUrl());
     }
 }
