@@ -239,8 +239,7 @@ class ClientTest extends BaseTest
             . '&client_id=test1'
             . '&redirect_uri=http%3A%2F%2Flocalhost%2F'
             . '&state=xyz'
-            . '&scope=http%3A%2F%2Ftest.com%20scope2'
-            . '&approval_prompt=auto',
+            . '&scope=http%3A%2F%2Ftest.com%20scope2',
             $client->createAuthUrl()
         );
 
