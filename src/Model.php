@@ -294,7 +294,7 @@ class Model implements \ArrayAccess
         $keyType = $key . "Type";
 
         // ensure keyType is a valid class
-        if (property_exists($this, $keyType) && class_exists($this->$keyType)) {
+        if (property_exists($this, $keyType) && $this->$keyType !== null && class_exists($this->$keyType)) {
             return $this->$keyType;
         }
     }
