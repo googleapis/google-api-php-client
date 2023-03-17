@@ -28,6 +28,7 @@ use stdClass;
  * http://tools.ietf.org/html/draft-zyp-json-schema-03#section-5
  *
  */
+#[\AllowDynamicProperties]
 class Model implements \ArrayAccess
 {
     /**
