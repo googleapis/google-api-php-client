@@ -1205,6 +1205,7 @@ class Client
             $options = [
                 'base_uri' => $this->config['base_path'],
                 'http_errors' => false,
+                'stream' => TRUE
             ];
         } else {
             throw new LogicException('Could not find supported version of Guzzle.');
