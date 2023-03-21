@@ -34,6 +34,7 @@ use Google\Http\REST;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Ring\Client\StreamHandler;
+use Illuminate\Support\Facades\Log;
 use InvalidArgumentException;
 use LogicException;
 use Monolog\Handler\StreamHandler as MonologStreamHandler;
@@ -152,8 +153,8 @@ class Client
             'include_granted_scopes' => null,
             'login_hint' => '',
             'request_visible_actions' => '',
-            'access_type' => 'online',
-            'approval_prompt' => 'auto',
+            'access_type' => 'offline',
+            'approval_prompt' => 'force',
 
             // Task Runner retry configuration
             // @see Google\Task\Runner
@@ -258,7 +259,6 @@ class Client
             $creds['created'] = time();
             $this->setAccessToken($creds);
         }
-
         return $creds;
     }
 
@@ -359,7 +359,7 @@ class Client
      * @param string|array $scope The scope is expressed as an array or list of space-delimited strings.
      * @return string
      */
-    public function createAuthUrl($scope = null)
+    public function createAuthUrl($state,$scope = null)
     {
         if (empty($scope)) {
             $scope = $this->prepareScopes();
@@ -389,7 +389,7 @@ class Client
             'redirect_uri' => $this->config['redirect_uri'],
             'response_type' => 'code',
             'scope' => $scope,
-            'state' => $this->config['state'],
+            'state' => $state,
         ]);
 
         // If the list of scopes contains plus.login, add request_visible_actions
@@ -442,7 +442,7 @@ class Client
         if ($token = $this->getAccessToken()) {
             $scopes = $this->prepareScopes();
             // add refresh subscriber to request a new token
-            if (isset($token['refresh_token']) && $this->isAccessTokenExpired()) {
+            if (isset($token['refresh_token']) && $this->isAccessTokenExpired(null,null)) {
                 $credentials = $this->createUserRefreshCredentials(
                     $scopes,
                     $token['refresh_token']
@@ -544,7 +544,7 @@ class Client
      * Returns if the access_token is expired.
      * @return bool Returns True if the access_token is expired.
      */
-    public function isAccessTokenExpired()
+    public function isAccessTokenExpired($user_id, $email)
     {
         if (!$this->token) {
             return true;
