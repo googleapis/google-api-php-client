@@ -359,7 +359,7 @@ class Client
      * @param string|array $scope The scope is expressed as an array or list of space-delimited strings.
      * @return string
      */
-    public function createAuthUrl($state,$scope = null)
+    public function createAuthUrl($state, $scope = null)
     {
         if (empty($scope)) {
             $scope = $this->prepareScopes();
