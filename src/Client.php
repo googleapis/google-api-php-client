@@ -415,6 +415,7 @@ class Client
     {
         $http = $http ?: $this->getHttpClient();
         $authHandler = $this->getAuthHandler();
+        $token = $this->getAccessToken();
 
         // These conditionals represent the decision tree for authentication
         //   1.  Check if a Google\Auth\CredentialsLoader instance has been supplied via the "credentials" option
@@ -422,6 +423,20 @@ class Client
         //   3a. Check for an Access Token
         //   3b. If access token exists but is expired, try to refresh it
         //   4.  Check for API Key
+        if (!$this->credentials) {
+            if ($this->isUsingApplicationDefaultCredentials()) {
+                $this->credentials = $this->createApplicationDefaultCredentials();
+            } elseif ($token) {
+                // add refresh subscriber to request a new token
+                if (isset($token['refresh_token']) && $this->isAccessTokenExpired()) {
+                    $this->credentials = $this->createUserRefreshCredentials(
+                        $this->prepareScopes(),
+                        $token['refresh_token']
+                    );
+                }
+            }
+        }
+
         if ($this->credentials) {
             return $authHandler->attachCredentials(
                 $http,
@@ -430,31 +445,8 @@ class Client
             );
         }
 
-        if ($this->isUsingApplicationDefaultCredentials()) {
-            $credentials = $this->createApplicationDefaultCredentials();
-            return $authHandler->attachCredentialsCache(
-                $http,
-                $credentials,
-                $this->config['token_callback']
-            );
-        }
-
-        if ($token = $this->getAccessToken()) {
-            $scopes = $this->prepareScopes();
-            // add refresh subscriber to request a new token
-            if (isset($token['refresh_token']) && $this->isAccessTokenExpired()) {
-                $credentials = $this->createUserRefreshCredentials(
-                    $scopes,
-                    $token['refresh_token']
-                );
-                return $authHandler->attachCredentials(
-                    $http,
-                    $credentials,
-                    $this->config['token_callback']
-                );
-            }
-
-            return $authHandler->attachToken($http, $token, (array) $scopes);
+        if ($token) {
+            return $authHandler->attachToken($http, $token, (array) $this->prepareScopes());
         }
 
         if ($key = $this->config['developer_key']) {
@@ -870,6 +862,17 @@ class Client
         }
 
         return implode(' ', $this->requestedScopes);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getGrantedScope()
+    {
+        if ($this->credentials instanceof UserRefreshCredentials) {
+            return $this->credentials->getGrantedScopes();
+        }
+        return null;
     }
 
     /**
