@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+set -e
+
 apt-get update
 apt-get install -y git wget
 git reset --hard HEAD
