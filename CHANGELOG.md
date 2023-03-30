@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.1](https://github.com/googleapis/google-api-php-client/compare/v2.13.0...v2.13.1) (2023-03-13)
+
+
+### Bug Fixes
+
+* Allow dynamic properties on model classes ([#2408](https://github.com/googleapis/google-api-php-client/issues/2408)) ([11080d5](https://github.com/googleapis/google-api-php-client/commit/11080d5e85a040751a13aca8131f93c7d910db11))
+
 ## [2.13.0](https://github.com/googleapis/google-api-php-client/compare/v2.12.6...v2.13.0) (2022-12-19)
 
 
