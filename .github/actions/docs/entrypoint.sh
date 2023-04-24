@@ -1,7 +1,13 @@
 #!/bin/sh -l
 
+set -e
+
 apt-get update
 apt-get install -y git wget
+
+# Fix github "detected dubious ownership" error
+git config --global --add safe.directory /github/workspace
+
 git reset --hard HEAD
 
 # Create the directories
