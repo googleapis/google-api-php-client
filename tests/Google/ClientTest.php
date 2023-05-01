@@ -1025,4 +1025,14 @@ class ClientTest extends BaseTest
         $authUrl2 = $client->createAuthUrl();
         $this->assertStringContainsString(urlencode($redirectUri2), $authUrl2);
     }
+
+    public function testQueryParamsForAuthUrl()
+    {
+        $client = new Client();
+        $client->setRedirectUri('https://example.com');
+        $authUrl1 = $client->createAuthUrl(null, [
+            'enable_serial_consent' => 'true'
+        ]);
+        $this->assertStringContainsString('&enable_serial_consent=true', $authUrl1);
+    }
 }
