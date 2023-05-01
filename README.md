@@ -422,6 +422,17 @@ $client->setHttpClient($httpClient);
 
 Other Guzzle features such as [Handlers and Middleware](http://docs.guzzlephp.org/en/stable/handlers-and-middleware.html) offer even more control.
 
+### Accessing Granted Scopes
+
+If you're using OAuth2 3LO (e.g. you're a client requesting credentials from a
+3rd party, such as in the [simple file upload example][examples/simple-file-upload.php]),
+you can see which scopes were granted by calling `getGrantedScope` on the OAuth2 object:
+
+```php
+// Comma-separated string of granted scopes if it exists, otherwise null.
+$client->getOAuth2Service()->getGrantedScope();
+```
+
 ### Service Specific Examples ###
 
 YouTube: https://github.com/youtube/api-samples/tree/master/php
