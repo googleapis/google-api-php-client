@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/9.2/phpunit.xsd"
-         colors="true"
-         bootstrap="tests/bootstrap.php">
-    <testsuites>
-        <testsuite name="Google PHP Client Unit Test Suite">
-            <directory>tests/Google</directory>
-        </testsuite>
-        <testsuite name="Google PHP Client Examples Test Suite">
-            <directory>tests/examples</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">./src</directory>
-        </whitelist>
-    </filter>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd" colors="true" bootstrap="tests/bootstrap.php">
+  <coverage>
+    <include>
+      <directory suffix=".php">./src</directory>
+    </include>
+  </coverage>
+  <testsuites>
+    <testsuite name="Google PHP Client Unit Test Suite">
+      <directory>tests/Google</directory>
+    </testsuite>
+    <testsuite name="Google PHP Client Examples Test Suite">
+      <directory>tests/examples</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>

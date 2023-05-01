@@ -50,7 +50,6 @@ class CacheTest extends BaseTest
 
     public function testFileCache()
     {
-        $this->onlyPhp55AndAbove();
         $this->checkServiceAccountCredentials();
 
         $client = new Client();
