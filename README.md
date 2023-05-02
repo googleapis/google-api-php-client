@@ -440,7 +440,7 @@ Once the flow is completed, you can see which scopes were granted by calling
 `getGrantedScope` on the OAuth2 object:
 
 ```php
-// Comma-separated string of granted scopes if it exists, otherwise null.
+// Space-separated string of granted scopes if it exists, otherwise null.
 echo $client->getOAuth2Service()->getGrantedScope();
 ```
 
