@@ -57,7 +57,7 @@ if (isset($_REQUEST['logout'])) {
  * bundle in the session, and redirect to ourself.
  ************************************************/
 if (isset($_GET['code'])) {
-    $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+    $token = $client->fetchAccessTokenWithAuthCode($_GET['code'], $_SESSION['code_verifier']);
 
     // store in the session also
     $_SESSION['id_token_token'] = $token;
@@ -77,6 +77,7 @@ if (
 ) {
     $client->setAccessToken($_SESSION['id_token_token']);
 } else {
+    $_SESSION['code_verifier'] = $client->getOAuth2Service()->generateCodeVerifier();
     $authUrl = $client->createAuthUrl();
 }
 
