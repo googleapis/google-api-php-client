@@ -422,6 +422,28 @@ $client->setHttpClient($httpClient);
 
 Other Guzzle features such as [Handlers and Middleware](http://docs.guzzlephp.org/en/stable/handlers-and-middleware.html) offer even more control.
 
+### Partial Consent and Granted Scopes
+
+When using OAuth2 3LO (e.g. you're a client requesting credentials from a 3rd
+party, such as in the [simple file upload example](examples/simple-file-upload.php)),
+you may want to take advantage of Partial Consent.
+
+To allow clients to only grant certain scopes in the OAuth2 screen, pass the
+querystring parameter for `enable_serial_consent` when generating the
+authorization URL:
+
+```php
+$authUrl = $client->createAuthUrl($scope, ['enable_serial_consent' => 'true']);
+```
+
+Once the flow is completed, you can see which scopes were granted by calling
+`getGrantedScope` on the OAuth2 object:
+
+```php
+// Space-separated string of granted scopes if it exists, otherwise null.
+echo $client->getOAuth2Service()->getGrantedScope();
+```
+
 ### Service Specific Examples ###
 
 YouTube: https://github.com/youtube/api-samples/tree/master/php
