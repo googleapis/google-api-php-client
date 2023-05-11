@@ -28,6 +28,7 @@ use Yoast\PHPUnitPolyfills\TestCases\TestCase;
 use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
 
 class TestModel extends Model
 {
@@ -66,7 +67,13 @@ class ServiceTest extends TestCase
 
     public function testCreateBatch()
     {
+        $body = $this->prophesize(StreamInterface::class);
+        $body->__toString()->willReturn('');
         $response = $this->prophesize(ResponseInterface::class);
+        $response->getHeaderLine('content-type')
+            ->willReturn('');
+        $response->getBody()
+            ->willReturn($body->reveal());
         $client = $this->prophesize(Client::class);
 
         $client->execute(
