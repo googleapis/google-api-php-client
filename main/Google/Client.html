@@ -289,7 +289,7 @@ alias for fetchAccessTokenWithRefreshToken</p>                </div>
                     string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_createAuthUrl">createAuthUrl</a>(string|array $scope = null)
+                    <a href="#method_createAuthUrl">createAuthUrl</a>(string|array $scope = null, array $queryParams = [])
         
                                             <p>Create a URL to obtain user authorization.</p>                </div>
                 <div class="col-md-2"></div>
@@ -1217,9 +1217,9 @@ alias for fetchAccessTokenWithRefreshToken</p>                                  
             </div>
                     <div class="method-item">
                     <h3 id="method_createAuthUrl">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L362">line 362</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L363">line 363</a></div>
         <code>                    string
-    <strong>createAuthUrl</strong>(string|array $scope = null)
+    <strong>createAuthUrl</strong>(string|array $scope = null, array $queryParams = [])
         </code>
     </h3>
     <div class="details">
@@ -1237,6 +1237,11 @@ authenticate, and then grant/deny the access request.</p>                       
                 <td>string|array</td>
                 <td>$scope</td>
                 <td>The scope is expressed as an array or list of space-delimited strings.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$queryParams</td>
+                <td>Querystring params to add to the authorization URL.</td>
             </tr>
             </table>
 
@@ -1258,7 +1263,7 @@ authenticate, and then grant/deny the access request.</p>                       
             </div>
                     <div class="method-item">
                     <h3 id="method_authorize">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L414">line 414</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L415">line 415</a></div>
         <code>                    <abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr>
     <strong>authorize</strong>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $http = null)
         </code>
@@ -1299,7 +1304,7 @@ set in the Google API Client object</p>                                         
             </div>
                     <div class="method-item">
                     <h3 id="method_useApplicationDefaultCredentials">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L474">line 474</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L475">line 475</a></div>
         <code>                    
     <strong>useApplicationDefaultCredentials</strong>(boolean $useAppCreds = true)
         </code>
@@ -1342,7 +1347,7 @@ authentication</p>                                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isUsingApplicationDefaultCredentials">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L485">line 485</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L486">line 486</a></div>
         <code>                    
     <strong>isUsingApplicationDefaultCredentials</strong>()
         </code>
@@ -1375,7 +1380,7 @@ called in a conditional</p>                                                </div
             </div>
                     <div class="method-item">
                     <h3 id="method_setAccessToken">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L505">line 505</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L506">line 506</a></div>
         <code>                    
     <strong>setAccessToken</strong>(string|array $token)
         </code>
@@ -1422,7 +1427,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getAccessToken">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L526">line 526</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L527">line 527</a></div>
         <code>                    
     <strong>getAccessToken</strong>()
         </code>
@@ -1441,7 +1446,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getRefreshToken">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L534">line 534</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L535">line 535</a></div>
         <code>                    string|null
     <strong>getRefreshToken</strong>()
         </code>
@@ -1469,7 +1474,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_isAccessTokenExpired">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L547">line 547</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L548">line 548</a></div>
         <code>                    bool
     <strong>isAccessTokenExpired</strong>()
         </code>
@@ -1499,7 +1504,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getAuth">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L582">line 582</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L583">line 583</a></div>
         <code>                    
     <strong>getAuth</strong>()
         <small><sup><span class="label label-danger">deprecated</span></sup></small></code>
@@ -1525,7 +1530,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setAuth">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L592">line 592</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L593">line 593</a></div>
         <code>                    
     <strong>setAuth</strong>($auth)
         <small><sup><span class="label label-danger">deprecated</span></sup></small></code>
@@ -1561,7 +1566,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setClientId">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L603">line 603</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L604">line 604</a></div>
         <code>                    
     <strong>setClientId</strong>(string $clientId)
         </code>
@@ -1592,7 +1597,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getClientId">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L608">line 608</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L609">line 609</a></div>
         <code>                    
     <strong>getClientId</strong>()
         </code>
@@ -1611,7 +1616,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setClientSecret">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L617">line 617</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L618">line 618</a></div>
         <code>                    
     <strong>setClientSecret</strong>(string $clientSecret)
         </code>
@@ -1642,7 +1647,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getClientSecret">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L622">line 622</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L623">line 623</a></div>
         <code>                    
     <strong>getClientSecret</strong>()
         </code>
@@ -1661,7 +1666,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setRedirectUri">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L631">line 631</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L632">line 632</a></div>
         <code>                    
     <strong>setRedirectUri</strong>(string $redirectUri)
         </code>
@@ -1692,7 +1697,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getRedirectUri">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L636">line 636</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L637">line 637</a></div>
         <code>                    
     <strong>getRedirectUri</strong>()
         </code>
@@ -1711,7 +1716,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setState">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L646">line 646</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L647">line 647</a></div>
         <code>                    
     <strong>setState</strong>(string $state)
         </code>
@@ -1753,7 +1758,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setAccessType">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L656">line 656</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L657">line 657</a></div>
         <code>                    
     <strong>setAccessType</strong>(string $accessType)
         </code>
@@ -1784,7 +1789,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setApprovalPrompt">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L666">line 666</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L667">line 667</a></div>
         <code>                    
     <strong>setApprovalPrompt</strong>(string $approvalPrompt)
         </code>
@@ -1815,7 +1820,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setLoginHint">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L675">line 675</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L676">line 676</a></div>
         <code>                    
     <strong>setLoginHint</strong>(string $loginHint)
         </code>
@@ -1846,7 +1851,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setApplicationName">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L684">line 684</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L685">line 685</a></div>
         <code>                    
     <strong>setApplicationName</strong>(string $applicationName)
         </code>
@@ -1877,7 +1882,7 @@ related to Google API PHP Client.)</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setRequestVisibleActions">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L697">line 697</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L698">line 698</a></div>
         <code>                    
     <strong>setRequestVisibleActions</strong>(array $requestVisibleActions)
         </code>
@@ -1909,7 +1914,7 @@ this method to define types of app activities that your app will write.</p>     
             </div>
                     <div class="method-item">
                     <h3 id="method_setDeveloperKey">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L710">line 710</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L711">line 711</a></div>
         <code>                    
     <strong>setDeveloperKey</strong>(string $developerKey)
         </code>
@@ -1951,7 +1956,7 @@ this method to define types of app activities that your app will write.</p>     
             </div>
                     <div class="method-item">
                     <h3 id="method_setHostedDomain">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L721">line 721</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L722">line 722</a></div>
         <code>                    
     <strong>setHostedDomain</strong>(string $hd)
         </code>
@@ -1984,7 +1989,7 @@ restrict sign-in to accounts at that domain.</p>                                
             </div>
                     <div class="method-item">
                     <h3 id="method_setPrompt">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L735">line 735</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L736">line 736</a></div>
         <code>                    
     <strong>setPrompt</strong>(string $prompt)
         </code>
@@ -2018,7 +2023,7 @@ access, then the user is shown a consent screen.</p>                            
             </div>
                     <div class="method-item">
                     <h3 id="method_setOpenidRealm">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L746">line 746</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L747">line 747</a></div>
         <code>                    
     <strong>setOpenidRealm</strong>(string $realm)
         </code>
@@ -2051,7 +2056,7 @@ an authentication request is valid.</p>                                         
             </div>
                     <div class="method-item">
                     <h3 id="method_setIncludeGrantedScopes">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L757">line 757</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L758">line 758</a></div>
         <code>                    
     <strong>setIncludeGrantedScopes</strong>(bool $include)
         </code>
@@ -2084,7 +2089,7 @@ granted to this user/application combination for other scopes.</p>              
             </div>
                     <div class="method-item">
                     <h3 id="method_setTokenCallback">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L766">line 766</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L767">line 767</a></div>
         <code>                    
     <strong>setTokenCallback</strong>(callable $tokenCallback)
         </code>
@@ -2118,7 +2123,7 @@ granted to this user/application combination for other scopes.</p>              
             </div>
                     <div class="method-item">
                     <h3 id="method_revokeToken">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L778">line 778</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L779">line 779</a></div>
         <code>                    boolean
     <strong>revokeToken</strong>(string|array|null $token = null)
         </code>
@@ -2159,7 +2164,7 @@ token, if a token isn't provided.</p>                                           
             </div>
                     <div class="method-item">
                     <h3 id="method_verifyIdToken">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L795">line 795</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L796">line 796</a></div>
         <code>                    array|false
     <strong>verifyIdToken</strong>(string|null $idToken = null)
         </code>
@@ -2214,7 +2219,7 @@ successful, false otherwise.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_setScopes">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L828">line 828</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L829">line 829</a></div>
         <code>                    
     <strong>setScopes</strong>($scope_or_scopes)
         </code>
@@ -2245,7 +2250,7 @@ successful, false otherwise.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_addScope">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L841">line 841</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L842">line 842</a></div>
         <code>                    
     <strong>addScope</strong>(string|string[] $scope_or_scopes)
         </code>
@@ -2278,7 +2283,7 @@ will each be appended.</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getScopes">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L857">line 857</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L858">line 858</a></div>
         <code>                    array
     <strong>getScopes</strong>()
         </code>
@@ -2308,7 +2313,7 @@ will each be appended.</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_prepareScopes">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L866">line 866</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L867">line 867</a></div>
         <code>                    string|null
     <strong>prepareScopes</strong>()
         </code>
@@ -2336,7 +2341,7 @@ will each be appended.</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_execute">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L884">line 884</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L885">line 885</a></div>
         <code>                    mixed|<abbr title="Google\T">T</abbr>|<abbr title="Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>
     <strong>execute</strong>(<abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, <abbr title="Google\class-string<T>">class-string<T></abbr>|false|null $expectedClass = null)
         </code>
@@ -2390,7 +2395,7 @@ will each be appended.</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setUseBatch">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L932">line 932</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L933">line 933</a></div>
         <code>                    
     <strong>setUseBatch</strong>(boolean $useBatch)
         </code>
@@ -2423,7 +2428,7 @@ be enabled. Defaults to False.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_isAppEngine">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L942">line 942</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L943">line 943</a></div>
         <code>                    
     <strong>isAppEngine</strong>()
         </code>
@@ -2445,7 +2450,7 @@ return bool</p>                                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setConfig">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L948">line 948</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L949">line 949</a></div>
         <code>                    
     <strong>setConfig</strong>($name, $value)
         </code>
@@ -2479,7 +2484,7 @@ return bool</p>                                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getConfig">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L953">line 953</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L954">line 954</a></div>
         <code>                    
     <strong>getConfig</strong>($name, $default = null)
         </code>
@@ -2513,7 +2518,7 @@ return bool</p>                                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setAuthConfigFile">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L966">line 966</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L967">line 967</a></div>
         <code>                    
     <strong>setAuthConfigFile</strong>(string $file)
         <small><sup><span class="label label-danger">deprecated</span></sup></small></code>
@@ -2561,7 +2566,7 @@ alias for setAuthConfig</p>                                                </div
             </div>
                     <div class="method-item">
                     <h3 id="method_setAuthConfig">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L979">line 979</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L980">line 980</a></div>
         <code>                    
     <strong>setAuthConfig</strong>(string|array $config)
         </code>
@@ -2603,7 +2608,7 @@ Console.</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setSubject">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1025">line 1025</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1026">line 1026</a></div>
         <code>                    
     <strong>setSubject</strong>(string $subject)
         </code>
@@ -2634,7 +2639,7 @@ Console.</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setDefer">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1036">line 1036</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1037">line 1037</a></div>
         <code>                    
     <strong>setDefer</strong>(boolean $defer)
         </code>
@@ -2666,7 +2671,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_shouldDefer">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1045">line 1045</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1046">line 1046</a></div>
         <code>                    boolean
     <strong>shouldDefer</strong>()
         </code>
@@ -2696,7 +2701,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_getOAuth2Service">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1053">line 1053</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1054">line 1054</a></div>
         <code>                    <abbr title="Google\Auth\OAuth2">OAuth2</abbr>
     <strong>getOAuth2Service</strong>()
         </code>
@@ -2724,7 +2729,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_createOAuth2Service">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1065">line 1065</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1066">line 1066</a></div>
         <code>            protected        
     <strong>createOAuth2Service</strong>()
         </code>
@@ -2745,7 +2750,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_setCache">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1085">line 1085</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1086">line 1086</a></div>
         <code>                    
     <strong>setCache</strong>(<abbr title="Psr\Cache\CacheItemPoolInterface">CacheItemPoolInterface</abbr> $cache)
         </code>
@@ -2776,7 +2781,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_getCache">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1093">line 1093</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1094">line 1094</a></div>
         <code>                    <abbr title="Psr\Cache\CacheItemPoolInterface">CacheItemPoolInterface</abbr>
     <strong>getCache</strong>()
         </code>
@@ -2804,7 +2809,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_setCacheConfig">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1105">line 1105</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1106">line 1106</a></div>
         <code>                    
     <strong>setCacheConfig</strong>(array $cacheConfig)
         </code>
@@ -2833,7 +2838,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_setLogger">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1114">line 1114</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1115">line 1115</a></div>
         <code>                    
     <strong>setLogger</strong>(<abbr title="Psr\Log\LoggerInterface">LoggerInterface</abbr> $logger)
         </code>
@@ -2864,7 +2869,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_getLogger">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1122">line 1122</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1123">line 1123</a></div>
         <code>                    <abbr title="Psr\Log\LoggerInterface">LoggerInterface</abbr>
     <strong>getLogger</strong>()
         </code>
@@ -2892,7 +2897,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_createDefaultLogger">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1131">line 1131</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1132">line 1132</a></div>
         <code>            protected        
     <strong>createDefaultLogger</strong>()
         </code>
@@ -2911,7 +2916,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_createDefaultCache">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1144">line 1144</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1145">line 1145</a></div>
         <code>            protected        
     <strong>createDefaultCache</strong>()
         </code>
@@ -2930,7 +2935,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_setHttpClient">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1153">line 1153</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1154">line 1154</a></div>
         <code>                    
     <strong>setHttpClient</strong>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $http)
         </code>
@@ -2961,7 +2966,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_getHttpClient">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1161">line 1161</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1162">line 1162</a></div>
         <code>                    <abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr>
     <strong>getHttpClient</strong>()
         </code>
@@ -2989,7 +2994,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_setApiFormatV2">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1177">line 1177</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1178">line 1178</a></div>
         <code>                    
     <strong>setApiFormatV2</strong>(bool $value)
         </code>
@@ -3020,7 +3025,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_createDefaultHttpClient">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1182">line 1182</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1183">line 1183</a></div>
         <code>            protected        
     <strong>createDefaultHttpClient</strong>()
         </code>
@@ -3039,7 +3044,7 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_getAuthHandler">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1272">line 1272</a></div>
+        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/main/src/Client.php#L1273">line 1273</a></div>
         <code>            protected        
     <strong>getAuthHandler</strong>()
         </code>
