@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.14.0](https://github.com/googleapis/google-api-php-client/compare/v2.13.2...v2.14.0) (2023-05-11)
+
+
+### Features
+
+* User-supplied query params for auth url ([#2432](https://github.com/googleapis/google-api-php-client/issues/2432)) ([74a7d7b](https://github.com/googleapis/google-api-php-client/commit/74a7d7b838acb08afc02b449f338fbe6577cb03c))
+
 ## [2.13.2](https://github.com/googleapis/google-api-php-client/compare/v2.13.1...v2.13.2) (2023-03-23)
 
 
