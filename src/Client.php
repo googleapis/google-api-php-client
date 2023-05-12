@@ -357,9 +357,10 @@ class Client
      * The authorization endpoint allows the user to first
      * authenticate, and then grant/deny the access request.
      * @param string|array $scope The scope is expressed as an array or list of space-delimited strings.
+     * @param array $queryParams Querystring params to add to the authorization URL.
      * @return string
      */
-    public function createAuthUrl($scope = null)
+    public function createAuthUrl($scope = null, array $queryParams = [])
     {
         if (empty($scope)) {
             $scope = $this->prepareScopes();
@@ -390,7 +391,7 @@ class Client
             'response_type' => 'code',
             'scope' => $scope,
             'state' => $this->config['state'],
-        ]);
+        ]) + $queryParams;
 
         // If the list of scopes contains plus.login, add request_visible_actions
         // to auth URL.

@@ -2,6 +2,10 @@
 
 # Google APIs Client Library for PHP #
 
+**NOTE**: please check to see if the package you'd like to install is available in our
+list of [Google cloud packages](https://cloud.google.com/php/docs/reference) first, as
+these are the recommended libraries.
+
 <dl>
   <dt>Reference Docs</dt><dd><a href="https://googleapis.github.io/google-api-php-client/main/">https://googleapis.github.io/google-api-php-client/main/</a></dd>
   <dt>License</dt><dd>Apache 2.0</dd>
@@ -417,6 +421,28 @@ $client->setHttpClient($httpClient);
 ```
 
 Other Guzzle features such as [Handlers and Middleware](http://docs.guzzlephp.org/en/stable/handlers-and-middleware.html) offer even more control.
+
+### Partial Consent and Granted Scopes
+
+When using OAuth2 3LO (e.g. you're a client requesting credentials from a 3rd
+party, such as in the [simple file upload example](examples/simple-file-upload.php)),
+you may want to take advantage of Partial Consent.
+
+To allow clients to only grant certain scopes in the OAuth2 screen, pass the
+querystring parameter for `enable_serial_consent` when generating the
+authorization URL:
+
+```php
+$authUrl = $client->createAuthUrl($scope, ['enable_serial_consent' => 'true']);
+```
+
+Once the flow is completed, you can see which scopes were granted by calling
+`getGrantedScope` on the OAuth2 object:
+
+```php
+// Space-separated string of granted scopes if it exists, otherwise null.
+echo $client->getOAuth2Service()->getGrantedScope();
+```
 
 ### Service Specific Examples ###
 
