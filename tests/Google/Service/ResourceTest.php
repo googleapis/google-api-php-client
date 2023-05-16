@@ -26,13 +26,11 @@ use Google\Service as GoogleService;
 use Google\Service\Exception as ServiceException;
 use Google\Service\Resource as GoogleResource;
 use Google\Exception as GoogleException;
-use GuzzleHttp\Message\Response as Guzzle5Response;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Stream;
-use GuzzleHttp\Stream\Stream as Guzzle5Stream;
 use Prophecy\Argument;
 
 class TestService extends \Google\Service
@@ -52,7 +50,7 @@ class ResourceTest extends BaseTest
     private $client;
     private $service;
 
-    public function set_up()
+    public function setUp(): void
     {
         $this->client = $this->prophesize(Client::class);
 
@@ -231,24 +229,12 @@ class ResourceTest extends BaseTest
 
         $http = $this->prophesize("GuzzleHttp\Client");
 
-        if ($this->isGuzzle5()) {
-            $body = Guzzle5Stream::factory('thisisnotvalidjson');
-            $response = new Guzzle5Response(200, [], $body);
+        $body = Psr7\Utils::streamFor('thisisnotvalidjson');
+        $response = new Response(200, [], $body);
 
-            $http->createRequest(Argument::any(), Argument::any(), Argument::any())
-                ->willReturn(new \GuzzleHttp\Message\Request('GET', '/?alt=media'));
-
-            $http->send(Argument::type('GuzzleHttp\Message\Request'))
-                ->shouldBeCalledTimes(1)
-                ->willReturn($response);
-        } else {
-            $body = Psr7\Utils::streamFor('thisisnotvalidjson');
-            $response = new Response(200, [], $body);
-
-            $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
-                ->shouldBeCalledTimes(1)
-                ->willReturn($response);
-        }
+        $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+            ->shouldBeCalledTimes(1)
+            ->willReturn($response);
 
         $client = new Client();
         $client->setHttpClient($http->reveal());
@@ -284,24 +270,12 @@ class ResourceTest extends BaseTest
 
         $http = $this->prophesize("GuzzleHttp\Client");
 
-        if ($this->isGuzzle5()) {
-            $body = Guzzle5Stream::factory('thisisnotvalidjson');
-            $response = new Guzzle5Response(400, [], $body);
+        $body = Psr7\Utils::streamFor('thisisnotvalidjson');
+        $response = new Response(400, [], $body);
 
-            $http->createRequest(Argument::any(), Argument::any(), Argument::any())
-                ->willReturn(new \GuzzleHttp\Message\Request('GET', '/?alt=media'));
-
-            $http->send(Argument::type('GuzzleHttp\Message\Request'))
-                ->shouldBeCalledTimes(1)
-                ->willReturn($response);
-        } else {
-            $body = Psr7\Utils::streamFor('thisisnotvalidjson');
-            $response = new Response(400, [], $body);
-
-            $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
-              ->shouldBeCalledTimes(1)
-              ->willReturn($response);
-        }
+        $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+            ->shouldBeCalledTimes(1)
+            ->willReturn($response);
 
         $client = new Client();
         $client->setHttpClient($http->reveal());
@@ -341,24 +315,12 @@ class ResourceTest extends BaseTest
 
         $http = $this->prophesize("GuzzleHttp\Client");
 
-        if ($this->isGuzzle5()) {
-            $body = Guzzle5Stream::factory('this will be pulled into memory');
-            $response = new Guzzle5Response(400, [], $body);
+        $body = Psr7\Utils::streamFor('this will be pulled into memory');
+        $response = new Response(400, [], $body);
 
-            $http->createRequest(Argument::any(), Argument::any(), Argument::any())
-                ->willReturn(new \GuzzleHttp\Message\Request('GET', '/?alt=media'));
-
-            $http->send(Argument::type('GuzzleHttp\Message\Request'))
-                ->shouldBeCalledTimes(1)
-                ->willReturn($response);
-        } else {
-            $body = Psr7\Utils::streamFor('this will be pulled into memory');
-            $response = new Response(400, [], $body);
-
-            $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
-                ->shouldBeCalledTimes(1)
-                ->willReturn($response);
-        }
+        $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+            ->shouldBeCalledTimes(1)
+            ->willReturn($response);
 
         $client = new Client();
         $client->setHttpClient($http->reveal());
@@ -392,8 +354,6 @@ class ResourceTest extends BaseTest
 
     public function testSuccessResponseWithVeryLongBody()
     {
-        $this->onlyGuzzle6Or7();
-
         // set the "alt" parameter to "media"
         $arguments = [['alt' => 'media']];
         $stream = $this->prophesize(Stream::class);
@@ -446,24 +406,12 @@ class ResourceTest extends BaseTest
 
         $http = $this->prophesize("GuzzleHttp\Client");
 
-        if ($this->isGuzzle5()) {
-            $body = Guzzle5Stream::factory($content);
-            $response = new Guzzle5Response(400, [], $body);
+        $body = Psr7\Utils::streamFor($content);
+        $response = new Response(400, [], $body);
 
-            $http->createRequest(Argument::any(), Argument::any(), Argument::any())
-                ->willReturn(new \GuzzleHttp\Message\Request('GET', '/?alt=media'));
-
-            $http->send(Argument::type('GuzzleHttp\Message\Request'))
-                ->shouldBeCalledTimes(1)
-                ->willReturn($response);
-        } else {
-            $body = Psr7\Utils::streamFor($content);
-            $response = new Response(400, [], $body);
-
-            $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
-                ->shouldBeCalledTimes(1)
-                ->willReturn($response);
-        }
+        $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+            ->shouldBeCalledTimes(1)
+            ->willReturn($response);
 
         $client = new Client();
         $client->setHttpClient($http->reveal());
