@@ -23,7 +23,7 @@ use Google\Tests\BaseTest;
 class AdSenseTest extends BaseTest
 {
     public $adsense;
-    public function set_up()
+    public function setUp(): void
     {
         $this->markTestSkipped('Thesse tests need to be fixed');
         $this->checkToken();

@@ -15,7 +15,6 @@ $classMap = [
     'Google\\Utils\\UriTemplate' => 'Google_Utils_UriTemplate',
     'Google\\AuthHandler\\Guzzle6AuthHandler' => 'Google_AuthHandler_Guzzle6AuthHandler',
     'Google\\AuthHandler\\Guzzle7AuthHandler' => 'Google_AuthHandler_Guzzle7AuthHandler',
-    'Google\\AuthHandler\\Guzzle5AuthHandler' => 'Google_AuthHandler_Guzzle5AuthHandler',
     'Google\\AuthHandler\\AuthHandlerFactory' => 'Google_AuthHandler_AuthHandlerFactory',
     'Google\\Http\\Batch' => 'Google_Http_Batch',
     'Google\\Http\\MediaFileUpload' => 'Google_Http_MediaFileUpload',
@@ -50,9 +49,6 @@ if (\false) {
     {
     }
     class Google_AuthHandler_AuthHandlerFactory extends \Google\AuthHandler\AuthHandlerFactory
-    {
-    }
-    class Google_AuthHandler_Guzzle5AuthHandler extends \Google\AuthHandler\Guzzle5AuthHandler
     {
     }
     class Google_AuthHandler_Guzzle6AuthHandler extends \Google\AuthHandler\Guzzle6AuthHandler

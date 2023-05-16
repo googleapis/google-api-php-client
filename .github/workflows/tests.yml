@@ -11,12 +11,12 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [ "5.6", "7.0", "7.1", "7.2", "7.3", "7.4", "8.0", "8.1", "8.2" ]
+                php: [ "7.4", "8.0", "8.1", "8.2" ]
                 composer-flags: [""]
                 include:
-                  - php: "5.6"
+                  - php: "7.4"
                     composer-flags: "--prefer-lowest "
-                  - php: "8.0"
+                  - php: "8.2"
                     composer-flags: "--prefer-lowest "
         name: PHP ${{ matrix.php }} ${{ matrix.composer-flags }}Unit Test
         steps:
@@ -26,14 +26,11 @@ jobs:
               with:
                 php-version: ${{ matrix.php }}
             - name: Install Dependencies
-              uses: nick-invision/retry@v1
+              uses: nick-invision/retry@v2
               with:
                 timeout_minutes: 10
                 max_attempts: 3
                 command: composer update ${{ matrix.composer-flags }}
-            - if: ${{ matrix.php == '8.0' && matrix.composer-flags == '--prefer-lowest ' }}
-              name: Update guzzlehttp/ringphp dependency
-              run: composer update guzzlehttp/ringphp
             - name: Run Script
               run: vendor/bin/phpunit
 
@@ -45,9 +42,9 @@ jobs:
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
               with:
-                php-version: "7.3"
+                php-version: "7.4"
             - name: Install Dependencies
-              uses: nick-invision/retry@v1
+              uses: nick-invision/retry@v2
               with:
                 timeout_minutes: 10
                 max_attempts: 3

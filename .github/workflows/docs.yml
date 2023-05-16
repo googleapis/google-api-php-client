@@ -18,7 +18,7 @@ jobs:
             max_attempts: 3
             command: composer install
         - name: Generate and Push Documentation
-          uses: docker://php:7.3-cli
+          uses: docker://php:7.4-cli
           env:
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           with:

@@ -25,7 +25,7 @@ class TasksTest extends BaseTest
     /** @var Tasks */
     public $taskService;
 
-    public function set_up()
+    public function setUp(): void
     {
         $this->checkToken();
         $this->taskService = new Tasks($this->getClient());

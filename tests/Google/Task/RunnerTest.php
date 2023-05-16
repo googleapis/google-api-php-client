@@ -24,11 +24,9 @@ use Google\Http\Request as GoogleRequest;
 use Google\Http\REST;
 use Google\Service\Exception as ServiceException;
 use Google\Task\Exception as TaskException;
-use GuzzleHttp\Message\Response as Guzzle5Response;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\Stream\Stream as Guzzle5Stream;
 use Prophecy\Argument;
 use Exception;
 
@@ -42,7 +40,7 @@ class RunnerTest extends BaseTest
     private $retryMap;
     private $retryConfig;
 
-    protected function set_up()
+    public function setUp(): void
     {
         $this->client = new Client();
     }
@@ -648,19 +646,9 @@ class RunnerTest extends BaseTest
         $request = new Request('GET', '/test');
         $http = $this->prophesize('GuzzleHttp\ClientInterface');
 
-        if ($this->isGuzzle5()) {
-            $http->createRequest(Argument::any(), Argument::any(), Argument::any())
-              ->shouldBeCalledTimes($this->mockedCallsCount)
-              ->willReturn(new \GuzzleHttp\Message\Request('GET', '/test'));
-
-            $http->send(Argument::type('GuzzleHttp\Message\Request'))
-              ->shouldBeCalledTimes($this->mockedCallsCount)
-              ->will([$this, 'getNextMockedCall']);
-        } else {
-            $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
-              ->shouldBeCalledTimes($this->mockedCallsCount)
-              ->will([$this, 'getNextMockedCall']);
-        }
+        $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+            ->shouldBeCalledTimes($this->mockedCallsCount)
+            ->will([$this, 'getNextMockedCall']);
 
         return REST::execute($http->reveal(), $request, '', $this->retryConfig, $this->retryMap);
     }
@@ -680,13 +668,8 @@ class RunnerTest extends BaseTest
             throw $current;
         }
 
-        if ($this->isGuzzle5()) {
-            $stream = Guzzle5Stream::factory($current['body']);
-            $response = new Guzzle5Response($current['code'], $current['headers'], $stream);
-        } else {
-            $stream = Psr7\Utils::streamFor($current['body']);
-            $response = new Response($current['code'], $current['headers'], $stream);
-        }
+        $stream = Psr7\Utils::streamFor($current['body']);
+        $response = new Response($current['code'], $current['headers'], $stream);
 
         return $response;
     }

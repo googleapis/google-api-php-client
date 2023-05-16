@@ -23,6 +23,7 @@ use DomainException;
 use Exception;
 use ExpiredException;
 use Firebase\JWT\ExpiredException as ExpiredExceptionV3;
+use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use Firebase\JWT\SignatureInvalidException;
 use Google\Auth\Cache\MemoryCacheItemPool;
@@ -31,8 +32,9 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use InvalidArgumentException;
 use LogicException;
+use phpseclib3\Crypt\AES;
 use phpseclib3\Crypt\PublicKeyLoader;
-use phpseclib3\Crypt\RSA\PublicKey; // Firebase v2
+use phpseclib3\Math\BigInteger;
 use Psr\Cache\CacheItemPoolInterface;
 
 /**
@@ -219,93 +221,35 @@ class Verify
 
     private function getJwtService()
     {
-        $jwtClass = 'JWT';
-        if (class_exists('\Firebase\JWT\JWT')) {
-            $jwtClass = 'Firebase\JWT\JWT';
-        }
-
-        if (property_exists($jwtClass, 'leeway') && $jwtClass::$leeway < 1) {
+        $jwt = new JWT();
+        if ($jwt::$leeway < 1) {
             // Ensures JWT leeway is at least 1
             // @see https://github.com/google/google-api-php-client/issues/827
-            $jwtClass::$leeway = 1;
+            $jwt::$leeway = 1;
         }
 
-        // @phpstan-ignore-next-line
-        return new $jwtClass();
+        return $jwt;
     }
 
     private function getPublicKey($cert)
     {
-        $bigIntClass = $this->getBigIntClass();
-        $modulus = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['n']), 256);
-        $exponent = new $bigIntClass($this->jwt->urlsafeB64Decode($cert['e']), 256);
+        $modulus = new BigInteger($this->jwt->urlsafeB64Decode($cert['n']), 256);
+        $exponent = new BigInteger($this->jwt->urlsafeB64Decode($cert['e']), 256);
         $component = ['n' => $modulus, 'e' => $exponent];
 
-        if (class_exists('phpseclib3\Crypt\RSA\PublicKey')) {
-            /** @var PublicKey $loader */
-            $loader = PublicKeyLoader::load($component);
+        $loader = PublicKeyLoader::load($component);
 
-            return $loader->toString('PKCS8');
-        }
-
-        $rsaClass = $this->getRsaClass();
-        $rsa = new $rsaClass();
-        $rsa->loadKey($component);
-
-        return $rsa->getPublicKey();
-    }
-
-    private function getRsaClass()
-    {
-        if (class_exists('phpseclib3\Crypt\RSA')) {
-            return 'phpseclib3\Crypt\RSA';
-        }
-
-        if (class_exists('phpseclib\Crypt\RSA')) {
-            return 'phpseclib\Crypt\RSA';
-        }
-
-        return 'Crypt_RSA';
-    }
-
-    private function getBigIntClass()
-    {
-        if (class_exists('phpseclib3\Math\BigInteger')) {
-            return 'phpseclib3\Math\BigInteger';
-        }
-
-        if (class_exists('phpseclib\Math\BigInteger')) {
-            return 'phpseclib\Math\BigInteger';
-        }
-
-        return 'Math_BigInteger';
-    }
-
-    private function getOpenSslConstant()
-    {
-        if (class_exists('phpseclib3\Crypt\AES')) {
-            return 'phpseclib3\Crypt\AES::ENGINE_OPENSSL';
-        }
-
-        if (class_exists('phpseclib\Crypt\RSA')) {
-            return 'phpseclib\Crypt\RSA::MODE_OPENSSL';
-        }
-
-        if (class_exists('Crypt_RSA')) {
-            return 'CRYPT_RSA_MODE_OPENSSL';
-        }
-
-        throw new Exception('Cannot find RSA class');
+        return $loader->toString('PKCS8');
     }
 
     /**
-   * phpseclib calls "phpinfo" by default, which requires special
-   * whitelisting in the AppEngine VM environment. This function
-   * sets constants to bypass the need for phpseclib to check phpinfo
-   *
-   * @see phpseclib/Math/BigInteger
-   * @see https://github.com/GoogleCloudPlatform/getting-started-php/issues/85
-   */
+     * phpseclib calls "phpinfo" by default, which requires special
+     * whitelisting in the AppEngine VM environment. This function
+     * sets constants to bypass the need for phpseclib to check phpinfo
+     *
+     * @see phpseclib/Math/BigInteger
+     * @see https://github.com/GoogleCloudPlatform/getting-started-php/issues/85
+     */
     private function setPhpsecConstants()
     {
         if (filter_var(getenv('GAE_VM'), FILTER_VALIDATE_BOOLEAN)) {
@@ -313,7 +257,7 @@ class Verify
                 define('MATH_BIGINTEGER_OPENSSL_ENABLED', true);
             }
             if (!defined('CRYPT_RSA_MODE')) {
-                define('CRYPT_RSA_MODE', constant($this->getOpenSslConstant()));
+                define('CRYPT_RSA_MODE', AES::ENGINE_OPENSSL);
             }
         }
     }
