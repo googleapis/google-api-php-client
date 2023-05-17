@@ -240,6 +240,7 @@ class Client
      * Helper wrapped around the OAuth 2.0 implementation.
      *
      * @param string $code code from accounts.google.com
+     * @param string $codeVerifier the code verifier used for PKCE (if applicable)
      * @return array access token
      */
     public function fetchAccessTokenWithAuthCode($code, $codeVerifier = null)
