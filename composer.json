@@ -2,13 +2,21 @@
     "name": "google/apiclient",
     "type": "library",
     "description": "Client library for Google APIs",
-    "keywords": ["google"],
+    "keywords": [
+        "google"
+    ],
     "homepage": "http://developers.google.com/api-client-library/php",
     "license": "Apache-2.0",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/andresjavierpf/google-apiclient-services.git"
+        }
+    ],
     "require": {
         "php": "^7.4|^8.0",
         "google/auth": "^1.28",
-        "google/apiclient-services": "~0.200",
+        "google/devman-apiclient-services": "~0.200",
         "firebase/php-jwt": "~6.0",
         "monolog/monolog": "^2.9||^3.0",
         "phpseclib/phpseclib": "^3.0.2",
