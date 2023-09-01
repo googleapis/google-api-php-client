@@ -25,7 +25,7 @@ For Google Cloud Platform APIs such as [Datastore][cloud-datastore], [Cloud Stor
 [cloud-compute]: https://github.com/googleapis/google-cloud-php-compute
 
 ## Requirements ##
-* [PHP 5.6.0 or higher](https://www.php.net/)
+* [PHP 7.4 or higher](https://www.php.net/)
 
 ## Developer Documentation ##
 
@@ -44,7 +44,7 @@ composer installed.
 Once composer is installed, execute the following command in your project root to install this library:
 
 ```sh
-composer require google/apiclient:^2.12.1
+composer require google/apiclient:^2.15.0
 ```
 
 Finally, be sure to include the autoloader:
@@ -65,7 +65,7 @@ you want to keep in `composer.json`:
 ```json
 {
     "require": {
-        "google/apiclient": "^2.12.1"
+        "google/apiclient": "^2.15.0"
     },
     "scripts": {
         "pre-autoload-dump": "Google\\Task\\Composer::cleanup"

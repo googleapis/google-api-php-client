@@ -24,25 +24,15 @@ use Symfony\Component\DomCrawler\Crawler;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use Cache\Adapter\Filesystem\FilesystemCachePool;
-use Yoast\PHPUnitPolyfills\TestCases\TestCase;
-
-if (trait_exists('\Prophecy\PhpUnit\ProphecyTrait')) {
-    trait BaseTestTrait
-    {
-        use \Prophecy\PhpUnit\ProphecyTrait;
-    }
-} else {
-    trait BaseTestTrait
-    {
-    }
-}
+use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class BaseTest extends TestCase
 {
+    use ProphecyTrait;
+
     private $key;
     private $client;
-
-    use BaseTestTrait;
 
     public function getClient()
     {
@@ -72,11 +62,6 @@ class BaseTest extends TestCase
         if ($proxy = getenv('HTTP_PROXY')) {
             $options['proxy'] = $proxy;
             $options['verify'] = false;
-        }
-
-        // adjust constructor depending on guzzle version
-        if ($this->isGuzzle5()) {
-            $options = ['defaults' => $options];
         }
 
         $httpClient = new GuzzleClient($options);
@@ -218,77 +203,5 @@ class BaseTest extends TestCase
         }
 
         return false;
-    }
-
-    protected function isGuzzle7()
-    {
-        if (!defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
-            return false;
-        }
-
-        return (7 === ClientInterface::MAJOR_VERSION);
-    }
-
-    protected function isGuzzle6()
-    {
-        if (!defined('\GuzzleHttp\ClientInterface::VERSION')) {
-            return false;
-        }
-        $version = ClientInterface::VERSION;
-
-        return ('6' === $version[0]);
-    }
-
-    protected function isGuzzle5()
-    {
-        if (!defined('\GuzzleHttp\ClientInterface::VERSION')) {
-            return false;
-        }
-
-        $version = ClientInterface::VERSION;
-
-        return ('5' === $version[0]);
-    }
-
-    public function onlyGuzzle6()
-    {
-        if (!$this->isGuzzle6()) {
-            $this->markTestSkipped('Guzzle 6 only');
-        }
-    }
-
-    public function onlyPhp55AndAbove()
-    {
-        if (version_compare(PHP_VERSION, '5.5', '<')) {
-            $this->markTestSkipped('PHP 5.5 and above only');
-        }
-    }
-
-    public function onlyGuzzle5()
-    {
-        if (!$this->isGuzzle5()) {
-            $this->markTestSkipped('Guzzle 5 only');
-        }
-    }
-
-    public function onlyGuzzle6Or7()
-    {
-        if (!$this->isGuzzle6() && !$this->isGuzzle7()) {
-            $this->markTestSkipped('Guzzle 6 or 7 only');
-        }
-    }
-
-    protected function getGuzzle5ResponseMock()
-    {
-        $response = $this->prophesize('GuzzleHttp\Message\ResponseInterface');
-        $response->getStatusCode()
-            ->willReturn(200);
-
-        $response->getHeaders()->willReturn([]);
-        $response->getBody()->willReturn('');
-        $response->getProtocolVersion()->willReturn('');
-        $response->getReasonPhrase()->willReturn('');
-
-        return $response;
     }
 }

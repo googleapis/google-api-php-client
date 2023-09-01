@@ -24,11 +24,12 @@ use Google\Client;
 use Google\Model;
 use Google\Service;
 use Google\Http\Batch;
-use Yoast\PHPUnitPolyfills\TestCases\TestCase;
+use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 class TestModel extends Model
 {
@@ -48,22 +49,11 @@ class TestService extends Service
     public $batchPath = 'batch/test';
 }
 
-if (trait_exists('\Prophecy\PhpUnit\ProphecyTrait')) {
-    trait ServiceTestTrait
-    {
-        use \Prophecy\PhpUnit\ProphecyTrait;
-    }
-} else {
-    trait ServiceTestTrait
-    {
-    }
-}
-
 class ServiceTest extends TestCase
 {
     private static $errorMessage;
 
-    use ServiceTestTrait;
+    use ProphecyTrait;
 
     public function testCreateBatch()
     {

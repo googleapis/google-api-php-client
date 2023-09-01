@@ -21,9 +21,11 @@
 
 namespace Google\Tests\AccessToken;
 
+use Firebase\JWT\JWT;
 use Google\AccessToken\Verify;
 use Google\Tests\BaseTest;
 use ReflectionMethod;
+use phpseclib3\Crypt\AES;
 
 class VerifyTest extends BaseTest
 {
@@ -51,7 +53,7 @@ class VerifyTest extends BaseTest
         $openSslEnable = constant('MATH_BIGINTEGER_OPENSSL_ENABLED');
         $rsaMode = constant('CRYPT_RSA_MODE');
         $this->assertTrue($openSslEnable);
-        $this->assertEquals(constant($this->getOpenSslConstant()), $rsaMode);
+        $this->assertEquals(AES::ENGINE_OPENSSL, $rsaMode);
     }
 
     /**
@@ -63,7 +65,7 @@ class VerifyTest extends BaseTest
     {
         $this->checkToken();
 
-        $jwt = $this->getJwtService();
+        $jwt = new JWT();
         $client = $this->getClient();
         $http = $client->getHttpClient();
         $token = $client->getAccessToken();
@@ -100,7 +102,7 @@ class VerifyTest extends BaseTest
     {
         $this->checkToken();
 
-        $jwt = $this->getJwtService();
+        $jwt = new JWT();
         // set arbitrary leeway so we can check this later
         $jwt::$leeway = $leeway = 1.5;
         $client = $this->getClient();
@@ -132,29 +134,5 @@ class VerifyTest extends BaseTest
         $this->assertGreaterThan(1, count($certs['keys']));
         $this->assertArrayHasKey('alg', $certs['keys'][0]);
         $this->assertEquals('RS256', $certs['keys'][0]['alg']);
-    }
-
-    private function getJwtService()
-    {
-        if (class_exists('\Firebase\JWT\JWT')) {
-            return new \Firebase\JWT\JWT;
-        }
-
-        return new \JWT;
-    }
-
-    private function getOpenSslConstant()
-    {
-        if (class_exists('phpseclib3\Crypt\AES')) {
-            return 'phpseclib3\Crypt\AES::ENGINE_OPENSSL';
-        }
-
-        if (class_exists('phpseclib\Crypt\RSA')) {
-            return 'phpseclib\Crypt\RSA::MODE_OPENSSL';
-        }
-
-        if (class_exists('Crypt_RSA')) {
-            return 'CRYPT_RSA_MODE_OPENSSL';
-        }
     }
 }
