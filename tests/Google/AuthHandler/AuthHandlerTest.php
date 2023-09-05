@@ -32,8 +32,6 @@ class AuthHandlerTest extends BaseTest
 {
     public function testSetAccessTokenResultsInAuthCacheMiss()
     {
-        $this->onlyGuzzle6Or7();
-
         $client = new Client();
         $cache = new MemoryCacheItemPool();
         $authHandler = AuthHandlerFactory::build($cache);
