@@ -443,7 +443,6 @@ class Client
                 $this->config['token_callback']
             );
         }
-
         if ($token = $this->getAccessToken()) {
             $scopes = $this->prepareScopes();
             // add refresh subscriber to request a new token
@@ -794,10 +793,11 @@ class Client
      * @throws LogicException If no token was provided and no token was set using `setAccessToken`.
      * @throws UnexpectedValueException If the token is not a valid JWT.
      * @param string|null $idToken The token (id_token) that should be verified.
+     * @param string|null $audience Optional. The audience to verify against JWT "aud".
      * @return array|false Returns the token payload as an array if the verification was
      * successful, false otherwise.
      */
-    public function verifyIdToken($idToken = null)
+    public function verifyIdToken($idToken = null, string $audience = null)
     {
         $tokenVerifier = new Verify(
             $this->getHttpClient(),
@@ -817,7 +817,7 @@ class Client
 
         return $tokenVerifier->verifyIdToken(
             $idToken,
-            $this->getClientId()
+            $audience ?: $this->getClientId() // use the client ID when no audience is supplied
         );
     }
 
