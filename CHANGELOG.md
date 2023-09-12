@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.15.1](https://github.com/googleapis/google-api-php-client/compare/v2.15.0...v2.15.1) (2023-09-12)
+
+
+### Bug Fixes
+
+* Upgrade min phpseclib version ([#2499](https://github.com/googleapis/google-api-php-client/issues/2499)) ([8e7fae2](https://github.com/googleapis/google-api-php-client/commit/8e7fae2b79cfc1b72026347abf6314d91442a018))
+
 ## [2.15.0](https://github.com/googleapis/google-api-php-client/compare/v2.14.0...v2.15.0) (2023-05-18)
 
 
