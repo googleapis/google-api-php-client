@@ -664,9 +664,9 @@ class Client
     }
 
     /**
-     * @param string $approvalPrompt Possible values for approval_prompt include:
-     *  {@code "force"} to force the approval UI to appear.
-     *  {@code "auto"} to request auto-approval when possible. (This is the default value)
+     * @deprecated use {@see Client::setPrompt()} instead.
+     *
+     * @param string $approvalPrompt
      */
     public function setApprovalPrompt($approvalPrompt)
     {
