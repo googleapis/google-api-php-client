@@ -16,7 +16,7 @@
         "guzzlehttp/psr7": "^1.8.4||^2.2.1"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.0",
+        "squizlabs/php_codesniffer": "^3.8",
         "symfony/dom-crawler": "~2.1",
         "symfony/css-selector": "~2.1",
         "cache/filesystem-adapter": "^1.1",
