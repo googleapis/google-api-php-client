@@ -47,6 +47,15 @@ Once composer is installed, execute the following command in your project root t
 composer require google/apiclient:^2.15.0
 ```
 
+If you're facing a timeout error then either increase the timeout for composer by adding the env flag as `COMPOSER_PROCESS_TIMEOUT=600 composer install` or you can put this in the `config` section of the composer schema:
+```
+{
+    "config": {
+        "process-timeout": 600
+    }
+}
+```
+
 Finally, be sure to include the autoloader:
 
 ```php
