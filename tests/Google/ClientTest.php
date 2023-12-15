@@ -851,9 +851,12 @@ class ClientTest extends BaseTest
             ->willReturn('cache-key');
 
         // Ensure the access token provided by our credentials loader is used
-        $credentials->fetchAuthToken(Argument::any())
+        $credentials->updateMetadata([], null, Argument::any())
             ->shouldBeCalledOnce()
-            ->willReturn(['access_token' => 'abc']);
+            ->willReturn(['authorization' => 'Bearer abc']);
+        $credentials->getLastReceivedToken()
+            ->shouldBeCalledTimes(2)
+            ->willReturn(null);
 
         $client = new Client(['credentials' => $credentials->reveal()]);
 
