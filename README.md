@@ -47,28 +47,6 @@ Once composer is installed, execute the following command in your project root t
 composer require google/apiclient:^2.15.0
 ```
 
-#### Composer timeout error
-
-If you see the following error, it's because you need to increase your composer process timeout:
-
-```
-Script Google\Task\Composer::cleanup handling the pre-autoload-dump event terminated with an exception
-
-In Filesystem.php line 200:
-
-Failed to remove directory "(/path/to/vendor/google/apiclient-services/src/...": rmdir(/path/to/...): Text file busy
-```
-
-Either increase the timeout for composer by adding the env flag as `COMPOSER_PROCESS_TIMEOUT=600 composer install`, 
-or put this in the `config` section of the composer schema:
-```json
-{
-    "config": {
-        "process-timeout": 600
-    }
-}
-```
-
 Finally, be sure to include the autoloader:
 
 ```php
@@ -129,6 +107,29 @@ them explicitly:
     }
 }
 ```
+
+**IMPORTANT** If you see the following error, it's because you need to increase your composer process timeout:
+
+```
+Script Google\Task\Composer::cleanup handling the pre-autoload-dump event terminated with an exception
+
+In Filesystem.php line 200:
+
+Failed to remove directory "(/path/to/vendor/google/apiclient-services/src/...": rmdir(/path/to/...): Text file busy
+```
+
+Either increase the timeout for composer by adding the env flag as `COMPOSER_PROCESS_TIMEOUT=600 composer install`, 
+or put this in the `config` section of the composer schema:
+```json
+{
+    "config": {
+        "process-timeout": 600
+    }
+}
+```
+
+This happens because there are a LOT of Google services which are downloaded as part of this package, and it can 
+unfortunately take so long that composer's default of 300 seconds times out.
 
 ### Download the Release
 
