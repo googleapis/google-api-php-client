@@ -7,7 +7,7 @@
     "license": "Apache-2.0",
     "require": {
         "php": "^7.4|^8.0",
-        "google/auth": "^1.28",
+        "google/auth": "^1.33",
         "google/apiclient-services": "~0.200",
         "firebase/php-jwt": "~6.0",
         "monolog/monolog": "^2.9||^3.0",
@@ -16,7 +16,7 @@
         "guzzlehttp/psr7": "^1.8.4||^2.2.1"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.0",
+        "squizlabs/php_codesniffer": "^3.8",
         "symfony/dom-crawler": "~2.1",
         "symfony/css-selector": "~2.1",
         "cache/filesystem-adapter": "^1.1",
