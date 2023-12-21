@@ -12,7 +12,7 @@
         "firebase/php-jwt": "~6.0",
         "monolog/monolog": "^2.9||^3.0",
         "phpseclib/phpseclib": "^3.0.19",
-        "guzzlehttp/guzzle": "~6.5||~7.0",
+        "guzzlehttp/guzzle": "~6.5.8||~7.4.5",
         "guzzlehttp/psr7": "^1.8.4||^2.2.1"
     },
     "require-dev": {
