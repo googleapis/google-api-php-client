@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.15.2](https://github.com/googleapis/google-api-php-client/compare/v2.15.1...v2.15.2) (2024-01-03)
+
+
+### Bug Fixes
+
+* Disallow vulnerable guzzle versions ([#2536](https://github.com/googleapis/google-api-php-client/issues/2536)) ([d1830ed](https://github.com/googleapis/google-api-php-client/commit/d1830ede17114a4951ab9e60b3b9bcd9393b8668))
+* Php 8.3 deprecated get_class method call without argument ([#2509](https://github.com/googleapis/google-api-php-client/issues/2509)) ([8c66021](https://github.com/googleapis/google-api-php-client/commit/8c6602119b631e1a9da4dbe219af18d51c8dab8e))
+* Phpseclib security vulnerability ([#2524](https://github.com/googleapis/google-api-php-client/issues/2524)) ([73705c2](https://github.com/googleapis/google-api-php-client/commit/73705c2a65bfc01fa6d7717b7f401b8288fe0587))
+
 ## [2.15.1](https://github.com/googleapis/google-api-php-client/compare/v2.15.0...v2.15.1) (2023-09-12)
 
 
