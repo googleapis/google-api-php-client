@@ -79,7 +79,6 @@ class REST
      */
     public static function doExecute(ClientInterface $client, RequestInterface $request, $expectedClass = null)
     {
-        // var_dump($request);exit;
         try {
             $httpHandler = HttpHandlerFactory::build($client);
             $response = $httpHandler($request);
