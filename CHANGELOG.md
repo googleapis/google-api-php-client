@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.15.3](https://github.com/googleapis/google-api-php-client/compare/v2.15.2...v2.15.3) (2024-01-04)
+
+
+### Bug Fixes
+
+* Guzzle dependency version ([#2546](https://github.com/googleapis/google-api-php-client/issues/2546)) ([c270f28](https://github.com/googleapis/google-api-php-client/commit/c270f28b00594a151a887edd3cfd205594a1256a))
+
 ## [2.15.2](https://github.com/googleapis/google-api-php-client/compare/v2.15.1...v2.15.2) (2024-01-03)
 
 
