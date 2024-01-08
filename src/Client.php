@@ -49,6 +49,7 @@ use UnexpectedValueException;
  * The Google API Client
  * https://github.com/google/google-api-php-client
  */
+#[\AllowDynamicProperties]
 class Client
 {
     const LIBVER = "2.12.6";

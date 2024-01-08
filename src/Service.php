@@ -20,6 +20,7 @@ namespace Google;
 use Google\Http\Batch;
 use TypeError;
 
+#[\AllowDynamicProperties]
 class Service
 {
     public $batchPath;
