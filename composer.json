@@ -21,7 +21,7 @@
         "symfony/css-selector": "~2.1",
         "cache/filesystem-adapter": "^1.1",
         "phpcompatibility/php-compatibility": "^9.2",
-        "composer/composer": "^1.10.22",
+        "composer/composer": "^1.10.23",
         "phpspec/prophecy-phpunit": "^2.0",
         "phpunit/phpunit": "^9.5"
     },
