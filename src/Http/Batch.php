@@ -66,7 +66,7 @@ class Batch
         $this->batchPath = $batchPath ?: self::BATCH_PATH;
     }
 
-    public function add(RequestInterface $request, $key = false)
+    public function add($request, $key = false)
     {
         if (false == $key) {
             $key = mt_rand();
