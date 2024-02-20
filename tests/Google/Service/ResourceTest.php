@@ -59,6 +59,7 @@ class ResourceTest extends BaseTest
         $this->client->getLogger()->willReturn($logger->reveal());
         $this->client->shouldDefer()->willReturn(true);
         $this->client->getHttpClient()->willReturn(new GuzzleClient());
+        $this->client->getUniverseDomain()->willReturn('googleapis.com');
 
         $this->service = new TestService($this->client->reveal());
     }

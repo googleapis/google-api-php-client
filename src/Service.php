@@ -23,7 +23,11 @@ use TypeError;
 class Service
 {
     public $batchPath;
+    /**
+     * @deprecated use $rootUrlTemplate instead
+     */
     public $rootUrl;
+    public $rootUrlTemplate;
     public $version;
     public $servicePath;
     public $serviceName;

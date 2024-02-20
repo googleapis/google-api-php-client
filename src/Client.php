@@ -27,6 +27,7 @@ use Google\Auth\Credentials\ServiceAccountCredentials;
 use Google\Auth\Credentials\UserRefreshCredentials;
 use Google\Auth\CredentialsLoader;
 use Google\Auth\FetchAuthTokenCache;
+use Google\Auth\GetUniverseDomainInterface;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\OAuth2;
 use Google\AuthHandler\AuthHandlerFactory;
@@ -176,7 +177,10 @@ class Client
 
             // Setting api_format_v2 will return more detailed error messages
             // from certain APIs.
-            'api_format_v2' => false
+            'api_format_v2' => false,
+
+            // Setting the universe domain will change the
+            'universe_domain' => GetUniverseDomainInterface::DEFAULT_UNIVERSE_DOMAIN,
         ], $config);
 
         if (!is_null($this->config['credentials'])) {
@@ -428,6 +432,7 @@ class Client
         //   3b. If access token exists but is expired, try to refresh it
         //   4.  Check for API Key
         if ($this->credentials) {
+            $this->checkUniverseDomain($this->credentials);
             return $authHandler->attachCredentials(
                 $http,
                 $this->credentials,
@@ -437,6 +442,7 @@ class Client
 
         if ($this->isUsingApplicationDefaultCredentials()) {
             $credentials = $this->createApplicationDefaultCredentials();
+            $this->checkUniverseDomain($credentials);
             return $authHandler->attachCredentialsCache(
                 $http,
                 $credentials,
@@ -452,6 +458,7 @@ class Client
                     $scopes,
                     $token['refresh_token']
                 );
+                $this->checkUniverseDomain($credentials);
                 return $authHandler->attachCredentials(
                     $http,
                     $credentials,
@@ -1296,5 +1303,24 @@ class Client
         ]);
 
         return new UserRefreshCredentials($scope, $creds);
+    }
+
+    private function checkUniverseDomain($credentials)
+    {
+        $credentialsUniverse = $credentials instanceof GetUniverseDomainInterface
+            ? $credentials->getUniverseDomain()
+            : GetUniverseDomainInterface::DEFAULT_UNIVERSE_DOMAIN;
+        if ($credentialsUniverse !== $this->getUniverseDomain()) {
+            throw new DomainException(sprintf(
+                'The configured universe domain (%s) does not match the credential universe domain (%s)',
+                $this->getUniverseDomain(),
+                $credentialsUniverse
+            ));
+        }
+    }
+
+    public function getUniverseDomain()
+    {
+        return $this->config['universe_domain'];
     }
 }
