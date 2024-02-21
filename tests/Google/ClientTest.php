@@ -24,6 +24,7 @@ use Google\Client;
 use Google\Service\Drive;
 use Google\AuthHandler\AuthHandlerFactory;
 use Google\Auth\FetchAuthTokenCache;
+use Google\Auth\CredentialsLoader;
 use Google\Auth\GCECache;
 use Google\Auth\Credentials\GCECredentials;
 use GuzzleHttp\Client as GuzzleClient;
@@ -38,6 +39,7 @@ use ReflectionClass;
 use ReflectionMethod;
 use InvalidArgumentException;
 use Exception;
+use DomainException;
 
 class ClientTest extends BaseTest
 {
@@ -924,5 +926,22 @@ class ClientTest extends BaseTest
             'enable_serial_consent' => 'true'
         ]);
         $this->assertStringContainsString('&enable_serial_consent=true', $authUrl1);
+    }
+    public function testUniverseDomainMismatch()
+    {
+        $this->expectException(DomainException::class);
+        $this->expectExceptionMessage(
+            'The configured universe domain (example.com) does not match the credential universe domain (foo.com)'
+        );
+
+        $credentials = $this->prophesize(CredentialsLoader::class);
+        $credentials->getUniverseDomain()
+            ->shouldBeCalledOnce()
+            ->willReturn('foo.com');
+        $client = new Client([
+            'universe_domain' => 'example.com',
+            'credentials' => $credentials->reveal(),
+        ]);
+        $client->authorize();
     }
 }
