@@ -7,7 +7,7 @@
     "license": "Apache-2.0",
     "require": {
         "php": "^7.4|^8.0",
-        "google/auth": "dev-add-universe-domain-cache as 1.39",
+        "google/auth": "^1.37",
         "google/apiclient-services": "dev-universe-domain as 0.340",
         "firebase/php-jwt": "~6.0",
         "monolog/monolog": "^2.9||^3.0",
