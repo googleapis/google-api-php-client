@@ -136,6 +136,10 @@ class Client
 
             // Simple API access key, also from the API console. Ensure you get
             // a Server key, and not a Browser key.
+            // **NOTE:** The universe domain is assumed to be "googleapis.com" unless
+            // explicitly set. When setting an API ley directly via this option, there
+            // is no way to verify the universe domain. Be sure to set the
+            // "universe_domain" option if "googleapis.com" is not intended.
             'developer_key' => '',
 
             // For use with Google Cloud Platform
@@ -179,7 +183,8 @@ class Client
             // from certain APIs.
             'api_format_v2' => false,
 
-            // Setting the universe domain will change the
+            // Setting the universe domain will change the default rootUrl of the service.
+            // The universe domain is assumed to be "googleapis.com" if not set explicitly.
             'universe_domain' => GetUniverseDomainInterface::DEFAULT_UNIVERSE_DOMAIN,
         ], $config);
 
@@ -510,6 +515,11 @@ class Client
      * token by calling `$client->getCache()->clear()`. (Use caution in this case,
      * as calling `clear()` will remove all cache items, including any items not
      * related to Google API PHP Client.)
+     *
+     * **NOTE:** The universe domain is assumed to be "googleapis.com" unless
+     * explicitly set. When setting an access token directly via this method, there
+     * is no way to verify the universe domain. Be sure to set the "universe_domain"
+     * option if "googleapis.com" is not intended.
      *
      * @param string|array $token
      * @throws InvalidArgumentException
