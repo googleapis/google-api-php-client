@@ -205,6 +205,7 @@ class Client
             'cache_config' => [],
             'token_callback' => null,
             'jwt' => null,
+            'api_format_v2' => false
             'universe_domain' => GetUniverseDomainInterface::DEFAULT_UNIVERSE_DOMAIN,
         ], $config);
 
