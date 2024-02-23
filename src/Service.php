@@ -24,7 +24,7 @@ class Service
 {
     public $batchPath;
     /**
-     * @deprecated use $rootUrlTemplate instead
+     * Only used in getBatch
      */
     public $rootUrl;
     public $rootUrlTemplate;
