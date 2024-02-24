@@ -171,7 +171,8 @@ class Client
      *           from certain APIs.
      *     @type string $universe_domain
      *           Setting the universe domain will change the default rootUrl of the service.
-     *           The universe domain is assumed to be "googleapis.com" if not set explicitly.
+     *           If not set explicitly, the universe domain will be "googleapis.com", or the
+     *           value provided in the "GOOGLE_CLOUD_UNIVERSE_DOMAIN" environment variable.
      *  }
      */
     public function __construct(array $config = [])
@@ -205,8 +206,9 @@ class Client
             'cache_config' => [],
             'token_callback' => null,
             'jwt' => null,
-            'api_format_v2' => false
-            'universe_domain' => GetUniverseDomainInterface::DEFAULT_UNIVERSE_DOMAIN,
+            'api_format_v2' => false,
+            'universe_domain' => getenv('GOOGLE_CLOUD_UNIVERSE_DOMAIN')
+                ?: GetUniverseDomainInterface::DEFAULT_UNIVERSE_DOMAIN,
         ], $config);
 
         if (!is_null($this->config['credentials'])) {
