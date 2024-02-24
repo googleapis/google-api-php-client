@@ -10,7 +10,7 @@ jobs:
         strategy:
             matrix:
                 operating-system: [ ubuntu-latest ]
-                php: [ "7.4", "8.0", "8.2" ]
+                php: [ "8.0", "8.3" ]
 
         name: Upload Release Assets
         steps:
