@@ -171,8 +171,8 @@ class Client
      *           from certain APIs.
      *     @type string $universe_domain
      *           Setting the universe domain will change the default rootUrl of the service.
-     *           If not set explicitly, the universe domain will be "googleapis.com", or the
-     *           value provided in the "GOOGLE_CLOUD_UNIVERSE_DOMAIN" environment variable.
+     *           If not set explicitly, the universe domain will be the value provided in the
+     *.          "GOOGLE_CLOUD_UNIVERSE_DOMAIN" environment variable, or "googleapis.com".
      *  }
      */
     public function __construct(array $config = [])
