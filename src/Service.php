@@ -69,7 +69,7 @@ class Service
         return new Batch(
             $this->client,
             false,
-            $this->rootUrl,
+            $this->rootUrlTemplate ?? $this->rootUrl,
             $this->batchPath
         );
     }
