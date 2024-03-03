@@ -105,47 +105,84 @@ class Client
     /**
      * Construct the Google Client.
      *
-     * @param array $config
+     * @param array $config {
+     *     An array of required and optional arguments.
+     *
+     *     @type string $application_name
+     *           The name of your application
+     *     @type string $base_path
+     *           The base URL for the service. This is only accounted for when calling
+     *           {@see Client::authorize()} directly.
+     *     @type string $client_id
+     *           Your Google Cloud client ID found in https://developers.google.com/console
+     *     @type string $client_secret
+     *           Your Google Cloud client secret found in https://developers.google.com/console
+     *     @type string|array|CredentialsLoader $credentials
+     *           Can be a path to JSON credentials or an array representing those
+     *           credentials (@see Google\Client::setAuthConfig), or an instance of
+     *           {@see CredentialsLoader}.
+     *     @type string|array $scopes
+     *           {@see Google\Client::setScopes}
+     *     @type string $quota_project
+     *           Sets X-Goog-User-Project, which specifies a user project to bill
+     *           for access charges associated with the request.
+     *     @type string $redirect_uri
+     *     @type string $state
+     *     @type string $developer_key
+     *           Simple API access key, also from the API console. Ensure you get
+     *           a Server key, and not a Browser key.
+     *     @type bool $use_application_default_credentials
+     *           For use with Google Cloud Platform
+     *           fetch the ApplicationDefaultCredentials, if applicable
+     *           {@see https://developers.google.com/identity/protocols/application-default-credentials}
+     *     @type string $signing_key
+     *     @type string $signing_algorithm
+     *     @type string $subject
+     *     @type string $hd
+     *     @type string $prompt
+     *     @type string $openid
+     *     @type bool $include_granted_scopes
+     *     @type string $login_hint
+     *     @type string $request_visible_actions
+     *     @type string $access_type
+     *     @type string $approval_prompt
+     *     @type array $retry
+     *           Task Runner retry configuration
+     *           {@see \Google\Task\Runner}
+     *     @type array $retry_map
+     *     @type CacheItemPoolInterface $cache
+     *           Cache class implementing {@see CacheItemPoolInterface}. Defaults
+     *           to {@see MemoryCacheItemPool}.
+     *     @type array $cache_config
+     *           Cache config for downstream auth caching.
+     *     @type callable $token_callback
+     *           Function to be called when an access token is fetched. Follows
+     *           the signature `function (string $cacheKey, string $accessToken)`.
+     *     @type \Firebase\JWT $jwt
+     *           Service class used in {@see Client::verifyIdToken()}. Explicitly
+     *           pass this in to avoid setting {@see \Firebase\JWT::$leeway}
+     *     @type bool $api_format_v2
+     *           Setting api_format_v2 will return more detailed error messages
+     *           from certain APIs.
+     *  }
      */
     public function __construct(array $config = [])
     {
         $this->config = array_merge([
             'application_name' => '',
-
-            // Don't change these unless you're working against a special development
-            // or testing environment.
             'base_path' => self::API_BASE_PATH,
-
-            // https://developers.google.com/console
             'client_id' => '',
             'client_secret' => '',
-
-            // Can be a path to JSON credentials or an array representing those
-            // credentials (@see Google\Client::setAuthConfig), or an instance of
-            // Google\Auth\CredentialsLoader.
             'credentials' => null,
-            // @see Google\Client::setScopes
             'scopes' => null,
-            // Sets X-Goog-User-Project, which specifies a user project to bill
-            // for access charges associated with the request
             'quota_project' => null,
-
             'redirect_uri' => null,
             'state' => null,
-
-            // Simple API access key, also from the API console. Ensure you get
-            // a Server key, and not a Browser key.
             'developer_key' => '',
-
-            // For use with Google Cloud Platform
-            // fetch the ApplicationDefaultCredentials, if applicable
-            // @see https://developers.google.com/identity/protocols/application-default-credentials
             'use_application_default_credentials' => false,
             'signing_key' => null,
             'signing_algorithm' => null,
             'subject' => null,
-
-            // Other OAuth2 parameters.
             'hd' => '',
             'prompt' => '',
             'openid.realm' => '',
@@ -154,28 +191,12 @@ class Client
             'request_visible_actions' => '',
             'access_type' => 'online',
             'approval_prompt' => 'auto',
-
-            // Task Runner retry configuration
-            // @see Google\Task\Runner
             'retry' => [],
             'retry_map' => null,
-
-            // Cache class implementing Psr\Cache\CacheItemPoolInterface.
-            // Defaults to Google\Auth\Cache\MemoryCacheItemPool.
             'cache' => null,
-            // cache config for downstream auth caching
             'cache_config' => [],
-
-            // function to be called when an access token is fetched
-            // follows the signature function ($cacheKey, $accessToken)
             'token_callback' => null,
-
-            // Service class used in Google\Client::verifyIdToken.
-            // Explicitly pass this in to avoid setting JWT::$leeway
             'jwt' => null,
-
-            // Setting api_format_v2 will return more detailed error messages
-            // from certain APIs.
             'api_format_v2' => false
         ], $config);
 
