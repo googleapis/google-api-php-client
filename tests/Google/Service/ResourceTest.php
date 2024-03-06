@@ -35,10 +35,11 @@ use Prophecy\Argument;
 
 class TestService extends \Google\Service
 {
-    public function __construct(Client $client)
+    public function __construct(Client $client, $rootUrl = null)
     {
         parent::__construct($client);
-        $this->rootUrl = "https://test.example.com";
+        $this->rootUrl = $rootUrl ?: "https://test.example.com";
+        $this->rootUrlTemplate = $rootUrl ?: "https://test.UNIVERSE_DOMAIN";
         $this->servicePath = "";
         $this->version = "v1beta1";
         $this->serviceName = "test";
@@ -59,6 +60,7 @@ class ResourceTest extends BaseTest
         $this->client->getLogger()->willReturn($logger->reveal());
         $this->client->shouldDefer()->willReturn(true);
         $this->client->getHttpClient()->willReturn(new GuzzleClient());
+        $this->client->getUniverseDomain()->willReturn('example.com');
 
         $this->service = new TestService($this->client->reveal());
     }
@@ -106,6 +108,37 @@ class ResourceTest extends BaseTest
         $this->assertFalse($request->hasHeader('Content-Type'));
     }
 
+    public function testCallWithUniverseDomainTemplate()
+    {
+        $client = $this->prophesize(Client::class);
+        $logger = $this->prophesize("Monolog\Logger");
+        $this->client->getLogger()->willReturn($logger->reveal());
+        $this->client->shouldDefer()->willReturn(true);
+        $this->client->getHttpClient()->willReturn(new GuzzleClient());
+        $this->client->getUniverseDomain()->willReturn('example-universe-domain.com');
+
+        $this->service = new TestService($this->client->reveal());
+
+        $resource = new GoogleResource(
+            $this->service,
+            "test",
+            "testResource",
+            [
+                "methods" => [
+                    "testMethod" => [
+                        "parameters" => [],
+                        "path" => "method/path",
+                        "httpMethod" => "POST",
+                    ]
+                ]
+            ]
+        );
+        $request = $resource->call("testMethod", [[]]);
+        $this->assertEquals("https://test.example-universe-domain.com/method/path", (string) $request->getUri());
+        $this->assertEquals("POST", $request->getMethod());
+        $this->assertFalse($request->hasHeader('Content-Type'));
+    }
+
     public function testCallWithPostBody()
     {
         $resource = new GoogleResource(
@@ -130,9 +163,9 @@ class ResourceTest extends BaseTest
 
     public function testCallServiceDefinedRoot()
     {
-        $this->service->rootUrl = "https://sample.example.com";
+        $service = new TestService($this->client->reveal(), "https://sample.example.com");
         $resource = new GoogleResource(
-            $this->service,
+            $service,
             "test",
             "testResource",
             [

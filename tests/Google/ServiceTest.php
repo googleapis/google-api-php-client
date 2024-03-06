@@ -80,6 +80,7 @@ class ServiceTest extends TestCase
         )->willReturn($response->reveal());
 
         $client->getConfig('base_path')->willReturn('');
+        $client->getUniverseDomain()->willReturn('');
 
         $model = new TestService($client->reveal());
         $batch = $model->createBatch();

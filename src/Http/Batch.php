@@ -62,7 +62,12 @@ class Batch
     ) {
         $this->client = $client;
         $this->boundary = $boundary ?: mt_rand();
-        $this->rootUrl = rtrim($rootUrl ?: $this->client->getConfig('base_path'), '/');
+        $rootUrl = rtrim($rootUrl ?: $this->client->getConfig('base_path'), '/');
+        $this->rootUrl = str_replace(
+            'UNIVERSE_DOMAIN',
+            $this->client->getUniverseDomain(),
+            $rootUrl
+        );
         $this->batchPath = $batchPath ?: self::BATCH_PATH;
     }
 
