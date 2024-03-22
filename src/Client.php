@@ -142,6 +142,7 @@ class Client
      *     @type string $prompt
      *     @type string $openid
      *     @type bool $include_granted_scopes
+     *     @type bool $enable_granular_consent
      *     @type string $login_hint
      *     @type string $request_visible_actions
      *     @type string $access_type
@@ -187,6 +188,7 @@ class Client
             'prompt' => '',
             'openid.realm' => '',
             'include_granted_scopes' => null,
+            'enable_granular_consent' => null,
             'login_hint' => '',
             'request_visible_actions' => '',
             'access_type' => 'online',
@@ -404,11 +406,17 @@ class Client
             ? null
             : var_export($this->config['include_granted_scopes'], true);
 
+
+        $enableGranularConsent = $this->config['enable_granular_consent'] === null
+            ? null
+            : var_export($this->config['enable_granular_consent'], true);
+
         $params = array_filter([
             'access_type' => $this->config['access_type'],
             'approval_prompt' => $approvalPrompt,
             'hd' => $this->config['hd'],
             'include_granted_scopes' => $includeGrantedScopes,
+            'enable_granular_consent' => $enableGranularConsent,
             'login_hint' => $this->config['login_hint'],
             'openid.realm' => $this->config['openid.realm'],
             'prompt' => $this->config['prompt'],
@@ -783,6 +791,18 @@ class Client
     public function setIncludeGrantedScopes($include)
     {
         $this->config['include_granted_scopes'] = $include;
+    }
+
+    /**
+     * If set to false, more granular Google Account permissions
+     * will be disabled for OAuth client IDs created before 2019.
+     * No effect for newer OAuth client IDs, since more granular
+     * permissions is always enabled for them
+     * @param bool $consent
+     */
+    public function setEnableGranularConsent($consent)
+    {
+        $this->config['enable_granular_consent'] = $consent;
     }
 
     /**
