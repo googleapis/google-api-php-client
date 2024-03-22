@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.15.4](https://github.com/googleapis/google-api-php-client/compare/v2.15.3...v2.15.4) (2024-03-22)
+
+### Features
+
+* Add parameter `enable_granular_consent`
+
 ## [2.15.3](https://github.com/googleapis/google-api-php-client/compare/v2.15.2...v2.15.3) (2024-01-04)
 
 

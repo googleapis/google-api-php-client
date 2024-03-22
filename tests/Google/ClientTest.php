@@ -156,6 +156,7 @@ class ClientTest extends BaseTest
         $client->setOpenIdRealm('example.com');
         $client->setPrompt('select_account');
         $client->setIncludeGrantedScopes(true);
+        $client->setEnableGranularConsent(false);
         $authUrl = $client->createAuthUrl("http://googleapis.com/scope/foo");
         $expected = "https://accounts.google.com/o/oauth2/v2/auth"
             . "?response_type=code"
@@ -166,6 +167,7 @@ class ClientTest extends BaseTest
             . "&scope=http%3A%2F%2Fgoogleapis.com%2Fscope%2Ffoo"
             . "&hd=example.com"
             . "&include_granted_scopes=true"
+            . "&enable_granular_consent=false"
             . "&openid.realm=example.com"
             . "&prompt=select_account";
 
