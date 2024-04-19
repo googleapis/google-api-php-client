@@ -147,11 +147,11 @@ And then browsing to the host and port you specified
 // include your composer dependencies
 require_once 'vendor/autoload.php';
 
-$client = new Google\Client();
+$client = new \Google\Client();
 $client->setApplicationName("Client_Library_Examples");
 $client->setDeveloperKey("YOUR_APP_KEY");
 
-$service = new Google\Service\Books($client);
+$service = new \Google\Service\Books($client);
 $query = 'Henry David Thoreau';
 $optParams = [
   'filter' => 'free-ebooks',
@@ -172,14 +172,14 @@ foreach ($results->getItems() as $item) {
 1. Set the path to these credentials using `Google\Client::setAuthConfig`:
 
     ```php
-    $client = new Google\Client();
+    $client = new \Google\Client();
     $client->setAuthConfig('/path/to/client_credentials.json');
     ```
 
 1. Set the scopes required for the API you are going to call
 
     ```php
-    $client->addScope(Google\Service\Drive::DRIVE);
+    $client->addScope(\Google\Service\Drive::DRIVE);
     ```
 
 1. Set your application's redirect URI
@@ -219,14 +219,14 @@ calls return unexpected 401 or 403 errors.
 1. Tell the Google client to use your service account credentials to authenticate:
 
     ```php
-    $client = new Google\Client();
+    $client = new \Google\Client();
     $client->useApplicationDefaultCredentials();
     ```
 
 1. Set the scopes required for the API you are going to call
 
     ```php
-    $client->addScope(Google\Service\Drive::DRIVE);
+    $client->addScope(\Google\Service\Drive::DRIVE);
     ```
 
 1. If you have delegated domain-wide access to the service account and you want to impersonate a user account, specify the email address of the user account using the method setSubject:
@@ -244,7 +244,7 @@ $jsonKey = [
    'type' => 'service_account',
    // ...
 ];
-$client = new Google\Client();
+$client = new \Google\Client();
 $client->setAuthConfig($jsonKey);
 ```
 
@@ -278,10 +278,10 @@ Using this library, the same call would look something like this:
 
 ```php
 // create the datastore service class
-$datastore = new Google\Service\Datastore($client);
+$datastore = new \Google\Service\Datastore($client);
 
 // build the query - this maps directly to the JSON
-$query = new Google\Service\Datastore\Query([
+$query = new \Google\Service\Datastore\Query([
     'kind' => [
         [
             'name' => 'Book',
@@ -297,7 +297,7 @@ $query = new Google\Service\Datastore\Query([
 ]);
 
 // build the request and response
-$request = new Google\Service\Datastore\RunQueryRequest(['query' => $query]);
+$request = new \Google\Service\Datastore\RunQueryRequest(['query' => $query]);
 $response = $datastore->projects->runQuery('YOUR_DATASET_ID', $request);
 ```
 
@@ -305,20 +305,20 @@ However, as each property of the JSON API has a corresponding generated class, t
 
 ```php
 // create the datastore service class
-$datastore = new Google\Service\Datastore($client);
+$datastore = new \Google\Service\Datastore($client);
 
 // build the query
-$request = new Google\Service\Datastore_RunQueryRequest();
-$query = new Google\Service\Datastore\Query();
+$request = new \Google\Service\Datastore_RunQueryRequest();
+$query = new \Google\Service\Datastore\Query();
 //   - set the order
-$order = new Google\Service\Datastore_PropertyOrder();
+$order = new \Google\Service\Datastore_PropertyOrder();
 $order->setDirection('descending');
-$property = new Google\Service\Datastore\PropertyReference();
+$property = new \Google\Service\Datastore\PropertyReference();
 $property->setName('title');
 $order->setProperty($property);
 $query->setOrder([$order]);
 //   - set the kinds
-$kind = new Google\Service\Datastore\KindExpression();
+$kind = new \Google\Service\Datastore\KindExpression();
 $kind->setName('Book');
 $query->setKinds([$kind]);
 //   - set the limit
@@ -341,7 +341,7 @@ The `authorize` method returns an authorized [Guzzle Client](http://docs.guzzlep
 
 ```php
 // create the Google client
-$client = new Google\Client();
+$client = new \Google\Client();
 
 /**
  * Set your method for authentication. Depending on the API, This could be
@@ -349,7 +349,7 @@ $client = new Google\Client();
  * Application Default Credentials.
  */
 $client->useApplicationDefaultCredentials();
-$client->addScope(Google\Service\Plus::PLUS_ME);
+$client->addScope(\Google\Service\Plus::PLUS_ME);
 
 // returns a Guzzle HTTP Client
 $httpClient = $client->authorize();
@@ -385,7 +385,7 @@ composer require cache/filesystem-adapter
 When using [Refresh Tokens](https://developers.google.com/identity/protocols/OAuth2InstalledApp#offline) or [Service Account Credentials](https://developers.google.com/identity/protocols/OAuth2ServiceAccount#overview), it may be useful to perform some action when a new access token is granted. To do this, pass a callable to the `setTokenCallback` method on the client:
 
 ```php
-$logger = new Monolog\Logger();
+$logger = new \Monolog\Logger();
 $tokenCallback = function ($cacheKey, $accessToken) use ($logger) {
   $logger->debug(sprintf('new access token received at cache key %s', $cacheKey));
 };
@@ -398,12 +398,12 @@ It is often very useful to debug your API calls by viewing the raw HTTP request.
 
 ```php
 // FOR DEBUGGING ONLY
-$httpClient = new GuzzleHttp\Client([
+$httpClient = new \GuzzleHttp\Client([
     'proxy' => 'localhost:8888', // by default, Charles runs on localhost port 8888
     'verify' => false, // otherwise HTTPS requests will fail.
 ]);
 
-$client = new Google\Client();
+$client = new \Google\Client();
 $client->setHttpClient($httpClient);
 ```
 
