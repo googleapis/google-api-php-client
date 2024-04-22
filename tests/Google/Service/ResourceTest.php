@@ -104,6 +104,7 @@ class ResourceTest extends BaseTest
         $this->assertEquals("https://test.example.com/method/path", (string) $request->getUri());
         $this->assertEquals("POST", $request->getMethod());
         $this->assertFalse($request->hasHeader('Content-Type'));
+        $this->assertFalse($request->hasHeader('X-Goog-Api-Version'));
     }
 
     public function testCallWithPostBody()
@@ -441,4 +442,31 @@ class ResourceTest extends BaseTest
             $this->assertEquals($errors, $e->getErrors());
         }
     }
+
+    public function testVersionedResource()
+    {
+        $resource = new VersionedResource(
+            $this->service,
+            "test",
+            "testResource",
+            [
+                "methods" => [
+                    "testMethod" => [
+                        "parameters" => [],
+                        "path" => "method/path",
+                        "httpMethod" => "POST",
+                    ]
+                ]
+            ]
+        );
+        $request = $resource->call("testMethod", [['postBody' => ['foo' => 'bar']]]);
+        $this->assertEquals("https://test.example.com/method/path", (string) $request->getUri());
+        $this->assertEquals("POST", $request->getMethod());
+        $this->assertTrue($request->hasHeader('X-Goog-Api-Version'));
+    }
+}
+
+class VersionedResource extends GoogleResource
+{
+    protected $apiVersion = 'v1_20240101';
 }
