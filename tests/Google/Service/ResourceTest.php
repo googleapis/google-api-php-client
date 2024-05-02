@@ -463,6 +463,7 @@ class ResourceTest extends BaseTest
         $this->assertEquals("https://test.example.com/method/path", (string) $request->getUri());
         $this->assertEquals("POST", $request->getMethod());
         $this->assertTrue($request->hasHeader('X-Goog-Api-Version'));
+        $this->assertEquals('v1_20240101', $request->getHeaderLine('X-Goog-Api-Version'));
     }
 }
 
