@@ -48,6 +48,9 @@ class Resource
     /** @var string $rootUrlTemplate */
     private $rootUrlTemplate;
 
+    /** @var string $apiVersion */
+    protected $apiVersion;
+
     /** @var \Google\Client $client */
     private $client;
 
@@ -223,6 +226,13 @@ class Resource
         // rather than using an expected class
         if (isset($parameters['alt']) && $parameters['alt']['value'] == 'media') {
             $expectedClass = null;
+        }
+
+        // If the class which is extending from this one contains
+        // an Api Version, add it to the header
+        if ($this->apiVersion) {
+            $request = $request
+                ->withHeader('X-Goog-Api-Version', $this->apiVersion);
         }
 
         // if the client is marked for deferring, rather than
