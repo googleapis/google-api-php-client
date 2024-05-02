@@ -27,6 +27,7 @@ use Google\Auth\Credentials\ServiceAccountCredentials;
 use Google\Auth\Credentials\UserRefreshCredentials;
 use Google\Auth\CredentialsLoader;
 use Google\Auth\FetchAuthTokenCache;
+use Google\Auth\GetUniverseDomainInterface;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\OAuth2;
 use Google\AuthHandler\AuthHandlerFactory;
@@ -131,6 +132,10 @@ class Client
      *     @type string $developer_key
      *           Simple API access key, also from the API console. Ensure you get
      *           a Server key, and not a Browser key.
+     *           **NOTE:** The universe domain is assumed to be "googleapis.com" unless
+     *           explicitly set. When setting an API ley directly via this option, there
+     *           is no way to verify the universe domain. Be sure to set the
+     *           "universe_domain" option if "googleapis.com" is not intended.
      *     @type bool $use_application_default_credentials
      *           For use with Google Cloud Platform
      *           fetch the ApplicationDefaultCredentials, if applicable
@@ -164,6 +169,10 @@ class Client
      *     @type bool $api_format_v2
      *           Setting api_format_v2 will return more detailed error messages
      *           from certain APIs.
+     *     @type string $universe_domain
+     *           Setting the universe domain will change the default rootUrl of the service.
+     *           If not set explicitly, the universe domain will be the value provided in the
+     *.          "GOOGLE_CLOUD_UNIVERSE_DOMAIN" environment variable, or "googleapis.com".
      *  }
      */
     public function __construct(array $config = [])
@@ -197,7 +206,9 @@ class Client
             'cache_config' => [],
             'token_callback' => null,
             'jwt' => null,
-            'api_format_v2' => false
+            'api_format_v2' => false,
+            'universe_domain' => getenv('GOOGLE_CLOUD_UNIVERSE_DOMAIN')
+                ?: GetUniverseDomainInterface::DEFAULT_UNIVERSE_DOMAIN,
         ], $config);
 
         if (!is_null($this->config['credentials'])) {
@@ -449,6 +460,7 @@ class Client
         //   3b. If access token exists but is expired, try to refresh it
         //   4.  Check for API Key
         if ($this->credentials) {
+            $this->checkUniverseDomain($this->credentials);
             return $authHandler->attachCredentials(
                 $http,
                 $this->credentials,
@@ -458,6 +470,7 @@ class Client
 
         if ($this->isUsingApplicationDefaultCredentials()) {
             $credentials = $this->createApplicationDefaultCredentials();
+            $this->checkUniverseDomain($credentials);
             return $authHandler->attachCredentialsCache(
                 $http,
                 $credentials,
@@ -473,6 +486,7 @@ class Client
                     $scopes,
                     $token['refresh_token']
                 );
+                $this->checkUniverseDomain($credentials);
                 return $authHandler->attachCredentials(
                     $http,
                     $credentials,
@@ -524,6 +538,11 @@ class Client
      * token by calling `$client->getCache()->clear()`. (Use caution in this case,
      * as calling `clear()` will remove all cache items, including any items not
      * related to Google API PHP Client.)
+     *
+     * **NOTE:** The universe domain is assumed to be "googleapis.com" unless
+     * explicitly set. When setting an access token directly via this method, there
+     * is no way to verify the universe domain. Be sure to set the "universe_domain"
+     * option if "googleapis.com" is not intended.
      *
      * @param string|array $token
      * @throws InvalidArgumentException
@@ -1317,5 +1336,24 @@ class Client
         ]);
 
         return new UserRefreshCredentials($scope, $creds);
+    }
+
+    private function checkUniverseDomain($credentials)
+    {
+        $credentialsUniverse = $credentials instanceof GetUniverseDomainInterface
+            ? $credentials->getUniverseDomain()
+            : GetUniverseDomainInterface::DEFAULT_UNIVERSE_DOMAIN;
+        if ($credentialsUniverse !== $this->getUniverseDomain()) {
+            throw new DomainException(sprintf(
+                'The configured universe domain (%s) does not match the credential universe domain (%s)',
+                $this->getUniverseDomain(),
+                $credentialsUniverse
+            ));
+        }
+    }
+
+    public function getUniverseDomain()
+    {
+        return $this->config['universe_domain'];
     }
 }
