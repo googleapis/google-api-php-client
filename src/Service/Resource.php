@@ -45,8 +45,11 @@ class Resource
         'prettyPrint' => ['type' => 'string', 'location' => 'query'],
     ];
 
-    /** @var string $rootUrl */
-    private $rootUrl;
+    /** @var string $rootUrlTemplate */
+    private $rootUrlTemplate;
+
+    /** @var string $apiVersion */
+    protected $apiVersion;
 
     /** @var \Google\Client $client */
     private $client;
@@ -65,7 +68,7 @@ class Resource
 
     public function __construct($service, $serviceName, $resourceName, $resource)
     {
-        $this->rootUrl = $service->rootUrl;
+        $this->rootUrlTemplate = $service->rootUrlTemplate ?? $service->rootUrl;
         $this->client = $service->getClient();
         $this->servicePath = $service->servicePath;
         $this->serviceName = $serviceName;
@@ -225,6 +228,13 @@ class Resource
             $expectedClass = null;
         }
 
+        // If the class which is extending from this one contains
+        // an Api Version, add it to the header
+        if ($this->apiVersion) {
+            $request = $request
+                ->withHeader('X-Goog-Api-Version', $this->apiVersion);
+        }
+
         // if the client is marked for deferring, rather than
         // execute the request, return the response
         if ($this->client->shouldDefer()) {
@@ -268,12 +278,14 @@ class Resource
             $requestUrl = $this->servicePath . $restPath;
         }
 
-        // code for leading slash
-        if ($this->rootUrl) {
-            if ('/' !== substr($this->rootUrl, -1) && '/' !== substr($requestUrl, 0, 1)) {
+        if ($this->rootUrlTemplate) {
+            // code for universe domain
+            $rootUrl = str_replace('UNIVERSE_DOMAIN', $this->client->getUniverseDomain(), $this->rootUrlTemplate);
+            // code for leading slash
+            if ('/' !== substr($rootUrl, -1) && '/' !== substr($requestUrl, 0, 1)) {
                 $requestUrl = '/' . $requestUrl;
             }
-            $requestUrl = $this->rootUrl . $requestUrl;
+            $requestUrl = $rootUrl . $requestUrl;
         }
         $uriTemplateVars = [];
         $queryVars = [];
