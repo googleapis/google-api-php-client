@@ -11,10 +11,10 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                php: [ "7.4", "8.0", "8.1", "8.2", "8.3" ]
+                php: [ "8.0", "8.1", "8.2", "8.3" ]
                 composer-flags: [""]
                 include:
-                  - php: "7.4"
+                  - php: "8.0"
                     composer-flags: "--prefer-lowest "
                   - php: "8.3"
                     composer-flags: "--prefer-lowest "
