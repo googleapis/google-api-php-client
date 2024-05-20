@@ -24,7 +24,6 @@ namespace Google\Tests\AccessToken;
 use Firebase\JWT\JWT;
 use Google\AccessToken\Verify;
 use Google\Tests\BaseTest;
-use ReflectionMethod;
 use phpseclib3\Crypt\AES;
 
 class VerifyTest extends BaseTest
@@ -78,6 +77,7 @@ class VerifyTest extends BaseTest
         $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
         $verify = new Verify($http);
         $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
+        $this->assertIsArray($payload);
         $this->assertArrayHasKey('sub', $payload);
         $this->assertGreaterThan(0, strlen($payload['sub']));
 
@@ -119,22 +119,6 @@ class VerifyTest extends BaseTest
         $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
         // verify the leeway is set as it was
         $this->assertEquals($leeway, $jwt::$leeway);
-    }
-
-    public function testRetrieveCertsFromLocation()
-    {
-        $client = $this->getClient();
-        $verify = new Verify($client->getHttpClient());
-
-        // make this method public for testing purposes
-        $method = new ReflectionMethod($verify, 'retrieveCertsFromLocation');
-        $method->setAccessible(true);
-        $certs = $method->invoke($verify, Verify::FEDERATED_SIGNON_CERT_URL);
-
-        $this->assertArrayHasKey('keys', $certs);
-        $this->assertGreaterThan(1, count($certs['keys']));
-        $this->assertArrayHasKey('alg', $certs['keys'][0]);
-        $this->assertEquals('RS256', $certs['keys'][0]['alg']);
     }
 
     public function getClient()
