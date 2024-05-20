@@ -70,7 +70,7 @@ class Verify
             $cache = new MemoryCacheItemPool();
         }
 
-        if ($http instanceof ClientInterface === false) {
+        if (!$http instanceof ClientInterface) {
             throw new InvalidArgumentException('http client must implement ' . ClientInterface::class);
         }
 
@@ -120,11 +120,6 @@ class Verify
         }
 
         return (array) $payload;
-    }
-
-    private function getCache()
-    {
-        return $this->cache;
     }
 
     private function getJwtService()
