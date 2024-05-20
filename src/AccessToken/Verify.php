@@ -22,7 +22,6 @@ use DateTime;
 use DomainException;
 use Exception;
 use Firebase\JWT\ExpiredException;
-use Firebase\JWT\JWK;
 use Firebase\JWT\CachedKeySet;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;

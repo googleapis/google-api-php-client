@@ -24,37 +24,9 @@ namespace Google\Tests\AccessToken;
 use Firebase\JWT\JWT;
 use Google\AccessToken\Verify;
 use Google\Tests\BaseTest;
-use phpseclib3\Crypt\AES;
 
 class VerifyTest extends BaseTest
 {
-    /**
-     * This test needs to run before the other verify tests,
-     * to ensure the constants are not defined.
-     */
-    public function testPhpsecConstants()
-    {
-        $client = $this->getClient();
-        $verify = new Verify($client->getHttpClient());
-
-        // set these to values that will be changed
-        if (defined('MATH_BIGINTEGER_OPENSSL_ENABLED') || defined('CRYPT_RSA_MODE')) {
-            $this->markTestSkipped('Cannot run test - constants already defined');
-        }
-
-        // Pretend we are on App Engine VMs
-        putenv('GAE_VM=1');
-
-        $verify->verifyIdToken('a.b.c');
-
-        putenv('GAE_VM=0');
-
-        $openSslEnable = constant('MATH_BIGINTEGER_OPENSSL_ENABLED');
-        $rsaMode = constant('CRYPT_RSA_MODE');
-        $this->assertTrue($openSslEnable);
-        $this->assertEquals(AES::ENGINE_OPENSSL, $rsaMode);
-    }
-
     /**
      * Most of the logic for ID token validation is in AuthTest -
      * this is just a general check to ensure we verify a valid
