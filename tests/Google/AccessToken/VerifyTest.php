@@ -107,6 +107,7 @@ class VerifyTest extends BaseTest
         $jwt::$leeway = $leeway = 1.5;
         $client = $this->getClient();
         $token = $client->getAccessToken();
+
         if ($client->isAccessTokenExpired()) {
             $token = $client->fetchAccessTokenWithRefreshToken();
         }
@@ -134,5 +135,13 @@ class VerifyTest extends BaseTest
         $this->assertGreaterThan(1, count($certs['keys']));
         $this->assertArrayHasKey('alg', $certs['keys'][0]);
         $this->assertEquals('RS256', $certs['keys'][0]['alg']);
+    }
+
+    public function getClient()
+    {
+        if (!$this->client) {
+            $this->client = $this->createClient(['profile']);
+        }
+        return $this->client;
     }
 }
