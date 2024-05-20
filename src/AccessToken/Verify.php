@@ -18,22 +18,20 @@
 
 namespace Google\AccessToken;
 
-use DateTime;
 use DomainException;
 use Exception;
-use Firebase\JWT\ExpiredException;
 use Firebase\JWT\CachedKeySet;
+use Firebase\JWT\ExpiredException;
 use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
 use Firebase\JWT\SignatureInvalidException;
 use Google\Auth\Cache\MemoryCacheItemPool;
-use Google\Exception as GoogleException;
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
+use GuzzleHttp\ClientInterface as GuzzleClientInterface;
 use GuzzleHttp\Psr7\HttpFactory;
 use InvalidArgumentException;
 use LogicException;
 use Psr\Cache\CacheItemPoolInterface;
+use Psr\Http\Client\ClientInterface;
 
 /**
  * Wrapper around Google Access Tokens which provides convenience functions
@@ -48,14 +46,19 @@ class Verify
     /**
      * @var \Firebase\JWT\JWT
     */
-    public $jwt;
+    public JWT $jwt;
+
+    /**
+     * @var \Firebase\JWT\CachedKeySet
+     */
+    private CachedKeySet $keySet;
 
     /**
      * Instantiates the class, but does not initiate the login flow, leaving it
      * to the discretion of the caller.
      */
     public function __construct(
-        ClientInterface $http = null,
+        GuzzleClientInterface $http = null,
         CacheItemPoolInterface $cache = null,
         $jwt = null
     ) {
@@ -67,8 +70,12 @@ class Verify
             $cache = new MemoryCacheItemPool();
         }
 
+        if ($http instanceof ClientInterface === false) {
+            throw new InvalidArgumentException('http client must implement ' . ClientInterface::class);
+        }
+
         $this->jwt = $jwt ?: $this->getJwtService();
-        $this->jwk = new CachedKeySet(
+        $this->keySet = new CachedKeySet(
             self::FEDERATED_SIGNON_CERT_URL,
             $http,
             new HttpFactory(),
@@ -94,7 +101,7 @@ class Verify
 
         // Check signature
         try {
-            $payload = ($this->jwt)->decode($idToken, $this->jwk);
+            $payload = ($this->jwt)->decode($idToken, $this->keySet);
         } catch (ExpiredException | SignatureInvalidException | DomainException) {
             return false;
         }
