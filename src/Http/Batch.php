@@ -17,7 +17,7 @@
 
 namespace Google\Http;
 
-use Google\Client;
+use Google\GoogleClientInterface;
 use Google\Service\Exception as GoogleServiceException;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
@@ -32,7 +32,7 @@ use Psr\Http\Message\ResponseInterface;
  * requests. To start a new batch, be sure to create a new instance of this
  * class.
  */
-class Batch
+class Batch implements BatchInterface
 {
     const BATCH_PATH = 'batch';
 
@@ -47,7 +47,7 @@ class Batch
     /** @var array service requests to be executed. */
     private $requests = [];
 
-    /** @var Client */
+    /** @var GoogleClientInterface */
     private $client;
 
     private $rootUrl;
@@ -55,7 +55,7 @@ class Batch
     private $batchPath;
 
     public function __construct(
-        Client $client,
+        GoogleClientInterface $client,
         $boundary = false,
         $rootUrl = null,
         $batchPath = null
