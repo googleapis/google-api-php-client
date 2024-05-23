@@ -48,7 +48,6 @@ class TestService extends \Google\Service
 
 class ResourceTest extends BaseTest
 {
-    private $client;
     private $service;
 
     public function setUp(): void
