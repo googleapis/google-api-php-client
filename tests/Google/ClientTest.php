@@ -268,6 +268,16 @@ class ClientTest extends BaseTest
         $this->assertInstanceOf('Monolog\Handler\SyslogHandler', $handler);
     }
 
+    public function testLoggerFromConstructor()
+    {
+        $logger1 = new \Monolog\Logger('unit-test');
+        $client = new Client(['logger' => $logger1]);
+        $logger2 = $client->getLogger();
+        $this->assertInstanceOf('Monolog\Logger', $logger2);
+        $this->assertEquals('unit-test', $logger2->getName());
+        $this->assertSame($logger1, $logger2);
+    }
+
     public function testSettersGetters()
     {
         $client = new Client();
@@ -279,6 +289,7 @@ class ClientTest extends BaseTest
 
         $client->setRedirectUri('localhost');
         $client->setConfig('application_name', 'me');
+        $client->setLogger(new \Monolog\Logger('test'));
 
         $cache = $this->prophesize(CacheItemPoolInterface::class);
         $client->setCache($cache->reveal());
