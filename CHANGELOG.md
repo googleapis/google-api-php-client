@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.17.0](https://github.com/googleapis/google-api-php-client/compare/v2.16.0...v2.17.0) (2024-07-10)
+
+
+### Features
+
+* Add logger to client constructor config ([#2606](https://github.com/googleapis/google-api-php-client/issues/2606)) ([1f47133](https://github.com/googleapis/google-api-php-client/commit/1f4713329d71111a317cda8ef8603fa1bdc88858))
+* Add the protected apiVersion property ([#2588](https://github.com/googleapis/google-api-php-client/issues/2588)) ([7e79f3d](https://github.com/googleapis/google-api-php-client/commit/7e79f3d7be4811f760e19cc4a2c558e04196ec1d))
+
 ## [2.16.0](https://github.com/googleapis/google-api-php-client/compare/v2.15.4...v2.16.0) (2024-04-24)
 
 
