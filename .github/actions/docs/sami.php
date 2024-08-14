@@ -10,8 +10,8 @@ $projectRoot = realpath(__DIR__ . '/../../..');
 $iterator = Finder::create()
     ->files()
     ->name('*.php')
-    ->exclude('vendor')
-    ->exclude('tests')
+    ->exclude(['vendor', 'tests'])
+    ->notPath('src/aliases.php')
     ->in($projectRoot);
 
 $versions = GitVersionCollection::create($projectRoot)
