@@ -19,3 +19,4 @@ jobs:
         with:
           title: "Google Cloud PHP Client"
           tag: ${{ inputs.tag }}
+          exclude: "src/aliases.php"
