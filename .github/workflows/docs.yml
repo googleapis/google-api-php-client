@@ -6,8 +6,6 @@ on:
     workflow_dispatch:
         inputs:
             tag:
-                description: 'Tag to release'
-                required: true
 
 permissions:
   contents: write
@@ -18,5 +16,7 @@ jobs:
         uses: GoogleCloudPlatform/php-tools/.github/workflows/doctum.yml@doctum
         with:
           title: "Google Cloud PHP Client"
-          tag: ${{ inputs.tag }}
+          default_tag: ${{ inputs.tag }}
           exclude_file: aliases.php
+          tag_pattern: "v2.*"
+
