@@ -3,82 +3,198 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>Google_Client | Google APIs Client Library for PHP API Reference</title>
+    <title>Google_Client | Google Cloud PHP Client</title>
 
             <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" href="css/sami.css">
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/typeahead.min.js"></script>
-        <script src="sami.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/doctum.css">
+        <link rel="stylesheet" type="text/css" href="fonts/doctum-font.css">
+        <script src="js/jquery-3.5.1.slim.min.js"></script>
+        <script async defer src="doctum.js"></script>
+        <script async defer src="js/bootstrap.min.js"></script>
+        <script async defer src="js/autocomplete.min.js"></script>
         <meta name="MobileOptimized" content="width">
         <meta name="HandheldFriendly" content="true">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    
-    
+
     </head>
 
-    <body id="class" data-name="class:Google_Client" data-root-path="">
+    <body id="class" data-name="class:Google_Client" data-root-path="" data-search-index-url="doctum-search.json">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
-                    <form action="#" method="GET">
-                <select id="version-switcher" name="version">
-                                            <option value="../v2.0.0/index.html" data-version="v2.0.0">v2.0.0</option>
-                                            <option value="../v2.0.1/index.html" data-version="v2.0.1">v2.0.1</option>
-                                            <option value="../v2.0.2/index.html" data-version="v2.0.2">v2.0.2</option>
-                                            <option value="../v2.0.3/index.html" data-version="v2.0.3">v2.0.3</option>
-                                            <option value="../v2.1.0/index.html" data-version="v2.1.0">v2.1.0</option>
-                                            <option value="../v2.1.1/index.html" data-version="v2.1.1">v2.1.1</option>
-                                            <option value="../v2.1.2/index.html" data-version="v2.1.2">v2.1.2</option>
-                                            <option value="../v2.1.3/index.html" data-version="v2.1.3">v2.1.3</option>
-                                            <option value="../v2.2.0/index.html" data-version="v2.2.0">v2.2.0</option>
-                                            <option value="../v2.2.1/index.html" data-version="v2.2.1">v2.2.1</option>
-                                            <option value="../v2.2.2/index.html" data-version="v2.2.2">v2.2.2</option>
-                                            <option value="../v2.2.3/index.html" data-version="v2.2.3">v2.2.3</option>
-                                            <option value="../v2.2.4/index.html" data-version="v2.2.4">v2.2.4</option>
-                                            <option value="../v2.3.0/index.html" data-version="v2.3.0">v2.3.0</option>
-                                            <option value="../v2.4.0/index.html" data-version="v2.4.0">v2.4.0</option>
-                                            <option value="../v2.4.1/index.html" data-version="v2.4.1">v2.4.1</option>
-                                            <option value="../v2.5.0/index.html" data-version="v2.5.0">v2.5.0</option>
-                                            <option value="../v2.6.0/index.html" data-version="v2.6.0">v2.6.0</option>
-                                            <option value="../v2.7.0/index.html" data-version="v2.7.0">v2.7.0</option>
-                                            <option value="../v2.7.1/index.html" data-version="v2.7.1">v2.7.1</option>
-                                            <option value="../v2.7.2/index.html" data-version="v2.7.2">v2.7.2</option>
-                                            <option value="../v2.8.0/index.html" data-version="v2.8.0">v2.8.0</option>
-                                            <option value="../v2.8.1/index.html" data-version="v2.8.1">v2.8.1</option>
-                                            <option value="../v2.8.2/index.html" data-version="v2.8.2">v2.8.2</option>
-                                            <option value="../v2.8.3/index.html" data-version="v2.8.3">v2.8.3</option>
-                                            <option value="../v2.9.0/index.html" data-version="v2.9.0">v2.9.0</option>
-                                            <option value="../v2.9.1/index.html" data-version="v2.9.1">v2.9.1</option>
-                                            <option value="../v2.9.2/index.html" data-version="v2.9.2">v2.9.2</option>
-                                            <option value="../v2.10.0/index.html" data-version="v2.10.0">v2.10.0</option>
-                                            <option value="../v2.10.1/index.html" data-version="v2.10.1">v2.10.1</option>
-                                            <option value="../v2.11.0/index.html" data-version="v2.11.0">v2.11.0</option>
-                                            <option value="../v2.12.0/index.html" data-version="v2.12.0">v2.12.0</option>
-                                            <option value="../v2.12.1/index.html" data-version="v2.12.1">v2.12.1</option>
-                                            <option value="../v2.12.2/index.html" data-version="v2.12.2">v2.12.2</option>
-                                            <option value="../v2.12.3/index.html" data-version="v2.12.3">v2.12.3</option>
-                                            <option value="../v2.12.4/index.html" data-version="v2.12.4">v2.12.4</option>
-                                            <option value="../v2.12.5/index.html" data-version="v2.12.5">v2.12.5</option>
-                                            <option value="../v2.12.6/index.html" data-version="v2.12.6">v2.12.6</option>
-                                            <option value="../v2.13.0/index.html" data-version="v2.13.0">v2.13.0</option>
-                                            <option value="../v2.13.1/index.html" data-version="v2.13.1">v2.13.1</option>
-                                            <option value="../v2.13.2/index.html" data-version="v2.13.2">v2.13.2</option>
-                                            <option value="../v2.14.0/index.html" data-version="v2.14.0">v2.14.0</option>
-                                            <option value="../main/index.html" data-version="main">main branch</option>
+                    <form action="#">
+                <select class="form-control" id="version-switcher" name="version">
+                                            <option
+                            value="../v2.0.0/index.html"
+                            data-version="v2.0.0" >v2.0.0</option>
+                                            <option
+                            value="../v2.0.1/index.html"
+                            data-version="v2.0.1" >v2.0.1</option>
+                                            <option
+                            value="../v2.0.2/index.html"
+                            data-version="v2.0.2" >v2.0.2</option>
+                                            <option
+                            value="../v2.0.3/index.html"
+                            data-version="v2.0.3" >v2.0.3</option>
+                                            <option
+                            value="../v2.1.0/index.html"
+                            data-version="v2.1.0" >v2.1.0</option>
+                                            <option
+                            value="../v2.1.1/index.html"
+                            data-version="v2.1.1" >v2.1.1</option>
+                                            <option
+                            value="../v2.1.2/index.html"
+                            data-version="v2.1.2" >v2.1.2</option>
+                                            <option
+                            value="../v2.1.3/index.html"
+                            data-version="v2.1.3" >v2.1.3</option>
+                                            <option
+                            value="../v2.2.0/index.html"
+                            data-version="v2.2.0" >v2.2.0</option>
+                                            <option
+                            value="../v2.10.0/index.html"
+                            data-version="v2.10.0" >v2.10.0</option>
+                                            <option
+                            value="../v2.10.1/index.html"
+                            data-version="v2.10.1" >v2.10.1</option>
+                                            <option
+                            value="../v2.11.0/index.html"
+                            data-version="v2.11.0" >v2.11.0</option>
+                                            <option
+                            value="../v2.12.0/index.html"
+                            data-version="v2.12.0" >v2.12.0</option>
+                                            <option
+                            value="../v2.12.1/index.html"
+                            data-version="v2.12.1" >v2.12.1</option>
+                                            <option
+                            value="../v2.12.2/index.html"
+                            data-version="v2.12.2" >v2.12.2</option>
+                                            <option
+                            value="../v2.12.3/index.html"
+                            data-version="v2.12.3" >v2.12.3</option>
+                                            <option
+                            value="../v2.2.1/index.html"
+                            data-version="v2.2.1" >v2.2.1</option>
+                                            <option
+                            value="../v2.12.4/index.html"
+                            data-version="v2.12.4" >v2.12.4</option>
+                                            <option
+                            value="../v2.2.2/index.html"
+                            data-version="v2.2.2" selected>v2.2.2</option>
+                                            <option
+                            value="../v2.2.3/index.html"
+                            data-version="v2.2.3" >v2.2.3</option>
+                                            <option
+                            value="../v2.2.4/index.html"
+                            data-version="v2.2.4" >v2.2.4</option>
+                                            <option
+                            value="../v2.12.5/index.html"
+                            data-version="v2.12.5" >v2.12.5</option>
+                                            <option
+                            value="../v2.13.0/index.html"
+                            data-version="v2.13.0" >v2.13.0</option>
+                                            <option
+                            value="../v2.13.1/index.html"
+                            data-version="v2.13.1" >v2.13.1</option>
+                                            <option
+                            value="../v2.14.0/index.html"
+                            data-version="v2.14.0" >v2.14.0</option>
+                                            <option
+                            value="../v2.15.3/index.html"
+                            data-version="v2.15.3" >v2.15.3</option>
+                                            <option
+                            value="../v2.15.4/index.html"
+                            data-version="v2.15.4" >v2.15.4</option>
+                                            <option
+                            value="../v2.16.0/index.html"
+                            data-version="v2.16.0" >v2.16.0</option>
+                                            <option
+                            value="../v2.17.0/index.html"
+                            data-version="v2.17.0" >v2.17.0</option>
+                                            <option
+                            value="../v2.3.0/index.html"
+                            data-version="v2.3.0" >v2.3.0</option>
+                                            <option
+                            value="../v2.12.6/index.html"
+                            data-version="v2.12.6" >v2.12.6</option>
+                                            <option
+                            value="../v2.4.0/index.html"
+                            data-version="v2.4.0" >v2.4.0</option>
+                                            <option
+                            value="../v2.4.1/index.html"
+                            data-version="v2.4.1" >v2.4.1</option>
+                                            <option
+                            value="../v2.5.0/index.html"
+                            data-version="v2.5.0" >v2.5.0</option>
+                                            <option
+                            value="../v2.6.0/index.html"
+                            data-version="v2.6.0" >v2.6.0</option>
+                                            <option
+                            value="../v2.7.0/index.html"
+                            data-version="v2.7.0" >v2.7.0</option>
+                                            <option
+                            value="../v2.13.2/index.html"
+                            data-version="v2.13.2" >v2.13.2</option>
+                                            <option
+                            value="../v2.7.1/index.html"
+                            data-version="v2.7.1" >v2.7.1</option>
+                                            <option
+                            value="../v2.7.2/index.html"
+                            data-version="v2.7.2" >v2.7.2</option>
+                                            <option
+                            value="../v2.8.0/index.html"
+                            data-version="v2.8.0" >v2.8.0</option>
+                                            <option
+                            value="../v2.8.1/index.html"
+                            data-version="v2.8.1" >v2.8.1</option>
+                                            <option
+                            value="../v2.8.2/index.html"
+                            data-version="v2.8.2" >v2.8.2</option>
+                                            <option
+                            value="../v2.15.0/index.html"
+                            data-version="v2.15.0" >v2.15.0</option>
+                                            <option
+                            value="../v2.8.3/index.html"
+                            data-version="v2.8.3" >v2.8.3</option>
+                                            <option
+                            value="../v2.9.0/index.html"
+                            data-version="v2.9.0" >v2.9.0</option>
+                                            <option
+                            value="../v2.15.1/index.html"
+                            data-version="v2.15.1" >v2.15.1</option>
+                                            <option
+                            value="../v2.9.1/index.html"
+                            data-version="v2.9.1" >v2.9.1</option>
+                                            <option
+                            value="../v2.9.2/index.html"
+                            data-version="v2.9.2" >v2.9.2</option>
+                                            <option
+                            value="../v2.15.2/index.html"
+                            data-version="v2.15.2" >v2.15.2</option>
+                                            <option
+                            value="../doctum/index.html"
+                            data-version="doctum" >doctum</option>
                                     </select>
             </form>
-                <script>
-            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
-        </script>
-        <form id="search-form" action="search.html" method="GET">
-            <span class="glyphicon glyphicon-search"></span>
+                <div class="search-bar hidden" id="search-progress-bar-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="search-progress-bar"
+                    aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+        </div>
+        <form id="search-form" action="search.html">
+            <span class="icon icon-search"></span>
             <input name="search"
+                   id="doctum-search-auto-complete"
                    class="typeahead form-control"
                    type="search"
-                   placeholder="Search">
+                   placeholder="Search"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocomplete="off"
+                   autocapitalize="off">
+            <div class="auto-complete-results" id="auto-complete-results"></div>
         </form>
     </div>
 
@@ -95,12 +211,69 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Google APIs Client Library for PHP API Reference</a>
+                <a class="navbar-brand" href="index.html">Google Cloud PHP Client</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-elements">
                 <ul class="nav navbar-nav">
+                                        <li role="presentation" class="dropdown visible-xs-block visible-sm-block">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                            role="button" aria-haspopup="true" aria-expanded="false">Versions&nbsp;<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li ><a href="../v2.0.0/index.html" data-version="v2.0.0">v2.0.0</a></li>
+                        <li ><a href="../v2.0.1/index.html" data-version="v2.0.1">v2.0.1</a></li>
+                        <li ><a href="../v2.0.2/index.html" data-version="v2.0.2">v2.0.2</a></li>
+                        <li ><a href="../v2.0.3/index.html" data-version="v2.0.3">v2.0.3</a></li>
+                        <li ><a href="../v2.1.0/index.html" data-version="v2.1.0">v2.1.0</a></li>
+                        <li ><a href="../v2.1.1/index.html" data-version="v2.1.1">v2.1.1</a></li>
+                        <li ><a href="../v2.1.2/index.html" data-version="v2.1.2">v2.1.2</a></li>
+                        <li ><a href="../v2.1.3/index.html" data-version="v2.1.3">v2.1.3</a></li>
+                        <li ><a href="../v2.2.0/index.html" data-version="v2.2.0">v2.2.0</a></li>
+                        <li ><a href="../v2.10.0/index.html" data-version="v2.10.0">v2.10.0</a></li>
+                        <li ><a href="../v2.10.1/index.html" data-version="v2.10.1">v2.10.1</a></li>
+                        <li ><a href="../v2.11.0/index.html" data-version="v2.11.0">v2.11.0</a></li>
+                        <li ><a href="../v2.12.0/index.html" data-version="v2.12.0">v2.12.0</a></li>
+                        <li ><a href="../v2.12.1/index.html" data-version="v2.12.1">v2.12.1</a></li>
+                        <li ><a href="../v2.12.2/index.html" data-version="v2.12.2">v2.12.2</a></li>
+                        <li ><a href="../v2.12.3/index.html" data-version="v2.12.3">v2.12.3</a></li>
+                        <li ><a href="../v2.2.1/index.html" data-version="v2.2.1">v2.2.1</a></li>
+                        <li ><a href="../v2.12.4/index.html" data-version="v2.12.4">v2.12.4</a></li>
+                        <li class="active"><a href="../v2.2.2/index.html" data-version="v2.2.2">v2.2.2</a></li>
+                        <li ><a href="../v2.2.3/index.html" data-version="v2.2.3">v2.2.3</a></li>
+                        <li ><a href="../v2.2.4/index.html" data-version="v2.2.4">v2.2.4</a></li>
+                        <li ><a href="../v2.12.5/index.html" data-version="v2.12.5">v2.12.5</a></li>
+                        <li ><a href="../v2.13.0/index.html" data-version="v2.13.0">v2.13.0</a></li>
+                        <li ><a href="../v2.13.1/index.html" data-version="v2.13.1">v2.13.1</a></li>
+                        <li ><a href="../v2.14.0/index.html" data-version="v2.14.0">v2.14.0</a></li>
+                        <li ><a href="../v2.15.3/index.html" data-version="v2.15.3">v2.15.3</a></li>
+                        <li ><a href="../v2.15.4/index.html" data-version="v2.15.4">v2.15.4</a></li>
+                        <li ><a href="../v2.16.0/index.html" data-version="v2.16.0">v2.16.0</a></li>
+                        <li ><a href="../v2.17.0/index.html" data-version="v2.17.0">v2.17.0</a></li>
+                        <li ><a href="../v2.3.0/index.html" data-version="v2.3.0">v2.3.0</a></li>
+                        <li ><a href="../v2.12.6/index.html" data-version="v2.12.6">v2.12.6</a></li>
+                        <li ><a href="../v2.4.0/index.html" data-version="v2.4.0">v2.4.0</a></li>
+                        <li ><a href="../v2.4.1/index.html" data-version="v2.4.1">v2.4.1</a></li>
+                        <li ><a href="../v2.5.0/index.html" data-version="v2.5.0">v2.5.0</a></li>
+                        <li ><a href="../v2.6.0/index.html" data-version="v2.6.0">v2.6.0</a></li>
+                        <li ><a href="../v2.7.0/index.html" data-version="v2.7.0">v2.7.0</a></li>
+                        <li ><a href="../v2.13.2/index.html" data-version="v2.13.2">v2.13.2</a></li>
+                        <li ><a href="../v2.7.1/index.html" data-version="v2.7.1">v2.7.1</a></li>
+                        <li ><a href="../v2.7.2/index.html" data-version="v2.7.2">v2.7.2</a></li>
+                        <li ><a href="../v2.8.0/index.html" data-version="v2.8.0">v2.8.0</a></li>
+                        <li ><a href="../v2.8.1/index.html" data-version="v2.8.1">v2.8.1</a></li>
+                        <li ><a href="../v2.8.2/index.html" data-version="v2.8.2">v2.8.2</a></li>
+                        <li ><a href="../v2.15.0/index.html" data-version="v2.15.0">v2.15.0</a></li>
+                        <li ><a href="../v2.8.3/index.html" data-version="v2.8.3">v2.8.3</a></li>
+                        <li ><a href="../v2.9.0/index.html" data-version="v2.9.0">v2.9.0</a></li>
+                        <li ><a href="../v2.15.1/index.html" data-version="v2.15.1">v2.15.1</a></li>
+                        <li ><a href="../v2.9.1/index.html" data-version="v2.9.1">v2.9.1</a></li>
+                        <li ><a href="../v2.9.2/index.html" data-version="v2.9.2">v2.9.2</a></li>
+                        <li ><a href="../v2.15.2/index.html" data-version="v2.15.2">v2.15.2</a></li>
+                        <li ><a href="../doctum/index.html" data-version="doctum">doctum</a></li>
+                        </ul>
+                    </li>
                     <li><a href="classes.html">Classes</a></li>
-                                        <li><a href="interfaces.html">Interfaces</a></li>
+                    <li><a href="interfaces.html">Interfaces</a></li>
                     <li><a href="traits.html">Traits</a></li>
                     <li><a href="doc-index.html">Index</a></li>
                     <li><a href="search.html">Search</a></li>
@@ -110,66 +283,75 @@
     </nav>
 
                             <div id="page-content">
-                
     <div class="page-header">
-        <h1>
-            Google_Client
-                
-        </h1>
+        <h1>Google_Client    
+            </h1>
     </div>
 
-    <p>    class
+    
+    <p>        class
     <strong>Google_Client</strong>        (<a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php">View source</a>)
 </p>
 
         
     
+        
 
             <div class="description">
-            <p>The Google API Client
-https://github.com/google/google-api-php-client</p>                                </div>
-    
-    
-            <h2>Constants</h2>
-
-            <table class="table table-condensed">
+            <p><p>The Google API Client
+<a href="https://github.com/google/google-api-php-client">https://github.com/google/google-api-php-client</a></p></p>                    </div>
+            
+        
+            <h2>Constants</h2>    <table class="table table-condensed">
                     <tr>
-                <td>LIBVER</td>
+                <td>
+                                                                                                                        LIBVER
+                                    </td>
                 <td class="last">
                     <p><em></em></p>
                     <p></p>
                 </td>
             </tr>
                     <tr>
-                <td>USER_AGENT_SUFFIX</td>
+                <td>
+                                                                                                                        USER_AGENT_SUFFIX
+                                    </td>
                 <td class="last">
                     <p><em></em></p>
                     <p></p>
                 </td>
             </tr>
                     <tr>
-                <td>OAUTH2_REVOKE_URI</td>
+                <td>
+                                                                                                                        OAUTH2_REVOKE_URI
+                                    </td>
                 <td class="last">
                     <p><em></em></p>
                     <p></p>
                 </td>
             </tr>
                     <tr>
-                <td>OAUTH2_TOKEN_URI</td>
+                <td>
+                                                                                                                        OAUTH2_TOKEN_URI
+                                    </td>
                 <td class="last">
                     <p><em></em></p>
                     <p></p>
                 </td>
             </tr>
                     <tr>
-                <td>OAUTH2_AUTH_URL</td>
+                <td>
+                                                                                                                        OAUTH2_AUTH_URL
+                                    </td>
                 <td class="last">
                     <p><em></em></p>
                     <p></p>
                 </td>
             </tr>
                     <tr>
-                <td>API_BASE_PATH</td>
+                <td>
+                                                                                                                        API_BASE_PATH
+                                    </td>
                 <td class="last">
                     <p><em></em></p>
                     <p></p>
@@ -183,8 +365,9 @@ https://github.com/google/google-api-php-client</p>                             
             <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_requestedScopes">
-                                        protected                                        
-                </td>
+                                        protected                                        array
+                                                                                
+                                    </td>
                 <td>$requestedScopes</td>
                 <td class="last"></td>
                 <td></td>
@@ -199,133 +382,133 @@ https://github.com/google/google-api-php-client</p>                             
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method___construct">__construct</a>(array $config = array())
         
-                                            <p>Construct the Google Client.</p>                </div>
+                                            <p><p>Construct the Google Client.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getLibraryVersion">getLibraryVersion</a>()
         
-                                            <p>Get a string containing the version of the library.</p>                </div>
+                                            <p><p>Get a string containing the version of the library.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_authenticate">authenticate</a>($code)
-        <small><sup><span class="label label-danger">deprecated</span></sup></small>
-                                            <p>For backwards compatibility
-alias for fetchAccessTokenWithAuthCode</p>                </div>
+        <small><span class="label label-danger">deprecated</span></small>
+                                            <p><p>For backwards compatibility
+alias for fetchAccessTokenWithAuthCode</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_fetchAccessTokenWithAuthCode">fetchAccessTokenWithAuthCode</a>($code)
         
-                                            <p>Attempt to exchange a code for an valid authentication token.</p>                </div>
+                                            <p><p>Attempt to exchange a code for an valid authentication token.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_refreshTokenWithAssertion">refreshTokenWithAssertion</a>()
-        <small><sup><span class="label label-danger">deprecated</span></sup></small>
-                                            <p>For backwards compatibility
-alias for fetchAccessTokenWithAssertion</p>                </div>
+        <small><span class="label label-danger">deprecated</span></small>
+                                            <p><p>For backwards compatibility
+alias for fetchAccessTokenWithAssertion</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_fetchAccessTokenWithAssertion">fetchAccessTokenWithAssertion</a>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $authHttp = null)
         
-                                            <p>Fetches a fresh access token with a given assertion token.</p>                </div>
+                                            <p><p>Fetches a fresh access token with a given assertion token.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_refreshToken">refreshToken</a>(string $refreshToken)
         
-                                            <p>For backwards compatibility
-alias for fetchAccessTokenWithRefreshToken</p>                </div>
+                                            <p><p>For backwards compatibility
+alias for fetchAccessTokenWithRefreshToken</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_fetchAccessTokenWithRefreshToken">fetchAccessTokenWithRefreshToken</a>(string $refreshToken = null)
         
-                                            <p>Fetches a fresh OAuth 2.0 access token with the given refresh token.</p>                </div>
+                                            <p><p>Fetches a fresh OAuth 2.0 access token with the given refresh token.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_createAuthUrl">createAuthUrl</a>(string|array $scope = null)
         
-                                            <p>Create a URL to obtain user authorization.</p>                </div>
+                                            <p><p>Create a URL to obtain user authorization.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_authorize">authorize</a>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $http = null)
         
-                                            <p>Adds auth listeners to the HTTP client based on the credentials
-set in the Google API Client object</p>                </div>
+                                            <p><p>Adds auth listeners to the HTTP client based on the credentials
+set in the Google API Client object</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_useApplicationDefaultCredentials">useApplicationDefaultCredentials</a>(boolean $useAppCreds = true)
+                <div class="col-md-8">
+                    <a href="#method_useApplicationDefaultCredentials">useApplicationDefaultCredentials</a>(bool $useAppCreds = true)
         
-                                            <p>Set the configuration to use application default credentials for
-authentication</p>                </div>
+                                            <p><p>Set the configuration to use application default credentials for
+authentication</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_isUsingApplicationDefaultCredentials">isUsingApplicationDefaultCredentials</a>()
         
-                                            <p>To prevent useApplicationDefaultCredentials from inappropriately being
-called in a conditional</p>                </div>
+                                            <p><p>To prevent useApplicationDefaultCredentials from inappropriately being
+called in a conditional</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setAccessToken">setAccessToken</a>(string|array $token)
         
                                             <p class="no-description">No description</p>
@@ -336,7 +519,7 @@ called in a conditional</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getAccessToken">getAccessToken</a>()
         
                                             <p class="no-description">No description</p>
@@ -347,7 +530,7 @@ called in a conditional</p>                </div>
                 <div class="col-md-2 type">
                     string|null
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getRefreshToken">getRefreshToken</a>()
         
                                             <p class="no-description">No description</p>
@@ -358,19 +541,19 @@ called in a conditional</p>                </div>
                 <div class="col-md-2 type">
                     bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_isAccessTokenExpired">isAccessTokenExpired</a>()
         
-                                            <p>Returns if the access_token is expired.</p>                </div>
+                                            <p><p>Returns if the access_token is expired.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getAuth">getAuth</a>()
-        <small><sup><span class="label label-danger">deprecated</span></sup></small>
+        <small><span class="label label-danger">deprecated</span></small>
                                             <p class="no-description">No description</p>
                                     </div>
                 <div class="col-md-2"></div>
@@ -379,9 +562,9 @@ called in a conditional</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setAuth">setAuth</a>($auth)
-        <small><sup><span class="label label-danger">deprecated</span></sup></small>
+        <small><span class="label label-danger">deprecated</span></small>
                                             <p class="no-description">No description</p>
                                     </div>
                 <div class="col-md-2"></div>
@@ -390,17 +573,17 @@ called in a conditional</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setClientId">setClientId</a>(string $clientId)
         
-                                            <p>Set the OAuth 2.0 Client ID.</p>                </div>
+                                            <p><p>Set the OAuth 2.0 Client ID.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getClientId">getClientId</a>()
         
                                             <p class="no-description">No description</p>
@@ -411,17 +594,17 @@ called in a conditional</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setClientSecret">setClientSecret</a>(string $clientSecret)
         
-                                            <p>Set the OAuth 2.0 Client Secret.</p>                </div>
+                                            <p><p>Set the OAuth 2.0 Client Secret.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getClientSecret">getClientSecret</a>()
         
                                             <p class="no-description">No description</p>
@@ -432,17 +615,17 @@ called in a conditional</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setRedirectUri">setRedirectUri</a>(string $redirectUri)
         
-                                            <p>Set the OAuth 2.0 Redirect URI.</p>                </div>
+                                            <p><p>Set the OAuth 2.0 Redirect URI.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getRedirectUri">getRedirectUri</a>()
         
                                             <p class="no-description">No description</p>
@@ -453,17 +636,17 @@ called in a conditional</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setState">setState</a>(string $state)
         
-                                            <p>Set OAuth 2.0 "state" parameter to achieve per-request customization.</p>                </div>
+                                            <p><p>Set OAuth 2.0 &quot;state&quot; parameter to achieve per-request customization.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setAccessType">setAccessType</a>(string $accessType)
         
                                             <p class="no-description">No description</p>
@@ -474,7 +657,7 @@ called in a conditional</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setApprovalPrompt">setApprovalPrompt</a>(string $approvalPrompt)
         
                                             <p class="no-description">No description</p>
@@ -485,156 +668,156 @@ called in a conditional</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setLoginHint">setLoginHint</a>(string $loginHint)
         
-                                            <p>Set the login hint, email address or sub id.</p>                </div>
+                                            <p><p>Set the login hint, email address or sub id.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setApplicationName">setApplicationName</a>(string $applicationName)
         
-                                            <p>Set the application name, this is included in the User-Agent HTTP header.</p>                </div>
+                                            <p><p>Set the application name, this is included in the User-Agent HTTP header.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setRequestVisibleActions">setRequestVisibleActions</a>(array $requestVisibleActions)
         
-                                            <p>If 'plus.login' is included in the list of requested scopes, you can use
-this method to define types of app activities that your app will write.</p>                </div>
+                                            <p><p>If 'plus.login' is included in the list of requested scopes, you can use
+this method to define types of app activities that your app will write.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setDeveloperKey">setDeveloperKey</a>(string $developerKey)
         
-                                            <p>Set the developer key to use, these are obtained through the API Console.</p>                </div>
+                                            <p><p>Set the developer key to use, these are obtained through the API Console.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setHostedDomain">setHostedDomain</a>($hd)
         
-                                            <p>Set the hd (hosted domain) parameter streamlines the login process for
+                                            <p><p>Set the hd (hosted domain) parameter streamlines the login process for
 Google Apps hosted accounts. By including the domain of the user, you
-restrict sign-in to accounts at that domain.</p>                </div>
+restrict sign-in to accounts at that domain.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setPrompt">setPrompt</a>($prompt)
         
-                                            <p>Set the prompt hint. Valid values are none, consent and select_account.</p>                </div>
+                                            <p><p>Set the prompt hint. Valid values are none, consent and select_account.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setOpenidRealm">setOpenidRealm</a>($realm)
         
-                                            <p>openid.realm is a parameter from the OpenID 2.0 protocol, not from OAuth
+                                            <p><p>openid.realm is a parameter from the OpenID 2.0 protocol, not from OAuth
 2.0. It is used in OpenID 2.0 requests to signify the URL-space for which
-an authentication request is valid.</p>                </div>
+an authentication request is valid.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setIncludeGrantedScopes">setIncludeGrantedScopes</a>($include)
         
-                                            <p>If this is provided with the value true, and the authorization request is
+                                            <p><p>If this is provided with the value true, and the authorization request is
 granted, the authorization will include any previous authorizations
-granted to this user/application combination for other scopes.</p>                </div>
+granted to this user/application combination for other scopes.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setTokenCallback">setTokenCallback</a>(callable $tokenCallback)
         
-                                            <p>sets function to be called when an access token is fetched</p>                </div>
+                                            <p><p>sets function to be called when an access token is fetched</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    boolean
+                    bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_revokeToken">revokeToken</a>(string|null $token = null)
         
-                                            <p>Revoke an OAuth2 access token or refresh token. This method will revoke the current access
-token, if a token isn't provided.</p>                </div>
+                                            <p><p>Revoke an OAuth2 access token or refresh token. This method will revoke the current access
+token, if a token isn't provided.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array|false
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_verifyIdToken">verifyIdToken</a>(string|null $idToken = null)
         
-                                            <p>Verify an id_token. This method will verify the current id_token, if one
-isn't provided.</p>                </div>
+                                            <p><p>Verify an id_token. This method will verify the current id_token, if one
+isn't provided.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setScopes">setScopes</a>($scopes)
         
-                                            <p>Set the scopes to be requested. Must be called before createAuthUrl().</p>                </div>
+                                            <p><p>Set the scopes to be requested. Must be called before createAuthUrl().</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_addScope">addScope</a>($scope_or_scopes)
         
-                                            <p>This functions adds a scope to be requested as part of the OAuth2.0 flow.</p>                </div>
+                                            <p><p>This functions adds a scope to be requested as part of the OAuth2.0 flow.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     array
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getScopes">getScopes</a>()
         
-                                            <p>Returns the list of scopes requested by the client</p>                </div>
+                                            <p><p>Returns the list of scopes requested by the client</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string|null
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_prepareScopes">prepareScopes</a>()
         
                                             <p class="no-description">No description</p>
@@ -645,39 +828,39 @@ isn't provided.</p>                </div>
                 <div class="col-md-2 type">
                     object
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_execute">execute</a>(<abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, $expectedClass = null)
         
-                                            <p>Helper method to execute deferred HTTP requests.</p>                </div>
+                                            <p><p>Helper method to execute deferred HTTP requests.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_setUseBatch">setUseBatch</a>(boolean $useBatch)
+                <div class="col-md-8">
+                    <a href="#method_setUseBatch">setUseBatch</a>(bool $useBatch)
         
-                                            <p>Declare whether batch calls should be used. This may increase throughput
-by making multiple requests in one connection.</p>                </div>
+                                            <p><p>Declare whether batch calls should be used. This may increase throughput
+by making multiple requests in one connection.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_isAppEngine">isAppEngine</a>()
         
-                                            <p>Are we running in Google AppEngine?
-return bool</p>                </div>
+                                            <p><p>Are we running in Google AppEngine?
+return bool</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setConfig">setConfig</a>($name, $value)
         
                                             <p class="no-description">No description</p>
@@ -688,7 +871,7 @@ return bool</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getConfig">getConfig</a>($name, $default = null)
         
                                             <p class="no-description">No description</p>
@@ -699,59 +882,59 @@ return bool</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setAuthConfigFile">setAuthConfigFile</a>(string $file)
-        <small><sup><span class="label label-danger">deprecated</span></sup></small>
-                                            <p>For backwards compatibility
-alias for setAuthConfig</p>                </div>
+        <small><span class="label label-danger">deprecated</span></small>
+                                            <p><p>For backwards compatibility
+alias for setAuthConfig</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setAuthConfig">setAuthConfig</a>(string|array $config)
         
-                                            <p>Set the auth config from new or deprecated JSON config.</p>                </div>
+                                            <p><p>Set the auth config from new or deprecated JSON config.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setSubject">setSubject</a>(string $subject)
         
-                                            <p>Use when the service account has been delegated domain wide access.</p>                </div>
+                                            <p><p>Use when the service account has been delegated domain wide access.</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
-                    <a href="#method_setDefer">setDefer</a>(boolean $defer)
+                <div class="col-md-8">
+                    <a href="#method_setDefer">setDefer</a>(bool $defer)
         
-                                            <p>Declare whether making API calls should make the call immediately, or
-return a request which can be called with ->execute();</p>                </div>
+                                            <p><p>Declare whether making API calls should make the call immediately, or
+return a request which can be called with -&gt;execute();</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    boolean
+                    bool
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_shouldDefer">shouldDefer</a>()
         
-                                            <p>Whether or not to return raw requests</p>                </div>
+                                            <p><p>Whether or not to return raw requests</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <abbr title="Google\Auth\OAuth2">OAuth2</abbr>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getOAuth2Service">getOAuth2Service</a>()
         
                                             <p class="no-description">No description</p>
@@ -762,27 +945,27 @@ return a request which can be called with ->execute();</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_createOAuth2Service">createOAuth2Service</a>()
         
-                                            <p>create a default google auth object</p>                </div>
+                                            <p><p>create a default google auth object</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setCache">setCache</a>(<abbr title="Psr\Cache\CacheItemPoolInterface">CacheItemPoolInterface</abbr> $cache)
         
-                                            <p>Set the Cache object</p>                </div>
+                                            <p><p>Set the Cache object</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <abbr title="Psr\Cache\CacheItemPoolInterface">CacheItemPoolInterface</abbr>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getCache">getCache</a>()
         
                                             <p class="no-description">No description</p>
@@ -793,7 +976,7 @@ return a request which can be called with ->execute();</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setCacheConfig">setCacheConfig</a>(array $cacheConfig)
         
                                             <p class="no-description">No description</p>
@@ -804,17 +987,17 @@ return a request which can be called with ->execute();</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setLogger">setLogger</a>(<abbr title="Psr\Log\LoggerInterface">LoggerInterface</abbr> $logger)
         
-                                            <p>Set the Logger object</p>                </div>
+                                            <p><p>Set the Logger object</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <abbr title="Psr\Log\LoggerInterface">LoggerInterface</abbr>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getLogger">getLogger</a>()
         
                                             <p class="no-description">No description</p>
@@ -825,7 +1008,7 @@ return a request which can be called with ->execute();</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_createDefaultLogger">createDefaultLogger</a>()
         
                                             <p class="no-description">No description</p>
@@ -836,7 +1019,7 @@ return a request which can be called with ->execute();</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_createDefaultCache">createDefaultCache</a>()
         
                                             <p class="no-description">No description</p>
@@ -847,17 +1030,17 @@ return a request which can be called with ->execute();</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_setHttpClient">setHttpClient</a>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $http)
         
-                                            <p>Set the Http Client object</p>                </div>
+                                            <p><p>Set the Http Client object</p></p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     <abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr>
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getHttpClient">getHttpClient</a>()
         
                                             <p class="no-description">No description</p>
@@ -868,7 +1051,7 @@ return a request which can be called with ->execute();</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_createDefaultHttpClient">createDefaultHttpClient</a>()
         
                                             <p class="no-description">No description</p>
@@ -879,7 +1062,7 @@ return a request which can be called with ->execute();</p>                </div>
                 <div class="col-md-2 type">
                     
                 </div>
-                <div class="col-md-8 type">
+                <div class="col-md-8">
                     <a href="#method_getAuthHandler">getAuthHandler</a>()
         
                                             <p class="no-description">No description</p>
@@ -894,18 +1077,19 @@ return a request which can be called with ->execute();</p>                </div>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L92">line 92</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L92">at line 92</a></div>
         <code>                    
     <strong>__construct</strong>(array $config = array())
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Construct the Google Client.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Construct the Google Client.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -919,24 +1103,26 @@ return a request which can be called with ->execute();</p>                </div>
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getLibraryVersion">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L154">line 154</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L154">at line 154</a></div>
         <code>                    string
     <strong>getLibraryVersion</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Get a string containing the version of the library.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Get a string containing the version of the library.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
@@ -949,39 +1135,41 @@ return a request which can be called with ->execute();</p>                </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_authenticate">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L167">line 167</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L167">at line 167</a></div>
         <code>                    array
     <strong>authenticate</strong>($code)
-        <small><sup><span class="label label-danger">deprecated</span></sup></small></code>
+        <small><span class="label label-danger">deprecated</span></small></code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
             <p>
-                <small><sup><span class="label label-danger">deprecated</span></sup></small>
+                <small><span class="label label-danger">deprecated</span></small>
                             <tr>
                     <td></td>
                     <td></td>
                 </tr>
                     </p>
     
+            
 
-                    <div class="method-description">
-                                    <p>For backwards compatibility
-alias for fetchAccessTokenWithAuthCode</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>For backwards compatibility
+alias for fetchAccessTokenWithAuthCode</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$code</td>
-                <td>string code from accounts.google.com</td>
+                <td><p>string code from accounts.google.com</p></td>
             </tr>
             </table>
 
@@ -991,10 +1179,11 @@ alias for fetchAccessTokenWithAuthCode</p>                                      
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>access token</td>
+            <td><p>access token</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1003,25 +1192,26 @@ alias for fetchAccessTokenWithAuthCode</p>                                      
             </div>
                     <div class="method-item">
                     <h3 id="method_fetchAccessTokenWithAuthCode">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L179">line 179</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L179">at line 179</a></div>
         <code>                    array
     <strong>fetchAccessTokenWithAuthCode</strong>($code)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Attempt to exchange a code for an valid authentication token.</p>                    <p>Helper wrapped around the OAuth 2.0 implementation.</p>                            </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Attempt to exchange a code for an valid authentication token.</p></p>                <p><p>Helper wrapped around the OAuth 2.0 implementation.</p></p>        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$code</td>
-                <td>string code from accounts.google.com</td>
+                <td><p>string code from accounts.google.com</p></td>
             </tr>
             </table>
 
@@ -1031,10 +1221,11 @@ alias for fetchAccessTokenWithAuthCode</p>                                      
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>access token</td>
+            <td><p>access token</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1043,36 +1234,38 @@ alias for fetchAccessTokenWithAuthCode</p>                                      
             </div>
                     <div class="method-item">
                     <h3 id="method_refreshTokenWithAssertion">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L206">line 206</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L206">at line 206</a></div>
         <code>                    array
     <strong>refreshTokenWithAssertion</strong>()
-        <small><sup><span class="label label-danger">deprecated</span></sup></small></code>
+        <small><span class="label label-danger">deprecated</span></small></code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
             <p>
-                <small><sup><span class="label label-danger">deprecated</span></sup></small>
+                <small><span class="label label-danger">deprecated</span></small>
                             <tr>
                     <td></td>
                     <td></td>
                 </tr>
                     </p>
     
+            
 
-                    <div class="method-description">
-                                    <p>For backwards compatibility
-alias for fetchAccessTokenWithAssertion</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>For backwards compatibility
+alias for fetchAccessTokenWithAssertion</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>access token</td>
+            <td><p>access token</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1081,18 +1274,19 @@ alias for fetchAccessTokenWithAssertion</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method_fetchAccessTokenWithAssertion">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L216">line 216</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L216">at line 216</a></div>
         <code>                    array
     <strong>fetchAccessTokenWithAssertion</strong>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $authHttp = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Fetches a fresh access token with a given assertion token.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Fetches a fresh access token with a given assertion token.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1109,10 +1303,11 @@ alias for fetchAccessTokenWithAssertion</p>                                     
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>access token</td>
+            <td><p>access token</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1121,19 +1316,20 @@ alias for fetchAccessTokenWithAssertion</p>                                     
             </div>
                     <div class="method-item">
                     <h3 id="method_refreshToken">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L252">line 252</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L252">at line 252</a></div>
         <code>                    array
     <strong>refreshToken</strong>(string $refreshToken)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>For backwards compatibility
-alias for fetchAccessTokenWithRefreshToken</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>For backwards compatibility
+alias for fetchAccessTokenWithRefreshToken</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1150,10 +1346,11 @@ alias for fetchAccessTokenWithRefreshToken</p>                                  
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>access token</td>
+            <td><p>access token</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1162,18 +1359,19 @@ alias for fetchAccessTokenWithRefreshToken</p>                                  
             </div>
                     <div class="method-item">
                     <h3 id="method_fetchAccessTokenWithRefreshToken">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L262">line 262</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L262">at line 262</a></div>
         <code>                    array
     <strong>fetchAccessTokenWithRefreshToken</strong>(string $refreshToken = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Fetches a fresh OAuth 2.0 access token with the given refresh token.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Fetches a fresh OAuth 2.0 access token with the given refresh token.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1190,10 +1388,11 @@ alias for fetchAccessTokenWithRefreshToken</p>                                  
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>access token</td>
+            <td><p>access token</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1202,26 +1401,27 @@ alias for fetchAccessTokenWithRefreshToken</p>                                  
             </div>
                     <div class="method-item">
                     <h3 id="method_createAuthUrl">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L296">line 296</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L296">at line 296</a></div>
         <code>                    string
     <strong>createAuthUrl</strong>(string|array $scope = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Create a URL to obtain user authorization.</p>                    <p>The authorization endpoint allows the user to first
-authenticate, and then grant/deny the access request.</p>                            </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Create a URL to obtain user authorization.</p></p>                <p><p>The authorization endpoint allows the user to first
+authenticate, and then grant/deny the access request.</p></p>        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string|array</td>
                 <td>$scope</td>
-                <td>The scope is expressed as an array or list of space-delimited strings.</td>
+                <td><p>The scope is expressed as an array or list of space-delimited strings.</p></td>
             </tr>
             </table>
 
@@ -1237,32 +1437,34 @@ authenticate, and then grant/deny the access request.</p>                       
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_authorize">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L349">line 349</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L349">at line 349</a></div>
         <code>                    <abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr>
     <strong>authorize</strong>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $http = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Adds auth listeners to the HTTP client based on the credentials
-set in the Google API Client object</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Adds auth listeners to the HTTP client based on the credentials
+set in the Google API Client object</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td><abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr></td>
                 <td>$http</td>
-                <td>the http client object.</td>
+                <td><p>the http client object.</p></td>
             </tr>
             </table>
 
@@ -1272,10 +1474,11 @@ set in the Google API Client object</p>                                         
                     <table class="table table-condensed">
         <tr>
             <td><abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr></td>
-            <td>the http client object</td>
+            <td><p>the http client object</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1284,24 +1487,25 @@ set in the Google API Client object</p>                                         
             </div>
                     <div class="method-item">
                     <h3 id="method_useApplicationDefaultCredentials">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L397">line 397</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L397">at line 397</a></div>
         <code>                    
-    <strong>useApplicationDefaultCredentials</strong>(boolean $useAppCreds = true)
+    <strong>useApplicationDefaultCredentials</strong>(bool $useAppCreds = true)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the configuration to use application default credentials for
-authentication</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the configuration to use application default credentials for
+authentication</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>boolean</td>
+                <td>bool</td>
                 <td>$useAppCreds</td>
                 <td></td>
             </tr>
@@ -1321,25 +1525,27 @@ authentication</p>                                                </div>
             </tr>
             </table>
 
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_isUsingApplicationDefaultCredentials">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L408">line 408</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L408">at line 408</a></div>
         <code>                    
     <strong>isUsingApplicationDefaultCredentials</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>To prevent useApplicationDefaultCredentials from inappropriately being
-called in a conditional</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>To prevent useApplicationDefaultCredentials from inappropriately being
+called in a conditional</p></p>                        
+        </div>
+        <div class="tags">
             
             
             
@@ -1354,22 +1560,27 @@ called in a conditional</p>                                                </div
             </tr>
             </table>
 
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setAccessToken">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L417">line 417</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L417">at line 417</a></div>
         <code>                    
     <strong>setAccessToken</strong>(string|array $token)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1386,11 +1597,12 @@ called in a conditional</p>                                                </div
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a target="_blank" href="http://php.net/InvalidArgumentException">InvalidArgumentException</a></td>
+                <td><a target="_blank" rel="noopener" href="https://www.php.net/InvalidArgumentException">InvalidArgumentException</a></td>
                 <td></td>
             </tr>
             </table>
 
+            
             
                     </div>
     </div>
@@ -1398,16 +1610,21 @@ called in a conditional</p>                                                </div
             </div>
                     <div class="method-item">
                     <h3 id="method_getAccessToken">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L438">line 438</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L438">at line 438</a></div>
         <code>                    
     <strong>getAccessToken</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
             
             
             
@@ -1417,16 +1634,20 @@ called in a conditional</p>                                                </div
             </div>
                     <div class="method-item">
                     <h3 id="method_getRefreshToken">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L446">line 446</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L446">at line 446</a></div>
         <code>                    string|null
     <strong>getRefreshToken</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
@@ -1439,34 +1660,37 @@ called in a conditional</p>                                                </div
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_isAccessTokenExpired">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L459">line 459</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L459">at line 459</a></div>
         <code>                    bool
     <strong>isAccessTokenExpired</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Returns if the access_token is expired.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Returns if the access_token is expired.</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>bool</td>
-            <td>Returns True if the access_token is expired.</td>
+            <td><p>Returns True if the access_token is expired.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -1475,23 +1699,28 @@ called in a conditional</p>                                                </div
             </div>
                     <div class="method-item">
                     <h3 id="method_getAuth">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L490">line 490</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L490">at line 490</a></div>
         <code>                    
     <strong>getAuth</strong>()
-        <small><sup><span class="label label-danger">deprecated</span></sup></small></code>
+        <small><span class="label label-danger">deprecated</span></small></code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
             <p>
-                <small><sup><span class="label label-danger">deprecated</span></sup></small>
+                <small><span class="label label-danger">deprecated</span></small>
                             <tr>
                     <td>See</td>
                     <td>UPGRADING.md for more information</td>
                 </tr>
                     </p>
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
             
             
             
@@ -1501,23 +1730,27 @@ called in a conditional</p>                                                </div
             </div>
                     <div class="method-item">
                     <h3 id="method_setAuth">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L500">line 500</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L500">at line 500</a></div>
         <code>                    
     <strong>setAuth</strong>($auth)
-        <small><sup><span class="label label-danger">deprecated</span></sup></small></code>
+        <small><span class="label label-danger">deprecated</span></small></code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
             <p>
-                <small><sup><span class="label label-danger">deprecated</span></sup></small>
+                <small><span class="label label-danger">deprecated</span></small>
                             <tr>
                     <td>See</td>
                     <td>UPGRADING.md for more information</td>
                 </tr>
                     </p>
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1531,24 +1764,26 @@ called in a conditional</p>                                                </div
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setClientId">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L511">line 511</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L511">at line 511</a></div>
         <code>                    
     <strong>setClientId</strong>(string $clientId)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the OAuth 2.0 Client ID.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the OAuth 2.0 Client ID.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1562,22 +1797,28 @@ called in a conditional</p>                                                </div
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getClientId">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L516">line 516</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L516">at line 516</a></div>
         <code>                    
     <strong>getClientId</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
             
             
             
@@ -1587,18 +1828,19 @@ called in a conditional</p>                                                </div
             </div>
                     <div class="method-item">
                     <h3 id="method_setClientSecret">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L525">line 525</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L525">at line 525</a></div>
         <code>                    
     <strong>setClientSecret</strong>(string $clientSecret)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the OAuth 2.0 Client Secret.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the OAuth 2.0 Client Secret.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1612,22 +1854,28 @@ called in a conditional</p>                                                </div
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getClientSecret">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L530">line 530</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L530">at line 530</a></div>
         <code>                    
     <strong>getClientSecret</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
             
             
             
@@ -1637,18 +1885,19 @@ called in a conditional</p>                                                </div
             </div>
                     <div class="method-item">
                     <h3 id="method_setRedirectUri">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L539">line 539</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L539">at line 539</a></div>
         <code>                    
     <strong>setRedirectUri</strong>(string $redirectUri)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the OAuth 2.0 Redirect URI.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the OAuth 2.0 Redirect URI.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1662,22 +1911,28 @@ called in a conditional</p>                                                </div
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getRedirectUri">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L544">line 544</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L544">at line 544</a></div>
         <code>                    
     <strong>getRedirectUri</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
             
             
             
@@ -1687,18 +1942,19 @@ called in a conditional</p>                                                </div
             </div>
                     <div class="method-item">
                     <h3 id="method_setState">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L554">line 554</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L554">at line 554</a></div>
         <code>                    
     <strong>setState</strong>(string $state)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set OAuth 2.0 "state" parameter to achieve per-request customization.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set OAuth 2.0 &quot;state&quot; parameter to achieve per-request customization.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1723,34 +1979,40 @@ called in a conditional</p>                                                </div
             </tr>
             </table>
 
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setAccessType">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L564">line 564</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L564">at line 564</a></div>
         <code>                    
     <strong>setAccessType</strong>(string $accessType)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$accessType</td>
-                <td>Possible values for access_type include:
- {@code "offline"} to request offline access from the user.
- {@code "online"} to request online access from the user.</td>
+                <td><p>Possible values for access_type include:
+{@code &quot;offline&quot;} to request offline access from the user.
+{@code &quot;online&quot;} to request online access from the user.</p></td>
             </tr>
             </table>
 
+            
             
             
             
@@ -1760,28 +2022,33 @@ called in a conditional</p>                                                </div
             </div>
                     <div class="method-item">
                     <h3 id="method_setApprovalPrompt">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L574">line 574</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L574">at line 574</a></div>
         <code>                    
     <strong>setApprovalPrompt</strong>(string $approvalPrompt)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$approvalPrompt</td>
-                <td>Possible values for approval_prompt include:
- {@code "force"} to force the approval UI to appear.
- {@code "auto"} to request auto-approval when possible. (This is the default value)</td>
+                <td><p>Possible values for approval_prompt include:
+{@code &quot;force&quot;} to force the approval UI to appear.
+{@code &quot;auto&quot;} to request auto-approval when possible. (This is the default value)</p></td>
             </tr>
             </table>
 
+            
             
             
             
@@ -1791,18 +2058,19 @@ called in a conditional</p>                                                </div
             </div>
                     <div class="method-item">
                     <h3 id="method_setLoginHint">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L583">line 583</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L583">at line 583</a></div>
         <code>                    
     <strong>setLoginHint</strong>(string $loginHint)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the login hint, email address or sub id.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the login hint, email address or sub id.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1816,24 +2084,26 @@ called in a conditional</p>                                                </div
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setApplicationName">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L592">line 592</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L592">at line 592</a></div>
         <code>                    
     <strong>setApplicationName</strong>(string $applicationName)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the application name, this is included in the User-Agent HTTP header.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the application name, this is included in the User-Agent HTTP header.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1847,35 +2117,38 @@ called in a conditional</p>                                                </div
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setRequestVisibleActions">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L605">line 605</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L605">at line 605</a></div>
         <code>                    
     <strong>setRequestVisibleActions</strong>(array $requestVisibleActions)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>If 'plus.login' is included in the list of requested scopes, you can use
-this method to define types of app activities that your app will write.</p>                    <p>You can find a list of available types here:</p>                            </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>If 'plus.login' is included in the list of requested scopes, you can use
+this method to define types of app activities that your app will write.</p></p>                <p><p>You can find a list of available types here:</p></p>        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>array</td>
                 <td>$requestVisibleActions</td>
-                <td>Array of app activity types</td>
+                <td><p>Array of app activity types</p></td>
             </tr>
             </table>
 
+            
             
             
             
@@ -1885,18 +2158,19 @@ this method to define types of app activities that your app will write.</p>     
             </div>
                     <div class="method-item">
                     <h3 id="method_setDeveloperKey">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L618">line 618</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L618">at line 618</a></div>
         <code>                    
     <strong>setDeveloperKey</strong>(string $developerKey)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the developer key to use, these are obtained through the API Console.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the developer key to use, these are obtained through the API Console.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1921,36 +2195,39 @@ this method to define types of app activities that your app will write.</p>     
             </tr>
             </table>
 
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setHostedDomain">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L629">line 629</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L629">at line 629</a></div>
         <code>                    
     <strong>setHostedDomain</strong>($hd)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the hd (hosted domain) parameter streamlines the login process for
+        <div class="method-description">
+                            <p><p>Set the hd (hosted domain) parameter streamlines the login process for
 Google Apps hosted accounts. By including the domain of the user, you
-restrict sign-in to accounts at that domain.</p>                                                </div>
-                <div class="tags">
+restrict sign-in to accounts at that domain.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$hd</td>
-                <td>string - the domain to use.</td>
+                <td><p>string - the domain to use.</p></td>
             </tr>
             </table>
 
+            
             
             
             
@@ -1960,19 +2237,20 @@ restrict sign-in to accounts at that domain.</p>                                
             </div>
                     <div class="method-item">
                     <h3 id="method_setPrompt">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L640">line 640</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L640">at line 640</a></div>
         <code>                    
     <strong>setPrompt</strong>($prompt)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the prompt hint. Valid values are none, consent and select_account.</p>                    <p>If no value is specified and the user has not previously authorized
-access, then the user is shown a consent screen.</p>                            </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the prompt hint. Valid values are none, consent and select_account.</p></p>                <p><p>If no value is specified and the user has not previously authorized
+access, then the user is shown a consent screen.</p></p>        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -1986,36 +2264,39 @@ access, then the user is shown a consent screen.</p>                            
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setOpenidRealm">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L651">line 651</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L651">at line 651</a></div>
         <code>                    
     <strong>setOpenidRealm</strong>($realm)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>openid.realm is a parameter from the OpenID 2.0 protocol, not from OAuth
+        <div class="method-description">
+                            <p><p>openid.realm is a parameter from the OpenID 2.0 protocol, not from OAuth
 2.0. It is used in OpenID 2.0 requests to signify the URL-space for which
-an authentication request is valid.</p>                                                </div>
-                <div class="tags">
+an authentication request is valid.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$realm</td>
-                <td>string - the URL-space to use.</td>
+                <td><p>string - the URL-space to use.</p></td>
             </tr>
             </table>
 
+            
             
             
             
@@ -2025,30 +2306,32 @@ an authentication request is valid.</p>                                         
             </div>
                     <div class="method-item">
                     <h3 id="method_setIncludeGrantedScopes">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L662">line 662</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L662">at line 662</a></div>
         <code>                    
     <strong>setIncludeGrantedScopes</strong>($include)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>If this is provided with the value true, and the authorization request is
+        <div class="method-description">
+                            <p><p>If this is provided with the value true, and the authorization request is
 granted, the authorization will include any previous authorizations
-granted to this user/application combination for other scopes.</p>                                                </div>
-                <div class="tags">
+granted to this user/application combination for other scopes.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$include</td>
-                <td>boolean - the URL-space to use.</td>
+                <td><p>boolean - the URL-space to use.</p></td>
             </tr>
             </table>
 
+            
             
             
             
@@ -2058,18 +2341,19 @@ granted to this user/application combination for other scopes.</p>              
             </div>
                     <div class="method-item">
                     <h3 id="method_setTokenCallback">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L671">line 671</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L671">at line 671</a></div>
         <code>                    
     <strong>setTokenCallback</strong>(callable $tokenCallback)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>sets function to be called when an access token is fetched</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>sets function to be called when an access token is fetched</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -2078,11 +2362,11 @@ granted to this user/application combination for other scopes.</p>              
                 <td>$tokenCallback</td>
                 <td><ul>
 <li>function ($cacheKey, $accessToken)</li>
-</ul>
-</td>
+</ul></td>
             </tr>
             </table>
 
+            
             
             
             
@@ -2092,26 +2376,27 @@ granted to this user/application combination for other scopes.</p>              
             </div>
                     <div class="method-item">
                     <h3 id="method_revokeToken">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L683">line 683</a></div>
-        <code>                    boolean
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L683">at line 683</a></div>
+        <code>                    bool
     <strong>revokeToken</strong>(string|null $token = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Revoke an OAuth2 access token or refresh token. This method will revoke the current access
-token, if a token isn't provided.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Revoke an OAuth2 access token or refresh token. This method will revoke the current access
+token, if a token isn't provided.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string|null</td>
                 <td>$token</td>
-                <td>The token (access token or a refresh token) that should be revoked.</td>
+                <td><p>The token (access token or a refresh token) that should be revoked.</p></td>
             </tr>
             </table>
 
@@ -2120,11 +2405,12 @@ token, if a token isn't provided.</p>                                           
 
                     <table class="table table-condensed">
         <tr>
-            <td>boolean</td>
-            <td>Returns True if the revocation was successful, otherwise False.</td>
+            <td>bool</td>
+            <td><p>Returns True if the revocation was successful, otherwise False.</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -2133,26 +2419,27 @@ token, if a token isn't provided.</p>                                           
             </div>
                     <div class="method-item">
                     <h3 id="method_verifyIdToken">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L701">line 701</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L701">at line 701</a></div>
         <code>                    array|false
     <strong>verifyIdToken</strong>(string|null $idToken = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Verify an id_token. This method will verify the current id_token, if one
-isn't provided.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Verify an id_token. This method will verify the current id_token, if one
+isn't provided.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string|null</td>
                 <td>$idToken</td>
-                <td>The token (id_token) that should be verified.</td>
+                <td><p>The token (id_token) that should be verified.</p></td>
             </tr>
             </table>
 
@@ -2162,8 +2449,8 @@ isn't provided.</p>                                                </div>
                     <table class="table table-condensed">
         <tr>
             <td>array|false</td>
-            <td>Returns the token payload as an array if the verification was
-successful, false otherwise.</td>
+            <td><p>Returns the token payload as an array if the verification was
+successful, false otherwise.</p></td>
         </tr>
     </table>
 
@@ -2172,11 +2459,12 @@ successful, false otherwise.</td>
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a target="_blank" href="http://php.net/LogicException">LogicException</a></td>
+                <td><a target="_blank" rel="noopener" href="https://www.php.net/LogicException">LogicException</a></td>
                 <td></td>
             </tr>
             </table>
 
+            
             
                     </div>
     </div>
@@ -2184,18 +2472,19 @@ successful, false otherwise.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_setScopes">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L731">line 731</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L731">at line 731</a></div>
         <code>                    
     <strong>setScopes</strong>($scopes)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the scopes to be requested. Must be called before createAuthUrl().</p>                    <p>Will remove any previously configured scopes.</p>                            </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the scopes to be requested. Must be called before createAuthUrl().</p></p>                <p><p>Will remove any previously configured scopes.</p></p>        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -2209,36 +2498,39 @@ successful, false otherwise.</td>
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_addScope">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L744">line 744</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L744">at line 744</a></div>
         <code>                    
     <strong>addScope</strong>($scope_or_scopes)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>This functions adds a scope to be requested as part of the OAuth2.0 flow.</p>                    <p>Will append any scopes not previously requested to the scope parameter.
+        <div class="method-description">
+                            <p><p>This functions adds a scope to be requested as part of the OAuth2.0 flow.</p></p>                <p><p>Will append any scopes not previously requested to the scope parameter.
 A single string will be treated as a scope to request. An array of strings
-will each be appended.</p>                            </div>
-                <div class="tags">
+will each be appended.</p></p>        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td></td>
                 <td>$scope_or_scopes</td>
-                <td>string|array e.g. "profile"</td>
+                <td><p>string|array e.g. &quot;profile&quot;</p></td>
             </tr>
             </table>
 
+            
             
             
             
@@ -2248,28 +2540,30 @@ will each be appended.</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_getScopes">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L760">line 760</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L760">at line 760</a></div>
         <code>                    array
     <strong>getScopes</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Returns the list of scopes requested by the client</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Returns the list of scopes requested by the client</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td>array</td>
-            <td>the list of scopes</td>
+            <td><p>the list of scopes</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -2278,16 +2572,20 @@ will each be appended.</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_prepareScopes">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L769">line 769</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L769">at line 769</a></div>
         <code>                    string|null
     <strong>prepareScopes</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
@@ -2300,31 +2598,33 @@ will each be appended.</p>                            </div>
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_execute">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L785">line 785</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L785">at line 785</a></div>
         <code>                    object
     <strong>execute</strong>(<abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr> $request, $expectedClass = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Helper method to execute deferred HTTP requests.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Helper method to execute deferred HTTP requests.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td><abbr title="Psr\Http\Message\RequestInterface">RequestInterface</abbr></td>
                 <td>$request</td>
-                <td></td>
+                <td>Psr\Http\Message\RequestInterface|Google_Http_Batch</td>
             </tr>
                     <tr>
                 <td></td>
@@ -2339,7 +2639,7 @@ will each be appended.</p>                            </div>
                     <table class="table table-condensed">
         <tr>
             <td>object</td>
-            <td>of the type of the expected class or Psr\Http\Message\ResponseInterface.</td>
+            <td><p>of the type of the expected class or Psr\Http\Message\ResponseInterface.</p></td>
         </tr>
     </table>
 
@@ -2354,36 +2654,39 @@ will each be appended.</p>                            </div>
             </table>
 
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setUseBatch">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L808">line 808</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L808">at line 808</a></div>
         <code>                    
-    <strong>setUseBatch</strong>(boolean $useBatch)
+    <strong>setUseBatch</strong>(bool $useBatch)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Declare whether batch calls should be used. This may increase throughput
-by making multiple requests in one connection.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Declare whether batch calls should be used. This may increase throughput
+by making multiple requests in one connection.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>boolean</td>
+                <td>bool</td>
                 <td>$useBatch</td>
-                <td>True if the batch support should
-be enabled. Defaults to False.</td>
+                <td><p>True if the batch support should
+be enabled. Defaults to False.</p></td>
             </tr>
             </table>
 
+            
             
             
             
@@ -2393,19 +2696,21 @@ be enabled. Defaults to False.</td>
             </div>
                     <div class="method-item">
                     <h3 id="method_isAppEngine">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L818">line 818</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L818">at line 818</a></div>
         <code>                    
     <strong>isAppEngine</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Are we running in Google AppEngine?
-return bool</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Are we running in Google AppEngine?
+return bool</p></p>                        
+        </div>
+        <div class="tags">
+            
             
             
             
@@ -2415,16 +2720,20 @@ return bool</p>                                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setConfig">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L824">line 824</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L824">at line 824</a></div>
         <code>                    
     <strong>setConfig</strong>($name, $value)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -2443,22 +2752,27 @@ return bool</p>                                                </div>
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getConfig">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L829">line 829</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L829">at line 829</a></div>
         <code>                    
     <strong>getConfig</strong>($name, $default = null)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -2477,39 +2791,41 @@ return bool</p>                                                </div>
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setAuthConfigFile">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L842">line 842</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L842">at line 842</a></div>
         <code>                    
     <strong>setAuthConfigFile</strong>(string $file)
-        <small><sup><span class="label label-danger">deprecated</span></sup></small></code>
+        <small><span class="label label-danger">deprecated</span></small></code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
             <p>
-                <small><sup><span class="label label-danger">deprecated</span></sup></small>
+                <small><span class="label label-danger">deprecated</span></small>
                             <tr>
                     <td></td>
                     <td></td>
                 </tr>
                     </p>
     
+            
 
-                    <div class="method-description">
-                                    <p>For backwards compatibility
-alias for setAuthConfig</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>For backwards compatibility
+alias for setAuthConfig</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$file</td>
-                <td>the configuration file</td>
+                <td><p>the configuration file</p></td>
             </tr>
             </table>
 
@@ -2524,6 +2840,7 @@ alias for setAuthConfig</p>                                                </div
             </tr>
             </table>
 
+            
             
                     </div>
     </div>
@@ -2531,27 +2848,28 @@ alias for setAuthConfig</p>                                                </div
             </div>
                     <div class="method-item">
                     <h3 id="method_setAuthConfig">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L855">line 855</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L855">at line 855</a></div>
         <code>                    
     <strong>setAuthConfig</strong>(string|array $config)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the auth config from new or deprecated JSON config.</p>                    <p>This structure should match the file downloaded from
-the "Download JSON" button on in the Google Developer
-Console.</p>                            </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the auth config from new or deprecated JSON config.</p></p>                <p><p>This structure should match the file downloaded from
+the &quot;Download JSON&quot; button on in the Google Developer
+Console.</p></p>        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string|array</td>
                 <td>$config</td>
-                <td>the configuration json</td>
+                <td><p>the configuration json</p></td>
             </tr>
             </table>
 
@@ -2567,34 +2885,37 @@ Console.</p>                            </div>
             </table>
 
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setSubject">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L901">line 901</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L901">at line 901</a></div>
         <code>                    
     <strong>setSubject</strong>(string $subject)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Use when the service account has been delegated domain wide access.</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Use when the service account has been delegated domain wide access.</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>string</td>
                 <td>$subject</td>
-                <td>an email address account to impersonate</td>
+                <td><p>an email address account to impersonate</p></td>
             </tr>
             </table>
 
+            
             
             
             
@@ -2604,29 +2925,31 @@ Console.</p>                            </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_setDefer">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L912">line 912</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L912">at line 912</a></div>
         <code>                    
-    <strong>setDefer</strong>(boolean $defer)
+    <strong>setDefer</strong>(bool $defer)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Declare whether making API calls should make the call immediately, or
-return a request which can be called with ->execute();</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Declare whether making API calls should make the call immediately, or
+return a request which can be called with -&gt;execute();</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>boolean</td>
+                <td>bool</td>
                 <td>$defer</td>
-                <td>True if calls should not be executed right away.</td>
+                <td><p>True if calls should not be executed right away.</p></td>
             </tr>
             </table>
 
+            
             
             
             
@@ -2636,28 +2959,30 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_shouldDefer">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L921">line 921</a></div>
-        <code>                    boolean
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L921">at line 921</a></div>
+        <code>                    bool
     <strong>shouldDefer</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Whether or not to return raw requests</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Whether or not to return raw requests</p></p>                        
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>boolean</td>
+            <td>bool</td>
             <td></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -2666,16 +2991,20 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_getOAuth2Service">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L929">line 929</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L929">at line 929</a></div>
         <code>                    <abbr title="Google\Auth\OAuth2">OAuth2</abbr>
     <strong>getOAuth2Service</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
@@ -2688,24 +3017,27 @@ return a request which can be called with ->execute();</p>                      
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_createOAuth2Service">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L941">line 941</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L941">at line 941</a></div>
         <code>            protected        
     <strong>createOAuth2Service</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>create a default google auth object</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>create a default google auth object</p></p>                        
+        </div>
+        <div class="tags">
+            
             
             
             
@@ -2715,18 +3047,19 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_setCache">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L963">line 963</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L963">at line 963</a></div>
         <code>                    
     <strong>setCache</strong>(<abbr title="Psr\Cache\CacheItemPoolInterface">CacheItemPoolInterface</abbr> $cache)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the Cache object</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the Cache object</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -2740,32 +3073,38 @@ return a request which can be called with ->execute();</p>                      
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getCache">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L971">line 971</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L971">at line 971</a></div>
         <code>                    <abbr title="Psr\Cache\CacheItemPoolInterface">CacheItemPoolInterface</abbr>
     <strong>getCache</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
             <td><abbr title="Psr\Cache\CacheItemPoolInterface">CacheItemPoolInterface</abbr></td>
-            <td>Cache implementation</td>
+            <td><p>Cache implementation</p></td>
         </tr>
     </table>
 
+            
             
             
                     </div>
@@ -2774,16 +3113,20 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_setCacheConfig">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L983">line 983</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L983">at line 983</a></div>
         <code>                    
     <strong>setCacheConfig</strong>(array $cacheConfig)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -2797,24 +3140,26 @@ return a request which can be called with ->execute();</p>                      
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_setLogger">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L992">line 992</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L992">at line 992</a></div>
         <code>                    
     <strong>setLogger</strong>(<abbr title="Psr\Log\LoggerInterface">LoggerInterface</abbr> $logger)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the Logger object</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the Logger object</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -2828,22 +3173,27 @@ return a request which can be called with ->execute();</p>                      
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getLogger">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1000">line 1000</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1000">at line 1000</a></div>
         <code>                    <abbr title="Psr\Log\LoggerInterface">LoggerInterface</abbr>
     <strong>getLogger</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
@@ -2856,22 +3206,28 @@ return a request which can be called with ->execute();</p>                      
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_createDefaultLogger">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1009">line 1009</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1009">at line 1009</a></div>
         <code>            protected        
     <strong>createDefaultLogger</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
             
             
             
@@ -2881,16 +3237,21 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_createDefaultCache">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1022">line 1022</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1022">at line 1022</a></div>
         <code>            protected        
     <strong>createDefaultCache</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
             
             
             
@@ -2900,18 +3261,19 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_setHttpClient">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1031">line 1031</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1031">at line 1031</a></div>
         <code>                    
     <strong>setHttpClient</strong>(<abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr> $http)
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                    <div class="method-description">
-                                    <p>Set the Http Client object</p>                                                </div>
-                <div class="tags">
+        <div class="method-description">
+                            <p><p>Set the Http Client object</p></p>                        
+        </div>
+        <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
@@ -2925,22 +3287,27 @@ return a request which can be called with ->execute();</p>                      
             
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_getHttpClient">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1039">line 1039</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1039">at line 1039</a></div>
         <code>                    <abbr title="GuzzleHttp\ClientInterface">ClientInterface</abbr>
     <strong>getHttpClient</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
             
                             <h4>Return Value</h4>
 
@@ -2953,22 +3320,28 @@ return a request which can be called with ->execute();</p>                      
 
             
             
+            
                     </div>
     </div>
 
             </div>
                     <div class="method-item">
                     <h3 id="method_createDefaultHttpClient">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1048">line 1048</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1048">at line 1048</a></div>
         <code>            protected        
     <strong>createDefaultHttpClient</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
             
             
             
@@ -2978,16 +3351,21 @@ return a request which can be called with ->execute();</p>                      
             </div>
                     <div class="method-item">
                     <h3 id="method_getAuthHandler">
-        <div class="location">at         <a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1103">line 1103</a></div>
+        <div class="location"><a href="https://github.com/googleapis/google-api-php-client/blob/v2.2.2/src/Google/Client.php#L1103">at line 1103</a></div>
         <code>            protected        
     <strong>getAuthHandler</strong>()
         </code>
     </h3>
-    <div class="details">
-            
+    <div class="details">    
     
+            
 
-                <div class="tags">
+        <div class="method-description">
+                            <p class="no-description">No description</p>
+                    
+        </div>
+        <div class="tags">
+            
             
             
             
@@ -2998,12 +3376,8 @@ return a request which can be called with ->execute();</p>                      
             </div>
 
     
-            </div>
-                <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
-    </div>
-
-        </div>
+</div><div id="footer">
+        Generated by <a href="https://github.com/code-lts/doctum">Doctum, a API Documentation generator and fork of Sami</a>.</div></div>
     </div>
     </body>
 
