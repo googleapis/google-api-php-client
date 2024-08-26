@@ -19,7 +19,7 @@ jobs:
         uses: GoogleCloudPlatform/php-tools/.github/workflows/doctum.yml@main
         with:
           title: "Google Cloud PHP Client"
-          default_version: ${{ inputs.tag || github.ref_name }}
+          default_version: ${{ inputs.tag || github.head_ref || github.ref_name }}
           exclude_file: aliases.php
           tag_pattern: "v2.*"
           dry_run: ${{ github.event_name == 'pull_request' }}
