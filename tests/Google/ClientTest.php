@@ -714,8 +714,10 @@ class ClientTest extends BaseTest
         $mockCache->getItem($prefix . GCECache::GCE_CACHE_KEY)
             ->shouldBeCalledTimes(1)
             ->willReturn($mockCacheItem->reveal());
-        $mockCache->getItem(GCECredentials::cacheKey . 'universe_domain')
-            ->shouldBeCalledTimes(1)
+        // cache key from GCECredentials::getTokenUri() . 'universe_domain'
+        $mockCache->getItem('cc685e3a0717258b6a4cefcb020e96de6bcf904e76fd9fc1647669f42deff9bf') // google/auth < 1.41.0
+            ->willReturn($mockUniverseDomainCacheItem->reveal());
+        $mockCache->getItem(GCECredentials::cacheKey . 'universe_domain') // google/auth >= 1.41.0
             ->willReturn($mockUniverseDomainCacheItem->reveal());
 
         $client = new Client(['cache_config' => $cacheConfig]);

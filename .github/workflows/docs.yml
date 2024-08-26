@@ -1,31 +1,26 @@
 name: Generate Documentation
 on:
     push:
-        branches: [main]
+        tags:
+            - "*"
+    workflow_dispatch:
+        inputs:
+            tag:
+                description: 'Tag to generate documentation for'
+                required: false
+    pull_request:
+
+permissions:
+  contents: write
 
 jobs:
     docs:
-        name: "Generate Project Documentation"
-        runs-on: ubuntu-latest
-        steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-        - name: Install Dependencies
-          uses: nick-invision/retry@v1
-          with:
-            timeout_minutes: 10
-            max_attempts: 3
-            command: composer install
-        - name: Generate and Push Documentation
-          uses: docker://php:8.1-cli
-          env:
-            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          with:
-            entrypoint: ./.github/actions/docs/entrypoint.sh
-        - name: Deploy 🚀
-          uses: JamesIves/github-pages-deploy-action@releases/v3
-          with:
-            ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-            BRANCH: gh-pages
-            FOLDER: .docs
+        name: "Generate and Deploy Documentation"
+        uses: GoogleCloudPlatform/php-tools/.github/workflows/doctum.yml@main
+        with:
+          title: "Google Cloud PHP Client"
+          default_version: ${{ inputs.tag || github.ref_name }}
+          exclude_file: aliases.php
+          tag_pattern: "v2.*"
+          dry_run: ${{ github.event_name == 'pull_request' }}
+
