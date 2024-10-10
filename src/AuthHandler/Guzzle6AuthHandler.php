@@ -20,7 +20,7 @@ class Guzzle6AuthHandler
     protected $cache;
     protected $cacheConfig;
 
-    public function __construct(CacheItemPoolInterface $cache = null, array $cacheConfig = [])
+    public function __construct(?CacheItemPoolInterface $cache = null, array $cacheConfig = [])
     {
         $this->cache = $cache;
         $this->cacheConfig = $cacheConfig;
