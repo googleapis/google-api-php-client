@@ -120,7 +120,7 @@ class REST
      */
     public static function decodeHttpResponse(
         ResponseInterface $response,
-        RequestInterface $request = null,
+        ?RequestInterface $request = null,
         $expectedClass = null
     ) {
         $code = $response->getStatusCode();
