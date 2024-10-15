@@ -268,6 +268,16 @@ class ClientTest extends BaseTest
         $this->assertInstanceOf('Monolog\Handler\SyslogHandler', $handler);
     }
 
+    public function testLoggerFromConstructor()
+    {
+        $logger1 = new \Monolog\Logger('unit-test');
+        $client = new Client(['logger' => $logger1]);
+        $logger2 = $client->getLogger();
+        $this->assertInstanceOf('Monolog\Logger', $logger2);
+        $this->assertEquals('unit-test', $logger2->getName());
+        $this->assertSame($logger1, $logger2);
+    }
+
     public function testSettersGetters()
     {
         $client = new Client();
@@ -279,6 +289,7 @@ class ClientTest extends BaseTest
 
         $client->setRedirectUri('localhost');
         $client->setConfig('application_name', 'me');
+        $client->setLogger(new \Monolog\Logger('test'));
 
         $cache = $this->prophesize(CacheItemPoolInterface::class);
         $client->setCache($cache->reveal());
@@ -703,8 +714,10 @@ class ClientTest extends BaseTest
         $mockCache->getItem($prefix . GCECache::GCE_CACHE_KEY)
             ->shouldBeCalledTimes(1)
             ->willReturn($mockCacheItem->reveal());
-        $mockCache->getItem(GCECredentials::cacheKey . 'universe_domain')
-            ->shouldBeCalledTimes(1)
+        // cache key from GCECredentials::getTokenUri() . 'universe_domain'
+        $mockCache->getItem('cc685e3a0717258b6a4cefcb020e96de6bcf904e76fd9fc1647669f42deff9bf') // google/auth < 1.41.0
+            ->willReturn($mockUniverseDomainCacheItem->reveal());
+        $mockCache->getItem(GCECredentials::cacheKey . 'universe_domain') // google/auth >= 1.41.0
             ->willReturn($mockUniverseDomainCacheItem->reveal());
 
         $client = new Client(['cache_config' => $cacheConfig]);
