@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.18.0](https://github.com/googleapis/google-api-php-client/compare/v2.17.0...v2.18.0) (2024-10-16)
+
+
+### Features
+
+* **docs:** Use doctum shared workflow for reference docs ([#2618](https://github.com/googleapis/google-api-php-client/issues/2618)) ([242e2cb](https://github.com/googleapis/google-api-php-client/commit/242e2cb09ad5b25b047a862b4d521037e74cae29))
+
+
+### Bug Fixes
+
+* Explicit token caching issue ([#2358](https://github.com/googleapis/google-api-php-client/issues/2358)) ([dc13e5e](https://github.com/googleapis/google-api-php-client/commit/dc13e5e3f517148d3c66d151a5ab133b7840d8fb))
+
 ## [2.17.0](https://github.com/googleapis/google-api-php-client/compare/v2.16.0...v2.17.0) (2024-07-10)
 
 
