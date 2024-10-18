@@ -172,7 +172,10 @@ class Client
      *     @type string $universe_domain
      *           Setting the universe domain will change the default rootUrl of the service.
      *           If not set explicitly, the universe domain will be the value provided in the
-     *.          "GOOGLE_CLOUD_UNIVERSE_DOMAIN" environment variable, or "googleapis.com".
+     *           "GOOGLE_CLOUD_UNIVERSE_DOMAIN" environment variable, or "googleapis.com".
+     *     @type false|LoggerInterface $logger
+     *           A PSR-3 compliant logger. If set to false logging is disabled ignoring the
+     *           'GOOGLE_SDK_DEBUG_LOGGING' flag.
      *  }
      */
     public function __construct(array $config = [])
@@ -480,7 +483,8 @@ class Client
             return $authHandler->attachCredentialsCache(
                 $http,
                 $credentials,
-                $this->config['token_callback']
+                $this->config['token_callback'],
+                $this->logger
             );
         }
 
@@ -969,7 +973,8 @@ class Client
             $request,
             $expectedClass,
             $this->config['retry'],
-            $this->config['retry_map']
+            $this->config['retry_map'],
+            $this->logger
         );
     }
 
@@ -1161,9 +1166,9 @@ class Client
 
     /**
      * Set the Logger object
-     * @param LoggerInterface $logger
+     * @param false|LoggerInterface $logger
      */
-    public function setLogger(LoggerInterface $logger)
+    public function setLogger(false|LoggerInterface $logger)
     {
         $this->logger = $logger;
     }
@@ -1173,7 +1178,7 @@ class Client
      */
     public function getLogger()
     {
-        if (!isset($this->logger)) {
+        if (!$this->logger) {
             $this->logger = $this->createDefaultLogger();
         }
 
@@ -1182,13 +1187,18 @@ class Client
 
     protected function createDefaultLogger()
     {
-        $logger = new Logger('google-api-php-client');
-        if ($this->isAppEngine()) {
-            $handler = new MonologSyslogHandler('app', LOG_USER, Logger::NOTICE);
-        } else {
-            $handler = new MonologStreamHandler('php://stderr', Logger::NOTICE);
+        $logger = $this->logger ?? ApplicationDefaultCredentials::getDefaultLogger();
+
+        // If the logger is explicitely set to false, we return our NOOP code to avoid breaking changes
+        if ($logger === false || $logger === null) {
+            $logger = new Logger('google-api-php-client');
+            if ($this->isAppEngine()) {
+                $handler = new MonologSyslogHandler('app', LOG_USER, Logger::NOTICE);
+            } else {
+                $handler = new MonologStreamHandler('php://stderr', Logger::NOTICE);
+            }
+            $logger->pushHandler($handler);
         }
-        $logger->pushHandler($handler);
 
         return $logger;
     }
@@ -1296,7 +1306,8 @@ class Client
                 null,
                 $sub ? null : $this->config['cache_config'],
                 $sub ? null : $this->getCache(),
-                $this->config['quota_project']
+                $this->config['quota_project'],
+                logger: $this->logger
             );
         }
 

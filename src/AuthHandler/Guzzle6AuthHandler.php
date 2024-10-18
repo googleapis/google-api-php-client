@@ -11,6 +11,7 @@ use Google\Auth\Middleware\SimpleMiddleware;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Psr\Cache\CacheItemPoolInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * This supports Guzzle 6
@@ -46,13 +47,14 @@ class Guzzle6AuthHandler
     public function attachCredentialsCache(
         ClientInterface $http,
         FetchAuthTokenCache $credentials,
-        callable $tokenCallback = null
+        callable $tokenCallback = null,
+        false|null|LoggerInterface $logger = null
     ) {
         // if we end up needing to make an HTTP request to retrieve credentials, we
         // can use our existing one, but we need to throw exceptions so the error
         // bubbles up.
         $authHttp = $this->createAuthHttp($http);
-        $authHttpHandler = HttpHandlerFactory::build($authHttp);
+        $authHttpHandler = HttpHandlerFactory::build($authHttp, $logger);
         $middleware = new AuthTokenMiddleware(
             $credentials,
             $authHttpHandler,

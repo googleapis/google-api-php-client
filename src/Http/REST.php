@@ -25,6 +25,7 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * This class implements the RESTful transport of apiServiceRequest()'s
@@ -41,6 +42,7 @@ class REST
      * @param class-string<T>|false|null $expectedClass
      * @param array $config
      * @param array $retryMap
+     * @param false|null|LoggerInterface $logger
      * @return mixed|T|null
      * @throws \Google\Service\Exception on server side error (ie: not authenticated,
      *  invalid or malformed post body, invalid url)
@@ -50,13 +52,14 @@ class REST
         RequestInterface $request,
         $expectedClass = null,
         $config = [],
-        $retryMap = null
+        $retryMap = null,
+        LoggerInterface $logger = null,
     ) {
         $runner = new Runner(
             $config,
             sprintf('%s %s', $request->getMethod(), (string) $request->getUri()),
             [self::class, 'doExecute'],
-            [$client, $request, $expectedClass]
+            [$client, $request, $expectedClass, $logger]
         );
 
         if (null !== $retryMap) {
@@ -73,14 +76,15 @@ class REST
      * @param ClientInterface $client
      * @param RequestInterface $request
      * @param class-string<T>|false|null $expectedClass
+     * @param false|null|LoggerInterface $logger
      * @return mixed|T|null
      * @throws \Google\Service\Exception on server side error (ie: not authenticated,
      *  invalid or malformed post body, invalid url)
      */
-    public static function doExecute(ClientInterface $client, RequestInterface $request, $expectedClass = null)
+    public static function doExecute(ClientInterface $client, RequestInterface $request, $expectedClass = null, LoggerInterface $logger = null)
     {
         try {
-            $httpHandler = HttpHandlerFactory::build($client);
+            $httpHandler = HttpHandlerFactory::build($client, $logger);
             $response = $httpHandler($request);
         } catch (RequestException $e) {
             // if Guzzle throws an exception, catch it and handle the response
