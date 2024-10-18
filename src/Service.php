@@ -18,9 +18,10 @@
 namespace Google;
 
 use Google\Http\Batch;
+use Google\Http\BatchInterface;
 use TypeError;
 
-class Service
+class Service implements ServiceInterface
 {
     public $batchPath;
     /**
@@ -37,7 +38,7 @@ class Service
 
     public function __construct($clientOrConfig = [])
     {
-        if ($clientOrConfig instanceof Client) {
+        if ($clientOrConfig instanceof GoogleClientInterface) {
             $this->client = $clientOrConfig;
         } elseif (is_array($clientOrConfig)) {
             $this->client = new Client($clientOrConfig ?: []);
@@ -51,8 +52,8 @@ class Service
     }
 
     /**
-   * Return the associated Google\Client class.
-   * @return \Google\Client
+   * Return the associated Google\GoogleClientInterface class.
+   * @return \Google\GoogleClientInterface
    */
     public function getClient()
     {
@@ -62,7 +63,7 @@ class Service
     /**
    * Create a new HTTP Batch handler for this service
    *
-   * @return Batch
+   * @return BatchInterface
    */
     public function createBatch()
     {
