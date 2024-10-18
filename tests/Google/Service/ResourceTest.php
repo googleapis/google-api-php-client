@@ -393,6 +393,8 @@ class ResourceTest extends BaseTest
         $stream = $this->prophesize(Stream::class);
         $stream->__toString()
             ->shouldNotBeCalled();
+        $stream->getContents()
+            ->shouldBeCalledtimes(1);
         $response = new Response(200, [], $stream->reveal());
 
         $http = $this->prophesize("GuzzleHttp\Client");

@@ -26,15 +26,18 @@ use Google\AuthHandler\AuthHandlerFactory;
 use Google\Auth\FetchAuthTokenCache;
 use Google\Auth\CredentialsLoader;
 use Google\Auth\GCECache;
+use Google\Auth\Logging\StdOutLogger;
 use Google\Auth\Credentials\GCECredentials;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Exception\ClientException;
+use Monolog\Logger;
 use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;
+use Psr\Log\LogLevel;
 use ReflectionClass;
 use ReflectionMethod;
 use InvalidArgumentException;
@@ -228,11 +231,15 @@ class ClientTest extends BaseTest
 
         $stream = $this->prophesize('GuzzleHttp\Psr7\Stream');
         $stream->__toString()->willReturn('');
+        $stream->getContents()->willReturn('');
 
         $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
         $response->getBody()
-            ->shouldBeCalledTimes(1)
+            ->shouldBeCalledTimes(2)
             ->willReturn($stream->reveal());
+
+        $response->getHeaders()
+            ->willReturn([]);
 
         $response->getStatusCode()->willReturn(200);
 
@@ -956,5 +963,119 @@ class ClientTest extends BaseTest
             'credentials' => $credentials->reveal(),
         ]);
         $client->authorize();
+    }
+
+    public function testPassAFalseLoggerWillNotLog()
+    {
+        putenv('GOOGLE_SDK_DEBUG_LOGGING=true');
+        $client = new Client([
+            'logger' => false
+        ]);
+
+        $stream = $this->prophesize('GuzzleHttp\Psr7\Stream');
+        $stream->__toString()->willReturn('');
+        $stream->getContents()->willReturn('');
+
+        $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
+        $response->getBody()
+            ->shouldBeCalledTimes(2)
+            ->willReturn($stream->reveal());
+
+        $response->getHeaders()
+            ->willReturn([]);
+
+        $response->getStatusCode()->willReturn(200);
+
+        $http = $this->prophesize('GuzzleHttp\ClientInterface');
+
+        $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+            ->shouldBeCalledTimes(1)
+            ->willReturn($response->reveal());
+
+        ob_start();
+
+        $client->setHttpClient($http->reveal());
+        $dr_service = new Drive($client);
+        $dr_service->files->listFiles();
+
+        $buffer = ob_get_clean();
+        $this->assertEquals($buffer, '');
+        putenv('GOOGLE_SDK_DEBUG_LOGGING');
+    }
+
+    public function testFlagActivatesLogging()
+    {
+        putenv('GOOGLE_SDK_DEBUG_LOGGING=true');
+        $client = new Client([]);
+
+        $stream = $this->prophesize('GuzzleHttp\Psr7\Stream');
+        $stream->__toString()->willReturn('');
+        $stream->getContents()->willReturn('');
+
+        $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
+        $response->getBody()
+            ->shouldBeCalledTimes(2)
+            ->willReturn($stream->reveal());
+
+        $response->getHeaders()
+            ->willReturn([]);
+
+        $response->getStatusCode()->willReturn(200);
+
+        $http = $this->prophesize('GuzzleHttp\ClientInterface');
+
+        $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+            ->shouldBeCalledTimes(1)
+            ->willReturn($response->reveal());
+
+        ob_start();
+
+        $client->setHttpClient($http->reveal());
+        $dr_service = new Drive($client);
+        $dr_service->files->listFiles();
+
+        $buffer = ob_get_clean();
+
+        $this->assertNotEquals('', $buffer);
+        putenv('GOOGLE_SDK_DEBUG_LOGGING');
+    }
+
+    public function testPassLoggerEnablesLogging()
+    {
+        putenv('GOOGLE_SDK_DEBUG_LOGGING=true');
+        $client = new Client([
+            'logger' => new StdOutLogger(LogLevel::INFO),
+        ]);
+
+        $stream = $this->prophesize('GuzzleHttp\Psr7\Stream');
+        $stream->__toString()->willReturn('');
+        $stream->getContents()->willReturn('');
+
+        $response = $this->prophesize('Psr\Http\Message\ResponseInterface');
+        $response->getBody()
+            ->shouldBeCalledTimes(2)
+            ->willReturn($stream->reveal());
+
+        $response->getHeaders()
+            ->willReturn([]);
+
+        $response->getStatusCode()->willReturn(200);
+
+        $http = $this->prophesize('GuzzleHttp\ClientInterface');
+
+        $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+            ->shouldBeCalledTimes(1)
+            ->willReturn($response->reveal());
+
+        ob_start();
+
+        $client->setHttpClient($http->reveal());
+        $dr_service = new Drive($client);
+        $dr_service->files->listFiles();
+
+        $buffer = ob_get_clean();
+
+        $this->assertNotEquals('', $buffer);
+        putenv('GOOGLE_SDK_DEBUG_LOGGING');
     }
 }
