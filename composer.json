@@ -9,9 +9,8 @@
         "php": "^8.0",
         "google/auth": "^1.37",
         "google/apiclient-services": "~0.350",
-        "firebase/php-jwt": "^6.0",
+        "firebase/php-jwt": "^6.3",
         "monolog/monolog": "^2.9||^3.0",
-        "phpseclib/phpseclib": "^3.0.36",
         "guzzlehttp/guzzle": "^7.4.5",
         "guzzlehttp/psr7": "^2.6"
     },

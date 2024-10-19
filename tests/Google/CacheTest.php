@@ -56,7 +56,7 @@ class CacheTest extends BaseTest
         $client->useApplicationDefaultCredentials();
         $client->setScopes(['https://www.googleapis.com/auth/drive.readonly']);
         // filecache with new cache dir
-        $cache = $this->getCache(sys_get_temp_dir() . '/cloud-samples-tests-php-cache-test/');
+        $cache = $this->getCache('cloud-samples-tests-php-cache-test/');
         $client->setCache($cache);
 
         $token1 = null;

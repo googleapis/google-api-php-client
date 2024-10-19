@@ -32,8 +32,6 @@ use Exception;
 
 class RunnerTest extends BaseTest
 {
-    private $client;
-
     private $mockedCallsCount = 0;
     private $currentMockedCall = 0;
     private $mockedCalls = [];

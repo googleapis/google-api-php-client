@@ -24,38 +24,9 @@ namespace Google\Tests\AccessToken;
 use Firebase\JWT\JWT;
 use Google\AccessToken\Verify;
 use Google\Tests\BaseTest;
-use ReflectionMethod;
-use phpseclib3\Crypt\AES;
 
 class VerifyTest extends BaseTest
 {
-    /**
-     * This test needs to run before the other verify tests,
-     * to ensure the constants are not defined.
-     */
-    public function testPhpsecConstants()
-    {
-        $client = $this->getClient();
-        $verify = new Verify($client->getHttpClient());
-
-        // set these to values that will be changed
-        if (defined('MATH_BIGINTEGER_OPENSSL_ENABLED') || defined('CRYPT_RSA_MODE')) {
-            $this->markTestSkipped('Cannot run test - constants already defined');
-        }
-
-        // Pretend we are on App Engine VMs
-        putenv('GAE_VM=1');
-
-        $verify->verifyIdToken('a.b.c');
-
-        putenv('GAE_VM=0');
-
-        $openSslEnable = constant('MATH_BIGINTEGER_OPENSSL_ENABLED');
-        $rsaMode = constant('CRYPT_RSA_MODE');
-        $this->assertTrue($openSslEnable);
-        $this->assertEquals(AES::ENGINE_OPENSSL, $rsaMode);
-    }
-
     /**
      * Most of the logic for ID token validation is in AuthTest -
      * this is just a general check to ensure we verify a valid
@@ -78,6 +49,7 @@ class VerifyTest extends BaseTest
         $data = json_decode($jwt->urlSafeB64Decode($segments[1]));
         $verify = new Verify($http);
         $payload = $verify->verifyIdToken($token['id_token'], $data->aud);
+        $this->assertIsArray($payload);
         $this->assertArrayHasKey('sub', $payload);
         $this->assertGreaterThan(0, strlen($payload['sub']));
 
@@ -107,6 +79,7 @@ class VerifyTest extends BaseTest
         $jwt::$leeway = $leeway = 1.5;
         $client = $this->getClient();
         $token = $client->getAccessToken();
+
         if ($client->isAccessTokenExpired()) {
             $token = $client->fetchAccessTokenWithRefreshToken();
         }
@@ -120,19 +93,11 @@ class VerifyTest extends BaseTest
         $this->assertEquals($leeway, $jwt::$leeway);
     }
 
-    public function testRetrieveCertsFromLocation()
+    public function getClient()
     {
-        $client = $this->getClient();
-        $verify = new Verify($client->getHttpClient());
-
-        // make this method public for testing purposes
-        $method = new ReflectionMethod($verify, 'retrieveCertsFromLocation');
-        $method->setAccessible(true);
-        $certs = $method->invoke($verify, Verify::FEDERATED_SIGNON_CERT_URL);
-
-        $this->assertArrayHasKey('keys', $certs);
-        $this->assertGreaterThan(1, count($certs['keys']));
-        $this->assertArrayHasKey('alg', $certs['keys'][0]);
-        $this->assertEquals('RS256', $certs['keys'][0]['alg']);
+        if (!$this->client) {
+            $this->client = $this->createClient(['profile']);
+        }
+        return $this->client;
     }
 }
