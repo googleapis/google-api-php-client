@@ -29,7 +29,7 @@ class Guzzle6AuthHandler
     public function attachCredentials(
         ClientInterface $http,
         CredentialsLoader $credentials,
-        callable $tokenCallback = null
+        ?callable $tokenCallback = null
     ) {
         // use the provided cache
         if ($this->cache) {
