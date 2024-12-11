@@ -67,8 +67,8 @@ class Verify
      * to the discretion of the caller.
      */
     public function __construct(
-        ClientInterface $http = null,
-        CacheItemPoolInterface $cache = null,
+        ?ClientInterface $http = null,
+        ?CacheItemPoolInterface $cache = null,
         $jwt = null
     ) {
         if (null === $http) {
