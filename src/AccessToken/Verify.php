@@ -69,7 +69,7 @@ class Verify
     public function __construct(
         ?ClientInterface $http = null,
         ?CacheItemPoolInterface $cache = null,
-        ?string $jwt = null
+        ?JWT $jwt = null
     ) {
         if (null === $http) {
             $http = new Client();
