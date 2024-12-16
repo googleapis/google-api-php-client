@@ -60,7 +60,7 @@ class Verify
     /**
      * @var \Firebase\JWT\JWT
      */
-    public JWT $jwt;
+    public $jwt;
 
     /**
      * Instantiates the class, but does not initiate the login flow, leaving it
