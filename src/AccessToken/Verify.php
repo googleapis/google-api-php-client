@@ -60,7 +60,7 @@ class Verify
     /**
      * @var \Firebase\JWT\JWT
      */
-    public $jwt;
+    public JWT $jwt;
 
     /**
      * Instantiates the class, but does not initiate the login flow, leaving it
@@ -69,7 +69,7 @@ class Verify
     public function __construct(
         ?ClientInterface $http = null,
         ?CacheItemPoolInterface $cache = null,
-        ?string $jwt = null
+        ?JWT $jwt = null
     ) {
         if (null === $http) {
             $http = new Client();
