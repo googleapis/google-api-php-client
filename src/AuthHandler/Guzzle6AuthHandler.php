@@ -20,7 +20,7 @@ class Guzzle6AuthHandler
     protected $cache;
     protected $cacheConfig;
 
-    public function __construct(CacheItemPoolInterface $cache = null, array $cacheConfig = [])
+    public function __construct(?CacheItemPoolInterface $cache = null, array $cacheConfig = [])
     {
         $this->cache = $cache;
         $this->cacheConfig = $cacheConfig;
@@ -29,7 +29,7 @@ class Guzzle6AuthHandler
     public function attachCredentials(
         ClientInterface $http,
         CredentialsLoader $credentials,
-        callable $tokenCallback = null
+        ?callable $tokenCallback = null
     ) {
         // use the provided cache
         if ($this->cache) {
@@ -46,7 +46,7 @@ class Guzzle6AuthHandler
     public function attachCredentialsCache(
         ClientInterface $http,
         FetchAuthTokenCache $credentials,
-        callable $tokenCallback = null
+        ?callable $tokenCallback = null
     ) {
         // if we end up needing to make an HTTP request to retrieve credentials, we
         // can use our existing one, but we need to throw exceptions so the error
@@ -74,10 +74,18 @@ class Guzzle6AuthHandler
             return $token['access_token'];
         };
 
+        // Derive a cache prefix from the token, to ensure setting a new token
+        // results in a cache-miss.
+        // Note: Supplying a custom "prefix" will bust this behavior.
+        $cacheConfig = $this->cacheConfig;
+        if (!isset($cacheConfig['prefix']) && isset($token['access_token'])) {
+            $cacheConfig['prefix'] = substr(sha1($token['access_token']), -10);
+        }
+
         $middleware = new ScopedAccessTokenMiddleware(
             $tokenFunc,
             $scopes,
-            $this->cacheConfig,
+            $cacheConfig,
             $this->cache
         );
 

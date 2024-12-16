@@ -59,7 +59,7 @@ class Verify
 
     /**
      * @var \Firebase\JWT\JWT
-    */
+     */
     public $jwt;
 
     /**
@@ -67,9 +67,9 @@ class Verify
      * to the discretion of the caller.
      */
     public function __construct(
-        ClientInterface $http = null,
-        CacheItemPoolInterface $cache = null,
-        $jwt = null
+        ?ClientInterface $http = null,
+        ?CacheItemPoolInterface $cache = null,
+        ?JWT $jwt = null
     ) {
         if (null === $http) {
             $http = new Client();
@@ -130,7 +130,7 @@ class Verify
                     return false;
                 }
 
-                return (array) $payload;
+                return (array)$payload;
             } catch (ExpiredException $e) { // @phpstan-ignore-line
                 return false;
             } catch (ExpiredExceptionV3 $e) {
@@ -154,8 +154,8 @@ class Verify
      * Retrieve and cache a certificates file.
      *
      * @param string $url location
-     * @throws \Google\Exception
      * @return array certificates
+     * @throws \Google\Exception
      */
     private function retrieveCertsFromLocation($url)
     {
@@ -163,8 +163,8 @@ class Verify
         if (0 !== strpos($url, 'http')) {
             if (!$file = file_get_contents($url)) {
                 throw new GoogleException(
-                    "Failed to retrieve verification certificates: '" .
-                    $url . "'."
+                    "Failed to retrieve verification certificates: '".
+                    $url."'."
                 );
             }
 
@@ -175,7 +175,7 @@ class Verify
         $response = $this->http->get($url);
 
         if ($response->getStatusCode() == 200) {
-            return json_decode((string) $response->getBody(), true);
+            return json_decode((string)$response->getBody(), true);
         }
         throw new GoogleException(
             sprintf(
