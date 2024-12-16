@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.18.2](https://github.com/googleapis/google-api-php-client/compare/v2.18.1...v2.18.2) (2024-12-16)
+
+
+### Bug Fixes
+
+* Correct type for jwt constructor arg ([#2648](https://github.com/googleapis/google-api-php-client/issues/2648)) ([31a9861](https://github.com/googleapis/google-api-php-client/commit/31a9861af02a8e9070b395f05caed7ffce0ef8be))
+
 ## [2.18.1](https://github.com/googleapis/google-api-php-client/compare/v2.18.0...v2.18.1) (2024-11-24)
 
 
