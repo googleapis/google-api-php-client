@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.18.3](https://github.com/googleapis/google-api-php-client/compare/v2.18.2...v2.18.3) (2025-04-08)
+
+
+### Bug Fixes
+
+* Convert Finder lazy iterator to array before deletion ([#2663](https://github.com/googleapis/google-api-php-client/issues/2663)) ([c699405](https://github.com/googleapis/google-api-php-client/commit/c6994051af1568359c97d267d9ef34ccbda31387))
+
 ## [2.18.2](https://github.com/googleapis/google-api-php-client/compare/v2.18.1...v2.18.2) (2024-12-16)
 
 
