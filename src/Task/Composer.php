@@ -34,35 +34,45 @@ class Composer
     ) {
         $composer = $event->getComposer();
         $extra = $composer->getPackage()->getExtra();
-        $servicesToKeep = isset($extra['google/apiclient-services'])
-            ? $extra['google/apiclient-services']
-            : [];
-        if ($servicesToKeep) {
-            $vendorDir = $composer->getConfig()->get('vendor-dir');
+        $servicesToKeep = $extra['google/apiclient-services'] ?? [];
+
+        if (empty($servicesToKeep)) {
+            return;
+        }
+
+        $vendorDir = $composer->getConfig()->get('vendor-dir');
+        $serviceDir = sprintf(
+            '%s/google/apiclient-services/src/Google/Service',
+            $vendorDir
+        );
+        if (!is_dir($serviceDir)) {
+            // path for google/apiclient-services >= 0.200.0
             $serviceDir = sprintf(
-                '%s/google/apiclient-services/src/Google/Service',
+                '%s/google/apiclient-services/src',
                 $vendorDir
             );
-            if (!is_dir($serviceDir)) {
-                // path for google/apiclient-services >= 0.200.0
-                $serviceDir = sprintf(
-                    '%s/google/apiclient-services/src',
-                    $vendorDir
-                );
-            }
-            self::verifyServicesToKeep($serviceDir, $servicesToKeep);
-            $finder = self::getServicesToRemove($serviceDir, $servicesToKeep);
-            $filesystem = $filesystem ?: new Filesystem();
-            if (0 !== $count = count($finder)) {
-                $event->getIO()->write(
-                    sprintf('Removing %s google services', $count)
-                );
-                foreach ($finder as $file) {
-                    $realpath = $file->getRealPath();
-                    $filesystem->remove($realpath);
-                    $filesystem->remove($realpath . '.php');
-                }
-            }
+        }
+        self::verifyServicesToKeep($serviceDir, $servicesToKeep);
+        $finder = self::getServicesToRemove($serviceDir, $servicesToKeep);
+        $filesystem = $filesystem ?: new Filesystem();
+        $countToRemove = $finder->count();
+        if (0 === $countToRemove) {
+            return;
+        }
+
+        $event->getIO()->write(
+            sprintf('Removing %d google services', $countToRemove)
+        );
+
+        $pathsToRemove = [];
+        foreach ($finder as $file) {
+            $realpath = $file->getRealPath();
+            $pathsToRemove[] = $realpath;
+            $pathsToRemove[] = $realpath . '.php';
+        }
+
+        foreach ($pathsToRemove as $pathToRemove) {
+            $filesystem->remove($pathToRemove);
         }
     }
 
