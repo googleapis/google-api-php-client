@@ -64,15 +64,11 @@ class Composer
             sprintf('Removing %d google services', $countToRemove)
         );
 
-        $pathsToRemove = [];
-        foreach ($finder as $file) {
-            $realpath = $file->getRealPath();
-            $pathsToRemove[] = $realpath;
-            $pathsToRemove[] = $realpath . '.php';
-        }
-
+        $pathsToRemove = iterator_to_array($finder);
         foreach ($pathsToRemove as $pathToRemove) {
-            $filesystem->remove($pathToRemove);
+            $realpath = $pathToRemove->getRealPath();
+            $filesystem->remove($realpath);
+            $filesystem->remove($realpath . '.php');
         }
     }
 
