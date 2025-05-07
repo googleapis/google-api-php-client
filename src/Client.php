@@ -53,7 +53,7 @@ use UnexpectedValueException;
 class Client
 {
     // Release Please updates the VERSION constant. This workaround ensures the LIBVER constant
-    // will be updated for each release.
+    // will be updated for each release as well.
     private const VERSION = '2.18.3';
     const LIBVER = self::VERSION;
 
@@ -68,7 +68,7 @@ class Client
      */
     private $auth;
 
-    /**
+    **
      * @var ClientInterface $http
      */
     private $http;
