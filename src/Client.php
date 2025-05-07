@@ -52,7 +52,7 @@ use UnexpectedValueException;
  */
 class Client
 {
-    const LIBVER = "2.18.3";
+    const LIBVER = "2.12.6";
     const USER_AGENT_SUFFIX = "google-api-php-client/";
     const OAUTH2_REVOKE_URI = 'https://oauth2.googleapis.com/revoke';
     const OAUTH2_TOKEN_URI = 'https://oauth2.googleapis.com/token';
