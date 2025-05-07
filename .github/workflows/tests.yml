@@ -65,4 +65,22 @@ jobs:
                 composer install
                 composer global require phpstan/phpstan
                 ~/.composer/vendor/bin/phpstan analyse
+    libver-check:
+        runs-on: ubuntu-latest
+        name: verify libver verison
+        #if: github.event.pull_request.user.login == 'release-please[bot]'
+        steps:
+        - name: Setup PHP
+          uses: shivammathur/setup-php@v2
+          with:
+            php-version: '8.1'
+        - name: Verify libver
+          # @TODO change version to be "dev-main" before we merge
+          run: |
+              LIBVER=$(php -r "require 'src/Client.php'; echo Google\Client::LIBVER;")
+              RELEASEVER=$(php -r 'preg_match("/## \[(\d.\d+.\d+)\]\(/", file_get_contents("CHANGELOG.md"), $matches);var_dump($matches[1]);')
+              if [ "$LIBVER" != "$RELEASEVER" ]; then
+                  echo "Google\Client::LIBVER ($LIBVER)does not equal the current release ($RELEASEVER). Be sure to update it."
+                  exit 1
+              fi
 
