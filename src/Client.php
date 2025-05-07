@@ -52,7 +52,11 @@ use UnexpectedValueException;
  */
 class Client
 {
-    const LIBVER = "2.18.3";
+    // Release Please updates the VERSION constant. This workaround ensures the LIBVER constant
+    // will be updated for each release.
+    private const VERSION = '2.18.3';
+    const LIBVER = self::VERSION;
+
     const USER_AGENT_SUFFIX = "google-api-php-client/";
     const OAUTH2_REVOKE_URI = 'https://oauth2.googleapis.com/revoke';
     const OAUTH2_TOKEN_URI = 'https://oauth2.googleapis.com/token';
