@@ -1,5 +1,8 @@
 name: Add Release Assets
 
+permissions:
+    contents: write
+
 on:
     release:
         types: [published]
@@ -8,10 +11,10 @@ on:
               tag:
                   description: 'Tag to generate documentation for'
                   required: true
-              dry-run:
-                  description: 'does not push the assets when true'
+              upload-on-workflow-dispatch:
+                  description: 'Upload assets?'
                   required: false
-                  default: "true"
+                  default: "false"
 jobs:
     asset:
         runs-on: ${{ matrix.operating-system }}
@@ -56,7 +59,7 @@ jobs:
 
             - name: Upload Release Archive
               uses: softprops/action-gh-release@v2
-              if: github.ref_type == 'tag' || inputs.dry-run != 'true'
+              if: github.ref_type == 'tag' || inputs.upload-on-workflow-dispatch == 'true'
               with:
                 tag_name: ${{ inputs.tag || steps.tagName.outputs.tag }}
                 files: |
