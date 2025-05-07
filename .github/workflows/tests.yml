@@ -78,7 +78,7 @@ jobs:
             - name: Verify libver
               run: |
                   LIBVER=$(php -r 'require "src/Client.php"; echo Google\Client::LIBVER;')
-                  RELEASEVER=$(php -r 'preg_match("/## \[(\d.\d+.\d+)\]\(/", file_get_contents("CHANGELOG.md"), $matches);var_dump($matches[1]);')
+                  RELEASEVER=$(php -r 'preg_match("/## \[(\d.\d+.\d+)\]\(/", file_get_contents("CHANGELOG.md"), $matches);echo $matches[1];')
                   if [ "$LIBVER" != "$RELEASEVER" ]; then
                       echo "Google\Client::LIBVER ($LIBVER) does not equal the current release ($RELEASEVER). Be sure to update it."
                       exit 1
