@@ -7,7 +7,11 @@ on:
         inputs:
               tag:
                   description: 'Tag to generate documentation for'
+                  required: true
+              dry-run:
+                  description: 'does not push the assets when true'
                   required: false
+                  default: "true"
 jobs:
     asset:
         runs-on: ${{ matrix.operating-system }}
@@ -52,7 +56,7 @@ jobs:
 
             - name: Upload Release Archive
               uses: softprops/action-gh-release@v2
-              if: github.ref_type == 'tag'
+              if: github.ref_type == 'tag' || inputs.dry-run != 'true'
               with:
                 files: |
                   ./google-api-php-client-${{ inputs.tag || steps.tagName.outputs.tag }}-PHP${{ matrix.php }}.zip
