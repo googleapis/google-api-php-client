@@ -91,7 +91,7 @@ class Verify
      * accepted.  By default, the id token must have been issued to this OAuth2 client.
      *
      * @param string $idToken the ID token in JWT format
-     * @param string $audience Optional. The audience to verify against JWt "aud"
+     * @param string $audience Optional. The audience to verify against JWT "aud"
      * @return array|false the token payload, if successful
      */
     public function verifyIdToken($idToken, $audience = null)
