@@ -44,7 +44,7 @@ composer installed.
 Once composer is installed, execute the following command in your project root to install this library:
 
 ```sh
-composer require google/apiclient:^2.15.0
+composer require google/apiclient
 ```
 
 If you're facing a timeout error then either increase the timeout for composer by adding the env flag as `COMPOSER_PROCESS_TIMEOUT=600 composer install` or you can put this in the `config` section of the composer schema:
