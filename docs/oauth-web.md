@@ -353,7 +353,7 @@ require_once __DIR__.'/vendor/autoload.php';
 session_start();
 
 $client = new Google\Client();
-$client->setAuthConfigFile('client_secrets.json');
+$client->setAuthConfig('client_secrets.json');
 $client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
 $client->addScope(Google\Service\Drive::DRIVE_METADATA_READONLY);
 
