@@ -2,8 +2,8 @@
 
 namespace Google\AuthHandler;
 
-use Google\Auth\CredentialsLoader;
 use Google\Auth\FetchAuthTokenCache;
+use Google\Auth\FetchAuthTokenInterface;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\Middleware\AuthTokenMiddleware;
 use Google\Auth\Middleware\ScopedAccessTokenMiddleware;
@@ -28,7 +28,7 @@ class Guzzle6AuthHandler
 
     public function attachCredentials(
         ClientInterface $http,
-        CredentialsLoader $credentials,
+        FetchAuthTokenInterface $credentials,
         ?callable $tokenCallback = null
     ) {
         // use the provided cache
