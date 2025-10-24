@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.18.4](https://github.com/googleapis/google-api-php-client/compare/v2.18.3...v2.18.4) (2025-09-29)
+
+
+### Bug Fixes
+
+* Ensure credentials can be of type FetchAuthTokenInterface ([#2684](https://github.com/googleapis/google-api-php-client/issues/2684)) ([ed70802](https://github.com/googleapis/google-api-php-client/commit/ed70802cc4886ef1f513a2c0b56a8a972db5e7ab))
+
 ## [2.18.3](https://github.com/googleapis/google-api-php-client/compare/v2.18.2...v2.18.3) (2025-04-08)
 
 
