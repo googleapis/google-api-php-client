@@ -90,10 +90,8 @@ class REST
 
             $response = $e->getResponse();
             // specific checking for Guzzle 5: convert to PSR7 response
-            if (
-                interface_exists('\GuzzleHttp\Message\ResponseInterface')
-                && $response instanceof \GuzzleHttp\Message\ResponseInterface
-            ) {
+            // compatibility with new version of guzzle (guzzle > 5.3.0 & PHP >= 8)          
+            if ($response instanceof ResponseInterface && !($response instanceof Response)) {
                 $response = new Response(
                     $response->getStatusCode(),
                     $response->getHeaders() ?: [],
