@@ -1,10 +1,20 @@
 name: Add Release Assets
 
+permissions:
+    contents: write
+
 on:
     release:
         types: [published]
     workflow_dispatch:
-
+        inputs:
+              tag:
+                  description: 'Tag to generate documentation for'
+                  required: true
+              upload-on-workflow-dispatch:
+                  description: 'Upload assets?'
+                  required: false
+                  default: "false"
 jobs:
     asset:
         runs-on: ${{ matrix.operating-system }}
@@ -18,12 +28,6 @@ jobs:
             - id: getTag
               name: Get Tag
               run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
-
-            - name: Get release
-              id: get_release
-              uses: bruceadams/get-release@v1.2.2
-              env:
-                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Checkout
               uses: actions/checkout@v2
@@ -51,14 +55,12 @@ jobs:
                 zip -d ${fileName} "tests*" || true &&
                 zip -d ${fileName} "examples*" || true
               env:
-                fileName: google-api-php-client-${{ steps.tagName.outputs.tag }}-PHP${{ matrix.php }}.zip
+                fileName: google-api-php-client-${{ inputs.tag || steps.tagName.outputs.tag }}-PHP${{ matrix.php }}.zip
 
             - name: Upload Release Archive
-              uses: actions/upload-release-asset@v1
-              env:
-                GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+              uses: softprops/action-gh-release@v2
+              if: github.ref_type == 'tag' || inputs.upload-on-workflow-dispatch == 'true'
               with:
-                upload_url: ${{ steps.get_release.outputs.upload_url }}
-                asset_path: ./google-api-php-client-${{ steps.tagName.outputs.tag }}-PHP${{ matrix.php }}.zip
-                asset_name: google-api-php-client-${{ steps.tagName.outputs.tag }}-PHP${{ matrix.php }}.zip
-                asset_content_type: application/zip
+                tag_name: ${{ inputs.tag || steps.tagName.outputs.tag }}
+                files: |
+                  ./google-api-php-client-${{ inputs.tag || steps.tagName.outputs.tag }}-PHP${{ matrix.php }}.zip
