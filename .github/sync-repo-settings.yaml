@@ -18,7 +18,5 @@ branchProtectionRules:
   requiresCodeOwnerReviews: true
   requiresStrictStatusChecks: true
 permissionRules:
-  - team: cloud-sdk-php-team-admins
-    permission: admin
   - team: cloud-sdk-php-team
     permission: push
