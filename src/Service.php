@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-namespace Google;
+namespace Appning;
 
-use Google\Http\Batch;
+use Appning\Http\Batch;
 use TypeError;
 
 class Service
@@ -42,7 +42,7 @@ class Service
         } elseif (is_array($clientOrConfig)) {
             $this->client = new Client($clientOrConfig ?: []);
         } else {
-            $errorMessage = 'constructor must be array or instance of Google\Client';
+            $errorMessage = 'constructor must be array or instance of Appning\Client';
             if (class_exists('TypeError')) {
                 throw new TypeError($errorMessage);
             }
@@ -51,8 +51,8 @@ class Service
     }
 
     /**
-   * Return the associated Google\Client class.
-   * @return \Google\Client
+   * Return the associated Appning\Client class.
+   * @return \Appning\Client
    */
     public function getClient()
     {

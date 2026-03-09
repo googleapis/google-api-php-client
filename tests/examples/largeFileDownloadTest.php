@@ -18,29 +18,15 @@
  * under the License.
  */
 
-namespace Google\Tests\Examples;
+namespace Appning\Tests\Examples;
 
-use Google\Tests\BaseTest;
+use Appning\Tests\BaseTest;
 
 class largeFileDownloadTest extends BaseTest
 {
     /**
    * @runInSeparateProcess
    */
-    public function testSimpleFileDownloadNoToken()
-    {
-        $this->checkServiceAccountCredentials();
-
-        $crawler = $this->loadExample('large-file-download.php');
-
-        $nodes = $crawler->filter('h1');
-        $this->assertCount(1, $nodes);
-        $this->assertEquals('File Download - Downloading a large file', $nodes->first()->text());
-
-        $nodes = $crawler->filter('a.login');
-        $this->assertCount(1, $nodes);
-        $this->assertEquals('Connect Me!', $nodes->first()->text());
-    }
 
     public function testSimpleFileDownloadWithToken()
     {

@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-namespace Google\AccessToken;
+namespace Appning\AccessToken;
 
 use Google\Auth\HttpHandler\HttpHandlerFactory;
-use Google\Client;
+use Appning\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;

@@ -1,9 +1,9 @@
 {
-    "name": "google/apiclient",
+    "name": "appning/apiclient",
     "type": "library",
     "description": "Client library for Google APIs",
-    "keywords": ["google"],
-    "homepage": "http://developers.google.com/api-client-library/php",
+    "keywords": ["appning"],
+    "homepage": "https://appning.com/developers/#documentation",
     "license": "Apache-2.0",
     "require": {
         "php": "^8.1",
@@ -26,18 +26,20 @@
         "phpunit/phpunit": "^9.6"
     },
     "suggest": {
-        "cache/filesystem-adapter": "For caching certs and tokens (using Google\\Client::setCache)"
+        "cache/filesystem-adapter": "For caching certs and tokens (using Appning\\Client::setCache)"
     },
     "autoload": {
         "psr-4": {
-            "Google\\": "src/"
+            "Appning\\": "src/",
+            "Appning\\Service\\AndroidPublisher\\": "src/Service/AndroidPublisher/"
         },
-        "files": [
-            "src/aliases.php"
-        ],
-        "classmap": [
-            "src/aliases.php"
-        ]
+        "files": ["src/GoogleAlias.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Appning\\Tests\\": "tests/Appning/",
+            "Appning\\Tests\\Examples\\": "tests/examples/"
+        }
     },
     "extra": {
         "branch-alias": {

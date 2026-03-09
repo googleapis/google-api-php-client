@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-namespace Google;
+namespace Appning;
 
 use Exception as BaseException;
 

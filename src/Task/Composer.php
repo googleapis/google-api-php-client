@@ -15,7 +15,7 @@
  * the License.
  */
 
-namespace Google\Task;
+namespace Appning\Task;
 
 use Composer\Script\Event;
 use InvalidArgumentException;

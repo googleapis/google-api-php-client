@@ -8,3 +8,4 @@ examples/testfile.txt
 tests/.apiKey
 .phpunit.result.cache
 .idea/
+/examples/androidpublisher-batch-update.dev.php

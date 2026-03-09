@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-namespace Google\Utils;
+namespace Appning\Utils;
 
 /**
  * Implementation of levels 1-3 of the URI Template spec.

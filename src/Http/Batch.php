@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-namespace Google\Http;
+namespace Appning\Http;
 
-use Google\Client;
-use Google\Service\Exception as GoogleServiceException;
+use Appning\Client;
+use Appning\Service\Exception as GoogleServiceException;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
@@ -28,7 +28,7 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * Class to handle batched requests to the Google API service.
  *
- * Note that calls to `Google\Http\Batch::execute()` do not clear the queued
+ * Note that calls to `Appning\Http\Batch::execute()` do not clear the queued
  * requests. To start a new batch, be sure to create a new instance of this
  * class.
  */

@@ -19,9 +19,9 @@
  * under the License.
  */
 
-namespace Google\Tests\Examples;
+namespace Appning\Tests\Examples;
 
-use Google\Tests\BaseTest;
+use Appning\Tests\BaseTest;
 
 class serviceAccountTest extends BaseTest
 {

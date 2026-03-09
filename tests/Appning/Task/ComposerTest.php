@@ -1,0 +1,150 @@
+<?php
+/*
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+namespace Appning\Tests\Task;
+
+use Appning\Tests\BaseTest;
+use Appning\Task\Composer;
+use Symfony\Component\Filesystem\Filesystem;
+use InvalidArgumentException;
+
+class ComposerTest extends BaseTest
+{
+    public function testInvalidServiceName()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Google service "Foo" does not exist');
+
+        Composer::cleanup($this->createMockEvent(['Foo']));
+    }
+
+    public function testRelatePathServiceName()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid Google service name "../YouTube"');
+
+        Composer::cleanup($this->createMockEvent(['../YouTube']));
+    }
+
+    public function testEmptyServiceName()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Google service "" does not exist');
+
+        Composer::cleanup($this->createMockEvent(['']));
+    }
+
+    public function testWildcardServiceName()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid Google service name "YouTube*"');
+
+        Composer::cleanup($this->createMockEvent(['YouTube*']));
+    }
+
+    public function testRemoveServices()
+    {
+        $vendorDir = sys_get_temp_dir() . '/rand-' . rand();
+        $serviceDir = sprintf(
+            '%s/google/apiclient-services/src/',
+            $vendorDir
+        );
+        $dirs = [
+            'ServiceToKeep',
+            'ServiceToDelete1',
+            'ServiceToDelete2',
+        ];
+        $files = [
+            'ServiceToKeep/ServiceFoo.php',
+            'ServiceToKeep.php',
+            'SomeRandomFile.txt',
+            'ServiceToDelete1/ServiceFoo.php',
+            'ServiceToDelete1.php',
+            'ServiceToDelete2/ServiceFoo.php',
+            'ServiceToDelete2.php',
+        ];
+        foreach ($dirs as $dir) {
+            @mkdir($serviceDir . $dir, 0777, true);
+        }
+        foreach ($files as $file) {
+            touch($serviceDir . $file);
+        }
+        $print = 'Removing 2 google services';
+        Composer::cleanup(
+            $this->createMockEvent(['ServiceToKeep'], $vendorDir, $print),
+            $this->createMockFilesystem([
+                'ServiceToDelete2',
+                'ServiceToDelete2.php',
+                'ServiceToDelete1',
+                'ServiceToDelete1.php',
+            ], $serviceDir)
+        );
+    }
+
+    private function createMockFilesystem(array $files, $serviceDir)
+    {
+        $mockFilesystem = $this->prophesize(Filesystem::class);
+        foreach ($files as $filename) {
+            $file = new \SplFileInfo($serviceDir . $filename);
+            $mockFilesystem->remove($file->getRealPath())
+                ->shouldBeCalledTimes(1);
+        }
+
+        return $mockFilesystem->reveal();
+    }
+
+    private function createMockEvent(
+        array $servicesToKeep,
+        $vendorDir = '',
+        $print = null
+    ) {
+        $mockPackage = $this->prophesize('Composer\Package\RootPackage');
+        $mockPackage->getExtra()
+            ->shouldBeCalledTimes(1)
+            ->willReturn(['google/apiclient-services' => $servicesToKeep]);
+
+        $mockConfig = $this->prophesize('Composer\Config');
+        $mockConfig->get('vendor-dir')
+            ->shouldBeCalledTimes(1)
+            ->willReturn($vendorDir);
+
+        $mockComposer = $this->prophesize('Composer\Composer');
+        $mockComposer->getPackage()
+            ->shouldBeCalledTimes(1)
+            ->willReturn($mockPackage->reveal());
+        $mockComposer->getConfig()
+            ->shouldBeCalledTimes(1)
+            ->willReturn($mockConfig->reveal());
+
+        $mockEvent = $this->prophesize('Composer\Script\Event');
+        $mockEvent->getComposer()
+            ->shouldBeCalledTimes(1)
+            ->willReturn($mockComposer);
+
+        if ($print) {
+            $mockIO = $this->prophesize('Composer\IO\ConsoleIO');
+            $mockIO->write($print)
+                ->shouldBeCalledTimes(1);
+
+            $mockEvent->getIO()
+                ->shouldBeCalledTimes(1)
+                ->willReturn($mockIO->reveal());
+        }
+
+        return $mockEvent->reveal();
+    }
+}

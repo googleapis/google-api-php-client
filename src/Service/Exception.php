@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-namespace Google\Service;
+namespace Appning\Service;
 
-use Google\Exception as GoogleException;
+use Appning\Exception as GoogleException;
 
 class Exception extends GoogleException
 {

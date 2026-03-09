@@ -1,6 +1,6 @@
 <?php
 
-namespace Google\AuthHandler;
+namespace Appning\AuthHandler;
 
 use Google\Auth\FetchAuthTokenCache;
 use Google\Auth\FetchAuthTokenInterface;

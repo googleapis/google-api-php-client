@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-namespace Google\Task;
+namespace Appning\Task;
 
-use Google\Exception as GoogleException;
+use Appning\Exception as GoogleException;
 
 class Exception extends GoogleException
 {

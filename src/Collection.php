@@ -1,9 +1,9 @@
 <?php
 
-namespace Google;
+namespace Appning;
 
 /**
- * Extension to the regular Google\Model that automatically
+ * Extension to the regular Appning\Model that automatically
  * exposes the items array for iteration, so you can just
  * iterate over the object rather than a reference inside.
  */

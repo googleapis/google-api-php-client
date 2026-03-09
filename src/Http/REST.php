@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 
-namespace Google\Http;
+namespace Appning\Http;
 
 use Google\Auth\HttpHandler\HttpHandlerFactory;
-use Google\Service\Exception as GoogleServiceException;
-use Google\Task\Runner;
+use Appning\Service\Exception as GoogleServiceException;
+use Appning\Task\Runner;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
@@ -42,7 +42,7 @@ class REST
      * @param array $config
      * @param array $retryMap
      * @return mixed|T|null
-     * @throws \Google\Service\Exception on server side error (ie: not authenticated,
+     * @throws \Appning\Service\Exception on server side error (ie: not authenticated,
      *  invalid or malformed post body, invalid url)
      */
     public static function execute(
@@ -74,7 +74,7 @@ class REST
      * @param RequestInterface $request
      * @param class-string<T>|false|null $expectedClass
      * @return mixed|T|null
-     * @throws \Google\Service\Exception on server side error (ie: not authenticated,
+     * @throws \Appning\Service\Exception on server side error (ie: not authenticated,
      *  invalid or malformed post body, invalid url)
      */
     public static function doExecute(ClientInterface $client, RequestInterface $request, $expectedClass = null)
@@ -103,7 +103,7 @@ class REST
      * @param ResponseInterface $response
      * @param class-string<T>|false|null $expectedClass
      * @return mixed|T|null
-     * @throws \Google\Service\Exception
+     * @throws \Appning\Service\Exception
      */
     public static function decodeHttpResponse(
         ResponseInterface $response,

@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-namespace Google\Http;
+namespace Appning\Http;
 
-use Google\Client;
-use Google\Exception as GoogleException;
+use Appning\Client;
+use Appning\Exception as GoogleException;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Uri;

@@ -6,10 +6,10 @@
     </include>
   </coverage>
   <testsuites>
-    <testsuite name="Google PHP Client Unit Test Suite">
-      <directory>tests/Google</directory>
+    <testsuite name="Appning PHP Client Unit Test Suite">
+      <directory>tests/Appning</directory>
     </testsuite>
-    <testsuite name="Google PHP Client Examples Test Suite">
+    <testsuite name="Appning PHP Client Examples Test Suite">
       <directory>tests/examples</directory>
     </testsuite>
   </testsuites>
