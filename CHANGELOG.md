@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.19.0](https://github.com/googleapis/google-api-php-client/compare/v2.18.4...v2.19.0) (2026-01-09)
+
+
+### Features
+
+* Support firebase/php-jwt version 6.0 and 7.0 ([#2696](https://github.com/googleapis/google-api-php-client/issues/2696)) ([70ea42a](https://github.com/googleapis/google-api-php-client/commit/70ea42a6aa29a1321825c3dcda39cf39174390ea))
+
+
+### Bug Fixes
+
+* Upload assets release job ([#2671](https://github.com/googleapis/google-api-php-client/issues/2671)) ([0f56ea7](https://github.com/googleapis/google-api-php-client/commit/0f56ea773cb51cc6131c442d112d7fd630b49b5c))
+
+## [2.18.4](https://github.com/googleapis/google-api-php-client/compare/v2.18.3...v2.18.4) (2025-09-29)
+
+
+### Bug Fixes
+
+* Ensure credentials can be of type FetchAuthTokenInterface ([#2684](https://github.com/googleapis/google-api-php-client/issues/2684)) ([ed70802](https://github.com/googleapis/google-api-php-client/commit/ed70802cc4886ef1f513a2c0b56a8a972db5e7ab))
+
 ## [2.18.3](https://github.com/googleapis/google-api-php-client/compare/v2.18.2...v2.18.3) (2025-04-08)
 
 

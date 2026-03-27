@@ -18,7 +18,5 @@ branchProtectionRules:
   requiresCodeOwnerReviews: true
   requiresStrictStatusChecks: true
 permissionRules:
-  - team: yoshi-php-admins
-    permission: admin
-  - team: yoshi-php
+  - team: cloud-sdk-php-team
     permission: push

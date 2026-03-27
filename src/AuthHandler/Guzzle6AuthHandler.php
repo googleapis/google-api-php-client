@@ -2,8 +2,8 @@
 
 namespace Google\AuthHandler;
 
-use Google\Auth\CredentialsLoader;
 use Google\Auth\FetchAuthTokenCache;
+use Google\Auth\FetchAuthTokenInterface;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\Middleware\AuthTokenMiddleware;
 use Google\Auth\Middleware\ScopedAccessTokenMiddleware;
@@ -28,7 +28,7 @@ class Guzzle6AuthHandler
 
     public function attachCredentials(
         ClientInterface $http,
-        CredentialsLoader $credentials,
+        FetchAuthTokenInterface $credentials,
         ?callable $tokenCallback = null
     ) {
         // use the provided cache
@@ -40,12 +40,20 @@ class Guzzle6AuthHandler
             );
         }
 
-        return $this->attachCredentialsCache($http, $credentials, $tokenCallback);
+        return $this->attachToHttp($http, $credentials, $tokenCallback);
     }
 
     public function attachCredentialsCache(
         ClientInterface $http,
         FetchAuthTokenCache $credentials,
+        ?callable $tokenCallback = null
+    ) {
+        return $this->attachToHttp($http, $credentials, $tokenCallback);
+    }
+
+    private function attachToHttp(
+        ClientInterface $http,
+        FetchAuthTokenInterface $credentials,
         ?callable $tokenCallback = null
     ) {
         // if we end up needing to make an HTTP request to retrieve credentials, we
@@ -63,9 +71,7 @@ class Guzzle6AuthHandler
         $config['handler']->remove('google_auth');
         $config['handler']->push($middleware, 'google_auth');
         $config['auth'] = 'google_auth';
-        $http = new Client($config);
-
-        return $http;
+        return new Client($config);
     }
 
     public function attachToken(ClientInterface $http, array $token, array $scopes)

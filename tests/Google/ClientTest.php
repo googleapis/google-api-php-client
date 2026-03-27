@@ -24,7 +24,7 @@ use Google\Client;
 use Google\Service\Drive;
 use Google\AuthHandler\AuthHandlerFactory;
 use Google\Auth\FetchAuthTokenCache;
-use Google\Auth\CredentialsLoader;
+use Google\Auth\FetchAuthTokenInterface;
 use Google\Auth\GCECache;
 use Google\Auth\Credentials\GCECredentials;
 use GuzzleHttp\Client as GuzzleClient;
@@ -40,6 +40,8 @@ use ReflectionMethod;
 use InvalidArgumentException;
 use Exception;
 use DomainException;
+use Google\Auth\GetUniverseDomainInterface;
+use Google\Auth\UpdateMetadataInterface;
 
 class ClientTest extends BaseTest
 {
@@ -868,10 +870,12 @@ class ClientTest extends BaseTest
         $this->assertEquals('some-quota-project', $credentials->getQuotaProject());
     }
 
-    public function testCredentialsOptionWithCredentialsLoader()
+    public function testCredentialsOptionWithFetchAuthTokenInterface()
     {
         $request = null;
-        $credentials = $this->prophesize('Google\Auth\CredentialsLoader');
+        $credentials = $this->prophesize(FetchAuthTokenInterface::class)
+            ->willImplement(GetUniverseDomainInterface::class)
+            ->willImplement(UpdateMetadataInterface::class);
         $credentials->getCacheKey()
             ->willReturn('cache-key');
         $credentials->getUniverseDomain()
@@ -947,7 +951,8 @@ class ClientTest extends BaseTest
             'The configured universe domain (example.com) does not match the credential universe domain (foo.com)'
         );
 
-        $credentials = $this->prophesize(CredentialsLoader::class);
+        $credentials = $this->prophesize(FetchAuthTokenInterface::class)
+            ->willImplement(GetUniverseDomainInterface::class);
         $credentials->getUniverseDomain()
             ->shouldBeCalledOnce()
             ->willReturn('foo.com');
