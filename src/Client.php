@@ -69,7 +69,7 @@ class Client
      */
     private $auth;
 
-    **
+    /**
      * @var ClientInterface $http
      */
     private $http;
