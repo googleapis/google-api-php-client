@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.19.2](https://github.com/googleapis/google-api-php-client/compare/v2.19.1...v2.19.2) (2026-03-27)
+
+
+### Bug Fixes
+
+* Update libver and add release test  ([#2672](https://github.com/googleapis/google-api-php-client/issues/2672)) ([0662056](https://github.com/googleapis/google-api-php-client/commit/06620561bdcbb48b1c12dfda42e1efe79b162371))
+
 ## [2.19.1](https://github.com/googleapis/google-api-php-client/compare/v2.19.0...v2.19.1) (2026-03-27)
 
 
