@@ -51,7 +51,7 @@ use UnexpectedValueException;
  * The Google API Client
  * https://github.com/google/google-api-php-client
  */
-class Client
+class Client implements GoogleClientInterface
 {
     // Release Please updates the VERSION constant. This workaround ensures the LIBVER constant
     // will be updated for each release as well.
@@ -70,7 +70,7 @@ class Client
     private $auth;
 
     /**
-     * @var ClientInterface $http
+     * @var GoogleClientInterface $http
      */
     private $http;
 
@@ -323,7 +323,7 @@ class Client
 
     /**
      * Fetches a fresh access token with a given assertion token.
-     * @param ClientInterface $authHttp optional.
+     * @param GoogleClientInterface $authHttp optional.
      * @return array access token
      */
     public function fetchAccessTokenWithAssertion(?ClientInterface $authHttp = null)
@@ -455,9 +455,8 @@ class Client
     /**
      * Adds auth listeners to the HTTP client based on the credentials
      * set in the Google API Client object
-     *
-     * @param ClientInterface $http the http client object.
-     * @return ClientInterface the http client object
+     * @param GoogleClientInterface $http the http client object.
+     * @return GoogleClientInterface the http client object
      */
     public function authorize(?ClientInterface $http = null)
     {
@@ -1206,7 +1205,7 @@ class Client
 
     /**
      * Set the Http Client object
-     * @param ClientInterface $http
+     * @param GoogleClientInterface $http
      */
     public function setHttpClient(ClientInterface $http)
     {
@@ -1214,7 +1213,7 @@ class Client
     }
 
     /**
-     * @return ClientInterface
+     * @return GoogleClientInterface
      */
     public function getHttpClient()
     {
