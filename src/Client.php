@@ -55,7 +55,7 @@ class Client
 {
     // Release Please updates the VERSION constant. This workaround ensures the LIBVER constant
     // will be updated for each release as well.
-    private const VERSION = '2.18.3';
+    private const VERSION = '2.19.1';
     const LIBVER = self::VERSION;
 
     const USER_AGENT_SUFFIX = "google-api-php-client/";
