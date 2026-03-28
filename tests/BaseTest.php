@@ -32,7 +32,7 @@ class BaseTest extends TestCase
     use ProphecyTrait;
 
     private $key;
-    private $client;
+    protected $client;
 
     public function getClient()
     {
@@ -45,14 +45,14 @@ class BaseTest extends TestCase
 
     public function getCache($path = null)
     {
-        $path = $path ?: sys_get_temp_dir().'/google-api-php-client-tests/';
+        $path = sys_get_temp_dir() . '/google-api-php-client-tests/' . ($path ?: '');
         $filesystemAdapter = new Local($path);
         $filesystem        = new Filesystem($filesystemAdapter);
 
         return new FilesystemCachePool($filesystem);
     }
 
-    private function createClient()
+    protected function createClient(array $scopes = null)
     {
         $options = [
             'auth' => 'google_auth',
@@ -69,14 +69,14 @@ class BaseTest extends TestCase
         $client = new Client();
         $client->setApplicationName('google-api-php-client-tests');
         $client->setHttpClient($httpClient);
-        $client->setScopes(
-            [
-            "https://www.googleapis.com/auth/tasks",
-            "https://www.googleapis.com/auth/adsense",
-            "https://www.googleapis.com/auth/youtube",
-            "https://www.googleapis.com/auth/drive",
-            ]
-        );
+
+        $scopes = $scopes ?? [
+            'https://www.googleapis.com/auth/tasks',
+            'https://www.googleapis.com/auth/adsense',
+            'https://www.googleapis.com/auth/youtube',
+            'https://www.googleapis.com/auth/drive',
+        ];
+        $client->setScopes($scopes);
 
         if ($this->key) {
             $client->setDeveloperKey($this->key);
@@ -85,9 +85,7 @@ class BaseTest extends TestCase
         list($clientId, $clientSecret) = $this->getClientIdAndSecret();
         $client->setClientId($clientId);
         $client->setClientSecret($clientSecret);
-        if (version_compare(PHP_VERSION, '5.5', '>=')) {
-            $client->setCache($this->getCache());
-        }
+        $client->setCache($this->getCache(sha1(implode('', $scopes))));
 
         return $client;
     }
