@@ -2,7 +2,9 @@
     "name": "google/apiclient",
     "type": "library",
     "description": "Client library for Google APIs",
-    "keywords": ["google"],
+    "keywords": [
+        "google"
+    ],
     "homepage": "http://developers.google.com/api-client-library/php",
     "license": "Apache-2.0",
     "require": {
