@@ -58,9 +58,9 @@ class Verify
      * to the discretion of the caller.
      */
     public function __construct(
-        GuzzleClientInterface $http = null,
-        CacheItemPoolInterface $cache = null,
-        $jwt = null
+        ?GuzzleClientInterface $http = null,
+        ?CacheItemPoolInterface $cache = null,
+        ?JWT $jwt = null
     ) {
         if (null === $http) {
             $http = new Client();

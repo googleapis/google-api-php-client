@@ -27,6 +27,7 @@ use Google\Auth\Credentials\ServiceAccountCredentials;
 use Google\Auth\Credentials\UserRefreshCredentials;
 use Google\Auth\CredentialsLoader;
 use Google\Auth\FetchAuthTokenCache;
+use Google\Auth\FetchAuthTokenInterface;
 use Google\Auth\GetUniverseDomainInterface;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use Google\Auth\OAuth2;
@@ -52,7 +53,11 @@ use UnexpectedValueException;
  */
 class Client
 {
-    const LIBVER = "2.12.6";
+    // Release Please updates the VERSION constant. This workaround ensures the LIBVER constant
+    // will be updated for each release as well.
+    private const VERSION = '2.19.1';
+    const LIBVER = self::VERSION;
+
     const USER_AGENT_SUFFIX = "google-api-php-client/";
     const OAUTH2_REVOKE_URI = 'https://oauth2.googleapis.com/revoke';
     const OAUTH2_TOKEN_URI = 'https://oauth2.googleapis.com/token';
@@ -90,7 +95,7 @@ class Client
     private $logger;
 
     /**
-     * @var ?CredentialsLoader $credentials
+     * @var ?FetchAuthTokenInterface $credentials
      */
     private $credentials;
 
@@ -118,10 +123,10 @@ class Client
      *           Your Google Cloud client ID found in https://developers.google.com/console
      *     @type string $client_secret
      *           Your Google Cloud client secret found in https://developers.google.com/console
-     *     @type string|array|CredentialsLoader $credentials
+     *     @type string|array|FetchAuthTokenInterface $credentials
      *           Can be a path to JSON credentials or an array representing those
      *           credentials (@see Google\Client::setAuthConfig), or an instance of
-     *           {@see CredentialsLoader}.
+     *           {@see FetchAuthTokenInterface}.
      *     @type string|array $scopes
      *           {@see Google\Client::setScopes}
      *     @type string $quota_project
@@ -196,6 +201,7 @@ class Client
             'prompt' => '',
             'openid.realm' => '',
             'include_granted_scopes' => null,
+            'logger' => null,
             'login_hint' => '',
             'request_visible_actions' => '',
             'access_type' => 'online',
@@ -212,7 +218,7 @@ class Client
         ], $config);
 
         if (!is_null($this->config['credentials'])) {
-            if ($this->config['credentials'] instanceof CredentialsLoader) {
+            if ($this->config['credentials'] instanceof FetchAuthTokenInterface) {
                 $this->credentials = $this->config['credentials'];
             } else {
                 $this->setAuthConfig($this->config['credentials']);
@@ -241,6 +247,11 @@ class Client
         if (!is_null($this->config['cache'])) {
             $this->setCache($this->config['cache']);
             unset($this->config['cache']);
+        }
+
+        if (!is_null($this->config['logger'])) {
+            $this->setLogger($this->config['logger']);
+            unset($this->config['logger']);
         }
     }
 
@@ -315,7 +326,7 @@ class Client
      * @param ClientInterface $authHttp optional.
      * @return array access token
      */
-    public function fetchAccessTokenWithAssertion(ClientInterface $authHttp = null)
+    public function fetchAccessTokenWithAssertion(?ClientInterface $authHttp = null)
     {
         if (!$this->isUsingApplicationDefaultCredentials()) {
             throw new DomainException(
@@ -448,13 +459,14 @@ class Client
      * @param ClientInterface $http the http client object.
      * @return ClientInterface the http client object
      */
-    public function authorize(ClientInterface $http = null)
+    public function authorize(?ClientInterface $http = null)
     {
         $http = $http ?: $this->getHttpClient();
         $authHandler = $this->getAuthHandler();
 
         // These conditionals represent the decision tree for authentication
-        //   1.  Check if a Google\Auth\CredentialsLoader instance has been supplied via the "credentials" option
+        //   1.  Check if an instance of Google\Auth\FetchAuthTokenInterface has
+        //       been supplied via the "credentials" option
         //   2.  Check for Application Default Credentials
         //   3a. Check for an Access Token
         //   3b. If access token exists but is expired, try to refresh it
@@ -1037,7 +1049,8 @@ class Client
 
         $key = isset($config['installed']) ? 'installed' : 'web';
         if (isset($config['type']) && $config['type'] == 'service_account') {
-            // application default credentials
+            // @TODO(v3): Remove this, as it isn't accurate. ADC applies only to determining
+            // credentials based on the user's environment.
             $this->useApplicationDefaultCredentials();
 
             // set the information from the config
