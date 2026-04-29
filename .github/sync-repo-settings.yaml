@@ -10,14 +10,13 @@ branchProtectionRules:
     - 'PHP 8.1 Unit Test'
     - 'PHP 8.2 Unit Test'
     - 'PHP 8.3 Unit Test'
-    - 'PHP 8.3 --prefer-lowest Unit Test'
+    - 'PHP 8.4'
+    - 'PHP 8.4 --prefer-lowest Unit Test'
     - 'PHP Style Check'
     - 'cla/google'
   requiredApprovingReviewCount: 1
   requiresCodeOwnerReviews: true
   requiresStrictStatusChecks: true
 permissionRules:
-  - team: yoshi-php-admins
-    permission: admin
-  - team: yoshi-php
+  - team: cloud-sdk-php-team
     permission: push

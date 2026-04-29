@@ -2,16 +2,17 @@
     "name": "google/apiclient",
     "type": "library",
     "description": "Client library for Google APIs",
-    "keywords": ["google"],
+    "keywords": [
+        "google"
+    ],
     "homepage": "http://developers.google.com/api-client-library/php",
     "license": "Apache-2.0",
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "google/auth": "^1.37",
         "google/apiclient-services": "~0.350",
-        "firebase/php-jwt": "^6.0",
+        "firebase/php-jwt": "^6.0||^7.0",
         "monolog/monolog": "^2.9||^3.0",
-        "phpseclib/phpseclib": "^3.0.36",
         "guzzlehttp/guzzle": "^7.4.5",
         "guzzlehttp/psr7": "^2.6"
     },
@@ -21,7 +22,7 @@
         "symfony/css-selector": "~2.1",
         "cache/filesystem-adapter": "^1.1",
         "phpcompatibility/php-compatibility": "^9.2",
-        "composer/composer": "^1.10.23",
+        "composer/composer": "^2.9",
         "phpspec/prophecy-phpunit": "^2.1",
         "phpunit/phpunit": "^9.6"
     },
@@ -42,6 +43,9 @@
     "extra": {
         "branch-alias": {
             "dev-main": "2.x-dev"
+        },
+        "component": {
+            "entry": "src/Client.php"
         }
     }
 }
