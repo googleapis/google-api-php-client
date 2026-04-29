@@ -1,5 +1,7 @@
 # Changelog
 
+## 2.19.3
+
 ## 2.19.2
 
 ## [2.19.1](https://github.com/googleapis/google-api-php-client/compare/v2.19.0...v2.19.1) (2026-03-27)
