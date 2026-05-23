@@ -240,7 +240,7 @@ class Resource
         if ($this->client->shouldDefer()) {
             // @TODO find a better way to do this
             $request = $request
-                ->withHeader('X-Php-Expected-Class', $expectedClass);
+                ->withHeader('X-Php-Expected-Class', (string) $expectedClass);
 
             return $request;
         }

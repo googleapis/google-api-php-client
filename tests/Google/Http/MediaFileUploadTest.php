@@ -21,11 +21,14 @@
 
 namespace Google\Tests\Http;
 
-use Google\Tests\BaseTest;
+use Google\Client;
 use Google\Http\MediaFileUpload;
 use Google\Service\Drive;
+use Google\Tests\BaseTest;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
+use Prophecy\Argument;
 
 class MediaFileUploadTest extends BaseTest
 {
@@ -130,6 +133,23 @@ class MediaFileUploadTest extends BaseTest
         $this->assertArrayHasKey('uploadType', $query);
         $this->assertArrayHasKey('upload_id', $query);
         $this->assertEquals('resumable', $query['uploadType']);
+    }
+
+    public function testGetResumeUriUsesStringHeaderValues()
+    {
+        $client = $this->prophesize(Client::class);
+        $client->execute(Argument::that(function ($request) {
+            $this->assertSame(['2'], $request->getHeader('content-length'));
+            $this->assertSame(['5'], $request->getHeader('x-upload-content-length'));
+
+            return true;
+        }), false)->willReturn(new Response(200, ['location' => 'https://upload.example.com']));
+
+        $request = new Request('POST', 'http://www.example.com', [], '{}');
+        $media = new MediaFileUpload($client->reveal(), $request, 'text/plain', null, true);
+        $media->setFileSize(5);
+
+        $this->assertSame('https://upload.example.com', $media->getResumeUri());
     }
 
     public function testNextChunk()
