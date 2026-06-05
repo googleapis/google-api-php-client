@@ -18,8 +18,8 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.8",
-        "symfony/dom-crawler": "~2.1",
-        "symfony/css-selector": "~2.1",
+        "symfony/dom-crawler": "^5.4",
+        "symfony/css-selector": "^5.4",
         "cache/filesystem-adapter": "^1.1",
         "phpcompatibility/php-compatibility": "^9.2",
         "composer/composer": "^2.9",
