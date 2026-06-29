@@ -106,6 +106,27 @@ class ResourceTest extends BaseTest
         $this->assertEquals("POST", $request->getMethod());
         $this->assertFalse($request->hasHeader('Content-Type'));
         $this->assertFalse($request->hasHeader('X-Goog-Api-Version'));
+        $this->assertSame([''], $request->getHeader('X-Php-Expected-Class'));
+    }
+
+    public function testCallWithExpectedClassHeader()
+    {
+        $resource = new GoogleResource(
+            $this->service,
+            "test",
+            "testResource",
+            [
+                "methods" => [
+                    "testMethod" => [
+                        "parameters" => [],
+                        "path" => "method/path",
+                        "httpMethod" => "POST",
+                    ]
+                ]
+            ]
+        );
+        $request = $resource->call("testMethod", [[]], \stdClass::class);
+        $this->assertSame([\stdClass::class], $request->getHeader('X-Php-Expected-Class'));
     }
 
     public function testCallWithUniverseDomainTemplate()
