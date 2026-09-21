@@ -35,7 +35,6 @@ use Google\AuthHandler\AuthHandlerFactory;
 use Google\Http\REST;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Ring\Client\StreamHandler;
 use InvalidArgumentException;
 use LogicException;
 use Monolog\Handler\StreamHandler as MonologStreamHandler;
@@ -1239,34 +1238,10 @@ class Client
 
     protected function createDefaultHttpClient()
     {
-        $guzzleVersion = null;
-        if (defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
-            $guzzleVersion = ClientInterface::MAJOR_VERSION;
-        } elseif (defined('\GuzzleHttp\ClientInterface::VERSION')) {
-            $guzzleVersion = (int)substr(ClientInterface::VERSION, 0, 1);
-        }
-
-        if (5 === $guzzleVersion) {
-            $options = [
-                'base_url' => $this->config['base_path'],
-                'defaults' => ['exceptions' => false],
-            ];
-            if ($this->isAppEngine()) {
-                if (class_exists(StreamHandler::class)) {
-                    // set StreamHandler on AppEngine by default
-                    $options['handler'] = new StreamHandler();
-                    $options['defaults']['verify'] = '/etc/ca-certificates.crt';
-                }
-            }
-        } elseif (6 === $guzzleVersion || 7 === $guzzleVersion) {
-            // guzzle 6 or 7
-            $options = [
-                'base_uri' => $this->config['base_path'],
-                'http_errors' => false,
-            ];
-        } else {
-            throw new LogicException('Could not find supported version of Guzzle.');
-        }
+        $options = [
+            'base_uri' => $this->config['base_path'],
+            'http_errors' => false,
+        ];
 
         return new GuzzleClient($options);
     }
