@@ -2,7 +2,7 @@
 
 ## 2.20.0
 
-## Features
+### Features
 
  - add support for Guzzle 8 (#2725)
 ## 2.19.4
