@@ -3,3 +3,7 @@ parameters:
     level: 5
     paths:
     - src
+    excludePaths:
+        # Legacy, unused Guzzle 6 auth handler retained for backwards
+        # compatibility only; it relies on APIs removed in Guzzle 8.
+        - src/AuthHandler/Guzzle6AuthHandler.php

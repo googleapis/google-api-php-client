@@ -9,12 +9,12 @@
     "license": "Apache-2.0",
     "require": {
         "php": "^8.1",
-        "google/auth": "^1.37",
+        "google/auth": "^1.53",
         "google/apiclient-services": "~0.350",
         "firebase/php-jwt": "^6.0||^7.0",
         "monolog/monolog": "^2.9||^3.0",
-        "guzzlehttp/guzzle": "^7.4.5",
-        "guzzlehttp/psr7": "^2.6"
+        "guzzlehttp/guzzle": "^7.8.2||^8.0",
+        "guzzlehttp/psr7": "^2.6.3||^3.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.8",

@@ -84,11 +84,12 @@ class REST
             $response = $httpHandler($request);
         } catch (RequestException $e) {
             // if Guzzle throws an exception, catch it and handle the response
-            if (!$e->hasResponse()) {
+            // In Guzzle 7, the response is on RequestException, but in Guzzle 8
+            // it is only on its ResponseException subclass
+            $response = method_exists($e, 'getResponse') ? $e->getResponse() : null;
+            if (null === $response) {
                 throw $e;
             }
-
-            $response = $e->getResponse();
         }
 
         return self::decodeHttpResponse($response, $request, $expectedClass);

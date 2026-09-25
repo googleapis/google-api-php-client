@@ -13,7 +13,7 @@ use GuzzleHttp\ClientInterface;
 use Psr\Cache\CacheItemPoolInterface;
 
 /**
- * This supports Guzzle 6
+ * @deprecated Guzzle 6 is no longer supported; use Guzzle7AuthHandler.
  */
 class Guzzle6AuthHandler
 {

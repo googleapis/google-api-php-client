@@ -68,12 +68,13 @@ class ClientTest extends BaseTest
         $property = $class->getProperty('stack');
         $property->setAccessible(true);
         $middlewares = $property->getValue($stack);
-        $middleware = array_pop($middlewares);
 
         if (null === $className) {
             // only the default middlewares have been added
-            $this->assertCount(3, $middlewares);
+            $defaultStack = (new GuzzleClient())->getConfig('handler');
+            $this->assertCount(count($property->getValue($defaultStack)), $middlewares);
         } else {
+            $middleware = array_pop($middlewares);
             $authClass = sprintf('Google\Auth\Middleware\%sMiddleware', $className);
             $this->assertInstanceOf($authClass, $middleware[0]);
         }
@@ -904,7 +905,7 @@ class ClientTest extends BaseTest
                 $callable(new Request('GET', '/fake-uri'), ['auth' => 'google_auth']);
             });
 
-        $httpClient = $this->prophesize('GuzzleHttp\ClientInterface');
+        $httpClient = $this->prophesize('GuzzleHttp\Client');
         $httpClient->getConfig()
             ->shouldBeCalled()
             ->willReturn(['handler' => $handler->reveal()]);

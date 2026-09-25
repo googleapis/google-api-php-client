@@ -21,9 +21,12 @@ use Google\Http\REST;
 use Google\Service\Exception as ServiceException;
 use Google\Tests\BaseTest;
 use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
+use Prophecy\Argument;
 
 class RESTTest extends BaseTest
 {
@@ -84,6 +87,37 @@ class RESTTest extends BaseTest
 
         $request = new Request('GET', 'http://httpbin.org/status/500');
         $response = $this->rest->doExecute($http, $request);
+    }
+
+    public function testRequestExceptionWithResponseIsHandled()
+    {
+        $this->expectException(ServiceException::class);
+        $this->expectExceptionCode(400);
+
+        $request = new Request('GET', 'http://www.example.com');
+        $response = new Response(400, [], Psr7\Utils::streamFor('{"error": "bad request"}'));
+
+        $http = $this->prophesize('GuzzleHttp\ClientInterface');
+        $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+            ->shouldBeCalledTimes(1)
+            ->willThrow(new ClientException('Bad Request', $request, $response));
+
+        $this->rest->doExecute($http->reveal(), $request);
+    }
+
+    public function testRequestExceptionWithoutResponseIsRethrown()
+    {
+        $this->expectException(RequestException::class);
+        $this->expectExceptionMessage('Request failed');
+
+        $request = new Request('GET', 'http://www.example.com');
+
+        $http = $this->prophesize('GuzzleHttp\ClientInterface');
+        $http->send(Argument::type('Psr\Http\Message\RequestInterface'), [])
+            ->shouldBeCalledTimes(1)
+            ->willThrow(new RequestException('Request failed', $request));
+
+        $this->rest->doExecute($http->reveal(), $request);
     }
 
     public function testDecodeEmptyResponse()

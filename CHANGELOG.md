@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.20.0
+
+### Features
+
+ - add support for Guzzle 8 (#2725)
 ## 2.19.4
 
 ## 2.19.3
