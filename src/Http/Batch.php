@@ -164,6 +164,13 @@ EOF;
             $responses = [];
             $requests = array_values($this->requests);
 
+            // Key the requests the same way the API keys the response parts, so
+            // a part can be matched to the request which produced it.
+            $requestsByContentId = [];
+            foreach ($this->requests as $requestKey => $batchedRequest) {
+                $requestsByContentId['response-' . $requestKey] = $batchedRequest;
+            }
+
             foreach ($parts as $i => $part) {
                 $part = trim($part);
                 if (!empty($part)) {
@@ -182,10 +189,20 @@ EOF;
                     );
 
                     // Need content id.
-                    $key = $headers['content-id'];
+                    $key = $headers['content-id'] ?? '';
+
+                    // The parts are not guaranteed to be returned in the order
+                    // they were sent, so resolve the request and the expected
+                    // class from the content id, and only fall back to the
+                    // position of the part when the content id is unknown.
+                    $request = $requestsByContentId[$key] ?? $requests[$i-1] ?? null;
 
                     try {
-                        $response = REST::decodeHttpResponse($response, $requests[$i-1]);
+                        $response = REST::decodeHttpResponse(
+                            $response,
+                            $request,
+                            $classes[$key] ?? null
+                        );
                     } catch (GoogleServiceException $e) {
                         // Store the exception as the response, so successful responses
                         // can be processed.
