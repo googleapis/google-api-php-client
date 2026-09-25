@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2.20.1
+### Bug Fixes
+
+ - fix: match batch response parts to requests by Content-ID (#2726)
 
 ## 2.20.0
 
