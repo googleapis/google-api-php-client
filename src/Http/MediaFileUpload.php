@@ -157,7 +157,7 @@ class MediaFileUpload
 
     /**
      * Sends a PUT-Request to google drive and parses the response,
-     * setting the appropiate variables from the response()
+     * setting the appropriate variables from the response()
      *
      * @param RequestInterface $request the Request which will be send
      *
