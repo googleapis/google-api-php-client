@@ -561,6 +561,92 @@ class ClientTest extends BaseTest
         $this->assertArrayHasKey('access_token', $token);
     }
 
+    public function testFetchAccessTokenWithAssertionRejectsMismatchedUniverse()
+    {
+        $client = new Client([
+            'universe_domain' => GetUniverseDomainInterface::DEFAULT_UNIVERSE_DOMAIN,
+        ]);
+        $client->setAuthConfig([
+            'type' => 'service_account',
+            'client_id' => 'test-client',
+            'client_email' => 'service-account@example.test',
+            'private_key' => 'unused',
+            'universe_domain' => 'example.test',
+        ]);
+        $client->setScopes(['test-scope']);
+        $http = $this->createMock(GuzzleClient::class);
+        $http->expects($this->never())->method('send');
+
+        $this->expectException(DomainException::class);
+        $this->expectExceptionMessage('does not match the credential universe domain');
+        $client->fetchAccessTokenWithAssertion($http);
+    }
+
+    public function testFetchAccessTokenWithAssertionUsesLocalSigningForMatchingUniverse()
+    {
+        $key = openssl_pkey_new([
+            'private_key_type' => OPENSSL_KEYTYPE_RSA,
+            'private_key_bits' => 2048,
+        ]);
+        $this->assertNotFalse($key);
+        $this->assertTrue(openssl_pkey_export($key, $privateKey));
+
+        $client = new Client(['universe_domain' => 'example.test']);
+        $client->setAuthConfig([
+            'type' => 'service_account',
+            'client_id' => 'test-client',
+            'client_email' => 'service-account@example.test',
+            'private_key' => $privateKey,
+            'universe_domain' => 'example.test',
+        ]);
+        $client->setScopes(['test-scope']);
+        $http = $this->createMock(GuzzleClient::class);
+        $http->expects($this->never())->method('send');
+
+        $token = $client->fetchAccessTokenWithAssertion($http);
+        $this->assertNotEmpty($token['access_token']);
+    }
+
+    public function testAuthorizeWithServiceAccountConfigMatchesUniverseDomain()
+    {
+        $client = new Client(['universe_domain' => 'example.test']);
+        $client->setAuthConfig([
+            'type' => 'service_account',
+            'client_id' => 'test-client',
+            'client_email' => 'service-account@example.test',
+            'private_key' => 'unused',
+            'universe_domain' => 'example.test',
+        ]);
+
+        $http = new GuzzleClient();
+        $client->authorize($http);
+
+        $this->checkAuthHandler($http, 'AuthToken');
+        $this->checkCredentials($http, 'Google\Auth\Credentials\ServiceAccountCredentials');
+    }
+
+    public function testAuthorizeWithServiceAccountConfigRejectsMismatchedUniverse()
+    {
+        $this->expectException(DomainException::class);
+        $this->expectExceptionMessage(
+            'The configured universe domain (googleapis.com) does not match '
+            . 'the credential universe domain (example.test)'
+        );
+
+        $client = new Client([
+            'universe_domain' => GetUniverseDomainInterface::DEFAULT_UNIVERSE_DOMAIN,
+        ]);
+        $client->setAuthConfig([
+            'type' => 'service_account',
+            'client_id' => 'test-client',
+            'client_email' => 'service-account@example.test',
+            'private_key' => 'unused',
+            'universe_domain' => 'example.test',
+        ]);
+
+        $client->authorize(new GuzzleClient());
+    }
+
     /**
      * Test fetching an access token with assertion credentials
      * populates the "created" field
