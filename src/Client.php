@@ -98,11 +98,6 @@ class Client
     private $credentials;
 
     /**
-     * @var ?array $authConfig
-     */
-    private ?array $authConfig = null;
-
-    /**
      * @var boolean $deferExecution
      */
     private $deferExecution = false;
@@ -197,6 +192,7 @@ class Client
             'state' => null,
             'developer_key' => '',
             'use_application_default_credentials' => false,
+            'auth_config' => null,
             'signing_key' => null,
             'signing_algorithm' => null,
             'subject' => null,
@@ -1051,17 +1047,16 @@ class Client
             }
         }
 
-        $this->authConfig = null;
+        $this->config['auth_config'] = null;
         $key = isset($config['installed']) ? 'installed' : 'web';
         if (isset($config['type']) && $config['type'] == 'service_account') {
             // @TODO(v3): Remove this, as it isn't accurate. ADC applies only to determining
             // credentials based on the user's environment.
             $this->useApplicationDefaultCredentials();
 
-            $this->authConfig = $config;
-
             // set the information from the config
             $this->setClientId($config['client_id']);
+            $this->config['auth_config'] = $config;
             $this->config['client_email'] = $config['client_email'];
             $this->config['signing_key'] = $config['private_key'];
             $this->config['signing_algorithm'] = 'HS256';
@@ -1261,11 +1256,12 @@ class Client
     {
         $scopes = $this->prepareScopes();
         $sub = $this->config['subject'];
+        $authConfig = $this->config['auth_config'];
         $signingKey = $this->config['signing_key'];
 
         // create credentials using values supplied in setAuthConfig
-        if ($this->authConfig || $signingKey) {
-            $serviceAccountCredentials = $this->authConfig ?? [
+        if ($authConfig || $signingKey) {
+            $serviceAccountCredentials = $authConfig ?? [
                 'client_id' => $this->config['client_id'],
                 'client_email' => $this->config['client_email'],
                 'private_key' => $signingKey,
