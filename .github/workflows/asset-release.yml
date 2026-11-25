@@ -30,15 +30,17 @@ jobs:
               run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
 
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+              with:
+                persist-credentials: false
 
             - name: Setup PHP
-              uses: shivammathur/setup-php@v2
+              uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
               with:
                 php-version: ${{ matrix.php }}
 
             - name: Install Dependencies
-              uses: nick-invision/retry@v1
+              uses: nick-fields/retry@ce71cc2ab81d554ebbe88c79ab5975992d79ba08 # v3.0.2
               with:
                 timeout_minutes: 10
                 max_attempts: 3
@@ -58,7 +60,7 @@ jobs:
                 fileName: google-api-php-client-${{ inputs.tag || steps.tagName.outputs.tag }}-PHP${{ matrix.php }}.zip
 
             - name: Upload Release Archive
-              uses: softprops/action-gh-release@v2
+              uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
               if: github.ref_type == 'tag' || inputs.upload-on-workflow-dispatch == 'true'
               with:
                 tag_name: ${{ inputs.tag || steps.tagName.outputs.tag }}
