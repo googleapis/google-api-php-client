@@ -25,7 +25,6 @@ use Google\Auth\ApplicationDefaultCredentials;
 use Google\Auth\Cache\MemoryCacheItemPool;
 use Google\Auth\Credentials\ServiceAccountCredentials;
 use Google\Auth\Credentials\UserRefreshCredentials;
-use Google\Auth\CredentialsLoader;
 use Google\Auth\FetchAuthTokenCache;
 use Google\Auth\FetchAuthTokenInterface;
 use Google\Auth\GetUniverseDomainInterface;
@@ -193,6 +192,7 @@ class Client
             'state' => null,
             'developer_key' => '',
             'use_application_default_credentials' => false,
+            'auth_config' => null,
             'signing_key' => null,
             'signing_algorithm' => null,
             'subject' => null,
@@ -343,6 +343,7 @@ class Client
         );
 
         $credentials = $this->createApplicationDefaultCredentials();
+        $this->checkUniverseDomain($credentials);
 
         $httpHandler = HttpHandlerFactory::build($authHttp);
         $creds = $credentials->fetchAuthToken($httpHandler);
@@ -1046,6 +1047,7 @@ class Client
             }
         }
 
+        $this->config['auth_config'] = null;
         $key = isset($config['installed']) ? 'installed' : 'web';
         if (isset($config['type']) && $config['type'] == 'service_account') {
             // @TODO(v3): Remove this, as it isn't accurate. ADC applies only to determining
@@ -1054,6 +1056,7 @@ class Client
 
             // set the information from the config
             $this->setClientId($config['client_id']);
+            $this->config['auth_config'] = $config;
             $this->config['client_email'] = $config['client_email'];
             $this->config['signing_key'] = $config['private_key'];
             $this->config['signing_algorithm'] = 'HS256';
@@ -1253,18 +1256,21 @@ class Client
     {
         $scopes = $this->prepareScopes();
         $sub = $this->config['subject'];
+        $authConfig = $this->config['auth_config'];
         $signingKey = $this->config['signing_key'];
 
         // create credentials using values supplied in setAuthConfig
-        if ($signingKey) {
-            $serviceAccountCredentials = [
+        if ($authConfig || $signingKey) {
+            $serviceAccountCredentials = $authConfig ?? [
                 'client_id' => $this->config['client_id'],
                 'client_email' => $this->config['client_email'],
                 'private_key' => $signingKey,
                 'type' => 'service_account',
-                'quota_project_id' => $this->config['quota_project'],
             ];
-            $credentials = CredentialsLoader::makeCredentials(
+            if (null !== $this->config['quota_project']) {
+                $serviceAccountCredentials['quota_project_id'] = $this->config['quota_project'];
+            }
+            $credentials = new ServiceAccountCredentials(
                 $scopes,
                 $serviceAccountCredentials
             );
