@@ -20,14 +20,14 @@
         "squizlabs/php_codesniffer": "^3.8",
         "symfony/dom-crawler": "^5.4",
         "symfony/css-selector": "^5.4",
-        "cache/filesystem-adapter": "^1.1",
+        "symfony/cache": "^6.4||^7.0||^8.0",
         "phpcompatibility/php-compatibility": "^9.2",
         "composer/composer": "^2.9",
         "phpspec/prophecy-phpunit": "^2.1",
         "phpunit/phpunit": "^9.6"
     },
     "suggest": {
-        "cache/filesystem-adapter": "For caching certs and tokens (using Google\\Client::setCache)"
+        "symfony/cache": "For caching certs and tokens (using Google\\Client::setCache)"
     },
     "autoload": {
         "psr-4": {

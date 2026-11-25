@@ -20,10 +20,8 @@ namespace Google\Tests;
 use Google\Client;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\ClientInterface;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 use Symfony\Component\DomCrawler\Crawler;
-use League\Flysystem\Adapter\Local;
-use League\Flysystem\Filesystem;
-use Cache\Adapter\Filesystem\FilesystemCachePool;
 use PHPUnit\Framework\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
 
@@ -46,10 +44,8 @@ class BaseTest extends TestCase
     public function getCache($path = null)
     {
         $path = sys_get_temp_dir() . '/google-api-php-client-tests/' . ($path ?: '');
-        $filesystemAdapter = new Local($path);
-        $filesystem        = new Filesystem($filesystemAdapter);
 
-        return new FilesystemCachePool($filesystem);
+        return new FilesystemAdapter('', 0, $path);
     }
 
     protected function createClient(array $scopes = null)

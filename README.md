@@ -363,21 +363,16 @@ $response = $httpClient->get('https://www.googleapis.com/plus/v1/people/me');
 It is recommended to use another caching library to improve performance. This can be done by passing a [PSR-6](https://www.php-fig.org/psr/psr-6/) compatible library to the client:
 
 ```php
-use League\Flysystem\Adapter\Local;
-use League\Flysystem\Filesystem;
-use Cache\Adapter\Filesystem\FilesystemCachePool;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
-$filesystemAdapter = new Local(__DIR__.'/');
-$filesystem        = new Filesystem($filesystemAdapter);
-
-$cache = new FilesystemCachePool($filesystem);
+$cache = new FilesystemAdapter();
 $client->setCache($cache);
 ```
 
-In this example we use [PHP Cache](http://www.php-cache.com/). Add this to your project with composer:
+In this example we use [Symfony Cache](https://symfony.com/doc/current/components/cache.html). Add this to your project with composer:
 
 ```
-composer require cache/filesystem-adapter
+composer require symfony/cache
 ```
 
 ### Updating Tokens ###
